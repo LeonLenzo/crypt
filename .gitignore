@@ -1,0 +1,11 @@
+# Pipeline outputs — large caches and intermediate files
+output/
+
+# Claude Code project settings
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env

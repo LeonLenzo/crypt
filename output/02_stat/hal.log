@@ -1,0 +1,12 @@
+Mode: HAL
+Runs from 01_sra:    559,328
+PHI-base: 11,911 names, 7,985 pathogen taxids
+STAT cache (shared): 0 entries
+  Fetching STAT for 559,328 runs (0 cached) …
+  [200/559,328] fetched
+  [400/559,328] fetched
+  [600/559,328] fetched
+  [800/559,328] fetched
+  [1,000/559,328] fetched
+  [1,200/559,328] fetched
+  [1,400/559,328] fetched

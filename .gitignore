@@ -1,5 +1,11 @@
-# Pipeline outputs — large caches and intermediate files
-output/
+# Large intermediate data files — too big for git
+output/02_stat/stat_cache.json
+output/01_sra/*_runs.json
+output/01_sra/*_uids.json
+
+# Downloaded source files — auto-fetched by 00_build.py
+output/00_build/phi-base_current.csv
+output/00_build/ictv_vmr.xlsx
 
 # Claude Code project settings
 .claude/

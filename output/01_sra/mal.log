@@ -1,0 +1,27 @@
+Mode: MAL
+Cached: 0 runs  |  0 UIDs fetched
+PHI-base: 205 seed pathogen species
+  [1/5] +26,952 UIDs  (total 26,952)
+  [2/5] +10,462 UIDs  (total 37,414)
+  [3/5] +3,920 UIDs  (total 41,334)
+  [4/5] +4,334 UIDs  (total 45,668)
+  [5/5] +53 UIDs  (total 45,721)
+
+Total unique UIDs: 45,312
+  Fetching RunInfo for 45,312 UIDs in 91 batches (0 cached) …
+  [20/91 batches]  10,446 new runs
+  [40/91 batches]  20,758 new runs
+  [60/91 batches]  31,209 new runs
+  [80/91 batches]  41,633 new runs
+  [91/91 batches]  47,171 new runs
+
+── 01_sra MAL summary ──────────────────────────
+Mode:              MAL
+
+Unique UIDs found:   45,312
+New runs fetched:    47,171
+Total runs cached:   47,171
+
+Runs: output/01_sra/mal_runs.json
+Log:  output/01_sra/mal.log
+

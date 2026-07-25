@@ -29,11 +29,10 @@ import os
 import sys
 import threading
 import time
-import urllib.error
-import urllib.parse
-import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+
+from _util import _Tee, http_get, load_json, save_json
 
 # ── Settings ──────────────────────────────────────────────────────────────────
 
@@ -41,34 +40,13 @@ DB_PATH         = Path("output/00_build/phibase_db.json")
 OUT_DIR         = Path("output/02_stat")
 STAT_CACHE_PATH = OUT_DIR / "stat_cache.json"
 
+STAT_URL             = ("https://trace.ncbi.nlm.nih.gov/Traces/sra-db-be/"
+                        "run_taxonomy?acc={run}&cluster_name=public")
 
-# ── Logging ───────────────────────────────────────────────────────────────────
-
-class _Tee:
-    def __init__(self, path: Path):
-        path.parent.mkdir(parents=True, exist_ok=True)
-        self._log    = open(path, "w", buffering=1)
-        self._stdout = sys.__stdout__
-
-    def write(self, text: str) -> None:
-        self._stdout.write(text)
-        self._log.write(text)
-
-    def flush(self) -> None:
-        self._stdout.flush()
-        self._log.flush()
-
-    def close(self) -> None:
-        sys.stdout = self._stdout
-        self._log.close()
-
-STAT_URL            = ("https://trace.ncbi.nlm.nih.gov/Traces/sra-db-be/"
-                       "run_taxonomy?acc={run}&cluster_name=public")
-
-MAL_MIN_HOST_PCT    = 1.0   # Viridiplantae % floor for in-planta confirmation
-HAL_MIN_PATHOGEN_PCT = 1.0  # minimum % to count a PHI-base pathogen as detected
-SAVE_EVERY          = 200   # save stat_cache after this many new fetches
-MAX_WORKERS         = 32
+MAL_MIN_HOST_PCT     = 1.0   # Viridiplantae % floor for in-planta confirmation
+HAL_MIN_PATHOGEN_PCT = 1.0   # minimum % to count a PHI-base pathogen as detected
+SAVE_EVERY           = 200   # save stat_cache after this many new fetches
+MAX_WORKERS          = 32
 
 API_KEY = os.environ.get("NCBI_API_KEY", "")
 RATE    = 15.0 if API_KEY else 5.0
@@ -76,24 +54,14 @@ HEADERS = {"User-Agent": "crypt/02_stat (leon.lenzo@curtin.edu.au)"}
 
 HOST_NODE = "Viridiplantae"
 
+_KINGDOM_KEYS = ("fungal_to_seed", "bacterial_to_seed", "oomycete_to_seed",
+                 "nematode_to_seed", "virus_to_seed")
+
 
 # ── HTTP ──────────────────────────────────────────────────────────────────────
 
-def _get(url: str, retries: int = 5) -> bytes:
-    delay = 1.0
-    for _ in range(retries):
-        try:
-            req = urllib.request.Request(url, headers=HEADERS)
-            with urllib.request.urlopen(req, timeout=30) as r:
-                return r.read()
-        except urllib.error.HTTPError as e:
-            if e.code == 429 or e.code >= 500:
-                time.sleep(delay); delay *= 2
-            else:
-                raise
-        except Exception:
-            time.sleep(delay); delay *= 2
-    raise RuntimeError(f"Failed after {retries} retries: {url}")
+def _get(url: str) -> bytes:
+    return http_get(url, HEADERS)
 
 
 # ── STAT fetch ────────────────────────────────────────────────────────────────
@@ -141,7 +109,7 @@ def fetch_stat_parallel(accessions: list[str], stat_cache: dict,
             stat_cache[run] = result
             done += 1
             if done % SAVE_EVERY == 0 or done == len(to_fetch):
-                _save(stat_cache, stat_path)
+                save_json(stat_cache, stat_path)
                 print(f"  [{done:,}/{len(to_fetch):,}] fetched", flush=True)
 
 
@@ -160,17 +128,18 @@ def _parse_stat(data) -> dict | None:
     if not analyzed:
         return None
 
-    pct = {e["org"]: e["total_count"] / analyzed * 100
+    pct = {e["org"]: e.get("total_count", 0) / analyzed * 100
            for e in block.get("tax_table", []) if e.get("org")}
 
     return {
-        "analyzed":     analyzed,
-        "host_pct":     pct.get(HOST_NODE, 0.0),
-        "fungi_pct":    pct.get("Fungi",    0.0),
-        "virus_pct":    pct.get("Viruses",  0.0),
-        "bacteria_pct": pct.get("Bacteria", 0.0),
-        "oomycete_pct": pct.get("Oomycota", 0.0),
-        "_table":       block.get("tax_table", []),
+        "analyzed":      analyzed,
+        "host_pct":      pct.get(HOST_NODE,    0.0),
+        "fungi_pct":     pct.get("Fungi",      0.0),
+        "virus_pct":     pct.get("Viruses",    0.0),
+        "bacteria_pct":  pct.get("Bacteria",   0.0),
+        "oomycete_pct":  pct.get("Oomycota",   0.0),
+        "nematode_pct":  pct.get("Nematoda",   0.0),
+        "_table":        block.get("tax_table", []),
     }
 
 
@@ -182,7 +151,7 @@ def passes_mal_gate(stat: dict) -> bool:
 
 
 def passes_hal_gate(stat: dict, name_to_taxid: dict,
-                    pathogen_taxids: set) -> bool:
+                    pathogen_taxids: set[int]) -> bool:
     """HAL: at least one PHI-base plant pathogen must be detected in STAT."""
     analyzed = stat["analyzed"]
     for entry in stat["_table"]:
@@ -198,29 +167,22 @@ def passes_hal_gate(stat: dict, name_to_taxid: dict,
 
 # ── PHI-base helpers (HAL only) ───────────────────────────────────────────────
 
-def _load_phibase_for_hal(db_path: Path) -> tuple[dict, set]:
+def _load_phibase_for_hal(db_path: Path) -> tuple[dict, set[int]]:
     """Return (name_to_taxid, pathogen_taxids) from phibase_db.json."""
     if not db_path.exists():
         raise FileNotFoundError(
             f"PHI-base DB not found: {db_path}\nRun:  python3 00_build.py")
     with open(db_path) as f:
         raw = json.load(f)
-    name_to_taxid   = raw["name_to_taxid"]          # {lowercase_name: taxid}
-    pathogen_taxids = set(raw["pathogen_taxids"])    # all expanded pathogen taxids
+    name_to_taxid   = raw["name_to_taxid"]
+    pathogen_taxids = {
+        int(k)
+        for key in _KINGDOM_KEYS
+        for k in raw[key]
+    }
     print(f"PHI-base: {len(name_to_taxid):,} names, "
           f"{len(pathogen_taxids):,} pathogen taxids", flush=True)
     return name_to_taxid, pathogen_taxids
-
-
-# ── Cache helpers ─────────────────────────────────────────────────────────────
-
-def _load(path: Path) -> dict:
-    return json.loads(path.read_text()) if path.exists() else {}
-
-
-def _save(data: dict, path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data))
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -245,7 +207,7 @@ def main() -> None:
             raise FileNotFoundError(
                 f"{runs_path} not found — run 01_sra.py --mode {args.mode} first")
 
-        runs       = _load(runs_path)
+        runs       = load_json(runs_path)
         accessions = list(runs.keys())
         print(f"Runs from 01_sra:    {len(accessions):,}", flush=True)
 
@@ -253,7 +215,7 @@ def main() -> None:
         if args.mode == "hal":
             name_to_taxid, pathogen_taxids = _load_phibase_for_hal(DB_PATH)
 
-        stat_cache = _load(STAT_CACHE_PATH)
+        stat_cache = load_json(STAT_CACHE_PATH)
         print(f"STAT cache (shared): {len(stat_cache):,} entries", flush=True)
         fetch_stat_parallel(accessions, stat_cache, STAT_CACHE_PATH)
 
@@ -270,17 +232,18 @@ def main() -> None:
                       else passes_hal_gate(stat, name_to_taxid, pathogen_taxids))
             if passes:
                 row = dict(run_row)
-                row["host_pct"]     = round(stat["host_pct"],     2)
-                row["fungi_pct"]    = round(stat["fungi_pct"],    2)
-                row["virus_pct"]    = round(stat["virus_pct"],    2)
-                row["bacteria_pct"] = round(stat["bacteria_pct"], 2)
-                row["oomycete_pct"] = round(stat["oomycete_pct"], 2)
-                row["analyzed"]     = stat["analyzed"]
+                row["host_pct"]      = round(stat["host_pct"],      2)
+                row["fungi_pct"]     = round(stat["fungi_pct"],     2)
+                row["virus_pct"]     = round(stat["virus_pct"],     2)
+                row["bacteria_pct"]  = round(stat["bacteria_pct"],  2)
+                row["oomycete_pct"]  = round(stat["oomycete_pct"],  2)
+                row["nematode_pct"]  = round(stat["nematode_pct"],  2)
+                row["analyzed"]      = stat["analyzed"]
                 confirmed[acc] = row
             else:
                 n_fail += 1
 
-        _save(confirmed, confirmed_path)
+        save_json(confirmed, confirmed_path)
 
         n_total     = len(accessions)
         n_stat      = n_total - n_no_stat
@@ -295,7 +258,8 @@ def main() -> None:
             f"Total runs:        {n_total:>8,}\n"
             f"With STAT data:    {n_stat:>8,}  ({n_stat/max(n_total,1)*100:.1f}%)\n"
             f"No STAT data:      {n_no_stat:>8,}\n"
-            f"Passed gate:       {n_confirmed:>8,}  ({n_confirmed/max(n_stat,1)*100:.1f}% of screened)\n"
+            f"Passed gate:       {n_confirmed:>8,}  "
+            f"({n_confirmed/max(n_stat,1)*100:.1f}% of screened)\n"
             f"Gate:              {gate_desc}\n"
             f"\n"
             f"Confirmed: {confirmed_path}\n"

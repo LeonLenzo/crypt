@@ -1,0 +1,31 @@
+── 03_crypt HAL summary ────────────────────────
+Mode:              HAL
+
+Runs classified:        793
+  single:               695
+  multi_species:         96
+  multi_kingdom:          2
+Skipped:                599
+
+Known interaction (PHI-base):    631
+Novel interaction:               162
+
+Top secondary pathogens:
+  Fusarium pseudograminearum                       12
+  Phytophthora infestans                           10
+  Fusarium fujikuroi                                8
+  Phytophthora parasitica                           7
+  Alternaria alternata                              4
+  Fusarium verticillioides 7600                     4
+  Potyvirus arachidis                               4
+  Peanut stripe virus                               4
+  Fusarium oxysporum                                4
+  Bipolaris zeicola                                 4
+  Fusarium oxysporum NRRL 32931                     3
+  Potyvirus phaseovulgaris                          3
+  Pectobacterium brasiliense                        3
+  Penicillium digitatum                             3
+  Cercospora beticola                               2
+
+Output: output/03_crypt/hal_crypt.tsv
+Log:    output/03_crypt/hal.log

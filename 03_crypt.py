@@ -32,7 +32,10 @@ import argparse
 import csv
 import json
 import sys
+from collections import Counter
 from pathlib import Path
+
+from _util import _Tee, load_json
 
 # ── Settings ──────────────────────────────────────────────────────────────────
 
@@ -40,33 +43,22 @@ DB_PATH         = Path("output/00_build/phibase_db.json")
 STAT_CACHE_PATH = Path("output/02_stat/stat_cache.json")
 OUT_DIR         = Path("output/03_crypt")
 
-
-# ── Logging ───────────────────────────────────────────────────────────────────
-
-class _Tee:
-    def __init__(self, path: Path):
-        path.parent.mkdir(parents=True, exist_ok=True)
-        self._log    = open(path, "w", buffering=1)
-        self._stdout = sys.__stdout__
-
-    def write(self, text: str) -> None:
-        self._stdout.write(text)
-        self._log.write(text)
-
-    def flush(self) -> None:
-        self._stdout.flush()
-        self._log.flush()
-
-    def close(self) -> None:
-        sys.stdout = self._stdout
-        self._log.close()
+# Maps STAT taxonomy node names → kingdom-specific DB key
+STAT_KINGDOM_TO_DB_KEY: dict[str, str] = {
+    "Fungi":    "fungal_to_seed",
+    "Viruses":  "virus_to_seed",
+    "Bacteria": "bacterial_to_seed",
+    "Oomycota": "oomycete_to_seed",
+    "Nematoda": "nematode_to_seed",
+}
 
 # Kingdom detection thresholds (% of analysed reads)
-KINGDOM_THRESHOLDS = {
+KINGDOM_THRESHOLDS: dict[str, float] = {
     "Fungi":    1.0,
     "Viruses":  5.0,
     "Bacteria": 5.0,
     "Oomycota": 0.5,
+    "Nematoda": 1.0,
 }
 
 ABS_MIN_PCT = 0.1   # floor below which no organism is reported (% of analysed)
@@ -81,6 +73,11 @@ MYCOVIRUS_KEYWORDS = {
 HOST_NODE = "Viridiplantae"
 
 
+def _genus(name: str) -> str:
+    parts = name.strip().split()
+    return parts[0].lower() if parts else ""
+
+
 # ── PHI-base loader ───────────────────────────────────────────────────────────
 
 def _load_phibase(db_path: Path) -> dict:
@@ -89,22 +86,26 @@ def _load_phibase(db_path: Path) -> dict:
             f"PHI-base DB not found: {db_path}\nRun:  python3 00_build.py")
     with open(db_path) as f:
         raw = json.load(f)
+
+    # Build combined p_to_seed and per-kingdom dicts from new schema
+    p_to_seed: dict[int, int] = {}
+    kingdom_dicts: dict[str, dict[int, int]] = {}
+    for key in STAT_KINGDOM_TO_DB_KEY.values():
+        m = {int(k): v for k, v in raw[key].items()}
+        kingdom_dicts[key] = m
+        p_to_seed.update(m)
+
     db = {
-        "name_to_taxid":    raw["name_to_taxid"],
-        "taxid_to_name":    {int(k): v for k, v in raw["taxid_to_name"].items()},
-        "pathogen_taxids":  set(raw["pathogen_taxids"]),
-        "virus_taxids":     set(raw.get("virus_taxids", [])),
-        "p_to_seed":        {int(k): v for k, v in
-                             raw["pathogen_taxid_to_seed"].items()},
-        "h_to_seed":        {int(k): v for k, v in
-                             raw["host_taxid_to_seed"].items()},
-        "p_to_hosts":       {int(k): set(v) for k, v in
-                             raw["pathogen_to_hosts"].items()},
+        "name_to_taxid":  raw["name_to_taxid"],
+        "taxid_to_name":  {int(k): v for k, v in raw["taxid_to_name"].items()},
+        "pathogen_taxids": set(p_to_seed.keys()),
+        "p_to_seed":      p_to_seed,
+        "h_to_seed":      {int(k): v for k, v in raw["host_to_seed"].items()},
+        "p_to_hosts":     {int(k): set(v) for k, v in raw["pathogen_to_hosts"].items()},
+        **kingdom_dicts,
     }
-    n_virus = len(db["virus_taxids"])
-    print(f"PHI-base: {len(db['pathogen_taxids']):,} pathogen taxids "
-          f"(incl. {n_virus:,} virus), {len(db['name_to_taxid']):,} names",
-          flush=True)
+    print(f"PHI-base: {len(db['pathogen_taxids']):,} pathogen taxids, "
+          f"{len(db['name_to_taxid']):,} names", flush=True)
     return db
 
 
@@ -184,8 +185,8 @@ def detect_pathogens(stat_data: list, db: dict,
     """
     Return PHI-base pathogens detected in STAT above kingdom thresholds.
     Each entry: (taxid, name, pct, kingdom).
-    Excludes any pathogen whose seed taxid == exclude_seed (for MAL,
-    to avoid re-listing the primary/library organism as a secondary).
+    Uses kingdom-specific taxid dicts to prevent cross-kingdom false positives.
+    Excludes any pathogen whose seed taxid == exclude_seed (MAL primary exclusion).
     Sorted by pct descending.
     """
     analyzed = _analyzed(stat_data)
@@ -200,13 +201,16 @@ def detect_pathogens(stat_data: list, db: dict,
         if kpct < kthresh:
             continue
 
+        db_key      = STAT_KINGDOM_TO_DB_KEY[kingdom]
+        kingdom_map = db[db_key]
+
         for name, pct in specific_hits(table, kingdom, analyzed):
             if kingdom == "Viruses" and _is_mycovirus(name):
                 continue
             taxid = db["name_to_taxid"].get(name.lower())
-            if not taxid or taxid not in db["pathogen_taxids"]:
+            if not taxid or taxid not in kingdom_map:
                 continue
-            seed = db["p_to_seed"].get(taxid, taxid)
+            seed = kingdom_map.get(taxid, taxid)
             if exclude_seed is not None and seed == exclude_seed:
                 continue
             if taxid not in seen or pct > seen[taxid][1]:
@@ -230,7 +234,6 @@ def detect_host_species(stat_data: list) -> tuple[str, float]:
     hits  = specific_hits(table, HOST_NODE, analyzed)
     if not hits:
         return HOST_NODE, 0.0
-    # Prefer a 2-word binomial
     for name, pct in hits:
         if len(name.split()) == 2:
             return name, pct
@@ -256,16 +259,14 @@ def classify_mal(run_row: dict, stat_data: list, db: dict) -> dict | None:
     if not analyzed:
         return None
 
-    sra_name   = run_row.get("ScientificName", "") or run_row.get("Organism", "")
+    sra_name      = run_row.get("ScientificName", "") or run_row.get("Organism", "")
     primary_taxid = db["name_to_taxid"].get(sra_name.lower())
     primary_seed  = (db["p_to_seed"].get(primary_taxid, primary_taxid)
                      if primary_taxid else None)
 
-    # Host: most abundant Viridiplantae leaf in STAT
     host_name, host_species_pct = detect_host_species(stat_data)
     host_taxid = db["name_to_taxid"].get(host_name.lower())
 
-    # Secondary pathogens: PHI-base pathogens detected in STAT excluding the primary
     secondaries = detect_pathogens(stat_data, db, exclude_seed=primary_seed)
 
     ki = False
@@ -282,19 +283,25 @@ def classify_mal(run_row: dict, stat_data: list, db: dict) -> dict | None:
     else:
         flag = "multi_species"
 
+    pri_genus = _genus(sra_name)
+    same_genus = bool(
+        pri_genus and any(_genus(nm) == pri_genus for _, nm, _, _ in secondaries)
+    )
+
     return {
-        "host":                host_name,
-        "host_pct":            round(run_row.get("host_pct", 0), 2),
-        "host_species_pct":    round(host_species_pct, 2),
-        "primary_pathogen":    sra_name,
-        "primary_taxid":       primary_taxid or "",
-        "primary_pct":         "",   # library organism dominates; STAT pct uninformative
-        "secondary_pathogens": "; ".join(
+        "host":                  host_name,
+        "host_pct":              round(run_row.get("host_pct", 0), 2),
+        "host_species_pct":      round(host_species_pct, 2),
+        "primary_pathogen":      sra_name,
+        "primary_taxid":         primary_taxid or "",
+        "primary_pct":           "",
+        "secondary_pathogens":   "; ".join(
             f"{nm} ({pct:.1f}%)" for _, nm, pct, _ in secondaries),
-        "secondary_kingdoms":  "; ".join(sorted(kingdoms_detected)),
-        "n_secondary":         len(secondaries),
-        "known_interaction":   ("" if ki is None else str(ki)),
-        "co_infection_flag":   flag,
+        "secondary_kingdoms":    "; ".join(sorted(kingdoms_detected)),
+        "n_secondary":           len(secondaries),
+        "known_interaction":     ("" if ki is None else str(ki)),
+        "co_infection_flag":     flag,
+        "same_genus_secondary":  str(same_genus),
     }
 
 
@@ -307,8 +314,7 @@ def classify_hal(run_row: dict, stat_data: list, db: dict) -> dict | None:
     if not analyzed:
         return None
 
-    # Host: library organism from SRA metadata
-    host_name  = run_row.get("ScientificName", "") or run_row.get("Organism", "")
+    host_name      = run_row.get("ScientificName", "") or run_row.get("Organism", "")
     host_taxid_str = run_row.get("TaxID", "")
     try:
         host_taxid = int(host_taxid_str)
@@ -317,7 +323,7 @@ def classify_hal(run_row: dict, stat_data: list, db: dict) -> dict | None:
 
     pathogens = detect_pathogens(stat_data, db)
     if not pathogens:
-        return None   # no PHI-base pathogens detected — skip run
+        return None
 
     primary_taxid, primary_name, primary_pct, primary_kg = pathogens[0]
     secondaries = pathogens[1:]
@@ -334,20 +340,26 @@ def classify_hal(run_row: dict, stat_data: list, db: dict) -> dict | None:
     else:
         flag = "multi_species"
 
+    pri_genus = _genus(primary_name)
+    same_genus = bool(
+        pri_genus and any(_genus(nm) == pri_genus for _, nm, _, _ in secondaries)
+    )
+
     return {
-        "host":                host_name,
-        "host_pct":            round(run_row.get("host_pct", 0), 2),
-        "host_species_pct":    "",
-        "primary_pathogen":    primary_name,
-        "primary_taxid":       primary_taxid,
-        "primary_pct":         round(primary_pct, 2),
-        "secondary_pathogens": "; ".join(
+        "host":                  host_name,
+        "host_pct":              round(run_row.get("host_pct", 0), 2),
+        "host_species_pct":      "",
+        "primary_pathogen":      primary_name,
+        "primary_taxid":         primary_taxid,
+        "primary_pct":           round(primary_pct, 2),
+        "secondary_pathogens":   "; ".join(
             f"{nm} ({pct:.1f}%)" for _, nm, pct, _ in secondaries),
-        "secondary_kingdoms":  "; ".join(
+        "secondary_kingdoms":    "; ".join(
             sorted({kg for _, _, _, kg in secondaries})),
-        "n_secondary":         len(secondaries),
-        "known_interaction":   str(ki),
-        "co_infection_flag":   flag,
+        "n_secondary":           len(secondaries),
+        "known_interaction":     str(ki),
+        "co_infection_flag":     flag,
+        "same_genus_secondary":  str(same_genus),
     }
 
 
@@ -358,8 +370,9 @@ OUTPUT_FIELDS = [
     "host", "host_pct", "host_species_pct",
     "primary_pathogen", "primary_taxid", "primary_pct",
     "secondary_pathogens", "secondary_kingdoms", "n_secondary",
-    "known_interaction", "co_infection_flag",
-    "fungi_pct", "virus_pct", "bacteria_pct", "oomycete_pct", "analyzed",
+    "known_interaction", "co_infection_flag", "same_genus_secondary",
+    "fungi_pct", "virus_pct", "bacteria_pct", "oomycete_pct", "nematode_pct",
+    "analyzed",
 ]
 
 
@@ -372,30 +385,41 @@ def write_tsv(rows: list[dict], path: Path) -> None:
         w.writerows(rows)
 
 
-def print_summary(rows: list[dict], mode: str) -> None:
-    from collections import Counter
+def _build_summary(rows: list[dict], skipped: int, mode: str,
+                   out_path: Path, log_path: Path) -> str:
     flags  = Counter(r["co_infection_flag"] for r in rows)
     ki_yes = sum(1 for r in rows if r["known_interaction"] == "True")
     ki_no  = sum(1 for r in rows if r["known_interaction"] == "False")
 
-    print(f"\n── {mode.upper()} crypt summary ──")
-    print(f"  Runs classified:     {len(rows):>8,}")
-    print(f"  single:              {flags['single']:>8,}")
-    print(f"  multi_species:       {flags['multi_species']:>8,}")
-    print(f"  multi_kingdom:       {flags['multi_kingdom']:>8,}")
-    print(f"  known interaction:   {ki_yes:>8,}  (PHI-base confirmed host×pathogen)")
-    print(f"  novel interaction:   {ki_no:>8,}  (not in PHI-base)")
+    top_secondary: Counter = Counter()
+    for r in rows:
+        for entry in r["secondary_pathogens"].split(";"):
+            name = entry.strip().split("(")[0].strip()
+            if name:
+                top_secondary[name] += 1
 
-    if any(r["n_secondary"] for r in rows):
-        top_secondary: Counter = Counter()
-        for r in rows:
-            for entry in r["secondary_pathogens"].split(";"):
-                name = entry.strip().split("(")[0].strip()
-                if name:
-                    top_secondary[name] += 1
-        print(f"\n  Top secondary pathogens:")
-        for name, n in top_secondary.most_common(15):
-            print(f"    {name:<45} {n:>5,}")
+    top_lines = "\n".join(
+        f"  {name:<45} {n:>5,}"
+        for name, n in top_secondary.most_common(15)
+    )
+
+    summary = (
+        f"── 03_crypt {mode.upper()} summary ────────────────────────\n"
+        f"Mode:              {mode.upper()}\n"
+        f"\n"
+        f"Runs classified:   {len(rows):>8,}\n"
+        f"  single:          {flags['single']:>8,}\n"
+        f"  multi_species:   {flags['multi_species']:>8,}\n"
+        f"  multi_kingdom:   {flags['multi_kingdom']:>8,}\n"
+        f"Skipped:           {skipped:>8,}\n"
+        f"\n"
+        f"Known interaction (PHI-base): {ki_yes:>6,}\n"
+        f"Novel interaction:            {ki_no:>6,}\n"
+    )
+    if top_lines:
+        summary += f"\nTop secondary pathogens:\n{top_lines}\n"
+    summary += f"\nOutput: {out_path}\nLog:    {log_path}\n"
+    return summary
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -413,6 +437,7 @@ def main() -> None:
     try:
         confirmed_path = Path(f"output/02_stat/{args.mode}_confirmed.json")
         out_path       = OUT_DIR / f"{args.mode}_crypt.tsv"
+        log_path       = OUT_DIR / f"{args.mode}.log"
 
         print(f"Mode: {args.mode.upper()}", flush=True)
 
@@ -427,8 +452,8 @@ def main() -> None:
         print(f"Confirmed runs:  {len(confirmed):,}", flush=True)
 
         classify = classify_mal if args.mode == "mal" else classify_hal
-        rows     = []
-        skipped  = 0
+        rows:    list[dict] = []
+        skipped = 0
 
         for acc, run_row in confirmed.items():
             stat_data = stat_cache.get(acc)
@@ -449,46 +474,8 @@ def main() -> None:
                                  -int(r["n_secondary"] or 0)))
 
         write_tsv(rows, out_path)
-        print_summary(rows, args.mode)
-        if skipped:
-            print(f"\n  Skipped (no STAT / no pathogens detected): {skipped:,}")
 
-        from collections import Counter
-        flags  = Counter(r["co_infection_flag"] for r in rows)
-        ki_yes = sum(1 for r in rows if r["known_interaction"] == "True")
-        ki_no  = sum(1 for r in rows if r["known_interaction"] == "False")
-
-        top_secondary: Counter = Counter()
-        for r in rows:
-            for entry in r["secondary_pathogens"].split(";"):
-                name = entry.strip().split("(")[0].strip()
-                if name:
-                    top_secondary[name] += 1
-
-        top_lines = "\n".join(
-            f"  {name:<45} {n:>5,}"
-            for name, n in top_secondary.most_common(15)
-        )
-
-        summary = (
-            f"── 03_crypt {args.mode.upper()} summary ────────────────────────\n"
-            f"Mode:              {args.mode.upper()}\n"
-            f"\n"
-            f"Runs classified:   {len(rows):>8,}\n"
-            f"  single:          {flags['single']:>8,}\n"
-            f"  multi_species:   {flags['multi_species']:>8,}\n"
-            f"  multi_kingdom:   {flags['multi_kingdom']:>8,}\n"
-            f"Skipped:           {skipped:>8,}\n"
-            f"\n"
-            f"Known interaction (PHI-base): {ki_yes:>6,}\n"
-            f"Novel interaction:            {ki_no:>6,}\n"
-        )
-        if top_lines:
-            summary += f"\nTop secondary pathogens:\n{top_lines}\n"
-        summary += (
-            f"\nOutput: {out_path}\n"
-            f"Log:    {OUT_DIR / f'{args.mode}.log'}\n"
-        )
+        summary = _build_summary(rows, skipped, args.mode, out_path, log_path)
         (OUT_DIR / f"{args.mode}_summary.txt").write_text(summary)
         print(f"\n{summary}")
     finally:

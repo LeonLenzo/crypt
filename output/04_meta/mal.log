@@ -1,0 +1,68 @@
+Mode: MAL
+NCBI_API_KEY set: yes
+Loaded 6,852 runs from mal_crypt.tsv
+Filter: high-confidence (same_genus_secondary=False) → 360 runs
+BioProjects to fetch: 54
+Already cached: 13
+  [  1/54] PRJEB39201 (71 runs) (cached) ... ok
+  [  2/54] PRJNA1067407 (36 runs) (cached) ... ok
+  [  3/54] PRJNA1228670 (32 runs) (cached) ... ok
+  [  4/54] PRJEB15280 (28 runs) (cached) ... ok
+  [  5/54] PRJEB53888 (26 runs) (cached) ... ok
+  [  6/54] PRJNA687280 (20 runs) (cached) ... ok
+  [  7/54] PRJNA1242556 (18 runs) (cached) ... ok
+  [  8/54] PRJEB84390 (14 runs) (cached) ... ok
+  [  9/54] PRJEB31334 (10 runs) (cached) ... ok
+  [ 10/54] PRJNA1220327 (10 runs) (cached) ... ok
+  [ 11/54] PRJNA574904 (9 runs) (cached) ... ok
+  [ 12/54] PRJNA1429803 (7 runs) (cached) ... ok
+  [ 13/54] PRJEB42296 (7 runs) (cached) ... ok
+  [ 14/54] PRJNA254725 (6 runs) ... ok
+  [ 15/54] PRJNA700975 (4 runs) ... ok
+  [ 16/54] PRJEB47693 (4 runs) ... ok
+  [ 17/54] PRJNA1111826 (4 runs) ... ok
+  [ 18/54] PRJNA925193 (3 runs) ... ok
+  [ 19/54] PRJEB65589 (3 runs) ... ok
+  [ 20/54] PRJNA1107791 (3 runs) ... ok
+  [ 21/54] PRJEB68334 (3 runs) ... ok
+  [ 22/54] PRJNA863277 (2 runs) ... ok
+  [ 23/54] PRJEB20582 (2 runs) ... ok
+  [ 24/54] PRJNA540383 (2 runs) ... ok
+  [ 25/54] PRJNA486288 (2 runs) ... ok
+  [ 26/54] PRJEB36485 (2 runs) ... ok
+  [ 27/54] PRJNA558612 (2 runs) ... ok
+  [ 28/54] PRJNA448328 (2 runs) ... ok
+  [ 29/54] PRJNA1244880 (2 runs) ... ok
+  [ 30/54] PRJNA773642 (2 runs) ... ok
+  [ 31/54] PRJNA853137 (1 runs) ... ok
+  [ 32/54] PRJNA560644 (1 runs) ... ok
+  [ 33/54] PRJNA716464 (1 runs) ... ok
+  [ 34/54] PRJNA950118 (1 runs) ... ok
+  [ 35/54] PRJNA956871 (1 runs) ... ok
+  [ 36/54] PRJEB39756 (1 runs) ... ok
+  [ 37/54] PRJNA392275 (1 runs) ... ok
+  [ 38/54] PRJNA1110392 (1 runs) ... ok
+  [ 39/54] PRJNA1021048 (1 runs) ... ok
+  [ 40/54] PRJNA1272045 (1 runs) ... ok
+  [ 41/54] PRJNA283526 (1 runs) ... ok
+  [ 42/54] PRJNA1063333 (1 runs) ... ok
+  [ 43/54] PRJNA670487 (1 runs) ... ok
+  [ 44/54] PRJEB13072 (1 runs) ... ok
+  [ 45/54] PRJNA777477 (1 runs) ... ok
+  [ 46/54] PRJNA1234858 (1 runs) ... ok
+  [ 47/54] PRJNA588304 (1 runs) ... ok
+  [ 48/54] PRJNA1331714 (1 runs) ... ok
+  [ 49/54] PRJNA491634 (1 runs) ... ok
+  [ 50/54] PRJNA606340 (1 runs) ... ok
+  [ 51/54] PRJNA895362 (1 runs) ... ok
+  [ 52/54] PRJNA1054045 (1 runs) ... ok
+  [ 53/54] PRJNA1089140 (1 runs) ... ok
+  [ 54/54] PRJNA996293 (1 runs) ... ok
+
+04_meta MAL summary
+Filter:      high-confidence (same_genus_secondary=False)
+BioProjects: 54
+With title:  53
+With PMIDs:  8
+
+Written: output/04_meta/mal_bioproject_meta.tsv

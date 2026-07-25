@@ -1,0 +1,5 @@
+04_meta MAL summary
+Filter:      high-confidence (same_genus_secondary=False)
+BioProjects: 54
+With title:  53
+With PMIDs:  8

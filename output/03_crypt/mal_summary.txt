@@ -1,0 +1,31 @@
+── 03_crypt MAL summary ────────────────────────
+Mode:              MAL
+
+Runs classified:      6,852
+  single:             5,704
+  multi_species:      1,146
+  multi_kingdom:          2
+Skipped:                  0
+
+Known interaction (PHI-base):  2,536
+Novel interaction:             2,349
+
+Top secondary pathogens:
+  Puccinia graminis                               284
+  Puccinia graminis f. sp. tritici CRL 75-36-700-3   109
+  Zymoseptoria tritici                             94
+  Pepino mosaic virus                              84
+  Puccinia striiformis                             76
+  Alternaria alternata                             51
+  Fusarium pseudograminearum                       47
+  Fusarium odoratissimum                           37
+  Botrytis cinerea                                 31
+  Pseudomonas syringae                             30
+  Parastagonospora nodorum                         28
+  Pectobacterium versatile                         27
+  Phytophthora infestans                           26
+  Fusarium graminearum                             23
+  Colletotrichum fructicola                        21
+
+Output: output/03_crypt/mal_crypt.tsv
+Log:    output/03_crypt/mal.log

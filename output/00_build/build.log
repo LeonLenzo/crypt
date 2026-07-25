@@ -1,41 +1,56 @@
-Building PHI-base database from output/00_build/phi-base_current.csv (scope=plant)
+Fetching ICTV VMR from https://ictv.global/vmr/current …
+  Saved 3.9 MB → output/00_build/ictv_vmr.xlsx  (from https://ictv.global/sites/default/files/VMR/VMR_MSL41.v1.20260721.xlsx)
+Building PHI-base + ICTV database from output/00_build/phi-base_current.csv (scope=plant)
 
 NCBITaxa loaded: /home/leonl/.etetoolkit/taxa.sqlite
 
-[1/5] Parsing PHI-base …
+[1/6] Parsing PHI-base …
   PHI-base: 1,181 interactions, 343 pathogen taxids, 273 host taxids (86 rows skipped — missing/non-numeric taxid)
 
-[2/5] Filtering to plant hosts …
+[2/6] Filtering to plant hosts …
   After plant filter: 205 pathogens, 180 hosts
 
-[3/5] Expanding pathogen taxonomy …
-  pathogens: 205 seed → 7,985 total (incl. descendants)
+[3/6] Loading ICTV plant viruses …
+  ICTV plant virus species (all clades): 2,782
+  Resolved to NCBI taxids: 2,771  (unresolved / not in NCBI: 11)
 
-[4/5] Expanding host taxonomy …
+[4/6] Expanding pathogen taxonomy by kingdom …
+  PHI-base seeds by kingdom: {'Fungi': 123, 'Bacteria': 62, 'Oomycota': 11, 'Nematoda': 7}
+  WARNING: 2 seeds unclassified: [13131, 13164]
+  fungi: 123 seed → 614 total (incl. descendants)
+  bacteria: 62 seed → 7,334 total (incl. descendants)
+  oomycota: 11 seed → 24 total (incl. descendants)
+  nematoda: 7 seed → 9 total (incl. descendants)
+  viruses: 2771 seed → 6,604 total (incl. descendants)
+
+[5/6] Expanding host taxonomy …
   hosts: 180 seed → 1,869 total (incl. descendants)
 
-[5/5] Building name lookup tables …
-  name→taxid entries: 11,911
+[6/6] Building name lookup tables …
+  name→taxid entries: 19,714
 
-Saved → output/00_build/phibase_db.json  (1.7 MB)
+Saved → output/00_build/phibase_db.json  (8.8 MB)
 
-Smoke test: PhibaseDB(built=2026-07-24, 7,985 pathogen taxids, 1,869 host taxids, 11,911 names)
+Smoke test: PhibaseDB(built=2026-07-24, 14,585 pathogen taxids [incl. 6,604 virus], 1,869 host taxids, 19,714 names)
   resolve('Fusarium oxysporum') → 5507 (Fusarium oxysporum)
   is_pathogen(5507) → True
+  is_virus(5507)    → False
   hosts_of(5507)    → 27 plant hosts
   known_interaction(F.oxysporum, tomato) → True
-  seed_pathogen(5507) → 5507
+  resolve('Tobacco mosaic virus') → None (not found)
 
 ── 00_build summary ────────────────────────────
-Built:                   2026-07-24
-Host scope:              plant
-PHI-base source:         output/00_build/phi-base_current.csv
+Built:                    2026-07-24
+Host scope:               plant
+PHI-base source:          output/00_build/phi-base_current.csv
+ICTV VMR source:          output/00_build/ictv_vmr.xlsx
 
-Pathogen species (seeds):     205
-Pathogen taxids (total):    7,985
-Host species (seeds):         180
-Host taxids (total):        1,869
-Name lookup entries:       11,911
+Pathogen species (seeds):      205
+Pathogen taxids (total):    14,585
+  of which virus taxids:     6,604
+Host species (seeds):          180
+Host taxids (total):         1,869
+Name lookup entries:        19,714
 
 DB:  output/00_build/phibase_db.json
 Log: output/00_build/build.log

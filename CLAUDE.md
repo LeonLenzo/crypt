@@ -29,15 +29,19 @@ organisms detectable via STAT k-mer taxonomy without re-aligning reads.
 
 ## Module architecture
 
-All four scripts are **fully standalone** — no shared package imports, stdlib + json only
+All scripts are **fully standalone** — no shared package imports, stdlib + json only
 (except ete3 and openpyxl in 00_build.py which requires system python3).
+Shared utilities (http_get, load_json, save_json, _Tee) live in `_util.py`.
 
 ```
+_util.py      Shared utilities: _Tee (stdout+file tee), http_get, load_json, save_json.
+
 00_build.py   Build PHI-base + ICTV reference DB.
               MUST run with system python3 (ete3/sqlite3 incompatibility
               with miniconda).
               Auto-downloads PHI-base CSV from GitHub if absent.
               Auto-downloads ICTV VMR Excel from ictv.global if absent.
+              Classifies PHI-base pathogen seeds into kingdoms via ete3 lineage.
               Plant viruses: Host source in {plants, plants (S),
               invertebrates, plants} → resolved via ete3 to NCBI taxids.
 
@@ -50,11 +54,12 @@ All four scripts are **fully standalone** — no shared package imports, stdlib 
               RunInfo fetched via HTTP POST (avoids 414 on large UID batches).
               Parallel fetch: ThreadPoolExecutor(MAX_WORKERS=8) + shared
               rate lock. Saves RunInfo + UID cache for resumability.
+              --count --mode mal shows per-kingdom hit breakdown.
 
 02_stat.py    Fetch NCBI STAT for all runs (parallel, rate-limited).
               STAT endpoint: trace.ncbi.nlm.nih.gov (different from Entrez).
-              Empirically caps at ~10 req/s; configured MAX_WORKERS=32,
-              RATE=15.0 to saturate without being artificially limited.
+              Empirically caps at ~2–10 req/s (server load dependent);
+              configured MAX_WORKERS=32, RATE=15.0 to saturate naturally.
               Do NOT run MAL and HAL simultaneously — they share
               stat_cache.json and the last writer wins on saves.
               Applies retention gate:
@@ -65,7 +70,20 @@ All four scripts are **fully standalone** — no shared package imports, stdlib 
               Uses specific_hits() leaf-detection algorithm to find the most
               specific organism name in the STAT taxonomy tree under each
               kingdom node, then cross-references against PHI-base + ICTV.
+              _genus() helper flags same-genus primary/secondary pairs
+              (same_genus_secondary column) to mark k-mer bleed risk.
               Produces final TSV with co-infection classification.
+
+04_meta.py    Fetch BioProject metadata for co-infection BioProjects.
+              Reads {mode}_crypt.tsv from 03_crypt; by default filters to
+              high-confidence runs (same_genus_secondary=False). Fetches
+              via Entrez: BioProject title + description, linked PubMed
+              articles (elink bioproject→pubmed), publication titles.
+              Output: {mode}_bioproject_meta.tsv — one row per BioProject,
+              sorted by run count. Resumable via {mode}_meta_cache.json.
+              --all flag includes same-genus secondaries as well.
+              Key curation step: distinguishes genuine cryptic co-infections
+              from intentional co-infection study designs.
 ```
 
 ## PHI-base + ICTV reference database (`output/00_build/phibase_db.json`)
@@ -75,6 +93,7 @@ Built by `00_build.py` using ete3 NCBITaxa (local SQLite at `~/.etetoolkit/taxa.
 **PHI-base** (fungi, bacteria, oomycetes, nematodes):
 - 205 pathogen seed species → ~7,985 expanded taxids (strains, subspecies, f. sp.)
 - 180 host seed species → ~1,869 expanded taxids (cultivars, varieties)
+- Seeds classified into kingdoms via ete3 lineage (Fungi/Bacteria/Oomycota/Nematoda)
 - Interaction map: PHI-base host × pathogen pairs (species-level, bidirectional)
 
 **ICTV VMR** (plant viruses):
@@ -86,33 +105,33 @@ Built by `00_build.py` using ete3 NCBITaxa (local SQLite at `~/.etetoolkit/taxa.
 - ICTV species names added to `name_to_taxid` as supplement to NCBI names
 - Auto-downloaded from `https://ictv.global/vmr/current` (redirects to latest release)
 
-**Combined DB stats** (approximate, post-rebuild):
-- ~11,000+ name entries — scientific names + synonyms + ICTV names, lowercase
-- Seed maps — trace any expanded taxid → PHI-base/ICTV species seed
-- `virus_taxids` key identifies which pathogen taxids are viruses
+**Combined DB stats** (post-rebuild 2026-07):
+- 14,585 pathogen taxids (7,981 PHI-base + 6,604 ICTV viruses)
+- 19,714 name entries — scientific names + synonyms + ICTV names, lowercase
 
-JSON structure (keys):
+**JSON structure (kingdom-separated schema):**
 ```
-pathogen_taxids          list of all expanded pathogen taxids (PHI-base + ICTV viruses)
-virus_taxids             subset of pathogen_taxids that are plant viruses (ICTV)
-host_taxids              list of all expanded host taxids
-contaminant_taxids       known sequencing contaminants (phiX174, E.coli K12, etc.)
-name_to_taxid            {lowercase_name: taxid} — for resolving STAT org strings
-taxid_to_name            {str(taxid): canonical_name}
-pathogen_taxid_to_seed   {str(expanded_taxid): seed_taxid}
-host_taxid_to_seed       {str(expanded_taxid): seed_taxid}
-pathogen_to_hosts        {str(seed_pathogen_taxid): [seed_host_taxids]}
-                         virus entries map to all 180 PHI-base plant host seeds
-host_to_pathogens        {str(seed_host_taxid): [seed_pathogen_taxids]}
-meta                     build date, counts, scope, vmr_path
+fungal_to_seed       {str(expanded_taxid): seed_taxid}  — PHI-base fungi
+bacterial_to_seed    {str(expanded_taxid): seed_taxid}  — PHI-base bacteria
+oomycete_to_seed     {str(expanded_taxid): seed_taxid}  — PHI-base oomycetes
+nematode_to_seed     {str(expanded_taxid): seed_taxid}  — PHI-base nematodes
+virus_to_seed        {str(expanded_taxid): seed_taxid}  — ICTV plant viruses
+host_to_seed         {str(expanded_taxid): seed_taxid}  — plant hosts
+contaminant_taxids   [taxid, ...]  — phiX174, E.coli K12, etc.
+name_to_taxid        {lowercase_name: taxid}
+taxid_to_name        {str(taxid): canonical_name}
+pathogen_to_hosts    {str(seed_pathogen_taxid): [seed_host_taxids]}
+meta                 build date, counts, scope, vmr_path
 ```
+`PhibaseDB` (in 03_crypt.py) derives `pathogen_taxids`, `host_taxids`,
+`host_to_pathogens` at load time from the kingdom dicts — they are NOT stored in JSON.
 
 ## STAT approach
 
 - **Parallel fetch** with global timestamp rate-lock (not per-worker sleep):
   `_rate_lock` + `_rate_last` ensures ≤ RATE requests/s total across all threads
 - **STAT endpoint** (`trace.ncbi.nlm.nih.gov`) is separate from Entrez — tested to
-  handle ~10 req/s; configured at RATE=15, MAX_WORKERS=32 to stay below ceiling
+  handle ~2–10 req/s (highly variable by time of day); RATE=15, MAX_WORKERS=32
 - **One-pass species resolution**: parse all kingdoms in a single pass per run
 - **`specific_hits(table, node, analyzed)`** — leaf-level species detection:
   1. Find all entries with `total_count ≤ node_count` (i.e., nested under this kingdom)
@@ -131,6 +150,7 @@ meta                     build date, counts, scope, vmr_path
 | Viruses  | ≥ 5.0%              |
 | Bacteria | ≥ 5.0%              |
 | Oomycota | ≥ 0.5%              |
+| Nematoda | ≥ 1.0%              |
 
 MAL in-planta gate: `MAL_MIN_HOST_PCT = 1.0` (Viridiplantae reads ≥ 1%).
 HAL pathogen gate:  `HAL_MIN_PATHOGEN_PCT = 1.0` (any PHI-base pathogen/virus ≥ 1%).
@@ -151,6 +171,7 @@ HAL pathogen gate:  `HAL_MIN_PATHOGEN_PCT = 1.0` (any PHI-base pathogen/virus �
 | `n_secondary` | count | count |
 | `known_interaction` | PHI-base/ICTV confirms pathogen×host | same |
 | `co_infection_flag` | single / multi_species / multi_kingdom | same |
+| `same_genus_secondary` | True if any secondary shares genus with primary | same |
 | `fungi_pct` etc. | kingdom % from STAT | same |
 | `analyzed` | total reads analysed by STAT | same |
 
@@ -160,11 +181,26 @@ Plus RunInfo passthrough: `BioProject`, `SRAStudy`, `Platform`, `ScientificName`
 `known_interaction` traces both pathogen and host to their PHI-base seed taxids
 before checking the interaction map. For plant viruses, returns True for any
 PHI-base plant host (mapped to all 180 host seeds in DB build).
+`same_genus_secondary`: True when the first word of any secondary name matches the
+first word of the primary — flags k-mer cross-mapping risk between sibling species.
+Use `same_genus_secondary == False` to isolate high-confidence co-detections.
+
+## k-mer bleed risk
+
+STAT uses 31-mers. Sibling species within a genus share conserved k-mers (especially
+rust fungi like Puccinia), so detecting a same-genus secondary may reflect k-mer
+cross-mapping rather than true co-infection. Analysis of MAL data showed:
+- 65% of secondary detections are same-genus — concentrated in Puccinia rusts
+- Same-genus secondaries cluster near the detection threshold (<1%), consistent with bleed
+- Cross-kingdom detections are biologically immune to this problem
+
+**High-confidence co-infections**: filter to `same_genus_secondary == False` (diff-genus
+secondary). These account for ~31% of co-infected runs but are the most credible signal.
 
 ## Entrez credentials
 - API key: `NCBI_API_KEY` env var (set in `~/.bashrc`) → 10 req/s (9 used for Entrez)
 - Without key: 2.5 req/s
-- STAT endpoint rate: empirically ~10 req/s max; RATE=15 + 32 workers configured
+- STAT endpoint rate: empirically ~2–10 req/s (variable); RATE=15 + 32 workers configured
 - User-Agent: `crypt/01_sra (leon.lenzo@curtin.edu.au)` etc.
 
 ## Running
@@ -175,10 +211,10 @@ PHI-base plant host (mapped to all 180 host seeds in DB build).
 python3 00_build.py               # auto-downloads PHI-base + ICTV VMR if absent
 python3 00_build.py --fetch       # force re-download of both sources
 
-# Steps 01-03: standard python (miniconda fine)
+# Steps 01-04: standard python (miniconda fine)
 
 # Pre-check: count query hits before committing to a full fetch
-python 01_sra.py --mode mal --count
+python 01_sra.py --mode mal --count   # also shows per-kingdom breakdown
 python 01_sra.py --mode hal --count
 
 # Fetch SRA run IDs (resumable; parallel POST-based RunInfo fetch)
@@ -193,6 +229,27 @@ python 02_stat.py --mode hal
 # Identify cryptic co-infections + write TSV
 python 03_crypt.py --mode mal
 python 03_crypt.py --mode hal
+
+# Fetch BioProject metadata for high-confidence co-infection BioProjects
+python 04_meta.py --mode mal
+python 04_meta.py --mode hal
+# --all flag includes same-genus secondaries (larger set, more noise)
+```
+
+### Extracting partial HAL results while 02_stat HAL is still running
+
+While `02_stat.py --mode hal` runs in tmux, you can snapshot confirmed runs
+from the partial stat_cache and run 03_crypt on them without interrupting the fetch:
+
+```bash
+# Read stat_cache (read-only), apply HAL gate, write hal_confirmed.json
+python3 - << 'EOF'
+import json, time
+from pathlib import Path
+# ... (see session notes — extract HAL confirmed from partial cache)
+EOF
+python 03_crypt.py --mode hal    # produces hal_crypt.tsv from partial set
+# 02_stat.py will overwrite hal_confirmed.json when it finishes; re-run 03_crypt then
 ```
 
 ## Output / cache layout
@@ -200,60 +257,86 @@ python 03_crypt.py --mode hal
 ```
 output/
 ├── 00_build/
-│   ├── phi-base_current.csv     PHI-base CSV (fetched from GitHub)
-│   ├── ictv_vmr.xlsx            ICTV VMR Excel (fetched from ictv.global/vmr/current)
-│   ├── phibase_db.json          reference database (consumed by 01-03)
-│   ├── build.log                full build log
-│   └── _summary.txt             seed counts, taxid totals, name entries
+│   ├── phi-base_current.csv       PHI-base CSV (fetched from GitHub)
+│   ├── ictv_vmr.xlsx              ICTV VMR Excel (fetched from ictv.global/vmr/current)
+│   ├── phibase_db.json            reference database (consumed by 01-03)
+│   ├── build.log
+│   └── _summary.txt               seed counts, taxid totals, name entries
 │
 ├── 01_sra/
-│   ├── {mode}_runs.json         RunInfo rows keyed by Run accession
-│   ├── {mode}_uids.json         fetched UID set (for resumability)
+│   ├── {mode}_runs.json           RunInfo rows keyed by Run accession
+│   ├── {mode}_uids.json           fetched UID set (for resumability)
 │   ├── {mode}.log
-│   └── {mode}_summary.txt       UIDs found, runs fetched
+│   └── {mode}_summary.txt
 │
 ├── 02_stat/
-│   ├── stat_cache.json          STAT responses — shared across MAL and HAL
-│   ├── {mode}_confirmed.json    runs passing retention gate (with kingdom %)
+│   ├── stat_cache.json            STAT responses — shared across MAL and HAL
+│   ├── {mode}_confirmed.json      runs passing retention gate (with kingdom %)
 │   ├── {mode}.log
-│   └── {mode}_summary.txt       STAT coverage %, gate pass rate
+│   └── {mode}_summary.txt
 │
-└── 03_crypt/
-    ├── {mode}_crypt.tsv         final co-infection candidate table
-    ├── {mode}.log
-    └── {mode}_summary.txt       flag breakdown, known/novel interactions, top secondaries
+├── 03_crypt/
+│   ├── {mode}_crypt.tsv           final co-infection candidate table
+│   ├── {mode}_summary.txt
+│   └── {mode}.log
+│
+├── 04_meta/
+│   ├── {mode}_bioproject_meta.tsv BioProject titles + PMIDs for HC co-infection projects
+│   ├── {mode}_meta_cache.json     Entrez response cache (resumability)
+│   ├── {mode}.log
+│   └── {mode}_summary.txt
+│
+└── figure/
+    ├── crypt_host_tree.nwk        NCBI cladogram of confirmed plant host species
+    └── crypt_host_tree_meta.tsv   tip metadata: label, species, n_single, n_multi,
+                                   n_confirmed, family
+```
+
+```
+figure/
+├── crypt_host_tree.py    Build nwk + meta from mal_crypt.tsv (system python3)
+└── crypt_host_tree.R     Fan tree figure — green/orange bars per host species
+                          (orange = co-infection, green = single pathogen)
+                          Run from crypt/: Rscript figure/crypt_host_tree.R
 ```
 
 ## Actual run results (2026-07)
 
-| Mode | UIDs | Runs fetched | STAT fetches |
-|------|------|-------------|--------------|
-| MAL  | 45,312 | 47,171    | ~47k         |
-| HAL  | 523,881 | 559,328  | ~559k (overnight) |
+| Mode | UIDs | Runs fetched | Gate pass | Gate pass rate |
+|------|------|-------------|-----------|----------------|
+| MAL  | 46,540 | 48,418    | 6,852     | 14.2%          |
+| HAL  | —      | 559,328   | in progress (partial: 1,392 / 63k screened = 2.2%) | — |
 
-Both counts are upper bounds — runs matching taxa from multiple batches are counted
-more than once. True deduplicated counts will be lower after RunInfo fetch.
+**MAL co-infection summary** (full dataset):
+- 6,852 classified → 1,148 co-infected (16.8%)
+- same_genus_secondary=True: 788 (68.6% of co-infected) — k-mer bleed risk
+- same_genus_secondary=False (high-confidence): **360 runs / 54 BioProjects**
+- Top HC secondaries: Pepino mosaic virus, Zymoseptoria tritici, Alternaria alternata,
+  Botrytis cinerea, Varicosavirus lactucae, Parastagonospora nodorum
 
-esearch hit counts (upper bound, batched, may overcount cross-batch duplicates):
-- MAL: ~45,721 (205 pathogen seeds, 5 batches of 50)
-- HAL: ~539,909 (180 host seeds, 4 batches of 50)
+**HAL co-infection summary** (partial — 63k/559k screened):
+- 793 classified → 98 co-infected (12.4%)
+- same_genus_secondary=False (HC): **32 runs / 21 BioProjects**
+- Top HC secondaries: Peanut stripe virus, Bipolaris zeicola, Potyvirus phaseovulgaris,
+  Pectobacterium brasiliense, Capillovirus mali, Grapevine berry inner necrosis virus
+- Known interaction rate much higher than MAL (79.6% vs 37.0%) — host is precisely
+  identified as library organism in HAL, improving PHI-base matching
 
 ## Performance notes
 
 - **01_sra RunInfo fetch**: parallel POST requests (ThreadPoolExecutor, MAX_WORKERS=8).
   GET requests with 500 UIDs cause HTTP 414; POST avoids this. ~20 req/s achieved.
-- **02_stat STAT fetch**: STAT endpoint (trace.ncbi.nlm.nih.gov) caps at ~10 req/s
-  regardless of worker count. Configured MAX_WORKERS=32, RATE=15 to saturate naturally.
-  Each STAT request takes ~1.8s; need ~18 workers to saturate 10 req/s.
-  MAL (~47k): ~1–1.5 hrs. HAL (~559k): ~15–17 hrs.
+- **02_stat STAT fetch**: STAT endpoint (trace.ncbi.nlm.nih.gov) is highly variable —
+  observed ~2 req/s overnight to ~10 req/s during daytime.
+  MAL (~48k): ~1.5 hrs. HAL (~559k): estimated 3–4 days depending on server load.
 - **Shared stat_cache**: do NOT run MAL and HAL 02_stat simultaneously — last writer
-  wins on cache saves, causing redundant fetches and partial cache loss.
-  Solution: chain HAL to start after MAL via tmux watcher:
+  wins on cache saves. Chain HAL after MAL:
   `until grep -q '02_stat MAL summary' output/02_stat/mal.log; do sleep 30; done`
 
 ## Notes
 
 - `specific_hits()` leaf detection in 03_crypt.py is the core non-trivial algorithm
+- `_genus(name)` returns the first word (lowercase) — used to set `same_genus_secondary`
 - MAL secondary detection excludes the primary/library organism by comparing
   PHI-base seed taxids (so strains of the same species are also excluded)
 - `txid33090[Host]` returns 0 results in SRA — [Host] is a free-text field.
@@ -265,3 +348,6 @@ esearch hit counts (upper bound, batched, may overcount cross-batch duplicates):
 - Plant viruses in ICTV include insect-vectored species (geminiviruses, tospoviruses)
   via `Host source = "invertebrates, plants"` — included intentionally as they infect
   plants in the field even though the insect is the vector
+- `novel_interaction` currently cannot distinguish genuine novel co-infections from
+  intentional co-infection study designs — BioProject metadata mining
+  (→ mal_bioproject_meta.tsv) is the next step to resolve this

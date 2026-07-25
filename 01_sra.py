@@ -31,6 +31,8 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
+from _util import _Tee, http_get, load_json, save_json
+
 # ── Settings ──────────────────────────────────────────────────────────────────
 
 DB_PATH       = Path("output/00_build/phibase_db.json")
@@ -42,49 +44,15 @@ MAX_WORKERS   = 8     # parallel RunInfo fetch workers
 SAVE_EVERY    = 20    # save caches after this many batches
 
 API_KEY = os.environ.get("NCBI_API_KEY", "")
-RATE    = 9.0 if API_KEY else 2.5   # requests/second
+RATE    = 9.0 if API_KEY else 2.5
 HEADERS = {"User-Agent": "crypt/01_sra (leon.lenzo@curtin.edu.au)"}
 ENTREZ  = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 
 
-# ── Logging ───────────────────────────────────────────────────────────────────
-
-class _Tee:
-    def __init__(self, path: Path):
-        path.parent.mkdir(parents=True, exist_ok=True)
-        self._log    = open(path, "w", buffering=1)
-        self._stdout = sys.__stdout__
-
-    def write(self, text: str) -> None:
-        self._stdout.write(text)
-        self._log.write(text)
-
-    def flush(self) -> None:
-        self._stdout.flush()
-        self._log.flush()
-
-    def close(self) -> None:
-        sys.stdout = self._stdout
-        self._log.close()
-
-
 # ── HTTP ──────────────────────────────────────────────────────────────────────
 
-def _get(url: str, retries: int = 5) -> bytes:
-    delay = 1.0
-    for _ in range(retries):
-        try:
-            req = urllib.request.Request(url, headers=HEADERS)
-            with urllib.request.urlopen(req, timeout=30) as r:
-                return r.read()
-        except urllib.error.HTTPError as e:
-            if e.code == 429 or e.code >= 500:
-                time.sleep(delay); delay *= 2
-            else:
-                raise
-        except Exception:
-            time.sleep(delay); delay *= 2
-    raise RuntimeError(f"Failed after {retries} retries: {url}")
+def _get(url: str) -> bytes:
+    return http_get(url, HEADERS)
 
 
 def _post(endpoint: str, retries: int = 5, **params) -> bytes:
@@ -140,18 +108,16 @@ def _esearch(db: str, term: str, retmax: int = 10_000) -> list[str]:
     return uids
 
 
-# ── Cache helpers ─────────────────────────────────────────────────────────────
+# ── DB helpers ────────────────────────────────────────────────────────────────
 
-def _load(path: Path) -> dict:
-    return json.loads(path.read_text()) if path.exists() else {}
+_MAL_KINGDOM_KEYS = [
+    ("Fungi",    "fungal_to_seed"),
+    ("Bacteria", "bacterial_to_seed"),
+    ("Oomycota", "oomycete_to_seed"),
+    ("Nematoda", "nematode_to_seed"),
+    ("Viruses",  "virus_to_seed"),
+]
 
-
-def _save(data: dict, path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data))
-
-
-# ── Query functions ───────────────────────────────────────────────────────────
 
 def _load_db() -> dict:
     if not DB_PATH.exists():
@@ -161,95 +127,61 @@ def _load_db() -> dict:
         return json.load(f)
 
 
-def _load_seed_pathogens() -> list[int]:
-    raw   = _load_db()
-    seeds = sorted(int(k) for k in raw["pathogen_to_hosts"].keys())
-    print(f"PHI-base: {len(seeds)} seed pathogen species", flush=True)
+def _load_seeds(mode: str) -> list[int]:
+    """Load seed taxids from the PHI-base DB for the given mode."""
+    raw = _load_db()
+    if mode == "mal":
+        seeds = sorted(int(k) for k in raw["pathogen_to_hosts"])
+        label = "seed pathogen species"
+    else:
+        seeds = sorted(set(raw["host_to_seed"].values()))
+        label = "seed host species"
+    print(f"PHI-base: {len(seeds)} {label}", flush=True)
     return seeds
 
 
-def _load_seed_hosts() -> list[int]:
-    raw   = _load_db()
-    seeds = sorted(int(k) for k in raw["host_to_pathogens"].keys())
-    print(f"PHI-base: {len(seeds)} seed host species", flush=True)
-    return seeds
+def _load_seeds_by_kingdom() -> dict[str, list[int]]:
+    """Return MAL seeds grouped by kingdom from the DB."""
+    raw = _load_db()
+    return {
+        kingdom: sorted(set(raw[db_key].values()))
+        for kingdom, db_key in _MAL_KINGDOM_KEYS
+    }
 
 
-def mal_count() -> int:
-    """MAL: sum esearch hit counts across batches (may overcount cross-batch duplicates)."""
-    seeds     = _load_seed_pathogens()
-    n_batches = (len(seeds) + MAL_BATCH - 1) // MAL_BATCH
-    total     = 0
+# ── Query builders ────────────────────────────────────────────────────────────
 
+def _build_queries(seeds: list[int]) -> list[str]:
+    """Batch seeds into esearch OR queries."""
+    queries: list[str] = []
     for i in range(0, len(seeds), MAL_BATCH):
         batch    = seeds[i:i + MAL_BATCH]
         or_terms = " OR ".join(f"txid{t}[Organism:exp]" for t in batch)
-        query    = f"({or_terms}) AND {LIBRARY_STRAT}[Strategy]"
-        n     = _esearch_count("sra", query)
+        queries.append(f"({or_terms}) AND {LIBRARY_STRAT}[Strategy]")
+    return queries
+
+
+def count_hits(seeds: list[int]) -> int:
+    """Sum esearch hit counts across batches (may overcount cross-batch duplicates)."""
+    queries = _build_queries(seeds)
+    total   = 0
+    for i, query in enumerate(queries, 1):
+        n      = _esearch_count("sra", query)
         total += n
-        bn    = i // MAL_BATCH + 1
-        print(f"  [{bn}/{n_batches}] {n:,} hits  (running total {total:,})",
+        print(f"  [{i}/{len(queries)}] {n:,} hits  (running total {total:,})",
               flush=True)
-
-    print(f"\nMAL total (batched, may overcount): {total:,}", flush=True)
     return total
 
 
-def mal_uids() -> list[str]:
-    """MAL: query each batch of PHI-base seed pathogen taxids × plant [Host]."""
-    seeds     = _load_seed_pathogens()
-    n_batches = (len(seeds) + MAL_BATCH - 1) // MAL_BATCH
+def fetch_uids(seeds: list[int]) -> list[str]:
+    """Fetch all SRA UIDs for the given seed taxids."""
+    queries  = _build_queries(seeds)
     all_uids: list[str] = []
-
-    for i in range(0, len(seeds), MAL_BATCH):
-        batch    = seeds[i:i + MAL_BATCH]
-        or_terms = " OR ".join(f"txid{t}[Organism:exp]" for t in batch)
-        query    = f"({or_terms}) AND {LIBRARY_STRAT}[Strategy]"
-        uids     = _esearch("sra", query)
+    for i, query in enumerate(queries, 1):
+        uids = _esearch("sra", query)
         all_uids.extend(uids)
-        bn       = i // MAL_BATCH + 1
-        print(f"  [{bn}/{n_batches}] +{len(uids):,} UIDs  "
+        print(f"  [{i}/{len(queries)}] +{len(uids):,} UIDs  "
               f"(total {len(all_uids):,})", flush=True)
-
-    return all_uids
-
-
-def hal_count() -> int:
-    """HAL: sum esearch hit counts for PHI-base plant host taxids."""
-    seeds     = _load_seed_hosts()
-    n_batches = (len(seeds) + MAL_BATCH - 1) // MAL_BATCH
-    total     = 0
-
-    for i in range(0, len(seeds), MAL_BATCH):
-        batch    = seeds[i:i + MAL_BATCH]
-        or_terms = " OR ".join(f"txid{t}[Organism:exp]" for t in batch)
-        query    = f"({or_terms}) AND {LIBRARY_STRAT}[Strategy]"
-        n        = _esearch_count("sra", query)
-        total   += n
-        bn       = i // MAL_BATCH + 1
-        print(f"  [{bn}/{n_batches}] {n:,} hits  (running total {total:,})",
-              flush=True)
-
-    print(f"\nHAL total (batched, may overcount): {total:,}", flush=True)
-    return total
-
-
-def hal_uids() -> list[str]:
-    """HAL: PHI-base plant host taxids as library organism."""
-    seeds     = _load_seed_hosts()
-    n_batches = (len(seeds) + MAL_BATCH - 1) // MAL_BATCH
-    all_uids: list[str] = []
-
-    for i in range(0, len(seeds), MAL_BATCH):
-        batch    = seeds[i:i + MAL_BATCH]
-        or_terms = " OR ".join(f"txid{t}[Organism:exp]" for t in batch)
-        query    = f"({or_terms}) AND {LIBRARY_STRAT}[Strategy]"
-        uids     = _esearch("sra", query)
-        all_uids.extend(uids)
-        bn       = i // MAL_BATCH + 1
-        print(f"  [{bn}/{n_batches}] +{len(uids):,} UIDs  "
-              f"(total {len(all_uids):,})", flush=True)
-
     return all_uids
 
 
@@ -301,8 +233,8 @@ def fetch_runinfo(uids: list[str], run_cache: dict, uid_cache: dict,
                 uid_cache[u] = True
             done += 1
             if done % SAVE_EVERY == 0 or done == len(batches):
-                _save(run_cache, run_path)
-                _save(uid_cache, uid_path)
+                save_json(run_cache, run_path)
+                save_json(uid_cache, uid_path)
                 print(f"  [{done:,}/{len(batches):,} batches]  "
                       f"{added:,} new runs", flush=True)
 
@@ -325,21 +257,33 @@ def main() -> None:
 
     try:
         print(f"Mode: {args.mode.upper()}", flush=True)
+        seeds = _load_seeds(args.mode)
 
         if args.count:
-            mal_count() if args.mode == "mal" else hal_count()
+            if args.mode == "mal":
+                by_kingdom = _load_seeds_by_kingdom()
+                grand_total = 0
+                for kingdom, k_seeds in by_kingdom.items():
+                    print(f"\n── {kingdom} ({len(k_seeds)} seeds) ──", flush=True)
+                    n = count_hits(k_seeds)
+                    print(f"  {kingdom} subtotal: {n:,}", flush=True)
+                    grand_total += n
+                print(f"\nMAL grand total (batched, may overcount): {grand_total:,}",
+                      flush=True)
+            else:
+                total = count_hits(seeds)
+                print(f"\nHAL total (batched, may overcount): {total:,}", flush=True)
             print(f"\nLog → {OUT_DIR / f'{args.mode}.log'}")
             return
 
         run_path  = OUT_DIR / f"{args.mode}_runs.json"
         uid_path  = OUT_DIR / f"{args.mode}_uids.json"
-        run_cache = _load(run_path)
-        uid_cache = _load(uid_path)
+        run_cache = load_json(run_path)
+        uid_cache = load_json(uid_path)
         print(f"Cached: {len(run_cache):,} runs  |  {len(uid_cache):,} UIDs fetched",
               flush=True)
 
-        uids = mal_uids() if args.mode == "mal" else hal_uids()
-        uids = list(set(uids))
+        uids = list(set(fetch_uids(seeds)))
         print(f"\nTotal unique UIDs: {len(uids):,}", flush=True)
 
         added = fetch_runinfo(uids, run_cache, uid_cache, run_path, uid_path)

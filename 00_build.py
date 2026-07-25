@@ -31,6 +31,8 @@ from pathlib import Path
 
 from ete3 import NCBITaxa
 
+from _util import _Tee
+
 VIRIDIPLANTAE = 33090   # scope: plant hosts only
 
 PHIBASE_URL = (
@@ -39,8 +41,6 @@ PHIBASE_URL = (
 )
 ICTV_VMR_URL = "https://ictv.global/vmr/current"
 
-# Host source values in ICTV VMR that indicate plant viruses.
-# "invertebrates, plants" = insect-vectored viruses (geminiviruses, tospoviruses etc.)
 ICTV_PLANT_HOST_SOURCES = {"plants", "plants (s)", "invertebrates, plants"}
 
 CONTAMINANT_TAXIDS = {
@@ -50,55 +50,34 @@ CONTAMINANT_TAXIDS = {
     1408252, # Cellulophaga phage phi38:1 — library prep contaminant
 }
 
+# PHI-base pathogen kingdom classification via ete3 lineage
+KINGDOM_LINEAGE_TAXIDS: dict[str, int] = {
+    "Fungi":    4751,
+    "Bacteria": 2,
+    "Oomycota": 4762,
+    "Nematoda": 6231,
+}
+# Maps kingdom name → JSON key in the output DB
+KINGDOM_DB_KEY: dict[str, str] = {
+    "Fungi":    "fungal_to_seed",
+    "Bacteria": "bacterial_to_seed",
+    "Oomycota": "oomycete_to_seed",
+    "Nematoda": "nematode_to_seed",
+}
+
 
 def _is_authority_string(name: str) -> bool:
     """Exclude author+year strings like 'Fusarium oxysporum Schltdl., 1824'."""
     return "," in name and any(c.isdigit() for c in name)
 
 
-# ── PHI-base fetch ────────────────────────────────────────────────────────────
+# ── File downloads ────────────────────────────────────────────────────────────
 
-def fetch_phibase(dest: Path, url: str = PHIBASE_URL) -> None:
-    """Download the latest PHI-base CSV from GitHub to dest."""
+def _download(url: str, dest: Path, min_bytes: int = 0) -> tuple[int, str]:
+    """Download url to dest via temp file. Returns (size_bytes, final_url)."""
     dest.parent.mkdir(parents=True, exist_ok=True)
-    print(f"Fetching PHI-base from {url} …", flush=True)
-
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as tmp:
+    with tempfile.NamedTemporaryFile(delete=False, suffix=dest.suffix) as tmp:
         tmp_path = Path(tmp.name)
-
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "crypt/00_build"})
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            size = 0
-            with open(tmp_path, "wb") as out:
-                while chunk := resp.read(65536):
-                    out.write(chunk)
-                    size += len(chunk)
-
-        with open(tmp_path, encoding="utf-8-sig", errors="replace") as f:
-            header = f.readline()
-        if "Pathogen_species" not in header and "Record ID" not in header:
-            raise ValueError(f"Downloaded file does not look like PHI-base CSV "
-                             f"(header: {header[:120]!r})")
-
-        shutil.move(str(tmp_path), dest)
-        print(f"  Saved {size / 1e6:.1f} MB → {dest}", flush=True)
-
-    except Exception as e:
-        tmp_path.unlink(missing_ok=True)
-        raise RuntimeError(f"PHI-base download failed: {e}") from e
-
-
-# ── ICTV VMR fetch ────────────────────────────────────────────────────────────
-
-def fetch_ictv_vmr(dest: Path, url: str = ICTV_VMR_URL) -> None:
-    """Download the latest ICTV VMR Excel file. URL redirects to current release."""
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    print(f"Fetching ICTV VMR from {url} …", flush=True)
-
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".xlsx") as tmp:
-        tmp_path = Path(tmp.name)
-
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "crypt/00_build"})
         with urllib.request.urlopen(req, timeout=120) as resp:
@@ -108,16 +87,32 @@ def fetch_ictv_vmr(dest: Path, url: str = ICTV_VMR_URL) -> None:
                 while chunk := resp.read(65536):
                     out.write(chunk)
                     size += len(chunk)
-
-        if size < 10000:
-            raise ValueError(f"Downloaded file too small ({size} bytes) — likely an error page")
-
+        if min_bytes and size < min_bytes:
+            raise ValueError(f"Downloaded file too small ({size} bytes)")
         shutil.move(str(tmp_path), dest)
-        print(f"  Saved {size / 1e6:.1f} MB → {dest}  (from {final_url})", flush=True)
-
+        return size, final_url
     except Exception as e:
         tmp_path.unlink(missing_ok=True)
-        raise RuntimeError(f"ICTV VMR download failed: {e}") from e
+        raise RuntimeError(f"Download failed ({url}): {e}") from e
+
+
+def fetch_phibase(dest: Path, url: str = PHIBASE_URL) -> None:
+    """Download the latest PHI-base CSV from GitHub to dest."""
+    print(f"Fetching PHI-base from {url} …", flush=True)
+    size, _ = _download(url, dest)
+    with open(dest, encoding="utf-8-sig", errors="replace") as f:
+        header = f.readline()
+    if "Pathogen_species" not in header and "Record ID" not in header:
+        dest.unlink(missing_ok=True)
+        raise ValueError(f"Not a valid PHI-base CSV (header: {header[:120]!r})")
+    print(f"  Saved {size / 1e6:.1f} MB → {dest}", flush=True)
+
+
+def fetch_ictv_vmr(dest: Path, url: str = ICTV_VMR_URL) -> None:
+    """Download the latest ICTV VMR Excel file. URL redirects to current release."""
+    print(f"Fetching ICTV VMR from {url} …", flush=True)
+    size, final_url = _download(url, dest, min_bytes=10_000)
+    print(f"  Saved {size / 1e6:.1f} MB → {dest}  (from {final_url})", flush=True)
 
 
 # ── ICTV VMR parsing ──────────────────────────────────────────────────────────
@@ -162,14 +157,12 @@ def _load_ictv_viruses(vmr_path: Path,
                        ncbi: NCBITaxa) -> tuple[set[int], dict[str, int]]:
     """
     Parse ICTV VMR, filter to plant viruses, resolve species names to NCBI taxids.
-    Returns:
-      virus_seed_taxids: set of resolved NCBI taxids for plant virus species
-      ictv_name_map:     {lowercase_ictv_name: taxid} for name_to_taxid supplement
+    Returns virus_seed_taxids and {lowercase_ictv_name: taxid} for name supplement.
     """
     species_names = _parse_ictv_plant_viruses(vmr_path)
     print(f"  ICTV plant virus species (all clades): {len(species_names):,}", flush=True)
 
-    name_map = ncbi.get_name_translator(species_names)
+    name_map   = ncbi.get_name_translator(species_names)
     resolved   = {name: taxids[0] for name, taxids in name_map.items() if taxids}
     unresolved = len(species_names) - len(resolved)
     print(f"  Resolved to NCBI taxids: {len(resolved):,}  "
@@ -215,32 +208,51 @@ def _parse_phibase(csv_path: Path) -> tuple[dict[int, set[int]], set[int], set[i
     return pathogen_to_hosts, all_pathogen_taxids, all_host_taxids
 
 
+def _in_viridiplantae(taxid: int, ncbi: NCBITaxa) -> bool:
+    try:
+        lineage = ncbi.get_lineage(taxid)
+        return bool(lineage and VIRIDIPLANTAE in lineage)
+    except Exception:
+        return False
+
+
 def _filter_plant_hosts(host_taxids: set[int],
                         pathogen_to_hosts: dict[int, set[int]],
                         ncbi: NCBITaxa) -> tuple[set[int], dict[int, set[int]]]:
     """Restrict to plant-host entries (Viridiplantae = 33090)."""
-    plant_hosts: set[int] = set()
-    for taxid in host_taxids:
-        try:
-            lineage = ncbi.get_lineage(taxid)
-            if lineage and VIRIDIPLANTAE in lineage:
-                plant_hosts.add(taxid)
-        except Exception:
-            pass
-
-    filtered: dict[int, set[int]] = {}
-    for p_taxid, h_taxids in pathogen_to_hosts.items():
-        plant_h = h_taxids & plant_hosts
-        if plant_h:
-            filtered[p_taxid] = plant_h
-
-    plant_pathogens = set(filtered.keys())
-    print(f"  After plant filter: {len(plant_pathogens)} pathogens, "
-          f"{len(plant_hosts)} hosts")
+    plant_hosts = {t for t in host_taxids if _in_viridiplantae(t, ncbi)}
+    filtered    = {p: h & plant_hosts for p, h in pathogen_to_hosts.items()
+                   if h & plant_hosts}
+    print(f"  After plant filter: {len(filtered)} pathogens, {len(plant_hosts)} hosts")
     return plant_hosts, filtered
 
 
 # ── Taxonomy expansion ────────────────────────────────────────────────────────
+
+def _classify_phib_seeds(seeds: set[int],
+                         ncbi: NCBITaxa) -> dict[str, set[int]]:
+    """Classify PHI-base pathogen seeds into kingdom buckets by ete3 lineage."""
+    buckets: dict[str, set[int]] = {k: set() for k in KINGDOM_LINEAGE_TAXIDS}
+    unclassified: list[int] = []
+    for seed in seeds:
+        try:
+            lineage = set(ncbi.get_lineage(seed))
+        except Exception:
+            unclassified.append(seed)
+            continue
+        for kingdom, ktaxid in KINGDOM_LINEAGE_TAXIDS.items():
+            if ktaxid in lineage:
+                buckets[kingdom].add(seed)
+                break
+        else:
+            unclassified.append(seed)
+    counts = {k: len(v) for k, v in buckets.items()}
+    print(f"  PHI-base seeds by kingdom: {counts}", flush=True)
+    if unclassified:
+        print(f"  WARNING: {len(unclassified)} seeds unclassified: "
+              f"{unclassified[:10]}", flush=True)
+    return buckets
+
 
 def _expand_taxids(seed_taxids: set[int], ncbi: NCBITaxa,
                    label: str) -> tuple[set[int], dict[int, int]]:
@@ -248,7 +260,7 @@ def _expand_taxids(seed_taxids: set[int], ncbi: NCBITaxa,
     Expand seed taxids to include all descendants.
     Returns (expanded_set, {expanded_taxid → seed_taxid}).
     """
-    expanded: set[int]        = set()
+    expanded: set[int]         = set()
     taxid_to_seed: dict[int, int] = {}
     skipped = 0
 
@@ -328,44 +340,43 @@ def build(phibase_csv: Path, vmr_path: Path | None = None,
         virus_seed_taxids, ictv_name_map = set(), {}
         print("  No ICTV VMR provided — virus step skipped")
 
-    print("\n[4/6] Expanding pathogen taxonomy …")
-    all_pathogen_taxids, pathogen_to_seed = _expand_taxids(seed_pathogens, ncbi, "pathogens")
+    print("\n[4/6] Expanding pathogen taxonomy by kingdom …")
+    phib_seeds_by_kingdom = _classify_phib_seeds(seed_pathogens, ncbi)
+    kingdom_to_seed: dict[str, dict[int, int]] = {}
+    all_pathogen_expanded: set[int] = set()
+
+    for kingdom, seeds in phib_seeds_by_kingdom.items():
+        db_key = KINGDOM_DB_KEY[kingdom]
+        if seeds:
+            exp, seed_map = _expand_taxids(seeds, ncbi, kingdom.lower())
+            kingdom_to_seed[db_key] = seed_map
+            all_pathogen_expanded |= exp
+        else:
+            kingdom_to_seed[db_key] = {}
 
     if virus_seed_taxids:
-        all_virus_taxids, virus_to_seed = _expand_taxids(virus_seed_taxids, ncbi, "viruses")
-        all_pathogen_taxids |= all_virus_taxids
-        pathogen_to_seed.update(virus_to_seed)
+        virus_exp, virus_to_seed = _expand_taxids(virus_seed_taxids, ncbi, "viruses")
+        kingdom_to_seed["virus_to_seed"] = virus_to_seed
+        all_pathogen_expanded |= virus_exp
     else:
-        all_virus_taxids, virus_to_seed = set(), {}
+        kingdom_to_seed["virus_to_seed"] = {}
 
     print("\n[5/6] Expanding host taxonomy …")
     all_host_taxids, host_to_seed = _expand_taxids(seed_hosts, ncbi, "hosts")
 
     print("\n[6/6] Building name lookup tables …")
-    all_taxids = all_pathogen_taxids | all_host_taxids
+    all_taxids = all_pathogen_expanded | all_host_taxids
     taxid_to_name, name_to_taxid = _build_name_map(all_taxids, ncbi)
-    # Supplement with ICTV species names (different naming convention to NCBI)
     for name, taxid in ictv_name_map.items():
         name_to_taxid.setdefault(name, taxid)
     print(f"  name→taxid entries: {len(name_to_taxid):,}")
 
-    # Reverse PHI-base host/pathogen map
-    host_to_pathogens: dict[int, list[int]] = {}
-    for p_taxid, h_taxids in pathogen_to_hosts.items():
-        for h_taxid in h_taxids:
-            host_to_pathogens.setdefault(h_taxid, [])
-            if p_taxid not in host_to_pathogens[h_taxid]:
-                host_to_pathogens[h_taxid].append(p_taxid)
-
-    # Viruses: known to infect all PHI-base plant host seeds
+    # ICTV viruses: map to all PHI-base plant host seeds
     if virus_seed_taxids:
         for v_seed in virus_seed_taxids:
             pathogen_to_hosts[v_seed] = set(seed_hosts)
-        for h_seed in seed_hosts:
-            host_to_pathogens.setdefault(h_seed, [])
-            for v_seed in virus_seed_taxids:
-                if v_seed not in host_to_pathogens[h_seed]:
-                    host_to_pathogens[h_seed].append(v_seed)
+
+    n_virus_taxids = len(kingdom_to_seed.get("virus_to_seed", {}))
 
     db = {
         "meta": {
@@ -376,23 +387,19 @@ def build(phibase_csv: Path, vmr_path: Path | None = None,
             "n_pathogen_species":       len(seed_pathogens),
             "n_virus_species":          len(virus_seed_taxids),
             "n_host_species":           len(seed_hosts),
-            "n_pathogen_taxids_total":  len(all_pathogen_taxids),
-            "n_virus_taxids_total":     len(all_virus_taxids),
+            "n_pathogen_taxids_total":  len(all_pathogen_expanded),
+            "n_virus_taxids_total":     n_virus_taxids,
             "n_host_taxids_total":      len(all_host_taxids),
             "n_name_entries":           len(name_to_taxid),
         },
-        "pathogen_taxids":    sorted(all_pathogen_taxids),
-        "virus_taxids":       sorted(all_virus_taxids),
-        "host_taxids":        sorted(all_host_taxids),
+        **{k: {str(tid): seed for tid, seed in v.items()}
+           for k, v in kingdom_to_seed.items()},
+        "host_to_seed":       {str(k): v for k, v in host_to_seed.items()},
         "contaminant_taxids": sorted(CONTAMINANT_TAXIDS),
-        "taxid_to_name":  {str(k): v for k, v in taxid_to_name.items()},
-        "name_to_taxid":  name_to_taxid,
-        "pathogen_taxid_to_seed": {str(k): v for k, v in pathogen_to_seed.items()},
-        "host_taxid_to_seed":     {str(k): v for k, v in host_to_seed.items()},
-        "pathogen_to_hosts": {str(k): sorted(v)
-                              for k, v in pathogen_to_hosts.items()},
-        "host_to_pathogens": {str(k): sorted(v)
-                              for k, v in host_to_pathogens.items()},
+        "taxid_to_name":      {str(k): v for k, v in taxid_to_name.items()},
+        "name_to_taxid":      name_to_taxid,
+        "pathogen_to_hosts":  {str(k): sorted(v)
+                               for k, v in pathogen_to_hosts.items()},
     }
     return db
 
@@ -418,22 +425,41 @@ def load_db(path: Path) -> "PhibaseDB":
 class PhibaseDB:
     """Thin wrapper around the raw JSON database dict. Provides O(1) lookups."""
 
-    def __init__(self, raw: dict):
-        self._meta              = raw["meta"]
-        self._pathogen_taxids   = set(raw["pathogen_taxids"])
-        self._virus_taxids      = set(raw.get("virus_taxids", []))
-        self._host_taxids       = set(raw["host_taxids"])
-        self._contaminants      = set(raw["contaminant_taxids"])
-        self._taxid_to_name     = {int(k): v for k, v in raw["taxid_to_name"].items()}
-        self._name_to_taxid     = raw["name_to_taxid"]
-        self._pathogen_to_seed  = {int(k): v
-                                   for k, v in raw["pathogen_taxid_to_seed"].items()}
-        self._host_to_seed      = {int(k): v
-                                   for k, v in raw["host_taxid_to_seed"].items()}
+    _KINGDOM_KEYS = ("fungal_to_seed", "bacterial_to_seed", "oomycete_to_seed",
+                     "nematode_to_seed", "virus_to_seed")
+
+    def __init__(self, raw: dict) -> None:
+        self._meta          = raw["meta"]
+        self._contaminants  = set(raw["contaminant_taxids"])
+        self._taxid_to_name = {int(k): v for k, v in raw["taxid_to_name"].items()}
+        self._name_to_taxid = raw["name_to_taxid"]
+
+        self._kingdom_to_seed: dict[str, dict[int, int]] = {
+            k: {int(t): s for t, s in raw[k].items()}
+            for k in self._KINGDOM_KEYS
+        }
+
+        # Derived combined maps
+        self._pathogen_to_seed: dict[int, int] = {}
+        self._pathogen_taxids:  set[int] = set()
+        self._virus_taxids:     set[int] = set(
+            int(t) for t in raw["virus_to_seed"]
+        )
+        for m in self._kingdom_to_seed.values():
+            self._pathogen_to_seed.update(m)
+            self._pathogen_taxids.update(m.keys())
+
+        self._host_to_seed  = {int(k): v for k, v in raw["host_to_seed"].items()}
+        self._host_taxids   = set(self._host_to_seed.keys())
+
         self._pathogen_to_hosts = {int(k): set(v)
                                    for k, v in raw["pathogen_to_hosts"].items()}
-        self._host_to_pathogens = {int(k): set(v)
-                                   for k, v in raw["host_to_pathogens"].items()}
+
+        # Derive host_to_pathogens from pathogen_to_hosts
+        self._host_to_pathogens: dict[int, set[int]] = {}
+        for p_seed, h_seeds in self._pathogen_to_hosts.items():
+            for h_seed in h_seeds:
+                self._host_to_pathogens.setdefault(h_seed, set()).add(p_seed)
 
     def resolve(self, name: str) -> int | None:
         return self._name_to_taxid.get(name.lower())
@@ -460,10 +486,7 @@ class PhibaseDB:
         return self._host_to_seed.get(taxid)
 
     def known_interaction(self, pathogen_taxid: int, host_taxid: int) -> bool:
-        """
-        True if PHI-base / ICTV records this pathogen as infecting this host.
-        For plant viruses, returns True for any plant host (all PHI-base host seeds).
-        """
+        """True if PHI-base / ICTV records this pathogen as infecting this host."""
         p_seed = self._pathogen_to_seed.get(pathogen_taxid, pathogen_taxid)
         h_seed = self._host_to_seed.get(host_taxid, host_taxid)
         return h_seed in self._pathogen_to_hosts.get(p_seed, set())
@@ -493,28 +516,6 @@ class PhibaseDB:
 # ── CLI ───────────────────────────────────────────────────────────────────────
 
 OUT_DIR = Path("output/00_build")
-
-
-# ── Logging ───────────────────────────────────────────────────────────────────
-
-class _Tee:
-    """Duplicate sys.stdout to a log file so all print() calls are captured."""
-    def __init__(self, path: Path):
-        path.parent.mkdir(parents=True, exist_ok=True)
-        self._log    = open(path, "w", buffering=1)
-        self._stdout = sys.__stdout__
-
-    def write(self, text: str) -> None:
-        self._stdout.write(text)
-        self._log.write(text)
-
-    def flush(self) -> None:
-        self._stdout.flush()
-        self._log.flush()
-
-    def close(self) -> None:
-        sys.stdout = self._stdout
-        self._log.close()
 
 
 def main() -> None:
@@ -559,7 +560,8 @@ def main() -> None:
         print(f"\nSmoke test: {loaded}")
         test_name = "Fusarium oxysporum"
         taxid = loaded.resolve(test_name)
-        print(f"  resolve('{test_name}') → {taxid} ({loaded.name(taxid) if taxid else 'not found'})")
+        print(f"  resolve('{test_name}') → {taxid} "
+              f"({loaded.name(taxid) if taxid else 'not found'})")
         if taxid:
             print(f"  is_pathogen({taxid}) → {loaded.is_pathogen(taxid)}")
             print(f"  is_virus({taxid})    → {loaded.is_virus(taxid)}")

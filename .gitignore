@@ -1,5 +1,6 @@
 # Large intermediate data files — too big for git
 output/02_stat/stat_cache.json
+output/02_stat/hal_confirmed.json
 output/01_sra/*_runs.json
 output/01_sra/*_uids.json
 

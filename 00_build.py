@@ -266,7 +266,7 @@ def _expand_taxids(seed_taxids: set[int], ncbi: NCBITaxa,
 
     for seed in seed_taxids:
         try:
-            descendants = ncbi.get_descendant_taxa(seed, collapse_subspecies=False)
+            descendants = ncbi.get_descendant_taxa(seed, intermediate_nodes=True, collapse_subspecies=False)
             expanded.add(seed)
             taxid_to_seed[seed] = seed
             for d in descendants:
@@ -521,11 +521,11 @@ OUT_DIR = Path("output/00_build")
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--phibase", default=str(OUT_DIR / "phi-base_current.csv"),
+    ap.add_argument("--phibase", default=str(OUT_DIR / "data/phi-base_current.csv"),
                     help="Path to PHI-base CSV")
-    ap.add_argument("--ictv", default=str(OUT_DIR / "ictv_vmr.xlsx"),
+    ap.add_argument("--ictv", default=str(OUT_DIR / "data/ictv_vmr.xlsx"),
                     help="Path to ICTV VMR Excel file")
-    ap.add_argument("--out", default=str(OUT_DIR / "phibase_db.json"),
+    ap.add_argument("--out", default=str(OUT_DIR / "data/phibase_db.json"),
                     help="Output JSON path")
     ap.add_argument("--scope", default="plant", choices=["plant", "all"],
                     help="Host scope filter (default: plant)")
@@ -537,7 +537,9 @@ def main() -> None:
                     help="ICTV VMR download URL")
     args = ap.parse_args()
 
-    log = _Tee(OUT_DIR / "build.log")
+    (OUT_DIR / "data").mkdir(parents=True, exist_ok=True)
+    (OUT_DIR / "logs").mkdir(parents=True, exist_ok=True)
+    log = _Tee(OUT_DIR / "logs/build.log")
     sys.stdout = log
 
     try:
@@ -590,9 +592,9 @@ def main() -> None:
             f"Name lookup entries:       {m['n_name_entries']:>7,}\n"
             f"\n"
             f"DB:  {out_path}\n"
-            f"Log: {OUT_DIR / 'build.log'}\n"
+            f"Log: {OUT_DIR / 'logs/build.log'}\n"
         )
-        (OUT_DIR / "_summary.txt").write_text(summary)
+        (OUT_DIR / "logs/_summary.txt").write_text(summary)
         print(f"\n{summary}")
     finally:
         log.close()

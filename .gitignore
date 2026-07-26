@@ -1,12 +1,29 @@
-# Large intermediate data files — too big for git
-output/02_stat/stat_cache.json
-output/02_stat/hal_confirmed.json
-output/01_sra/*_runs.json
-output/01_sra/*_uids.json
+# Large STAT cache — 1.9 GB, auto-fetched by 01_fetch.py
+output/01_fetch/data/stat_cache.jsonl
+output/01_fetch/data/stat_cache_index.txt
 
-# Downloaded source files — auto-fetched by 00_build.py
-output/00_build/phi-base_current.csv
-output/00_build/ictv_vmr.xlsx
+# SRA run/UID caches — auto-fetched by 01_fetch.py
+output/01_fetch/data/*_runs.json
+output/01_fetch/data/*_uids.json
+
+# Intermediate confirmed-run caches — regeneratable from stat_cache
+output/02_filter/data/*_confirmed.json
+
+# Large species distribution table (38k rows)
+output/02_filter/data/*_species_dist.tsv
+
+# BioProject Entrez cache — regeneratable by 03_find.py
+output/03_find/data/meta_cache.json
+
+# Reference DB source files — auto-downloaded by 00_build.py
+output/00_build/data/phi-base_current.csv
+output/00_build/data/ictv_vmr.xlsx
+
+# 02_stat symlink stub — transitional, removed after HAL fetch completes
+output/02_stat/
+
+# Legacy pipeline outputs
+output/legacy/
 
 # Claude Code project settings
 .claude/

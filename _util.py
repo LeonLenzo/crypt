@@ -48,11 +48,17 @@ def http_get(url: str, headers: dict[str, str], retries: int = 5) -> bytes:
 
 
 def load_json(path: Path) -> dict:
-    """Load JSON from path; return {} if absent."""
-    return json.loads(path.read_text()) if path.exists() else {}
+    """Load JSON from path; return {} if absent or empty."""
+    if not path.exists():
+        return {}
+    text = path.read_text().strip()
+    return json.loads(text) if text else {}
 
 
 def save_json(data: dict, path: Path) -> None:
-    """Write JSON to path, creating parent dirs as needed."""
+    """Write JSON to path atomically (temp file + rename) to avoid corruption on kill."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data))
+    tmp = path.with_suffix(".tmp")
+    with open(tmp, "w") as f:
+        json.dump(data, f)
+    tmp.rename(path)

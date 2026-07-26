@@ -1,9 +1,0 @@
-── 01_sra HAL summary ──────────────────────────
-Mode:              HAL
-
-Unique UIDs found:  523,881
-New runs fetched:   559,328
-Total runs cached:  559,328
-
-Runs: output/01_sra/hal_runs.json
-Log:  output/01_sra/hal.log

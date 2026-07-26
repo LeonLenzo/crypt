@@ -1,9 +1,0 @@
-── 01_sra MAL summary ──────────────────────────
-Mode:              MAL
-
-Unique UIDs found:   46,540
-New runs fetched:     1,247
-Total runs cached:   48,418
-
-Runs: output/01_sra/mal_runs.json
-Log:  output/01_sra/mal.log

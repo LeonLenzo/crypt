@@ -1,0 +1,95 @@
+node1	node2	weight
+Puccinia graminis	Puccinia triticina	137
+Puccinia graminis f. sp. tritici	Puccinia striiformis	105
+Pepino mosaic virus	Tomato brown rugose fruit virus	82
+Fusarium graminearum	Fusarium pseudograminearum	54
+Puccinia striiformis f. sp. tritici	Zymoseptoria tritici	38
+Puccinia striiformis	Zymoseptoria tritici	28
+Pectobacterium carotovorum	Pectobacterium versatile	27
+Alternaria alternata	Puccinia striiformis f. sp. tritici	25
+Botrytis cinerea	Sclerotinia sclerotiorum	23
+Phytophthora capsici	Phytophthora infestans	20
+Orthotospovirus impatiensnecromaculae	Varicosavirus lactucae	18
+Fusarium odoratissimum	Fusarium oxysporum	18
+Puccinia graminis f. sp. tritici	Zymoseptoria tritici	16
+Alternaria alternata	Puccinia striiformis	15
+Puccinia triticina	Zymoseptoria tritici	15
+Fusarium asiaticum	Fusarium graminearum	15
+Penicillium expansum	Penicillium italicum	15
+Ophiovirus mirafioriense	Orthotospovirus impatiensnecromaculae	14
+Colletotrichum graminicola	Colletotrichum higginsianum	12
+Penicillium digitatum	Penicillium expansum	12
+Fusarium odoratissimum	Fusarium oxysporum f. sp. lactucae	12
+Mirafiori lettuce big-vein virus	Orthotospovirus impatiensnecromaculae	11
+Puccinia graminis	Puccinia striiformis f. sp. tritici	11
+Parastagonospora nodorum	Puccinia graminis f. sp. tritici	10
+Colletotrichum fructicola	Colletotrichum gloeosporioides	10
+Puccinia graminis	Puccinia striiformis	9
+Fusarium asiaticum	Fusarium pseudograminearum	9
+Puccinia graminis f. sp. tritici	Puccinia triticina	9
+Botrytis cinerea	Monilinia fructicola	9
+Fusarium fujikuroi	Fusarium verticillioides	9
+Puccinia striiformis	Puccinia triticina	8
+Puccinia graminis	Zymoseptoria tritici	8
+Parastagonospora nodorum	Puccinia striiformis	8
+Puccinia striiformis f. sp. tritici	Pyrenophora tritici-repentis	8
+Parastagonospora nodorum	Puccinia striiformis f. sp. tritici	8
+Parastagonospora nodorum	Puccinia triticina	8
+Ophiovirus mirafioriense	Varicosavirus lactucae	7
+Colletotrichum gloeosporioides	Colletotrichum siamense	7
+Phytophthora infestans	Phytophthora nicotianae	7
+Alternaria alternata	Zymoseptoria tritici	6
+Mirafiori lettuce big-vein virus	Varicosavirus lactucae	6
+Colletotrichum gloeosporioides	Colletotrichum graminicola	6
+Colletotrichum gloeosporioides	Colletotrichum higginsianum	6
+Colletotrichum fructicola	Colletotrichum siamense	6
+Colletotrichum camelliae	Colletotrichum fructicola	6
+Pectobacterium carotovorum	Pectobacterium odoriferum	6
+Phytophthora capsici	Phytophthora nicotianae	6
+Pectobacterium brasiliense	Pectobacterium carotovorum	6
+Alternaria brassicicola	Pyrenophora teres	6
+Puccinia graminis f. sp. tritici	Puccinia striiformis f. sp. tritici	6
+Puccinia striiformis	Pyrenophora tritici-repentis	5
+Mirafiori lettuce big-vein virus	Ophiovirus mirafioriense	5
+Alternaria alternata	Pyrenophora tritici-repentis	5
+Alternaria alternata	Fusarium graminearum	5
+Alternaria alternata	Fusarium pseudograminearum	5
+Tobacco mosaic virus	Tomato brown rugose fruit virus	5
+Pyrenophora teres	Pyrenophora tritici-repentis	5
+Penicillium digitatum	Penicillium italicum	4
+Phytophthora capsici	Phytophthora sojae	4
+Fusarium verticillioides	Sporisorium reilianum	4
+Fusarium odoratissimum	Fusarium oxysporum f. sp. matthiolae	4
+Fusarium oxysporum	Fusarium verticillioides	4
+Leptosphaeria maculans	Zymoseptoria tritici	3
+Pyrenophora tritici-repentis	Zymoseptoria tritici	3
+Alternaria alternata	Puccinia graminis f. sp. tritici	3
+Phytophthora infestans	Phytophthora sojae	3
+Pectobacterium odoriferum	Pectobacterium versatile	3
+Bipolaris sorokiniana	Puccinia striiformis f. sp. tritici	3
+Alternaria solani	Puccinia striiformis	3
+Cucurbit leaf crumple virus	Squash leaf curl virus	3
+Hyaloperonospora arabidopsidis	Phytophthora sojae	3
+Listeria monocytogenes	Puccinia striiformis f. sp. tritici	3
+Xanthomonas oryzae	Xanthomonas perforans	3
+Leptosphaeria maculans	Puccinia striiformis	2
+Alternaria alternata	Leptosphaeria maculans	2
+Alternaria alternata	Puccinia graminis	2
+Leptosphaeria maculans	Puccinia striiformis f. sp. tritici	2
+Fusarium fujikuroi	Fusarium odoratissimum	2
+Colletotrichum fructicola	Moniliophthora perniciosa	2
+Colletotrichum siamense	Moniliophthora perniciosa	2
+Parastagonospora nodorum	Zymoseptoria tritici	2
+Alternaria alternata	Alternaria solani	2
+Phytophthora cactorum	Phytophthora infestans	2
+Phytophthora cactorum	Phytophthora parasitica	2
+Exserohilum turcicum	Puccinia striiformis f. sp. tritici	2
+Pepino mosaic virus	Tobacco mosaic virus	2
+Banana mild mosaic virus	Cucumber mosaic virus	2
+Bipolaris sorokiniana	Pyricularia oryzae	2
+Puccinia triticina	Pyrenophora tritici-repentis	2
+Alternaria alternata	Plasmopara viticola	2
+Lasiodiplodia theobromae	Phytophthora capsici	2
+Phytophthora infestans	Tomato brown rugose fruit virus	2
+Orthotospovirus impatiensnecromaculae	Sclerotinia sclerotiorum	2
+Carrot virus Y	Celery mosaic virus	2

@@ -1,0 +1,13 @@
+03_meta summary
+Filter:              all co-infected
+BioProjects:         118
+  from MAL only:     118
+  from HAL only:     0
+  from both modes:   0
+With title:          118
+With PMIDs:          64
+Study design (auto):
+  coinf_experiment:  1
+  field_survey:      30
+  unclear:           87
+  (coinf_experiment → manually verify then exclude from novel count)

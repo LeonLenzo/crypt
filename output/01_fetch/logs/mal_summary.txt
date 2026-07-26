@@ -1,0 +1,12 @@
+── 02_stat MAL summary ─────────────────────────
+Mode:              MAL
+
+Total runs:          48,418
+With STAT data:      47,680  (98.5%)
+No STAT data:           738
+Failed gate:         40,828
+Passed gate:          6,852  (14.4% of screened)
+Gate:              ≥1.0% Viridiplantae reads
+
+Confirmed: output/02_stat/mal_confirmed.json
+Log:       output/02_stat/mal.log

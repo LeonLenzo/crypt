@@ -96,7 +96,7 @@ _util.py      Shared utilities: _Tee (stdout+file tee), http_get, load_json, sav
               study_design: coinf_experiment / field_survey / unclear (keyword scan of
               title + description + abstract). coinf_experiment → manual review required.
               --hc flag restricts to same_genus_secondary=False.
-              Output: output/03_meta/data/bioproject_meta.tsv
+              Output: output/03_find/data/bioproject_meta.tsv
 ```
 
 ### Running the pipeline
@@ -164,7 +164,7 @@ taxid_to_name        {str(taxid): canonical_name}
 pathogen_to_hosts    {str(seed_pathogen_taxid): [seed_host_taxids]}
 meta                 build date, counts, scope, vmr_path
 ```
-`PhibaseDB` (in 04_crypt.py) derives `pathogen_taxids`, `host_taxids`,
+`PhibaseDB` (in 02_filter.py) derives `pathogen_taxids`, `host_taxids`,
 `host_to_pathogens` at load time from the kingdom dicts — they are NOT stored in JSON.
 
 ## STAT approach
@@ -187,12 +187,12 @@ meta                 build date, counts, scope, vmr_path
   saves (json.dumps built a full in-memory string copy) and couldn't be
   appended to without rewriting the whole file.
 
-## STAT detection thresholds (hardcoded in 02_stat.py and 04_crypt.py)
+## STAT detection thresholds (KINGDOM_THRESHOLDS in 02_filter.py)
 
 | Kingdom  | Detection threshold |
 |----------|---------------------|
 | Fungi    | ≥ 1.0%              |
-| Viruses  | ≥ 5.0%              |
+| Viruses  | ≥ 10.0%             |
 | Bacteria | ≥ 5.0%              |
 | Oomycota | ≥ 0.5%              |
 | Nematoda | ≥ 1.0%              |
@@ -200,7 +200,7 @@ meta                 build date, counts, scope, vmr_path
 MAL in-planta gate: `MAL_MIN_HOST_PCT = 1.0` (Viridiplantae reads ≥ 1%).
 HAL pathogen gate:  `HAL_MIN_PATHOGEN_PCT = 1.0` (any PHI-base pathogen/virus ≥ 1%).
 
-## Output schema (04_crypt.py → `{mode}_crypt.tsv`)
+## Output schema (02_filter.py → `crypt.tsv`)
 
 | Column | MAL | HAL |
 |---|---|---|
@@ -373,18 +373,18 @@ python 03_find.py            # BioProject metadata with all 6 sources
 
 ## Performance notes
 
-- **01_sra RunInfo fetch**: parallel POST requests (ThreadPoolExecutor, MAX_WORKERS=8).
+- **01_fetch SRA RunInfo fetch**: parallel POST requests (ThreadPoolExecutor, MAX_WORKERS=8).
   GET requests with 500 UIDs cause HTTP 414; POST avoids this. ~20 req/s achieved.
-- **02_stat STAT fetch**: STAT endpoint (trace.ncbi.nlm.nih.gov) is highly variable —
+- **01_fetch STAT fetch**: STAT endpoint (trace.ncbi.nlm.nih.gov) is highly variable —
   observed ~2 req/s overnight to ~10 req/s during daytime.
   MAL (~48k): ~1.5 hrs. HAL (~559k): estimated 3–4 days depending on server load.
-- **Shared stat_cache**: do NOT run MAL and HAL 02_stat simultaneously — last writer
+- **Shared stat_cache**: do NOT run MAL and HAL 01_fetch simultaneously — last writer
   wins on cache saves. Chain HAL after MAL:
-  `until grep -q '02_stat MAL summary' output/02_stat/mal.log; do sleep 30; done`
+  `until grep -q '01_fetch MAL summary' output/01_fetch/logs/mal.log; do sleep 30; done`
 
 ## Notes
 
-- `specific_hits()` leaf detection in 04_crypt.py is the core non-trivial algorithm
+- `specific_hits()` leaf detection in 02_filter.py is the core non-trivial algorithm
 - `_genus(name)` returns the first word (lowercase) — used to set `same_genus_secondary`
 - MAL secondary detection excludes the primary/library organism by comparing
   PHI-base seed taxids (so strains of the same species are also excluded)
@@ -406,21 +406,20 @@ python 03_find.py            # BioProject metadata with all 6 sources
   via `Host source = "invertebrates, plants"` — included intentionally as they infect
   plants in the field even though the insect is the vector
 - `interaction_status == "novel_host_range"` is the key signal; `coinf_experiment`
-  in 05_meta study_design flags intentional designs for manual exclusion
-- 05_meta `--hc` restricts to same_genus_secondary=False; default includes all co-infected
-- 05_meta PMID search uses three sources: elink bioproject→pubmed + PMC full-text esearch +
-  PubMed text esearch. Primary paper = earliest pub date. Improved MAL coverage from 8/54
-  (elink only) to 63/118 BioProjects.
-- **`_pmcids_to_pmids` bug (fixed in _v 4)**: original used `elink dbfrom=pmc db=pubmed`
+  in 03_find study_design flags intentional designs for manual exclusion
+- 03_find `--hc` restricts to same_genus_secondary=False; default includes all co-infected
+- 03_find PMID search uses 7 sources: BioProject XML `<Publication>`, elink bioproject→pubmed,
+  PMC full-text esearch, PubMed text esearch, Europe PMC, ENA XML API, OpenAlex.
+  Primary paper = earliest pub date. Improved MAL coverage from 8/54 (elink only) to 64/118.
+- **`_pmcids_to_pmids` bug (fixed in cache v4)**: original used `elink dbfrom=pmc db=pubmed`
   which by default returns references CITED BY the PMC articles (pmc_refs_pubmed link),
   not the articles themselves. This caused tool papers like BLAST (PMID 2231712, 1990) to
   appear as "earliest publication" because they are widely cited. Fixed by using
   `esummary db=pmc` which returns article metadata including the article's own PMID
-  via the `articleids` field. Cache version bumped to `_v: 4` in both 05_meta.py and
-  03_find.py — delete old cache (output/05_meta/data/mal_meta_cache.json) to re-fetch.
-- 02_stat.py hangs overnight: all 32 ThreadPoolExecutor threads block on network I/O;
+  via the `articleids` field. Cache version bumped to `_v: 4` in 03_find.py.
+- 01_fetch.py STAT fetch hangs overnight: all 32 ThreadPoolExecutor threads block on network I/O;
   SIGINT does not exit cleanly — requires SIGKILL. Happened twice during HAL fetch
-  (~13 min and ~70 min idle). Watchdog/auto-restart flagged for future 02_fetch.py rebuild.
+  (~13 min and ~70 min idle). Watchdog/auto-restart flagged for future rebuild.
 
 ## Deferred analysis ideas (after HAL pipeline complete)
 

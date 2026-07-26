@@ -171,8 +171,8 @@ meta                 build date, counts, scope, vmr_path
 
 - **Parallel fetch** with global timestamp rate-lock (not per-worker sleep):
   `_rate_lock` + `_rate_last` ensures ≤ RATE requests/s total across all threads
-- **STAT endpoint** (`trace.ncbi.nlm.nih.gov`) is separate from Entrez — tested to
-  handle ~2–10 req/s (highly variable by time of day); RATE=15, MAX_WORKERS=32
+- **STAT endpoint** (`trace.ncbi.nlm.nih.gov`) is separate from Entrez — STAT_RATE=15,
+  MAX_WORKERS=32; effective throughput limited by thread hang bug (see Performance notes)
 - **One-pass species resolution**: parse all kingdoms in a single pass per run
 - **`specific_hits(table, node, analyzed)`** — leaf-level species detection:
   1. Find all entries with `total_count ≤ node_count` (i.e., nested under this kingdom)
@@ -270,7 +270,7 @@ contain real co-infections but requires more careful biological interpretation.
 - API key: `NCBI_API_KEY` env var (set in `~/.bashrc`) → 10 req/s (9 used for Entrez)
 - Without key: 2.5 req/s
 - STAT endpoint rate: empirically ~2–10 req/s (variable); RATE=15 + 32 workers configured
-- User-Agent: `crypt/01_sra (leon.lenzo@curtin.edu.au)` etc.
+- User-Agent: `crypt/01_fetch (leon.lenzo@curtin.edu.au)` etc.
 
 ## Output / cache layout
 
@@ -375,9 +375,9 @@ python 03_find.py            # BioProject metadata with all 6 sources
 
 - **01_fetch SRA RunInfo fetch**: parallel POST requests (ThreadPoolExecutor, MAX_WORKERS=8).
   GET requests with 500 UIDs cause HTTP 414; POST avoids this. ~20 req/s achieved.
-- **01_fetch STAT fetch**: STAT endpoint (trace.ncbi.nlm.nih.gov) is highly variable —
-  observed ~2 req/s overnight to ~10 req/s during daytime.
-  MAL (~48k): ~1.5 hrs. HAL (~559k): estimated 3–4 days depending on server load.
+- **01_fetch STAT fetch**: STAT_RATE=15 req/s configured; apparent variability (~2–10 req/s
+  observed) was caused by thread hangs (workers blocking on network I/O), not server-side
+  time-of-day variation. MAL (~48k): ~1.5 hrs. HAL (~559k): ~3–4 days with hangs factored in.
 - **Shared stat_cache**: do NOT run MAL and HAL 01_fetch simultaneously — last writer
   wins on cache saves. Chain HAL after MAL:
   `until grep -q '01_fetch MAL summary' output/01_fetch/logs/mal.log; do sleep 30; done`
@@ -438,13 +438,12 @@ python 03_find.py            # BioProject metadata with all 6 sources
    vs. low-host-content field samples.
 
 4. **Viral threshold sensitivity**
-   Quick re-run of 04_crypt.py at 5% vs 10% virus threshold to quantify impact.
+   Quick re-run of 02_filter.py at 5% vs 10% virus threshold to quantify impact.
    Method validation / numbers for the paper.
 
-## Planned architecture review (next session priority)
+## Architecture decisions (resolved)
 
-Review script structure before adding more analysis. Key questions:
-- Should 01_sra + 02_stat merge into a single fetch pipeline?
-- Should MAL + HAL outputs merge into one TSV with a `mode` column?
-- Where should analysis scripts live (new `06_analysis/` step, or `figure/`)?
-- 02_stat.py watchdog/auto-restart design (for rebuild as 02_fetch.py)
+- 01_sra + 02_stat → merged into 01_fetch.py ✓
+- MAL + HAL outputs → unified crypt.tsv with `mode` column ✓
+- Analysis scripts → `figure/` directory ✓
+- 01_fetch.py watchdog/auto-restart → deferred (workaround: tmux + manual SIGKILL+restart)

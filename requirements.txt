@@ -1,0 +1,4 @@
+# 00_build.py only — steps 01–03 are stdlib
+# Install with system python3, not miniconda (ete3/sqlite3 ABI conflict)
+ete3
+openpyxl

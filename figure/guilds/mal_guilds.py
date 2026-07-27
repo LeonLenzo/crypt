@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-figure/mal_guilds.py — build co-infection guild network from mal_crypt.tsv.
+figure/guilds/mal_guilds.py — build co-infection guild network from crypt.tsv (MAL + HAL).
 
 Treats all pathogens (primary + secondary) symmetrically. Nodes = pathogens,
 edges = co-occurrence in the same confirmed run, edge weight = run count.
@@ -8,12 +8,12 @@ edges = co-occurrence in the same confirmed run, edge weight = run count.
 Normalises strain-level names to species (or f. sp.) level.
 Kingdom is resolved via the phibase_db name_to_taxid lookup.
 
-Outputs (figure/):
+Outputs (figure/guilds/):
   mal_guild_nodes.tsv    name, kingdom, n_primary, n_secondary, total
   mal_guild_edges.tsv    node1, node2, weight
 
 Run from crypt/:
-  python figure/mal_guilds.py
+  python figure/guilds/mal_guilds.py
 """
 
 import csv
@@ -22,10 +22,10 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-CRYPT_TSV       = Path("output/04_crypt/mal_crypt.tsv")
-DB_PATH         = Path("output/00_build/phibase_db.json")
-NODES_TSV       = Path("figure/mal_guild_nodes.tsv")
-EDGES_TSV       = Path("figure/mal_guild_edges.tsv")
+CRYPT_TSV       = Path("output/02_filter/data/crypt.tsv")
+DB_PATH         = Path("output/00_build/data/phibase_db.json")
+NODES_TSV       = Path("figure/guilds/mal_guild_nodes.tsv")
+EDGES_TSV       = Path("figure/guilds/mal_guild_edges.tsv")
 
 MIN_EDGE_WEIGHT = 2    # drop edges seen in fewer than this many runs
 _SKIP           = {"environmental samples"}

@@ -1,16 +1,16 @@
 #!/usr/bin/env Rscript
-# figure/mal_guilds.R — co-infection guild network (MAL mode)
-# Run from crypt/: Rscript figure/mal_guilds.R
+# figure/guilds/mal_guilds.R — co-infection guild network (MAL + HAL)
+# Run from crypt/: Rscript figure/guilds/mal_guilds.R
 
 library(igraph)
 library(ggraph)
 library(ggplot2)
 library(dplyr)
 
-NODES_TSV <- "figure/mal_guild_nodes.tsv"
-EDGES_TSV <- "figure/mal_guild_edges.tsv"
-OUT_PDF   <- "figure/mal_guild_network.pdf"
-OUT_PNG   <- "figure/mal_guild_network.png"
+NODES_TSV <- "figure/guilds/mal_guild_nodes.tsv"
+EDGES_TSV <- "figure/guilds/mal_guild_edges.tsv"
+OUT_PDF   <- "figure/guilds/mal_guild_network.pdf"
+OUT_PNG   <- "figure/guilds/mal_guild_network.png"
 
 MIN_NODE_TOTAL <- 2    # drop nodes never appearing in a kept edge
 LABEL_THRESHOLD <- 8   # label nodes with total detections >= this
@@ -84,7 +84,7 @@ p <- ggraph(layout) +
     breaks = c(5, 20, 50, 100, 200)
   ) +
   labs(
-    title    = "Cryptic co-infection guilds (MAL mode)",
+    title    = "Cryptic co-infection guilds (MAL + HAL)",
     subtitle = "Nodes = pathogens; edges = co-occurrence in confirmed runs; edge width proportional to shared-run count"
   ) +
   theme_graph(base_family = "sans") +

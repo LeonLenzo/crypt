@@ -6,6 +6,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from datetime import datetime
 from pathlib import Path
 
 
@@ -29,8 +30,32 @@ class _Tee:
         self._log.close()
 
 
-def http_get(url: str, headers: dict[str, str], retries: int = 5) -> bytes:
-    """GET with exponential backoff on 429/5xx."""
+def make_log_dir(base: Path) -> Path:
+    """Create a timestamped subdirectory under base/history/."""
+    ts      = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    log_dir = base / "history" / ts
+    log_dir.mkdir(parents=True, exist_ok=True)
+    return log_dir
+
+
+def link_latest(base: Path, target: Path) -> None:
+    """Create/update a .latest symlink at base/{name}.latest pointing to target.
+    Log files (.log) keep their extension: find.log.latest
+    Text files (.txt) drop it: find_summary.latest
+    """
+    import os
+    stem = target.stem if target.suffix == ".txt" else target.name
+    link = base / f"{stem}.latest"
+    if link.exists() or link.is_symlink():
+        link.unlink()
+    link.symlink_to(os.path.relpath(target, base))
+
+
+def http_get(url: str, headers: dict[str, str], retries: int = 5,
+             no_retry_429: bool = False) -> bytes:
+    """GET with exponential backoff on 429/5xx.
+    no_retry_429=True: raise immediately on 429 (for external APIs with own rate limiters).
+    """
     delay = 1.0
     for _ in range(retries):
         try:
@@ -38,7 +63,11 @@ def http_get(url: str, headers: dict[str, str], retries: int = 5) -> bytes:
             with urllib.request.urlopen(req, timeout=30) as r:
                 return r.read()
         except urllib.error.HTTPError as e:
-            if e.code == 429 or e.code >= 500:
+            if e.code == 429:
+                if no_retry_429:
+                    raise
+                time.sleep(delay); delay *= 2
+            elif e.code >= 500:
                 time.sleep(delay); delay *= 2
             else:
                 raise

@@ -5,15 +5,15 @@ crypt_host_tree.py
 Build NCBI taxonomy tree for plant host species confirmed in crypt MAL mode.
 Each tip = one plant species; n_confirmed = gate-passed runs that detected that host.
 
-Run as: python3 figure/crypt_host_tree.py   (from crypt/)
+Run as: python3 figure/host_tree/crypt_host_tree.py   (from crypt/)
 Must use system python3 (ete3 + sqlite3 incompatibility with miniconda).
 
 Inputs:
-  output/03_crypt/mal_crypt.tsv            host column = STAT-detected plant species
+  output/02_filter/data/crypt.tsv
 
 Outputs:
-  output/figure/crypt_host_tree.nwk        Newick cladogram (equal branch lengths)
-  output/figure/crypt_host_tree_meta.tsv   label, species, n_single, n_multi, n_confirmed, family
+  figure/host_tree/crypt_host_tree.nwk
+  figure/host_tree/crypt_host_tree_meta.tsv
 """
 
 import csv
@@ -23,9 +23,9 @@ from pathlib import Path
 
 from ete3 import NCBITaxa
 
-CRYPT_TSV           = Path("output/03_crypt/mal_crypt.tsv")
-OUT_NWK             = Path("output/figure/crypt_host_tree.nwk")
-OUT_META            = Path("output/figure/crypt_host_tree_meta.tsv")
+CRYPT_TSV           = Path("output/02_filter/data/crypt.tsv")
+OUT_NWK             = Path("figure/host_tree/crypt_host_tree.nwk")
+OUT_META            = Path("figure/host_tree/crypt_host_tree_meta.tsv")
 VIRIDIPLANTAE_TAXID = 33090
 
 FAMILY_TAXIDS: list[tuple[int, str]] = [
@@ -71,6 +71,8 @@ def main() -> None:
     host_data: dict = defaultdict(lambda: {"single": 0, "multi": 0})
     with open(CRYPT_TSV) as f:
         for row in csv.DictReader(f, delimiter="\t"):
+            if row.get("biosample_representative", "").strip() != "True":
+                continue
             host = row.get("host", "").strip()
             flag = row.get("co_infection_flag", "")
             if host and is_binomial(host):

@@ -31,7 +31,7 @@ from pathlib import Path
 
 from ete3 import NCBITaxa
 
-from _util import _Tee
+from _util import _Tee, link_latest, make_log_dir
 
 VIRIDIPLANTAE = 33090   # scope: plant hosts only
 
@@ -538,8 +538,10 @@ def main() -> None:
     args = ap.parse_args()
 
     (OUT_DIR / "data").mkdir(parents=True, exist_ok=True)
-    (OUT_DIR / "logs").mkdir(parents=True, exist_ok=True)
-    log = _Tee(OUT_DIR / "logs/build.log")
+    logs_base = OUT_DIR / "logs"
+    log_dir   = make_log_dir(logs_base)
+    log = _Tee(log_dir / "build.log")
+    link_latest(logs_base, log_dir / "build.log")
     sys.stdout = log
 
     try:
@@ -592,9 +594,11 @@ def main() -> None:
             f"Name lookup entries:       {m['n_name_entries']:>7,}\n"
             f"\n"
             f"DB:  {out_path}\n"
-            f"Log: {OUT_DIR / 'logs/build.log'}\n"
+            f"Log: {log_dir / 'build.log'}\n"
         )
-        (OUT_DIR / "logs/_summary.txt").write_text(summary)
+        summary_path = log_dir / "build_summary.txt"
+        summary_path.write_text(summary)
+        link_latest(logs_base, summary_path)
         print(f"\n{summary}")
     finally:
         log.close()

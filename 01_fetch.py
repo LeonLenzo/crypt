@@ -42,7 +42,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-from _util import _Tee, http_get, load_json, save_json
+from _util import _Tee, http_get, link_latest, load_json, make_log_dir, save_json
 
 # ── Settings ──────────────────────────────────────────────────────────────────
 
@@ -326,14 +326,16 @@ def main() -> None:
     args = ap.parse_args()
 
     (OUT_DIR / "data").mkdir(parents=True, exist_ok=True)
-    (OUT_DIR / "logs").mkdir(parents=True, exist_ok=True)
+    logs_base = OUT_DIR / "logs"
+    log_dir   = make_log_dir(logs_base)
 
     stat_jsonl = OUT_DIR / "data" / "stat_cache.jsonl"
     stat_index = OUT_DIR / "data" / "stat_cache_index.txt"
     run_path   = OUT_DIR / "data" / f"{args.mode}_runs.json"
     uid_path   = OUT_DIR / "data" / f"{args.mode}_uids.json"
 
-    log = _Tee(OUT_DIR / "logs" / f"{args.mode}.log")
+    log = _Tee(log_dir / f"{args.mode}.log")
+    link_latest(logs_base, log_dir / f"{args.mode}.log")
     sys.stdout = log
 
     try:
@@ -391,9 +393,11 @@ def main() -> None:
             f"\n"
             f"Runs: {run_path}\n"
             f"STAT: {stat_jsonl}\n"
-            f"Log:  {OUT_DIR / 'logs' / f'{args.mode}.log'}\n"
+            f"Log:  {log_dir / f'{args.mode}.log'}\n"
         )
-        (OUT_DIR / "logs" / f"{args.mode}_summary.txt").write_text(summary)
+        summary_path = log_dir / f"{args.mode}_summary.txt"
+        summary_path.write_text(summary)
+        link_latest(logs_base, summary_path)
         print(f"\n{summary}")
     finally:
         log.close()

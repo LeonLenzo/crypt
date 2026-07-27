@@ -3,7 +3,7 @@
 02_filter.py — validate thresholds, apply retention gate, and detect cryptic
 co-infections.  Produces a unified crypt.tsv combining MAL and HAL results.
 
-Replaces three separate scripts (02_stat gate pass, 03_validate, 04_crypt):
+Three sequential phases:
   Phase 1  retention gate   — filter stat_cache.jsonl to confirmed runs
   Phase 2  validate         — empirical kingdom distribution tables (default on)
   Phase 3  crypt            — detect cryptic co-infecting pathogens
@@ -13,10 +13,7 @@ Unified output (output/02_filter/data/crypt.tsv) includes a `mode` column
 independently.  Run with --mode both (default) to process and merge both;
 --mode mal or --mode hal for a single mode.
 
-Cache compatibility
-  Reads stat_cache.jsonl and {mode}_runs.json from output/01_fetch/data/ if
-  present, falling back to output/02_stat/data/ and output/01_sra/data/ for
-  backward compatibility with the legacy pipeline.
+Reads stat_cache.jsonl and {mode}_runs.json from output/01_fetch/data/.
 
 Usage:
   python 02_filter.py                     # both modes (default)
@@ -33,7 +30,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from _util import _Tee, load_json, save_json
+from _util import _Tee, link_latest, load_json, make_log_dir, save_json
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
 
@@ -42,24 +39,20 @@ OUT_DIR = Path("output/02_filter")
 
 
 def _find_stat_cache() -> Path:
-    for p in [Path("output/01_fetch/data/stat_cache.jsonl"),
-              Path("output/02_stat/data/stat_cache.jsonl"),
-              Path("output/02_stat/stat_cache.jsonl")]:
-        if p.exists():
-            return p
+    p = Path("output/01_fetch/data/stat_cache.jsonl")
+    if p.exists():
+        return p
     raise FileNotFoundError(
-        "stat_cache.jsonl not found in output/01_fetch/data/ or output/02_stat/\n"
+        "stat_cache.jsonl not found in output/01_fetch/data/\n"
         "Run: python 01_fetch.py --mode mal  (then hal)")
 
 
 def _find_runs_path(mode: str) -> Path:
-    for p in [Path(f"output/01_fetch/data/{mode}_runs.json"),
-              Path(f"output/01_sra/data/{mode}_runs.json"),
-              Path(f"output/01_sra/{mode}_runs.json")]:
-        if p.exists():
-            return p
+    p = Path(f"output/01_fetch/data/{mode}_runs.json")
+    if p.exists():
+        return p
     raise FileNotFoundError(
-        f"{mode}_runs.json not found in output/01_fetch/data/ or output/01_sra/\n"
+        f"{mode}_runs.json not found in output/01_fetch/data/\n"
         f"Run: python 01_fetch.py --mode {mode}")
 
 
@@ -371,7 +364,7 @@ def _abs_count_table(kingdom: str, species_rows: list[dict]) -> str:
 
 
 def validate_phase(mode: str, confirmed: dict,
-                   jsonl_path: Path) -> None:
+                   jsonl_path: Path, log_dir: Path) -> None:
     """
     Stream stat_cache for confirmed runs; print kingdom distribution tables
     and write {mode}_kingdom_dist.tsv + {mode}_species_dist.tsv.
@@ -482,7 +475,7 @@ def validate_phase(mode: str, confirmed: dict,
                   f"max={max(sa):,.0f}"]
 
     summary = "\n".join(lines) + "\n"
-    (OUT_DIR / "logs" / f"{mode}_validate_summary.txt").write_text(summary)
+    (log_dir / f"{mode}_validate_summary.txt").write_text(summary)
     print(summary, flush=True)
     print(f"  If thresholds need adjustment, edit KINGDOM_THRESHOLDS in "
           f"02_filter.py and re-run with --skip-validate.", flush=True)
@@ -743,7 +736,7 @@ def _mode_summary(rows: list[dict], mode: str) -> str:
 # ── Single-mode pipeline ──────────────────────────────────────────────────────
 
 def run_mode(mode: str, db: dict, jsonl_path: Path,
-             skip_validate: bool) -> tuple[list[dict], dict]:
+             skip_validate: bool, log_dir: Path) -> tuple[list[dict], dict]:
     """
     Run gate + validate + crypt for one mode.
     Returns (classified_rows, gate_stats).
@@ -785,7 +778,7 @@ def run_mode(mode: str, db: dict, jsonl_path: Path,
 
     # Phase 2: validate
     if not skip_validate:
-        validate_phase(mode, confirmed, jsonl_path)
+        validate_phase(mode, confirmed, jsonl_path, log_dir)
 
     # Phase 3: crypt
     print(f"\n── Phase 3: crypt ({mode.upper()}) ──", flush=True)
@@ -829,9 +822,11 @@ def main() -> None:
     args = ap.parse_args()
 
     (OUT_DIR / "data").mkdir(parents=True, exist_ok=True)
-    (OUT_DIR / "logs").mkdir(parents=True, exist_ok=True)
+    logs_base = OUT_DIR / "logs"
+    log_dir   = make_log_dir(logs_base)
 
-    log = _Tee(OUT_DIR / "logs" / "filter.log")
+    log = _Tee(log_dir / "filter.log")
+    link_latest(logs_base, log_dir / "filter.log")
     sys.stdout = log
 
     try:
@@ -846,7 +841,8 @@ def main() -> None:
 
         for mode in target_modes:
             rows, gs = run_mode(mode, db, jsonl_path,
-                                skip_validate=args.skip_validate)
+                                skip_validate=args.skip_validate,
+                                log_dir=log_dir)
             all_rows.extend(rows)
             gate_stats[mode] = gs
 
@@ -899,7 +895,9 @@ def main() -> None:
 
         summary_lines += [f"\nOutput: {out_path}"]
         summary = "\n".join(summary_lines) + "\n"
-        (OUT_DIR / "logs" / "filter_summary.txt").write_text(summary)
+        summary_path = log_dir / "filter_summary.txt"
+        summary_path.write_text(summary)
+        link_latest(logs_base, summary_path)
         print(f"\n{summary}")
 
     finally:

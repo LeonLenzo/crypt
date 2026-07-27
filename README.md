@@ -30,6 +30,7 @@ R (figure scripts):
 ```
 
 Set `NCBI_API_KEY` in `~/.bashrc` for 10 req/s Entrez access (2.5 req/s without).
+Set `S2_API_KEY` for Semantic Scholar access in 03_find.py (skipped without key).
 
 ## Quick start
 
@@ -46,12 +47,59 @@ python 01_fetch.py --mode hal
 python 02_filter.py               # both modes, unified output
 python 02_filter.py --skip-validate   # skip threshold tables after review
 
-# Fetch BioProject metadata and link publications (7 sources)
+# Fetch BioProject metadata and link publications
 python 03_find.py
 python 03_find.py --hc            # restrict to same_genus_secondary=False
 ```
 
-Steps 01 and 02 are resumable. Long-running STAT fetches should be run in tmux.
+Steps 01–03 are resumable via their respective caches. Long-running STAT fetches should be run in tmux.
+
+## Pipeline
+
+### `00_build.py` — reference database
+
+Builds `output/00_build/data/phibase_db.json`, the reference database used by all downstream steps. Sources PHI-base (fungi, bacteria, oomycetes, nematodes) and the ICTV Virus Metadata Resource (plant viruses), downloading both automatically if absent. Uses `ete3 NCBITaxa` to resolve names to NCBI taxids and expand each seed species to all descendant strains, subspecies, and formae speciales. The expansion uses `intermediate_nodes=True`, which is critical: many plant pathogen species (e.g. *Potato virus Y*, rust f. sp. taxa) sit as internal nodes in the NCBI taxonomy with named strains as children — without this flag they would be silently excluded.
+
+The output DB stores pathogen taxids grouped by kingdom (fungi/bacteria/oomycetes/nematodes/viruses), host taxids, and a bidirectional host–pathogen interaction map derived from PHI-base. Must be run with system `python3` due to an ete3/miniconda sqlite3 ABI incompatibility.
+
+### `01_fetch.py` — SRA run fetch + STAT taxonomy
+
+Fetches SRA run accessions and NCBI STAT k-mer taxonomy profiles for either MAL or HAL mode. No retention gate is applied here — all runs are fetched and screened regardless.
+
+**SRA fetch**: queries NCBI Entrez using `txid{taxid}[Organism:exp]` (library source organism, not the `[Host]` field, which is free text and returns nothing useful). For MAL, this means 205 PHI-base pathogen seed taxids; for HAL, 180 plant host seed taxids. `[Organism:exp]` expands to all descendant strains automatically. Run metadata (platform, BioProject, BioSample, scientific name) is fetched in parallel batches via POST to avoid HTTP 414 errors.
+
+**STAT fetch**: queries `trace.ncbi.nlm.nih.gov` for each run's pre-computed k-mer taxonomy profile. Results are written to a shared append-only cache (`stat_cache.jsonl`) so MAL and HAL share data without duplication. A `stat_cache_index.txt` file (accessions only) is read at startup for fast resume. Do not run MAL and HAL simultaneously — the cache is shared and only one writer is safe.
+
+### `02_filter.py` — gate, validate, and classify
+
+Three sequential phases operating on the STAT cache:
+
+**Phase 1 — retention gate**: keeps runs where the primary host signal confirms the sample is biologically relevant. MAL requires ≥ 1% Viridiplantae reads (confirming in planta context); HAL requires ≥ 1% of any known PHI-base pathogen or plant virus (confirming pathogen presence in a host transcriptome).
+
+**Phase 2 — validate**: generates per-kingdom read percentage distributions as TSVs and prints breakpoint tables and ASCII histograms. Used to review and adjust detection thresholds (`KINGDOM_THRESHOLDS`) before committing to Phase 3. Skip with `--skip-validate` once thresholds are set.
+
+**Phase 3 — crypt**: the core co-infection detection step. For each retained run, `specific_hits()` identifies leaf-level species detections in STAT by finding counts that are not nested under any other count (i.e., genuinely species-diagnostic signal, not genus-level aggregates). Detected species are cross-referenced against the PHI-base/ICTV DB. Each secondary pathogen is classified as `known` (interaction in PHI-base), `novel_host_range` (pathogen known but not on this host), `novel_combination` (both organisms known but interaction not recorded), or `unresolved` (taxid lookup failed). BioSamples with multiple runs are deduplicated and a `biosample_representative` flag marks the single highest-coverage run per sample.
+
+Output is a unified `crypt.tsv` with a `mode` column covering both MAL and HAL.
+
+### `03_find.py` — BioProject metadata and publication linking
+
+Fetches title, submission date, study design, and linked publications for all 1,797 BioProjects in `crypt.tsv` — including single-infection projects, which serve as the denominator for field co-infection prevalence estimates.
+
+For each BioProject, PMID search uses a short-circuit strategy: six sources are tried in order and the search stops at the first hit. The order was determined empirically by benchmarking discovery yield on unlabelled entries (BioProjects with no known PMID):
+
+| Strategy | Yield | Notes |
+|----------|-------|-------|
+| BioProject XML | 15% | Free — extracted from the title fetch XML |
+| PMC full-text | 40% | Highest yield; searches full text including methods |
+| Europe PMC | 35% | Catches preprints and supplementary-method mentions |
+| ENA XML | — | Instant; only useful for PRJEB accessions |
+| Semantic Scholar | — | Requires `S2_API_KEY`; skipped without key |
+| PubMed | — | Last resort; lowest yield |
+
+`study_design` is inferred from title, description, and abstract keywords: `coinf_experiment` (intentional mixed-infection design — exclude from novel interaction counts), `field_survey` (field-collected samples), or `unclear`.
+
+Results are cached in `meta_cache.json` (versioned; v4). Entries with no PMID are retried on each run in case new publications have appeared. The output `bioproject_meta.tsv` includes `n_coinf`, `n_single`, and `coinf_rate` per BioProject for downstream prevalence analysis.
 
 ## Output
 
@@ -72,19 +120,18 @@ Steps 01 and 02 are resumable. Long-running STAT fetches should be run in tmux.
 
 Filter to `co_infection_flag != "single"` for co-infected runs; additionally `same_genus_secondary == "False"` for high-confidence detections; `biosample_representative == "True"` for sample-level statistics.
 
-`output/03_find/data/bioproject_meta.tsv` — one row per co-infection BioProject, including `study_design` (`coinf_experiment` / `field_survey` / `unclear`) inferred from BioProject title, description, and linked publication abstracts. `coinf_experiment` projects require manual methods review before inclusion in novel interaction counts.
+`output/03_find/data/bioproject_meta.tsv` — one row per BioProject, including `study_design` (`coinf_experiment` / `field_survey` / `unclear`) inferred from BioProject title, description, and linked publication abstracts. `coinf_experiment` projects require manual methods review before inclusion in novel interaction counts.
 
-## Preliminary results (MAL complete, HAL in progress — 2026-07)
+## Results (MAL + HAL complete — 2026-07)
 
-**MAL** (48,418 runs screened):
-- 6,852 confirmed in planta (14.4%); 902 co-infected across 118 BioProjects
-- Top secondaries: *Puccinia graminis*, *Zymoseptoria tritici*, *Pepino mosaic virus*, *Alternaria alternata*, *Botrytis cinerea*
-- Interaction status: ~39% `known`, ~18% `novel_host_range`, ~27% `unresolved`
+**Combined** (607,746 runs screened):
+- 14,335 confirmed runs (11,853 BioSample-representative); 1,797 BioProjects
+- co_infection_flag (biosample_representative): single 10,078 | known co-infection 1,196 | novel_host_range 579
+- 436 BioProjects with co-infected runs; 1,361 single-infection BioProjects
 
-**HAL** (559,328 runs; STAT fetch in progress):
-- Partial screen (~2.2% gate pass rate) reveals complementary biology to MAL: legume viruses, apple and grapevine pathogens, corn and beet pathogens
+**MAL** (48,418 runs): 6,852 confirmed (14.2% gate pass); top secondaries: *Puccinia graminis*, *Zymoseptoria tritici*, *Pepino mosaic virus*, *Botrytis cinerea*
 
-**BioProject metadata**: 64 / 118 MAL BioProjects linked to publications via 7-source PMID search; remaining ~46% are likely pre-publication or data-only submissions.
+**HAL** (559,328 runs): ~7,483 confirmed (~1.3% gate pass); complementary biology — legume viruses, apple and grapevine pathogens, corn and beet pathogens
 
 ## Interpreting `same_genus_secondary`
 

@@ -1,15 +1,15 @@
 #!/usr/bin/env Rscript
 # crypt_host_tree.R — plant host tree for MAL confirmed co-infection runs
-# Run from crypt/ : Rscript figure/crypt_host_tree.R
+# Run from crypt/ : Rscript figure/host_tree/crypt_host_tree.R
 
 suppressPackageStartupMessages({
   library(ggtree); library(ape); library(ggplot2); library(dplyr); library(tibble)
   library(cowplot)
 })
 
-NWK      <- "output/figure/crypt_host_tree.nwk"
-META     <- "output/figure/crypt_host_tree_meta.tsv"
-OUT      <- "output/figure/crypt_host_tree"
+NWK      <- "figure/host_tree/crypt_host_tree.nwk"
+META     <- "figure/host_tree/crypt_host_tree_meta.tsv"
+OUT      <- "figure/host_tree/crypt_host_tree"
 MIN_RUNS <- 1      # minimum confirmed runs to include a tip
 BAR_UNIT  <- 7     # x-units per log10 run unit
 BAR_LW    <- 2.5   # linewidth for each bar (mm)
@@ -113,7 +113,7 @@ p_rot <- p_rot +
   geom_segment(
     data      = fam_ranges,
     aes(x = BAND_X, xend = BAND_X, y = y_min, yend = y_max),
-    color = COL_SINGLE, linewidth = 5, na.rm = TRUE
+    color = "#4e4d4d", linewidth = 5, na.rm = TRUE
   ) +
   geom_text(
     data  = fam_ranges,
@@ -137,17 +137,13 @@ p_rot <- p_rot +
     plot.margin     = margin(20, 5, 20, 20)
   ) +
   labs(
-    title    = "Cryptic Co-infection Candidates by Plant Host",
-    subtitle = paste0(n_tips, " host species  ·  ",
-                      formatC(total_confirmed, format = "d", big.mark = ","),
-                      " confirmed runs (MAL, Viridiplantae ≥1% gate)",
-                      "  ·  orange = co-infection  ·  green = single pathogen",
-                      "  ·  bar length = log₁₀(confirmed runs per species)")
+    title    = "Co-infection Candidates by Plant Host",
+    
   )
 
 # ── Family legend ─────────────────────────────────────────────────────────────
 n_fam   <- nrow(fam_ranges)
-ROW_SEP <- 0.026
+ROW_SEP <- 0.05
 
 leg_dat <- fam_ranges %>%
   select(fam_lbl, family) %>%
@@ -170,11 +166,11 @@ leg_bot <- (1 - leg_h) / 2
 # ── Combine and save ──────────────────────────────────────────────────────────
 combined <- ggdraw() +
   theme(plot.background = element_rect(fill = "white", color = NA)) +
-  draw_plot(p_rot, x = 0,    y = 0,       width = 0.76, height = 1) +
-  draw_plot(p_leg, x = 0.76, y = leg_bot, width = 0.23, height = leg_h)
+  draw_plot(p_rot, x = 0,    y = 0,       width = 0.72, height = 1) +
+  draw_plot(p_leg, x = 0.65, y = leg_bot, width = 0.27, height = leg_h)
 
-ggsave(paste0(OUT, ".pdf"), combined, width = 26, height = 20,
+ggsave(paste0(OUT, ".pdf"), combined, width = 24, height = 12,
        bg = "white", device = cairo_pdf)
-ggsave(paste0(OUT, ".png"), combined, width = 26, height = 20,
+ggsave(paste0(OUT, ".png"), combined, width = 24, height = 12,
        bg = "white", dpi = 200)
 cat("Written:", paste0(OUT, ".pdf/.png\n"))

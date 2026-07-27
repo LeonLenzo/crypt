@@ -1,37 +1,33 @@
 #!/usr/bin/env python3
 """
-03_find.py — fetch BioProject metadata for co-infection BioProjects.
+03_find.py — fetch BioProject metadata for all BioProjects in crypt.tsv.
 
-Reads the unified co-infection TSV produced by 02_filter.py (crypt.tsv) and
-fetches BioProject titles, descriptions, and linked PubMed articles via Entrez.
+Fetches titles, submission dates, study design, and linked PubMed articles for
+all 1,797 BioProjects (single + co-infected) to enable field prevalence analysis.
+Use --hc to restrict co-infection counts to same_genus_secondary=False runs.
 
-By default targets all co-infected runs (co_infection_flag != 'single').
-Use --hc to restrict to high-confidence runs (same_genus_secondary == 'False').
+PMIDs are sourced via six strategies (short-circuit, stop at first hit):
+  1. BioProject XML <Publication> elements — free, extracted from title fetch
+  2. PMC full-text search (40% yield)
+  3. Europe PMC (35% yield; catches preprints + supplementary-method mentions)
+  4. ENA XML API for PRJEB accessions — submitter-supplied PUBMED_ID
+  5. Semantic Scholar (S2_API_KEY required; skipped without key)
+  6. PubMed text search (last resort)
 
-PMIDs are collected from seven sources and the earliest publication is
-identified as the likely depositing paper:
-  1. BioProject XML <Publication> elements — submitter-supplied, zero extra API calls
-  2. elink bioproject→pubmed (NCBI directly linked articles)
-  3. PMC full-text search for the BioProject accession string
-  4. PubMed text search for the BioProject accession string
-  (sources 5–7 only run when 1–4 find nothing)
-  5. Europe PMC full-text search — catches preprints and supplementary-method mentions
-  6. ENA XML API for PRJEB accessions — submitter-supplied PUBMED_ID fields
-  7. OpenAlex full-text search — 250M+ works, different indexing from NCBI/EBI
-
-Output (output/03_meta/):
-  data/bioproject_meta.tsv   one row per BioProject, sorted by run count
-  data/meta_cache.json       Entrez response cache (enables resumability)
-  logs/meta.log
-  logs/meta_summary.txt
+Output (output/03_find/):
+  data/bioproject_meta.tsv   one row per BioProject
+  data/find_cache.json       Entrez + EBI + S2 cache (v4; resumable)
+  logs/find.log
+  logs/find_summary.txt
 
 Usage:
-  python 03_meta.py
-  python 03_meta.py --hc   # restrict to same_genus_secondary=False
+  python 03_find.py
+  python 03_find.py --hc
 """
 
 import argparse
 import csv
+from datetime import datetime
 import json
 import os
 import sys
@@ -41,7 +37,7 @@ import xml.etree.ElementTree as ET
 from collections import defaultdict
 from pathlib import Path
 
-from _util import _Tee, http_get, load_json, save_json
+from _util import _Tee, http_get, link_latest, load_json, make_log_dir, save_json
 
 # ── Settings ──────────────────────────────────────────────────────────────────
 
@@ -50,19 +46,20 @@ OUT_DIR   = Path("output/03_find")
 
 CACHE_VERSION = 4
 
-API_KEY = os.environ.get("NCBI_API_KEY", "")
-RATE    = 9.0 if API_KEY else 2.5
-HEADERS = {"User-Agent": "crypt/03_meta (leon.lenzo@curtin.edu.au)"}
-ENTREZ  = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+API_KEY    = os.environ.get("NCBI_API_KEY", "")
+S2_API_KEY = os.environ.get("S2_API_KEY", "")
+RATE       = 9.0 if API_KEY else 2.5
+HEADERS    = {"User-Agent": "crypt/03_meta (leon.lenzo@curtin.edu.au)"}
+ENTREZ     = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 
 EPMC        = "https://www.ebi.ac.uk/europepmc/webservices/rest"
 ENA         = "https://www.ebi.ac.uk/ena/browser/api"
-OPENALEX    = "https://api.openalex.org"
 EXT_HEADERS = {"User-Agent": "crypt/03_find (leon.lenzo@curtin.edu.au)"}
 
 OUTPUT_FIELDS = [
-    "BioProject", "modes", "n_runs", "study_design", "title",
-    "primary_pmid", "primary_pub_date", "primary_publication",
+    "BioProject", "modes", "n_runs", "n_coinf", "n_single", "coinf_rate",
+    "bp_submission_date", "study_design", "pmid_source", "title",
+    "primary_pmid", "primary_pub_date", "primary_publication", "abstract",
     "n_papers_found", "primaries", "secondaries",
 ]
 
@@ -116,11 +113,24 @@ _last_ext: float = 0.0
 
 def _ext_wait() -> None:
     global _last_ext
-    gap  = 0.5   # 2 req/s — respectful of EBI servers
+    gap  = 0.5   # 2 req/s for EBI (EuropePMC, ENA)
     wait = _last_ext + gap - time.monotonic()
     if wait > 0:
         time.sleep(wait)
     _last_ext = time.monotonic()
+
+
+_last_s2: float = 0.0
+
+
+def _s2_wait() -> None:
+    global _last_s2
+    # 10 req/s with key, 1 req/s without — stay comfortably under both
+    gap  = 1.1  # S2 rate limit: 1 req/s with or without key
+    wait = _last_s2 + gap - time.monotonic()
+    if wait > 0:
+        time.sleep(wait)
+    _last_s2 = time.monotonic()
 
 
 def _europepmc_search(accession: str) -> list[str]:
@@ -131,7 +141,7 @@ def _europepmc_search(accession: str) -> list[str]:
              f"&fields=pmid,title,firstPublicationDate,source,abstractText")
     _ext_wait()
     try:
-        raw  = http_get(url, EXT_HEADERS)
+        raw  = http_get(url, EXT_HEADERS, no_retry_429=True)
         data = json.loads(raw)
     except Exception:
         return []
@@ -150,7 +160,7 @@ def _ena_pmids(accession: str) -> list[str]:
     url = f"{ENA}/xml/{accession}"
     _ext_wait()
     try:
-        raw  = http_get(url, EXT_HEADERS)
+        raw  = http_get(url, EXT_HEADERS, no_retry_429=True)
         root = ET.fromstring(raw)
     except Exception:
         return []
@@ -168,27 +178,34 @@ def _ena_pmids(accession: str) -> list[str]:
     return list(pmids)
 
 
-def _openalex_search(accession: str) -> list[str]:
-    """OpenAlex full-text search for accession string; returns PMIDs found."""
+def _semantic_scholar_search(accession: str) -> list[str]:
+    """Semantic Scholar full-text search for accession string; returns PMIDs found."""
+    if not S2_API_KEY:
+        return []
     params = urllib.parse.urlencode({
-        "filter": f'fulltext.search:"{accession}"',
-        "per-page": 5,
-        "mailto": "leon.lenzo@curtin.edu.au",
-        "select": "ids",
+        "query":  accession,
+        "fields": "externalIds",
+        "limit":  5,
     })
-    _ext_wait()
+    headers = {
+        "User-Agent": "crypt/03_find (leon.lenzo@curtin.edu.au)",
+        "x-api-key":  S2_API_KEY,
+    }
+    _s2_wait()
     try:
-        raw  = http_get(f"{OPENALEX}/works?{params}", EXT_HEADERS)
+        raw  = http_get(
+            f"https://api.semanticscholar.org/graph/v1/paper/search?{params}",
+            headers,
+            no_retry_429=True,
+        )
         data = json.loads(raw)
     except Exception:
         return []
     pmids = []
-    for work in data.get("results", []):
-        pmid_url = (work.get("ids") or {}).get("pmid", "")
-        if pmid_url:
-            pmid = pmid_url.rstrip("/").split("/")[-1]
-            if pmid.isdigit():
-                pmids.append(pmid)
+    for paper in data.get("data", []):
+        pmid = str((paper.get("externalIds") or {}).get("PubMed", "")).strip()
+        if pmid.isdigit():
+            pmids.append(pmid)
     return pmids
 
 
@@ -265,39 +282,40 @@ def _pubmed_search(accession: str) -> list[str]:
     return [el.text for el in root.findall(".//Id") if el.text]
 
 
+# Strategies in order of expected hit rate.
+# Each entry: (label, callable(accession, uid) → list[str])
+# uid may be None only for strategies that don't need it.
+_STRATEGIES = [
+    ("BioProject XML",    lambda acc, uid, xml_pmids: list(xml_pmids)),
+    ("PMC full-text",     lambda acc, uid, _: _pmcids_to_pmids(_pmc_search(acc))),
+    ("Europe PMC",        lambda acc, uid, _: _europepmc_search(acc)),
+    ("ENA XML",           lambda acc, uid, _: _ena_pmids(acc)),
+    ("Semantic Scholar",  lambda acc, uid, _: _semantic_scholar_search(acc)),
+    ("PubMed",            lambda acc, uid, _: _pubmed_search(acc)),
+]
+
+
 def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
     """
     Fetch title, description, and earliest publication for a BioProject.
+    Tries strategies in order; stops on the first that returns a PMID.
     Mutates cache in place; caller persists it.
     """
     if accession in cache and cache[accession].get("_v") == CACHE_VERSION:
-        # Re-try external sources for entries that previously found nothing
-        if cache[accession].get("n_papers_found", 0) == 0:
-            cached = cache[accession]
-            extra: set[str] = set()
-            try:
-                extra.update(_europepmc_search(accession))
-            except Exception:
-                pass
-            try:
-                extra.update(_ena_pmids(accession))
-            except Exception:
-                pass
-            try:
-                extra.update(_openalex_search(accession))
-            except Exception:
-                pass
-            if not extra:
-                return cached
-            # Found something new — fall through to full fetch to get pub metadata
-        else:
-            return cache[accession]
+        if cache[accession].get("n_papers_found", 0) > 0:
+            result = dict(cache[accession])
+            result.setdefault("pmid_source", "cached")
+            return result
+        # Found nothing previously — re-try with current strategy order
 
     result: dict = {
         "title": "", "description": "",
+        "bp_submission_date": "",
         "primary_pmid": "", "primary_pub_date": "",
-        "primary_publication": "", "n_papers_found": 0,
-        "primary_pub_text": "", "_v": CACHE_VERSION,
+        "primary_publication": "", "abstract": "",
+        "n_papers_found": 0,
+        "primary_pub_text": "", "pmid_source": "none",
+        "_v": CACHE_VERSION,
     }
 
     try:
@@ -309,13 +327,16 @@ def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
         print(f"WARNING: esearch failed for {accession}: {e}", flush=True)
         return result
 
+    # Always fetch BioProject XML for title + description
     bp_xml_pmids: set[str] = set()
     try:
         raw  = _get("efetch.fcgi", db="bioproject", id=uid)
         root = ET.fromstring(raw)
         result["title"]       = _xtext(root, ".//ProjectDescr/Title")
         result["description"] = _xtext(root, ".//ProjectDescr/Description")
-        # BioProject XML sometimes carries submitter-supplied PMIDs directly
+        sub_el = root.find(".//Submission[@submitted]")
+        if sub_el is not None:
+            result["bp_submission_date"] = sub_el.get("submitted", "")
         for pub in root.findall(".//Publication"):
             pid = (pub.get("id") or "").strip()
             if pid.isdigit():
@@ -323,46 +344,22 @@ def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
     except Exception as e:
         print(f"WARNING: efetch failed for {accession}: {e}", flush=True)
 
-    all_pmids: set[str] = set(bp_xml_pmids)
-
-    try:
-        raw  = _get("elink.fcgi", dbfrom="bioproject", db="pubmed", id=uid)
-        root = ET.fromstring(raw)
-        all_pmids.update(
-            el.text for el in root.findall(".//LinkSetDb/Link/Id") if el.text)
-    except Exception as e:
-        print(f"WARNING: elink failed for {accession}: {e}", flush=True)
-
-    try:
-        pmcids = _pmc_search(accession)
-        all_pmids.update(_pmcids_to_pmids(pmcids))
-    except Exception as e:
-        print(f"WARNING: PMC search failed for {accession}: {e}", flush=True)
-
-    try:
-        all_pmids.update(_pubmed_search(accession))
-    except Exception as e:
-        print(f"WARNING: PubMed search failed for {accession}: {e}", flush=True)
-
-    # External sources (5–7) only run when NCBI+BioProjectXML (1–4) found nothing —
-    # avoids redundant external calls on re-runs where PMIDs were already found.
-    if not all_pmids:
+    # Try each strategy in order; stop at first hit
+    all_pmids: list[str] = []
+    pmid_source = "none"
+    for name, fn in _STRATEGIES:
         try:
-            all_pmids.update(_europepmc_search(accession))
+            pmids = fn(accession, uid, bp_xml_pmids)
         except Exception as e:
-            print(f"WARNING: Europe PMC search failed for {accession}: {e}", flush=True)
-
-        try:
-            all_pmids.update(_ena_pmids(accession))
-        except Exception as e:
-            print(f"WARNING: ENA XML fetch failed for {accession}: {e}", flush=True)
-
-        try:
-            all_pmids.update(_openalex_search(accession))
-        except Exception as e:
-            print(f"WARNING: OpenAlex search failed for {accession}: {e}", flush=True)
+            print(f"WARNING: {name} failed for {accession}: {e}", flush=True)
+            continue
+        if pmids:
+            all_pmids   = pmids
+            pmid_source = name
+            break
 
     result["n_papers_found"] = len(all_pmids)
+    result["pmid_source"]    = pmid_source
 
     if all_pmids:
         try:
@@ -388,6 +385,7 @@ def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
                 result["primary_pmid"]        = primary_pid
                 result["primary_pub_date"]    = pri["date"]
                 result["primary_publication"] = f"[{primary_pid}] {pri['title']}"
+                result["abstract"]            = pri["abstract"]
                 result["primary_pub_text"]    = f"{pri['title']} {pri['abstract']}"
         except Exception as e:
             print(f"WARNING: pubmed efetch failed for {accession}: {e}", flush=True)
@@ -407,10 +405,12 @@ def main() -> None:
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     (OUT_DIR / "data").mkdir(parents=True, exist_ok=True)
-    (OUT_DIR / "logs").mkdir(parents=True, exist_ok=True)
-    sys.stdout = _Tee(OUT_DIR / "logs" / "meta.log")
+    logs_base = OUT_DIR / "logs"
+    log_dir   = make_log_dir(logs_base)
+    sys.stdout = _Tee(log_dir / "find.log")
+    link_latest(logs_base, log_dir / "find.log")
 
-    cache_path = OUT_DIR / "data" / "meta_cache.json"
+    cache_path = OUT_DIR / "data" / "find_cache.json"
     out_tsv    = OUT_DIR / "data" / "bioproject_meta.tsv"
 
     print(f"NCBI_API_KEY set: {'yes' if API_KEY else 'no'}", flush=True)
@@ -423,36 +423,45 @@ def main() -> None:
     print(f"Loaded {len(rows):,} runs from {CRYPT_TSV}", flush=True)
 
     if args.hc:
-        target = [
+        coinf_rows = [
             r for r in rows
             if r.get("co_infection_flag") != "single"
             and r.get("same_genus_secondary") == "False"
         ]
         label = "high-confidence (same_genus_secondary=False)"
     else:
-        target = [r for r in rows if r.get("co_infection_flag") != "single"]
-        label  = "all co-infected"
+        coinf_rows = [r for r in rows if r.get("co_infection_flag") != "single"]
+        label      = "all co-infected"
 
-    print(f"Filter: {label} → {len(target):,} runs", flush=True)
+    print(f"Co-infection filter: {label} → {len(coinf_rows):,} runs", flush=True)
 
-    # Aggregate per BioProject
+    # Aggregate ALL runs per BioProject (single + co-infected)
     bp_agg: dict[str, dict] = defaultdict(
-        lambda: {"n_runs": 0, "modes": set(), "primaries": set(), "secondaries": set()}
+        lambda: {"n_coinf": 0, "n_single": 0,
+                 "modes": set(), "primaries": set(), "secondaries": set()}
     )
-    for r in target:
+    for r in rows:
         bp = r.get("BioProject", "").strip()
         if not bp or bp in ("", "NA"):
             continue
-        bp_agg[bp]["n_runs"]  += 1
-        bp_agg[bp]["modes"].add(r.get("mode", ""))
-        if r.get("primary_pathogen"):
-            bp_agg[bp]["primaries"].add(r["primary_pathogen"].strip())
-        for sp in r.get("secondary_pathogens", "").split(";"):
-            sp = sp.strip()
-            if sp:
-                bp_agg[bp]["secondaries"].add(sp)
+        is_coinf = r.get("co_infection_flag") != "single"
+        # Only count runs that pass the hc filter as coinf when --hc is set
+        if args.hc:
+            is_coinf = is_coinf and r.get("same_genus_secondary") == "False"
+        if is_coinf:
+            bp_agg[bp]["n_coinf"] += 1
+            bp_agg[bp]["modes"].add(r.get("mode", ""))
+            if r.get("primary_pathogen"):
+                bp_agg[bp]["primaries"].add(r["primary_pathogen"].strip())
+            for sp in r.get("secondary_pathogens", "").split(";"):
+                sp = sp.strip()
+                if sp:
+                    bp_agg[bp]["secondaries"].add(sp)
+        else:
+            bp_agg[bp]["n_single"] += 1
 
-    bioprojects = sorted(bp_agg, key=lambda b: bp_agg[b]["n_runs"], reverse=True)
+    bioprojects = sorted(bp_agg,
+                         key=lambda b: bp_agg[b]["n_coinf"], reverse=True)
     print(f"BioProjects to fetch: {len(bioprojects)}", flush=True)
 
     cache    = load_json(cache_path)
@@ -462,44 +471,51 @@ def main() -> None:
 
     results = []
     for i, bp in enumerate(bioprojects, 1):
-        cached = bp in cache and cache[bp].get("_v") == CACHE_VERSION
-        tag    = " (cached)" if cached else ""
-        print(f"  [{i:>3}/{len(bioprojects)}] {bp} "
-              f"({bp_agg[bp]['n_runs']} runs){tag}", end=" ... ", flush=True)
+        n_coinf  = bp_agg[bp]["n_coinf"]
+        n_single = bp_agg[bp]["n_single"]
+        n_total  = n_coinf + n_single
+        ts       = datetime.now().strftime("%H:%M:%S")
+        print(f"[{ts}] [{i:>4}/{len(bioprojects)}] {bp} — "
+              f"{n_total} runs, {n_single} infected, {n_coinf} co-infected",
+              end=" · ", flush=True)
 
         try:
-            meta   = fetch_bioproject_meta(bp, cache)
-            status = "ok"
+            meta = fetch_bioproject_meta(bp, cache)
         except Exception as e:
             print(f"ERROR: {e}", flush=True)
-            meta   = {"title": "", "primary_pmid": "", "primary_pub_date": "",
-                      "primary_publication": "", "n_papers_found": 0,
-                      "primary_pub_text": ""}
-            status = "error"
+            meta = {"title": "", "primary_pmid": "", "primary_pub_date": "",
+                    "primary_publication": "", "n_papers_found": 0,
+                    "primary_pub_text": "", "pmid_source": "error"}
 
+        src      = meta.get("pmid_source", "none")
+        cached   = src == "cached"
         modes_str = "+".join(sorted(bp_agg[bp]["modes"] - {""}))
 
         results.append({
             "BioProject":          bp,
             "modes":               modes_str,
-            "n_runs":              bp_agg[bp]["n_runs"],
+            "n_runs":              n_total,
+            "n_coinf":             n_coinf,
+            "n_single":            n_single,
+            "coinf_rate":          round(n_coinf / n_total, 4) if n_total else "",
+            "bp_submission_date":  meta.get("bp_submission_date", ""),
             "study_design":        _study_design(meta["title"],
                                                  meta.get("description", ""),
                                                  meta.get("primary_pub_text", "")),
+            "pmid_source":         src,
             "title":               meta["title"],
             "primary_pmid":        meta.get("primary_pmid", ""),
             "primary_pub_date":    meta.get("primary_pub_date", ""),
             "primary_publication": meta.get("primary_publication", ""),
+            "abstract":            meta.get("abstract", ""),
             "n_papers_found":      meta.get("n_papers_found", 0),
             "primaries":           "; ".join(sorted(bp_agg[bp]["primaries"])),
             "secondaries":         "; ".join(sorted(bp_agg[bp]["secondaries"])),
         })
 
+        print(f"source: {src}", flush=True)
         if not cached:
-            print(status, flush=True)
             save_json(cache, cache_path)
-        else:
-            print(status, flush=True)
 
     with open(out_tsv, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=OUTPUT_FIELDS, delimiter="\t",
@@ -510,27 +526,40 @@ def main() -> None:
     n_with_pmids = sum(1 for r in results if r["primary_pmid"])
     n_with_title = sum(1 for r in results if r["title"])
     design_counts: dict[str, int] = {}
+    source_counts: dict[str, int] = {}
     for r in results:
         design_counts[r["study_design"]] = design_counts.get(r["study_design"], 0) + 1
+        source_counts[r["pmid_source"]]  = source_counts.get(r["pmid_source"],  0) + 1
 
     n_both_modes = sum(1 for r in results if "+" in r["modes"])
 
+    n_coinf_bp  = sum(1 for r in results if r["n_coinf"] > 0)
+    n_single_bp = sum(1 for r in results if r["n_coinf"] == 0)
+    source_lines = "\n".join(
+        f"  {src:<20} {cnt}"
+        for src, cnt in sorted(source_counts.items(), key=lambda x: -x[1])
+    )
     summary = (
-        f"03_meta summary\n"
-        f"Filter:              {label}\n"
-        f"BioProjects:         {len(results)}\n"
+        f"03_find summary\n"
+        f"Co-infection filter: {label}\n"
+        f"BioProjects total:   {len(results)}\n"
+        f"  with co-infection: {n_coinf_bp}\n"
+        f"  single only:       {n_single_bp}\n"
         f"  from MAL only:     {sum(1 for r in results if r['modes'] == 'mal')}\n"
         f"  from HAL only:     {sum(1 for r in results if r['modes'] == 'hal')}\n"
         f"  from both modes:   {n_both_modes}\n"
         f"With title:          {n_with_title}\n"
         f"With PMIDs:          {n_with_pmids}\n"
+        f"PMID source breakdown:\n{source_lines}\n"
         f"Study design (auto):\n"
         f"  coinf_experiment:  {design_counts.get('coinf_experiment', 0)}\n"
         f"  field_survey:      {design_counts.get('field_survey', 0)}\n"
         f"  unclear:           {design_counts.get('unclear', 0)}\n"
         f"  (coinf_experiment → manually verify then exclude from novel count)\n"
     )
-    (OUT_DIR / "logs" / "meta_summary.txt").write_text(summary)
+    summary_path = log_dir / "find_summary.txt"
+    summary_path.write_text(summary)
+    link_latest(logs_base, summary_path)
     print(f"\n{summary}")
     print(f"Written: {out_tsv}")
 

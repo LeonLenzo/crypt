@@ -13,14 +13,15 @@ output/02_filter/data/*_confirmed.json
 output/02_filter/data/*_species_dist.tsv
 
 # BioProject Entrez cache — regeneratable by 03_find.py
-output/03_find/data/meta_cache.json
+output/03_find/data/find_cache.json
+
+# Timestamped log history dirs + .latest symlinks — auto-generated, local
+output/*/logs/history/
+output/*/logs/*.latest
 
 # Reference DB source files — auto-downloaded by 00_build.py
 output/00_build/data/phi-base_current.csv
 output/00_build/data/ictv_vmr.xlsx
-
-# 02_stat symlink stub — transitional, removed after HAL fetch completes
-output/02_stat/
 
 # Legacy pipeline outputs
 output/legacy/

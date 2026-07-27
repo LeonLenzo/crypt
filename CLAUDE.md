@@ -33,7 +33,7 @@ All scripts are **fully standalone** — no shared package imports, stdlib + jso
 (except ete3 and openpyxl in 00_build.py which requires system python3).
 Shared utilities (http_get, load_json, save_json, _Tee) live in `_util.py`.
 
-Legacy scripts (01_sra.py → 05_meta.py) are preserved in `legacy/` for reference.
+Legacy scripts (01_sra.py → 05_meta.py) are preserved in `scripts/legacy/` for reference.
 The canonical pipeline is the four scripts below.
 
 ```
@@ -57,7 +57,7 @@ _util.py      Shared utilities: _Tee (stdout+file tee), http_get, load_json, sav
               Separate rate locks: _ri_lock (SRA) + _stat_lock (STAT).
               CACHE_MIN_PCT=0.1 filter applied at STAT write time.
               Output: output/01_fetch/data/{mode}_runs.json + stat_cache.jsonl
-              Falls back to output/02_stat/ cache if output/01_fetch/ absent.
+
 
 02_filter.py  Three phases in one script — gate → validate → crypt.
                 Phase 1: retention gate
@@ -72,31 +72,40 @@ _util.py      Shared utilities: _Tee (stdout+file tee), http_get, load_json, sav
                   _interaction_status(): known / novel_host_range / novel_combination / unresolved
                   _annotate_biosamples(): biosample_n_runs + biosample_representative columns.
               --mode {mal|hal|both}  (default: both)
-              Stat cache fallback: output/01_fetch/ → output/02_stat/data/ → output/02_stat/
-              Runs fallback: output/01_fetch/ → output/01_sra/data/ → output/01_sra/
+              Reads stat_cache.jsonl and {mode}_runs.json from output/01_fetch/data/.
               KINGDOM_THRESHOLDS in this file — edit then --skip-validate to re-run crypt.
               Unified output: output/02_filter/data/crypt.tsv with `mode` column.
               BioSample dedup applied across both modes in the combined output.
 
-03_find.py    Fetch BioProject metadata for co-infection BioProjects.
-              Reads output/02_filter/data/crypt.tsv (no --mode flag).
-              Adds `modes` column (mal / hal / mal+hal) so cross-mode BioProjects visible.
-              PMIDs collected from seven sources; earliest pub = depositing paper:
-                1. BioProject XML <Publication> elements (submitter-supplied, zero
-                   extra API calls — parsed from the efetch already made)
-                2. elink bioproject→pubmed
-                3. PMC full-text search for accession string
-                4. PubMed text search for accession string
-                (sources 5–7 only run when 1–4 find nothing)
-                5. Europe PMC full-text search (preprints, supplementary-method mentions)
-                6. ENA XML API for PRJEB accessions (submitter-supplied PUBMED_ID)
-                7. OpenAlex full-text search (250M+ works, different indexing from NCBI/EBI)
-              Cache logic: entries with PMIDs → cache hit (no re-fetch); entries without
-              PMIDs → retry sources 4+5 on each run; still nothing → return cached blank.
-              study_design: coinf_experiment / field_survey / unclear (keyword scan of
-              title + description + abstract). coinf_experiment → manual review required.
-              --hc flag restricts to same_genus_secondary=False.
+03_find.py    Fetch BioProject metadata for ALL BioProjects in crypt.tsv.
+              Processes all 1,797 BioProjects (not just co-infected) to enable
+              field prevalence analysis: n_coinf / n_total per BioProject.
+              Adds `modes` column (mal / hal / mal+hal) for cross-mode BioProjects.
+              Short-circuit strategy: tries sources in order, stops at first PMID hit.
+              6 PMID strategies (ordered by empirical discovery yield):
+                1. BioProject XML <Publication> (free — side effect of title fetch; 15%)
+                2. PMC full-text search (highest yield; 40%)
+                3. Europe PMC (preprints, supplementary-method mentions; 35%)
+                4. ENA XML API for PRJEB accessions (submitter-supplied PUBMED_ID; instant)
+                5. Semantic Scholar (S2_API_KEY required; skipped without key)
+                6. PubMed text search (abstract-level; last resort)
+              NOTE: OpenAlex dropped (credit-based model); elink dropped (10-30s per call,
+              0% yield on unlabelled entries in benchmark).
+              Cache logic: v4-matched entries with PMIDs → instant cache hit.
+              Entries with no PMID → re-try strategies each run (may find on new run).
+              study_design: coinf_experiment / field_survey / unclear (keyword scan).
+              --hc flag restricts co-infection counts to same_genus_secondary=False.
               Output: output/03_find/data/bioproject_meta.tsv
+              Cache: output/03_find/data/find_cache.json (v4; resumable)
+              New output columns vs original: n_coinf, n_single, coinf_rate,
+                bp_submission_date, abstract, pmid_source.
+
+scripts/benchmark_strategies.py
+              Diagnostic: tests each 03_find.py PMID strategy independently on a
+              random sample of unlabelled BioProjects (no primary_pmid in cache).
+              Measures discovery yield (% returning any PMID) + avg time per strategy.
+              Run from crypt/: python scripts/benchmark_strategies.py [--n N] [--seed N]
+              Strategy order in 03_find.py was set by benchmark results (2026-07-27).
 ```
 
 ### Running the pipeline
@@ -266,16 +275,22 @@ Analysis of MAL data showed:
 secondary). These account for ~31% of co-infected runs. The same-genus set (~69%) may also
 contain real co-infections but requires more careful biological interpretation.
 
-## Entrez credentials
-- API key: `NCBI_API_KEY` env var (set in `~/.bashrc`) → 10 req/s (9 used for Entrez)
-- Without key: 2.5 req/s
-- STAT endpoint rate: empirically ~2–10 req/s (variable); RATE=15 + 32 workers configured
+## Entrez / external API credentials
+- `NCBI_API_KEY` env var → 10 req/s (9 used for Entrez); without: 2.5 req/s
+- `S2_API_KEY` env var → Semantic Scholar 10 req/s; without: 1 req/s
+  Apply free at semanticscholar.org/product/api (Academic Graph API)
+- STAT endpoint rate: empirically ~2–10 req/s; RATE=15 + 32 workers configured
+- EBI (EuropePMC, ENA): shared 2 req/s rate limiter (_ext_wait, gap=0.5s)
+- http_get accepts no_retry_429=True — fail fast on 429 for external APIs
 - User-Agent: `crypt/01_fetch (leon.lenzo@curtin.edu.au)` etc.
 
 ## Output / cache layout
 
 Each step directory has `data/` (outputs, caches) and `logs/` subdirectories.
 Scripts create them automatically on first run.
+**Logs are timestamped**: each run creates `logs/YYYY-MM-DD_HH-MM-SS/` subdir.
+A `logs/latest` symlink always points to the most recent run.
+Implemented via `_util.make_log_dir(OUT_DIR / "logs")` in all pipeline scripts.
 
 ```
 output/
@@ -296,14 +311,11 @@ output/
 │   │   │                          format: accession<TAB>json_data per line
 │   │   └── stat_cache_index.txt   accessions only — read at startup to resume
 │   └── logs/
-│       ├── {mode}.log
-│       └── {mode}_summary.txt
-│
-├── 02_stat/                       stub — 3 symlinks into 01_fetch/ for HAL process
-│   ├── stat_cache.jsonl        -> ../01_fetch/data/stat_cache.jsonl
-│   ├── stat_cache_index.txt    -> ../01_fetch/data/stat_cache_index.txt
-│   └── hal.log                 -> ../01_fetch/logs/hal.log
-│   (remove after HAL finishes)
+│       ├── history/YYYY-MM-DD_HH-MM-SS/  timestamped run dirs
+│       │   ├── {mode}.log
+│       │   └── {mode}_summary.txt
+│       ├── {mode}.log.latest   (symlink → history/.../mode.log)
+│       └── {mode}_summary.latest  (symlink → history/.../mode_summary.txt)
 │
 ├── 02_filter/
 │   ├── data/
@@ -312,64 +324,61 @@ output/
 │   │   ├── {mode}_kingdom_dist.tsv per-run kingdom pcts (R-ready)
 │   │   └── {mode}_species_dist.tsv per-detection species pcts (R-ready)
 │   └── logs/
-│       ├── filter.log
-│       ├── filter_summary.txt
-│       └── {mode}_validate_summary.txt
+│       ├── history/YYYY-MM-DD_HH-MM-SS/
+│       │   ├── filter.log
+│       │   ├── filter_summary.txt
+│       │   └── {mode}_validate_summary.txt
+│       ├── filter.log.latest
+│       └── filter_summary.latest
 │
 ├── 03_find/
 │   ├── data/
-│   │   ├── bioproject_meta.tsv    one row per BioProject; modes col = mal/hal/mal+hal
-│   │   └── meta_cache.json        Entrez+EBI cache (v4; resumable)
+│   │   ├── bioproject_meta.tsv    one row per BioProject (ALL 1,797, not just co-infected)
+│   │   │                          cols: BioProject, modes, n_runs, n_coinf, n_single,
+│   │   │                                coinf_rate, bp_submission_date, study_design,
+│   │   │                                pmid_source, title, primary_pmid, primary_pub_date,
+│   │   │                                primary_publication, abstract, n_papers_found,
+│   │   │                                primaries, secondaries
+│   │   └── find_cache.json        Entrez+EBI+S2 cache (v4; resumable)
 │   └── logs/
-│       ├── meta.log
-│       └── meta_summary.txt
+│       ├── history/YYYY-MM-DD_HH-MM-SS/
+│       │   ├── find.log
+│       │   └── find_summary.txt
+│       ├── find.log.latest
+│       └── find_summary.latest
 │
 ├── legacy/                        old pipeline outputs (03_validate, 04_crypt, 05_meta)
 │
 └── figure/
-    ├── crypt_host_tree.nwk
-    └── crypt_host_tree_meta.tsv
+    ├── host_tree/      crypt_host_tree.py + .R  →  .nwk, _meta.tsv, .pdf, .png
+    ├── guilds/         mal_guilds.py + .R       →  mal_guild_nodes/edges.tsv, mal_guild_network.pdf/png
+    ├── scatter/        scatter.R                →  scatter.pdf/png
+    ├── coinf_rate/     coinf_rate.R             →  coinf_rate.pdf/png
+    ├── novel_heatmap/  novel_heatmap.R          →  novel_heatmap.pdf/png
+    └── kingdom_comp/   kingdom_comp.R           →  kingdom_comp.pdf/png
 ```
 
-```
-figure/
-├── crypt_host_tree.py    Build nwk + meta from crypt.tsv (system python3)
-└── crypt_host_tree.R     Fan tree figure — green/orange bars per host species
-                          Run from crypt/: Rscript figure/crypt_host_tree.R
-```
-
-### After HAL stat fetch completes
-
-```bash
-# Remove the 02_stat symlink stub (HAL process will have exited)
-rm -r output/02_stat/
-
-# Re-run filter + find on full MAL+HAL data
-python 02_filter.py          # both modes, unified crypt.tsv
-python 03_find.py            # BioProject metadata with all 6 sources
-```
-
-## Actual run results (2026-07)
+## Actual run results (2026-07-27, both modes complete)
 
 | Mode | UIDs | Runs fetched | Gate pass | Gate pass rate |
 |------|------|-------------|-----------|----------------|
 | MAL  | 46,540 | 48,418    | 6,852     | 14.2%          |
-| HAL  | —      | 559,328   | in progress (partial: 1,392 / 63k screened = 2.2%) | — |
+| HAL  | —      | 559,328   | ~7,483    | ~1.3%          |
 
-**MAL co-infection summary** (full dataset):
-- 6,852 classified → 1,148 co-infected (16.8%)
-- same_genus_secondary=True: 788 (68.6% of co-infected) — k-mer bleed risk
-- same_genus_secondary=False (high-confidence): **360 runs / 54 BioProjects**
-- Top HC secondaries: Pepino mosaic virus, Zymoseptoria tritici, Alternaria alternata,
-  Botrytis cinerea, Varicosavirus lactucae, Parastagonospora nodorum
+**Combined MAL+HAL (02_filter, 2026-07-27):**
+- 14,335 total rows; 11,853 biosample_representative
+- co_infection_flag (biosample_representative):
+  - single: 10,078 | co-infection known: 1,196 | novel_host_range: 579
+- 1,797 BioProjects total; 436 with co-infected runs; 1,361 single-only
+- 608,368 STAT cache entries total
 
-**HAL co-infection summary** (partial — 63k/559k screened):
-- 793 classified → 98 co-infected (12.4%)
-- same_genus_secondary=False (HC): **32 runs / 21 BioProjects**
-- Top HC secondaries: Peanut stripe virus, Bipolaris zeicola, Potyvirus phaseovulgaris,
-  Pectobacterium brasiliense, Capillovirus mali, Grapevine berry inner necrosis virus
-- Known interaction rate much higher than MAL (79.6% vs 37.0%) — host is precisely
-  identified as library organism in HAL, improving PHI-base matching
+**6 figures generated (figure/{subdir}/):**
+- scatter/scatter.R: host% vs pathogen%, coloured single/coinf/novel, shape=MAL/HAL
+- host_tree/crypt_host_tree.py + .R: fan tree 173 hosts, bars = n_single/n_multi
+- guilds/mal_guilds.py + .R: co-occurrence network 277 nodes / 254 edges (MAL+HAL)
+- coinf_rate/coinf_rate.R: top 20 hosts by co-infection count, paired bars log scale
+- novel_heatmap/novel_heatmap.R: top 35 pathogens × top 30 hosts (590 novel BioSamples)
+- kingdom_comp/kingdom_comp.R: stacked bar co-infection flag + secondary kingdom by mode
 
 ## Performance notes
 
@@ -380,7 +389,7 @@ python 03_find.py            # BioProject metadata with all 6 sources
   time-of-day variation. MAL (~48k): ~1.5 hrs. HAL (~559k): ~3–4 days with hangs factored in.
 - **Shared stat_cache**: do NOT run MAL and HAL 01_fetch simultaneously — last writer
   wins on cache saves. Chain HAL after MAL:
-  `until grep -q '01_fetch MAL summary' output/01_fetch/logs/mal.log; do sleep 30; done`
+  `until ls output/01_fetch/logs/mal_summary.latest 2>/dev/null; do sleep 30; done`
 
 ## Notes
 
@@ -408,9 +417,17 @@ python 03_find.py            # BioProject metadata with all 6 sources
 - `interaction_status == "novel_host_range"` is the key signal; `coinf_experiment`
   in 03_find study_design flags intentional designs for manual exclusion
 - 03_find `--hc` restricts to same_genus_secondary=False; default includes all co-infected
-- 03_find PMID search uses 7 sources: BioProject XML `<Publication>`, elink bioproject→pubmed,
-  PMC full-text esearch, PubMed text esearch, Europe PMC, ENA XML API, OpenAlex.
-  Primary paper = earliest pub date. Improved MAL coverage from 8/54 (elink only) to 64/118.
+- 03_find PMID search uses 6 strategies (short-circuit, stop at first hit):
+  BioProject XML → PMC full-text → Europe PMC → ENA XML → Semantic Scholar → PubMed.
+  OpenAlex DROPPED: moved to credit-based model (10 credits/req, 100 req/18hr free tier).
+  elink DROPPED: 10-30s per call; benchmark showed 0% discovery yield on unlabelled entries.
+  Semantic Scholar: S2_API_KEY required (1 req/s); skips entirely without key (was getting
+  silent 429s that looked like genuine misses). Key obtained 2026-07-27.
+  S2 rate limit is 1 req/s with or without key; _s2_wait() uses 1.1s gap regardless.
+  Primary paper = earliest pub date. bp_submission_date from BioProject XML attr.
+  abstract stored separately from primary_pub_text (combines title+abstract for _study_design).
+  Benchmark in scripts/benchmark_strategies.py — measures discovery yield on UNLABELLED
+  entries (no ground truth); 20-entry sample showed PMC 40%, EuropePMC 35%, S2 0% (429s).
 - **`_pmcids_to_pmids` bug (fixed in cache v4)**: original used `elink dbfrom=pmc db=pubmed`
   which by default returns references CITED BY the PMC articles (pmc_refs_pubmed link),
   not the articles themselves. This caused tool papers like BLAST (PMID 2231712, 1990) to
@@ -421,29 +438,35 @@ python 03_find.py            # BioProject metadata with all 6 sources
   SIGINT does not exit cleanly — requires SIGKILL. Happened twice during HAL fetch
   (~13 min and ~70 min idle). Watchdog/auto-restart flagged for future rebuild.
 
-## Deferred analysis ideas (after HAL pipeline complete)
+## Deferred analysis ideas
 
-1. **Co-infection guilds** (in progress — `figure/mal_guilds.py` + `figure/mal_guilds.R`)
-   Unipartite co-occurrence network: nodes = pathogens, edges = shared confirmed run,
-   weight = run count. Already shows wheat rust cluster, tomato virus pair (PepMV↔ToBRFV),
-   Botrytis↔Sclerotinia necrotrophic guild. Will improve with HAL data.
-
-2. **Host susceptibility landscape**
-   Co-infection rate per host species on `crypt_host_tree` figure. Are some hosts
-   systematically "dirtier"? Is susceptibility phylogenetically conserved?
-
-3. **Gate failure characterisation**
-   What are the 85.8% of MAL runs failing Viridiplantae ≥1%? Stream stat_cache.jsonl
-   for failed accessions — kingdom composition may reveal pure-culture contamination
-   vs. low-host-content field samples.
-
-4. **Viral threshold sensitivity**
-   Quick re-run of 02_filter.py at 5% vs 10% virus threshold to quantify impact.
-   Method validation / numbers for the paper.
+1. **Field prevalence analysis** — use 03_find.py coinf_rate + study_design to estimate
+   co-infection rate in genuine field studies vs lab experiments.
+3. **Host susceptibility landscape** — co-infection rate per host on crypt_host_tree.
+   Are some hosts phylogenetically more susceptible?
+4. **Gate failure characterisation** — what are the ~85% MAL runs failing Viridiplantae gate?
+5. **Viral threshold sensitivity** — re-run 02_filter at 5% vs 10% threshold.
+6. **Kraken2 orthogonal validation** — deferred pending Acacia bucket setup + group transfer.
+   Database to be built on Pawsey Setonix (AMD EPYC 7763, SLURM). S3 key in ~/.bashrc.
 
 ## Architecture decisions (resolved)
 
 - 01_sra + 02_stat → merged into 01_fetch.py ✓
 - MAL + HAL outputs → unified crypt.tsv with `mode` column ✓
-- Analysis scripts → `figure/` directory ✓
+- Analysis scripts → `figure/{subdir}/` (each chart in its own subdir) ✓
+- 03_find.py scope → ALL BioProjects (not just co-infected) for prevalence analysis ✓
+- Logs → timestamped subdirs under logs/history/ via _util.make_log_dir ✓
+- Logs → .latest symlinks at logs/ root via _util.link_latest ✓
+- 03_find.py short-circuit PMID search (stop at first hit) ✓
+- OpenAlex dropped (credit-based); Semantic Scholar added with S2_API_KEY support ✓
+- elink + _openalex_search dead code removed from 03_find.py ✓
+- Legacy output/02_stat/ + output/01_sra/ fallbacks removed from 02_filter.py ✓
+- benchmark_strategies.py moved to scripts/; rewritten to test discovery yield on unlabelled entries ✓
+- S2_API_KEY obtained 2026-07-27; rate fixed to 1.1s gap (1 req/s limit) ✓
 - 01_fetch.py watchdog/auto-restart → deferred (workaround: tmux + manual SIGKILL+restart)
+
+## Target journal
+
+New Phytologist (IF ~10) or ISME Journal (IF ~11). Frame as biology discovery
+(novel host-pathogen interactions + phylogenetic host susceptibility structure),
+not as a methodology paper.

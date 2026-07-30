@@ -40,27 +40,30 @@ For each retained run, `specific_hits()` identifies leaf-level species detection
 
 A `same_genus_secondary` flag marks cases where a secondary shares a genus with the primary. STAT's LCA k-mer design promotes shared k-mers to the genus node at database build time, preventing inter-species bleed within a genus by design. Same-genus secondaries are lower confidence not because of cross-mapping, but because closely related species retain fewer unique diagnostic k-mers after merging and cluster near the detection threshold. Cross-kingdom co-detections are biologically unambiguous. Runs from the same BioSample are deduplicated; `biosample_representative` marks the single highest-coverage run per sample.
 
-### BioProject metadata
+### BioProject metadata and study design
 
-BioProject titles, submission dates, and linked publications were retrieved for all BioProjects in `crypt.tsv` — including single-infection projects, which serve as the denominator for field co-infection prevalence estimates. PMIDs were resolved via a six-strategy short-circuit search (BioProject XML → PMC full-text → Europe PMC → ENA XML → Semantic Scholar → PubMed), stopping at the first hit. Study design was inferred from title and abstract keywords: `coinf_experiment` (intentional mixed-infection — exclude from novel interaction counts), `field_survey`, or `unclear`.
+BioProject XML and BioSample XML attributes were retrieved for all accessions in `runs.tsv` (`03a_fetch_xml.py`). PMIDs were resolved via a six-strategy short-circuit search (`03b_fetch_literature.py`): BioProject XML → PMC full-text → Europe PMC → ENA XML → Semantic Scholar → PubMed, stopping at the first hit. Study design was inferred from BioSample metadata and title/abstract keywords (`04_filter_kw.py`): treatment axis (`coinf_experiment`, `abiotic_stress`, `host_study`, `single`, `unclear`) and setting axis (`field`, `lab`, `unclear`). A per-BioProject LLM classification step (`05_llm_classify.py`, GPT-4o-mini) applied a finer-grained treatment vocabulary including a `surveillance` category not captured by keywords.
 
 ## Results
 
-607,746 SRA runs screened across MAL and HAL. After retention gates, 14,335 runs (11,853 BioSample-representative) across 1,797 BioProjects were confirmed.
+608,368 SRA runs screened across MAL and HAL. After retention gates and LibrarySource pre-filtering (GENOMIC/METAGENOMIC mislabelled runs excluded), 13,323 runs were confirmed across 1,754 BioProjects.
 
-| Mode | Runs screened | Confirmed | Gate pass |
-|------|--------------|-----------|-----------|
-| MAL  | 48,418       | 6,852     | 14.2%     |
-| HAL  | 559,328      | ~7,483    | ~1.3%     |
+| Mode | Runs fetched | Non-RNA excluded | Gate pass | Gate pass rate |
+|------|-------------|-----------------|-----------|----------------|
+| MAL  | 48,418      | 1,419           | 6,191     | 13.4%          |
+| HAL  | 559,950     | 7,343           | 7,118     | 1.3%           |
 
-Of 11,853 representative BioSamples: 10,078 (85%) single pathogen; 1,196 (10%) known co-infection; 579 (5%) novel host range — pathogen confirmed in PHI-base but not previously recorded on the detected host. 436 BioProjects contained at least one co-infected run.
+Of 11,117 BioSample-representative runs: 63.8% co-infected; 55.2% high-confidence (same_genus_secondary = False); 590 with `novel_host_range` status (pathogen confirmed in PHI-base but not previously recorded on the detected host). 401 BioProjects contained at least one co-infected run.
+
+LLM study design classification (1,754 BioProjects): 747 single-pathogen, 403 host biology, 293 surveillance, 197 abiotic stress, 100 co-infection experiment. Field-classified BioProjects show a 2× higher co-infection detection rate than lab-classified BioProjects (21% vs 10% overall; 12% vs 2% high-confidence).
 
 Key output files:
 
 | File | Contents |
 |------|----------|
-| `output/02_filter/data/crypt.tsv` | One row per confirmed run; columns: `mode`, `host`, `primary_pathogen`, `secondary_pathogens`, `co_infection_flag`, `interaction_status`, `same_genus_secondary`, `biosample_representative` |
-| `output/03_find/data/bioproject_meta.tsv` | One row per BioProject; columns: `n_coinf`, `n_single`, `coinf_rate`, `study_design`, `primary_pmid` |
+| `output/02_filter_runs/data/runs.tsv` | One row per confirmed run; `mode`, `library_organism`, `stat_pathogens`, `co_infection_flag`, `interaction_status`, `same_genus_secondary`, `biosample_representative` |
+| `output/04_filter_kw/data/biosample_kw.tsv` | One row per BioSample (11,117); BioProject metadata joined; `treatment`, `study_setting`, `named_host`, `primary_pmid` |
+| `output/05_llm_classify/data/bioproject_llm.tsv` | One row per BioProject (1,754); `llm_treatment`, `llm_study_setting`, `llm_named_pathogen`, `llm_rationale` |
 
 Filter to `biosample_representative == "True"` for sample-level statistics; additionally `same_genus_secondary == "False"` for highest-confidence co-detections.
 
@@ -77,8 +80,8 @@ Filter to `biosample_representative == "True"` for sample-level statistics; addi
 ### Dependencies
 
 ```bash
-# Python — 00_build.py only; steps 01–03 are stdlib
-# Must use system python3 (ete3/sqlite3 ABI conflict with miniconda)
+# Python — 00_build.py only; steps 01–05 are stdlib + requests
+# Must use system python3 for 00_build.py (ete3/sqlite3 ABI conflict with miniconda)
 pip install -r requirements.txt
 ```
 
@@ -90,8 +93,9 @@ Rscript install.R
 Optional environment variables:
 
 ```bash
-export NCBI_API_KEY=...   # 10 req/s Entrez; 2.5 req/s without
-export S2_API_KEY=...     # Semantic Scholar in 03_find.py; skipped without
+export NCBI_API_KEY=...    # 10 req/s Entrez; 2.5 req/s without
+export S2_API_KEY=...      # Semantic Scholar in 03b_fetch_literature.py; skipped without
+export OPENAI_API_KEY=...  # Required for 05_llm_classify.py (~$2/full run, gpt-4o-mini)
 ```
 
 ### Quick start
@@ -102,16 +106,24 @@ python3 00_build.py
 
 # Step 1 — fetch SRA runs + STAT profiles
 # Run MAL before HAL (shared stat cache); use tmux for long runs
-python 01_fetch.py --mode mal
-python 01_fetch.py --mode hal
+python 01_fetch_runs.py --mode mal
+python 01_fetch_runs.py --mode hal
 
 # Step 2 — apply retention gate, calibrate thresholds, classify co-infections
-python 02_filter.py                   # both modes, unified output
-python 02_filter.py --skip-validate   # after manual threshold review
+python 02_filter_runs.py                   # both modes, unified output
+python 02_filter_runs.py --skip-validate   # after manual threshold review
 
-# Step 3 — BioProject metadata + publication links
-python 03_find.py
-python 03_find.py --hc                # restrict to same_genus_secondary=False
+# Step 3a — BioProject XML + BioSample XML attributes
+python 03a_fetch_xml.py
+
+# Step 3b — BioProject PMIDs + PMC methods sections
+python 03b_fetch_literature.py
+
+# Step 4 — keyword study design classification → biosample_kw.tsv
+python 04_filter_kw.py
+
+# Step 5 — LLM BioProject classification → bioproject_llm.tsv (requires OPENAI_API_KEY)
+python 05_llm_classify.py
 ```
 
 All steps are resumable via their respective caches.

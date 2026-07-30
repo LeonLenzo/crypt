@@ -364,12 +364,23 @@ def build(phibase_csv: Path, vmr_path: Path | None = None,
     print("\n[5/6] Expanding host taxonomy …")
     all_host_taxids, host_to_seed = _expand_taxids(seed_hosts, ncbi, "hosts")
 
-    print("\n[6/6] Building name lookup tables …")
+    print("\n[6/7] Building name lookup tables …")
     all_taxids = all_pathogen_expanded | all_host_taxids
     taxid_to_name, name_to_taxid = _build_name_map(all_taxids, ncbi)
     for name, taxid in ictv_name_map.items():
         name_to_taxid.setdefault(name, taxid)
     print(f"  name→taxid entries: {len(name_to_taxid):,}")
+
+    print("\n[7/7] Building Viridiplantae name set for host validation …")
+    try:
+        vp_tids   = ncbi.get_descendant_taxa(VIRIDIPLANTAE, intermediate_nodes=True)
+        vp_names  = ncbi.get_taxid_translator(list(vp_tids))
+        viridiplantae_names = sorted({n.lower() for n in vp_names.values()})
+        viridiplantae_names.append("viridiplantae")
+        print(f"  Viridiplantae names: {len(viridiplantae_names):,}")
+    except Exception as e:
+        print(f"  WARNING: could not build Viridiplantae name set: {e}")
+        viridiplantae_names = []
 
     # ICTV viruses: map to all PHI-base plant host seeds
     if virus_seed_taxids:
@@ -400,6 +411,7 @@ def build(phibase_csv: Path, vmr_path: Path | None = None,
         "name_to_taxid":      name_to_taxid,
         "pathogen_to_hosts":  {str(k): sorted(v)
                                for k, v in pathogen_to_hosts.items()},
+        "viridiplantae_names": viridiplantae_names,
     }
     return db
 

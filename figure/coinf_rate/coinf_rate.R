@@ -6,7 +6,7 @@ suppressPackageStartupMessages({
   library(ggplot2); library(dplyr); library(stringr)
 })
 
-CRYPT_TSV  <- "output/02_filter/data/crypt.tsv"
+RUNS_TSV  <- "output/02_filter_runs/data/runs.tsv"
 OUT        <- "figure/coinf_rate/coinf_rate"
 MIN_BS     <- 10
 N_HOSTS    <- 20
@@ -21,7 +21,7 @@ host_meta <- read.delim("figure/host_tree/crypt_host_tree_meta.tsv",
                         stringsAsFactors = FALSE) |>
   select(species, family)
 
-crypt <- read.delim(CRYPT_TSV, stringsAsFactors = FALSE) |>
+crypt <- read.delim(RUNS_TSV, stringsAsFactors = FALSE) |>
   filter(biosample_representative == "True") |>
   mutate(host_sp  = str_extract(host, "^\\S+\\s+\\S+"),
          is_coinf = co_infection_flag != "single") |>

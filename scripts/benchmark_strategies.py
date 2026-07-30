@@ -2,7 +2,7 @@
 """
 benchmark_strategies.py - measure PMID discovery yield on unlabelled BioProjects.
 
-Tests each strategy in 03_find.py independently on BioProjects that currently
+Tests each strategy in 03b_fetch_literature.py independently on BioProjects that currently
 have NO primary_pmid in the cache (i.e., the actual hard cases the pipeline
 needs to solve). Reports what fraction of unlabelled entries each strategy
 can find a PMID for, and how long it takes.
@@ -28,14 +28,14 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 
-# ── Load 03_find.py as a module (main() is guarded by __name__=="__main__") ──
+# ── Load 03b_fetch_literature.py as a module (main() is guarded by __name__=="__main__") ──
 
 def _load_mod():
     root = Path(__file__).parent.parent
     if str(root) not in sys.path:
         sys.path.insert(0, str(root))
     spec = importlib.util.spec_from_file_location(
-        "find03", root / "03_find.py"
+        "fetch_lit03b", root / "03b_fetch_literature.py"
     )
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
@@ -75,19 +75,19 @@ def main() -> None:
     )
     args = ap.parse_args()
 
-    # ── Load cache and crypt.tsv ─────────────────────────────────────────────
-    cache_path = Path("output/03_find/data/meta_cache.json")
-    crypt_path = Path("output/02_filter/data/crypt.tsv")
+    # ── Load cache and runs.tsv ──────────────────────────────────────────────
+    cache_path = Path("output/03b_fetch_literature/data/lit_cache.json")
+    crypt_path = Path("output/02_filter_runs/data/runs.tsv")
 
     cache: dict = {}
     if cache_path.exists():
         with open(cache_path) as f:
             cache = json.load(f)
 
-    # All BioProjects in crypt.tsv
+    # All BioProjects in runs.tsv
     all_bps: set[str] = set()
     if not crypt_path.exists():
-        sys.exit(f"ERROR: {crypt_path} not found")
+        sys.exit(f"ERROR: {crypt_path} not found — run 02_filter_runs.py first")
     with open(crypt_path) as f:
         import csv
         for row in csv.DictReader(f, delimiter="\t"):
@@ -112,11 +112,11 @@ def main() -> None:
           f"(sampled from {len(unlabelled)} with no PMID)", flush=True)
     print(flush=True)
 
-    # ── Load 03_find.py ──────────────────────────────────────────────────────
+    # ── Load 03b_fetch_literature.py ─────────────────────────────────────────
     try:
         mod = _load_mod()
     except Exception as e:
-        sys.exit(f"ERROR: could not import 03_find.py: {e}")
+        sys.exit(f"ERROR: could not import 03b_fetch_literature.py: {e}")
 
     strategies = mod._STRATEGIES
     strat_results: dict[str, list[tuple[bool, float, list[str]]]] = {

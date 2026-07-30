@@ -6,7 +6,7 @@ suppressPackageStartupMessages({
   library(ggplot2); library(dplyr)
 })
 
-CRYPT_TSV <- "output/02_filter/data/crypt.tsv"
+RUNS_TSV <- "output/02_filter_runs/data/runs.tsv"
 OUT       <- "figure/scatter/scatter"
 
 FLAG_COLS <- c(
@@ -22,7 +22,7 @@ FLAG_LABS <- c(
 
 MODE_SHAPES <- c("MAL" = 16, "HAL" = 17)   # circle, triangle
 
-crypt <- read.delim(CRYPT_TSV, stringsAsFactors = FALSE) |>
+crypt <- read.delim(RUNS_TSV, stringsAsFactors = FALSE) |>
   filter(biosample_representative == "True") |>
   mutate(
     max_pathogen_pct  = fungi_pct + virus_pct + bacteria_pct +

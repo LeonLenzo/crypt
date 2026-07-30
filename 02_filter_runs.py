@@ -1,25 +1,25 @@
 #!/usr/bin/env python3
 """
-02_filter.py — validate thresholds, apply retention gate, and detect cryptic
-co-infections.  Produces a unified crypt.tsv combining MAL and HAL results.
+02_filter_runs.py — validate thresholds, apply retention gate, and detect cryptic
+co-infections.  Produces a unified runs.tsv combining MAL and HAL results.
 
 Three sequential phases:
   Phase 1  retention gate   — filter stat_cache.jsonl to confirmed runs
   Phase 2  validate         — empirical kingdom distribution tables (default on)
   Phase 3  crypt            — detect cryptic co-infecting pathogens
 
-Unified output (output/02_filter/data/crypt.tsv) includes a `mode` column
+Unified output (output/02_filter_runs/data/runs.tsv) includes a `mode` column
 (mal/hal) so MAL and HAL results can be analysed together or filtered
 independently.  Run with --mode both (default) to process and merge both;
 --mode mal or --mode hal for a single mode.
 
-Reads stat_cache.jsonl and {mode}_runs.json from output/01_fetch/data/.
+Reads stat_cache.jsonl and {mode}_runs.json from output/01_fetch_runs/data/.
 
 Usage:
-  python 02_filter.py                     # both modes (default)
-  python 02_filter.py --mode mal
-  python 02_filter.py --mode hal
-  python 02_filter.py --mode mal --skip-validate
+  python 02_filter_runs.py                     # both modes (default)
+  python 02_filter_runs.py --mode mal
+  python 02_filter_runs.py --mode hal
+  python 02_filter_runs.py --mode mal --skip-validate
 """
 
 import argparse
@@ -35,25 +35,25 @@ from _util import _Tee, link_latest, load_json, make_log_dir, save_json
 # ── Paths ──────────────────────────────────────────────────────────────────────
 
 DB_PATH = Path("output/00_build/data/phibase_db.json")
-OUT_DIR = Path("output/02_filter")
+OUT_DIR = Path("output/02_filter_runs")
 
 
 def _find_stat_cache() -> Path:
-    p = Path("output/01_fetch/data/stat_cache.jsonl")
+    p = Path("output/01_fetch_runs/data/stat_cache.jsonl")
     if p.exists():
         return p
     raise FileNotFoundError(
-        "stat_cache.jsonl not found in output/01_fetch/data/\n"
-        "Run: python 01_fetch.py --mode mal  (then hal)")
+        "stat_cache.jsonl not found in output/01_fetch_runs/data/\n"
+        "Run: python 01_fetch_runs.py --mode mal  (then hal)")
 
 
 def _find_runs_path(mode: str) -> Path:
-    p = Path(f"output/01_fetch/data/{mode}_runs.json")
+    p = Path(f"output/01_fetch_runs/data/{mode}_runs.json")
     if p.exists():
         return p
     raise FileNotFoundError(
-        f"{mode}_runs.json not found in output/01_fetch/data/\n"
-        f"Run: python 01_fetch.py --mode {mode}")
+        f"{mode}_runs.json not found in output/01_fetch_runs/data/\n"
+        f"Run: python 01_fetch_runs.py --mode {mode}")
 
 
 # ── Shared constants ───────────────────────────────────────────────────────────
@@ -64,7 +64,7 @@ KINGDOMS = ["Fungi", "Viruses", "Bacteria", "Oomycota", "Nematoda"]
 # Edit these if validate output suggests different values, then re-run with
 # --skip-validate.
 KINGDOM_THRESHOLDS: dict[str, float] = {
-    "Fungi":    1.0,
+    "Fungi":    0.5,
     "Viruses":  10.0,
     "Bacteria": 5.0,
     "Oomycota": 0.5,
@@ -73,6 +73,10 @@ KINGDOM_THRESHOLDS: dict[str, float] = {
 
 MAL_MIN_HOST_PCT     = 1.0   # Viridiplantae % gate for in-planta confirmation
 HAL_MIN_PATHOGEN_PCT = 1.0   # min % to count a PHI-base pathogen as gate signal
+
+# Only include runs with these LibrarySource values — excludes GENOMIC, METAGENOMIC, OTHER
+_RNA_SOURCES = {"TRANSCRIPTOMIC", "TRANSCRIPTOMIC SINGLE CELL",
+                "METATRANSCRIPTOMIC", "VIRAL RNA"}
 ABS_MIN_PCT          = 0.1   # floor below which no organism is reported
 LEAF_FRAC            = 0.75  # child must be >= this fraction of parent count
 HOST_NODE            = "Viridiplantae"
@@ -215,11 +219,11 @@ def apply_gate(jsonl_path: Path, runs: dict, mode: str,
                name_to_taxid: dict | None,
                pathogen_taxids: set | None) -> tuple[dict, int, int]:
     """
-    Stream stat_cache.jsonl, apply the mode gate, return (confirmed, n_no_stat, n_fail).
+    Stream stat_cache.jsonl, apply the mode gate, return (confirmed, n_no_stat, n_fail, n_wrong_source).
     Only processes lines whose accession is in `runs`.
     """
     confirmed = {}
-    n_no_stat = n_fail = 0
+    n_no_stat = n_fail = n_wrong_source = 0
 
     with open(jsonl_path) as f:
         for line in f:
@@ -234,6 +238,10 @@ def apply_gate(jsonl_path: Path, runs: dict, mode: str,
 
             run_row = runs.get(acc)
             if run_row is None:
+                continue
+
+            if run_row.get("LibrarySource") not in _RNA_SOURCES:
+                n_wrong_source += 1
                 continue
 
             stat = _parse_kingdom_pcts(data)
@@ -258,7 +266,7 @@ def apply_gate(jsonl_path: Path, runs: dict, mode: str,
             else:
                 n_fail += 1
 
-    return confirmed, n_no_stat, n_fail
+    return confirmed, n_no_stat, n_fail, n_wrong_source
 
 
 # ── Phase 2: validate distributions ──────────────────────────────────────────
@@ -478,7 +486,7 @@ def validate_phase(mode: str, confirmed: dict,
     (log_dir / f"{mode}_validate_summary.txt").write_text(summary)
     print(summary, flush=True)
     print(f"  If thresholds need adjustment, edit KINGDOM_THRESHOLDS in "
-          f"02_filter.py and re-run with --skip-validate.", flush=True)
+          f"02_filter_runs.py and re-run with --skip-validate.", flush=True)
 
 
 # ── Phase 3: crypt — pathogen detection ───────────────────────────────────────
@@ -498,16 +506,18 @@ def _load_phibase() -> dict:
         p_to_seed.update(m)
 
     db = {
-        "name_to_taxid":  raw["name_to_taxid"],
-        "taxid_to_name":  {int(k): v for k, v in raw["taxid_to_name"].items()},
-        "pathogen_taxids": set(p_to_seed.keys()),
-        "p_to_seed":      p_to_seed,
-        "h_to_seed":      {int(k): v for k, v in raw["host_to_seed"].items()},
-        "p_to_hosts":     {int(k): set(v) for k, v in raw["pathogen_to_hosts"].items()},
+        "name_to_taxid":       raw["name_to_taxid"],
+        "taxid_to_name":       {int(k): v for k, v in raw["taxid_to_name"].items()},
+        "pathogen_taxids":     set(p_to_seed.keys()),
+        "p_to_seed":           p_to_seed,
+        "h_to_seed":           {int(k): v for k, v in raw["host_to_seed"].items()},
+        "p_to_hosts":          {int(k): set(v) for k, v in raw["pathogen_to_hosts"].items()},
+        "viridiplantae_names": set(raw.get("viridiplantae_names", [])),
         **kingdom_dicts,
     }
     print(f"PHI-base: {len(db['pathogen_taxids']):,} pathogen taxids, "
-          f"{len(db['name_to_taxid']):,} names", flush=True)
+          f"{len(db['name_to_taxid']):,} names, "
+          f"{len(db['viridiplantae_names']):,} Viridiplantae names", flush=True)
     return db
 
 
@@ -548,12 +558,37 @@ def detect_pathogens(stat_data: list, db: dict,
     )
 
 
-def detect_host_species(stat_data: list) -> tuple[str, float]:
-    an  = _analyzed(stat_data)
+def _plant_hits(stat_data: list, db: dict) -> list[tuple[str, float]]:
+    """All Viridiplantae species detected in STAT, filtered by allowlist, pct desc."""
+    an = _analyzed(stat_data)
     if not an:
-        return "", 0.0
+        return []
     tbl  = _table(stat_data)
     hits = specific_hits(tbl, HOST_NODE, an)
+    if not hits:
+        return []
+    vnames   = db.get("viridiplantae_names", set())
+    n2t      = db["name_to_taxid"]
+    ptax     = db["pathogen_taxids"]
+    h_taxids = set(db["h_to_seed"].keys())
+    result   = []
+    for name, pct in hits:
+        lower = name.lower()
+        if vnames:
+            if lower in vnames:
+                result.append((name, pct))
+        else:
+            taxid = n2t.get(lower)
+            if taxid is None:
+                result.append((name, pct))
+            elif taxid not in ptax and taxid in h_taxids:
+                result.append((name, pct))
+    return result
+
+
+def detect_host_species(stat_data: list, db: dict) -> tuple[str, float]:
+    """Return top Viridiplantae species (convenience wrapper over _plant_hits)."""
+    hits = _plant_hits(stat_data, db)
     if not hits:
         return HOST_NODE, 0.0
     for name, pct in hits:
@@ -575,69 +610,101 @@ def _interaction_status(p_taxid: int | None, h_taxid: int | None, db: dict) -> s
     return "novel_combination"
 
 
-def _classify_mal(run_row: dict, stat_data: list, db: dict) -> dict | None:
+def _classify(run_row: dict, stat_data: list, db: dict, mode: str) -> dict | None:
     an = _analyzed(stat_data)
     if not an:
         return None
-    sra_name      = run_row.get("ScientificName", "") or run_row.get("Organism", "")
-    primary_taxid = db["name_to_taxid"].get(sra_name.lower())
-    primary_seed  = (db["p_to_seed"].get(primary_taxid, primary_taxid)
-                     if primary_taxid else None)
-    host_name, host_species_pct = detect_host_species(stat_data)
-    host_taxid  = db["name_to_taxid"].get(host_name.lower())
-    secondaries = detect_pathogens(stat_data, db, exclude_seed=primary_seed)
-    kingdoms    = {kg for _, _, _, kg in secondaries}
-    flag = ("multi_kingdom" if len(kingdoms) > 1
-            else "multi_species" if secondaries else "single")
-    pri_genus  = _genus(sra_name)
-    same_genus = bool(pri_genus and any(_genus(nm) == pri_genus for _, nm, _, _ in secondaries))
+
+    library_organism = (run_row.get("ScientificName", "")
+                        or run_row.get("Organism", ""))
+    lib_lower  = library_organism.lower()
+    lib_taxid  = db["name_to_taxid"].get(lib_lower)
+    lib_seed   = db["p_to_seed"].get(lib_taxid, lib_taxid) if lib_taxid else None
+
+    # All PHI-base/ICTV pathogens detected (no exclusion)
+    all_pathogens = detect_pathogens(stat_data, db)
+
+    # All Viridiplantae species detected
+    all_hosts = _plant_hits(stat_data, db)
+
+    # HAL requires at least one pathogen detected
+    if mode == "hal" and not all_pathogens:
+        return None
+
+    # stat_pathogens / stat_hosts strings  ("Name:pct%; ...")
+    stat_pathogens_str = "; ".join(
+        f"{nm}:{pct:.1f}%" for _, nm, pct, _ in all_pathogens
+    )
+    if all_hosts:
+        stat_hosts_str = "; ".join(f"{nm}:{pct:.1f}%" for nm, pct in all_hosts)
+    else:
+        hp = run_row.get("host_pct", 0)
+        stat_hosts_str = f"{HOST_NODE}:{hp:.1f}%" if hp else ""
+
+    # host convenience column
+    if mode == "mal":
+        if all_hosts:
+            best = next(
+                ((nm, pct) for nm, pct in all_hosts if len(nm.split()) == 2),
+                all_hosts[0]
+            )
+            host_name = best[0]
+        else:
+            host_name = HOST_NODE
+    else:
+        host_name = library_organism
+
+    # library_detected (seed-level for MAL handles strains/f.sp.)
+    if mode == "mal":
+        lib_detected = lib_seed is not None and any(
+            db["p_to_seed"].get(tid, tid) == lib_seed
+            for tid, _, _, _ in all_pathogens
+        )
+    else:
+        lib_detected = bool(all_hosts and any(
+            nm.lower() == lib_lower or lib_lower in nm.lower()
+            for nm, _ in all_hosts
+        ))
+
+    # co-infection subset: MAL excludes library_organism seed; HAL uses all
+    if mode == "mal":
+        co_pats = [
+            (tid, nm, pct, kg) for tid, nm, pct, kg in all_pathogens
+            if lib_seed is None or db["p_to_seed"].get(tid, tid) != lib_seed
+        ]
+        pri_genus  = _genus(library_organism)
+        same_genus = bool(pri_genus and any(_genus(nm) == pri_genus
+                                            for _, nm, _, _ in co_pats))
+    else:
+        co_pats    = all_pathogens
+        genera     = [_genus(nm) for _, nm, _, _ in all_pathogens]
+        same_genus = len(genera) != len(set(g for g in genera if g))
+
+    co_kingdoms = {kg for _, _, _, kg in co_pats}
+    flag = ("multi_kingdom" if len(co_kingdoms) > 1
+            else "multi_species" if co_pats else "single")
+
+    # interaction_status
+    if mode == "mal":
+        host_taxid         = db["name_to_taxid"].get(host_name.lower())
+        interaction_status = _interaction_status(lib_taxid, host_taxid, db)
+    else:
+        host_taxid_str = run_row.get("TaxID", "")
+        try:
+            host_taxid = int(host_taxid_str)
+        except (ValueError, TypeError):
+            host_taxid = db["name_to_taxid"].get(lib_lower)
+        interaction_status = _interaction_status(all_pathogens[0][0], host_taxid, db)
+
     return {
         "host":                 host_name,
         "host_pct":             round(run_row.get("host_pct", 0), 2),
-        "host_species_pct":     round(host_species_pct, 2),
-        "primary_pathogen":     sra_name,
-        "primary_taxid":        primary_taxid or "",
-        "primary_pct":          "",
-        "secondary_pathogens":  "; ".join(f"{nm} ({pct:.1f}%)" for _, nm, pct, _ in secondaries),
-        "secondary_kingdoms":   "; ".join(sorted(kingdoms)),
-        "n_secondary":          len(secondaries),
-        "interaction_status":   _interaction_status(primary_taxid, host_taxid, db),
-        "co_infection_flag":    flag,
-        "same_genus_secondary": str(same_genus),
-    }
-
-
-def _classify_hal(run_row: dict, stat_data: list, db: dict) -> dict | None:
-    an = _analyzed(stat_data)
-    if not an:
-        return None
-    host_name      = run_row.get("ScientificName", "") or run_row.get("Organism", "")
-    host_taxid_str = run_row.get("TaxID", "")
-    try:
-        host_taxid = int(host_taxid_str)
-    except (ValueError, TypeError):
-        host_taxid = db["name_to_taxid"].get(host_name.lower())
-    pathogens = detect_pathogens(stat_data, db)
-    if not pathogens:
-        return None
-    primary_taxid, primary_name, primary_pct, _ = pathogens[0]
-    secondaries = pathogens[1:]
-    kingdoms    = {pathogens[0][3]} | {kg for _, _, _, kg in secondaries}
-    flag = ("multi_kingdom" if len(kingdoms) > 1
-            else "multi_species" if secondaries else "single")
-    pri_genus  = _genus(primary_name)
-    same_genus = bool(pri_genus and any(_genus(nm) == pri_genus for _, nm, _, _ in secondaries))
-    return {
-        "host":                 host_name,
-        "host_pct":             round(run_row.get("host_pct", 0), 2),
-        "host_species_pct":     "",
-        "primary_pathogen":     primary_name,
-        "primary_taxid":        primary_taxid,
-        "primary_pct":          round(primary_pct, 2),
-        "secondary_pathogens":  "; ".join(f"{nm} ({pct:.1f}%)" for _, nm, pct, _ in secondaries),
-        "secondary_kingdoms":   "; ".join(sorted({kg for _, _, _, kg in secondaries})),
-        "n_secondary":          len(secondaries),
-        "interaction_status":   _interaction_status(primary_taxid, host_taxid, db),
+        "library_organism":     library_organism,
+        "library_detected":     str(lib_detected),
+        "stat_pathogens":       stat_pathogens_str,
+        "stat_hosts":           stat_hosts_str,
+        "n_pathogens":          len(all_pathogens),
+        "interaction_status":   interaction_status,
         "co_infection_flag":    flag,
         "same_genus_secondary": str(same_genus),
     }
@@ -663,10 +730,10 @@ def _load_stat_for_confirmed(jsonl_path: Path, needed: set[str]) -> dict:
 
 OUTPUT_FIELDS = [
     "Run", "mode", "BioSample", "BioProject", "SRAStudy", "Platform",
-    "ScientificName",
-    "host", "host_pct", "host_species_pct",
-    "primary_pathogen", "primary_taxid", "primary_pct",
-    "secondary_pathogens", "secondary_kingdoms", "n_secondary",
+    "host", "host_pct",
+    "library_organism", "library_detected",
+    "stat_pathogens", "stat_hosts",
+    "n_pathogens",
     "interaction_status", "co_infection_flag", "same_genus_secondary",
     "biosample_n_runs", "biosample_representative",
     "fungi_pct", "virus_pct", "bacteria_pct", "oomycete_pct", "nematode_pct",
@@ -698,19 +765,20 @@ def write_tsv(rows: list[dict], path: Path) -> None:
 
 
 def _mode_summary(rows: list[dict], mode: str) -> str:
-    flags    = Counter(r["co_infection_flag"] for r in rows)
-    statuses = Counter(r["interaction_status"] for r in rows)
-    repr_rows  = [r for r in rows if r.get("biosample_representative")]
-    bs_flags   = Counter(r["co_infection_flag"] for r in repr_rows)
+    flags       = Counter(r["co_infection_flag"] for r in rows)
+    repr_rows   = [r for r in rows if r.get("biosample_representative")]
+    bs_flags    = Counter(r["co_infection_flag"] for r in repr_rows)
     bs_statuses = Counter(r["interaction_status"] for r in repr_rows)
-    top_secondary: Counter = Counter()
+    lib_detected = sum(1 for r in repr_rows if r.get("library_detected") == "True")
+
+    top_detected: Counter = Counter()
     for r in repr_rows:
-        for entry in r["secondary_pathogens"].split(";"):
-            name = entry.strip().split("(")[0].strip()
+        for entry in r.get("stat_pathogens", "").split(";"):
+            name = entry.strip().split(":")[0].strip()
             if name:
-                top_secondary[name] += 1
+                top_detected[name] += 1
     top_lines = "\n".join(
-        f"  {name:<45} {n:>5,}" for name, n in top_secondary.most_common(15)
+        f"  {name:<45} {n:>5,}" for name, n in top_detected.most_common(15)
     )
     s = (
         f"{mode.upper()}:\n"
@@ -722,6 +790,7 @@ def _mode_summary(rows: list[dict], mode: str) -> str:
         f"    single:          {bs_flags['single']:>8,}\n"
         f"    multi_species:   {bs_flags['multi_species']:>8,}\n"
         f"    multi_kingdom:   {bs_flags['multi_kingdom']:>8,}\n"
+        f"  Library organism detected by STAT: {lib_detected:,} / {len(repr_rows):,}\n"
         f"  Interaction status (BioSample):\n"
         f"    known:           {bs_statuses['known']:>6,}\n"
         f"    novel_host_range:{bs_statuses['novel_host_range']:>6,}\n"
@@ -729,7 +798,7 @@ def _mode_summary(rows: list[dict], mode: str) -> str:
         f"    unresolved:      {bs_statuses['unresolved']:>6,}\n"
     )
     if top_lines:
-        s += f"  Top secondary pathogens (BioSample):\n{top_lines}\n"
+        s += f"  Top detected pathogens (BioSample):\n{top_lines}\n"
     return s
 
 
@@ -752,18 +821,20 @@ def run_mode(mode: str, db: dict, jsonl_path: Path,
         name_to_taxid   = db["name_to_taxid"]
         pathogen_taxids = db["pathogen_taxids"]
 
-    confirmed, n_no_stat, n_fail = apply_gate(
+    confirmed, n_no_stat, n_fail, n_wrong_source = apply_gate(
         jsonl_path, runs, mode, name_to_taxid, pathogen_taxids)
 
     gate_desc = (f"≥{MAL_MIN_HOST_PCT}% Viridiplantae" if mode == "mal"
                  else f"PHI-base pathogen ≥{HAL_MIN_PATHOGEN_PCT}%")
     n_total     = len(runs)
-    n_stat      = n_total - n_no_stat
+    n_stat      = n_total - n_no_stat - n_wrong_source
     n_confirmed = len(confirmed)
-    print(f"  Runs:        {n_total:,}", flush=True)
-    print(f"  With STAT:   {n_stat:,}  ({n_stat/max(n_total,1)*100:.1f}%)", flush=True)
-    print(f"  Failed gate: {n_fail:,}", flush=True)
-    print(f"  Confirmed:   {n_confirmed:,}  "
+    print(f"  Runs:           {n_total:,}", flush=True)
+    print(f"  Non-RNA source: {n_wrong_source:,} (GENOMIC/METAGENOMIC/OTHER — excluded)",
+          flush=True)
+    print(f"  With STAT:      {n_stat:,}  ({n_stat/max(n_total,1)*100:.1f}%)", flush=True)
+    print(f"  Failed gate:    {n_fail:,}", flush=True)
+    print(f"  Confirmed:      {n_confirmed:,}  "
           f"({n_confirmed/max(n_stat,1)*100:.1f}% of screened)  [{gate_desc}]",
           flush=True)
 
@@ -771,8 +842,8 @@ def run_mode(mode: str, db: dict, jsonl_path: Path,
     save_json(confirmed, confirmed_path)
 
     gate_stats = {
-        "n_total": n_total, "n_stat": n_stat,
-        "n_fail": n_fail, "n_confirmed": n_confirmed,
+        "n_total": n_total, "n_wrong_source": n_wrong_source,
+        "n_stat": n_stat, "n_fail": n_fail, "n_confirmed": n_confirmed,
         "gate_desc": gate_desc,
     }
 
@@ -783,7 +854,6 @@ def run_mode(mode: str, db: dict, jsonl_path: Path,
     # Phase 3: crypt
     print(f"\n── Phase 3: crypt ({mode.upper()}) ──", flush=True)
     stat_cache = _load_stat_for_confirmed(jsonl_path, set(confirmed.keys()))
-    classify   = _classify_mal if mode == "mal" else _classify_hal
     rows: list[dict] = []
     skipped = 0
 
@@ -792,7 +862,7 @@ def run_mode(mode: str, db: dict, jsonl_path: Path,
         if not stat_data or not isinstance(stat_data, list):
             skipped += 1
             continue
-        result = classify(run_row, stat_data, db)
+        result = _classify(run_row, stat_data, db, mode)
         if result is None:
             skipped += 1
             continue
@@ -803,7 +873,7 @@ def run_mode(mode: str, db: dict, jsonl_path: Path,
 
     order = {"multi_kingdom": 0, "multi_species": 1, "single": 2}
     rows.sort(key=lambda r: (order.get(r["co_infection_flag"], 3),
-                             -int(r["n_secondary"] or 0)))
+                             -int(r["n_pathogens"] or 0)))
 
     print(f"  Classified: {len(rows):,}  |  skipped (no STAT): {skipped:,}",
           flush=True)
@@ -861,13 +931,13 @@ def main() -> None:
 
         _annotate_biosamples(deduped)
 
-        out_path = OUT_DIR / "data" / "crypt.tsv"
+        out_path = OUT_DIR / "data" / "runs.tsv"
         write_tsv(deduped, out_path)
 
         # ── Summary ───────────────────────────────────────────────────────────
         mode_label = " + ".join(m.upper() for m in target_modes)
         summary_lines = [
-            f"── 02_filter summary ────────────────────────────────",
+            f"── 02_filter_runs summary ────────────────────────────────",
             f"Modes: {mode_label}",
             "",
         ]
@@ -893,7 +963,7 @@ def main() -> None:
                 f"  Duplicates removed:  {n_dupes:,}",
             ]
 
-        summary_lines += [f"\nOutput: {out_path}"]
+        summary_lines += [f"\nOutput: {out_path}  ({len(deduped):,} rows)"]
         summary = "\n".join(summary_lines) + "\n"
         summary_path = log_dir / "filter_summary.txt"
         summary_path.write_text(summary)

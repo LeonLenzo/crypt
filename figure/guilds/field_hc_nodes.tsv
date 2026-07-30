@@ -1,0 +1,100 @@
+name	kingdom	n_primary	n_secondary	total	top_host
+Alternaria alternata	Fungi	2	57	59	Triticum aestivum
+Alternaria solani	Fungi	0	3	3	Triticum aestivum
+Barley yellow dwarf virus PAV	Viruses	1	0	1	Triticum aestivum
+Bean common mosaic virus	Viruses	5	5	10	Arachis hypogaea
+Bean yellow mosaic virus	Viruses	1	0	1	IRL clade
+Bipolaris maydis	Fungi	0	1	1	Quercus lobata
+Bipolaris sorokiniana	Fungi	4	3	7	Triticum aestivum
+Bipolaris zeicola	Fungi	0	12	12	Zea mays
+Botrytis cinerea	Fungi	1	2	3	Heliantheae alliance
+Brassica rapa virus 1	Viruses	0	1	1	Brassica rapa
+Brassica yellows virus	Viruses	0	3	3	Brassica napus
+Broad bean wilt virus 2	Viruses	1	4	5	Capsicum annuum
+Bromovirus SVS	Viruses	2	2	4	Arabidopsis thaliana
+Carrot mottle mimic virus	Viruses	2	0	2	Daucus carota
+Carrot mottle virus	Viruses	0	1	1	Petroselinum crispum
+Carrot red leaf virus	Viruses	1	0	1	Daucus carota subsp. carota
+Carrot virus Y	Viruses	0	2	2	Daucus carota
+Celery mosaic virus	Viruses	2	0	2	Daucus carota
+Cercospora beticola	Fungi	0	1	1	Zea mays
+Cercospora kikuchii	Fungi	0	1	1	Zea mays
+Citrus leprosis virus C2	Viruses	1	0	1	Citrus sinensis
+Citrus tristeza virus	Viruses	2	0	2	Citrus sinensis
+Colletotrichum fructicola	Fungi	0	3	3	Theobroma cacao
+Colletotrichum higginsianum	Fungi	2	0	2	Arabidopsis thaliana
+Colletotrichum siamense	Fungi	0	2	2	Theobroma cacao
+Comovirus ArLV1	Viruses	0	2	2	Arabidopsis thaliana
+Cowpea mild mottle virus	Viruses	2	0	2	Arachis hypogaea
+Cucumber mosaic virus	Viruses	6	2	8	Capsicum annuum
+Cucumovirus CMV	Viruses	2	1	3	Lathyrus oleraceus
+Cucurbit aphid-borne yellows virus	Viruses	0	1	1	Cucurbita moschata
+Cytorhabdovirus lactucamaculante	Viruses	0	1	1	Lactuca sativa
+Enamovirus AEV	Viruses	0	1	1	Lathyrus oleraceus
+Enamovirus PEMV	Viruses	8	0	8	Lathyrus oleraceus
+Exserohilum turcica	Fungi	1	0	1	Zea mays
+Exserohilum turcicum	Fungi	13	2	15	Zea mays
+Fusarium graminearum	Fungi	12	3	15	Aegilops tauschii
+Fusarium odoratissimum	Fungi	0	1	1	Triticum dicoccoides
+Fusarium oxysporum	Fungi	2	0	2	Sorghum bicolor
+Fusarium solani	Fungi	1	0	1	Glycine max
+Fusarium verticillioides	Fungi	3	0	3	Sorghum bicolor
+Grapevine fabavirus	Viruses	4	0	4	Vitis vinifera
+Grapevine leafroll-associated virus 2	Viruses	2	0	2	Vitis vinifera
+Grapevine rupestris stem pitting-associated virus	Viruses	2	0	2	Vitis vinifera
+Grapevine rupestris stem pitting-associated virus 1	Viruses	1	0	1	Vitis vinifera
+Leptosphaeria maculans	Fungi	0	4	4	Triticum aestivum
+Listeria monocytogenes	Bacteria	0	3	3	Poaceae
+Mirafiori lettuce big-vein virus	Viruses	0	11	11	Lactuca sativa
+Moniliophthora perniciosa	Fungi	3	0	3	Theobroma cacao
+Ophiovirus mirafioriense	Viruses	0	14	14	Lactuca sativa
+Orthotospovirus impatiensnecromaculae	Viruses	32	0	32	Lactuca sativa
+Pantoea ananatis	Bacteria	0	1	1	Triticum aestivum
+Papaya ringspot virus	Viruses	1	5	6	Cucumis melo
+Parastagonospora nodorum	Fungi	1	25	26	Triticum aestivum
+Peanut mottle virus	Viruses	0	3	3	Arachis hypogaea
+Peanut stripe virus	Viruses	0	5	5	Arachis hypogaea
+Penicillium expansum	Fungi	0	1	1	Vitis vinifera
+Pepper vein yellows virus	Viruses	0	2	2	Capsicum annuum
+Phytophthora parasitica	Oomycota	3	0	3	Panax ginseng
+Phytophthora sojae	Oomycota	3	0	3	Arabidopsis thaliana
+Plasmopara viticola	Oomycota	2	0	2	Vitis vinifera
+Polerovirus TUYV	Viruses	0	1	1	Lathyrus oleraceus
+Potato virus S	Viruses	10	0	10	Solanum tuberosum
+Potato virus X	Viruses	1	0	1	Solanum tuberosum
+Potato virus Y	Viruses	2	0	2	Capsicum annuum
+Potyvirus capsivenamaculae	Viruses	2	1	3	Capsicum annuum
+Potyvirus citrulli	Viruses	2	1	3	Cucurbita pepo subsp. pepo
+Potyvirus cucurbitaflavitesselati	Viruses	2	0	2	Cucurbita pepo subsp. pepo
+Potyvirus phaseoluteum	Viruses	0	6	6	Lathyrus oleraceus
+Potyvirus pisumsemenportati	Viruses	0	7	7	Lathyrus oleraceus
+Potyvirus trifolii	Viruses	0	1	1	Vicia faba var. minor
+Prune dwarf virus	Viruses	1	0	1	Prunus persica
+Prunus necrotic ringspot virus	Viruses	0	1	1	Prunus persica
+Pseudomonas syringae	Bacteria	0	1	1	Triticum turgidum
+Puccinia graminis f. sp. tritici	Fungi	27	0	27	Triticum aestivum
+Puccinia striiformis	Fungi	149	0	149	Triticum aestivum
+Puccinia striiformis f. sp. tritici	Fungi	81	0	81	Aegilops tauschii subsp. tauschii
+Puccinia triticina	Fungi	38	0	38	Triticum aestivum
+Pyrenophora tritici-repentis	Fungi	0	13	13	Aegilops tauschii subsp. tauschii
+Pyricularia oryzae	Fungi	1	3	4	Triticum aestivum
+Rehmannia mosaic virus	Viruses	0	1	1	Solanum lycopersicum
+Sclerotinia sclerotiorum	Fungi	1	3	4	Lactuca sativa
+Setosphaeria turcica	Fungi	0	1	1	Triticum aestivum
+Stemphylium lycopersici	Fungi	0	1	1	IRL clade
+Sweet potato virus C	Viruses	0	1	1	Ipomoea batatas
+Tobacco mosaic virus	Viruses	0	1	1	Solanum lycopersicum
+Tobacco ringspot virus	Viruses	6	0	6	Cucumis melo
+Tomato brown rugose fruit virus	Viruses	1	0	1	Solanum lycopersicum
+Torilis crimson leaf virus	Viruses	1	0	1	Petroselinum crispum
+Turnip crinkle virus	Viruses	2	1	3	Arabidopsis thaliana
+Turnip mosaic virus	Viruses	1	0	1	Arabidopsis thaliana
+Turnip yellow mosaic virus	Viruses	1	0	1	Brassica rapa
+Turnip yellows virus	Viruses	2	1	3	Brassica napus
+Umbravirus pisi	Viruses	2	6	8	Lathyrus oleraceus
+Varicosavirus lactucae	Viruses	0	18	18	Lactuca sativa
+Watermelon mosaic virus	Viruses	2	3	5	Cucurbita pepo subsp. pepo
+Xanthomonas campestris	Bacteria	0	1	1	Lactuca sativa
+Xanthomonas hortorum	Bacteria	0	1	1	Lactuca sativa
+Zucchini yellow mosaic virus	Viruses	1	2	3	Cucurbita pepo subsp. pepo
+Zymoseptoria tritici	Fungi	0	94	94	Triticum aestivum

@@ -6,19 +6,19 @@ suppressPackageStartupMessages({
   library(ggplot2); library(dplyr); library(tidyr); library(stringr)
 })
 
-CRYPT_TSV   <- "output/02_filter/data/crypt.tsv"
+RUNS_TSV    <- "output/02_filter_runs/data/runs.tsv"
 OUT         <- "figure/novel_heatmap/novel_heatmap"
 TOP_PATHS   <- 35
 TOP_HOSTS   <- 30
 
-crypt <- read.delim(CRYPT_TSV, stringsAsFactors = FALSE) |>
+crypt <- read.delim(RUNS_TSV, stringsAsFactors = FALSE) |>
   filter(biosample_representative == "True",
          interaction_status       == "novel_host_range",
-         secondary_pathogens      != "")
+         stat_pathogens           != "")
 
 cat(sprintf("novel_host_range BioSamples: %d\n", nrow(crypt)))
 
-strip_pct  <- function(x) str_remove_all(x, "\\s*\\([^)]+\\)")
+strip_pct  <- function(x) str_remove_all(x, ":[\\d.]+%")
 norm_name  <- function(x) {
   x <- str_trim(x)
   if (str_detect(x, regex("vir(us|oid|inae|ales)", ignore_case = TRUE))) return(x)
@@ -29,16 +29,16 @@ norm_name  <- function(x) {
 }
 
 pairs <- crypt |>
-  select(host, secondary_pathogens, mode) |>
+  select(host, stat_pathogens, mode) |>
   mutate(
     host               = str_extract(host, "^\\S+\\s+\\S+"),
-    secondary_pathogens = strip_pct(secondary_pathogens)
+    stat_pathogens = strip_pct(stat_pathogens)
   ) |>
-  separate_rows(secondary_pathogens, sep = ";\\s*") |>
-  filter(secondary_pathogens != "",
-         !str_detect(secondary_pathogens,
+  separate_rows(stat_pathogens, sep = ";\\s*") |>
+  filter(stat_pathogens != "",
+         !str_detect(stat_pathogens,
                      regex("environmental|unclassified", ignore_case = TRUE))) |>
-  mutate(secondary = sapply(secondary_pathogens, norm_name)) |>
+  mutate(secondary = sapply(stat_pathogens, norm_name)) |>
   filter(!is.na(host), !is.na(secondary))
 
 top_paths <- pairs |>

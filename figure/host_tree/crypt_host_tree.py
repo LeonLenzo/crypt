@@ -9,7 +9,7 @@ Run as: python3 figure/host_tree/crypt_host_tree.py   (from crypt/)
 Must use system python3 (ete3 + sqlite3 incompatibility with miniconda).
 
 Inputs:
-  output/02_filter/data/crypt.tsv
+  output/02_filter_runs/data/runs.tsv
 
 Outputs:
   figure/host_tree/crypt_host_tree.nwk
@@ -23,7 +23,7 @@ from pathlib import Path
 
 from ete3 import NCBITaxa
 
-CRYPT_TSV           = Path("output/02_filter/data/crypt.tsv")
+RUNS_TSV           = Path("output/02_filter_runs/data/runs.tsv")
 OUT_NWK             = Path("figure/host_tree/crypt_host_tree.nwk")
 OUT_META            = Path("figure/host_tree/crypt_host_tree_meta.tsv")
 VIRIDIPLANTAE_TAXID = 33090
@@ -69,7 +69,7 @@ def assign_family(taxid: int, lineage_cache: dict, ncbi: NCBITaxa) -> str:
 
 def main() -> None:
     host_data: dict = defaultdict(lambda: {"single": 0, "multi": 0})
-    with open(CRYPT_TSV) as f:
+    with open(RUNS_TSV) as f:
         for row in csv.DictReader(f, delimiter="\t"):
             if row.get("biosample_representative", "").strip() != "True":
                 continue

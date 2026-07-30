@@ -6,7 +6,7 @@ suppressPackageStartupMessages({
   library(ggplot2); library(dplyr); library(tidyr); library(stringr)
 })
 
-CRYPT_TSV <- "output/02_filter/data/crypt.tsv"
+RUNS_TSV <- "output/02_filter_runs/data/runs.tsv"
 OUT       <- "figure/kingdom_comp/kingdom_comp"
 
 KINGDOM_COLS <- c(
@@ -18,7 +18,7 @@ KINGDOM_COLS <- c(
   Unknown   = "#95a5a6"
 )
 
-crypt <- read.delim(CRYPT_TSV, stringsAsFactors = FALSE) |>
+crypt <- read.delim(RUNS_TSV, stringsAsFactors = FALSE) |>
   filter(biosample_representative == "True")
 
 # ── Panel A: kingdom breakdown of secondary detections per mode ────────────────

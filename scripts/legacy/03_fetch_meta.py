@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-03_find.py — fetch BioProject metadata for all BioProjects in crypt.tsv.
+03_fetch_meta.py — fetch BioProject metadata for all BioProjects in crypt.tsv.
 
-Fetches titles, submission dates, study design, and linked PubMed articles for
-all 1,797 BioProjects (single + co-infected) to enable field prevalence analysis.
-Use --hc to restrict co-infection counts to same_genus_secondary=False runs.
+Fetches titles, submission dates, linked PubMed articles, and PMC full-text
+methods sections for all BioProjects. All results are written to find_cache.json
+for downstream classification in 04_filter_meta.py (no TSV output here).
 
 PMIDs are sourced via six strategies (short-circuit, stop at first hit):
   1. BioProject XML <Publication> elements — free, extracted from title fetch
@@ -14,15 +14,26 @@ PMIDs are sourced via six strategies (short-circuit, stop at first hit):
   5. Semantic Scholar (S2_API_KEY required; skipped without key)
   6. PubMed text search (last resort)
 
-Output (output/03_find/):
-  data/bioproject_meta.tsv   one row per BioProject
-  data/find_cache.json       Entrez + EBI + S2 cache (v4; resumable)
-  logs/find.log
-  logs/find_summary.txt
+After finding a PMID, the script checks whether the primary paper is in PMC
+and fetches the full-text methods section if available. This is stored in
+find_cache.json for use by 04_filter_meta.py study-design classification.
+
+Cache behaviour:
+  v5 with PMID    → instant skip (already fully processed)
+  v5 no PMID      → skip (use --retry to re-run strategies)
+  v4 with PMID    → upgrade in-place: re-fetch abstract (fixes structured-abstract
+                    parsing bug), fetch PMCID, fetch PMC methods section (~2-3 calls)
+  v4 no PMID      → silently bumped to v5 (skip unless --retry)
+  not in cache    → full fetch (all six PMID strategies + PMC methods if found)
+
+Output:
+  output/03_fetch_meta/data/find_cache.json   Entrez + EBI + S2 cache (v5; resumable)
+  output/03_fetch_meta/logs/fetch.log
+  output/03_fetch_meta/logs/fetch_summary.txt
 
 Usage:
-  python 03_find.py
-  python 03_find.py --hc
+  python 03_fetch_meta.py           # upgrade v4→v5 + fetch new BPs
+  python 03_fetch_meta.py --retry   # also retry no-PMID entries
 """
 
 import argparse
@@ -34,57 +45,29 @@ import sys
 import time
 import urllib.parse
 import xml.etree.ElementTree as ET
-from collections import defaultdict
 from pathlib import Path
 
 from _util import _Tee, http_get, link_latest, load_json, make_log_dir, save_json
 
 # ── Settings ──────────────────────────────────────────────────────────────────
 
-CRYPT_TSV = Path("output/02_filter/data/crypt.tsv")
-OUT_DIR   = Path("output/03_find")
+CRYPT_TSV = Path("output/02_filter_runs/data/crypt.tsv")
+OUT_DIR   = Path("output/03_fetch_meta")
 
-CACHE_VERSION = 4
+CACHE_VERSION = 5
 
 API_KEY    = os.environ.get("NCBI_API_KEY", "")
 S2_API_KEY = os.environ.get("S2_API_KEY", "")
 RATE       = 9.0 if API_KEY else 2.5
-HEADERS    = {"User-Agent": "crypt/03_meta (leon.lenzo@curtin.edu.au)"}
+HEADERS    = {"User-Agent": "crypt/03_fetch_meta (leon.lenzo@curtin.edu.au)"}
 ENTREZ     = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 
 EPMC        = "https://www.ebi.ac.uk/europepmc/webservices/rest"
 ENA         = "https://www.ebi.ac.uk/ena/browser/api"
-EXT_HEADERS = {"User-Agent": "crypt/03_find (leon.lenzo@curtin.edu.au)"}
+EXT_HEADERS = {"User-Agent": "crypt/03_fetch_meta (leon.lenzo@curtin.edu.au)"}
 
-OUTPUT_FIELDS = [
-    "BioProject", "modes", "n_runs", "n_coinf", "n_single", "coinf_rate",
-    "bp_submission_date", "study_design", "pmid_source", "title",
-    "primary_pmid", "primary_pub_date", "primary_publication", "abstract",
-    "n_papers_found", "primaries", "secondaries",
-]
-
-# ── Study design inference ─────────────────────────────────────────────────────
-
-_COINF_KEYWORDS = {
-    "co-infection", "coinfection", "co infection", "dual infection",
-    "mixed infection", "dual inoculation", "co-inoculation", "coinoculation",
-    "double infection", "co-inoculated", "co-infected",
-}
-_FIELD_KEYWORDS = {
-    "field", "survey", "surveillance", "epidemiology", "epidemiological",
-    "natural infection", "naturally infected", "wild", "farm", "orchard",
-    "commercial", "pathogenomics",
-}
-
-
-def _study_design(title: str, description: str, pub_text: str = "") -> str:
-    text = (title + " " + description + " " + pub_text).lower()
-    if any(kw in text for kw in _COINF_KEYWORDS):
-        return "coinf_experiment"
-    if any(kw in text for kw in _FIELD_KEYWORDS):
-        return "field_survey"
-    return "unclear"
-
+# Maximum characters to store from PMC methods section (keeps cache manageable)
+METHODS_MAX_CHARS = 8000
 
 # ── Rate limiting ──────────────────────────────────────────────────────────────
 
@@ -125,13 +108,14 @@ _last_s2: float = 0.0
 
 def _s2_wait() -> None:
     global _last_s2
-    # 10 req/s with key, 1 req/s without — stay comfortably under both
     gap  = 1.1  # S2 rate limit: 1 req/s with or without key
     wait = _last_s2 + gap - time.monotonic()
     if wait > 0:
         time.sleep(wait)
     _last_s2 = time.monotonic()
 
+
+# ── External search functions ──────────────────────────────────────────────────
 
 def _europepmc_search(accession: str) -> list[str]:
     """Europe PMC full-text search for accession string; returns PMIDs found."""
@@ -188,7 +172,7 @@ def _semantic_scholar_search(accession: str) -> list[str]:
         "limit":  5,
     })
     headers = {
-        "User-Agent": "crypt/03_find (leon.lenzo@curtin.edu.au)",
+        "User-Agent": "crypt/03_fetch_meta (leon.lenzo@curtin.edu.au)",
         "x-api-key":  S2_API_KEY,
     }
     _s2_wait()
@@ -282,31 +266,110 @@ def _pubmed_search(accession: str) -> list[str]:
     return [el.text for el in root.findall(".//Id") if el.text]
 
 
+def _pmid_to_pmcid(pmid: str) -> str | None:
+    """Return the PMC article ID for a PubMed article, or None if not in PMC."""
+    raw  = _get("esearch.fcgi", db="pmc", term=f"{pmid}[pmid]", retmax=1)
+    root = ET.fromstring(raw)
+    ids  = [el.text for el in root.findall(".//Id") if el.text]
+    return ids[0] if ids else None
+
+
+def _fetch_pmc_methods(pmcid: str) -> str:
+    """Fetch PMC full-text XML and extract the methods section text."""
+    raw  = _get("efetch.fcgi", db="pmc", id=pmcid, rettype="full", retmode="xml")
+    root = ET.fromstring(raw)
+    for sec in root.iter("sec"):
+        sec_type   = sec.get("sec-type", "").lower()
+        title_el   = sec.find("title")
+        title_text = (title_el.text or "").lower() if title_el is not None else ""
+        if ("method" in sec_type or "material" in sec_type
+                or "method" in title_text or "material" in title_text):
+            parts = []
+            for el in sec.iter():
+                if el.tag in ("p", "title") and el.text:
+                    parts.append(el.text.strip())
+                if el.tail:
+                    tail = el.tail.strip()
+                    if tail:
+                        parts.append(tail)
+            text = " ".join(p for p in parts if p)
+            return text[:METHODS_MAX_CHARS]
+    return ""
+
+
 # Strategies in order of expected hit rate.
-# Each entry: (label, callable(accession, uid) → list[str])
-# uid may be None only for strategies that don't need it.
 _STRATEGIES = [
-    ("BioProject XML",    lambda acc, uid, xml_pmids: list(xml_pmids)),
-    ("PMC full-text",     lambda acc, uid, _: _pmcids_to_pmids(_pmc_search(acc))),
-    ("Europe PMC",        lambda acc, uid, _: _europepmc_search(acc)),
-    ("ENA XML",           lambda acc, uid, _: _ena_pmids(acc)),
-    ("Semantic Scholar",  lambda acc, uid, _: _semantic_scholar_search(acc)),
-    ("PubMed",            lambda acc, uid, _: _pubmed_search(acc)),
+    ("BioProject XML",   lambda acc, uid, xml_pmids: list(xml_pmids)),
+    ("PMC full-text",    lambda acc, uid, _: _pmcids_to_pmids(_pmc_search(acc))),
+    ("Europe PMC",       lambda acc, uid, _: _europepmc_search(acc)),
+    ("ENA XML",          lambda acc, uid, _: _ena_pmids(acc)),
+    ("Semantic Scholar", lambda acc, uid, _: _semantic_scholar_search(acc)),
+    ("PubMed",           lambda acc, uid, _: _pubmed_search(acc)),
 ]
 
 
 def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
     """
-    Fetch title, description, and earliest publication for a BioProject.
-    Tries strategies in order; stops on the first that returns a PMID.
+    Fetch title, description, earliest publication, and PMC methods text for a BioProject.
+    Tries PMID strategies in order; stops on the first that returns a PMID.
+    Fetches PMC full-text methods section if the primary paper is in PMC.
     Mutates cache in place; caller persists it.
     """
+    # v5 cache hit
     if accession in cache and cache[accession].get("_v") == CACHE_VERSION:
         if cache[accession].get("n_papers_found", 0) > 0:
             result = dict(cache[accession])
             result.setdefault("pmid_source", "cached")
             return result
-        # Found nothing previously — re-try with current strategy order
+        # v5 with no PMID — retry strategies below
+
+    # v4 → v5 upgrade: entries with a PMID get PMC methods + abstract repair
+    if accession in cache and cache[accession].get("_v") == 4:
+        entry = cache[accession]
+        if entry.get("primary_pmid"):
+            entry.setdefault("pmcid", "")
+            entry.setdefault("methods_text", "")
+
+            # Re-fetch PubMed abstract if missing (fixes structured abstract parsing bug)
+            if not entry.get("abstract", "").strip():
+                try:
+                    raw  = _get("efetch.fcgi", db="pubmed",
+                                id=entry["primary_pmid"], rettype="xml", retmode="xml")
+                    root = ET.fromstring(raw)
+                    for article in root.findall(".//PubmedArticle"):
+                        abs_els  = article.findall(
+                            ".//MedlineCitation/Article/Abstract/AbstractText")
+                        abstract = " ".join(
+                            "".join(el.itertext()).strip() for el in abs_els
+                        ).strip()
+                        ttl_el   = article.find(".//MedlineCitation/Article/ArticleTitle")
+                        title    = ("".join(ttl_el.itertext()).strip()
+                                    if ttl_el is not None else entry.get("title", ""))
+                        if abstract:
+                            entry["abstract"]         = abstract
+                            entry["title"]            = title
+                            entry["primary_pub_text"] = f"{title} {abstract}"
+                        break
+                except Exception as e:
+                    print(f"WARNING: PubMed re-fetch failed for {accession}: {e}",
+                          flush=True)
+
+            # Fetch PMC full-text methods
+            if not entry["pmcid"]:
+                pmcid = _pmid_to_pmcid(entry["primary_pmid"])
+                entry["pmcid"] = pmcid or ""
+                if pmcid:
+                    try:
+                        entry["methods_text"] = _fetch_pmc_methods(pmcid)
+                    except Exception as e:
+                        print(f"WARNING: PMC fetch failed for {pmcid}: {e}", flush=True)
+
+            entry["_v"]      = CACHE_VERSION
+            cache[accession] = entry
+            result = dict(entry)
+            result["pmid_source"] = "cached"
+            return result
+        # v4 with no PMID — fall through to full re-fetch
 
     result: dict = {
         "title": "", "description": "",
@@ -315,6 +378,7 @@ def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
         "primary_publication": "", "abstract": "",
         "n_papers_found": 0,
         "primary_pub_text": "", "pmid_source": "none",
+        "pmcid": "", "methods_text": "",
         "_v": CACHE_VERSION,
     }
 
@@ -368,16 +432,23 @@ def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
             root = ET.fromstring(raw)
             pub_info: dict[str, dict] = {}
             for article in root.findall(".//PubmedArticle"):
-                pid_el = article.find(".//MedlineCitation/PMID")
-                ttl_el = article.find(".//MedlineCitation/Article/ArticleTitle")
-                abs_el = article.find(".//MedlineCitation/Article/Abstract/AbstractText")
+                pid_el  = article.find(".//MedlineCitation/PMID")
+                ttl_el  = article.find(".//MedlineCitation/Article/ArticleTitle")
+                abs_els = article.findall(".//MedlineCitation/Article/Abstract/AbstractText")
                 if pid_el is None:
                     continue
                 pid = pid_el.text or ""
+                # Join all AbstractText elements with itertext() to handle structured
+                # abstracts (Label sections) and inline markup (<i>, <sup>, etc.)
+                abstract = " ".join(
+                    "".join(el.itertext()).strip() for el in abs_els
+                ).strip()
+                # ArticleTitle may also contain inline markup
+                title = "".join(ttl_el.itertext()).strip() if ttl_el is not None else ""
                 pub_info[pid] = {
-                    "title":    (ttl_el.text or "").strip() if ttl_el is not None else "",
+                    "title":    title,
                     "date":     _pub_date(article),
-                    "abstract": (abs_el.text  or "").strip() if abs_el  is not None else "",
+                    "abstract": abstract,
                 }
             if pub_info:
                 primary_pid = min(pub_info, key=lambda p: pub_info[p]["date"])
@@ -390,6 +461,16 @@ def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
         except Exception as e:
             print(f"WARNING: pubmed efetch failed for {accession}: {e}", flush=True)
 
+    # Fetch PMC full-text methods section for the primary paper
+    if result["primary_pmid"]:
+        try:
+            pmcid = _pmid_to_pmcid(result["primary_pmid"])
+            result["pmcid"] = pmcid or ""
+            if pmcid:
+                result["methods_text"] = _fetch_pmc_methods(pmcid)
+        except Exception as e:
+            print(f"WARNING: PMC methods fetch failed for {accession}: {e}", flush=True)
+
     cache[accession] = result
     return result
 
@@ -399,169 +480,151 @@ def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--hc", action="store_true",
-                    help="restrict to high-confidence runs (same_genus_secondary=False)")
+    ap.add_argument("--retry", action="store_true",
+                    help="re-run PMID strategies for BPs that previously returned nothing "
+                         "(only useful when a new search strategy has been added)")
     args = ap.parse_args()
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     (OUT_DIR / "data").mkdir(parents=True, exist_ok=True)
     logs_base = OUT_DIR / "logs"
     log_dir   = make_log_dir(logs_base)
-    sys.stdout = _Tee(log_dir / "find.log")
-    link_latest(logs_base, log_dir / "find.log")
+    sys.stdout = _Tee(log_dir / "fetch.log")
+    link_latest(logs_base, log_dir / "fetch.log")
 
     cache_path = OUT_DIR / "data" / "find_cache.json"
-    out_tsv    = OUT_DIR / "data" / "bioproject_meta.tsv"
 
     print(f"NCBI_API_KEY set: {'yes' if API_KEY else 'no'}", flush=True)
+    print(f"S2_API_KEY set:   {'yes' if S2_API_KEY else 'no'}", flush=True)
+    if args.retry:
+        print("--retry: will re-run strategies on all no-PMID entries", flush=True)
 
     if not CRYPT_TSV.exists():
-        sys.exit(f"ERROR: {CRYPT_TSV} not found — run 02_filter.py first")
+        sys.exit(f"ERROR: {CRYPT_TSV} not found — run 02_filter_runs.py first")
 
     with open(CRYPT_TSV, newline="") as f:
         rows = list(csv.DictReader(f, delimiter="\t"))
-    print(f"Loaded {len(rows):,} runs from {CRYPT_TSV}", flush=True)
 
-    if args.hc:
-        coinf_rows = [
-            r for r in rows
-            if r.get("co_infection_flag") != "single"
-            and r.get("same_genus_secondary") == "False"
-        ]
-        label = "high-confidence (same_genus_secondary=False)"
-    else:
-        coinf_rows = [r for r in rows if r.get("co_infection_flag") != "single"]
-        label      = "all co-infected"
-
-    print(f"Co-infection filter: {label} → {len(coinf_rows):,} runs", flush=True)
-
-    # Aggregate ALL runs per BioProject (single + co-infected)
-    bp_agg: dict[str, dict] = defaultdict(
-        lambda: {"n_coinf": 0, "n_single": 0,
-                 "modes": set(), "primaries": set(), "secondaries": set()}
-    )
+    # Collect unique BioProjects in order of first appearance
+    seen: set[str] = set()
+    bioprojects: list[str] = []
     for r in rows:
         bp = r.get("BioProject", "").strip()
-        if not bp or bp in ("", "NA"):
-            continue
-        is_coinf = r.get("co_infection_flag") != "single"
-        # Only count runs that pass the hc filter as coinf when --hc is set
-        if args.hc:
-            is_coinf = is_coinf and r.get("same_genus_secondary") == "False"
-        if is_coinf:
-            bp_agg[bp]["n_coinf"] += 1
-            bp_agg[bp]["modes"].add(r.get("mode", ""))
-            if r.get("primary_pathogen"):
-                bp_agg[bp]["primaries"].add(r["primary_pathogen"].strip())
-            for sp in r.get("secondary_pathogens", "").split(";"):
-                sp = sp.strip()
-                if sp:
-                    bp_agg[bp]["secondaries"].add(sp)
+        if bp and bp not in ("", "NA") and bp not in seen:
+            seen.add(bp)
+            bioprojects.append(bp)
+
+    cache = load_json(cache_path)
+
+    # Classify BPs into work categories before the main loop
+    to_upgrade: list[str] = []   # v4 with PMID → abstract repair + PMC methods
+    to_fetch:   list[str] = []   # not in cache → full fetch
+    to_retry:   list[str] = []   # no PMID → retry strategies (only with --retry)
+    n_skip_pmid    = 0            # v5 with PMID → already done
+    n_skip_no_pmid = 0            # no PMID, not retrying → skip
+
+    for bp in bioprojects:
+        entry = cache.get(bp, {})
+        v        = entry.get("_v", 0)
+        has_pmid = bool(entry.get("primary_pmid"))
+
+        if v == CACHE_VERSION and has_pmid:
+            n_skip_pmid += 1
+        elif v == CACHE_VERSION and not has_pmid:
+            if args.retry:
+                to_retry.append(bp)
+            else:
+                n_skip_no_pmid += 1
+        elif v == 4 and has_pmid:
+            to_upgrade.append(bp)
+        elif v == 4 and not has_pmid:
+            if args.retry:
+                to_retry.append(bp)
+            else:
+                # Silently bump to v5 so it won't be reconsidered on the next run
+                entry["_v"] = CACHE_VERSION
+                entry.setdefault("pmcid", "")
+                entry.setdefault("methods_text", "")
+                cache[bp] = entry
+                n_skip_no_pmid += 1
         else:
-            bp_agg[bp]["n_single"] += 1
+            to_fetch.append(bp)
 
-    bioprojects = sorted(bp_agg,
-                         key=lambda b: bp_agg[b]["n_coinf"], reverse=True)
-    print(f"BioProjects to fetch: {len(bioprojects)}", flush=True)
+    total_work = len(to_upgrade) + len(to_fetch) + len(to_retry)
+    print(f"BioProjects: {len(bioprojects)} total", flush=True)
+    print(f"  skip — v5 with PMID:    {n_skip_pmid}", flush=True)
+    print(f"  skip — no PMID found:   {n_skip_no_pmid}"
+          + (" (use --retry to force)" if n_skip_no_pmid else ""), flush=True)
+    print(f"  upgrade v4→v5:          {len(to_upgrade)}", flush=True)
+    print(f"  fetch (new):            {len(to_fetch)}", flush=True)
+    if args.retry:
+        print(f"  retry (no-PMID):        {len(to_retry)}", flush=True)
+    print(f"  → work items:           {total_work}", flush=True)
 
-    cache    = load_json(cache_path)
-    n_cached = sum(1 for bp in bioprojects
-                   if bp in cache and cache[bp].get("_v") == CACHE_VERSION)
-    print(f"Already cached (v{CACHE_VERSION}): {n_cached}", flush=True)
+    if n_skip_no_pmid and not args.retry:
+        # Persist the silent v4→v5 bumps before doing real work
+        save_json(cache, cache_path)
 
-    results = []
-    for i, bp in enumerate(bioprojects, 1):
-        n_coinf  = bp_agg[bp]["n_coinf"]
-        n_single = bp_agg[bp]["n_single"]
-        n_total  = n_coinf + n_single
-        ts       = datetime.now().strftime("%H:%M:%S")
-        print(f"[{ts}] [{i:>4}/{len(bioprojects)}] {bp} — "
-              f"{n_total} runs, {n_single} infected, {n_coinf} co-infected",
-              end=" · ", flush=True)
+    n_upgraded = n_fetched = n_retried = 0
+    work_list = (
+        [("upgrade", bp) for bp in to_upgrade]
+        + [("fetch",   bp) for bp in to_fetch]
+        + [("retry",   bp) for bp in to_retry]
+    )
+
+    for i, (kind, bp) in enumerate(work_list, 1):
+        ts = datetime.now().strftime("%H:%M:%S")
+        print(f"[{ts}] [{i:>4}/{total_work}] {kind:<8} {bp}", end=" · ", flush=True)
 
         try:
             meta = fetch_bioproject_meta(bp, cache)
         except Exception as e:
             print(f"ERROR: {e}", flush=True)
-            meta = {"title": "", "primary_pmid": "", "primary_pub_date": "",
-                    "primary_publication": "", "n_papers_found": 0,
-                    "primary_pub_text": "", "pmid_source": "error"}
+            continue
 
-        src      = meta.get("pmid_source", "none")
-        cached   = src == "cached"
-        modes_str = "+".join(sorted(bp_agg[bp]["modes"] - {""}))
+        src = meta.get("pmid_source", "none")
+        print(f"source: {src} | pmcid: {meta.get('pmcid') or '-'} | "
+              f"methods: {'yes' if meta.get('methods_text') else 'no'}", flush=True)
 
-        results.append({
-            "BioProject":          bp,
-            "modes":               modes_str,
-            "n_runs":              n_total,
-            "n_coinf":             n_coinf,
-            "n_single":            n_single,
-            "coinf_rate":          round(n_coinf / n_total, 4) if n_total else "",
-            "bp_submission_date":  meta.get("bp_submission_date", ""),
-            "study_design":        _study_design(meta["title"],
-                                                 meta.get("description", ""),
-                                                 meta.get("primary_pub_text", "")),
-            "pmid_source":         src,
-            "title":               meta["title"],
-            "primary_pmid":        meta.get("primary_pmid", ""),
-            "primary_pub_date":    meta.get("primary_pub_date", ""),
-            "primary_publication": meta.get("primary_publication", ""),
-            "abstract":            meta.get("abstract", ""),
-            "n_papers_found":      meta.get("n_papers_found", 0),
-            "primaries":           "; ".join(sorted(bp_agg[bp]["primaries"])),
-            "secondaries":         "; ".join(sorted(bp_agg[bp]["secondaries"])),
-        })
+        save_json(cache, cache_path)
+        if kind == "upgrade":
+            n_upgraded += 1
+        elif kind == "retry":
+            n_retried += 1
+        else:
+            n_fetched += 1
 
-        print(f"source: {src}", flush=True)
-        if not cached:
-            save_json(cache, cache_path)
+    save_json(cache, cache_path)
 
-    with open(out_tsv, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=OUTPUT_FIELDS, delimiter="\t",
-                                extrasaction="ignore")
-        writer.writeheader()
-        writer.writerows(results)
-
-    n_with_pmids = sum(1 for r in results if r["primary_pmid"])
-    n_with_title = sum(1 for r in results if r["title"])
-    design_counts: dict[str, int] = {}
+    n_with_pmid    = sum(1 for bp in bioprojects if cache.get(bp, {}).get("primary_pmid"))
+    n_with_methods = sum(1 for bp in bioprojects if cache.get(bp, {}).get("methods_text"))
     source_counts: dict[str, int] = {}
-    for r in results:
-        design_counts[r["study_design"]] = design_counts.get(r["study_design"], 0) + 1
-        source_counts[r["pmid_source"]]  = source_counts.get(r["pmid_source"],  0) + 1
-
-    n_both_modes = sum(1 for r in results if "+" in r["modes"])
-
-    n_coinf_bp  = sum(1 for r in results if r["n_coinf"] > 0)
-    n_single_bp = sum(1 for r in results if r["n_coinf"] == 0)
+    for bp in bioprojects:
+        src = cache.get(bp, {}).get("pmid_source", "none")
+        source_counts[src] = source_counts.get(src, 0) + 1
     source_lines = "\n".join(
         f"  {src:<20} {cnt}"
         for src, cnt in sorted(source_counts.items(), key=lambda x: -x[1])
     )
+
     summary = (
-        f"03_find summary\n"
-        f"Co-infection filter: {label}\n"
-        f"BioProjects total:   {len(results)}\n"
-        f"  with co-infection: {n_coinf_bp}\n"
-        f"  single only:       {n_single_bp}\n"
-        f"  from MAL only:     {sum(1 for r in results if r['modes'] == 'mal')}\n"
-        f"  from HAL only:     {sum(1 for r in results if r['modes'] == 'hal')}\n"
-        f"  from both modes:   {n_both_modes}\n"
-        f"With title:          {n_with_title}\n"
-        f"With PMIDs:          {n_with_pmids}\n"
+        f"03_fetch_meta summary\n"
+        f"BioProjects total:       {len(bioprojects)}\n"
+        f"  skipped (v5+PMID):     {n_skip_pmid}\n"
+        f"  skipped (no PMID):     {n_skip_no_pmid}\n"
+        f"  upgraded v4→v5:        {n_upgraded}\n"
+        f"  fetched (new):         {n_fetched}\n"
+        f"  retried (no-PMID):     {n_retried}\n"
+        f"With PMID:               {n_with_pmid}\n"
+        f"With PMC methods text:   {n_with_methods}\n"
         f"PMID source breakdown:\n{source_lines}\n"
-        f"Study design (auto):\n"
-        f"  coinf_experiment:  {design_counts.get('coinf_experiment', 0)}\n"
-        f"  field_survey:      {design_counts.get('field_survey', 0)}\n"
-        f"  unclear:           {design_counts.get('unclear', 0)}\n"
-        f"  (coinf_experiment → manually verify then exclude from novel count)\n"
+        f"\nRun 04_filter_meta.py to classify study designs and write bioproject_meta.tsv\n"
     )
-    summary_path = log_dir / "find_summary.txt"
+    summary_path = log_dir / "fetch_summary.txt"
     summary_path.write_text(summary)
     link_latest(logs_base, summary_path)
     print(f"\n{summary}")
-    print(f"Written: {out_tsv}")
+    print(f"Cache written: {cache_path}")
 
 
 if __name__ == "__main__":

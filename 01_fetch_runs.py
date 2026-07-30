@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-01_fetch.py — fetch SRA run IDs and NCBI STAT taxonomy for co-infection mining.
+01_fetch_runs.py — fetch SRA run IDs and NCBI STAT taxonomy for co-infection mining.
 
 Merges the SRA ID fetch (01_sra.py) and STAT data fetch (02_stat.py) into a
 single data-gathering step.  No retention gate is applied here — that belongs
-in 02_filter.py.
+in 02_filter_runs.py.
 
 Two modes:
   mal  microbe-as-library: PHI-base plant pathogen as library organism.
   hal  host-as-library:    PHI-base plant host as library organism.
 
-Output (output/01_fetch/):
+Output (output/01_fetch_runs/):
   data/{mode}_runs.json      RunInfo rows keyed by Run accession
   data/{mode}_uids.json      fetched UID set (resumability)
   data/stat_cache.jsonl      STAT responses, append-only, shared MAL+HAL
@@ -19,13 +19,13 @@ Output (output/01_fetch/):
 
 Do NOT run MAL and HAL simultaneously — they share stat_cache.jsonl.
 Chain HAL after MAL:
-  until grep -q '01_fetch MAL summary' output/01_fetch/logs/mal.log; do sleep 30; done
-  python 01_fetch.py --mode hal
+  until grep -q 'MAL summary' output/01_fetch_runs/logs/latest/mal_summary.txt; do sleep 30; done
+  python 01_fetch_runs.py --mode hal
 
 Usage:
-  python 01_fetch.py --mode mal
-  python 01_fetch.py --mode hal
-  python 01_fetch.py --mode mal --count   (hit counts only, no fetch)
+  python 01_fetch_runs.py --mode mal
+  python 01_fetch_runs.py --mode hal
+  python 01_fetch_runs.py --mode mal --count   (hit counts only, no fetch)
 """
 
 import argparse
@@ -47,7 +47,7 @@ from _util import _Tee, http_get, link_latest, load_json, make_log_dir, save_jso
 # ── Settings ──────────────────────────────────────────────────────────────────
 
 DB_PATH  = Path("output/00_build/data/phibase_db.json")
-OUT_DIR  = Path("output/01_fetch")
+OUT_DIR  = Path("output/01_fetch_runs")
 
 LIBRARY_STRAT    = "RNA-Seq"
 MAL_BATCH        = 50
@@ -58,13 +58,13 @@ SAVE_EVERY       = 20
 STAT_URL         = ("https://trace.ncbi.nlm.nih.gov/Traces/sra-db-be/"
                     "run_taxonomy?acc={run}&cluster_name=public")
 STAT_MAX_WORKERS = 32
-CACHE_MIN_PCT    = 0.1   # filter tax_table at write time; matches ABS_MIN_PCT in 02_filter.py
+CACHE_MIN_PCT    = 0.1   # filter tax_table at write time; matches ABS_MIN_PCT in 02_filter_runs.py
 LOG_EVERY        = 200
 
 API_KEY  = os.environ.get("NCBI_API_KEY", "")
 RATE     = 9.0  if API_KEY else 2.5
 STAT_RATE = 15.0 if API_KEY else 5.0
-HEADERS  = {"User-Agent": "crypt/01_fetch (leon.lenzo@curtin.edu.au)"}
+HEADERS  = {"User-Agent": "crypt/01_fetch_runs (leon.lenzo@curtin.edu.au)"}
 ENTREZ   = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 
 _MAL_KINGDOM_KEYS = [
@@ -384,7 +384,7 @@ def main() -> None:
         fetch_stat_append(to_fetch, stat_jsonl, stat_index)
 
         summary = (
-            f"── 01_fetch {args.mode.upper()} summary ──────────────────────────\n"
+            f"── 01_fetch_runs {args.mode.upper()} summary ──────────────────────────\n"
             f"Mode:              {args.mode.upper()}\n"
             f"\n"
             f"Unique UIDs found: {len(uids):>8,}\n"

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-figure/guilds/mal_guilds.py — build co-infection guild network from crypt.tsv (MAL + HAL).
+figure/guilds/mal_guilds.py — build co-infection guild network from runs.tsv (MAL + HAL).
 
 Treats all pathogens (primary + secondary) symmetrically. Nodes = pathogens,
 edges = co-occurrence in the same confirmed run, edge weight = run count.
@@ -22,7 +22,7 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-CRYPT_TSV       = Path("output/02_filter/data/crypt.tsv")
+RUNS_TSV        = Path("output/02_filter_runs/data/runs.tsv")
 DB_PATH         = Path("output/00_build/data/phibase_db.json")
 NODES_TSV       = Path("figure/guilds/mal_guild_nodes.tsv")
 EDGES_TSV       = Path("figure/guilds/mal_guild_edges.tsv")
@@ -34,7 +34,7 @@ _SKIP           = {"environmental samples"}
 # ── Name normalisation ────────────────────────────────────────────────────────
 
 _FSP_RE    = re.compile(r'^(\S+\s+\S+\s+f\.\s+sp\.\s+\S+)')
-_PCT_RE    = re.compile(r'\s*\([\d.]+%\)\s*$')
+_PCT_RE    = re.compile(r':[\d.]+%$')
 
 
 def _normalize(name: str) -> str:
@@ -94,22 +94,21 @@ def main() -> None:
     node_n_secondary: dict[str, int] = defaultdict(int)
     edge_counts:      dict[tuple[str, str], int] = defaultdict(int)
 
-    with open(CRYPT_TSV) as f:
+    with open(RUNS_TSV) as f:
         for row in csv.DictReader(f, delimiter='\t'):
-            if not row.get('secondary_pathogens'):
+            if not row.get('stat_pathogens'):
                 continue
 
             # Primary node
-            prim_norm = _normalize(row['primary_pathogen'])
-            prim_tid  = row.get('primary_taxid', '').strip()
-            prim_kg   = _kingdom(row['primary_pathogen'], prim_tid,
+            prim_norm = _normalize(row['library_organism'])
+            prim_kg   = _kingdom(row['library_organism'], '',
                                  taxid_to_kg, name_to_tid)
             node_kingdom.setdefault(prim_norm, prim_kg)
             node_n_primary[prim_norm] += 1
 
             # Secondary nodes
             sec_norms: list[str] = []
-            for entry in row['secondary_pathogens'].split('; '):
+            for entry in row['stat_pathogens'].split('; '):
                 raw = _PCT_RE.sub('', entry).strip()
                 if raw.lower() in _SKIP or not raw:
                     continue

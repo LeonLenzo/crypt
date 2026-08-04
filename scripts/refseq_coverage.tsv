@@ -1,0 +1,141 @@
+taxid	kingdom	name	has_refseq	has_annotation	accession	asm_name
+4779	oomycete	Bremia lactucae	True	True	GCF_004359215.1	BlacSF5v2
+4784	oomycete	Phytophthora capsici	True	True	GCA_016618375.1	Pcap_4.1
+4787	oomycete	Phytophthora infestans	True	True	GCA_012295175.1	ASM1229517v1
+4792	oomycete	Phytophthora nicotianae	True	True	GCA_000509465.1	Phyt_para_CJ02B3_V1
+5016	fungi	Bipolaris maydis	True	True	GCF_028858645.1	CocheC4_6
+5017	fungi	Bipolaris zeicola	True	True	GCF_000523435.1	Cochliobolus carbonum v1.0
+5022	fungi	Plenodomus lingam	True	True	GCF_022343315.1	CAIQ.LM.1
+5059	fungi	Aspergillus flavus	True	True	GCF_009017415.1	ASM901741v1
+5061	fungi	Aspergillus niger	True	True	GCF_000002855.4	ASM285v2
+5111	fungi	Claviceps purpurea	True	True	GCA_018360475.1	CSU_LM469_v1
+5116	fungi	Cryphonectria parasitica	True	True	GCF_011745365.1	Crypa2
+5127	fungi	Fusarium fujikuroi	True	True	GCA_001023035.1	ASM102303v1
+5128	fungi	Fusarium sambucinum	True	True	GCF_050947815.1	OSU_Fsam_2.1
+5158	fungi	Ceratocystis fimbriata	True	True	GCA_000389695.3	Cfim3.0
+5180	fungi	Sclerotinia sclerotiorum	True	True	GCF_000146945.2	ASM14694v2
+5261	fungi	Melampsora lini	False	False		
+5270	fungi	Mycosarcoma maydis	True	True	GCF_000328475.2	Umaydis521_2.0
+5297	fungi	Puccinia graminis	True	True	GCA_008520325.1	Pgt_Ug99
+5454	fungi	Ascochyta rabiei	True	True	GCF_004011695.2	ASM401169v2
+5462	fungi	Colletotrichum lagenaria	False	False		
+5465	fungi	Colletotrichum orbiculare	True	True	GCA_000350065.2	KSG_Corb_v2
+5466	fungi	Colletotrichum trifolii	True	True	GCA_004367215.1	KSG_Cotri_v1
+5499	fungi	Fulvia fulva	True	True	GCF_020509005.1	Cfulv_R5_v5
+5503	fungi	Curvularia lunata	True	False	GCA_005212705.1	ASM521270v1
+5507	fungi	Fusarium oxysporum	True	True	GCA_003615115.1	Fo_A13_v1
+5514	fungi	Fusarium sporotrichioides	True	True	GCA_003012315.1	Fusarium_sporotrichioides_NRRL3299_FSPOR_contigs
+5516	fungi	Fusarium culmorum	True	True	GCA_016952355.1	ASM1695235v1
+5518	fungi	Fusarium graminearum	True	True	GCA_000599445.1	CS3005v1
+5599	fungi	Alternaria alternata	True	True	GCF_001642055.1	Altal1
+6303	nematode	Meloidogyne javanica	True	False	GCA_036172935.1	ASM3617293v1
+6326	nematode	Bursaphelenchus xylophilus	True	True	GCA_904066235.2	BXYJv5
+13563	fungi	Heterobasidion annosum	True	False	GCA_001457955.1	BM42NG
+13684	fungi	Parastagonospora nodorum	True	True	GCA_020557385.1	ASM2055738v1
+27334	fungi	Penicillium expansum	True	True	GCF_000769745.1	ASM76974v1
+27337	fungi	Verticillium dahliae	True	True	GCA_002892985.1	ASM289298v1
+27350	fungi	Puccinia striiformis	True	True	GCA_002920065.1	ASM292006v1
+27357	fungi	Colletotrichum acutatum	True	True	GCF_030867785.1	Colac2
+27358	fungi	Colletotrichum coccodes	True	False	GCA_020466075.1	ASM2046607v1
+29001	fungi	Alternaria brassicicola	True	True	GCA_059186605.1	Altbr_DSM62008
+29003	fungi	Cercospora nicotianae	True	False	GCA_029490675.1	ASM2949067v1
+29850	fungi	Gaeumannomyces graminis	False	False		
+29856	fungi	Clonostachys rosea	True	True	GCA_902085965.1	CLO192961
+29875	fungi	Trichoderma virens	True	True	GCA_020647635.1	ASM2064763v1
+29920	oomycete	Phytophthora cactorum	True	True	GCA_003287315.1	Pcac_10300_v1
+31243	nematode	Globodera rostochiensis	True	False	GCA_018350325.1	WUR_GloGros_L19
+31870	fungi	Colletotrichum graminicola	True	True	GCA_029226625.1	ASM2922662v1
+34373	fungi	Blumeria graminis	True	True	GCA_905067625.1	Bgtriticale_THUN12_genome_v1_2
+35717	fungi	Epichloe festucae	True	True	GCA_003814445.1	ASM381444v1
+36090	nematode	Globodera pallida	True	True	GCA_023343765.1	SA_Gpal_Newton
+36651	fungi	Penicillium digitatum	True	True	GCF_016767815.1	ASM1676781v1
+38448	fungi	Monilinia fructicola	True	True	GCA_008692225.1	ASM869222v1
+39703	fungi	Septoria lycopersici	True	False	GCA_059642765.1	SLML
+40125	fungi	Bipolaris victoriae	True	True	GCF_000527765.1	Cochliobolus victoriae v1.0
+40199	fungi	Fusarium avenaceum	True	True	GCA_000769215.1	Fave_05001
+40296	fungi	Penicillium italicum	True	True	GCA_000769765.1	ASM76976v1
+40380	fungi	Aspergillus ochraceus	True	False	GCA_004849945.1	AoFc
+40559	fungi	Botrytis cinerea	True	True	GCA_031205075.2	Bcin_M3a_2.1
+40993	fungi	Aspergillus carbonarius	True	True	GCA_001990825.1	Aspca3
+42676	fungi	Fusarium sacchari	True	False	GCA_048414715.1	ASM4841471v1
+45130	fungi	Bipolaris sorokiniana	True	True	GCA_013416765.1	ASM1341676v1
+45133	fungi	Lasiodiplodia theobromae	True	True	GCF_012971845.1	ASM1297184v1
+45151	fungi	Pyrenophora tritici-repentis	True	True	GCF_003171515.1	CUR_PTRM4_2.2
+46012	nematode	Radopholus similis	True	False	GCA_013357305.1	ASM1335730v1
+48097	fungi	Alternaria panax	True	True	GCA_019702505.1	ASM1970250v1
+48100	fungi	Alternaria solani	True	False	GCA_002952155.1	ASM295215v1
+48490	fungi	Fusarium circinatum	True	True	GCA_013396185.1	ASM1339618v1
+49012	fungi	Sporisorium scitamineum	True	True	GCA_001243155.1	Sporisorium scitamineum
+51029	nematode	Heterodera glycines	True	False	GCA_052402725.1	TN10v3
+53485	fungi	Pyrenophora teres	True	True	GCA_059469915.1	ASM5946991v1
+55169	fungi	Botryosphaeria dothidea	True	True	GCA_011503125.2	ASM1150312v2
+61366	fungi	Fusarium oxysporum f. sp. cubense	True	True	GCA_005930515.1	ASM593051v1
+64363	fungi	Dothistroma septosporum	True	True	GCA_000340195.1	Dothistroma septosporum NZE10 v1.0
+65070	oomycete	Pythium aphanidermatum	True	False	GCA_057533505.1	ASM5753350v1
+67593	oomycete	Phytophthora sojae	True	True	GCF_000149755.1	P.sojae V3.0
+72558	fungi	Sporisorium reilianum	True	True	GCA_900162835.1	version 2
+76659	fungi	Pyrenopeziza brassicae	True	False	GCA_958299125.1	Pyrenopeziza brassicae 15WOSR64-SS1
+77044	fungi	Rosellinia necatrix	True	True	GCA_001445595.3	Rnecatrix_2.0
+80884	fungi	Colletotrichum higginsianum	True	True	GCA_000313795.2	ASM31379v2
+84275	fungi	Cercospora kikuchii	True	True	GCF_019650295.1	Ck_assembly01
+92637	fungi	Metarhizium acridum	True	True	GCF_019434415.1	Coph_MacrARSEF324_H1_v1.0
+93612	fungi	Exserohilum turcicum	True	True	GCF_000359705.1	Setospaeria trucica Et28A v1.0
+100787	fungi	Verticillium longisporum	True	True	GCA_001268145.1	vl1.denovo.v1
+100870	oomycete	Phytophthora litchii	True	False	GCA_002812785.1	ASM281278v1
+101028	fungi	Fusarium pseudograminearum	True	True	GCA_001703955.2	RBG5266v2
+101162	fungi	Bipolaris oryzae	True	True	GCF_000523455.1	Cochliobolus miyabeanus v1.0
+105487	fungi	105487	True	True	GCA_000813385.1	ASM81338v1
+117187	fungi	Fusarium verticillioides	True	True	GCA_003316975.2	ASM331697v2
+120017	fungi	Ustilago hordei	True	True	GCF_900519145.1	Uho2_v1
+122368	fungi	Cercospora beticola	True	True	GCF_033473495.1	ASM3347349v1
+132184	fungi	Cercospora apii	True	False	GCA_022836995.1	ASM2283699v1
+135779	fungi	Cercospora zeae-maydis	True	True	GCA_010093985.1	Cerzm1
+135859	fungi	Alternaria citri	False	False		
+143451	oomycete	Plasmopara viticola	True	False	GCA_001695595.3	INRA_Pvit_2
+153609	fungi	Moniliophthora perniciosa	True	True	GCA_000183025.1	ASM18302v1
+160389	fungi	Alternaria longipes	True	False	GCA_019059555.1	ASM1905955v1
+169388	fungi	Fusarium solani	True	True	GCF_023522795.1	NDSU_Fsol_1.0
+170000	fungi	Phakopsora pachyrhizi	True	True	GCA_025201825.1	Phapa1
+176275	fungi	Beauveria bassiana	True	True	GCA_001682635.1	ASM168263v1
+183478	fungi	Stemphylium lycopersici	True	True	GCA_001191545.2	ASM119154v2
+185366	fungi	Ustilago esculenta	True	False	GCA_020827535.1	ASM2082753v1
+189291	nematode	Meloidogyne graminicola	True	True	GCA_014773135.2	ASM1477313v2
+203908	fungi	Melampsora laricis-populina	True	True	GCF_000204055.1	v1.0
+205686	fungi	Ascochyta lentis	True	True	GCA_016097375.2	AlKewell
+208348	fungi	Puccinia triticina	True	True	GCF_026914185.1	ASM2691418v1
+226899	fungi	Leptographium clavigerum	True	True	GCF_000143105.1	Sanger-454-IlluminaPA_2.0
+230439	oomycete	Peronospora tabacina	True	False	GCA_002099245.1	Ptab_968-S26
+232082	fungi	Fusarium virguliforme	True	False	GCA_020883615.1	ASM2088361v1
+252740	fungi	Cytospora chrysosperma	True	True	GCA_003795275.1	ASM379527v1
+272952	oomycete	Hyaloperonospora arabidopsidis	True	False	GCA_001414525.2	Noks1_v2
+278938	fungi	Botrytis elliptica	True	True	GCA_004786205.1	ASM478620v1
+282267	fungi	Fusarium asiaticum	True	False	GCA_025258505.1	ASM2525850v1
+285811	fungi	Pseudopyrenochaeta lycopersici	True	False	GCA_003313425.1	ASM331342v1
+286115	fungi	Synchytrium endobioticum	True	True	GCA_006535955.1	ASM653595v1
+290576	fungi	Colletotrichum lindemuthianum	True	False	GCA_001693025.3	UFV_Clind_v3
+312341	fungi	Ceratocystis harringtonii	True	False	GCA_002018265.1	ASM201826v1
+318829	fungi	Pyricularia oryzae	True	True	GCA_004346965.1	ASM434696v1
+456999	fungi	Rhizoctonia solani	True	True	GCF_016906535.1	ASM1690653v1
+474922	fungi	Colletotrichum gloeosporioides	True	True	GCF_011800055.1	NFU_CgLc1_1.0
+538528	fungi	Colletotrichum camelliae	True	True	GCA_011947485.2	ASM1194748v2
+568076	fungi	Metarhizium robertsii	True	True	GCA_000591435.1	MR2010_11_27
+685502	fungi	Pseudocercospora fuligena	True	True	GCA_014298035.1	ASM1429803v1
+690256	fungi	Colletotrichum fructicola	True	True	GCF_009771025.1	ASM977102v1
+690259	fungi	Colletotrichum siamense	True	True	GCF_013390195.1	ASM1339019v1
+694573	fungi	694573	True	True	GCA_000813385.1	ASM81338v1
+702518	fungi	Colletotrichum asianum	True	True	GCA_009806415.1	ASM980641v1
+914237	fungi	914237	True	True	GCA_046529785.1	ASM4652978v1
+929235	fungi	Ceratocystis manginecans	True	False	GCA_038406855.1	ASM3840685v1
+948311	fungi	Fusarium proliferatum	True	True	GCA_003290285.1	FPRO05
+984309	fungi	Ciboria shiraiana	True	False	GCA_008122225.1	ASM812222v1
+1047171	fungi	Zymoseptoria tritici	True	True	GCA_902712725.1	ERS3651594
+1051616	fungi	Verticillium nonalfalfae	True	True	GCF_003724135.2	ASM372413v2
+1159556	fungi	Ustilaginoidea virens	True	True	GCF_000687475.1	ASM68747v2
+1209068	fungi	Colletotrichum tabaci	True	True	GCA_036851105.1	ASM3685110v1
+1209932	fungi	Colletotrichum scovillei	True	True	GCF_011075155.1	ASM1107515v1
+1585795	fungi	Colletotrichum lentis	True	False	GCA_003386485.1	ASM338648v1
+1682391	fungi	Microdochium sorghi	False	False		
+1868926	fungi	Cercospora cf. flagellaris	True	False	GCA_005356885.1	ASM535688v1
+1873960	fungi	Pseudocercospora fijiensis	True	True	GCF_000340215.1	Mycfi2
+2502994	fungi	Fusarium odoratissimum	True	True	GCA_000350365.1	Foc4_1.0
+2698418	fungi	Sclerotiophoma versabilis	True	False	GCA_012274445.1	FAFU_KC1_1.0

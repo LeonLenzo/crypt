@@ -53,8 +53,8 @@ CONTAMINANT_TAXIDS = {
 # PHI-base pathogen kingdom classification via ete3 lineage
 KINGDOM_LINEAGE_TAXIDS: dict[str, int] = {
     "Fungi":    4751,
-    "Bacteria": 2,
-    "Oomycota": 4762,
+    "Bacteria": 2,      # retained in DB for MAL interaction_status lookup only;
+    "Oomycota": 4762,   # excluded from detection — see 02_filter_runs.py scope note
     "Nematoda": 6231,
 }
 # Maps kingdom name → JSON key in the output DB

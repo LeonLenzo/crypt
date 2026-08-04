@@ -88,10 +88,7 @@ _CONFIDENCE_VALUES = {"high", "medium", "low"}
 
 _PROMPT = """\
 You are classifying an RNA-seq BioProject from NCBI SRA for a plant cryptic co-infection study.
-The study mines public RNA-seq data for evidence of unreported co-infecting organisms detected by
-NCBI STAT k-mer taxonomy. Your classification helps distinguish intentional single-pathogen
-experiments from field surveys, host studies, and abiotic stress experiments — contexts that
-change the interpretation of any detected co-infections.
+Library mode: {mode_desc}
 
 --- BioProject: {bp} ---
 Title: {title}
@@ -100,29 +97,56 @@ Abstract: {abstract}
 Methods excerpt: {methods}
 
 --- Keyword classifier output (04_filter_kw.py) ---
-treatment:     {kw_treatment}
-study_setting: {kw_setting}
-named_host:    {kw_named_host}
+treatment:            {kw_treatment}
+study_setting:        {kw_setting}
+study_setting basis:  {kw_setting_basis}
+named_host:           {kw_named_host}
 
 --- BioSample summary ({n_biosamples} BioSamples) ---
-co_infection_flag: single={n_single}, multi_species={n_multi}, multi_kingdom={n_mk}
-XML tissue values present:  {tissues}
-XML geo_loc_name values:    {geolocnames}
+STAT co_infection_flag: single={n_single}, multi_species={n_multi}, multi_kingdom={n_mk}
+XML tissue values:   {tissues}
+XML geo_loc_name:    {geolocnames}
 
 ---
-TREATMENT (pick one):
-  single           host response to a single declared pathogen, or single-pathogen inoculation
-  host_study       pure host biology — development, transcriptome assembly, physiology; no pathogen
-  abiotic_stress   drought, heat, salt, cold, flooding, UV, nutrient deficiency; no pathogen
-  coinf_experiment intentional co-infection or multi-pathogen inoculation experiment
-  surveillance     field survey or disease monitoring; no inoculation
-  unclear          insufficient information to determine
+TREATMENT — what was the experiment DESIGNED to study? (pick one)
+  single           host response to one declared pathogen; or characterisation of one pathogen in one host
+  host_study       pure host biology — development, transcriptome assembly, physiology; no declared pathogen
+  abiotic_stress   drought, heat, cold, salt, flooding, UV, or nutrient stress; no pathogen inoculation
+  coinf_experiment intentional simultaneous inoculation with multiple pathogens, or deliberate co-infection design
+  surveillance     population-level disease survey or epidemiological monitoring across multiple sites/time points; no specific inoculation
+  unclear          insufficient text to determine
 
-STUDY_SETTING (pick one):
-  field   field-collected samples, natural infection, farm/orchard/commercial crop
-  lab     controlled: greenhouse, growth chamber, inoculation, transgenic/mutant lines
-  mixed   both field collection and lab manipulation
-  unclear cannot determine
+STUDY_SETTING — where/how were the sequenced library samples collected or grown? (pick one)
+  field   the RNA-seq material was collected from plants growing in NATURAL or AGRICULTURAL conditions
+          (farm, orchard, commercial crop, natural population) — the plants themselves were in the field
+  lab     plants grown in controlled conditions: greenhouse, growth chamber, pot, axenic culture, or
+          detached leaf/tissue — even if the pathogen inoculum originated from a field-isolated strain
+  mixed   field collection FOLLOWED BY further lab manipulation (e.g., collected then re-inoculated)
+  unclear cannot determine from available text
+
+CRITICAL RULES — apply these before accepting keyword classifier output:
+1. "Field isolate", "field strain", or "field-collected isolate" describing the PATHOGEN does NOT
+   make the setting field. If plants were grown in a greenhouse and inoculated with a field-derived
+   strain, the setting is LAB.
+2. geo_loc_name (country, region) in BioSample XML alone does NOT indicate field setting. Lab
+   studies routinely record institution country or pathogen collection site in geo_loc_name.
+   IMPORTANT: if "study_setting basis" above is "geo_loc_name" (and nothing else), treat the
+   keyword classifier's setting as UNCLEAR — you must find explicit field collection language
+   in the title/description/abstract/methods to classify as field. If no such language exists,
+   return "unclear".
+   WHAT COUNTS as explicit field evidence: words like "collected from [farm/orchard/field/
+   location]", "field-grown", "field samples", "commercial crop", "natural population",
+   "field survey", or "grown in the field". The phrase "collected in [country/city]" combined
+   with a specific location DOES count — collection language in the text is different from a
+   bare geo_loc_name XML tag with no accompanying collection description.
+3. Arabidopsis thaliana, Nicotiana benthamiana, and Brachypodium distachyon as the primary host
+   are ALMOST ALWAYS lab settings — these are model organisms rarely grown in agricultural fields.
+   Classify as field ONLY if the text explicitly describes field collection of plant material.
+4. STAT co_infection_flag reflects k-mer detections in the sequencing data — it does NOT reflect
+   experimental design. A multi_species flag does not mean coinf_experiment.
+5. surveillance requires POPULATION-LEVEL sampling: multiple farms, fields, geographic locations,
+   or time points. A single-site or single-cultivar inoculation study is NOT surveillance even if
+   described as a "field study" or mentioning field conditions.
 
 Return ONLY valid JSON, no surrounding text:
 {{
@@ -130,23 +154,34 @@ Return ONLY valid JSON, no surrounding text:
   "study_setting": "<value>",
   "named_pathogen": "<primary pathogen species declared by the researcher, or empty string>",
   "named_host": "<host plant species declared by the researcher, or empty string>",
-  "tissue": "<primary tissue type(s) sampled inferred from text, comma-separated if multiple, or empty string>",
+  "tissue": "<primary tissue type(s) inferred from text, comma-separated if multiple, or empty string>",
   "kw_treatment_agree": <true|false>,
   "kw_setting_agree": <true|false>,
   "confidence": "<high|medium|low>",
-  "rationale": "<1-2 sentences on key decisions>"
+  "rationale": "<1-2 sentences on key decisions, especially any disagreement with keyword output>"
 }}"""
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
+_MODE_DESC = {
+    "mal":   "MAL (microbe-as-library): the SRA library source organism is a PLANT PATHOGEN. "
+             "Reads are primarily from the pathogen; host reads are incidental.",
+    "hal":   "HAL (host-as-library): the SRA library source organism is a PLANT HOST. "
+             "Reads are primarily from the host transcriptome; pathogen reads are cryptic/incidental.",
+    "mixed": "Mixed MAL+HAL: BioProject contains both pathogen-library and host-library runs.",
+}
+
+
 def _bp_summary(rows: list[dict]) -> dict:
     """Aggregate per-BP stats from biosample_kw.tsv rows for the prompt."""
-    co   = Counter(r.get("co_infection_flag", "") for r in rows)
-    tiss = sorted({r["tissue"] for r in rows if r.get("tissue")})
-    geo  = sorted({r["geo_loc_name"].split(":")[0].strip()
-                   for r in rows if r.get("geo_loc_name")})
-    ref  = rows[0]
+    co    = Counter(r.get("co_infection_flag", "") for r in rows)
+    tiss  = sorted({r["tissue"] for r in rows if r.get("tissue")})
+    geo   = sorted({r["geo_loc_name"].split(":")[0].strip()
+                    for r in rows if r.get("geo_loc_name")})
+    modes = {r.get("mode", "") for r in rows}
+    mode  = "hal" if modes == {"hal"} else "mal" if modes == {"mal"} else "mixed"
+    ref   = rows[0]
     return {
         "n_biosamples":  len(rows),
         "n_single":      co.get("single", 0),
@@ -154,15 +189,18 @@ def _bp_summary(rows: list[dict]) -> dict:
         "n_mk":          co.get("multi_kingdom", 0),
         "tissues":       ", ".join(tiss[:10]) or "none in XML",
         "geolocnames":   ", ".join(geo[:8])   or "none in XML",
-        "kw_treatment":  ref.get("treatment", ""),
-        "kw_setting":    ref.get("study_setting", ""),
-        "kw_named_host": ref.get("named_host", ""),
+        "kw_treatment":     ref.get("treatment", ""),
+        "kw_setting":       ref.get("study_setting", ""),
+        "kw_setting_basis": ref.get("setting_keywords", "") or "none",
+        "kw_named_host":    ref.get("named_host", ""),
+        "mode":             mode,
     }
 
 
 def _build_prompt(bp: str, summary: dict, meta: dict) -> str:
     return _PROMPT.format(
         bp           = bp,
+        mode_desc    = _MODE_DESC.get(summary["mode"], ""),
         title        = (meta.get("title",        "") or "")[:300],
         description  = (meta.get("description",  "") or "")[:500],
         abstract     = (meta.get("abstract",     "") or "")[:2000],
@@ -173,9 +211,10 @@ def _build_prompt(bp: str, summary: dict, meta: dict) -> str:
         n_mk         = summary["n_mk"],
         tissues      = summary["tissues"],
         geolocnames  = summary["geolocnames"],
-        kw_treatment = summary["kw_treatment"],
-        kw_setting   = summary["kw_setting"],
-        kw_named_host= summary["kw_named_host"],
+        kw_treatment     = summary["kw_treatment"],
+        kw_setting       = summary["kw_setting"],
+        kw_setting_basis = summary["kw_setting_basis"],
+        kw_named_host    = summary["kw_named_host"],
     )
 
 

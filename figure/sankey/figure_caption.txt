@@ -1,0 +1,54 @@
+Figure X. Evidence-gated funnel for cryptic co-infection detection across SRA RNA-seq
+BioSamples.
+
+Sankey diagram showing the progressive classification and co-infection detection of 9,002
+non-redundant BioSamples (one representative RNA-seq run per biological sample) derived from
+NCBI SRA. Upstream pipeline: 608,368 runs were screened using NCBI STAT pre-computed k-mer
+taxonomy; 10,995 passed the in-planta confirmation gate (MAL mode: ≥1% Viridiplantae reads;
+HAL mode: ≥1% PHI-base eukaryotic pathogen detected), and were deduplicated to 9,002
+BioSamples by retaining the highest-analysed run per BioSample.
+
+The diagram is structured as a five-column funnel in which BioSamples that cannot be
+classified at each stage terminate at that column (grey nodes) and do not proceed further.
+Only BioSamples classifiable at all three intermediate stages reach co-infection detection.
+
+(1) All 9,002 BioSamples enter from the left. (2) Evidence quality: BioSamples are divided
+by the availability of supporting literature. Those whose parent BioProject has a linked
+publication (5,914; 65.7%) or BioSample XML metadata (geo_loc_name, tissue, or
+collection_date; 2,543; 28.2%) proceed; the 545 (6.1%) with neither terminate here.
+(3) Study setting: the remaining 8,457 BioSamples are classified by a GPT-4o-mini LLM
+applied to BioProject title, description, PMC abstract and methods text. BioSamples whose
+BioProject was classified as field-collected (1,219; 13.5%) or controlled conditions
+(4,655; 51.7%) proceed; 2,583 (28.7%) for which setting could not be determined terminate
+here. Setting classification required explicit field collection language in the text;
+geographic metadata (geo_loc_name) alone was not considered sufficient evidence. (4) Study
+design: within each setting, BioSamples are further divided by the declared experimental
+focus, also LLM-classified: biotic stress (single declared pathogen, co-infection experiment,
+or surveillance; field 877; controlled 4,009), abiotic stress (drought, heat, salinity or
+cold; field 116; controlled 118), and no declared stress (pure host transcriptomics or
+development; field 226; controlled 523). BioSamples whose design could not be determined (5)
+terminate here. (5) Co-infection status: the 5,869 fully classified BioSamples are separated
+by STAT k-mer detection into co-infected and not co-infected, shown separately for field and
+controlled settings. Co-infection is restricted to eukaryotic plant pathogens only; bacteria
+and viruses are excluded because polyA+ RNA-seq library preparation strongly depletes
+bacterial mRNA (no polyA tails) and most plant virus families (tospoviruses, tobamoviruses,
+cucumoviruses, luteoviruses) also lack polyA tails. A co-infection is flagged when one or
+more fungi, oomycetes, or nematodes from the PHI-base plant pathogen reference are detected
+above kingdom-specific thresholds (fungi ≥0.5%, oomycetes ≥0.5%, nematodes ≥1%) in addition
+to the declared primary organism.
+
+Node width is proportional to BioSample count. Co-infection rates are shown as percentages
+within each terminal co-infection node. Field-collected BioSamples show consistently higher
+co-infection prevalence than controlled-condition samples across all study design categories
+(overall 22.7% vs 11.4%). Within field samples, biotic stress studies show the highest rate
+(24.4%), followed by no-stress host studies (19.0%) and abiotic stress (17.2%). Within
+controlled samples, abiotic stress studies show the highest rate (26.3%), followed by no-
+stress host studies (12.8%) and biotic stress studies (10.8%). Co-infection detection used
+NCBI STAT pre-computed k-mer taxonomy against the PHI-base eukaryotic plant pathogen
+reference (fungi, oomycetes, and nematodes; ~8,250 total taxids after strain expansion).
+
+Colour scheme: blue tones indicate evidence quality (dark blue: with publication; mid blue:
+metadata only); green tones indicate field-setting nodes and flows (dark to light: biotic,
+abiotic, no stress); blue-grey tones indicate controlled-setting nodes and flows; grey
+indicates terminal (unclassified) nodes and no-co-infection flows; orange indicates
+co-infection detection.

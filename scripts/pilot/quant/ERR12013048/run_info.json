@@ -1,0 +1,14 @@
+{
+	"n_targets": 15986,
+	"n_bootstraps": 0,
+	"n_processed": 100000,
+	"n_pseudoaligned": 44042,
+	"n_unique": 36809,
+	"p_pseudoaligned": 44.0,
+	"p_unique": 36.8,
+	"kallisto_version": "0.51.1",
+	"index_version": 13,
+	"k-mer length": 31,
+	"start_time": "Tue Aug  4 12:02:05 2026",
+	"call": "kallisto quant -i scripts/pilot/indices/pgt.idx -o scripts/pilot/quant/ERR12013048 --single -l 200 -s 20 scripts/pilot/reads/ERR12013048.fastq"
+}

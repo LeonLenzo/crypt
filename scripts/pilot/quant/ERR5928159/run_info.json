@@ -1,0 +1,14 @@
+{
+	"n_targets": 13029,
+	"n_bootstraps": 0,
+	"n_processed": 100000,
+	"n_pseudoaligned": 18553,
+	"n_unique": 17707,
+	"p_pseudoaligned": 18.6,
+	"p_unique": 17.7,
+	"kallisto_version": "0.51.1",
+	"index_version": 13,
+	"k-mer length": 31,
+	"start_time": "Tue Aug  4 12:07:35 2026",
+	"call": "kallisto quant -i scripts/pilot/indices/por.idx -o scripts/pilot/quant/ERR5928159 --single -l 200 -s 20 scripts/pilot/reads/ERR5928159.fastq"
+}

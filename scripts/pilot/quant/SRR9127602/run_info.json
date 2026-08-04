@@ -1,0 +1,14 @@
+{
+	"n_targets": 13029,
+	"n_bootstraps": 0,
+	"n_processed": 100000,
+	"n_pseudoaligned": 9249,
+	"n_unique": 8944,
+	"p_pseudoaligned": 9.2,
+	"p_unique": 8.9,
+	"kallisto_version": "0.51.1",
+	"index_version": 13,
+	"k-mer length": 31,
+	"start_time": "Tue Aug  4 12:06:06 2026",
+	"call": "kallisto quant -i scripts/pilot/indices/por.idx -o scripts/pilot/quant/SRR9127602 --single -l 200 -s 20 scripts/pilot/reads/SRR9127602.fastq"
+}

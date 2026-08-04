@@ -1,0 +1,14 @@
+{
+	"n_targets": 18011,
+	"n_bootstraps": 0,
+	"n_processed": 100000,
+	"n_pseudoaligned": 34532,
+	"n_unique": 24789,
+	"p_pseudoaligned": 34.5,
+	"p_unique": 24.8,
+	"kallisto_version": "0.51.1",
+	"index_version": 13,
+	"k-mer length": 31,
+	"start_time": "Tue Aug  4 11:55:57 2026",
+	"call": "kallisto quant -i scripts/pilot/indices/pst.idx -o scripts/pilot/quant/ERR13340223 --single -l 200 -s 20 scripts/pilot/reads/ERR13340223.fastq"
+}

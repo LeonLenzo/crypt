@@ -79,12 +79,18 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--all-hosts", action="store_true",
                     help="Include broad-clade/unresolved hosts (writes *_all_* files)")
+    ap.add_argument("--no-hc", action="store_true",
+                    help="Include same-genus secondaries (writes field_all_* files)")
     args = ap.parse_args()
 
     if args.all_hosts:
         nodes_tsv      = Path("figure/guilds/field_hc_all_nodes.tsv")
         edges_tsv      = Path("figure/guilds/field_hc_all_edges.tsv")
         node_hosts_tsv = Path("figure/guilds/field_hc_all_node_hosts.tsv")
+    elif args.no_hc:
+        nodes_tsv      = Path("figure/guilds/field_all_nodes.tsv")
+        edges_tsv      = Path("figure/guilds/field_all_edges.tsv")
+        node_hosts_tsv = Path("figure/guilds/field_all_node_hosts.tsv")
     else:
         nodes_tsv      = Path("figure/guilds/field_hc_nodes.tsv")
         edges_tsv      = Path("figure/guilds/field_hc_edges.tsv")
@@ -142,25 +148,38 @@ def main() -> None:
             n_rows += 1
 
             treat = bp_treatment.get(row["BioProject"], "unclear")
+            mode  = row.get("mode", "mal")
 
-            prim_norm  = _normalize(row["library_organism"])
-            prim_genus = prim_norm.split()[0].lower()
-            prim_kg    = _kingdom(row["library_organism"], "", taxid_to_kg, name_to_tid)
+            # For HAL runs, library_organism is the plant host — use the top
+            # stat_pathogen as the primary guild node instead.
+            if mode == "hal":
+                stat_entries = [e for e in row["stat_pathogens"].split("; ") if e.strip()]
+                if not stat_entries:
+                    continue
+                top_raw    = _PCT_RE.sub("", stat_entries[0]).strip()
+                prim_norm  = _normalize(top_raw)
+                prim_genus = prim_norm.split()[0].lower()
+                prim_kg    = _kingdom(top_raw, "", taxid_to_kg, name_to_tid)
+                sec_entries = stat_entries[1:]
+            else:
+                prim_norm   = _normalize(row["library_organism"])
+                prim_genus  = prim_norm.split()[0].lower()
+                prim_kg     = _kingdom(row["library_organism"], "", taxid_to_kg, name_to_tid)
+                sec_entries = [e for e in row["stat_pathogens"].split("; ") if e.strip()]
+
             node_kingdom.setdefault(prim_norm, prim_kg)
             node_n_primary[prim_norm] += 1
             if host:
                 node_hosts[prim_norm][host] += 1
 
             sec_norms: list[str] = []
-            for entry in row["stat_pathogens"].split("; "):
+            for entry in sec_entries:
                 raw = _PCT_RE.sub("", entry).strip()
                 if raw.lower() in _SKIP or not raw:
                     continue
                 norm = _normalize(raw)
-                # Skip same-genus secondaries (low k-mer specificity within genus).
-                # Diff-genus pairs are retained even when same-genus secondaries
-                # co-occur in the same run.
-                if norm.split()[0].lower() == prim_genus:
+                # Skip same-genus secondaries unless --no-hc
+                if not args.no_hc and norm.split()[0].lower() == prim_genus:
                     continue
                 kg   = _kingdom(raw, "", taxid_to_kg, name_to_tid)
                 node_kingdom.setdefault(norm, kg)

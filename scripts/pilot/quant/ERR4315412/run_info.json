@@ -1,0 +1,14 @@
+{
+	"n_targets": 18011,
+	"n_bootstraps": 0,
+	"n_processed": 100000,
+	"n_pseudoaligned": 7583,
+	"n_unique": 2125,
+	"p_pseudoaligned": 7.6,
+	"p_unique": 2.1,
+	"kallisto_version": "0.51.1",
+	"index_version": 13,
+	"k-mer length": 31,
+	"start_time": "Tue Aug  4 11:54:40 2026",
+	"call": "kallisto quant -i scripts/pilot/indices/pst.idx -o scripts/pilot/quant/ERR4315412 --single -l 200 -s 20 scripts/pilot/reads/ERR4315412.fastq"
+}

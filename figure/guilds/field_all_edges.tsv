@@ -1,0 +1,289 @@
+node1	node2	weight	dominant_treatment	treatment_breakdown
+Puccinia graminis f. sp. tritici	Puccinia striiformis	105	single	single:105
+Puccinia striiformis	Puccinia striiformis f. sp. tritici	82	single	single:82
+Puccinia graminis f. sp. tritici	Puccinia striiformis f. sp. tritici	76	single	single:76
+Pantoea ananatis	Pectobacterium brasiliense	58	abiotic_stress	abiotic_stress:58
+Puccinia striiformis f. sp. tritici	Zymoseptoria tritici	49	single	single:49
+Bean common mosaic virus	Peanut stripe virus	42	host_study	host_study:27|abiotic_stress:15
+Bean common mosaic virus	Peanut mottle virus	39	host_study	host_study:24|abiotic_stress:14|surveillance:1
+Alternaria alternata	Puccinia striiformis f. sp. tritici	32	single	single:32
+Puccinia striiformis	Zymoseptoria tritici	30	single	single:30
+Watermelon mosaic virus	Zucchini yellow mosaic virus	26	host_study	host_study:23|surveillance:3
+Fusarium graminearum	Fusarium pseudograminearum	23	single	single:15|host_study:7|abiotic_stress:1
+Peanut mottle virus	Peanut stripe virus	23	abiotic_stress	abiotic_stress:14|host_study:9
+Blumeria graminis	Blumeria graminis f. sp. tritici	18	host_study	host_study:18
+Fusarium fujikuroi	Fusarium proliferatum	17	abiotic_stress	abiotic_stress:10|single:6|host_study:1
+Alternaria alternata	Puccinia striiformis	16	single	single:16
+Fusarium odoratissimum	Fusarium oxysporum	14	single	single:8|host_study:6
+Fusarium oxysporum	Fusarium oxysporum f. sp. lycopersici	14	single	single:14
+Phytophthora capsici	Phytophthora infestans	12	single	single:12
+Parastagonospora nodorum	Puccinia striiformis f. sp. tritici	12	single	single:12
+Puccinia graminis	Puccinia striiformis f. sp. tritici	12	single	single:12
+Alternaria alternata	Bipolaris zeicola	12	host_study	host_study:12
+Bipolaris zeicola	Exserohilum turcicum	12	host_study	host_study:12
+Puccinia graminis	Puccinia striiformis	11	single	single:11
+Penicillium digitatum	Penicillium expansum	10	single	single:10
+Puccinia striiformis f. sp. tritici	Pyrenophora tritici-repentis	8	single	single:8
+Colletotrichum gloeosporioides	Colletotrichum siamense	8	single	single:4|host_study:4
+Potato virus S	Potato virus Y	8	host_study	host_study:4|surveillance:3|single:1
+Parastagonospora nodorum	Puccinia striiformis	7	single	single:7
+Alternaria alternata	Bipolaris sorokiniana	7	host_study	host_study:3|single:2|abiotic_stress:2
+Alternaria alternata	Exserohilum turcicum	7	host_study	host_study:6|single:1
+Peanut mottle virus	Peanut mottle virus (strain M)	7	host_study	host_study:7
+Alternaria alternata	Zymoseptoria tritici	6	single	single:6
+Alternaria alternata	Fusarium graminearum	6	single	single:5|host_study:1
+Enamovirus PEMV	Potyvirus pisumsemenportati	6	surveillance	surveillance:6
+Enamovirus PEMV	Umbravirus pisi	6	surveillance	surveillance:6
+Potyvirus pisumsemenportati	Umbravirus pisi	6	surveillance	surveillance:6
+Fusarium odoratissimum	Fusarium oxysporum f. sp. lycopersici	6	single	single:6
+Watermelon mosaic virus	Zucchini tigre mosaic virus	6	host_study	host_study:6
+Zucchini tigre mosaic virus	Zucchini yellow mosaic virus	6	host_study	host_study:6
+Potato virus S	Potato virus V	6	host_study	host_study:6
+Potato leafroll virus	Potato virus S	6	surveillance	surveillance:6
+Puccinia striiformis	Pyrenophora tritici-repentis	5	single	single:5
+Puccinia graminis	Zymoseptoria tritici	5	single	single:5
+Alternaria alternata	Fusarium pseudograminearum	5	single	single:5
+Alternaria alternata	Pyrenophora tritici-repentis	5	single	single:5
+Colletotrichum fructicola	Colletotrichum siamense	5	single	single:4|host_study:1
+Enamovirus PEMV	Potyvirus phaseoluteum	5	surveillance	surveillance:5
+Alternaria alternata	Fusarium verticillioides	5	host_study	host_study:4|abiotic_stress:1
+Chilli veinal mottle virus	Tobacco vein banding mosaic virus	5	host_study	host_study:5
+Ilarvirus PNRSV	Pelamoviroid latenspruni	5	host_study	host_study:5
+Carlavirus misolani	Carlavirus sigmasolani	5	single	single:5
+Papaya ringspot virus	Tobacco ringspot virus	5	host_study	host_study:5
+Alternaria alternata	Alternaria solani	4	single	single:4
+Phytophthora infestans	Phytophthora sojae	4	single	single:2|host_study:2
+Phytophthora capsici	Phytophthora nicotianae	4	single	single:4
+Phytophthora infestans	Phytophthora nicotianae	4	single	single:4
+Bean common mosaic virus	Cucumber mosaic virus	4	surveillance	surveillance:3|host_study:1
+Bean common mosaic virus	Peanut mottle virus (strain M)	4	host_study	host_study:4
+Potyvirus phaseoluteum	Potyvirus pisumsemenportati	4	surveillance	surveillance:4
+Potyvirus phaseoluteum	Umbravirus pisi	4	surveillance	surveillance:4
+Papaya ringspot virus	Watermelon mosaic virus	4	host_study	host_study:3|surveillance:1
+Potato virus H	Potato virus S	4	host_study	host_study:4
+Potato virus H	Potato virus Y	4	host_study	host_study:4
+Sweet potato feathery mottle virus	Sweet potato virus 2	4	host_study	host_study:4
+Sweet potato feathery mottle virus	Sweet potato virus C	4	host_study	host_study:4
+Phytophthora infestans	Phytophthora parasitica	4	host_study	host_study:4
+Broad bean wilt virus 2	Cucumber mosaic virus	4	surveillance	surveillance:4
+Fusarium oxysporum	Fusarium verticillioides	4	host_study	host_study:4
+Alternaria alternata	Botrytis cinerea	4	host_study	host_study:4
+Potyvirus citrulli	Potyvirus cucurbitaflavitesselati	4	surveillance	surveillance:4
+Brassica yellows virus	Turnip yellows virus	4	single	single:2|host_study:1|abiotic_stress:1
+Botrytis cinerea	Penicillium expansum	4	host_study	host_study:3|single:1
+Alternaria alternata	Puccinia graminis f. sp. tritici	3	single	single:3
+Parastagonospora nodorum	Puccinia graminis f. sp. tritici	3	single	single:3
+Leptosphaeria maculans	Zymoseptoria tritici	3	single	single:3
+Pyrenophora tritici-repentis	Zymoseptoria tritici	3	single	single:3
+Alternaria alternata	Puccinia graminis	3	single	single:3
+Alternaria solani	Puccinia striiformis	3	single	single:3
+Bipolaris sorokiniana	Puccinia striiformis f. sp. tritici	3	single	single:3
+Colletotrichum fructicola	Colletotrichum gloeosporioides	3	host_study	host_study:2|single:1
+Xanthomonas oryzae	Xanthomonas perforans	3	single	single:3
+Fusarium asiaticum	Fusarium graminearum	3	single	single:3
+Fusarium fujikuroi	Fusarium oxysporum	3	abiotic_stress	abiotic_stress:2|single:1
+Botrytis cinerea	Pantoea ananatis	3	abiotic_stress	abiotic_stress:3
+Cucumber mosaic virus	Papaya ringspot virus	3	host_study	host_study:3
+Cucumber mosaic virus	Watermelon mosaic virus	3	host_study	host_study:3
+Cucumber mosaic virus	Zucchini yellow mosaic virus	3	host_study	host_study:3
+Papaya ringspot virus	Zucchini yellow mosaic virus	3	host_study	host_study:3
+Papaya leaf distortion mosaic virus	Zucchini tigre mosaic virus	3	host_study	host_study:3
+Papaya leaf distortion mosaic virus	Zucchini yellow mosaic virus	3	host_study	host_study:3
+Fabavirus vitis	Grapevine Pinot gris virus	3	host_study	host_study:3
+Grapevine Pinot gris virus	Grapevine fleck virus	3	host_study	host_study:3
+Grapevine fleck virus	Grapevine rupestris stem pitting-associated virus	3	host_study	host_study:3
+Fusarium proliferatum	Fusarium solani	3	single	single:3
+Potato black ringspot virus	Tobacco ringspot virus	3	host_study	host_study:3
+Grapevine berry inner necrosis virus	Grapevine fabavirus	3	host_study	host_study:3
+Fusarium fujikuroi	Fusarium verticillioides	3	abiotic_stress	abiotic_stress:3
+Bipolaris sorokiniana	Pyricularia oryzae	3	single	single:2|host_study:1
+Potyvirus arachidis	Potyvirus phaseovulgaris	3	host_study	host_study:3
+Grapevine fabavirus	Grapevine rupestris stem pitting-associated virus	3	host_study	host_study:2|single:1
+Leptosphaeria maculans	Puccinia striiformis	2	single	single:2
+Alternaria alternata	Leptosphaeria maculans	2	single	single:2
+Alternaria solani	Puccinia striiformis f. sp. tritici	2	single	single:2
+Leptosphaeria maculans	Puccinia striiformis f. sp. tritici	2	single	single:2
+Colletotrichum fructicola	Moniliophthora perniciosa	2	single	single:2
+Colletotrichum siamense	Moniliophthora perniciosa	2	single	single:2
+Parastagonospora nodorum	Zymoseptoria tritici	2	single	single:2
+Exserohilum turcicum	Puccinia striiformis f. sp. tritici	2	single	single:2
+Fusarium asiaticum	Fusarium pseudograminearum	2	single	single:2
+Alternaria alternata	Bipolaris maydis	2	single	single:1|host_study:1
+Listeria monocytogenes	Puccinia striiformis f. sp. tritici	2	single	single:2
+Alternaria alternata	Plasmopara viticola	2	single	single:2
+Lasiodiplodia theobromae	Phytophthora capsici	2	single	single:2
+Phytophthora parasitica	Phytophthora sojae	2	host_study	host_study:2
+Botrytis cinerea	Pectobacterium brasiliense	2	abiotic_stress	abiotic_stress:2
+Fusarium verticillioides	Sugarcane mosaic virus	2	host_study	host_study:2
+Cucumber mosaic virus	Peanut mottle virus	2	host_study	host_study:1|surveillance:1
+Papaya leaf distortion mosaic virus	Watermelon mosaic virus	2	host_study	host_study:2
+Fabavirus vitis	Grapevine fleck virus	2	host_study	host_study:2
+Fabavirus vitis	Grapevine rupestris stem pitting-associated virus	2	host_study	host_study:2
+Grapevine Pinot gris virus	Grapevine rupestris stem pitting-associated virus	2	host_study	host_study:2
+Potato virus H	Potato virus M	2	host_study	host_study:2
+Potato virus M	Potato virus S	2	host_study	host_study:1|single:1
+Potato virus M	Potato virus Y	2	host_study	host_study:2
+Fabavirus vitis	Grapevine berry inner necrosis virus	2	host_study	host_study:2
+Bean common mosaic virus	Cowpea mild mottle virus	2	host_study	host_study:2
+Bean common mosaic virus	Cowpea polerovirus 2	2	host_study	host_study:2
+Cowpea mild mottle virus	Cowpea polerovirus 2	2	host_study	host_study:2
+Potato virus A	Potato virus S	2	host_study	host_study:2
+Potato virus A	Potato virus V	2	host_study	host_study:2
+Alternaria alternata	Bipolaris victoriae	2	host_study	host_study:2
+Bipolaris victoriae	Bipolaris zeicola	2	host_study	host_study:2
+Fusarium fujikuroi	Fusarium solani	2	single	single:2
+Broad bean wilt virus 2	Potato virus Y	2	surveillance	surveillance:2
+Actinidia seed borne latent virus	Capillovirus mali	2	single	single:2
+Bipolaris sorokiniana	Fusarium verticillioides	2	host_study	host_study:2
+Pennisetum mosaic virus	Sugarcane mosaic virus	2	host_study	host_study:2
+Cercospora beticola	Cercospora kikuchii	2	single	single:2
+Bromovirus SVS	Turnip crinkle virus	2	host_study	host_study:2
+Fusarium verticillioides	Trichoderma virens	2	single	single:1|host_study:1
+Alternaria alternata	Colletotrichum higginsianum	2	host_study	host_study:2
+Pepper mild mottle virus	Pepper veinal mottle virus	2	host_study	host_study:2
+Pepper vein yellows virus	Potyvirus capsivenamaculae	2	single	single:2
+Alternaria alternata	Sclerotinia sclerotiorum	2	host_study	host_study:2
+Bean yellow mosaic virus	Stemphylium lycopersici	1	single	single:1
+Bean yellow mosaic virus	Turnip yellows virus	1	single	single:1
+Stemphylium lycopersici	Turnip yellows virus	1	single	single:1
+Fusarium oxysporum	Phytophthora capsici	1	single	single:1
+Fusarium oxysporum	Phytophthora infestans	1	single	single:1
+Alternaria alternata	Parastagonospora nodorum	1	single	single:1
+Leptosphaeria maculans	Pyrenophora tritici-repentis	1	single	single:1
+Leptosphaeria maculans	Setosphaeria turcica	1	single	single:1
+Puccinia striiformis	Setosphaeria turcica	1	single	single:1
+Pyrenophora tritici-repentis	Setosphaeria turcica	1	single	single:1
+Setosphaeria turcica	Zymoseptoria tritici	1	single	single:1
+Leptosphaeria maculans	Puccinia graminis	1	single	single:1
+Puccinia graminis f. sp. tritici	Zymoseptoria tritici	1	single	single:1
+Rehmannia mosaic virus	Tobacco mosaic virus	1	single	single:1
+Rehmannia mosaic virus	Tomato brown rugose fruit virus	1	single	single:1
+Tobacco mosaic virus	Tomato brown rugose fruit virus	1	single	single:1
+Phytophthora capsici	Phytophthora sojae	1	single	single:1
+Bipolaris sorokiniana	Zymoseptoria tritici	1	single	single:1
+Fusarium pseudograminearum	Fusarium verticillioides	1	single	single:1
+Fusarium fujikuroi	Fusarium odoratissimum	1	single	single:1
+Bipolaris maydis	Puccinia striiformis f. sp. tritici	1	single	single:1
+Puccinia graminis	Puccinia triticina	1	single	single:1
+Alternaria alternata	Alternaria panax	1	single	single:1
+Columnea latent viroid	Tomato yellow leaf curl virus	1	single	single:1
+Cucumber mosaic virus	Tomato yellow mottle-associated virus	1	unclear	unclear:1
+Tomato brown rugose fruit virus	papaya virus E	1	single	single:1
+Carrot virus Y	Pseudomonas fluorescens	1	single	single:1
+Citrus leprosis virus C2	Colletotrichum fructicola	1	coinf_experiment	coinf_experiment:1
+Brassica rapa virus 1	Turnip yellow mosaic virus	1	single	single:1
+Kennedya yellow mosaic virus	Pea seed-borne mosaic virus	1	single	single:1
+Beet necrotic yellow vein virus	Beet soil-borne virus	1	single	single:1
+Alternaria alternata	Phytophthora parasitica	1	host_study	host_study:1
+Alternaria alternata	Phytophthora sojae	1	host_study	host_study:1
+Chilli veinal mottle virus	Phytophthora nicotianae	1	host_study	host_study:1
+Phytophthora infestans	Potato virus Y	1	single	single:1
+Fusarium graminearum	Potato virus S	1	surveillance	surveillance:1
+Fusarium verticillioides	Phytophthora sojae	1	host_study	host_study:1
+Cucumber mosaic virus	Peanut mottle virus (strain M)	1	host_study	host_study:1
+Cucumber mosaic virus	Peanut stripe virus	1	host_study	host_study:1
+Peanut mottle virus (strain M)	Peanut stripe virus	1	host_study	host_study:1
+Cucumovirus CMV	Enamovirus PEMV	1	surveillance	surveillance:1
+Cucumovirus CMV	Potyvirus phaseoluteum	1	surveillance	surveillance:1
+Cucumovirus CMV	Potyvirus pisumsemenportati	1	surveillance	surveillance:1
+Cucumovirus CMV	Umbravirus pisi	1	surveillance	surveillance:1
+Enamovirus PEMV	Polerovirus TUYV	1	surveillance	surveillance:1
+Polerovirus TUYV	Potyvirus phaseoluteum	1	surveillance	surveillance:1
+Polerovirus TUYV	Potyvirus pisumsemenportati	1	surveillance	surveillance:1
+Polerovirus TUYV	Umbravirus pisi	1	surveillance	surveillance:1
+Brassica yellows virus	Enamovirus PEMV	1	surveillance	surveillance:1
+Brassica yellows virus	Potyvirus pisumsemenportati	1	surveillance	surveillance:1
+Brassica yellows virus	Umbravirus pisi	1	surveillance	surveillance:1
+Potato leafroll virus	Potato virus V	1	surveillance	surveillance:1
+Potato leafroll virus	Potato virus X	1	surveillance	surveillance:1
+Potato leafroll virus	Potato virus Y strain N	1	surveillance	surveillance:1
+Potato virus V	Potato virus X	1	surveillance	surveillance:1
+Potato virus V	Potato virus Y strain N	1	surveillance	surveillance:1
+Potato virus X	Potato virus Y strain N	1	surveillance	surveillance:1
+Grapevine Pinot gris virus	Grapevine berry inner necrosis virus	1	host_study	host_study:1
+Grapevine berry inner necrosis virus	Grapevine fleck virus	1	host_study	host_study:1
+Sweet potato feathery mottle virus	Sweet potato latent virus	1	host_study	host_study:1
+Sweet potato latent virus	Sweet potato virus 2	1	host_study	host_study:1
+Sweet potato latent virus	Sweet potato virus C	1	host_study	host_study:1
+Sweet potato virus 2	Sweet potato virus C	1	host_study	host_study:1
+Asian prunus virus 2	Cherry green ring mottle virus	1	host_study	host_study:1
+Asian prunus virus 2	Cherry necrotic rusty mottle virus	1	host_study	host_study:1
+Asian prunus virus 2	Trichovirus mali	1	host_study	host_study:1
+Cherry green ring mottle virus	Cherry necrotic rusty mottle virus	1	host_study	host_study:1
+Cherry green ring mottle virus	Trichovirus mali	1	host_study	host_study:1
+Cherry necrotic rusty mottle virus	Trichovirus mali	1	host_study	host_study:1
+Lily mottle virus	Lily symptomless virus	1	host_study	host_study:1
+Lily mottle virus	Tulip breaking virus	1	host_study	host_study:1
+Lily symptomless virus	Tulip breaking virus	1	host_study	host_study:1
+Cucurbit aphid-borne yellows virus	Papaya ringspot virus	1	surveillance	surveillance:1
+Cucurbit aphid-borne yellows virus	Watermelon mosaic virus	1	surveillance	surveillance:1
+Citrus leaf rugose virus	Citrus variegation virus	1	host_study	host_study:1
+Citrus leaf rugose virus	Elm mottle virus	1	host_study	host_study:1
+Citrus variegation virus	Elm mottle virus	1	host_study	host_study:1
+Grapevine Pinot gris virus	Grapevine fabavirus	1	host_study	host_study:1
+Grapevine fabavirus	Grapevine fleck virus	1	host_study	host_study:1
+Cucumber mosaic virus	Potato virus Y	1	surveillance	surveillance:1
+Grapevine leafroll-associated virus 2	Grapevine rupestris stem pitting-associated virus	1	single	single:1
+Grapevine leafroll-associated virus 2	Grapevine rupestris stem pitting-associated virus 1	1	single	single:1
+Grapevine rupestris stem pitting-associated virus	Grapevine rupestris stem pitting-associated virus 1	1	single	single:1
+Bipolaris maydis	Bipolaris zeicola	1	host_study	host_study:1
+Bipolaris maydis	Fusarium verticillioides	1	host_study	host_study:1
+Bipolaris zeicola	Fusarium verticillioides	1	host_study	host_study:1
+Actinidia seed borne latent virus	Actinidia virus A	1	single	single:1
+Actinidia virus A	Capillovirus mali	1	single	single:1
+Maize dwarf mosaic virus	Pennisetum mosaic virus	1	host_study	host_study:1
+Maize dwarf mosaic virus	Sugarcane mosaic virus	1	host_study	host_study:1
+Enamovirus PEMV	Potyvirus trifolii	1	surveillance	surveillance:1
+Potyvirus phaseoluteum	Potyvirus trifolii	1	surveillance	surveillance:1
+Bean common mosaic virus	Wisteria vein mosaic virus	1	host_study	host_study:1
+Peanut stripe virus	Wisteria vein mosaic virus	1	host_study	host_study:1
+Alternaria alternata	Fusarium fujikuroi	1	abiotic_stress	abiotic_stress:1
+Alternaria alternata	Fusarium oxysporum	1	abiotic_stress	abiotic_stress:1
+Fusarium oxysporum	Fusarium proliferatum	1	abiotic_stress	abiotic_stress:1
+Grapevine Syrah virus 1	Grapevine rupestris stem pitting-associated virus 1	1	single	single:1
+Cucumber mosaic virus	Sweet potato virus C	1	host_study	host_study:1
+Fusarium fujikuroi	Fusarium oxysporum f. sp. lycopersici	1	host_study	host_study:1
+Broad bean wilt virus 2	Pepper mottle virus	1	abiotic_stress	abiotic_stress:1
+Fusarium solani	Trichoderma virens	1	single	single:1
+Cucumovirus CMV	Potyvirus capsivenamaculae	1	single	single:1
+Carlavirus sigmasolani	Potyvirus yituberosi	1	single	single:1
+Turnip mosaic virus	Turnip yellows virus	1	host_study	host_study:1
+Bromovirus SVS	Comovirus ArLV1	1	host_study	host_study:1
+Gammacarmovirus glycinis	Potyvirus glycitessellati	1	single	single:1
+Fusarium oxysporum	Parastagonospora nodorum	1	host_study	host_study:1
+Grapevine leafroll-associated virus 3	Grapevine rupestris stem pitting-associated virus	1	single	single:1
+Alphanecrovirus nicotianae	Alphanecrovirus oleae	1	unclear	unclear:1
+Fusarium graminearum	Rhizoctonia solani	1	single	single:1
+Bromovirus SVS	Turnip mosaic virus	1	host_study	host_study:1
+Pseudostellaria heterophylla carlavirus 1	Stevia carlavirus 1	1	host_study	host_study:1
+Grapevine leafroll-associated virus 2	Grapevine virus B	1	single	single:1
+Broad bean wilt virus 2	Citrus yellow vein clearing virus	1	single	single:1
+Alternaria alternata	Pyricularia oryzae	1	host_study	host_study:1
+Carrot mottle virus	Carrot red leaf virus	1	host_study	host_study:1
+Carlavirus americanense	Carlavirus latenshumuli	1	host_study	host_study:1
+Lily latent virus	Lily symptomless virus	1	host_study	host_study:1
+Cercospora kikuchii	Exserohilum turcicum	1	single	single:1
+Cucumovirus CMV	Potyvirus yituberosi	1	abiotic_stress	abiotic_stress:1
+Exserohilum turcicum	Fusarium solani	1	single	single:1
+Closterovirus tristezae	Potexvirus citrindicum	1	host_study	host_study:1
+Tobacco ringspot virus	Watermelon mosaic virus	1	host_study	host_study:1
+Cucumovirus CMV	Potyvirus citrulli	1	surveillance	surveillance:1
+Alternaria alternata	Ustilago maydis	1	host_study	host_study:1
+Alternaria alternata	Cercospora beticola	1	host_study	host_study:1
+Potexvirus citriflavivenae	Potexvirus citrindicum	1	host_study	host_study:1
+Cercospora beticola	Exserohilum turcicum	1	host_study	host_study:1
+Cercospora beticola	Exserohilum turcica	1	single	single:1
+Capillovirus mali	Trichovirus mali	1	single	single:1
+Barley yellow dwarf virus PAV	Barley yellow dwarf virus PAV-Ill	1	single	single:1
+Bipolaris sorokiniana	Fusarium graminearum	1	host_study	host_study:1
+Enamovirus AEV	Umbravirus pisi	1	surveillance	surveillance:1
+Prune dwarf virus	Prunus necrotic ringspot virus	1	single	single:1
+Bipolaris sorokiniana	Fusarium pseudograminearum	1	single	single:1
+Grapevine leafroll-associated virus 2	Grapevine leafroll-associated virus 3	1	single	single:1
+Caulimovirus tessellobrassicae	Turnip mosaic virus	1	single	single:1
+Turnip crinkle virus	Turnip mosaic virus	1	host_study	host_study:1
+Fusarium odoratissimum	Fusarium solani	1	host_study	host_study:1
+Turnip mosaic virus	Waikavirus brassicae	1	single	single:1
+Comovirus ArLV1	Turnip crinkle virus	1	host_study	host_study:1
+Fusarium graminearum	Parastagonospora nodorum	1	abiotic_stress	abiotic_stress:1
+Exserohilum turcicum	Fusarium verticillioides	1	abiotic_stress	abiotic_stress:1

@@ -602,13 +602,18 @@ Completed in prior sessions (kept for context):
 
 Pending (priority order):
 
-1. [ ] **Pipeline cleanup** — remove 03_fetch_meta.py, 04_filter_meta.py (superseded scripts);
-       clean stale output/04_filter_meta/; update figure scripts for new column names:
-       `library_organism`, `stat_pathogens` instead of `primary_pathogen`, `secondary_pathogens`.
-       Scripts needing update: field_hc_guilds.py, mal_guilds.py, novel_heatmap.R,
-       kingdom_comp.R, check_primary_alignment.py, review_designs.py (load biosample_kw.tsv).
+1. [x] **Pipeline cleanup** — superseded scripts moved to scripts/legacy/; output/legacy/ deleted;
+       figure script column names already updated. Remaining: review_designs.py still loads
+       output/04_filter_meta/data/bioproject_meta.tsv (stale path + stale data model — needs
+       rewrite to load biosample_kw.tsv + bioproject_llm.tsv; deferred pending user decision).
 
-2. [ ] **same_family_secondary flag** — add to runs.tsv analogous to same_genus_secondary.
+2. [ ] **Kraken2 replacement for STAT** — STAT shown unreliable for some PST races (2026-08-04
+       kallisto pilot: scripts/pilot/). Plan: Kraken2 database of all PHI-base euk pathogen
+       genomes; screen all ~593k step-01 runs on Setonix; STAT vs Kraken comparison = paper
+       figure. Assembly coverage re-check underway (scripts/refseq_coverage_all.log).
+       See memory/kraken_pipeline.md for full design.
+
+3. [ ] **same_family_secondary flag** — add to runs.tsv analogous to same_genus_secondary.
        Precompute seed taxid → family mapping in 00_build.py via ete3; store in phibase_db.json;
        check in 02_filter_runs.py at annotation time. Gives three confidence tiers:
          same_genus=True       → lowest confidence (k-mer ambiguity)
@@ -637,8 +642,8 @@ Pending (priority order):
    Are some hosts phylogenetically more susceptible?
 4. **Gate failure characterisation** — what are the ~85% MAL runs failing Viridiplantae gate?
 5. **Viral threshold sensitivity** — re-run 02_filter_runs at 5% vs 10% threshold.
-6. **Kraken2 orthogonal validation** — deferred pending Acacia bucket setup + group transfer.
-   Database to be built on Pawsey Setonix (AMD EPYC 7763, SLURM). S3 key in ~/.bashrc.
+6. **Kraken2 orthogonal validation** — ACTIVE (2026-08-04). Moved from deferred to priority 2
+   above. Assembly scan running; Setonix pipeline design in progress.
 
 ## Architecture decisions (resolved)
 

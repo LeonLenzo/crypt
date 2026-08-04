@@ -2,6 +2,8 @@
 
 Screens NCBI SRA plant RNA-seq runs for cryptic co-infections using NCBI STAT pre-computed k-mer taxonomy — no read re-alignment required.
 
+> **Branches:** `master` — STAT-based pipeline (current results). `kraken` — in development; replaces STAT with Kraken2 screening of all ~593k step-01 runs on Setonix HPC; eukaryotic pathogens only (fungi, oomycetes).
+
 ## Background
 
 Plant disease studies deposited in SRA are designed around a single target pathogen. Field-collected samples, however, routinely harbour additional co-infecting organisms that go undetected and unreported under single-target study designs. We hypothesise that a substantial fraction of publicly available plant RNA-seq data contains secondary pathogen signal sufficient for detection via k-mer taxonomy, representing an untapped resource for co-infection epidemiology.

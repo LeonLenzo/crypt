@@ -36,6 +36,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from _util import _Tee, make_log_dir, link_latest
 
 # ── Constants ─────────────────────────────────────────────────────────────────
@@ -277,6 +278,7 @@ def _append_cache(result: dict, cache_dir: Path) -> None:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
+    global N_READS
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--mode", choices=["mal", "hal", "both"], default="both")
@@ -309,7 +311,6 @@ def main() -> None:
     tmp_dir = Path(args.tmp_dir)
     tmp_dir.mkdir(parents=True, exist_ok=True)
 
-    global N_READS
     N_READS = args.n_reads
 
     reads_dir = Path(args.reads_dir) if args.reads_dir else None

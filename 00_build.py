@@ -1,18 +1,23 @@
 #!/usr/bin/env python3
 """
-00_build.py — build PHI-base + ICTV reference database with full NCBI taxonomy.
+00_build.py — build PHI-base reference database with full NCBI taxonomy.
 
 Must be run with system python3 (not miniconda) due to ete3/sqlite3
 binary incompatibility:
     python3 00_build.py
 
-Reads PHI-base CSV and ICTV VMR, resolves all pathogen/virus/host taxids
-through the local NCBI taxonomy (ete3 NCBITaxa), expands each to include
-all descendant taxa (strains, subspecies), and collects all known name
-variants (scientific names + synonyms) for STAT name resolution.
+Reads PHI-base CSV, resolves all pathogen/host taxids through the local NCBI
+taxonomy (ete3 NCBITaxa), expands each to include all descendant taxa
+(strains, subspecies), and collects all known name variants for downstream
+Kraken2 genome download and classification.
 
-PHI-base supplies fungi, bacteria, oomycetes, nematodes.
-ICTV VMR supplies plant viruses (Host source: plants / invertebrates, plants).
+Scope (kraken branch): fungi + oomycetes only.
+Bacteria, nematodes, and ICTV viruses excluded:
+  - Bacteria: biologically indefensible for polyA+ RNA-seq (no mRNA)
+  - Nematodes: absent from annotated genome assemblies for most PHI-base seeds;
+               negligible contribution to co-infection signal (<1% of runs)
+  - Viruses: genome too small / fragmented for Kraken2 database; ICTV taxid
+             coverage unreliable for k-mer classification
 
 Output: output/00_build/phibase_db.json
 
@@ -51,18 +56,15 @@ CONTAMINANT_TAXIDS = {
 }
 
 # PHI-base pathogen kingdom classification via ete3 lineage
+# kraken branch: fungi + oomycetes only
 KINGDOM_LINEAGE_TAXIDS: dict[str, int] = {
     "Fungi":    4751,
-    "Bacteria": 2,      # retained in DB for MAL interaction_status lookup only;
-    "Oomycota": 4762,   # excluded from detection — see 02_filter_runs.py scope note
-    "Nematoda": 6231,
+    "Oomycota": 4762,
 }
 # Maps kingdom name → JSON key in the output DB
 KINGDOM_DB_KEY: dict[str, str] = {
     "Fungi":    "fungal_to_seed",
-    "Bacteria": "bacterial_to_seed",
     "Oomycota": "oomycete_to_seed",
-    "Nematoda": "nematode_to_seed",
 }
 
 
@@ -315,32 +317,24 @@ def _build_name_map(taxids: set[int],
 
 # ── Main build ────────────────────────────────────────────────────────────────
 
-def build(phibase_csv: Path, vmr_path: Path | None = None,
-          host_scope: str = "plant") -> dict:
+def build(phibase_csv: Path, host_scope: str = "plant") -> dict:
     """Build the full reference database. Returns a dict ready for JSON serialisation."""
     ncbi = NCBITaxa()
     print(f"NCBITaxa loaded: {ncbi.dbfile}")
 
-    print("\n[1/6] Parsing PHI-base …")
+    print("\n[1/5] Parsing PHI-base …")
     pathogen_to_hosts, seed_pathogens, seed_hosts = _parse_phibase(phibase_csv)
 
     if host_scope == "plant":
-        print("\n[2/6] Filtering to plant hosts …")
+        print("\n[2/5] Filtering to plant hosts …")
         seed_hosts, pathogen_to_hosts = _filter_plant_hosts(
             seed_hosts, pathogen_to_hosts, ncbi
         )
         seed_pathogens = set(pathogen_to_hosts.keys())
     else:
-        print("\n[2/6] No host scope filter applied.")
+        print("\n[2/5] No host scope filter applied.")
 
-    print("\n[3/6] Loading ICTV plant viruses …")
-    if vmr_path and vmr_path.exists():
-        virus_seed_taxids, ictv_name_map = _load_ictv_viruses(vmr_path, ncbi)
-    else:
-        virus_seed_taxids, ictv_name_map = set(), {}
-        print("  No ICTV VMR provided — virus step skipped")
-
-    print("\n[4/6] Expanding pathogen taxonomy by kingdom …")
+    print("\n[3/5] Expanding pathogen taxonomy (fungi + oomycetes) …")
     phib_seeds_by_kingdom = _classify_phib_seeds(seed_pathogens, ncbi)
     kingdom_to_seed: dict[str, dict[int, int]] = {}
     all_pathogen_expanded: set[int] = set()
@@ -354,24 +348,15 @@ def build(phibase_csv: Path, vmr_path: Path | None = None,
         else:
             kingdom_to_seed[db_key] = {}
 
-    if virus_seed_taxids:
-        virus_exp, virus_to_seed = _expand_taxids(virus_seed_taxids, ncbi, "viruses")
-        kingdom_to_seed["virus_to_seed"] = virus_to_seed
-        all_pathogen_expanded |= virus_exp
-    else:
-        kingdom_to_seed["virus_to_seed"] = {}
-
-    print("\n[5/6] Expanding host taxonomy …")
+    print("\n[4/5] Expanding host taxonomy …")
     all_host_taxids, host_to_seed = _expand_taxids(seed_hosts, ncbi, "hosts")
 
-    print("\n[6/7] Building name lookup tables …")
+    print("\n[5/6] Building name lookup tables …")
     all_taxids = all_pathogen_expanded | all_host_taxids
     taxid_to_name, name_to_taxid = _build_name_map(all_taxids, ncbi)
-    for name, taxid in ictv_name_map.items():
-        name_to_taxid.setdefault(name, taxid)
     print(f"  name→taxid entries: {len(name_to_taxid):,}")
 
-    print("\n[7/7] Building Viridiplantae name set for host validation …")
+    print("\n[6/6] Building Viridiplantae name set for host validation …")
     try:
         vp_tids   = ncbi.get_descendant_taxa(VIRIDIPLANTAE, intermediate_nodes=True)
         vp_names  = ncbi.get_taxid_translator(list(vp_tids))
@@ -382,24 +367,15 @@ def build(phibase_csv: Path, vmr_path: Path | None = None,
         print(f"  WARNING: could not build Viridiplantae name set: {e}")
         viridiplantae_names = []
 
-    # ICTV viruses: map to all PHI-base plant host seeds
-    if virus_seed_taxids:
-        for v_seed in virus_seed_taxids:
-            pathogen_to_hosts[v_seed] = set(seed_hosts)
-
-    n_virus_taxids = len(kingdom_to_seed.get("virus_to_seed", {}))
-
     db = {
         "meta": {
             "built":                    str(date.today()),
             "host_scope":               host_scope,
             "phibase_path":             str(phibase_csv),
-            "vmr_path":                 str(vmr_path) if vmr_path else None,
+            "scope_note":               "fungi + oomycetes only (kraken branch)",
             "n_pathogen_species":       len(seed_pathogens),
-            "n_virus_species":          len(virus_seed_taxids),
             "n_host_species":           len(seed_hosts),
             "n_pathogen_taxids_total":  len(all_pathogen_expanded),
-            "n_virus_taxids_total":     n_virus_taxids,
             "n_host_taxids_total":      len(all_host_taxids),
             "n_name_entries":           len(name_to_taxid),
         },
@@ -437,8 +413,7 @@ def load_db(path: Path) -> "PhibaseDB":
 class PhibaseDB:
     """Thin wrapper around the raw JSON database dict. Provides O(1) lookups."""
 
-    _KINGDOM_KEYS = ("fungal_to_seed", "bacterial_to_seed", "oomycete_to_seed",
-                     "nematode_to_seed", "virus_to_seed")
+    _KINGDOM_KEYS = ("fungal_to_seed", "oomycete_to_seed")
 
     def __init__(self, raw: dict) -> None:
         self._meta          = raw["meta"]
@@ -454,9 +429,6 @@ class PhibaseDB:
         # Derived combined maps
         self._pathogen_to_seed: dict[int, int] = {}
         self._pathogen_taxids:  set[int] = set()
-        self._virus_taxids:     set[int] = set(
-            int(t) for t in raw["virus_to_seed"]
-        )
         for m in self._kingdom_to_seed.values():
             self._pathogen_to_seed.update(m)
             self._pathogen_taxids.update(m.keys())
@@ -478,9 +450,6 @@ class PhibaseDB:
 
     def is_pathogen(self, taxid: int) -> bool:
         return taxid in self._pathogen_taxids
-
-    def is_virus(self, taxid: int) -> bool:
-        return taxid in self._virus_taxids
 
     def is_host(self, taxid: int) -> bool:
         return taxid in self._host_taxids
@@ -517,10 +486,9 @@ class PhibaseDB:
 
     def __repr__(self) -> str:
         m = self._meta
-        v = m.get("n_virus_taxids_total", 0)
         return (f"PhibaseDB(built={m['built']}, "
                 f"{m['n_pathogen_taxids_total']:,} pathogen taxids "
-                f"[incl. {v:,} virus], "
+                f"(fungi+oomycetes), "
                 f"{m['n_host_taxids_total']:,} host taxids, "
                 f"{m['n_name_entries']:,} names)")
 
@@ -535,18 +503,14 @@ def main() -> None:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--phibase", default=str(OUT_DIR / "data/phi-base_current.csv"),
                     help="Path to PHI-base CSV")
-    ap.add_argument("--ictv", default=str(OUT_DIR / "data/ictv_vmr.xlsx"),
-                    help="Path to ICTV VMR Excel file")
     ap.add_argument("--out", default=str(OUT_DIR / "data/phibase_db.json"),
                     help="Output JSON path")
     ap.add_argument("--scope", default="plant", choices=["plant", "all"],
                     help="Host scope filter (default: plant)")
     ap.add_argument("--fetch", action="store_true",
-                    help="Force re-download of PHI-base and ICTV VMR")
+                    help="Force re-download of PHI-base CSV")
     ap.add_argument("--phibase-url", default=PHIBASE_URL,
                     help="PHI-base download URL")
-    ap.add_argument("--ictv-url", default=ICTV_VMR_URL,
-                    help="ICTV VMR download URL")
     args = ap.parse_args()
 
     (OUT_DIR / "data").mkdir(parents=True, exist_ok=True)
@@ -561,13 +525,9 @@ def main() -> None:
         if args.fetch or not phibase_path.exists():
             fetch_phibase(phibase_path, url=args.phibase_url)
 
-        vmr_path = Path(args.ictv)
-        if args.fetch or not vmr_path.exists():
-            fetch_ictv_vmr(vmr_path, url=args.ictv_url)
-
-        print(f"Building PHI-base + ICTV database from {phibase_path} "
+        print(f"Building PHI-base database (fungi+oomycetes) from {phibase_path} "
               f"(scope={args.scope})\n")
-        db = build(phibase_path, vmr_path=vmr_path, host_scope=args.scope)
+        db = build(phibase_path, host_scope=args.scope)
 
         out_path = Path(args.out)
         save_db(db, out_path)
@@ -580,15 +540,10 @@ def main() -> None:
               f"({loaded.name(taxid) if taxid else 'not found'})")
         if taxid:
             print(f"  is_pathogen({taxid}) → {loaded.is_pathogen(taxid)}")
-            print(f"  is_virus({taxid})    → {loaded.is_virus(taxid)}")
             print(f"  hosts_of({taxid})    → {len(loaded.hosts_of(taxid))} plant hosts")
             tomato = 4081
             print(f"  known_interaction(F.oxysporum, tomato) → "
                   f"{loaded.known_interaction(taxid, tomato)}")
-        tmv_name = "Tobacco mosaic virus"
-        tmv_taxid = loaded.resolve(tmv_name)
-        print(f"  resolve('{tmv_name}') → {tmv_taxid} "
-              f"({'virus ✓' if tmv_taxid and loaded.is_virus(tmv_taxid) else 'not found'})")
 
         m = db["meta"]
         summary = (
@@ -596,11 +551,10 @@ def main() -> None:
             f"Built:                    {m['built']}\n"
             f"Host scope:               {m['host_scope']}\n"
             f"PHI-base source:          {phibase_path}\n"
-            f"ICTV VMR source:          {vmr_path}\n"
+            f"Scope:                    {m['scope_note']}\n"
             f"\n"
             f"Pathogen species (seeds):  {m['n_pathogen_species']:>7,}\n"
             f"Pathogen taxids (total):   {m['n_pathogen_taxids_total']:>7,}\n"
-            f"  of which virus taxids:   {m['n_virus_taxids_total']:>7,}\n"
             f"Host species (seeds):      {m['n_host_species']:>7,}\n"
             f"Host taxids (total):       {m['n_host_taxids_total']:>7,}\n"
             f"Name lookup entries:       {m['n_name_entries']:>7,}\n"

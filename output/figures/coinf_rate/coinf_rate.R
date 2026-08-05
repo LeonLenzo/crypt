@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 })
 
 RUNS_TSV  <- "output/02_filter_runs/data/runs.tsv"
-OUT        <- "figure/coinf_rate/coinf_rate"
+OUT        <- "output/figures/coinf_rate/coinf_rate"
 MIN_BS     <- 10
 N_HOSTS    <- 20
 BAR_W      <- 0.32
@@ -17,7 +17,7 @@ SPACING    <- 1.8    # y_pos multiplier — increase to widen host gaps
 COL_SINGLE <- "#27ae60"
 COL_COINF  <- "#e67e22"
 
-host_meta <- read.delim("figure/host_tree/crypt_host_tree_meta.tsv",
+host_meta <- read.delim("output/figures/host_tree/crypt_host_tree_meta.tsv",
                         stringsAsFactors = FALSE) |>
   select(species, family)
 

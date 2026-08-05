@@ -7,8 +7,8 @@ suppressPackageStartupMessages({
   library(ggplot2); library(dplyr); library(patchwork)
 })
 
-DAT <- "figure/scatter/scatter_data.tsv"
-OUT <- "figure/scatter/scatter"
+DAT <- "output/figures/scatter/scatter_data.tsv"
+OUT <- "output/figures/scatter/scatter"
 
 LOG_FLOOR <- 0.05
 

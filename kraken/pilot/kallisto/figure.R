@@ -1,13 +1,13 @@
 #!/usr/bin/env Rscript
 # Kallisto pilot: STAT euk_pct vs kallisto pseudoalignment rate
 # 45 runs × 3 organisms × 3 tiers — diagnostic record of STAT reliability
-# Run from crypt/: Rscript scripts/pilot/pilot_figure.R
+# Run from crypt/: Rscript kraken/pilot/kallisto/pilot_figure.R
 
 library(ggplot2)
 library(dplyr)
 library(ggrepel)
 
-dat <- read.delim("scripts/pilot/results.tsv", stringsAsFactors = FALSE) |>
+dat <- read.delim("kraken/pilot/kallisto/results.tsv", stringsAsFactors = FALSE) |>
   mutate(
     organism = sub("Puccinia striiformis f. sp. tritici", "P. striiformis (PST)", organism),
     organism = sub("Puccinia graminis f. sp. tritici",   "P. graminis (PGT)",    organism),
@@ -76,6 +76,6 @@ p <- ggplot(dat, aes(x = euk_pct, y = kallisto_pct,
     panel.grid.major = element_line(colour = "grey92", linewidth = 0.3)
   )
 
-ggsave("scripts/pilot/pilot_figure.pdf", p, width = 7, height = 5.5)
-ggsave("scripts/pilot/pilot_figure.png", p, width = 7, height = 5.5, dpi = 200)
-cat("Written: scripts/pilot/pilot_figure.pdf/.png\n")
+ggsave("kraken/pilot/kallisto/pilot_figure.pdf", p, width = 7, height = 5.5)
+ggsave("kraken/pilot/kallisto/pilot_figure.png", p, width = 7, height = 5.5, dpi = 200)
+cat("Written: kraken/pilot/kallisto/pilot_figure.pdf/.png\n")

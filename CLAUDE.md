@@ -609,7 +609,7 @@ Pending (priority order):
        rewrite to load biosample_kw.tsv + bioproject_llm.tsv; deferred pending user decision).
 
 2. [ ] **Kraken2 replacement for STAT** — STAT shown unreliable for some PST races (2026-08-04
-       kallisto pilot: kraken/kallisto_pilot/). Plan: Kraken2 database of all PHI-base euk pathogen
+       kallisto pilot: kraken/pilot/kallisto/). Plan: Kraken2 database of all PHI-base euk pathogen
        genomes; screen all ~593k step-01 runs on Setonix; STAT vs Kraken comparison = paper
        figure. Assembly coverage re-check underway (scripts/refseq_coverage_all.log).
        See memory/kraken_pipeline.md for full design.

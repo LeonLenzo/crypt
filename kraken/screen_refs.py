@@ -10,7 +10,7 @@ For each seed taxid in phibase_db.json (fungi + oomycetes):
   3. Report: accession, release date, assembly level, has_annotation, N50,
      gene count, total size — for manual review before building Kraken2 DB
 
-Output: scripts/ref_screen.tsv
+Output: kraken/ref_screen.tsv
 Run:    python scripts/screen_references.py [--workers N]
 """
 
@@ -22,7 +22,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 DB_PATH = Path("output/00_build/data/phibase_db.json")
-OUT_TSV = Path("scripts/ref_screen.tsv")
+OUT_TSV = Path("kraken/ref_screen.tsv")
 
 LEVEL_RANK = {
     "Complete Genome": 5,

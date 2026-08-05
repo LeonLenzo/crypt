@@ -9,10 +9,10 @@ library(ggplot2)
 library(dplyr)
 library(ggrepel)
 
-NODES_TSV <- "figure/guilds/field_hc_nodes.tsv"
-EDGES_TSV <- "figure/guilds/field_hc_edges.tsv"
-OUT_PDF   <- "figure/guilds/field_hc_network.pdf"
-OUT_PNG   <- "figure/guilds/field_hc_network.png"
+NODES_TSV <- "output/figures/guilds/field_hc_nodes.tsv"
+EDGES_TSV <- "output/figures/guilds/field_hc_edges.tsv"
+OUT_PDF   <- "output/figures/guilds/field_hc_network.pdf"
+OUT_PNG   <- "output/figures/guilds/field_hc_network.png"
 
 LABEL_THRESHOLD <- 4   # label nodes with total detections >= this
 

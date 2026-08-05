@@ -84,17 +84,17 @@ def main() -> None:
     args = ap.parse_args()
 
     if args.all_hosts:
-        nodes_tsv      = Path("figure/guilds/field_hc_all_nodes.tsv")
-        edges_tsv      = Path("figure/guilds/field_hc_all_edges.tsv")
-        node_hosts_tsv = Path("figure/guilds/field_hc_all_node_hosts.tsv")
+        nodes_tsv      = Path("output/figures/guilds/field_hc_all_nodes.tsv")
+        edges_tsv      = Path("output/figures/guilds/field_hc_all_edges.tsv")
+        node_hosts_tsv = Path("output/figures/guilds/field_hc_all_node_hosts.tsv")
     elif args.no_hc:
-        nodes_tsv      = Path("figure/guilds/field_all_nodes.tsv")
-        edges_tsv      = Path("figure/guilds/field_all_edges.tsv")
-        node_hosts_tsv = Path("figure/guilds/field_all_node_hosts.tsv")
+        nodes_tsv      = Path("output/figures/guilds/field_all_nodes.tsv")
+        edges_tsv      = Path("output/figures/guilds/field_all_edges.tsv")
+        node_hosts_tsv = Path("output/figures/guilds/field_all_node_hosts.tsv")
     else:
-        nodes_tsv      = Path("figure/guilds/field_hc_nodes.tsv")
-        edges_tsv      = Path("figure/guilds/field_hc_edges.tsv")
-        node_hosts_tsv = Path("figure/guilds/field_hc_node_hosts.tsv")
+        nodes_tsv      = Path("output/figures/guilds/field_hc_nodes.tsv")
+        edges_tsv      = Path("output/figures/guilds/field_hc_edges.tsv")
+        node_hosts_tsv = Path("output/figures/guilds/field_hc_node_hosts.tsv")
 
     db = json.loads(DB_PATH.read_text())
     taxid_to_kg, name_to_tid = _build_kingdom_map(db)

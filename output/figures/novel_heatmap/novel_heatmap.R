@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 })
 
 RUNS_TSV    <- "output/02_filter_runs/data/runs.tsv"
-OUT         <- "figure/novel_heatmap/novel_heatmap"
+OUT         <- "output/figures/novel_heatmap/novel_heatmap"
 TOP_PATHS   <- 35
 TOP_HOSTS   <- 30
 

@@ -6,10 +6,10 @@
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=512G
 #SBATCH --time=12:00:00
-#SBATCH --output=slurm/logs/kraken_build_%j.out
-#SBATCH --error=slurm/logs/kraken_build_%j.err
+#SBATCH --output=kraken/slurm/logs/kraken_build_%j.out
+#SBATCH --error=kraken/slurm/logs/kraken_build_%j.err
 
-# Run from crypt/: sbatch slurm/kraken_build.slurm
+# Run from crypt/: sbatch kraken/slurm/kraken_build.slurm
 # Prerequisite: run slurm/kraken_download.slurm first (or --download-only pass)
 
 set -euo pipefail
@@ -26,7 +26,7 @@ echo "Starting Kraken2 build: $(date)"
 echo "DB dir: $DB_DIR"
 echo "Genomes dir: $GENOMES_DIR"
 
-python kraken_build.py \
+python kraken/build.py \
     --build-only \
     --db-dir "$DB_DIR" \
     --genomes-dir "$GENOMES_DIR" \

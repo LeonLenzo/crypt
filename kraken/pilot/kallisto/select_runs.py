@@ -9,8 +9,8 @@ Three organisms × three tiers:
 
 Stratified by BioProject so runs come from different studies.
 
-Run from crypt/: python scripts/pilot_select_runs.py
-Output: scripts/pilot_runs.tsv
+Run from crypt/: python kraken/pilot/kallisto/select_runs.py
+Output: kraken/pilot/kallisto/pilot_runs.tsv
 """
 import csv
 import random
@@ -18,7 +18,7 @@ from collections import defaultdict
 from pathlib import Path
 
 RUNS_TSV = Path("output/02_filter_runs/data/runs.tsv")
-OUT_TSV  = Path("scripts/pilot_runs.tsv")
+OUT_TSV  = Path("kraken/pilot/kallisto/pilot_runs.tsv")
 
 ORGANISMS = {
     "pst": "Puccinia striiformis f. sp. tritici",

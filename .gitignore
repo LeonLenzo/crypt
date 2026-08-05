@@ -42,9 +42,9 @@ __pycache__/
 .env
 
 # Kraken2 pilot large files (reproducible, not tracked)
-kraken/kallisto_pilot/indices/
-kraken/kallisto_pilot/quant/
-kraken/kallisto_pilot/reads/
-kraken/stat_comparison_pilot/kraken_db/
-kraken/stat_comparison_pilot/reads/
+kraken/pilot/kallisto/indices/
+kraken/pilot/kallisto/quant/
+kraken/pilot/kallisto/reads/
+kraken/pilot/kraken/kraken_db/
+kraken/pilot/kraken/reads/
 scripts/diagnostics/*.log

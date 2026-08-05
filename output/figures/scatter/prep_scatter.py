@@ -23,7 +23,7 @@ STAT_CACHE = Path("output/01_fetch_runs/data/stat_cache.jsonl")
 RUNS_TSV   = Path("output/02_filter_runs/data/runs.tsv")
 MAL_RUNS   = Path("output/01_fetch_runs/data/mal_runs.json")
 HAL_RUNS   = Path("output/01_fetch_runs/data/hal_runs.json")
-OUT_TSV    = Path("figure/scatter/scatter_data.tsv")
+OUT_TSV    = Path("output/figures/scatter/scatter_data.tsv")
 
 # ── Load gate-pass metadata from runs.tsv ─────────────────────────────────────
 

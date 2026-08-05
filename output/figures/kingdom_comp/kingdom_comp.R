@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 })
 
 RUNS_TSV <- "output/02_filter_runs/data/runs.tsv"
-OUT       <- "figure/kingdom_comp/kingdom_comp"
+OUT       <- "output/figures/kingdom_comp/kingdom_comp"
 
 KINGDOM_COLS <- c(
   Fungi     = "#d35400",

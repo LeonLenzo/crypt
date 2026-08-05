@@ -2,14 +2,14 @@
 # Kraken2 pilot: three-way comparison STAT / kallisto / Kraken2
 # Panel A: STAT euk_pct vs Kraken2  — shows the STAT blind spot
 # Panel B: kallisto vs Kraken2      — validates Kraken2 against kallisto
-# Run from crypt/: Rscript kraken/stat_comparison_pilot/figure_kraken.R
+# Run from crypt/: Rscript kraken/pilot/kraken/figure_kraken.R
 
 library(ggplot2)
 library(dplyr)
 library(ggrepel)
 library(patchwork)
 
-dat <- read.delim("kraken/stat_comparison_pilot/kraken_results.tsv", stringsAsFactors = FALSE) |>
+dat <- read.delim("kraken/pilot/kraken/kraken_results.tsv", stringsAsFactors = FALSE) |>
   mutate(
     # total classified by Kraken2 (any of the 3 target organisms)
     # PGT reads cross-classify to PST (same-genus k-mer sharing), so
@@ -126,6 +126,6 @@ combined <- pA + pB +
     )
   )
 
-ggsave("kraken/stat_comparison_pilot/figure_kraken.pdf", combined, width = 12, height = 5)
-ggsave("kraken/stat_comparison_pilot/figure_kraken.png", combined, width = 12, height = 5, dpi = 200)
-cat("Written: kraken/stat_comparison_pilot/figure_kraken.pdf/.png\n")
+ggsave("kraken/pilot/kraken/figure_kraken.pdf", combined, width = 12, height = 5)
+ggsave("kraken/pilot/kraken/figure_kraken.png", combined, width = 12, height = 5, dpi = 200)
+cat("Written: kraken/pilot/kraken/figure_kraken.pdf/.png\n")

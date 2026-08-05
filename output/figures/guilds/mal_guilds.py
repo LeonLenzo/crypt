@@ -24,8 +24,8 @@ from pathlib import Path
 
 RUNS_TSV        = Path("output/02_filter_runs/data/runs.tsv")
 DB_PATH         = Path("output/00_build/data/phibase_db.json")
-NODES_TSV       = Path("figure/guilds/mal_guild_nodes.tsv")
-EDGES_TSV       = Path("figure/guilds/mal_guild_edges.tsv")
+NODES_TSV       = Path("output/figures/guilds/mal_guild_nodes.tsv")
+EDGES_TSV       = Path("output/figures/guilds/mal_guild_edges.tsv")
 
 MIN_EDGE_WEIGHT = 2    # drop edges seen in fewer than this many runs
 _SKIP           = {"environmental samples"}

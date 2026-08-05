@@ -11,11 +11,11 @@ library(ggnewscale)
 library(dplyr)
 library(graphlayouts)
 
-NODES_TSV      <- "figure/guilds/field_hc_nodes.tsv"
-EDGES_TSV      <- "figure/guilds/field_hc_edges.tsv"
-NODE_HOSTS_TSV <- "figure/guilds/field_hc_node_hosts.tsv"
-OUT_PDF        <- "figure/guilds/wheat_cluster.pdf"
-OUT_PNG        <- "figure/guilds/wheat_cluster.png"
+NODES_TSV      <- "output/figures/guilds/field_hc_nodes.tsv"
+EDGES_TSV      <- "output/figures/guilds/field_hc_edges.tsv"
+NODE_HOSTS_TSV <- "output/figures/guilds/field_hc_node_hosts.tsv"
+OUT_PDF        <- "output/figures/guilds/wheat_cluster.pdf"
+OUT_PNG        <- "output/figures/guilds/wheat_cluster.png"
 
 # Minimum co-infection run count to include a (pathogen, host) pair in a hull.
 MIN_HOST_RUNS  <- 1

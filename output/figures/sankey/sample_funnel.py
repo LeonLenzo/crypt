@@ -16,8 +16,8 @@ try:
 except ImportError:
     sys.exit("pip install plotly kaleido")
 
-OUT_HTML = Path("figure/sankey/sample_funnel.html")
-OUT_PNG  = Path("figure/sankey/sample_funnel.png")
+OUT_HTML = Path("output/figures/sankey/sample_funnel.html")
+OUT_PNG  = Path("output/figures/sankey/sample_funnel.png")
 
 # ── Load data ──────────────────────────────────────────────────────────────────
 

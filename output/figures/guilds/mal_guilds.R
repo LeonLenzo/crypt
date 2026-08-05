@@ -7,10 +7,10 @@ library(ggraph)
 library(ggplot2)
 library(dplyr)
 
-NODES_TSV <- "figure/guilds/mal_guild_nodes.tsv"
-EDGES_TSV <- "figure/guilds/mal_guild_edges.tsv"
-OUT_PDF   <- "figure/guilds/mal_guild_network.pdf"
-OUT_PNG   <- "figure/guilds/mal_guild_network.png"
+NODES_TSV <- "output/figures/guilds/mal_guild_nodes.tsv"
+EDGES_TSV <- "output/figures/guilds/mal_guild_edges.tsv"
+OUT_PDF   <- "output/figures/guilds/mal_guild_network.pdf"
+OUT_PNG   <- "output/figures/guilds/mal_guild_network.png"
 
 MIN_NODE_TOTAL <- 2    # drop nodes never appearing in a kept edge
 LABEL_THRESHOLD <- 8   # label nodes with total detections >= this

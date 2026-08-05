@@ -3,7 +3,7 @@
 Kraken2 MAL gate pilot — 45 runs × 3 organisms × 3 tiers.
 
 Builds a mini Kraken2 database from the 3 transcriptome FASTAs already
-present in kraken/stat_comparison_pilot/refs/ (same references used by the kallisto pilot),
+present in kraken/pilot/kraken/refs/ (same references used by the kallisto pilot),
 enabling a three-way comparison: STAT (euk_pct) vs kallisto vs Kraken2.
 
 Organisms:
@@ -19,9 +19,9 @@ The Setonix production run will use full genomic FASTAs (kraken_build.py).
 
 Run from crypt/ with kraken2 conda env active:
     conda activate kraken2
-    python kraken/stat_comparison_pilot/pilot_kraken.py
-    python kraken/stat_comparison_pilot/pilot_kraken.py --skip-build   # DB already built
-    python kraken/stat_comparison_pilot/pilot_kraken.py --runs 5       # test first 5 runs
+    python kraken/pilot/kraken/pilot_kraken.py
+    python kraken/pilot/kraken/pilot_kraken.py --skip-build   # DB already built
+    python kraken/pilot/kraken/pilot_kraken.py --runs 5       # test first 5 runs
 """
 
 import argparse
@@ -34,7 +34,7 @@ import time
 import urllib.request
 from pathlib import Path
 
-PILOT_DIR    = Path("kraken/stat_comparison_pilot")
+PILOT_DIR    = Path("kraken/pilot/kraken")
 REFS_DIR     = PILOT_DIR / "refs"
 DB_DIR       = PILOT_DIR / "kraken_db"
 RESULT_TSV   = PILOT_DIR / "kraken_results.tsv"

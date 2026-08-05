@@ -12,7 +12,7 @@ Reference assemblies (NCBI RefSeq RNA FASTA):
   pgt — Puccinia graminis f. sp. tritici     GCF_000149925.1
   por — Pyricularia oryzae 70-15             GCF_000002495.2
 
-Run from crypt/: python scripts/pilot_kallisto.py
+Run from crypt/: python kraken/pilot/kallisto/run_kallisto.py
   --skip-download   if refs already downloaded
   --skip-index      if indices already built
   --runs N          process only first N runs (default: all)
@@ -27,13 +27,13 @@ import sys
 import zipfile
 from pathlib import Path
 
-PILOT_DIR  = Path("scripts/pilot")
+PILOT_DIR  = Path("kraken/pilot/kallisto")
 REFS_DIR   = PILOT_DIR / "refs"
 IDX_DIR    = PILOT_DIR / "indices"
 READS_DIR  = PILOT_DIR / "reads"
 QUANT_DIR  = PILOT_DIR / "quant"
 RESULT_TSV = PILOT_DIR / "results.tsv"
-RUNS_TSV   = Path("scripts/pilot_runs.tsv")
+RUNS_TSV   = Path("kraken/pilot/kallisto/pilot_runs.tsv")
 
 ASSEMBLIES = {
     "pst": "GCF_021901695.1",   # P. striiformis f. sp. tritici Pst134E36

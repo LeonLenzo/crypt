@@ -11,11 +11,11 @@ library(ggnewscale)
 library(dplyr)
 library(graphlayouts)
 
-NODES_TSV      <- "figure/guilds/field_all_nodes.tsv"
-EDGES_TSV      <- "figure/guilds/field_all_edges.tsv"
-NODE_HOSTS_TSV <- "figure/guilds/field_all_node_hosts.tsv"
-OUT_PDF        <- "figure/guilds/field_all_fungi_hulls.pdf"
-OUT_PNG        <- "figure/guilds/field_all_fungi_hulls.png"
+NODES_TSV      <- "output/figures/guilds/field_all_nodes.tsv"
+EDGES_TSV      <- "output/figures/guilds/field_all_edges.tsv"
+NODE_HOSTS_TSV <- "output/figures/guilds/field_all_node_hosts.tsv"
+OUT_PDF        <- "output/figures/guilds/field_all_fungi_hulls.pdf"
+OUT_PNG        <- "output/figures/guilds/field_all_fungi_hulls.png"
 
 MIN_HOST_RUNS  <- 1   # min runs for a (pathogen, host) pair to count
 MIN_HOST_NODES <- 3   # min distinct cluster nodes a host must span

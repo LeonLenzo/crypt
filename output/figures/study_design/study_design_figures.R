@@ -9,7 +9,7 @@ library(tidyr)
 library(scales)
 library(patchwork)
 
-OUTDIR <- "figure/study_design"
+OUTDIR <- "output/figures/study_design"
 
 # ── Shared theme ──────────────────────────────────────────────────────────────
 
@@ -33,7 +33,7 @@ TREAT_LABELS <- c("single\npathogen", "host\nstudy", "abiotic\nstress",
 # Figure 1 — Co-infection rate by treatment × setting (all vs high-confidence)
 # ══════════════════════════════════════════════════════════════════════════════
 
-d1 <- read.delim("figure/study_design/treat_setting_rates.tsv", stringsAsFactors = FALSE)
+d1 <- read.delim("output/figures/study_design/treat_setting_rates.tsv", stringsAsFactors = FALSE)
 
 # Exclude tiny cells and unclear treatment
 d1 <- d1 %>%
@@ -80,7 +80,7 @@ cat("Wrote treat_setting_bar.pdf/png\n")
 #   B  distribution of coinf_rate among BPs with at least one coinf run
 # ══════════════════════════════════════════════════════════════════════════════
 
-d2 <- read.delim("figure/study_design/single_bp_rates.tsv", stringsAsFactors = FALSE) %>%
+d2 <- read.delim("output/figures/study_design/single_bp_rates.tsv", stringsAsFactors = FALSE) %>%
   filter(n_runs >= 2) %>%
   mutate(setting = factor(setting, levels = c("field", "lab"),
                           labels = c("Field", "Lab")))

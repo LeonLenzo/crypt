@@ -24,8 +24,8 @@ from pathlib import Path
 from ete3 import NCBITaxa
 
 RUNS_TSV           = Path("output/02_filter_runs/data/runs.tsv")
-OUT_NWK             = Path("figure/host_tree/crypt_host_tree.nwk")
-OUT_META            = Path("figure/host_tree/crypt_host_tree_meta.tsv")
+OUT_NWK             = Path("output/figures/host_tree/crypt_host_tree.nwk")
+OUT_META            = Path("output/figures/host_tree/crypt_host_tree_meta.tsv")
 VIRIDIPLANTAE_TAXID = 33090
 
 FAMILY_TAXIDS: list[tuple[int, str]] = [

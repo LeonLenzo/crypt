@@ -7,9 +7,9 @@ suppressPackageStartupMessages({
   library(cowplot)
 })
 
-NWK      <- "figure/host_tree/crypt_host_tree.nwk"
-META     <- "figure/host_tree/crypt_host_tree_meta.tsv"
-OUT      <- "figure/host_tree/crypt_host_tree"
+NWK      <- "output/figures/host_tree/crypt_host_tree.nwk"
+META     <- "output/figures/host_tree/crypt_host_tree_meta.tsv"
+OUT      <- "output/figures/host_tree/crypt_host_tree"
 MIN_RUNS <- 1      # minimum confirmed runs to include a tip
 BAR_UNIT  <- 7     # x-units per log10 run unit
 BAR_LW    <- 2.5   # linewidth for each bar (mm)

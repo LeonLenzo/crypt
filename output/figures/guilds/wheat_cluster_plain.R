@@ -8,10 +8,10 @@ library(ggraph)
 library(ggplot2)
 library(dplyr)
 
-NODES_TSV <- "figure/guilds/field_hc_all_nodes.tsv"
-EDGES_TSV <- "figure/guilds/field_hc_all_edges.tsv"
-OUT_PDF   <- "figure/guilds/wheat_cluster_plain.pdf"
-OUT_PNG   <- "figure/guilds/wheat_cluster_plain.png"
+NODES_TSV <- "output/figures/guilds/field_hc_all_nodes.tsv"
+EDGES_TSV <- "output/figures/guilds/field_hc_all_edges.tsv"
+OUT_PDF   <- "output/figures/guilds/wheat_cluster_plain.pdf"
+OUT_PNG   <- "output/figures/guilds/wheat_cluster_plain.png"
 
 # ── Colour palettes ───────────────────────────────────────────────────────────
 

@@ -40,3 +40,11 @@ __pycache__/
 *.pyc
 *.pyo
 .env
+
+# Kraken2 pilot large files (reproducible, not tracked)
+kraken/kallisto_pilot/indices/
+kraken/kallisto_pilot/quant/
+kraken/kallisto_pilot/reads/
+kraken/stat_comparison_pilot/kraken_db/
+kraken/stat_comparison_pilot/reads/
+scripts/diagnostics/*.log

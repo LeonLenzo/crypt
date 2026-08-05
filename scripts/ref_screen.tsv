@@ -1,0 +1,134 @@
+taxid	name	kingdom	best_accession	assembly_name	assembly_level	release_date	has_annotation	protein_coding_genes	scaffold_n50_kb	total_length_mb	n_assemblies	fasta_type	notes
+105487	105487	fungi	GCA_000818155.1	ASM81815v1	Chromosome	2015-01-20	True	11284	3351	44.7	4	rna	GenBank_only(no_RefSeq)
+694573	694573	fungi	GCA_000818155.1	ASM81815v1	Chromosome	2015-01-20	True	11284	3351	44.7	4	rna	GenBank_only(no_RefSeq)
+914237	914237	fungi	GCA_046529785.1	ASM4652978v1	Complete Genome	2025-01-07	True	13726	3757	57.8	2	rna	GenBank_only(no_RefSeq)
+5599	Alternaria alternata	fungi	GCA_016097525.1	ASM1609752v1	Scaffold	2020-12-16	True	24347	2282	35.0	150	rna	GenBank_only(no_RefSeq)
+29001	Alternaria brassicicola	fungi	GCA_059186605.1	Altbr_DSM62008	Contig	2026-07-10	True	9763	2019	33.7	11	rna	GenBank_only(no_RefSeq); contig_level
+135859	Alternaria citri	fungi					False				0		NCBI query failed
+160389	Alternaria longipes	fungi	GCA_019059555.1	ASM1905955v1	Chromosome	2021-06-29	False		3599	39.4	1	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+48097	Alternaria panax	fungi	GCA_019702505.1	ASM1970250v1	Scaffold	2021-08-20	True	11837	4172	34.8	1	rna	GenBank_only(no_RefSeq)
+48100	Alternaria solani	fungi	GCA_002952155.1	ASM295215v1	Complete Genome	2018-02-14	False		2867	32.8	4	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+205686	Ascochyta lentis	fungi	GCA_016097375.2	AlKewell	Complete Genome	2025-03-24	True	13938	1825	41.7	15	rna	GenBank_only(no_RefSeq)
+5454	Ascochyta rabiei	fungi	GCF_004011695.2	ASM401169v2	Complete Genome	2022-08-25	True	11525	1945	40.8	23	rna	
+40993	Aspergillus carbonarius	fungi	GCA_001990825.1	Aspca3	Scaffold	2017-02-15	True	11475	1828	36.1	1	rna	GenBank_only(no_RefSeq)
+5059	Aspergillus flavus	fungi	GCF_009017415.1	ASM901741v1	Complete Genome	2019-10-13	True	13707	4810	37.7	343	rna	
+5061	Aspergillus niger	fungi	GCA_055697485.1	ASM5569748v1	Chromosome	2026-03-05	True	11113	4304	35.6	128	rna	GenBank_only(no_RefSeq)
+40380	Aspergillus ochraceus	fungi	GCA_026108165.1	ASM2610816v1	Scaffold	2022-11-09	False		1169	35.1	5	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+176275	Beauveria bassiana	fungi	GCF_000280675.1	ASM28067v1	Scaffold	2012-08-14	True	10364	730	33.7	227	rna	OLD_assembly(2012)
+5016	Bipolaris maydis	fungi	GCF_028858645.1	CocheC4_6	Scaffold	2023-02-23	True	11323	2056	37.8	13	rna	
+101162	Bipolaris oryzae	fungi	GCF_000523455.1	Cochliobolus miyabeanus v1.0	Scaffold	2014-01-30	True	12000	134	31.4	11	rna	OLD_assembly(2014)
+45130	Bipolaris sorokiniana	fungi	GCF_000338995.1	Cocsa1	Scaffold	2013-02-19	True	12210	1789	34.4	20	rna	OLD_assembly(2013)
+40125	Bipolaris victoriae	fungi	GCF_000527765.1	Cochliobolus victoriae v1.0	Scaffold	2014-02-03	True	12882	231	32.8	3	rna	OLD_assembly(2014)
+5017	Bipolaris zeicola	fungi	GCF_000523435.1	Cochliobolus carbonum v1.0	Scaffold	2014-01-30	True	12848	110	31.3	5	rna	OLD_assembly(2014)
+34373	Blumeria graminis	fungi	GCA_905067625.1	Bgtriticale_THUN12_genome_v1_2	Chromosome	2021-06-18	True	7993	15158	141.4	9	rna	GenBank_only(no_RefSeq)
+55169	Botryosphaeria dothidea	fungi	GCA_021436945.2	ASM2143694v2	Scaffold	2024-04-12	True	12423	302	45.1	141	rna	GenBank_only(no_RefSeq)
+40559	Botrytis cinerea	fungi	GCA_000227075.1	BotFuc_Mar2011	Scaffold	2011-03-11	True	16353	562	39.5	66	rna	OLD_assembly(2011); GenBank_only(no_RefSeq)
+278938	Botrytis elliptica	fungi	GCA_004786205.1	ASM478620v1	Scaffold	2019-04-12	True	12555	37	47.6	3	rna	GenBank_only(no_RefSeq)
+5158	Ceratocystis fimbriata	fungi	GCA_000389695.3	Cfim3.0	Scaffold	2017-10-18	True	7266	174	30.0	8	rna	GenBank_only(no_RefSeq)
+312341	Ceratocystis harringtonii	fungi	GCA_002018265.1	ASM201826v1	Scaffold	2017-03-03	False		66	26.1	1	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+929235	Ceratocystis manginecans	fungi	GCA_006681795.1	ASM668179v1	Scaffold	2019-07-05	False		94	31.6	8	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+132184	Cercospora apii	fungi	GCA_026120055.1	ASM2612005v1	Scaffold	2022-11-10	False		687	33.8	2	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+122368	Cercospora beticola	fungi	GCF_033473495.1	ASM3347349v1	Complete Genome	2023-11-09	True	13144	4240	36.1	8	rna	
+1868926	Cercospora cf. flagellaris	fungi	GCA_058382225.1	CFLAG_v1	Scaffold	2026-06-24	False		2900	33.6	2	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+84275	Cercospora kikuchii	fungi	GCF_019650295.1	Ck_assembly01	Contig	2021-07-08	True	13001	4190	34.4	4	rna	contig_level
+29003	Cercospora nicotianae	fungi	GCA_002994015.1	CNIC01	Scaffold	2018-03-12	False		330	33.4	2	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+135779	Cercospora zeae-maydis	fungi	GCA_010093985.1	Cerzm1	Scaffold	2020-01-31	True	12008	720	46.6	2	rna	GenBank_only(no_RefSeq)
+984309	Ciboria shiraiana	fungi	GCA_008122225.1	ASM812222v1	Contig	2019-08-29	False		2399	39.1	1	genome	no_annotation→use_genome; GenBank_only(no_RefSeq); contig_level
+5111	Claviceps purpurea	fungi	GCA_000347355.1	ASM34735v1	Scaffold	2012-08-02	True	8823	433	32.1	58	rna	OLD_assembly(2012); GenBank_only(no_RefSeq)
+29856	Clonostachys rosea	fungi	GCA_902827195.2	C_rosea_IK726	Scaffold	2022-05-03	True	21141	1902	70.7	16	rna	GenBank_only(no_RefSeq)
+27357	Colletotrichum acutatum	fungi	GCF_030867785.1	Colac2	Contig	2023-08-24	True	15032	300	49.1	33	rna	contig_level
+702518	Colletotrichum asianum	fungi	GCA_045514765.1	ASM4551476v1	Scaffold	2024-12-02	True	16276	683	58.2	4	rna	GenBank_only(no_RefSeq)
+538528	Colletotrichum camelliae	fungi	GCA_011947485.2	ASM1194748v2	Scaffold	2021-09-10	True	14390	198	57.8	3	rna	GenBank_only(no_RefSeq)
+27358	Colletotrichum coccodes	fungi	GCA_002249775.1	ASM224977v1	Scaffold	2017-08-11	False		342	50.1	3	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+690256	Colletotrichum fructicola	fungi	GCA_013201875.1	ASM1320187v1	Scaffold	2020-06-01	True	16156	307	57.4	27	rna	GenBank_only(no_RefSeq)
+474922	Colletotrichum gloeosporioides	fungi	GCF_011800055.1	NFU_CgLc1_1.0	Scaffold	2020-03-31	True	15368	710	61.9	22	rna	
+31870	Colletotrichum graminicola	fungi	GCA_029226625.1	ASM2922662v1	Chromosome	2023-03-16	True	15139	6444	57.4	23	rna	GenBank_only(no_RefSeq)
+80884	Colletotrichum higginsianum	fungi	GCA_000313795.2	ASM31379v2	Scaffold	2012-03-15	True	16141	6	49.1	5	rna	OLD_assembly(2012); GenBank_only(no_RefSeq)
+5462	Colletotrichum lagenaria	fungi					False				0		NCBI query failed
+1585795	Colletotrichum lentis	fungi	GCA_003386485.1	ASM338648v1	Scaffold	2018-08-14	False		4891	56.1	1	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+290576	Colletotrichum lindemuthianum	fungi	GCA_001693025.3	UFV_Clind_v3	Scaffold	2024-10-02	False		2180	100.4	6	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+5465	Colletotrichum orbiculare	fungi	GCA_000350065.2	KSG_Corb_v2	Scaffold	2019-03-22	True	13253	2079	89.7	1	rna	GenBank_only(no_RefSeq)
+1209932	Colletotrichum scovillei	fungi	GCA_018906675.1	ASM1890667v1	Scaffold	2021-06-16	True	15385	3529	49.9	9	rna	GenBank_only(no_RefSeq)
+690259	Colletotrichum siamense	fungi	GCA_013201745.1	ASM1320174v1	Scaffold	2020-06-01	True	15044	709	58.1	28	rna	GenBank_only(no_RefSeq)
+1209068	Colletotrichum tabaci	fungi	GCA_036851105.1	ASM3685110v1	Contig	2024-02-23	True	13740	3611	52.1	1	rna	GenBank_only(no_RefSeq); contig_level
+5466	Colletotrichum trifolii	fungi	GCA_004367215.1	KSG_Cotri_v1	Scaffold	2019-03-22	True	12292	35	109.7	1	rna	GenBank_only(no_RefSeq)
+5116	Cryphonectria parasitica	fungi	GCF_011745365.1	Crypa2	Scaffold	2020-03-25	True	11588	5119	43.9	99	rna	
+5503	Curvularia lunata	fungi	GCA_005212705.1	ASM521270v1	Scaffold	2019-05-06	False		227	33.5	2	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+252740	Cytospora chrysosperma	fungi	GCA_003795275.1	ASM379527v1	Scaffold	2018-11-19	True	9828	456	36.2	2	rna	GenBank_only(no_RefSeq)
+64363	Dothistroma septosporum	fungi	GCA_000340195.1	Dothistroma septosporum NZE10 v1.0	Scaffold	2013-02-25	True	12415	2596	30.2	19	rna	OLD_assembly(2013); GenBank_only(no_RefSeq)
+35717	Epichloe festucae	fungi	GCA_003814445.1	ASM381444v1	Complete Genome	2018-11-23	True	7034	6202	35.0	18	rna	GenBank_only(no_RefSeq)
+93612	Exserohilum turcicum	fungi	GCF_000359705.1	Setospaeria trucica Et28A v1.0	Scaffold	2013-04-25	True	11687	2141	43.0	6	rna	OLD_assembly(2013)
+5499	Fulvia fulva	fungi	GCF_020509005.1	Cfulv_R5_v5	Complete Genome	2022-01-24	True	14993	5777	67.2	32	rna	
+282267	Fusarium asiaticum	fungi	GCA_025258505.1	ASM2525850v1	Complete Genome	2022-09-19	False		9351	38.3	257	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+40199	Fusarium avenaceum	fungi	GCA_012959155.1	ASM1295915v1	Scaffold	2020-05-04	True	15886	2237	41.7	16	rna	GenBank_only(no_RefSeq)
+48490	Fusarium circinatum	fungi	GCA_013396185.1	ASM1339618v1	Scaffold	2020-07-10	True	13905	96	42.5	19	rna	GenBank_only(no_RefSeq)
+5516	Fusarium culmorum	fungi	GCA_016952355.1	ASM1695235v1	Complete Genome	2020-11-16	True	11444	9631	37.5	14	rna	GenBank_only(no_RefSeq)
+5127	Fusarium fujikuroi	fungi	GCA_900096505.1	version 1	Scaffold	2017-10-06	True	15852	2960	44.0	31	rna	GenBank_only(no_RefSeq)
+5518	Fusarium graminearum	fungi	GCA_037213105.1	ASM3721310v1	Complete Genome	2024-03-18	True	13339	9011	37.1	137	rna	GenBank_only(no_RefSeq)
+2502994	Fusarium odoratissimum	fungi	GCF_000260195.1	FO_II5_V1	Scaffold	2014-02-19	True	16634	1130	46.6	9	rna	OLD_assembly(2014)
+5507	Fusarium oxysporum	fungi	GCA_026229875.1	ASM2622987v1	Scaffold	2022-11-17	True	31923	48	58.2	838	rna	GenBank_only(no_RefSeq)
+61366	Fusarium oxysporum f. sp. cubense	fungi	GCA_000350345.1	Foc1_1.0	Scaffold	2013-04-09	True	15438	653	47.7	22	rna	OLD_assembly(2013); GenBank_only(no_RefSeq)
+948311	Fusarium proliferatum	fungi	GCF_900067095.1	F. proliferatum ET1 version 1	Scaffold	2016-12-06	True	16129	3312	45.2	45	rna	
+101028	Fusarium pseudograminearum	fungi	GCA_016952305.1	ASM1695230v1	Complete Genome	2020-11-16	True	11217	9153	37.8	7	rna	GenBank_only(no_RefSeq)
+42676	Fusarium sacchari	fungi	GCA_055255615.1	ASM5525561v1	Scaffold	2026-02-17	False		187	45.9	6	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+5128	Fusarium sambucinum	fungi	GCF_050947815.1	OSU_Fsam_2.1	Complete Genome	2025-06-17	True	13017	9651	38.6	6	rna	
+169388	Fusarium solani	fungi	GCA_027945525.1	F_sol_A01-1	Scaffold	2023-01-24	True	17490	561	54.7	27	rna	GenBank_only(no_RefSeq)
+5514	Fusarium sporotrichioides	fungi	GCA_003012315.1	Fusarium_sporotrichioides_NRRL3299_FSPOR_contigs	Scaffold	2018-03-20	True	11961	235	37.4	5	rna	GenBank_only(no_RefSeq)
+117187	Fusarium verticillioides	fungi	GCF_000149555.1	ASM14955v1	Chromosome	2011-07-06	True	15890	1960	41.8	66	rna	OLD_assembly(2011)
+232082	Fusarium virguliforme	fungi	GCA_013363175.1	ASM1336317v1	Scaffold	2020-06-19	False		31	45.4	9	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+29850	Gaeumannomyces graminis	fungi					False				0		NCBI query failed
+13563	Heterobasidion annosum	fungi	GCA_001457955.1	BM42NG	Scaffold	2015-11-03	False		2331	28.0	4	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+45133	Lasiodiplodia theobromae	fungi	GCA_008931885.1	ASM893188v1	Scaffold	2019-10-09	True	12785	249	43.9	19	rna	GenBank_only(no_RefSeq)
+226899	Leptographium clavigerum	fungi	GCF_000143105.1	Sanger-454-IlluminaPA_2.0	Scaffold	2011-01-31	True	8311	1997	29.8	3	rna	OLD_assembly(2011)
+203908	Melampsora laricis-populina	fungi	GCF_000204055.1	v1.0	Scaffold	2011-04-13	True	16255	1146	101.1	2	rna	OLD_assembly(2011)
+5261	Melampsora lini	fungi					False				0		NCBI query failed
+92637	Metarhizium acridum	fungi	GCF_019434415.1	Coph_MacrARSEF324_H1_v1.0	Scaffold	2021-08-02	True	12160	2338	44.7	11	rna	
+568076	Metarhizium robertsii	fungi	GCF_000187425.2	MAA 2.0	Scaffold	2014-12-19	True	11688	4492	41.7	9	rna	OLD_assembly(2014)
+1682391	Microdochium sorghi	fungi					False				0		NCBI query failed
+38448	Monilinia fructicola	fungi	GCA_016906325.1	ASM1690632v1	Contig	2021-02-18	True	10085	988	43.0	6	rna	GenBank_only(no_RefSeq); contig_level
+153609	Moniliophthora perniciosa	fungi	GCA_000183025.1	ASM18302v1	Scaffold	2008-12-02	True	13560	1	26.7	2	rna	OLD_assembly(2008); GenBank_only(no_RefSeq)
+5270	Mycosarcoma maydis	fungi	GCF_000328475.2	Umaydis521_2.0	Chromosome	2015-02-18	True	6762	885	19.7	39	rna	
+13684	Parastagonospora nodorum	fungi	GCA_016801405.1	ASM1680140v1	Chromosome	2021-02-02	True	17448	1683	37.0	180	rna	GenBank_only(no_RefSeq)
+36651	Penicillium digitatum	fungi	GCF_016767815.1	ASM1676781v1	Complete Genome	2021-01-28	True	9002	4124	26.3	9	rna	
+27334	Penicillium expansum	fungi	GCA_022829055.1	DTU_Pex_IBT34672	Scaffold	2022-04-06	True	10796	981	32.5	15	rna	GenBank_only(no_RefSeq)
+40296	Penicillium italicum	fungi	GCA_000769765.1	ASM76976v1	Contig	2014-10-28	True	9996	121	30.2	4	rna	OLD_assembly(2014); GenBank_only(no_RefSeq); contig_level
+170000	Phakopsora pachyrhizi	fungi	GCA_025201825.1	Phapa1	Scaffold	2022-09-09	True	19617	222	1057.4	52	rna	GenBank_only(no_RefSeq)
+5022	Plenodomus lingam	fungi	GCF_022343315.1	CAIQ.LM.1	Scaffold	2022-02-18	True	11837	1978	42.0	9	rna	
+1873960	Pseudocercospora fijiensis	fungi	GCF_000340215.1	Mycfi2	Scaffold	2013-02-26	True	13059	5902	74.1	3	rna	OLD_assembly(2013)
+685502	Pseudocercospora fuligena	fungi	GCA_014298035.1	ASM1429803v1	Contig	2020-08-26	True	13765	408	50.5	1	rna	GenBank_only(no_RefSeq); contig_level
+285811	Pseudopyrenochaeta lycopersici	fungi	GCA_000601435.1	P_lyc_v1	Scaffold	2014-03-27	False		87	50.5	2	genome	no_annotation→use_genome; OLD_assembly(2014); GenBank_only(no_RefSeq)
+5297	Puccinia graminis	fungi	GCA_008522505.1	Pgt_210	Scaffold	2019-09-11	True	36325	5145	176.9	6	rna	GenBank_only(no_RefSeq)
+27350	Puccinia striiformis	fungi	GCF_021901695.1	Pst134E36_v1_pri	Chromosome	2022-02-03	True	17118	4700	89.5	37	rna	
+208348	Puccinia triticina	fungi	GCA_977970215.1	P.triticina_R9_M6	Chromosome	2026-02-16	True	23383	7341	121.3	28	rna	GenBank_only(no_RefSeq)
+76659	Pyrenopeziza brassicae	fungi	GCA_958299125.1	Pyrenopeziza brassicae 15WOSR64-SS1	Scaffold	2026-01-07	False		3083	73.2	1	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+53485	Pyrenophora teres	fungi	GCA_900232045.3	PTTW11	Chromosome	2021-09-24	True	11561	4721	53.1	26	rna	GenBank_only(no_RefSeq)
+45151	Pyrenophora tritici-repentis	fungi	GCF_003171515.1	CUR_PTRM4_2.2	Chromosome	2021-10-07	True	15455	3658	40.7	67	rna	
+318829	Pyricularia oryzae	fungi	GCA_004346965.1	ASM434696v1	Complete Genome	2019-03-12	True	13521	6129	42.7	601	rna	GenBank_only(no_RefSeq)
+456999	Rhizoctonia solani	fungi	GCF_016906535.1	ASM1690653v1	Complete Genome	2021-02-18	True	12301	2303	40.7	52	rna	
+77044	Rosellinia necatrix	fungi	GCA_001445595.3	Rnecatrix_2.0	Scaffold	2017-02-01	True	12444	550	44.3	7	rna	GenBank_only(no_RefSeq)
+5180	Sclerotinia sclerotiorum	fungi	GCA_001857865.1	ASM185786v1	Chromosome	2016-10-31	True	11130	2435	38.9	37	rna	GenBank_only(no_RefSeq)
+2698418	Sclerotiophoma versabilis	fungi	GCA_012274445.1	FAFU_KC1_1.0	Contig	2020-04-13	False		1699	41.0	1	genome	no_annotation→use_genome; GenBank_only(no_RefSeq); contig_level
+39703	Septoria lycopersici	fungi	GCA_059642765.1	SLML	Chromosome	2026-07-28	False		2646	29.6	1	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+72558	Sporisorium reilianum	fungi	GCA_900162835.1	version 2	Chromosome	2018-02-08	True	6682	782	18.5	2	rna	GenBank_only(no_RefSeq)
+49012	Sporisorium scitamineum	fungi	GCA_900002365.1	ASM90000236v1	Scaffold	2016-03-08	True	6701	759	19.6	9	rna	GenBank_only(no_RefSeq)
+183478	Stemphylium lycopersici	fungi	GCA_003268335.2	ASM326833v2	Scaffold	2026-04-01	True	11203	189	34.9	4	rna	GenBank_only(no_RefSeq)
+286115	Synchytrium endobioticum	fungi	GCA_006535955.1	ASM653595v1	Scaffold	2019-07-01	True	8031	44	21.5	3	rna	GenBank_only(no_RefSeq)
+29875	Trichoderma virens	fungi	GCA_020647635.1	ASM2064763v1	Complete Genome	2021-10-27	True	12061	6491	41.0	10	rna	GenBank_only(no_RefSeq)
+1159556	Ustilaginoidea virens	fungi	GCF_000687475.1	ASM68747v2	Complete Genome	2021-05-20	True	8297	6430	37.1	8	rna	
+185366	Ustilago esculenta	fungi	GCA_020827535.1	ASM2082753v1	Scaffold	2021-11-10	False		1030	26.4	2	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+120017	Ustilago hordei	fungi	GCA_022749175.1	ASM2274917v1	Complete Genome	2022-03-29	True	7787	1133	25.8	12	rna	GenBank_only(no_RefSeq)
+27337	Verticillium dahliae	fungi	GCA_003320035.1	VdGwydir1A3	Chromosome	2018-07-15	True	10457	4825	32.0	63	rna	GenBank_only(no_RefSeq)
+100787	Verticillium longisporum	fungi	GCA_018994065.1	ASM1899406v1	Scaffold	2021-06-22	True	20463	1750	75.0	21	rna	GenBank_only(no_RefSeq)
+1051616	Verticillium nonalfalfae	fungi	GCF_003724135.2	ASM372413v2	Scaffold	2018-11-13	True	9430	172	31.7	24	rna	
+1047171	Zymoseptoria tritici	fungi	GCF_000219625.1	MYCGR v2.0	Chromosome	2011-07-06	True	10941	2675	39.7	65	rna	OLD_assembly(2011)
+4779	Bremia lactucae	oomycete	GCF_004359215.1	BlacSF5v2	Chromosome	2021-08-20	True	9766	5324	115.9	2	rna	
+272952	Hyaloperonospora arabidopsidis	oomycete	GCA_000173235.2	HyaAraEmoy2_2.0	Scaffold	2012-01-25	False		332	78.4	3	genome	no_annotation→use_genome; OLD_assembly(2012); GenBank_only(no_RefSeq)
+230439	Peronospora tabacina	oomycete	GCA_002099245.1	Ptab_968-S26	Scaffold	2017-04-18	False		79	63.1	1	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+29920	Phytophthora cactorum	oomycete	GCA_017309695.1	ASM1730969v1	Scaffold	2021-03-09	True	34966	37	75.5	29	rna	GenBank_only(no_RefSeq)
+4784	Phytophthora capsici	oomycete	GCA_016618375.1	Pcap_4.1	Scaffold	2021-01-12	True	23373	486	94.2	19	rna	GenBank_only(no_RefSeq)
+4787	Phytophthora infestans	oomycete	GCA_012552325.1	ASM1255232v1	Scaffold	2020-04-20	True	23771	155	230.9	8	rna	GenBank_only(no_RefSeq)
+100870	Phytophthora litchii	oomycete	GCA_002812785.1	ASM281278v1	Scaffold	2017-12-06	False		35	38.2	1	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+4792	Phytophthora nicotianae	oomycete	GCF_000247585.1	PP_INRA-310_V2	Scaffold	2013-12-19	True	23121	888	82.4	14	rna	OLD_assembly(2013)
+67593	Phytophthora sojae	oomycete	GCF_000149755.1	P.sojae V3.0	Scaffold	2011-10-03	True	26489	7609	82.6	12	rna	OLD_assembly(2011)
+143451	Plasmopara viticola	oomycete	GCA_055472655.1	ASM5547265v1	Scaffold	2026-02-24	False		964	84.1	4	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)
+65070	Pythium aphanidermatum	oomycete	GCA_027475745.1	ASM2747574v1	Scaffold	2022-12-28	False		3	56.0	4	genome	no_annotation→use_genome; GenBank_only(no_RefSeq)

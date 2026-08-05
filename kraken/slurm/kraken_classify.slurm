@@ -6,10 +6,10 @@
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=64G
 #SBATCH --time=24:00:00
-#SBATCH --output=slurm/logs/kraken_classify_%j.out
-#SBATCH --error=slurm/logs/kraken_classify_%j.err
+#SBATCH --output=kraken/slurm/logs/kraken_classify_%j.out
+#SBATCH --error=kraken/slurm/logs/kraken_classify_%j.err
 
-# Run from crypt/: sbatch slurm/kraken_classify.slurm
+# Run from crypt/: sbatch kraken/slurm/kraken_classify.slurm
 # Runs both MAL and HAL modes sequentially (shared cache, safe to resume).
 # At ~500k reads/run with 8 workers × 4 kraken threads = 32 cores:
 #   MAL (~48k runs):  ~6h
@@ -27,7 +27,7 @@ echo "Starting Kraken2 classification: $(date)"
 echo "Mode: $1 (pass 'mal', 'hal', or 'both')"
 echo "DB: $DB_DIR"
 
-python kraken_classify.py \
+python kraken/classify.py \
     --mode "${1:-both}" \
     --db "$DB_DIR" \
     --workers 8 \

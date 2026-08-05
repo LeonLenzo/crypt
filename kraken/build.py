@@ -6,14 +6,14 @@ build a Kraken2 database for co-infection screening of RNA-seq data.
 Scope: fungi + oomycetes from phibase_db.json.
 Downloads transcriptome (cDNA/mRNA) FASTAs where annotation is available, or
 genomic FASTA as fallback for unannotated assemblies.  Uses specific accessions
-from scripts/ref_screen.tsv — run screen_references.py first if that file is
+from kraken/ref_screen.tsv — run screen_references.py first if that file is
 missing or you want to refresh the reference selection.
 
 Run from crypt/ on Setonix (requires kraken2 and datasets CLI in PATH):
-    python kraken_build.py [--db-dir /scratch/kraken_db] [--genomes-dir /scratch/genomes]
+    python kraken/build.py [--db-dir /scratch/kraken_db] [--genomes-dir /scratch/genomes]
 
 Steps:
-    0. Load reference map from scripts/ref_screen.tsv (best accession per seed)
+    0. Load reference map from kraken/ref_screen.tsv (best accession per seed)
     1. Load seed taxids from phibase_db.json (fungal_to_seed + oomycete_to_seed)
     2. For each seed: download FASTA via `datasets download genome accession`
          --include rna    (transcriptome) when assembly has annotation
@@ -23,7 +23,7 @@ Steps:
     5. Download taxdump + build the database with `kraken2-build --build`
 
 Prerequisites:
-    - scripts/ref_screen.tsv  (run: python scripts/screen_references.py)
+    - kraken/ref_screen.tsv  (run: python kraken/screen_refs.py)
     - NCBI datasets CLI: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/
     - Kraken2: https://github.com/DerrickWood/kraken2
     - ~30 GB disk for transcriptomes; ~8 GB for built Kraken2 DB (estimate)
@@ -48,7 +48,7 @@ from pathlib import Path
 from _util import _Tee, make_log_dir, link_latest
 
 DB_PATH      = Path("output/00_build/data/phibase_db.json")
-REF_SCREEN   = Path("scripts/ref_screen.tsv")
+REF_SCREEN   = Path("kraken/ref_screen.tsv")
 OUT_DIR      = Path("output/kraken_build")
 DEFAULT_DB   = Path("/scratch/leon/kraken_db")
 DEFAULT_GEN  = Path("/scratch/leon/kraken_transcriptomes")
@@ -63,7 +63,7 @@ def load_ref_screen(tsv_path: Path) -> dict[int, dict]:
     """Load ref_screen.tsv → {taxid: {accession, fasta_type, has_annotation, notes}}."""
     ref = {}
     if not tsv_path.exists():
-        print(f"WARNING: {tsv_path} not found — run scripts/screen_references.py first",
+        print(f"WARNING: {tsv_path} not found — run kraken/screen_refs.py first",
               flush=True)
         return ref
     with open(tsv_path) as f:

@@ -121,6 +121,184 @@ taxid	name	kingdom	best_accession	assembly_name	assembly_level	release_date	has_
 100787	Verticillium longisporum	fungi	GCA_018994065.1	ASM1899406v1	Scaffold	2021-06-22	True	20463	1750	75.0	21	cds	GenBank_only(no_RefSeq)
 1051616	Verticillium nonalfalfae	fungi	GCF_003724135.2	ASM372413v2	Scaffold	2018-11-13	True	9430	172	31.7	24	cds	
 1047171	Zymoseptoria tritici	fungi	GCF_000219625.1	MYCGR v2.0	Chromosome	2011-07-06	True	10941	2675	39.7	65	cds	OLD_assembly(2011)
+47965	Acer truncatum	host	GCA_053477345.1	ASM5347734v1	Chromosome	2025-11-14	False		43995	612.3	3	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+64478	Actinidia arguta	host	GCA_030159115.1	AAR_r2.2	Scaffold	2023-03-16	False		21135	645.1	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+3625	Actinidia chinensis	host	GCA_003024255.1	Red5_PS1_1.69.0	Chromosome	2018-03-30	True	33044	18944	553.8	5	cds	GenBank_only(no_RefSeq)
+1590841	Actinidia chinensis var. chinensis	host	GCA_003024255.1	Red5_PS1_1.69.0	Chromosome	2018-03-30	True	33044	18944	553.8	2	cds	GenBank_only(no_RefSeq)
+3627	Actinidia deliciosa	host	GCA_024454175.1	ASM2445417v1	Chromosome	2022-08-01	False		21085	622.0	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+165200	Actinidia eriantha	host	GCF_019202715.1	MaoHua_MHT	Chromosome	2021-07-13	True	36616	22298	657.1	5	cds	
+108276	Aeschynomene virginica	host					False				0		NCBI query failed
+43364	Aesculus hippocastanum	host	GCA_965199115.1	drAesHipp1.hap1.1	Chromosome	2025-03-13	False		25744	513.6	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+176616	Ageratina adenophora	host	GCA_042767725.1	ASM4276772v1	Chromosome	2024-10-10	False		70799	3818.0	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4679	Allium cepa	host	GCA_038502295.1	RDA_Ac_1.0	Chromosome	2024-04-29	False		1400476	12772.8	4	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+226677	Anthurium andraeanum	host					False				0		NCBI query failed
+4045	Apium graveolens	host	GCF_009905375.1	ASM990537v1	Chromosome	2021-05-17	True	44727	289787	3332.6	4	cds	
+3702	Arabidopsis thaliana	host	GCA_052361225.1	AtNW77-20190304	Chromosome	2025-08-31	True	30753	23178	117.5	368	cds	GenBank_only(no_RefSeq)
+3818	Arachis hypogaea	host	GCA_039852515.1	HN51	Complete Genome	2024-05-26	True	71863	138996	2607.9	20	cds	GenBank_only(no_RefSeq)
+265785	Atractylodes macrocephala	host					False				0		NCBI query failed
+4498	Avena sativa	host	GCA_951802355.1	Asativa_cv_Legett_v1.0	Chromosome	2025-08-23	False		503791	10979.4	53	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+38783	Avena strigosa	host					False				0		NCBI query failed
+28974	Averrhoa carambola	host					False				0		NCBI query failed
+161934	Beta vulgaris	host	GCA_000511025.2	RefBeet-1.2.2	Chromosome	2015-07-07	True	26569	2013	566.2	331	cds	GenBank_only(no_RefSeq)
+15368	Brachypodium distachyon	host	GCA_000005505.4	Brachypodium_distachyon_v3.0	Chromosome	2018-01-24	True	34310	30224	271.2	6	cds	GenBank_only(no_RefSeq)
+52824	Brassica carinata	host	GCA_040584065.1	ASM4058406v1	Chromosome	2024-07-11	True	102229	62376	1070.4	4	cds	GenBank_only(no_RefSeq)
+3707	Brassica juncea	host	GCA_020002505.1	ASM2000250v1	Chromosome	2021-09-15	False		56403	894.2	5	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+3708	Brassica napus	host	GCF_020379485.1	Da-Ae	Chromosome	2021-10-08	True	90897	48210	1001.5	115	cds	
+3712	Brassica oleracea	host	GCA_965638055.1	BOLBOS01.2	Chromosome	2025-07-12	True	71866	62411	646.2	33	cds	GenBank_only(no_RefSeq)
+3716	Brassica oleracea var. capitata	host	GCA_034621585.1	ASM3462158v1	Chromosome	2023-12-28	False		65135	552.2	8	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+3711	Brassica rapa	host	GCA_965641695.1	BRAWUT.1	Chromosome	2025-07-09	True	54264	43705	404.5	25	cds	GenBank_only(no_RefSeq)
+51351	Brassica rapa subsp. pekinensis	host	GCA_052186295.1	ASM5218629v1	Complete Genome	2025-08-22	False		46906	430.9	6	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+385388	Camellia oleifera	host	GCA_022316695.1	ASM2231669v1	Chromosome	2022-02-24	False		185364	2889.5	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4442	Camellia sinensis	host	GCA_041154535.1	CsSME v1.0	Scaffold	2024-06-10	True	55235	214858	3157.4	24	cds	GenBank_only(no_RefSeq)
+4072	Capsicum annuum	host	GCA_000512255.2	ASM51225v2	Chromosome	2017-10-30	True	35845	250930	3063.9	28	cds	GenBank_only(no_RefSeq)
+4073	Capsicum frutescens	host					False				0		NCBI query failed
+134033	Castanea dentata	host	GCA_047496805.1	Cdentata v1.0	Chromosome	2025-02-07	True	31254	59223	703.4	1	cds	GenBank_only(no_RefSeq)
+60419	Castanea mollissima	host	GCA_000763605.2	ASM76360v2	Scaffold	2020-04-08	True	30820	102	725.2	7	cds	GenBank_only(no_RefSeq)
+21020	Castanea sativa	host	GCF_040712315.1	ASM4071231v1	Chromosome	2024-07-15	True	30866	59922	715.9	5	cds	
+63459	Chenopodium quinoa	host	GCF_001683475.1	ASM168347v1	Scaffold	2017-05-19	True	49222	3844	1333.4	23	cds	
+41568	Chrysanthemum x morifolium	host	GCA_059696675.1	CMOYQN_r0.1	Scaffold	2022-10-08	False		4	7986.5	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+3827	Cicer arietinum	host	GCF_000331145.2	Cicar.CDCFrontier_v2.0	Chromosome	2024-12-16	True	24841	65803	530.3	6	cds	
+13427	Cichorium intybus	host	GCA_023525715.1	ASM2352571v1	Chromosome	2022-05-24	True	43721	126223	1278.8	2	cds	GenBank_only(no_RefSeq)
+3654	Citrullus lanatus	host	GCA_054825235.1	ASM5482523v1	Complete Genome	2026-01-29	False		33383	370.1	118	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+2706	Citrus	host	GCA_052148995.1	Mxlime_USDA_v1	Chromosome	2025-08-19	True	48270	38004	680.6	107	cds	GenBank_only(no_RefSeq)
+79217	Citrus iyo	host					False				0		NCBI query failed
+64884	Citrus jambhiri	host					False				0		NCBI query failed
+171249	Citrus limonia	host					False				0		NCBI query failed
+2711	Citrus sinensis	host	GCA_022201045.1	DVS_A1.0	Complete Genome	2022-02-11	True	27807	32942	299.0	26	cds	GenBank_only(no_RefSeq)
+55188	Citrus unshiu	host	GCA_002897195.1	CUMW_v1.0	Scaffold	2017-12-21	True	29024	386	359.7	5	cds	GenBank_only(no_RefSeq)
+159033	Citrus x aurantiifolia	host	GCA_052148995.1	Mxlime_USDA_v1	Chromosome	2025-08-19	True	48270	38004	680.6	1	cds	GenBank_only(no_RefSeq)
+2708	Citrus x limon	host	GCA_034663535.1	C.limon_PB_Hap2	Chromosome	2023-12-28	False		35348	307.5	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+164113	Citrus x microcarpa	host					False				0		NCBI query failed
+37656	Citrus x paradisi	host					False				0		NCBI query failed
+229630	Citrus x tangelo	host					False				0		NCBI query failed
+4460	Colocasia esculenta	host	GCA_009445465.1	ASM944546v1	Scaffold	2019-10-31	True	56238	176	2141.6	4	cds	GenBank_only(no_RefSeq)
+269719	Cotinus coggygria	host					False				0		NCBI query failed
+292731	Cotinus obovatus	host					False				0		NCBI query failed
+39473	Cucumis anguria	host					False				0		NCBI query failed
+3656	Cucumis melo	host	GCA_005549215.1	ASM554921v1	Scaffold	2019-05-21	True	38173	1513	358.5	47	cds	GenBank_only(no_RefSeq)
+3659	Cucumis sativus	host	GCF_000004075.3	Cucumber_9930_V3	Chromosome	2019-11-15	True	20040	31126	224.8	47	cds	
+3661	Cucurbita maxima	host	GCF_002738345.1	Cmax_1.0	Scaffold	2017-10-31	True	27229	3717	271.4	2	cds	
+3662	Cucurbita moschata	host	GCF_002738365.1	Cmos_1.0	Scaffold	2017-10-31	True	27814	3996	269.9	2	cds	
+3663	Cucurbita pepo	host	GCF_002806865.2	ASM280686v2	Chromosome	2017-12-07	True	29279	9834	259.4	8	cds	
+28977	Cunninghamia lanceolata	host	GCA_027924645.1	CLA_r1.0	Contig	2022-12-12	False		11744	11548.0	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
+4265	Cynara cardunculus	host	GCF_001531365.2	CcrdV1.1	Chromosome	2018-04-17	True	26313	126	725.0	4	cds	
+4039	Daucus carota	host	GCA_001625215.2	DH1 v3.0	Chromosome	2023-10-20	True	35921	51153	440.7	6	cds	GenBank_only(no_RefSeq)
+3570	Dianthus caryophyllus	host	GCA_023091065.1	ASM2309106v1	Chromosome	2022-05-12	False		38555	636.3	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4511	Eleusine coracana	host	GCA_021604985.1	Ragi PR202 v. 2.0	Scaffold	2021-12-08	True	57180	23885	1229.4	3	cds	GenBank_only(no_RefSeq)
+38414	Eragrostis curvula	host	GCA_007726485.1	CERZOS_EC1.0	Chromosome	2019-08-05	True	55182	43445	603.1	1	cds	GenBank_only(no_RefSeq)
+32224	Eriobotrya japonica	host	GCA_043793475.1	ASM4379347v1	Chromosome	2024-10-25	False		42058	727.1	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4608	Festuca pratensis	host					False				0		NCBI query failed
+3747	Fragaria x ananassa	host	GCA_050043575.1	ASM5004357v1	Chromosome	2025-04-30	True	77630	28769	796.9	15	cds	GenBank_only(no_RefSeq)
+38873	Fraxinus excelsior	host	GCA_965226085.2	daFraExce3.hap1.2	Chromosome	2025-10-26	False		33045	759.7	5	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+13546	Gerbera	host					False				0		NCBI query failed
+3847	Glycine max	host	GCA_044510105.1	GmaxFiskeby v1.0	Chromosome	2024-11-06	True	52783	50786	992.2	43	cds	GenBank_only(no_RefSeq)
+3634	Gossypium barbadense	host	GCA_008761655.1	Gossypium_barbadense_v1.1	Chromosome	2019-10-08	True	74561	1770	2195.8	6	cds	GenBank_only(no_RefSeq)
+3635	Gossypium hirsutum	host	GCF_007990345.1	Gossypium_hirsutum_v2.1	Chromosome	2021-02-25	True	67584	108141	2305.2	27	cds	
+4232	Helianthus annuus	host	GCF_002127325.2	HanXRQr2.0-SUNRISE	Chromosome	2020-07-15	True	57237	176491	3009.6	13	cds	
+3981	Hevea brasiliensis	host	GCA_010458925.1	ASM1045892v1	Chromosome	2020-02-12	True	44146	87431	1473.5	9	cds	GenBank_only(no_RefSeq)
+4513	Hordeum vulgare	host	GCA_024137805.1	yangtze university Zhang lab wild barley 1.0	Chromosome	2022-07-06	True	60133	668541	5111.0	204	cds	GenBank_only(no_RefSeq)
+3486	Humulus lupulus	host	GCF_963169125.1	drHumLupu1.1	Chromosome	2023-08-19	True	35582	251528	2488.1	7	cds	
+4120	Ipomoea batatas	host	GCA_059738795.1	IBA_r1.0	Scaffold	2023-12-30	True	175755	23280	2907.4	3	cds	GenBank_only(no_RefSeq)
+23012	Kalanchoe	host	GCA_978021985.1	Kalanchoe_gracilipes_v1	Scaffold	2026-02-01	True	30775	21930	389.4	2	cds	GenBank_only(no_RefSeq)
+23013	Kalanchoe daigremontiana	host					False				0		NCBI query failed
+4236	Lactuca sativa	host	GCF_002870075.5	Lsat_Salinas_v15	Complete Genome	2025-12-23	True	35338	324640	2601.1	7	cds	
+3888	Lathyrus oleraceus	host	GCA_024323335.2	CAAS_Psat_ZW6_1.0	Chromosome	2022-07-19	True	47515	523395	3796.1	11	cds	GenBank_only(no_RefSeq)
+4472	Lemna minor	host					False				0		NCBI query failed
+3864	Lens culinaris	host					False				0		NCBI query failed
+4688	Lilium	host	GCA_031763035.1	ASM3176303v1	Scaffold	2023-09-20	False		1	345.5	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4006	Linum usitatissimum	host	GCA_054134595.1	EIMB_LUsi_Atlant_2.0	Complete Genome	2025-12-23	False		32256	491.1	15	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+215539	Liriodendron x sinoamericanum	host					False				0		NCBI query failed
+151069	Litchi chinensis	host	GCA_056776835.1	ASM5677683v1	Chromosome	2026-04-17	False		32508	491.9	8	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4606	Lolium arundinaceum	host	GCA_055755645.1	ASM5575564v1	Chromosome	2026-03-09	False		327882	7104.6	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4521	Lolium multiflorum	host	GCA_030979885.1	Rabiosa unphased assembly	Chromosome	2023-08-30	True	72039	338745	2462.1	6	cds	GenBank_only(no_RefSeq)
+4522	Lolium perenne	host	GCF_019359855.2	Kyuss_2.0	Chromosome	2024-03-25	True	38554	333279	2264.8	5	cds	
+3750	Malus domestica	host	GCF_000148765.1	MalDomGD1.0	Chromosome	2012-08-16	True	47857	1759	526.2	82	cds	OLD_assembly(2012)
+106564	Malus prunifolia	host	GCA_047226395.1	ASM4722639v1	Chromosome	2025-01-27	False		36146	699.8	3	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+283210	Malus pumila	host					False				0		NCBI query failed
+52837	Mandevilla sanderi	host					False				0		NCBI query failed
+29780	Mangifera indica	host	GCA_021014955.2	M.indica_Dashehari_mat1.0	Scaffold	2026-06-04	True	35266	18069	355.1	8	cds	GenBank_only(no_RefSeq)
+3983	Manihot esculenta	host	GCA_001659605.2	M.esculenta_v8	Chromosome	2021-08-13	True	32805	29151	639.6	24	cds	GenBank_only(no_RefSeq)
+3879	Medicago sativa	host	GCF_051527215.1	Bolivia_mono	Complete Genome	2025-07-24	True	39275	101582	775.6	31	cds	
+3880	Medicago truncatula	host	GCA_000219495.2	MedtrA17_4.0	Chromosome	2014-06-18	True	50444	49172	412.8	8	cds	OLD_assembly(2014); GenBank_only(no_RefSeq)
+3673	Momordica charantia	host	GCF_001995035.1	ASM199503v1	Scaffold	2016-12-26	True	19431	1101	285.6	4	cds	
+229046	Morus alba var. alba	host					False				0		NCBI query failed
+4641	Musa acuminata	host	GCF_036884655.1	Cavendish_Baxijiao_AAA	Chromosome	2024-02-28	True	91526	44889	1533.7	12	cds	
+89151	Musa x paradisiaca	host					False				0		NCBI query failed
+63479	Nerium oleander	host					False				0		NCBI query failed
+4100	Nicotiana benthamiana	host	GCA_034376525.1	ASM3437652v1	Chromosome	2023-12-18	False		142632	2791.9	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4091	Nicotiana otophora	host	GCA_000715115.1	Noto	Scaffold	2014-06-05	False		27	2689.4	1	genome	no_annotation→skip; OLD_assembly(2014); GenBank_only(no_RefSeq)
+62141	Nicotiana paniculata	host	GCA_005239505.1	ASM523950v1	Scaffold	2019-05-02	False		53	2190.6	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4096	Nicotiana sylvestris	host	GCF_000393655.2	ASM39365v2	Chromosome	2023-11-13	True	45213	188594	2321.6	3	cds	
+4097	Nicotiana tabacum	host	GCF_000715075.1	ASM71507v2	Chromosome	2023-11-13	True	60381	166565	3995.6	7	cds	
+4146	Olea europaea	host	GCA_902713445.1	OLEA9	Chromosome	2020-11-20	True	55714	734	1315.8	10	cds	GenBank_only(no_RefSeq)
+4530	Oryza sativa	host	GCA_001433935.1	IRGSP-1.0	Chromosome	2015-10-10	True	43795	29958	373.8	206	cds	GenBank_only(no_RefSeq)
+4054	Panax ginseng	host	GCA_020205605.1	ASM2020560v1	Chromosome	2021-10-04	False		143451	3355.1	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+44586	Panax notoginseng	host	GCA_016801055.1	ASM1680105v1	Chromosome	2021-02-04	False		216472	2660.7	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4031	Pelargonium x hortorum	host	GCA_036897525.1	ASM3689752v1	Contig	2024-02-28	False		2	324.8	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
+3435	Persea americana	host	GCA_051132755.1	XTBG_Pame_1.0	Complete Genome	2025-06-28	True	40252	78838	841.6	9	cds	GenBank_only(no_RefSeq)
+4043	Petroselinum crispum	host	GCA_041430655.1	ASM4143065v1	Contig	2024-08-22	False		35	1568.7	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
+3885	Phaseolus vulgaris	host	GCF_000499845.2	P. vulgaris v2.0	Chromosome	2024-04-23	True	29679	1886	537.2	17	cds	
+3339	Pinus contorta	host					False				0		NCBI query failed
+88730	Pinus massoniana	host					False				0		NCBI query failed
+71645	Pinus patula	host					False				0		NCBI query failed
+3349	Pinus sylvestris	host	GCA_900143225.1	FinPunk_mtDNA_Assembly	Contig	2017-01-02	False		6	1.0	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
+3350	Pinus thunbergii	host					False				0		NCBI query failed
+13216	Piper nigrum	host	GCA_056825445.1	ASM5682544v1	Contig	2026-04-21	False		5	751.3	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
+261420	Polygonatum kingianum	host					False				0		NCBI query failed
+43335	Populus alba	host	GCF_005239225.2	ASM523922v2	Chromosome	2024-12-17	True	30246	22734	416.4	3	cds	
+1217306	Populus x beijingensis	host					False				0		NCBI query failed
+3690	Populus x canadensis	host	GCA_051991645.1	ASM5199164v1	Chromosome	2025-08-13	True	74605	21297	784.6	1	cds	GenBank_only(no_RefSeq)
+122118	Prunus americana	host					False				0		NCBI query failed
+36596	Prunus armeniaca	host	GCA_964259005.1	CUR.v1	Chromosome	2024-09-05	True	50324	26862	233.2	12	cds	GenBank_only(no_RefSeq)
+42229	Prunus avium	host	GCF_002207925.1	PAV_r1.0	Scaffold	2017-06-12	True	25841	220	272.4	8	cds	
+3758	Prunus domestica	host					False				0		NCBI query failed
+3755	Prunus dulcis	host	GCA_021292205.2	OSU_Pdul_2.5	Chromosome	2022-07-14	True	45581	30644	257.1	7	cds	GenBank_only(no_RefSeq)
+3760	Prunus persica	host	GCA_000346465.2	Prunus_persica_NCBIv2	Chromosome	2017-02-02	True	26873	27368	227.4	13	cds	GenBank_only(no_RefSeq)
+323851	Prunus persica var. nucipersica	host					False				0		NCBI query failed
+418402	Pseudostellaria heterophylla	host	GCA_977035685.1	Pheterophylla_genome_v1.0	Chromosome	2025-11-12	False		144784	2188.8	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+22663	Punica granatum	host	GCA_002837095.1	ASM283709v1	Scaffold	2017-12-12	True	50476	215	380.2	13	cds	GenBank_only(no_RefSeq)
+23211	Pyrus communis	host	GCF_963583255.1	drPyrComm1.1	Chromosome	2023-11-05	True	34369	27625	487.3	7	cds	
+3767	Pyrus pyrifolia	host	GCA_016587475.1	PPY_r1.0	Contig	2020-12-23	False		7677	503.9	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
+225117	Pyrus x bretschneideri	host	GCF_019419815.1	Pyrus_bretschneideri_v1	Contig	2021-07-30	True	35293	6073	509.1	6	cds	contig_level
+3726	Raphanus sativus	host	GCF_000801105.2	ASM80110v3	Chromosome	2023-02-09	True	51440	37282	433.4	17	cds	
+49838	Retama sphaerocarpa	host	GCA_056904635.1	ASM5690463v1	Scaffold	2026-04-27	False		13	533.5	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+3764	Rosa	host	GCA_982397195.1	RW_HapA	Chromosome	2026-04-15	True	53716	67858	484.3	89	cds	GenBank_only(no_RefSeq)
+267246	Rosa odorata	host	GCA_054556345.1	A10_1	Chromosome	2026-01-20	False		72059	531.0	8	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4547	Saccharum officinarum	host	GCA_057814815.1	ASM5781481v1	Complete Genome	2026-06-01	False		84795	875.7	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4550	Secale cereale	host	GCA_965641915.1	lpSecCere.Lo7.IPK.v3	Chromosome	2025-07-19	False		943692	6702.6	6	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+336126	Selenicereus trigonus	host					False				0		NCBI query failed
+4555	Setaria italica	host	GCA_000263155.2	Setaria_italica_v2.0	Chromosome	2015-10-30	True	34584	47253	405.7	11	cds	GenBank_only(no_RefSeq)
+315333	Solanum albicans	host					False				0		NCBI query failed
+4108	Solanum chacoense	host	GCA_052575675.1	ASM5257567v1	Contig	2025-09-12	False		35577	734.9	2	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
+856898	Solanum huancabambense	host					False				0		NCBI query failed
+4081	Solanum lycopersicum	host	GCF_036512215.1	SLM_r2.1	Chromosome	2024-09-03	True	28611	69564	832.8	44	cds	
+4111	Solanum melongena	host	GCA_059480125.1	ASM5948012v1	Chromosome	2026-07-16	False		96750	1158.1	39	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+73574	Solanum microdontum	host	GCA_054051385.1	UGA_Smicro_v1	Chromosome	2025-12-17	False		57972	771.7	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4082	Solanum peruvianum	host	GCA_057925505.1	ASM5792550v1	Chromosome	2026-06-04	False		74579	912.1	3	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+4084	Solanum pimpinellifolium	host	GCA_058224835.1	ASM5822483v1	Chromosome	2026-06-16	True	43958	67687	807.4	15	cds	GenBank_only(no_RefSeq)
+119830	Solanum torvum	host					False				0		NCBI query failed
+4113	Solanum tuberosum	host	GCA_020169535.1	solTubStieglitzHap2	Chromosome	2021-09-28	True	38661	62488	754.2	98	cds	GenBank_only(no_RefSeq)
+4558	Sorghum bicolor	host	GCA_015952705.1	SbicolorRio_v2	Chromosome	2020-12-28	True	35490	397	729.4	28	cds	GenBank_only(no_RefSeq)
+35627	Stylosanthes	host	GCA_036250425.1	Ssca1	Scaffold	2024-01-29	True	117394	33	990.3	2	cds	GenBank_only(no_RefSeq)
+13708	Tagetes erecta	host	GCA_030867185.1	ASM3086718v1	Chromosome	2023-08-24	True	35877	69674	778.9	2	cds	GenBank_only(no_RefSeq)
+3641	Theobroma cacao	host	GCA_035896635.1	ASM3589663v1	Chromosome	2024-01-19	True	27910	40512	380.7	17	cds	GenBank_only(no_RefSeq)
+57577	Trifolium pratense	host	GCA_000583005.2	Tp1.0	Contig	2016-02-24	True	63850	2	305.0	10	cds	GenBank_only(no_RefSeq); contig_level
+4564	Triticum	host	GCA_040256815.2	ASM4025681v2	Complete Genome	2024-08-07	True	141031	723778	14509.2	117	cds	GenBank_only(no_RefSeq)
+4565	Triticum aestivum	host	GCA_040256815.2	ASM4025681v2	Complete Genome	2024-08-07	True	141031	723778	14509.2	76	cds	GenBank_only(no_RefSeq)
+4566	Triticum aestivum x Triticum timopheevi	host					False				0		NCBI query failed
+4571	Triticum turgidum	host	GCA_900231445.1	Svevo.v1	Chromosome	2019-02-13	True	63862	722971	9964.3	14	cds	GenBank_only(no_RefSeq)
+3906	Vicia faba	host	GCA_048183575.1	ASM4818357v1	Chromosome	2025-02-28	True	37398	1574411	11807.2	4	cds	GenBank_only(no_RefSeq)
+3917	Vigna unguiculata	host	GCA_003958685.2	ASM395868v2	Chromosome	2019-04-30	True	40574	53938	597.5	10	cds	GenBank_only(no_RefSeq)
+3603	Vitis	host	GCA_004011995.1	AWRI_Vv-CHD_1.0	Contig	2019-01-10	True	112320	936	489.9	319	cds	GenBank_only(no_RefSeq); contig_level
+96939	Vitis riparia	host	GCF_004353265.1	EGFV_Vit.rip_1.0	Chromosome	2019-04-16	True	26189	23919	500.1	8	cds	
+29760	Vitis vinifera	host	GCA_004011995.1	AWRI_Vv-CHD_1.0	Contig	2019-01-10	True	112320	936	489.9	91	cds	GenBank_only(no_RefSeq); contig_level
+2599121	Vitis x labruscana	host					False				0		NCBI query failed
+69721	Zantedeschia aethiopica	host					False				0		NCBI query failed
+94108	Zantedeschia elliottiana	host					False				0		NCBI query failed
+4577	Zea mays	host	GCA_049266015.1	ASM4926601v1	Chromosome	2025-04-03	True	42607	229239	2378.5	191	cds	GenBank_only(no_RefSeq)
+4579	Zea mays subsp. mexicana	host	GCA_002813485.1	ASM281348v1	Scaffold	2017-12-06	False		108	1204.3	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+58934	Zizania latifolia	host	GCA_048537475.1	ASM4853747v1	Chromosome	2025-03-10	True	36280	34138	595.8	5	cds	GenBank_only(no_RefSeq)
+326968	Ziziphus jujuba	host	GCF_000826755.1	ZizJuj_1.1	Chromosome	2015-02-06	True	30007	301	437.8	17	cds	
 4779	Bremia lactucae	oomycete	GCF_004359215.1	BlacSF5v2	Chromosome	2021-08-20	True	9766	5324	115.9	2	cds	
 272952	Hyaloperonospora arabidopsidis	oomycete	GCA_000173235.2	HyaAraEmoy2_2.0	Scaffold	2012-01-25	False		332	78.4	3	genome	no_annotation→skip; OLD_assembly(2012); GenBank_only(no_RefSeq)
 230439	Peronospora tabacina	oomycete	GCA_002099245.1	Ptab_968-S26	Scaffold	2017-04-18	False		79	63.1	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)

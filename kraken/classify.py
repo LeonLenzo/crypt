@@ -292,6 +292,8 @@ def main() -> None:
     ap.add_argument("--reads-dir", default=None,
                     help="If set, gzipped FASTQs are kept here after classification "
                          "(for archival to Acacia). Omit to discard reads immediately.")
+    ap.add_argument("--limit", type=int, default=None,
+                    help="Process at most N runs (useful for testing)")
     args = ap.parse_args()
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -338,6 +340,9 @@ def main() -> None:
     done = _load_cache_index(cache_dir)
     todo = [(run_id, layout) for run_id, layout in all_runs.items()
             if run_id not in done]
+    if args.limit:
+        todo = todo[:args.limit]
+        print(f"--limit {args.limit}: processing {len(todo)} runs")
 
     print(f"\nTotal runs: {len(all_runs):,} | "
           f"Already done: {len(done):,} | "

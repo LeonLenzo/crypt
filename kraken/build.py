@@ -9,8 +9,9 @@ NCBI generates this file for any assembly with annotation (NCBI or author-provid
 Unannotated assemblies are skipped — all have zero detections in the SRA data.
 Uses specific accessions from kraken/ref_screen.tsv — run screen_refs.py first.
 
-Run from crypt/ on Setonix (requires kraken2 and datasets CLI in PATH):
-    python kraken/build.py [--db-dir /scratch/kraken_db] [--genomes-dir /scratch/genomes]
+Run from crypt/ (requires kraken2 and datasets CLI in PATH):
+    python kraken/build.py                         # uses kraken/db + kraken/cds_from_genomic
+    python kraken/build.py [--db-dir PATH] [--genomes-dir PATH]   # override for Setonix scratch
 
 Steps:
     0. Load reference map from kraken/ref_screen.tsv (best accession per seed)
@@ -51,8 +52,8 @@ from _util import _Tee, make_log_dir, link_latest
 DB_PATH      = Path("output/00_build/data/phibase_db.json")
 REF_SCREEN   = Path("kraken/ref_screen.tsv")
 OUT_DIR      = Path("output/kraken_build")
-DEFAULT_DB   = Path("/scratch/leon/kraken_db")
-DEFAULT_GEN  = Path("/scratch/leon/kraken_transcriptomes")
+DEFAULT_DB   = Path("kraken/db")
+DEFAULT_GEN  = Path("kraken/cds_from_genomic")
 
 TAXDUMP_URL   = "https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz"
 ACACIA_BUCKET = "pawsey1168-llenzo-kraken-db"
@@ -385,7 +386,7 @@ def main() -> None:
             if args.upload_to_acacia:
                 print(f"To retrieve on Setonix:")
                 print(f"  aws s3 sync s3://{ACACIA_BUCKET}/kraken_transcriptomes/ "
-                      f"/scratch/leon/kraken_transcriptomes/ "
+                      f"kraken/cds_from_genomic/ "
                       f"--profile acacia --endpoint-url {ACACIA_ENDPOINT}")
 
     finally:

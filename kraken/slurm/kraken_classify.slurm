@@ -19,7 +19,7 @@ set -euo pipefail
 
 module load kraken2
 
-DB_DIR="$MYSCRATCH/kraken_db"
+DB_DIR="$MYSCRATCH/db"
 
 mkdir -p slurm/logs
 

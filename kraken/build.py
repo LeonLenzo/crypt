@@ -4,10 +4,10 @@ kraken_build.py — download PHI-base eukaryotic pathogen transcriptomes and
 build a Kraken2 database for co-infection screening of RNA-seq data.
 
 Scope: fungi + oomycetes from phibase_db.json.
-Downloads transcriptome (cDNA/mRNA) FASTAs where annotation is available, or
-genomic FASTA as fallback for unannotated assemblies.  Uses specific accessions
-from kraken/ref_screen.tsv — run screen_references.py first if that file is
-missing or you want to refresh the reference selection.
+Downloads CDS FASTAs (cds_from_genomic.fna) for all annotated assemblies.
+NCBI generates this file for any assembly with annotation (NCBI or author-provided).
+Unannotated assemblies are skipped — all have zero detections in the SRA data.
+Uses specific accessions from kraken/ref_screen.tsv — run screen_refs.py first.
 
 Run from crypt/ on Setonix (requires kraken2 and datasets CLI in PATH):
     python kraken/build.py [--db-dir /scratch/kraken_db] [--genomes-dir /scratch/genomes]
@@ -26,7 +26,7 @@ Prerequisites:
     - kraken/ref_screen.tsv  (run: python kraken/screen_refs.py)
     - NCBI datasets CLI: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/
     - Kraken2: https://github.com/DerrickWood/kraken2
-    - ~30 GB disk for transcriptomes; ~8 GB for built Kraken2 DB (estimate)
+    - ~2 GB disk for CDS FASTAs; ~4 GB for built Kraken2 DB (estimate)
     - Setonix: request high-memory node (512 GB RAM) for --build step
 
 Output:
@@ -45,6 +45,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from _util import _Tee, make_log_dir, link_latest
 
 DB_PATH      = Path("output/00_build/data/phibase_db.json")
@@ -53,7 +54,10 @@ OUT_DIR      = Path("output/kraken_build")
 DEFAULT_DB   = Path("/scratch/leon/kraken_db")
 DEFAULT_GEN  = Path("/scratch/leon/kraken_transcriptomes")
 
-TAXDUMP_URL  = "https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz"
+TAXDUMP_URL   = "https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz"
+ACACIA_BUCKET = "pawsey1168-llenzo-kraken-db"
+ACACIA_ENDPOINT = "https://projects.pawsey.org.au"
+ACACIA_PROFILE  = "acacia"
 
 # Confidence threshold used at classify time (stored here for reference)
 KRAKEN2_CONFIDENCE = 0.1
@@ -138,7 +142,7 @@ def download_fasta(taxid: int, accession: str, fasta_type: str,
               flush=True)
         return existing
 
-    include_flag = "rna" if fasta_type == "rna" else "genome"
+    include_flag = "cds" if fasta_type == "cds" else "genome"
     print(f"  [{taxid}] {name[:50]}: downloading {accession} "
           f"(--include {include_flag}) …", flush=True)
 
@@ -190,6 +194,25 @@ def add_to_library(fna_path: Path, db_dir: Path) -> bool:
     return True
 
 
+def upload_to_acacia(local_dir: Path, s3_prefix: str) -> None:
+    """
+    Sync a local directory to Acacia S3 using aws s3 sync.
+    s3_prefix: path within ACACIA_BUCKET, e.g. 'kraken_transcriptomes'
+    """
+    s3_uri = f"s3://{ACACIA_BUCKET}/{s3_prefix}/"
+    print(f"\nUploading {local_dir} → {s3_uri} …", flush=True)
+    cmd = [
+        "aws", "s3", "sync", str(local_dir), s3_uri,
+        "--profile", ACACIA_PROFILE,
+        "--endpoint-url", ACACIA_ENDPOINT,
+    ]
+    result = subprocess.run(cmd, text=True)
+    if result.returncode != 0:
+        print(f"WARNING: upload to Acacia failed (exit {result.returncode})", flush=True)
+    else:
+        print(f"Upload complete → {s3_uri}", flush=True)
+
+
 def download_taxonomy(db_dir: Path) -> None:
     """Download and install NCBI taxonomy into the Kraken2 DB directory."""
     taxdump_path = db_dir / "taxdump.tar.gz"
@@ -236,6 +259,9 @@ def main() -> None:
                     help="Download FASTAs only; skip kraken2-build steps")
     ap.add_argument("--build-only", action="store_true",
                     help="Skip downloads; add existing FASTAs to library and build")
+    ap.add_argument("--upload-to-acacia", action="store_true",
+                    help="After downloading, sync FASTAs to Acacia "
+                         f"(s3://{ACACIA_BUCKET}/kraken_transcriptomes/)")
     args = ap.parse_args()
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -248,7 +274,8 @@ def main() -> None:
     try:
         db_dir      = Path(args.db_dir)
         genomes_dir = Path(args.genomes_dir)
-        db_dir.mkdir(parents=True, exist_ok=True)
+        if not args.download_only:
+            db_dir.mkdir(parents=True, exist_ok=True)
         genomes_dir.mkdir(parents=True, exist_ok=True)
 
         ref = load_ref_screen(Path(args.ref_screen))
@@ -274,11 +301,9 @@ def main() -> None:
                 continue
 
             if fasta_type == "genome":
-                # Unannotated assembly — no transcriptome available.
-                # All 27 unannotated seeds have zero detections in the SRA data,
-                # and genomic k-mers (introns, intergenic) dilute the RNA-seq signal.
-                print(f"  SKIP: no annotation (fasta_type=genome) — zero detections in data",
-                      flush=True)
+                # Unannotated assembly — no CDS FASTA available.
+                # All unannotated seeds have zero detections in the SRA data.
+                print(f"  SKIP: no annotation — zero detections in data", flush=True)
                 n_skipped += 1
                 continue
 
@@ -293,10 +318,7 @@ def main() -> None:
                     # Tag headers for Kraken2 taxid assignment
                     for fna in fnas:
                         tag_fasta_headers(fna, taxid)
-                    if fasta_type == "rna":
-                        n_rna += 1
-                    else:
-                        n_genome += 1
+                    n_rna += 1
             else:
                 fnas = list(taxon_dir.glob("**/*.fna"))
 
@@ -311,10 +333,13 @@ def main() -> None:
 
         print(f"\n── Download summary ──")
         print(f"  Seeds total:                     {len(seeds)}")
-        print(f"  Transcriptome (--include rna):   {n_rna}")
-        print(f"  Skipped (no assembly or no ann): {n_skipped}")
+        print(f"  CDS FASTA (--include cds):       {n_rna}")
+        print(f"  Skipped (no annotation):         {n_skipped}")
         print(f"  Download failed:                 {n_failed}")
         print(f"  FASTAs added to library:         {n_added}")
+
+        if args.upload_to_acacia:
+            upload_to_acacia(genomes_dir, "kraken_transcriptomes")
 
         if not args.download_only:
             download_taxonomy(db_dir)
@@ -324,6 +349,11 @@ def main() -> None:
                   f"--confidence {KRAKEN2_CONFIDENCE} --threads N ...")
         else:
             print("\n--download-only: skipped kraken2-build steps.")
+            if args.upload_to_acacia:
+                print(f"To retrieve on Setonix:")
+                print(f"  aws s3 sync s3://{ACACIA_BUCKET}/kraken_transcriptomes/ "
+                      f"/scratch/leon/kraken_transcriptomes/ "
+                      f"--profile acacia --endpoint-url {ACACIA_ENDPOINT}")
 
     finally:
         log.close()

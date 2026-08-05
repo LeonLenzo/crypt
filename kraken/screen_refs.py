@@ -42,11 +42,11 @@ def sort_key(a: dict) -> tuple:
     ann = a.get("annotation_info") or {}
     stats = a.get("assembly_stats", {})
     genes = ann.get("stats", {}).get("gene_counts", {}).get("protein_coding", 0) or 0
-    # Priority: annotation > gene count tier (5k buckets) > assembly level >
-    # RefSeq (tie-breaker) > date
+    # Priority: annotation (CDS FASTA available for any annotated assembly) >
+    # gene count tier (5k buckets) > assembly level > RefSeq (tie-breaker) > date
     # Gene count outweighs RefSeq: a GenBank with 36k genes beats RefSeq with 15k genes
     return (
-        1 if ann else 0,                            # annotation = RNA FASTA available
+        1 if ann else 0,                            # any annotation = cds_from_genomic.fna available
         min(int(genes), 50000) // 5000,             # gene count tier (capped)
         level_rank(ai.get("assembly_level", "")),   # Chromosome > Scaffold > Contig
         1 if acc.startswith("GCF_") else 0,         # RefSeq as tie-breaker only
@@ -121,12 +121,12 @@ def query_taxon(taxid: int, name: str, kingdom: str) -> dict:
     row["protein_coding_genes"] = str(genes) if genes else ""
     row["scaffold_n50_kb"] = f"{int(n50)/1000:.0f}" if n50 else ""
     row["total_length_mb"] = f"{int(total)/1e6:.1f}" if total else ""
-    row["fasta_type"] = "rna" if ann else "genome"
+    row["fasta_type"] = "cds" if ann else "genome"
 
     date_year = (ai.get("release_date", "") or "")[:4]
     notes = []
     if not ann:
-        notes.append("no_annotation→use_genome")
+        notes.append("no_annotation→skip")
     if date_year and int(date_year) < 2015:
         notes.append(f"OLD_assembly({date_year})")
     if not acc.startswith("GCF_"):
@@ -167,7 +167,7 @@ def main():
             done += 1
             row = fut.result()
             rows.append(row)
-            flag = ("✓rna" if (row["has_annotation"] and row["best_accession"]) else
+            flag = ("✓cds" if (row["fasta_type"] == "cds" and row["best_accession"]) else
                     ("✓gen" if row["best_accession"] else "✗"))
             print(f"  [{done:3d}/{len(seeds)}] {flag} {row['taxid']:8d}  "
                   f"{row['name'][:45]:45s}  {row['best_accession']:20s}  "
@@ -189,15 +189,15 @@ def main():
         for row in rows:
             f.write("\t".join(str(row[c]) for c in cols) + "\n")
 
-    n_rna    = sum(1 for r in rows if r["has_annotation"] and r["best_accession"])
-    n_genome = sum(1 for r in rows if not r["has_annotation"] and r["best_accession"])
-    n_none   = sum(1 for r in rows if not r["best_accession"])
-    n_old    = sum(1 for r in rows if "OLD_assembly" in r["notes"])
+    n_cds       = sum(1 for r in rows if r["fasta_type"] == "cds" and r["best_accession"])
+    n_skip      = sum(1 for r in rows if r["fasta_type"] == "genome" and r["best_accession"])
+    n_none      = sum(1 for r in rows if not r["best_accession"])
+    n_old       = sum(1 for r in rows if "OLD_assembly" in r["notes"])
     n_no_refseq = sum(1 for r in rows if r["best_accession"] and "GenBank_only" in r["notes"])
 
     print(f"\n── Summary ({len(rows)} seeds) ──")
-    print(f"  Will use RNA FASTA (has annotation):  {n_rna}")
-    print(f"  Will use genomic FASTA (no annotation): {n_genome}")
+    print(f"  Will use CDS FASTA (annotated):   {n_cds}")
+    print(f"  Will skip (no annotation):         {n_skip}")
     print(f"  No assembly at all:                   {n_none}")
     print(f"  Old assemblies (<2015):               {n_old}")
     print(f"  No RefSeq (GenBank only):             {n_no_refseq}")

@@ -273,6 +273,15 @@ def main() -> None:
                 n_skipped += 1
                 continue
 
+            if fasta_type == "genome":
+                # Unannotated assembly — no transcriptome available.
+                # All 27 unannotated seeds have zero detections in the SRA data,
+                # and genomic k-mers (introns, intergenic) dilute the RNA-seq signal.
+                print(f"  SKIP: no annotation (fasta_type=genome) — zero detections in data",
+                      flush=True)
+                n_skipped += 1
+                continue
+
             if info.get("notes"):
                 print(f"  NOTE: {info['notes']}", flush=True)
 
@@ -303,8 +312,7 @@ def main() -> None:
         print(f"\n── Download summary ──")
         print(f"  Seeds total:                     {len(seeds)}")
         print(f"  Transcriptome (--include rna):   {n_rna}")
-        print(f"  Genomic (--include genome):      {n_genome}")
-        print(f"  No assembly (skipped):           {n_skipped}")
+        print(f"  Skipped (no assembly or no ann): {n_skipped}")
         print(f"  Download failed:                 {n_failed}")
         print(f"  FASTAs added to library:         {n_added}")
 

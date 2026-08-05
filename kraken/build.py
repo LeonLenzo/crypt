@@ -89,7 +89,7 @@ def load_ref_screen(tsv_path: Path) -> dict[int, dict]:
 
 
 def load_seed_taxids(db_path: Path) -> tuple[dict[int, str], dict[str, str]]:
-    """Return {seed_taxid: kingdom} for fungi + oomycetes."""
+    """Return {seed_taxid: kingdom} for fungi + oomycetes + hosts (if in ref_screen.tsv)."""
     with open(db_path) as f:
         raw = json.load(f)
 
@@ -98,11 +98,15 @@ def load_seed_taxids(db_path: Path) -> tuple[dict[int, str], dict[str, str]]:
         seeds[int(taxid)] = "fungi"
     for taxid in set(raw["oomycete_to_seed"].values()):
         seeds[int(taxid)] = "oomycete"
+    for taxid in set(raw["host_to_seed"].values()):
+        seeds[int(taxid)] = "host"
 
     t2n = raw["taxid_to_name"]
+    n_fungi    = sum(1 for k in seeds.values() if k == "fungi")
+    n_oomycete = sum(1 for k in seeds.values() if k == "oomycete")
+    n_host     = sum(1 for k in seeds.values() if k == "host")
     print(f"Seed taxids: {len(seeds)} "
-          f"({sum(1 for k in seeds.values() if k=='fungi')} fungi, "
-          f"{sum(1 for k in seeds.values() if k=='oomycete')} oomycetes)",
+          f"({n_fungi} fungi, {n_oomycete} oomycetes, {n_host} hosts)",
           flush=True)
     return seeds, t2n
 

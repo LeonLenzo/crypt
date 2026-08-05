@@ -187,11 +187,12 @@ def _gzip_file(src: Path, dest: Path) -> bool:
 
 def _process_run(run_id: str, layout: str, db_dir: Path,
                  tmp_dir: Path, threads: int,
-                 reads_dir: Path | None = None) -> dict:
+                 reads_dir: Path | None = None,
+                 reports_dir: Path | None = None) -> dict:
     """Download, classify, and parse one run. Returns result dict.
 
-    If reads_dir is set, gzipped FASTQs are moved there after classification
-    instead of being deleted — for archival to Acacia.
+    If reads_dir is set, gzipped FASTQs are kept after classification.
+    If reports_dir is set, the raw kraken2 report is saved there as {run_id}.txt.
     """
     result = {
         "run":    run_id,
@@ -235,6 +236,13 @@ def _process_run(run_id: str, layout: str, db_dir: Path,
             return result
 
         result.update(_parse_report(report))
+
+        # save raw report for reproducibility
+        if reports_dir is not None:
+            reports_dir.mkdir(parents=True, exist_ok=True)
+            dest = reports_dir / f"{run_id}.txt"
+            if not dest.exists():
+                report.rename(dest)
 
         # archive reads if requested
         if reads_dir is not None:
@@ -294,6 +302,9 @@ def main() -> None:
     ap.add_argument("--reads-dir", default=None,
                     help="If set, gzipped FASTQs are kept here after classification "
                          "(for archival to Acacia). Omit to discard reads immediately.")
+    ap.add_argument("--reports-dir", default=None,
+                    help="If set, raw kraken2 report files are saved here as {run}.txt "
+                         "(for reproducibility). Omit to discard after parsing.")
     ap.add_argument("--limit", type=int, default=None,
                     help="Process at most N runs (useful for testing)")
     args = ap.parse_args()
@@ -317,10 +328,13 @@ def main() -> None:
     if reads_dir:
         reads_dir.mkdir(parents=True, exist_ok=True)
         print(f"Reads will be archived (gzipped) to: {reads_dir}")
-        print(f"  Estimated storage: ~{608_000 * 55 // 1024 // 1024:.0f} TB for full run set")
-        print(f"  Sync to Acacia with: aws s3 sync {reads_dir} s3://<bucket>/kraken_reads/")
     else:
         print("Reads will be discarded after classification (use --reads-dir to keep)")
+
+    reports_dir = Path(args.reports_dir) if args.reports_dir else None
+    if reports_dir:
+        reports_dir.mkdir(parents=True, exist_ok=True)
+        print(f"Raw kraken2 reports will be saved to: {reports_dir}")
 
     # ── Load runs ──────────────────────────────────────────────────────────────
     modes = ["mal", "hal"] if args.mode == "both" else [args.mode]
@@ -364,7 +378,7 @@ def main() -> None:
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futures = {
             pool.submit(_process_run, run_id, layout, db_dir,
-                        tmp_dir, args.kraken_threads, reads_dir): run_id
+                        tmp_dir, args.kraken_threads, reads_dir, reports_dir): run_id
             for run_id, layout in todo
         }
 

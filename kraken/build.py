@@ -106,6 +106,24 @@ def load_seed_taxids(db_path: Path) -> tuple[dict[int, str], dict[str, str]]:
     return seeds, t2n
 
 
+def read_assembly_taxid(taxon_dir: Path, seed_taxid: int) -> int:
+    """Read organism taxid from assembly_data_report.jsonl shipped with the download.
+    Falls back to seed_taxid if the report is absent or malformed — but the three
+    PHI-base seeds with stale taxids (105487, 694573, 914237) need this to get the
+    correct current NCBI taxid embedded in Kraken2 headers."""
+    reports = list(taxon_dir.glob("**/assembly_data_report.jsonl"))
+    if not reports:
+        return seed_taxid
+    try:
+        d = json.loads(reports[0].read_text())
+        taxid = d.get("organism", {}).get("taxId")
+        if taxid:
+            return int(taxid)
+    except Exception:
+        pass
+    return seed_taxid
+
+
 def tag_fasta_headers(fasta_path: Path, taxid: int) -> Path:
     """
     Rewrite FASTA headers to kraken:taxid|TAXID|original_header format.
@@ -282,10 +300,10 @@ def main() -> None:
         seeds, t2n = load_seed_taxids(Path(args.db_path))
 
         n_rna      = 0
-        n_genome   = 0
         n_skipped  = 0
         n_failed   = 0
         n_added    = 0
+        seen_accessions: dict[str, int] = {}  # accession → taxid used, for dedup
 
         for i, (taxid, kingdom) in enumerate(sorted(seeds.items()), 1):
             name = t2n.get(str(taxid), str(taxid))
@@ -307,6 +325,13 @@ def main() -> None:
                 n_skipped += 1
                 continue
 
+            if accession in seen_accessions:
+                # PHI-base duplicate seeds sharing the same assembly (e.g. 105487/694573)
+                print(f"  SKIP: duplicate of {accession} "
+                      f"(already added as taxid={seen_accessions[accession]})", flush=True)
+                n_skipped += 1
+                continue
+
             if info.get("notes"):
                 print(f"  NOTE: {info['notes']}", flush=True)
 
@@ -315,12 +340,20 @@ def main() -> None:
             if not args.build_only:
                 fnas = download_fasta(taxid, accession, fasta_type, taxon_dir, name)
                 if fnas:
-                    # Tag headers for Kraken2 taxid assignment
+                    # Use taxid from assembly metadata — corrects stale PHI-base taxids
+                    # (e.g. 105487/694573 → 578113 Cytospora mali)
+                    tag_taxid = read_assembly_taxid(taxon_dir, taxid)
+                    if tag_taxid != taxid:
+                        print(f"  NOTE: taxid corrected {taxid} → {tag_taxid} "
+                              f"(stale PHI-base taxid)", flush=True)
                     for fna in fnas:
-                        tag_fasta_headers(fna, taxid)
+                        tag_fasta_headers(fna, tag_taxid)
+                    seen_accessions[accession] = tag_taxid
                     n_rna += 1
             else:
                 fnas = list(taxon_dir.glob("**/*.fna"))
+                if fnas:
+                    seen_accessions[accession] = taxid
 
             if not fnas:
                 n_failed += 1

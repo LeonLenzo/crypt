@@ -5,33 +5,34 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=16G
-#SBATCH --time=4:00:00
+#SBATCH --time=1:00:00
 #SBATCH --output=kraken/slurm/logs/kraken_download_%j.out
 #SBATCH --error=kraken/slurm/logs/kraken_download_%j.err
 
-# Download transcriptome/genomic FASTAs for all PHI-base euk pathogen seeds.
+# Pull pre-downloaded transcriptome FASTAs from Acacia into scratch.
+# FASTAs were downloaded locally and uploaded via:
+#   python kraken/build.py --download-only --upload-to-acacia
+#
 # Run BEFORE kraken_build.slurm (which does --build-only).
-#
-# Prerequisites:
-#   - kraken/ref_screen.tsv exists (run: python scripts/screen_references.py)
-#   - NCBI datasets CLI available (module load or in PATH)
-#
 # Run from crypt/: sbatch kraken/slurm/kraken_download.slurm
 
 set -euo pipefail
 
-module load ncbi-datasets-cli   # adjust to Setonix module name
-
 GENOMES_DIR="$MYSCRATCH/kraken_transcriptomes"
+BUCKET="pawsey1168-llenzo-kraken-db"
+ENDPOINT="https://projects.pawsey.org.au"
 
-mkdir -p slurm/logs
+mkdir -p "$GENOMES_DIR"
+mkdir -p kraken/slurm/logs
 
-echo "Starting FASTA download: $(date)"
-echo "Genomes dir: $GENOMES_DIR"
-echo "Ref screen: kraken/ref_screen.tsv"
+echo "Pulling FASTAs from Acacia: $(date)"
+echo "Source: s3://${BUCKET}/kraken_transcriptomes/"
+echo "Dest:   $GENOMES_DIR"
 
-python kraken/build.py \
-    --download-only \
-    --genomes-dir "$GENOMES_DIR"
+aws s3 sync "s3://${BUCKET}/kraken_transcriptomes/" "$GENOMES_DIR/" \
+    --profile acacia \
+    --endpoint-url "$ENDPOINT"
 
 echo "Download complete: $(date)"
+echo "Contents:"
+ls "$GENOMES_DIR" | wc -l

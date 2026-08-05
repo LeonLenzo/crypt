@@ -17,8 +17,8 @@ set -euo pipefail
 module load kraken2
 module load ncbi-datasets-cli   # adjust module name to match Setonix modules
 
-DB_DIR="$MYSCRATCH/kraken_db"
-GENOMES_DIR="$MYSCRATCH/kraken_transcriptomes"
+DB_DIR="$MYSCRATCH/db"
+GENOMES_DIR="$MYSCRATCH/cds_from_genomic"
 
 mkdir -p slurm/logs
 

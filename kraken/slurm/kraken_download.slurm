@@ -18,7 +18,7 @@
 
 set -euo pipefail
 
-GENOMES_DIR="$MYSCRATCH/kraken_transcriptomes"
+GENOMES_DIR="$MYSCRATCH/cds_from_genomic"
 BUCKET="pawsey1168-llenzo-kraken-db"
 ENDPOINT="https://projects.pawsey.org.au"
 
@@ -26,10 +26,10 @@ mkdir -p "$GENOMES_DIR"
 mkdir -p kraken/slurm/logs
 
 echo "Pulling FASTAs from Acacia: $(date)"
-echo "Source: s3://${BUCKET}/kraken_transcriptomes/"
+echo "Source: s3://${BUCKET}/cds_from_genomic/"
 echo "Dest:   $GENOMES_DIR"
 
-aws s3 sync "s3://${BUCKET}/kraken_transcriptomes/" "$GENOMES_DIR/" \
+aws s3 sync "s3://${BUCKET}/cds_from_genomic/" "$GENOMES_DIR/" \
     --profile acacia \
     --endpoint-url "$ENDPOINT"
 

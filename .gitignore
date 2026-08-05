@@ -41,10 +41,12 @@ __pycache__/
 *.pyo
 .env
 
-# Kraken2 pilot large files (reproducible, not tracked)
+# Kraken2 large files (reproducible, not tracked)
 kraken/pilot/kallisto/indices/
 kraken/pilot/kallisto/quant/
 kraken/pilot/kallisto/reads/
 kraken/pilot/kraken/kraken_db/
 kraken/pilot/kraken/reads/
+kraken/db/
+kraken/cds_from_genomic/
 scripts/diagnostics/*.log

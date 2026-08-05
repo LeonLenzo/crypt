@@ -141,6 +141,8 @@ def query_taxon(taxid: int, name: str, kingdom: str) -> dict:
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--include-hosts", action="store_true",
+                    help="Also screen PHI-base plant host seeds (180 species)")
     args = ap.parse_args()
 
     db = json.load(open(DB_PATH))
@@ -151,10 +153,17 @@ def main():
         seeds[int(t)] = ("fungi", t2n.get(str(t), str(t)))
     for t in set(db["oomycete_to_seed"].values()):
         seeds[int(t)] = ("oomycete", t2n.get(str(t), str(t)))
+    if args.include_hosts:
+        for t in set(db["host_to_seed"].values()):
+            seeds[int(t)] = ("host", t2n.get(str(t), str(t)))
 
-    print(f"Screening {len(seeds)} seed taxids "
-          f"({sum(1 for k,_ in seeds.values() if k=='fungi')} fungi, "
-          f"{sum(1 for k,_ in seeds.values() if k=='oomycete')} oomycetes) ...", flush=True)
+    n_fungi    = sum(1 for k, _ in seeds.values() if k == "fungi")
+    n_oomycete = sum(1 for k, _ in seeds.values() if k == "oomycete")
+    n_host     = sum(1 for k, _ in seeds.values() if k == "host")
+    summary    = f"{n_fungi} fungi, {n_oomycete} oomycetes"
+    if n_host:
+        summary += f", {n_host} hosts"
+    print(f"Screening {len(seeds)} seed taxids ({summary}) ...", flush=True)
 
     rows = []
     with ThreadPoolExecutor(max_workers=args.workers) as ex:

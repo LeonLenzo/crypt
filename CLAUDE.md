@@ -134,10 +134,10 @@ _util.py      Shared utilities: _Tee (stdout+file tee), http_get, load_json, sav
               Output: output/05_llm_classify/data/bioproject_llm.tsv (1,754 rows)
               Joins with biosample_kw.tsv on BioProject for downstream analysis.
 
-scripts/benchmark_strategies.py
+scripts/diagnostics/benchmark_strategies.py
               Diagnostic: tests each 03b PMID strategy on unlabelled BioProjects.
               Measures discovery yield (% returning any PMID) + avg time per strategy.
-              Run from crypt/: python scripts/benchmark_strategies.py [--n N] [--seed N]
+              Run from crypt/: python scripts/diagnostics/benchmark_strategies.py [--n N] [--seed N]
 ```
 
 ### Running the pipeline
@@ -436,14 +436,15 @@ output/
 │
 ├── legacy/                        old pipeline outputs (03_validate, 04_crypt, 05_meta)
 │
-└── figure/
+└── figures/
     ├── host_tree/      crypt_host_tree.py + .R  →  .nwk, _meta.tsv, .pdf, .png
     ├── guilds/         mal_guilds.py + .R       →  guild nodes/edges.tsv, network.pdf/png
     ├── scatter/        scatter.R                →  scatter.pdf/png
     ├── coinf_rate/     coinf_rate.R             →  coinf_rate.pdf/png
     ├── novel_heatmap/  novel_heatmap.R          →  novel_heatmap.pdf/png
     ├── kingdom_comp/   kingdom_comp.R           →  kingdom_comp.pdf/png
-    └── study_design/   treat_setting_bar.R + single_field_lab.R  →  .pdf/png
+    ├── sankey/         sample_funnel.py         →  sample_funnel.png/.html
+    └── study_design/   study_design_figures.R   →  .pdf/png
 ```
 
 ## Actual run results (2026-07-30)
@@ -472,7 +473,7 @@ output/
 - llm_treatment: single=747, host_study=403, surveillance=293, abiotic_stress=197, coinf_experiment=100, unclear=14
 - KW agreement: treatment 60.1%, setting 92.7%
 
-**Figures (figure/{subdir}/):**
+**Figures (output/figures/{subdir}/):**
 - scatter/scatter.R: host% vs pathogen%, coloured single/coinf/novel, shape=MAL/HAL
 - host_tree/crypt_host_tree.py + .R: fan tree 173 hosts, bars = n_single/n_multi
 - guilds/mal_guilds.py + .R: co-occurrence network (277 nodes / 254 edges, MAL+HAL)
@@ -506,7 +507,7 @@ output/
   non-plant organisms (co-infecting fungi, bacteria, etc.) are rejected. Crypt.tsv re-run
   shows 73.2% species-level resolution, 5.5% tribe-level (e.g. Triticinae), 13.9% broad-clade,
   7.4% unresolved ("Viridiplantae"). Broad-clade and unresolved runs are excluded from guild
-  network figures via `BROAD_CLADE_NAMES` in `figure/guilds/field_hc_guilds.py`.
+  network figures via `BROAD_CLADE_NAMES` in `output/figures/guilds/field_hc_guilds.py`.
   `field_hc_nodes.tsv` now includes a `top_host` column (most frequent resolved host per
   pathogen node). `field_hc_guilds.py` also loads `named_host` from bioproject_meta.tsv and
   uses it as a fallback when STAT host is in BROAD_CLADE_NAMES (82 runs recovered, only 3
@@ -564,7 +565,7 @@ output/
   silent 429s that looked like genuine misses). Key obtained 2026-07-27.
   S2 rate limit is 1 req/s with or without key; _s2_wait() uses 1.1s gap regardless.
   Primary paper = earliest pub date. bp_submission_date from BioProject XML attr.
-  Benchmark in scripts/benchmark_strategies.py — measures discovery yield on UNLABELLED
+  Benchmark in scripts/diagnostics/benchmark_strategies.py — measures discovery yield on UNLABELLED
   entries (no ground truth); 20-entry sample showed PMC 40%, EuropePMC 35%, S2 0% (429s).
 - 03b_fetch_literature.py fetches PMC full-text methods section (up to 8,000 chars) per paper.
   `_pmid_to_pmcid()` searches PMC with `{pmid}[pmid]`; `_fetch_pmc_methods()` fetches JATS XML
@@ -592,7 +593,7 @@ Completed in prior sessions (kept for context):
 - [x] HTML annotation tool (`scripts/review_designs.py`)
 - [x] Primary organism alignment check (`scripts/check_primary_alignment.py`)
 - [x] MAL host detection fix + broad-clade filter (Viridiplantae allowlist in 02_filter_runs.py)
-- [x] Study design figures (`figure/study_design/`): field 2× rate vs lab; hc filter collapses lab
+- [x] Study design figures (`output/figures/study_design/`): field 2× rate vs lab; hc filter collapses lab
 - [x] **Pipeline restructure (2026-07-30)** — 7-script architecture:
        03_fetch_meta.py → split into 03a_fetch_xml.py (BioSample XML) + 03b_fetch_literature.py
        04_filter_meta.py → renamed 04_filter_kw.py; output biosample_kw.tsv (BioSample rows)
@@ -608,7 +609,7 @@ Pending (priority order):
        rewrite to load biosample_kw.tsv + bioproject_llm.tsv; deferred pending user decision).
 
 2. [ ] **Kraken2 replacement for STAT** — STAT shown unreliable for some PST races (2026-08-04
-       kallisto pilot: scripts/pilot/). Plan: Kraken2 database of all PHI-base euk pathogen
+       kallisto pilot: kraken/kallisto_pilot/). Plan: Kraken2 database of all PHI-base euk pathogen
        genomes; screen all ~593k step-01 runs on Setonix; STAT vs Kraken comparison = paper
        figure. Assembly coverage re-check underway (scripts/refseq_coverage_all.log).
        See memory/kraken_pipeline.md for full design.
@@ -623,7 +624,7 @@ Pending (priority order):
        Fusarium/Alternaria as saprophytic co-pathogens are valid detections regardless of family.
 
 3. [ ] **Submission timeline + PMID figure** — `bp_submission_date` on x-axis, bars/points
-       coloured by PMID available vs missing. New script `figure/timeline/`.
+       coloured by PMID available vs missing. New script `output/figures/timeline/`.
 
 4. [ ] **Systematic no-PMID BioProject review** — ~886 no-PMID BioProjects.
        Also explore CrossRef title search for additional PMIDs.
@@ -631,11 +632,11 @@ Pending (priority order):
 5. [ ] **Tissue normalization** — heavy case variation in BioSample XML tissue values
        (Leaf/leaf/leaves/Leaves as separate entries). Normalise in a post-processing pass.
 
-6. [ ] **Pipeline figures for README** — flowchart for each step. `figure/pipeline/`.
+6. [ ] **Pipeline figures for README** — flowchart for each step. `output/figures/pipeline/`.
 
 ## Deferred analysis ideas
 
-1. **Field prevalence analysis** — DONE (2026-07-29, figure/study_design/). Field single-pathogen
+1. **Field prevalence analysis** — DONE (2026-07-29, output/figures/study_design/). Field single-pathogen
    BPs: 21% overall / 12% hc coinf rate. Lab single-pathogen: 10% / 2% hc. See study design
    figures for full treatment × setting breakdown.
 3. **Host susceptibility landscape** — co-infection rate per host on crypt_host_tree.
@@ -649,7 +650,7 @@ Pending (priority order):
 
 - 01_sra + 02_stat → merged into 01_fetch_runs.py ✓
 - MAL + HAL outputs → unified crypt.tsv with `mode` column ✓
-- Analysis scripts → `figure/{subdir}/` (each chart in its own subdir) ✓
+- Analysis scripts → `output/figures/{subdir}/` (each chart in its own subdir) ✓
 - 03_fetch_meta.py scope → ALL BioProjects (not just co-infected) for prevalence analysis ✓
 - Logs → timestamped subdirs under logs/history/ via _util.make_log_dir ✓
 - Logs → .latest symlinks at logs/ root via _util.link_latest ✓

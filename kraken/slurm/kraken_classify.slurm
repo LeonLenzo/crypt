@@ -4,39 +4,48 @@
 #SBATCH --partition=work
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
-#SBATCH --mem=64G
+#SBATCH --mem=16G
 #SBATCH --time=24:00:00
-#SBATCH --output=kraken/slurm/logs/kraken_classify_%j.out
-#SBATCH --error=kraken/slurm/logs/kraken_classify_%j.err
+#SBATCH --array=0-49
+#SBATCH --output=/scratch/pawsey1168/llenzo/crypt/kraken/slurm/logs/kraken_classify_%A_%a.out
+#SBATCH --error=/scratch/pawsey1168/llenzo/crypt/kraken/slurm/logs/kraken_classify_%A_%a.err
 
-# Run from crypt/: sbatch kraken/slurm/kraken_classify.slurm
-# Runs both MAL and HAL modes sequentially (shared cache, safe to resume).
-# At ~500k reads/run with 8 workers × 4 kraken threads = 32 cores:
-#   MAL (~48k runs):  ~6h
-#   HAL (~560k runs): ~3 days — resubmit if job times out; cache is resumable.
+# Run from crypt/ on Setonix:
+#   sbatch kraken/slurm/kraken_classify.slurm
+#
+# 50-task array — each task gets a strided 1/50 slice of all runs.
+# Shared cache (output/kraken_classify/data/kraken_cache.jsonl) is safe to
+# write from all tasks simultaneously via fcntl file locking.
+# Safe to resubmit: completed runs are skipped on resume.
+#
+# Scale: ~593k runs ÷ 50 tasks ≈ 11,860 runs/task.
+# At 8 workers × ~90s/run (500k reads, paired): ~37h per task — within 24h limit
+# if only one mode is queued, or resubmit once. Increase --array upper bound to
+# reduce per-task load (e.g. 0-99 → ~6k runs/task → ~18h).
 
 set -euo pipefail
 
-module load kraken2
+SCRATCH="/scratch/pawsey1168/llenzo"
+CRYPT="$SCRATCH/crypt"
+DB_DIR="$SCRATCH/kraken/db"
 
-DB_DIR="$MYSCRATCH/db"
+module load python/3.11.6
+module load spack/0.23.1
+spack load kraken2
 
-mkdir -p slurm/logs
+cd "$CRYPT"
+mkdir -p kraken/slurm/logs
 
-echo "Starting Kraken2 classification: $(date)"
-echo "Mode: $1 (pass 'mal', 'hal', or 'both')"
+echo "Array task ${SLURM_ARRAY_TASK_ID}/${SLURM_ARRAY_TASK_COUNT} starting: $(date)"
 echo "DB: $DB_DIR"
 
 python kraken/classify.py \
-    --mode "${1:-both}" \
+    --mode both \
     --db "$DB_DIR" \
     --workers 8 \
     --kraken-threads 4 \
-    --n-reads 500000 \
-    --tmp-dir "$MYSCRATCH/kraken_tmp" \
-    --reads-dir "$MYSCRATCH/kraken_reads"
+    --tmp-dir "$SCRATCH/kraken_tmp/${SLURM_ARRAY_TASK_ID}" \
+    --array-id "${SLURM_ARRAY_TASK_ID}" \
+    --array-count "${SLURM_ARRAY_TASK_COUNT}"
 
-# Sync reads to Acacia after classification (update bucket name):
-# aws s3 sync "$MYSCRATCH/kraken_reads" s3://pawsey1168-kraken/reads/ --profile acacia
-
-echo "Classification complete: $(date)"
+echo "Array task ${SLURM_ARRAY_TASK_ID} complete: $(date)"

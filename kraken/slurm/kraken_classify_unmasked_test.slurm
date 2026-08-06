@@ -18,7 +18,7 @@ set -euo pipefail
 
 SCRATCH="/scratch/pawsey1168/llenzo"
 CRYPT="$SCRATCH/crypt"
-DB_DIR="$SCRATCH/kraken/db_unmasked"
+DB_DIR="$SCRATCH/kraken/db_unmasked/db"
 
 module load python/3.11.6
 module load spack/0.23.1

@@ -18,23 +18,12 @@ module load python/3.11.6
 module load spack/0.23.1
 spack load kraken2
 module load bbmap/38.96--h5c4e2a8_0
-module load aws-cli/2.13.0
 
 DB_DIR="$MYSCRATCH/db"
 GENOMES_DIR="$MYSCRATCH/cds_from_genomic"
 DB_JSON="output/00_build/data/phibase_db.json"
-ACACIA_ENDPOINT="https://projects.pawsey.org.au"
-ACACIA_BUCKET="pawsey1168-llenzo-kraken-db"
 
 mkdir -p slurm/logs
-mkdir -p output/00_build/data
-
-# Pull phibase_db.json from Acacia if not already present
-if [ ! -f "$DB_JSON" ]; then
-    echo "Fetching phibase_db.json from Acacia …"
-    aws s3 cp "s3://${ACACIA_BUCKET}/phibase_db.json" "$DB_JSON" \
-        --profile acacia --endpoint-url "$ACACIA_ENDPOINT"
-fi
 
 echo "Starting Kraken2 build: $(date)"
 echo "DB dir: $DB_DIR"

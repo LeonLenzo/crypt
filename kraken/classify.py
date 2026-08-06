@@ -25,6 +25,7 @@ Output:      output/kraken_classify/data/kraken_cache.jsonl
 """
 
 import argparse
+import fcntl
 import json
 import os
 import subprocess
@@ -41,11 +42,12 @@ from _util import _Tee, make_log_dir, link_latest
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 
-N_READS        = 500_000    # reads to stream per run (per mate for paired-end)
-CONFIDENCE     = 0.1        # kraken2 --confidence threshold
-ENA_RATE       = 8          # max concurrent ENA FTP connections
-KRAKEN_THREADS = 4          # kraken2 threads per worker (workers × threads ≤ total cores)
-WORKERS        = 8          # parallel runs
+N_READS            = 500_000    # reads to stream per run (per mate for paired-end)
+CONFIDENCE         = 0.15       # kraken2 --confidence threshold (raised from 0.1)
+MIN_HIT_GROUPS     = 3          # kraken2 --minimum-hit-groups (default 2; 3 prevents single-domain FPs)
+ENA_RATE           = 8          # max concurrent ENA FTP connections
+KRAKEN_THREADS     = 4          # kraken2 threads per worker (workers × threads ≤ total cores)
+WORKERS            = 8          # parallel runs
 
 # Temp dir: use Setonix scratch if available, else system tmp
 SCRATCH = Path(os.environ.get("MYSCRATCH", tempfile.gettempdir())) / "kraken_tmp"
@@ -95,7 +97,9 @@ def _run_kraken2(db_dir: Path, reads: list[Path],
         "--db", str(db_dir),
         "--report", str(report),
         "--confidence", str(CONFIDENCE),
+        "--minimum-hit-groups", str(MIN_HIT_GROUPS),
         "--threads", str(threads),
+        "--memory-mapping",        # mmap DB — pages shared across concurrent workers
         "--output", "/dev/null",   # discard per-read output; we only need the report
     ]
     if len(reads) == 2:
@@ -275,12 +279,21 @@ def _load_cache_index(cache_dir: Path) -> set[str]:
 
 
 def _append_cache(result: dict, cache_dir: Path) -> None:
-    """Append one result to kraken_cache.jsonl and update index."""
+    """Append one result to kraken_cache.jsonl and update index.
+    Thread-safe (threading.Lock) and process-safe (fcntl.flock) for array jobs."""
+    line = json.dumps(result) + "\n"
+    run  = result["run"]
     with _cache_lock:
-        with open(cache_dir / "kraken_cache.jsonl", "a") as f:
-            f.write(json.dumps(result) + "\n")
-        with open(cache_dir / "kraken_cache_index.txt", "a") as f:
-            f.write(result["run"] + "\n")
+        for path, content in [
+            (cache_dir / "kraken_cache.jsonl",       line),
+            (cache_dir / "kraken_cache_index.txt",   run + "\n"),
+        ]:
+            with open(path, "a") as f:
+                fcntl.flock(f, fcntl.LOCK_EX)
+                try:
+                    f.write(content)
+                finally:
+                    fcntl.flock(f, fcntl.LOCK_UN)
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -307,6 +320,10 @@ def main() -> None:
                          "(for reproducibility). Omit to discard after parsing.")
     ap.add_argument("--limit", type=int, default=None,
                     help="Process at most N runs (useful for testing)")
+    ap.add_argument("--array-id", type=int, default=None,
+                    help="Slurm array task ID (0-indexed). Passed via $SLURM_ARRAY_TASK_ID.")
+    ap.add_argument("--array-count", type=int, default=None,
+                    help="Total Slurm array tasks. Passed via $SLURM_ARRAY_TASK_COUNT.")
     args = ap.parse_args()
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -355,6 +372,10 @@ def main() -> None:
     done = _load_cache_index(cache_dir)
     todo = [(run_id, layout) for run_id, layout in all_runs.items()
             if run_id not in done]
+    if args.array_id is not None and args.array_count:
+        todo = todo[args.array_id::args.array_count]
+        print(f"Array task {args.array_id}/{args.array_count}: {len(todo)} runs assigned")
+
     if args.limit:
         todo = todo[:args.limit]
         print(f"--limit {args.limit}: processing {len(todo)} runs")
@@ -363,6 +384,7 @@ def main() -> None:
           f"Already done: {len(done):,} | "
           f"Remaining: {len(todo):,}")
     print(f"Settings: n_reads={N_READS:,}, confidence={CONFIDENCE}, "
+          f"min_hit_groups={MIN_HIT_GROUPS}, "
           f"workers={args.workers}, kraken_threads={args.kraken_threads}")
     print(f"DB: {db_dir}")
     print(f"Tmp: {tmp_dir}\n")

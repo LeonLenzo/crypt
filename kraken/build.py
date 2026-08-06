@@ -620,7 +620,8 @@ def main() -> None:
                 threads=min(args.threads, 16),  # BBDuk doesn't benefit from 32+ threads
                 jvm_xmx=args.bbduk_mem,
             )
-            # Report size reduction from masking
+            # File sizes are unchanged by kmask=N (bases replaced in-place);
+            # masking stats (reads/bases masked %) are printed by BBDuk above.
             for label, pre, masked in [
                 ("pathogens", genomes_dir / "_pathogen_combined.fna", masked_pathogen_fna),
                 ("hosts",     genomes_dir / "_host_combined.fna",     masked_host_fna),
@@ -628,9 +629,8 @@ def main() -> None:
                 if pre.exists() and masked and masked.exists():
                     pre_mb    = pre.stat().st_size / 1e6
                     masked_mb = masked.stat().st_size / 1e6
-                    pct       = 100 * (1 - masked_mb / pre_mb) if pre_mb else 0
                     print(f"  {label}: {pre_mb:.0f} MB → {masked_mb:.0f} MB "
-                          f"({pct:.1f}% masked)", flush=True)
+                          f"(masking % in BBDuk output above)", flush=True)
         else:
             print("\n--skip-bbduk: sequences added unmasked (not recommended)", flush=True)
 

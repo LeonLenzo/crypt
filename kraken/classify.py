@@ -313,6 +313,8 @@ def main() -> None:
                     help="With --runs-tsv: keep only same_genus_secondary=False rows "
                          "(high-confidence, excludes same-genus co-infections)")
     ap.add_argument("--db", required=True, help="Path to Kraken2 database directory")
+    ap.add_argument("--out-dir", default=str(OUT_DIR),
+                    help=f"Output directory for cache and logs (default: {OUT_DIR})")
     ap.add_argument("--workers", type=int, default=WORKERS,
                     help=f"Parallel runs (default: {WORKERS})")
     ap.add_argument("--kraken-threads", type=int, default=KRAKEN_THREADS,
@@ -335,10 +337,11 @@ def main() -> None:
                     help="Total Slurm array tasks. Passed via $SLURM_ARRAY_TASK_COUNT.")
     args = ap.parse_args()
 
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    cache_dir = OUT_DIR / "data"
+    out_dir = Path(args.out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    cache_dir = out_dir / "data"
     cache_dir.mkdir(parents=True, exist_ok=True)
-    logs_base = OUT_DIR / "logs"
+    logs_base = out_dir / "logs"
     log_dir   = make_log_dir(logs_base)
     log = _Tee(log_dir / "kraken_classify.log")
     link_latest(logs_base, log_dir / "kraken_classify.log")

@@ -19,8 +19,9 @@ module load spack/0.23.1
 spack load kraken2
 module load bbmap/38.96--h5c4e2a8_0
 
-DB_DIR="$MYSCRATCH/db"
-GENOMES_DIR="$MYSCRATCH/cds_from_genomic"
+SCRATCH="/scratch/pawsey1168/llenzo"
+DB_DIR="$SCRATCH/kraken/db"
+GENOMES_DIR="$SCRATCH/kraken/cds_from_genomic"
 DB_JSON="output/00_build/data/phibase_db.json"
 
 mkdir -p slurm/logs

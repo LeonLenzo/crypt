@@ -40,7 +40,9 @@ echo "Array task ${SLURM_ARRAY_TASK_ID}/${SLURM_ARRAY_TASK_COUNT} starting: $(da
 echo "DB: $DB_DIR"
 
 python kraken/classify.py \
-    --mode both \
+    --runs-tsv output/02_filter_runs/data/runs.tsv \
+    --biosample-rep \
+    --hc \
     --db "$DB_DIR" \
     --workers 8 \
     --kraken-threads 4 \

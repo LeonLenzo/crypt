@@ -11,7 +11,8 @@
 
 # Run from crypt/ on Setonix:
 #   sbatch kraken/slurm/kraken_classify_test.slurm
-# Classifies 50 runs (both MAL and HAL) to validate the masked DB.
+# Classifies 50 HC biosample-representative runs to validate the masked DB.
+# Prerequisite: scp output/02_filter_runs/data/runs.tsv to Setonix first.
 
 set -euo pipefail
 
@@ -30,7 +31,9 @@ echo "Starting test classification (50 runs): $(date)"
 echo "DB: $DB_DIR"
 
 python kraken/classify.py \
-    --mode both \
+    --runs-tsv output/02_filter_runs/data/runs.tsv \
+    --biosample-rep \
+    --hc \
     --db "$DB_DIR" \
     --limit 50 \
     --workers 8 \

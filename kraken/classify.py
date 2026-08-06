@@ -189,7 +189,7 @@ def _gzip_file(src: Path, dest: Path) -> bool:
         return False
 
 
-def _process_run(run_id: str, layout: str, db_dir: Path,
+def _process_run(run_id: str, db_dir: Path,
                  tmp_dir: Path, threads: int,
                  reads_dir: Path | None = None,
                  reports_dir: Path | None = None) -> dict:
@@ -199,10 +199,9 @@ def _process_run(run_id: str, layout: str, db_dir: Path,
     If reports_dir is set, the raw kraken2 report is saved there as {run_id}.txt.
     """
     result = {
-        "run":    run_id,
-        "layout": layout,
-        "error":  None,
-        "ts":     time.strftime("%Y-%m-%dT%H:%M:%S"),
+        "run":   run_id,
+        "error": None,
+        "ts":    time.strftime("%Y-%m-%dT%H:%M:%S"),
     }
 
     urls = _ena_fastq_urls(run_id)
@@ -214,7 +213,7 @@ def _process_run(run_id: str, layout: str, db_dir: Path,
     run_tmp.mkdir(parents=True, exist_ok=True)
 
     try:
-        is_paired = layout == "PAIRED" and len(urls) >= 2
+        is_paired = len(urls) >= 2   # determined from ENA URL count, not metadata
 
         if is_paired:
             r1 = run_tmp / "r1.fastq"
@@ -302,7 +301,17 @@ def main() -> None:
     global N_READS
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--mode", choices=["mal", "hal", "both"], default="both")
+    ap.add_argument("--mode", choices=["mal", "hal", "both"], default="both",
+                    help="Mode filter when reading from JSON (ignored with --runs-tsv)")
+    ap.add_argument("--runs-tsv", default=None, metavar="PATH",
+                    help="Read run IDs from runs.tsv (02_filter_runs output) instead of "
+                         "{mode}_runs.json. Preferred for targeted validation runs.")
+    ap.add_argument("--biosample-rep", action="store_true",
+                    help="With --runs-tsv: keep only biosample_representative=True rows "
+                         "(one run per biological sample)")
+    ap.add_argument("--hc", action="store_true",
+                    help="With --runs-tsv: keep only same_genus_secondary=False rows "
+                         "(high-confidence, excludes same-genus co-infections)")
     ap.add_argument("--db", required=True, help="Path to Kraken2 database directory")
     ap.add_argument("--workers", type=int, default=WORKERS,
                     help=f"Parallel runs (default: {WORKERS})")
@@ -354,24 +363,42 @@ def main() -> None:
         print(f"Raw kraken2 reports will be saved to: {reports_dir}")
 
     # ── Load runs ──────────────────────────────────────────────────────────────
-    modes = ["mal", "hal"] if args.mode == "both" else [args.mode]
-    all_runs: dict[str, str] = {}   # run_id → layout
+    all_run_ids: list[str] = []
 
-    for mode in modes:
-        runs_path = IN_DIR / f"{mode}_runs.json"
-        if not runs_path.exists():
-            print(f"WARNING: {runs_path} not found — skipping {mode}")
-            continue
-        with open(runs_path) as f:
-            runs = json.load(f)
-        for run_id, meta in runs.items():
-            all_runs[run_id] = meta.get("LibraryLayout", "SINGLE")
-        print(f"Loaded {len(runs):,} {mode.upper()} runs from {runs_path}")
+    if args.runs_tsv:
+        tsv_path = Path(args.runs_tsv)
+        with open(tsv_path) as f:
+            header = f.readline().strip().split("\t")
+            col = {h: i for i, h in enumerate(header)}
+            for line in f:
+                parts = line.rstrip("\n").split("\t")
+                if args.biosample_rep and parts[col["biosample_representative"]] != "True":
+                    continue
+                if args.hc and parts[col["same_genus_secondary"]] != "False":
+                    continue
+                all_run_ids.append(parts[col["Run"]])
+        filters = []
+        if args.biosample_rep:
+            filters.append("biosample_representative")
+        if args.hc:
+            filters.append("HC (same_genus_secondary=False)")
+        fstr = " + ".join(filters) if filters else "none"
+        print(f"Loaded {len(all_run_ids):,} runs from {tsv_path} (filters: {fstr})")
+    else:
+        modes = ["mal", "hal"] if args.mode == "both" else [args.mode]
+        for mode in modes:
+            runs_path = IN_DIR / f"{mode}_runs.json"
+            if not runs_path.exists():
+                print(f"WARNING: {runs_path} not found — skipping {mode}")
+                continue
+            with open(runs_path) as f:
+                runs = json.load(f)
+            all_run_ids.extend(runs.keys())
+            print(f"Loaded {len(runs):,} {mode.upper()} runs from {runs_path}")
 
     # ── Resume from cache ──────────────────────────────────────────────────────
     done = _load_cache_index(cache_dir)
-    todo = [(run_id, layout) for run_id, layout in all_runs.items()
-            if run_id not in done]
+    todo = [r for r in all_run_ids if r not in done]
     if args.array_id is not None and args.array_count:
         todo = todo[args.array_id::args.array_count]
         print(f"Array task {args.array_id}/{args.array_count}: {len(todo)} runs assigned")
@@ -380,7 +407,7 @@ def main() -> None:
         todo = todo[:args.limit]
         print(f"--limit {args.limit}: processing {len(todo)} runs")
 
-    print(f"\nTotal runs: {len(all_runs):,} | "
+    print(f"\nTotal runs: {len(all_run_ids):,} | "
           f"Already done: {len(done):,} | "
           f"Remaining: {len(todo):,}")
     print(f"Settings: n_reads={N_READS:,}, confidence={CONFIDENCE}, "
@@ -399,9 +426,9 @@ def main() -> None:
 
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futures = {
-            pool.submit(_process_run, run_id, layout, db_dir,
+            pool.submit(_process_run, run_id, db_dir,
                         tmp_dir, args.kraken_threads, reads_dir, reports_dir): run_id
-            for run_id, layout in todo
+            for run_id in todo
         }
 
         for i, fut in enumerate(as_completed(futures), 1):

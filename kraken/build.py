@@ -232,7 +232,8 @@ def _concat_fnas(fnas: list[Path], dest: Path) -> None:
                 shutil.copyfileobj(f, out)
 
 
-def _kmer_shared(combined: Path, out: Path, threads: int) -> Path | None:
+def _kmer_shared(combined: Path, out: Path, threads: int,
+                 jvm_xmx: str = "") -> Path | None:
     """
     Extract k-mers appearing ≥2 times in combined.fna using kmercountexact.sh.
     These are k-mers shared between ≥2 sequences (cross-species) or duplicated
@@ -247,8 +248,10 @@ def _kmer_shared(combined: Path, out: Path, threads: int) -> Path | None:
     sz_gb = combined.stat().st_size / 1e9
     print(f"    kmercountexact: counting k={BBDUK_KMER_LEN}-mers in "
           f"{combined.name} ({sz_gb:.2f} GB) …", flush=True)
-    result = subprocess.run([
-        "kmercountexact.sh",
+    cmd = ["kmercountexact.sh"]
+    if jvm_xmx:
+        cmd.append(f"-Xmx{jvm_xmx}")
+    cmd += [
         f"in={combined}",
         f"out={out}",
         f"k={BBDUK_KMER_LEN}",
@@ -256,27 +259,32 @@ def _kmer_shared(combined: Path, out: Path, threads: int) -> Path | None:
         "mincount=2",    # only k-mers shared between ≥2 locations
         f"threads={threads}",
         "overwrite=t",
-    ], capture_output=True, text=True, timeout=7200)
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=7200)
 
     if result.returncode != 0:
         print(f"    kmercountexact ERROR (exit {result.returncode}):", flush=True)
         print(result.stderr[-1000:], flush=True)
         return None
 
-    n_shared = sum(1 for l in result.stdout.splitlines() if l.startswith(">"))
+    # Count > lines in the output file (not stdout, which has only progress messages)
+    n_shared = sum(1 for l in out.open() if l.startswith(">")) if out.exists() else 0
     print(f"    → {n_shared:,} shared k-mers written to {out.name}", flush=True)
     return out
 
 
-def _run_bbduk(in_fna: Path, out_fna: Path, ref_paths: list[Path], threads: int) -> bool:
+def _run_bbduk(in_fna: Path, out_fna: Path, ref_paths: list[Path], threads: int,
+               jvm_xmx: str = "") -> bool:
     """Mask k-mers in in_fna that appear in any ref_paths file. kmask=N."""
     if out_fna.exists():
         print(f"    already masked: {out_fna.name}", flush=True)
         return True
 
     ref_str = ",".join(str(p) for p in ref_paths)
-    result = subprocess.run([
-        "bbduk.sh",
+    cmd = ["bbduk.sh"]
+    if jvm_xmx:
+        cmd.append(f"-Xmx{jvm_xmx}")
+    cmd += [
         f"in={in_fna}",
         f"out={out_fna}",
         f"ref={ref_str}",
@@ -285,7 +293,8 @@ def _run_bbduk(in_fna: Path, out_fna: Path, ref_paths: list[Path], threads: int)
         "kmask=N",
         f"threads={threads}",
         "overwrite=t",
-    ], capture_output=True, text=True, timeout=7200)
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=7200)
 
     if result.returncode != 0:
         print(f"    BBDuk ERROR (exit {result.returncode}) for {in_fna.name}:", flush=True)
@@ -299,7 +308,8 @@ def _run_bbduk(in_fna: Path, out_fna: Path, ref_paths: list[Path], threads: int)
     return True
 
 
-def bbduk_mask_sequences(genomes_dir: Path, threads: int = 8) -> tuple[Path | None, Path | None]:
+def bbduk_mask_sequences(genomes_dir: Path, threads: int = 8,
+                         jvm_xmx: str = "") -> tuple[Path | None, Path | None]:
     """
     Reduce all CDS sequences to species-diagnostic k-mers using a two-pass approach:
 
@@ -366,7 +376,7 @@ def bbduk_mask_sequences(genomes_dir: Path, threads: int = 8) -> tuple[Path | No
 
         # k-mers shared between ≥2 pathogen sequences (same-order cross-hits)
         if len(pathogen_fnas) > 1:
-            r = _kmer_shared(combined_pathogens, shared_pathogen_kmers, threads)
+            r = _kmer_shared(combined_pathogens, shared_pathogen_kmers, threads, jvm_xmx)
             if r:
                 pathogen_ref_files.append(r)
 
@@ -377,7 +387,7 @@ def bbduk_mask_sequences(genomes_dir: Path, threads: int = 8) -> tuple[Path | No
         if pathogen_ref_files:
             print(f"    BBDuk: masking pathogens "
                   f"(ref={[p.name for p in pathogen_ref_files]}) …", flush=True)
-            _run_bbduk(combined_pathogens, masked_pathogens, pathogen_ref_files, threads)
+            _run_bbduk(combined_pathogens, masked_pathogens, pathogen_ref_files, threads, jvm_xmx)
         else:
             print("    No reference available; copying pathogens unmasked.", flush=True)
             shutil.copy2(str(combined_pathogens), str(masked_pathogens))
@@ -395,7 +405,7 @@ def bbduk_mask_sequences(genomes_dir: Path, threads: int = 8) -> tuple[Path | No
 
         # k-mers shared between ≥2 host sequences (same-family cross-hits)
         if len(host_fnas) > 1:
-            r = _kmer_shared(combined_hosts, shared_host_kmers, threads)
+            r = _kmer_shared(combined_hosts, shared_host_kmers, threads, jvm_xmx)
             if r:
                 host_ref_files.append(r)
 
@@ -406,7 +416,7 @@ def bbduk_mask_sequences(genomes_dir: Path, threads: int = 8) -> tuple[Path | No
         if host_ref_files:
             print(f"    BBDuk: masking hosts "
                   f"(ref={[p.name for p in host_ref_files]}) …", flush=True)
-            _run_bbduk(combined_hosts, masked_hosts, host_ref_files, threads)
+            _run_bbduk(combined_hosts, masked_hosts, host_ref_files, threads, jvm_xmx)
         else:
             print("    No reference available; copying hosts unmasked.", flush=True)
             shutil.copy2(str(combined_hosts), str(masked_hosts))
@@ -484,6 +494,9 @@ def main() -> None:
                     help="Skip downloads; BBDuk-mask hosts then add to library and build")
     ap.add_argument("--skip-bbduk", action="store_true",
                     help="Skip BBDuk host masking step (not recommended; produces noisy host calls)")
+    ap.add_argument("--bbduk-mem", default="", metavar="XMX",
+                    help="JVM heap for BBDuk/kmercountexact (e.g. 180g). "
+                         "Required on HPC where container limits JVM auto-detection.")
     ap.add_argument("--upload-to-acacia", action="store_true",
                     help="After downloading, sync FASTAs to Acacia "
                          f"(s3://{ACACIA_BUCKET}/kraken_transcriptomes/)")
@@ -594,6 +607,7 @@ def main() -> None:
             masked_pathogen_fna, masked_host_fna = bbduk_mask_sequences(
                 genomes_dir,
                 threads=min(args.threads, 16),  # BBDuk doesn't benefit from 32+ threads
+                jvm_xmx=args.bbduk_mem,
             )
             # Report size reduction from masking
             for label, pre, masked in [

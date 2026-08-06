@@ -36,6 +36,6 @@ python kraken/build.py \
     --db-dir "$DB_DIR" \
     --genomes-dir "$GENOMES_DIR" \
     --threads 32 \
-    --bbduk-mem 180g
+    --bbduk-mem 200g
 
 echo "Build complete: $(date)"

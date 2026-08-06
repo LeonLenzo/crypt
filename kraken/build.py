@@ -214,7 +214,8 @@ def download_fasta(taxid: int, accession: str, fasta_type: str,
 def add_to_library(fna_path: Path, db_dir: Path) -> bool:
     """Add a FASTA to the Kraken2 library."""
     result = subprocess.run(
-        ["kraken2-build", "--add-to-library", str(fna_path), "--db", str(db_dir)],
+        ["kraken2-build", "--add-to-library", str(fna_path),
+         "--db", str(db_dir), "--no-masking"],
         capture_output=True, text=True
     )
     if result.returncode != 0:

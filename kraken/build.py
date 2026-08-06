@@ -396,31 +396,41 @@ def bbduk_mask_sequences(genomes_dir: Path, threads: int = 8,
         print(f"  _pathogen_masked.fna already exists "
               f"({masked_pathogens.stat().st_size/1e9:.2f} GB)", flush=True)
 
-    # ── Pass 2: Mask hosts (intra-host shared + cross-kingdom) ───────────────
-    masked_hosts = genomes_dir / "_host_masked.fna"
+    # ── Pass 2: Mask hosts — two serial sub-passes to limit peak JVM memory ─────
+    masked_hosts  = genomes_dir / "_host_masked.fna"
+    host_tmp      = genomes_dir / "_host_tmp.fna"
     if not masked_hosts.exists() and host_fnas:
         print("\n  ── Pass 2: host masking ─────────────────────────────────────",
               flush=True)
         shared_host_kmers = genomes_dir / "_shared_host_kmers.fna"
-        host_ref_files: list[Path] = []
 
-        # k-mers shared between ≥2 host sequences (same-family cross-hits)
+        # Sub-pass 2a: mask hosts against pathogen CDS (cross-kingdom hits).
+        # Small reference (2.31 GB), low memory.
+        if combined_pathogens.exists():
+            print(f"    BBDuk sub-pass 2a: hosts vs pathogens …", flush=True)
+            ok = _run_bbduk(combined_hosts, host_tmp, [combined_pathogens],
+                            threads, jvm_xmx)
+            if not ok:
+                shutil.copy2(str(combined_hosts), str(host_tmp))
+        else:
+            shutil.copy2(str(combined_hosts), str(host_tmp))
+
+        # Sub-pass 2b: mask the result against intra-host shared k-mers.
+        # Large reference (1.09B k-mers), separate pass avoids loading both at once.
         if len(host_fnas) > 1:
             r = _kmer_shared(combined_hosts, shared_host_kmers, threads, jvm_xmx)
             if r:
-                host_ref_files.append(r)
-
-        # Also mask against all pathogen CDS (cross-kingdom hits)
-        if combined_pathogens.exists():
-            host_ref_files.append(combined_pathogens)
-
-        if host_ref_files:
-            print(f"    BBDuk: masking hosts "
-                  f"(ref={[p.name for p in host_ref_files]}) …", flush=True)
-            _run_bbduk(combined_hosts, masked_hosts, host_ref_files, threads, jvm_xmx)
+                print(f"    BBDuk sub-pass 2b: hosts vs shared host k-mers …",
+                      flush=True)
+                ok = _run_bbduk(host_tmp, masked_hosts, [r], threads, jvm_xmx)
+                if not ok:
+                    shutil.copy2(str(host_tmp), str(masked_hosts))
+            else:
+                host_tmp.rename(masked_hosts)
         else:
-            print("    No reference available; copying hosts unmasked.", flush=True)
-            shutil.copy2(str(combined_hosts), str(masked_hosts))
+            host_tmp.rename(masked_hosts)
+
+        host_tmp.unlink(missing_ok=True)
     elif masked_hosts.exists():
         print(f"  _host_masked.fna already exists "
               f"({masked_hosts.stat().st_size/1e9:.2f} GB)", flush=True)

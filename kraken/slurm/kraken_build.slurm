@@ -14,8 +14,9 @@
 
 set -euo pipefail
 
-module load kraken2
-module load ncbi-datasets-cli   # adjust module name to match Setonix modules
+module load spack/0.23.1
+spack load kraken2
+module load bbmap/38.96--h5c4e2a8_0
 
 DB_DIR="$MYSCRATCH/db"
 GENOMES_DIR="$MYSCRATCH/cds_from_genomic"

@@ -4,7 +4,7 @@
 #SBATCH --partition=work
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
-#SBATCH --mem=16G
+#SBATCH --mem=48G
 #SBATCH --time=24:00:00
 #SBATCH --array=0-49
 #SBATCH --output=/scratch/pawsey1168/llenzo/crypt/kraken/slurm/logs/kraken_classify_%A_%a.out

@@ -1,30 +1,33 @@
 #!/usr/bin/env python3
 """
-kraken_build.py — download PHI-base eukaryotic pathogen transcriptomes and
-build a Kraken2 database for co-infection screening of RNA-seq data.
+kraken_build.py — download PHI-base eukaryotic pathogen CDS and build a
+pathogen-only Kraken2 database for co-infection screening of RNA-seq data.
 
-Scope: fungi + oomycetes from phibase_db.json.
+Scope: fungi + oomycetes from phibase_db.json. Host sequences are
+intentionally excluded — host identity is inferred from SRA run metadata, and
+including host CDS creates irreducible multi-host noise from k-mer similarity
+between related plant genomes. Every k-mer in this database is pathogen-origin.
+
 Downloads CDS FASTAs (cds_from_genomic.fna) for all annotated assemblies.
-NCBI generates this file for any assembly with annotation (NCBI or author-provided).
 Unannotated assemblies are skipped — all have zero detections in the SRA data.
 Uses specific accessions from kraken/ref_screen.tsv — run screen_refs.py first.
 
 Run from crypt/ (requires kraken2, datasets CLI, and bbduk.sh in PATH):
-    python kraken/build.py                         # uses kraken/db + kraken/cds_from_genomic
+    python kraken/build.py                         # uses kraken/db_pathogens + kraken/cds_pathogens
     python kraken/build.py [--db-dir PATH] [--genomes-dir PATH]   # override for Setonix scratch
 
 Steps:
     0. Load reference map from kraken/ref_screen.tsv (best accession per seed)
-    1. Load seed taxids from phibase_db.json (fungal_to_seed + oomycete_to_seed)
+    1. Load seed taxids from phibase_db.json (fungal + oomycete + nematode seeds)
     2. For each seed: download FASTA via `datasets download genome accession`
          --include cds (coding sequences) when assembly has annotation
          --include genome (genomic)       when no annotation available
     3. Tag FASTA headers with kraken:taxid|TAXID| (bypasses 15 GB accession2taxid)
-    4. BBDuk masking: remove k-mers from host CDS that also appear in pathogen CDS.
-         Prevents conserved eukaryotic k-mers (ribosomes, histones, metabolic genes)
-         from matching non-host reads and producing spurious host assignments.
-    5. Add each FASTA to the Kraken2 library with `kraken2-build --add-to-library`
-         (host FASTAs added as a single BBDuk-masked combined file)
+    4. BBDuk masking (pathogen-vs-pathogen): each pathogen's CDS is masked against
+         k-mers shared with any other pathogen in the database (kmercountexact mincount=2).
+         Retains only species-diagnostic k-mers. Eliminates same-order cross-hits
+         (e.g. Melampsora in PST runs, Puccinia striiformis k-mers in P. graminis).
+    5. Add masked pathogen FASTA to Kraken2 library
     6. Download taxdump + build the database with `kraken2-build --build`
 
 Prerequisites:
@@ -32,8 +35,8 @@ Prerequisites:
     - NCBI datasets CLI: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/
     - Kraken2: https://github.com/DerrickWood/kraken2
     - BBDuk (BBTools ≥ 38.0): https://jgi.doe.gov/data-and-tools/software-tools/bbtools/
-    - ~2 GB disk for CDS FASTAs; ~10 GB for built Kraken2 DB
-    - Setonix: request high-memory node (512 GB RAM) for --build step
+    - ~1 GB disk for CDS FASTAs; ~4 GB for built Kraken2 DB
+    - Setonix: high-memory node (≥ 64 GB RAM) for --build step
 
 Output:
     {db_dir}/           Kraken2 database directory
@@ -98,7 +101,7 @@ def load_ref_screen(tsv_path: Path) -> dict[int, dict]:
 
 
 def load_seed_taxids(db_path: Path) -> tuple[dict[int, str], dict[str, str]]:
-    """Return {seed_taxid: kingdom} for fungi + oomycetes + hosts (if in ref_screen.tsv)."""
+    """Return {seed_taxid: kingdom} for fungi + oomycetes (no hosts, no nematodes)."""
     with open(db_path) as f:
         raw = json.load(f)
 
@@ -107,15 +110,13 @@ def load_seed_taxids(db_path: Path) -> tuple[dict[int, str], dict[str, str]]:
         seeds[int(taxid)] = "fungi"
     for taxid in set(raw["oomycete_to_seed"].values()):
         seeds[int(taxid)] = "oomycete"
-    for taxid in set(raw["host_to_seed"].values()):
-        seeds[int(taxid)] = "host"
+    # host seeds intentionally excluded — host identity inferred from SRA metadata
 
     t2n = raw["taxid_to_name"]
     n_fungi    = sum(1 for k in seeds.values() if k == "fungi")
     n_oomycete = sum(1 for k in seeds.values() if k == "oomycete")
-    n_host     = sum(1 for k in seeds.values() if k == "host")
     print(f"Seed taxids: {len(seeds)} "
-          f"({n_fungi} fungi, {n_oomycete} oomycetes, {n_host} hosts)",
+          f"({n_fungi} fungi, {n_oomycete} oomycetes)",
           flush=True)
     return seeds, t2n
 
@@ -310,135 +311,58 @@ def _run_bbduk(in_fna: Path, out_fna: Path, ref_paths: list[Path], threads: int,
 
 
 def bbduk_mask_sequences(genomes_dir: Path, threads: int = 8,
-                         jvm_xmx: str = "") -> tuple[Path | None, Path | None]:
+                         jvm_xmx: str = "") -> Path | None:
     """
-    Reduce all CDS sequences to species-diagnostic k-mers using a two-pass approach:
-
-    Pass 1 (pathogen): identify k-mers shared between ≥2 pathogen sequences
-      (kmercountexact.sh mincount=2), then mask pathogens against those shared
-      k-mers + all host CDS. Eliminates same-order cross-hits (e.g. Melampsora
-      in PST runs) and cross-kingdom hits (plant genes in fungal libraries).
-
-    Pass 2 (host): identify k-mers shared between ≥2 host sequences, then mask
-      hosts against those shared k-mers + all pathogen CDS. Eliminates same-family
-      cross-hits (e.g. Sorghum in maize runs) and cross-kingdom hits.
-
-    Kraken2's LCA algorithm already promotes k-mers shared between species IN THE
-    DATABASE to ancestor nodes. This masking extends that principle to handle cases
-    where one reference has sequences that match reads from a different species
-    (due to reference contamination or divergent sequences not captured in both).
+    Reduce pathogen CDS to species-diagnostic k-mers: mask each pathogen's
+    sequences against k-mers shared with any other pathogen in the database
+    (kmercountexact mincount=2). Every surviving k-mer is unique to one species.
+    Eliminates same-order cross-hits (e.g. Melampsora in PST runs, Puccinia
+    striiformis k-mers in P. graminis).
 
     Input : {genomes_dir}/{taxid}_{kingdom}/**/*.fna (already tagged)
-    Output: (_pathogen_masked.fna, _host_masked.fna)  ready for kraken2-build
+    Output: _pathogen_masked.fna  ready for kraken2-build
     Intermediates kept in genomes_dir for inspection and resumability.
     """
-    # Collect FASTAs
     pathogen_fnas = sorted(
         fna
         for d in sorted(genomes_dir.iterdir())
         if d.is_dir() and not d.name.startswith("_") and not d.name.endswith("_host")
         for fna in d.glob("**/*.fna")
     )
-    host_fnas = sorted(
-        fna
-        for d in sorted(genomes_dir.iterdir())
-        if d.is_dir() and d.name.endswith("_host")
-        for fna in d.glob("**/*.fna")
-    )
 
     print(f"  BBDuk: {len(pathogen_fnas)} pathogen FASTAs "
-          f"({sum(p.stat().st_size for p in pathogen_fnas)/1e9:.2f} GB), "
-          f"{len(host_fnas)} host FASTAs "
-          f"({sum(h.stat().st_size for h in host_fnas)/1e9:.2f} GB)", flush=True)
+          f"({sum(p.stat().st_size for p in pathogen_fnas)/1e9:.2f} GB)", flush=True)
 
-    if not pathogen_fnas and not host_fnas:
+    if not pathogen_fnas:
         print("  BBDuk: no FASTAs found — skipping", flush=True)
-        return None, None
+        return None
 
-    # ── Concatenate combined inputs ────────────────────────────────────────────
     combined_pathogens = genomes_dir / "_pathogen_combined.fna"
-    combined_hosts     = genomes_dir / "_host_combined.fna"
+    masked_pathogens   = genomes_dir / "_pathogen_masked.fna"
 
-    if pathogen_fnas and not combined_pathogens.exists():
+    if not combined_pathogens.exists():
         print(f"  Concatenating pathogens → {combined_pathogens.name} …", flush=True)
         _concat_fnas(pathogen_fnas, combined_pathogens)
 
-    if host_fnas and not combined_hosts.exists():
-        print(f"  Concatenating hosts → {combined_hosts.name} …", flush=True)
-        _concat_fnas(host_fnas, combined_hosts)
-
-    # ── Pass 1: Mask pathogens (intra-pathogen shared + cross-kingdom) ─────────
-    masked_pathogens = genomes_dir / "_pathogen_masked.fna"
-    if not masked_pathogens.exists() and pathogen_fnas:
-        print("\n  ── Pass 1: pathogen masking ──────────────────────────────────",
-              flush=True)
-        shared_pathogen_kmers = genomes_dir / "_shared_pathogen_kmers.fna"
-        pathogen_ref_files: list[Path] = []
-
-        # k-mers shared between ≥2 pathogen sequences (same-order cross-hits)
-        if len(pathogen_fnas) > 1:
-            r = _kmer_shared(combined_pathogens, shared_pathogen_kmers, threads, jvm_xmx)
-            if r:
-                pathogen_ref_files.append(r)
-
-        # Also mask against all host CDS (cross-kingdom hits)
-        if combined_hosts.exists():
-            pathogen_ref_files.append(combined_hosts)
-
-        if pathogen_ref_files:
-            print(f"    BBDuk: masking pathogens "
-                  f"(ref={[p.name for p in pathogen_ref_files]}) …", flush=True)
-            _run_bbduk(combined_pathogens, masked_pathogens, pathogen_ref_files, threads, jvm_xmx)
-        else:
-            print("    No reference available; copying pathogens unmasked.", flush=True)
-            shutil.copy2(str(combined_pathogens), str(masked_pathogens))
-    elif masked_pathogens.exists():
+    if masked_pathogens.exists():
         print(f"  _pathogen_masked.fna already exists "
               f"({masked_pathogens.stat().st_size/1e9:.2f} GB)", flush=True)
+        return masked_pathogens
 
-    # ── Pass 2: Mask hosts — two serial sub-passes to limit peak JVM memory ─────
-    masked_hosts  = genomes_dir / "_host_masked.fna"
-    host_tmp      = genomes_dir / "_host_tmp.fna"
-    if not masked_hosts.exists() and host_fnas:
-        print("\n  ── Pass 2: host masking ─────────────────────────────────────",
-              flush=True)
-        shared_host_kmers = genomes_dir / "_shared_host_kmers.fna"
-
-        # Sub-pass 2a: mask hosts against pathogen CDS (cross-kingdom hits).
-        # Small reference (2.31 GB), low memory.
-        if combined_pathogens.exists():
-            print(f"    BBDuk sub-pass 2a: hosts vs pathogens …", flush=True)
-            ok = _run_bbduk(combined_hosts, host_tmp, [combined_pathogens],
-                            threads, jvm_xmx)
-            if not ok:
-                shutil.copy2(str(combined_hosts), str(host_tmp))
+    shared_pathogen_kmers = genomes_dir / "_shared_pathogen_kmers.fna"
+    if len(pathogen_fnas) > 1:
+        r = _kmer_shared(combined_pathogens, shared_pathogen_kmers, threads, jvm_xmx)
+        if r:
+            print(f"    BBDuk: masking pathogens against shared k-mers …", flush=True)
+            _run_bbduk(combined_pathogens, masked_pathogens, [r], threads, jvm_xmx)
         else:
-            shutil.copy2(str(combined_hosts), str(host_tmp))
+            print("    kmercountexact failed; copying pathogens unmasked.", flush=True)
+            shutil.copy2(str(combined_pathogens), str(masked_pathogens))
+    else:
+        print("    Only one pathogen FASTA — no shared k-mers to mask.", flush=True)
+        shutil.copy2(str(combined_pathogens), str(masked_pathogens))
 
-        # Sub-pass 2b: mask the result against intra-host shared k-mers.
-        # Large reference (1.09B k-mers), separate pass avoids loading both at once.
-        if len(host_fnas) > 1:
-            r = _kmer_shared(combined_hosts, shared_host_kmers, threads, jvm_xmx)
-            if r:
-                print(f"    BBDuk sub-pass 2b: hosts vs shared host k-mers …",
-                      flush=True)
-                ok = _run_bbduk(host_tmp, masked_hosts, [r], threads, jvm_xmx)
-                if not ok:
-                    shutil.copy2(str(host_tmp), str(masked_hosts))
-            else:
-                host_tmp.rename(masked_hosts)
-        else:
-            host_tmp.rename(masked_hosts)
-
-        host_tmp.unlink(missing_ok=True)
-    elif masked_hosts.exists():
-        print(f"  _host_masked.fna already exists "
-              f"({masked_hosts.stat().st_size/1e9:.2f} GB)", flush=True)
-
-    return (
-        masked_pathogens if masked_pathogens.exists() else None,
-        masked_hosts     if masked_hosts.exists()     else None,
-    )
+    return masked_pathogens if masked_pathogens.exists() else None
 
 
 def upload_to_acacia(local_dir: Path, s3_prefix: str) -> None:
@@ -502,9 +426,9 @@ def main() -> None:
     ap.add_argument("--download-only", action="store_true",
                     help="Download FASTAs only; skip BBDuk masking and kraken2-build steps")
     ap.add_argument("--build-only", action="store_true",
-                    help="Skip downloads; BBDuk-mask hosts then add to library and build")
+                    help="Skip downloads; BBDuk-mask pathogens then add to library and build")
     ap.add_argument("--skip-bbduk", action="store_true",
-                    help="Skip BBDuk host masking step (not recommended; produces noisy host calls)")
+                    help="Skip BBDuk masking step (not recommended; produces cross-species noise)")
     ap.add_argument("--bbduk-mem", default="", metavar="XMX",
                     help="JVM heap for BBDuk/kmercountexact (e.g. 180g). "
                          "Required on HPC where container limits JVM auto-detection.")
@@ -612,25 +536,19 @@ def main() -> None:
 
         # ── Phase 2: BBDuk masking ─────────────────────────────────────────────
         masked_pathogen_fna: Path | None = None
-        masked_host_fna:     Path | None = None
         if not args.skip_bbduk:
-            print(f"\n── BBDuk bidirectional masking ───────────────────────────────")
-            masked_pathogen_fna, masked_host_fna = bbduk_mask_sequences(
+            print(f"\n── BBDuk pathogen-vs-pathogen masking ────────────────────────")
+            masked_pathogen_fna = bbduk_mask_sequences(
                 genomes_dir,
                 threads=min(args.threads, 16),  # BBDuk doesn't benefit from 32+ threads
                 jvm_xmx=args.bbduk_mem,
             )
-            # File sizes are unchanged by kmask=N (bases replaced in-place);
-            # masking stats (reads/bases masked %) are printed by BBDuk above.
-            for label, pre, masked in [
-                ("pathogens", genomes_dir / "_pathogen_combined.fna", masked_pathogen_fna),
-                ("hosts",     genomes_dir / "_host_combined.fna",     masked_host_fna),
-            ]:
-                if pre.exists() and masked and masked.exists():
-                    pre_mb    = pre.stat().st_size / 1e6
-                    masked_mb = masked.stat().st_size / 1e6
-                    print(f"  {label}: {pre_mb:.0f} MB → {masked_mb:.0f} MB "
-                          f"(masking % in BBDuk output above)", flush=True)
+            pre = genomes_dir / "_pathogen_combined.fna"
+            if pre.exists() and masked_pathogen_fna and masked_pathogen_fna.exists():
+                pre_mb    = pre.stat().st_size / 1e6
+                masked_mb = masked_pathogen_fna.stat().st_size / 1e6
+                print(f"  pathogens: {pre_mb:.0f} MB → {masked_mb:.0f} MB "
+                      f"(masking % in BBDuk output above)", flush=True)
         else:
             print("\n--skip-bbduk: sequences added unmasked (not recommended)", flush=True)
 
@@ -651,22 +569,6 @@ def main() -> None:
         else:
             print("  Adding unmasked pathogen FASTAs individually …", flush=True)
             for tag_taxid, kingdom, fnas in downloaded:
-                if kingdom == "host":
-                    continue
-                for fna in fnas:
-                    if add_to_library(fna, db_dir):
-                        n_added += 1
-
-        # Add host sequences: masked combined file (preferred) or individual (fallback)
-        if masked_host_fna and masked_host_fna.exists():
-            print(f"  Adding BBDuk-masked hosts: {masked_host_fna.name}", flush=True)
-            if add_to_library(masked_host_fna, db_dir):
-                n_added += 1
-        else:
-            print("  Adding unmasked host FASTAs individually …", flush=True)
-            for tag_taxid, kingdom, fnas in downloaded:
-                if kingdom != "host":
-                    continue
                 for fna in fnas:
                     if add_to_library(fna, db_dir):
                         n_added += 1

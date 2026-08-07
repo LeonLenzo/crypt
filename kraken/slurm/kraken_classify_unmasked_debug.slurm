@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32G
-#SBATCH --time=0:30:00
+#SBATCH --time=2:00:00
 #SBATCH --output=/scratch/pawsey1168/llenzo/crypt/kraken/slurm/logs/kraken_unmask_debug_%j.out
 #SBATCH --error=/scratch/pawsey1168/llenzo/crypt/kraken/slurm/logs/kraken_unmask_debug_%j.err
 
@@ -26,7 +26,6 @@ echo ""
 echo "--- Running kraken2 on SRR13349969 (paired, existing temp FASTQs) ---"
 kraken2 \
     --db "$DB" \
-    --memory-mapping \
     --report "$REPORT" \
     --output /dev/null \
     --threads 4 \

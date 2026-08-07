@@ -99,7 +99,6 @@ def _run_kraken2(db_dir: Path, reads: list[Path],
         "--confidence", str(CONFIDENCE),
         "--minimum-hit-groups", str(MIN_HIT_GROUPS),
         "--threads", str(threads),
-        "--memory-mapping",        # mmap DB — pages shared across concurrent workers
         "--output", "/dev/null",   # discard per-read output; we only need the report
     ]
     if len(reads) == 2:
@@ -204,33 +203,36 @@ def _process_run(run_id: str, db_dir: Path,
         "ts":    time.strftime("%Y-%m-%dT%H:%M:%S"),
     }
 
-    urls = _ena_fastq_urls(run_id)
-    if not urls:
-        result["error"] = "no_ena_urls"
-        return result
-
     run_tmp = tmp_dir / run_id
     run_tmp.mkdir(parents=True, exist_ok=True)
 
     try:
-        is_paired = len(urls) >= 2   # determined from ENA URL count, not metadata
+        r1 = run_tmp / "r1.fastq"
+        r2 = run_tmp / "r2.fastq"
 
-        if is_paired:
-            r1 = run_tmp / "r1.fastq"
-            r2 = run_tmp / "r2.fastq"
-            ok1 = _stream_fastq(urls[0], N_READS, r1)
-            ok2 = _stream_fastq(urls[1], N_READS, r2)
-            if not (ok1 and ok2):
-                result["error"] = "stream_failed"
-                return result
-            reads = [r1, r2]
+        # Reuse existing FASTQs if present (e.g. from a previous run with a different DB)
+        if r1.exists() and r1.stat().st_size > 0:
+            reads = [r1, r2] if (r2.exists() and r2.stat().st_size > 0) else [r1]
+            is_paired = len(reads) == 2
         else:
-            r1 = run_tmp / "r1.fastq"
-            ok = _stream_fastq(urls[0], N_READS, r1)
-            if not ok:
-                result["error"] = "stream_failed"
+            urls = _ena_fastq_urls(run_id)
+            if not urls:
+                result["error"] = "no_ena_urls"
                 return result
-            reads = [r1]
+            is_paired = len(urls) >= 2
+            if is_paired:
+                ok1 = _stream_fastq(urls[0], N_READS, r1)
+                ok2 = _stream_fastq(urls[1], N_READS, r2)
+                if not (ok1 and ok2):
+                    result["error"] = "stream_failed"
+                    return result
+                reads = [r1, r2]
+            else:
+                ok = _stream_fastq(urls[0], N_READS, r1)
+                if not ok:
+                    result["error"] = "stream_failed"
+                    return result
+                reads = [r1]
 
         report = run_tmp / "report.txt"
         ok = _run_kraken2(db_dir, reads, report, threads)

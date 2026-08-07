@@ -308,6 +308,9 @@ def main() -> None:
     ap.add_argument("--runs-tsv", default=None, metavar="PATH",
                     help="Read run IDs from runs.tsv (02_filter_runs output) instead of "
                          "{mode}_runs.json. Preferred for targeted validation runs.")
+    ap.add_argument("--run-list", default=None, metavar="PATH",
+                    help="Plain text file with one Run accession per line. "
+                         "Bypasses all other filters. Use with control/sample.py output.")
     ap.add_argument("--biosample-rep", action="store_true",
                     help="With --runs-tsv: keep only biosample_representative=True rows "
                          "(one run per biological sample)")
@@ -370,7 +373,11 @@ def main() -> None:
     # ── Load runs ──────────────────────────────────────────────────────────────
     all_run_ids: list[str] = []
 
-    if args.runs_tsv:
+    if args.run_list:
+        run_list_path = Path(args.run_list)
+        all_run_ids = [l.strip() for l in run_list_path.read_text().splitlines() if l.strip()]
+        print(f"Loaded {len(all_run_ids):,} runs from {run_list_path}")
+    elif args.runs_tsv:
         tsv_path = Path(args.runs_tsv)
         with open(tsv_path) as f:
             header = f.readline().strip().split("\t")

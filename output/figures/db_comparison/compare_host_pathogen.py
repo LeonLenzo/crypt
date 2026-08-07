@@ -1,19 +1,23 @@
 """
-DB comparison figures: masked+hosts vs unmasked, and masked+hosts vs pathogens-only.
+DB comparison figures: masked+hosts vs unmasked, masked+hosts vs pathogens-only,
+and STAT euk% vs pathogens-only.
 
 Outputs:
-  masked_vs_unmasked.png   – 2×2 panel (existing; motivation for redesign)
-  masked_vs_pathogens.png  – 2×2 panel (new; result of redesign)
+  masked_vs_unmasked.png   – 2×2 panel (motivation for redesign)
+  masked_vs_pathogens.png  – 2×2 panel (result of redesign)
+  stat_vs_pathogens.png    – 1-panel scatter (STAT vs pathogens-only DB)
   masked_vs_unmasked.tsv   – full data table
 
 Inputs:
-  /tmp/setonix_kraken_metrics.json   – merged masked + unmasked + pathogens-only results
+  /tmp/setonix_kraken_metrics.json        – merged masked + unmasked + pathogens-only
   output/00_build/data/phibase_db.json
+  output/02_filter_runs/data/runs.tsv     – STAT euk% per run
 
 Run from crypt/:
   python output/figures/db_comparison/compare_host_pathogen.py
 """
 
+import csv
 import json
 from pathlib import Path
 
@@ -216,6 +220,176 @@ make_2x2(runs_all, rows_all, "p", "Pathogens-only",
          hc_po, hp_po, pc_po, pp_po,
          OUT_DIR / "masked_vs_pathogens.png")
 
+# ── Figure 3: STAT euk% vs pathogens-only ────────────────────────────────────
+RUNS_TSV = ROOT / "output/02_filter_runs/data/runs.tsv"
+stat_data = {}
+with open(RUNS_TSV) as f:
+    for row in csv.DictReader(f, delimiter="\t"):
+        if row["Run"] in runs_all:
+            sp_str = row.get("stat_pathogens", "")
+            # parse "Name:pct%; Name2:pct2%" into {name: pct}
+            stat_sp = {}
+            for entry in sp_str.split(";"):
+                entry = entry.strip()
+                if ":" in entry:
+                    name, pct = entry.rsplit(":", 1)
+                    try:
+                        stat_sp[name.strip()] = float(pct.strip().rstrip("%"))
+                    except ValueError:
+                        pass
+            stat_data[row["Run"]] = {
+                "euk_pct": float(row.get("fungi_pct", 0) or 0) + float(row.get("oomycete_pct", 0) or 0),
+                "stat_sp": stat_sp,
+                "stat_top": max(stat_sp, key=stat_sp.get) if stat_sp else "",
+            }
+
+stat_runs = [r for r in runs_all if r in stat_data]
+
+# Does STAT's top species match the DB's top pathogen (genus level)?
+def genus(name):
+    return name.split()[0] if name else ""
+
+def stat_matches_db(run):
+    db_top   = rows_all[run]["top_path_po"]
+    stat_top = stat_data[run]["stat_top"]
+    return genus(db_top) == genus(stat_top)
+
+sx      = np.array([stat_data[r]["euk_pct"]           for r in stat_runs])
+sy      = np.array([kraken[r]["pathogens_pct"]         for r in stat_runs])
+s_match = [stat_matches_db(r) for r in stat_runs]
+spc     = [PATHOGEN_COLOURS.get(rows_all[r]["top_path_po"], DEFAULT) for r in stat_runs]
+
+n_match    = sum(s_match)
+n_mismatch = len(stat_runs) - n_match
+r_val = float(np.corrcoef(sx, sy)[0, 1]) if np.std(sx) > 0 and np.std(sy) > 0 else 0.0
+
+# legend patches for top DB pathogens
+seen_sp = {}
+for r in stat_runs:
+    name = rows_all[r]["top_path_po"]
+    seen_sp.setdefault(PATHOGEN_COLOURS.get(name, DEFAULT), name)
+sp_patches = [mpatches.Patch(color=c, label=lbl) for c, lbl in seen_sp.items()]
+
+# raw STAT species counts (full specific_hits, not post-filter column)
+LEAF_FRAC = 0.9
+def _node_count(table, node):
+    for e in table:
+        if e.get("org") == node:
+            return e.get("total_count", 0)
+    return 0
+
+def _specific_hits(table, node, analyzed, min_pct=0.5):
+    top = _node_count(table, node)
+    if not top:
+        return []
+    min_count = max(1, int(analyzed * min_pct / 100))
+    under = [(e["org"], e["total_count"]) for e in table
+             if 0 < e.get("total_count", 0) <= top
+             and e.get("org") != node
+             and e.get("total_count", 0) >= min_count]
+    if not under:
+        return [(node, top / analyzed * 100)]
+    count_vals  = sorted({c for _, c in under}, reverse=True)
+    leaf_counts = {c for c in count_vals
+                   if not any(c2 < c and c2 >= LEAF_FRAC * c for c2 in count_vals)}
+    best = {}
+    for name, count in under:
+        if count not in leaf_counts:
+            continue
+        pct = count / analyzed * 100
+        if count not in best or (len(name.split()) == 2 and len(best[count][0].split()) != 2):
+            best[count] = (name, pct)
+    return sorted(best.values(), key=lambda x: -x[1])
+
+stat_raw = {}
+with open(ROOT / "output/01_fetch_runs/data/stat_cache.jsonl") as f:
+    for line in f:
+        line = line.strip()
+        if not line:
+            continue
+        run, _, rest = line.partition("\t")
+        if run in runs_all:
+            stat_raw[run] = json.loads(rest)
+
+stat_sp_raw = {}
+for run, entries in stat_raw.items():
+    entry    = entries[0]
+    table    = entry["tax_table"]
+    totals   = entry["tax_totals"]
+    analyzed = totals.get("analysed") or totals.get("analyzed") or totals.get("total", 1)
+    hits = []
+    for kingdom, thresh in [("Fungi", 0.5), ("Oomycota", 0.5)]:
+        hits.extend(_specific_hits(table, kingdom, analyzed, min_pct=thresh))
+    stat_sp_raw[run] = {name: pct for name, pct in hits}
+
+# species count arrays (only runs with stat_raw)
+sp_stat_runs = [r for r in stat_runs if r in stat_sp_raw]
+sn_stat = np.array([len(stat_sp_raw[r]) for r in sp_stat_runs], dtype=float)
+sn_db   = np.array([len(kraken[r].get("pathogens_species", {})) for r in sp_stat_runs], dtype=float)
+sn_clrs = [PATHOGEN_COLOURS.get(rows_all[r]["top_path_po"], DEFAULT) for r in sp_stat_runs]
+
+lim3 = 70
+lim3b = max(sn_stat.max(), sn_db.max()) * 1.1
+
+fig3, (ax3a, ax3b) = plt.subplots(1, 2, figsize=(13.0, 5.5))
+fig3.subplots_adjust(left=0.08, right=0.73, top=0.91, bottom=0.12, wspace=0.32)
+
+# Panel A: reads %
+ax3a.plot([0, lim3], [0, lim3], "--", color="#999999", lw=0.9, zorder=1)
+match_runs    = [r for r, m in zip(stat_runs, s_match) if m]
+mismatch_runs = [r for r, m in zip(stat_runs, s_match) if not m]
+ax3a.scatter(
+    [stat_data[r]["euk_pct"] for r in match_runs],
+    [kraken[r]["pathogens_pct"] for r in match_runs],
+    c=[PATHOGEN_COLOURS.get(rows_all[r]["top_path_po"], DEFAULT) for r in match_runs],
+    s=50, alpha=0.88, edgecolors="white", linewidths=0.4, zorder=2,
+    label=f"Top genus matches (n={n_match})"
+)
+ax3a.scatter(
+    [stat_data[r]["euk_pct"] for r in mismatch_runs],
+    [kraken[r]["pathogens_pct"] for r in mismatch_runs],
+    c=[PATHOGEN_COLOURS.get(rows_all[r]["top_path_po"], DEFAULT) for r in mismatch_runs],
+    s=70, alpha=0.88, edgecolors="#333333", linewidths=1.2, marker="D", zorder=3,
+    label=f"Top genus mismatch (n={n_mismatch})"
+)
+ax3a.text(0.97, 0.04, f"r = {r_val:.2f}", transform=ax3a.transAxes,
+          ha="right", va="bottom", fontsize=8, color="#666666")
+ax3a.set_xlim(0, lim3); ax3a.set_ylim(0, lim3)
+ax3a.set_xlabel("STAT eukaryotic pathogen (%)", fontsize=9)
+ax3a.set_ylabel("Pathogens-only DB (%)", fontsize=9)
+ax3a.set_title("A   Reads assigned (%)", fontsize=10, fontweight="bold", pad=5, loc="left")
+ax3a.tick_params(labelsize=8)
+ax3a.legend(loc="lower right", fontsize=7.5, frameon=False, handletextpad=0.4)
+
+# Panel B: species count
+r_sp = float(np.corrcoef(sn_stat, sn_db)[0, 1]) if np.std(sn_stat) > 0 else 0.0
+ax3b.plot([0, lim3b], [0, lim3b], "--", color="#999999", lw=0.9, zorder=1)
+ax3b.scatter(sn_stat, sn_db, c=sn_clrs, s=50, alpha=0.88,
+             edgecolors="white", linewidths=0.4, zorder=2)
+ax3b.text(0.97, 0.04, f"r = {r_sp:.2f}", transform=ax3b.transAxes,
+          ha="right", va="bottom", fontsize=8, color="#666666")
+ax3b.set_xlim(0, lim3b); ax3b.set_ylim(0, lim3b)
+ax3b.set_xlabel("STAT species detected", fontsize=9)
+ax3b.set_ylabel("Pathogens-only DB species detected", fontsize=9)
+ax3b.set_title("B   Species detected", fontsize=10, fontweight="bold", pad=5, loc="left")
+ax3b.tick_params(labelsize=8)
+
+fig3.legend(handles=sp_patches, loc="upper left", fontsize=8, frameon=False,
+            title="Top pathogen (DB)", title_fontsize=8.5,
+            bbox_to_anchor=(0.745, 0.95))
+
+print(f"\nstat_vs_pathogens.png  (n={len(stat_runs)})")
+print(f"  STAT euk%:        mean={sx.mean():.1f}%  median={np.median(sx):.1f}%")
+print(f"  DB path%:         mean={sy.mean():.1f}%  median={np.median(sy):.1f}%")
+print(f"  Genus match:      {n_match}/{len(stat_runs)}")
+print(f"  STAT species/run: mean={sn_stat.mean():.1f}  range={int(sn_stat.min())}-{int(sn_stat.max())}")
+print(f"  DB species/run:   mean={sn_db.mean():.1f}    range={int(sn_db.min())}-{int(sn_db.max())}")
+
+out3 = OUT_DIR / "stat_vs_pathogens.png"
+fig3.savefig(out3, dpi=180, bbox_inches="tight")
+plt.close(fig3)
+print(f"  Saved {out3}")
+
 # ── TSV export ────────────────────────────────────────────────────────────────
 tsv_cols = [
     "run",
@@ -246,7 +420,7 @@ print(f"\nSaved {tsv_path}")
 
 # ── README ────────────────────────────────────────────────────────────────────
 readme = """\
-## Figure — Kraken2 database comparison: masked+hosts vs unmasked vs pathogens-only
+## Kraken2 database comparison: masked+hosts vs unmasked vs pathogens-only vs STAT
 
 ### Figure 1: Masked+hosts vs unmasked (`masked_vs_unmasked.png`)
 
@@ -256,63 +430,77 @@ readme = """\
 
 ![Masked+hosts vs pathogens-only](masked_vs_pathogens.png)
 
+### Figure 3: STAT euk% vs pathogens-only Kraken2 DB (`stat_vs_pathogens.png`)
+
+![STAT vs pathogens-only DB](stat_vs_pathogens.png)
+
 ### Background and motivation
 
 NCBI STAT pre-computed k-mer taxonomy was used in the upstream pipeline to screen
 ~593k SRA runs for co-infection signal. Screening microbe-as-library (MAL) runs —
-runs where the sequenced organism is itself a PHI-base plant pathogen, and which
-should by definition contain pathogen reads — revealed that a large proportion
-returned zero detected eukaryotic pathogen reads in STAT. Investigation of the most
-affected group, wheat stripe rust (*Puccinia striiformis* f. sp. *tritici*, PST),
-confirmed the blind spot: euk_pct = 0% across all PST pilot runs, while Kraken2
-and kallisto independently detected *P. striiformis* at 10–68% of reads. STAT's
-reference k-mer database inadequately covers Basidiomycota plant pathogens, making
-it an unreliable screen for some of the most agronomically important fungal diseases.
+runs where the sequenced organism is itself a PHI-base plant pathogen — revealed
+that a large proportion returned zero detected eukaryotic pathogen reads in STAT,
+particularly for wheat stripe rust (*Puccinia striiformis* f. sp. *tritici*, PST),
+while Kraken2 and kallisto independently detected *P. striiformis* at 10–68% of
+reads. STAT's reference k-mer database inadequately covers Basidiomycota plant
+pathogens.
 
-To replace STAT, a custom Kraken2 database was built from the CDS of all PHI-base
-eukaryotic pathogens (fungi + oomycetes). Three versions were evaluated across
-high-confidence field RNA-seq runs (biosample-representative, ≥1 HC pathogen):
+To replace STAT, a custom Kraken2 database was built from the CDS of PHI-base
+eukaryotic pathogens (fungi + oomycetes). Three versions were evaluated across 32–41
+high-confidence field RNA-seq runs (biosample-representative, same-genus secondary
+pathogens excluded):
 
 - **Unmasked** — pathogen + host CDS used as-is.
-- **Masked** — bidirectional BBDuk k-mer masking (`k=35`): pathogens masked against
-  shared pathogen k-mers + all host CDS; hosts masked against all pathogen CDS.
-- **Pathogens-only** — pathogen CDS only, masked against k-mers shared between
-  any two pathogens (pathogen-vs-pathogen masking). No host sequences.
+- **Masked** — bidirectional BBDuk masking (`k=35`): pathogens masked against shared
+  pathogen k-mers + all host CDS; hosts masked against all pathogen CDS.
+- **Pathogens-only** — pathogen CDS only, masked against k-mers shared between any
+  two pathogens. No host sequences.
 
-### Figure 1: Why host sequences were removed
+### Figure 1: Why host sequences were removed (n=41)
 
-**Panels A–B (Host species).**
-Even the masked database detects a mean of 4.4 host species per run — biologically
-impossible (one host per run). This noise arises from k-mer similarity between
-related plant genomes. Masking reduces but cannot eliminate the problem.
+**Panels A–B (Host species).** Even the masked database detects a mean of 4.4 host
+species per run — biologically impossible (one host per run). Masking cannot
+eliminate this noise because k-mer similarity between related plant genomes is
+intrinsic to plant genome evolution.
 
-**Panels C–D (Pathogen species).**
-The masked database is more conservative (mean 18.9% vs 31.9% reads assigned) and
-more specific: spurious cross-genus hits in the unmasked results (e.g.
-*Melampsora laricis-populina* in wheat rust runs) are eliminated. Species counts
-remain well-correlated (*r* = 0.95), confirming masking does not suppress genuine
-detections.
+**Panels C–D (Pathogen species).** Masked is more conservative (mean 18.9% vs
+31.9%) and more specific: spurious cross-genus hits in the unmasked results are
+eliminated. Species counts correlate well (*r* = 0.95), confirming masking does not
+suppress genuine detections.
 
-### Figure 2: Effect of removing host sequences
+### Figure 2: Effect of removing host sequences (n=32)
 
-**Panels A–B (Host species).**
-Pathogens-only assigns effectively zero reads to host species (mean ~0% vs 4.4%
-for masked). The host noise problem is completely resolved by excluding host CDS.
+**Panels A–B (Host species).** Pathogens-only assigns zero reads to host species
+(0.0% vs 4.5% for masked). Host noise is completely resolved.
 
-**Panels C–D (Pathogen species).**
-Pathogen read assignment is broadly consistent between masked+hosts and
-pathogens-only (the same dominant species are detected in each run). Pathogens-only
-tends to assign slightly more reads to pathogens, as k-mers previously competing
-with host sequences are now retained in the pathogen index.
+**Panels C–D (Pathogen species).** Pathogen detection is consistent between
+masked+hosts and pathogens-only (mean 17.9% vs 18.3%; same dominant species per
+run). Pathogens-only recovers slightly more species (9.6 vs 8.2) as k-mers no
+longer compete with host sequences.
+
+### Figure 3: STAT vs pathogens-only Kraken2 DB (n=32)
+
+Points above the diagonal indicate the Kraken2 DB detects more than STAT; points
+below indicate STAT reports more. Two distinct patterns emerge by pathogen group:
+
+- **Basidiomycota rusts (*Puccinia* spp.):** STAT strongly underestimates (STAT
+  2–9% vs DB 10–41% for PST runs). STAT's k-mer reference inadequately covers
+  rust fungi, confirming the original motivation for this pipeline.
+- **Ascomycota (*Zymoseptoria tritici*, *Puccinia graminis*):** STAT tends to
+  overestimate vs the DB (STAT 37–41% vs DB 7–13% for some *Z. tritici* runs),
+  likely due to broad k-mer matches to non-diagnostic sequences in the STAT
+  reference.
+- **Overall correlation:** *r* = {r_val:.2f} across all 32 runs, with the divergence
+  explained almost entirely by pathogen taxonomy. Runs agree well for *Sclerotinia*
+  and *Monilinia*.
 
 ### Key finding
 
-Including host sequences in the database is fundamentally counterproductive.
-Host identity is more accurately and efficiently obtained from SRA run metadata
-(submitter-declared organism). The pathogens-only database is smaller (~1.9 GB vs
-3.4 GB), loads faster on Lustre, and assigns 100% of classified reads to the
-pathogen signal of interest.
-"""
+The pathogens-only Kraken2 DB outperforms STAT for Basidiomycota pathogens,
+eliminates host noise entirely, and is more specific than the unmasked DB for
+Ascomycota pathogens. It is the recommended tool for full production screening
+of ~8,243 HC biosample-representative runs.
+""".format(r_val=float(np.corrcoef(sx, sy)[0, 1]))
 
 for old in (OUT_DIR / "masked_vs_unmasked_caption.txt",
             OUT_DIR / "masked_vs_unmasked_caption.md"):

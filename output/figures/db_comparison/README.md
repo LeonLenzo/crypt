@@ -1,4 +1,4 @@
-## Figure — Kraken2 database comparison: masked+hosts vs unmasked vs pathogens-only
+## Kraken2 database comparison: masked+hosts vs unmasked vs pathogens-only vs STAT
 
 ### Figure 1: Masked+hosts vs unmasked (`masked_vs_unmasked.png`)
 
@@ -8,59 +8,73 @@
 
 ![Masked+hosts vs pathogens-only](masked_vs_pathogens.png)
 
+### Figure 3: STAT euk% vs pathogens-only Kraken2 DB (`stat_vs_pathogens.png`)
+
+![STAT vs pathogens-only DB](stat_vs_pathogens.png)
+
 ### Background and motivation
 
 NCBI STAT pre-computed k-mer taxonomy was used in the upstream pipeline to screen
 ~593k SRA runs for co-infection signal. Screening microbe-as-library (MAL) runs —
-runs where the sequenced organism is itself a PHI-base plant pathogen, and which
-should by definition contain pathogen reads — revealed that a large proportion
-returned zero detected eukaryotic pathogen reads in STAT. Investigation of the most
-affected group, wheat stripe rust (*Puccinia striiformis* f. sp. *tritici*, PST),
-confirmed the blind spot: euk_pct = 0% across all PST pilot runs, while Kraken2
-and kallisto independently detected *P. striiformis* at 10–68% of reads. STAT's
-reference k-mer database inadequately covers Basidiomycota plant pathogens, making
-it an unreliable screen for some of the most agronomically important fungal diseases.
+runs where the sequenced organism is itself a PHI-base plant pathogen — revealed
+that a large proportion returned zero detected eukaryotic pathogen reads in STAT,
+particularly for wheat stripe rust (*Puccinia striiformis* f. sp. *tritici*, PST),
+while Kraken2 and kallisto independently detected *P. striiformis* at 10–68% of
+reads. STAT's reference k-mer database inadequately covers Basidiomycota plant
+pathogens.
 
-To replace STAT, a custom Kraken2 database was built from the CDS of all PHI-base
-eukaryotic pathogens (fungi + oomycetes). Three versions were evaluated across
-high-confidence field RNA-seq runs (biosample-representative, ≥1 HC pathogen):
+To replace STAT, a custom Kraken2 database was built from the CDS of PHI-base
+eukaryotic pathogens (fungi + oomycetes). Three versions were evaluated across 32–41
+high-confidence field RNA-seq runs (biosample-representative, same-genus secondary
+pathogens excluded):
 
 - **Unmasked** — pathogen + host CDS used as-is.
-- **Masked** — bidirectional BBDuk k-mer masking (`k=35`): pathogens masked against
-  shared pathogen k-mers + all host CDS; hosts masked against all pathogen CDS.
-- **Pathogens-only** — pathogen CDS only, masked against k-mers shared between
-  any two pathogens (pathogen-vs-pathogen masking). No host sequences.
+- **Masked** — bidirectional BBDuk masking (`k=35`): pathogens masked against shared
+  pathogen k-mers + all host CDS; hosts masked against all pathogen CDS.
+- **Pathogens-only** — pathogen CDS only, masked against k-mers shared between any
+  two pathogens. No host sequences.
 
-### Figure 1: Why host sequences were removed
+### Figure 1: Why host sequences were removed (n=41)
 
-**Panels A–B (Host species).**
-Even the masked database detects a mean of 4.4 host species per run — biologically
-impossible (one host per run). This noise arises from k-mer similarity between
-related plant genomes. Masking reduces but cannot eliminate the problem.
+**Panels A–B (Host species).** Even the masked database detects a mean of 4.4 host
+species per run — biologically impossible (one host per run). Masking cannot
+eliminate this noise because k-mer similarity between related plant genomes is
+intrinsic to plant genome evolution.
 
-**Panels C–D (Pathogen species).**
-The masked database is more conservative (mean 18.9% vs 31.9% reads assigned) and
-more specific: spurious cross-genus hits in the unmasked results (e.g.
-*Melampsora laricis-populina* in wheat rust runs) are eliminated. Species counts
-remain well-correlated (*r* = 0.95), confirming masking does not suppress genuine
-detections.
+**Panels C–D (Pathogen species).** Masked is more conservative (mean 18.9% vs
+31.9%) and more specific: spurious cross-genus hits in the unmasked results are
+eliminated. Species counts correlate well (*r* = 0.95), confirming masking does not
+suppress genuine detections.
 
-### Figure 2: Effect of removing host sequences
+### Figure 2: Effect of removing host sequences (n=32)
 
-**Panels A–B (Host species).**
-Pathogens-only assigns effectively zero reads to host species (mean ~0% vs 4.4%
-for masked). The host noise problem is completely resolved by excluding host CDS.
+**Panels A–B (Host species).** Pathogens-only assigns zero reads to host species
+(0.0% vs 4.5% for masked). Host noise is completely resolved.
 
-**Panels C–D (Pathogen species).**
-Pathogen read assignment is broadly consistent between masked+hosts and
-pathogens-only (the same dominant species are detected in each run). Pathogens-only
-tends to assign slightly more reads to pathogens, as k-mers previously competing
-with host sequences are now retained in the pathogen index.
+**Panels C–D (Pathogen species).** Pathogen detection is consistent between
+masked+hosts and pathogens-only (mean 17.9% vs 18.3%; same dominant species per
+run). Pathogens-only recovers slightly more species (9.6 vs 8.2) as k-mers no
+longer compete with host sequences.
+
+### Figure 3: STAT vs pathogens-only Kraken2 DB (n=32)
+
+Points above the diagonal indicate the Kraken2 DB detects more than STAT; points
+below indicate STAT reports more. Two distinct patterns emerge by pathogen group:
+
+- **Basidiomycota rusts (*Puccinia* spp.):** STAT strongly underestimates (STAT
+  2–9% vs DB 10–41% for PST runs). STAT's k-mer reference inadequately covers
+  rust fungi, confirming the original motivation for this pipeline.
+- **Ascomycota (*Zymoseptoria tritici*, *Puccinia graminis*):** STAT tends to
+  overestimate vs the DB (STAT 37–41% vs DB 7–13% for some *Z. tritici* runs),
+  likely due to broad k-mer matches to non-diagnostic sequences in the STAT
+  reference.
+- **Overall correlation:** *r* = 0.15 across all 32 runs, with the divergence
+  explained almost entirely by pathogen taxonomy. Runs agree well for *Sclerotinia*
+  and *Monilinia*.
 
 ### Key finding
 
-Including host sequences in the database is fundamentally counterproductive.
-Host identity is more accurately and efficiently obtained from SRA run metadata
-(submitter-declared organism). The pathogens-only database is smaller (~1.9 GB vs
-3.4 GB), loads faster on Lustre, and assigns 100% of classified reads to the
-pathogen signal of interest.
+The pathogens-only Kraken2 DB outperforms STAT for Basidiomycota pathogens,
+eliminates host noise entirely, and is more specific than the unmasked DB for
+Ascomycota pathogens. It is the recommended tool for full production screening
+of ~8,243 HC biosample-representative runs.

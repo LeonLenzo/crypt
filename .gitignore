@@ -59,6 +59,9 @@ kraken/output/classify_control/
 .claude/
 CLAUDE.md
 
+# Colleague correspondence / external documents
+kristina/
+
 # Python
 __pycache__/
 *.pyc

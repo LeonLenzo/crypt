@@ -15,5 +15,5 @@ cd /scratch/pawsey1168/llenzo/crypt
 python kraken/download.py \
     --run-list kraken/control/output/data/run_ids.txt \
     --reads-dir /scratch/pawsey1168/llenzo/kraken_reads/control \
-    --workers 16 \
+    --workers 24 \
     --n-reads 500000

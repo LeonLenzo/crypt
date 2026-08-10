@@ -36,7 +36,7 @@ IN_DIR  = Path("stat/output/fetch_runs/data")
 OUT_DIR = Path("kraken/output/download")
 
 N_READS = 500_000
-WORKERS = 16
+WORKERS = 24
 
 _index_lock = threading.Lock()
 

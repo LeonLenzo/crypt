@@ -57,9 +57,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from _util import _Tee, make_log_dir, link_latest
 
-DB_PATH      = Path("output/00_build/data/phibase_db.json")
+DB_PATH      = Path("stat/output/data/phibase_db.json")
 REF_SCREEN   = Path("kraken/ref_screen.tsv")
-OUT_DIR      = Path("output/kraken_build")
+OUT_DIR      = Path("kraken/output")
 DEFAULT_DB   = Path("kraken/db")
 DEFAULT_GEN  = Path("kraken/cds_from_genomic")
 

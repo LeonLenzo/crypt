@@ -1,33 +1,37 @@
-# Large STAT cache — 1.9 GB, auto-fetched by 01_fetch_runs.py
-output/01_fetch_runs/data/stat_cache.jsonl
-output/01_fetch_runs/data/stat_cache_index.txt
+# Large STAT cache — 1.9 GB, auto-fetched by stat/fetch_runs.py
+stat/output/data/stat_cache.jsonl
+stat/output/data/stat_cache_index.txt
 
-# SRA run/UID caches — auto-fetched by 01_fetch_runs.py
-output/01_fetch_runs/data/*_runs.json
-output/01_fetch_runs/data/*_uids.json
+# SRA run/UID caches — auto-fetched by stat/fetch_runs.py
+stat/output/data/*_runs.json
+stat/output/data/*_uids.json
 
 # Intermediate confirmed-run caches — regeneratable from stat_cache
-output/02_filter_runs/data/*_confirmed.json
+stat/output/data/*_confirmed.json
 
 # Large species distribution table (38k rows)
-output/02_filter_runs/data/*_species_dist.tsv
+stat/output/data/*_species_dist.tsv
 
-# Literature Entrez cache — bootstraps 03b_fetch_literature.py on re-run
-output/03b_fetch_literature/data/lit_cache.json
+# Literature Entrez cache — bootstraps metadata/fetch_lit.py on re-run
+metadata/output/data/lit_cache.json
 
 # LLM classification cache — append-only API response log
-output/05_llm_classify/data/classify_cache.jsonl
+metadata/output/data/classify_cache.jsonl
 
-# BioSample XML intermediate fetch cache — regeneratable by 03a_fetch_xml.py
-output/03a_fetch_xml/data/biosample_cache.json
+# BioSample XML intermediate fetch cache — regeneratable by metadata/fetch_xml.py
+metadata/output/data/biosample_cache.json
 
 # Timestamped log history dirs + .latest symlinks — auto-generated, local
-output/*/logs/history/
-output/*/logs/*.latest
+stat/output/logs/history/
+stat/output/logs/*.latest
+metadata/output/logs/history/
+metadata/output/logs/*.latest
+kraken/output/logs/history/
+kraken/output/logs/*.latest
 
-# Reference DB source files — auto-downloaded by 00_build.py
-output/00_build/data/phi-base_current.csv
-output/00_build/data/ictv_vmr.xlsx
+# Reference DB source files — auto-downloaded by stat/build.py
+stat/output/data/phi-base_current.csv
+stat/output/data/ictv_vmr.xlsx
 
 # Legacy pipeline outputs
 output/legacy/

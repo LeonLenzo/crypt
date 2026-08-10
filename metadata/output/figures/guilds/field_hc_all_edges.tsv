@@ -1,0 +1,57 @@
+node1	node2	weight	dominant_treatment	treatment_breakdown
+Puccinia striiformis f. sp. tritici	Zymoseptoria tritici	35	single	single:35
+Puccinia striiformis	Zymoseptoria tritici	25	single	single:25
+Alternaria alternata	Puccinia striiformis f. sp. tritici	24	single	single:24
+Orthotospovirus impatiensnecromaculae	Varicosavirus lactucae	18	single	single:18
+Ophiovirus mirafioriense	Orthotospovirus impatiensnecromaculae	14	single	single:14
+Puccinia graminis f. sp. tritici	Zymoseptoria tritici	13	single	single:13
+Bipolaris zeicola	Exserohilum turcicum	12	host_study	host_study:12
+Mirafiori lettuce big-vein virus	Orthotospovirus impatiensnecromaculae	11	single	single:11
+Alternaria alternata	Puccinia striiformis	11	single	single:11
+Puccinia triticina	Zymoseptoria tritici	10	single	single:10
+Puccinia striiformis f. sp. tritici	Pyrenophora tritici-repentis	8	single	single:8
+Parastagonospora nodorum	Puccinia striiformis f. sp. tritici	8	single	single:8
+Ophiovirus mirafioriense	Varicosavirus lactucae	7	single	single:7
+Alternaria alternata	Exserohilum turcicum	7	host_study	host_study:6|single:1
+Mirafiori lettuce big-vein virus	Varicosavirus lactucae	6	single	single:6
+Enamovirus PEMV	Potyvirus pisumsemenportati	6	surveillance	surveillance:6
+Enamovirus PEMV	Umbravirus pisi	6	surveillance	surveillance:6
+Potyvirus pisumsemenportati	Umbravirus pisi	6	surveillance	surveillance:6
+Alternaria alternata	Bipolaris zeicola	6	host_study	host_study:6
+Alternaria alternata	Zymoseptoria tritici	5	single	single:5
+Mirafiori lettuce big-vein virus	Ophiovirus mirafioriense	5	single	single:5
+Alternaria alternata	Pyrenophora tritici-repentis	5	single	single:5
+Enamovirus PEMV	Potyvirus phaseoluteum	5	surveillance	surveillance:5
+Bean common mosaic virus	Peanut stripe virus	5	surveillance	surveillance:3|host_study:2
+Papaya ringspot virus	Tobacco ringspot virus	5	host_study	host_study:5
+Puccinia striiformis	Pyrenophora tritici-repentis	4	single	single:4
+Parastagonospora nodorum	Puccinia graminis f. sp. tritici	4	single	single:4
+Parastagonospora nodorum	Puccinia striiformis	4	single	single:4
+Potyvirus phaseoluteum	Potyvirus pisumsemenportati	4	surveillance	surveillance:4
+Potyvirus phaseoluteum	Umbravirus pisi	4	surveillance	surveillance:4
+Broad bean wilt virus 2	Cucumber mosaic virus	4	surveillance	surveillance:4
+Pyrenophora tritici-repentis	Zymoseptoria tritici	3	single	single:3
+Bipolaris sorokiniana	Puccinia striiformis f. sp. tritici	3	single	single:3
+Alternaria solani	Puccinia striiformis	3	single	single:3
+Listeria monocytogenes	Puccinia striiformis f. sp. tritici	3	single	single:3
+Bean common mosaic virus	Cucumber mosaic virus	3	surveillance	surveillance:3
+Bean common mosaic virus	Peanut mottle virus	3	host_study	host_study:2|surveillance:1
+Watermelon mosaic virus	Zucchini yellow mosaic virus	3	surveillance	surveillance:3
+Bipolaris sorokiniana	Pyricularia oryzae	3	single	single:2|host_study:1
+Leptosphaeria maculans	Zymoseptoria tritici	2	single	single:2
+Leptosphaeria maculans	Puccinia striiformis f. sp. tritici	2	single	single:2
+Colletotrichum fructicola	Moniliophthora perniciosa	2	single	single:2
+Colletotrichum siamense	Moniliophthora perniciosa	2	single	single:2
+Parastagonospora nodorum	Zymoseptoria tritici	2	single	single:2
+Alternaria alternata	Alternaria solani	2	single	single:2
+Exserohilum turcicum	Puccinia striiformis f. sp. tritici	2	single	single:2
+Alternaria alternata	Fusarium graminearum	2	single	single:2
+Alternaria alternata	Plasmopara viticola	2	single	single:2
+Orthotospovirus impatiensnecromaculae	Sclerotinia sclerotiorum	2	single	single:2
+Carrot virus Y	Celery mosaic virus	2	surveillance	surveillance:2
+Broad bean wilt virus 2	Potato virus Y	2	surveillance	surveillance:2
+Peanut mottle virus	Peanut stripe virus	2	host_study	host_study:2
+Bromovirus SVS	Turnip crinkle virus	2	single	single:2
+Alternaria alternata	Colletotrichum higginsianum	2	single	single:1|host_study:1
+Brassica yellows virus	Turnip yellows virus	2	surveillance	surveillance:2
+Pepper vein yellows virus	Potyvirus capsivenamaculae	2	surveillance	surveillance:2

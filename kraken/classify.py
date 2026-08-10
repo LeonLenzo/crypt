@@ -71,11 +71,11 @@ def _ena_fastq_urls(run: str) -> list[str]:
     if len(lines) < 2:
         return []
     ftp_field = lines[1].split("\t")[-1]
-    return [f"ftp://{p.strip()}" for p in ftp_field.split(";") if p.strip()]
+    return [f"https://{p.strip()}" for p in ftp_field.split(";") if p.strip()]
 
 
 def _stream_fastq(url: str, n_reads: int, dest: Path) -> bool:
-    """Stream n_reads from a gzipped ENA FTP URL into dest (plain FASTQ)."""
+    """Stream n_reads from a gzipped ENA HTTPS URL into dest (plain FASTQ)."""
     cmd = ["bash", "-c",
            f'curl --silent --fail --max-time 300 "{url}" | gunzip -c | head -n {n_reads * 4}']
     try:
@@ -89,8 +89,8 @@ def _stream_fastq(url: str, n_reads: int, dest: Path) -> bool:
 
 # ── Kraken2 runner ────────────────────────────────────────────────────────────
 
-def _run_kraken2(db_dir: Path, reads: list[Path],
-                 report: Path, threads: int) -> bool:
+def _run_kraken2(db_dir: Path, reads: list,
+                 report: Path, threads: int, gzipped: bool = False) -> bool:
     """Run kraken2. reads is [r1] for SE or [r1, r2] for PE."""
     cmd = [
         "kraken2",
@@ -101,6 +101,8 @@ def _run_kraken2(db_dir: Path, reads: list[Path],
         "--threads", str(threads),
         "--output", "/dev/null",   # discard per-read output; we only need the report
     ]
+    if gzipped:
+        cmd.append("--gzip-compressed")
     if len(reads) == 2:
         cmd += ["--paired", str(reads[0]), str(reads[1])]
     else:
@@ -207,14 +209,29 @@ def _process_run(run_id: str, db_dir: Path,
     run_tmp.mkdir(parents=True, exist_ok=True)
 
     try:
-        r1 = run_tmp / "r1.fastq"
-        r2 = run_tmp / "r2.fastq"
+        report  = run_tmp / "report.txt"
+        gzipped = False
 
-        # Reuse existing FASTQs if present (e.g. from a previous run with a different DB)
-        if r1.exists() and r1.stat().st_size > 0:
-            reads = [r1, r2] if (r2.exists() and r2.stat().st_size > 0) else [r1]
-            is_paired = len(reads) == 2
+        # ── Use pre-downloaded reads from reads_dir (download.py output) ──────
+        local_reads = []
+        if reads_dir is not None:
+            r1_pe = reads_dir / f"{run_id}_1.fastq.gz"
+            r2_pe = reads_dir / f"{run_id}_2.fastq.gz"
+            r1_se = reads_dir / f"{run_id}.fastq.gz"
+            if r1_pe.exists() and r1_pe.stat().st_size > 0:
+                local_reads = ([r1_pe, r2_pe]
+                               if (r2_pe.exists() and r2_pe.stat().st_size > 0)
+                               else [r1_pe])
+            elif r1_se.exists() and r1_se.stat().st_size > 0:
+                local_reads = [r1_se]
+
+        if local_reads:
+            reads   = local_reads
+            gzipped = True
         else:
+            # ── Stream from ENA HTTPS ─────────────────────────────────────────
+            r1 = run_tmp / "r1.fastq"
+            r2 = run_tmp / "r2.fastq"
             urls = _ena_fastq_urls(run_id)
             if not urls:
                 result["error"] = "no_ena_urls"
@@ -234,8 +251,7 @@ def _process_run(run_id: str, db_dir: Path,
                     return result
                 reads = [r1]
 
-        report = run_tmp / "report.txt"
-        ok = _run_kraken2(db_dir, reads, report, threads)
+        ok = _run_kraken2(db_dir, reads, report, threads, gzipped=gzipped)
         if not ok or not report.exists():
             result["error"] = "kraken2_failed"
             return result

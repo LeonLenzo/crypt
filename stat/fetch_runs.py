@@ -47,8 +47,8 @@ from _util import _Tee, http_get, link_latest, load_json, make_log_dir, save_jso
 
 # ── Settings ──────────────────────────────────────────────────────────────────
 
-DB_PATH  = Path("stat/output/data/phibase_db.json")
-OUT_DIR  = Path("stat/output")
+DB_PATH  = Path("stat/output/build/data/phibase_db.json")
+OUT_DIR  = Path("stat/output/fetch_runs")
 
 LIBRARY_STRAT    = "RNA-Seq"
 MAL_BATCH        = 50

@@ -49,12 +49,12 @@ from _util import _Tee, link_latest, load_json, make_log_dir
 
 # ── Settings ──────────────────────────────────────────────────────────────────
 
-RUNS_TSV         = Path("stat/output/data/runs.tsv")
-BIOPROJECTS_PATH = Path("metadata/output/data/bioprojects.json")
-BIOSAMPLES_PATH  = Path("metadata/output/data/biosamples.json")
-LITERATURE_PATH  = Path("metadata/output/data/literature.json")
-PHIBASE_DB       = Path("stat/output/data/phibase_db.json")
-OUT_DIR          = Path("metadata/output")
+RUNS_TSV         = Path("stat/output/filter_runs/data/runs.tsv")
+BIOPROJECTS_PATH = Path("metadata/output/fetch_xml/data/bioprojects.json")
+BIOSAMPLES_PATH  = Path("metadata/output/fetch_xml/data/biosamples.json")
+LITERATURE_PATH  = Path("metadata/output/fetch_lit/data/literature.json")
+PHIBASE_DB       = Path("stat/output/build/data/phibase_db.json")
+OUT_DIR          = Path("metadata/output/filter_kw")
 
 OUTPUT_FIELDS = [
     # BioSample identity

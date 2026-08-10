@@ -19,10 +19,10 @@ import csv
 import json
 from pathlib import Path
 
-STAT_CACHE = Path("stat/output/data/stat_cache.jsonl")
-RUNS_TSV   = Path("stat/output/data/runs.tsv")
-MAL_RUNS   = Path("stat/output/data/mal_runs.json")
-HAL_RUNS   = Path("stat/output/data/hal_runs.json")
+STAT_CACHE = Path("stat/output/fetch_runs/data/stat_cache.jsonl")
+RUNS_TSV   = Path("stat/output/filter_runs/data/runs.tsv")
+MAL_RUNS   = Path("stat/output/fetch_runs/data/mal_runs.json")
+HAL_RUNS   = Path("stat/output/fetch_runs/data/hal_runs.json")
 OUT_TSV    = Path("stat/output/figures/scatter/scatter_data.tsv")
 
 # ── Load gate-pass metadata from runs.tsv ─────────────────────────────────────

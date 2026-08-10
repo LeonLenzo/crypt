@@ -6,7 +6,7 @@ suppressPackageStartupMessages({
   library(ggplot2); library(dplyr); library(tidyr); library(stringr)
 })
 
-RUNS_TSV    <- "stat/output/data/runs.tsv"
+RUNS_TSV    <- "stat/output/filter_runs/data/runs.tsv"
 OUT         <- "metadata/output/figures/novel_heatmap/novel_heatmap"
 TOP_PATHS   <- 35
 TOP_HOSTS   <- 30

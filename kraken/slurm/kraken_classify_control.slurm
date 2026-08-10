@@ -34,7 +34,7 @@ echo "DB: $DB_DIR"
 python kraken/classify.py \
     --run-list kraken/control/output/data/run_ids.txt \
     --db "$DB_DIR" \
-    --out-dir kraken/output/kraken_classify_control \
+    --out-dir kraken/output/classify_control \
     --workers 8 \
     --kraken-threads 4 \
     --tmp-dir "$SCRATCH/kraken_tmp"

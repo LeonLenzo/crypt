@@ -52,8 +52,8 @@ WORKERS            = 8          # parallel runs
 # Temp dir: use Setonix scratch if available, else system tmp
 SCRATCH = Path(os.environ.get("MYSCRATCH", tempfile.gettempdir())) / "kraken_tmp"
 
-IN_DIR  = Path("stat/output/data")
-OUT_DIR = Path("kraken/output")
+IN_DIR  = Path("stat/output/fetch_runs/data")
+OUT_DIR = Path("kraken/output/classify")
 
 # ── ENA FTP helpers ───────────────────────────────────────────────────────────
 

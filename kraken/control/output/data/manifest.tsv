@@ -1,0 +1,11 @@
+stratum	target	actual	description
+A	200	0	
+B	500	500	0% fungi/oomycete (plant host, no pathogen)
+B2	200	200	single pathogen, 0% host reads
+C	200	198	single pathogen, lab, low (0.5–2%)
+D	200	192	single pathogen, lab, medium (2–10%)
+E	200	196	single pathogen, lab, high (>10%)
+F	400	345	single pathogen, field
+G	all	153	intentional co-infection experiment
+H	400	86	HC field co-infected, diff-genus
+I	all	603	same-genus secondary (LCA collapse test)

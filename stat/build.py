@@ -496,7 +496,7 @@ class PhibaseDB:
 
 # ── CLI ───────────────────────────────────────────────────────────────────────
 
-OUT_DIR = Path("stat/output")
+OUT_DIR = Path("stat/output/build")
 
 
 def main() -> None:

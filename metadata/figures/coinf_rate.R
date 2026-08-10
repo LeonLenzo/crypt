@@ -6,7 +6,7 @@ suppressPackageStartupMessages({
   library(ggplot2); library(dplyr); library(stringr)
 })
 
-RUNS_TSV  <- "stat/output/data/runs.tsv"
+RUNS_TSV  <- "stat/output/filter_runs/data/runs.tsv"
 OUT        <- "metadata/output/figures/coinf_rate/coinf_rate"
 MIN_BS     <- 10
 N_HOSTS    <- 20

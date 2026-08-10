@@ -19,10 +19,10 @@ import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
-RUNS_TSV   = Path("stat/output/data/runs.tsv")
-LLM_TSV    = Path("metadata/output/data/bioproject_llm.tsv")
-KW_TSV     = Path("metadata/output/data/biosample_kw.tsv")
-DB_PATH    = Path("stat/output/data/phibase_db.json")
+RUNS_TSV   = Path("stat/output/filter_runs/data/runs.tsv")
+LLM_TSV    = Path("metadata/output/llm_classify/data/bioproject_llm.tsv")
+KW_TSV     = Path("metadata/output/filter_kw/data/biosample_kw.tsv")
+DB_PATH    = Path("stat/output/build/data/phibase_db.json")
 
 MIN_EDGE_WEIGHT = 1
 _SKIP = {"environmental samples"}

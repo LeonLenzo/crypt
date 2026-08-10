@@ -59,9 +59,9 @@ _RNA_SOURCES = {
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 
-OUT_DIR   = Path("stat/output")
-DB_PATH   = Path("stat/output/data/phibase_db.json")
-JSONL_PATH = Path("stat/output/data/stat_cache.jsonl")
+OUT_DIR   = Path("stat/output/filter_runs")
+DB_PATH   = Path("stat/output/build/data/phibase_db.json")
+JSONL_PATH = Path("stat/output/fetch_runs/data/stat_cache.jsonl")
 
 BREAKPOINTS      = [0.1, 0.25, 0.5, 1.0, 2.0, 5.0, 10.0, 20.0]
 ABS_COUNT_FLOORS = [100, 250, 500, 1_000, 2_000, 5_000]
@@ -564,11 +564,11 @@ def _mode_summary(rows: list[dict], mode: str) -> str:
 # ── Single-pass mode processing ───────────────────────────────────────────────
 
 def _find_runs_path(mode: str) -> Path:
-    for base in (Path("stat/output/data"), Path("stat/output")):
+    for base in (Path("stat/output/fetch_runs/data"), Path("stat/output/fetch_runs")):
         p = base / f"{mode}_runs.json"
         if p.exists():
             return p
-    sys.exit(f"{mode}_runs.json not found under stat/output/")
+    sys.exit(f"{mode}_runs.json not found under stat/output/fetch_runs/")
 
 
 def _process_mode(mode: str, db: dict, skip_validate: bool,

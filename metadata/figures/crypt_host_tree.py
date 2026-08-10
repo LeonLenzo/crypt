@@ -23,7 +23,7 @@ from pathlib import Path
 
 from ete3 import NCBITaxa
 
-RUNS_TSV           = Path("stat/output/data/runs.tsv")
+RUNS_TSV           = Path("stat/output/filter_runs/data/runs.tsv")
 OUT_NWK             = Path("metadata/output/figures/host_tree/crypt_host_tree.nwk")
 OUT_META            = Path("metadata/output/figures/host_tree/crypt_host_tree_meta.tsv")
 VIRIDIPLANTAE_TAXID = 33090

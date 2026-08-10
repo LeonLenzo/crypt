@@ -53,10 +53,10 @@ except ImportError:
 
 # ── Settings ──────────────────────────────────────────────────────────────────
 
-BIOSAMPLE_KW = Path("metadata/output/data/biosample_kw.tsv")
-BP_XML       = Path("metadata/output/data/bioprojects.json")
-LITERATURE   = Path("metadata/output/data/literature.json")
-OUT_DIR      = Path("metadata/output")
+BIOSAMPLE_KW = Path("metadata/output/filter_kw/data/biosample_kw.tsv")
+BP_XML       = Path("metadata/output/fetch_xml/data/bioprojects.json")
+LITERATURE   = Path("metadata/output/fetch_lit/data/literature.json")
+OUT_DIR      = Path("metadata/output/llm_classify")
 CACHE_PATH   = OUT_DIR / "data" / "classify_cache.jsonl"
 
 MODEL       = "gpt-4o-mini"

@@ -1,40 +1,59 @@
 # Large STAT cache — 1.9 GB, auto-fetched by stat/fetch_runs.py
-stat/output/data/stat_cache.jsonl
-stat/output/data/stat_cache_index.txt
+stat/output/fetch_runs/data/stat_cache.jsonl
+stat/output/fetch_runs/data/stat_cache_index.txt
 
 # SRA run/UID caches — auto-fetched by stat/fetch_runs.py
-stat/output/data/*_runs.json
-stat/output/data/*_uids.json
+stat/output/fetch_runs/data/*_runs.json
+stat/output/fetch_runs/data/*_uids.json
 
 # Intermediate confirmed-run caches — regeneratable from stat_cache
-stat/output/data/*_confirmed.json
+stat/output/filter_runs/data/*_confirmed.json
 
 # Large species distribution table (38k rows)
-stat/output/data/*_species_dist.tsv
-
-# Literature Entrez cache — bootstraps metadata/fetch_lit.py on re-run
-metadata/output/data/lit_cache.json
-
-# LLM classification cache — append-only API response log
-metadata/output/data/classify_cache.jsonl
-
-# BioSample XML intermediate fetch cache — regeneratable by metadata/fetch_xml.py
-metadata/output/data/biosample_cache.json
-
-# Timestamped log history dirs + .latest symlinks — auto-generated, local
-stat/output/logs/history/
-stat/output/logs/*.latest
-metadata/output/logs/history/
-metadata/output/logs/*.latest
-kraken/output/logs/history/
-kraken/output/logs/*.latest
+stat/output/filter_runs/data/*_species_dist.tsv
 
 # Reference DB source files — auto-downloaded by stat/build.py
-stat/output/data/phi-base_current.csv
-stat/output/data/ictv_vmr.xlsx
+stat/output/build/data/phi-base_current.csv
+stat/output/build/data/ictv_vmr.xlsx
 
-# Legacy pipeline outputs
-output/legacy/
+# Literature Entrez cache — bootstraps metadata/fetch_lit.py on re-run
+metadata/output/fetch_lit/data/lit_cache.json
+
+# LLM classification cache — append-only API response log
+metadata/output/llm_classify/data/classify_cache.jsonl
+
+# BioSample XML intermediate fetch cache — regeneratable by metadata/fetch_xml.py
+metadata/output/fetch_xml/data/biosample_cache.json
+
+# Timestamped log history dirs + .latest symlinks — auto-generated, local
+stat/output/build/logs/history/
+stat/output/build/logs/*.latest
+stat/output/fetch_runs/logs/history/
+stat/output/fetch_runs/logs/*.latest
+stat/output/filter_runs/logs/history/
+stat/output/filter_runs/logs/*.latest
+metadata/output/fetch_xml/logs/history/
+metadata/output/fetch_xml/logs/*.latest
+metadata/output/fetch_lit/logs/history/
+metadata/output/fetch_lit/logs/*.latest
+metadata/output/filter_kw/logs/history/
+metadata/output/filter_kw/logs/*.latest
+metadata/output/llm_classify/logs/history/
+metadata/output/llm_classify/logs/*.latest
+kraken/output/build/logs/
+kraken/output/classify/logs/history/
+kraken/output/classify/logs/*.latest
+
+# Kraken2 classify cache — large, regeneratable on Setonix
+kraken/output/classify/data/kraken_cache*.jsonl
+kraken/output/classify/data/kraken_cache*.txt
+kraken/output/classify/data/reports/
+kraken/output/classify/data/reports_v1/
+kraken/output/classify_unmasked/
+kraken/output/classify_control/
+
+# Old output/ directory — local pipeline data, all superseded by module layout
+/output/
 
 # Claude Code project settings
 .claude/

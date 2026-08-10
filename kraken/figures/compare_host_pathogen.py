@@ -30,7 +30,7 @@ import numpy as np
 # ── paths ─────────────────────────────────────────────────────────────────────
 ROOT        = Path(__file__).resolve().parents[2]
 KRAKEN_JSON = Path("/tmp/setonix_kraken_metrics.json")
-PHIBASE     = ROOT / "stat/output/data/phibase_db.json"
+PHIBASE     = ROOT / "stat/output/build/data/phibase_db.json"
 OUT_DIR     = Path("kraken/output/figures/db_comparison")
 
 # ── load reference DB for species classification ──────────────────────────────
@@ -221,7 +221,7 @@ make_2x2(runs_all, rows_all, "p", "Pathogens-only",
          OUT_DIR / "masked_vs_pathogens.png")
 
 # ── Figure 3: STAT euk% vs pathogens-only ────────────────────────────────────
-RUNS_TSV = ROOT / "stat/output/data/runs.tsv"
+RUNS_TSV = ROOT / "stat/output/filter_runs/data/runs.tsv"
 stat_data = {}
 with open(RUNS_TSV) as f:
     for row in csv.DictReader(f, delimiter="\t"):
@@ -302,7 +302,7 @@ def _specific_hits(table, node, analyzed, min_pct=0.5):
     return sorted(best.values(), key=lambda x: -x[1])
 
 stat_raw = {}
-with open(ROOT / "stat/output/data/stat_cache.jsonl") as f:
+with open(ROOT / "stat/output/fetch_runs/data/stat_cache.jsonl") as f:
     for line in f:
         line = line.strip()
         if not line:

@@ -67,12 +67,12 @@ VIRIDIPLANTAE_TAXID = 33090
 
 # ── paths ──────────────────────────────────────────────────────────────────────
 ROOT       = Path(__file__).resolve().parents[2]
-RUNS_TSV   = ROOT / "stat/output/data/runs.tsv"
-KW_TSV     = ROOT / "metadata/output/data/biosample_kw.tsv"
-LLM_TSV    = ROOT / "metadata/output/data/bioproject_llm.tsv"
-STAT_CACHE = ROOT / "stat/output/data/stat_cache.jsonl"
-HAL_RUNS   = ROOT / "stat/output/data/hal_runs.json"
-MAL_RUNS   = ROOT / "stat/output/data/mal_runs.json"
+RUNS_TSV   = ROOT / "stat/output/filter_runs/data/runs.tsv"
+KW_TSV     = ROOT / "metadata/output/filter_kw/data/biosample_kw.tsv"
+LLM_TSV    = ROOT / "metadata/output/llm_classify/data/bioproject_llm.tsv"
+STAT_CACHE = ROOT / "stat/output/fetch_runs/data/stat_cache.jsonl"
+HAL_RUNS   = ROOT / "stat/output/fetch_runs/data/hal_runs.json"
+MAL_RUNS   = ROOT / "stat/output/fetch_runs/data/mal_runs.json"
 OUT_DIR    = ROOT / "kraken/control/output/data"
 
 

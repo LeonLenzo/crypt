@@ -22,12 +22,12 @@ OUT_PNG  = Path("metadata/output/figures/sankey/sample_funnel.png")
 # ── Load data ──────────────────────────────────────────────────────────────────
 
 llm = {}
-with open("metadata/output/data/bioproject_llm.tsv") as f:
+with open("metadata/output/llm_classify/data/bioproject_llm.tsv") as f:
     for r in csv.DictReader(f, delimiter="\t"):
         llm[r["BioProject"]] = r
 
 rows = []
-with open("metadata/output/data/biosample_kw.tsv") as f:
+with open("metadata/output/filter_kw/data/biosample_kw.tsv") as f:
     for r in csv.DictReader(f, delimiter="\t"):
         rows.append(r)
 

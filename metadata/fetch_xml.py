@@ -29,8 +29,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from _util import _Tee, http_get, link_latest, load_json, make_log_dir, save_json
 
-RUNS_TSV        = Path("stat/output/data/runs.tsv")
-OUT_DIR         = Path("metadata/output")
+RUNS_TSV        = Path("stat/output/filter_runs/data/runs.tsv")
+OUT_DIR         = Path("metadata/output/fetch_xml")
 BIOSAMPLE_CACHE = OUT_DIR / "data" / "biosample_cache.json"
 
 API_KEY  = os.environ.get("NCBI_API_KEY", "")

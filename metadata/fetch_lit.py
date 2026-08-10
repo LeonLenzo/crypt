@@ -39,9 +39,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from _util import _Tee, http_get, link_latest, load_json, make_log_dir, save_json
 
-RUNS_TSV      = Path("stat/output/data/runs.tsv")
-CACHE_PATH    = Path("metadata/output/data/lit_cache.json")
-OUT_DIR       = Path("metadata/output")
+RUNS_TSV      = Path("stat/output/filter_runs/data/runs.tsv")
+CACHE_PATH    = Path("metadata/output/fetch_lit/data/lit_cache.json")
+OUT_DIR       = Path("metadata/output/fetch_lit")
 
 CACHE_VERSION = 5
 METHODS_MAX_CHARS = 8000

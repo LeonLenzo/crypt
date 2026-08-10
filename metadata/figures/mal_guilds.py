@@ -22,8 +22,8 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-RUNS_TSV        = Path("stat/output/data/runs.tsv")
-DB_PATH         = Path("stat/output/data/phibase_db.json")
+RUNS_TSV        = Path("stat/output/filter_runs/data/runs.tsv")
+DB_PATH         = Path("stat/output/build/data/phibase_db.json")
 NODES_TSV       = Path("metadata/output/figures/guilds/mal_guild_nodes.tsv")
 EDGES_TSV       = Path("metadata/output/figures/guilds/mal_guild_edges.tsv")
 

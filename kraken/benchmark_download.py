@@ -45,7 +45,7 @@ SEED = 42
 
 # ── ENA metadata ──────────────────────────────────────────────────────────────
 
-def _ena_urls(run: str) -> dict[str, str]:
+def _ena_urls(run: str) -> dict:
     """Return {'ftp': url, 'https': url} for R1, or empty dict."""
     api = (f"https://www.ebi.ac.uk/ena/portal/api/filereport"
            f"?accession={run}&result=read_run&fields=fastq_ftp,fastq_bytes&format=tsv")

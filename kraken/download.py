@@ -39,6 +39,20 @@ N_READS = 500_000
 WORKERS = 24
 
 _index_lock = threading.Lock()
+_error_lock = threading.Lock()
+
+
+# ── Error log ─────────────────────────────────────────────────────────────────
+
+def _log_error(run: str, error: str, log_dir: Path) -> None:
+    ts = time.strftime("%Y-%m-%dT%H:%M:%S")
+    with _error_lock:
+        with open(log_dir / "errors.log", "a") as f:
+            fcntl.flock(f, fcntl.LOCK_EX)
+            try:
+                f.write(f"{ts}\t{run}\t{error}\n")
+            finally:
+                fcntl.flock(f, fcntl.LOCK_UN)
 
 
 # ── ENA HTTPS helpers ─────────────────────────────────────────────────────────
@@ -236,6 +250,7 @@ def main() -> None:
             if result.get("error"):
                 n_err += 1
                 status = f"ERR({result['error']})"
+                _log_error(run, result["error"], log_dir)
             else:
                 n_ok += 1
                 pe_str = "PE" if result.get("is_paired") else "SE"

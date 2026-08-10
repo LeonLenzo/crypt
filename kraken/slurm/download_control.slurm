@@ -12,7 +12,7 @@ module load python/3.11.6
 
 cd /scratch/pawsey1168/llenzo/crypt
 
-python kraken/download.py \
+python -u kraken/download.py \
     --run-list kraken/control/output/data/run_ids.txt \
     --reads-dir /scratch/pawsey1168/llenzo/kraken_reads/control \
     --workers 24 \

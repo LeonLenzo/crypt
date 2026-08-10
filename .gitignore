@@ -57,6 +57,7 @@ kraken/output/classify_control/
 
 # Claude Code project settings
 .claude/
+CLAUDE.md
 
 # Python
 __pycache__/

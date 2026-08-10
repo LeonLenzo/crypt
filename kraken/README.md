@@ -1,128 +1,69 @@
-# Kraken2 orthogonal classification
+# kraken — Orthogonal Kraken2 Species-level Validation
 
 ## Rationale
 
-The primary co-infection detection pipeline uses NCBI STAT pre-computed k-mer taxonomy
-(see `02_filter_runs.py`). A kallisto pilot on 45 rust-dominated MAL runs revealed that
-STAT fails to distinguish *Puccinia striiformis* f. sp. *tritici* (PST) from other wheat
-rusts — the diagnostic k-mer sets are too similar at the SRA database scale. This raised
-the question of whether other co-infection detections share the same reliability problem.
+The STAT-based screening pipeline relies on pre-computed k-mer profiles built from the entire SRA at NCBI scale. While this enables whole-corpus screening, it introduces a known reliability problem: k-mers shared across closely related species are promoted to the lowest common ancestor (LCA) node in the STAT database, preventing species-level resolution for taxonomically dense clades. A kallisto pilot on 45 MAL runs dominated by *Puccinia striiformis* f. sp. *tritici* (PST, wheat yellow rust) confirmed this directly — STAT assigned zero eukaryotic percentage to all 15 PST-dominated runs, while both kallisto and Kraken2 detected PST at 65–68% of classified reads. STAT resolves PST reads to the Dikarya node (kingdom-level), not species.
 
-Kraken2 with a purpose-built, curated database provides an orthogonal check:
-
-- STAT is pre-computed across the entire SRA; Kraken2 is run on-demand against a
-  controlled reference set
-- The Kraken2 DB contains only PHI-base eukaryotic pathogen CDS + PHI-base plant host
-  CDS — no environmental microbes, no human, no ambiguous sequences
-- CDS sequences (not whole genome) are used to match the spliced nature of RNA-seq reads
-  and keep the database small enough to build and query locally
-
-The primary paper figure compares STAT detections against Kraken2 detections for the
-same runs, quantifying where the two methods agree and where they diverge.
+This raises a general concern: STAT detections are reliable where pathogen k-mer sets are sufficiently unique at SRA scale, but blind spots exist for organisms that share abundant k-mers with close relatives in the database. Kraken2 with a purpose-built, curated reference addresses this by controlling the database composition explicitly.
 
 ## Database design
 
-| Component | Source | Species | Sequences |
-|---|---|---|---|
-| Pathogens | PHI-base fungi + oomycetes | 101 annotated seeds | CDS from genomic |
-| Hosts | PHI-base plant hosts | 92 annotated seeds | CDS from genomic |
+The Kraken2 database contains only PHI-base eukaryotic pathogen CDS sequences (fungi and oomycetes). Host sequences are deliberately excluded. This design choice reflects a key difference from the STAT approach: because the DB contains only pathogen sequences, `pct_classified` in Kraken2 output directly represents pathogen burden without requiring normalisation against host signal. Including host CDS would require the same Viridiplantae gate logic used in STAT MAL, reintroducing the ambiguity that the orthogonal approach is meant to resolve.
 
-Unannotated assemblies (no gene model) are excluded — without CDS coordinates there
-is no `cds_from_genomic.fna` file to use.
+### Masking
 
-Seeds with annotation but absent from the SRA data (`runs.tsv`) are still included for
-completeness, consistent with the approach taken for pathogens.
+Before database construction, each pathogen's CDS sequences are masked against k-mers shared with any other pathogen in the reference set using BBDuk (k=35, mincount=2). This species-diagnostic masking ensures that every k-mer retained in the database is unique among the included pathogens. Without masking, organisms sharing taxonomic order (e.g., *Melampsora* appearing in PST-dominated runs due to shared Pucciniales k-mers) produce false-positive detections. The masking step is pathogen-vs-pathogen only — no host sequences are used in masking.
 
-Known gaps: *Nicotiana benthamiana* has no annotated assembly in NCBI Datasets as of
-2026-08 despite having published chromosome-level assemblies (Bally et al. 2022); the
-annotated NbBMZ assembly is hosted externally on Sol Genomics Network.
+### Coverage and gaps
 
-All FASTA headers are retagged to `>kraken:taxid|TAXID|original_header` before adding
-to the library, which bypasses the 15 GB accession2taxid lookup and corrects stale
-PHI-base taxids using the `organism.taxId` field from `assembly_data_report.jsonl`.
+| Component | Source | Annotated seeds | Database |
+|-----------|--------|-----------------|----------|
+| Fungi | PHI-base plant entries | 101 species with CDS annotation | fungi + oomycetes only |
+| Oomycota | PHI-base plant entries | included above | |
 
-## Scripts
+Seeds lacking NCBI annotation (no gene model, therefore no `cds_from_genomic.fna`) are excluded — without CDS coordinates there is no transcript-compatible sequence to add. *Nicotiana benthamiana*, the most widely used model host, has no annotated assembly in NCBI Datasets as of 2026-08 despite published chromosome-level assemblies (Bally et al. 2022); this is a known gap not addressable without manual assembly integration.
 
-```
-screen_refs.py   Query NCBI Datasets for the best assembly per seed taxid.
-                 Ranks by: annotation present > gene count tier > assembly level >
-                 RefSeq (tie-breaker) > release date.
-                 --include-hosts also screens the 180 PHI-base plant host seeds.
-                 Output: ref_screen.tsv
+CDS-based sequences are used throughout rather than whole-genome sequences, for two reasons: (1) RNA-seq reads derive from spliced transcripts and align poorly to genomic sequence across introns; (2) CDS sequences are shorter and more specific, reducing database size and false-positive rates.
 
-build.py         Download CDS FASTAs and build the Kraken2 database.
-                 Reads ref_screen.tsv for accessions. Skips seeds without annotation
-                 (fasta_type=genome) and deduplicates seeds sharing the same assembly.
-                 --download-only   fetch FASTAs without building
-                 --build-only      build from already-downloaded FASTAs
-                 Output: kraken/db/  (gitignored)
-                         kraken/cds_from_genomic/  (gitignored)
+## Control validation set
 
-classify.py      Stream 500k reads per run from ENA FTP and classify with Kraken2.
-                 Reads mal_runs.json / hal_runs.json from output/01_fetch_runs/data/.
-                 Resumable via append-only kraken_cache.jsonl + index file.
-                 --reports-dir   save raw kraken2 report.txt per run (reproducibility)
-                 --limit N       process at most N runs (testing)
-                 Output: output/kraken_classify/data/kraken_cache.jsonl
-```
+Before running Kraken2 classification across the full 10,995-run corpus, a stratified control validation set (2,473 runs) was constructed from `runs.tsv` to characterise the relationship between STAT detections and Kraken2 detections across the parameter space. Runs were stratified into strata A–I defined by STAT eukaryotic signal level and biosample representation, with target sizes ensuring adequate coverage of both STAT-positive (co-infected) and STAT-negative (single) biosample categories. The control set is designed to answer: where STAT and Kraken2 agree, how consistent is the quantitative signal? Where they disagree, which is more reliable?
 
 ## Parameters
 
 | Parameter | Value | Rationale |
-|---|---|---|
-| Reads per run | 500,000 | Sufficient for detection; limits ENA bandwidth |
-| Confidence | 0.1 | Standard; reduces spurious species-level calls |
-| Workers | 8 | Respects ENA concurrent connection limit |
-| Kraken2 threads/worker | 4 | workers × threads ≤ available cores |
+|-----------|-------|-----------|
+| Reads per run | 500,000 | Sufficient for species-level detection; limits ENA FTP bandwidth per run |
+| Kraken2 confidence | 0.15 | Standard setting; reduces spurious species-level calls at root/genus level |
+| Min hit groups | 3 | Requires minimers from ≥ 3 independent positions; reduces single-fragment hits |
+| Workers | 8 | Respects ENA concurrent connection guidelines |
+| Threads per worker | 4 | Workers × threads matched to available cores on Setonix |
 
-## Running
+Classification is performed on Setonix HPC (Pawsey Supercomputing Centre) via SLURM, streaming reads directly from ENA FTP without local storage. Results are written to an append-only cache (`classify/data/kraken_cache.jsonl`) enabling resumable runs.
 
-```bash
-# 1. Screen references (already done; re-run if phibase_db.json is rebuilt)
-python kraken/screen_refs.py --include-hosts
+## Pilot results
 
-# 2. Download CDS FASTAs
-python kraken/build.py --download-only
+A 45-run pilot (2026-08-05) followed by a 32-run high-confidence validation set (2026-08-07) confirmed:
 
-# 3. Build database (delete kraken/db/ first if rebuilding)
-rm -rf kraken/db/
-conda run -n kraken2 python kraken/build.py --build-only
+- STAT correctly detects the majority of HAL-mode eukaryotic co-infections where the secondary organism has a sufficiently distinct k-mer profile
+- The PST blind spot is confined to rust fungi (Pucciniales); non-rust fungal detections in the pilot set showed broad STAT–Kraken2 agreement
+- The pathogen-only DB (no host sequences) produces cleaner `pct_classified` values than the earlier masked+host DB pilot, where host background introduced noise at low pathogen burden thresholds
 
-# 4. Classify (test run first)
-conda run -n kraken2 python kraken/classify.py \
-    --mode mal --db kraken/db --limit 100 \
-    --reports-dir output/kraken_classify/data/reports
+## Limitations
 
-# Full MAL run
-conda run -n kraken2 python kraken/classify.py \
-    --mode mal --db kraken/db \
-    --reports-dir output/kraken_classify/data/reports
-```
+**ENA FTP bandwidth.** Streaming 500,000 reads per run from ENA for ~10,000 runs is network-intensive and subject to ENA connection rate limits. The classify step requires Setonix compute access and takes on the order of days for the full corpus.
 
-## Output format
+**CDS-only database misses splicing junctions.** Kraken2 k-mers span 35 bp; reads that bridge exon–exon junctions (absent from CDS sequences) will not match database k-mers, slightly reducing sensitivity. In practice this effect is small for highly expressed genes, where most reads fall within exons.
 
-`kraken_cache.jsonl` — one JSON object per run:
+**Database completeness.** The 101 annotated seed species represent a subset of the 205 PHI-base seed taxids; seeds lacking annotation are not in the database. Co-infections involving unannotated or poorly assembled pathogens are invisible to Kraken2 but detectable by STAT (which uses the full SRA k-mer set including environmental and low-coverage organisms).
 
-```json
-{
-  "run": "SRR2079621",
-  "layout": "PAIRED",
-  "error": null,
-  "ts": "2026-08-05T12:11:13",
-  "pct_classified": 37.0,
-  "pct_unclassified": 63.0,
-  "n_reads": 500000,
-  "species": [
-    {"taxid": 318829, "name": "Pyricularia oryzae", "pct": 35.78, "reads": 178924},
-    {"taxid": 5507,   "name": "Fusarium oxysporum", "pct": 0.14,  "reads": 699}
-  ]
-}
-```
+**Rust blind spot not fully characterised.** The STAT PST blind spot was confirmed by the pilot, but the extent to which other rust clades (e.g., *Melampsora*, *Hemileia*) share this problem has not been systematically tested. The control validation set includes rust-dominated strata specifically to characterise this.
 
-Species are all taxa at rank `S` in the Kraken2 report with `pct > 0`, sorted by
-percentage descending. Cross-reference `taxid` against `phibase_db.json` to distinguish
-host species from pathogen species.
+## Key output files
 
-Raw report files (saved with `--reports-dir`) preserve the full Kraken2 taxonomy tree
-including genus, family, and root counts — sufficient to recompute any summary statistic
-without re-running classification.
+| File | Contents |
+|------|----------|
+| `kraken/output/classify/data/kraken_cache.jsonl` | Append-only classification cache; one JSON object per run |
+| `kraken/output/classify/data/reports/` | Raw Kraken2 report.txt files (pilot runs; full taxonomy tree) |
+| `kraken/control/output/data/run_ids.txt` | 2,473-run stratified control validation set |
+| `kraken/control/output/data/control_runs.tsv` | Control set with stratum assignments and STAT annotations |

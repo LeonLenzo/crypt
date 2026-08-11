@@ -10,6 +10,10 @@
 #SBATCH --dependency=singleton
 
 module load python/3.11.6
+module load spack/0.23.1
+spack load kraken2
+module load gcc-native/12
+module load kraken2/2.1.2-qk2lek6
 
 cd /scratch/pawsey1168/llenzo/crypt
 

@@ -9,6 +9,8 @@
 #SBATCH --output=/scratch/pawsey1168/llenzo/crypt/kraken/output/classify/logs/smoke_%j.log
 
 module load python/3.11.6
+module load spack/0.23.1
+spack load kraken2
 
 cd /scratch/pawsey1168/llenzo/crypt
 

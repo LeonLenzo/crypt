@@ -265,10 +265,10 @@ def _process_run(run_id: str, db_dir: Path,
             if not dest.exists():
                 report.rename(dest)
 
-        # archive reads if requested
-        if reads_dir is not None:
+        # archive ENA-streamed reads (skip if reads came from local reads_dir already)
+        if reads_dir is not None and not local_reads:
             reads_dir.mkdir(parents=True, exist_ok=True)
-            suffixes = ["_1.fastq.gz", "_2.fastq.gz"] if is_paired else [".fastq.gz"]
+            suffixes = ["_1.fastq.gz", "_2.fastq.gz"] if len(reads) == 2 else [".fastq.gz"]
             for fastq, suffix in zip(reads, suffixes):
                 dest = reads_dir / f"{run_id}{suffix}"
                 if not dest.exists():

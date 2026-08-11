@@ -19,9 +19,10 @@ cd /scratch/pawsey1168/llenzo/crypt
 
 # Reads pre-downloaded by download_control.slurm — classify from local gzipped files.
 # 32 CPUs: 8 workers × 4 kraken2 threads each.
-python kraken/classify.py \
+python -u kraken/classify.py \
     --run-list kraken/control/output/data/run_ids.txt \
     --reads-dir /scratch/pawsey1168/llenzo/kraken_reads/control \
     --db /scratch/pawsey1168/llenzo/kraken/db_pathogens \
+    --reports-dir /scratch/pawsey1168/llenzo/crypt/kraken/output/classify/reports \
     --workers 8 \
     --kraken-threads 4

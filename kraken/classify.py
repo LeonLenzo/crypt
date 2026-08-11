@@ -214,15 +214,16 @@ def _process_run(run_id: str, db_dir: Path,
 
         # ── Use pre-downloaded reads from reads_dir (download.py output) ──────
         local_reads = []
+        MIN_SIZE = 10_000  # bytes; empty gzip is ~20 bytes
         if reads_dir is not None:
             r1_pe = reads_dir / f"{run_id}_1.fastq.gz"
             r2_pe = reads_dir / f"{run_id}_2.fastq.gz"
             r1_se = reads_dir / f"{run_id}.fastq.gz"
-            if r1_pe.exists() and r1_pe.stat().st_size > 0:
+            if r1_pe.exists() and r1_pe.stat().st_size >= MIN_SIZE:
                 local_reads = ([r1_pe, r2_pe]
-                               if (r2_pe.exists() and r2_pe.stat().st_size > 0)
+                               if (r2_pe.exists() and r2_pe.stat().st_size >= MIN_SIZE)
                                else [r1_pe])
-            elif r1_se.exists() and r1_se.stat().st_size > 0:
+            elif r1_se.exists() and r1_se.stat().st_size >= MIN_SIZE:
                 local_reads = [r1_se]
 
         if local_reads:

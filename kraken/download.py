@@ -89,12 +89,15 @@ def _download_run(run: str, n_reads: int, reads_dir: Path, tmp_dir: Path) -> dic
     is_paired  = len(urls) >= 2
     suffixes   = ["_1.fastq.gz", "_2.fastq.gz"] if is_paired else [".fastq.gz"]
     n_files    = 0
+    MIN_SIZE   = 10_000  # bytes; empty gzip is ~20 bytes; real reads are >> 10KB
 
     for url, suffix in zip(urls[:2], suffixes):
         dest = reads_dir / f"{run}{suffix}"
-        if dest.exists() and dest.stat().st_size > 0:
+        if dest.exists() and dest.stat().st_size >= MIN_SIZE:
             n_files += 1
             continue                        # already downloaded
+        elif dest.exists():
+            dest.unlink()                   # stale empty gzip — re-download
 
         tmp = tmp_dir / f"{run}{suffix}.tmp"
         cmd = ["bash", "-c",
@@ -103,7 +106,7 @@ def _download_run(run: str, n_reads: int, reads_dir: Path, tmp_dir: Path) -> dic
         try:
             with open(tmp, "wb") as out:
                 subprocess.run(cmd, stdout=out, timeout=660, check=False)
-            if tmp.exists() and tmp.stat().st_size > 0:
+            if tmp.exists() and tmp.stat().st_size >= MIN_SIZE:
                 tmp.rename(dest)
                 n_files += 1
             else:

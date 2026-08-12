@@ -1,53 +1,50 @@
 #!/usr/bin/env python3
 """
-kraken_build.py — download PHI-base eukaryotic pathogen CDS and build a
-pathogen-only Kraken2 database for co-infection screening of RNA-seq data.
+build.py — download selected assemblies and build the Kraken2 pathogen DB.
 
-Scope: fungi + oomycetes from phibase_db.json. Host sequences are
-intentionally excluded — host identity is inferred from SRA run metadata, and
-including host CDS creates irreducible multi-host noise from k-mer similarity
-between related plant genomes. Every k-mer in this database is pathogen-origin.
+Scope: fungi + oomycetes selected by kraken/screen_refs.py.
+  - Seed assemblies: up to 10 geographically/temporally diverse assemblies per
+    PHI-base pathogen species (pan-genome coverage).
+  - Genus fill-in: best annotated scaffold-plus assembly for each non-PHI-base
+    species within detected PHI-base genera.
+  - No BBDuk masking — Kraken2's LCA algorithm handles shared k-mers natively.
+    Shared k-mers between species resolve to their LCA (genus/family), not to a
+    false species-level hit. This allows a broad DB without sensitivity loss.
 
-Downloads CDS FASTAs (cds_from_genomic.fna) for all annotated assemblies.
-Unannotated assemblies are skipped — all have zero detections in the SRA data.
-Uses specific accessions from kraken/ref_screen.tsv — run screen_refs.py first.
+Host sequences are intentionally excluded — host identity is inferred from SRA
+run metadata; including host CDS creates irreducible noise from k-mer similarity
+between related plant genomes.
 
-Run from crypt/ (requires kraken2, datasets CLI, and bbduk.sh in PATH):
-    python kraken/build.py                         # uses kraken/db_pathogens + kraken/cds_pathogens
-    python kraken/build.py [--db-dir PATH] [--genomes-dir PATH]   # override for Setonix scratch
+Run from crypt/ (requires kraken2 and datasets CLI in PATH):
+    python kraken/build.py                         # default dirs
+    python kraken/build.py [--db-dir PATH] [--genomes-dir PATH]   # Setonix scratch
 
 Steps:
-    0. Load reference map from kraken/ref_screen.tsv (best accession per seed)
-    1. Load seed taxids from phibase_db.json (fungal + oomycete + nematode seeds)
-    2. For each seed: download FASTA via `datasets download genome accession`
-         --include cds (coding sequences) when assembly has annotation
-         --include genome (genomic)       when no annotation available
+    1. Load assembly list from kraken/ref_screen.tsv (run screen_refs.py first)
+    2. For each assembly: download FASTA via `datasets download genome accession`
+         --include cds  (annotated assemblies)
+         --include genome  (unannotated fallback)
     3. Tag FASTA headers with kraken:taxid|TAXID| (bypasses 15 GB accession2taxid)
-    4. BBDuk masking (pathogen-vs-pathogen): each pathogen's CDS is masked against
-         k-mers shared with any other pathogen in the database (kmercountexact mincount=2).
-         Retains only species-diagnostic k-mers. Eliminates same-order cross-hits
-         (e.g. Melampsora in PST runs, Puccinia striiformis k-mers in P. graminis).
-    5. Add masked pathogen FASTA to Kraken2 library
-    6. Download taxdump + build the database with `kraken2-build --build`
+    4. Add all FASTAs to Kraken2 library (--no-masking keeps low-complexity regions)
+    5. Download taxdump + build the database with `kraken2-build --build`
 
 Prerequisites:
     - kraken/ref_screen.tsv  (run: python kraken/screen_refs.py)
     - NCBI datasets CLI: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/
     - Kraken2: https://github.com/DerrickWood/kraken2
-    - BBDuk (BBTools ≥ 38.0): https://jgi.doe.gov/data-and-tools/software-tools/bbtools/
-    - ~1 GB disk for CDS FASTAs; ~4 GB for built Kraken2 DB
+    - ~5 GB disk for FASTAs; ~8 GB for built Kraken2 DB
     - Setonix: high-memory node (≥ 64 GB RAM) for --build step
 
 Output:
     {db_dir}/           Kraken2 database directory
-    {genomes_dir}/      downloaded FASTAs (one subdir per taxid)
-    output/kraken_build/logs/  build log
+    {genomes_dir}/      downloaded FASTAs (one subdir per accession)
+    kraken/output/build/logs/  build log
 """
 
 import argparse
+import csv
 import gzip
 import json
-import re
 import shutil
 import subprocess
 import sys
@@ -57,14 +54,13 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from _util import _Tee, make_log_dir, link_latest
 
-DB_PATH      = Path("stat/output/build/data/phibase_db.json")
 REF_SCREEN   = Path("kraken/ref_screen.tsv")
 OUT_DIR      = Path("kraken/output/build")
 DEFAULT_DB   = Path("kraken/db")
 DEFAULT_GEN  = Path("kraken/cds_from_genomic")
 
-TAXDUMP_URL   = "https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz"
-ACACIA_BUCKET = "pawsey1168-llenzo-kraken-db"
+TAXDUMP_URL     = "https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz"
+ACACIA_BUCKET   = "pawsey1168-llenzo-kraken-db"
 ACACIA_ENDPOINT = "https://projects.pawsey.org.au"
 ACACIA_PROFILE  = "acacia"
 
@@ -72,53 +68,56 @@ ACACIA_PROFILE  = "acacia"
 KRAKEN2_CONFIDENCE     = 0.15
 KRAKEN2_MIN_HIT_GROUPS = 3
 
-# BBDuk k-mer length — must match Kraken2 kmer-len (default 35)
-BBDUK_KMER_LEN = 35
 
-
-def load_ref_screen(tsv_path: Path) -> dict[int, dict]:
-    """Load ref_screen.tsv → {taxid: {accession, fasta_type, has_annotation, notes}}."""
-    ref = {}
+def load_ref_screen(tsv_path: Path) -> list[dict]:
+    """Load ref_screen.tsv → list of assembly dicts, one row per selected assembly."""
     if not tsv_path.exists():
         print(f"WARNING: {tsv_path} not found — run kraken/screen_refs.py first",
               flush=True)
-        return ref
-    with open(tsv_path) as f:
-        header = f.readline().strip().split("\t")
-        for line in f:
-            parts = line.strip().split("\t")
-            row = dict(zip(header, parts))
-            taxid = int(row["taxid"])
-            ref[taxid] = {
-                "accession":      row.get("best_accession", ""),
-                "fasta_type":     row.get("fasta_type", "genome"),
+        return []
+    rows = []
+    with open(tsv_path, newline="") as fh:
+        for row in csv.DictReader(fh, delimiter="\t"):
+            if not row.get("accession"):
+                continue
+            rows.append({
+                "taxid":         int(row["taxid"]),
+                "organism_name": row.get("organism_name", str(row["taxid"])),
+                "kingdom":       row.get("kingdom", ""),
+                "source":        row.get("source", "seed"),
+                "accession":     row["accession"],
+                "fasta_type":    row.get("fasta_type", "genome"),
                 "has_annotation": row.get("has_annotation", "False") == "True",
-                "release_date":   row.get("release_date", ""),
-                "genes":          row.get("protein_coding_genes", ""),
-                "notes":          row.get("notes", ""),
-            }
-    return ref
+            })
+    n_seed = sum(1 for r in rows if r["source"] == "seed")
+    n_fill = sum(1 for r in rows if r["source"] == "genus_fill")
+    print(f"Assemblies in ref_screen.tsv: {len(rows)} "
+          f"({n_seed} seed pan-genome, {n_fill} genus fill-in)", flush=True)
+    return rows
 
 
-def load_seed_taxids(db_path: Path) -> tuple[dict[int, str], dict[str, str]]:
-    """Return {seed_taxid: kingdom} for fungi + oomycetes (no hosts, no nematodes)."""
-    with open(db_path) as f:
-        raw = json.load(f)
+def scan_existing_accessions(genomes_dir: Path) -> dict[str, Path]:
+    """Scan genomes_dir for already-downloaded assemblies regardless of directory naming.
 
-    seeds: dict[int, str] = {}
-    for taxid in set(raw["fungal_to_seed"].values()):
-        seeds[int(taxid)] = "fungi"
-    for taxid in set(raw["oomycete_to_seed"].values()):
-        seeds[int(taxid)] = "oomycete"
-    # host seeds intentionally excluded — host identity inferred from SRA metadata
+    Works with both old-style ({taxid}_{kingdom}/) and new-style ({accession}/)
+    subdirectory layouts by reading assembly_data_report.jsonl files bundled with
+    every NCBI datasets download.
 
-    t2n = raw["taxid_to_name"]
-    n_fungi    = sum(1 for k in seeds.values() if k == "fungi")
-    n_oomycete = sum(1 for k in seeds.values() if k == "oomycete")
-    print(f"Seed taxids: {len(seeds)} "
-          f"({n_fungi} fungi, {n_oomycete} oomycetes)",
-          flush=True)
-    return seeds, t2n
+    Returns {accession: dir_containing_fna_files}.
+    """
+    found: dict[str, Path] = {}
+    for report in genomes_dir.glob("**/assembly_data_report.jsonl"):
+        try:
+            data = json.loads(report.read_text())
+            acc = data.get("accession", "") or report.parent.name
+            if not (acc.startswith("GCA_") or acc.startswith("GCF_")):
+                continue
+            fnas = list(report.parent.glob("**/*.fna")) or list(report.parent.parent.glob("*.fna"))
+            if fnas:
+                found[acc] = report.parent
+        except Exception:
+            pass
+    return found
 
 
 def read_assembly_taxid(taxon_dir: Path, seed_taxid: int) -> int:
@@ -226,143 +225,6 @@ def add_to_library(fna_path: Path, db_dir: Path) -> bool:
     return True
 
 
-def _concat_fnas(fnas: list[Path], dest: Path) -> None:
-    """Concatenate FASTA files into dest."""
-    with open(dest, "wb") as out:
-        for p in fnas:
-            with open(p, "rb") as f:
-                shutil.copyfileobj(f, out)
-
-
-def _kmer_shared(combined: Path, out: Path, threads: int,
-                 jvm_xmx: str = "") -> Path | None:
-    """
-    Extract k-mers appearing ≥2 times in combined.fna using kmercountexact.sh.
-    These are k-mers shared between ≥2 sequences (cross-species) or duplicated
-    within a single genome (repetitive CDS — minor over-masking, acceptable).
-    Output is a FASTA of k-mer sequences usable as a BBDuk reference.
-    Returns out path on success, None on failure.
-    """
-    if out.exists():
-        print(f"    shared k-mers already computed ({out.name})", flush=True)
-        return out
-
-    sz_gb = combined.stat().st_size / 1e9
-    print(f"    kmercountexact: counting k={BBDUK_KMER_LEN}-mers in "
-          f"{combined.name} ({sz_gb:.2f} GB) …", flush=True)
-    cmd = ["kmercountexact.sh"]
-    if jvm_xmx:
-        cmd.append(f"-Xmx{jvm_xmx}")
-    cmd += [
-        f"in={combined}",
-        f"out={out}",
-        f"k={BBDUK_KMER_LEN}",
-        "fastadump=t",   # output as FASTA (BBDuk-readable reference)
-        "mincount=2",    # only k-mers shared between ≥2 locations
-        f"threads={threads}",
-        "overwrite=t",
-    ]
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=7200)
-
-    if result.returncode != 0:
-        print(f"    kmercountexact ERROR (exit {result.returncode}):", flush=True)
-        print(result.stderr[-1000:], flush=True)
-        return None
-
-    # Count > lines in the output file (not stdout, which has only progress messages)
-    n_shared = sum(1 for l in out.open() if l.startswith(">")) if out.exists() else 0
-    print(f"    → {n_shared:,} shared k-mers written to {out.name}", flush=True)
-    return out
-
-
-def _run_bbduk(in_fna: Path, out_fna: Path, ref_paths: list[Path], threads: int,
-               jvm_xmx: str = "") -> bool:
-    """Mask k-mers in in_fna that appear in any ref_paths file. kmask=N."""
-    if out_fna.exists():
-        print(f"    already masked: {out_fna.name}", flush=True)
-        return True
-
-    ref_str = ",".join(str(p) for p in ref_paths)
-    cmd = ["bbduk.sh"]
-    if jvm_xmx:
-        cmd.append(f"-Xmx{jvm_xmx}")
-    cmd += [
-        f"in={in_fna}",
-        f"out={out_fna}",
-        f"ref={ref_str}",
-        f"k={BBDUK_KMER_LEN}",
-        "hdist=0",
-        "kmask=N",
-        f"threads={threads}",
-        "overwrite=t",
-    ]
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=7200)
-
-    if result.returncode != 0:
-        print(f"    BBDuk ERROR (exit {result.returncode}) for {in_fna.name}:", flush=True)
-        print(result.stderr[-500:], flush=True)
-        return False
-
-    for line in result.stderr.splitlines():
-        s = line.strip()
-        if s and any(x in s for x in ["Reads", "Bases", "Mask", "Result"]):
-            print(f"    {s}", flush=True)
-    return True
-
-
-def bbduk_mask_sequences(genomes_dir: Path, threads: int = 8,
-                         jvm_xmx: str = "") -> Path | None:
-    """
-    Reduce pathogen CDS to species-diagnostic k-mers: mask each pathogen's
-    sequences against k-mers shared with any other pathogen in the database
-    (kmercountexact mincount=2). Every surviving k-mer is unique to one species.
-    Eliminates same-order cross-hits (e.g. Melampsora in PST runs, Puccinia
-    striiformis k-mers in P. graminis).
-
-    Input : {genomes_dir}/{taxid}_{kingdom}/**/*.fna (already tagged)
-    Output: _pathogen_masked.fna  ready for kraken2-build
-    Intermediates kept in genomes_dir for inspection and resumability.
-    """
-    pathogen_fnas = sorted(
-        fna
-        for d in sorted(genomes_dir.iterdir())
-        if d.is_dir() and not d.name.startswith("_") and not d.name.endswith("_host")
-        for fna in d.glob("**/*.fna")
-    )
-
-    print(f"  BBDuk: {len(pathogen_fnas)} pathogen FASTAs "
-          f"({sum(p.stat().st_size for p in pathogen_fnas)/1e9:.2f} GB)", flush=True)
-
-    if not pathogen_fnas:
-        print("  BBDuk: no FASTAs found — skipping", flush=True)
-        return None
-
-    combined_pathogens = genomes_dir / "_pathogen_combined.fna"
-    masked_pathogens   = genomes_dir / "_pathogen_masked.fna"
-
-    if not combined_pathogens.exists():
-        print(f"  Concatenating pathogens → {combined_pathogens.name} …", flush=True)
-        _concat_fnas(pathogen_fnas, combined_pathogens)
-
-    if masked_pathogens.exists():
-        print(f"  _pathogen_masked.fna already exists "
-              f"({masked_pathogens.stat().st_size/1e9:.2f} GB)", flush=True)
-        return masked_pathogens
-
-    shared_pathogen_kmers = genomes_dir / "_shared_pathogen_kmers.fna"
-    if len(pathogen_fnas) > 1:
-        r = _kmer_shared(combined_pathogens, shared_pathogen_kmers, threads, jvm_xmx)
-        if r:
-            print(f"    BBDuk: masking pathogens against shared k-mers …", flush=True)
-            _run_bbduk(combined_pathogens, masked_pathogens, [r], threads, jvm_xmx)
-        else:
-            print("    kmercountexact failed; copying pathogens unmasked.", flush=True)
-            shutil.copy2(str(combined_pathogens), str(masked_pathogens))
-    else:
-        print("    Only one pathogen FASTA — no shared k-mers to mask.", flush=True)
-        shutil.copy2(str(combined_pathogens), str(masked_pathogens))
-
-    return masked_pathogens if masked_pathogens.exists() else None
 
 
 def upload_to_acacia(local_dir: Path, s3_prefix: str) -> None:
@@ -413,25 +275,18 @@ def build_database(db_dir: Path, threads: int = 32) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--db-path", default=str(DB_PATH),
-                    help="Path to phibase_db.json")
     ap.add_argument("--ref-screen", default=str(REF_SCREEN),
-                    help="Path to ref_screen.tsv (from screen_references.py)")
+                    help="Path to ref_screen.tsv (from kraken/screen_refs.py)")
     ap.add_argument("--db-dir", default=str(DEFAULT_DB),
                     help="Kraken2 database output directory")
     ap.add_argument("--genomes-dir", default=str(DEFAULT_GEN),
                     help="Directory for downloaded FASTAs")
     ap.add_argument("--threads", type=int, default=32,
-                    help="Threads for kraken2-build --build and BBDuk (default: 32)")
+                    help="Threads for kraken2-build --build (default: 32)")
     ap.add_argument("--download-only", action="store_true",
-                    help="Download FASTAs only; skip BBDuk masking and kraken2-build steps")
+                    help="Download FASTAs only; skip kraken2-build steps")
     ap.add_argument("--build-only", action="store_true",
-                    help="Skip downloads; BBDuk-mask pathogens then add to library and build")
-    ap.add_argument("--skip-bbduk", action="store_true",
-                    help="Skip BBDuk masking step (not recommended; produces cross-species noise)")
-    ap.add_argument("--bbduk-mem", default="", metavar="XMX",
-                    help="JVM heap for BBDuk/kmercountexact (e.g. 180g). "
-                         "Required on HPC where container limits JVM auto-detection.")
+                    help="Skip downloads; add existing FASTAs to library and build")
     ap.add_argument("--upload-to-acacia", action="store_true",
                     help="After downloading, sync FASTAs to Acacia "
                          f"(s3://{ACACIA_BUCKET}/kraken_transcriptomes/)")
@@ -452,131 +307,121 @@ def main() -> None:
         genomes_dir.mkdir(parents=True, exist_ok=True)
 
         ref = load_ref_screen(Path(args.ref_screen))
-        seeds, t2n = load_seed_taxids(Path(args.db_path))
+        if not ref:
+            print("No assemblies to process. Run kraken/screen_refs.py first.", flush=True)
+            return
 
         n_downloaded = 0
+        n_cached     = 0
         n_skipped    = 0
         n_failed     = 0
         n_added      = 0
-        seen_accessions: dict[str, int] = {}
+        seen_accessions: set[str] = set()
 
-        # ── Phase 1: Download (or scan if --build-only) ───────────────────────
-        # Collect all FASTAs before masking so BBDuk has the full pathogen set.
-        downloaded: list[tuple[int, str, list[Path]]] = []  # (tag_taxid, kingdom, fnas)
+        # ── Phase 1: Download ─────────────────────────────────────────────────
+        downloaded: list[tuple[int, list[Path]]] = []  # (taxid, fnas)
 
-        for i, (taxid, kingdom) in enumerate(sorted(seeds.items()), 1):
-            name = t2n.get(str(taxid), str(taxid))
-            print(f"\n[{i}/{len(seeds)}] taxid={taxid} ({kingdom}) {name}", flush=True)
+        # Pre-scan: find assemblies already on disk (old-style or new-style dirs)
+        if not args.build_only:
+            existing = scan_existing_accessions(genomes_dir)
+            if existing:
+                print(f"Pre-scan: {len(existing)} accessions already on disk in {genomes_dir}",
+                      flush=True)
+        else:
+            existing = {}
 
-            info      = ref.get(taxid, {})
-            accession = info.get("accession", "")
-            fasta_type = info.get("fasta_type", "genome")
+        for i, asm in enumerate(ref, 1):
+            taxid      = asm["taxid"]
+            name       = asm["organism_name"]
+            accession  = asm["accession"]
+            fasta_type = asm["fasta_type"]
+            source     = asm["source"]
 
-            if not accession:
-                print("  SKIP: no assembly in ref_screen.tsv", flush=True)
-                n_skipped += 1
-                continue
+            print(f"\n[{i}/{len(ref)}] {accession}  taxid={taxid}  ({source}) {name}",
+                  flush=True)
 
             if fasta_type == "genome":
-                print("  SKIP: no annotation — zero detections in data", flush=True)
+                print("  SKIP: no annotation (CDS-only DB)", flush=True)
                 n_skipped += 1
                 continue
 
             if accession in seen_accessions:
-                print(f"  SKIP: duplicate of {accession} "
-                      f"(already added as taxid={seen_accessions[accession]})", flush=True)
+                print("  SKIP: duplicate accession", flush=True)
                 n_skipped += 1
                 continue
 
-            if info.get("notes"):
-                print(f"  NOTE: {info['notes']}", flush=True)
+            # One subdir per accession — supports multiple assemblies per taxid
+            taxon_dir = genomes_dir / accession
 
-            taxon_dir = genomes_dir / f"{taxid}_{kingdom}"
-
-            if not args.build_only:
+            if not args.build_only and accession in existing:
+                # Already on disk from a previous run (any directory layout)
+                cached_dir = existing[accession]
+                fnas = list(cached_dir.glob("**/*.fna"))
+                tag_taxid = read_assembly_taxid(cached_dir, taxid)
+                print(f"  CACHED: {accession} found in {cached_dir.parent.name}/ "
+                      f"({len(fnas)} fna)", flush=True)
+                seen_accessions.add(accession)
+                n_cached += 1
+            elif not args.build_only:
                 fnas = download_fasta(taxid, accession, fasta_type, taxon_dir, name)
                 if fnas:
                     tag_taxid = read_assembly_taxid(taxon_dir, taxid)
                     if tag_taxid != taxid:
                         print(f"  NOTE: taxid corrected {taxid} → {tag_taxid} "
-                              f"(stale PHI-base taxid)", flush=True)
+                              f"(stale taxid in ref_screen)", flush=True)
                     for fna in fnas:
                         tag_fasta_headers(fna, tag_taxid)
-                    seen_accessions[accession] = tag_taxid
+                    seen_accessions.add(accession)
                     n_downloaded += 1
             else:
                 fnas = list(taxon_dir.glob("**/*.fna"))
                 tag_taxid = taxid
                 if fnas:
-                    seen_accessions[accession] = taxid
+                    seen_accessions.add(accession)
 
             if not fnas:
                 n_failed += 1
                 continue
 
-            downloaded.append((tag_taxid, kingdom, fnas))
+            downloaded.append((tag_taxid, fnas))
 
         print(f"\n── Download summary ──────────────────────────────────────────")
-        print(f"  Seeds total:     {len(seeds)}")
-        print(f"  Downloaded:      {n_downloaded}")
-        print(f"  Skipped:         {n_skipped}")
-        print(f"  Failed:          {n_failed}")
+        print(f"  Assemblies total:  {len(ref)}")
+        print(f"  Cached (reused):   {n_cached}")
+        print(f"  Downloaded (new):  {n_downloaded}")
+        print(f"  Skipped:           {n_skipped}")
+        print(f"  Failed:            {n_failed}")
 
         if args.upload_to_acacia:
             upload_to_acacia(genomes_dir, "kraken_transcriptomes")
 
         if args.download_only:
-            print("\n--download-only: skipped BBDuk masking and kraken2-build steps.")
+            print("\n--download-only: skipped kraken2-build steps.")
             if args.upload_to_acacia:
                 print(f"To retrieve on Setonix:")
                 print(f"  aws s3 sync s3://{ACACIA_BUCKET}/kraken_transcriptomes/ "
-                      f"kraken/cds_from_genomic/ "
+                      f"{DEFAULT_GEN}/ "
                       f"--profile acacia --endpoint-url {ACACIA_ENDPOINT}")
             return
 
-        # ── Phase 2: BBDuk masking ─────────────────────────────────────────────
-        masked_pathogen_fna: Path | None = None
-        if not args.skip_bbduk:
-            print(f"\n── BBDuk pathogen-vs-pathogen masking ────────────────────────")
-            masked_pathogen_fna = bbduk_mask_sequences(
-                genomes_dir,
-                threads=min(args.threads, 16),  # BBDuk doesn't benefit from 32+ threads
-                jvm_xmx=args.bbduk_mem,
-            )
-            pre = genomes_dir / "_pathogen_combined.fna"
-            if pre.exists() and masked_pathogen_fna and masked_pathogen_fna.exists():
-                pre_mb    = pre.stat().st_size / 1e6
-                masked_mb = masked_pathogen_fna.stat().st_size / 1e6
-                print(f"  pathogens: {pre_mb:.0f} MB → {masked_mb:.0f} MB "
-                      f"(masking % in BBDuk output above)", flush=True)
-        else:
-            print("\n--skip-bbduk: sequences added unmasked (not recommended)", flush=True)
-
-        # ── Phase 3: Clear library + add masked sequences ──────────────────────
+        # ── Phase 2: Add to library ───────────────────────────────────────────
+        # No BBDuk masking — Kraken2 LCA handles shared k-mers natively.
         print(f"\n── Adding to Kraken2 library ────────────────────────────────────")
 
-        # Clear existing library so old unmasked files don't persist across rebuilds
         lib_dir = db_dir / "library"
         if lib_dir.exists() and list(lib_dir.iterdir()):
             print(f"  Clearing existing library ({lib_dir}) …", flush=True)
             shutil.rmtree(lib_dir)
 
-        # Add pathogen sequences: masked combined file (preferred) or individual (fallback)
-        if masked_pathogen_fna and masked_pathogen_fna.exists():
-            print(f"  Adding BBDuk-masked pathogens: {masked_pathogen_fna.name}", flush=True)
-            if add_to_library(masked_pathogen_fna, db_dir):
-                n_added += 1
-        else:
-            print("  Adding unmasked pathogen FASTAs individually …", flush=True)
-            for tag_taxid, kingdom, fnas in downloaded:
-                for fna in fnas:
-                    if add_to_library(fna, db_dir):
-                        n_added += 1
+        for tag_taxid, fnas in downloaded:
+            for fna in fnas:
+                if add_to_library(fna, db_dir):
+                    n_added += 1
 
         print(f"\n── Library summary ──────────────────────────────────────────────")
         print(f"  FASTAs added to library: {n_added}")
 
-        # ── Phase 4: Download taxonomy + build ────────────────────────────────
+        # ── Phase 3: Download taxonomy + build ────────────────────────────────
         download_taxonomy(db_dir)
         build_database(db_dir, threads=args.threads)
 

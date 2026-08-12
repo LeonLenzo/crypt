@@ -1,312 +1,606 @@
-taxid	name	kingdom	best_accession	assembly_name	assembly_level	release_date	has_annotation	protein_coding_genes	scaffold_n50_kb	total_length_mb	n_assemblies	fasta_type	notes
-105487	105487	fungi	GCA_000818155.1	ASM81815v1	Chromosome	2015-01-20	True	11284	3351	44.7	4	cds	GenBank_only(no_RefSeq)
-694573	694573	fungi	GCA_000818155.1	ASM81815v1	Chromosome	2015-01-20	True	11284	3351	44.7	4	cds	GenBank_only(no_RefSeq)
-914237	914237	fungi	GCA_046529785.1	ASM4652978v1	Complete Genome	2025-01-07	True	13726	3757	57.8	2	cds	GenBank_only(no_RefSeq)
-5599	Alternaria alternata	fungi	GCA_016097525.1	ASM1609752v1	Scaffold	2020-12-16	True	24347	2282	35.0	150	cds	GenBank_only(no_RefSeq)
-29001	Alternaria brassicicola	fungi	GCA_059186605.1	Altbr_DSM62008	Contig	2026-07-10	True	9763	2019	33.7	11	cds	GenBank_only(no_RefSeq); contig_level
-135859	Alternaria citri	fungi					False				0		NCBI query failed
-160389	Alternaria longipes	fungi	GCA_019059555.1	ASM1905955v1	Chromosome	2021-06-29	False		3599	39.4	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-48097	Alternaria panax	fungi	GCA_019702505.1	ASM1970250v1	Scaffold	2021-08-20	True	11837	4172	34.8	1	cds	GenBank_only(no_RefSeq)
-48100	Alternaria solani	fungi	GCA_002952155.1	ASM295215v1	Complete Genome	2018-02-14	False		2867	32.8	4	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-205686	Ascochyta lentis	fungi	GCA_016097375.2	AlKewell	Complete Genome	2025-03-24	True	13938	1825	41.7	15	cds	GenBank_only(no_RefSeq)
-5454	Ascochyta rabiei	fungi	GCF_004011695.2	ASM401169v2	Complete Genome	2022-08-25	True	11525	1945	40.8	23	cds	
-40993	Aspergillus carbonarius	fungi	GCA_001990825.1	Aspca3	Scaffold	2017-02-15	True	11475	1828	36.1	1	cds	GenBank_only(no_RefSeq)
-5059	Aspergillus flavus	fungi	GCF_009017415.1	ASM901741v1	Complete Genome	2019-10-13	True	13707	4810	37.7	343	cds	
-5061	Aspergillus niger	fungi	GCA_055697485.1	ASM5569748v1	Chromosome	2026-03-05	True	11113	4304	35.6	128	cds	GenBank_only(no_RefSeq)
-40380	Aspergillus ochraceus	fungi	GCA_026108165.1	ASM2610816v1	Scaffold	2022-11-09	False		1169	35.1	5	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-176275	Beauveria bassiana	fungi	GCF_000280675.1	ASM28067v1	Scaffold	2012-08-14	True	10364	730	33.7	227	cds	OLD_assembly(2012)
-5016	Bipolaris maydis	fungi	GCF_028858645.1	CocheC4_6	Scaffold	2023-02-23	True	11323	2056	37.8	13	cds	
-101162	Bipolaris oryzae	fungi	GCF_000523455.1	Cochliobolus miyabeanus v1.0	Scaffold	2014-01-30	True	12000	134	31.4	11	cds	OLD_assembly(2014)
-45130	Bipolaris sorokiniana	fungi	GCF_000338995.1	Cocsa1	Scaffold	2013-02-19	True	12210	1789	34.4	20	cds	OLD_assembly(2013)
-40125	Bipolaris victoriae	fungi	GCF_000527765.1	Cochliobolus victoriae v1.0	Scaffold	2014-02-03	True	12882	231	32.8	3	cds	OLD_assembly(2014)
-5017	Bipolaris zeicola	fungi	GCF_000523435.1	Cochliobolus carbonum v1.0	Scaffold	2014-01-30	True	12848	110	31.3	5	cds	OLD_assembly(2014)
-34373	Blumeria graminis	fungi	GCA_905067625.1	Bgtriticale_THUN12_genome_v1_2	Chromosome	2021-06-18	True	7993	15158	141.4	9	cds	GenBank_only(no_RefSeq)
-55169	Botryosphaeria dothidea	fungi	GCA_021436945.2	ASM2143694v2	Scaffold	2024-04-12	True	12423	302	45.1	141	cds	GenBank_only(no_RefSeq)
-40559	Botrytis cinerea	fungi	GCA_000227075.1	BotFuc_Mar2011	Scaffold	2011-03-11	True	16353	562	39.5	66	cds	OLD_assembly(2011); GenBank_only(no_RefSeq)
-278938	Botrytis elliptica	fungi	GCA_004786205.1	ASM478620v1	Scaffold	2019-04-12	True	12555	37	47.6	3	cds	GenBank_only(no_RefSeq)
-5158	Ceratocystis fimbriata	fungi	GCA_000389695.3	Cfim3.0	Scaffold	2017-10-18	True	7266	174	30.0	8	cds	GenBank_only(no_RefSeq)
-312341	Ceratocystis harringtonii	fungi	GCA_002018265.1	ASM201826v1	Scaffold	2017-03-03	False		66	26.1	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-929235	Ceratocystis manginecans	fungi	GCA_006681795.1	ASM668179v1	Scaffold	2019-07-05	False		94	31.6	8	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-132184	Cercospora apii	fungi	GCA_026120055.1	ASM2612005v1	Scaffold	2022-11-10	False		687	33.8	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-122368	Cercospora beticola	fungi	GCF_033473495.1	ASM3347349v1	Complete Genome	2023-11-09	True	13144	4240	36.1	8	cds	
-1868926	Cercospora cf. flagellaris	fungi	GCA_058382225.1	CFLAG_v1	Scaffold	2026-06-24	False		2900	33.6	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-84275	Cercospora kikuchii	fungi	GCF_019650295.1	Ck_assembly01	Contig	2021-07-08	True	13001	4190	34.4	4	cds	contig_level
-29003	Cercospora nicotianae	fungi	GCA_002994015.1	CNIC01	Scaffold	2018-03-12	False		330	33.4	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-135779	Cercospora zeae-maydis	fungi	GCA_010093985.1	Cerzm1	Scaffold	2020-01-31	True	12008	720	46.6	2	cds	GenBank_only(no_RefSeq)
-984309	Ciboria shiraiana	fungi	GCA_008122225.1	ASM812222v1	Contig	2019-08-29	False		2399	39.1	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
-5111	Claviceps purpurea	fungi	GCA_000347355.1	ASM34735v1	Scaffold	2012-08-02	True	8823	433	32.1	58	cds	OLD_assembly(2012); GenBank_only(no_RefSeq)
-29856	Clonostachys rosea	fungi	GCA_902827195.2	C_rosea_IK726	Scaffold	2022-05-03	True	21141	1902	70.7	16	cds	GenBank_only(no_RefSeq)
-27357	Colletotrichum acutatum	fungi	GCF_030867785.1	Colac2	Contig	2023-08-24	True	15032	300	49.1	33	cds	contig_level
-702518	Colletotrichum asianum	fungi	GCA_045514765.1	ASM4551476v1	Scaffold	2024-12-02	True	16276	683	58.2	4	cds	GenBank_only(no_RefSeq)
-538528	Colletotrichum camelliae	fungi	GCA_011947485.2	ASM1194748v2	Scaffold	2021-09-10	True	14390	198	57.8	3	cds	GenBank_only(no_RefSeq)
-27358	Colletotrichum coccodes	fungi	GCA_002249775.1	ASM224977v1	Scaffold	2017-08-11	False		342	50.1	3	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-690256	Colletotrichum fructicola	fungi	GCA_013201875.1	ASM1320187v1	Scaffold	2020-06-01	True	16156	307	57.4	27	cds	GenBank_only(no_RefSeq)
-474922	Colletotrichum gloeosporioides	fungi	GCF_011800055.1	NFU_CgLc1_1.0	Scaffold	2020-03-31	True	15368	710	61.9	22	cds	
-31870	Colletotrichum graminicola	fungi	GCA_029226625.1	ASM2922662v1	Chromosome	2023-03-16	True	15139	6444	57.4	23	cds	GenBank_only(no_RefSeq)
-80884	Colletotrichum higginsianum	fungi	GCA_000313795.2	ASM31379v2	Scaffold	2012-03-15	True	16141	6	49.1	5	cds	OLD_assembly(2012); GenBank_only(no_RefSeq)
-5462	Colletotrichum lagenaria	fungi					False				0		NCBI query failed
-1585795	Colletotrichum lentis	fungi	GCA_003386485.1	ASM338648v1	Scaffold	2018-08-14	False		4891	56.1	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-290576	Colletotrichum lindemuthianum	fungi	GCA_001693025.3	UFV_Clind_v3	Scaffold	2024-10-02	False		2180	100.4	6	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-5465	Colletotrichum orbiculare	fungi	GCA_000350065.2	KSG_Corb_v2	Scaffold	2019-03-22	True	13253	2079	89.7	1	cds	GenBank_only(no_RefSeq)
-1209932	Colletotrichum scovillei	fungi	GCA_018906675.1	ASM1890667v1	Scaffold	2021-06-16	True	15385	3529	49.9	9	cds	GenBank_only(no_RefSeq)
-690259	Colletotrichum siamense	fungi	GCA_013201745.1	ASM1320174v1	Scaffold	2020-06-01	True	15044	709	58.1	28	cds	GenBank_only(no_RefSeq)
-1209068	Colletotrichum tabaci	fungi	GCA_036851105.1	ASM3685110v1	Contig	2024-02-23	True	13740	3611	52.1	1	cds	GenBank_only(no_RefSeq); contig_level
-5466	Colletotrichum trifolii	fungi	GCA_004367215.1	KSG_Cotri_v1	Scaffold	2019-03-22	True	12292	35	109.7	1	cds	GenBank_only(no_RefSeq)
-5116	Cryphonectria parasitica	fungi	GCF_011745365.1	Crypa2	Scaffold	2020-03-25	True	11588	5119	43.9	99	cds	
-5503	Curvularia lunata	fungi	GCA_005212705.1	ASM521270v1	Scaffold	2019-05-06	False		227	33.5	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-252740	Cytospora chrysosperma	fungi	GCA_003795275.1	ASM379527v1	Scaffold	2018-11-19	True	9828	456	36.2	2	cds	GenBank_only(no_RefSeq)
-64363	Dothistroma septosporum	fungi	GCA_000340195.1	Dothistroma septosporum NZE10 v1.0	Scaffold	2013-02-25	True	12415	2596	30.2	19	cds	OLD_assembly(2013); GenBank_only(no_RefSeq)
-35717	Epichloe festucae	fungi	GCA_003814445.1	ASM381444v1	Complete Genome	2018-11-23	True	7034	6202	35.0	18	cds	GenBank_only(no_RefSeq)
-93612	Exserohilum turcicum	fungi	GCF_000359705.1	Setospaeria trucica Et28A v1.0	Scaffold	2013-04-25	True	11687	2141	43.0	6	cds	OLD_assembly(2013)
-5499	Fulvia fulva	fungi	GCF_020509005.1	Cfulv_R5_v5	Complete Genome	2022-01-24	True	14993	5777	67.2	32	cds	
-282267	Fusarium asiaticum	fungi	GCA_025258505.1	ASM2525850v1	Complete Genome	2022-09-19	False		9351	38.3	257	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-40199	Fusarium avenaceum	fungi	GCA_012959155.1	ASM1295915v1	Scaffold	2020-05-04	True	15886	2237	41.7	16	cds	GenBank_only(no_RefSeq)
-48490	Fusarium circinatum	fungi	GCA_013396185.1	ASM1339618v1	Scaffold	2020-07-10	True	13905	96	42.5	19	cds	GenBank_only(no_RefSeq)
-5516	Fusarium culmorum	fungi	GCA_016952355.1	ASM1695235v1	Complete Genome	2020-11-16	True	11444	9631	37.5	14	cds	GenBank_only(no_RefSeq)
-5127	Fusarium fujikuroi	fungi	GCA_900096505.1	version 1	Scaffold	2017-10-06	True	15852	2960	44.0	31	cds	GenBank_only(no_RefSeq)
-5518	Fusarium graminearum	fungi	GCA_037213105.1	ASM3721310v1	Complete Genome	2024-03-18	True	13339	9011	37.1	137	cds	GenBank_only(no_RefSeq)
-2502994	Fusarium odoratissimum	fungi	GCF_000260195.1	FO_II5_V1	Scaffold	2014-02-19	True	16634	1130	46.6	9	cds	OLD_assembly(2014)
-5507	Fusarium oxysporum	fungi	GCA_026229875.1	ASM2622987v1	Scaffold	2022-11-17	True	31923	48	58.2	838	cds	GenBank_only(no_RefSeq)
-61366	Fusarium oxysporum f. sp. cubense	fungi	GCA_000350345.1	Foc1_1.0	Scaffold	2013-04-09	True	15438	653	47.7	22	cds	OLD_assembly(2013); GenBank_only(no_RefSeq)
-948311	Fusarium proliferatum	fungi	GCF_900067095.1	F. proliferatum ET1 version 1	Scaffold	2016-12-06	True	16129	3312	45.2	45	cds	
-101028	Fusarium pseudograminearum	fungi	GCA_016952305.1	ASM1695230v1	Complete Genome	2020-11-16	True	11217	9153	37.8	7	cds	GenBank_only(no_RefSeq)
-42676	Fusarium sacchari	fungi	GCA_055255615.1	ASM5525561v1	Scaffold	2026-02-17	False		187	45.9	6	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-5128	Fusarium sambucinum	fungi	GCF_050947815.1	OSU_Fsam_2.1	Complete Genome	2025-06-17	True	13017	9651	38.6	6	cds	
-169388	Fusarium solani	fungi	GCA_027945525.1	F_sol_A01-1	Scaffold	2023-01-24	True	17490	561	54.7	27	cds	GenBank_only(no_RefSeq)
-5514	Fusarium sporotrichioides	fungi	GCA_003012315.1	Fusarium_sporotrichioides_NRRL3299_FSPOR_contigs	Scaffold	2018-03-20	True	11961	235	37.4	5	cds	GenBank_only(no_RefSeq)
-117187	Fusarium verticillioides	fungi	GCF_000149555.1	ASM14955v1	Chromosome	2011-07-06	True	15890	1960	41.8	66	cds	OLD_assembly(2011)
-232082	Fusarium virguliforme	fungi	GCA_013363175.1	ASM1336317v1	Scaffold	2020-06-19	False		31	45.4	9	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-29850	Gaeumannomyces graminis	fungi					False				0		NCBI query failed
-13563	Heterobasidion annosum	fungi	GCA_001457955.1	BM42NG	Scaffold	2015-11-03	False		2331	28.0	4	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-45133	Lasiodiplodia theobromae	fungi	GCA_008931885.1	ASM893188v1	Scaffold	2019-10-09	True	12785	249	43.9	19	cds	GenBank_only(no_RefSeq)
-226899	Leptographium clavigerum	fungi	GCF_000143105.1	Sanger-454-IlluminaPA_2.0	Scaffold	2011-01-31	True	8311	1997	29.8	3	cds	OLD_assembly(2011)
-203908	Melampsora laricis-populina	fungi	GCF_000204055.1	v1.0	Scaffold	2011-04-13	True	16255	1146	101.1	2	cds	OLD_assembly(2011)
-5261	Melampsora lini	fungi					False				0		NCBI query failed
-92637	Metarhizium acridum	fungi	GCF_019434415.1	Coph_MacrARSEF324_H1_v1.0	Scaffold	2021-08-02	True	12160	2338	44.7	11	cds	
-568076	Metarhizium robertsii	fungi	GCF_000187425.2	MAA 2.0	Scaffold	2014-12-19	True	11688	4492	41.7	9	cds	OLD_assembly(2014)
-1682391	Microdochium sorghi	fungi					False				0		NCBI query failed
-38448	Monilinia fructicola	fungi	GCA_016906325.1	ASM1690632v1	Contig	2021-02-18	True	10085	988	43.0	6	cds	GenBank_only(no_RefSeq); contig_level
-153609	Moniliophthora perniciosa	fungi	GCA_000183025.1	ASM18302v1	Scaffold	2008-12-02	True	13560	1	26.7	2	cds	OLD_assembly(2008); GenBank_only(no_RefSeq)
-5270	Mycosarcoma maydis	fungi	GCF_000328475.2	Umaydis521_2.0	Chromosome	2015-02-18	True	6762	885	19.7	39	cds	
-13684	Parastagonospora nodorum	fungi	GCA_016801405.1	ASM1680140v1	Chromosome	2021-02-02	True	17448	1683	37.0	180	cds	GenBank_only(no_RefSeq)
-36651	Penicillium digitatum	fungi	GCF_016767815.1	ASM1676781v1	Complete Genome	2021-01-28	True	9002	4124	26.3	9	cds	
-27334	Penicillium expansum	fungi	GCA_022829055.1	DTU_Pex_IBT34672	Scaffold	2022-04-06	True	10796	981	32.5	15	cds	GenBank_only(no_RefSeq)
-40296	Penicillium italicum	fungi	GCA_000769765.1	ASM76976v1	Contig	2014-10-28	True	9996	121	30.2	4	cds	OLD_assembly(2014); GenBank_only(no_RefSeq); contig_level
-170000	Phakopsora pachyrhizi	fungi	GCA_025201825.1	Phapa1	Scaffold	2022-09-09	True	19617	222	1057.4	52	cds	GenBank_only(no_RefSeq)
-5022	Plenodomus lingam	fungi	GCF_022343315.1	CAIQ.LM.1	Scaffold	2022-02-18	True	11837	1978	42.0	9	cds	
-1873960	Pseudocercospora fijiensis	fungi	GCF_000340215.1	Mycfi2	Scaffold	2013-02-26	True	13059	5902	74.1	3	cds	OLD_assembly(2013)
-685502	Pseudocercospora fuligena	fungi	GCA_014298035.1	ASM1429803v1	Contig	2020-08-26	True	13765	408	50.5	1	cds	GenBank_only(no_RefSeq); contig_level
-285811	Pseudopyrenochaeta lycopersici	fungi	GCA_000601435.1	P_lyc_v1	Scaffold	2014-03-27	False		87	50.5	2	genome	no_annotation→skip; OLD_assembly(2014); GenBank_only(no_RefSeq)
-5297	Puccinia graminis	fungi	GCA_008522505.1	Pgt_210	Scaffold	2019-09-11	True	36325	5145	176.9	6	cds	GenBank_only(no_RefSeq)
-27350	Puccinia striiformis	fungi	GCF_021901695.1	Pst134E36_v1_pri	Chromosome	2022-02-03	True	17118	4700	89.5	37	cds	
-208348	Puccinia triticina	fungi	GCA_977970215.1	P.triticina_R9_M6	Chromosome	2026-02-16	True	23383	7341	121.3	28	cds	GenBank_only(no_RefSeq)
-76659	Pyrenopeziza brassicae	fungi	GCA_958299125.1	Pyrenopeziza brassicae 15WOSR64-SS1	Scaffold	2026-01-07	False		3083	73.2	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-53485	Pyrenophora teres	fungi	GCA_900232045.3	PTTW11	Chromosome	2021-09-24	True	11561	4721	53.1	26	cds	GenBank_only(no_RefSeq)
-45151	Pyrenophora tritici-repentis	fungi	GCF_003171515.1	CUR_PTRM4_2.2	Chromosome	2021-10-07	True	15455	3658	40.7	67	cds	
-318829	Pyricularia oryzae	fungi	GCA_004346965.1	ASM434696v1	Complete Genome	2019-03-12	True	13521	6129	42.7	601	cds	GenBank_only(no_RefSeq)
-456999	Rhizoctonia solani	fungi	GCF_016906535.1	ASM1690653v1	Complete Genome	2021-02-18	True	12301	2303	40.7	52	cds	
-77044	Rosellinia necatrix	fungi	GCA_001445595.3	Rnecatrix_2.0	Scaffold	2017-02-01	True	12444	550	44.3	7	cds	GenBank_only(no_RefSeq)
-5180	Sclerotinia sclerotiorum	fungi	GCA_001857865.1	ASM185786v1	Chromosome	2016-10-31	True	11130	2435	38.9	37	cds	GenBank_only(no_RefSeq)
-2698418	Sclerotiophoma versabilis	fungi	GCA_012274445.1	FAFU_KC1_1.0	Contig	2020-04-13	False		1699	41.0	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
-39703	Septoria lycopersici	fungi	GCA_059642765.1	SLML	Chromosome	2026-07-28	False		2646	29.6	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-72558	Sporisorium reilianum	fungi	GCA_900162835.1	version 2	Chromosome	2018-02-08	True	6682	782	18.5	2	cds	GenBank_only(no_RefSeq)
-49012	Sporisorium scitamineum	fungi	GCA_900002365.1	ASM90000236v1	Scaffold	2016-03-08	True	6701	759	19.6	9	cds	GenBank_only(no_RefSeq)
-183478	Stemphylium lycopersici	fungi	GCA_003268335.2	ASM326833v2	Scaffold	2026-04-01	True	11203	189	34.9	4	cds	GenBank_only(no_RefSeq)
-286115	Synchytrium endobioticum	fungi	GCA_006535955.1	ASM653595v1	Scaffold	2019-07-01	True	8031	44	21.5	3	cds	GenBank_only(no_RefSeq)
-29875	Trichoderma virens	fungi	GCA_020647635.1	ASM2064763v1	Complete Genome	2021-10-27	True	12061	6491	41.0	10	cds	GenBank_only(no_RefSeq)
-1159556	Ustilaginoidea virens	fungi	GCF_000687475.1	ASM68747v2	Complete Genome	2021-05-20	True	8297	6430	37.1	8	cds	
-185366	Ustilago esculenta	fungi	GCA_020827535.1	ASM2082753v1	Scaffold	2021-11-10	False		1030	26.4	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-120017	Ustilago hordei	fungi	GCA_022749175.1	ASM2274917v1	Complete Genome	2022-03-29	True	7787	1133	25.8	12	cds	GenBank_only(no_RefSeq)
-27337	Verticillium dahliae	fungi	GCA_003320035.1	VdGwydir1A3	Chromosome	2018-07-15	True	10457	4825	32.0	63	cds	GenBank_only(no_RefSeq)
-100787	Verticillium longisporum	fungi	GCA_018994065.1	ASM1899406v1	Scaffold	2021-06-22	True	20463	1750	75.0	21	cds	GenBank_only(no_RefSeq)
-1051616	Verticillium nonalfalfae	fungi	GCF_003724135.2	ASM372413v2	Scaffold	2018-11-13	True	9430	172	31.7	24	cds	
-1047171	Zymoseptoria tritici	fungi	GCF_000219625.1	MYCGR v2.0	Chromosome	2011-07-06	True	10941	2675	39.7	65	cds	OLD_assembly(2011)
-47965	Acer truncatum	host	GCA_053477345.1	ASM5347734v1	Chromosome	2025-11-14	False		43995	612.3	3	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-64478	Actinidia arguta	host	GCA_030159115.1	AAR_r2.2	Scaffold	2023-03-16	False		21135	645.1	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-3625	Actinidia chinensis	host	GCA_003024255.1	Red5_PS1_1.69.0	Chromosome	2018-03-30	True	33044	18944	553.8	5	cds	GenBank_only(no_RefSeq)
-1590841	Actinidia chinensis var. chinensis	host	GCA_003024255.1	Red5_PS1_1.69.0	Chromosome	2018-03-30	True	33044	18944	553.8	2	cds	GenBank_only(no_RefSeq)
-3627	Actinidia deliciosa	host	GCA_024454175.1	ASM2445417v1	Chromosome	2022-08-01	False		21085	622.0	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-165200	Actinidia eriantha	host	GCF_019202715.1	MaoHua_MHT	Chromosome	2021-07-13	True	36616	22298	657.1	5	cds	
-108276	Aeschynomene virginica	host					False				0		NCBI query failed
-43364	Aesculus hippocastanum	host	GCA_965199115.1	drAesHipp1.hap1.1	Chromosome	2025-03-13	False		25744	513.6	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-176616	Ageratina adenophora	host	GCA_042767725.1	ASM4276772v1	Chromosome	2024-10-10	False		70799	3818.0	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4679	Allium cepa	host	GCA_038502295.1	RDA_Ac_1.0	Chromosome	2024-04-29	False		1400476	12772.8	4	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-226677	Anthurium andraeanum	host					False				0		NCBI query failed
-4045	Apium graveolens	host	GCF_009905375.1	ASM990537v1	Chromosome	2021-05-17	True	44727	289787	3332.6	4	cds	
-3702	Arabidopsis thaliana	host	GCA_052361225.1	AtNW77-20190304	Chromosome	2025-08-31	True	30753	23178	117.5	368	cds	GenBank_only(no_RefSeq)
-3818	Arachis hypogaea	host	GCA_039852515.1	HN51	Complete Genome	2024-05-26	True	71863	138996	2607.9	20	cds	GenBank_only(no_RefSeq)
-265785	Atractylodes macrocephala	host					False				0		NCBI query failed
-4498	Avena sativa	host	GCA_951802355.1	Asativa_cv_Legett_v1.0	Chromosome	2025-08-23	False		503791	10979.4	53	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-38783	Avena strigosa	host					False				0		NCBI query failed
-28974	Averrhoa carambola	host					False				0		NCBI query failed
-161934	Beta vulgaris	host	GCA_000511025.2	RefBeet-1.2.2	Chromosome	2015-07-07	True	26569	2013	566.2	331	cds	GenBank_only(no_RefSeq)
-15368	Brachypodium distachyon	host	GCA_000005505.4	Brachypodium_distachyon_v3.0	Chromosome	2018-01-24	True	34310	30224	271.2	6	cds	GenBank_only(no_RefSeq)
-52824	Brassica carinata	host	GCA_040584065.1	ASM4058406v1	Chromosome	2024-07-11	True	102229	62376	1070.4	4	cds	GenBank_only(no_RefSeq)
-3707	Brassica juncea	host	GCA_020002505.1	ASM2000250v1	Chromosome	2021-09-15	False		56403	894.2	5	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-3708	Brassica napus	host	GCF_020379485.1	Da-Ae	Chromosome	2021-10-08	True	90897	48210	1001.5	115	cds	
-3712	Brassica oleracea	host	GCA_965638055.1	BOLBOS01.2	Chromosome	2025-07-12	True	71866	62411	646.2	33	cds	GenBank_only(no_RefSeq)
-3716	Brassica oleracea var. capitata	host	GCA_034621585.1	ASM3462158v1	Chromosome	2023-12-28	False		65135	552.2	8	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-3711	Brassica rapa	host	GCA_965641695.1	BRAWUT.1	Chromosome	2025-07-09	True	54264	43705	404.5	25	cds	GenBank_only(no_RefSeq)
-51351	Brassica rapa subsp. pekinensis	host	GCA_052186295.1	ASM5218629v1	Complete Genome	2025-08-22	False		46906	430.9	6	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-385388	Camellia oleifera	host	GCA_022316695.1	ASM2231669v1	Chromosome	2022-02-24	False		185364	2889.5	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4442	Camellia sinensis	host	GCA_041154535.1	CsSME v1.0	Scaffold	2024-06-10	True	55235	214858	3157.4	24	cds	GenBank_only(no_RefSeq)
-4072	Capsicum annuum	host	GCA_000512255.2	ASM51225v2	Chromosome	2017-10-30	True	35845	250930	3063.9	28	cds	GenBank_only(no_RefSeq)
-4073	Capsicum frutescens	host					False				0		NCBI query failed
-134033	Castanea dentata	host	GCA_047496805.1	Cdentata v1.0	Chromosome	2025-02-07	True	31254	59223	703.4	1	cds	GenBank_only(no_RefSeq)
-60419	Castanea mollissima	host	GCA_000763605.2	ASM76360v2	Scaffold	2020-04-08	True	30820	102	725.2	7	cds	GenBank_only(no_RefSeq)
-21020	Castanea sativa	host	GCF_040712315.1	ASM4071231v1	Chromosome	2024-07-15	True	30866	59922	715.9	5	cds	
-63459	Chenopodium quinoa	host	GCF_001683475.1	ASM168347v1	Scaffold	2017-05-19	True	49222	3844	1333.4	23	cds	
-41568	Chrysanthemum x morifolium	host	GCA_059696675.1	CMOYQN_r0.1	Scaffold	2022-10-08	False		4	7986.5	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-3827	Cicer arietinum	host	GCF_000331145.2	Cicar.CDCFrontier_v2.0	Chromosome	2024-12-16	True	24841	65803	530.3	6	cds	
-13427	Cichorium intybus	host	GCA_023525715.1	ASM2352571v1	Chromosome	2022-05-24	True	43721	126223	1278.8	2	cds	GenBank_only(no_RefSeq)
-3654	Citrullus lanatus	host	GCA_054825235.1	ASM5482523v1	Complete Genome	2026-01-29	False		33383	370.1	118	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-2706	Citrus	host	GCA_052148995.1	Mxlime_USDA_v1	Chromosome	2025-08-19	True	48270	38004	680.6	107	cds	GenBank_only(no_RefSeq)
-79217	Citrus iyo	host					False				0		NCBI query failed
-64884	Citrus jambhiri	host					False				0		NCBI query failed
-171249	Citrus limonia	host					False				0		NCBI query failed
-2711	Citrus sinensis	host	GCA_022201045.1	DVS_A1.0	Complete Genome	2022-02-11	True	27807	32942	299.0	26	cds	GenBank_only(no_RefSeq)
-55188	Citrus unshiu	host	GCA_002897195.1	CUMW_v1.0	Scaffold	2017-12-21	True	29024	386	359.7	5	cds	GenBank_only(no_RefSeq)
-159033	Citrus x aurantiifolia	host	GCA_052148995.1	Mxlime_USDA_v1	Chromosome	2025-08-19	True	48270	38004	680.6	1	cds	GenBank_only(no_RefSeq)
-2708	Citrus x limon	host	GCA_034663535.1	C.limon_PB_Hap2	Chromosome	2023-12-28	False		35348	307.5	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-164113	Citrus x microcarpa	host					False				0		NCBI query failed
-37656	Citrus x paradisi	host					False				0		NCBI query failed
-229630	Citrus x tangelo	host					False				0		NCBI query failed
-4460	Colocasia esculenta	host	GCA_009445465.1	ASM944546v1	Scaffold	2019-10-31	True	56238	176	2141.6	4	cds	GenBank_only(no_RefSeq)
-269719	Cotinus coggygria	host					False				0		NCBI query failed
-292731	Cotinus obovatus	host					False				0		NCBI query failed
-39473	Cucumis anguria	host					False				0		NCBI query failed
-3656	Cucumis melo	host	GCA_005549215.1	ASM554921v1	Scaffold	2019-05-21	True	38173	1513	358.5	47	cds	GenBank_only(no_RefSeq)
-3659	Cucumis sativus	host	GCF_000004075.3	Cucumber_9930_V3	Chromosome	2019-11-15	True	20040	31126	224.8	47	cds	
-3661	Cucurbita maxima	host	GCF_002738345.1	Cmax_1.0	Scaffold	2017-10-31	True	27229	3717	271.4	2	cds	
-3662	Cucurbita moschata	host	GCF_002738365.1	Cmos_1.0	Scaffold	2017-10-31	True	27814	3996	269.9	2	cds	
-3663	Cucurbita pepo	host	GCF_002806865.2	ASM280686v2	Chromosome	2017-12-07	True	29279	9834	259.4	8	cds	
-28977	Cunninghamia lanceolata	host	GCA_027924645.1	CLA_r1.0	Contig	2022-12-12	False		11744	11548.0	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
-4265	Cynara cardunculus	host	GCF_001531365.2	CcrdV1.1	Chromosome	2018-04-17	True	26313	126	725.0	4	cds	
-4039	Daucus carota	host	GCA_001625215.2	DH1 v3.0	Chromosome	2023-10-20	True	35921	51153	440.7	6	cds	GenBank_only(no_RefSeq)
-3570	Dianthus caryophyllus	host	GCA_023091065.1	ASM2309106v1	Chromosome	2022-05-12	False		38555	636.3	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4511	Eleusine coracana	host	GCA_021604985.1	Ragi PR202 v. 2.0	Scaffold	2021-12-08	True	57180	23885	1229.4	3	cds	GenBank_only(no_RefSeq)
-38414	Eragrostis curvula	host	GCA_007726485.1	CERZOS_EC1.0	Chromosome	2019-08-05	True	55182	43445	603.1	1	cds	GenBank_only(no_RefSeq)
-32224	Eriobotrya japonica	host	GCA_043793475.1	ASM4379347v1	Chromosome	2024-10-25	False		42058	727.1	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4608	Festuca pratensis	host					False				0		NCBI query failed
-3747	Fragaria x ananassa	host	GCA_050043575.1	ASM5004357v1	Chromosome	2025-04-30	True	77630	28769	796.9	15	cds	GenBank_only(no_RefSeq)
-38873	Fraxinus excelsior	host	GCA_965226085.2	daFraExce3.hap1.2	Chromosome	2025-10-26	False		33045	759.7	5	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-13546	Gerbera	host					False				0		NCBI query failed
-3847	Glycine max	host	GCA_044510105.1	GmaxFiskeby v1.0	Chromosome	2024-11-06	True	52783	50786	992.2	43	cds	GenBank_only(no_RefSeq)
-3634	Gossypium barbadense	host	GCA_008761655.1	Gossypium_barbadense_v1.1	Chromosome	2019-10-08	True	74561	1770	2195.8	6	cds	GenBank_only(no_RefSeq)
-3635	Gossypium hirsutum	host	GCF_007990345.1	Gossypium_hirsutum_v2.1	Chromosome	2021-02-25	True	67584	108141	2305.2	27	cds	
-4232	Helianthus annuus	host	GCF_002127325.2	HanXRQr2.0-SUNRISE	Chromosome	2020-07-15	True	57237	176491	3009.6	13	cds	
-3981	Hevea brasiliensis	host	GCA_010458925.1	ASM1045892v1	Chromosome	2020-02-12	True	44146	87431	1473.5	9	cds	GenBank_only(no_RefSeq)
-4513	Hordeum vulgare	host	GCA_024137805.1	yangtze university Zhang lab wild barley 1.0	Chromosome	2022-07-06	True	60133	668541	5111.0	204	cds	GenBank_only(no_RefSeq)
-3486	Humulus lupulus	host	GCF_963169125.1	drHumLupu1.1	Chromosome	2023-08-19	True	35582	251528	2488.1	7	cds	
-4120	Ipomoea batatas	host	GCA_059738795.1	IBA_r1.0	Scaffold	2023-12-30	True	175755	23280	2907.4	3	cds	GenBank_only(no_RefSeq)
-23012	Kalanchoe	host	GCA_978021985.1	Kalanchoe_gracilipes_v1	Scaffold	2026-02-01	True	30775	21930	389.4	2	cds	GenBank_only(no_RefSeq)
-23013	Kalanchoe daigremontiana	host					False				0		NCBI query failed
-4236	Lactuca sativa	host	GCF_002870075.5	Lsat_Salinas_v15	Complete Genome	2025-12-23	True	35338	324640	2601.1	7	cds	
-3888	Lathyrus oleraceus	host	GCA_024323335.2	CAAS_Psat_ZW6_1.0	Chromosome	2022-07-19	True	47515	523395	3796.1	11	cds	GenBank_only(no_RefSeq)
-4472	Lemna minor	host					False				0		NCBI query failed
-3864	Lens culinaris	host					False				0		NCBI query failed
-4688	Lilium	host	GCA_031763035.1	ASM3176303v1	Scaffold	2023-09-20	False		1	345.5	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4006	Linum usitatissimum	host	GCA_054134595.1	EIMB_LUsi_Atlant_2.0	Complete Genome	2025-12-23	False		32256	491.1	15	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-215539	Liriodendron x sinoamericanum	host					False				0		NCBI query failed
-151069	Litchi chinensis	host	GCA_056776835.1	ASM5677683v1	Chromosome	2026-04-17	False		32508	491.9	8	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4606	Lolium arundinaceum	host	GCA_055755645.1	ASM5575564v1	Chromosome	2026-03-09	False		327882	7104.6	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4521	Lolium multiflorum	host	GCA_030979885.1	Rabiosa unphased assembly	Chromosome	2023-08-30	True	72039	338745	2462.1	6	cds	GenBank_only(no_RefSeq)
-4522	Lolium perenne	host	GCF_019359855.2	Kyuss_2.0	Chromosome	2024-03-25	True	38554	333279	2264.8	5	cds	
-3750	Malus domestica	host	GCF_000148765.1	MalDomGD1.0	Chromosome	2012-08-16	True	47857	1759	526.2	82	cds	OLD_assembly(2012)
-106564	Malus prunifolia	host	GCA_047226395.1	ASM4722639v1	Chromosome	2025-01-27	False		36146	699.8	3	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-283210	Malus pumila	host					False				0		NCBI query failed
-52837	Mandevilla sanderi	host					False				0		NCBI query failed
-29780	Mangifera indica	host	GCA_021014955.2	M.indica_Dashehari_mat1.0	Scaffold	2026-06-04	True	35266	18069	355.1	8	cds	GenBank_only(no_RefSeq)
-3983	Manihot esculenta	host	GCA_001659605.2	M.esculenta_v8	Chromosome	2021-08-13	True	32805	29151	639.6	24	cds	GenBank_only(no_RefSeq)
-3879	Medicago sativa	host	GCF_051527215.1	Bolivia_mono	Complete Genome	2025-07-24	True	39275	101582	775.6	31	cds	
-3880	Medicago truncatula	host	GCA_000219495.2	MedtrA17_4.0	Chromosome	2014-06-18	True	50444	49172	412.8	8	cds	OLD_assembly(2014); GenBank_only(no_RefSeq)
-3673	Momordica charantia	host	GCF_001995035.1	ASM199503v1	Scaffold	2016-12-26	True	19431	1101	285.6	4	cds	
-229046	Morus alba var. alba	host					False				0		NCBI query failed
-4641	Musa acuminata	host	GCF_036884655.1	Cavendish_Baxijiao_AAA	Chromosome	2024-02-28	True	91526	44889	1533.7	12	cds	
-89151	Musa x paradisiaca	host					False				0		NCBI query failed
-63479	Nerium oleander	host					False				0		NCBI query failed
-4100	Nicotiana benthamiana	host	GCA_034376525.1	ASM3437652v1	Chromosome	2023-12-18	False		142632	2791.9	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4091	Nicotiana otophora	host	GCA_000715115.1	Noto	Scaffold	2014-06-05	False		27	2689.4	1	genome	no_annotation→skip; OLD_assembly(2014); GenBank_only(no_RefSeq)
-62141	Nicotiana paniculata	host	GCA_005239505.1	ASM523950v1	Scaffold	2019-05-02	False		53	2190.6	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4096	Nicotiana sylvestris	host	GCF_000393655.2	ASM39365v2	Chromosome	2023-11-13	True	45213	188594	2321.6	3	cds	
-4097	Nicotiana tabacum	host	GCF_000715075.1	ASM71507v2	Chromosome	2023-11-13	True	60381	166565	3995.6	7	cds	
-4146	Olea europaea	host	GCA_902713445.1	OLEA9	Chromosome	2020-11-20	True	55714	734	1315.8	10	cds	GenBank_only(no_RefSeq)
-4530	Oryza sativa	host	GCA_001433935.1	IRGSP-1.0	Chromosome	2015-10-10	True	43795	29958	373.8	206	cds	GenBank_only(no_RefSeq)
-4054	Panax ginseng	host	GCA_020205605.1	ASM2020560v1	Chromosome	2021-10-04	False		143451	3355.1	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-44586	Panax notoginseng	host	GCA_016801055.1	ASM1680105v1	Chromosome	2021-02-04	False		216472	2660.7	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4031	Pelargonium x hortorum	host	GCA_036897525.1	ASM3689752v1	Contig	2024-02-28	False		2	324.8	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
-3435	Persea americana	host	GCA_051132755.1	XTBG_Pame_1.0	Complete Genome	2025-06-28	True	40252	78838	841.6	9	cds	GenBank_only(no_RefSeq)
-4043	Petroselinum crispum	host	GCA_041430655.1	ASM4143065v1	Contig	2024-08-22	False		35	1568.7	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
-3885	Phaseolus vulgaris	host	GCF_000499845.2	P. vulgaris v2.0	Chromosome	2024-04-23	True	29679	1886	537.2	17	cds	
-3339	Pinus contorta	host					False				0		NCBI query failed
-88730	Pinus massoniana	host					False				0		NCBI query failed
-71645	Pinus patula	host					False				0		NCBI query failed
-3349	Pinus sylvestris	host	GCA_900143225.1	FinPunk_mtDNA_Assembly	Contig	2017-01-02	False		6	1.0	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
-3350	Pinus thunbergii	host					False				0		NCBI query failed
-13216	Piper nigrum	host	GCA_056825445.1	ASM5682544v1	Contig	2026-04-21	False		5	751.3	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
-261420	Polygonatum kingianum	host					False				0		NCBI query failed
-43335	Populus alba	host	GCF_005239225.2	ASM523922v2	Chromosome	2024-12-17	True	30246	22734	416.4	3	cds	
-1217306	Populus x beijingensis	host					False				0		NCBI query failed
-3690	Populus x canadensis	host	GCA_051991645.1	ASM5199164v1	Chromosome	2025-08-13	True	74605	21297	784.6	1	cds	GenBank_only(no_RefSeq)
-122118	Prunus americana	host					False				0		NCBI query failed
-36596	Prunus armeniaca	host	GCA_964259005.1	CUR.v1	Chromosome	2024-09-05	True	50324	26862	233.2	12	cds	GenBank_only(no_RefSeq)
-42229	Prunus avium	host	GCF_002207925.1	PAV_r1.0	Scaffold	2017-06-12	True	25841	220	272.4	8	cds	
-3758	Prunus domestica	host					False				0		NCBI query failed
-3755	Prunus dulcis	host	GCA_021292205.2	OSU_Pdul_2.5	Chromosome	2022-07-14	True	45581	30644	257.1	7	cds	GenBank_only(no_RefSeq)
-3760	Prunus persica	host	GCA_000346465.2	Prunus_persica_NCBIv2	Chromosome	2017-02-02	True	26873	27368	227.4	13	cds	GenBank_only(no_RefSeq)
-323851	Prunus persica var. nucipersica	host					False				0		NCBI query failed
-418402	Pseudostellaria heterophylla	host	GCA_977035685.1	Pheterophylla_genome_v1.0	Chromosome	2025-11-12	False		144784	2188.8	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-22663	Punica granatum	host	GCA_002837095.1	ASM283709v1	Scaffold	2017-12-12	True	50476	215	380.2	13	cds	GenBank_only(no_RefSeq)
-23211	Pyrus communis	host	GCF_963583255.1	drPyrComm1.1	Chromosome	2023-11-05	True	34369	27625	487.3	7	cds	
-3767	Pyrus pyrifolia	host	GCA_016587475.1	PPY_r1.0	Contig	2020-12-23	False		7677	503.9	1	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
-225117	Pyrus x bretschneideri	host	GCF_019419815.1	Pyrus_bretschneideri_v1	Contig	2021-07-30	True	35293	6073	509.1	6	cds	contig_level
-3726	Raphanus sativus	host	GCF_000801105.2	ASM80110v3	Chromosome	2023-02-09	True	51440	37282	433.4	17	cds	
-49838	Retama sphaerocarpa	host	GCA_056904635.1	ASM5690463v1	Scaffold	2026-04-27	False		13	533.5	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-3764	Rosa	host	GCA_982397195.1	RW_HapA	Chromosome	2026-04-15	True	53716	67858	484.3	89	cds	GenBank_only(no_RefSeq)
-267246	Rosa odorata	host	GCA_054556345.1	A10_1	Chromosome	2026-01-20	False		72059	531.0	8	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4547	Saccharum officinarum	host	GCA_057814815.1	ASM5781481v1	Complete Genome	2026-06-01	False		84795	875.7	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4550	Secale cereale	host	GCA_965641915.1	lpSecCere.Lo7.IPK.v3	Chromosome	2025-07-19	False		943692	6702.6	6	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-336126	Selenicereus trigonus	host					False				0		NCBI query failed
-4555	Setaria italica	host	GCA_000263155.2	Setaria_italica_v2.0	Chromosome	2015-10-30	True	34584	47253	405.7	11	cds	GenBank_only(no_RefSeq)
-315333	Solanum albicans	host					False				0		NCBI query failed
-4108	Solanum chacoense	host	GCA_052575675.1	ASM5257567v1	Contig	2025-09-12	False		35577	734.9	2	genome	no_annotation→skip; GenBank_only(no_RefSeq); contig_level
-856898	Solanum huancabambense	host					False				0		NCBI query failed
-4081	Solanum lycopersicum	host	GCF_036512215.1	SLM_r2.1	Chromosome	2024-09-03	True	28611	69564	832.8	44	cds	
-4111	Solanum melongena	host	GCA_059480125.1	ASM5948012v1	Chromosome	2026-07-16	False		96750	1158.1	39	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-73574	Solanum microdontum	host	GCA_054051385.1	UGA_Smicro_v1	Chromosome	2025-12-17	False		57972	771.7	2	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4082	Solanum peruvianum	host	GCA_057925505.1	ASM5792550v1	Chromosome	2026-06-04	False		74579	912.1	3	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4084	Solanum pimpinellifolium	host	GCA_058224835.1	ASM5822483v1	Chromosome	2026-06-16	True	43958	67687	807.4	15	cds	GenBank_only(no_RefSeq)
-119830	Solanum torvum	host					False				0		NCBI query failed
-4113	Solanum tuberosum	host	GCA_020169535.1	solTubStieglitzHap2	Chromosome	2021-09-28	True	38661	62488	754.2	98	cds	GenBank_only(no_RefSeq)
-4558	Sorghum bicolor	host	GCA_015952705.1	SbicolorRio_v2	Chromosome	2020-12-28	True	35490	397	729.4	28	cds	GenBank_only(no_RefSeq)
-35627	Stylosanthes	host	GCA_036250425.1	Ssca1	Scaffold	2024-01-29	True	117394	33	990.3	2	cds	GenBank_only(no_RefSeq)
-13708	Tagetes erecta	host	GCA_030867185.1	ASM3086718v1	Chromosome	2023-08-24	True	35877	69674	778.9	2	cds	GenBank_only(no_RefSeq)
-3641	Theobroma cacao	host	GCA_035896635.1	ASM3589663v1	Chromosome	2024-01-19	True	27910	40512	380.7	17	cds	GenBank_only(no_RefSeq)
-57577	Trifolium pratense	host	GCA_000583005.2	Tp1.0	Contig	2016-02-24	True	63850	2	305.0	10	cds	GenBank_only(no_RefSeq); contig_level
-4564	Triticum	host	GCA_040256815.2	ASM4025681v2	Complete Genome	2024-08-07	True	141031	723778	14509.2	117	cds	GenBank_only(no_RefSeq)
-4565	Triticum aestivum	host	GCA_040256815.2	ASM4025681v2	Complete Genome	2024-08-07	True	141031	723778	14509.2	76	cds	GenBank_only(no_RefSeq)
-4566	Triticum aestivum x Triticum timopheevi	host					False				0		NCBI query failed
-4571	Triticum turgidum	host	GCA_900231445.1	Svevo.v1	Chromosome	2019-02-13	True	63862	722971	9964.3	14	cds	GenBank_only(no_RefSeq)
-3906	Vicia faba	host	GCA_048183575.1	ASM4818357v1	Chromosome	2025-02-28	True	37398	1574411	11807.2	4	cds	GenBank_only(no_RefSeq)
-3917	Vigna unguiculata	host	GCA_003958685.2	ASM395868v2	Chromosome	2019-04-30	True	40574	53938	597.5	10	cds	GenBank_only(no_RefSeq)
-3603	Vitis	host	GCA_004011995.1	AWRI_Vv-CHD_1.0	Contig	2019-01-10	True	112320	936	489.9	319	cds	GenBank_only(no_RefSeq); contig_level
-96939	Vitis riparia	host	GCF_004353265.1	EGFV_Vit.rip_1.0	Chromosome	2019-04-16	True	26189	23919	500.1	8	cds	
-29760	Vitis vinifera	host	GCA_004011995.1	AWRI_Vv-CHD_1.0	Contig	2019-01-10	True	112320	936	489.9	91	cds	GenBank_only(no_RefSeq); contig_level
-2599121	Vitis x labruscana	host					False				0		NCBI query failed
-69721	Zantedeschia aethiopica	host					False				0		NCBI query failed
-94108	Zantedeschia elliottiana	host					False				0		NCBI query failed
-4577	Zea mays	host	GCA_049266015.1	ASM4926601v1	Chromosome	2025-04-03	True	42607	229239	2378.5	191	cds	GenBank_only(no_RefSeq)
-4579	Zea mays subsp. mexicana	host	GCA_002813485.1	ASM281348v1	Scaffold	2017-12-06	False		108	1204.3	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-58934	Zizania latifolia	host	GCA_048537475.1	ASM4853747v1	Chromosome	2025-03-10	True	36280	34138	595.8	5	cds	GenBank_only(no_RefSeq)
-326968	Ziziphus jujuba	host	GCF_000826755.1	ZizJuj_1.1	Chromosome	2015-02-06	True	30007	301	437.8	17	cds	
-4779	Bremia lactucae	oomycete	GCF_004359215.1	BlacSF5v2	Chromosome	2021-08-20	True	9766	5324	115.9	2	cds	
-272952	Hyaloperonospora arabidopsidis	oomycete	GCA_000173235.2	HyaAraEmoy2_2.0	Scaffold	2012-01-25	False		332	78.4	3	genome	no_annotation→skip; OLD_assembly(2012); GenBank_only(no_RefSeq)
-230439	Peronospora tabacina	oomycete	GCA_002099245.1	Ptab_968-S26	Scaffold	2017-04-18	False		79	63.1	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-29920	Phytophthora cactorum	oomycete	GCA_017309695.1	ASM1730969v1	Scaffold	2021-03-09	True	34966	37	75.5	29	cds	GenBank_only(no_RefSeq)
-4784	Phytophthora capsici	oomycete	GCA_016618375.1	Pcap_4.1	Scaffold	2021-01-12	True	23373	486	94.2	19	cds	GenBank_only(no_RefSeq)
-4787	Phytophthora infestans	oomycete	GCA_012552325.1	ASM1255232v1	Scaffold	2020-04-20	True	23771	155	230.9	8	cds	GenBank_only(no_RefSeq)
-100870	Phytophthora litchii	oomycete	GCA_002812785.1	ASM281278v1	Scaffold	2017-12-06	False		35	38.2	1	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-4792	Phytophthora nicotianae	oomycete	GCF_000247585.1	PP_INRA-310_V2	Scaffold	2013-12-19	True	23121	888	82.4	14	cds	OLD_assembly(2013)
-67593	Phytophthora sojae	oomycete	GCF_000149755.1	P.sojae V3.0	Scaffold	2011-10-03	True	26489	7609	82.6	12	cds	OLD_assembly(2011)
-143451	Plasmopara viticola	oomycete	GCA_055472655.1	ASM5547265v1	Scaffold	2026-02-24	False		964	84.1	4	genome	no_annotation→skip; GenBank_only(no_RefSeq)
-65070	Pythium aphanidermatum	oomycete	GCA_027475745.1	ASM2747574v1	Scaffold	2022-12-28	False		3	56.0	4	genome	no_annotation→skip; GenBank_only(no_RefSeq)
+taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_annotation	country	protein_coding_genes	scaffold_n50_kb	total_length_mb	fasta_type	selection_rank	selection_reason
+3469074	[Neocosmospora] sp. B6999-1	fungal	genus_fill	GCA_057674295.1	Scaffold	2026-05-21	True	Netherlands	15024	704	50.4	cds	1	best_quality
+3469075	[Neocosmospora] sp. B6999-2	fungal	genus_fill	GCA_057674085.1	Scaffold	2026-05-21	True	Netherlands	12489	710	49.9	cds	1	best_quality
+3469076	[Neocosmospora] sp. B6999-3	fungal	genus_fill	GCA_057674105.1	Scaffold	2026-05-21	True	Netherlands	14279	1570	46.1	cds	1	best_quality
+3469077	[Neocosmospora] sp. B6999-4	fungal	genus_fill	GCA_057673975.1	Scaffold	2026-05-21	True	Netherlands	15984	891	50.4	cds	1	best_quality
+3469078	[Neocosmospora] sp. B6999-5	fungal	genus_fill	GCA_057673785.1	Scaffold	2026-05-21	True	Netherlands	15908	555	48.7	cds	1	best_quality
+156630	Alternaria arborescens	fungal	genus_fill	GCF_004154835.1	Scaffold	2019-02-11	True		12885	863	33.9	cds	1	best_quality
+232088	Alternaria arbusti	fungal	genus_fill	GCF_024043155.1	Scaffold	2022-06-29	True	USA	11721	1678	34.0	cds	1	best_quality
+119953	Alternaria atra	fungal	genus_fill	GCF_907166805.1	Scaffold	2021-05-15	True	Chile	12172	3893	39.6	cds	1	best_quality
+1187904	Alternaria burnsii	fungal	genus_fill	GCF_013036055.1	Scaffold	2020-05-11	True	India	11314	1806	33.0	cds	1	best_quality
+181017	Alternaria conjuncta	fungal	genus_fill	GCF_024043145.1	Scaffold	2022-06-29	True	Switzerland	11648	1897	36.1	cds	1	best_quality
+48095	Alternaria dauci	fungal	genus_fill	GCF_042100115.1	Complete Genome	2024-09-24	True	China	10026	3442	34.9	cds	1	best_quality
+181014	Alternaria ethzedia	fungal	genus_fill	GCF_023757985.1	Scaffold	2022-06-17	True	Switzerland	10985	864	36.0	cds	1	best_quality
+1187925	Alternaria hordeiaustralica	fungal	genus_fill	GCF_023758085.1	Scaffold	2022-06-17	True	Australia	11036	1054	37.0	cds	1	best_quality
+1187928	Alternaria incomplexa	fungal	genus_fill	GCF_024043165.1	Scaffold	2022-06-29	True	USA	10979	1850	33.5	cds	1	best_quality
+45303	Alternaria infectoria	fungal	genus_fill	GCF_024043175.1	Scaffold	2022-06-29	True	United Kingdom	10982	1573	36.5	cds	1	best_quality
+283354	Alternaria metachromatica	fungal	genus_fill	GCF_023757995.1	Scaffold	2022-06-17	True	Australia	11000	1012	37.3	cds	1	best_quality
+430562	Alternaria novae-zelandiae	fungal	genus_fill	GCF_023758075.1	Scaffold	2022-06-17	True	New Zealand	10919	1243	37.6	cds	1	best_quality
+1187938	Alternaria postmessia	fungal	genus_fill	GCF_024291825.1	Scaffold	2022-07-15	True	USA	11632	300	34.4	cds	1	best_quality
+1187941	Alternaria rosae	fungal	genus_fill	GCA_024043135.1	Scaffold	2022-06-29	True	New Zealand	11226	938	32.8	cds	1	best_quality
+2817039	Alternaria sp. Ai002NY15	fungal	genus_fill	GCA_023758125.1	Scaffold	2022-06-17	True	USA	11042	1256	36.9	cds	1	best_quality
+2817042	Alternaria sp. BMP 0032	fungal	genus_fill	GCA_023758005.1	Scaffold	2022-06-17	True	USA	10997	976	37.3	cds	1	best_quality
+2817041	Alternaria sp. BMP 2799	fungal	genus_fill	GCA_023758145.1	Scaffold	2022-06-17	True	USA	11051	1000	36.4	cds	1	best_quality
+1678846	Alternaria sp. MG1	fungal	genus_fill	GCA_003574525.1	Scaffold	2018-09-18	True	China	13440	1662	34.7	cds	1	best_quality
+119927	Alternaria tenuissima	fungal	genus_fill	GCA_004154735.1	Scaffold	2019-02-11	True		12799	608	33.1	cds	1	best_quality
+297637	Alternaria triticimaculans	fungal	genus_fill	GCF_023758025.1	Scaffold	2022-06-17	True	Argentina	10976	1667	36.8	cds	1	best_quality
+1187951	Alternaria ventricosa	fungal	genus_fill	GCF_023758065.1	Scaffold	2022-06-17	True	China	10954	1329	34.7	cds	1	best_quality
+566460	Alternaria viburni	fungal	genus_fill	GCF_023758015.1	Scaffold	2022-06-17	True	Netherlands	11747	1054	36.4	cds	1	best_quality
+1918533	Bipolaris sivanesaniana	fungal	genus_fill	GCA_055773965.2	Chromosome	2026-05-08	True	China	10205	2111	34.0	cds	1	best_quality
+546991	Blumeria hordei DH14	fungal	genus_fill	GCA_000151065.3	Scaffold	2013-08-06	True		6485	2030	118.7	cds	1	best_quality
+278940	Botrytis galanthina	fungal	genus_fill	GCA_004916875.1	Scaffold	2019-04-25	True	Netherlands	12388	65	43.9	cds	1	best_quality
+278943	Botrytis hyacinthi	fungal	genus_fill	GCA_004786245.1	Scaffold	2019-04-12	True	Netherlands	12130	116	43.8	cds	1	best_quality
+278948	Botrytis paeoniae	fungal	genus_fill	GCA_004786145.1	Scaffold	2019-04-12	True	Netherlands	12045	125	46.2	cds	1	best_quality
+87229	Botrytis porri	fungal	genus_fill	GCA_004786265.1	Scaffold	2019-04-12	True	Belgium	11857	36	43.0	cds	1	best_quality
+87230	Botrytis tulipae	fungal	genus_fill	GCA_004786125.1	Scaffold	2019-04-12	True	Netherlands	12565	172	45.3	cds	1	best_quality
+357750	Cercospora berteroae	fungal	genus_fill	GCA_002933655.1	Scaffold	2018-02-20	True	Romania	11903	105	33.9	cds	1	best_quality
+1671311	Colletotrichum abscissum	fungal	genus_fill	GCF_030869225.1	Scaffold	2023-08-24	True	USA	17223	963	53.9	cds	1	best_quality
+5460	Colletotrichum caudatum	fungal	genus_fill	GCA_030867225.1	Scaffold	2023-08-22	True		15292	95	44.2	cds	1	best_quality
+343994	Colletotrichum cereale	fungal	genus_fill	GCA_030867335.1	Scaffold	2023-08-22	True		16411	77	52.2	cds	1	best_quality
+708187	Colletotrichum chlorophyti	fungal	genus_fill	GCA_001937105.1	Scaffold	2017-01-05	True	Japan	10310	644	52.4	cds	1	best_quality
+1836956	Colletotrichum chrysophilum	fungal	genus_fill	GCA_031006325.1	Scaffold	2023-08-30	True	Italy	20024	87	55.6	cds	1	best_quality
+1209916	Colletotrichum costaricense	fungal	genus_fill	GCF_030867565.1	Scaffold	2023-08-24	True	Costa Rica	17065	2423	51.6	cds	1	best_quality
+1209917	Colletotrichum cuscutae	fungal	genus_fill	GCA_030869315.1	Scaffold	2023-08-24	True	Dominica	17289	514	80.5	cds	1	best_quality
+34406	Colletotrichum destructivum	fungal	genus_fill	GCF_034447905.1	Complete Genome	2023-12-18	True	Saudi Arabia	15627	5290	51.8	cds	1	best_quality
+1173702	Colletotrichum eremochloae	fungal	genus_fill	GCA_030867245.1	Scaffold	2023-08-22	True		15169	353	47.2	cds	1	best_quality
+129314	Colletotrichum falcatum	fungal	genus_fill	GCA_030867235.1	Scaffold	2023-08-22	True		15618	91	49.1	cds	1	best_quality
+2940390	Colletotrichum filicis	fungal	genus_fill	GCA_023376865.1	Scaffold	2022-05-16	True	Costa Rica	17391	325	63.0	cds	1	best_quality
+710243	Colletotrichum fioriniae	fungal	genus_fill	GCF_027942845.1	Scaffold	2023-01-23	True	Switzerland	11830	2984	49.4	cds	1	best_quality
+1445577	Colletotrichum fioriniae PJ7	fungal	genus_fill	GCF_000582985.1	Scaffold	2014-02-27	True	New Zealand	13759	137	49.0	cds	1	best_quality
+1573173	Colletotrichum incanum	fungal	genus_fill	GCA_001855235.1	Scaffold	2016-10-27	True	Japan	11852	293	53.3	cds	1	best_quality
+2283408	Colletotrichum jinshuiense	fungal	genus_fill	GCF_051148585.1	Complete Genome	2024-04-09	True	China	13128	5052	52.1	cds	1	best_quality
+34407	Colletotrichum kahawae	fungal	genus_fill	GCA_032988895.1	Scaffold	2023-10-24	True	Kenya	19181	199	59.1	cds	1	best_quality
+1095194	Colletotrichum karsti	fungal	genus_fill	GCF_011947395.1	Scaffold	2020-12-08	True	China	13328	858	51.9	cds	1	best_quality
+1209924	Colletotrichum limetticola	fungal	genus_fill	GCA_030413865.1	Scaffold	2023-07-10	True	USA	15248	69	50.5	cds	1	best_quality
+145971	Colletotrichum lupini	fungal	genus_fill	GCF_023278565.1	Complete Genome	2022-05-09	True	France	18280	7872	63.4	cds	1	best_quality
+1209925	Colletotrichum melonis	fungal	genus_fill	GCA_030868995.1	Scaffold	2023-08-24	True	Brazil	16823	2830	50.1	cds	1	best_quality
+2175873	Colletotrichum musicola	fungal	genus_fill	GCA_014235935.1	Scaffold	2020-08-18	True	Brazil	16826	46	52.7	cds	1	best_quality
+2664923	Colletotrichum noveboracense	fungal	genus_fill	GCA_026319155.1	Scaffold	2022-11-23	True	USA	14011	169	58.2	cds	1	best_quality
+1460502	Colletotrichum nymphaeae SA-01	fungal	genus_fill	GCA_001563115.1	Scaffold	2016-02-17	True	Denmark	14404	91	50.0	cds	1	best_quality
+1209926	Colletotrichum orchidophilum	fungal	genus_fill	GCF_001831195.1	Scaffold	2016-10-21	True	United Kingdom	14452	284	48.6	cds	1	best_quality
+2175906	Colletotrichum plurivorum	fungal	genus_fill	GCA_014235945.1	Scaffold	2020-08-18	True	Brazil	16153	130	49.7	cds	1	best_quality
+1209931	Colletotrichum salicis	fungal	genus_fill	GCA_001563125.1	Scaffold	2016-02-17	True	Netherlands	13783	46	48.4	cds	1	best_quality
+2078593	Colletotrichum shisoi	fungal	genus_fill	GCA_006783085.1	Scaffold	2019-07-09	True	Japan	11848	15	69.7	cds	1	best_quality
+1347389	Colletotrichum sidae	fungal	genus_fill	GCA_004367935.1	Scaffold	2019-03-22	True	USA	12442	39	86.8	cds	1	best_quality
+703756	Colletotrichum simmondsii	fungal	genus_fill	GCA_001563135.1	Scaffold	2016-02-17	True	Australia	13884	292	50.5	cds	1	best_quality
+2175907	Colletotrichum sojae	fungal	genus_fill	GCA_014235955.1	Scaffold	2020-08-18	True	Brazil	16124	104	49.4	cds	1	best_quality
+1500509	Colletotrichum somersetense	fungal	genus_fill	GCA_030867255.1	Scaffold	2023-08-22	True		15191	180	53.7	cds	1	best_quality
+3239297	Colletotrichum sp. CLE4	fungal	genus_fill	GCA_044063575.1	Scaffold	2024-10-29	True	USA	11678	507	48.0	cds	1	best_quality
+2838796	Colletotrichum sp. SAR 10_70	fungal	genus_fill	GCA_025327165.1	Scaffold	2022-09-20	True	Cameroon	12888	133	59.5	cds	1	best_quality
+2838797	Colletotrichum sp. SAR 10_71	fungal	genus_fill	GCA_025327135.1	Scaffold	2022-09-20	True	Cameroon	12879	118	59.9	cds	1	best_quality
+2838798	Colletotrichum sp. SAR 10_75	fungal	genus_fill	GCA_025327155.1	Scaffold	2022-09-20	True	Cameroon	13005	144	60.8	cds	1	best_quality
+2838800	Colletotrichum sp. SAR 10_77	fungal	genus_fill	GCA_025330015.1	Scaffold	2022-09-20	True	Cameroon	12950	116	60.5	cds	1	best_quality
+2838801	Colletotrichum sp. SAR 10_86	fungal	genus_fill	GCA_025327125.1	Scaffold	2022-09-20	True	Cameroon	12940	96	60.7	cds	1	best_quality
+2838804	Colletotrichum sp. SAR 10_99	fungal	genus_fill	GCA_028654355.1	Scaffold	2023-02-15	True	Peru	12758	99	56.7	cds	1	best_quality
+2838810	Colletotrichum sp. SAR11_239	fungal	genus_fill	GCA_025328985.1	Scaffold	2022-09-20	True	Indonesia	12877	146	58.1	cds	1	best_quality
+2838811	Colletotrichum sp. SAR11_240	fungal	genus_fill	GCA_025328625.1	Scaffold	2022-09-20	True	Indonesia	13003	134	60.0	cds	1	best_quality
+2838812	Colletotrichum sp. SAR11_57	fungal	genus_fill	GCA_025328355.1	Scaffold	2022-09-20	True	Panama	12780	98	55.5	cds	1	best_quality
+2838813	Colletotrichum sp. SAR11_59	fungal	genus_fill	GCA_025328345.1	Scaffold	2022-09-20	True	Panama	12794	81	65.1	cds	1	best_quality
+1347390	Colletotrichum spinosum	fungal	genus_fill	GCA_004366825.1	Scaffold	2019-03-22	True	Australia	12540	94	82.7	cds	1	best_quality
+1173701	Colletotrichum sublineola	fungal	genus_fill	GCA_030867325.1	Scaffold	2023-08-22	True		15206	84	46.9	cds	1	best_quality
+1209934	Colletotrichum tamarilloi	fungal	genus_fill	GCF_030869305.1	Scaffold	2023-08-24	True	Colombia	17330	411	52.1	cds	1	best_quality
+1306861	Colletotrichum tanaceti	fungal	genus_fill	GCA_026229895.1	Scaffold	2022-11-17	True	Australia	12204	10	51.5	cds	1	best_quality
+708197	Colletotrichum tofieldiae	fungal	genus_fill	GCA_001625265.1	Scaffold	2016-04-19	True	Spain	12501	209	52.8	cds	1	best_quality
+912113	Colletotrichum tropicale	fungal	genus_fill	GCA_013201785.1	Scaffold	2020-06-01	True	Japan	14794	692	55.8	cds	1	best_quality
+1131913	Colletotrichum viniferum	fungal	genus_fill	GCA_013201765.1	Scaffold	2020-06-01	True	Japan	14534	144	68.5	cds	1	best_quality
+1216348	Colletotrichum zoysiae	fungal	genus_fill	GCA_030867305.1	Scaffold	2023-08-22	True		15325	179	46.5	cds	1	best_quality
+5515	Fusarium acuminatum	fungal	genus_fill	GCA_038181435.1	Complete Genome	2024-04-15	True	China	11342	6113	46.7	cds	1	best_quality
+78861	Fusarium acutatum	fungal	genus_fill	GCA_012932015.1	Scaffold	2020-04-29	True		14081	116	43.3	cds	1	best_quality
+1803897	Fusarium agapanthi	fungal	genus_fill	GCA_001654555.2	Scaffold	2020-04-29	True	Italy	13310	43	41.3	cds	1	best_quality
+2698982	Fusarium akasia	fungal	genus_fill	GCA_057674905.1	Scaffold	2026-05-21	True	Indonesia	15245	420	49.9	cds	1	best_quality
+1237068	Fusarium albosuccineum	fungal	genus_fill	GCA_012931995.1	Scaffold	2020-04-29	True	Venezuela	17169	23	50.9	cds	1	best_quality
+131363	Fusarium ambrosium	fungal	genus_fill	GCA_057676225.1	Scaffold	2026-05-21	True	India	15363	750	51.7	cds	1	best_quality
+48484	Fusarium annulatum	fungal	genus_fill	GCA_022627115.1	Scaffold	2022-03-18	True	Viet Nam	12880	1803	44.2	cds	1	best_quality
+48485	Fusarium anthophilum	fungal	genus_fill	GCA_013364935.1	Scaffold	2020-06-19	True	Germany	14797	125	45.8	cds	1	best_quality
+2364996	Fusarium austroafricanum	fungal	genus_fill	GCA_012932025.1	Scaffold	2020-04-29	True	South Africa	14502	86	45.7	cds	1	best_quality
+282268	Fusarium austroamericanum	fungal	genus_fill	GCA_013364965.1	Scaffold	2020-06-19	True	Brazil	11984	109	36.8	cds	1	best_quality
+2698983	Fusarium awan	fungal	genus_fill	GCA_057674825.1	Scaffold	2026-05-21	True	Indonesia	10048	278	53.0	cds	1	best_quality
+44412	Fusarium beomiforme	fungal	genus_fill	GCA_002980475.2	Scaffold	2020-04-27	True	New Caledonia	14521	77	46.5	cds	1	best_quality
+79018	Fusarium bulbicola	fungal	genus_fill	GCA_013758895.1	Scaffold	2020-07-27	True	Germany	14231	55	43.6	cds	1	best_quality
+1715230	Fusarium cf. solani	fungal	genus_fill	GCA_057675645.1	Scaffold	2026-05-21	True	Taiwan	15026	548	50.2	cds	1	best_quality
+2885761	Fusarium chuoi	fungal	genus_fill	GCA_022627125.1	Scaffold	2022-03-18	True	Viet Nam	13380	1615	45.4	cds	1	best_quality
+1567539	Fusarium coicis	fungal	genus_fill	GCA_013781345.1	Scaffold	2020-07-27	True	Australia	13908	83	42.7	cds	1	best_quality
+57161	Fusarium decemcellulare	fungal	genus_fill	GCA_027627305.1	Scaffold	2023-01-10	True	Viet Nam	17201	13	50.5	cds	1	best_quality
+48507	Fusarium denticulatum	fungal	genus_fill	GCA_013396175.1	Scaffold	2020-07-10	True	USA	14097	109	43.2	cds	1	best_quality
+2951361	Fusarium drepaniforme	fungal	genus_fill	GCA_057676085.1	Scaffold	2026-05-21	True	Singapore	15095	356	48.5	cds	1	best_quality
+1325734	Fusarium duplospermum	fungal	genus_fill	GCA_057674645.1	Scaffold	2026-05-21	True	USA	15936	342	47.7	cds	1	best_quality
+61235	Fusarium equiseti	fungal	genus_fill	GCA_027945365.1	Scaffold	2023-01-24	True	USA	11882	1904	37.1	cds	1	best_quality
+1147111	Fusarium euwallaceae	fungal	genus_fill	GCA_057674965.1	Scaffold	2026-05-21	True	Israel	16269	570	51.7	cds	1	best_quality
+195108	Fusarium falciforme	fungal	genus_fill	GCA_027945495.1	Scaffold	2023-01-24	True	USA	15535	504	56.5	cds	1	best_quality
+2675880	Fusarium flagelliforme	fungal	genus_fill	GCA_003012295.1	Scaffold	2018-03-20	True	USA	13046	113	39.6	cds	1	best_quality
+1325733	Fusarium floridanum	fungal	genus_fill	GCA_057675205.1	Scaffold	2026-05-21	True	USA	15615	299	48.3	cds	1	best_quality
+282569	Fusarium gaditjirri	fungal	genus_fill	GCA_013266175.1	Scaffold	2020-06-03	True	Australia	13454	134	41.9	cds	1	best_quality
+78864	Fusarium globosum	fungal	genus_fill	GCA_013396165.1	Scaffold	2020-07-10	True	South Africa	14590	71	44.6	cds	1	best_quality
+86546	Fusarium graminum	fungal	genus_fill	GCA_013266165.1	Scaffold	2020-06-03	True	Ethiopia	11163	86	35.0	cds	1	best_quality
+42747	Fusarium heterosporum	fungal	genus_fill	GCA_013396295.1	Scaffold	2020-07-10	True	Netherlands	11332	176	35.7	cds	1	best_quality
+2494466	Fusarium irregulare	fungal	genus_fill	GCA_027945245.1	Scaffold	2023-01-24	True	USA	12532	1636	38.2	cds	1	best_quality
+1328300	Fusarium keratoplasticum	fungal	genus_fill	GCF_025433545.1	Chromosome	2022-10-03	True	Malaysia	14423	4213	49.5	cds	1	best_quality
+2010991	Fusarium kuroshium	fungal	genus_fill	GCA_057675985.1	Scaffold	2026-05-21	True	USA	15521	444	48.6	cds	1	best_quality
+179993	Fusarium langsethiae	fungal	genus_fill	GCA_022180325.1	Scaffold	2022-01-05	True	Russia	12513	76	38.4	cds	1	best_quality
+5523	Fusarium lateritium	fungal	genus_fill	GCA_052570515.1	Scaffold	2025-09-12	True	United Kingdom	11977	2985	37.6	cds	1	best_quality
+694270	Fusarium longipes	fungal	genus_fill	GCA_003012285.1	Scaffold	2018-03-20	True	USA	11421	144	35.3	cds	1	best_quality
+192010	Fusarium mangiferae	fungal	genus_fill	GCF_900044065.1	Scaffold	2016-12-06	True		15796	2537	46.3	cds	1	best_quality
+2951228	Fusarium mekan	fungal	genus_fill	GCA_057675485.1	Scaffold	2026-05-21	True	Indonesia	15388	416	50.5	cds	1	best_quality
+751941	Fusarium mexicanum	fungal	genus_fill	GCA_013396015.1	Scaffold	2020-07-10	True	Mexico	14387	147	44.0	cds	1	best_quality
+1567541	Fusarium mundagurra	fungal	genus_fill	GCA_013396205.1	Scaffold	2020-07-10	True	Australia	15666	113	49.1	cds	1	best_quality
+1042133	Fusarium musae	fungal	genus_fill	GCF_019915245.1	Chromosome	2021-09-09	True	Dominican Republic	13672	4357	44.0	cds	1	best_quality
+42672	Fusarium napiforme	fungal	genus_fill	GCA_013396005.1	Scaffold	2020-07-10	True	South Africa	13896	78	42.1	cds	1	best_quality
+1053271	Fusarium nematophilum	fungal	genus_fill	GCA_054098485.1	Scaffold	2025-12-19	True	China	17093	151	53.1	cds	1	best_quality
+42673	Fusarium nygamai	fungal	genus_fill	GCA_002894225.1	Scaffold	2018-01-22	True	Australia	16019	382	50.2	cds	1	best_quality
+1325738	Fusarium obliquiseptatum	fungal	genus_fill	GCA_057674705.1	Scaffold	2026-05-21	True	Australia	14297	316	47.7	cds	1	best_quality
+2604345	Fusarium oligoseptatum	fungal	genus_fill	GCA_057675185.1	Scaffold	2026-05-21	True	USA	16341	326	49.9	cds	1	best_quality
+2951362	Fusarium papillatum	fungal	genus_fill	GCA_057676005.1	Scaffold	2026-05-21	True	Sri Lanka	14774	293	49.2	cds	1	best_quality
+47803	Fusarium phyllophilum	fungal	genus_fill	GCA_013396025.1	Scaffold	2020-07-10	True	Italy	14160	87	43.4	cds	1	best_quality
+36050	Fusarium poae	fungal	genus_fill	GCA_046056315.1	Complete Genome	2024-12-17	True	Canada	14418	8641	44.9	cds	1	best_quality
+986114	Fusarium pseudensiforme	fungal	genus_fill	GCA_057674445.1	Scaffold	2026-05-21	True	Sri Lanka	9073	431	50.0	cds	1	best_quality
+48495	Fusarium pseudoanthophilum	fungal	genus_fill	GCA_013395995.1	Scaffold	2020-07-10	True	Zimbabwe	14088	62	42.8	cds	1	best_quality
+56676	Fusarium pseudocircinatum	fungal	genus_fill	GCA_013396035.1	Scaffold	2020-07-10	True		14263	118	43.3	cds	1	best_quality
+2698985	Fusarium rekanum	fungal	genus_fill	GCA_057675605.1	Scaffold	2026-05-21	True	Indonesia	15148	412	50.3	cds	1	best_quality
+1208366	Fusarium sarcochroum	fungal	genus_fill	GCA_013266185.1	Scaffold	2020-06-03	True	Switzerland	14827	55	46.4	cds	1	best_quality
+2747967	Fusarium solani-melongenae	fungal	genus_fill	GCA_023101225.1	Complete Genome	2022-04-25	True	China	15320	4496	49.5	cds	1	best_quality
+2874508	Fusarium sp. FIESC RH6	fungal	genus_fill	GCA_022627095.1	Scaffold	2022-03-18	True	Viet Nam	11533	1716	40.0	cds	1	best_quality
+3387622	Fusarium sp. IMII-1	fungal	genus_fill	GCA_056098845.1	Scaffold	2026-03-16	True	Peru	12719	10146	40.4	cds	1	best_quality
+2898545	Fusarium sp. LHS14.1	fungal	genus_fill	GCA_025433615.1	Chromosome	2022-10-03	True	Taiwan	15522	3818	56.3	cds	1	best_quality
+122381	Fusarium sp. NRRL 25303	fungal	genus_fill	GCA_013396255.1	Scaffold	2020-07-10	True	Japan	14388	102	43.7	cds	1	best_quality
+2692428	Fusarium sp. NRRL 66182	fungal	genus_fill	GCA_013266265.1	Scaffold	2020-06-03	True	USA	16534	36	48.0	cds	1	best_quality
+2898544	Fusarium sp. Ph1	fungal	genus_fill	GCA_025433565.1	Chromosome	2022-10-03	True	Taiwan	15084	3299	51.5	cds	1	best_quality
+1567544	Fusarium tjaetaba	fungal	genus_fill	GCF_013396195.1	Scaffold	2020-07-10	True	Australia	14181	152	43.1	cds	1	best_quality
+1237075	Fusarium torreyae	fungal	genus_fill	GCA_027945595.1	Scaffold	2023-01-24	True	USA	14533	1014	46.5	cds	1	best_quality
+33205	Fusarium torulosum	fungal	genus_fill	GCA_900312805.1	Scaffold	2023-10-11	True		13980	93	41.3	cds	1	best_quality
+1325736	Fusarium tuaranense	fungal	genus_fill	GCA_057675105.1	Scaffold	2026-05-21	True	Malaysia	14768	370	49.1	cds	1	best_quality
+660122	Fusarium vanettenii 77-13-4	fungal	genus_fill	GCF_000151355.1	Scaffold	2009-08-27	True	USA	15708	1256	51.3	cds	1	best_quality
+2698986	Fusarium variasi	fungal	genus_fill	GCA_057675405.1	Scaffold	2026-05-21	True	Indonesia	13553	1575	49.8	cds	1	best_quality
+56646	Fusarium venenatum	fungal	genus_fill	GCF_900007375.1	Chromosome	2018-03-01	True		13931	9140	38.6	cds	1	best_quality
+2698987	Fusarium warna	fungal	genus_fill	GCA_057675365.1	Scaffold	2026-05-21	True	Indonesia	15235	504	49.9	cds	1	best_quality
+1053134	Fusarium zealandicum	fungal	genus_fill	GCA_013266195.1	Scaffold	2020-06-03	True		10733	43	33.5	cds	1	best_quality
+869390	Lasiodiplodia hormozganensis	fungal	genus_fill	GCA_030512325.1	Scaffold	2023-07-20	True	Canada	12652	291	43.2	cds	1	best_quality
+61207	Monilinia vaccinii-corymbosi	fungal	genus_fill	GCA_017357885.1	Chromosome	2021-03-16	True	USA	9388	4063	30.0	cds	1	best_quality
+1408161	Plenodomus tracheiphilus IPT5	fungal	genus_fill	GCA_010093695.1	Scaffold	2020-01-31	True		13204	533	34.2	cds	1	best_quality
+321146	Pseudocercospora eumusae	fungal	genus_fill	GCA_001578235.1	Scaffold	2016-03-01	True	France	10939	112	47.1	cds	1	best_quality
+113226	Pseudocercospora musae	fungal	genus_fill	GCA_001578225.1	Scaffold	2016-03-01	True	Cuba	10402	44	60.4	cds	1	best_quality
+27349	Puccinia sorghi	fungal	genus_fill	GCA_001263375.1	Scaffold	2015-08-07	True	Argentina	21078	19	99.5	cds	1	best_quality
+1302712	Pyrenophora seminiperda CCB06	fungal	genus_fill	GCA_000465215.2	Scaffold	2013-09-09	True	USA	8711	1474	32.5	cds	1	best_quality
+148305	Pyricularia grisea	fungal	genus_fill	GCF_004355905.1	Chromosome	2019-03-19	True	Japan	12441	5912	44.6	cds	1	best_quality
+1578925	Pyricularia pennisetigena	fungal	genus_fill	GCF_004337985.1	Chromosome	2019-03-19	True	Brazil	11428	5438	49.1	cds	1	best_quality
+403063	Pyricularia sp. CBS 133598	fungal	genus_fill	GCA_004337975.1	Chromosome	2019-03-19	True	Japan	12078	3202	41.5	cds	1	best_quality
+1432307	Sclerotinia borealis F-4128	fungal	genus_fill	GCA_000503235.1	Scaffold	2013-12-05	True	Russia	10166	131	39.5	cds	1	best_quality
+307758	Ustilago bromivora	fungal	genus_fill	GCA_900080155.1	Complete Genome	2016-11-03	True		7227	877	20.4	cds	1	best_quality
+27335	Verticillium albo-atrum	fungal	genus_fill	GCA_052569915.1	Scaffold	2025-09-12	True	United Kingdom	9876	112	35.9	cds	1	best_quality
+526221	Verticillium alfalfae VaMs.102	fungal	genus_fill	GCF_000150825.1	Scaffold	2008-06-16	True		10237	2315	32.8	cds	1	best_quality
+105487	105487	fungal	seed	GCA_000818155.1	Chromosome	2015-01-20	True	China	11284	3351	44.7	cds	1	best_quality
+694573	694573	fungal	seed	GCA_000818155.1	Chromosome	2015-01-20	True	China	11284	3351	44.7	cds	1	best_quality
+914237	914237	fungal	seed	GCA_046529785.1	Complete Genome	2025-01-07	True	Australia	13726	3757	57.8	cds	1	best_quality
+5599	Alternaria alternata	fungal	seed	GCA_016097525.1	Scaffold	2020-12-16	True	None	24347	2282	35.0	cds	1	best_quality
+5599	Alternaria alternata	fungal	seed	GCF_001642055.1	Scaffold	2016-05-11	True		13466	1098	33.0	cds	2	new_year_bin:2015
+5599	Alternaria alternata	fungal	seed	GCA_004154755.1	Scaffold	2019-02-11	True		13574	537	35.6	cds	3	quality_fill
+5599	Alternaria alternata	fungal	seed	GCA_001642055.1	Scaffold	2016-05-11	True		13466	1098	33.0	cds	4	quality_fill
+29001	Alternaria brassicicola	fungal	seed	GCA_023079265.1	Scaffold	2022-04-21	False	China		799	36.1	genome	1	best_quality
+160389	Alternaria longipes	fungal	seed	GCA_019059555.1	Chromosome	2021-06-29	False	USA		3599	39.4	genome	1	best_quality
+48097	Alternaria panax	fungal	seed	GCA_019702505.1	Scaffold	2021-08-20	True	China	11837	4172	34.8	cds	1	best_quality
+48100	Alternaria solani	fungal	seed	GCA_002952155.1	Complete Genome	2018-02-14	False	Netherlands		2867	32.8	genome	1	best_quality
+48100	Alternaria solani	fungal	seed	GCA_058968875.1	Chromosome	2026-07-06	False	USA		2867	33.1	genome	2	new_country:USA; new_year_bin:2025
+48100	Alternaria solani	fungal	seed	GCA_036363465.1	Scaffold	2024-02-05	False	China		272	32.3	genome	3	new_country:China; new_year_bin:2020
+48100	Alternaria solani	fungal	seed	GCA_002837235.1	Scaffold	2017-12-11	False	NA		2613	32.8	genome	4	new_country:NA
+205686	Ascochyta lentis	fungal	seed	GCA_016097375.2	Complete Genome	2025-03-24	True	Australia	13938	1825	41.7	cds	1	best_quality
+205686	Ascochyta lentis	fungal	seed	GCA_022607105.2	Complete Genome	2025-03-24	True	Australia	13927	1805	42.1	cds	2	quality_fill
+5454	Ascochyta rabiei	fungal	seed	GCF_004011695.2	Complete Genome	2022-08-25	True	Australia	11525	1945	40.8	cds	1	best_quality
+5454	Ascochyta rabiei	fungal	seed	GCA_001630375.1	Scaffold	2016-04-19	True	India	10596	155	34.7	cds	2	new_country:India; new_year_bin:2015
+5454	Ascochyta rabiei	fungal	seed	GCA_004011695.2	Complete Genome	2022-08-25	True	Australia	11544	1945	40.8	cds	3	quality_fill
+40993	Aspergillus carbonarius	fungal	seed	GCA_001990825.1	Scaffold	2017-02-15	True		11475	1828	36.1	cds	1	best_quality
+5059	Aspergillus flavus	fungal	seed	GCF_009017415.1	Complete Genome	2019-10-13	True	USA	13707	4810	37.7	cds	1	best_quality
+5059	Aspergillus flavus	fungal	seed	GCA_014784225.2	Complete Genome	2021-10-08	True	USA	13068	6268	37.8	cds	2	new_year_bin:2020
+5059	Aspergillus flavus	fungal	seed	GCA_009017415.1	Complete Genome	2019-10-13	True	USA	13709	4810	37.7	cds	3	quality_fill
+5059	Aspergillus flavus	fungal	seed	GCF_014117465.1	Chromosome	2020-08-09	True	USA	12009	4659	37.0	cds	4	quality_fill
+5059	Aspergillus flavus	fungal	seed	GCA_014117485.1	Chromosome	2020-08-09	True	USA	12053	4651	37.4	cds	5	quality_fill
+5059	Aspergillus flavus	fungal	seed	GCA_014117465.1	Chromosome	2020-08-09	True	USA	12009	4659	37.0	cds	6	quality_fill
+5059	Aspergillus flavus	fungal	seed	GCA_027574695.1	Scaffold	2023-01-06	True	USA	13064	156	37.3	cds	7	quality_fill
+5059	Aspergillus flavus	fungal	seed	GCA_000006275.3	Scaffold	2020-09-28	True	USA	14313	2388	36.9	cds	8	quality_fill
+5059	Aspergillus flavus	fungal	seed	GCA_009176375.1	Scaffold	2019-10-18	True		13593	241	37.6	cds	9	quality_fill
+5059	Aspergillus flavus	fungal	seed	GCA_003709025.1	Scaffold	2018-10-31	True	USA	12846	1333	37.7	cds	10	quality_fill
+5061	Aspergillus niger	fungal	seed	GCA_055697485.1	Chromosome	2026-03-05	True	USA	11113	4304	35.6	cds	1	best_quality
+5061	Aspergillus niger	fungal	seed	GCA_027923725.1	Scaffold	2022-12-15	True	Japan	11305	393	36.1	cds	2	new_country:Japan; new_year_bin:2020
+5061	Aspergillus niger	fungal	seed	GCA_001515345.1	Scaffold	2015-12-19	True	China	10373	1783	34.9	cds	3	new_country:China; new_year_bin:2015
+5061	Aspergillus niger	fungal	seed	GCA_023134235.1	Scaffold	2022-04-29	True	India	11103	322	35.4	cds	4	new_country:India
+5061	Aspergillus niger	fungal	seed	GCA_023134265.1	Scaffold	2022-04-29	True	Norway	11276	286	36.4	cds	5	new_country:Norway
+5061	Aspergillus niger	fungal	seed	GCA_023134295.1	Scaffold	2022-04-29	True	Unknown	11360	310	36.3	cds	6	new_country:Unknown
+5061	Aspergillus niger	fungal	seed	GCA_023134415.1	Scaffold	2022-04-29	True	Australia	11072	326	34.7	cds	7	new_country:Australia
+5061	Aspergillus niger	fungal	seed	GCA_023137675.1	Scaffold	2022-04-29	True	Thailand	11021	362	35.4	cds	8	new_country:Thailand
+5061	Aspergillus niger	fungal	seed	GCA_023137705.1	Scaffold	2022-04-29	True	Italy	11933	293	38.9	cds	9	new_country:Italy
+5061	Aspergillus niger	fungal	seed	GCA_023137735.1	Scaffold	2022-04-29	True	Mexico	11169	333	35.4	cds	10	new_country:Mexico
+40380	Aspergillus ochraceus	fungal	seed	GCA_026108165.1	Scaffold	2022-11-09	False	India		1169	35.1	genome	1	best_quality
+40380	Aspergillus ochraceus	fungal	seed	GCA_004849945.1	Scaffold	2019-04-24	False	China		3844	37.0	genome	2	new_country:China; new_year_bin:2015
+40380	Aspergillus ochraceus	fungal	seed	GCA_025594125.1	Scaffold	2022-10-05	False	USA		41	35.2	genome	3	new_country:USA
+176275	Beauveria bassiana	fungal	seed	GCF_000280675.1	Scaffold	2012-08-14	True		10364	730	33.7	cds	1	best_quality
+176275	Beauveria bassiana	fungal	seed	GCA_053540785.1	Scaffold	2025-11-18	True	Thailand	10376	118	33.0	cds	2	new_country:Thailand; new_year_bin:2025
+176275	Beauveria bassiana	fungal	seed	GCA_053540805.1	Scaffold	2025-11-18	True	Italy	10354	94	34.0	cds	3	new_country:Italy
+176275	Beauveria bassiana	fungal	seed	GCA_000280675.1	Scaffold	2012-08-14	True		10364	730	33.7	cds	4	quality_fill
+176275	Beauveria bassiana	fungal	seed	GCA_053540765.1	Scaffold	2025-11-18	True	Thailand	9993	81	32.4	cds	5	quality_fill
+5016	Bipolaris maydis	fungal	seed	GCF_028858645.1	Scaffold	2023-02-23	True		11323	2056	37.8	cds	1	best_quality
+5016	Bipolaris maydis	fungal	seed	GCA_028564845.1	Scaffold	2023-02-08	True	USA	11726	1924	44.2	cds	2	new_country:USA
+5016	Bipolaris maydis	fungal	seed	GCF_000354255.1	Scaffold	2013-04-09	True		12673	964	32.9	cds	3	new_year_bin:2010
+5016	Bipolaris maydis	fungal	seed	GCA_028858645.1	Scaffold	2023-02-23	True		11323	2056	37.8	cds	4	quality_fill
+5016	Bipolaris maydis	fungal	seed	GCA_028858655.1	Scaffold	2023-02-23	True		11144	2273	38.4	cds	5	quality_fill
+5016	Bipolaris maydis	fungal	seed	GCA_000354255.1	Scaffold	2013-04-09	True		12705	964	32.9	cds	6	quality_fill
+5016	Bipolaris maydis	fungal	seed	GCA_000338975.1	Scaffold	2013-02-21	True		13316	1842	36.5	cds	7	quality_fill
+101162	Bipolaris oryzae	fungal	seed	GCF_000523455.1	Scaffold	2014-01-30	True		12000	134	31.4	cds	1	best_quality
+101162	Bipolaris oryzae	fungal	seed	GCA_000523455.1	Scaffold	2014-01-30	True		12002	134	31.4	cds	2	quality_fill
+45130	Bipolaris sorokiniana	fungal	seed	GCF_000338995.1	Scaffold	2013-02-19	True		12210	1789	34.4	cds	1	best_quality
+45130	Bipolaris sorokiniana	fungal	seed	GCA_013416765.1	Scaffold	2020-07-16	True	China	10755	1586	34.3	cds	2	new_country:China; new_year_bin:2020
+45130	Bipolaris sorokiniana	fungal	seed	GCA_000338995.1	Scaffold	2013-02-19	True		12214	1789	34.4	cds	3	quality_fill
+40125	Bipolaris victoriae	fungal	seed	GCF_000527765.1	Scaffold	2014-02-03	True		12882	231	32.8	cds	1	best_quality
+40125	Bipolaris victoriae	fungal	seed	GCA_000527765.1	Scaffold	2014-02-03	True		12882	231	32.8	cds	2	quality_fill
+5017	Bipolaris zeicola	fungal	seed	GCF_000523435.1	Scaffold	2014-01-30	True		12848	110	31.3	cds	1	best_quality
+5017	Bipolaris zeicola	fungal	seed	GCA_000523435.1	Scaffold	2014-01-30	True		12853	110	31.3	cds	2	quality_fill
+34373	Blumeria graminis	fungal	seed	GCA_905067625.1	Chromosome	2021-06-18	True	Poland	7993	15158	141.4	cds	1	best_quality
+34373	Blumeria graminis	fungal	seed	GCA_000418435.1	Scaffold	2013-07-08	True	Switzerland	6525	760	158.9	cds	2	new_country:Switzerland; new_year_bin:2010
+34373	Blumeria graminis	fungal	seed	GCA_900519115.1	Chromosome	2019-08-27	True		8347	15587	140.8	cds	3	new_year_bin:2015
+55169	Botryosphaeria dothidea	fungal	seed	GCA_021436945.2	Scaffold	2024-04-12	True	Canada	12423	302	45.1	cds	1	best_quality
+40559	Botrytis cinerea	fungal	seed	GCA_000227075.1	Scaffold	2011-03-11	True		16353	562	39.5	cds	1	best_quality
+40559	Botrytis cinerea	fungal	seed	GCA_053455415.1	Scaffold	2025-11-13	True	Spain	11506	126	41.8	cds	2	new_country:Spain; new_year_bin:2025
+40559	Botrytis cinerea	fungal	seed	GCA_052569665.1	Scaffold	2025-09-12	True	United Kingdom	11017	448	41.9	cds	3	new_country:United Kingdom
+40559	Botrytis cinerea	fungal	seed	GCA_052570965.1	Scaffold	2025-09-12	True	France	11328	284	40.8	cds	4	new_country:France
+40559	Botrytis cinerea	fungal	seed	GCA_000349525.1	Scaffold	2013-03-29	True	USA	11028	194	42.1	cds	5	new_country:USA
+40559	Botrytis cinerea	fungal	seed	GCF_000143535.2	Complete Genome	2015-02-05	True		11698	2617	42.6	cds	6	new_year_bin:2015
+40559	Botrytis cinerea	fungal	seed	GCA_000143535.4	Complete Genome	2015-02-05	True		11703	2617	42.6	cds	7	quality_fill
+40559	Botrytis cinerea	fungal	seed	GCA_052569675.1	Scaffold	2025-09-12	True	United Kingdom	11102	286	41.6	cds	8	quality_fill
+40559	Botrytis cinerea	fungal	seed	GCA_052570955.1	Scaffold	2025-09-12	True	United Kingdom	11057	324	41.4	cds	9	quality_fill
+40559	Botrytis cinerea	fungal	seed	GCA_052570975.1	Scaffold	2025-09-12	True	United Kingdom	11413	203	41.6	cds	10	quality_fill
+278938	Botrytis elliptica	fungal	seed	GCA_004786205.1	Scaffold	2019-04-12	True	Netherlands	12555	37	47.6	cds	1	best_quality
+5158	Ceratocystis fimbriata	fungal	seed	GCA_000389695.3	Scaffold	2017-10-18	True	USA	7266	174	30.0	cds	1	best_quality
+312341	Ceratocystis harringtonii	fungal	seed	GCA_002018265.1	Scaffold	2017-03-03	False	Netherlands		66	26.1	genome	1	best_quality
+929235	Ceratocystis manginecans	fungal	seed	GCA_006681795.1	Scaffold	2019-07-05	False	Indonesia		94	31.6	genome	1	best_quality
+132184	Cercospora apii	fungal	seed	GCA_026120055.1	Scaffold	2022-11-10	False	Germany		687	33.8	genome	1	best_quality
+132184	Cercospora apii	fungal	seed	GCA_022836995.1	Scaffold	2022-04-08	False	China		3715	34.8	genome	2	new_country:China
+122368	Cercospora beticola	fungal	seed	GCF_033473495.1	Complete Genome	2023-11-09	True	USA	13144	4240	36.1	cds	1	best_quality
+122368	Cercospora beticola	fungal	seed	GCA_963585935.1	Complete Genome	2023-12-13	True	Germany	13785	4201	35.2	cds	2	new_country:Germany
+122368	Cercospora beticola	fungal	seed	GCF_002742065.1	Chromosome	2017-11-03	True	USA	12271	4173	37.1	cds	3	new_year_bin:2015
+122368	Cercospora beticola	fungal	seed	GCA_033473495.1	Complete Genome	2023-11-09	True	USA	13144	4240	36.1	cds	4	quality_fill
+122368	Cercospora beticola	fungal	seed	GCA_002742065.1	Chromosome	2017-11-03	True	USA	12275	4173	37.1	cds	5	quality_fill
+1868926	Cercospora cf. flagellaris	fungal	seed	GCA_058382225.1	Scaffold	2026-06-24	False	NA		2900	33.6	genome	1	best_quality
+1868926	Cercospora cf. flagellaris	fungal	seed	GCA_005356885.1	Scaffold	2019-05-14	False	USA		2849	33.2	genome	2	new_country:USA; new_year_bin:2015
+84275	Cercospora kikuchii	fungal	seed	GCA_009193115.1	Scaffold	2019-10-21	False	Argentina		899	33.2	genome	1	best_quality
+84275	Cercospora kikuchii	fungal	seed	GCA_005356855.1	Scaffold	2019-05-14	False	USA		365	33.2	genome	2	new_country:USA
+29003	Cercospora nicotianae	fungal	seed	GCA_002994015.1	Scaffold	2018-03-12	False	Indonesia		330	33.4	genome	1	best_quality
+135779	Cercospora zeae-maydis	fungal	seed	GCA_010093985.1	Scaffold	2020-01-31	True		12008	720	46.6	cds	1	best_quality
+984309	Ciboria shiraiana	fungal	seed	GCA_008122225.1	Contig	2019-08-29	False	China		2399	39.1	genome	1	best_quality
+5111	Claviceps purpurea	fungal	seed	GCA_000347355.1	Scaffold	2012-08-02	True		8823	433	32.1	cds	1	best_quality
+29856	Clonostachys rosea	fungal	seed	GCA_902827195.2	Scaffold	2022-05-03	True		21141	1902	70.7	cds	1	best_quality
+27357	Colletotrichum acutatum	fungal	seed	GCA_037954465.1	Scaffold	2024-04-03	True	Italy	13972	648	51.8	cds	1	best_quality
+702518	Colletotrichum asianum	fungal	seed	GCA_045514765.1	Scaffold	2024-12-02	True	Taiwan	16276	683	58.2	cds	1	best_quality
+702518	Colletotrichum asianum	fungal	seed	GCA_009806415.1	Scaffold	2019-12-27	True	Thailand	17966	390	64.7	cds	2	new_country:Thailand; new_year_bin:2015
+538528	Colletotrichum camelliae	fungal	seed	GCA_011947485.2	Scaffold	2021-09-10	True	China	14390	198	57.8	cds	1	best_quality
+27358	Colletotrichum coccodes	fungal	seed	GCA_002249775.1	Scaffold	2017-08-11	False	USA		342	50.1	genome	1	best_quality
+27358	Colletotrichum coccodes	fungal	seed	GCA_002249805.1	Scaffold	2017-08-11	False	USA		281	51.5	genome	2	quality_fill
+690256	Colletotrichum fructicola	fungal	seed	GCA_013201875.1	Scaffold	2020-06-01	True	Japan	16156	307	57.4	cds	1	best_quality
+690256	Colletotrichum fructicola	fungal	seed	GCA_013201905.1	Scaffold	2020-06-01	True	Japan	15769	412	56.0	cds	2	quality_fill
+690256	Colletotrichum fructicola	fungal	seed	GCA_013201925.1	Scaffold	2020-06-01	True	Japan	15754	378	56.1	cds	3	quality_fill
+690256	Colletotrichum fructicola	fungal	seed	GCA_012932255.1	Scaffold	2020-04-29	True	Japan	16137	1273	59.0	cds	4	quality_fill
+474922	Colletotrichum gloeosporioides	fungal	seed	GCF_011800055.1	Scaffold	2020-03-31	True	China	15368	710	61.9	cds	1	best_quality
+474922	Colletotrichum gloeosporioides	fungal	seed	GCA_021432615.1	Scaffold	2021-12-27	True		18945	2304	58.8	cds	2	quality_fill
+474922	Colletotrichum gloeosporioides	fungal	seed	GCA_011800055.1	Scaffold	2020-03-31	True	China	15373	710	61.9	cds	3	quality_fill
+31870	Colletotrichum graminicola	fungal	seed	GCA_029226625.1	Chromosome	2023-03-16	True	USA	15139	6444	57.4	cds	1	best_quality
+31870	Colletotrichum graminicola	fungal	seed	GCF_000149035.1	Scaffold	2010-10-12	True		12019	579	51.6	cds	2	new_year_bin:2010
+31870	Colletotrichum graminicola	fungal	seed	GCA_000149035.1	Scaffold	2010-10-12	True		12020	579	51.6	cds	3	quality_fill
+80884	Colletotrichum higginsianum	fungal	seed	GCA_000313795.2	Scaffold	2012-03-15	True		16141	6	49.1	cds	1	best_quality
+80884	Colletotrichum higginsianum	fungal	seed	GCF_001672515.1	Chromosome	2016-06-21	True	Trinidad and Tobago	14651	5202	50.7	cds	2	new_country:Trinidad and Tobago; new_year_bin:2015
+80884	Colletotrichum higginsianum	fungal	seed	GCA_001672515.1	Chromosome	2016-06-21	True	Trinidad and Tobago	14651	5202	50.7	cds	3	quality_fill
+1585795	Colletotrichum lentis	fungal	seed	GCA_003386485.1	Scaffold	2018-08-14	False	Canada		4891	56.1	genome	1	best_quality
+290576	Colletotrichum lindemuthianum	fungal	seed	GCA_001693025.3	Scaffold	2024-10-02	False	Brazil		2180	100.4	genome	1	best_quality
+290576	Colletotrichum lindemuthianum	fungal	seed	GCA_041941805.1	Scaffold	2024-09-17	False	Mexico		31	90.1	genome	2	new_country:Mexico
+290576	Colletotrichum lindemuthianum	fungal	seed	GCA_001693015.2	Scaffold	2017-02-04	False	Brazil		111	97.4	genome	3	new_year_bin:2015
+290576	Colletotrichum lindemuthianum	fungal	seed	GCA_041941825.1	Scaffold	2024-09-17	False	Mexico		28	89.3	genome	4	quality_fill
+290576	Colletotrichum lindemuthianum	fungal	seed	GCA_041941845.1	Scaffold	2024-09-17	False	Mexico		33	90.1	genome	5	quality_fill
+290576	Colletotrichum lindemuthianum	fungal	seed	GCA_041941875.1	Scaffold	2024-09-17	False	Mexico		30	92.4	genome	6	quality_fill
+5465	Colletotrichum orbiculare	fungal	seed	GCA_000350065.2	Scaffold	2019-03-22	True	Japan	13253	2079	89.7	cds	1	best_quality
+1209932	Colletotrichum scovillei	fungal	seed	GCA_018906675.1	Scaffold	2021-06-16	True	Taiwan	15385	3529	49.9	cds	1	best_quality
+1209932	Colletotrichum scovillei	fungal	seed	GCA_018906765.1	Scaffold	2021-06-16	True	Taiwan	15431	3537	50.1	cds	2	quality_fill
+1209932	Colletotrichum scovillei	fungal	seed	GCA_018907675.1	Scaffold	2021-06-16	True	Taiwan	15625	3597	51.5	cds	3	quality_fill
+690259	Colletotrichum siamense	fungal	seed	GCA_013201745.1	Scaffold	2020-06-01	True	Viet Nam	15044	709	58.1	cds	1	best_quality
+690259	Colletotrichum siamense	fungal	seed	GCA_013201755.1	Scaffold	2020-06-01	True	Viet Nam	15097	657	57.6	cds	2	quality_fill
+690259	Colletotrichum siamense	fungal	seed	GCA_013201795.1	Scaffold	2020-06-01	True	Viet Nam	15056	823	58.2	cds	3	quality_fill
+690259	Colletotrichum siamense	fungal	seed	GCA_013201865.1	Scaffold	2020-06-01	True	Viet Nam	15120	882	58.4	cds	4	quality_fill
+1209068	Colletotrichum tabaci	fungal	seed	GCA_036851105.1	Contig	2024-02-23	True	China	13740	3611	52.1	cds	1	best_quality
+5466	Colletotrichum trifolii	fungal	seed	GCA_004367215.1	Scaffold	2019-03-22	True	Japan	12292	35	109.7	cds	1	best_quality
+5116	Cryphonectria parasitica	fungal	seed	GCF_011745365.1	Scaffold	2020-03-25	True		11588	5119	43.9	cds	1	best_quality
+5116	Cryphonectria parasitica	fungal	seed	GCA_011745365.1	Scaffold	2020-03-25	True		11606	5119	43.9	cds	2	quality_fill
+5503	Curvularia lunata	fungal	seed	GCA_005212705.1	Scaffold	2019-05-06	False	Brazil		227	33.5	genome	1	best_quality
+252740	Cytospora chrysosperma	fungal	seed	GCA_003795275.1	Scaffold	2018-11-19	True	China	9828	456	36.2	cds	1	best_quality
+64363	Dothistroma septosporum	fungal	seed	GCA_000340195.1	Scaffold	2013-02-25	True		12415	2596	30.2	cds	1	best_quality
+35717	Epichloe festucae	fungal	seed	GCA_003814445.1	Complete Genome	2018-11-23	True	New Zealand	7034	6202	35.0	cds	1	best_quality
+93612	Exserohilum turcicum	fungal	seed	GCF_000359705.1	Scaffold	2013-04-25	True		11687	2141	43.0	cds	1	best_quality
+93612	Exserohilum turcicum	fungal	seed	GCA_000359705.1	Scaffold	2013-04-25	True		11698	2141	43.0	cds	2	quality_fill
+5499	Fulvia fulva	fungal	seed	GCF_020509005.1	Complete Genome	2022-01-24	True	France	14993	5777	67.2	cds	1	best_quality
+5499	Fulvia fulva	fungal	seed	GCA_034268455.1	Complete Genome	2023-12-11	True	Poland	14943	5825	67.7	cds	2	new_country:Poland
+5499	Fulvia fulva	fungal	seed	GCA_034269425.1	Complete Genome	2023-12-11	True	Netherlands	14944	5779	67.1	cds	3	new_country:Netherlands
+5499	Fulvia fulva	fungal	seed	GCA_020509005.2	Complete Genome	2022-01-24	True	France	14993	5777	67.2	cds	4	quality_fill
+5499	Fulvia fulva	fungal	seed	GCA_035196885.1	Chromosome	2024-01-12	True	Netherlands	14895	5770	66.9	cds	5	quality_fill
+5499	Fulvia fulva	fungal	seed	GCA_035196915.1	Chromosome	2024-01-12	True		14981	5622	67.4	cds	6	quality_fill
+282267	Fusarium asiaticum	fungal	seed	GCA_025258505.1	Complete Genome	2022-09-19	False	South Korea		9351	38.3	genome	1	best_quality
+282267	Fusarium asiaticum	fungal	seed	GCA_050916195.1	Chromosome	2025-06-13	False	China		9438	38.4	genome	2	new_country:China; new_year_bin:2025
+282267	Fusarium asiaticum	fungal	seed	GCA_001717835.1	Scaffold	2016-08-31	False	Nepal		343	36.4	genome	3	new_country:Nepal; new_year_bin:2015
+282267	Fusarium asiaticum	fungal	seed	GCA_051942695.1	Scaffold	2025-08-12	False	Brazil		804	40.6	genome	4	new_country:Brazil
+282267	Fusarium asiaticum	fungal	seed	GCA_001717845.1	Scaffold	2016-08-31	False	Japan		1087	36.5	genome	5	new_country:Japan
+282267	Fusarium asiaticum	fungal	seed	GCA_025427855.1	Scaffold	2022-09-27	False	China		166	36.8	genome	6	quality_fill
+282267	Fusarium asiaticum	fungal	seed	GCA_025428385.1	Scaffold	2022-09-27	False	China		53	36.1	genome	7	quality_fill
+282267	Fusarium asiaticum	fungal	seed	GCA_025428395.1	Scaffold	2022-09-27	False	China		73	36.0	genome	8	quality_fill
+282267	Fusarium asiaticum	fungal	seed	GCA_017657095.1	Scaffold	2021-04-02	False	China		67	36.5	genome	9	quality_fill
+282267	Fusarium asiaticum	fungal	seed	GCA_013618305.1	Scaffold	2020-07-24	False	China		179	36.4	genome	10	quality_fill
+40199	Fusarium avenaceum	fungal	seed	GCA_012959155.1	Scaffold	2020-05-04	True	Serbia	15886	2237	41.7	cds	1	best_quality
+40199	Fusarium avenaceum	fungal	seed	GCA_000769215.1	Scaffold	2014-10-10	True	Finland	13092	1437	41.5	cds	2	new_country:Finland; new_year_bin:2010
+40199	Fusarium avenaceum	fungal	seed	GCA_018282135.1	Scaffold	2021-05-05	True	USA	11233	1473	41.2	cds	3	new_country:USA
+48490	Fusarium circinatum	fungal	seed	GCA_013396185.1	Scaffold	2020-07-10	True	USA	13905	96	42.5	cds	1	best_quality
+5516	Fusarium culmorum	fungal	seed	GCA_016952355.1	Complete Genome	2020-11-16	True		11444	9631	37.5	cds	1	best_quality
+5516	Fusarium culmorum	fungal	seed	GCA_052570695.1	Scaffold	2025-09-12	True	United Kingdom	11569	1144	38.6	cds	2	new_country:United Kingdom; new_year_bin:2025
+5516	Fusarium culmorum	fungal	seed	GCA_052570705.1	Scaffold	2025-09-12	True	United Kingdom	11447	1563	36.8	cds	3	quality_fill
+5516	Fusarium culmorum	fungal	seed	GCA_052570715.1	Scaffold	2025-09-12	True	United Kingdom	11324	1968	36.6	cds	4	quality_fill
+5516	Fusarium culmorum	fungal	seed	GCA_052570805.1	Scaffold	2025-09-12	True	United Kingdom	11673	1580	36.5	cds	5	quality_fill
+5516	Fusarium culmorum	fungal	seed	GCA_052570815.1	Scaffold	2025-09-12	True	United Kingdom	11447	1551	37.4	cds	6	quality_fill
+5516	Fusarium culmorum	fungal	seed	GCA_052570865.1	Scaffold	2025-09-12	True	United Kingdom	11455	1446	37.7	cds	7	quality_fill
+5516	Fusarium culmorum	fungal	seed	GCA_052571695.1	Scaffold	2025-09-12	True	United Kingdom	12076	598	39.8	cds	8	quality_fill
+5127	Fusarium fujikuroi	fungal	seed	GCA_900096505.1	Scaffold	2017-10-06	True		15852	2960	44.0	cds	1	best_quality
+5127	Fusarium fujikuroi	fungal	seed	GCA_902702945.1	Scaffold	2021-11-19	True	Italy	13527	791	46.0	cds	2	new_country:Italy; new_year_bin:2020
+5127	Fusarium fujikuroi	fungal	seed	GCA_001023065.1	Scaffold	2015-06-09	True	Thailand	15182	27	43.5	cds	3	new_country:Thailand
+5127	Fusarium fujikuroi	fungal	seed	GCA_001023035.1	Scaffold	2015-06-09	True	USA	14799	1203	43.1	cds	4	new_country:USA
+5127	Fusarium fujikuroi	fungal	seed	GCA_001023045.1	Scaffold	2015-06-09	True	Taiwan	14830	192	43.1	cds	5	new_country:Taiwan
+5127	Fusarium fujikuroi	fungal	seed	GCF_900079805.1	Chromosome	2013-08-20	True		14810	4235	43.8	cds	6	new_year_bin:2010
+5127	Fusarium fujikuroi	fungal	seed	GCA_900096615.1	Scaffold	2017-10-06	True		15371	1941	44.0	cds	7	quality_fill
+5127	Fusarium fujikuroi	fungal	seed	GCA_900096625.1	Scaffold	2017-10-06	True		15725	2267	45.3	cds	8	quality_fill
+5127	Fusarium fujikuroi	fungal	seed	GCA_900096635.1	Scaffold	2017-10-06	True		15904	4471	45.0	cds	9	quality_fill
+5127	Fusarium fujikuroi	fungal	seed	GCA_900096645.1	Scaffold	2017-10-06	True		15920	4162	45.8	cds	10	quality_fill
+5518	Fusarium graminearum	fungal	seed	GCA_037213105.1	Complete Genome	2024-03-18	True	USA	13339	9011	37.1	cds	1	best_quality
+5518	Fusarium graminearum	fungal	seed	GCA_000599445.1	Chromosome	2014-03-25	True	Australia	13355	8792	36.7	cds	2	new_country:Australia; new_year_bin:2010
+5518	Fusarium graminearum	fungal	seed	GCA_002352725.1	Scaffold	2017-09-25	True	Italy	11827	1518	36.9	cds	3	new_country:Italy; new_year_bin:2015
+5518	Fusarium graminearum	fungal	seed	GCA_905332025.1	Scaffold	2021-09-24	True	France	12617	2281	36.6	cds	4	new_country:France
+5518	Fusarium graminearum	fungal	seed	GCA_012959185.1	Scaffold	2020-05-04	True	Serbia	14132	1672	36.8	cds	5	new_country:Serbia
+5518	Fusarium graminearum	fungal	seed	GCF_000240135.3	Chromosome	2008-11-21	True		13312	5350	36.5	cds	6	new_year_bin:2005
+5518	Fusarium graminearum	fungal	seed	GCA_037255895.1	Complete Genome	2024-03-18	True	USA	13246	9045	36.8	cds	7	quality_fill
+5518	Fusarium graminearum	fungal	seed	GCA_900073075.1	Complete Genome	2020-02-10	True		14187	9026	36.9	cds	8	quality_fill
+5518	Fusarium graminearum	fungal	seed	GCA_037074405.1	Chromosome	2024-03-13	True	USA	13361	9059	37.3	cds	9	quality_fill
+5518	Fusarium graminearum	fungal	seed	GCA_037074415.1	Chromosome	2024-03-13	True	USA	14217	8999	37.9	cds	10	quality_fill
+2502994	Fusarium odoratissimum	fungal	seed	GCF_000260195.1	Scaffold	2014-02-19	True		16634	1130	46.6	cds	1	best_quality
+2502994	Fusarium odoratissimum	fungal	seed	GCA_052550365.1	Scaffold	2025-09-11	True	Peru	14663	542	45.5	cds	2	new_country:Peru; new_year_bin:2025
+2502994	Fusarium odoratissimum	fungal	seed	GCA_000350365.1	Scaffold	2013-04-04	True	China	14459	1948	52.9	cds	3	new_country:China
+2502994	Fusarium odoratissimum	fungal	seed	GCA_000260195.2	Scaffold	2014-02-19	True		16634	1130	46.6	cds	4	quality_fill
+5507	Fusarium oxysporum	fungal	seed	GCA_026229875.1	Scaffold	2022-11-17	True	unknown	31923	48	58.2	cds	1	best_quality
+5507	Fusarium oxysporum	fungal	seed	GCA_054130785.1	Chromosome	2025-12-22	True	Spain	21151	4247	54.4	cds	2	new_country:Spain; new_year_bin:2025
+5507	Fusarium oxysporum	fungal	seed	GCA_004141715.1	Scaffold	2019-02-06	True	United Kingdom	20460	181	57.5	cds	3	new_country:United Kingdom; new_year_bin:2015
+5507	Fusarium oxysporum	fungal	seed	GCA_000350345.1	Scaffold	2013-04-09	True	China	15438	653	47.7	cds	4	new_country:China; new_year_bin:2010
+5507	Fusarium oxysporum	fungal	seed	GCA_032206225.1	Chromosome	2024-08-12	True	Morocco	20416	4061	66.0	cds	5	new_country:Morocco
+5507	Fusarium oxysporum	fungal	seed	GCA_018894095.1	Scaffold	2021-06-16	True	Japan	21781	4865	72.2	cds	6	new_country:Japan
+5507	Fusarium oxysporum	fungal	seed	GCA_030719095.1	Complete Genome	2023-08-14	True	USA	16305	4886	49.9	cds	7	new_country:USA
+5507	Fusarium oxysporum	fungal	seed	GCA_053754955.1	Chromosome	2025-11-28	True	Taiwan	16063	4748	50.2	cds	8	new_country:Taiwan
+5507	Fusarium oxysporum	fungal	seed	GCA_031834405.1	Chromosome	2023-09-25	True	Indonesia	16011	4485	49.4	cds	9	new_country:Indonesia
+5507	Fusarium oxysporum	fungal	seed	GCA_014154955.1	Chromosome	2020-08-13	True	Australia	17912	4091	68.0	cds	10	new_country:Australia
+61366	Fusarium oxysporum f. sp. cubense	fungal	seed	GCA_053754955.1	Chromosome	2025-11-28	True	Taiwan	16063	4748	50.2	cds	1	best_quality
+61366	Fusarium oxysporum f. sp. cubense	fungal	seed	GCA_000350345.1	Scaffold	2013-04-09	True	China	15438	653	47.7	cds	2	new_country:China; new_year_bin:2010
+61366	Fusarium oxysporum f. sp. cubense	fungal	seed	GCA_053754965.1	Chromosome	2025-11-28	True	Taiwan	15200	4490	48.2	cds	3	quality_fill
+948311	Fusarium proliferatum	fungal	seed	GCF_900067095.1	Scaffold	2016-12-06	True		16129	3312	45.2	cds	1	best_quality
+948311	Fusarium proliferatum	fungal	seed	GCA_022627135.1	Scaffold	2022-03-18	True	Viet Nam	13009	1616	45.0	cds	2	new_country:Viet Nam; new_year_bin:2020
+948311	Fusarium proliferatum	fungal	seed	GCA_003615215.1	Scaffold	2018-10-05	True	United Kingdom	15409	536	45.7	cds	3	new_country:United Kingdom
+948311	Fusarium proliferatum	fungal	seed	GCA_017309865.1	Scaffold	2021-03-09	True	Poland	14819	749	48.8	cds	4	new_country:Poland
+948311	Fusarium proliferatum	fungal	seed	GCA_017309895.1	Scaffold	2021-03-09	True	USA	13876	4345	43.8	cds	5	new_country:USA
+948311	Fusarium proliferatum	fungal	seed	GCA_003290285.1	Scaffold	2018-07-06	True	Saudi Arabia	14379	1823	45.5	cds	6	new_country:Saudi Arabia
+948311	Fusarium proliferatum	fungal	seed	GCA_900029915.1	Scaffold	2016-12-06	True		15254	874	43.2	cds	7	quality_fill
+948311	Fusarium proliferatum	fungal	seed	GCA_900067095.1	Scaffold	2016-12-06	True		16143	3312	45.2	cds	8	quality_fill
+948311	Fusarium proliferatum	fungal	seed	GCA_017309875.1	Scaffold	2021-03-09	True	United Kingdom	14303	2387	45.3	cds	9	quality_fill
+101028	Fusarium pseudograminearum	fungal	seed	GCA_016952305.1	Complete Genome	2020-11-16	True		11217	9153	37.8	cds	1	best_quality
+101028	Fusarium pseudograminearum	fungal	seed	GCA_001703955.2	Chromosome	2016-08-12	True	Australia	11483	8819	36.3	cds	2	new_country:Australia; new_year_bin:2015
+101028	Fusarium pseudograminearum	fungal	seed	GCA_024752415.1	Chromosome	2022-08-28	True	China	14475	9007	37.3	cds	3	new_country:China
+101028	Fusarium pseudograminearum	fungal	seed	GCF_000303195.2	Chromosome	2015-04-15	True		12445	8841	36.9	cds	4	quality_fill
+101028	Fusarium pseudograminearum	fungal	seed	GCA_000303195.2	Chromosome	2015-04-15	True		12447	8841	36.9	cds	5	quality_fill
+42676	Fusarium sacchari	fungal	seed	GCA_055255615.1	Scaffold	2026-02-17	False	Colombia		187	45.9	genome	1	best_quality
+5128	Fusarium sambucinum	fungal	seed	GCF_050947815.1	Complete Genome	2025-06-17	True	USA	13017	9651	38.6	cds	1	best_quality
+5128	Fusarium sambucinum	fungal	seed	GCA_041870755.1	Complete Genome	2024-09-09	True	USA	12893	9530	38.4	cds	2	new_year_bin:2020
+5128	Fusarium sambucinum	fungal	seed	GCA_050947815.1	Complete Genome	2025-06-17	True	USA	13017	9651	38.6	cds	3	quality_fill
+169388	Fusarium solani	fungal	seed	GCA_027945525.1	Scaffold	2023-01-24	True	USA	17490	561	54.7	cds	1	best_quality
+5514	Fusarium sporotrichioides	fungal	seed	GCA_003012315.1	Scaffold	2018-03-20	True	France	11961	235	37.4	cds	1	best_quality
+117187	Fusarium verticillioides	fungal	seed	GCF_000149555.1	Chromosome	2011-07-06	True		15890	1960	41.8	cds	1	best_quality
+117187	Fusarium verticillioides	fungal	seed	GCA_003316975.2	Chromosome	2018-11-02	True	Australia	13769	4020	42.5	cds	2	new_country:Australia; new_year_bin:2015
+117187	Fusarium verticillioides	fungal	seed	GCA_000149555.1	Chromosome	2008-11-21	True		15869	1960	41.8	cds	3	new_year_bin:2005
+117187	Fusarium verticillioides	fungal	seed	GCA_003316995.2	Chromosome	2018-11-02	True	Australia	13508	4203	42.3	cds	4	quality_fill
+117187	Fusarium verticillioides	fungal	seed	GCA_003317015.2	Chromosome	2018-11-02	True	Australia	458	4129	42.4	cds	5	quality_fill
+232082	Fusarium virguliforme	fungal	seed	GCA_013363175.1	Scaffold	2020-06-19	False	USA		31	45.4	genome	1	best_quality
+13563	Heterobasidion annosum	fungal	seed	GCA_001457955.1	Scaffold	2015-11-03	False			2331	28.0	genome	1	best_quality
+45133	Lasiodiplodia theobromae	fungal	seed	GCA_008931885.1	Scaffold	2019-10-09	True	Peru	12785	249	43.9	cds	1	best_quality
+45133	Lasiodiplodia theobromae	fungal	seed	GCA_002111425.1	Scaffold	2017-04-26	True	China	12892	4775	43.3	cds	2	new_country:China
+226899	Leptographium clavigerum	fungal	seed	GCF_000143105.1	Scaffold	2011-01-31	True		8311	1997	29.8	cds	1	best_quality
+203908	Melampsora laricis-populina	fungal	seed	GCF_000204055.1	Scaffold	2011-04-13	True		16255	1146	101.1	cds	1	best_quality
+203908	Melampsora laricis-populina	fungal	seed	GCA_000204055.1	Scaffold	2011-04-13	True		16372	1146	101.1	cds	2	quality_fill
+92637	Metarhizium acridum	fungal	seed	GCF_019434415.1	Scaffold	2021-08-02	True	Australia	12160	2338	44.7	cds	1	best_quality
+92637	Metarhizium acridum	fungal	seed	GCF_000187405.1	Scaffold	2011-02-08	True		9849	329	39.4	cds	2	new_year_bin:2010
+92637	Metarhizium acridum	fungal	seed	GCA_019434415.1	Scaffold	2021-08-02	True	Australia	12160	2338	44.7	cds	3	quality_fill
+92637	Metarhizium acridum	fungal	seed	GCA_019434395.1	Scaffold	2021-07-30	True	Australia	10095	78	39.3	cds	4	quality_fill
+92637	Metarhizium acridum	fungal	seed	GCA_000187405.1	Scaffold	2011-02-08	True		9849	329	39.4	cds	5	quality_fill
+568076	Metarhizium robertsii	fungal	seed	GCF_000187425.2	Scaffold	2014-12-19	True	USA	11688	4492	41.7	cds	1	best_quality
+568076	Metarhizium robertsii	fungal	seed	GCA_000187425.2	Scaffold	2014-12-19	True	USA	11688	4492	41.7	cds	2	quality_fill
+568076	Metarhizium robertsii	fungal	seed	GCA_000591435.1	Scaffold	2014-03-17	True		12336	566	40.3	cds	3	quality_fill
+38448	Monilinia fructicola	fungal	seed	GCA_055672675.1	Scaffold	2026-03-04	False	USA		2191	44.9	genome	1	best_quality
+38448	Monilinia fructicola	fungal	seed	GCA_002162545.1	Scaffold	2017-05-31	False	Canada		992	44.7	genome	2	new_country:Canada; new_year_bin:2015
+38448	Monilinia fructicola	fungal	seed	GCA_002909715.1	Scaffold	2018-01-31	False			66	42.8	genome	3	quality_fill
+153609	Moniliophthora perniciosa	fungal	seed	GCA_000183025.1	Scaffold	2008-12-02	True		13560	1	26.7	cds	1	best_quality
+5270	Mycosarcoma maydis	fungal	seed	GCF_000328475.2	Chromosome	2015-02-18	True		6762	885	19.7	cds	1	best_quality
+13684	Parastagonospora nodorum	fungal	seed	GCA_016801405.1	Chromosome	2021-02-02	True	Australia	17448	1683	37.0	cds	1	best_quality
+13684	Parastagonospora nodorum	fungal	seed	GCF_000146915.1	Scaffold	2007-11-20	True		15990	1045	37.2	cds	2	new_year_bin:2005
+13684	Parastagonospora nodorum	fungal	seed	GCA_020557385.1	Scaffold	2021-10-25	True	Australia	17310	853	37.4	cds	3	quality_fill
+13684	Parastagonospora nodorum	fungal	seed	GCA_020567955.1	Scaffold	2021-10-25	True	Australia	17306	918	37.4	cds	4	quality_fill
+13684	Parastagonospora nodorum	fungal	seed	GCA_020568045.1	Scaffold	2021-10-25	True	Australia	17644	670	39.2	cds	5	quality_fill
+13684	Parastagonospora nodorum	fungal	seed	GCA_020568055.1	Scaffold	2021-10-25	True	Australia	17605	609	38.7	cds	6	quality_fill
+13684	Parastagonospora nodorum	fungal	seed	GCA_020568095.1	Scaffold	2021-10-25	True	Australia	17288	951	37.9	cds	7	quality_fill
+13684	Parastagonospora nodorum	fungal	seed	GCA_020568205.1	Scaffold	2021-10-25	True	Australia	17187	918	36.7	cds	8	quality_fill
+13684	Parastagonospora nodorum	fungal	seed	GCA_020568325.1	Scaffold	2021-10-25	True	Australia	17235	800	36.2	cds	9	quality_fill
+13684	Parastagonospora nodorum	fungal	seed	GCA_020568415.1	Scaffold	2021-10-25	True	Australia	17181	695	36.7	cds	10	quality_fill
+36651	Penicillium digitatum	fungal	seed	GCF_016767815.1	Complete Genome	2021-01-28	True	China	9002	4124	26.3	cds	1	best_quality
+36651	Penicillium digitatum	fungal	seed	GCF_000315645.1	Scaffold	2012-11-28	True	Spain	8946	1534	26.1	cds	2	new_country:Spain; new_year_bin:2010
+36651	Penicillium digitatum	fungal	seed	GCA_016767815.1	Complete Genome	2021-01-28	True	China	9003	4124	26.3	cds	3	quality_fill
+36651	Penicillium digitatum	fungal	seed	GCA_012295545.2	Scaffold	2020-12-16	True		9114	6602	26.6	cds	4	quality_fill
+36651	Penicillium digitatum	fungal	seed	GCA_000315645.2	Scaffold	2012-12-03	True	Spain	8961	1534	26.1	cds	5	quality_fill
+36651	Penicillium digitatum	fungal	seed	GCA_000315665.1	Scaffold	2012-12-03	True		9133	879	26.0	cds	6	quality_fill
+27334	Penicillium expansum	fungal	seed	GCA_022829055.1	Scaffold	2022-04-06	True	Denmark	10796	981	32.5	cds	1	best_quality
+40296	Penicillium italicum	fungal	seed	GCA_002116305.1	Scaffold	2017-05-01	False	China		317	31.0	genome	1	best_quality
+40296	Penicillium italicum	fungal	seed	GCA_001008395.1	Scaffold	2015-05-15	False	China		206	28.6	genome	2	quality_fill
+170000	Phakopsora pachyrhizi	fungal	seed	GCA_025201825.1	Scaffold	2022-09-09	True	Brazil	19617	222	1057.4	cds	1	best_quality
+170000	Phakopsora pachyrhizi	fungal	seed	GCA_943846425.1	Scaffold	2022-07-01	True		18162	279	1082.9	cds	2	quality_fill
+5022	Plenodomus lingam	fungal	seed	GCF_022343315.1	Scaffold	2022-02-18	True	China	11837	1978	42.0	cds	1	best_quality
+5022	Plenodomus lingam	fungal	seed	GCF_000230375.1	Scaffold	2010-11-17	True		12469	1770	45.1	cds	2	new_year_bin:2010
+5022	Plenodomus lingam	fungal	seed	GCA_022343315.1	Scaffold	2022-02-18	True	China	11837	1978	42.0	cds	3	quality_fill
+5022	Plenodomus lingam	fungal	seed	GCA_000230375.1	Scaffold	2010-11-17	True		12609	1770	45.1	cds	4	quality_fill
+1873960	Pseudocercospora fijiensis	fungal	seed	GCF_000340215.1	Scaffold	2013-02-26	True		13059	5902	74.1	cds	1	best_quality
+1873960	Pseudocercospora fijiensis	fungal	seed	GCA_000340215.1	Scaffold	2013-02-26	True		13065	5902	74.1	cds	2	quality_fill
+685502	Pseudocercospora fuligena	fungal	seed	GCA_014298035.1	Contig	2020-08-26	True	USA	13765	408	50.5	cds	1	best_quality
+285811	Pseudopyrenochaeta lycopersici	fungal	seed	GCA_000601435.1	Scaffold	2014-03-27	False	Italy		87	50.5	genome	1	best_quality
+5297	Puccinia graminis	fungal	seed	GCA_008522505.1	Scaffold	2019-09-11	True	Australia	36325	5145	176.9	cds	1	best_quality
+5297	Puccinia graminis	fungal	seed	GCF_000149925.1	Scaffold	2008-08-26	True		15799	965	88.6	cds	2	new_year_bin:2005
+5297	Puccinia graminis	fungal	seed	GCA_000149925.1	Scaffold	2008-08-26	True		15800	965	88.6	cds	3	quality_fill
+27350	Puccinia striiformis	fungal	seed	GCF_021901695.1	Chromosome	2022-02-03	True	Australia	17118	4700	89.5	cds	1	best_quality
+27350	Puccinia striiformis	fungal	seed	GCA_002920065.1	Scaffold	2018-02-14	True	USA	15090	295	84.5	cds	2	new_country:USA; new_year_bin:2015
+27350	Puccinia striiformis	fungal	seed	GCA_025169535.1	Chromosome	2022-09-14	True	China	17090	4795	82.7	cds	3	new_country:China
+27350	Puccinia striiformis	fungal	seed	GCA_025169555.1	Chromosome	2022-09-14	True	USA	17945	4630	84.0	cds	4	quality_fill
+27350	Puccinia striiformis	fungal	seed	GCA_021901655.1	Chromosome	2022-02-03	True	Australia	15135	4650	78.2	cds	5	quality_fill
+27350	Puccinia striiformis	fungal	seed	GCA_021901695.1	Chromosome	2022-02-03	True	Australia	17118	4700	89.5	cds	6	quality_fill
+27350	Puccinia striiformis	fungal	seed	GCA_001191645.1	Scaffold	2015-07-31	True		19562	519	117.3	cds	7	quality_fill
+208348	Puccinia triticina	fungal	seed	GCA_977970215.1	Chromosome	2026-02-16	True	Canada	23383	7341	121.3	cds	1	best_quality
+208348	Puccinia triticina	fungal	seed	GCF_026914185.1	Complete Genome	2022-12-15	True	China	12736	7486	122.8	cds	2	new_country:China; new_year_bin:2020
+208348	Puccinia triticina	fungal	seed	GCA_000151525.2	Scaffold	2016-06-06	True		14878	544	135.3	cds	3	new_year_bin:2015
+208348	Puccinia triticina	fungal	seed	GCA_977970225.1	Chromosome	2026-02-16	True	Canada	23475	7236	120.2	cds	4	quality_fill
+208348	Puccinia triticina	fungal	seed	GCA_026914185.2	Complete Genome	2026-05-11	True	China	16560	7475	122.3	cds	5	quality_fill
+208348	Puccinia triticina	fungal	seed	GCA_026914185.1	Complete Genome	2022-12-15	True	China	12736	7486	122.8	cds	6	quality_fill
+208348	Puccinia triticina	fungal	seed	GCA_026914245.1	Complete Genome	2022-12-15	True	China	12690	7575	121.1	cds	7	quality_fill
+76659	Pyrenopeziza brassicae	fungal	seed	GCA_958299125.1	Scaffold	2026-01-07	False	United Kingdom		3083	73.2	genome	1	best_quality
+53485	Pyrenophora teres	fungal	seed	GCA_900232045.3	Chromosome	2021-09-24	True	Australia	11561	4721	53.1	cds	1	best_quality
+53485	Pyrenophora teres	fungal	seed	GCA_006112615.1	Chromosome	2019-06-06	True	Canada	10654	4380	46.3	cds	2	new_country:Canada; new_year_bin:2015
+53485	Pyrenophora teres	fungal	seed	GCA_031213615.1	Scaffold	2023-09-07	True	NA	13507	2016	48.1	cds	3	new_country:NA
+53485	Pyrenophora teres	fungal	seed	GCF_000166005.1	Scaffold	2010-11-05	True		11799	36	33.6	cds	4	new_year_bin:2010
+53485	Pyrenophora teres	fungal	seed	GCA_900231935.2	Scaffold	2020-03-09	True	Australia	10571	3641	41.3	cds	5	quality_fill
+53485	Pyrenophora teres	fungal	seed	GCA_000166005.1	Scaffold	2010-11-05	True		11799	36	33.6	cds	6	quality_fill
+45151	Pyrenophora tritici-repentis	fungal	seed	GCF_003171515.1	Chromosome	2021-10-07	True	Australia	15455	3658	40.7	cds	1	best_quality
+45151	Pyrenophora tritici-repentis	fungal	seed	GCA_003171545.1	Scaffold	2018-05-25	True	USA	12086	59	33.6	cds	2	new_country:USA; new_year_bin:2015
+45151	Pyrenophora tritici-repentis	fungal	seed	GCA_022837075.1	Chromosome	2022-04-08	True	Canada	14224	1795	39.3	cds	3	new_country:Canada
+45151	Pyrenophora tritici-repentis	fungal	seed	GCA_022813025.1	Chromosome	2022-04-04	True	Brazil	14450	3178	42.0	cds	4	new_country:Brazil
+45151	Pyrenophora tritici-repentis	fungal	seed	GCA_022788405.1	Scaffold	2022-04-01	True	Denmark	12323	49	34.4	cds	5	new_country:Denmark
+45151	Pyrenophora tritici-repentis	fungal	seed	GCA_022788415.1	Scaffold	2022-04-01	True	Germany	12311	49	34.2	cds	6	new_country:Germany
+45151	Pyrenophora tritici-repentis	fungal	seed	GCA_022788515.1	Scaffold	2022-04-01	True	United Kingdom	12348	47	34.3	cds	7	new_country:United Kingdom
+45151	Pyrenophora tritici-repentis	fungal	seed	GCA_022578365.1	Scaffold	2022-03-15	True	Tunisia	12172	53	34.1	cds	8	new_country:Tunisia
+45151	Pyrenophora tritici-repentis	fungal	seed	GCA_022544795.1	Scaffold	2022-03-11	True	Algeria	12387	53	34.8	cds	9	new_country:Algeria
+45151	Pyrenophora tritici-repentis	fungal	seed	GCF_000149985.1	Scaffold	2007-04-11	True		12169	1986	37.8	cds	10	new_year_bin:2005
+318829	Pyricularia oryzae	fungal	seed	GCA_004346965.1	Complete Genome	2019-03-12	True	Japan	13521	6129	42.7	cds	1	best_quality
+318829	Pyricularia oryzae	fungal	seed	GCA_055689495.1	Chromosome	2026-03-05	True	Brazil	11542	6194	43.6	cds	2	new_country:Brazil; new_year_bin:2025
+318829	Pyricularia oryzae	fungal	seed	GCA_025134795.1	Scaffold	2022-09-12	True	China	12235	115	37.8	cds	3	new_country:China; new_year_bin:2020
+318829	Pyricularia oryzae	fungal	seed	GCA_024703655.1	Scaffold	2022-08-16	True	Uganda	11612	120	41.8	cds	4	new_country:Uganda
+318829	Pyricularia oryzae	fungal	seed	GCA_024703685.1	Scaffold	2022-08-16	True	Kenya	11597	98	41.6	cds	5	new_country:Kenya
+318829	Pyricularia oryzae	fungal	seed	GCA_024703975.1	Scaffold	2022-08-16	True	Tanzania	11794	92	41.7	cds	6	new_country:Tanzania
+318829	Pyricularia oryzae	fungal	seed	GCF_000002495.2	Chromosome	2011-10-14	True		12825	6607	41.0	cds	7	new_year_bin:2010
+318829	Pyricularia oryzae	fungal	seed	GCA_055689515.1	Chromosome	2026-03-05	True	Brazil	11393	6137	42.9	cds	8	quality_fill
+318829	Pyricularia oryzae	fungal	seed	GCA_055689535.1	Chromosome	2026-03-05	True	Brazil	11472	6260	43.3	cds	9	quality_fill
+318829	Pyricularia oryzae	fungal	seed	GCA_055689555.1	Chromosome	2026-03-05	True	Brazil	11431	6167	43.0	cds	10	quality_fill
+456999	Rhizoctonia solani	fungal	seed	GCF_016906535.1	Complete Genome	2021-02-18	True		12301	2303	40.7	cds	1	best_quality
+456999	Rhizoctonia solani	fungal	seed	GCA_001286725.1	Scaffold	2015-08-31	True	Germany	11897	81	56.0	cds	2	new_country:Germany; new_year_bin:2015
+456999	Rhizoctonia solani	fungal	seed	GCA_000695385.1	Scaffold	2014-05-23	True	Australia	13952	161	39.8	cds	3	new_country:Australia; new_year_bin:2010
+456999	Rhizoctonia solani	fungal	seed	GCA_049245135.1	Complete Genome	2025-04-02	True	China	7698	2529	40.1	cds	4	new_country:China; new_year_bin:2025
+456999	Rhizoctonia solani	fungal	seed	GCA_026686785.1	Scaffold	2022-12-06	True	Taiwan	11998	2140	37.7	cds	5	new_country:Taiwan
+456999	Rhizoctonia solani	fungal	seed	GCA_015342405.1	Scaffold	2020-11-10	True	USA	11505	1561	45.0	cds	6	new_country:USA
+456999	Rhizoctonia solani	fungal	seed	GCA_015342415.1	Scaffold	2020-11-10	True	India	10010	1218	39.9	cds	7	new_country:India
+456999	Rhizoctonia solani	fungal	seed	GCA_016906535.1	Complete Genome	2021-02-18	True		12301	2303	40.7	cds	8	quality_fill
+456999	Rhizoctonia solani	fungal	seed	GCA_905219575.1	Scaffold	2021-03-19	True		10562	11	57.8	cds	9	quality_fill
+456999	Rhizoctonia solani	fungal	seed	GCA_905219595.1	Scaffold	2021-03-19	True		10958	29	71.7	cds	10	quality_fill
+77044	Rosellinia necatrix	fungal	seed	GCA_001445595.3	Scaffold	2017-02-01	True	Japan	12444	550	44.3	cds	1	best_quality
+5180	Sclerotinia sclerotiorum	fungal	seed	GCA_001857865.1	Chromosome	2016-10-31	True	Netherlands	11130	2435	38.9	cds	1	best_quality
+5180	Sclerotinia sclerotiorum	fungal	seed	GCF_000146945.2	Scaffold	2015-07-16	True		14490	1626	38.3	cds	2	quality_fill
+5180	Sclerotinia sclerotiorum	fungal	seed	GCA_000146945.2	Scaffold	2015-07-16	True		14491	1626	38.3	cds	3	quality_fill
+2698418	Sclerotiophoma versabilis	fungal	seed	GCA_012274445.1	Contig	2020-04-13	False	China		1699	41.0	genome	1	best_quality
+39703	Septoria lycopersici	fungal	seed	GCA_059642765.1	Chromosome	2026-07-28	False	USA		2646	29.6	genome	1	best_quality
+72558	Sporisorium reilianum	fungal	seed	GCA_900162835.1	Chromosome	2018-02-08	True		6682	782	18.5	cds	1	best_quality
+49012	Sporisorium scitamineum	fungal	seed	GCA_900002365.1	Scaffold	2016-03-08	True		6701	759	19.6	cds	1	best_quality
+183478	Stemphylium lycopersici	fungal	seed	GCA_003268335.2	Scaffold	2026-04-01	True	Argentina	11203	189	34.9	cds	1	best_quality
+183478	Stemphylium lycopersici	fungal	seed	GCA_003268315.2	Scaffold	2026-03-14	True	Argentina	11574	280	34.1	cds	2	quality_fill
+183478	Stemphylium lycopersici	fungal	seed	GCA_001191545.2	Scaffold	2026-03-10	True	Argentina	11580	498	35.1	cds	3	quality_fill
+286115	Synchytrium endobioticum	fungal	seed	GCA_006535955.1	Scaffold	2019-07-01	True	Netherlands	8031	44	21.5	cds	1	best_quality
+29875	Trichoderma virens	fungal	seed	GCA_020647635.1	Complete Genome	2021-10-27	True		12061	6491	41.0	cds	1	best_quality
+29875	Trichoderma virens	fungal	seed	GCA_020647705.1	Complete Genome	2021-10-27	True	Taiwan	11695	6645	41.4	cds	2	new_country:Taiwan
+29875	Trichoderma virens	fungal	seed	GCF_000170995.1	Scaffold	2011-11-29	True		12382	1837	39.0	cds	3	new_year_bin:2010
+29875	Trichoderma virens	fungal	seed	GCA_000170995.2	Scaffold	2011-11-29	True		12405	1837	39.0	cds	4	quality_fill
+1159556	Ustilaginoidea virens	fungal	seed	GCF_000687475.1	Complete Genome	2021-05-20	True	China	8297	6430	37.1	cds	1	best_quality
+1159556	Ustilaginoidea virens	fungal	seed	GCA_000687475.2	Complete Genome	2021-05-20	True	China	8297	6430	37.1	cds	2	quality_fill
+185366	Ustilago esculenta	fungal	seed	GCA_020827535.1	Scaffold	2021-11-10	False	China		1030	26.4	genome	1	best_quality
+120017	Ustilago hordei	fungal	seed	GCA_022749175.1	Complete Genome	2022-03-29	True	Kenya	7787	1133	25.8	cds	1	best_quality
+120017	Ustilago hordei	fungal	seed	GCA_023748715.1	Chromosome	2022-06-23	True	Syria	7981	1023	26.6	cds	2	new_country:Syria
+120017	Ustilago hordei	fungal	seed	GCA_023748725.1	Chromosome	2022-06-23	True	Ethiopia	7894	1133	26.2	cds	3	new_country:Ethiopia
+120017	Ustilago hordei	fungal	seed	GCA_023748735.1	Chromosome	2022-06-23	True	Azerbaijan	8012	1049	27.2	cds	4	new_country:Azerbaijan
+120017	Ustilago hordei	fungal	seed	GCA_023748765.1	Chromosome	2022-06-23	True	Spain	7923	1133	26.2	cds	5	new_country:Spain
+120017	Ustilago hordei	fungal	seed	GCA_000286035.1	Scaffold	2012-05-30	True		7110	308	21.2	cds	6	new_year_bin:2010
+120017	Ustilago hordei	fungal	seed	GCA_023748825.1	Chromosome	2022-06-23	True		8133	830	27.0	cds	7	quality_fill
+27337	Verticillium dahliae	fungal	seed	GCA_003320035.1	Chromosome	2018-07-15	True	Australia	10457	4825	32.0	cds	1	best_quality
+27337	Verticillium dahliae	fungal	seed	GCA_054858055.1	Scaffold	2026-01-30	True	Italy	12705	202	35.2	cds	2	new_country:Italy; new_year_bin:2025
+27337	Verticillium dahliae	fungal	seed	GCA_002893025.1	Scaffold	2018-01-19	True	United Kingdom	10278	64	33.0	cds	3	new_country:United Kingdom
+27337	Verticillium dahliae	fungal	seed	GCF_000150675.1	Scaffold	2011-09-15	True		10535	1274	33.8	cds	4	new_year_bin:2010
+27337	Verticillium dahliae	fungal	seed	GCA_011066465.2	Scaffold	2020-02-24	True		9534	506	32.5	cds	5	new_year_bin:2020
+27337	Verticillium dahliae	fungal	seed	GCA_002893035.1	Scaffold	2018-01-19	True	United Kingdom	10312	48	32.4	cds	6	quality_fill
+27337	Verticillium dahliae	fungal	seed	GCA_000150675.2	Scaffold	2011-09-15	True		10535	1274	33.8	cds	7	quality_fill
+27337	Verticillium dahliae	fungal	seed	GCA_004109745.1	Chromosome	2019-01-25	True	Australia	9671	2900	33.3	cds	8	quality_fill
+27337	Verticillium dahliae	fungal	seed	GCA_011066485.2	Scaffold	2020-02-24	True		9705	1040	34.2	cds	9	quality_fill
+27337	Verticillium dahliae	fungal	seed	GCA_002892995.1	Scaffold	2018-01-19	True	United Kingdom	9917	82	32.9	cds	10	quality_fill
+100787	Verticillium longisporum	fungal	seed	GCA_018994065.1	Scaffold	2021-06-22	True	Germany	20463	1750	75.0	cds	1	best_quality
+100787	Verticillium longisporum	fungal	seed	GCA_001268145.1	Scaffold	2015-08-07	True	Sweden	20793	144	99.2	cds	2	new_country:Sweden; new_year_bin:2015
+100787	Verticillium longisporum	fungal	seed	GCA_018994105.1	Scaffold	2021-06-22	True	United Kingdom	13461	12	59.5	cds	3	new_country:United Kingdom
+100787	Verticillium longisporum	fungal	seed	GCA_001268165.1	Scaffold	2015-08-07	True	Sweden	21072	75	100.5	cds	4	quality_fill
+100787	Verticillium longisporum	fungal	seed	GCA_018994095.1	Scaffold	2021-06-22	True	Germany	19014	131	68.8	cds	5	quality_fill
+1051616	Verticillium nonalfalfae	fungal	seed	GCF_003724135.2	Scaffold	2018-11-13	True	USA	9430	172	31.7	cds	1	best_quality
+1051616	Verticillium nonalfalfae	fungal	seed	GCA_052569935.1	Scaffold	2025-09-12	True	Canada	9011	356	33.4	cds	2	new_country:Canada; new_year_bin:2025
+1051616	Verticillium nonalfalfae	fungal	seed	GCA_052571055.1	Scaffold	2025-09-12	True	Australia	9017	491	33.1	cds	3	new_country:Australia
+1051616	Verticillium nonalfalfae	fungal	seed	GCA_052571105.1	Scaffold	2025-09-12	True	United Kingdom	9042	477	33.6	cds	4	new_country:United Kingdom
+1051616	Verticillium nonalfalfae	fungal	seed	GCA_052571115.1	Scaffold	2025-09-12	True	NA	9056	347	33.3	cds	5	new_country:NA
+1051616	Verticillium nonalfalfae	fungal	seed	GCA_052426695.1	Scaffold	2025-09-03	True	Spain	9061	98	32.3	cds	6	new_country:Spain
+1051616	Verticillium nonalfalfae	fungal	seed	GCA_052571205.1	Scaffold	2025-09-12	True	United Kingdom	9153	308	32.8	cds	7	quality_fill
+1051616	Verticillium nonalfalfae	fungal	seed	GCA_052571225.1	Scaffold	2025-09-12	True	United Kingdom	8992	390	32.6	cds	8	quality_fill
+1051616	Verticillium nonalfalfae	fungal	seed	GCA_052571255.1	Scaffold	2025-09-12	True	United Kingdom	8972	317	32.7	cds	9	quality_fill
+1051616	Verticillium nonalfalfae	fungal	seed	GCA_052571295.1	Scaffold	2025-09-12	True	United Kingdom	9033	491	33.7	cds	10	quality_fill
+1047171	Zymoseptoria tritici	fungal	seed	GCF_000219625.1	Chromosome	2011-07-06	True		10941	2675	39.7	cds	1	best_quality
+1047171	Zymoseptoria tritici	fungal	seed	GCA_902712725.1	Scaffold	2020-01-08	True	Argentina		2916	41.1	cds	2	new_country:Argentina; new_year_bin:2020
+1047171	Zymoseptoria tritici	fungal	seed	GCA_900184115.1	Chromosome	2017-10-31	True		12023	2655	38.6	cds	3	new_year_bin:2015
+1047171	Zymoseptoria tritici	fungal	seed	GCA_900184105.1	Chromosome	2017-10-31	True		11991	2793	40.7	cds	4	quality_fill
+1047171	Zymoseptoria tritici	fungal	seed	GCA_900099495.1	Chromosome	2017-06-06	True		12072	2700	39.7	cds	5	quality_fill
+1047171	Zymoseptoria tritici	fungal	seed	GCA_900091695.1	Chromosome	2017-05-12	True		11726	2825	37.9	cds	6	quality_fill
+1047171	Zymoseptoria tritici	fungal	seed	GCA_000219625.1	Chromosome	2011-07-06	True		10963	2675	39.7	cds	7	quality_fill
+2496075	Phytophthora aleatoria	oomycete	genus_fill	GCA_018873745.1	Scaffold	2021-06-14	True	New Zealand	17721	25	50.6	cds	1	best_quality
+109152	Phytophthora boehmeriae	oomycete	genus_fill	GCA_019155685.1	Scaffold	2021-07-07	True	United Kingdom	11937	55	40.0	cds	1	best_quality
+4785	Phytophthora cinnamomi	oomycete	genus_fill	GCF_018691715.1	Scaffold	2021-06-03	True	South Africa	19973	1188	109.7	cds	1	best_quality
+4793	Phytophthora citrophthora	oomycete	genus_fill	GCA_031305395.1	Scaffold	2023-09-14	True	South Africa	16441	909	48.4	cds	1	best_quality
+53985	Phytophthora fragariae	oomycete	genus_fill	GCA_009732925.1	Scaffold	2019-12-05	True	United Kingdom	33178	18	77.8	cds	1	best_quality
+53986	Phytophthora idaei	oomycete	genus_fill	GCA_016865095.1	Scaffold	2021-02-11	True	United Kingdom	27339	40	60.6	cds	1	best_quality
+325452	Phytophthora kernoviae	oomycete	genus_fill	GCA_001712645.2	Scaffold	2018-10-17	True	Chile	10129	33	37.0	cds	1	best_quality
+1284355	Phytophthora kernoviae 00238/432	oomycete	genus_fill	GCA_000333075.3	Scaffold	2020-04-24	True	United Kingdom	11684	60	42.5	cds	1	best_quality
+4795	Phytophthora megakarya	oomycete	genus_fill	GCA_002215365.1	Scaffold	2017-07-06	True	Cameroon	34804	7	101.5	cds	1	best_quality
+4796	Phytophthora palmivora	oomycete	genus_fill	GCA_002911725.1	Scaffold	2018-02-02	True	Cote d'Ivoire	24674	7	107.8	cds	1	best_quality
+221518	Phytophthora pseudosyringae	oomycete	genus_fill	GCA_019155715.1	Scaffold	2021-07-07	True	United Kingdom	15384	76	48.9	cds	1	best_quality
+164328	Phytophthora ramorum	oomycete	genus_fill	GCA_020800215.2	Chromosome	2026-03-04	True	USA	15185	4519	58.0	cds	1	best_quality
+129364	Phytophthora rubi	oomycete	genus_fill	GCA_009733145.1	Scaffold	2019-12-05	True	United Kingdom	35208	17	77.8	cds	1	best_quality
+4779	Bremia lactucae	oomycete	seed	GCF_004359215.1	Chromosome	2021-08-20	True	Finland	9766	5324	115.9	cds	1	best_quality
+272952	Hyaloperonospora arabidopsidis	oomycete	seed	GCA_000173235.2	Scaffold	2012-01-25	False			332	78.4	genome	1	best_quality
+230439	Peronospora tabacina	oomycete	seed	GCA_002099245.1	Scaffold	2017-04-18	False	Germany		79	63.1	genome	1	best_quality
+29920	Phytophthora cactorum	oomycete	seed	GCA_017309695.1	Scaffold	2021-03-09	True	United Kingdom	34966	37	75.5	cds	1	best_quality
+29920	Phytophthora cactorum	oomycete	seed	GCA_003287315.1	Scaffold	2018-07-03	True	Norway	23869	56	59.3	cds	2	new_country:Norway; new_year_bin:2015
+29920	Phytophthora cactorum	oomycete	seed	GCA_016864635.1	Scaffold	2021-02-11	True	USA	25407	37	59.9	cds	3	new_country:USA
+29920	Phytophthora cactorum	oomycete	seed	GCA_016864715.1	Scaffold	2021-02-11	True	Netherlands	28620	39	60.7	cds	4	new_country:Netherlands
+29920	Phytophthora cactorum	oomycete	seed	GCA_018873755.1	Scaffold	2021-06-14	True	New Zealand	18734	27	51.6	cds	5	new_country:New Zealand
+29920	Phytophthora cactorum	oomycete	seed	GCA_016906365.1	Scaffold	2021-02-18	True	United Kingdom	28872	36	61.3	cds	6	quality_fill
+29920	Phytophthora cactorum	oomycete	seed	GCA_016864665.1	Scaffold	2021-02-11	True	USA	25892	41	60.7	cds	7	quality_fill
+29920	Phytophthora cactorum	oomycete	seed	GCA_016864695.1	Scaffold	2021-02-11	True	USA	25818	43	60.8	cds	8	quality_fill
+29920	Phytophthora cactorum	oomycete	seed	GCA_016864735.1	Scaffold	2021-02-11	True	Netherlands	26032	38	61.6	cds	9	quality_fill
+29920	Phytophthora cactorum	oomycete	seed	GCA_016864755.1	Scaffold	2021-02-11	True	Netherlands	28903	40	60.8	cds	10	quality_fill
+4784	Phytophthora capsici	oomycete	seed	GCA_016618375.1	Scaffold	2021-01-12	True	NA	23373	486	94.2	cds	1	best_quality
+4787	Phytophthora infestans	oomycete	seed	GCA_012552325.1	Scaffold	2020-04-20	True	South Korea	23771	155	230.9	cds	1	best_quality
+4787	Phytophthora infestans	oomycete	seed	GCA_026225685.1	Chromosome	2022-11-18	True	Mexico	19981	13451	246.9	cds	2	new_country:Mexico
+4787	Phytophthora infestans	oomycete	seed	GCF_000142945.1	Scaffold	2009-06-17	True		17797	1589	228.5	cds	3	new_year_bin:2005
+4787	Phytophthora infestans	oomycete	seed	GCA_000142945.1	Scaffold	2009-06-17	True		17797	1589	228.5	cds	4	quality_fill
+100870	Phytophthora litchii	oomycete	seed	GCA_002812785.1	Scaffold	2017-12-06	False	China		35	38.2	genome	1	best_quality
+4792	Phytophthora nicotianae	oomycete	seed	GCF_000247585.1	Scaffold	2013-12-19	True		23121	888	82.4	cds	1	best_quality
+4792	Phytophthora nicotianae	oomycete	seed	GCA_001483015.1	Scaffold	2015-12-29	True	China	17348	24	81.6	cds	2	new_country:China; new_year_bin:2015
+4792	Phytophthora nicotianae	oomycete	seed	GCA_000247585.2	Scaffold	2013-12-19	True		23121	888	82.4	cds	3	quality_fill
+4792	Phytophthora nicotianae	oomycete	seed	GCA_000509465.1	Scaffold	2013-12-18	True		21985	16	48.1	cds	4	quality_fill
+4792	Phytophthora nicotianae	oomycete	seed	GCA_000509485.1	Scaffold	2013-12-18	True		21812	15	47.4	cds	5	quality_fill
+4792	Phytophthora nicotianae	oomycete	seed	GCA_000509505.1	Scaffold	2013-12-18	True		21679	16	47.8	cds	6	quality_fill
+4792	Phytophthora nicotianae	oomycete	seed	GCA_000509525.1	Scaffold	2013-12-18	True		21789	16	47.7	cds	7	quality_fill
+4792	Phytophthora nicotianae	oomycete	seed	GCA_001482985.1	Scaffold	2015-12-29	True	China	10521	31	71.4	cds	8	quality_fill
+67593	Phytophthora sojae	oomycete	seed	GCF_000149755.1	Scaffold	2011-10-03	True		26489	7609	82.6	cds	1	best_quality
+67593	Phytophthora sojae	oomycete	seed	GCA_000149755.2	Scaffold	2011-10-03	True		26489	7609	82.6	cds	2	quality_fill
+143451	Plasmopara viticola	oomycete	seed	GCA_055472655.1	Scaffold	2026-02-24	False	India		964	84.1	genome	1	best_quality
+65070	Pythium aphanidermatum	oomycete	seed	GCA_027475745.1	Scaffold	2022-12-28	False			3	56.0	genome	1	best_quality

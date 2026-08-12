@@ -19,11 +19,21 @@
 set -euo pipefail
 
 module load python/3.11.6
-module load spack/0.23.1
-spack load ncbi-datasets-cli
 
 SCRATCH="/scratch/pawsey1168/llenzo"
 GENOMES_DIR="$SCRATCH/kraken/cds_v2"
+DATASETS_BIN="$SCRATCH/bin/datasets"
+
+# Bootstrap NCBI datasets CLI if not already present (standalone static binary)
+if [ ! -x "$DATASETS_BIN" ]; then
+    echo "Downloading NCBI datasets CLI …"
+    mkdir -p "$SCRATCH/bin"
+    curl -fsSL -o "$DATASETS_BIN" \
+        https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/v2/linux-amd64/datasets
+    chmod +x "$DATASETS_BIN"
+fi
+export PATH="$SCRATCH/bin:$PATH"
+echo "datasets version: $(datasets version)"
 
 mkdir -p "$GENOMES_DIR"
 mkdir -p kraken/slurm/logs

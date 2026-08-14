@@ -216,7 +216,7 @@ def main():
                     help="CDS download directory (same as build.py --genomes-dir)")
     ap.add_argument("--busco-out",      default="/scratch/pawsey1168/llenzo/kraken/busco",
                     help="Directory for BUSCO run output")
-    ap.add_argument("--busco-db-path",  default="/scratch/pawsey1168/llenzo/busco_dbs",
+    ap.add_argument("--busco-db-path",  default="/scratch/pawsey1168/llenzo/busco_downloads",
                     help="Path to pre-downloaded BUSCO lineage databases")
     ap.add_argument("--scores-tsv",     default=str(SCORES_TSV),
                     help="Output scores TSV (default: kraken/busco_scores.tsv)")

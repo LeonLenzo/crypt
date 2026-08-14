@@ -14,12 +14,10 @@
 #
 # Prerequisites:
 #   1. python kraken/screen_refs.py  →  kraken/ref_candidates.tsv
-#   2. BUSCO lineage DBs pre-downloaded to $BUSCO_DB_PATH (see below)
-#   3. git pull on Setonix to get latest ref_candidates.tsv
+#   2. git pull on Setonix to get latest ref_candidates.tsv
 #
-# Download BUSCO lineage DBs once (if not already present):
-#   busco --download fungi_odb10 stramenopiles_odb10 basidiomycota_odb10 \
-#         --download_path $BUSCO_DB_PATH --offline
+# Lineage DBs are downloaded automatically inside this script to
+# $SCRATCH/busco_downloads/lineages/ (BUSCO's natural default with HOME=$SCRATCH).
 #
 # Run from crypt/: sbatch kraken/slurm/busco_screen.slurm
 
@@ -31,7 +29,7 @@ module load singularity/3.11.4-nompi
 SCRATCH="/scratch/pawsey1168/llenzo"
 GENOMES_DIR="$SCRATCH/kraken/cds_v2"
 BUSCO_OUT="$SCRATCH/kraken/busco"
-BUSCO_DB_PATH="$SCRATCH/busco_dbs"
+BUSCO_DB_PATH="$SCRATCH/busco_downloads"
 BUSCO_SIF="$SCRATCH/containers/busco_v5.7.0.sif"
 DATASETS_BIN="$SCRATCH/bin/datasets"
 
@@ -44,10 +42,11 @@ if [ ! -x "$DATASETS_BIN" ]; then
     chmod +x "$DATASETS_BIN"
 fi
 
-# Busco wrapper: singularity exec with scratch bound
+# Busco wrapper: singularity exec with scratch bound and HOME set so busco
+# --download writes to $SCRATCH/busco_downloads (matching BUSCO_DB_PATH)
 cat > "$SCRATCH/bin/busco" << EOF
 #!/bin/bash
-exec singularity exec --bind $SCRATCH:$SCRATCH $BUSCO_SIF busco "\$@"
+exec singularity exec --bind $SCRATCH:$SCRATCH --env HOME=$SCRATCH $BUSCO_SIF busco "\$@"
 EOF
 chmod +x "$SCRATCH/bin/busco"
 

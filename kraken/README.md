@@ -8,40 +8,55 @@ This raises a general concern: STAT detections are reliable where pathogen k-mer
 
 ## Database design
 
-The Kraken2 database contains only PHI-base eukaryotic pathogen CDS sequences (fungi and oomycetes). Host sequences are deliberately excluded. This design choice reflects a key difference from the STAT approach: because the DB contains only pathogen sequences, `pct_classified` in Kraken2 output directly represents pathogen burden without requiring normalisation against host signal. Including host CDS would require the same Viridiplantae gate logic used in STAT MAL, reintroducing the ambiguity that the orthogonal approach is meant to resolve.
+The Kraken2 database contains only PHI-base eukaryotic pathogen CDS sequences (fungi and oomycetes). Host sequences are deliberately excluded — because the DB contains only pathogen sequences, `pct_classified` in Kraken2 output directly represents pathogen burden without requiring normalisation against host signal. Host reads simply go unclassified. Including host CDS would require the same Viridiplantae gate logic used in STAT MAL, reintroducing the ambiguity the orthogonal approach is meant to resolve.
 
-### Masking
+### Genus fill-in (no masking)
 
-Before database construction, each pathogen's CDS sequences are masked against k-mers shared with any other pathogen in the reference set using BBDuk (k=35, mincount=2). This species-diagnostic masking ensures that every k-mer retained in the database is unique among the included pathogens. Without masking, organisms sharing taxonomic order (e.g., *Melampsora* appearing in PST-dominated runs due to shared Pucciniales k-mers) produce false-positive detections. The masking step is pathogen-vs-pathogen only — no host sequences are used in masking.
+Rather than masking to create species-diagnostic k-mers, the DB uses **genus-level completeness** to achieve specificity. For each PHI-base genus detected in the pilot, the best-annotated assembly for every non-PHI-base species within that genus is also included. This genus fill-in means that k-mers shared between species within a genus resolve — via Kraken2's LCA algorithm — to the genus node rather than being spuriously assigned to the wrong species. Species-level detections therefore represent reads for which no within-genus congener claims the k-mer, providing a natural specificity filter without manual masking.
 
-### Host removal
+### Read acquisition and subsampling
 
-Because the database contains only pathogen sequences, host reads do not match any database entry and are reported as `unclassified`. `pct_classified` in the Kraken2 output therefore directly represents pathogen burden in the library — it is equivalent to running host-removal followed by pathogen classification, without the computational overhead. This is the key architectural difference from approaches that build combined host+pathogen databases: those require an explicit host-removal step and normalisation against classified host counts. The pathogen-only approach is simpler, faster, and makes the pathogen fraction directly interpretable.
-
-### Read subsampling
-
-Each run is subsampled to 500,000 reads from the ENA FTP stream. This cap is sufficient for robust species-level detection at all thresholds used: at the lowest threshold (0.5% for Fungi), the expected signal is ≥ 2,500 reads — well within reliable detection range for Kraken2 with confidence=0.15 and min-hit-groups=3. Reads arrive in the original ENA submission order (FASTQ deposit is not sorted by quality or coverage), so the subsample is representative of the full library composition. The cap limits ENA concurrent bandwidth load and reduces per-run runtime without sacrificing sensitivity at the thresholds of interest.
+Reads are downloaded from ENA FTP in advance (`download_control.slurm`) and stored locally on Setonix scratch, then classified from local files (`classify_control.slurm`). Each run is subsampled to 500,000 reads. This cap is sufficient for robust species-level detection at all thresholds used: at the lowest threshold (0.5% for Fungi), the expected signal is ≥ 2,500 reads — well within reliable detection range for Kraken2 with confidence=0.15 and min-hit-groups=3.
 
 ### Coverage and gaps
 
-| Component | Source | Annotated seeds | Database |
-|-----------|--------|-----------------|----------|
-| Fungi | PHI-base plant entries | 101 species with CDS annotation | fungi + oomycetes only |
-| Oomycota | PHI-base plant entries | included above | |
+CDS-based sequences are used throughout rather than whole-genome sequences: RNA-seq reads derive from spliced transcripts and align poorly to genomic sequence across introns, and CDS sequences are shorter and more specific. Seeds lacking NCBI annotation (no gene model) are excluded — without CDS coordinates there is no transcript-compatible sequence to add.
 
-Seeds lacking NCBI annotation (no gene model, therefore no `cds_from_genomic.fna`) are excluded — without CDS coordinates there is no transcript-compatible sequence to add. *Nicotiana benthamiana*, the most widely used model host, has no annotated assembly in NCBI Datasets as of 2026-08 despite published chromosome-level assemblies (Bally et al. 2022); this is a known gap not addressable without manual assembly integration.
+## Control validation
 
-CDS-based sequences are used throughout rather than whole-genome sequences, for two reasons: (1) RNA-seq reads derive from spliced transcripts and align poorly to genomic sequence across introns; (2) CDS sequences are shorter and more specific, reducing database size and false-positive rates.
+Validation uses two complementary components:
 
-## Control validation set
+### Stratified SRA controls (`control/sample.py`)
 
-Before running Kraken2 classification across the full 10,995-run corpus, a stratified control validation set (2,473 runs) was constructed from `runs.tsv` to characterise the relationship between STAT detections and Kraken2 detections across the parameter space. Runs were stratified into strata A–I defined by STAT eukaryotic signal level and biosample representation, with target sizes ensuring adequate coverage of both STAT-positive (co-infected) and STAT-negative (single) biosample categories. The control set is designed to answer: where STAT and Kraken2 agree, how consistent is the quantitative signal? Where they disagree, which is more reliable?
+A stratified set of 2,473 real SRA runs was drawn from the full corpus to characterise STAT–Kraken2 agreement across the parameter space. Runs are stratified into strata A–I by STAT eukaryotic signal level and study design (LLM classification):
 
-The 2,473-run control set is built (`kraken/control/output/data/run_ids.txt`) and ready to submit on Setonix:
+| Stratum | Description | Target |
+|---------|-------------|--------|
+| A | Non-plant true negative (external; non-plant host) | 200 |
+| B | Plant host-only — HAL gate-fail, 0% fungi/oomycete | 500 |
+| B2 | Pathogen-only — MAL gate-fail, 0% host reads | 200 |
+| C | Single pathogen, lab, low burden (STAT 0.5–2%) | 200 |
+| D | Single pathogen, lab, medium burden (2–10%) | 200 |
+| E | Single pathogen, lab, high burden (>10%) | 200 |
+| F | Single pathogen, field | 400 |
+| G | Intentional co-infection experiment | all |
+| H | HC field co-infected, diff-genus | 400 |
+| I | Same-genus secondary (LCA collapse test) | all |
+
+These runs have STAT-inferred ground truth (not known composition); the set is designed to answer: where STAT and Kraken2 agree, how consistent is the quantitative signal? Where they disagree, which is more reliable?
+
+Reads are pre-downloaded to Setonix scratch via `download_control.slurm`, then classified via `classify_control.slurm`. Run from Setonix:
 
 ```bash
-git pull && sbatch kraken/slurm/kraken_classify_control.slurm
+# Step 1 — download reads
+sbatch kraken/slurm/download_control.slurm
+# Step 2 — classify (after download completes)
+sbatch kraken/slurm/classify_control.slurm
 ```
+
+### In silico controls (`control/insilico.py`, stratum J)
+
+To obtain controls with **known composition** (not STAT-inferred ground truth), synthetic mixed-infection libraries are constructed by mixing reads from pure-culture SRA runs into a plant host background at specified ratios (0.1%, 0.5%, 1%, 5%, 10%, 25%). For obligate biotrophs without pure-culture RNA-seq (e.g., PST), reads are simulated from the reference genome using ART Illumina prior to mixing. These in silico controls directly calibrate KINGDOM_THRESHOLDS and validate same-genus specificity. Kristina Cihatova is collaborating on the panel design and ART-simulated read generation for the rust fungi panel.
 
 Production classification of the full corpus follows after control results validate the DB and parameter choices.
 
@@ -55,7 +70,7 @@ Production classification of the full corpus follows after control results valid
 | Workers | 8 | Respects ENA concurrent connection guidelines |
 | Threads per worker | 4 | Workers × threads matched to available cores on Setonix |
 
-Classification is performed on Setonix HPC (Pawsey Supercomputing Centre) via SLURM, streaming reads directly from ENA FTP without local storage. Results are written to an append-only cache (`classify/data/kraken_cache.jsonl`) enabling resumable runs.
+Classification is performed on Setonix HPC (Pawsey Supercomputing Centre) via SLURM. Reads are downloaded from ENA FTP to Setonix scratch in a separate step, then classified from local files. Results are written to an append-only cache (`classify/data/kraken_cache.jsonl`) enabling resumable runs.
 
 ## Pilot results
 
@@ -63,7 +78,7 @@ A 45-run pilot (2026-08-05) followed by a 32-run high-confidence validation set 
 
 - STAT correctly detects the majority of HAL-mode eukaryotic co-infections where the secondary organism has a sufficiently distinct k-mer profile
 - The PST blind spot is confined to rust fungi (Pucciniales); non-rust fungal detections in the pilot set showed broad STAT–Kraken2 agreement
-- The pathogen-only DB (no host sequences) produces cleaner `pct_classified` values than the earlier masked+host DB pilot, where host background introduced noise at low pathogen burden thresholds
+- The pathogen-only DB (no host sequences) produces cleaner `pct_classified` values than earlier host-inclusive DB pilots, where host background introduced noise at low pathogen burden thresholds
 
 ## Limitations
 

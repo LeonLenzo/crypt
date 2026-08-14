@@ -1,24 +1,26 @@
 #!/usr/bin/env python3
 """
-screen_refs.py — select assemblies for the Kraken2 pathogen DB.
+screen_refs.py — select candidate assemblies for BUSCO quality screening.
 
 Two selection passes:
 
-  SEED (pan-genome): for each PHI-base euk seed taxid, select up to
-  MAX_PER_SEED geographically and temporally diverse scaffold-plus+annotated
-  assemblies via a greedy diversity algorithm. Seeds in genera that are never
-  detected by STAT get a single best-quality assembly only. Seeds with no
-  scaffold-plus+annotated assemblies fall back through scaffold-plus, then
+  SEED (pan-genome): for each PHI-base euk seed taxid, collect ALL
+  scaffold-plus+annotated assemblies.  Detected-genera seeds get all of them
+  ordered by geographic/temporal diversity; undetected-genera seeds get the
+  single best-quality assembly only.  Falls back through scaffold-plus, then
   contig-level — always take something rather than nothing.
 
   GENUS FILL (breadth): for PHI-base genera that appear in STAT detections,
-  add the best annotated scaffold-plus assembly for each non-PHI-base species
-  within that genus. Broad/saprophytic genera (Aspergillus, Penicillium …)
-  are excluded — they are not primarily plant pathogens.
+  add ALL annotated scaffold-plus assemblies for each non-PHI-base species
+  within that genus.  Broad/saprophytic genera (Aspergillus, Penicillium …)
+  are excluded.
 
-Output: kraken/ref_screen.tsv  (one row per selected assembly)
+Output: kraken/ref_candidates.tsv  (one row per candidate assembly)
+The busco_lineage column tells busco_screen.py which BUSCO lineage DB to use.
+Run busco_screen.py next, then filter_refs.py, to produce the final ref_screen.tsv.
+
 Run from crypt/:
-    python kraken/screen_refs.py [--workers N] [--max-per-seed N]
+    python kraken/screen_refs.py [--workers N]
 """
 
 import argparse
@@ -31,10 +33,9 @@ from pathlib import Path
 
 DB_PATH   = Path("stat/output/build/data/phibase_db.json")
 RUNS_TSV  = Path("stat/output/filter_runs/data/runs.tsv")
-OUT_TSV   = Path("kraken/ref_screen.tsv")
+OUT_TSV   = Path("kraken/ref_candidates.tsv")
 
-MAX_PER_SEED   = 10   # greedy-diverse cap for detected-genera seeds
-YEAR_BIN_SIZE  = 5    # year-bin width for temporal diversity
+YEAR_BIN_SIZE = 5
 
 LEVEL_RANK = {"Complete Genome": 4, "Chromosome": 3, "Scaffold": 2, "Contig": 1}
 
@@ -44,11 +45,19 @@ BROAD_GENERA = {
     "Claviceps", "Epichloe", "Ceratocystis", "Leptographium", "Ciboria",
 }
 
+# Basidiomycete PHI-base genera → use basidiomycota_odb10 instead of fungi_odb10
+BASIDIOMYCETE_GENERA = {
+    "Puccinia", "Melampsora", "Phakopsora", "Hemileia", "Uromyces",
+    "Tranzschelia", "Phragmidium", "Gymnosporangium",   # rusts
+    "Ustilago", "Tilletia", "Sporisorium", "Testicularia",  # smuts
+    "Rhizoctonia", "Moniliophthora", "Crinipellis",
+}
+
 OUT_COLS = [
     "taxid", "organism_name", "kingdom", "source",
     "accession", "assembly_level", "release_date", "has_annotation",
     "country", "protein_coding_genes", "scaffold_n50_kb", "total_length_mb",
-    "fasta_type", "selection_rank", "selection_reason",
+    "fasta_type", "busco_lineage", "selection_rank", "selection_reason",
 ]
 
 
@@ -91,9 +100,9 @@ def level_rank(a: dict) -> int:
     return LEVEL_RANK.get(assembly_level(a), 0)
 
 def quality_key(a: dict) -> tuple:
-    ann = _ann(a)
+    ann   = _ann(a)
     genes = ann.get("stats", {}).get("gene_counts", {}).get("protein_coding", 0) or 0 if ann else 0
-    acc = a.get("accession", "")
+    acc   = a.get("accession", "")
     return (
         1 if ann else 0,
         min(int(genes), 50000) // 5000,
@@ -104,6 +113,14 @@ def quality_key(a: dict) -> tuple:
 
 def scaffold_plus(a: dict) -> bool:
     return level_rank(a) >= 2
+
+def busco_lineage_for(kingdom: str, organism_name: str) -> str:
+    if kingdom == "oomycete":
+        return "stramenopiles_odb10"
+    genus = organism_name.split()[0]
+    if genus in BASIDIOMYCETE_GENERA:
+        return "basidiomycota_odb10"
+    return "fungi_odb10"
 
 def to_row(a: dict, taxid: int, organism_name: str, kingdom: str,
            source: str, rank: int, reason: str) -> dict:
@@ -127,6 +144,7 @@ def to_row(a: dict, taxid: int, organism_name: str, kingdom: str,
         "scaffold_n50_kb":     f"{int(n50)/1000:.0f}" if n50 else "",
         "total_length_mb":     f"{int(total)/1e6:.1f}" if total else "",
         "fasta_type":          "cds" if ann else "genome",
+        "busco_lineage":       busco_lineage_for(kingdom, organism_name),
         "selection_rank":      rank,
         "selection_reason":    reason,
     }
@@ -158,13 +176,13 @@ def datasets_query(taxon: str | int) -> list[dict]:
     return rows
 
 
-# ── greedy diversity selection ────────────────────────────────────────────────
+# ── diversity-ordered selection (no cap) ─────────────────────────────────────
 
-def greedy_diverse(assemblies: list[dict], n: int) -> list[tuple[dict, str]]:
+def greedy_ordered(assemblies: list[dict]) -> list[tuple[dict, str]]:
     """
-    Select up to n assemblies maximising geographic + temporal diversity.
+    Order all assemblies by geographic + temporal diversity.
     assemblies must already be sorted by quality_key descending.
-    Returns list of (assembly, reason_str).
+    Returns list of (assembly, reason_str) — all assemblies, no cap.
     """
     if not assemblies:
         return []
@@ -173,11 +191,10 @@ def greedy_diverse(assemblies: list[dict], n: int) -> list[tuple[dict, str]]:
     selected: list[dict] = []
     reasons:  list[str]  = []
 
-    # First pick: best quality
     selected.append(remaining.pop(0))
     reasons.append("best_quality")
 
-    while len(selected) < n and remaining:
+    while remaining:
         sel_countries = {get_country(a) for a in selected}
         sel_bins      = {get_year_bin(a) for a in selected}
 
@@ -189,7 +206,7 @@ def greedy_diverse(assemblies: list[dict], n: int) -> list[tuple[dict, str]]:
             country = get_country(a)
             ybin    = get_year_bin(a)
             score   = 0
-            parts: list[str] = []
+            parts:  list[str] = []
             if country and country not in sel_countries:
                 score += 2
                 parts.append(f"new_country:{country}")
@@ -208,12 +225,11 @@ def greedy_diverse(assemblies: list[dict], n: int) -> list[tuple[dict, str]]:
 
 
 def select_seed(taxid: int, name: str, kingdom: str,
-                detected: bool, assemblies: list[dict],
-                max_per_seed: int = MAX_PER_SEED) -> list[dict]:
+                detected: bool, assemblies: list[dict]) -> list[dict]:
     """
-    Select assemblies for a single seed taxid.
-    detected=True → up to max_per_seed via greedy diversity.
-    detected=False → single best only.
+    Select candidate assemblies for a single seed taxid.
+    detected=True  → all scaffold-plus+annotated assemblies, diversity-ordered.
+    detected=False → single best-quality assembly only.
     Falls back through annotation tiers if needed.
     """
     for pool in [
@@ -228,8 +244,11 @@ def select_seed(taxid: int, name: str, kingdom: str,
         return []
 
     pool.sort(key=quality_key, reverse=True)
-    n = max_per_seed if detected else 1
-    pairs = greedy_diverse(pool, n)
+
+    if not detected:
+        pairs = [(pool[0], "best_quality")]
+    else:
+        pairs = greedy_ordered(pool)
 
     return [
         to_row(a, taxid, name, kingdom, "seed", rank + 1, reason)
@@ -243,8 +262,9 @@ def select_genus_fill(kingdom: str,
                       covered_taxids: set[int],
                       assemblies: list[dict]) -> list[dict]:
     """
-    For a detected genus: take the best annotated scaffold-plus assembly for
-    each species not already covered by a PHI-base seed.
+    For a detected genus: take ALL annotated scaffold-plus assemblies for
+    each species not already covered by a PHI-base seed, diversity-ordered
+    within each species.
     """
     by_species: dict[int, list[dict]] = defaultdict(list)
     for a in assemblies:
@@ -257,16 +277,16 @@ def select_genus_fill(kingdom: str,
     rows = []
     for tid, pool in by_species.items():
         pool.sort(key=quality_key, reverse=True)
-        best = pool[0]
-        org_name = (best.get("organism") or {}).get("organism_name", str(tid))
-        rows.append(to_row(best, tid, org_name, kingdom, "genus_fill", 1, "best_quality"))
+        org_name = (pool[0].get("organism") or {}).get("organism_name", str(tid))
+        pairs = greedy_ordered(pool)
+        for rank, (a, reason) in enumerate(pairs):
+            rows.append(to_row(a, tid, org_name, kingdom, "genus_fill", rank + 1, reason))
     return rows
 
 
 # ── main ──────────────────────────────────────────────────────────────────────
 
 def load_detected_genera() -> set[str]:
-    """Parse runs.tsv stat_pathogens to find which genera STAT detects."""
     genera: set[str] = set()
     try:
         with open(RUNS_TSV) as fh:
@@ -281,22 +301,19 @@ def load_detected_genera() -> set[str]:
 
 
 def main():
-    ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--workers",      type=int, default=8)
-    ap.add_argument("--max-per-seed", type=int, default=MAX_PER_SEED)
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--workers", type=int, default=8)
     args = ap.parse_args()
-
 
     db  = json.load(open(DB_PATH))
     t2n = db["taxid_to_name"]
 
-    # All taxids already covered by PHI-base (including strains / f.sp.)
     covered: set[int] = set()
     for key in ("fungal_to_seed", "oomycete_to_seed", "nematode_to_seed"):
         covered.update(int(t) for t in db.get(key, {}))
 
-    # Seed taxids per kingdom
-    seeds: dict[int, str] = {}  # taxid → kingdom
+    seeds: dict[int, str] = {}
     for t in set(db["fungal_to_seed"].values()):
         seeds[int(t)] = "fungal"
     for t in set(db["oomycete_to_seed"].values()):
@@ -306,7 +323,7 @@ def main():
     print(f"STAT-detected genera: {len(detected_genera)}")
 
     # ── Pass 1: seeds ─────────────────────────────────────────────────────────
-    print(f"\n[1/2] Querying {len(seeds)} seed taxids (max {MAX_PER_SEED} per detected seed) …")
+    print(f"\n[1/2] Querying {len(seeds)} seed taxids (all assemblies for detected genera) …")
 
     all_rows: list[dict] = []
 
@@ -315,7 +332,7 @@ def main():
         genus = name.split()[0]
         detected = genus in detected_genera
         assemblies = datasets_query(taxid)
-        return select_seed(taxid, name, kingdom, detected, assemblies, args.max_per_seed)
+        return select_seed(taxid, name, kingdom, detected, assemblies)
 
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futs = {pool.submit(work_seed, tid, kgd): tid for tid, kgd in seeds.items()}
@@ -333,8 +350,7 @@ def main():
     print(f"  Seed assemblies selected: {seed_count}")
 
     # ── Pass 2: genus fill-in ─────────────────────────────────────────────────
-    # Unique detected genera that are in the DB, excluding broad genera
-    fill_genera: dict[str, str] = {}  # genus → kingdom
+    fill_genera: dict[str, str] = {}
     for tid, kingdom in seeds.items():
         parts = t2n.get(str(tid), "").split()
         if not parts:
@@ -343,7 +359,7 @@ def main():
         if genus and genus in detected_genera and genus not in BROAD_GENERA:
             fill_genera[genus] = kingdom
 
-    print(f"\n[2/2] Querying {len(fill_genera)} genera for fill-in …")
+    print(f"\n[2/2] Querying {len(fill_genera)} genera for fill-in (all qualifying assemblies) …")
 
     def work_genus(genus: str, kingdom: str) -> list[dict]:
         assemblies = datasets_query(genus)
@@ -376,18 +392,25 @@ def main():
     # ── Summary ───────────────────────────────────────────────────────────────
     n_cds    = sum(1 for r in all_rows if r["fasta_type"] == "cds")
     n_genome = sum(1 for r in all_rows if r["fasta_type"] == "genome")
-    n_seeds_with_multi = len({r["taxid"] for r in all_rows if r["source"] == "seed" and r["selection_rank"] > 1})
+    n_seeds_multi = len({r["taxid"] for r in all_rows if r["source"] == "seed" and r["selection_rank"] > 1})
     n_fill_genera = len({r["organism_name"].split()[0] for r in all_rows if r["source"] == "genus_fill"})
+    lineage_counts: dict[str, int] = defaultdict(int)
+    for r in all_rows:
+        lineage_counts[r["busco_lineage"]] += 1
 
     print(f"\n── Summary ──────────────────────────────────────────────────")
-    print(f"  Total assemblies selected:      {len(all_rows):>6,}")
-    print(f"    Seed (pan-genome):            {seed_count:>6,}")
-    print(f"    Genus fill-in:                {fill_count:>6,}")
-    print(f"  CDS FASTA (annotated):          {n_cds:>6,}")
-    print(f"  Genomic FASTA (no annotation):  {n_genome:>6,}")
-    print(f"  Seeds with >1 assembly:         {n_seeds_with_multi:>6,}")
-    print(f"  Genera contributing fill-in:    {n_fill_genera:>6,}")
+    print(f"  Total candidates:             {len(all_rows):>6,}")
+    print(f"    Seed (pan-genome):          {seed_count:>6,}")
+    print(f"    Genus fill-in:              {fill_count:>6,}")
+    print(f"  CDS FASTA (annotated):        {n_cds:>6,}")
+    print(f"  Genomic FASTA (unannotated):  {n_genome:>6,}")
+    print(f"  Seeds with >1 assembly:       {n_seeds_multi:>6,}")
+    print(f"  Genera contributing fill-in:  {n_fill_genera:>6,}")
+    print(f"  BUSCO lineages:")
+    for lineage, n in sorted(lineage_counts.items()):
+        print(f"    {lineage:<30} {n:>6,}")
     print(f"\nOutput: {OUT_TSV}")
+    print(f"Next:   python kraken/busco_screen.py  (on Setonix)")
 
 
 if __name__ == "__main__":

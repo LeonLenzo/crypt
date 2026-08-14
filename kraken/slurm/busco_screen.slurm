@@ -55,13 +55,19 @@ export PATH="$SCRATCH/bin:$PATH"
 echo "datasets version: $(datasets version)"
 echo "busco version:    $(busco --version)"
 
-# Move lineage DBs from home download location to scratch if not done yet
-if [ ! -d "$BUSCO_DB_PATH/lineages/fungi_odb10" ]; then
-    echo "Moving BUSCO lineage DBs from ~/busco_downloads to scratch …"
-    mkdir -p "$BUSCO_DB_PATH"
-    cp -r "$HOME/busco_downloads/lineages" "$BUSCO_DB_PATH/"
-    echo "Done."
-fi
+# Download lineage DBs to scratch if not already present
+mkdir -p "$BUSCO_DB_PATH"
+for lineage in fungi_odb10 stramenopiles_odb10 basidiomycota_odb10; do
+    if [ ! -d "$BUSCO_DB_PATH/lineages/$lineage" ]; then
+        echo "Downloading BUSCO lineage: $lineage …"
+        singularity exec \
+            --bind "$SCRATCH:$SCRATCH" \
+            "$BUSCO_SIF" \
+            busco --download "$lineage" --download_path "$BUSCO_DB_PATH"
+    else
+        echo "Lineage already present: $lineage"
+    fi
+done
 
 mkdir -p kraken/slurm/logs
 mkdir -p "$GENOMES_DIR"

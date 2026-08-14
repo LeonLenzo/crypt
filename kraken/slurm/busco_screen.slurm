@@ -62,6 +62,7 @@ for lineage in ascomycota_odb10 basidiomycota_odb10 stramenopiles_odb10 fungi_od
         echo "Downloading BUSCO lineage: $lineage …"
         singularity exec \
             --bind "$SCRATCH:$SCRATCH" \
+            --env HOME="$SCRATCH" \
             "$BUSCO_SIF" \
             busco --download "$lineage" --download_path "$BUSCO_DB_PATH"
     else

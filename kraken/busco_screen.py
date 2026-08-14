@@ -125,10 +125,11 @@ def run_busco(fna: Path, lineage: str, out_name: str,
     Skips if short_summary already exists (resumable).
     """
     run_dir = out_path / out_name
-    # Check for existing short_summary
-    existing = list(run_dir.glob("short_summary.specific.*.txt"))
+    # Only reuse summaries for the correct lineage — avoids silently returning
+    # stale scores when the lineage assignment changes (e.g. fungi→ascomycota).
+    existing = list(run_dir.glob(f"short_summary.specific.{lineage}.*.txt"))
     if not existing:
-        existing = list(run_dir.glob("run_*/short_summary.txt"))
+        existing = list(run_dir.glob(f"run_{lineage}/short_summary.txt"))
 
     if not existing:
         run_dir.mkdir(parents=True, exist_ok=True)

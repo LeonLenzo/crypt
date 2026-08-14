@@ -2,8 +2,8 @@
 """
 Literature resolution pipeline Sankey.
 
-Shows how 1,287 BioProjects were resolved through each strategy and what
-text data is available downstream.
+3-column flow: Origin → Resolution strategy → Text coverage.
+Shows how 1,287 BioProjects were resolved and what text data is available.
 
 Run from crypt/: python metadata/figures/lit_resolution_sankey.py
 """
@@ -37,7 +37,9 @@ with open(RUNS_TSV) as f:
     for row in csv.DictReader(f, delimiter="\t"):
         bps_in_runs.add(row["BioProject"])
 
-# ── Classify each BP into (resolution_path, text_coverage) ───────────────────
+total_bps = len(bps_in_runs)
+
+# ── Classify each BP ─────────────────────────────────────────────────────────
 
 flows: list[tuple[str, str]] = []
 for bp in bps_in_runs:
@@ -48,27 +50,18 @@ for bp in bps_in_runs:
     abstr = bool(e.get("abstract"))
     meth  = bool(e.get("methods_text"))
 
-    if "PMC" in src:
-        path = "PMC full-text"
-    elif src == "BioProject XML":
-        path = "BioProject XML"
-    elif "Serper" in src:
-        path = "Web search (Serper)"
-    elif not pmid and not doi:
-        path = "Unresolved"
-    else:
-        path = "Other / legacy"
+    if "PMC" in src:               path = "PMC full-text"
+    elif src == "BioProject XML":  path = "BioProject XML"
+    elif "Serper" in src:          path = "Web search (Serper)"
+    elif src == "manual_doi":      path = "Manual DOI lookup"
+    elif not pmid and not doi:     path = "Unresolved"
+    else:                          path = "Other / legacy"
 
-    if meth:
-        text = "Methods + abstract"
-    elif abstr and pmid:
-        text = "Abstract (PMID)"
-    elif abstr and doi:
-        text = "Abstract (DOI only)"
-    elif pmid or doi:
-        text = "Title only"
-    else:
-        text = "No publication data"
+    if meth:              text = "Methods + abstract"
+    elif abstr and pmid:  text = "Abstract (PMID)"
+    elif abstr and doi:   text = "Abstract (DOI only)"
+    elif pmid or doi:     text = "Title only"
+    else:                 text = "No publication data"
 
     flows.append((path, text))
 
@@ -76,17 +69,20 @@ counts: dict[tuple[str, str], int] = defaultdict(int)
 for pair in flows:
     counts[pair] += 1
 
-# ── Node and link definitions ─────────────────────────────────────────────────
+# ── Node definitions ──────────────────────────────────────────────────────────
 
-LEFT_NODES = [
+ORIGIN = "All BioProjects"
+
+STRATEGY_NODES = [
     "PMC full-text",
     "BioProject XML",
     "Web search (Serper)",
+    "Manual DOI lookup",
     "Other / legacy",
     "Unresolved",
 ]
 
-RIGHT_NODES = [
+COVERAGE_NODES = [
     "Methods + abstract",
     "Abstract (PMID)",
     "Abstract (DOI only)",
@@ -94,58 +90,79 @@ RIGHT_NODES = [
     "No publication data",
 ]
 
-ALL_NODES  = LEFT_NODES + RIGHT_NODES
+ALL_NODES  = [ORIGIN] + STRATEGY_NODES + COVERAGE_NODES
 node_index = {n: i for i, n in enumerate(ALL_NODES)}
 
-LEFT_COLORS = {
-    "PMC full-text":        "#27ae60",   # green
-    "BioProject XML":       "#2980b9",   # blue
-    "Web search (Serper)":  "#e67e22",   # orange
-    "Other / legacy":       "#95a5a6",   # grey
-    "Unresolved":           "#c0392b",   # red
+STRATEGY_COLORS = {
+    "PMC full-text":        "#27ae60",
+    "BioProject XML":       "#2980b9",
+    "Web search (Serper)":  "#e67e22",
+    "Manual DOI lookup":    "#8e44ad",
+    "Other / legacy":       "#95a5a6",
+    "Unresolved":           "#c0392b",
 }
 
-RIGHT_COLORS = {
-    "Methods + abstract":   "#1a5e36",   # dark green
-    "Abstract (PMID)":      "#27ae60",   # green
-    "Abstract (DOI only)":  "#16a085",   # teal
-    "Title only":           "#f39c12",   # amber
-    "No publication data":  "#7f8c8d",   # dark grey
+COVERAGE_COLORS = {
+    "Methods + abstract":   "#1a5e36",
+    "Abstract (PMID)":      "#27ae60",
+    "Abstract (DOI only)":  "#16a085",
+    "Title only":           "#f39c12",
+    "No publication data":  "#7f8c8d",
 }
 
-node_colors = [LEFT_COLORS[n] for n in LEFT_NODES] + \
-              [RIGHT_COLORS[n] for n in RIGHT_NODES]
+ORIGIN_COLOR = "#2c3e50"
 
-# Build links
+node_colors = (
+    [ORIGIN_COLOR]
+    + [STRATEGY_COLORS[n] for n in STRATEGY_NODES]
+    + [COVERAGE_COLORS[n] for n in COVERAGE_NODES]
+)
+
+# ── Build links ───────────────────────────────────────────────────────────────
+
 link_sources, link_targets, link_values, link_colors = [], [], [], []
-for (src_name, tgt_name), val in counts.items():
+
+def add_link(src_name: str, tgt_name: str, value: int, color_hex: str) -> None:
+    if value <= 0:
+        return
     link_sources.append(node_index[src_name])
     link_targets.append(node_index[tgt_name])
-    link_values.append(val)
-    # link colour = left node colour, semi-transparent
-    base = LEFT_COLORS[src_name].lstrip("#")
-    r, g, b = int(base[0:2], 16), int(base[2:4], 16), int(base[4:6], 16)
+    link_values.append(value)
+    r, g, b = int(color_hex[1:3], 16), int(color_hex[3:5], 16), int(color_hex[5:7], 16)
     link_colors.append(f"rgba({r},{g},{b},0.38)")
 
-# Node totals for labels
-left_totals  = defaultdict(int)
-right_totals = defaultdict(int)
-for (src, tgt), v in counts.items():
-    left_totals[src]  += v
+# Layer 1: Origin → Strategies
+left_totals: dict[str, int] = defaultdict(int)
+for (src, _), v in counts.items():
+    left_totals[src] += v
+
+for strat in STRATEGY_NODES:
+    add_link(ORIGIN, strat, left_totals[strat], STRATEGY_COLORS[strat])
+
+# Layer 2: Strategies → Coverage
+for (src_name, tgt_name), val in counts.items():
+    add_link(src_name, tgt_name, val, STRATEGY_COLORS[src_name])
+
+# ── Node labels ───────────────────────────────────────────────────────────────
+
+right_totals: dict[str, int] = defaultdict(int)
+for (_, tgt), v in counts.items():
     right_totals[tgt] += v
 
-node_labels = []
-for n in LEFT_NODES:
+node_labels = [f"<b>{ORIGIN}</b><br>{total_bps:,} BPs"]
+for n in STRATEGY_NODES:
     node_labels.append(f"<b>{n}</b><br>{left_totals[n]:,} BPs")
-for n in RIGHT_NODES:
+for n in COVERAGE_NODES:
     node_labels.append(f"<b>{n}</b><br>{right_totals[n]:,} BPs")
 
 # ── Figure ────────────────────────────────────────────────────────────────────
 
+resolved  = total_bps - left_totals["Unresolved"]
+
 fig = go.Figure(go.Sankey(
     arrangement="snap",
     node=dict(
-        pad=18,
+        pad=16,
         thickness=22,
         line=dict(color="white", width=0.5),
         label=node_labels,
@@ -159,9 +176,6 @@ fig = go.Figure(go.Sankey(
     ),
 ))
 
-total_bps = len(bps_in_runs)
-resolved  = total_bps - left_totals["Unresolved"]
-
 fig.update_layout(
     title=dict(
         text=(f"Literature resolution pipeline — {total_bps:,} BioProjects<br>"
@@ -173,9 +187,9 @@ fig.update_layout(
     ),
     font=dict(size=12, family="Arial"),
     paper_bgcolor="white",
-    width=900,
-    height=560,
-    margin=dict(l=10, r=10, t=80, b=10),
+    width=1000,
+    height=580,
+    margin=dict(l=10, r=10, t=85, b=10),
 )
 
 fig.write_html(OUT_HTML)

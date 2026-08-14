@@ -237,7 +237,7 @@ for s, next_s in spine_pairs:
 resolved = total_bps - unresolved
 
 fig = go.Figure(go.Sankey(
-    arrangement="fixed",
+    arrangement="snap",
     node=dict(
         pad=14,
         thickness=20,

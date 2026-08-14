@@ -1,0 +1,141 @@
+taxid	name	kingdom	n_total	n_scaffold_plus	n_annotated	best_level	date_min	date_max	n_countries	countries
+5507	Fusarium oxysporum	fungal	838	524	70	Complete Genome	2011-08-05	2026-08-06	42	Australia; Belgium; Brazil; Canada; China; Colombia; Comoros; Costa Rica; Ethiopia; France; Germany; Greece; India; Indonesia; Iran; Israel; Italy; Japan; Malaysia; Morocco
+318829	Pyricularia oryzae	fungal	604	453	63	Complete Genome	2011-10-14	2026-08-04	34	Bangladesh; Bolivia; Brazil; China; Costa Rica; Cote d'Ivoire; Ethiopia; France; French Guiana; Germany; Ghana; Guyana; India; Indonesia; Italy; Japan; Kenya; Mali; NA; None
+5059	Aspergillus flavus	fungal	343	264	14	Complete Genome	2015-03-13	2026-07-06	18	Australia; China; Ethiopia; France; Germany; India; Japan; Kenya; Mexico; NA; Nigeria; South Korea; Spain; Thailand; USA; Uganda; Unknown; missing
+282267	Fusarium asiaticum	fungal	257	10	0	Complete Genome	2016-08-31	2025-08-12	5	Brazil; China; Japan; Nepal; South Korea
+176275	Beauveria bassiana	fungal	227	35	12	Complete Genome	2012-08-14	2026-05-15	43	Australia; Austria; Brazil; Bulgaria; Cameroon; Chile; China; Colombia; Costa Rica; Cote d'Ivoire; Denmark; France; Georgia; Germany; Greece; Honduras; Hong Kong; Hungary; India; Iran
+13684	Parastagonospora nodorum	fungal	180	173	156	Complete Genome	2007-11-20	2021-10-25	10	Australia; Brazil; China; Finland; Iran; South Africa; Sweden; Switzerland; USA; Unknown
+5599	Alternaria alternata	fungal	150	69	35	Complete Genome	2015-11-13	2026-07-13	15	Canada; Chile; China; Ethiopia; India; Iraq; Israel; Japan; Korea; None; Peru; South Africa; South Korea; USA; missing
+55169	Botryosphaeria dothidea	fungal	141	131	2	Scaffold	2016-08-31	2026-07-13	4	Canada; China; India; missing
+5518	Fusarium graminearum	fungal	137	126	19	Complete Genome	2008-11-21	2026-02-24	20	Argentina; Australia; Belgium; Canada; China; Ethiopia; France; Germany; India; Iran; Italy; Luxembourg; Netherlands; Poland; Russia; Serbia; South Africa; South Korea; USA; unknown
+5061	Aspergillus niger	fungal	128	106	46	Complete Genome	2007-04-11	2026-07-27	21	Australia; Brazil; China; Denmark; France; India; Italy; Japan; Mexico; Netherlands; Norway; Pakistan; Peru; Portugal; South Korea; Thailand; Turkey; USA; Unknown; missing
+5116	Cryphonectria parasitica	fungal	99	93	2	Chromosome	2019-12-27	2025-03-26	19	Albania; Azerbaijan; Bosnia and Herzegovina; Bulgaria; China; Croatia; France; Georgia; Italy; Japan; Kosovo; Portugal; Slovenia; South Korea; Spain; Switzerland; Turkey; USA; missing
+45151	Pyrenophora tritici-repentis	fungal	67	28	26	Chromosome	2007-04-11	2022-10-04	11	Algeria; Australia; Azerbaijan; Brazil; Canada; Denmark; Germany; Syria; Tunisia; USA; United Kingdom
+40559	Botrytis cinerea	fungal	66	27	15	Complete Genome	2011-03-11	2026-04-28	8	China; France; Germany; Lithuania; Mexico; Spain; USA; United Kingdom
+117187	Fusarium verticillioides	fungal	66	59	7	Complete Genome	2008-11-21	2026-06-10	11	Australia; Brazil; China; Georgia; Guatemala; India; Italy; Peru; USA; missing; not collected
+1047171	Zymoseptoria tritici	fungal	65	58	7	Complete Genome	2011-07-06	2025-04-09	17	Argentina; Australia; Belgium; Chile; Czech Republic; Czechia; Denmark; France; Germany; Iran; Ireland; Poland; Slovakia; Sweden; Switzerland; United Kingdom; missing
+27337	Verticillium dahliae	fungal	63	27	13	Complete Genome	2011-09-15	2026-06-23	18	Australia; Austria; Canada; China; Colombia; France; Germany; Hungary; Italy; Japan; Mexico; Netherlands; Syria; USA; Ukraine; United Kingdom; missing; not collected
+5111	Claviceps purpurea	fungal	58	12	24	Complete Genome	2012-08-02	2026-04-28	9	Canada; China; Czech Republic; Netherlands; New Zealand; Spain; USA; United Kingdom; missing
+170000	Phakopsora pachyrhizi	fungal	52	51	2	Scaffold	2022-06-30	2026-02-24	2	Brazil; USA
+456999	Rhizoctonia solani	fungal	52	34	29	Complete Genome	2013-01-28	2026-06-04	10	Australia; China; Germany; India; Japan; Malaysia; Taiwan; USA; missing; not collected
+948311	Fusarium proliferatum	fungal	45	31	9	Complete Genome	2016-08-15	2026-07-27	13	Australia; Canada; China; Indonesia; Italy; Poland; Saudi Arabia; Spain; USA; United Arab Emirates; United Kingdom; Viet Nam; missing
+5270	Mycosarcoma maydis	fungal	39	28	2	Chromosome	2015-02-18	2022-05-02	2	Germany; Mexico
+5180	Sclerotinia sclerotiorum	fungal	38	30	3	Chromosome	2015-07-16	2026-08-04	7	Australia; Canada; China; Missing; Netherlands; USA; United Kingdom
+27350	Puccinia striiformis	fungal	37	23	10	Chromosome	2011-08-16	2026-07-16	7	Australia; China; Denmark; India; Nepal; USA; United Kingdom
+27357	Colletotrichum acutatum	fungal	33	8	4	Scaffold	2016-06-14	2026-05-19	6	Australia; China; Italy; New Zealand; USA; missing
+5499	Fulvia fulva	fungal	32	21	6	Complete Genome	2012-10-11	2026-03-10	10	Argentina; Bulgaria; France; Japan; Netherlands; New Zealand; Poland; Turkey; USA; missing
+5127	Fusarium fujikuroi	fungal	31	28	19	Chromosome	2013-01-02	2026-07-30	9	India; Italy; Kenya; Nepal; South Korea; Taiwan; Thailand; USA; missing
+29920	Phytophthora cactorum	oomycete	29	18	20	Scaffold	2017-04-07	2025-04-23	8	China; Netherlands; New Zealand; Norway; Sweden; USA; United Kingdom; missing
+690256	Colletotrichum fructicola	fungal	28	16	9	Complete Genome	2018-01-17	2026-08-06	5	Canada; China; Italy; Japan; USA
+690259	Colletotrichum siamense	fungal	28	19	6	Complete Genome	2019-09-18	2026-07-07	9	China; Italy; Japan; Nigeria; Pakistan; Thailand; USA; Viet Nam; missing
+208348	Puccinia triticina	fungal	28	12	7	Complete Genome	2016-06-06	2026-05-11	4	Australia; Canada; China; India
+169388	Fusarium solani	fungal	27	10	6	Scaffold	2017-07-07	2026-04-30	9	China; Colombia; Czech Republic; India; Iraq; Slovenia; South Korea; USA; missing
+53485	Pyrenophora teres	fungal	26	18	12	Complete Genome	2010-11-05	2026-07-16	7	Australia; Canada; China; Denmark; NA; New Zealand; USA
+5454	Ascochyta rabiei	fungal	24	8	15	Complete Genome	2016-04-19	2026-08-04	3	Australia; India; Syria
+1051616	Verticillium nonalfalfae	fungal	24	24	17	Complete Genome	2017-11-16	2025-09-12	9	Australia; Austria; Canada; NA; Slovenia; Spain; USA; United Kingdom; not collected
+31870	Colletotrichum graminicola	fungal	23	22	3	Chromosome	2010-10-12	2023-07-14	13	Argentina; Brazil; Canada; China; Croatia; France; Germany; Netherlands; Nigeria; Portugal; Switzerland; USA; Zimbabwe
+474922	Colletotrichum gloeosporioides	fungal	22	15	4	Scaffold	2013-08-13	2026-04-21	6	China; Israel; Pakistan; South Korea; USA; missing
+61366	Fusarium oxysporum f. sp. cubense	fungal	22	10	5	Complete Genome	2013-04-09	2025-11-28	9	Australia; China; India; Japan; Malaysia; Peru; Taiwan; USA; United Kingdom
+100787	Verticillium longisporum	fungal	21	8	5	Scaffold	2015-08-07	2026-02-12	8	France; Germany; Japan; Latvia; Poland; Sweden; USA; United Kingdom
+45130	Bipolaris sorokiniana	fungal	20	11	3	Chromosome	2013-02-19	2026-02-24	4	Australia; China; India; USA
+64363	Dothistroma septosporum	fungal	19	19	1	Scaffold	2013-02-25	2019-04-09	15	Australia; Bhutan; Canada; Chile; Colombia; Denmark; Ecuador; Germany; Greece; Guatemala; New Zealand; Russia; Slovakia; South Africa; USA
+48490	Fusarium circinatum	fungal	19	14	1	Chromosome	2015-02-17	2024-06-10	6	China; Colombia; Mexico; South Africa; Spain; USA
+45133	Lasiodiplodia theobromae	fungal	19	13	4	Complete Genome	2017-04-26	2026-03-17	8	Chile; China; Cote d'Ivoire; India; Indonesia; Papua New Guinea; Peru; missing
+4784	Phytophthora capsici	oomycete	19	14	1	Chromosome	2012-07-31	2025-11-21	8	Canada; China; France; India; Mexico; NA; Not applicable; USA
+35717	Epichloe festucae	fungal	18	11	1	Complete Genome	2011-11-21	2025-09-24	11	Canada; Faroe Islands; Finland; Iceland; Iran; Japan; New Zealand; Spain; Sweden; Switzerland; USA
+29856	Clonostachys rosea	fungal	16	13	2	Complete Genome	2015-04-21	2026-05-11	6	Australia; Brazil; Canada; China; India; missing
+40199	Fusarium avenaceum	fungal	16	15	4	Complete Genome	2014-10-10	2026-06-04	8	Canada; China; Finland; India; Poland; Serbia; USA; missing
+205686	Ascochyta lentis	fungal	15	4	3	Complete Genome	2019-01-11	2025-03-24	1	Australia
+27334	Penicillium expansum	fungal	15	4	6	Scaffold	2014-03-03	2025-09-24	8	China; Denmark; Hungary; Israel; South Africa; Spain; USA; missing
+5516	Fusarium culmorum	fungal	14	12	9	Complete Genome	2016-07-09	2025-09-12	7	Canada; Denmark; Iraq; Netherlands; Poland; United Kingdom; not collected
+4792	Phytophthora nicotianae	oomycete	14	9	12	Scaffold	2013-04-16	2020-04-22	3	China; USA; missing
+5016	Bipolaris maydis	fungal	13	8	11	Scaffold	2013-02-21	2023-12-26	5	China; India; Mexico; USA; missing
+67593	Phytophthora sojae	oomycete	12	11	2	Complete Genome	2011-10-03	2024-05-13	3	China; South Korea; USA
+120017	Ustilago hordei	fungal	12	10	9	Complete Genome	2012-05-30	2022-06-23	7	Azerbaijan; Brazil; Ethiopia; Kenya; Spain; Syria; missing
+29001	Alternaria brassicicola	fungal	11	1	1	Scaffold	2009-03-10	2026-07-10	4	China; France; USA; missing
+101162	Bipolaris oryzae	fungal	11	9	2	Scaffold	2014-01-30	2026-06-16	4	China; India; South Korea; USA
+51029	Heterodera glycines	nematode	11	11	0	Chromosome	2008-04-01	2025-09-02	2	China; USA
+92637	Metarhizium acridum	fungal	11	11	5	Scaffold	2011-02-08	2026-06-26	7	Australia; Benin; Madagascar; Mexico; Senegal; Tanzania; Thailand
+29875	Trichoderma virens	fungal	11	7	4	Complete Genome	2011-11-29	2026-08-06	5	India; Spain; Taiwan; USA; missing
+34373	Blumeria graminis	fungal	9	8	3	Chromosome	2013-07-02	2024-10-22	5	India; Israel; Poland; Switzerland; United Kingdom
+1209932	Colletotrichum scovillei	fungal	9	7	5	Scaffold	2020-03-09	2026-05-19	4	China; Japan; South Korea; Taiwan
+2502994	Fusarium odoratissimum	fungal	9	6	4	Complete Genome	2013-04-04	2025-09-11	5	China; Colombia; Indonesia; Mozambique; Peru
+232082	Fusarium virguliforme	fungal	9	1	0	Scaffold	2014-03-06	2021-11-18	3	Argentina; USA; Unknown
+568076	Metarhizium robertsii	fungal	9	7	4	Chromosome	2014-03-17	2026-05-20	4	Denmark; USA; Uruguay; missing
+36651	Penicillium digitatum	fungal	9	7	6	Complete Genome	2012-11-28	2023-01-04	4	China; Israel; Spain; missing
+5022	Plenodomus lingam	fungal	9	8	4	Complete Genome	2010-11-17	2026-07-16	3	Canada; China; Netherlands
+49012	Sporisorium scitamineum	fungal	9	8	2	Complete Genome	2014-11-06	2025-11-13	2	Brazil; missing
+5158	Ceratocystis fimbriata	fungal	8	5	1	Scaffold	2017-10-18	2024-04-22	4	Brazil; India; USA; missing
+929235	Ceratocystis manginecans	fungal	8	3	0	Scaffold	2014-06-26	2024-04-22	4	Brazil; Indonesia; Malaysia; Oman
+122368	Cercospora beticola	fungal	8	7	5	Complete Genome	2017-11-03	2025-03-31	2	Germany; USA
+4787	Phytophthora infestans	oomycete	8	4	5	Chromosome	2009-06-17	2024-11-05	5	Colombia; India; Mexico; Russia; South Korea
+1159556	Ustilaginoidea virens	fungal	8	6	3	Complete Genome	2016-01-29	2024-07-29	4	China; India; Japan; USA
+6326	Bursaphelenchus xylophilus	nematode	7	5	3	Scaffold	2011-10-13	2026-07-07	3	China; Japan; USA
+101028	Fusarium pseudograminearum	fungal	7	6	5	Complete Genome	2015-04-15	2025-05-22	4	Australia; China; Iraq; not collected
+77044	Rosellinia necatrix	fungal	7	2	1	Scaffold	2017-02-01	2022-11-27	3	Japan; Mexico; South Africa
+290576	Colletotrichum lindemuthianum	fungal	6	6	0	Scaffold	2017-02-04	2024-10-02	2	Brazil; Mexico
+93612	Exserohilum turcicum	fungal	6	3	4	Complete Genome	2013-04-25	2025-04-29	2	China; USA
+42676	Fusarium sacchari	fungal	6	1	0	Scaffold	2020-07-27	2026-02-17	4	China; Colombia; India; missing
+5128	Fusarium sambucinum	fungal	6	4	3	Complete Genome	2016-02-24	2025-06-17	4	China; Germany; India; USA
+38448	Monilinia fructicola	fungal	6	3	2	Scaffold	2017-05-31	2026-03-04	5	Canada; Italy; Portugal; Spain; USA
+5297	Puccinia graminis	fungal	6	4	4	Chromosome	2008-08-26	2022-03-30	4	Australia; USA; Uganda; missing
+40380	Aspergillus ochraceus	fungal	5	3	0	Scaffold	2019-04-24	2024-03-13	4	China; India; Russia; USA
+5017	Bipolaris zeicola	fungal	5	4	2	Complete Genome	2014-01-30	2022-11-24	1	China
+80884	Colletotrichum higginsianum	fungal	5	3	5	Chromosome	2012-03-15	2022-05-23	3	Japan; Trinidad and Tobago; missing
+5514	Fusarium sporotrichioides	fungal	5	4	1	Scaffold	2018-03-20	2024-08-20	3	Canada; France; Poland
+189291	Meloidogyne graminicola	nematode	5	4	1	Scaffold	2020-09-28	2025-01-14	3	China; India; Viet Nam
+6303	Meloidogyne javanica	nematode	5	5	0	Scaffold	2017-04-29	2024-01-26	3	China; Missing; USA
+105487	105487	fungal	4	2	2	Chromosome	2015-01-05	2022-09-27	1	China
+694573	694573	fungal	4	2	2	Chromosome	2015-01-05	2022-09-27	1	China
+48100	Alternaria solani	fungal	4	4	0	Complete Genome	2017-12-11	2026-07-06	4	China; NA; Netherlands; USA
+84275	Cercospora kikuchii	fungal	4	2	2	Scaffold	2019-05-14	2021-07-08	2	Argentina; USA
+702518	Colletotrichum asianum	fungal	4	2	2	Scaffold	2019-12-27	2024-12-02	3	China; Taiwan; Thailand
+36090	Globodera pallida	nematode	4	4	1	Scaffold	2014-05-30	2025-07-13	2	Netherlands; United Kingdom
+31243	Globodera rostochiensis	nematode	4	4	0	Scaffold	2016-04-21	2024-05-01	1	United Kingdom
+13563	Heterobasidion annosum	fungal	4	3	0	Scaffold	2014-04-21	2015-11-03	0	
+40296	Penicillium italicum	fungal	4	2	1	Scaffold	2014-10-28	2026-08-01	2	China; Spain
+143451	Plasmopara viticola	oomycete	4	4	0	Scaffold	2017-01-30	2026-02-24	4	China; France; India; Italy
+65070	Pythium aphanidermatum	oomycete	4	2	0	Scaffold	2013-08-02	2026-05-15	3	Canada; United Kingdom; Unknown
+183478	Stemphylium lycopersici	fungal	4	3	3	Scaffold	2026-03-10	2026-07-29	2	Argentina; China
+40125	Bipolaris victoriae	fungal	3	2	2	Scaffold	2014-02-03	2020-09-09	0	
+278938	Botrytis elliptica	fungal	3	1	2	Scaffold	2019-04-12	2022-07-28	1	Netherlands
+538528	Colletotrichum camelliae	fungal	3	1	1	Scaffold	2021-06-11	2022-12-08	1	China
+27358	Colletotrichum coccodes	fungal	3	2	0	Scaffold	2017-08-11	2021-10-13	1	USA
+272952	Hyaloperonospora arabidopsidis	oomycete	3	1	0	Scaffold	2012-01-25	2025-09-15	1	United Kingdom
+226899	Leptographium clavigerum	fungal	3	3	2	Scaffold	2010-02-04	2011-01-31	0	
+1873960	Pseudocercospora fijiensis	fungal	3	3	2	Scaffold	2013-02-26	2020-03-02	2	Mexico; missing
+46012	Radopholus similis	nematode	3	3	0	Scaffold	2019-04-09	2020-06-16	1	Costa Rica
+286115	Synchytrium endobioticum	fungal	3	1	2	Scaffold	2015-10-19	2019-07-01	3	Canada; Germany; Netherlands
+914237	914237	fungal	2	2	2	Complete Genome	2016-10-26	2025-01-07	1	Australia
+4779	Bremia lactucae	oomycete	2	2	2	Chromosome	2021-08-20	2021-08-20	1	Finland
+132184	Cercospora apii	fungal	2	2	0	Scaffold	2022-04-08	2022-11-10	2	China; Germany
+1868926	Cercospora cf. flagellaris	fungal	2	2	0	Scaffold	2019-05-14	2026-06-24	2	NA; USA
+29003	Cercospora nicotianae	fungal	2	1	0	Scaffold	2018-03-12	2023-03-30	2	China; Indonesia
+135779	Cercospora zeae-maydis	fungal	2	1	1	Scaffold	2020-01-31	2022-05-20	0	
+5503	Curvularia lunata	fungal	2	2	0	Scaffold	2014-08-25	2019-05-06	2	Brazil; China
+252740	Cytospora chrysosperma	fungal	2	2	1	Scaffold	2018-11-19	2021-02-04	1	China
+203908	Melampsora laricis-populina	fungal	2	2	2	Scaffold	2011-04-13	2011-04-13	1	missing
+153609	Moniliophthora perniciosa	fungal	2	2	1	Scaffold	2008-12-02	2008-12-02	0	
+285811	Pseudopyrenochaeta lycopersici	fungal	2	1	0	Scaffold	2014-03-27	2018-07-11	1	Italy
+72558	Sporisorium reilianum	fungal	2	2	2	Chromosome	2011-08-11	2018-02-08	0	
+185366	Ustilago esculenta	fungal	2	1	0	Scaffold	2015-01-16	2021-11-10	1	China
+160389	Alternaria longipes	fungal	1	1	0	Chromosome	2021-06-29	2021-06-29	1	USA
+48097	Alternaria panax	fungal	1	1	1	Scaffold	2021-08-20	2021-08-20	1	China
+40993	Aspergillus carbonarius	fungal	1	1	1	Scaffold	2017-02-15	2017-02-15	0	
+312341	Ceratocystis harringtonii	fungal	1	1	0	Scaffold	2017-03-03	2017-03-03	1	Netherlands
+984309	Ciboria shiraiana	fungal	1	0	0	Contig	2019-08-29	2019-08-29	1	China
+1585795	Colletotrichum lentis	fungal	1	1	0	Scaffold	2018-08-14	2018-08-14	1	Canada
+5465	Colletotrichum orbiculare	fungal	1	1	1	Scaffold	2019-03-22	2019-03-22	1	Japan
+1209068	Colletotrichum tabaci	fungal	1	0	1	Contig	2024-02-23	2024-02-23	1	China
+5466	Colletotrichum trifolii	fungal	1	1	1	Scaffold	2019-03-22	2019-03-22	1	Japan
+230439	Peronospora tabacina	oomycete	1	1	0	Scaffold	2017-04-18	2017-04-18	1	Germany
+100870	Phytophthora litchii	oomycete	1	1	0	Scaffold	2017-12-06	2017-12-06	1	China
+685502	Pseudocercospora fuligena	fungal	1	0	1	Contig	2020-08-26	2020-08-26	1	USA
+76659	Pyrenopeziza brassicae	fungal	1	1	0	Scaffold	2026-01-07	2026-01-07	1	United Kingdom
+2698418	Sclerotiophoma versabilis	fungal	1	0	0	Contig	2020-04-13	2020-04-13	1	China
+39703	Septoria lycopersici	fungal	1	1	0	Chromosome	2026-07-28	2026-07-28	1	USA
+135859	Alternaria citri	fungal	0	0	0				0	
+5462	Colletotrichum lagenaria	fungal	0	0	0				0	
+29850	Gaeumannomyces graminis	fungal	0	0	0				0	
+5261	Melampsora lini	fungal	0	0	0				0	
+1682391	Microdochium sorghi	fungal	0	0	0				0	

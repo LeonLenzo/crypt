@@ -102,6 +102,20 @@ def concat_fnas(fnas: list[Path], dest: Path) -> Path:
     return dest
 
 
+def clean_fasta_for_busco(fna: Path, dest: Path) -> Path:
+    """Strip kraken:taxid|N| prefix added by build.py; return original if clean."""
+    if dest.exists():
+        return dest
+    with open(fna, "rb") as f:
+        head = f.read(30)
+    if b">kraken:taxid|" not in head:
+        return fna
+    content = fna.read_bytes()
+    cleaned = re.sub(rb">kraken:taxid\|\d+\|", b">", content)
+    dest.write_bytes(cleaned)
+    return dest
+
+
 # ── BUSCO run + parse ─────────────────────────────────────────────────────────
 
 def run_busco(fna: Path, lineage: str, out_name: str,
@@ -195,6 +209,7 @@ def process_one(row: dict, genomes_dir: Path, busco_out: Path,
 
     combined = dest_dir / f"{acc}_combined.fna"
     input_fna = concat_fnas(fnas, combined)
+    input_fna = clean_fasta_for_busco(input_fna, dest_dir / f"{acc}_clean.fna")
 
     scores = run_busco(input_fna, lineage, acc, busco_out, busco_db, cpus)
     if scores is None:

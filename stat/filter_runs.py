@@ -312,8 +312,8 @@ def _classify(run_row: dict, stat_data: list, kp: dict,
         (f"{HOST_NODE}:{kp['host_pct']:.1f}%" if kp["host_pct"] else "")
     )
 
-    # host column: best species-level Viridiplantae hit (MAL) or library organism (HAL)
-    if mode == "mal":
+    # host column: best species-level Viridiplantae hit (MAL/aerial) or library organism (HAL)
+    if mode in ("mal", "aerial"):
         best = next(((nm, pct) for nm, pct in all_hosts if len(nm.split()) == 2), None)
         host_name = best[0] if best else (all_hosts[0][0] if all_hosts else HOST_NODE)
     else:
@@ -329,35 +329,53 @@ def _classify(run_row: dict, stat_data: list, kp: dict,
             lib_lower in nm.lower() or nm.lower() == lib_lower for nm, _ in all_hosts
         ))
 
-    # co-infection secondaries (MAL: exclude library organism seed; HAL: exclude top)
-    if mode == "mal":
-        co_pats   = [(tid, nm, pct, kg) for tid, nm, pct, kg in all_pathogens
-                     if lib_seed is None or db["p_to_seed"].get(tid, tid) != lib_seed]
-        pri_genus = _genus(library_organism)
-    else:
-        co_pats   = all_pathogens[1:]
-        pri_genus = _genus(all_pathogens[0][1]) if all_pathogens else ""
-
-    same_genus = bool(pri_genus and any(_genus(nm) == pri_genus for _, nm, *_ in co_pats))
-
-    chk_kingdoms = {kg for _, _, _, kg in co_pats}
-    if mode == "hal" and all_pathogens:
-        chk_kingdoms.add(all_pathogens[0][3])
-    flag = ("multi_kingdom" if len(chk_kingdoms) > 1
-            else "multi_species" if co_pats else "single")
-
-    # interaction_status: MAL → pathogen vs plant host; HAL → primary vs library host
-    if mode == "mal":
+    if mode == "aerial":
+        # Report all detected pathogens; no primary to exclude
+        co_pats    = all_pathogens
+        same_genus = False
+        chk_kingdoms = {kg for _, _, _, kg in co_pats}
+        flag = ("multi_kingdom" if len(chk_kingdoms) > 1
+                else "multi_species" if len(co_pats) > 1
+                else "single" if co_pats else "none")
         host_taxid = db["name_to_taxid"].get(host_name.lower())
-        istatus    = _interaction_status(lib_taxid, host_taxid, db)
-    else:
-        try:
-            host_taxid = int(run_row.get("TaxID", ""))
-        except (ValueError, TypeError):
-            host_taxid = db["name_to_taxid"].get(lib_lower)
+        if not host_taxid:
+            try:
+                host_taxid = int(run_row.get("TaxID", ""))
+            except (ValueError, TypeError):
+                host_taxid = None
         istatus = _interaction_status(
             all_pathogens[0][0] if all_pathogens else None, host_taxid, db
         )
+    else:
+        # co-infection secondaries (MAL: exclude library organism seed; HAL: exclude top)
+        if mode == "mal":
+            co_pats   = [(tid, nm, pct, kg) for tid, nm, pct, kg in all_pathogens
+                         if lib_seed is None or db["p_to_seed"].get(tid, tid) != lib_seed]
+            pri_genus = _genus(library_organism)
+        else:
+            co_pats   = all_pathogens[1:]
+            pri_genus = _genus(all_pathogens[0][1]) if all_pathogens else ""
+
+        same_genus = bool(pri_genus and any(_genus(nm) == pri_genus for _, nm, *_ in co_pats))
+
+        chk_kingdoms = {kg for _, _, _, kg in co_pats}
+        if mode == "hal" and all_pathogens:
+            chk_kingdoms.add(all_pathogens[0][3])
+        flag = ("multi_kingdom" if len(chk_kingdoms) > 1
+                else "multi_species" if co_pats else "single")
+
+        # interaction_status: MAL → pathogen vs plant host; HAL → primary vs library host
+        if mode == "mal":
+            host_taxid = db["name_to_taxid"].get(host_name.lower())
+            istatus    = _interaction_status(lib_taxid, host_taxid, db)
+        else:
+            try:
+                host_taxid = int(run_row.get("TaxID", ""))
+            except (ValueError, TypeError):
+                host_taxid = db["name_to_taxid"].get(lib_lower)
+            istatus = _interaction_status(
+                all_pathogens[0][0] if all_pathogens else None, host_taxid, db
+            )
 
     return {
         "host":                 host_name,
@@ -512,6 +530,7 @@ OUTPUT_FIELDS = [
     "biosample_n_runs", "biosample_representative",
     "fungi_pct", "virus_pct", "bacteria_pct", "oomycete_pct", "nematode_pct",
     "analyzed",
+    "tissue_raw", "tissue_category",
 ]
 
 
@@ -581,7 +600,7 @@ def _process_mode(mode: str, db: dict, skip_validate: bool,
     runs      = load_json(runs_path)
     needed    = set(runs.keys())
     print(f"\n── {mode.upper()}: {len(needed):,} runs from {runs_path} ──", flush=True)
-    gate_desc = (f"≥{MAL_MIN_HOST_PCT}% Viridiplantae" if mode == "mal"
+    gate_desc = (f"≥{MAL_MIN_HOST_PCT}% Viridiplantae" if mode in ("mal", "aerial")
                  else f"euk PHI-base pathogen ≥{HAL_MIN_PATHOGEN_PCT}%")
     print(f"\n── Phase 1+3: gate + detect ({mode.upper()}, [{gate_desc}]) ──", flush=True)
 
@@ -614,7 +633,7 @@ def _process_mode(mode: str, db: dict, skip_validate: bool,
                 n_no_stat += 1
                 continue
 
-            passes = (_passes_mal_gate(kp) if mode == "mal"
+            passes = (_passes_mal_gate(kp) if mode in ("mal", "aerial")
                       else _passes_hal_gate(kp, db))
             if not passes:
                 n_fail += 1
@@ -645,18 +664,20 @@ def _process_mode(mode: str, db: dict, skip_validate: bool,
                 continue
 
             row = {
-                "Run":          acc,
-                "mode":         mode,
-                "BioSample":    run_row.get("BioSample",  ""),
-                "BioProject":   run_row.get("BioProject", ""),
-                "SRAStudy":     run_row.get("SRAStudy",   ""),
-                "Platform":     run_row.get("Platform",   ""),
-                "fungi_pct":    round(kp["fungi_pct"],    2),
-                "virus_pct":    round(kp["virus_pct"],    2),
-                "bacteria_pct": round(kp["bacteria_pct"], 2),
-                "oomycete_pct": round(kp["oomycete_pct"], 2),
-                "nematode_pct": round(kp["nematode_pct"], 2),
-                "analyzed":     kp["analyzed"],
+                "Run":             acc,
+                "mode":            mode,
+                "BioSample":       run_row.get("BioSample",       ""),
+                "BioProject":      run_row.get("BioProject",      ""),
+                "SRAStudy":        run_row.get("SRAStudy",        ""),
+                "Platform":        run_row.get("Platform",        ""),
+                "fungi_pct":       round(kp["fungi_pct"],         2),
+                "virus_pct":       round(kp["virus_pct"],         2),
+                "bacteria_pct":    round(kp["bacteria_pct"],      2),
+                "oomycete_pct":    round(kp["oomycete_pct"],      2),
+                "nematode_pct":    round(kp["nematode_pct"],      2),
+                "analyzed":        kp["analyzed"],
+                "tissue_raw":      run_row.get("tissue_raw",      ""),
+                "tissue_category": run_row.get("tissue_category", ""),
             }
             row.update(result)
             rows.append(row)
@@ -696,8 +717,8 @@ def _process_mode(mode: str, db: dict, skip_validate: bool,
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--mode", choices=["mal", "hal", "both"], default="both",
-                    help="mode(s) to process (default: both)")
+    ap.add_argument("--mode", choices=["mal", "hal", "aerial", "both"], default="both",
+                    help="mode(s) to process; 'both' = mal + hal (default: both)")
     ap.add_argument("--skip-validate", action="store_true",
                     help="skip phase 2 distribution validation (faster re-runs)")
     args = ap.parse_args()
@@ -736,7 +757,9 @@ def main() -> None:
             print(f"\nDeduplicated {n_dupes} Run(s) present in multiple modes.", flush=True)
 
         _annotate_biosamples(deduped)
-        out_path = OUT_DIR / "data" / "runs.tsv"
+        # aerial gets its own file; "both" and single mal/hal use runs.tsv
+        fname    = "aerial_runs.tsv" if args.mode == "aerial" else "runs.tsv"
+        out_path = OUT_DIR / "data" / fname
         _write_tsv(deduped, out_path)
 
         # Summary

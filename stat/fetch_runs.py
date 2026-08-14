@@ -6,14 +6,15 @@ Merges the SRA ID fetch (01_sra.py) and STAT data fetch (02_stat.py) into a
 single data-gathering step.  No retention gate is applied here — that belongs
 in 02_filter_runs.py.
 
-Two modes:
-  mal  microbe-as-library: PHI-base plant pathogen as library organism.
-  hal  host-as-library:    PHI-base plant host as library organism.
+Three modes:
+  mal     microbe-as-library: PHI-base plant pathogen as library organism.
+  hal     host-as-library:    PHI-base plant host as library organism.
+  aerial  biosample-as-query: aerial-tissue plant BioSamples from tissue_vocab.py.
 
 Output (output/01_fetch_runs/):
   data/{mode}_runs.json      RunInfo rows keyed by Run accession
   data/{mode}_uids.json      fetched UID set (resumability)
-  data/stat_cache.jsonl      STAT responses, append-only, shared MAL+HAL
+  data/stat_cache.jsonl      STAT responses, append-only, shared across modes
   data/stat_cache_index.txt  accessions only — read on startup to resume
   logs/{mode}.log
 
@@ -25,6 +26,7 @@ Chain HAL after MAL:
 Usage:
   python 01_fetch_runs.py --mode mal
   python 01_fetch_runs.py --mode hal
+  python 01_fetch_runs.py --mode aerial
   python 01_fetch_runs.py --mode mal --count   (hit counts only, no fetch)
 """
 
@@ -47,11 +49,13 @@ from _util import _Tee, http_get, link_latest, load_json, make_log_dir, save_jso
 
 # ── Settings ──────────────────────────────────────────────────────────────────
 
-DB_PATH  = Path("stat/output/build/data/phibase_db.json")
-OUT_DIR  = Path("stat/output/fetch_runs")
+DB_PATH        = Path("stat/output/build/data/phibase_db.json")
+AERIAL_IN_FILE = Path("metadata/output/aerial/biosamples.tsv")
+OUT_DIR        = Path("stat/output/fetch_runs")
 
 LIBRARY_STRAT    = "RNA-Seq"
 MAL_BATCH        = 50
+AERIAL_BATCH     = 80   # BioSamples per OR query — keeps URL length reasonable
 RUNINFO_BATCH    = 500
 SRA_MAX_WORKERS  = 8
 SAVE_EVERY       = 20
@@ -174,9 +178,29 @@ def _build_queries(seeds: list[int]) -> list[str]:
     return queries
 
 
-def count_hits(seeds: list[int]) -> int:
-    queries = _build_queries(seeds)
-    total   = 0
+def _build_queries_aerial(accessions: list[str]) -> list[str]:
+    queries: list[str] = []
+    for i in range(0, len(accessions), AERIAL_BATCH):
+        batch    = accessions[i:i + AERIAL_BATCH]
+        or_terms = " OR ".join(f"{a}[BioSample]" for a in batch)
+        queries.append(f"({or_terms}) AND {LIBRARY_STRAT}[Strategy]")
+    return queries
+
+
+def _load_biosamples() -> dict:
+    """Load aerial BioSample accessions → {tissue_raw, tissue_category}."""
+    biosamples: dict = {}
+    with open(AERIAL_IN_FILE) as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            biosamples[row["accession"]] = {
+                "tissue_raw":      row["tissue_raw"],
+                "tissue_category": row["tissue_category"],
+            }
+    return biosamples
+
+
+def count_hits(queries: list[str]) -> int:
+    total = 0
     for i, query in enumerate(queries, 1):
         n      = _esearch_count("sra", query)
         total += n
@@ -184,8 +208,7 @@ def count_hits(seeds: list[int]) -> int:
     return total
 
 
-def fetch_uids(seeds: list[int]) -> list[str]:
-    queries  = _build_queries(seeds)
+def fetch_uids(queries: list[str]) -> list[str]:
     all_uids: list[str] = []
     for i, query in enumerate(queries, 1):
         uids = _esearch("sra", query)
@@ -320,8 +343,9 @@ def fetch_stat_append(to_fetch: list[str],
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--mode", choices=["mal", "hal"], required=True,
-                    help="mal = microbe-as-library  |  hal = host-as-library")
+    ap.add_argument("--mode", choices=["mal", "hal", "aerial"], required=True,
+                    help="mal = microbe-as-library  |  hal = host-as-library  |  "
+                         "aerial = aerial-tissue BioSamples")
     ap.add_argument("--count", action="store_true",
                     help="print hit counts only; do not fetch")
     args = ap.parse_args()
@@ -342,7 +366,15 @@ def main() -> None:
     try:
         print(f"Mode: {args.mode.upper()}", flush=True)
         print(f"NCBI_API_KEY set: {'yes' if API_KEY else 'no'}", flush=True)
-        seeds = _load_seeds(args.mode)
+
+        # Build queries for this mode
+        if args.mode == "aerial":
+            biosamples = _load_biosamples()
+            print(f"Aerial BioSamples: {len(biosamples):,}", flush=True)
+            queries = _build_queries_aerial(list(biosamples.keys()))
+        else:
+            seeds   = _load_seeds(args.mode)
+            queries = _build_queries(seeds)
 
         if args.count:
             if args.mode == "mal":
@@ -350,14 +382,15 @@ def main() -> None:
                 grand = 0
                 for kingdom, k_seeds in by_kingdom.items():
                     print(f"\n── {kingdom} ({len(k_seeds)} seeds) ──", flush=True)
-                    n = count_hits(k_seeds)
+                    n = count_hits(_build_queries(k_seeds))
                     print(f"  {kingdom} subtotal: {n:,}", flush=True)
                     grand += n
                 print(f"\nMAL grand total (batched, may overcount): {grand:,}",
                       flush=True)
             else:
-                n = count_hits(seeds)
-                print(f"\nHAL total (batched, may overcount): {n:,}", flush=True)
+                n = count_hits(queries)
+                print(f"\n{args.mode.upper()} total (batched, may overcount): {n:,}",
+                      flush=True)
             return
 
         # ── Step 1: SRA fetch ─────────────────────────────────────────────────
@@ -368,8 +401,18 @@ def main() -> None:
         print(f"Cached: {len(run_cache):,} runs  |  {len(uid_cache):,} UIDs fetched",
               flush=True)
 
-        uids  = list(set(fetch_uids(seeds)))
+        uids  = list(set(fetch_uids(queries)))
         added = fetch_runinfo(uids, run_cache, uid_cache, run_path, uid_path)
+
+        # Attach tissue metadata for aerial mode
+        if args.mode == "aerial" and added:
+            for run, row in run_cache.items():
+                bs = row.get("BioSample", "")
+                if bs in biosamples and "tissue_raw" not in row:
+                    row["tissue_raw"]      = biosamples[bs]["tissue_raw"]
+                    row["tissue_category"] = biosamples[bs]["tissue_category"]
+            save_json(run_cache, run_path)
+
         print(f"SRA: {len(run_cache):,} total runs  ({added:,} new)", flush=True)
 
         # ── Step 2: STAT fetch ────────────────────────────────────────────────

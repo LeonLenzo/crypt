@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3 -u
 """
 benchmark_download.py — measure read acquisition throughput for different download methods.
 

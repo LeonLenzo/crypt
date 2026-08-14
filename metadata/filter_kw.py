@@ -46,6 +46,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from _util import _Tee, link_latest, load_json, make_log_dir
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from tissue_vocab import normalise_tissue
 
 # ── Settings ──────────────────────────────────────────────────────────────────
 
@@ -53,6 +55,7 @@ RUNS_TSV         = Path("stat/output/filter_runs/data/runs.tsv")
 BIOPROJECTS_PATH = Path("metadata/output/fetch_xml/data/bioprojects.json")
 BIOSAMPLES_PATH  = Path("metadata/output/fetch_xml/data/biosamples.json")
 LITERATURE_PATH  = Path("metadata/output/fetch_lit/data/literature.json")
+LLM_PATH         = Path("metadata/output/llm_classify/data/bioproject_llm.tsv")
 PHIBASE_DB       = Path("stat/output/build/data/phibase_db.json")
 OUT_DIR          = Path("metadata/output/filter_kw")
 
@@ -60,7 +63,7 @@ OUTPUT_FIELDS = [
     # BioSample identity
     "BioSample", "BioProject", "SRAStudy", "Run", "mode",
     # BioSample XML attributes
-    "tissue", "geo_loc_name", "collection_date", "lat_lon",
+    "tissue", "tissue_category", "geo_loc_name", "collection_date", "lat_lon",
     "bs_host", "isolation_source", "dev_stage",
     # Infection summary (from biosample_representative run)
     "n_runs", "co_infection_flag", "same_genus_secondary",
@@ -324,6 +327,15 @@ def main() -> None:
     print(f"BioProjects: {len(bp_xml):,}  BioSamples: {len(biosamples):,}  "
           f"Literature: {len(lit):,}", flush=True)
 
+    # ── Load LLM tissue ───────────────────────────────────────────────────────
+    llm_tissue: dict[str, str] = {}
+    if LLM_PATH.exists():
+        with open(LLM_PATH, newline="") as f:
+            for row in csv.DictReader(f, delimiter="\t"):
+                llm_tissue[row["BioProject"]] = row.get("llm_tissue", "")
+        print(f"LLM tissue: {sum(1 for v in llm_tissue.values() if v):,} BioProjects with value",
+              flush=True)
+
     bp_cache: dict[str, dict] = {}
     for bp in set(bp_xml) | set(lit):
         xml_data = bp_xml.get(bp, {})
@@ -397,6 +409,17 @@ def main() -> None:
             "Run":                 run.get("Run", ""),
             "mode":                run.get("mode", ""),
             "tissue":              bs.get("tissue", ""),
+            "tissue_category":     (
+                # cascade: biosample tissue → isolation_source → llm_tissue
+                next(
+                    (cat for raw in [
+                        bs.get("tissue", ""),
+                        bs.get("isolation_source", ""),
+                        llm_tissue.get(bp, ""),
+                    ] if (cat := normalise_tissue(raw)) != "unknown"),
+                    "unknown"
+                )
+            ),
             "geo_loc_name":        bs.get("geo_loc_name", ""),
             "collection_date":     bs.get("collection_date", ""),
             "lat_lon":             bs.get("lat_lon", ""),
@@ -444,8 +467,10 @@ def main() -> None:
     n_coinf      = sum(1 for r in results if r["co_infection_flag"] != "single")
     n_hc         = sum(1 for r in results if r["co_infection_flag"] != "single"
                        and r["same_genus_secondary"] == "False")
-    n_geolocated = sum(1 for r in results if r["geo_loc_name"])
-    n_tissue     = sum(1 for r in results if r["tissue"])
+    n_geolocated  = sum(1 for r in results if r["geo_loc_name"])
+    n_tissue      = sum(1 for r in results if r["tissue"])
+    n_aerial      = sum(1 for r in results if r["tissue_category"] in ("leaf", "aerial_other"))
+    n_non_aerial  = sum(1 for r in results if r["tissue_category"] in ("root", "seed_fruit", "whole_plant"))
     n_named_host = sum(1 for r in results if r["named_host"])
     n_bs_host    = sum(1 for r in results if r["named_host_source"] == "biosample_host")
     n_with_pmid  = sum(1 for r in results if r["primary_pmid"])
@@ -468,6 +493,8 @@ def main() -> None:
         f"BioSample coverage:\n"
         f"  geo_loc_name:           {n_geolocated:,}  ({100*n_geolocated/max(n_total,1):.1f}%)\n"
         f"  tissue:                 {n_tissue:,}  ({100*n_tissue/max(n_total,1):.1f}%)\n"
+        f"    aerial:               {n_aerial:,}\n"
+        f"    non-aerial:           {n_non_aerial:,}\n"
         f"Named host:\n"
         f"  resolved:               {n_named_host:,}  ({100*n_named_host/max(n_total,1):.1f}%)\n"
         f"  from biosample_host:    {n_bs_host:,}  ({100*n_bs_host/max(n_total,1):.1f}%)\n"

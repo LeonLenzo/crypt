@@ -57,7 +57,7 @@ echo "busco version:    $(busco --version)"
 
 # Download lineage DBs to scratch if not already present
 mkdir -p "$BUSCO_DB_PATH"
-for lineage in fungi_odb10 stramenopiles_odb10 basidiomycota_odb10; do
+for lineage in ascomycota_odb10 basidiomycota_odb10 stramenopiles_odb10 fungi_odb10; do
     if [ ! -d "$BUSCO_DB_PATH/lineages/$lineage" ]; then
         echo "Downloading BUSCO lineage: $lineage …"
         singularity exec \

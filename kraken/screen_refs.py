@@ -45,13 +45,17 @@ BROAD_GENERA = {
     "Claviceps", "Epichloe", "Ceratocystis", "Leptographium", "Ciboria",
 }
 
-# Basidiomycete PHI-base genera → use basidiomycota_odb10 instead of fungi_odb10
+# Basidiomycete PHI-base genera → basidiomycota_odb10
 BASIDIOMYCETE_GENERA = {
     "Puccinia", "Melampsora", "Phakopsora", "Hemileia", "Uromyces",
-    "Tranzschelia", "Phragmidium", "Gymnosporangium",   # rusts
-    "Ustilago", "Tilletia", "Sporisorium", "Testicularia",  # smuts
-    "Rhizoctonia", "Moniliophthora", "Crinipellis",
+    "Tranzschelia", "Phragmidium", "Gymnosporangium",        # rusts
+    "Ustilago", "Tilletia", "Sporisorium", "Testicularia",   # smuts
+    "Mycosarcoma",                                            # Ustilaginomycotina
+    "Rhizoctonia", "Heterobasidion", "Moniliophthora", "Crinipellis",
 }
+
+# Chytrid/other early-diverging fungi with no phylum-level BUSCO lineage → fungi_odb10
+CHYTRID_GENERA = {"Synchytrium"}
 
 OUT_COLS = [
     "taxid", "organism_name", "kingdom", "source",
@@ -120,7 +124,9 @@ def busco_lineage_for(kingdom: str, organism_name: str) -> str:
     genus = organism_name.split()[0]
     if genus in BASIDIOMYCETE_GENERA:
         return "basidiomycota_odb10"
-    return "fungi_odb10"
+    if genus in CHYTRID_GENERA:
+        return "fungi_odb10"
+    return "ascomycota_odb10"
 
 def to_row(a: dict, taxid: int, organism_name: str, kingdom: str,
            source: str, rank: int, reason: str) -> dict:

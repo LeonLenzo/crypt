@@ -14,6 +14,14 @@ The Kraken2 database contains only PHI-base eukaryotic pathogen CDS sequences (f
 
 Before database construction, each pathogen's CDS sequences are masked against k-mers shared with any other pathogen in the reference set using BBDuk (k=35, mincount=2). This species-diagnostic masking ensures that every k-mer retained in the database is unique among the included pathogens. Without masking, organisms sharing taxonomic order (e.g., *Melampsora* appearing in PST-dominated runs due to shared Pucciniales k-mers) produce false-positive detections. The masking step is pathogen-vs-pathogen only — no host sequences are used in masking.
 
+### Host removal
+
+Because the database contains only pathogen sequences, host reads do not match any database entry and are reported as `unclassified`. `pct_classified` in the Kraken2 output therefore directly represents pathogen burden in the library — it is equivalent to running host-removal followed by pathogen classification, without the computational overhead. This is the key architectural difference from approaches that build combined host+pathogen databases: those require an explicit host-removal step and normalisation against classified host counts. The pathogen-only approach is simpler, faster, and makes the pathogen fraction directly interpretable.
+
+### Read subsampling
+
+Each run is subsampled to 500,000 reads from the ENA FTP stream. This cap is sufficient for robust species-level detection at all thresholds used: at the lowest threshold (0.5% for Fungi), the expected signal is ≥ 2,500 reads — well within reliable detection range for Kraken2 with confidence=0.15 and min-hit-groups=3. Reads arrive in the original ENA submission order (FASTQ deposit is not sorted by quality or coverage), so the subsample is representative of the full library composition. The cap limits ENA concurrent bandwidth load and reduces per-run runtime without sacrificing sensitivity at the thresholds of interest.
+
 ### Coverage and gaps
 
 | Component | Source | Annotated seeds | Database |
@@ -28,6 +36,14 @@ CDS-based sequences are used throughout rather than whole-genome sequences, for 
 ## Control validation set
 
 Before running Kraken2 classification across the full 10,995-run corpus, a stratified control validation set (2,473 runs) was constructed from `runs.tsv` to characterise the relationship between STAT detections and Kraken2 detections across the parameter space. Runs were stratified into strata A–I defined by STAT eukaryotic signal level and biosample representation, with target sizes ensuring adequate coverage of both STAT-positive (co-infected) and STAT-negative (single) biosample categories. The control set is designed to answer: where STAT and Kraken2 agree, how consistent is the quantitative signal? Where they disagree, which is more reliable?
+
+The 2,473-run control set is built (`kraken/control/output/data/run_ids.txt`) and ready to submit on Setonix:
+
+```bash
+git pull && sbatch kraken/slurm/kraken_classify_control.slurm
+```
+
+Production classification of the full corpus follows after control results validate the DB and parameter choices.
 
 ## Parameters
 

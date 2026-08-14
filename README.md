@@ -24,6 +24,10 @@ Screening 608,368 SRA runs (46,315 MAL + 546,816 HAL after non-RNA exclusions), 
 
 LLM-based study design classification of 1,285 BioProjects revealed a marked setting effect: field-collected samples showed a 22.7% co-infection rate versus 11.4% in controlled laboratory conditions, consistent with the ecological complexity of field environments. The majority of BioProjects were single-pathogen studies (895/1,285), reinforcing that co-infection is the rule rather than the exception under field conditions yet remains systematically understudied.
 
+Multi-strategy literature resolution linked 72.3% of BioSamples (6,508/9,005) to a primary publication (DOI or PMID), with full-text methods sections retrieved for 59.9% via PMC. The remaining 27.7% of BioSamples are principally from data-only submissions and unpublished surveillance datasets.
+
+Kraken2 species-level validation is in progress: a pathogen-only CDS database (fungi + oomycetes, species-diagnostic BBDuk masking) has been built and validated in a 77-run pilot, with a 2,473-run stratified control set ready for submission on Setonix HPC.
+
 ## Scope
 
 **Host scope:** Viridiplantae (plant hosts) only, anchored by PHI-base plant–pathogen interaction records and the ICTV plant virus master species list.

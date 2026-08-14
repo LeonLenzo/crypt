@@ -34,12 +34,15 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 with open(CACHE_PATH) as f:
     cache = json.load(f)
 
-bps_in_runs: set[str] = set()
+# Map BioProject → set of BioSamples
+from collections import defaultdict as _dd
+bp_biosamples: dict[str, set[str]] = _dd(set)
 with open(RUNS_TSV) as f:
     for row in csv.DictReader(f, delimiter="\t"):
-        bps_in_runs.add(row["BioProject"])
+        bp_biosamples[row["BioProject"]].add(row["BioSample"])
 
-total_bps = len(bps_in_runs)
+bps_in_runs = set(bp_biosamples.keys())
+total_bps   = sum(len(v) for v in bp_biosamples.values())   # BioSamples
 
 STAGES = ["fetch_lit.py", "Web search (Serper)", "Manual DOI lookup"]
 COVERAGE_KEYS = [
@@ -52,7 +55,8 @@ COVERAGE_KEYS = [
 stage_flows: dict[str, dict[str, int]] = {s: defaultdict(int) for s in STAGES}
 unresolved = 0
 
-for bp in bps_in_runs:
+for bp, biosamples in bp_biosamples.items():
+    n = len(biosamples)
     e   = cache.get(bp, {})
     src = e.get("pmid_source", "")
     pmid  = bool(e.get("primary_pmid"))
@@ -72,9 +76,9 @@ for bp in bps_in_runs:
     else:                 cov = None
 
     if stage is None:
-        unresolved += 1
+        unresolved += n
     else:
-        stage_flows[stage][cov] += 1
+        stage_flows[stage][cov] += n
 
 stage_total   = {s: sum(v for v in stage_flows[s].values()) for s in STAGES}
 # BPs entering each stage = total minus all previously resolved
@@ -95,7 +99,7 @@ for s in STAGES:
 #   Serper drops     → x=0.65
 #   Manual drops     → x=0.87
 
-SPINE_Y  = 0.04
+SPINE_Y  = 0.10
 
 STAGE_X = {
     "fetch_lit.py":         0.20,
@@ -162,19 +166,19 @@ def add_node(label: str, color: str, x: float, y: float) -> int:
     ys.append(y)
     return idx
 
-ORIGIN_IDX  = add_node(f"<b>All BioProjects</b><br>{total_bps:,} BPs",
+ORIGIN_IDX  = add_node(f"<b>All BioSamples</b><br>{total_bps:,} BioSamples",
                         ORIGIN_COLOR, 0.01, SPINE_Y)
 
 stage_idx: dict[str, int] = {}
 for s in STAGES:
     n_in = stage_in[s]
     stage_idx[s] = add_node(
-        f"<b>{s}</b><br>{n_in:,} BPs in",
+        f"<b>{s}</b><br>{n_in:,} BioSamples in",
         STAGE_COLORS[s], STAGE_X[s], SPINE_Y,
     )
 
 UNRESOLV_IDX = add_node(
-    f"<b>Unresolved</b><br>{unresolved:,} BPs",
+    f"<b>Unresolved</b><br>{unresolved:,} BioSamples",
     UNRESOLV_COLOR, 0.92, SPINE_Y,
 )
 
@@ -185,7 +189,7 @@ for s in STAGES:
         count = stage_flows[s].get(cov, 0)
         if count > 0:
             drop_idx[s][cov] = add_node(
-                f"<b>{cov}</b><br>{count:,} BPs",
+                f"<b>{cov}</b><br>{count:,} BioSamples",
                 COVERAGE_COLORS[cov],
                 DROP_X[s],
                 DROP_Y[s][cov],
@@ -253,7 +257,7 @@ fig = go.Figure(go.Sankey(
 
 fig.update_layout(
     title=dict(
-        text=(f"Literature resolution pipeline — {total_bps:,} BioProjects<br>"
+        text=(f"Literature resolution pipeline — {total_bps:,} BioSamples<br>"
               f"<sup>Resolved: {resolved:,} ({100*resolved/total_bps:.1f}%)   "
               f"Unresolved: {unresolved:,} ({100*unresolved/total_bps:.1f}%)</sup>"),
         font=dict(size=16),

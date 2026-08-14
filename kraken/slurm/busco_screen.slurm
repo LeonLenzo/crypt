@@ -42,13 +42,14 @@ if [ ! -x "$DATASETS_BIN" ]; then
     chmod +x "$DATASETS_BIN"
 fi
 
-# Busco wrapper: singularity exec with scratch bound and HOME set so busco
-# --download writes to $SCRATCH/busco_downloads (matching BUSCO_DB_PATH)
-cat > "$SCRATCH/bin/busco" << EOF
+# Busco wrapper: write to .tmp then mv to avoid "text file busy" if a prior
+# job's process still holds the file open.
+cat > "$SCRATCH/bin/busco.tmp" << EOF
 #!/bin/bash
 exec singularity exec --bind $SCRATCH:$SCRATCH --env HOME=$SCRATCH $BUSCO_SIF busco "\$@"
 EOF
-chmod +x "$SCRATCH/bin/busco"
+chmod +x "$SCRATCH/bin/busco.tmp"
+mv "$SCRATCH/bin/busco.tmp" "$SCRATCH/bin/busco"
 
 export PATH="$SCRATCH/bin:$PATH"
 echo "datasets version: $(datasets version)"

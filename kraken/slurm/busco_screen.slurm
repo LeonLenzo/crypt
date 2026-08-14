@@ -26,18 +26,13 @@
 set -euo pipefail
 
 module load python/3.11.6
-
-# BUSCO: load via conda env or module — adjust for your Setonix setup.
-# Option A (conda):
-#   source /software/projects/pawsey1168/miniconda3/etc/profile.d/conda.sh
-#   conda activate busco
-# Option B (module, if available):
-#   module load busco/5.7.0
+module load singularity/3.11.4-nompi
 
 SCRATCH="/scratch/pawsey1168/llenzo"
 GENOMES_DIR="$SCRATCH/kraken/cds_v2"
 BUSCO_OUT="$SCRATCH/kraken/busco"
 BUSCO_DB_PATH="$SCRATCH/busco_dbs"
+BUSCO_SIF="$SCRATCH/containers/busco_v5.7.0.sif"
 DATASETS_BIN="$SCRATCH/bin/datasets"
 
 # Bootstrap NCBI datasets CLI if not already present
@@ -48,13 +43,29 @@ if [ ! -x "$DATASETS_BIN" ]; then
         https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/v2/linux-amd64/datasets
     chmod +x "$DATASETS_BIN"
 fi
+
+# Busco wrapper: singularity exec with scratch bound
+cat > "$SCRATCH/bin/busco" << EOF
+#!/bin/bash
+exec singularity exec --bind $SCRATCH:$SCRATCH $BUSCO_SIF busco "\$@"
+EOF
+chmod +x "$SCRATCH/bin/busco"
+
 export PATH="$SCRATCH/bin:$PATH"
 echo "datasets version: $(datasets version)"
+echo "busco version:    $(busco --version)"
+
+# Move lineage DBs from home download location to scratch if not done yet
+if [ ! -d "$BUSCO_DB_PATH/lineages/fungi_odb10" ]; then
+    echo "Moving BUSCO lineage DBs from ~/busco_downloads to scratch …"
+    mkdir -p "$BUSCO_DB_PATH"
+    cp -r "$HOME/busco_downloads/lineages" "$BUSCO_DB_PATH/"
+    echo "Done."
+fi
 
 mkdir -p kraken/slurm/logs
 mkdir -p "$GENOMES_DIR"
 mkdir -p "$BUSCO_OUT"
-mkdir -p "$BUSCO_DB_PATH"
 
 echo "Starting BUSCO screen: $(date)"
 echo "Genomes dir:  $GENOMES_DIR"

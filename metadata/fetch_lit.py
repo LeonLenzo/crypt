@@ -27,6 +27,7 @@ Usage:
 
 import argparse
 import csv
+import re
 from datetime import datetime
 import json
 import os
@@ -46,15 +47,18 @@ OUT_DIR       = Path("metadata/output/fetch_lit")
 CACHE_VERSION = 5
 METHODS_MAX_CHARS = 8000
 
-API_KEY    = os.environ.get("NCBI_API_KEY", "")
-S2_API_KEY = os.environ.get("S2_API_KEY", "")
+API_KEY       = os.environ.get("NCBI_API_KEY", "")
+S2_API_KEY    = os.environ.get("S2_API_KEY", "")
+SERPER_API_KEY = os.environ.get("SERPER_API_KEY", "")
 RATE       = 9.0 if API_KEY else 2.5
 HEADERS    = {"User-Agent": "crypt/03b_fetch_literature (leon.lenzo@curtin.edu.au)"}
 ENTREZ     = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 
 EPMC        = "https://www.ebi.ac.uk/europepmc/webservices/rest"
 ENA         = "https://www.ebi.ac.uk/ena/browser/api"
+CROSSREF    = "https://api.crossref.org/works"
 EXT_HEADERS = {"User-Agent": "crypt/03b_fetch_literature (leon.lenzo@curtin.edu.au)"}
+CROSSREF_HEADERS = {"User-Agent": "crypt/fetch_lit (mailto:leon.lenzo@curtin.edu.au)"}
 
 # ── Rate limiting ──────────────────────────────────────────────────────────────
 
@@ -102,6 +106,115 @@ def _s2_wait() -> None:
     _last_s2 = time.monotonic()
 
 
+_last_serper: float = 0.0
+
+
+def _serper_wait() -> None:
+    global _last_serper
+    gap  = 1.0
+    wait = _last_serper + gap - time.monotonic()
+    if wait > 0:
+        time.sleep(wait)
+    _last_serper = time.monotonic()
+
+
+_last_crossref: float = 0.0
+
+
+def _crossref_wait() -> None:
+    global _last_crossref
+    gap  = 1.0
+    wait = _last_crossref + gap - time.monotonic()
+    if wait > 0:
+        time.sleep(wait)
+    _last_crossref = time.monotonic()
+
+
+_DOI_RE  = re.compile(r'10\.\d{4,}/[^\s"\'<>]+')
+_PMID_RE = re.compile(r'pubmed\.ncbi\.nlm\.nih\.gov/(\d{6,9})')
+
+_ACADEMIC_DOMAINS = {
+    "pubmed.ncbi.nlm.nih.gov", "pmc.ncbi.nlm.nih.gov", "ncbi.nlm.nih.gov",
+    "biorxiv.org", "medrxiv.org", "preprints.org",
+    "frontiersin.org", "mdpi.com", "journals.plos.org", "elifesciences.org",
+    "peerj.com", "f1000research.com", "nature.com", "science.org",
+    "onlinelibrary.wiley.com", "academic.oup.com", "link.springer.com",
+    "cell.com", "sciencedirect.com", "tandfonline.com",
+    "royalsocietypublishing.org", "cambridge.org", "apsnet.org", "mpmi.org",
+    "plantcell.org", "plantphysiol.org", "journals.asm.org", "phytobiomes.org",
+    "europepmc.org", "semanticscholar.org", "doi.org",
+    "researchsquare.com", "researchgate.net",
+}
+
+
+def _clean_doi(doi: str) -> str:
+    """Strip URL artifacts from extracted DOI strings."""
+    doi = doi.split("?")[0]
+    doi = doi.rstrip(".,;)")
+    if "/attachment/" in doi:
+        doi = doi.split("/attachment/")[0]
+    if "~" in doi:                              # URL slug separator (some CMS systems)
+        doi = doi.split("~")[0]
+    parts = doi.split("/")
+    if len(parts) >= 4 and parts[3].isdigit():
+        doi = "/".join(parts[:3])
+    for sfx in ("/full.pdf", ".full.pdf", "/full", ".pdf"):
+        if doi.endswith(sfx):
+            doi = doi[: -len(sfx)]
+    return doi.rstrip(".,;)")
+
+
+def _doi_to_pmid(doi: str) -> str:
+    try:
+        raw   = _get("esearch.fcgi", db="pubmed", term=f"{doi}[doi]", retmax=1)
+        root  = ET.fromstring(raw)
+        count = int(root.findtext(".//Count") or "0")
+        if count != 1:
+            return ""
+        ids = [el.text for el in root.findall(".//Id") if el.text]
+        return ids[0] if ids else ""
+    except Exception:
+        return ""
+
+
+def _europepmc_doi_to_pmid(doi: str) -> str:
+    """Look up a DOI in EuropePMC; return PMID when available (broader than PubMed)."""
+    query = urllib.parse.quote(f'DOI:"{doi}"')
+    url   = f"{EPMC}/search?query={query}&format=json&pageSize=3&fields=pmid"
+    _ext_wait()
+    try:
+        raw  = http_get(url, EXT_HEADERS, no_retry_429=True)
+        data = json.loads(raw)
+    except Exception:
+        return ""
+    for r in data.get("resultList", {}).get("result", []):
+        pmid = (r.get("pmid") or "").strip()
+        if pmid:
+            return pmid
+    return ""
+
+
+def _crossref_get(doi: str) -> dict:
+    """Fetch title, abstract, and pub_date from CrossRef for any DOI."""
+    url = f"{CROSSREF}/{urllib.parse.quote(doi, safe='')}"
+    _crossref_wait()
+    try:
+        raw  = http_get(url, CROSSREF_HEADERS)
+        work = json.loads(raw).get("message", {})
+    except Exception:
+        return {}
+    titles   = work.get("title", [])
+    title    = titles[0] if titles else ""
+    abstract = re.sub(r"<[^>]+>", "", work.get("abstract", "")).strip()
+    dp       = ((work.get("published") or work.get("published-print") or {})
+                .get("date-parts", [[]])) or [[]]
+    parts    = dp[0] if dp else []
+    pub_date = ("-".join([str(parts[0])]
+                         + [str(x).zfill(2) for x in parts[1:3]])
+                if parts else "")
+    return {"title": title, "abstract": abstract, "pub_date": pub_date}
+
+
 # ── External search functions ──────────────────────────────────────────────────
 
 def _europepmc_search(accession: str) -> list[str]:
@@ -140,6 +253,47 @@ def _ena_pmids(accession: str) -> list[str]:
             if pid:
                 pmids.add(pid)
     return list(pmids)
+
+
+def _serper_search(accession: str) -> list[str]:
+    if not SERPER_API_KEY:
+        return []
+    _serper_wait()
+    body = json.dumps({"q": f'"{accession}"', "num": 10}).encode()
+    req  = urllib.request.Request(
+        "https://google.serper.dev/search", data=body,
+        headers={"X-API-KEY": SERPER_API_KEY, "Content-Type": "application/json"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as r:
+            data = json.loads(r.read())
+    except Exception:
+        return []
+
+    pmids: list[str] = []
+    for it in data.get("organic", []):
+        link    = it.get("link", "")
+        snippet = it.get("snippet", "")
+        text    = link + " " + snippet
+
+        # Direct PubMed URL hit
+        for pmid in _PMID_RE.findall(text):
+            if pmid not in pmids:
+                pmids.append(pmid)
+
+        # DOI from an academic domain → resolve to PMID
+        if not pmids:
+            from urllib.parse import urlparse
+            domain = urlparse(link).netloc.lstrip("www.")
+            if any(domain == d or domain.endswith("." + d) for d in _ACADEMIC_DOMAINS):
+                for doi in _DOI_RE.findall(text):
+                    doi = doi.rstrip(".,;)")
+                    pmid = _doi_to_pmid(doi)
+                    if pmid and pmid not in pmids:
+                        pmids.append(pmid)
+                        break
+
+    return pmids
 
 
 def _semantic_scholar_search(accession: str) -> list[str]:
@@ -265,6 +419,7 @@ _STRATEGIES = [
     ("ENA XML",          lambda acc, uid, _: _ena_pmids(acc)),
     ("Semantic Scholar", lambda acc, uid, _: _semantic_scholar_search(acc)),
     ("PubMed",           lambda acc, uid, _: _pubmed_search(acc)),
+    ("Serper",           lambda acc, uid, _: _serper_search(acc)),
 ]
 
 
@@ -318,7 +473,7 @@ def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
 
     result: dict = {
         "title": "", "description": "", "bp_submission_date": "",
-        "primary_pmid": "", "primary_pub_date": "",
+        "primary_pmid": "", "primary_doi": "", "primary_pub_date": "",
         "primary_publication": "", "abstract": "",
         "n_papers_found": 0, "primary_pub_text": "", "pmid_source": "none",
         "pmcid": "", "methods_text": "",
@@ -335,6 +490,7 @@ def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
         return result
 
     bp_xml_pmids: set[str] = set()
+    bp_xml_dois:  set[str] = set()
     try:
         raw  = _get("efetch.fcgi", db="bioproject", id=uid)
         root = ET.fromstring(raw)
@@ -347,6 +503,10 @@ def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
             pid = (pub.get("id") or "").strip()
             if pid.isdigit():
                 bp_xml_pmids.add(pid)
+            else:
+                m = _DOI_RE.search(pid)
+                if m:
+                    bp_xml_dois.add(m.group().rstrip(".,;)"))
     except Exception as e:
         print(f"WARNING: efetch failed for {accession}: {e}", flush=True)
 
@@ -382,18 +542,71 @@ def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
                 abstract = " ".join(
                     "".join(el.itertext()).strip() for el in abs_els).strip()
                 title    = "".join(ttl_el.itertext()).strip() if ttl_el is not None else ""
+                doi      = ""
+                for aid in article.findall(".//ArticleIdList/ArticleId"):
+                    if aid.get("IdType") == "doi":
+                        doi = (aid.text or "").strip()
+                        break
                 pub_info[pid] = {"title": title, "date": _pub_date(article),
-                                 "abstract": abstract}
+                                 "abstract": abstract, "doi": doi}
             if pub_info:
                 primary_pid = min(pub_info, key=lambda p: pub_info[p]["date"])
                 pri = pub_info[primary_pid]
                 result["primary_pmid"]        = primary_pid
+                result["primary_doi"]         = pri.get("doi", "")
                 result["primary_pub_date"]    = pri["date"]
                 result["primary_publication"] = f"[{primary_pid}] {pri['title']}"
                 result["abstract"]            = pri["abstract"]
                 result["primary_pub_text"]    = f"{pri['title']} {pri['abstract']}"
         except Exception as e:
             print(f"WARNING: pubmed efetch failed for {accession}: {e}", flush=True)
+
+    # ── DOI-path fallback: no PMID found via any strategy ──────────────────────
+    if not result["primary_pmid"]:
+        # Collect candidate DOIs: BioProject XML first, then Serper-style URL scan
+        candidate_dois = list(bp_xml_dois)
+        for doi in candidate_dois:
+            pmid = _doi_to_pmid(doi)
+            if not pmid:
+                pmid = _europepmc_doi_to_pmid(doi)
+            if pmid:
+                # Resolved to a PMID — fetch PubMed metadata normally
+                try:
+                    raw  = _get("efetch.fcgi", db="pubmed",
+                                id=pmid, rettype="xml", retmode="xml")
+                    root = ET.fromstring(raw)
+                    for article in root.findall(".//PubmedArticle"):
+                        pid_el  = article.find(".//MedlineCitation/PMID")
+                        ttl_el  = article.find(".//MedlineCitation/Article/ArticleTitle")
+                        abs_els = article.findall(".//MedlineCitation/Article/Abstract/AbstractText")
+                        if pid_el is None:
+                            continue
+                        abstract = " ".join(
+                            "".join(el.itertext()).strip() for el in abs_els).strip()
+                        title    = "".join(ttl_el.itertext()).strip() if ttl_el is not None else ""
+                        result["primary_pmid"]        = pmid
+                        result["primary_doi"]         = doi
+                        result["primary_pub_date"]    = _pub_date(article)
+                        result["primary_publication"] = f"[{pmid}] {title}"
+                        result["abstract"]            = abstract
+                        result["primary_pub_text"]    = f"{title} {abstract}"
+                        result["n_papers_found"]      = 1
+                        result["pmid_source"]         = "BioProject XML DOI"
+                        break
+                except Exception:
+                    pass
+                break
+            else:
+                # Keep the DOI even without a PMID; enrich from CrossRef
+                result["primary_doi"] = doi
+                cr = _crossref_get(doi)
+                if cr.get("title"):
+                    result["primary_publication"] = f"[DOI:{doi}] {cr['title']}"
+                    result["abstract"]            = cr.get("abstract", "")
+                    result["primary_pub_date"]    = cr.get("pub_date", "")
+                    result["primary_pub_text"]    = f"{cr['title']} {cr.get('abstract','')}"
+                    result["n_papers_found"]      = 1
+                    result["pmid_source"]         = "BioProject XML DOI (CrossRef)"
 
     if result["primary_pmid"]:
         try:
@@ -411,7 +624,7 @@ def fetch_bioproject_meta(accession: str, cache: dict) -> dict:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 _LIT_FIELDS = [
-    "primary_pmid", "primary_pub_date", "primary_publication",
+    "primary_pmid", "primary_doi", "primary_pub_date", "primary_publication",
     "abstract", "methods_text", "pmcid", "n_papers_found", "pmid_source",
 ]
 
@@ -429,8 +642,9 @@ def main() -> None:
     sys.stdout = _Tee(log_dir / "fetch.log")
     link_latest(logs_base, log_dir / "fetch.log")
 
-    print(f"NCBI_API_KEY: {'yes' if API_KEY else 'no'}", flush=True)
-    print(f"S2_API_KEY:   {'yes' if S2_API_KEY else 'no'}", flush=True)
+    print(f"NCBI_API_KEY:    {'yes' if API_KEY else 'no'}", flush=True)
+    print(f"S2_API_KEY:      {'yes' if S2_API_KEY else 'no'}", flush=True)
+    print(f"SERPER_API_KEY:  {'yes' if SERPER_API_KEY else 'no'}", flush=True)
     print(f"Cache:        {CACHE_PATH}", flush=True)
 
     if not RUNS_TSV.exists():

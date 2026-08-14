@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """
-Literature resolution pipeline Sankey — temporal funnel.
+Literature resolution pipeline Sankey — waterfall funnel.
 
-Left-to-right funnel: each strategy stage receives the unresolved remainder
-from the previous stage. Resolved BPs exit sideways into text coverage buckets.
+A horizontal spine (unresolved remainder) flows left-to-right through each
+strategy stage. At each stage, resolved BPs drop out directly below into
+coverage nodes. The spine gets thinner as BPs are resolved, creating the
+funnel effect. No link crossings.
 
 Run from crypt/: python metadata/figures/lit_resolution_sankey.py
 """
@@ -27,7 +29,7 @@ OUT_PNG    = OUT_DIR / "lit_resolution_sankey.png"
 
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# ── Load data ─────────────────────────────────────────────────────────────────
+# ── Load and classify ─────────────────────────────────────────────────────────
 
 with open(CACHE_PATH) as f:
     cache = json.load(f)
@@ -39,20 +41,16 @@ with open(RUNS_TSV) as f:
 
 total_bps = len(bps_in_runs)
 
-# ── Classify each BP by resolution stage and text coverage ───────────────────
-
-STAGES = ["fetch_lit.py", "Web search (Serper)", "Manual DOI lookup", "Unresolved"]
-
-COVERAGE = [
+STAGES = ["fetch_lit.py", "Web search (Serper)", "Manual DOI lookup"]
+COVERAGE_KEYS = [
     "Methods + abstract",
     "Abstract (PMID)",
     "Abstract (DOI only)",
     "Title only",
-    "No publication data",
 ]
 
-# stage_flows[stage][coverage] = count
 stage_flows: dict[str, dict[str, int]] = {s: defaultdict(int) for s in STAGES}
+unresolved = 0
 
 for bp in bps_in_runs:
     e   = cache.get(bp, {})
@@ -62,179 +60,194 @@ for bp in bps_in_runs:
     abstr = bool(e.get("abstract"))
     meth  = bool(e.get("methods_text"))
 
-    if "Serper" in src:
-        stage = "Web search (Serper)"
-    elif src == "manual_doi":
-        stage = "Manual DOI lookup"
-    elif not pmid and not doi:
-        stage = "Unresolved"
-    else:
-        stage = "fetch_lit.py"
+    if "Serper" in src:           stage = "Web search (Serper)"
+    elif src == "manual_doi":     stage = "Manual DOI lookup"
+    elif not pmid and not doi:    stage = None   # unresolved
+    else:                         stage = "fetch_lit.py"
 
     if meth:              cov = "Methods + abstract"
     elif abstr and pmid:  cov = "Abstract (PMID)"
     elif abstr and doi:   cov = "Abstract (DOI only)"
     elif pmid or doi:     cov = "Title only"
-    else:                 cov = "No publication data"
+    else:                 cov = None
 
-    stage_flows[stage][cov] += 1
+    if stage is None:
+        unresolved += 1
+    else:
+        stage_flows[stage][cov] += 1
 
-# How many BPs enter each stage (cumulative remainder)
-stage_total = {s: sum(stage_flows[s].values()) for s in STAGES}
-stage_cumulative_in = {}
+stage_total   = {s: sum(v for v in stage_flows[s].values()) for s in STAGES}
+# BPs entering each stage = total minus all previously resolved
 remaining = total_bps
+stage_in: dict[str, int] = {}
 for s in STAGES:
-    stage_cumulative_in[s] = remaining
-    remaining -= stage_total[s]
+    stage_in[s] = remaining
+    remaining  -= stage_total[s]
+# remaining == unresolved
 
-# ── Node definitions ──────────────────────────────────────────────────────────
+# ── Node layout ───────────────────────────────────────────────────────────────
 #
-# Nodes:
-#   0   : Origin ("All BioProjects")
-#   1–3 : Strategy stages (fetch_lit, Serper, Manual)
-#   4   : "Unresolved" exit node (stage 4)
-#   5–9 : Text coverage output nodes
+# Spine (y ≈ 0.04, flows left → right, gets thinner as BPs drop off):
+#   Origin → fetch_lit → Serper → Manual → Unresolved
 #
-# Layout (x positions, 0=left, 1=right):
-#   x=0.01  Origin
-#   x=0.25  fetch_lit.py
-#   x=0.50  Serper
-#   x=0.75  Manual DOI
-#   x=0.92  Unresolved  (exit)
-#   x=0.99  Text coverage outputs (right edge)
+# Drop nodes (x just right of their stage, y below spine):
+#   fetch_lit drops  → x=0.37
+#   Serper drops     → x=0.65
+#   Manual drops     → x=0.87
 
-STAGE_COLORS = {
-    "fetch_lit.py":          "#2980b9",
-    "Web search (Serper)":   "#e67e22",
-    "Manual DOI lookup":     "#8e44ad",
-    "Unresolved":            "#c0392b",
+SPINE_Y  = 0.04
+
+STAGE_X = {
+    "fetch_lit.py":         0.20,
+    "Web search (Serper)":  0.50,
+    "Manual DOI lookup":    0.73,
+}
+DROP_X = {
+    "fetch_lit.py":         0.37,
+    "Web search (Serper)":  0.65,
+    "Manual DOI lookup":    0.87,
 }
 
+# Drop y-positions (per stage, from top to bottom by coverage key order)
+# Spacing chosen so nodes don't overlap given pad=14
+DROP_Y: dict[str, dict[str, float]] = {
+    "fetch_lit.py": {
+        "Methods + abstract": 0.33,
+        "Abstract (PMID)":    0.73,
+        "Abstract (DOI only)":0.88,
+        "Title only":         0.96,
+    },
+    "Web search (Serper)": {
+        "Methods + abstract": 0.33,
+        "Abstract (PMID)":    0.50,
+        "Abstract (DOI only)":0.68,
+        "Title only":         0.83,
+    },
+    "Manual DOI lookup": {
+        "Methods + abstract": 0.33,
+        "Abstract (PMID)":    0.44,
+        "Abstract (DOI only)":0.59,
+        "Title only":         0.72,
+    },
+}
+
+STAGE_COLORS = {
+    "fetch_lit.py":         "#2980b9",
+    "Web search (Serper)":  "#e67e22",
+    "Manual DOI lookup":    "#8e44ad",
+}
 COVERAGE_COLORS = {
     "Methods + abstract":   "#1a5e36",
     "Abstract (PMID)":      "#27ae60",
     "Abstract (DOI only)":  "#16a085",
     "Title only":           "#f39c12",
-    "No publication data":  "#7f8c8d",
 }
+ORIGIN_COLOR    = "#2c3e50"
+UNRESOLV_COLOR  = "#7f8c8d"
 
-ORIGIN_COLOR = "#2c3e50"
-
-# Node index mapping
-ORIGIN_IDX   = 0
-STAGE_IDX    = {s: i + 1 for i, s in enumerate(STAGES[:3])}   # 1,2,3
-UNRESOLV_IDX = 4
-COV_IDX      = {c: i + 5 for i, c in enumerate(COVERAGE)}     # 5–9
-
-n_nodes = 10
-node_labels = [""] * n_nodes
-node_colors = [""] * n_nodes
-node_x      = [0.0] * n_nodes
-node_y      = [0.5] * n_nodes
-
-# Origin
-node_labels[ORIGIN_IDX] = f"<b>All BioProjects</b><br>{total_bps:,} BPs"
-node_colors[ORIGIN_IDX] = ORIGIN_COLOR
-node_x[ORIGIN_IDX]      = 0.01
-node_y[ORIGIN_IDX]      = 0.5
-
-# Stage nodes
-stage_x = {"fetch_lit.py": 0.25, "Web search (Serper)": 0.50, "Manual DOI lookup": 0.75}
-for s, idx in STAGE_IDX.items():
-    n_in = stage_cumulative_in[s]
-    node_labels[idx] = f"<b>{s}</b><br>{n_in:,} BPs in"
-    node_colors[idx] = STAGE_COLORS[s]
-    node_x[idx]      = stage_x[s]
-    node_y[idx]      = 0.5
-
-# Unresolved exit
-n_unresolved = stage_total["Unresolved"]
-node_labels[UNRESOLV_IDX] = f"<b>Unresolved</b><br>{n_unresolved:,} BPs"
-node_colors[UNRESOLV_IDX] = STAGE_COLORS["Unresolved"]
-node_x[UNRESOLV_IDX]      = 0.92
-node_y[UNRESOLV_IDX]      = 0.88
-
-# Coverage output nodes (stacked top→bottom by size)
-cov_totals = defaultdict(int)
-for s in STAGES:
-    for cov, v in stage_flows[s].items():
-        cov_totals[cov] += v
-
-cov_order = sorted(COVERAGE, key=lambda c: -cov_totals[c])
-# y positions: evenly spaced with Methods+abstract at top
-y_positions = [0.05, 0.22, 0.40, 0.55, 0.68]
-for rank, cov in enumerate(cov_order):
-    idx = COV_IDX[cov]
-    node_labels[idx] = f"<b>{cov}</b><br>{cov_totals[cov]:,} BPs"
-    node_colors[idx] = COVERAGE_COLORS[cov]
-    node_x[idx]      = 0.99
-    node_y[idx]      = y_positions[rank]
-
-# ── Build links ───────────────────────────────────────────────────────────────
-
-link_sources, link_targets, link_values, link_colors_list = [], [], [], []
-
-def rgba(hex_color: str, alpha: float = 0.38) -> str:
+def rgba(hex_color: str, alpha: float = 0.40) -> str:
     h = hex_color.lstrip("#")
     r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
     return f"rgba({r},{g},{b},{alpha})"
 
-def add_link(src: int, tgt: int, val: int, color: str) -> None:
+# ── Build nodes ───────────────────────────────────────────────────────────────
+
+labels, colors, xs, ys = [], [], [], []
+
+def add_node(label: str, color: str, x: float, y: float) -> int:
+    idx = len(labels)
+    labels.append(label)
+    colors.append(color)
+    xs.append(x)
+    ys.append(y)
+    return idx
+
+ORIGIN_IDX  = add_node(f"<b>All BioProjects</b><br>{total_bps:,} BPs",
+                        ORIGIN_COLOR, 0.01, SPINE_Y)
+
+stage_idx: dict[str, int] = {}
+for s in STAGES:
+    n_in = stage_in[s]
+    stage_idx[s] = add_node(
+        f"<b>{s}</b><br>{n_in:,} BPs in",
+        STAGE_COLORS[s], STAGE_X[s], SPINE_Y,
+    )
+
+UNRESOLV_IDX = add_node(
+    f"<b>Unresolved</b><br>{unresolved:,} BPs",
+    UNRESOLV_COLOR, 0.92, SPINE_Y,
+)
+
+# Drop nodes: only emit if count > 0
+drop_idx: dict[str, dict[str, int]] = {s: {} for s in STAGES}
+for s in STAGES:
+    for cov in COVERAGE_KEYS:
+        count = stage_flows[s].get(cov, 0)
+        if count > 0:
+            drop_idx[s][cov] = add_node(
+                f"<b>{cov}</b><br>{count:,} BPs",
+                COVERAGE_COLORS[cov],
+                DROP_X[s],
+                DROP_Y[s][cov],
+            )
+
+# ── Build links ───────────────────────────────────────────────────────────────
+
+srcs, tgts, vals, link_colors = [], [], [], []
+
+def add_link(src: int, tgt: int, val: int, color_hex: str) -> None:
     if val <= 0:
         return
-    link_sources.append(src)
-    link_targets.append(tgt)
-    link_values.append(val)
-    link_colors_list.append(rgba(color))
+    srcs.append(src)
+    tgts.append(tgt)
+    vals.append(val)
+    link_colors.append(rgba(color_hex))
 
-# Origin → Stage 1
-add_link(ORIGIN_IDX, STAGE_IDX["fetch_lit.py"], total_bps, ORIGIN_COLOR)
+# Origin → first stage
+add_link(ORIGIN_IDX, stage_idx["fetch_lit.py"], total_bps, ORIGIN_COLOR)
 
-# Each stage: resolved exits to coverage nodes, remainder passes to next stage
-remaining_stages = ["fetch_lit.py", "Web search (Serper)", "Manual DOI lookup"]
-next_stage = {
-    "fetch_lit.py":         "Web search (Serper)",
-    "Web search (Serper)":  "Manual DOI lookup",
-    "Manual DOI lookup":    None,
-}
+# Stage → drops + pass-forward to next stage
+spine_pairs = [
+    ("fetch_lit.py",        "Web search (Serper)"),
+    ("Web search (Serper)", "Manual DOI lookup"),
+    ("Manual DOI lookup",   None),
+]
 
-for s in remaining_stages:
-    s_idx   = STAGE_IDX[s]
+for s, next_s in spine_pairs:
     s_color = STAGE_COLORS[s]
-    # Resolved: flow to coverage nodes
-    for cov, count in stage_flows[s].items():
-        add_link(s_idx, COV_IDX[cov], count, s_color)
-    # Pass remainder forward
-    nxt = next_stage[s]
-    n_remain = stage_cumulative_in[s] - stage_total[s]
-    if nxt and n_remain > 0:
-        add_link(s_idx, STAGE_IDX[nxt], n_remain, s_color)
-
-# Final stage: Manual DOI → Unresolved exit
-add_link(STAGE_IDX["Manual DOI lookup"], UNRESOLV_IDX,
-         stage_flows["Unresolved"]["No publication data"],
-         STAGE_COLORS["Unresolved"])
+    s_idx   = stage_idx[s]
+    # Drops
+    for cov in COVERAGE_KEYS:
+        count = stage_flows[s].get(cov, 0)
+        if count > 0:
+            add_link(s_idx, drop_idx[s][cov], count, s_color)
+    # Pass remainder to next stage or to Unresolved
+    n_pass = stage_in[s] - stage_total[s]
+    if next_s:
+        add_link(s_idx, stage_idx[next_s], n_pass, s_color)
+    else:
+        add_link(s_idx, UNRESOLV_IDX, n_pass, UNRESOLV_COLOR)
 
 # ── Figure ────────────────────────────────────────────────────────────────────
 
-resolved = total_bps - n_unresolved
+resolved = total_bps - unresolved
 
 fig = go.Figure(go.Sankey(
     arrangement="fixed",
     node=dict(
         pad=14,
         thickness=20,
-        line=dict(color="white", width=0.5),
-        label=node_labels,
-        color=node_colors,
-        x=node_x,
-        y=node_y,
+        line=dict(color="white", width=0.4),
+        label=labels,
+        color=colors,
+        x=xs,
+        y=ys,
     ),
     link=dict(
-        source=link_sources,
-        target=link_targets,
-        value=link_values,
-        color=link_colors_list,
+        source=srcs,
+        target=tgts,
+        value=vals,
+        color=link_colors,
     ),
 ))
 
@@ -242,15 +255,14 @@ fig.update_layout(
     title=dict(
         text=(f"Literature resolution pipeline — {total_bps:,} BioProjects<br>"
               f"<sup>Resolved: {resolved:,} ({100*resolved/total_bps:.1f}%)   "
-              f"Unresolved: {n_unresolved:,} "
-              f"({100*n_unresolved/total_bps:.1f}%)</sup>"),
+              f"Unresolved: {unresolved:,} ({100*unresolved/total_bps:.1f}%)</sup>"),
         font=dict(size=16),
         x=0.01,
     ),
     font=dict(size=12, family="Arial"),
     paper_bgcolor="white",
-    width=1050,
-    height=580,
+    width=1080,
+    height=600,
     margin=dict(l=10, r=10, t=85, b=10),
 )
 

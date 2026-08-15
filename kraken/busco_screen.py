@@ -147,20 +147,24 @@ def run_busco(fna: Path, lineage: str, out_name: str,
             "--download_path", str(db_path),
             "--force",   # overwrite incomplete runs
         ]
-        # start_new_session puts BUSCO and all its children (MetaEuk, Diamond,
-        # hmmer) in a new process group. On timeout we kill the whole group so
-        # the capture pipes drain cleanly — without this, children keep the
-        # pipe open after the parent is killed and communicate() deadlocks.
-        proc = subprocess.Popen(cmd, capture_output=True, text=True,
+        # Redirect stdout/stderr to DEVNULL — we parse short_summary directly,
+        # so we don't need to capture BUSCO output. This lets us use proc.wait()
+        # instead of communicate(), which avoids the pipe-thread deadlock that
+        # occurs when Python kills the parent but MetaEuk/Diamond children keep
+        # the pipe open. start_new_session puts the whole process tree in one
+        # group so os.killpg kills everything on timeout.
+        proc = subprocess.Popen(cmd,
+                                stdout=subprocess.DEVNULL,
+                                stderr=subprocess.DEVNULL,
                                 start_new_session=True)
         try:
-            _, _ = proc.communicate(timeout=3600)
+            proc.wait(timeout=3600)
         except subprocess.TimeoutExpired:
             try:
                 os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
             except ProcessLookupError:
                 pass
-            proc.communicate()   # drain now-closed pipes
+            proc.wait()
             return None
         if proc.returncode != 0:
             return None

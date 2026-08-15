@@ -55,18 +55,23 @@ export PATH="$SCRATCH/bin:$PATH"
 echo "datasets version: $(datasets version)"
 echo "busco version:    $(busco --version)"
 
-# Download lineage DBs to scratch if not already present
+# Download lineage DBs — check prfl/ count as health signal (empty prfl = inode-limit
+# corruption; re-download in that case even if the directory exists).
 mkdir -p "$BUSCO_DB_PATH"
 for lineage in ascomycota_odb10 basidiomycota_odb10 stramenopiles_odb10 fungi_odb10; do
-    if [ ! -d "$BUSCO_DB_PATH/lineages/$lineage" ]; then
-        echo "Downloading BUSCO lineage: $lineage …"
+    prfl_dir="$BUSCO_DB_PATH/lineages/$lineage/prfl"
+    prfl_count=$(ls "$prfl_dir" 2>/dev/null | wc -l)
+    if [ ! -d "$BUSCO_DB_PATH/lineages/$lineage" ] || [ "$prfl_count" -eq 0 ]; then
+        echo "Downloading BUSCO lineage: $lineage (prfl_count=$prfl_count) …"
+        rm -rf "$BUSCO_DB_PATH/lineages/$lineage"
         singularity exec \
             --bind "$SCRATCH:$SCRATCH" \
             --env HOME="$SCRATCH" \
             "$BUSCO_SIF" \
             busco --download "$lineage" --download_path "$BUSCO_DB_PATH"
+        echo "  → prfl after download: $(ls $prfl_dir 2>/dev/null | wc -l) files"
     else
-        echo "Lineage already present: $lineage"
+        echo "Lineage OK: $lineage (prfl=$prfl_count)"
     fi
 done
 

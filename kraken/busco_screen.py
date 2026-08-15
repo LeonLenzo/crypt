@@ -23,8 +23,10 @@ Outputs:
 import argparse
 import csv
 import gzip
+import os
 import re
 import shutil
+import signal
 import subprocess
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -76,7 +78,7 @@ def download_cds(accession: str, dest_dir: Path) -> list[Path]:
         return []
 
     subprocess.run(["unzip", "-q", "-o", str(zip_path), "-d", str(dest_dir)],
-                   capture_output=True)
+                   capture_output=True, timeout=300)
     zip_path.unlink(missing_ok=True)
 
     fnas = list(dest_dir.glob("**/*.fna"))
@@ -145,8 +147,22 @@ def run_busco(fna: Path, lineage: str, out_name: str,
             "--download_path", str(db_path),
             "--force",   # overwrite incomplete runs
         ]
-        r = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
-        if r.returncode != 0:
+        # start_new_session puts BUSCO and all its children (MetaEuk, Diamond,
+        # hmmer) in a new process group. On timeout we kill the whole group so
+        # the capture pipes drain cleanly — without this, children keep the
+        # pipe open after the parent is killed and communicate() deadlocks.
+        proc = subprocess.Popen(cmd, capture_output=True, text=True,
+                                start_new_session=True)
+        try:
+            _, _ = proc.communicate(timeout=3600)
+        except subprocess.TimeoutExpired:
+            try:
+                os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+            proc.communicate()   # drain now-closed pipes
+            return None
+        if proc.returncode != 0:
             return None
         existing = list(run_dir.glob("short_summary.specific.*.txt"))
         if not existing:

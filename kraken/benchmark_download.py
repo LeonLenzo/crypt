@@ -69,8 +69,7 @@ def _ena_urls(run: str) -> dict:
 
 def _sra_s3_path(run: str) -> str:
     """Construct S3 URI for a run on NCBI SRA open-access bucket."""
-    prefix = run[:6]
-    return f"s3://sra-pub-run-odp/sra/{prefix}/{run}/{run}"
+    return f"s3://sra-pub-run-odp/sra/{run}/{run}"
 
 
 # ── Download methods ──────────────────────────────────────────────────────────

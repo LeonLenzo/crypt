@@ -10,11 +10,18 @@ Output naming:
   {reads-dir}/{run}_2.fastq.gz   paired R2
   {reads-dir}/{run}.fastq.gz     single-end
 
-Usage:
+Usage (subsampled, for Kraken2 control set):
   python kraken/download.py \\
       --run-list kraken/control/output/data/run_ids.txt \\
       --reads-dir /scratch/pawsey1168/llenzo/kraken_reads \\
-      --workers 16 --n-reads 500000
+      --workers 12 --n-reads 500000
+
+Usage (full files, for host-splitting pipeline):
+  python kraken/download.py \\
+      --runs-tsv stat/output/data/runs.tsv --biosample-rep \\
+      --reads-dir /scratch/pawsey1168/llenzo/kraken/reads_full \\
+      --workers 12 --full \\
+      --array-id $SLURM_ARRAY_TASK_ID --array-count $SLURM_ARRAY_TASK_COUNT
 """
 
 import argparse
@@ -76,9 +83,14 @@ def _ena_https_urls(run: str) -> list:
 
 # ── Download one run ──────────────────────────────────────────────────────────
 
-def _download_run(run: str, n_reads: int, reads_dir: Path, tmp_dir: Path) -> dict:
+def _download_run(run: str, n_reads: int, reads_dir: Path, tmp_dir: Path,
+                  full: bool = False) -> dict:
     """Download R1 (and R2) for one run to reads_dir as gzipped FASTQ.
-    Atomic: writes to a .tmp file then renames on success."""
+    Atomic: writes to a .tmp file then renames on success.
+
+    full=False: subsample to n_reads via gunzip|head|gzip pipeline (fast, small).
+    full=True:  download complete FASTQ.gz; curl handles retries internally.
+    """
     result = {"run": run, "error": None, "ts": time.strftime("%Y-%m-%dT%H:%M:%S")}
 
     urls = _ena_https_urls(run)
@@ -89,7 +101,7 @@ def _download_run(run: str, n_reads: int, reads_dir: Path, tmp_dir: Path) -> dic
     is_paired  = len(urls) >= 2
     suffixes   = ["_1.fastq.gz", "_2.fastq.gz"] if is_paired else [".fastq.gz"]
     n_files    = 0
-    MIN_SIZE   = 10_000  # bytes; empty gzip is ~20 bytes; real reads are >> 10KB
+    MIN_SIZE   = 10_000  # bytes; empty gzip ~20 B; even tiny real files >> 10 KB
 
     for url, suffix in zip(urls[:2], suffixes):
         dest = reads_dir / f"{run}{suffix}"
@@ -97,15 +109,28 @@ def _download_run(run: str, n_reads: int, reads_dir: Path, tmp_dir: Path) -> dic
             n_files += 1
             continue                        # already downloaded
         elif dest.exists():
-            dest.unlink()                   # stale empty gzip — re-download
+            dest.unlink()                   # stale/empty — re-download
 
         tmp = tmp_dir / f"{run}{suffix}.tmp"
-        cmd = ["bash", "-c",
-               f'curl --silent --fail --max-time 600 "{url}" | '
-               f'gunzip -c | head -n {n_reads * 4} | gzip -c']
         try:
-            with open(tmp, "wb") as out:
-                subprocess.run(cmd, stdout=out, timeout=660, check=False)
+            if full:
+                # Direct download; curl's --retry handles transient network errors.
+                # 7200 s max-time covers a 10 GB file at 1.4 MB/s with margin.
+                cmd = [
+                    "curl", "--silent", "--fail",
+                    "--max-time", "7200",
+                    "--retry", "3", "--retry-delay", "15",
+                    "--retry-connrefused",
+                    "-o", str(tmp), url,
+                ]
+                subprocess.run(cmd, timeout=7260, check=True)
+            else:
+                cmd = ["bash", "-c",
+                       f'curl --silent --fail --max-time 600 "{url}" | '
+                       f'gunzip -c | head -n {n_reads * 4} | gzip -c']
+                with open(tmp, "wb") as out:
+                    subprocess.run(cmd, stdout=out, timeout=660, check=False)
+
             if tmp.exists() and tmp.stat().st_size >= MIN_SIZE:
                 tmp.rename(dest)
                 n_files += 1
@@ -194,7 +219,9 @@ def main() -> None:
     ap.add_argument("--workers",      type=int, default=WORKERS,
                     help=f"Parallel downloads (default: {WORKERS})")
     ap.add_argument("--n-reads",      type=int, default=N_READS,
-                    help=f"Reads to download per run (default: {N_READS:,})")
+                    help=f"Reads to download per run (default: {N_READS:,}). Ignored with --full.")
+    ap.add_argument("--full",         action="store_true",
+                    help="Download complete FASTQ.gz files without subsampling.")
     ap.add_argument("--limit",        type=int, default=None)
     ap.add_argument("--array-id",     type=int, default=None)
     ap.add_argument("--array-count",  type=int, default=None)
@@ -227,7 +254,8 @@ def main() -> None:
         print(f"--limit {args.limit}: processing {len(todo):,} runs")
 
     print(f"\nTotal: {len(all_runs):,} | Done: {len(done):,} | Remaining: {len(todo):,}")
-    print(f"n_reads={N_READS:,}  workers={args.workers}")
+    mode_str = "FULL" if args.full else f"subsample n_reads={N_READS:,}"
+    print(f"mode={mode_str}  workers={args.workers}")
     print(f"reads-dir: {reads_dir}\n")
 
     if not todo:
@@ -240,7 +268,7 @@ def main() -> None:
 
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futures = {
-            pool.submit(_download_run, run, N_READS, reads_dir, tmp_dir): run
+            pool.submit(_download_run, run, N_READS, reads_dir, tmp_dir, args.full): run
             for run in todo
         }
         for i, fut in enumerate(as_completed(futures), 1):

@@ -63,7 +63,10 @@ def download_cds(accession: str, dest_dir: Path) -> list[Path]:
     """
     dest_dir.mkdir(parents=True, exist_ok=True)
 
-    existing = list(dest_dir.glob("**/*.fna"))
+    # Exclude generated files (_clean.fna, _combined.fna) so they don't get
+    # fed back into concat_fnas on resumption, creating bloated duplicates.
+    existing = [f for f in dest_dir.glob("**/*.fna")
+                if not f.name.endswith(("_clean.fna", "_combined.fna"))]
     if existing:
         return existing
 
@@ -168,9 +171,9 @@ def run_busco(fna: Path, lineage: str, out_name: str,
             return None
         if proc.returncode != 0:
             return None
-        existing = list(run_dir.glob("short_summary.specific.*.txt"))
+        existing = list(run_dir.glob(f"short_summary.specific.{lineage}.*.txt"))
         if not existing:
-            existing = list(run_dir.glob("run_*/short_summary.txt"))
+            existing = list(run_dir.glob(f"run_{lineage}/short_summary.txt"))
 
     if not existing:
         return None
@@ -309,9 +312,10 @@ def main():
     if write_header:
         writer.writeheader()
 
-    completed = 0
-    failed    = 0
-    no_cds    = 0
+    completed    = 0   # any result returned (pass, fail, no_cds, busco_error)
+    n_exception  = 0   # thread raised an exception
+    no_cds       = 0
+    busco_errors = 0
 
     def work(row):
         return process_one(row, genomes_dir, busco_out, busco_db,
@@ -325,7 +329,7 @@ def main():
                 result = fut.result()
             except Exception as e:
                 print(f"  ERROR {acc}: {e}", flush=True)
-                failed += 1
+                n_exception += 1
                 continue
 
             writer.writerow(result)
@@ -338,19 +342,21 @@ def main():
             if status == "no_cds":
                 no_cds += 1
             elif status == "busco_error":
-                failed += 1
-            total_done = completed + failed
+                busco_errors += 1
+            total_done = completed + n_exception
             print(f"  [{total_done}/{len(todo)}] {acc}  {status}  C={pct_s}",
                   flush=True)
 
     scores_fh.close()
 
-    n_pass = sum(1 for r in csv.DictReader(open(scores_tsv), delimiter="\t")
-                 if r.get("status") == "pass")
+    with open(scores_tsv, newline="") as fh:
+        n_pass = sum(1 for r in csv.DictReader(fh, delimiter="\t")
+                     if r.get("status") == "pass")
     print(f"\n── BUSCO screen summary ─────────────────────────────────────────")
     print(f"  Processed:   {completed:,}")
     print(f"  No CDS:      {no_cds:,}")
-    print(f"  BUSCO error: {failed:,}")
+    print(f"  BUSCO error: {busco_errors:,}")
+    print(f"  Exceptions:  {n_exception:,}")
     print(f"  Pass:        {n_pass:,}  (across all runs including prior)")
     print(f"\nScores: {scores_tsv}")
     print(f"Next:   python kraken/filter_refs.py")

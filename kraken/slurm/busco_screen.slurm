@@ -57,18 +57,21 @@ echo "busco version:    $(busco --version)"
 
 # Download lineage DBs — check prfl/ count as health signal (empty prfl = inode-limit
 # corruption; re-download in that case even if the directory exists).
-mkdir -p "$BUSCO_DB_PATH"
+# Downloads via curl directly to scratch (no HOME involved; busco --download sends
+# to HOME which has a 1 GB quota and silently fails for large databases).
+mkdir -p "$BUSCO_DB_PATH/lineages"
 for lineage in ascomycota_odb10 basidiomycota_odb10 stramenopiles_odb10 fungi_odb10; do
     prfl_dir="$BUSCO_DB_PATH/lineages/$lineage/prfl"
     prfl_count=$(ls "$prfl_dir" 2>/dev/null | wc -l)
     if [ ! -d "$BUSCO_DB_PATH/lineages/$lineage" ] || [ "$prfl_count" -eq 0 ]; then
         echo "Downloading BUSCO lineage: $lineage (prfl_count=$prfl_count) …"
         rm -rf "$BUSCO_DB_PATH/lineages/$lineage"
-        singularity exec \
-            --bind "$SCRATCH:$SCRATCH" \
-            --env HOME="$SCRATCH" \
-            "$BUSCO_SIF" \
-            busco --download "$lineage" --download_path "$BUSCO_DB_PATH"
+        TGZ="$BUSCO_DB_PATH/lineages/${lineage}.tar.gz"
+        curl --retry 3 --retry-delay 10 -fsSL \
+            -o "$TGZ" \
+            "https://busco-data.ezlab.org/v5/data/lineages/${lineage}.2024-01-08.tar.gz"
+        tar -xzf "$TGZ" -C "$BUSCO_DB_PATH/lineages"
+        rm -f "$TGZ"
         echo "  → prfl after download: $(ls $prfl_dir 2>/dev/null | wc -l) files"
     else
         echo "Lineage OK: $lineage (prfl=$prfl_count)"

@@ -396,6 +396,14 @@ def main():
             writer.writerow(result)
             scores_fh.flush()
 
+            # Delete BUSCO run dir immediately after scoring to avoid hitting
+            # the Lustre inode limit (~1M files per user on Setonix). Each BUSCO
+            # run writes ~5000 intermediate files; we only need the short_summary,
+            # which is already parsed into busco_scores.tsv above.
+            run_dir = busco_out / acc
+            if run_dir.exists():
+                shutil.rmtree(run_dir, ignore_errors=True)
+
             status = result["status"]
             pct    = result.get("complete_pct", "")
             pct_s  = f"{pct:.1f}%" if isinstance(pct, float) else "—"

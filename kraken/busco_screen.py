@@ -29,6 +29,7 @@ import shutil
 import signal
 import subprocess
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -53,6 +54,17 @@ _BUSCO_RE = re.compile(
 )
 
 
+def _ts() -> str:
+    return time.strftime("%H:%M:%S")
+
+
+def _mb(path: Path) -> str:
+    try:
+        return f"{path.stat().st_size / 1e6:.1f} MB"
+    except OSError:
+        return "? MB"
+
+
 # ── CDS download ──────────────────────────────────────────────────────────────
 
 def download_cds(accession: str, dest_dir: Path) -> list[Path]:
@@ -60,17 +72,22 @@ def download_cds(accession: str, dest_dir: Path) -> list[Path]:
     Download CDS FASTA for accession to dest_dir via NCBI datasets CLI.
     Returns list of .fna paths (empty on failure).
     Skips if dest_dir already contains .fna files (resumable).
+    Excludes generated _clean.fna and _combined.fna from the check so
+    they don't feed back into concat on resumption.
     """
     dest_dir.mkdir(parents=True, exist_ok=True)
 
-    # Exclude generated files (_clean.fna, _combined.fna) so they don't get
-    # fed back into concat_fnas on resumption, creating bloated duplicates.
     existing = [f for f in dest_dir.glob("**/*.fna")
                 if not f.name.endswith(("_clean.fna", "_combined.fna"))]
     if existing:
+        total_mb = sum(f.stat().st_size for f in existing) / 1e6
+        print(f"  [{_ts()}] {accession}  cds: {len(existing)} file(s) already present"
+              f" ({total_mb:.0f} MB)", flush=True)
         return existing
 
     zip_path = dest_dir / "ncbi_dataset.zip"
+    print(f"  [{_ts()}] {accession}  cds: downloading from NCBI...", flush=True)
+    t0 = time.time()
     cmd = [
         "datasets", "download", "genome", "accession", accession,
         "--include", "cds",
@@ -78,46 +95,68 @@ def download_cds(accession: str, dest_dir: Path) -> list[Path]:
     ]
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
     if r.returncode != 0 or not zip_path.exists():
+        print(f"  [{_ts()}] {accession}  cds: download FAILED"
+              f" (rc={r.returncode})", flush=True)
         return []
 
+    print(f"  [{_ts()}] {accession}  cds: download done ({time.time()-t0:.0f}s)"
+          f" — unzipping {_mb(zip_path)}...", flush=True)
     subprocess.run(["unzip", "-q", "-o", str(zip_path), "-d", str(dest_dir)],
                    capture_output=True, timeout=300)
     zip_path.unlink(missing_ok=True)
 
-    fnas = list(dest_dir.glob("**/*.fna"))
+    fnas = [f for f in dest_dir.glob("**/*.fna")
+            if not f.name.endswith(("_clean.fna", "_combined.fna"))]
     if not fnas:
         for gz in dest_dir.glob("**/*.fna.gz"):
             out = gz.with_suffix("")
             with gzip.open(gz, "rb") as fin, open(out, "wb") as fout:
                 shutil.copyfileobj(fin, fout)
             gz.unlink()
-        fnas = list(dest_dir.glob("**/*.fna"))
+        fnas = [f for f in dest_dir.glob("**/*.fna")
+                if not f.name.endswith(("_clean.fna", "_combined.fna"))]
 
+    total_mb = sum(f.stat().st_size for f in fnas) / 1e6
+    print(f"  [{_ts()}] {accession}  cds: {len(fnas)} file(s) extracted"
+          f" ({total_mb:.0f} MB)", flush=True)
     return fnas
 
 
-def concat_fnas(fnas: list[Path], dest: Path) -> Path:
+def concat_fnas(fnas: list[Path], dest: Path, accession: str) -> Path:
     """Concatenate multiple .fna files into a single file for BUSCO."""
     if len(fnas) == 1:
+        print(f"  [{_ts()}] {accession}  concat: single file, no concat needed"
+              f" ({_mb(fnas[0])})", flush=True)
         return fnas[0]
+    print(f"  [{_ts()}] {accession}  concat: merging {len(fnas)} files → {dest.name}",
+          flush=True)
     with open(dest, "wb") as fout:
         for fna in sorted(fnas):
             with open(fna, "rb") as fin:
                 shutil.copyfileobj(fin, fout)
+    print(f"  [{_ts()}] {accession}  concat: done ({_mb(dest)})", flush=True)
     return dest
 
 
-def clean_fasta_for_busco(fna: Path, dest: Path) -> Path:
+def clean_fasta_for_busco(fna: Path, dest: Path, accession: str) -> Path:
     """Strip kraken:taxid|N| prefix added by build.py; return original if clean."""
     if dest.exists():
+        print(f"  [{_ts()}] {accession}  clean: existing {dest.name} ({_mb(dest)})",
+              flush=True)
         return dest
     with open(fna, "rb") as f:
         head = f.read(30)
     if b">kraken:taxid|" not in head:
+        print(f"  [{_ts()}] {accession}  clean: no taxid prefix, using {fna.name} as-is",
+              flush=True)
         return fna
+    print(f"  [{_ts()}] {accession}  clean: stripping kraken:taxid headers...",
+          flush=True)
     content = fna.read_bytes()
     cleaned = re.sub(rb">kraken:taxid\|\d+\|", b">", content)
     dest.write_bytes(cleaned)
+    print(f"  [{_ts()}] {accession}  clean: wrote {dest.name} ({_mb(dest)})",
+          flush=True)
     return dest
 
 
@@ -127,16 +166,21 @@ def run_busco(fna: Path, lineage: str, out_name: str,
               out_path: Path, db_path: Path, cpus: int) -> dict | None:
     """
     Run BUSCO in transcriptome mode. Returns parsed dict or None on error.
-    Skips if short_summary already exists (resumable).
+    Skips if the correct lineage short_summary already exists (resumable).
     """
-    run_dir = out_path / out_name
-    # Only reuse summaries for the correct lineage — avoids silently returning
-    # stale scores when the lineage assignment changes (e.g. fungi→ascomycota).
+    accession = out_name
+    run_dir   = out_path / out_name
+
+    # Only reuse summaries for the correct lineage to avoid silently returning
+    # stale scores if the lineage assignment changed (e.g. fungi → ascomycota).
     existing = list(run_dir.glob(f"short_summary.specific.{lineage}.*.txt"))
     if not existing:
         existing = list(run_dir.glob(f"run_{lineage}/short_summary.txt"))
 
-    if not existing:
+    if existing:
+        print(f"  [{_ts()}] {accession}  busco: summary already exists"
+              f" ({existing[0].name}), skipping run", flush=True)
+    else:
         run_dir.mkdir(parents=True, exist_ok=True)
         cmd = [
             "busco",
@@ -148,14 +192,18 @@ def run_busco(fna: Path, lineage: str, out_name: str,
             "--cpu", str(cpus),
             "--offline",
             "--download_path", str(db_path),
-            "--force",   # overwrite incomplete runs
+            "--force",
         ]
-        # Redirect stdout/stderr to DEVNULL — we parse short_summary directly,
-        # so we don't need to capture BUSCO output. This lets us use proc.wait()
-        # instead of communicate(), which avoids the pipe-thread deadlock that
-        # occurs when Python kills the parent but MetaEuk/Diamond children keep
-        # the pipe open. start_new_session puts the whole process tree in one
-        # group so os.killpg kills everything on timeout.
+        print(f"  [{_ts()}] {accession}  busco: starting {lineage}"
+              f" on {fna.name} ({_mb(fna)})...", flush=True)
+        t0 = time.time()
+
+        # stdout/stderr → DEVNULL; we parse short_summary directly so we don't
+        # need to capture output. proc.wait() has no pipe threads — avoids the
+        # deadlock where MetaEuk/Diamond children keep captured pipes open after
+        # the parent is killed, causing communicate() to block forever.
+        # start_new_session creates a new process group so killpg kills the
+        # entire tree (BUSCO + MetaEuk + Diamond/hmmer) on timeout.
         proc = subprocess.Popen(cmd,
                                 stdout=subprocess.DEVNULL,
                                 stderr=subprocess.DEVNULL,
@@ -163,19 +211,32 @@ def run_busco(fna: Path, lineage: str, out_name: str,
         try:
             proc.wait(timeout=3600)
         except subprocess.TimeoutExpired:
+            elapsed = time.time() - t0
+            print(f"  [{_ts()}] {accession}  busco: TIMEOUT after {elapsed:.0f}s"
+                  f" — killing process group", flush=True)
             try:
                 os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
             except ProcessLookupError:
                 pass
             proc.wait()
             return None
+
+        elapsed = time.time() - t0
         if proc.returncode != 0:
+            print(f"  [{_ts()}] {accession}  busco: FAILED rc={proc.returncode}"
+                  f" after {elapsed:.0f}s", flush=True)
             return None
+
+        print(f"  [{_ts()}] {accession}  busco: completed in {elapsed:.0f}s"
+              f" (rc=0)", flush=True)
+
         existing = list(run_dir.glob(f"short_summary.specific.{lineage}.*.txt"))
         if not existing:
             existing = list(run_dir.glob(f"run_{lineage}/short_summary.txt"))
 
     if not existing:
+        print(f"  [{_ts()}] {accession}  busco: no summary found after run",
+              flush=True)
         return None
 
     return parse_busco_summary(existing[0])
@@ -187,12 +248,12 @@ def parse_busco_summary(summary_path: Path) -> dict | None:
     if not m:
         return None
     return {
-        "complete_pct":    float(m.group(1)),
-        "single_pct":      float(m.group(2)),
-        "duplicated_pct":  float(m.group(3)),
-        "fragmented_pct":  float(m.group(4)),
-        "missing_pct":     float(m.group(5)),
-        "n_markers":       int(m.group(6)),
+        "complete_pct":   float(m.group(1)),
+        "single_pct":     float(m.group(2)),
+        "duplicated_pct": float(m.group(3)),
+        "fragmented_pct": float(m.group(4)),
+        "missing_pct":    float(m.group(5)),
+        "n_markers":      int(m.group(6)),
     }
 
 
@@ -201,27 +262,29 @@ def parse_busco_summary(summary_path: Path) -> dict | None:
 def process_one(row: dict, genomes_dir: Path, busco_out: Path,
                 busco_db: Path, cpus: int,
                 thresholds: dict[str, float]) -> dict:
-    acc      = row["accession"]
-    name     = row["organism_name"]
-    kingdom  = row["kingdom"]
-    lineage  = row["busco_lineage"]
-    ftype    = row["fasta_type"]
+    acc     = row["accession"]
+    name    = row["organism_name"]
+    kingdom = row["kingdom"]
+    lineage = row["busco_lineage"]
+    ftype   = row["fasta_type"]
 
     result = {
-        "accession":     acc,
-        "organism_name": name,
-        "kingdom":       kingdom,
-        "busco_lineage": lineage,
-        "complete_pct":  "",
-        "single_pct":    "",
+        "accession":      acc,
+        "organism_name":  name,
+        "kingdom":        kingdom,
+        "busco_lineage":  lineage,
+        "complete_pct":   "",
+        "single_pct":     "",
         "duplicated_pct": "",
         "fragmented_pct": "",
-        "missing_pct":   "",
-        "n_markers":     "",
-        "status":        "",
+        "missing_pct":    "",
+        "n_markers":      "",
+        "status":         "",
     }
 
     if ftype != "cds":
+        print(f"  [{_ts()}] {acc}  no CDS available (fasta_type={ftype!r})",
+              flush=True)
         result["status"] = "no_cds"
         return result
 
@@ -231,9 +294,9 @@ def process_one(row: dict, genomes_dir: Path, busco_out: Path,
         result["status"] = "no_cds"
         return result
 
-    combined = dest_dir / f"{acc}_combined.fna"
-    input_fna = concat_fnas(fnas, combined)
-    input_fna = clean_fasta_for_busco(input_fna, dest_dir / f"{acc}_clean.fna")
+    combined  = dest_dir / f"{acc}_combined.fna"
+    input_fna = concat_fnas(fnas, combined, acc)
+    input_fna = clean_fasta_for_busco(input_fna, dest_dir / f"{acc}_clean.fna", acc)
 
     scores = run_busco(input_fna, lineage, acc, busco_out, busco_db, cpus)
     if scores is None:
@@ -280,42 +343,40 @@ def main():
     genomes_dir.mkdir(parents=True, exist_ok=True)
     busco_out.mkdir(parents=True, exist_ok=True)
 
-    # BUSCO thresholds — used for status column; filter_refs.py applies them
+    # BUSCO thresholds (filter_refs.py applies these too)
     thresholds = {"fungal": 50.0, "oomycete": 65.0}
 
-    # Load candidates
     candidates: list[dict] = []
     with open(CANDIDATES_TSV, newline="") as fh:
         for row in csv.DictReader(fh, delimiter="\t"):
             candidates.append(row)
     print(f"Candidates: {len(candidates):,}", flush=True)
 
-    # Load existing scores for resumability
     done_accs: set[str] = set()
     if scores_tsv.exists():
         with open(scores_tsv, newline="") as fh:
             for row in csv.DictReader(fh, delimiter="\t"):
                 done_accs.add(row["accession"])
-    print(f"Already scored: {len(done_accs):,}  remaining: {len(candidates) - len(done_accs):,}",
-          flush=True)
+    print(f"Already scored: {len(done_accs):,}  remaining:"
+          f" {len(candidates) - len(done_accs):,}", flush=True)
 
     todo = [r for r in candidates if r["accession"] not in done_accs]
     if not todo:
         print("All accessions already scored.", flush=True)
         return
 
-    # Open scores TSV for appending
     write_header = not scores_tsv.exists() or scores_tsv.stat().st_size == 0
-    scores_fh  = open(scores_tsv, "a", newline="")
-    writer     = csv.DictWriter(scores_fh, fieldnames=SCORES_COLS, delimiter="\t",
-                                extrasaction="ignore")
+    scores_fh = open(scores_tsv, "a", newline="")
+    writer    = csv.DictWriter(scores_fh, fieldnames=SCORES_COLS, delimiter="\t",
+                               extrasaction="ignore")
     if write_header:
         writer.writeheader()
 
     completed    = 0   # any result returned (pass, fail, no_cds, busco_error)
-    n_exception  = 0   # thread raised an exception
+    n_exception  = 0   # thread raised an unhandled exception
     no_cds       = 0
     busco_errors = 0
+    t_wall       = time.time()
 
     def work(row):
         return process_one(row, genomes_dir, busco_out, busco_db,
@@ -328,7 +389,7 @@ def main():
             try:
                 result = fut.result()
             except Exception as e:
-                print(f"  ERROR {acc}: {e}", flush=True)
+                print(f"  [{_ts()}] ERROR {acc}: {e}", flush=True)
                 n_exception += 1
                 continue
 
@@ -343,8 +404,14 @@ def main():
                 no_cds += 1
             elif status == "busco_error":
                 busco_errors += 1
+
             total_done = completed + n_exception
-            print(f"  [{total_done}/{len(todo)}] {acc}  {status}  C={pct_s}",
+            elapsed    = time.time() - t_wall
+            rate       = total_done / elapsed if elapsed > 0 else 0
+            eta        = (len(todo) - total_done) / rate if rate > 0 else 0
+            print(f"[{_ts()}] [{total_done}/{len(todo)}] {acc}"
+                  f"  {status}  C={pct_s}"
+                  f"  | rate={rate:.2f}/s  ETA={eta/3600:.1f}h",
                   flush=True)
 
     scores_fh.close()
@@ -352,7 +419,9 @@ def main():
     with open(scores_tsv, newline="") as fh:
         n_pass = sum(1 for r in csv.DictReader(fh, delimiter="\t")
                      if r.get("status") == "pass")
-    print(f"\n── BUSCO screen summary ─────────────────────────────────────────")
+
+    elapsed = time.time() - t_wall
+    print(f"\n── BUSCO screen complete ({elapsed/3600:.1f}h) ────────────────────────")
     print(f"  Processed:   {completed:,}")
     print(f"  No CDS:      {no_cds:,}")
     print(f"  BUSCO error: {busco_errors:,}")

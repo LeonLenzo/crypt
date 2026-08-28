@@ -18,8 +18,8 @@ cd /scratch/pawsey1168/llenzo/crypt
 # Verify DB path, gzipped reads, and output format before the full control job.
 python -u kraken/classify.py \
     --run-list kraken/control/output/data/run_ids.txt \
-    --reads-dir /scratch/pawsey1168/llenzo/kraken_reads/control \
-    --db /scratch/pawsey1168/llenzo/kraken/db_pathogens \
+    --reads-dir /scratch/pawsey1168/llenzo/crypt/kraken/output/kraken_run_download/data/kraken_reads/control \
+    --db /scratch/pawsey1168/llenzo/crypt/kraken/output/kraken_db_build/data/db_pathogens \
     --workers 2 \
     --kraken-threads 4 \
     --limit 5

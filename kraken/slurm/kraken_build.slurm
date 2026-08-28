@@ -25,8 +25,8 @@ module load spack/0.23.1
 spack load kraken2
 
 SCRATCH="/scratch/pawsey1168/llenzo"
-DB_DIR="$SCRATCH/kraken/db_v2"
-GENOMES_DIR="$SCRATCH/kraken/cds_v2"
+DB_DIR="$SCRATCH/crypt/kraken/output/kraken_db_build/data/db_v2"
+GENOMES_DIR="$SCRATCH/crypt/kraken/output/kraken_db_search/data/cds_v2"
 
 mkdir -p kraken/slurm/logs
 mkdir -p "$DB_DIR"

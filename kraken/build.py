@@ -56,8 +56,8 @@ from _util import _Tee, make_log_dir, link_latest
 
 REF_SCREEN   = Path("kraken/ref_screen.tsv")
 OUT_DIR      = Path("kraken/output/build")
-DEFAULT_DB   = Path("kraken/db")
-DEFAULT_GEN  = Path("kraken/cds_from_genomic")
+DEFAULT_DB   = Path("kraken/output/kraken_db_build/data/db")
+DEFAULT_GEN  = Path("kraken/output/kraken_db_search/data/cds_from_genomic")
 
 TAXDUMP_URL     = "https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz"
 ACACIA_BUCKET   = "pawsey1168-llenzo-kraken-db"

@@ -13,7 +13,7 @@ Output naming:
 Usage (subsampled, for Kraken2 control set):
   python kraken/download.py \\
       --run-list kraken/control/output/data/run_ids.txt \\
-      --reads-dir /scratch/pawsey1168/llenzo/kraken_reads \\
+      --reads-dir /scratch/pawsey1168/llenzo/crypt/kraken/output/kraken_run_download/data/kraken_reads \\
       --workers 12 --n-reads 500000
 
 Usage (full files, for host-splitting pipeline):

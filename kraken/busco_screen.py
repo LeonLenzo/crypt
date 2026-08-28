@@ -9,8 +9,8 @@ build.py will reuse them and skip re-downloading.
 Run on Setonix: sbatch kraken/slurm/busco_screen.slurm
 Run from crypt/:
     python kraken/busco_screen.py \\
-        --busco-db-path /scratch/pawsey1168/llenzo/busco_dbs \\
-        [--genomes-dir /scratch/pawsey1168/llenzo/kraken/cds_v2] \\
+        --busco-db-path /scratch/pawsey1168/llenzo/crypt/kraken/output/kraken_db_busco/data/busco_downloads \\
+        [--genomes-dir /scratch/pawsey1168/llenzo/crypt/kraken/output/kraken_db_search/data/cds_v2] \\
         [--busco-out   /scratch/pawsey1168/llenzo/kraken/busco] \\
         [--workers 16] [--cpus-per-busco 8]
 
@@ -314,11 +314,11 @@ def process_one(row: dict, genomes_dir: Path, busco_out: Path,
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--genomes-dir",    default="/scratch/pawsey1168/llenzo/kraken/cds_v2",
+    ap.add_argument("--genomes-dir",    default="/scratch/pawsey1168/llenzo/crypt/kraken/output/kraken_db_search/data/cds_v2",
                     help="CDS download directory (same as build.py --genomes-dir)")
     ap.add_argument("--busco-out",      default="/scratch/pawsey1168/llenzo/kraken/busco",
                     help="Directory for BUSCO run output")
-    ap.add_argument("--busco-db-path",  default="/scratch/pawsey1168/llenzo/busco_downloads",
+    ap.add_argument("--busco-db-path",  default="/scratch/pawsey1168/llenzo/crypt/kraken/output/kraken_db_busco/data/busco_downloads",
                     help="Path to pre-downloaded BUSCO lineage databases")
     ap.add_argument("--scores-tsv",     default=str(SCORES_TSV),
                     help="Output scores TSV (default: kraken/busco_scores.tsv)")

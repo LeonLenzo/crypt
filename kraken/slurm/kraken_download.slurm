@@ -21,7 +21,7 @@ set -euo pipefail
 module load python/3.11.6
 
 SCRATCH="/scratch/pawsey1168/llenzo"
-GENOMES_DIR="$SCRATCH/kraken/cds_v2"
+GENOMES_DIR="$SCRATCH/crypt/kraken/output/kraken_db_search/data/cds_v2"
 DATASETS_BIN="$SCRATCH/bin/datasets"
 
 # Bootstrap NCBI datasets CLI if not already present (standalone static binary)

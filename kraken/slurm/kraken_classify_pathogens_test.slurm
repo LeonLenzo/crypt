@@ -19,7 +19,7 @@ set -euo pipefail
 
 SCRATCH="/scratch/pawsey1168/llenzo"
 CRYPT="$SCRATCH/crypt"
-DB_DIR="$SCRATCH/kraken/db_pathogens"
+DB_DIR="$SCRATCH/crypt/kraken/output/kraken_db_build/data/db_pathogens"
 
 module load python/3.11.6
 module load spack/0.23.1

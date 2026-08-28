@@ -43,6 +43,14 @@ metadata/output/llm_classify/logs/*.latest
 kraken/output/build/logs/
 kraken/output/classify/logs/history/
 kraken/output/classify/logs/*.latest
+kraken/output/busco_screen/logs/history/
+kraken/output/busco_screen/logs/*.latest
+kraken/output/download/logs/history/
+kraken/output/download/logs/*.latest
+kraken/slurm/logs/
+# Stray BUSCO container job logs that end up at repo root on Setonix
+/busco_*.log
+busco_downloads/
 
 # Kraken2 classify cache — large, regeneratable on Setonix
 kraken/output/classify/data/kraken_cache*.jsonl

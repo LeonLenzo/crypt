@@ -1,0 +1,1083 @@
+accession	organism_name	kingdom	busco_lineage	complete_pct	single_pct	duplicated_pct	fragmented_pct	missing_pct	n_markers	status
+GCA_057674165.1	[Neocosmospora] sp. B6999-2	fungal	ascomycota_odb10	90.6	90.2	0.4	4.7	4.7	1706	pass
+GCA_057674085.1	[Neocosmospora] sp. B6999-2	fungal	ascomycota_odb10	91.5	91.0	0.5	4.1	4.4	1706	pass
+GCA_057673905.1	[Neocosmospora] sp. B6999-4	fungal	ascomycota_odb10	97.5	97.0	0.5	1.6	0.9	1706	pass
+GCA_057674105.1	[Neocosmospora] sp. B6999-3	fungal	ascomycota_odb10	98.0	97.6	0.4	1.1	0.9	1706	pass
+GCA_057673925.1	[Neocosmospora] sp. B6999-4	fungal	ascomycota_odb10	96.2	95.8	0.4	2.1	1.7	1706	pass
+GCA_057673975.1	[Neocosmospora] sp. B6999-4	fungal	ascomycota_odb10	97.1	96.7	0.4	1.8	1.1	1706	pass
+GCA_057673805.1	[Neocosmospora] sp. B6999-4	fungal	ascomycota_odb10	96.3	95.8	0.5	1.8	1.9	1706	pass
+GCA_057674295.1	[Neocosmospora] sp. B6999-1	fungal	ascomycota_odb10	96.0	95.5	0.5	2.2	1.8	1706	pass
+GCA_057674405.1	[Neocosmospora] sp. B6999-1	fungal	ascomycota_odb10	96.1	95.7	0.4	2.1	1.8	1706	pass
+GCA_057673945.1	[Neocosmospora] sp. B6999-4	fungal	ascomycota_odb10	97.8	97.4	0.4	1.2	1.0	1706	pass
+GCA_057674245.1	[Neocosmospora] sp. B6999-1	fungal	ascomycota_odb10	96.6	96.1	0.5	1.7	1.7	1706	pass
+GCA_057674335.1	[Neocosmospora] sp. B6999-1	fungal	ascomycota_odb10	96.6	96.1	0.5	1.9	1.5	1706	pass
+GCA_057674285.1	[Neocosmospora] sp. B6999-1	fungal	ascomycota_odb10	96.3	95.9	0.4	2.0	1.7	1706	pass
+GCA_057674185.1	[Neocosmospora] sp. B6999-1	fungal	ascomycota_odb10	95.8	95.4	0.4	2.3	1.9	1706	pass
+GCA_057673865.1	[Neocosmospora] sp. B6999-4	fungal	ascomycota_odb10	97.4	96.9	0.5	1.2	1.4	1706	pass
+GCA_057674425.1	[Neocosmospora] sp. B6999-1	fungal	ascomycota_odb10	96.1	95.7	0.4	2.1	1.8	1706	pass
+GCA_004154815.1	Alternaria arborescens	fungal	ascomycota_odb10	99.1	98.5	0.6	0.5	0.4	1706	pass
+GCF_004154835.1	Alternaria arborescens	fungal	ascomycota_odb10	98.9	98.6	0.3	0.5	0.6	1706	pass
+GCA_004154835.1	Alternaria arborescens	fungal	ascomycota_odb10	98.9	98.6	0.3	0.5	0.6	1706	pass
+GCA_057674065.1	[Neocosmospora] sp. B6999-4	fungal	ascomycota_odb10	97.7	97.1	0.6	1.4	0.9	1706	pass
+GCA_024043155.1	Alternaria arbusti	fungal	ascomycota_odb10	97.3	97.2	0.1	0.2	2.5	1706	pass
+GCF_907166805.1	Alternaria atra	fungal	ascomycota_odb10	97.2	91.5	5.7	0.9	1.9	1706	pass
+GCF_024043155.1	Alternaria arbusti	fungal	ascomycota_odb10	97.3	97.2	0.1	0.2	2.5	1706	pass
+GCA_004155955.1	Alternaria arborescens	fungal	ascomycota_odb10	99.0	98.8	0.2	0.4	0.6	1706	pass
+GCA_951284595.1	Alternaria burnsii	fungal	ascomycota_odb10	98.9	93.0	5.9	0.2	0.9	1706	pass
+GCF_042100115.1	Alternaria dauci	fungal	ascomycota_odb10	97.1	96.9	0.2	0.8	2.1	1706	pass
+GCF_013036055.1	Alternaria burnsii	fungal	ascomycota_odb10	97.7	97.6	0.1	0.4	1.9	1706	pass
+GCF_024043145.1	Alternaria conjuncta	fungal	ascomycota_odb10	97.5	97.4	0.1	0.5	2.0	1706	pass
+GCA_024043145.1	Alternaria conjuncta	fungal	ascomycota_odb10	97.5	97.4	0.1	0.5	2.0	1706	pass
+GCA_907166805.1	Alternaria atra	fungal	ascomycota_odb10	97.2	91.5	5.7	0.9	1.9	1706	pass
+GCA_013036055.1	Alternaria burnsii	fungal	ascomycota_odb10	97.7	97.6	0.1	0.4	1.9	1706	pass
+GCA_057673785.1	[Neocosmospora] sp. B6999-5	fungal	ascomycota_odb10	97.5	96.9	0.6	1.2	1.3	1706	pass
+GCA_042100115.1	Alternaria dauci	fungal	ascomycota_odb10	97.1	96.9	0.2	0.8	2.1	1706	pass
+GCF_023757985.1	Alternaria ethzedia	fungal	ascomycota_odb10	96.6	96.5	0.1	0.4	3.0	1706	pass
+GCA_023757985.1	Alternaria ethzedia	fungal	ascomycota_odb10	96.6	96.5	0.1	0.4	3.0	1706	pass
+GCF_023758085.1	Alternaria hordeiaustralica	fungal	ascomycota_odb10	96.4	96.3	0.1	0.7	2.9	1706	pass
+GCA_023758085.1	Alternaria hordeiaustralica	fungal	ascomycota_odb10	96.4	96.3	0.1	0.7	2.9	1706	pass
+GCF_024043165.1	Alternaria incomplexa	fungal	ascomycota_odb10	96.1	96.0	0.1	0.8	3.1	1706	pass
+GCF_024043175.1	Alternaria infectoria	fungal	ascomycota_odb10	95.9	95.8	0.1	0.7	3.4	1706	pass
+GCA_024043165.1	Alternaria incomplexa	fungal	ascomycota_odb10	96.1	96.0	0.1	0.8	3.1	1706	pass
+GCA_024043175.1	Alternaria infectoria	fungal	ascomycota_odb10	95.9	95.8	0.1	0.7	3.4	1706	pass
+GCF_023758075.1	Alternaria novae-zelandiae	fungal	ascomycota_odb10	96.3	96.2	0.1	0.5	3.2	1706	pass
+GCF_023757995.1	Alternaria metachromatica	fungal	ascomycota_odb10	95.3	95.2	0.1	0.9	3.8	1706	pass
+GCA_023758075.1	Alternaria novae-zelandiae	fungal	ascomycota_odb10	96.3	96.2	0.1	0.5	3.2	1706	pass
+GCA_024043135.1	Alternaria rosae	fungal	ascomycota_odb10	97.6	97.5	0.1	0.4	2.0	1706	pass
+GCA_023757995.1	Alternaria metachromatica	fungal	ascomycota_odb10	95.3	95.2	0.1	0.9	3.8	1706	pass
+GCF_024291825.1	Alternaria postmessia	fungal	ascomycota_odb10	97.6	97.5	0.1	0.3	2.1	1706	pass
+GCA_024291825.1	Alternaria postmessia	fungal	ascomycota_odb10	97.6	97.5	0.1	0.3	2.1	1706	pass
+GCA_023758125.1	Alternaria sp. Ai002NY15	fungal	ascomycota_odb10	96.9	96.8	0.1	0.5	2.6	1706	pass
+GCA_023758005.1	Alternaria sp. BMP 0032	fungal	ascomycota_odb10	95.6	95.5	0.1	0.9	3.5	1706	pass
+GCA_023758145.1	Alternaria sp. BMP 2799	fungal	ascomycota_odb10	95.6	95.5	0.1	0.6	3.8	1706	pass
+GCA_004154735.1	Alternaria tenuissima	fungal	ascomycota_odb10	99.2	98.8	0.4	0.3	0.5	1706	pass
+GCA_004154745.1	Alternaria tenuissima	fungal	ascomycota_odb10	99.1	98.7	0.4	0.4	0.5	1706	pass
+GCA_003574525.1	Alternaria sp. MG1	fungal	ascomycota_odb10	94.8	94.6	0.2	2.3	2.9	1706	pass
+GCA_004156015.1	Alternaria tenuissima	fungal	ascomycota_odb10	99.2	98.7	0.5	0.3	0.5	1706	pass
+GCA_004154845.1	Alternaria tenuissima	fungal	ascomycota_odb10	99.0	98.5	0.5	0.5	0.5	1706	pass
+GCA_023758025.1	Alternaria triticimaculans	fungal	ascomycota_odb10	96.8	96.7	0.1	0.5	2.7	1706	pass
+GCA_004168565.1	Alternaria tenuissima	fungal	ascomycota_odb10	99.0	98.1	0.9	0.4	0.6	1706	pass
+GCF_023758025.1	Alternaria triticimaculans	fungal	ascomycota_odb10	96.8	96.7	0.1	0.5	2.7	1706	pass
+GCF_023758065.1	Alternaria ventricosa	fungal	ascomycota_odb10	95.5	95.4	0.1	1.2	3.3	1706	pass
+GCA_055773965.2	Bipolaris sivanesaniana	fungal	ascomycota_odb10	97.1	96.9	0.2	0.9	2.0	1706	pass
+GCA_000151065.3	Blumeria hordei DH14	fungal	ascomycota_odb10	95.2	94.6	0.6	1.8	3.0	1706	pass
+GCF_023758015.1	Alternaria viburni	fungal	ascomycota_odb10	97.5	97.4	0.1	0.4	2.1	1706	pass
+GCA_023758065.1	Alternaria ventricosa	fungal	ascomycota_odb10	95.5	95.4	0.1	1.2	3.3	1706	pass
+GCA_023758015.1	Alternaria viburni	fungal	ascomycota_odb10	97.5	97.4	0.1	0.4	2.1	1706	pass
+GCA_004916875.1	Botrytis galanthina	fungal	ascomycota_odb10	99.1	98.8	0.3	0.4	0.5	1706	pass
+GCA_004786245.1	Botrytis hyacinthi	fungal	ascomycota_odb10	99.3	99.1	0.2	0.2	0.5	1706	pass
+GCA_004786145.1	Botrytis paeoniae	fungal	ascomycota_odb10	99.1	98.8	0.3	0.4	0.5	1706	pass
+GCA_004786125.1	Botrytis tulipae	fungal	ascomycota_odb10	99.4	99.2	0.2	0.2	0.4	1706	pass
+GCA_004786265.1	Botrytis porri	fungal	ascomycota_odb10	97.0	96.7	0.3	1.6	1.4	1706	pass
+GCA_002933655.1	Cercospora berteroae	fungal	ascomycota_odb10	98.6	98.5	0.1	0.3	1.1	1706	pass
+GCA_030867225.1	Colletotrichum caudatum	fungal	ascomycota_odb10	99.0	98.8	0.2	0.6	0.4	1706	pass
+GCF_030869225.1	Colletotrichum abscissum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.1	0.4	1706	pass
+GCA_001937105.1	Colletotrichum chlorophyti	fungal	ascomycota_odb10	96.9	96.7	0.2	0.4	2.7	1706	pass
+GCA_023376855.1	Colletotrichum abscissum	fungal	ascomycota_odb10	99.3	99.2	0.1	0.2	0.5	1706	pass
+GCA_030867335.1	Colletotrichum cereale	fungal	ascomycota_odb10	99.1	98.8	0.3	0.5	0.4	1706	pass
+GCA_030869225.1	Colletotrichum abscissum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.1	0.4	1706	pass
+GCF_030867565.1	Colletotrichum costaricense	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_030867565.1	Colletotrichum costaricense	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_026319245.1	Colletotrichum chrysophilum	fungal	ascomycota_odb10	94.5	94.3	0.2	2.5	3.0	1706	pass
+GCA_031006325.1	Colletotrichum chrysophilum	fungal	ascomycota_odb10	95.5	95.2	0.3	2.4	2.1	1706	pass
+GCF_034447905.1	Colletotrichum destructivum	fungal	ascomycota_odb10	99.7	99.2	0.5	0.1	0.2	1706	pass
+GCA_030869315.1	Colletotrichum cuscutae	fungal	ascomycota_odb10	98.1	97.9	0.2	0.8	1.1	1706	pass
+GCA_034447905.1	Colletotrichum destructivum	fungal	ascomycota_odb10	99.7	99.2	0.5	0.1	0.2	1706	pass
+GCA_030867235.1	Colletotrichum falcatum	fungal	ascomycota_odb10	98.8	98.6	0.2	0.7	0.5	1706	pass
+GCA_030867245.1	Colletotrichum eremochloae	fungal	ascomycota_odb10	99.0	98.6	0.4	0.5	0.5	1706	pass
+GCA_023376865.1	Colletotrichum filicis	fungal	ascomycota_odb10	99.5	99.4	0.1	0.1	0.4	1706	pass
+GCF_027942845.1	Colletotrichum fioriniae	fungal	ascomycota_odb10	95.0	95.0	0.0	2.2	2.8	1706	pass
+GCA_027942845.1	Colletotrichum fioriniae	fungal	ascomycota_odb10	95.0	95.0	0.0	2.2	2.8	1706	pass
+GCF_000582985.1	Colletotrichum fioriniae PJ7	fungal	ascomycota_odb10	98.8	98.7	0.1	0.4	0.8	1706	pass
+GCA_001855235.1	Colletotrichum incanum	fungal	ascomycota_odb10	97.4	97.1	0.3	0.4	2.2	1706	pass
+GCA_000582985.1	Colletotrichum fioriniae PJ7	fungal	ascomycota_odb10	98.8	98.7	0.1	0.4	0.8	1706	pass
+GCA_051148585.1	Colletotrichum jinshuiense	fungal	ascomycota_odb10	99.4	98.9	0.5	0.2	0.4	1706	pass
+GCF_051148585.1	Colletotrichum jinshuiense	fungal	ascomycota_odb10	99.4	98.9	0.5	0.2	0.4	1706	pass
+GCA_001625285.1	Colletotrichum incanum	fungal	ascomycota_odb10	93.4	92.6	0.8	0.3	6.3	1706	pass
+GCF_011947395.1	Colletotrichum karsti	fungal	ascomycota_odb10	98.7	98.5	0.2	0.2	1.1	1706	pass
+GCA_032988895.1	Colletotrichum kahawae	fungal	ascomycota_odb10	99.1	98.9	0.2	0.2	0.7	1706	pass
+GCA_030413865.1	Colletotrichum limetticola	fungal	ascomycota_odb10	99.2	99.1	0.1	0.4	0.4	1706	pass
+GCA_011947395.2	Colletotrichum karsti	fungal	ascomycota_odb10	98.7	98.5	0.2	0.2	1.1	1706	pass
+GCA_014235935.1	Colletotrichum musicola	fungal	ascomycota_odb10	99.3	99.1	0.2	0.3	0.4	1706	pass
+GCF_023278565.1	Colletotrichum lupini	fungal	ascomycota_odb10	98.6	98.5	0.1	0.3	1.1	1706	pass
+GCA_030868995.1	Colletotrichum melonis	fungal	ascomycota_odb10	99.2	99.1	0.1	0.2	0.6	1706	pass
+GCA_026319155.1	Colletotrichum noveboracense	fungal	ascomycota_odb10	97.0	96.8	0.2	1.2	1.8	1706	pass
+GCA_001831195.1	Colletotrichum orchidophilum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCF_001831195.1	Colletotrichum orchidophilum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_001563115.1	Colletotrichum nymphaeae SA-01	fungal	ascomycota_odb10	97.7	97.5	0.2	1.1	1.2	1706	pass
+GCA_023278565.1	Colletotrichum lupini	fungal	ascomycota_odb10	98.6	98.5	0.1	0.3	1.1	1706	pass
+GCA_006783085.1	Colletotrichum shisoi	fungal	ascomycota_odb10	98.0	97.8	0.2	0.6	1.4	1706	pass
+GCA_014235945.1	Colletotrichum plurivorum	fungal	ascomycota_odb10	99.4	99.2	0.2	0.3	0.3	1706	pass
+GCA_001563125.1	Colletotrichum salicis	fungal	ascomycota_odb10	98.5	98.3	0.2	0.5	1.0	1706	pass
+GCA_004367935.1	Colletotrichum sidae	fungal	ascomycota_odb10	93.0	92.7	0.3	1.1	5.9	1706	pass
+GCA_001563135.1	Colletotrichum simmondsii	fungal	ascomycota_odb10	98.4	98.2	0.2	0.5	1.1	1706	pass
+GCA_014235955.1	Colletotrichum sojae	fungal	ascomycota_odb10	99.5	99.3	0.2	0.2	0.3	1706	pass
+GCA_030867255.1	Colletotrichum somersetense	fungal	ascomycota_odb10	99.5	99.1	0.4	0.4	0.1	1706	pass
+GCA_044063575.1	Colletotrichum sp. CLE4	fungal	ascomycota_odb10	97.8	97.7	0.1	1.0	1.2	1706	pass
+GCA_025327165.1	Colletotrichum sp. SAR 10_70	fungal	ascomycota_odb10	96.0	95.8	0.2	1.8	2.2	1706	pass
+GCA_025327135.1	Colletotrichum sp. SAR 10_71	fungal	ascomycota_odb10	95.9	95.7	0.2	1.8	2.3	1706	pass
+GCA_025327155.1	Colletotrichum sp. SAR 10_75	fungal	ascomycota_odb10	95.9	95.7	0.2	1.6	2.5	1706	pass
+GCA_028654355.1	Colletotrichum sp. SAR 10_99	fungal	ascomycota_odb10	96.0	95.7	0.3	1.6	2.4	1706	pass
+GCA_025330015.1	Colletotrichum sp. SAR 10_77	fungal	ascomycota_odb10	95.3	95.1	0.2	1.8	2.9	1706	pass
+GCA_025327125.1	Colletotrichum sp. SAR 10_86	fungal	ascomycota_odb10	94.5	94.3	0.2	2.0	3.5	1706	pass
+GCA_025328985.1	Colletotrichum sp. SAR11_239	fungal	ascomycota_odb10	96.4	96.2	0.2	1.5	2.1	1706	pass
+GCA_025328625.1	Colletotrichum sp. SAR11_240	fungal	ascomycota_odb10	95.9	95.7	0.2	1.7	2.4	1706	pass
+GCA_025328355.1	Colletotrichum sp. SAR11_57	fungal	ascomycota_odb10	96.1	96.0	0.1	1.1	2.8	1706	pass
+GCA_025328345.1	Colletotrichum sp. SAR11_59	fungal	ascomycota_odb10	94.7	94.5	0.2	1.8	3.5	1706	pass
+GCA_030867325.1	Colletotrichum sublineola	fungal	ascomycota_odb10	98.8	98.5	0.3	0.5	0.7	1706	pass
+GCA_004366825.1	Colletotrichum spinosum	fungal	ascomycota_odb10	94.1	93.9	0.2	1.3	4.6	1706	pass
+GCA_000696135.1	Colletotrichum sublineola	fungal	ascomycota_odb10	98.8	98.6	0.2	0.5	0.7	1706	pass
+GCF_030869305.1	Colletotrichum tamarilloi	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_030869305.1	Colletotrichum tamarilloi	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_026229895.1	Colletotrichum tanaceti	fungal	ascomycota_odb10	92.2	82.1	10.1	2.8	5.0	1706	pass
+GCA_005350895.1	Colletotrichum tanaceti	fungal	ascomycota_odb10	94.0	92.6	1.4	0.6	5.4	1706	pass
+GCA_030867305.1	Colletotrichum zoysiae	fungal	ascomycota_odb10	99.0	98.9	0.1	0.4	0.6	1706	pass
+GCA_013201765.1	Colletotrichum viniferum	fungal	ascomycota_odb10	98.4	97.8	0.6	0.5	1.1	1706	pass
+GCA_001625265.1	Colletotrichum tofieldiae	fungal	ascomycota_odb10	95.0	94.8	0.2	0.3	4.7	1706	pass
+GCA_013201785.1	Colletotrichum tropicale	fungal	ascomycota_odb10	97.6	97.2	0.4	0.4	2.0	1706	pass
+GCA_001654555.2	Fusarium agapanthi	fungal	ascomycota_odb10	97.5	97.2	0.3	0.6	1.9	1706	pass
+GCA_038181435.1	Fusarium acuminatum	fungal	ascomycota_odb10	95.4	95.0	0.4	1.3	3.3	1706	pass
+GCA_012932015.1	Fusarium acutatum	fungal	ascomycota_odb10	98.4	98.0	0.4	0.5	1.1	1706	pass
+GCA_057674945.1	Fusarium akasia	fungal	ascomycota_odb10	94.1	93.4	0.7	3.0	2.9	1706	pass
+GCA_012931995.1	Fusarium albosuccineum	fungal	ascomycota_odb10	96.9	96.0	0.9	0.9	2.2	1706	pass
+GCA_057676225.1	Fusarium ambrosium	fungal	ascomycota_odb10	97.7	97.2	0.5	1.2	1.1	1706	pass
+GCA_057674905.1	Fusarium akasia	fungal	ascomycota_odb10	96.0	95.4	0.6	2.2	1.8	1706	pass
+GCA_003947045.1	Fusarium ambrosium	fungal	ascomycota_odb10	99.0	98.4	0.6	0.5	0.5	1706	pass
+GCA_057676205.1	Fusarium ambrosium	fungal	ascomycota_odb10	97.4	96.8	0.6	1.0	1.6	1706	pass
+GCA_057676125.1	Fusarium ambrosium	fungal	ascomycota_odb10	97.6	97.1	0.5	1.3	1.1	1706	pass
+GCA_057676245.1	Fusarium ambrosium	fungal	ascomycota_odb10	97.0	96.5	0.5	1.7	1.3	1706	pass
+GCA_022627115.1	Fusarium annulatum	fungal	ascomycota_odb10	94.7	94.3	0.4	0.5	4.8	1706	pass
+GCA_013364965.1	Fusarium austroamericanum	fungal	ascomycota_odb10	98.6	98.4	0.2	0.2	1.2	1706	pass
+GCA_057674825.1	Fusarium awan	fungal	ascomycota_odb10	88.1	87.8	0.3	4.2	7.7	1706	pass
+GCA_057674865.1	Fusarium awan	fungal	ascomycota_odb10	87.8	87.5	0.3	3.7	8.5	1706	pass
+GCA_012932025.1	Fusarium austroafricanum	fungal	ascomycota_odb10	97.6	97.2	0.4	0.6	1.8	1706	pass
+GCA_013364935.1	Fusarium anthophilum	fungal	ascomycota_odb10	98.0	97.7	0.3	0.5	1.5	1706	pass
+GCA_002980475.2	Fusarium beomiforme	fungal	ascomycota_odb10	97.9	97.1	0.8	0.9	1.2	1706	pass
+GCA_013758895.1	Fusarium bulbicola	fungal	ascomycota_odb10	98.2	97.9	0.3	0.5	1.3	1706	pass
+GCA_057674545.1	Fusarium cf. solani	fungal	ascomycota_odb10	98.1	97.7	0.4	1.0	0.9	1706	pass
+GCA_057675865.1	Fusarium cf. solani	fungal	ascomycota_odb10	99.4	98.8	0.6	0.4	0.2	1706	pass
+GCA_057675645.1	Fusarium cf. solani	fungal	ascomycota_odb10	99.4	98.8	0.6	0.3	0.3	1706	pass
+GCA_057674555.1	Fusarium cf. solani	fungal	ascomycota_odb10	98.4	98.1	0.3	0.9	0.7	1706	pass
+GCA_057675685.1	Fusarium cf. solani	fungal	ascomycota_odb10	99.3	98.7	0.6	0.2	0.5	1706	pass
+GCA_057674765.1	Fusarium cf. solani	fungal	ascomycota_odb10	96.1	95.7	0.4	2.0	1.9	1706	pass
+GCA_057675065.1	Fusarium cf. solani	fungal	ascomycota_odb10	94.4	94.0	0.4	2.5	3.1	1706	pass
+GCA_057675705.1	Fusarium cf. solani	fungal	ascomycota_odb10	98.6	98.1	0.5	0.6	0.8	1706	pass
+GCA_057675765.1	Fusarium cf. solani	fungal	ascomycota_odb10	98.8	98.3	0.5	0.4	0.8	1706	pass
+GCA_057675785.1	Fusarium cf. solani	fungal	ascomycota_odb10	98.6	98.1	0.5	0.4	1.0	1706	pass
+GCA_057675845.1	Fusarium cf. solani	fungal	ascomycota_odb10	99.3	98.8	0.5	0.4	0.3	1706	pass
+GCA_057675965.1	Fusarium cf. solani	fungal	ascomycota_odb10	97.6	97.2	0.4	1.3	1.1	1706	pass
+GCA_057675825.1	Fusarium cf. solani	fungal	ascomycota_odb10	88.4	87.9	0.5	1.7	9.9	1706	pass
+GCA_057675945.1	Fusarium cf. solani	fungal	ascomycota_odb10	99.2	98.7	0.5	0.5	0.3	1706	pass
+GCA_022627125.1	Fusarium chuoi	fungal	ascomycota_odb10	88.2	87.8	0.4	3.4	8.4	1706	pass
+GCA_022627105.1	Fusarium chuoi	fungal	ascomycota_odb10	86.4	85.9	0.5	3.3	10.3	1706	pass
+GCA_013781345.1	Fusarium coicis	fungal	ascomycota_odb10	97.4	97.1	0.3	0.8	1.8	1706	pass
+GCA_013396175.1	Fusarium denticulatum	fungal	ascomycota_odb10	97.6	97.2	0.4	0.9	1.5	1706	pass
+GCA_027945365.1	Fusarium equiseti	fungal	ascomycota_odb10	98.5	98.3	0.2	0.8	0.7	1706	pass
+GCA_003946985.1	Fusarium duplospermum	fungal	ascomycota_odb10	99.0	98.4	0.6	0.6	0.4	1706	pass
+GCA_057674645.1	Fusarium duplospermum	fungal	ascomycota_odb10	99.8	99.2	0.6	0.2	0.0	1706	pass
+GCA_057674665.1	Fusarium duplospermum	fungal	ascomycota_odb10	99.7	99.1	0.6	0.2	0.1	1706	pass
+GCA_910393935.1	Fusarium equiseti	fungal	ascomycota_odb10	98.9	98.4	0.5	0.3	0.8	1706	pass
+GCA_057676085.1	Fusarium drepaniforme	fungal	ascomycota_odb10	96.1	95.5	0.6	2.0	1.9	1706	pass
+GCA_057674965.1	Fusarium euwallaceae	fungal	ascomycota_odb10	98.1	97.5	0.6	1.0	0.9	1706	pass
+GCA_057675025.1	Fusarium euwallaceae	fungal	ascomycota_odb10	97.8	97.2	0.6	1.2	1.0	1706	pass
+GCA_013266205.1	Fusarium decemcellulare	fungal	ascomycota_odb10	94.1	93.1	1.0	1.7	4.2	1706	pass
+GCA_057675525.1	Fusarium euwallaceae	fungal	ascomycota_odb10	97.4	96.8	0.6	1.1	1.5	1706	pass
+GCA_057675505.1	Fusarium euwallaceae	fungal	ascomycota_odb10	98.1	97.5	0.6	0.8	1.1	1706	pass
+GCA_027945495.1	Fusarium falciforme	fungal	ascomycota_odb10	96.8	93.7	3.1	1.5	1.7	1706	pass
+GCA_019059555.1	Alternaria longipes	fungal	ascomycota_odb10							no_cds
+GCA_023079265.1	Alternaria brassicicola	fungal	ascomycota_odb10							no_cds
+GCA_002952155.1	Alternaria solani	fungal	ascomycota_odb10							no_cds
+GCA_058968875.1	Alternaria solani	fungal	ascomycota_odb10							no_cds
+GCA_036363465.1	Alternaria solani	fungal	ascomycota_odb10							no_cds
+GCA_002837235.1	Alternaria solani	fungal	ascomycota_odb10							no_cds
+GCA_026108165.1	Aspergillus ochraceus	fungal	ascomycota_odb10							no_cds
+GCA_004849945.1	Aspergillus ochraceus	fungal	ascomycota_odb10							no_cds
+GCA_025594125.1	Aspergillus ochraceus	fungal	ascomycota_odb10							no_cds
+GCA_002018265.1	Ceratocystis harringtonii	fungal	ascomycota_odb10							no_cds
+GCA_006681795.1	Ceratocystis manginecans	fungal	ascomycota_odb10							no_cds
+GCA_026120055.1	Cercospora apii	fungal	ascomycota_odb10							no_cds
+GCA_022836995.1	Cercospora apii	fungal	ascomycota_odb10							no_cds
+GCA_005356885.1	Cercospora cf. flagellaris	fungal	ascomycota_odb10							no_cds
+GCA_005356855.1	Cercospora kikuchii	fungal	ascomycota_odb10							no_cds
+GCA_058382225.1	Cercospora cf. flagellaris	fungal	ascomycota_odb10							no_cds
+GCA_009193115.1	Cercospora kikuchii	fungal	ascomycota_odb10							no_cds
+GCA_002994015.1	Cercospora nicotianae	fungal	ascomycota_odb10							no_cds
+GCA_008122225.1	Ciboria shiraiana	fungal	ascomycota_odb10							no_cds
+GCA_002249775.1	Colletotrichum coccodes	fungal	ascomycota_odb10							no_cds
+GCA_002249805.1	Colletotrichum coccodes	fungal	ascomycota_odb10							no_cds
+GCA_003386485.1	Colletotrichum lentis	fungal	ascomycota_odb10							no_cds
+GCA_001693025.3	Colletotrichum lindemuthianum	fungal	ascomycota_odb10							no_cds
+GCA_041941805.1	Colletotrichum lindemuthianum	fungal	ascomycota_odb10							no_cds
+GCA_001693015.2	Colletotrichum lindemuthianum	fungal	ascomycota_odb10							no_cds
+GCA_041941825.1	Colletotrichum lindemuthianum	fungal	ascomycota_odb10							no_cds
+GCA_041941875.1	Colletotrichum lindemuthianum	fungal	ascomycota_odb10							no_cds
+GCA_041941845.1	Colletotrichum lindemuthianum	fungal	ascomycota_odb10							no_cds
+GCA_005212705.1	Curvularia lunata	fungal	ascomycota_odb10							no_cds
+GCA_025258505.1	Fusarium asiaticum	fungal	ascomycota_odb10							no_cds
+GCA_001717835.1	Fusarium asiaticum	fungal	ascomycota_odb10							no_cds
+GCA_050916195.1	Fusarium asiaticum	fungal	ascomycota_odb10							no_cds
+GCA_001717845.1	Fusarium asiaticum	fungal	ascomycota_odb10							no_cds
+GCA_025427855.1	Fusarium asiaticum	fungal	ascomycota_odb10							no_cds
+GCA_051942695.1	Fusarium asiaticum	fungal	ascomycota_odb10							no_cds
+GCA_025428385.1	Fusarium asiaticum	fungal	ascomycota_odb10							no_cds
+GCA_025428395.1	Fusarium asiaticum	fungal	ascomycota_odb10							no_cds
+GCA_017657095.1	Fusarium asiaticum	fungal	ascomycota_odb10							no_cds
+GCA_013618305.1	Fusarium asiaticum	fungal	ascomycota_odb10							no_cds
+GCA_055255615.1	Fusarium sacchari	fungal	ascomycota_odb10							no_cds
+GCA_013363175.1	Fusarium virguliforme	fungal	ascomycota_odb10							no_cds
+GCA_001457955.1	Heterobasidion annosum	fungal	basidiomycota_odb10							no_cds
+GCA_055672675.1	Monilinia fructicola	fungal	ascomycota_odb10							no_cds
+GCA_002162545.1	Monilinia fructicola	fungal	ascomycota_odb10							no_cds
+GCA_002909715.1	Monilinia fructicola	fungal	ascomycota_odb10							no_cds
+GCA_002116305.1	Penicillium italicum	fungal	ascomycota_odb10							no_cds
+GCA_001008395.1	Penicillium italicum	fungal	ascomycota_odb10							no_cds
+GCA_000601435.1	Pseudopyrenochaeta lycopersici	fungal	ascomycota_odb10							no_cds
+GCA_958299125.1	Pyrenopeziza brassicae	fungal	ascomycota_odb10							no_cds
+GCA_012274445.1	Sclerotiophoma versabilis	fungal	ascomycota_odb10							no_cds
+GCA_059642765.1	Septoria lycopersici	fungal	ascomycota_odb10							no_cds
+GCA_020827535.1	Ustilago esculenta	fungal	basidiomycota_odb10							no_cds
+GCA_000173235.2	Hyaloperonospora arabidopsidis	oomycete	stramenopiles_odb10							no_cds
+GCA_002099245.1	Peronospora tabacina	oomycete	stramenopiles_odb10							no_cds
+GCA_002812785.1	Phytophthora litchii	oomycete	stramenopiles_odb10							no_cds
+GCA_055472655.1	Plasmopara viticola	oomycete	stramenopiles_odb10							no_cds
+GCA_027475745.1	Pythium aphanidermatum	oomycete	stramenopiles_odb10							no_cds
+GCA_902712725.1	Zymoseptoria tritici	fungal	ascomycota_odb10							no_cds
+GCA_003171515.3	Pyrenophora tritici-repentis	fungal	ascomycota_odb10							no_cds
+GCA_027945245.1	Fusarium irregulare	fungal	ascomycota_odb10	98.7	98.5	0.2	0.6	0.7	1706	pass
+GCA_026873545.1	Fusarium falciforme	fungal	ascomycota_odb10	99.9	99.3	0.6	0.0	0.1	1706	pass
+GCA_013396295.1	Fusarium heterosporum	fungal	ascomycota_odb10	97.9	97.5	0.4	1.0	1.1	1706	pass
+GCA_013266175.1	Fusarium gaditjirri	fungal	ascomycota_odb10	98.4	98.0	0.4	0.2	1.4	1706	pass
+GCA_003012295.1	Fusarium flagelliforme	fungal	ascomycota_odb10	98.3	97.5	0.8	0.5	1.2	1706	pass
+GCA_027945515.1	Fusarium falciforme	fungal	ascomycota_odb10	98.6	95.7	2.9	0.8	0.6	1706	pass
+GCA_027945505.1	Fusarium falciforme	fungal	ascomycota_odb10	98.6	96.0	2.6	0.7	0.7	1706	pass
+GCF_026873545.1	Fusarium falciforme	fungal	ascomycota_odb10	97.6	97.0	0.6	0.1	2.3	1706	pass
+GCA_057675345.1	Fusarium floridanum	fungal	ascomycota_odb10	95.1	94.5	0.6	2.6	2.3	1706	pass
+GCA_057675305.1	Fusarium floridanum	fungal	ascomycota_odb10	96.2	95.6	0.6	1.6	2.2	1706	pass
+GCA_013266165.1	Fusarium graminum	fungal	ascomycota_odb10	98.3	97.9	0.4	0.5	1.2	1706	pass
+GCA_013396165.1	Fusarium globosum	fungal	ascomycota_odb10	96.5	96.0	0.5	0.8	2.7	1706	pass
+GCA_057675325.1	Fusarium floridanum	fungal	ascomycota_odb10	96.5	95.9	0.6	1.9	1.6	1706	pass
+GCA_057675205.1	Fusarium floridanum	fungal	ascomycota_odb10	96.1	95.5	0.6	2.2	1.7	1706	pass
+GCA_003947005.1	Fusarium floridanum	fungal	ascomycota_odb10	96.6	96.0	0.6	0.4	3.0	1706	pass
+GCA_027945235.1	Fusarium irregulare	fungal	ascomycota_odb10	99.8	99.4	0.4	0.1	0.1	1706	pass
+GCA_027627305.1	Fusarium decemcellulare	fungal	ascomycota_odb10	57.7	55.5	2.2	9.6	32.7	1706	pass
+GCA_025433555.1	Fusarium keratoplasticum	fungal	ascomycota_odb10	99.7	99.2	0.5	0.1	0.2	1706	pass
+GCA_001292635.1	Fusarium langsethiae	fungal	ascomycota_odb10	98.9	98.5	0.4	0.2	0.9	1706	pass
+GCA_052570515.1	Fusarium lateritium	fungal	ascomycota_odb10	99.1	98.8	0.3	0.4	0.5	1706	pass
+GCA_022180325.1	Fusarium langsethiae	fungal	ascomycota_odb10	99.3	98.7	0.6	0.2	0.5	1706	pass
+GCA_025433545.1	Fusarium keratoplasticum	fungal	ascomycota_odb10	99.9	99.4	0.5	0.0	0.1	1706	pass
+GCA_052570355.1	Fusarium lateritium	fungal	ascomycota_odb10	99.4	99.2	0.2	0.2	0.4	1706	pass
+GCF_025433545.1	Fusarium keratoplasticum	fungal	ascomycota_odb10	97.9	97.4	0.5	0.0	2.1	1706	pass
+GCA_052570455.1	Fusarium lateritium	fungal	ascomycota_odb10	99.2	98.9	0.3	0.2	0.6	1706	pass
+GCA_022180345.1	Fusarium langsethiae	fungal	ascomycota_odb10	99.3	98.8	0.5	0.2	0.5	1706	pass
+GCA_052570155.1	Fusarium lateritium	fungal	ascomycota_odb10	98.5	98.0	0.5	0.8	0.7	1706	pass
+GCA_052570225.1	Fusarium lateritium	fungal	ascomycota_odb10	99.0	98.8	0.2	0.5	0.5	1706	pass
+GCA_057675985.1	Fusarium kuroshium	fungal	ascomycota_odb10	97.5	96.7	0.8	1.2	1.3	1706	pass
+GCA_052571635.1	Fusarium lateritium	fungal	ascomycota_odb10	97.4	97.1	0.3	0.4	2.2	1706	pass
+GCA_003698175.1	Fusarium kuroshium	fungal	ascomycota_odb10	94.6	93.8	0.8	0.4	5.0	1706	pass
+GCA_052570285.1	Fusarium lateritium	fungal	ascomycota_odb10	99.1	98.9	0.2	0.5	0.4	1706	pass
+GCA_052570295.1	Fusarium lateritium	fungal	ascomycota_odb10	99.3	99.2	0.1	0.4	0.3	1706	pass
+GCA_052570305.1	Fusarium lateritium	fungal	ascomycota_odb10	98.5	98.3	0.2	0.5	1.0	1706	pass
+GCA_052570365.1	Fusarium lateritium	fungal	ascomycota_odb10	99.1	98.9	0.2	0.2	0.7	1706	pass
+GCA_052570435.1	Fusarium lateritium	fungal	ascomycota_odb10	99.2	99.1	0.1	0.4	0.4	1706	pass
+GCA_052570465.1	Fusarium lateritium	fungal	ascomycota_odb10	98.6	98.5	0.1	0.6	0.8	1706	pass
+GCA_052570615.1	Fusarium lateritium	fungal	ascomycota_odb10	98.3	98.1	0.2	0.8	0.9	1706	pass
+GCA_052570645.1	Fusarium lateritium	fungal	ascomycota_odb10	98.5	98.2	0.3	0.5	1.0	1706	pass
+GCA_052570605.1	Fusarium lateritium	fungal	ascomycota_odb10	98.7	98.4	0.3	0.7	0.6	1706	pass
+GCA_003012285.1	Fusarium longipes	fungal	ascomycota_odb10	98.0	97.8	0.2	0.9	1.1	1706	pass
+GCF_900044065.1	Fusarium mangiferae	fungal	ascomycota_odb10	99.8	99.4	0.4	0.0	0.2	1706	pass
+GCA_900044065.1	Fusarium mangiferae	fungal	ascomycota_odb10	99.8	99.4	0.4	0.0	0.2	1706	pass
+GCF_019915245.1	Fusarium musae	fungal	ascomycota_odb10	98.5	98.1	0.4	0.8	0.7	1706	pass
+GCA_057675485.1	Fusarium mekan	fungal	ascomycota_odb10	96.0	95.5	0.5	2.2	1.8	1706	pass
+GCA_013396015.1	Fusarium mexicanum	fungal	ascomycota_odb10	98.2	97.8	0.4	0.4	1.4	1706	pass
+GCA_057674785.1	Fusarium mekan	fungal	ascomycota_odb10	94.0	93.4	0.6	3.0	3.0	1706	pass
+GCA_019915245.1	Fusarium musae	fungal	ascomycota_odb10	98.5	98.1	0.4	0.8	0.7	1706	pass
+GCA_013396205.1	Fusarium mundagurra	fungal	ascomycota_odb10	97.6	97.0	0.6	0.5	1.9	1706	pass
+GCA_013396005.1	Fusarium napiforme	fungal	ascomycota_odb10	97.0	96.8	0.2	1.1	1.9	1706	pass
+GCA_002894225.1	Fusarium nygamai	fungal	ascomycota_odb10	98.9	98.4	0.5	0.5	0.6	1706	pass
+GCA_057675085.1	Fusarium obliquiseptatum	fungal	ascomycota_odb10	96.3	95.8	0.5	1.4	2.3	1706	pass
+GCA_057674705.1	Fusarium obliquiseptatum	fungal	ascomycota_odb10	96.4	95.7	0.7	1.9	1.7	1706	pass
+GCA_054098485.1	Fusarium nematophilum	fungal	ascomycota_odb10	97.8	97.0	0.8	1.0	1.2	1706	pass
+GCA_057675185.1	Fusarium oligoseptatum	fungal	ascomycota_odb10	95.7	95.2	0.5	2.5	1.8	1706	pass
+GCA_057676105.1	Fusarium papillatum	fungal	ascomycota_odb10	96.2	95.7	0.5	1.8	2.0	1706	pass
+GCA_057676005.1	Fusarium papillatum	fungal	ascomycota_odb10	95.0	94.6	0.4	2.5	2.5	1706	pass
+GCA_046056315.1	Fusarium poae	fungal	ascomycota_odb10	99.5	99.3	0.2	0.2	0.3	1706	pass
+GCA_013396025.1	Fusarium phyllophilum	fungal	ascomycota_odb10	98.0	97.6	0.4	0.8	1.2	1706	pass
+GCA_001675295.1	Fusarium poae	fungal	ascomycota_odb10	99.8	99.5	0.3	0.0	0.2	1706	pass
+GCF_019609905.1	Fusarium poae	fungal	ascomycota_odb10	99.4	99.2	0.2	0.2	0.4	1706	pass
+GCA_057674445.1	Fusarium pseudensiforme	fungal	ascomycota_odb10	84.4	84.2	0.2	4.2	11.4	1706	pass
+GCA_057674525.1	Fusarium pseudensiforme	fungal	ascomycota_odb10	79.2	79.0	0.2	4.6	16.2	1706	pass
+GCA_019609905.1	Fusarium poae	fungal	ascomycota_odb10	99.4	99.2	0.2	0.2	0.4	1706	pass
+GCA_003946995.1	Fusarium oligoseptatum	fungal	ascomycota_odb10	93.8	93.3	0.5	3.5	2.7	1706	pass
+GCA_057675605.1	Fusarium rekanum	fungal	ascomycota_odb10	99.3	98.8	0.5	0.2	0.5	1706	pass
+GCA_057675625.1	Fusarium rekanum	fungal	ascomycota_odb10	99.2	98.7	0.5	0.4	0.4	1706	pass
+GCA_013395995.1	Fusarium pseudoanthophilum	fungal	ascomycota_odb10	97.8	97.4	0.4	0.8	1.4	1706	pass
+GCA_013396035.1	Fusarium pseudocircinatum	fungal	ascomycota_odb10	97.4	97.0	0.4	0.9	1.7	1706	pass
+GCA_025433615.1	Fusarium sp. LHS14.1	fungal	ascomycota_odb10	100.0	99.2	0.8	0.0	0.0	1706	pass
+GCA_013266185.1	Fusarium sarcochroum	fungal	ascomycota_odb10	97.7	97.2	0.5	0.8	1.5	1706	pass
+GCA_056098845.1	Fusarium sp. IMII-1	fungal	ascomycota_odb10	99.1	98.9	0.2	0.5	0.4	1706	pass
+GCA_023101225.1	Fusarium solani-melongenae	fungal	ascomycota_odb10	99.5	99.1	0.4	0.3	0.2	1706	pass
+GCA_022627095.1	Fusarium sp. FIESC RH6	fungal	ascomycota_odb10	95.7	95.3	0.4	0.8	3.5	1706	pass
+GCA_025433565.1	Fusarium sp. Ph1	fungal	ascomycota_odb10	99.8	98.7	1.1	0.1	0.1	1706	pass
+GCA_013396255.1	Fusarium sp. NRRL 25303	fungal	ascomycota_odb10	98.1	97.5	0.6	0.4	1.5	1706	pass
+GCA_013266265.1	Fusarium sp. NRRL 66182	fungal	ascomycota_odb10	96.8	90.9	5.9	0.9	2.3	1706	pass
+GCA_027945595.1	Fusarium torreyae	fungal	ascomycota_odb10	99.3	98.9	0.4	0.2	0.5	1706	pass
+GCA_900312805.1	Fusarium torulosum	fungal	ascomycota_odb10	99.4	99.1	0.3	0.2	0.4	1706	pass
+GCA_013396195.1	Fusarium tjaetaba	fungal	ascomycota_odb10	98.3	97.9	0.4	0.4	1.3	1706	pass
+GCF_013396195.1	Fusarium tjaetaba	fungal	ascomycota_odb10	98.3	97.9	0.4	0.4	1.3	1706	pass
+GCA_057675405.1	Fusarium variasi	fungal	ascomycota_odb10	95.9	95.4	0.5	2.2	1.9	1706	pass
+GCF_900007375.1	Fusarium venenatum	fungal	ascomycota_odb10	99.9	99.4	0.5	0.1	0.0	1706	pass
+GCA_900007375.1	Fusarium venenatum	fungal	ascomycota_odb10	99.9	99.4	0.5	0.1	0.0	1706	pass
+GCF_000151355.1	Fusarium vanettenii 77-13-4	fungal	ascomycota_odb10	98.4	97.5	0.9	0.4	1.2	1706	pass
+GCA_000151355.1	Fusarium vanettenii 77-13-4	fungal	ascomycota_odb10	98.4	97.5	0.9	0.4	1.2	1706	pass
+GCA_013266195.1	Fusarium zealandicum	fungal	ascomycota_odb10	96.9	96.5	0.4	0.8	2.3	1706	pass
+GCA_057675385.1	Fusarium variasi	fungal	ascomycota_odb10	96.2	95.7	0.5	2.1	1.7	1706	pass
+GCA_017357885.1	Monilinia vaccinii-corymbosi	fungal	ascomycota_odb10	97.9	97.7	0.2	1.1	1.0	1706	pass
+GCA_057675105.1	Fusarium tuaranense	fungal	ascomycota_odb10	93.9	93.4	0.5	3.2	2.9	1706	pass
+GCA_057675225.1	Fusarium tuaranense	fungal	ascomycota_odb10	95.0	94.5	0.5	2.2	2.8	1706	pass
+GCA_030512325.1	Lasiodiplodia hormozganensis	fungal	ascomycota_odb10	98.7	97.4	1.3	0.6	0.7	1706	pass
+GCA_010093695.1	Plenodomus tracheiphilus IPT5	fungal	ascomycota_odb10	99.3	99.1	0.2	0.4	0.3	1706	pass
+GCA_057675365.1	Fusarium warna	fungal	ascomycota_odb10	95.9	95.3	0.6	2.2	1.9	1706	pass
+GCA_001263375.1	Puccinia sorghi	fungal	basidiomycota_odb10	86.1	85.6	0.5	4.1	9.8	1764	pass
+GCA_001578235.1	Pseudocercospora eumusae	fungal	ascomycota_odb10	90.9	85.4	5.5	0.1	9.0	1706	pass
+GCA_900080155.1	Ustilago bromivora	fungal	basidiomycota_odb10	99.5	99.2	0.3	0.2	0.3	1764	pass
+GCA_900519155.1	Ustilago bromivora	fungal	basidiomycota_odb10	96.2	96.1	0.1	0.9	2.9	1764	pass
+GCA_001578225.1	Pseudocercospora musae	fungal	ascomycota_odb10	86.2	78.4	7.8	0.3	13.5	1706	pass
+GCA_000818155.1	105487	fungal	ascomycota_odb10							busco_error
+GCA_000818155.1	694573	fungal	ascomycota_odb10							busco_error
+GCF_004355905.1	Pyricularia grisea	fungal	ascomycota_odb10	98.6	98.2	0.4	0.1	1.3	1706	pass
+GCA_024704025.1	Pyricularia grisea	fungal	ascomycota_odb10	99.0	92.8	6.2	0.2	0.8	1706	pass
+GCA_004355905.1	Pyricularia grisea	fungal	ascomycota_odb10	98.6	98.2	0.4	0.1	1.3	1706	pass
+GCF_004337985.1	Pyricularia pennisetigena	fungal	ascomycota_odb10	98.8	98.3	0.5	0.3	0.9	1706	pass
+GCA_000465215.2	Pyrenophora seminiperda CCB06	fungal	ascomycota_odb10	76.9	76.7	0.2	2.7	20.4	1706	pass
+GCA_024704135.1	Pyricularia grisea	fungal	ascomycota_odb10	98.7	94.5	4.2	0.5	0.8	1706	pass
+GCA_004337985.1	Pyricularia pennisetigena	fungal	ascomycota_odb10	98.8	98.3	0.5	0.3	0.9	1706	pass
+GCA_000503235.1	Sclerotinia borealis F-4128	fungal	ascomycota_odb10	97.3	97.1	0.2	0.7	2.0	1706	pass
+GCA_052569915.1	Verticillium albo-atrum	fungal	ascomycota_odb10	97.2	97.0	0.2	0.8	2.0	1706	pass
+GCA_004337975.1	Pyricularia sp. CBS 133598	fungal	ascomycota_odb10	98.7	97.5	1.2	0.3	1.0	1706	pass
+GCA_052569925.1	Verticillium albo-atrum	fungal	ascomycota_odb10	92.2	92.0	0.2	1.3	6.5	1706	pass
+GCA_000150825.1	Verticillium alfalfae VaMs.102	fungal	ascomycota_odb10	73.0	73.0	0.0	12.0	15.0	1706	pass
+GCF_000150825.1	Verticillium alfalfae VaMs.102	fungal	ascomycota_odb10	73.0	73.0	0.0	12.0	15.0	1706	pass
+GCA_046529785.1	914237	fungal	ascomycota_odb10	98.0	97.8	0.2	1.0	1.0	1706	pass
+GCF_001642055.1	Alternaria alternata	fungal	ascomycota_odb10	98.5	98.4	0.1	0.4	1.1	1706	pass
+GCA_001642055.1	Alternaria alternata	fungal	ascomycota_odb10	98.5	98.4	0.1	0.4	1.1	1706	pass
+GCA_019702505.1	Alternaria panax	fungal	ascomycota_odb10	99.0	98.9	0.1	0.3	0.7	1706	pass
+GCA_004154755.1	Alternaria alternata	fungal	ascomycota_odb10	99.1	98.6	0.5	0.4	0.5	1706	pass
+GCA_004011695.2	Ascochyta rabiei	fungal	ascomycota_odb10	99.5	96.8	2.7	0.3	0.2	1706	pass
+GCA_016097375.2	Ascochyta lentis	fungal	ascomycota_odb10	99.8	98.4	1.4	0.1	0.1	1706	pass
+GCA_022607105.2	Ascochyta lentis	fungal	ascomycota_odb10	99.8	98.4	1.4	0.1	0.1	1706	pass
+GCF_004011695.2	Ascochyta rabiei	fungal	ascomycota_odb10	99.5	96.8	2.7	0.3	0.2	1706	pass
+GCA_001630375.1	Ascochyta rabiei	fungal	ascomycota_odb10	96.7	96.3	0.4	0.4	2.9	1706	pass
+GCF_009017415.1	Aspergillus flavus	fungal	ascomycota_odb10	99.1	98.4	0.7	0.2	0.7	1706	pass
+GCA_001990825.1	Aspergillus carbonarius	fungal	ascomycota_odb10	94.2	88.3	5.9	0.6	5.2	1706	pass
+GCA_014784225.2	Aspergillus flavus	fungal	ascomycota_odb10	99.2	93.3	5.9	0.5	0.3	1706	pass
+GCA_016097525.1	Alternaria alternata	fungal	ascomycota_odb10	60.3	60.1	0.2	22.0	17.7	1706	pass
+GCF_014117465.1	Aspergillus flavus	fungal	ascomycota_odb10	98.2	97.6	0.6	0.4	1.4	1706	pass
+GCA_009017415.1	Aspergillus flavus	fungal	ascomycota_odb10	99.1	98.4	0.7	0.2	0.7	1706	pass
+GCA_014117465.1	Aspergillus flavus	fungal	ascomycota_odb10	98.2	97.6	0.6	0.4	1.4	1706	pass
+GCA_014117485.1	Aspergillus flavus	fungal	ascomycota_odb10	98.7	98.1	0.6	0.2	1.1	1706	pass
+GCA_003709025.1	Aspergillus flavus	fungal	ascomycota_odb10	99.6	98.8	0.8	0.2	0.2	1706	pass
+GCA_002443195.2	Aspergillus flavus	fungal	ascomycota_odb10	99.4	98.9	0.5	0.3	0.3	1706	pass
+GCA_027574695.1	Aspergillus flavus	fungal	ascomycota_odb10	99.4	98.8	0.6	0.4	0.2	1706	pass
+GCA_002443215.2	Aspergillus flavus	fungal	ascomycota_odb10	99.4	98.7	0.7	0.4	0.2	1706	pass
+GCA_055697485.1	Aspergillus niger	fungal	ascomycota_odb10	97.9	97.7	0.2	0.9	1.2	1706	pass
+GCA_002456175.2	Aspergillus flavus	fungal	ascomycota_odb10	99.5	98.9	0.6	0.4	0.1	1706	pass
+GCA_000006275.3	Aspergillus flavus	fungal	ascomycota_odb10	97.8	96.0	1.8	0.8	1.4	1706	pass
+GCA_009176375.1	Aspergillus flavus	fungal	ascomycota_odb10	97.7	97.1	0.6	0.6	1.7	1706	pass
+GCA_027923725.1	Aspergillus niger	fungal	ascomycota_odb10	99.2	98.8	0.4	0.3	0.5	1706	pass
+GCA_001515345.1	Aspergillus niger	fungal	ascomycota_odb10	98.2	98.0	0.2	0.2	1.6	1706	pass
+GCA_023134235.1	Aspergillus niger	fungal	ascomycota_odb10	98.7	98.4	0.3	0.6	0.7	1706	pass
+GCA_023134265.1	Aspergillus niger	fungal	ascomycota_odb10	98.6	98.4	0.2	0.5	0.9	1706	pass
+GCA_023134295.1	Aspergillus niger	fungal	ascomycota_odb10	98.6	98.3	0.3	0.6	0.8	1706	pass
+GCA_023134415.1	Aspergillus niger	fungal	ascomycota_odb10	98.7	98.5	0.2	0.5	0.8	1706	pass
+GCA_023137675.1	Aspergillus niger	fungal	ascomycota_odb10	98.4	98.2	0.2	0.6	1.0	1706	pass
+GCA_023137705.1	Aspergillus niger	fungal	ascomycota_odb10	98.6	98.3	0.3	0.6	0.8	1706	pass
+GCA_023137835.1	Aspergillus niger	fungal	ascomycota_odb10	98.1	97.9	0.2	0.5	1.4	1706	pass
+GCA_023137735.1	Aspergillus niger	fungal	ascomycota_odb10	98.5	98.2	0.3	0.6	0.9	1706	pass
+GCA_023137895.1	Aspergillus niger	fungal	ascomycota_odb10	97.3	97.0	0.3	0.5	2.2	1706	pass
+GCA_023137925.1	Aspergillus niger	fungal	ascomycota_odb10	98.4	98.1	0.3	0.6	1.0	1706	pass
+GCA_023137955.1	Aspergillus niger	fungal	ascomycota_odb10	98.6	98.4	0.2	0.6	0.8	1706	pass
+GCA_023091265.1	Aspergillus niger	fungal	ascomycota_odb10	98.1	97.8	0.3	0.6	1.3	1706	pass
+GCA_051529875.1	Aspergillus niger	fungal	ascomycota_odb10	98.6	92.8	5.8	0.6	0.8	1706	pass
+GCF_003184595.1	Aspergillus niger	fungal	ascomycota_odb10	98.4	98.2	0.2	0.4	1.2	1706	pass
+GCF_000002855.4	Aspergillus niger	fungal	ascomycota_odb10	95.6	95.4	0.2	1.5	2.9	1706	pass
+GCA_027923745.1	Aspergillus niger	fungal	ascomycota_odb10	99.3	98.8	0.5	0.4	0.3	1706	pass
+GCA_027923805.1	Aspergillus niger	fungal	ascomycota_odb10	98.8	98.4	0.4	0.6	0.6	1706	pass
+GCA_027923785.1	Aspergillus niger	fungal	ascomycota_odb10	99.3	98.8	0.5	0.2	0.5	1706	pass
+GCA_027923825.1	Aspergillus niger	fungal	ascomycota_odb10	99.4	99.2	0.2	0.3	0.3	1706	pass
+GCA_027923865.1	Aspergillus niger	fungal	ascomycota_odb10	99.0	98.7	0.3	0.5	0.5	1706	pass
+GCA_027923985.1	Aspergillus niger	fungal	ascomycota_odb10	99.2	98.9	0.3	0.3	0.5	1706	pass
+GCA_027923945.1	Aspergillus niger	fungal	ascomycota_odb10	99.0	98.7	0.3	0.3	0.7	1706	pass
+GCA_027924005.1	Aspergillus niger	fungal	ascomycota_odb10	99.3	98.9	0.4	0.4	0.3	1706	pass
+GCA_023134355.1	Aspergillus niger	fungal	ascomycota_odb10	98.0	97.8	0.2	0.6	1.4	1706	pass
+GCA_023134325.1	Aspergillus niger	fungal	ascomycota_odb10	98.3	98.1	0.2	0.6	1.1	1706	pass
+GCA_023134385.1	Aspergillus niger	fungal	ascomycota_odb10	98.6	98.4	0.2	0.6	0.8	1706	pass
+GCA_023134475.1	Aspergillus niger	fungal	ascomycota_odb10	98.7	98.4	0.3	0.5	0.8	1706	pass
+GCA_023137865.1	Aspergillus niger	fungal	ascomycota_odb10	98.6	98.4	0.2	0.6	0.8	1706	pass
+GCA_023137765.1	Aspergillus niger	fungal	ascomycota_odb10	98.7	98.5	0.2	0.6	0.7	1706	pass
+GCA_023134515.1	Aspergillus niger	fungal	ascomycota_odb10	97.7	97.5	0.2	0.6	1.7	1706	pass
+GCA_023137795.1	Aspergillus niger	fungal	ascomycota_odb10	98.5	98.3	0.2	0.6	0.9	1706	pass
+GCA_023134445.1	Aspergillus niger	fungal	ascomycota_odb10	98.5	98.2	0.3	0.6	0.9	1706	pass
+GCA_023137805.1	Aspergillus niger	fungal	ascomycota_odb10	98.6	98.4	0.2	0.5	0.9	1706	pass
+GCA_023137965.1	Aspergillus niger	fungal	ascomycota_odb10	98.5	98.2	0.3	0.7	0.8	1706	pass
+GCA_023091205.1	Aspergillus niger	fungal	ascomycota_odb10	97.6	97.4	0.2	0.6	1.8	1706	pass
+GCA_003344705.1	Aspergillus niger	fungal	ascomycota_odb10	98.3	98.1	0.2	0.6	1.1	1706	pass
+GCA_900248155.1	Aspergillus niger	fungal	ascomycota_odb10	99.7	99.4	0.3	0.2	0.1	1706	pass
+GCF_000280675.1	Beauveria bassiana	fungal	ascomycota_odb10	99.2	99.1	0.1	0.3	0.5	1706	pass
+GCA_003184595.1	Aspergillus niger	fungal	ascomycota_odb10	98.4	98.2	0.2	0.4	1.2	1706	pass
+GCA_053540785.1	Beauveria bassiana	fungal	ascomycota_odb10	98.7	97.5	1.2	0.5	0.8	1706	pass
+GCA_053540805.1	Beauveria bassiana	fungal	ascomycota_odb10	98.7	97.4	1.3	0.5	0.8	1706	pass
+GCA_000002855.2	Aspergillus niger	fungal	ascomycota_odb10	95.6	95.4	0.2	1.5	2.9	1706	pass
+GCA_000280675.1	Beauveria bassiana	fungal	ascomycota_odb10	99.2	99.1	0.1	0.3	0.5	1706	pass
+GCA_053540765.1	Beauveria bassiana	fungal	ascomycota_odb10	98.7	97.5	1.2	0.4	0.9	1706	pass
+GCF_000354255.1	Bipolaris maydis	fungal	ascomycota_odb10	99.1	98.9	0.2	0.3	0.6	1706	pass
+GCA_028858655.1	Bipolaris maydis	fungal	ascomycota_odb10	96.9	95.8	1.1	0.8	2.3	1706	pass
+GCF_028858645.1	Bipolaris maydis	fungal	ascomycota_odb10	96.8	96.6	0.2	1.0	2.2	1706	pass
+GCA_028858645.1	Bipolaris maydis	fungal	ascomycota_odb10	96.8	96.6	0.2	1.0	2.2	1706	pass
+GCA_028564845.1	Bipolaris maydis	fungal	ascomycota_odb10	96.8	92.3	4.5	0.8	2.4	1706	pass
+GCA_000354255.1	Bipolaris maydis	fungal	ascomycota_odb10	99.1	98.9	0.2	0.3	0.6	1706	pass
+GCA_000338975.1	Bipolaris maydis	fungal	ascomycota_odb10	98.8	96.5	2.3	0.5	0.7	1706	pass
+GCF_000523455.1	Bipolaris oryzae	fungal	ascomycota_odb10	98.7	98.5	0.2	0.1	1.2	1706	pass
+GCF_000338995.1	Bipolaris sorokiniana	fungal	ascomycota_odb10	99.1	99.0	0.1	0.2	0.7	1706	pass
+GCA_000523455.1	Bipolaris oryzae	fungal	ascomycota_odb10	98.7	98.5	0.2	0.1	1.2	1706	pass
+GCA_000338995.1	Bipolaris sorokiniana	fungal	ascomycota_odb10	99.1	99.0	0.1	0.2	0.7	1706	pass
+GCF_000527765.1	Bipolaris victoriae	fungal	ascomycota_odb10	98.4	98.2	0.2	0.2	1.4	1706	pass
+GCA_013416765.1	Bipolaris sorokiniana	fungal	ascomycota_odb10	84.0	83.9	0.1	1.8	14.2	1706	pass
+GCF_000523435.1	Bipolaris zeicola	fungal	ascomycota_odb10	98.4	98.2	0.2	0.3	1.3	1706	pass
+GCA_905067625.1	Blumeria graminis	fungal	ascomycota_odb10	96.6	95.7	0.9	1.3	2.1	1706	pass
+GCA_000527765.1	Bipolaris victoriae	fungal	ascomycota_odb10	98.4	98.2	0.2	0.2	1.4	1706	pass
+GCA_000523435.1	Bipolaris zeicola	fungal	ascomycota_odb10	98.4	98.2	0.2	0.3	1.3	1706	pass
+GCA_000418435.1	Blumeria graminis	fungal	ascomycota_odb10	86.0	85.9	0.1	6.7	7.3	1706	pass
+GCA_900519115.1	Blumeria graminis	fungal	ascomycota_odb10	85.2	85.1	0.1	4.7	10.1	1706	pass
+GCA_052569665.1	Botrytis cinerea	fungal	ascomycota_odb10	97.7	97.5	0.2	1.0	1.3	1706	pass
+GCA_021436945.2	Botryosphaeria dothidea	fungal	ascomycota_odb10	97.1	96.8	0.3	1.1	1.8	1706	pass
+GCA_053455415.1	Botrytis cinerea	fungal	ascomycota_odb10	98.9	98.7	0.2	0.4	0.7	1706	pass
+GCA_000349525.1	Botrytis cinerea	fungal	ascomycota_odb10	97.8	97.5	0.3	0.8	1.4	1706	pass
+GCA_052570965.1	Botrytis cinerea	fungal	ascomycota_odb10	98.0	97.8	0.2	0.8	1.2	1706	pass
+GCF_000143535.2	Botrytis cinerea	fungal	ascomycota_odb10	99.8	91.4	8.4	0.1	0.1	1706	pass
+GCA_000227075.1	Botrytis cinerea	fungal	ascomycota_odb10	90.5	90.3	0.2	3.7	5.8	1706	pass
+GCA_000143535.4	Botrytis cinerea	fungal	ascomycota_odb10	99.8	91.4	8.4	0.1	0.1	1706	pass
+GCA_052569675.1	Botrytis cinerea	fungal	ascomycota_odb10	97.6	97.4	0.2	0.9	1.5	1706	pass
+GCA_052570955.1	Botrytis cinerea	fungal	ascomycota_odb10	97.5	97.3	0.2	0.9	1.6	1706	pass
+GCA_000389695.3	Ceratocystis fimbriata	fungal	ascomycota_odb10	97.7	97.6	0.1	0.4	1.9	1706	pass
+GCA_052570975.1	Botrytis cinerea	fungal	ascomycota_odb10	98.3	98.1	0.2	0.6	1.1	1706	pass
+GCA_052571015.1	Botrytis cinerea	fungal	ascomycota_odb10	97.2	97.0	0.2	1.0	1.8	1706	pass
+GCA_052571025.1	Botrytis cinerea	fungal	ascomycota_odb10	98.2	98.0	0.2	0.7	1.1	1706	pass
+GCA_004786205.1	Botrytis elliptica	fungal	ascomycota_odb10	99.4	99.2	0.2	0.2	0.4	1706	pass
+GCF_033473495.1	Cercospora beticola	fungal	ascomycota_odb10	99.3	99.1	0.2	0.1	0.6	1706	pass
+GCF_002742065.1	Cercospora beticola	fungal	ascomycota_odb10	99.0	97.1	1.9	0.2	0.8	1706	pass
+GCA_033473495.1	Cercospora beticola	fungal	ascomycota_odb10	99.3	99.1	0.2	0.1	0.6	1706	pass
+GCA_000347355.1	Claviceps purpurea	fungal	ascomycota_odb10	96.6	96.2	0.4	1.3	2.1	1706	pass
+GCA_010093985.1	Cercospora zeae-maydis	fungal	ascomycota_odb10	98.2	98.1	0.1	0.7	1.1	1706	pass
+GCA_002742065.1	Cercospora beticola	fungal	ascomycota_odb10	99.0	97.1	1.9	0.2	0.8	1706	pass
+GCA_963585935.1	Cercospora beticola	fungal	ascomycota_odb10	98.2	94.2	4.0	0.4	1.4	1706	pass
+GCA_037954465.1	Colletotrichum acutatum	fungal	ascomycota_odb10	99.2	99.1	0.1	0.2	0.6	1706	pass
+GCA_013201875.1	Colletotrichum fructicola	fungal	ascomycota_odb10	97.7	97.3	0.4	0.5	1.8	1706	pass
+GCA_045514765.1	Colletotrichum asianum	fungal	ascomycota_odb10	94.9	94.4	0.5	0.2	4.9	1706	pass
+GCA_009806415.1	Colletotrichum asianum	fungal	ascomycota_odb10	99.3	98.9	0.4	0.1	0.6	1706	pass
+GCA_012932255.1	Colletotrichum fructicola	fungal	ascomycota_odb10	98.3	98.1	0.2	0.8	0.9	1706	pass
+GCA_902827195.2	Clonostachys rosea	fungal	ascomycota_odb10	95.6	93.4	2.2	1.3	3.1	1706	pass
+GCA_013201905.1	Colletotrichum fructicola	fungal	ascomycota_odb10	97.7	97.4	0.3	0.5	1.8	1706	pass
+GCA_013201925.1	Colletotrichum fructicola	fungal	ascomycota_odb10	97.2	96.8	0.4	0.5	2.3	1706	pass
+GCF_011800055.1	Colletotrichum gloeosporioides	fungal	ascomycota_odb10	98.8	98.0	0.8	0.2	1.0	1706	pass
+GCF_000149035.1	Colletotrichum graminicola	fungal	ascomycota_odb10	99.4	99.2	0.2	0.2	0.4	1706	pass
+GCA_011947485.2	Colletotrichum camelliae	fungal	ascomycota_odb10	86.8	86.5	0.3	0.4	12.8	1706	pass
+GCA_000149035.1	Colletotrichum graminicola	fungal	ascomycota_odb10	99.4	99.2	0.2	0.2	0.4	1706	pass
+GCA_029226625.1	Colletotrichum graminicola	fungal	ascomycota_odb10	97.4	97.0	0.4	1.6	1.0	1706	pass
+GCA_011800055.1	Colletotrichum gloeosporioides	fungal	ascomycota_odb10	98.8	98.0	0.8	0.2	1.0	1706	pass
+GCA_021432615.1	Colletotrichum gloeosporioides	fungal	ascomycota_odb10	99.3	98.9	0.4	0.4	0.3	1706	pass
+GCF_001672515.1	Colletotrichum higginsianum	fungal	ascomycota_odb10	98.5	98.1	0.4	0.6	0.9	1706	pass
+GCA_000313795.2	Colletotrichum higginsianum	fungal	ascomycota_odb10	83.8	83.2	0.6	9.7	6.5	1706	pass
+GCA_001672515.1	Colletotrichum higginsianum	fungal	ascomycota_odb10	98.5	98.1	0.4	0.6	0.9	1706	pass
+GCA_000350065.2	Colletotrichum orbiculare	fungal	ascomycota_odb10	96.9	96.7	0.2	1.3	1.8	1706	pass
+GCA_018906765.1	Colletotrichum scovillei	fungal	ascomycota_odb10	97.0	96.8	0.2	0.3	2.7	1706	pass
+GCA_018906675.1	Colletotrichum scovillei	fungal	ascomycota_odb10	97.0	96.8	0.2	0.3	2.7	1706	pass
+GCA_018907675.1	Colletotrichum scovillei	fungal	ascomycota_odb10	96.9	96.8	0.1	0.3	2.8	1706	pass
+GCA_013201745.1	Colletotrichum siamense	fungal	ascomycota_odb10	97.4	97.2	0.2	0.5	2.1	1706	pass
+GCA_036851105.1	Colletotrichum tabaci	fungal	ascomycota_odb10	98.9	98.4	0.5	0.6	0.5	1706	pass
+GCA_013201795.1	Colletotrichum siamense	fungal	ascomycota_odb10	97.5	97.3	0.2	0.5	2.0	1706	pass
+GCA_013201755.1	Colletotrichum siamense	fungal	ascomycota_odb10	97.3	96.9	0.4	0.6	2.1	1706	pass
+GCA_013201865.1	Colletotrichum siamense	fungal	ascomycota_odb10	97.5	97.3	0.2	0.6	1.9	1706	pass
+GCA_004367215.1	Colletotrichum trifolii	fungal	ascomycota_odb10	94.4	94.0	0.4	1.1	4.5	1706	pass
+GCF_011745365.1	Cryphonectria parasitica	fungal	ascomycota_odb10	94.1	93.9	0.2	1.2	4.7	1706	pass
+GCA_011745365.1	Cryphonectria parasitica	fungal	ascomycota_odb10	94.1	93.9	0.2	1.2	4.7	1706	pass
+GCA_003795275.1	Cytospora chrysosperma	fungal	ascomycota_odb10	93.8	92.9	0.9	0.6	5.6	1706	pass
+GCA_000340195.1	Dothistroma septosporum	fungal	ascomycota_odb10	97.4	97.3	0.1	0.9	1.7	1706	pass
+GCA_003814445.1	Epichloe festucae	fungal	ascomycota_odb10	88.7	88.2	0.5	0.6	10.7	1706	pass
+GCF_000359705.1	Exserohilum turcicum	fungal	ascomycota_odb10	97.3	97.2	0.1	1.1	1.6	1706	pass
+GCA_000359705.1	Exserohilum turcicum	fungal	ascomycota_odb10	97.3	97.2	0.1	1.1	1.6	1706	pass
+GCF_020509005.1	Fulvia fulva	fungal	ascomycota_odb10	99.2	99.1	0.1	0.3	0.5	1706	pass
+GCA_034268455.1	Fulvia fulva	fungal	ascomycota_odb10	99.0	98.8	0.2	0.3	0.7	1706	pass
+GCA_034269425.1	Fulvia fulva	fungal	ascomycota_odb10	99.0	98.8	0.2	0.3	0.7	1706	pass
+GCA_020509005.2	Fulvia fulva	fungal	ascomycota_odb10	99.2	99.1	0.1	0.3	0.5	1706	pass
+GCA_035196915.1	Fulvia fulva	fungal	ascomycota_odb10	99.0	98.9	0.1	0.3	0.7	1706	pass
+GCA_035196885.1	Fulvia fulva	fungal	ascomycota_odb10	99.0	98.9	0.1	0.3	0.7	1706	pass
+GCA_018282135.1	Fusarium avenaceum	fungal	ascomycota_odb10	98.7	98.3	0.4	0.1	1.2	1706	pass
+GCA_000769215.1	Fusarium avenaceum	fungal	ascomycota_odb10	99.0	98.4	0.6	0.1	0.9	1706	pass
+GCA_052570705.1	Fusarium culmorum	fungal	ascomycota_odb10	98.6	98.4	0.2	0.8	0.6	1706	pass
+GCA_016952355.1	Fusarium culmorum	fungal	ascomycota_odb10	96.0	95.8	0.2	0.1	3.9	1706	pass
+GCA_052570695.1	Fusarium culmorum	fungal	ascomycota_odb10	97.2	97.0	0.2	0.6	2.2	1706	pass
+GCA_013396185.1	Fusarium circinatum	fungal	ascomycota_odb10	98.7	98.3	0.4	0.4	0.9	1706	pass
+GCA_052570715.1	Fusarium culmorum	fungal	ascomycota_odb10	98.4	98.2	0.2	0.9	0.7	1706	pass
+GCA_012959155.1	Fusarium avenaceum	fungal	ascomycota_odb10	98.2	92.6	5.6	0.5	1.3	1706	pass
+GCA_052570805.1	Fusarium culmorum	fungal	ascomycota_odb10	99.1	98.9	0.2	0.4	0.5	1706	pass
+GCA_052570815.1	Fusarium culmorum	fungal	ascomycota_odb10	98.1	97.9	0.2	0.9	1.0	1706	pass
+GCA_052570865.1	Fusarium culmorum	fungal	ascomycota_odb10	99.0	98.8	0.2	0.5	0.5	1706	pass
+GCA_052571695.1	Fusarium culmorum	fungal	ascomycota_odb10	98.4	98.1	0.3	0.9	0.7	1706	pass
+GCA_900096505.1	Fusarium fujikuroi	fungal	ascomycota_odb10	99.9	99.5	0.4	0.0	0.1	1706	pass
+GCA_001023035.1	Fusarium fujikuroi	fungal	ascomycota_odb10	98.4	97.9	0.5	0.6	1.0	1706	pass
+GCA_902702945.1	Fusarium fujikuroi	fungal	ascomycota_odb10	93.4	92.9	0.5	0.8	5.8	1706	pass
+GCA_900096615.1	Fusarium fujikuroi	fungal	ascomycota_odb10	99.9	99.4	0.5	0.1	0.0	1706	pass
+GCA_001023045.1	Fusarium fujikuroi	fungal	ascomycota_odb10	95.6	95.2	0.4	2.5	1.9	1706	pass
+GCA_001023065.1	Fusarium fujikuroi	fungal	ascomycota_odb10	96.0	95.4	0.6	2.5	1.5	1706	pass
+GCF_900079805.1	Fusarium fujikuroi	fungal	ascomycota_odb10	99.8	99.3	0.5	0.1	0.1	1706	pass
+GCA_900096685.1	Fusarium fujikuroi	fungal	ascomycota_odb10	99.9	99.3	0.6	0.0	0.1	1706	pass
+GCA_900096625.1	Fusarium fujikuroi	fungal	ascomycota_odb10	99.8	99.3	0.5	0.1	0.1	1706	pass
+GCA_900096645.1	Fusarium fujikuroi	fungal	ascomycota_odb10	99.8	99.2	0.6	0.1	0.1	1706	pass
+GCA_900096635.1	Fusarium fujikuroi	fungal	ascomycota_odb10	99.9	99.4	0.5	0.1	0.0	1706	pass
+GCA_900096705.1	Fusarium fujikuroi	fungal	ascomycota_odb10	99.8	99.3	0.5	0.1	0.1	1706	pass
+GCA_009663055.1	Fusarium fujikuroi	fungal	ascomycota_odb10	97.9	97.3	0.6	0.4	1.7	1706	pass
+GCA_009663095.1	Fusarium fujikuroi	fungal	ascomycota_odb10	97.6	97.1	0.5	0.3	2.1	1706	pass
+GCA_900079805.1	Fusarium fujikuroi	fungal	ascomycota_odb10	99.8	99.3	0.5	0.1	0.1	1706	pass
+GCA_901677955.1	Fusarium fujikuroi	fungal	ascomycota_odb10	98.8	98.2	0.6	0.2	1.0	1706	pass
+GCA_009663115.1	Fusarium fujikuroi	fungal	ascomycota_odb10	94.0	91.9	2.1	0.7	5.3	1706	pass
+GCA_000599445.1	Fusarium graminearum	fungal	ascomycota_odb10	99.0	98.8	0.2	0.5	0.5	1706	pass
+GCA_037213105.1	Fusarium graminearum	fungal	ascomycota_odb10	99.3	95.5	3.8	0.5	0.2	1706	pass
+GCA_002352725.1	Fusarium graminearum	fungal	ascomycota_odb10	99.4	99.2	0.2	0.2	0.4	1706	pass
+GCA_901677965.1	Fusarium fujikuroi	fungal	ascomycota_odb10	98.9	98.3	0.6	0.2	0.9	1706	pass
+GCA_905332025.1	Fusarium graminearum	fungal	ascomycota_odb10	98.3	97.5	0.8	0.1	1.6	1706	pass
+GCF_000240135.3	Fusarium graminearum	fungal	ascomycota_odb10	97.7	97.5	0.2	1.2	1.1	1706	pass
+GCA_900073075.1	Fusarium graminearum	fungal	ascomycota_odb10	99.8	99.5	0.3	0.1	0.1	1706	pass
+GCA_037074405.1	Fusarium graminearum	fungal	ascomycota_odb10	99.1	94.6	4.5	0.6	0.3	1706	pass
+GCA_900044135.1	Fusarium graminearum	fungal	ascomycota_odb10	99.8	99.6	0.2	0.0	0.2	1706	pass
+GCA_037255895.1	Fusarium graminearum	fungal	ascomycota_odb10	99.3	95.1	4.2	0.4	0.3	1706	pass
+GCA_012959185.1	Fusarium graminearum	fungal	ascomycota_odb10	98.3	93.0	5.3	0.3	1.4	1706	pass
+GCA_000240135.3	Fusarium graminearum	fungal	ascomycota_odb10	97.7	97.5	0.2	1.2	1.1	1706	pass
+GCA_037074415.1	Fusarium graminearum	fungal	ascomycota_odb10	96.4	93.3	3.1	2.5	1.1	1706	pass
+GCA_905359485.1	Fusarium graminearum	fungal	ascomycota_odb10	98.2	97.6	0.6	0.1	1.7	1706	pass
+GCA_905359455.1	Fusarium graminearum	fungal	ascomycota_odb10	98.8	98.6	0.2	0.4	0.8	1706	pass
+GCA_905359475.1	Fusarium graminearum	fungal	ascomycota_odb10	99.0	98.6	0.4	0.4	0.6	1706	pass
+GCA_901446245.1	Fusarium graminearum	fungal	ascomycota_odb10	99.1	98.7	0.4	0.4	0.5	1706	pass
+GCA_052550365.1	Fusarium odoratissimum	fungal	ascomycota_odb10	99.1	98.7	0.4	0.6	0.3	1706	pass
+GCA_000350365.1	Fusarium odoratissimum	fungal	ascomycota_odb10	82.2	79.9	2.3	1.3	16.5	1706	pass
+GCA_004141715.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.5	97.7	1.8	0.4	0.1	1706	pass
+GCF_000260195.1	Fusarium odoratissimum	fungal	ascomycota_odb10	99.6	71.5	28.1	0.3	0.1	1706	pass
+GCA_032206225.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.7	98.9	0.8	0.0	0.3	1706	pass
+GCA_030719095.1	Fusarium oxysporum	fungal	ascomycota_odb10	97.6	97.1	0.5	1.3	1.1	1706	pass
+GCA_053754955.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.7	99.1	0.6	0.1	0.2	1706	pass
+GCA_054130785.1	Fusarium oxysporum	fungal	ascomycota_odb10	96.2	95.2	1.0	1.9	1.9	1706	pass
+GCA_031834405.1	Fusarium oxysporum	fungal	ascomycota_odb10	98.5	97.6	0.9	0.1	1.4	1706	pass
+GCA_000260195.2	Fusarium odoratissimum	fungal	ascomycota_odb10	99.6	71.5	28.1	0.3	0.1	1706	pass
+GCA_026229875.1	Fusarium oxysporum	fungal	ascomycota_odb10	98.4	96.8	1.6	0.9	0.7	1706	pass
+GCA_000350345.1	Fusarium oxysporum	fungal	ascomycota_odb10	91.6	91.1	0.5	1.1	7.3	1706	pass
+GCA_001702695.2	Fusarium oxysporum	fungal	ascomycota_odb10	99.4	97.9	1.5	0.3	0.3	1706	pass
+GCA_018894095.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.8	98.0	1.8	0.1	0.1	1706	pass
+GCA_032884055.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.5	98.6	0.9	0.1	0.4	1706	pass
+GCA_014154955.1	Fusarium oxysporum	fungal	ascomycota_odb10	98.8	97.7	1.1	0.7	0.5	1706	pass
+GCA_013363075.1	Fusarium oxysporum	fungal	ascomycota_odb10	92.1	91.6	0.5	3.0	4.9	1706	pass
+GCF_013085055.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.2	98.4	0.8	0.0	0.8	1706	pass
+GCA_013085055.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.2	98.4	0.8	0.0	0.8	1706	pass
+GCA_055853645.1	Fusarium oxysporum	fungal	ascomycota_odb10	98.9	97.9	1.0	0.5	0.6	1706	pass
+GCA_053754965.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.3	98.9	0.4	0.3	0.4	1706	pass
+GCA_054098455.1	Fusarium oxysporum	fungal	ascomycota_odb10	97.6	97.0	0.6	0.9	1.5	1706	pass
+GCA_051622495.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.2	98.6	0.6	0.4	0.4	1706	pass
+GCA_003615085.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.8	97.9	1.9	0.1	0.1	1706	pass
+GCA_051622415.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.1	98.5	0.6	0.2	0.7	1706	pass
+GCA_051622595.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.1	98.4	0.7	0.3	0.6	1706	pass
+GCA_025331925.1	Fusarium oxysporum	fungal	ascomycota_odb10	98.5	97.4	1.1	0.5	1.0	1706	pass
+GCA_051622515.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.3	98.6	0.7	0.2	0.5	1706	pass
+GCA_057814765.1	Fusarium oxysporum	fungal	ascomycota_odb10	98.8	97.6	1.2	0.2	1.0	1706	pass
+GCF_000271745.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.8	71.0	28.8	0.0	0.2	1706	pass
+GCF_000149955.1	Fusarium oxysporum	fungal	ascomycota_odb10	96.1	69.4	26.7	2.5	1.4	1706	pass
+GCA_000149955.2	Fusarium oxysporum	fungal	ascomycota_odb10	96.1	69.4	26.7	2.5	1.4	1706	pass
+GCA_038050555.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.4	93.8	5.6	0.3	0.3	1706	pass
+GCA_030020275.1	Fusarium oxysporum	fungal	ascomycota_odb10	98.8	98.2	0.6	0.3	0.9	1706	pass
+GCA_027945265.1	Fusarium oxysporum	fungal	ascomycota_odb10	94.9	90.6	4.3	0.5	4.6	1706	pass
+GCA_027945335.1	Fusarium oxysporum	fungal	ascomycota_odb10	94.3	93.6	0.7	0.4	5.3	1706	pass
+GCA_027945555.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.4	94.8	4.6	0.4	0.2	1706	pass
+GCA_027945535.1	Fusarium oxysporum	fungal	ascomycota_odb10	94.9	91.3	3.6	0.4	4.7	1706	pass
+GCA_003615165.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.4	97.8	1.6	0.2	0.4	1706	pass
+GCA_900096695.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.8	99.2	0.6	0.1	0.1	1706	pass
+GCA_003615115.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.6	98.2	1.4	0.2	0.2	1706	pass
+GCA_003615095.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.6	98.4	1.2	0.1	0.3	1706	pass
+GCA_003615185.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.4	97.8	1.6	0.4	0.2	1706	pass
+GCA_003615155.1	Fusarium oxysporum	fungal	ascomycota_odb10	98.5	96.7	1.8	0.8	0.7	1706	pass
+GCA_003615075.1	Fusarium oxysporum	fungal	ascomycota_odb10	99.4	98.2	1.2	0.2	0.4	1706	pass
+GCA_000260215.2	Fusarium oxysporum	fungal	ascomycota_odb10	99.6	69.6	30.0	0.2	0.2	1706	pass
+GCA_000260155.3	Fusarium oxysporum	fungal	ascomycota_odb10	99.8	70.2	29.6	0.1	0.1	1706	pass
+GCA_000259975.2	Fusarium oxysporum	fungal	ascomycota_odb10	99.8	70.3	29.5	0.1	0.1	1706	pass
+GCA_000260175.2	Fusarium oxysporum	fungal	ascomycota_odb10	99.7	69.9	29.8	0.2	0.1	1706	pass
+GCA_024865645.1	Fusarium oxysporum	fungal	ascomycota_odb10	98.4	97.8	0.6	0.4	1.2	1706	pass
+GCA_053754955.1	Fusarium oxysporum f. sp. cubense	fungal	ascomycota_odb10	99.7	99.1	0.6	0.1	0.2	1706	pass
+GCA_027945255.1	Fusarium oxysporum	fungal	ascomycota_odb10	92.6	89.0	3.6	0.8	6.6	1706	pass
+GCA_027945275.1	Fusarium oxysporum	fungal	ascomycota_odb10	92.9	92.4	0.5	0.4	6.7	1706	pass
+GCA_000260495.2	Fusarium oxysporum	fungal	ascomycota_odb10	99.9	69.1	30.8	0.1	0.0	1706	pass
+GCA_027945305.1	Fusarium oxysporum	fungal	ascomycota_odb10	94.3	93.5	0.8	0.6	5.1	1706	pass
+GCA_027945315.1	Fusarium oxysporum	fungal	ascomycota_odb10	92.7	92.4	0.3	0.6	6.7	1706	pass
+GCA_000350345.1	Fusarium oxysporum f. sp. cubense	fungal	ascomycota_odb10	91.6	91.1	0.5	1.1	7.3	1706	pass
+GCA_000260235.2	Fusarium oxysporum	fungal	ascomycota_odb10	99.7	69.3	30.4	0.2	0.1	1706	pass
+GCA_000271705.2	Fusarium oxysporum	fungal	ascomycota_odb10	99.8	70.2	29.6	0.1	0.1	1706	pass
+GCA_000271745.2	Fusarium oxysporum	fungal	ascomycota_odb10	99.8	71.0	28.8	0.0	0.2	1706	pass
+GCA_053754965.1	Fusarium oxysporum f. sp. cubense	fungal	ascomycota_odb10	99.3	98.9	0.4	0.3	0.4	1706	pass
+GCA_000260075.2	Fusarium oxysporum	fungal	ascomycota_odb10	99.7	68.9	30.8	0.1	0.2	1706	pass
+GCF_900067095.1	Fusarium proliferatum	fungal	ascomycota_odb10	99.8	99.0	0.8	0.0	0.2	1706	pass
+GCA_022627135.1	Fusarium proliferatum	fungal	ascomycota_odb10	94.7	94.3	0.4	0.3	5.0	1706	pass
+GCA_003615215.1	Fusarium proliferatum	fungal	ascomycota_odb10	99.4	98.6	0.8	0.3	0.3	1706	pass
+GCA_017309865.1	Fusarium proliferatum	fungal	ascomycota_odb10	97.9	97.3	0.6	0.5	1.6	1706	pass
+GCA_016952305.1	Fusarium pseudograminearum	fungal	ascomycota_odb10	97.7	97.5	0.2	0.3	2.0	1706	pass
+GCA_017309895.1	Fusarium proliferatum	fungal	ascomycota_odb10	97.9	97.2	0.7	0.6	1.5	1706	pass
+GCA_900067095.1	Fusarium proliferatum	fungal	ascomycota_odb10	99.8	99.0	0.8	0.0	0.2	1706	pass
+GCA_017309875.1	Fusarium proliferatum	fungal	ascomycota_odb10	98.1	97.2	0.9	0.5	1.4	1706	pass
+GCA_001703955.2	Fusarium pseudograminearum	fungal	ascomycota_odb10	99.1	98.9	0.2	0.3	0.6	1706	pass
+GCA_900029915.1	Fusarium proliferatum	fungal	ascomycota_odb10	99.7	98.9	0.8	0.1	0.2	1706	pass
+GCA_003290285.1	Fusarium proliferatum	fungal	ascomycota_odb10	98.1	97.5	0.6	0.5	1.4	1706	pass
+GCF_000303195.2	Fusarium pseudograminearum	fungal	ascomycota_odb10	99.1	98.9	0.2	0.2	0.7	1706	pass
+GCA_000303195.2	Fusarium pseudograminearum	fungal	ascomycota_odb10	99.1	98.9	0.2	0.2	0.7	1706	pass
+GCA_041870755.1	Fusarium sambucinum	fungal	ascomycota_odb10	100.0	99.6	0.4	0.0	0.0	1706	pass
+GCF_050947815.1	Fusarium sambucinum	fungal	ascomycota_odb10	100.0	99.6	0.4	0.0	0.0	1706	pass
+GCA_050947815.1	Fusarium sambucinum	fungal	ascomycota_odb10	100.0	99.6	0.4	0.0	0.0	1706	pass
+GCA_003317015.2	Fusarium verticillioides	fungal	ascomycota_odb10	2.0	2.0	0.0	0.1	97.9	1706	fail
+GCA_003012315.1	Fusarium sporotrichioides	fungal	ascomycota_odb10	98.9	98.7	0.2	0.2	0.9	1706	pass
+GCA_024752415.1	Fusarium pseudograminearum	fungal	ascomycota_odb10	79.4	79.2	0.2	13.1	7.5	1706	pass
+GCA_000204055.1	Melampsora laricis-populina	fungal	basidiomycota_odb10	91.2	88.9	2.3	3.4	5.4	1764	pass
+GCA_027945525.1	Fusarium solani	fungal	ascomycota_odb10	99.6	95.5	4.1	0.2	0.2	1706	pass
+GCF_000204055.1	Melampsora laricis-populina	fungal	basidiomycota_odb10	91.2	88.9	2.3	3.4	5.4	1764	pass
+GCF_000143105.1	Leptographium clavigerum	fungal	ascomycota_odb10	94.9	94.7	0.2	1.3	3.8	1706	pass
+GCA_008931885.1	Lasiodiplodia theobromae	fungal	ascomycota_odb10	98.4	97.2	1.2	0.7	0.9	1706	pass
+GCA_002111425.1	Lasiodiplodia theobromae	fungal	ascomycota_odb10	97.9	97.5	0.4	1.1	1.0	1706	pass
+GCA_003316995.2	Fusarium verticillioides	fungal	ascomycota_odb10	98.6	98.2	0.4	0.4	1.0	1706	pass
+GCA_003316975.2	Fusarium verticillioides	fungal	ascomycota_odb10	94.7	94.4	0.3	2.9	2.4	1706	pass
+GCF_000187405.1	Metarhizium acridum	fungal	ascomycota_odb10	94.9	94.4	0.5	2.5	2.6	1706	pass
+GCF_000328475.2	Mycosarcoma maydis	fungal	basidiomycota_odb10	99.4	99.3	0.1	0.3	0.3	1764	pass
+GCF_019434415.1	Metarhizium acridum	fungal	ascomycota_odb10	93.5	82.9	10.6	3.6	2.9	1706	pass
+GCA_000187405.1	Metarhizium acridum	fungal	ascomycota_odb10	94.9	94.4	0.5	2.5	2.6	1706	pass
+GCA_000149555.1	Fusarium verticillioides	fungal	ascomycota_odb10	99.0	75.7	23.3	0.7	0.3	1706	pass
+GCA_000183025.1	Moniliophthora perniciosa	fungal	basidiomycota_odb10	11.7	11.7	0.0	21.0	67.3	1764	fail
+GCF_000149555.1	Fusarium verticillioides	fungal	ascomycota_odb10	99.0	75.7	23.3	0.7	0.3	1706	pass
+GCA_019434415.1	Metarhizium acridum	fungal	ascomycota_odb10	93.5	82.9	10.6	3.6	2.9	1706	pass
+GCF_000187425.2	Metarhizium robertsii	fungal	ascomycota_odb10	98.3	97.3	1.0	0.6	1.1	1706	pass
+GCA_000591435.1	Metarhizium robertsii	fungal	ascomycota_odb10	99.0	98.1	0.9	0.2	0.8	1706	pass
+GCA_000187425.2	Metarhizium robertsii	fungal	ascomycota_odb10	98.3	97.3	1.0	0.6	1.1	1706	pass
+GCA_019434395.1	Metarhizium acridum	fungal	ascomycota_odb10	50.2	41.5	8.7	4.3	45.5	1706	pass
+GCA_016801405.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.0	97.7	1.3	0.4	0.6	1706	pass
+GCA_020557385.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020568045.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020567955.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCF_000146915.1	Parastagonospora nodorum	fungal	ascomycota_odb10	92.6	92.4	0.2	3.4	4.0	1706	pass
+GCA_020568055.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020568095.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020568325.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020568415.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020568205.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020568465.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020568635.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020568705.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020568765.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020568935.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020568775.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020569235.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020568945.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020569145.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020569285.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020569485.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020569505.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020569495.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020569895.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	98.0	1.5	0.2	0.3	1706	pass
+GCA_020569685.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020569515.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020569945.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020570015.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020570045.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020570355.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020570345.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.3	0.2	1706	pass
+GCA_020570395.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020570405.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.7	99.6	0.1	0.1	0.2	1706	pass
+GCA_020570525.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020570415.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020570635.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020570685.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020570935.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.1	0.4	1706	pass
+GCA_020570735.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020571295.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020570965.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.7	99.6	0.1	0.1	0.2	1706	pass
+GCA_020570975.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020571265.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020571325.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020571815.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020571545.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020571575.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020571605.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020571885.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020571895.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020571965.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020572075.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020572205.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020572305.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.4	99.3	0.1	0.2	0.4	1706	pass
+GCA_020572315.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020572395.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020572345.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020572635.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020572645.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020572675.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020572985.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020572945.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020572955.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020572995.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020573275.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020573285.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020573325.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020573315.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020573495.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020573595.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020573605.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020573625.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020573725.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020573765.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020573915.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020574055.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020574085.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020574145.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020574155.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020574115.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.4	99.3	0.1	0.2	0.4	1706	pass
+GCA_020574265.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020574295.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020574345.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020574375.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.4	99.3	0.1	0.2	0.4	1706	pass
+GCA_020574365.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.4	99.3	0.1	0.2	0.4	1706	pass
+GCA_020574385.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020574405.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020574595.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020574615.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.3	99.2	0.1	0.2	0.5	1706	pass
+GCA_020574725.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020574715.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020574755.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020575035.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020574825.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020574875.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020575105.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020575195.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020575285.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020575355.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020575375.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020575405.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020575445.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020575615.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020575485.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020575775.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020575955.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020575645.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020575975.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020575995.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.3	99.2	0.1	0.2	0.5	1706	pass
+GCA_020576195.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020576185.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020576365.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020577795.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020577805.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020577855.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020577905.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020577915.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020578095.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020578075.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020578085.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020578105.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020578115.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020578205.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020578265.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020578295.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.4	99.3	0.1	0.2	0.4	1706	pass
+GCA_020578585.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020578315.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020578445.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020578375.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020578515.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020578615.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020579815.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020579825.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020580075.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020579845.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020579835.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020579855.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020580115.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020580085.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020580145.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020580155.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020580305.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020580415.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020580425.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.1	0.4	1706	pass
+GCA_020580655.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020580485.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020580665.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020580695.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020580725.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.2	0.2	1706	pass
+GCA_020580905.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020580775.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020581045.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.6	99.5	0.1	0.1	0.3	1706	pass
+GCA_020581155.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCF_016767815.1	Penicillium digitatum	fungal	ascomycota_odb10	99.2	99.1	0.1	0.4	0.4	1706	pass
+GCA_020581165.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCA_020581275.1	Parastagonospora nodorum	fungal	ascomycota_odb10	99.5	99.4	0.1	0.2	0.3	1706	pass
+GCF_000315645.1	Penicillium digitatum	fungal	ascomycota_odb10	97.2	97.1	0.1	1.6	1.2	1706	pass
+GCA_016767815.1	Penicillium digitatum	fungal	ascomycota_odb10	99.2	99.1	0.1	0.4	0.4	1706	pass
+GCA_000315645.2	Penicillium digitatum	fungal	ascomycota_odb10	97.2	97.1	0.1	1.6	1.2	1706	pass
+GCA_000146915.2	Parastagonospora nodorum	fungal	ascomycota_odb10	92.6	92.4	0.2	3.4	4.0	1706	pass
+GCA_012295545.2	Penicillium digitatum	fungal	ascomycota_odb10	95.4	95.2	0.2	1.6	3.0	1706	pass
+GCA_000315665.1	Penicillium digitatum	fungal	ascomycota_odb10	97.2	97.1	0.1	1.6	1.2	1706	pass
+GCA_025201825.1	Phakopsora pachyrhizi	fungal	basidiomycota_odb10	89.7	75.3	14.4	2.6	7.7	1764	pass
+GCA_022829055.1	Penicillium expansum	fungal	ascomycota_odb10	99.3	98.0	1.3	0.2	0.5	1706	pass
+GCA_943846425.1	Phakopsora pachyrhizi	fungal	basidiomycota_odb10	91.1	76.0	15.1	1.8	7.1	1764	pass
+GCF_022343315.1	Plenodomus lingam	fungal	ascomycota_odb10	98.1	97.9	0.2	0.9	1.0	1706	pass
+GCA_022343315.1	Plenodomus lingam	fungal	ascomycota_odb10	98.1	97.9	0.2	0.9	1.0	1706	pass
+GCF_000230375.1	Plenodomus lingam	fungal	ascomycota_odb10	94.3	94.1	0.2	2.4	3.3	1706	pass
+GCA_000340215.1	Pseudocercospora fijiensis	fungal	ascomycota_odb10	98.3	98.2	0.1	0.7	1.0	1706	pass
+GCF_000340215.1	Pseudocercospora fijiensis	fungal	ascomycota_odb10	98.3	98.2	0.1	0.7	1.0	1706	pass
+GCA_000230375.1	Plenodomus lingam	fungal	ascomycota_odb10	94.9	94.7	0.2	2.4	2.7	1706	pass
+GCF_000149925.1	Puccinia graminis	fungal	basidiomycota_odb10	91.7	83.0	8.7	2.0	6.3	1764	pass
+GCA_000149925.1	Puccinia graminis	fungal	basidiomycota_odb10	91.7	83.0	8.7	2.0	6.3	1764	pass
+GCF_021901695.1	Puccinia striiformis	fungal	basidiomycota_odb10	92.2	76.9	15.3	2.8	5.0	1764	pass
+GCA_025169535.1	Puccinia striiformis	fungal	basidiomycota_odb10	95.3	87.9	7.4	1.4	3.3	1764	pass
+GCA_014298035.1	Pseudocercospora fuligena	fungal	ascomycota_odb10	98.1	97.6	0.5	0.6	1.3	1706	pass
+GCA_025169555.1	Puccinia striiformis	fungal	basidiomycota_odb10	95.0	86.6	8.4	1.4	3.6	1764	pass
+GCA_002920065.1	Puccinia striiformis	fungal	basidiomycota_odb10	77.7	70.1	7.6	3.6	18.7	1764	pass
+GCA_021901695.1	Puccinia striiformis	fungal	basidiomycota_odb10	92.2	76.9	15.3	2.8	5.0	1764	pass
+GCA_021901655.1	Puccinia striiformis	fungal	basidiomycota_odb10	91.6	80.4	11.2	2.2	6.2	1764	pass
+GCF_026914185.1	Puccinia triticina	fungal	basidiomycota_odb10	92.0	88.3	3.7	2.4	5.6	1764	pass
+GCA_001191645.1	Puccinia striiformis	fungal	basidiomycota_odb10	94.8	85.0	9.8	1.6	3.6	1764	pass
+GCA_008522505.1	Puccinia graminis	fungal	basidiomycota_odb10	95.0	8.4	86.6	1.8	3.2	1764	pass
+GCA_026914185.2	Puccinia triticina	fungal	basidiomycota_odb10	94.3	89.9	4.4	1.5	4.2	1764	pass
+GCA_026914245.1	Puccinia triticina	fungal	basidiomycota_odb10	91.7	88.2	3.5	2.4	5.9	1764	pass
+GCA_000151525.2	Puccinia triticina	fungal	basidiomycota_odb10	92.9	83.6	9.3	2.8	4.3	1764	pass
+GCA_026914185.1	Puccinia triticina	fungal	basidiomycota_odb10	92.0	88.3	3.7	2.4	5.6	1764	pass
+GCA_977970225.1	Puccinia triticina	fungal	basidiomycota_odb10	94.5	90.4	4.1	1.9	3.6	1764	pass
+GCA_977970215.1	Puccinia triticina	fungal	basidiomycota_odb10	94.6	90.3	4.3	1.6	3.8	1764	pass
+GCA_900232045.3	Pyrenophora teres	fungal	ascomycota_odb10	99.0	98.8	0.2	0.4	0.6	1706	pass
+GCA_006112615.1	Pyrenophora teres	fungal	ascomycota_odb10	95.5	95.4	0.1	1.8	2.7	1706	pass
+GCF_000166005.1	Pyrenophora teres	fungal	ascomycota_odb10	97.5	97.0	0.5	1.1	1.4	1706	pass
+GCA_000166005.1	Pyrenophora teres	fungal	ascomycota_odb10	97.5	97.0	0.5	1.1	1.4	1706	pass
+GCA_900231935.2	Pyrenophora teres	fungal	ascomycota_odb10	97.9	97.7	0.2	0.8	1.3	1706	pass
+GCA_031213615.1	Pyrenophora teres	fungal	ascomycota_odb10	86.5	86.4	0.1	8.0	5.5	1706	pass
+GCA_003171545.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	91.3	91.1	0.2	4.5	4.2	1706	pass
+GCF_003171515.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	90.4	90.0	0.4	4.5	5.1	1706	pass
+GCA_022544795.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	96.7	96.5	0.2	1.5	1.8	1706	pass
+GCA_022813025.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	99.0	98.2	0.8	0.5	0.5	1706	pass
+GCA_022578365.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	96.8	96.6	0.2	1.3	1.9	1706	pass
+GCA_022788405.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	91.3	91.1	0.2	4.4	4.3	1706	pass
+GCF_000149985.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	95.3	95.1	0.2	1.5	3.2	1706	pass
+GCA_022837075.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	90.8	86.1	4.7	4.9	4.3	1706	pass
+GCA_022788415.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	91.2	91.0	0.2	4.4	4.4	1706	pass
+GCA_022788515.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	91.3	91.1	0.2	4.3	4.4	1706	pass
+GCA_022813065.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	99.2	98.4	0.8	0.5	0.3	1706	pass
+GCA_003231425.2	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	98.7	98.4	0.3	0.8	0.5	1706	pass
+GCA_003231415.2	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	90.6	90.0	0.6	4.2	5.2	1706	pass
+GCA_022788425.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	90.7	90.5	0.2	5.0	4.3	1706	pass
+GCA_003231325.2	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	90.2	89.9	0.3	5.0	4.8	1706	pass
+GCA_022788435.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	91.1	90.9	0.2	4.3	4.6	1706	pass
+GCA_022788445.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	91.0	90.8	0.2	4.7	4.3	1706	pass
+GCA_022578395.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	97.2	97.0	0.2	1.2	1.6	1706	pass
+GCA_022788505.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	90.8	90.7	0.1	4.8	4.4	1706	pass
+GCA_022544805.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	97.0	96.8	0.2	1.3	1.7	1706	pass
+GCA_055689495.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	94.9	3.9	0.5	0.7	1706	pass
+GCA_003231345.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	94.6	94.3	0.3	1.9	3.5	1706	pass
+GCA_003231355.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	94.9	94.7	0.2	1.5	3.6	1706	pass
+GCA_025134795.1	Pyricularia oryzae	fungal	ascomycota_odb10	99.0	98.8	0.2	0.1	0.9	1706	pass
+GCA_003231365.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	94.9	94.6	0.3	1.8	3.3	1706	pass
+GCA_004346965.1	Pyricularia oryzae	fungal	ascomycota_odb10	97.4	97.0	0.4	0.2	2.4	1706	pass
+GCA_000149985.1	Pyrenophora tritici-repentis	fungal	ascomycota_odb10	95.3	95.1	0.2	1.5	3.2	1706	pass
+GCA_024703655.1	Pyricularia oryzae	fungal	ascomycota_odb10	99.0	92.4	6.6	0.3	0.7	1706	pass
+GCA_024703685.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	92.6	6.2	0.4	0.8	1706	pass
+GCF_000002495.2	Pyricularia oryzae	fungal	ascomycota_odb10	99.1	97.9	1.2	0.1	0.8	1706	pass
+GCA_024703975.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	92.6	6.2	0.4	0.8	1706	pass
+GCA_055689515.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	95.0	3.8	0.5	0.7	1706	pass
+GCA_055689535.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	94.9	3.9	0.6	0.6	1706	pass
+GCA_055689575.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.7	94.8	3.9	0.6	0.7	1706	pass
+GCA_055689555.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.7	95.0	3.7	0.6	0.7	1706	pass
+GCA_055689595.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	94.7	4.1	0.5	0.7	1706	pass
+GCA_055689605.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.9	95.0	3.9	0.5	0.6	1706	pass
+GCA_055689635.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.7	94.8	3.9	0.7	0.6	1706	pass
+GCA_055697835.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.6	94.8	3.8	0.7	0.7	1706	pass
+GCA_055697915.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.9	95.1	3.8	0.5	0.6	1706	pass
+GCA_055697875.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.6	94.6	4.0	0.6	0.8	1706	pass
+GCA_055697855.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.7	94.8	3.9	0.6	0.7	1706	pass
+GCA_055697895.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.5	94.7	3.8	0.6	0.9	1706	pass
+GCA_055697935.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.7	95.0	3.7	0.6	0.7	1706	pass
+GCA_055697955.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.7	94.8	3.9	0.6	0.7	1706	pass
+GCA_055697975.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	94.6	4.2	0.6	0.6	1706	pass
+GCA_055774735.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	94.8	4.0	0.5	0.7	1706	pass
+GCA_055697985.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.7	95.1	3.6	0.6	0.7	1706	pass
+GCA_049355315.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.7	94.8	3.9	0.6	0.7	1706	pass
+GCA_049355335.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	94.8	4.0	0.5	0.7	1706	pass
+GCA_049355325.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	94.9	3.9	0.6	0.6	1706	pass
+GCA_049355375.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	95.2	3.6	0.5	0.7	1706	pass
+GCA_049355395.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	94.9	3.9	0.5	0.7	1706	pass
+GCA_049355405.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.6	94.8	3.8	0.7	0.7	1706	pass
+GCA_000002495.2	Pyricularia oryzae	fungal	ascomycota_odb10	99.1	97.9	1.2	0.1	0.8	1706	pass
+GCA_025135345.1	Pyricularia oryzae	fungal	ascomycota_odb10	99.1	98.9	0.2	0.1	0.8	1706	pass
+GCA_049355415.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.7	95.0	3.7	0.6	0.7	1706	pass
+GCA_024703665.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.9	92.7	6.2	0.3	0.8	1706	pass
+GCA_024704035.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.9	92.6	6.3	0.3	0.8	1706	pass
+GCA_024704055.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.9	92.6	6.3	0.2	0.9	1706	pass
+GCA_024704115.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	92.6	6.2	0.4	0.8	1706	pass
+GCA_024704145.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	92.8	6.0	0.4	0.8	1706	pass
+GCA_024704195.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.9	92.6	6.3	0.4	0.7	1706	pass
+GCA_024704165.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.9	92.6	6.3	0.3	0.8	1706	pass
+GCA_024704225.1	Pyricularia oryzae	fungal	ascomycota_odb10	99.0	92.7	6.3	0.3	0.7	1706	pass
+GCA_024704235.1	Pyricularia oryzae	fungal	ascomycota_odb10	97.0	91.4	5.6	0.4	2.6	1706	pass
+GCA_024704255.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.8	92.8	6.0	0.4	0.8	1706	pass
+GCF_016906535.1	Rhizoctonia solani	fungal	basidiomycota_odb10	86.6	85.9	0.7	4.9	8.5	1764	pass
+GCA_024704275.1	Pyricularia oryzae	fungal	ascomycota_odb10	98.7	92.7	6.0	0.3	1.0	1706	pass
+GCA_000292585.1	Pyricularia oryzae	fungal	ascomycota_odb10	97.3	97.0	0.3	1.0	1.7	1706	pass
+GCA_026686785.1	Rhizoctonia solani	fungal	basidiomycota_odb10	95.2	90.1	5.1	2.5	2.3	1764	pass
+GCA_000695385.1	Rhizoctonia solani	fungal	basidiomycota_odb10	51.1	50.1	1.0	14.6	34.3	1764	pass
+GCA_015342415.1	Rhizoctonia solani	fungal	basidiomycota_odb10	91.1	90.0	1.1	2.3	6.6	1764	pass
+GCA_001286725.1	Rhizoctonia solani	fungal	basidiomycota_odb10	86.6	82.1	4.5	3.6	9.8	1764	pass
+GCA_049245135.1	Rhizoctonia solani	fungal	basidiomycota_odb10	76.4	69.9	6.5	0.6	23.0	1764	pass
+GCA_015342405.1	Rhizoctonia solani	fungal	basidiomycota_odb10	74.5	73.5	1.0	8.3	17.2	1764	pass
+GCA_905219575.1	Rhizoctonia solani	fungal	basidiomycota_odb10	83.5	79.6	3.9	3.3	13.2	1764	pass
+GCA_905219595.1	Rhizoctonia solani	fungal	basidiomycota_odb10	90.3	68.5	21.8	1.8	7.9	1764	pass
+GCA_905219655.1	Rhizoctonia solani	fungal	basidiomycota_odb10	86.4	85.6	0.8	1.8	11.8	1764	pass
+GCA_016906535.1	Rhizoctonia solani	fungal	basidiomycota_odb10	86.6	85.9	0.7	4.9	8.5	1764	pass
+GCA_000524645.1	Rhizoctonia solani	fungal	basidiomycota_odb10	91.1	89.9	1.2	3.8	5.1	1764	pass
+GCA_905232135.1	Rhizoctonia solani	fungal	basidiomycota_odb10	77.0	74.3	2.7	7.2	15.8	1764	pass
+GCA_905219545.1	Rhizoctonia solani	fungal	basidiomycota_odb10	77.0	76.4	0.6	6.2	16.8	1764	pass
+GCA_015342435.1	Rhizoctonia solani	fungal	basidiomycota_odb10	91.3	89.9	1.4	2.5	6.2	1764	pass
+GCA_000832345.2	Rhizoctonia solani	fungal	basidiomycota_odb10	91.3	90.4	0.9	4.0	4.7	1764	pass
+GCA_000334115.1	Rhizoctonia solani	fungal	basidiomycota_odb10	65.8	65.6	0.2	9.8	24.4	1764	pass
+GCA_905219565.1	Rhizoctonia solani	fungal	basidiomycota_odb10	85.5	84.0	1.5	2.9	11.6	1764	pass
+GCA_905219585.1	Rhizoctonia solani	fungal	basidiomycota_odb10	83.1	82.4	0.7	2.2	14.7	1764	pass
+GCA_905219615.1	Rhizoctonia solani	fungal	basidiomycota_odb10	81.9	81.3	0.6	1.7	16.4	1764	pass
+GCA_905219605.1	Rhizoctonia solani	fungal	basidiomycota_odb10	81.6	80.8	0.8	3.5	14.9	1764	pass
+GCA_905219625.1	Rhizoctonia solani	fungal	basidiomycota_odb10	86.4	85.6	0.8	2.3	11.3	1764	pass
+GCA_905219635.1	Rhizoctonia solani	fungal	basidiomycota_odb10	84.4	83.3	1.1	2.9	12.7	1764	pass
+GCA_900162835.1	Sporisorium reilianum	fungal	basidiomycota_odb10	99.4	99.3	0.1	0.2	0.4	1764	pass
+GCA_900002365.1	Sporisorium scitamineum	fungal	basidiomycota_odb10	99.0	99.0	0.0	0.6	0.4	1764	pass
+GCA_905219645.1	Rhizoctonia solani	fungal	basidiomycota_odb10	78.7	76.4	2.3	4.1	17.2	1764	pass
+GCA_015341985.1	Rhizoctonia solani	fungal	basidiomycota_odb10	91.9	91.0	0.9	2.0	6.1	1764	pass
+GCA_001857865.1	Sclerotinia sclerotiorum	fungal	ascomycota_odb10	99.7	99.5	0.2	0.2	0.1	1706	pass
+GCA_006535955.1	Synchytrium endobioticum	fungal	fungi_odb10	83.6	81.4	2.2	2.9	13.5	758	pass
+GCA_001445595.3	Rosellinia necatrix	fungal	ascomycota_odb10	96.1	96.0	0.1	2.5	1.4	1706	pass
+GCA_003268315.2	Stemphylium lycopersici	fungal	ascomycota_odb10	99.2	93.7	5.5	0.3	0.5	1706	pass
+GCA_003268335.2	Stemphylium lycopersici	fungal	ascomycota_odb10	97.9	93.0	4.9	0.9	1.2	1706	pass
+GCA_000146945.2	Sclerotinia sclerotiorum	fungal	ascomycota_odb10	91.2	90.9	0.3	5.0	3.8	1706	pass
+GCF_000146945.2	Sclerotinia sclerotiorum	fungal	ascomycota_odb10	91.2	90.9	0.3	5.0	3.8	1706	pass
+GCA_022749175.1	Ustilago hordei	fungal	basidiomycota_odb10	99.0	95.7	3.3	0.3	0.7	1764	pass
+GCA_001191545.2	Stemphylium lycopersici	fungal	ascomycota_odb10	97.7	92.1	5.6	1.2	1.1	1706	pass
+GCA_023748715.1	Ustilago hordei	fungal	basidiomycota_odb10	99.4	93.3	6.1	0.2	0.4	1764	pass
+GCF_000687475.1	Ustilaginoidea virens	fungal	ascomycota_odb10	99.0	98.9	0.1	0.5	0.5	1706	pass
+GCA_000687475.2	Ustilaginoidea virens	fungal	ascomycota_odb10	99.0	98.9	0.1	0.5	0.5	1706	pass
+GCA_000170995.2	Trichoderma virens	fungal	ascomycota_odb10	99.3	98.6	0.7	0.4	0.3	1706	pass
+GCF_000170995.1	Trichoderma virens	fungal	ascomycota_odb10	99.3	98.6	0.7	0.4	0.3	1706	pass
+GCA_023748725.1	Ustilago hordei	fungal	basidiomycota_odb10	98.7	95.0	3.7	0.7	0.6	1764	pass
+GCA_023748735.1	Ustilago hordei	fungal	basidiomycota_odb10	99.0	95.8	3.2	0.2	0.8	1764	pass
+GCA_020647635.1	Trichoderma virens	fungal	ascomycota_odb10	94.7	94.1	0.6	2.3	3.0	1706	pass
+GCA_000286035.1	Ustilago hordei	fungal	basidiomycota_odb10	99.4	99.1	0.3	0.2	0.4	1764	pass
+GCA_023748765.1	Ustilago hordei	fungal	basidiomycota_odb10	99.1	95.4	3.7	0.5	0.4	1764	pass
+GCA_020647705.1	Trichoderma virens	fungal	ascomycota_odb10	92.3	91.8	0.5	3.1	4.6	1706	pass
+GCA_023748825.1	Ustilago hordei	fungal	basidiomycota_odb10	99.0	95.0	4.0	0.4	0.6	1764	pass
+GCA_003320035.1	Verticillium dahliae	fungal	ascomycota_odb10	87.1	87.0	0.1	5.0	7.9	1706	pass
+GCA_002893025.1	Verticillium dahliae	fungal	ascomycota_odb10	96.8	96.4	0.4	1.3	1.9	1706	pass
+GCA_054858055.1	Verticillium dahliae	fungal	ascomycota_odb10	98.6	98.4	0.2	0.6	0.8	1706	pass
+GCA_002893035.1	Verticillium dahliae	fungal	ascomycota_odb10	96.8	96.3	0.5	1.3	1.9	1706	pass
+GCA_011066465.2	Verticillium dahliae	fungal	ascomycota_odb10	82.0	81.9	0.1	7.2	10.8	1706	pass
+GCA_004109745.1	Verticillium dahliae	fungal	ascomycota_odb10	97.3	97.1	0.2	0.9	1.8	1706	pass
+GCF_000150675.1	Verticillium dahliae	fungal	ascomycota_odb10	92.7	92.6	0.1	2.9	4.4	1706	pass
+GCA_002892995.1	Verticillium dahliae	fungal	ascomycota_odb10	96.8	96.4	0.4	1.3	1.9	1706	pass
+GCA_000150675.2	Verticillium dahliae	fungal	ascomycota_odb10	92.7	92.6	0.1	2.9	4.4	1706	pass
+GCA_002893045.1	Verticillium dahliae	fungal	ascomycota_odb10	96.8	96.3	0.5	1.2	2.0	1706	pass
+GCA_011066485.2	Verticillium dahliae	fungal	ascomycota_odb10	92.8	92.7	0.1	2.9	4.3	1706	pass
+GCA_052569935.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	95.3	95.1	0.2	1.2	3.5	1706	pass
+GCA_018994105.1	Verticillium longisporum	fungal	ascomycota_odb10	52.4	51.6	0.8	18.6	29.0	1706	pass
+GCA_052571055.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	94.3	94.1	0.2	1.8	3.9	1706	pass
+GCF_003724135.2	Verticillium nonalfalfae	fungal	ascomycota_odb10	92.1	92.0	0.1	0.9	7.0	1706	pass
+GCA_052571205.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	95.7	95.5	0.2	1.3	3.0	1706	pass
+GCA_052571105.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	94.7	94.5	0.2	1.8	3.5	1706	pass
+GCA_052571115.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	94.7	94.5	0.2	1.8	3.5	1706	pass
+GCA_052426695.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	94.7	94.5	0.2	1.7	3.6	1706	pass
+GCA_052571255.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	95.2	95.0	0.2	1.2	3.6	1706	pass
+GCA_018994095.1	Verticillium longisporum	fungal	ascomycota_odb10	95.6	24.3	71.3	2.2	2.2	1706	pass
+GCA_052571225.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	95.1	94.9	0.2	1.5	3.4	1706	pass
+GCA_052571305.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	95.5	95.3	0.2	1.5	3.0	1706	pass
+GCA_052571295.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	95.5	95.3	0.2	1.5	3.0	1706	pass
+GCA_001268145.1	Verticillium longisporum	fungal	ascomycota_odb10	91.1	43.7	47.4	3.2	5.7	1706	pass
+GCA_019155685.1	Phytophthora boehmeriae	oomycete	stramenopiles_odb10	92.0	91.0	1.0	0.0	8.0	100	pass
+GCA_018873745.1	Phytophthora aleatoria	oomycete	stramenopiles_odb10	99.0	99.0	0.0	0.0	1.0	100	pass
+GCF_018691715.1	Phytophthora cinnamomi	oomycete	stramenopiles_odb10	100.0	89.0	11.0	0.0	0.0	100	pass
+GCA_018994065.1	Verticillium longisporum	fungal	ascomycota_odb10	78.8	32.3	46.5	12.3	8.9	1706	pass
+GCA_018691715.1	Phytophthora cinnamomi	oomycete	stramenopiles_odb10	100.0	89.0	11.0	0.0	0.0	100	pass
+GCA_052571405.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	94.9	94.7	0.2	1.5	3.6	1706	pass
+GCA_052571445.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	95.3	95.1	0.2	1.5	3.2	1706	pass
+GCA_009732925.1	Phytophthora fragariae	oomycete	stramenopiles_odb10	100.0	99.0	1.0	0.0	0.0	100	pass
+GCA_052571485.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	95.3	95.1	0.2	1.3	3.4	1706	pass
+GCA_052571455.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	95.3	95.1	0.2	1.2	3.5	1706	pass
+GCA_031305395.1	Phytophthora citrophthora	oomycete	stramenopiles_odb10	91.0	91.0	0.0	1.0	8.0	100	pass
+GCA_052571575.1	Verticillium nonalfalfae	fungal	ascomycota_odb10	95.3	95.1	0.2	1.5	3.2	1706	pass
+GCA_001268165.1	Verticillium longisporum	fungal	ascomycota_odb10	66.0	46.5	19.5	20.3	13.7	1706	pass
+GCA_009733025.1	Phytophthora fragariae	oomycete	stramenopiles_odb10	100.0	99.0	1.0	0.0	0.0	100	pass
+GCA_029747605.1	Phytophthora cinnamomi	oomycete	stramenopiles_odb10	56.0	55.0	1.0	24.0	20.0	100	fail
+GCA_009732985.1	Phytophthora fragariae	oomycete	stramenopiles_odb10	100.0	99.0	1.0	0.0	0.0	100	pass
+GCA_009733005.1	Phytophthora fragariae	oomycete	stramenopiles_odb10	100.0	98.0	2.0	0.0	0.0	100	pass
+GCA_003724135.2	Verticillium nonalfalfae	fungal	ascomycota_odb10	92.1	92.0	0.1	0.9	7.0	1706	pass
+GCA_009733045.1	Phytophthora fragariae	oomycete	stramenopiles_odb10	100.0	99.0	1.0	0.0	0.0	100	pass
+GCA_009733085.1	Phytophthora fragariae	oomycete	stramenopiles_odb10	100.0	99.0	1.0	0.0	0.0	100	pass
+GCA_009733105.1	Phytophthora fragariae	oomycete	stramenopiles_odb10	100.0	98.0	2.0	0.0	0.0	100	pass
+GCA_009733065.1	Phytophthora fragariae	oomycete	stramenopiles_odb10	100.0	99.0	1.0	0.0	0.0	100	pass
+GCF_000219625.1	Zymoseptoria tritici	fungal	ascomycota_odb10	96.2	96.1	0.1	1.3	2.5	1706	pass
+GCA_016880985.1	Phytophthora idaei	oomycete	stramenopiles_odb10	100.0	99.0	1.0	0.0	0.0	100	pass
+GCA_009733125.1	Phytophthora fragariae	oomycete	stramenopiles_odb10	100.0	98.0	2.0	0.0	0.0	100	pass
+GCA_900091695.1	Zymoseptoria tritici	fungal	ascomycota_odb10	97.8	97.7	0.1	0.8	1.4	1706	pass
+GCA_000219625.1	Zymoseptoria tritici	fungal	ascomycota_odb10	96.2	96.1	0.1	1.3	2.5	1706	pass
+GCA_900099495.1	Zymoseptoria tritici	fungal	ascomycota_odb10	98.8	98.7	0.1	0.4	0.8	1706	pass
+GCA_900184105.1	Zymoseptoria tritici	fungal	ascomycota_odb10	98.6	98.4	0.2	0.4	1.0	1706	pass
+GCA_900184115.1	Zymoseptoria tritici	fungal	ascomycota_odb10	98.6	98.5	0.1	0.3	1.1	1706	pass
+GCA_000785725.3	Phytophthora kernoviae	oomycete	stramenopiles_odb10	96.0	96.0	0.0	3.0	1.0	100	pass
+GCA_001712645.2	Phytophthora kernoviae	oomycete	stramenopiles_odb10	96.0	96.0	0.0	2.0	2.0	100	pass
+GCA_046861995.1	Phytophthora ramorum	oomycete	stramenopiles_odb10	100.0	90.0	10.0	0.0	0.0	100	pass
+GCA_001707905.2	Phytophthora kernoviae	oomycete	stramenopiles_odb10	96.0	96.0	0.0	3.0	1.0	100	pass
+GCA_000785735.3	Phytophthora kernoviae	oomycete	stramenopiles_odb10	94.0	94.0	0.0	4.0	2.0	100	pass
+GCA_000333075.3	Phytophthora kernoviae 00238/432	oomycete	stramenopiles_odb10	95.0	94.0	1.0	4.0	1.0	100	pass
+GCA_001712715.2	Phytophthora kernoviae	oomycete	stramenopiles_odb10	95.0	95.0	0.0	3.0	2.0	100	pass
+GCA_001712705.2	Phytophthora kernoviae	oomycete	stramenopiles_odb10	96.0	96.0	0.0	2.0	2.0	100	pass
+GCA_020800235.2	Phytophthora ramorum	oomycete	stramenopiles_odb10	100.0	88.0	12.0	0.0	0.0	100	pass
+GCA_046862035.1	Phytophthora ramorum	oomycete	stramenopiles_odb10	100.0	98.0	2.0	0.0	0.0	100	pass
+GCA_016865095.1	Phytophthora idaei	oomycete	stramenopiles_odb10	99.0	96.0	3.0	0.0	1.0	100	pass
+GCA_009732905.1	Phytophthora rubi	oomycete	stramenopiles_odb10	100.0	99.0	1.0	0.0	0.0	100	pass
+GCA_009733145.1	Phytophthora rubi	oomycete	stramenopiles_odb10	100.0	98.0	2.0	0.0	0.0	100	pass
+GCA_009732945.1	Phytophthora rubi	oomycete	stramenopiles_odb10	100.0	98.0	2.0	0.0	0.0	100	pass
+GCA_019155715.1	Phytophthora pseudosyringae	oomycete	stramenopiles_odb10	95.0	95.0	0.0	0.0	5.0	100	pass
+GCA_003287315.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	100.0	98.0	2.0	0.0	0.0	100	pass
+GCA_016880175.1	Phytophthora idaei	oomycete	stramenopiles_odb10	99.0	97.0	2.0	0.0	1.0	100	pass
+GCF_004359215.1	Bremia lactucae	oomycete	stramenopiles_odb10	95.0	90.0	5.0	2.0	3.0	100	pass
+GCA_020800215.1	Phytophthora ramorum	oomycete	stramenopiles_odb10	99.0	95.0	4.0	1.0	0.0	100	pass
+GCA_020800215.2	Phytophthora ramorum	oomycete	stramenopiles_odb10	99.0	95.0	4.0	1.0	0.0	100	pass
+GCF_020800215.1	Phytophthora ramorum	oomycete	stramenopiles_odb10	99.0	95.0	4.0	1.0	0.0	100	pass
+GCA_046861845.1	Phytophthora ramorum	oomycete	stramenopiles_odb10	99.0	92.0	7.0	0.0	1.0	100	pass
+GCA_002911725.1	Phytophthora palmivora	oomycete	stramenopiles_odb10	77.0	68.0	9.0	15.0	8.0	100	pass
+GCA_016864635.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	96.0	3.0	0.0	1.0	100	pass
+GCA_016864715.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	98.0	1.0	0.0	1.0	100	pass
+GCA_002215365.1	Phytophthora megakarya	oomycete	stramenopiles_odb10	91.0	90.0	1.0	0.0	9.0	100	pass
+GCA_017309695.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	97.0	2.0	0.0	1.0	100	pass
+GCA_018873755.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	98.0	98.0	0.0	0.0	2.0	100	pass
+GCA_016865085.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	100.0	97.0	3.0	0.0	0.0	100	pass
+GCA_016864665.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	95.0	4.0	0.0	1.0	100	pass
+GCA_016906365.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	97.0	2.0	0.0	1.0	100	pass
+GCA_016864695.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	96.0	3.0	0.0	1.0	100	pass
+GCA_016864815.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	96.0	3.0	0.0	1.0	100	pass
+GCA_016864755.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	95.0	4.0	0.0	1.0	100	pass
+GCA_016864775.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	94.0	5.0	0.0	1.0	100	pass
+GCA_016864795.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	97.0	2.0	0.0	1.0	100	pass
+GCA_016865055.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	96.0	3.0	0.0	1.0	100	pass
+GCA_016864735.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	97.0	2.0	0.0	1.0	100	pass
+GCA_016864835.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	97.0	2.0	0.0	1.0	100	pass
+GCA_016864855.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	95.0	4.0	0.0	1.0	100	pass
+GCA_000142945.1	Phytophthora infestans	oomycete	stramenopiles_odb10	99.0	98.0	1.0	1.0	0.0	100	pass
+GCA_012552325.1	Phytophthora infestans	oomycete	stramenopiles_odb10	96.0	85.0	11.0	0.0	4.0	100	pass
+GCA_016865075.1	Phytophthora cactorum	oomycete	stramenopiles_odb10	99.0	95.0	4.0	0.0	1.0	100	pass
+GCA_016618375.1	Phytophthora capsici	oomycete	stramenopiles_odb10	99.0	76.0	23.0	0.0	1.0	100	pass
+GCF_000142945.1	Phytophthora infestans	oomycete	stramenopiles_odb10	99.0	98.0	1.0	1.0	0.0	100	pass
+GCA_026225685.1	Phytophthora infestans	oomycete	stramenopiles_odb10	97.0	80.0	17.0	1.0	2.0	100	pass
+GCA_001483015.1	Phytophthora nicotianae	oomycete	stramenopiles_odb10	99.0	86.0	13.0	0.0	1.0	100	pass
+GCA_001482985.1	Phytophthora nicotianae	oomycete	stramenopiles_odb10	90.0	90.0	0.0	3.0	7.0	100	pass
+GCA_000247585.2	Phytophthora nicotianae	oomycete	stramenopiles_odb10	98.0	87.0	11.0	0.0	2.0	100	pass
+GCF_000247585.1	Phytophthora nicotianae	oomycete	stramenopiles_odb10	98.0	87.0	11.0	0.0	2.0	100	pass
+GCA_000509465.1	Phytophthora nicotianae	oomycete	stramenopiles_odb10	99.0	89.0	10.0	1.0	0.0	100	pass
+GCA_000149755.2	Phytophthora sojae	oomycete	stramenopiles_odb10	99.0	98.0	1.0	1.0	0.0	100	pass
+GCA_000509505.1	Phytophthora nicotianae	oomycete	stramenopiles_odb10	99.0	88.0	11.0	1.0	0.0	100	pass
+GCA_000509485.1	Phytophthora nicotianae	oomycete	stramenopiles_odb10	99.0	89.0	10.0	1.0	0.0	100	pass
+GCA_000509525.1	Phytophthora nicotianae	oomycete	stramenopiles_odb10	99.0	89.0	10.0	1.0	0.0	100	pass
+GCF_000149755.1	Phytophthora sojae	oomycete	stramenopiles_odb10	99.0	98.0	1.0	1.0	0.0	100	pass

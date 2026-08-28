@@ -19,16 +19,17 @@ kraken/
 │                         already on disk, never downloads), apply completeness thresholds.
 ├── kraken_db_build.py    Submodule 1, step 3/3 — build the Kraken2 DB from BUSCO-selected
 │                         assemblies (reads CDS already on disk, never downloads).
-├── kraken_manifest.py    Utility — records what's in a gitignored data/ dir (path/size/
-│                         mtime, +md5 for .k2d files) so huge Setonix data stays visible
-│                         from the repo without being tracked.
 ├── download.py           Submodule 2 (run/) — download FASTQ reads for classification.
 ├── classify.py           Submodule 2 (run/) — classify downloaded reads with Kraken2.
 ├── benchmark_download.py Diagnostic — ENA FTP vs HTTPS vs S3 vs prefetch throughput.
 ├── figures/               compare_host_pathogen.py, host_breakdown.py, busco_completeness.R
-├── slurm/                 SLURM wrappers for all of the above
-└── legacy/                Superseded scripts, kept for history — see "History" below
+└── slurm/                 SLURM wrappers for all of the above
 ```
+
+`manifest.py` (repo root, shared — see `_util.py`'s `build_manifest()`/`upload_to_acacia()`)
+records what's in a gitignored `data/` dir (path/size/mtime, +md5 for `.k2d` files) so huge
+Setonix data stays visible from the repo without being tracked; kraken/ is its first user
+but it's module-agnostic, not kraken-specific.
 
 Output convention matches `stat/` and `metadata/`: `kraken/output/{script}/{data,logs}/`.
 Large data (CDS downloads, BUSCO lineage caches, Kraken2 DBs, downloaded FASTQ) lives
@@ -105,8 +106,13 @@ A 45-run pilot (2026-08-05) followed by a 32-run high-confidence validation set 
 step (previously duplicated across `busco_screen.py`/`build.py`) into `kraken_db_search.py`;
 `busco_screen.py` + `filter_refs.py` into `kraken_db_busco.py` (now producing one merged
 output table instead of two); `build.py` into `kraken_db_build.py` (fetch logic removed —
-reads CDS that `kraken_db_search.py` already downloaded). Old scripts kept in `legacy/`
-for history. Also dropped: the 2,473-run stratified SRA control set (`control/sample.py`)
+reads CDS that `kraken_db_search.py` already downloaded). Manifest generation and Acacia
+upload (previously `kraken_manifest.py` and a function inside `build.py`) moved to the
+shared `_util.py` + repo-root `manifest.py` — both are generic, not kraken-specific.
+Old scripts, their old outputs, and dead debug/experiment leftovers (an abandoned
+"unmasked" DB variant) were fully deleted rather than kept in a `legacy/` dir, once the
+migration to the new scripts was verified to reproduce `db_v2`'s exact composition with
+no data loss. Also dropped: the 2,473-run stratified SRA control set (`control/sample.py`)
 and in silico controls (`control/insilico.py`, stratum J) — abandoned per Leon 2026-08-28,
 those runs turned out to have unknown ground truth and weren't suitable as controls; the
 473-BioSample field co-infected target (above) replaces them as the validation set.

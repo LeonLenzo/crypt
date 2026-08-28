@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Shared utilities for the crypt pipeline."""
 
+import hashlib
 import json
+import subprocess
 import sys
 import time
 import urllib.error
@@ -91,3 +93,67 @@ def save_json(data: dict, path: Path) -> None:
     with open(tmp, "w") as f:
         json.dump(data, f)
     tmp.rename(path)
+
+
+def _md5(path: Path, chunk_size: int = 1 << 20) -> str:
+    h = hashlib.md5()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(chunk_size), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def build_manifest(data_dir: Path, out_path: Path = None,
+                   checksum_suffixes: tuple = (".k2d",)) -> Path:
+    """Walk a large, gitignored data directory and write a small manifest.tsv
+    (relative path, size in bytes, mtime, +md5 for files matching
+    checksum_suffixes) — so the repo shows what exists on remote/HPC scratch
+    without holding the data itself. Skips its own output file if re-run in
+    place. Returns the manifest path.
+
+    checksum_suffixes: file extensions worth checksumming (e.g. Kraken2 .k2d
+    DB files, where byte-level reproducibility matters). Everything else is
+    sized/timestamped only — checksumming hundreds of GB of FASTQ/CDS for no
+    real benefit isn't worth the time.
+    """
+    out_path = out_path or (data_dir / "manifest.tsv")
+    rows = []
+    n_files = 0
+    total_bytes = 0
+    for p in sorted(data_dir.rglob("*")):
+        if p == out_path or not p.is_file():
+            continue
+        rel = p.relative_to(data_dir)
+        st = p.stat()
+        checksum = _md5(p) if p.suffix in checksum_suffixes else ""
+        rows.append((str(rel), st.st_size, int(st.st_mtime), checksum))
+        n_files += 1
+        total_bytes += st.st_size
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_path, "w") as f:
+        f.write("path\tsize_bytes\tmtime_epoch\tmd5\n")
+        for rel, size, mtime, checksum in rows:
+            f.write(f"{rel}\t{size}\t{mtime}\t{checksum}\n")
+
+    print(f"{out_path}: {n_files} files, {total_bytes / 1e9:.2f} GB")
+    return out_path
+
+
+def upload_to_acacia(local_dir: Path, s3_prefix: str, bucket: str,
+                     endpoint: str = "https://projects.pawsey.org.au",
+                     profile: str = "acacia") -> bool:
+    """Sync a local directory to Pawsey's Acacia S3 object store via `aws s3 sync`.
+    Returns True on success. Used for archiving large Setonix-scratch data
+    (survives scratch wipes) — currently kraken/ DB build assemblies; any module
+    with large regeneratable-but-expensive data on scratch can reuse this."""
+    s3_uri = f"s3://{bucket}/{s3_prefix}/"
+    print(f"\nUploading {local_dir} -> {s3_uri} …", flush=True)
+    cmd = ["aws", "s3", "sync", str(local_dir), s3_uri,
+           "--profile", profile, "--endpoint-url", endpoint]
+    result = subprocess.run(cmd, text=True)
+    if result.returncode != 0:
+        print(f"WARNING: upload to Acacia failed (exit {result.returncode})", flush=True)
+        return False
+    print(f"Upload complete -> {s3_uri}", flush=True)
+    return True

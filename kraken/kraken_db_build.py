@@ -55,17 +55,15 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from _util import _Tee, make_log_dir, link_latest
+from _util import _Tee, make_log_dir, link_latest, upload_to_acacia
 
 BUSCO_SCORES = Path("kraken/output/kraken_db_busco/data/busco_scores.tsv")
 OUT_DIR      = Path("kraken/output/kraken_db_build")
 DEFAULT_DB          = OUT_DIR / "data" / "db"
 DEFAULT_GENOMES_DIR = Path("kraken/output/kraken_db_search/data/cds_v2")
 
-TAXDUMP_URL     = "https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz"
-ACACIA_BUCKET   = "pawsey1168-llenzo-kraken-db"
-ACACIA_ENDPOINT = "https://projects.pawsey.org.au"
-ACACIA_PROFILE  = "acacia"
+TAXDUMP_URL   = "https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz"
+ACACIA_BUCKET = "pawsey1168-llenzo-kraken-db"
 
 # Classification parameters (used at classify time; stored here for reference)
 KRAKEN2_CONFIDENCE     = 0.15
@@ -153,19 +151,6 @@ def add_to_library(fna_path: Path, db_dir: Path) -> bool:
     return True
 
 
-def upload_to_acacia(local_dir: Path, s3_prefix: str) -> None:
-    """Sync a local directory to Acacia S3 using aws s3 sync."""
-    s3_uri = f"s3://{ACACIA_BUCKET}/{s3_prefix}/"
-    print(f"\nUploading {local_dir} → {s3_uri} …", flush=True)
-    cmd = ["aws", "s3", "sync", str(local_dir), s3_uri,
-           "--profile", ACACIA_PROFILE, "--endpoint-url", ACACIA_ENDPOINT]
-    result = subprocess.run(cmd, text=True)
-    if result.returncode != 0:
-        print(f"WARNING: upload to Acacia failed (exit {result.returncode})", flush=True)
-    else:
-        print(f"Upload complete → {s3_uri}", flush=True)
-
-
 def download_taxonomy(db_dir: Path) -> None:
     taxdump_path = db_dir / "taxdump.tar.gz"
     if (db_dir / "taxonomy" / "nodes.dmp").exists():
@@ -228,7 +213,7 @@ def main() -> None:
             return
 
         if args.upload_to_acacia:
-            upload_to_acacia(genomes_dir, "kraken_transcriptomes")
+            upload_to_acacia(genomes_dir, "kraken_transcriptomes", bucket=ACACIA_BUCKET)
 
         n_found, n_missing, n_skipped, n_added = 0, 0, 0, 0
         seen_accessions: set = set()

@@ -1,22 +1,4 @@
 path	size_bytes	mtime_epoch	md5
-db_pathogens/hash.k2d	1878460740	1786079930	2d80afdeda9bd167dd220e67ca7e3bc0
-db_pathogens/library/added/f69zBsHUaN.fna	2309382338	1786079296	
-db_pathogens/library/added/prelim_map.txt	131558615	1786079592	
-db_pathogens/library/added/prelim_map_scunUaOg9v.txt	131558615	1786079285	
-db_pathogens/opts.k2d	64	1786079930	2c1d0d4816052dd4965f65ed2d0cdd0e
-db_pathogens/seqid2taxid.map	122949773	1786079593	
-db_pathogens/taxo.k2d	23093	1786079602	775a5739e13f4a0e9ad0061e65e511ef
-db_pathogens/taxonomy/citations.dmp	19774988	1786076968	
-db_pathogens/taxonomy/delnodes.dmp	7613403	1786076804	
-db_pathogens/taxonomy/division.dmp	452	1786076401	
-db_pathogens/taxonomy/gc.prt	16444	1786076969	
-db_pathogens/taxonomy/gencode.dmp	4921	1786076401	
-db_pathogens/taxonomy/images.dmp	5162896	1786076804	
-db_pathogens/taxonomy/merged.dmp	1890440	1786076804	
-db_pathogens/taxonomy/names.dmp	301874241	1786076964	
-db_pathogens/taxonomy/nodes.dmp	223338051	1786076917	
-db_pathogens/taxonomy/prelim_map.txt	131558615	1786079593	
-db_pathogens/taxonomy/readme.txt	3099	1743016605	
 db_v2/hash.k2d	6304209220	1786593561	460979e574b0405b8861aaf775e07fd9
 db_v2/library/added/097EAaYhgZ.fna	21879750	1786590166	
 db_v2/library/added/0LERdzc3sg.fna	20081728	1786590773	

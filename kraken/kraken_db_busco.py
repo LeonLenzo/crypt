@@ -5,7 +5,7 @@ kraken_db_search.py and apply completeness thresholds. Submodule 1, step 2 of 3
 (search → busco → build).
 
 Reads CDS FASTA that kraken_db_search.py already downloaded to
-kraken_db_search/data/cds_v2/{accession}/ — this script never downloads anything
+kraken_db_search/data/cds/pathogen/{accession}/ — this script never downloads anything
 itself. Runs BUSCO in transcriptome mode per accession, then applies per-kingdom
 completeness thresholds with a per-taxid fallback (if nothing passes for a taxid,
 keep the best-scoring option anyway, flagged, so kraken_db_build.py always has
@@ -20,7 +20,7 @@ Run on Setonix: sbatch kraken/slurm/kraken_db_busco.slurm
 Run from crypt/:
     python kraken/kraken_db_busco.py \\
         --busco-db-path /scratch/pawsey1168/llenzo/crypt/kraken/output/kraken_db_busco/data/busco_downloads \\
-        [--genomes-dir /scratch/pawsey1168/llenzo/crypt/kraken/output/kraken_db_search/data/cds_v2] \\
+        [--genomes-dir /scratch/pawsey1168/llenzo/crypt/kraken/output/kraken_db_search/data/cds/pathogen] \\
         [--busco-out   /scratch/pawsey1168/llenzo/kraken/busco] \\
         [--workers 16] [--cpus-per-busco 8]
         [--fungi-threshold 50.0] [--oomycete-threshold 65.0]
@@ -48,7 +48,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from _util import _Tee, make_log_dir, link_latest
 
 CANDIDATES_TSV = Path("kraken/output/kraken_db_search/data/ref_candidates.tsv")
-DEFAULT_GENOMES_DIR = Path("kraken/output/kraken_db_search/data/cds_v2")
+DEFAULT_GENOMES_DIR = Path("kraken/output/kraken_db_search/data/cds/pathogen")
 DEFAULT_BUSCO_DB    = Path("kraken/output/kraken_db_busco/data/busco_downloads")
 DEFAULT_BUSCO_OUT   = Path("/scratch/pawsey1168/llenzo/kraken/busco")  # ephemeral, cleared per-run
 

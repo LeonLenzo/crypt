@@ -14,7 +14,7 @@
 # no pre-masking required.
 #
 # Prerequisites:
-#   1. sbatch kraken/slurm/kraken_db_search.slurm  →  ref_candidates.tsv + cds_v2/
+#   1. sbatch kraken/slurm/kraken_db_search.slurm  →  ref_candidates.tsv + cds/pathogen/
 #   2. sbatch kraken/slurm/kraken_db_busco.slurm   →  busco_scores.tsv (selected=True rows)
 #
 # Run from crypt/: sbatch kraken/slurm/kraken_db_build.slurm
@@ -27,7 +27,7 @@ spack load kraken2
 
 SCRATCH="/scratch/pawsey1168/llenzo"
 DB_DIR="$SCRATCH/crypt/kraken/output/kraken_db_build/data/db_v2"
-GENOMES_DIR="$SCRATCH/crypt/kraken/output/kraken_db_search/data/cds_v2"
+GENOMES_DIR="$SCRATCH/crypt/kraken/output/kraken_db_search/data/cds/pathogen"
 
 mkdir -p kraken/slurm/logs
 mkdir -p "$DB_DIR"

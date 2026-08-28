@@ -24,7 +24,7 @@ Three modes, run in order:
               Output: data/ref_candidates.tsv (one row per candidate assembly)
 
   --download  Download CDS FASTA for every candidate with fasta_type=cds into
-              data/cds_v2/{accession}/. This is the ONLY place in the kraken_db_*
+              data/cds/pathogen/{accession}/. This is the ONLY place in the kraken_db_*
               pipeline that downloads CDS — kraken_db_busco.py and
               kraken_db_build.py both read from here, never fetch their own copies.
               Resumable: skips accessions with .fna files already on disk.
@@ -38,7 +38,7 @@ Output:
     kraken/output/kraken_db_search/data/ref_candidates.tsv   (tracked)
     kraken/output/kraken_db_search/data/pangenome.tsv        (tracked, --scope only)
     kraken/output/kraken_db_search/data/genus_fill.tsv       (tracked, --scope only)
-    kraken/output/kraken_db_search/data/cds_v2/{accession}/  (gitignored, --download only)
+    kraken/output/kraken_db_search/data/cds/pathogen/{accession}/  (gitignored, --download only)
 """
 
 import argparse
@@ -61,7 +61,7 @@ RUNS_TSV     = Path("stat/output/stat_filter/data/runs.tsv")
 OUT_DIR      = Path("kraken/output/kraken_db_search")
 DATA_DIR     = OUT_DIR / "data"
 CANDIDATES_TSV = DATA_DIR / "ref_candidates.tsv"
-DEFAULT_GENOMES_DIR = DATA_DIR / "cds_v2"
+DEFAULT_GENOMES_DIR = DATA_DIR / "cds" / "pathogen"
 
 YEAR_BIN_SIZE = 5
 LEVEL_RANK = {"Complete Genome": 4, "Chromosome": 3, "Scaffold": 2, "Contig": 1}
@@ -557,7 +557,7 @@ def main():
                     help="Select candidates and write ref_candidates.tsv without downloading "
                          "(default if neither --scope nor --download given)")
     ap.add_argument("--genomes-dir", default=str(DEFAULT_GENOMES_DIR),
-                    help="CDS download directory (default: kraken_db_search/data/cds_v2)")
+                    help="CDS download directory (default: kraken_db_search/data/cds/pathogen)")
     ap.add_argument("--workers", type=int, default=8)
     args = ap.parse_args()
 

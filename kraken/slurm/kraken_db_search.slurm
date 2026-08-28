@@ -11,7 +11,7 @@
 
 # Select candidate assemblies (query NCBI, no N cap) AND download their CDS FASTA.
 # This is the ONE place in the kraken_db_* pipeline that downloads — kraken_db_busco.py
-# and kraken_db_build.py both read from data/cds_v2/ produced here.
+# and kraken_db_build.py both read from data/cds/pathogen/ produced here.
 # Requires NCBI datasets CLI (bootstrapped below).
 #
 # Run from crypt/: sbatch kraken/slurm/kraken_db_search.slurm

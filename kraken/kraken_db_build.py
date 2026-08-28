@@ -4,7 +4,7 @@ kraken_db_build.py — build the Kraken2 pathogen DB from BUSCO-selected assembl
 Submodule 1, step 3 of 3 (search → busco → build).
 
 Reads kraken_db_busco/data/busco_scores.tsv, takes every row with selected=True,
-and reads its CDS FASTA from kraken_db_search/data/cds_v2/{accession}/ — this
+and reads its CDS FASTA from kraken_db_search/data/cds/pathogen/{accession}/ — this
 script never downloads anything itself; kraken_db_search.py is the one place in
 the pipeline that fetches assemblies.
 
@@ -60,7 +60,7 @@ from _util import _Tee, make_log_dir, link_latest, upload_to_acacia
 BUSCO_SCORES = Path("kraken/output/kraken_db_busco/data/busco_scores.tsv")
 OUT_DIR      = Path("kraken/output/kraken_db_build")
 DEFAULT_DB          = OUT_DIR / "data" / "db"
-DEFAULT_GENOMES_DIR = Path("kraken/output/kraken_db_search/data/cds_v2")
+DEFAULT_GENOMES_DIR = Path("kraken/output/kraken_db_search/data/cds/pathogen")
 
 TAXDUMP_URL   = "https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz"
 ACACIA_BUCKET = "pawsey1168-llenzo-kraken-db"

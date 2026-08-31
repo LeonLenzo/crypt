@@ -13,18 +13,30 @@ stat/output/stat_filter/data/*_species_dist.tsv
 stat/output/stat_build/data/phi-base_current.csv
 stat/output/stat_build/data/ictv_vmr.xlsx
 
-# meta_search.py raw API response caches — regeneratable; bioprojects.json/
-# biosamples.json (the curated output, not a raw cache) stay tracked
+# meta_search.py raw API response caches — regeneratable
 metadata/output/meta_search/data/bp_cache.json
 metadata/output/meta_search/data/bs_cache.json
 metadata/output/meta_search/data/serper_cache.json
 
 # meta_text.py: manually-downloaded copyrighted journal PDFs (715MB+, and not
-# ours to redistribute) — never committed. text_cache.jsonl (the extracted
-# plain text meta_classify.py actually reads) stays tracked; its .bak sibling
-# is working-copy cruft, also excluded.
+# ours to redistribute) — never committed. Its .bak sibling is working-copy
+# cruft, also excluded.
 metadata/output/meta_text/data/manual_pdfs/
 metadata/output/meta_text/data/text_cache.jsonl.bak
+
+# The repo is for code (+ small figures/manifests to discuss results), not
+# data — 2026-08-31 policy, purged from history at the same time. These are
+# all locally regeneratable (or synced to Setonix directly, outside git) —
+# see the module docstrings/READMEs for how each is produced.
+metadata/output/meta_search/data/bioprojects.json
+metadata/output/meta_search/data/biosamples.json
+metadata/output/meta_text/data/text_cache.jsonl
+metadata/output/meta_classify/data/samples.tsv
+metadata/output/meta_classify/data/classify_cache.jsonl
+metadata/output/meta_classify/data/host_disambig_cache.jsonl
+stat/output/stat_build/data/phibase_db.json
+stat/output/stat_filter/data/runs.tsv
+stat/output/figures/scatter/scatter_data.tsv
 
 # legacy/ dirs (superseded scripts + their outputs, kept on disk for local
 # reference only) — excluded from the repo entirely rather than picking

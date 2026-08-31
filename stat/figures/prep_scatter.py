@@ -1,28 +1,28 @@
 #!/usr/bin/env python3
 """
-figure/scatter/prep_scatter.py
+stat/figures/prep_scatter.py
 Prepare scatter_data.tsv for scatter.R.
 
 ALL points (background and foreground) use kingdom-level total_count from
 stat_cache so that gate lines (x=1, y=1) consistently reflect the actual
-gate criteria used in 02_filter_runs.py:
+gate criteria used in stat/stat_filter.py:
   MAL gate: Viridiplantae total_count / analyzed >= 1%  → x-axis
   HAL gate: (Fungi|Oomycota|Nematoda) total_count / analyzed >= 1%  → y-axis
 
 Foreground (coloured): biosample_representative gate-pass runs from runs.tsv.
 Background (grey):     all other stat_cache runs.
 
-Run from crypt/: python figure/scatter/prep_scatter.py
+Run from crypt/: python stat/figures/prep_scatter.py
 """
 
 import csv
 import json
 from pathlib import Path
 
-STAT_CACHE = Path("stat/output/fetch_runs/data/stat_cache.jsonl")
-RUNS_TSV   = Path("stat/output/filter_runs/data/runs.tsv")
-MAL_RUNS   = Path("stat/output/fetch_runs/data/mal_runs.json")
-HAL_RUNS   = Path("stat/output/fetch_runs/data/hal_runs.json")
+STAT_CACHE = Path("stat/output/stat_fetch/data/stat_cache.jsonl")
+RUNS_TSV   = Path("stat/output/stat_filter/data/runs.tsv")
+MAL_ACCS   = Path("stat/output/stat_fetch/data/mal_accessions.txt")
+HAL_ACCS   = Path("stat/output/stat_fetch/data/hal_accessions.txt")
 OUT_TSV    = Path("stat/output/figures/scatter/scatter_data.tsv")
 
 # ── Load gate-pass metadata from runs.tsv ─────────────────────────────────────
@@ -50,7 +50,7 @@ EUK_KINGDOMS  = {"fungi", "oomycota", "nematoda"}
 
 def parse_stat(data: list) -> tuple[float, float]:
     """Kingdom-level host_pct and euk_pct — consistent with actual gate logic."""
-    if not data or data[0] is None:
+    if not data or not isinstance(data, list) or data[0] is None:
         return 0.0, 0.0
     totals   = data[0].get("tax_totals", {})
     analyzed = totals.get("analysed", 0) or totals.get("analyzed", 0)
@@ -66,16 +66,14 @@ def parse_stat(data: list) -> tuple[float, float]:
             euk_cnt  += tc
     return host_cnt / analyzed * 100, euk_cnt / analyzed * 100
 
-# ── Load mode keys for background run assignment ───────────────────────────────
+# ── Load mode accession sets for background run assignment ────────────────────
 
-print("Loading mal_runs.json keys ...", end=" ", flush=True)
-with open(MAL_RUNS) as f:
-    mal_run_keys = set(json.load(f).keys())
+print("Loading mal_accessions.txt ...", end=" ", flush=True)
+mal_run_keys = set(MAL_ACCS.read_text().splitlines())
 print(f"{len(mal_run_keys):,}")
 
-print("Loading hal_runs.json keys ...", end=" ", flush=True)
-with open(HAL_RUNS) as f:
-    hal_run_keys = set(json.load(f).keys())
+print("Loading hal_accessions.txt ...", end=" ", flush=True)
+hal_run_keys = set(HAL_ACCS.read_text().splitlines())
 print(f"{len(hal_run_keys):,}")
 
 # ── Stream stat_cache ──────────────────────────────────────────────────────────
@@ -96,10 +94,12 @@ with open(STAT_CACHE) as f:
         except ValueError:
             continue
         try:
-            data = json.loads(js)
+            entry = json.loads(js)
         except json.JSONDecodeError:
             continue
-        host_pct, euk_pct = parse_stat(data)
+        # New cache format: JSON object with embedded RunInfo + _stat array
+        stat = entry["_stat"] if isinstance(entry, dict) else entry
+        host_pct, euk_pct = parse_stat(stat)
         if host_pct == 0 and euk_pct == 0:
             continue
         if acc in biosample_rep:

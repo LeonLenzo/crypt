@@ -1,18 +1,17 @@
 #!/usr/bin/env python3
 """
-02_filter_runs.py — gate, detect eukaryotic co-pathogens, annotate.
+stat/stat_filter.py — gate, detect eukaryotic co-pathogens, annotate.
 
 Scope: eukaryotic plant pathogens only (Fungi, Oomycota, Nematoda).
 Bacteria and viruses are excluded from co-infection detection; their
 kingdom-level percentages are retained in runs.tsv as informational
 columns. Rationale: plant RNA-seq uses polyA+ selection, which depletes
 bacterial mRNA (no polyA tails) and most plant virus families lacking 3'
-polyA sequences (tospoviruses, tobamoviruses, cucumoviruses, luteoviruses),
-making kingdom-level thresholds for those groups biologically
-uninterpretable. Eukaryotic mRNA is faithfully captured by polyA
-selection. See methods for full justification.
+polyA sequences, making kingdom-level thresholds for those groups
+biologically uninterpretable. Eukaryotic mRNA is faithfully captured by
+polyA selection. See methods for full justification.
 
-Three phases in a single STAT-cache pass per mode:
+Three phases in a single stat_cache.jsonl pass per mode:
   Gate   — MAL: ≥1% Viridiplantae reads; HAL: any eukaryotic PHI-base
             pathogen ≥1%.
   Detect — leaf-level species via specific_hits(); PHI-base cross-ref;
@@ -21,6 +20,19 @@ Three phases in a single STAT-cache pass per mode:
 
 Validate (skipped with --skip-validate):
   Kingdom distribution tables, breakpoint analysis, R-ready TSVs.
+
+Inputs:
+  stat/output/stat_build/data/phibase_db.json
+  stat/output/stat_fetch/data/stat_cache.jsonl   (new object format)
+  stat/output/stat_fetch/data/{mode}_accessions.txt
+
+Output:
+  stat/output/stat_filter/data/runs.tsv
+
+Run from crypt/:
+    python stat/stat_filter.py
+    python stat/stat_filter.py --mode mal
+    python stat/stat_filter.py --skip-validate
 """
 import argparse
 import csv
@@ -57,11 +69,17 @@ _RNA_SOURCES = {
     "TRANSCRIPTOMIC", "TRANSCRIPTOMIC SINGLE CELL", "METATRANSCRIPTOMIC", "VIRAL RNA"
 }
 
+_RUNINFO_FIELDS = (
+    "BioSample", "BioProject", "SRAStudy", "Platform",
+    "LibrarySource", "ScientificName",
+)
+
 # ── Paths ─────────────────────────────────────────────────────────────────────
 
-OUT_DIR   = Path("stat/output/filter_runs")
-DB_PATH   = Path("stat/output/build/data/phibase_db.json")
-JSONL_PATH = Path("stat/output/fetch_runs/data/stat_cache.jsonl")
+OUT_DIR    = Path("stat/output/stat_filter")
+DB_PATH    = Path("stat/output/stat_build/data/phibase_db.json")
+JSONL_PATH = Path("stat/output/stat_fetch/data/stat_cache.jsonl")
+ACC_DIR    = Path("stat/output/stat_fetch/data")
 
 BREAKPOINTS      = [0.1, 0.25, 0.5, 1.0, 2.0, 5.0, 10.0, 20.0]
 ABS_COUNT_FLOORS = [100, 250, 500, 1_000, 2_000, 5_000]
@@ -71,7 +89,7 @@ ABS_COUNT_FLOORS = [100, 250, 500, 1_000, 2_000, 5_000]
 
 def _load_db() -> dict:
     if not DB_PATH.exists():
-        sys.exit(f"PHI-base DB not found: {DB_PATH}\nRun: python3 00_build.py")
+        sys.exit(f"PHI-base DB not found: {DB_PATH}\nRun: python stat/stat_build.py")
     raw = json.loads(DB_PATH.read_text())
 
     euk_p_to_seed: dict[int, int] = {}
@@ -293,7 +311,7 @@ def _genus(name: str) -> str:
 def _classify(run_row: dict, stat_data: list, kp: dict,
               db: dict, mode: str) -> dict | None:
     """Return co-infection columns for one gate-pass run, or None if unusable."""
-    library_organism = run_row.get("ScientificName", "") or run_row.get("Organism", "")
+    library_organism = run_row.get("ScientificName", "")
     lib_lower = library_organism.lower()
     lib_taxid = db["name_to_taxid"].get(lib_lower)
     lib_seed  = db["p_to_seed"].get(lib_taxid) if lib_taxid else None
@@ -312,70 +330,44 @@ def _classify(run_row: dict, stat_data: list, kp: dict,
         (f"{HOST_NODE}:{kp['host_pct']:.1f}%" if kp["host_pct"] else "")
     )
 
-    # host column: best species-level Viridiplantae hit (MAL/aerial) or library organism (HAL)
-    if mode in ("mal", "aerial"):
+    if mode == "mal":
+        # host: best species-level Viridiplantae hit
         best = next(((nm, pct) for nm, pct in all_hosts if len(nm.split()) == 2), None)
         host_name = best[0] if best else (all_hosts[0][0] if all_hosts else HOST_NODE)
-    else:
-        host_name = library_organism
-
-    # library_detected
-    if mode == "mal":
+        # library_detected: library pathogen detected in STAT
         lib_detected = lib_seed is not None and any(
             db["p_to_seed"].get(tid, tid) == lib_seed for tid, *_ in all_pathogens
         )
-    else:
+        # co-pathogens: exclude library organism seed
+        co_pats   = [(tid, nm, pct, kg) for tid, nm, pct, kg in all_pathogens
+                     if lib_seed is None or db["p_to_seed"].get(tid, tid) != lib_seed]
+        pri_genus = _genus(library_organism)
+        same_genus = bool(pri_genus and any(_genus(nm) == pri_genus for _, nm, *_ in co_pats))
+        chk_kingdoms = {kg for _, _, _, kg in co_pats}
+        flag = ("multi_kingdom" if len(chk_kingdoms) > 1
+                else "multi_species" if co_pats else "single")
+        host_taxid = db["name_to_taxid"].get(host_name.lower())
+        istatus    = _interaction_status(lib_taxid, host_taxid, db)
+    else:  # hal
+        # host: library organism (the plant host)
+        host_name = library_organism
+        # library_detected: library host organism detected in Viridiplantae STAT hits
         lib_detected = bool(all_hosts and any(
             lib_lower in nm.lower() or nm.lower() == lib_lower for nm, _ in all_hosts
         ))
-
-    if mode == "aerial":
-        # Report all detected pathogens; no primary to exclude
-        co_pats    = all_pathogens
-        same_genus = False
-        chk_kingdoms = {kg for _, _, _, kg in co_pats}
-        flag = ("multi_kingdom" if len(chk_kingdoms) > 1
-                else "multi_species" if len(co_pats) > 1
-                else "single" if co_pats else "none")
-        host_taxid = db["name_to_taxid"].get(host_name.lower())
-        if not host_taxid:
-            try:
-                host_taxid = int(run_row.get("TaxID", ""))
-            except (ValueError, TypeError):
-                host_taxid = None
-        istatus = _interaction_status(
-            all_pathogens[0][0] if all_pathogens else None, host_taxid, db
-        )
-    else:
-        # co-infection secondaries (MAL: exclude library organism seed; HAL: exclude top)
-        if mode == "mal":
-            co_pats   = [(tid, nm, pct, kg) for tid, nm, pct, kg in all_pathogens
-                         if lib_seed is None or db["p_to_seed"].get(tid, tid) != lib_seed]
-            pri_genus = _genus(library_organism)
-        else:
-            co_pats   = all_pathogens[1:]
-            pri_genus = _genus(all_pathogens[0][1]) if all_pathogens else ""
-
+        # co-pathogens: secondary pathogens (all except the top one)
+        co_pats   = all_pathogens[1:]
+        pri_genus = _genus(all_pathogens[0][1]) if all_pathogens else ""
         same_genus = bool(pri_genus and any(_genus(nm) == pri_genus for _, nm, *_ in co_pats))
-
         chk_kingdoms = {kg for _, _, _, kg in co_pats}
-        if mode == "hal" and all_pathogens:
+        if all_pathogens:
             chk_kingdoms.add(all_pathogens[0][3])
         flag = ("multi_kingdom" if len(chk_kingdoms) > 1
                 else "multi_species" if co_pats else "single")
-
-        # interaction_status: MAL → pathogen vs plant host; HAL → primary vs library host
-        if mode == "mal":
-            host_taxid = db["name_to_taxid"].get(host_name.lower())
-            istatus    = _interaction_status(lib_taxid, host_taxid, db)
-        else:
-            try:
-                host_taxid = int(run_row.get("TaxID", ""))
-            except (ValueError, TypeError):
-                host_taxid = db["name_to_taxid"].get(lib_lower)
-            istatus = _interaction_status(
-                all_pathogens[0][0] if all_pathogens else None, host_taxid, db
-            )
+        host_taxid = db["name_to_taxid"].get(lib_lower)
+        istatus = _interaction_status(
+            all_pathogens[0][0] if all_pathogens else None, host_taxid, db
+        )
 
     return {
         "host":                 host_name,
@@ -403,8 +395,8 @@ def _annotate_biosamples(rows: list[dict]) -> None:
     for indices in groups.values():
         best = max(indices, key=lambda i: int(rows[i].get("analyzed") or 0))
         for i in indices:
-            rows[i]["biosample_n_runs"]         = len(indices)
-            rows[i]["biosample_representative"]  = (i == best)
+            rows[i]["biosample_n_runs"]        = len(indices)
+            rows[i]["biosample_representative"] = (i == best)
 
 
 # ── Validate output ───────────────────────────────────────────────────────────
@@ -530,7 +522,6 @@ OUTPUT_FIELDS = [
     "biosample_n_runs", "biosample_representative",
     "fungi_pct", "virus_pct", "bacteria_pct", "oomycete_pct", "nematode_pct",
     "analyzed",
-    "tissue_raw", "tissue_category",
 ]
 
 
@@ -582,25 +573,24 @@ def _mode_summary(rows: list[dict], mode: str) -> str:
 
 # ── Single-pass mode processing ───────────────────────────────────────────────
 
-def _find_runs_path(mode: str) -> Path:
-    for base in (Path("stat/output/fetch_runs/data"), Path("stat/output/fetch_runs")):
-        p = base / f"{mode}_runs.json"
-        if p.exists():
-            return p
-    sys.exit(f"{mode}_runs.json not found under stat/output/fetch_runs/")
+def _load_accessions(mode: str) -> set[str]:
+    p = ACC_DIR / f"{mode}_accessions.txt"
+    if not p.exists():
+        sys.exit(f"{mode}_accessions.txt not found: {p}\nRun: python stat/stat_fetch.py --mode {mode}")
+    return set(p.read_text().splitlines())
 
 
 def _process_mode(mode: str, db: dict, skip_validate: bool,
                   log_dir: Path) -> tuple[list[dict], dict]:
     """
     Single-pass through stat_cache.jsonl: gate + detect + classify.
+    RunInfo is read from embedded cache entries (new stat_fetch.py format).
     Accumulates validate data during the pass if not skip_validate.
     """
-    runs_path = _find_runs_path(mode)
-    runs      = load_json(runs_path)
-    needed    = set(runs.keys())
-    print(f"\n── {mode.upper()}: {len(needed):,} runs from {runs_path} ──", flush=True)
-    gate_desc = (f"≥{MAL_MIN_HOST_PCT}% Viridiplantae" if mode in ("mal", "aerial")
+    needed = _load_accessions(mode)
+    print(f"\n── {mode.upper()}: {len(needed):,} accessions from {mode}_accessions.txt ──",
+          flush=True)
+    gate_desc = (f"≥{MAL_MIN_HOST_PCT}% Viridiplantae" if mode == "mal"
                  else f"euk PHI-base pathogen ≥{HAL_MIN_PATHOGEN_PCT}%")
     print(f"\n── Phase 1+3: gate + detect ({mode.upper()}, [{gate_desc}]) ──", flush=True)
 
@@ -617,15 +607,21 @@ def _process_mode(mode: str, db: dict, skip_validate: bool,
             if acc not in needed:
                 continue
 
-            run_row = runs[acc]
-            if run_row.get("LibrarySource") not in _RNA_SOURCES:
-                n_wrong_source += 1
-                continue
-
+            # Parse new-format entry (JSON object with embedded RunInfo + _stat)
             try:
-                stat_data = json.loads(rest)
+                entry = json.loads(rest)
             except json.JSONDecodeError:
                 n_no_stat += 1
+                continue
+            if not isinstance(entry, dict):
+                n_no_stat += 1
+                continue
+
+            run_row   = {f: entry.get(f, "") for f in _RUNINFO_FIELDS}
+            stat_data = entry.get("_stat")
+
+            if run_row.get("LibrarySource") not in _RNA_SOURCES:
+                n_wrong_source += 1
                 continue
 
             kp = _parse_kingdom_pcts(stat_data)
@@ -633,13 +629,13 @@ def _process_mode(mode: str, db: dict, skip_validate: bool,
                 n_no_stat += 1
                 continue
 
-            passes = (_passes_mal_gate(kp) if mode in ("mal", "aerial")
+            passes = (_passes_mal_gate(kp) if mode == "mal"
                       else _passes_hal_gate(kp, db))
             if not passes:
                 n_fail += 1
                 continue
 
-            # Accumulate validate data (before classify, so even skip-classify runs count)
+            # Accumulate validate data (before classify)
             if not skip_validate:
                 kpct_rows.append({
                     "Run":          acc,
@@ -664,20 +660,15 @@ def _process_mode(mode: str, db: dict, skip_validate: bool,
                 continue
 
             row = {
-                "Run":             acc,
-                "mode":            mode,
-                "BioSample":       run_row.get("BioSample",       ""),
-                "BioProject":      run_row.get("BioProject",      ""),
-                "SRAStudy":        run_row.get("SRAStudy",        ""),
-                "Platform":        run_row.get("Platform",        ""),
-                "fungi_pct":       round(kp["fungi_pct"],         2),
-                "virus_pct":       round(kp["virus_pct"],         2),
-                "bacteria_pct":    round(kp["bacteria_pct"],      2),
-                "oomycete_pct":    round(kp["oomycete_pct"],      2),
-                "nematode_pct":    round(kp["nematode_pct"],      2),
-                "analyzed":        kp["analyzed"],
-                "tissue_raw":      run_row.get("tissue_raw",      ""),
-                "tissue_category": run_row.get("tissue_category", ""),
+                "Run":          acc,
+                "mode":         mode,
+                "fungi_pct":    round(kp["fungi_pct"],    2),
+                "virus_pct":    round(kp["virus_pct"],    2),
+                "bacteria_pct": round(kp["bacteria_pct"], 2),
+                "oomycete_pct": round(kp["oomycete_pct"], 2),
+                "nematode_pct": round(kp["nematode_pct"], 2),
+                "analyzed":     kp["analyzed"],
+                **run_row,
             }
             row.update(result)
             rows.append(row)
@@ -703,9 +694,6 @@ def _process_mode(mode: str, db: dict, skip_validate: bool,
     if not skip_validate:
         _write_validate(mode, kpct_rows, species_rows, log_dir)
 
-    save_json({r["Run"]: r for r in rows},
-              OUT_DIR / "data" / f"{mode}_confirmed.json")
-
     return rows, {
         "n_total": n_total, "n_wrong_source": n_wrong_source, "n_stat": n_stat,
         "n_fail": n_fail, "n_confirmed": n_conf, "gate_desc": gate_desc,
@@ -717,8 +705,8 @@ def _process_mode(mode: str, db: dict, skip_validate: bool,
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--mode", choices=["mal", "hal", "aerial", "both"], default="both",
-                    help="mode(s) to process; 'both' = mal + hal (default: both)")
+    ap.add_argument("--mode", choices=["mal", "hal", "both"], default="both",
+                    help="mode(s) to process (default: both)")
     ap.add_argument("--skip-validate", action="store_true",
                     help="skip phase 2 distribution validation (faster re-runs)")
     args = ap.parse_args()
@@ -745,7 +733,7 @@ def main() -> None:
             all_rows.extend(rows)
             gate_stats[mode] = gs
 
-        # Dedup cross-mode Run collisions (rare edge case)
+        # Dedup cross-mode Run collisions (should not occur — MAL/HAL are disjoint)
         seen: set[str] = set()
         deduped: list[dict] = []
         for row in all_rows:
@@ -757,14 +745,12 @@ def main() -> None:
             print(f"\nDeduplicated {n_dupes} Run(s) present in multiple modes.", flush=True)
 
         _annotate_biosamples(deduped)
-        # aerial gets its own file; "both" and single mal/hal use runs.tsv
-        fname    = "aerial_runs.tsv" if args.mode == "aerial" else "runs.tsv"
-        out_path = OUT_DIR / "data" / fname
+        out_path = OUT_DIR / "data" / "runs.tsv"
         _write_tsv(deduped, out_path)
 
         # Summary
         mode_label = " + ".join(m.upper() for m in target_modes)
-        lines = [f"── 02_filter_runs summary ────────────────────────────────",
+        lines = [f"── stat_filter summary ───────────────────────────────────",
                  f"Modes: {mode_label}", ""]
         for mode in target_modes:
             gs = gate_stats[mode]

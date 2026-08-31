@@ -1,45 +1,63 @@
-# Large STAT cache — 1.9 GB, auto-fetched by stat/fetch_runs.py
-stat/output/fetch_runs/data/stat_cache.jsonl
-stat/output/fetch_runs/data/stat_cache_index.txt
-
-# SRA run/UID caches — auto-fetched by stat/fetch_runs.py
-stat/output/fetch_runs/data/*_runs.json
-stat/output/fetch_runs/data/*_uids.json
+# Large STAT cache — 2.4 GB, auto-fetched by stat/stat_fetch.py (all of
+# stat_fetch/data/ is fetch-stage cache/checkpoints; stat_filter/data/ holds
+# the actual final outputs — runs.tsv etc. — and stays tracked)
+stat/output/stat_fetch/data/*
 
 # Intermediate confirmed-run caches — regeneratable from stat_cache
-stat/output/filter_runs/data/*_confirmed.json
+stat/output/stat_filter/data/*_confirmed.json
 
 # Large species distribution table (38k rows)
-stat/output/filter_runs/data/*_species_dist.tsv
+stat/output/stat_filter/data/*_species_dist.tsv
 
-# Reference DB source files — auto-downloaded by stat/build.py
-stat/output/build/data/phi-base_current.csv
-stat/output/build/data/ictv_vmr.xlsx
+# Reference DB source files — auto-downloaded by stat/stat_build.py
+stat/output/stat_build/data/phi-base_current.csv
+stat/output/stat_build/data/ictv_vmr.xlsx
 
-# Literature Entrez cache — bootstraps metadata/fetch_lit.py on re-run
-metadata/output/fetch_lit/data/lit_cache.json
+# meta_search.py raw API response caches — regeneratable; bioprojects.json/
+# biosamples.json (the curated output, not a raw cache) stay tracked
+metadata/output/meta_search/data/bp_cache.json
+metadata/output/meta_search/data/bs_cache.json
+metadata/output/meta_search/data/serper_cache.json
 
-# LLM classification cache — append-only API response log
-metadata/output/llm_classify/data/classify_cache.jsonl
+# meta_text.py: manually-downloaded copyrighted journal PDFs (715MB+, and not
+# ours to redistribute) — never committed. text_cache.jsonl (the extracted
+# plain text meta_classify.py actually reads) stays tracked; its .bak sibling
+# is working-copy cruft, also excluded.
+metadata/output/meta_text/data/manual_pdfs/
+metadata/output/meta_text/data/text_cache.jsonl.bak
 
-# BioSample XML intermediate fetch cache — regeneratable by metadata/fetch_xml.py
-metadata/output/fetch_xml/data/biosample_cache.json
+# Legacy (superseded) API caches + large data outputs — scripts kept for
+# history under legacy/, but their large data outputs are fully superseded by
+# the current pipeline's near-identical equivalents (meta_search/meta_text/
+# meta_classify) — no value in carrying both as tracked multi-MB blobs.
+metadata/legacy/output/fetch_lit/data/lit_cache.json
+metadata/legacy/output/fetch_lit/data/literature.json
+metadata/legacy/output/llm_classify/data/classify_cache.jsonl
+metadata/legacy/output/fetch_xml/data/biosample_cache.json
+metadata/legacy/output/ncbi_metadata/data/bp_cache.json
+metadata/legacy/output/ncbi_metadata/data/bs_cache.json
+metadata/legacy/output/ncbi_metadata/data/bioprojects.json
+metadata/legacy/output/filter_kw/data/biosample_kw.tsv
+
+# classify_metadata.py output — superseded by meta_classify.py's samples.tsv
+# (classify_metadata.py itself not yet moved to legacy/ — separate, low
+# priority cleanup — but its stale output shouldn't be carried as a tracked
+# duplicate of the current samples.tsv either)
+metadata/output/classify_metadata/data/samples.tsv
 
 # Timestamped log history dirs + .latest symlinks — auto-generated, local
-stat/output/build/logs/history/
-stat/output/build/logs/*.latest
-stat/output/fetch_runs/logs/history/
-stat/output/fetch_runs/logs/*.latest
-stat/output/filter_runs/logs/history/
-stat/output/filter_runs/logs/*.latest
-metadata/output/fetch_xml/logs/history/
-metadata/output/fetch_xml/logs/*.latest
-metadata/output/fetch_lit/logs/history/
-metadata/output/fetch_lit/logs/*.latest
-metadata/output/filter_kw/logs/history/
-metadata/output/filter_kw/logs/*.latest
-metadata/output/llm_classify/logs/history/
-metadata/output/llm_classify/logs/*.latest
+stat/output/stat_build/logs/history/
+stat/output/stat_build/logs/*.latest
+stat/output/stat_fetch/logs/history/
+stat/output/stat_fetch/logs/*.latest
+stat/output/stat_filter/logs/history/
+stat/output/stat_filter/logs/*.latest
+metadata/output/meta_search/logs/history/
+metadata/output/meta_search/logs/*.latest
+metadata/output/meta_text/logs/history/
+metadata/output/meta_text/logs/*.latest
+metadata/output/meta_classify/logs/history/
+metadata/output/meta_classify/logs/*.latest
 kraken/output/classify/logs/history/
 kraken/output/classify/logs/*.latest
 kraken/output/download/logs/history/

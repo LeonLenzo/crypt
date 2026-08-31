@@ -1,0 +1,48 @@
+meta_text  --fetch
+  BioProjects: 1,286  unique DOIs with data: 751
+  Cache: 0 DOIs already processed
+  To fetch: 725
+  Workers: 8   max_chars: 60,000
+
+    20/725  ok=12  closed=5  failed=3
+    40/725  ok=25  closed=8  failed=7
+    60/725  ok=39  closed=12  failed=9
+    80/725  ok=56  closed=13  failed=11
+   100/725  ok=72  closed=15  failed=13
+   120/725  ok=89  closed=16  failed=15
+   140/725  ok=103  closed=17  failed=20
+   160/725  ok=119  closed=18  failed=23
+   180/725  ok=134  closed=20  failed=26
+   200/725  ok=149  closed=22  failed=29
+   220/725  ok=163  closed=22  failed=35
+   240/725  ok=176  closed=25  failed=39
+   260/725  ok=190  closed=28  failed=42
+   280/725  ok=206  closed=30  failed=44
+   300/725  ok=223  closed=30  failed=47
+   320/725  ok=240  closed=32  failed=48
+   340/725  ok=257  closed=33  failed=50
+   360/725  ok=275  closed=34  failed=51
+   380/725  ok=287  closed=37  failed=56
+   400/725  ok=303  closed=39  failed=58
+   420/725  ok=320  closed=40  failed=60
+   440/725  ok=336  closed=41  failed=63
+   460/725  ok=352  closed=43  failed=65
+   480/725  ok=369  closed=45  failed=66
+   500/725  ok=381  closed=48  failed=71
+   520/725  ok=396  closed=49  failed=75
+   540/725  ok=411  closed=52  failed=77
+   560/725  ok=429  closed=53  failed=78
+   580/725  ok=444  closed=55  failed=81
+   600/725  ok=458  closed=57  failed=85
+   620/725  ok=473  closed=59  failed=88
+   640/725  ok=487  closed=61  failed=92
+   660/725  ok=503  closed=64  failed=93
+   680/725  ok=521  closed=64  failed=95
+   700/725  ok=535  closed=66  failed=99
+   720/725  ok=550  closed=66  failed=104
+   725/725  ok=555  closed=66  failed=104
+
+Done.  full_text retrieved: 555  closed: 66  other failures: 104
+Cache: metadata/output/meta_text/data/text_cache.jsonl  (725 total entries)
+
+Run  python metadata/meta_text.py --apply  to write into bioprojects.json

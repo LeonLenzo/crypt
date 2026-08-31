@@ -1,0 +1,171 @@
+retrieved	oa_status	doi	bioproject	title
+x	bronze	10.1016/j.molp.2020.08.001	PRJNA151401	Two replicates of mRNA from Arabidopsis thaliana leaves 24 hours post infection with Botrytis cinerea
+x	bronze	10.1016/j.molp.2021.07.008	PRJNA738667	RNA-seq of ZmMM1 wild type and mutant after NLB inoculation
+x	bronze	10.1038/s41396-021-01058-x	PRJNA670487	Transcriptional response to host chemical cues underpins the expansion of host range in a fungal plant pathogen lineage.
+x	bronze	10.1093/aob/mcw272	PRJNA349155	Gene expression analysis in Musa acuminata during compatible interactions with Meloidogyne incognita
+x	bronze	10.1093/jxb/erae050	PRJNA977839	Oligogalacturonide Sensing Increases Resistance to Fusarium Head Blight in Durum Wheat
+x	bronze	10.1093/plcell/koab221	PRJNA739851	RNA Sequencing
+x	bronze	10.1093/plcell/koac300	PRJNA869950	The Phytophthora nuclear effector targets the host transcriptional complex to modulate plant immunity
+x	bronze	10.1094/MPMI-03-17-0054-R	PRJNA369690	Maize and Cercospora zeina transcriptome analysis during gray leaf spot foliar disease
+x	bronze	10.1094/MPMI-04-18-0107-A	PRJNA422914	Genomic insights into host adaptation between the wheat stripe rust pathogen (Puccinia striiformis f. sp. tritici) and the barley stripe rust pathogen (Puccinia striiformis f. sp. hordei).
+x	bronze	10.1094/MPMI-05-20-0109-A	PRJNA628162	Transcriptome Profiling Data of Botrytis cinerea Infection on Whole Plant Solanum lycopersicum.
+x	bronze	10.1094/MPMI-12-17-0309-A	PRJNA391093	Alternaria solani isolate: altNL03003/CBS 143772 Gapless genome sequence
+x	bronze	10.1094/PHYTO-07-20-0297-A	PRJNA637660	RNA-Seq of Lasiodiplodia theobromae strain GZHS-2017-010 after infecting tea leaves
+x	bronze	10.1105/tpc.18.00930	PRJNA505891	Integrated Genome-Scale Analysis Identifies Novel Genes and Networks Underlying Senescence in Maize.
+x	bronze	10.1111/nph.13087	PRJNA240125	Simultaneous transcriptome analysis of Colletotrichum gloeosporioides and tomato fruits response reveals novel fungal-fruit arm and defense strategies
+x	bronze	10.1111/nph.13948	PRJNA260080	RNA-seq Analysis of VRF1 and VRF2-dependent Genes in the mycelia of Magnaporthe oryzae 70-15
+x	bronze	10.1111/pce.12937	PRJNA336478	Molecular analysis of interaction between the grapevine flower and Botrytis cinerea
+x	bronze	10.1111/pce.14579	PRJNA307989	Triticum aestivum cv. fielder infected with Fusarium graminearum raw sequence reads
+x	bronze	10.1111/tpj.13419	PRJNA321325	Systems genetics reveals a transcriptional network associated with susceptibility in the maize-gray leaf spot pathosystem
+x	bronze	10.1111/tpj.70472	PRJNA1166635	Transcriptomic analysis of Erwinia amylovora during colonization on trichomes of apple
+x	bronze	10.1534/genetics.118.300478	PRJNA417591	Arachis hypogaea Raw sequence reads
+x	gold	10.1002/advs.202518591	PRJNA813432	[42095455] Hijacking the Host Clock: A Nematode Effector Antagonizes Soybean Circadian Defense and Translation Control.
+x	gold	10.1002/ndr2.12312	PRJNA1081807	Plant metagenomics Veronica spicata and Dendrochilum magnum
+x	gold	10.1016/j.celrep.2022.111877	PRJNA819267	The transcriptomic responses of maize stalks infected with Fusarium graminearum PH-1 and Δcfem1
+x	gold	10.1016/j.celrep.2024.114786	PRJNA336471	RNA-Seq analysis of biotic and abiotic stress response in Arabidopsis thaliana
+x	gold	10.1016/j.celrep.2025.115772	PRJNA1240218	A recombinant hybrid provides insights into gene regulation, pathogenesis and tumorigenesis of phytopathogenic smut fungi
+x	gold	10.1016/j.celrep.2025.116575	PRJNA1255829	RNA_seq of TC_TC13
+x	gold	10.1038/s41467-026-73123-y	PRJNA1390310	Triticum aestivum Raw sequence reads
+x	gold	10.1038/s41598-019-40754-9	PRJNA357960	Pseudomonas syringae pv. actinidiae strain:MAFF 212134 Genome sequencing and assembly
+x	gold	10.1080/17429145.2024.2393803	PRJNA1100217	Transcriptome Analysis of Maize Response to Fusarium verticillaris
+x	gold	10.1093/g3journal/jkag151	PRJNA1274897	Hordeum vulgare Genome Sequencing Using RNA Seq
+x	gold	10.1093/hr/uhag073	PRJNA1145503	Complete genomes of grapevine downy mildew reveal effector cluster evolution driven by complex structural variations.
+x	gold	10.1094/MPMI-06-21-0148-A	PRJNA686475	Genome sequencing and assembly of Fusarium oxysporum f.sp. raphani and Fusarium oxysporum f.sp. rapae
+x	gold	10.1094/MPMI-06-22-0133-R	PRJNA383548	Comparative Analysis of Host-Associated Variation in Phytophthora cactorum.
+x	gold	10.1094/MPMI-07-20-0205-A	PRJNA643593	﻿A fusarioid fungus forms mutualistic interactions with poplar trees that resemble ectomycorrhizal symbiosis.
+x	gold	10.1094/MPMI-07-22-0153-R	PRJNA818435	Rice transcriptome during sheath blight infection
+x	gold	10.1094/MPMI-09-23-0146-FI	PRJNA1063333	Ceratocystis fimbriata modulates effectors during infection for both pre- and post-epidemic isolates
+x	gold	10.1094/MPMI-11-23-0181-R	PRJNA290690	Zymoseptoria tritici strain:ST99CH3D7 Transcriptome or Gene expression
+x	gold	10.1111/mpp.70317	PRJNA609405	Predicating the Effector Proteins Secreted by Puccinia triticina Through Transcriptomic Analysis and Multiple Prediction Approaches.
+x	gold	10.1128/aem.00681-26	PRJNA1405621	Xanthomonas perforans strain:AL65 Raw sequence reads
+x	gold	10.1128/mra.00510-26	PRJNA1394657	Strengthening New South Wales virology research and diagnostic capability
+x	gold	10.1186/s12864-026-12921-6	PRJNA1314945	SLAF-seq Date of 306 wheat varieties
+x	gold	10.1186/s12864-026-12947-w	PRJNA1344827	BSR
+x	gold	10.1186/s12864-026-12964-9	PRJNA1181034	RNA-seq data for verticillium dahliae Aspf2-like protein (VDAL) Reduces Fusarium Head Blight by activating wheat resistance
+x	gold	10.1186/s13062-026-00788-2	PRJNA641330	Soybean (Glycine max) AALK1 modulated transcriptome under drought stress
+x	gold	10.1186/s42483-022-00144-y	PRJNA857179	Colletotrichum fructicola RNA sequencing
+x	gold	10.3390/jof12070524	PRJNA1423152	Fusarium avenaceum FaLH03 and Fusarium graminearum FgLH03 co-inoculation in wheat heads
+x	gold	10.3390/jof12070540	PRJNA1475220	Transcriptomic Differences Between Two Fusarium Oxysporum Formae Speciales During Cucumber Infection
+x	gold	10.3390/plants15121771	PRJNA1471993	Comparative Transcriptomic Analysis Reveals the Underlying Mechanism of Piriformospora indica-Enhanced Root Rot Resistance in Gerbera hybrida.
+x	gold	10.3390/plants15121772	PRJNA957932	Maize inbred lines RNA sequencing
+x	green	10.1007/s12298-024-01455-4	PRJNA1080069	Heat shock protein HvHSP16.9 from wild barley enhances tolerance to salt stress.
+x	green	10.1007/s13205-023-03803-9	PRJNA870250	Comprehensive transcriptome analyses of Fusarium-infected root xylem tissues to decipher genes involved in chickpea wilt resistance.
+not avail	green	10.1038/s41564-020-0774-1	PRJNA490563	Single-cell RNA-seq reports growth condition-specific global transcriptomes of individual bacteria
+wrong paper (cancer)	green	10.1038/s43018-024-00748-7	PRJNA1266229	Codon-mediated translational control of M. oryzae effectors
+x	green	10.1073/pnas.1918977117	PRJNA564465	Transcriptome of Fusarium graminearum CS3005
+x	green	10.1093/aob/mcac102	PRJNA733882	Wheat transcriptome sequencing
+x	green	10.1093/plphys/kiac552	PRJNA778182	RNA-Seq of Nicotiana benthamiana
+x	green	10.1093/plphys/kiac572	PRJNA841838	Disclosing the molecular basis of salinity priming in olive tree using proteogenomic approach
+x	green	10.1093/plphys/kiad150	PRJNA810958	A dolabralexin-deficient mutant provides insight into specialized diterpenoid metabolism in maize (Zea mays)
+x	green	10.1101/2025.05.26.656185	PRJNA1207595	Phytophthora capsici multiple host RNA-Seq
+x	green	10.1105/tpc.112.103499	PRJNA209313	Zea mays cultivar:Nathan Transcriptome or Gene expression
+x	green	10.1105/tpc.17.00238	PRJNA431598	Pathogen Trojan horse delivers bioactive host protein ZmMAC1 to alter maize (Zea mays) anther cell behavior in the male sterile mutant Zmmac1-1.
+x	green	10.1105/tpc.19.00487	PRJNA573599	Identify gene networks in maize and beneficial fungus Trichoderma virens that result in induced systemic resistance (ISR)
+x	green	10.1111/mpp.12405	PRJNA294234	Secretome prediction of Phakopsora pachyrhizi expressed in planta (Glycine max)
+x	green	10.1111/mpp.12464	PRJNA322501	RNA-seq experiments of systemic colonization of oilseed rape by Leptosphaeria maculans
+x	green	10.1111/mpp.12734	PRJNA434179	malus domestica infected with Penicillium expansum PEXP creA mutant and PhloeR Raw sequence reads
+x	green	10.1111/nph.12085	PRJNA171217	Gene family expansions and contractions are associated with host range in plant pathogens of the genus Colletotrichum.
+x	green	10.1111/nph.14833	PRJNA378602	Olea europaea cultivar:Picual & Frantoio Transcriptome or Gene expression
+x	green	10.1111/nph.17625	PRJNA674747	Cross-species analysis between the maize smut fungi Ustilago maydis and Sporisorium reilianum
+x	green	10.1111/nph.71146	PRJNA1200603	BnaA07.WRKY40 transcription factor confers enhanced defensive response to sclerotinia sclerotiorum in Brassica napus
+x	green	10.1111/nph.71312	PRJNA1394627	Apples
+x	green	10.1111/tpj.15598	PRJNA740181	Comparative transcriptomes of WT or jasmonic acid oxidase 2-1 (jao2-1) rosette leaves before or after inoculation with Botrytis cinerea spores
+x	green	10.1126/science.1194573	PRJEB3069	Transcription profiling by high throughput of Blumeria gramis during infection of Barley
+x	green	10.1126/science.aaq0892	PRJNA418175	MAP kinase-dependent cell-to-cell movement drives plant tissue invasion by the rice blast fungus
+x	green	10.1128/AEM.02212-20	PRJNA658390	Colletotrichum fructicola RNA-sequencing
+x	green	10.1128/JB.00792-19	PRJNA610657	Identifying candidate genes whose expression is regulated by the HutC transcriptional repressor in Pseudomonas fluorescens SBW25
+x	green	10.64898/2026.06.02.729393	PRJNA1465640	Arabidopsis thaliana wildtype and tpx mutant RNAseq reads
+x	hybrid	10.1002/ps.6380	PRJEB39756	High frequency of fungicide resistance-associated mutations in the wheat yellow rust pathogen Puccinia striiformis f. sp. tritici.
+x	hybrid	10.1007/s00344-026-12102-5	PRJNA1128586	Effect of cis-Zeatin and trans-Zeatin in delaying leaf senescence in Solanum lycopersicum under salt stress
+x	hybrid	10.1007/s42161-022-01235-7	PRJNA808246	Plant virus metagenomic data 2022
+x	hybrid	10.1007/s42161-024-01672-6	PRJNA1011022	Baseline virus reservoir
+x	hybrid	10.1016/j.micres.2024.127836	PRJNA1085399	RNA-Seq data of Verticillium dahliae and Gossypium hirsutum treated by KRS027
+x	hybrid	10.1016/j.molp.2024.09.006	PRJNA1161467	RNA-Seq of maize sheath
+x	hybrid	10.1016/j.molp.2025.07.008	PRJNA1160434	Transcriptome of Triticum urartu PI428322 with CYR34 inoculated seedlings
+x	hybrid	10.1016/j.plantsci.2019.110178	PRJNA513863	Gene regulation in wild and cultivated Vitis species during deacclimation and budbreak
+x	hybrid	10.1016/j.pmpp.2020.101464	PRJNA565800	Transcriptome analysis of Phakopsora pachyrhizi uncovers putative effector repertoire during infection
+x	hybrid	10.1016/j.virol.2026.110820	PRJNA1263482	TSWV D-RB
+x	hybrid	10.1038/ng.3485	PRJNA296894	Transcriptomic analysis of Blumeria graminis triticale on different hosts
+x	hybrid	10.1093/plphys/kiag187	PRJDB9607	Transcriptome analysis of plant grafting
+x	hybrid	10.1104/pp.114.255927	PRJEB8798	Transcriptome and Metabolite Profiling of the Infection Cycle of Zymoseptoria tritici on Wheat Reveals a Biphasic Interaction with Plant Immunity Involving Differential Pathogen Chromosomal Contributions and a Variation on the Hemibiotrophic Lifestyle Definition.
+x	hybrid	10.1104/pp.15.00852	PRJNA281236	Developmental and metabolic plasticity of ripe Sémillon grape berries in response to Botrytis cinerea during noble rot
+x	hybrid	10.1104/pp.17.00390	PRJNA384934	Arabidopsis pistil transcriptomics during defense and reproduction
+x	hybrid	10.1104/pp.20.00773	PRJNA553311	Transcriptome Sequencing of Different Ploidy Wheat
+x	hybrid	10.1105/tpc.17.00764	PRJNA407369	Time series transcriptional profiling of Ustilago maydis infecting Zea mays
+x	hybrid	10.1105/tpc.19.00806	PRJNA574280	Global transcriptome of Helianthus annuus, Beta vulgaris, Ricinus communis and Phaseolus vulgaris healthy plants and plant infected by the fungal pathogen Sclerotinia sclerotiorum (strain 1980)
+x	hybrid	10.1111/nph.15904	PRJNA492913	Transcriptional dynamics in multipartite fungus-plant interactions : H. vulgare, S. vermifera, B. sorokiniana Raw sequence reads
+x	hybrid	10.1111/nph.19448	PRJNA979257	The fungal pathogen Ustilago maydis targets the maize corepressor RELK2 to modulate host transcription for tumorigenesis
+x	hybrid	10.1111/nph.19864	PRJEB65589	How to curtail the rise in wheat stem rust infections in western Europe
+x	hybrid	10.1111/nph.19967	PRJNA1129295	RNA-seq of Topless interacting protein effectors
+x	hybrid	10.1111/pce.15037	PRJNA944941	Xanthomonas citri pv fuscans transcriptomic changes during the contamination of Phaseolus vulgaris seeds
+x	hybrid	10.1111/ppa.13398	PRJNA655998	Zfp1, a putative Zn(II)2Cys6 transcription factor, influences Ustilago maydis pathogenesis at multiple stages
+x	hybrid	10.1111/ppa.14111	PRJNA910335	Genome sequencing and RNA-sequencing of Rhynchosporium commune WAI453
+x	hybrid	10.1111/tpj.15630	PRJNA828454	Transcriptomic responses to phosphate limitation in maize lines with different breeding history
+x	hybrid	10.1111/tpj.16978	PRJNA1018253	LsRTDv1, a reference transcript dataset for accurate transcript-specific RNA-seq analysis in lettuce
+x	hybrid	10.1111/tpj.71018	PRJNA1366440	Discovery of pseudobaptigenin synthase in fungal-infected Trifolium pratense roots.
+x	closed	10.1080/00275514.2019.1607135	PRJNA486288	Population genomics and gene expression analysis of Fusarium Head Blight (FHB)
+x	closed	10.1101/859728	PRJNA588102	Distinct Life Histories Impact Dikaryotic Genome Evolution in the Rust Fungus Puccinia striiformis Causing Stripe Rust in Wheat.
+x	closed	10.6084/m9.figshare.28856261	PRJNA1248058	Chromosome-scale assembly and annotation of Phytophthora capsici isolate BYA5.
+x	closed	10.1111/nph.18164	PRJNA293594	Whole-transcriptome RNA-seq analysis of different developmental stages of Fusarium graminearum
+x	closed	10.1046/j.1364-3703.2003.00190.x	PRJNA253086	Isolation and characterization of genes differentially expressed during the interaction between apple fruit and Penicillium expansum.
+x	closed	10.1111/nph.15221	PRJNA448328	Investigations on VELVET regulatory mutants confirm the role of host tissue acidification and secretion of proteins in the pathogenesis of Botrytis cinerea.
+unavailable	closed	10.1016/j.chom.2026.02.001	PRJNA1315207	Bacterial entrapment of a fungal carbon repressor prevents plant colonization
+updated doi from journal	closed	10.1101/510404v1	PRJNA254725	Transcriptional responses of the Bdtf1-deletion mutant to the phytoalexin brassinin in the necrotrophic fungus Alternaria brassicicola.
+x	closed	10.3389/fmicb.2024.1418816	PRJNA932159	Transcriptomic analysis reveals pathogenicity mechanisms of Phytophthora capsici in black pepper.
+x	closed	10.1111/jipb.70241	PRJNA1202856	Fusarium graminearum Raw sequence reads
+x	closed	10.1111/ppa.70085	PRJNA397359	Transcriptome Analysis of Tomato Leaf Spot Pathogen Fusarium proliferatum: De novo Assembly, Expression Profiling, and Identification of Candidate Effectors.
+x	closed	10.1007/s11427-024-2780-4	PRJNA1083222	Chromatin dynamics of Phytophthora during host infection [RNA-seq]
+x	closed	10.1101/350785	PRJNA436064	Cochliobolus heterostrophus race O whole transcriptome
+no results	closed	10.1101/2026.05.09.724051	PRJNA1457771	Identification of AvrYr7 in Pst
+x	closed	10.1111/nph.18117	PRJNA721132	Pyricularia oryzae CHIP-seq and RNA-seq
+x	closed	10.1094/PHYTO-12-24-0397-R	PRJNA1122550	Transcriptional analysis of Botrytis cinerea treated by hydroxychloroquine
+unavailable	closed	10.1101/2026.04.23.720444	PRJNA1454804	RNA-seq data supporting gene prediction in haplotype-phased assemblies of Melampsora larici-populina and Melampsora allii-populina
+x	closed	10.1111/pce.14195	PRJNA631873	Transcriptome of Fusarium graminearum CS3005
+x	closed	10.1111/jipb.13772	PRJNA1148379	RNA-seq of Phakopsora pachyrhizi SS4
+wrong paper cancer	closed	10.1016/j.gene.2014.06.029	PRJNA245071	RNAseq analyses of pathogenic Burkholderia glumae under in vitro and in vivo conditions
+x	closed	10.1111/ppl.70702	PRJNA1246341	Genomic identification and pathogenicity of Ralstonia pseudosolanacearum MSG-1 isolated from mulberry tree in China
+x	closed	10.1111/1462-2920.15432	PRJNA527147	Infection process of Ustilaginoidea virens Raw sequence reads
+x	closed	10.1094/PDIS-06-20-1329-RE	PRJEB19257	Role assessment of the type VI secretion systems during disease interactions of Erwinia amylovora with its plant host by comparing the in planta and in vitro RNA-seq transcriptomes of wildtype CFBP 1430 and its T6SS double mutant (T6-d1d3)
+x	closed	10.1016/j.foodres.2022.111972	PRJNA839570	Transcriptome of Salmonella montevideo on red pepper
+no results	closed	10.1101/2026.02.17.706082	PRJNA1394492	Wheat leaf rust genomics project
+x	closed	10.1094/PHYTO-01-21-0032-R	PRJNA731618	Dual RNA-seq reveals the global transcriptome dynamics of Ralstonia solanacearum and pepper (Capsicum annuum) hypocotyls during bacterial wilt pathogenesis
+x	closed	10.1094/PHYTO-09-21-0393-R	PRJEB6937	Peronospora tabacina whole genome and transcriptome analyses
+x	closed	10.1111/ppa.13597	PRJNA811762	BNYVV population sequencing
+x	closed	10.1094/PDIS-03-25-0599-PDN	PRJNA1237933	hydrangea leaf mixing
+paywall	closed	10.1099/jgv.0.001525	PRJDB10741	Determination of the genome sequence of tulip streak virus
+x	closed	10.1016/j.plaphy.2025.110662	PRJNA1243574	transcriptome data of Prunus domestica L
+x	closed	10.1016/j.plaphy.2025.109874	PRJNA1189193	Transcriptome of salt and alkali stresses in three species of Hordeum Raw sequence reads
+x	closed	10.1016/j.plaphy.2018.08.006	PRJNA480999	Transcriptomic comparison of two barley genotypes differing in arsenic tolerance exposed to arsenate and phosphate treatments
+x	closed	10.1016/j.molp.2026.01.005	PRJNA1214325	Transcriptome sequencing for WT and OsGH18 transgenic plants
+x	closed	10.1093/jxb/erad348	PRJNA926628	Barley shows reduced Fusarium head blight under drought and modular expression of differentially expressed genes under combined stress.
+x	closed	10.1093/plphys/kiad460	PRJNA896566	
+x	closed	10.1126/science.aba5435	PRJNA540081	Horizontal gene transfer of Fhb7 from fungus underlies Fusarium head blight resistance in wheat.
+x	closed	10.1111/pce.15622	PRJNA1156254	Role of FpCBS in Fusarium pseudograminearum
+x	closed	10.1111/pce.13803	PRJNA516527	RNA sequencing of natural senescing ear leaves of maize
+x	closed	10.1093/jxb/eraf473	PRJNA1123450	Characterization of the maize (Zea mays)-Ustilago maydis interaction in a warming climate
+x	closed	10.1093/jxb/eraf432	PRJNA1265690	RNAseq profiling of eds1 and pad4 mutants inoculated by fungus Alternaria alternata in Arabidopsis
+x	closed	10.1111/nph.18277	PRJNA755600	Functional characterization of plant histone methyl transferases
+x	closed	10.1007/s00122-021-03784-4	PRJNA613891	Maize roots respond to salt stress
+x	closed	10.1094/phyto-08-21-0329-r	PRJNA789389	Glycine max (soybean) and its fungal pathogen Sclerotinia sclerotiorum Raw sequence reads
+paywall	closed	10.1038/s41477-019-0509-6	PRJNA491716	Multiple genes recruited from hormone pathways partition maize diterpenoid defences.
+x	closed	10.1111/tpj.70182	PRJNA1006331	RNA-seq of incompatible and compatible interactions between wheat and Pst
+no result	closed	10.1101/2026.02.24.707787	PRJNA1426942	Transcriptome of Chrysanthemum morifolium infected by Botrytis cinerea
+x	closed	10.1111/1462-2920.15031	PRJNA480740	Solanum lycopersicum strain:RNAi SlSUC Raw sequence reads
+x	closed	10.1016/j.ijfoodmicro.2026.111635	PRJNA1203036	Solanum lycopersicum L. Transcriptome
+x	closed	10.1094/PHYTO-05-21-0184-A	PRJNA689677	Transcriptome analysis of Camellia sinensis infected by Lasiodiplodia theobromae by RNA sequencing
+x	closed	10.1094/PHYTO-07-24-0240-R	PRJNA1122595	Variability in induced systemic resistance (ISR) responsiveness to Trichoderma harzianum in tomato
+no result	closed	10.1101/2026.03.24.712282	PRJNA997093	Dual RNAseq analyses of the early stages of Phytophthora infestans pathogenesis reveal novel functional genes from the hosts and the pathogen
+x	closed	10.1111/nph.16907	PRJNA606032	Regulation of carbon reserve use in olive trees under heat, drought, and recovery
+x	closed	10.1021/acs.jafc.6c00147	PRJNA1416819	Transcriptome analysis of the interaction between rice and Rhizoctonia solani
+x	closed	10.1002/ps.70786	PRJNA1139942	Dual Transcriptomic of Oil Tea (Camellia oleifera) and Colletotrichum fructicola Interaction
+x	closed	10.1111/jipb.13732	PRJNA1036172	A pair of NUCLEAR FACTOR Y transcription factors act as positive regulators in jasmonate signaling and disease resistance in Arabidopsis
+x	closed	10.1016/j.foodchem.2020.127550	PRJNA782220	Triticum aestivum cultivar:H242/H189 Raw sequence reads
+x	closed	10.5061/dryad.v6wwpzh20	PRJNA976033	Similar Transcriptomic Responses to Early and Late Drought Stresses Produce Divergent Phenotypes in Sunflower (Helianthus annuus L.).
+x	closed	10.1126/science.adl5764	PRJNA1181513	Impact of the effector MoNUDIX from Magnaporthe oryzae on the transcripts of rice (Nipponbare) during infection
+no result	closed	10.1101/2026.08.07.743458	PRJDB16420	RNA sequencing of barley leaves infected with wheat blast isolate
+x	closed	10.1111/jac.70189	PRJNA1307747	Zea mays cultivar:SY-XT1 Raw sequence reads
+x	closed	10.1111/nph.14960	PRJNA415355	Transcriptome of Ustilago maydis during tumour formation in bundle sheath and mesophyll cells of Zea mays L.
+x	closed	10.1038/nature25966	PRJNA383416	Zea mays Raw sequence reads
+x	closed	10.1111/pce.15039	PRJNA1039520	Arabidopsis thaliana Raw sequence reads
+x	closed	10.1038/s41588-019-0425-8	PRJNA515933	A Deletion Mutation in TaHRC Confers Fhb1 Resistance to Fusarium Head Blight in Wheat
+	closed	10.1016/j.cub.2026.01.001	PRJNA1211198	RNA-seq of wheat plants

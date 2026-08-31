@@ -1,0 +1,742 @@
+# Unpaywall coverage — 725 unique DOIs
+doi	bp	has_methods	is_oa	status	host	version	pdf_url
+10.1094/MPMI-06-21-0148-A	PRJNA686475	False	True	gold	publisher	publishedVersion	https://doi.org/10.1094/mpmi-06-21-0148-a
+10.1186/s12864-021-07488-3	PRJEB15280	True	True	gold	publisher	publishedVersion	https://link.springer.com/content/pdf/10.1186/s12864-021-07488-3.pdf
+10.1111/nph.19864	PRJEB65589	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/nph.19864
+10.1186/s12915-019-0684-y	PRJEB31334	True	True	gold	publisher	publishedVersion	https://bmcbiol.biomedcentral.com/counter/pdf/10.1186/s12915-019-0684-y
+10.1080/00275514.2019.1607135	PRJNA486288	False	False	closed			
+10.1186/s12870-024-06032-1	PRJNA1113144	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/counter/pdf/10.1186/s12870-024-06032-1
+10.1111/ppa.13532	PRJEB47693	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/ppa.13532
+10.1186/s12864-025-12230-4	PRJEB84390	True	True	gold	publisher	publishedVersion	https://link.springer.com/content/pdf/10.1186/s12864-025-12230-4.pdf
+10.3389/fpls.2024.1415534	PRJNA1092066	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2024.1415534
+10.1128/mbio.00629-23	PRJNA872313	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mbio.00629-23
+10.1186/s12915-023-01717-9	PRJEB33109	True	True	gold	publisher	publishedVersion	https://bmcbiol.biomedcentral.com/counter/pdf/10.1186/s12915-023-01717-9
+10.1101/859728v1	PRJNA588102	True	False	error			
+10.3390/plants14162458	PRJNA1293538	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/14/16/2458/pdf?version=1754644364
+10.1101/2024.12.10.627719	PRJEB39201	True	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2024/12/15/2024.12.10.627719.full.pdf
+10.1094/MPMI-07-20-0205-A	PRJNA643593	True	True	gold	publisher	publishedVersion	https://doi.org/10.1094/mpmi-07-20-0205-a
+10.1186/s12864-021-07655-6	PRJNA687280	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-021-07655-6
+10.1101/2023.03.30.534825	PRJNA950118	True	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2023/04/03/2023.03.30.534825.full.pdf
+10.3389/fmicb.2020.00360	PRJNA560644	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fmicb.2020.00360/pdf
+10.3390/biom10050782	PRJNA628751	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2218-273X/10/5/782/pdf?version=1590669286
+10.1101/2020.01.11.897884	PRJNA545454	True	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2020/01/13/2020.01.11.897884.full.pdf
+10.1093/g3journal/jkad125	PRJNA925193	True	True	gold	publisher	publishedVersion	https://academic.oup.com/g3journal/advance-article-pdf/doi/10.1093/g3journal/jkad125/50647744/jkad125.pdf
+10.1101/2023.04.03.535386	PRJNA148307	True	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2023/04/04/2023.04.03.535386.full.pdf
+10.6084/m9.figshare.28856261	PRJNA1248058	True	False	error			
+10.1101/2025.05.26.656185	PRJNA1207595	False	True	green	repository	acceptedVersion	https://doi.org/10.1101/2025.05.26.656185
+10.1371/journal.ppat.1006670	PRJNA352342	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plospathogens/article/file?id=10.1371/journal.ppat.1006670&type=printable
+10.1111/nph.18164	PRJNA293594	False	False	closed			
+10.3390/jof7020150	PRJNA700975	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/7/2/150/pdf?version=1614250067
+10.1128/mra.01385-18	PRJNA338256	True	True	gold	publisher	publishedVersion	https://mra.asm.org/content/ga/8/1/e01385-18.full.pdf
+10.1046/j.1364-3703.2003.00190.x	PRJNA253086	False	False	closed			
+10.1111/mpp.70076	PRJNA883377	True	True	gold	publisher	publishedVersion	https://doi.org/10.1111/mpp.70076
+10.1371/journal.ppat.1012671	PRJNA1017476	True	True	gold	publisher	publishedVersion	https://doi.org/10.1371/journal.ppat.1012671
+10.1111/nph.15221	PRJNA448328	False	False	closed			
+10.1038/s41396-021-01058-x	PRJNA670487	True	True	bronze	publisher	publishedVersion	https://www.nature.com/articles/s41396-021-01058-x.pdf
+10.1101/2025.01.24.634825	PRJNA542165	True	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2025/01/25/2025.01.24.634825.full.pdf
+10.1094/MPMI-10-20-0297-R	PRJEB34186	True	True	gold	publisher	publishedVersion	https://apsjournals.apsnet.org/doi/pdf/10.1094/MPMI-10-20-0297-R
+10.1111/1462-2920.15063	PRJNA36323	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/1462-2920.15063
+10.3390/microorganisms7110495	PRJNA487807	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2076-2607/7/11/495/pdf?version=1572244467
+10.1094/MPMI-06-22-0133-R	PRJNA383548	True	True	gold	publisher	publishedVersion	https://doi.org/10.1094/mpmi-06-22-0133-r
+10.1016/j.chom.2026.02.001	PRJNA1315207	False	False	closed			
+10.1111/ppa.13468	PRJEB36485	False	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/ppa.13468
+10.1094/MPMI-04-18-0107-A	PRJNA422914	True	True	bronze	publisher	publishedVersion	https://apsjournals.apsnet.org/doi/pdf/10.1094/MPMI-04-18-0107-A
+10.1371/journal.pone.0280004	PRJNA725323	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0280004&type=printable
+10.3390/jof10060368	PRJNA1100932	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/jof10060368
+10.1038/s42003-022-03780-4	PRJEB50522	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s42003-022-03780-4.pdf
+10.3389/fmicb.2020.01188	PRJNA605036	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fmicb.2020.01188/pdf
+10.1101/510404v1	PRJNA254725	True	False	error			
+10.1111/mpp.70317	PRJNA609405	True	True	gold	publisher	publishedVersion	https://doi.org/10.1111/mpp.70317
+10.1111/nph.12085	PRJNA171217	True	True	green	repository	submittedVersion	https://nph.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/nph.12085
+10.3389/fgene.2018.00130	PRJNA392275	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fgene.2018.00130/pdf
+10.1038/srep22241	PRJNA283526	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/srep22241.pdf
+# 50/725 done
+10.1128/mBio.02275-17	PRJNA396589	True	True	gold	publisher	publishedVersion	https://mbio.asm.org/content/mbio/9/1/e02275-17.full.pdf
+10.3389/fmicb.2017.00773	PRJNA382499	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fmicb.2017.00773/pdf
+10.1111/mpp.13498	PRJEB68334	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/mpp.13498
+10.3389/fmicb.2024.1418816/pdf	PRJNA932159	True	False	error			
+10.3389/fmicb.2024.1357579	PRJNA1021048	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fmicb.2024.1357579
+10.1186/s13059-015-0590-8	PRJNA256347	True	True	gold	publisher	publishedVersion	https://genomebiology.biomedcentral.com/counter/pdf/10.1186/s13059-015-0590-8
+10.1093/nar/gkaf1441	PRJNA1064071	True	True	gold	publisher	publishedVersion	https://doi.org/10.1093/nar/gkaf1441
+10.3390/jof11080580	PRJNA1137604	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/11/8/580/pdf?version=1754309100
+10.1111/jipb.70241	PRJNA1202856	False	False	closed			
+10.1111/ppa.70085	PRJNA397359	True	False	closed			
+10.3389/fpls.2022.1058847	PRJNA895362	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.1058847
+10.1128/mra.01437-19	PRJNA588304	True	True	gold	publisher	publishedVersion	https://mra.asm.org/content/ga/9/2/e01437-19.full.pdf
+10.1038/s41598-017-07995-y	PRJNA389503	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-017-07995-y.pdf
+10.1073/pnas.1019315108	PRJNA18535	True	True	green	repository	submittedVersion	https://hal.science/hal-01000169v1/document
+10.1371/journal.ppat.1004432	PRJNA245759	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plospathogens/article/file?id=10.1371/journal.ppat.1004432&type=printable
+10.1128/mbio.03468-25	PRJNA1162778	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mbio.03468-25
+10.1007/s11427-024-2780-4	PRJNA1083222	False	False	closed			
+10.3389/fpls.2024.1464454	PRJEB77002	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2024.1464454/pdf
+10.1111/nph.13948	PRJNA260080	False	True	bronze	publisher	publishedVersion	https://nph.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/nph.13948
+10.1073/pnas.2301358120	PRJEB45007	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1073/pnas.2301358120
+10.1038/s41598-019-56396-w	PRJNA516496	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-019-56396-w.pdf
+10.1038/s41467-026-69508-8	PRJNA1267768	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-026-69508-8_reference.pdf
+10.1101/350785v1	PRJNA436064	False	False	error			
+10.1111/ppa.13398	PRJNA655998	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/ppa.13398
+10.3390/jof8070672	PRJNA841073	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/8/7/672/pdf?version=1657089504
+10.1186/s12864-016-2546-0	PRJNA293991	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-016-2546-0
+10.1101/gr.280359.124	PRJNA1195871	True	True	bronze	publisher	publishedVersion	http://genome.cshlp.org/content/early/2025/04/10/gr.280359.124.full.pdf
+10.3390/ijms24108705	PRJNA932210	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/24/10/8705/pdf?version=1683953387
+10.1038/ng.2372	PRJNA151285	True	True	hybrid	publisher	publishedVersion	https://www.nature.com/articles/ng.2372.pdf
+10.1128/spectrum.00226-25	PRJNA1164193	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/spectrum.00226-25
+10.1104/pp.114.255927	PRJEB8798	True	True	hybrid	publisher	publishedVersion	http://www.plantphysiol.org/content/plantphysiol/167/3/1158.full.pdf
+10.1371/journal.pone.0219207	PRJNA250530	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0219207&type=printable
+10.1186/s12864-017-4151-2	PRJNA407960	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-017-4151-2
+10.3390/plants10122672	PRJNA644240	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/10/12/2672/pdf?version=1638700021
+10.1038/s42003-026-10018-0	PRJNA1231252	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s42003-026-10018-0_reference.pdf
+10.1186/s12915-021-01123-z	PRJNA415866	True	True	gold	publisher	publishedVersion	https://bmcbiol.biomedcentral.com/track/pdf/10.1186/s12915-021-01123-z
+10.1186/s12864-020-07141-5	PRJNA591157	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-020-07141-5
+10.3390/ijms24054376	PRJNA874673	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/24/5/4376/pdf?version=1677480262
+10.3390/genes15060749	PRJNA673988	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/genes15060749
+10.1094/MPMI-05-20-0109-A	PRJNA628162	False	True	bronze	publisher	publishedVersion	https://apsjournals.apsnet.org/doi/pdf/10.1094/MPMI-05-20-0109-A
+10.3390/jof7110977	PRJNA529541	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/7/11/977/pdf?version=1637144603
+10.1371/journal.ppat.1010860	PRJNA803733	True	True	gold	publisher	publishedVersion	https://doi.org/10.1371/journal.ppat.1010860
+10.1371/journal.pgen.1009376	PRJNA646251	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosgenetics/article/file?id=10.1371/journal.pgen.1009376&type=printable
+10.1186/s12915-024-02043-4	PRJNA1158549	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12915-024-02043-4
+10.1101/2026.05.09.724051	PRJNA1457771	False	False	error			
+10.1128/mbio.02442-22	PRJNA849030	True	True	gold	publisher	publishedVersion	https://journals.asm.org/doi/pdf/10.1128/mbio.02442-22?download=true
+10.1128/mBio.03304-19	PRJNA526829	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mbio.03304-19
+10.1093/g3journal/jkac043	PRJNA554133	True	True	gold	publisher	publishedVersion	https://academic.oup.com/g3journal/article-pdf/12/4/jkac043/46562574/jkac043.pdf
+10.1371/journal.ppat.1007666	PRJEB75530	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plospathogens/article/file?id=10.1371/journal.ppat.1007666&type=printable
+10.1111/mpp.13269	PRJNA496584	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/mpp.13269
+# 100/725 done
+10.3389/fmicb.2022.818291	PRJNA692809	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fmicb.2022.818291
+10.7554/eLife.22472	PRJNA341340	True	True	gold	publisher	publishedVersion	https://doi.org/10.7554/elife.22472
+10.1038/s42003-018-0013-y	PRJEB22223	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s42003-018-0013-y.pdf
+10.1126/science.abj1342	PRJNA739688	True	True	green	repository	acceptedVersion	https://eprints.whiterose.ac.uk/177224/1/Sabbadin_et_al_Science_2021.pdf
+10.1016/j.pmpp.2020.101464	PRJNA565800	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1016/j.pmpp.2020.101464
+10.1080/15476286.2022.2043040	PRJNA179498	True	True	gold	publisher	publishedVersion	https://www.tandfonline.com/doi/pdf/10.1080/15476286.2022.2043040?needAccess=true
+10.3390/microorganisms10122414	PRJNA863277	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/microorganisms10122414
+10.1111/nph.18117	PRJNA721132	False	False	closed			
+10.3390/jof8100998	PRJNA832871	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/8/10/998/pdf?version=1664524318
+10.1093/molbev/msad186	PRJDB15953	True	True	gold	publisher	publishedVersion	https://academic.oup.com/mbe/advance-article-pdf/doi/10.1093/molbev/msad186/51172134/msad186.pdf
+10.1111/mpp.70042	PRJNA396467	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/mpp.70042
+10.1371/journal.ppat.1004801	PRJNA259589	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plospathogens/article/file?id=10.1371/journal.ppat.1004801&type=printable
+10.3390/jof11050397	PRJNA799676	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/11/5/397/pdf?version=1747817858
+10.3389/fmicb.2021.711545	PRJNA622764	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fmicb.2021.711545/pdf
+10.1186/s12864-020-6448-9	PRJNA545805	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-020-6448-9
+10.1186/s12864-026-12964-9	PRJNA1181034	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12864-026-12964-9
+10.1111/mpp.12869	PRJDB8014	True	True	gold	publisher	publishedVersion	https://bsppjournals.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/mpp.12869
+10.1186/s12864-019-5517-4	PRJNA501892	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-019-5517-4
+10.1094/PHYTO-12-24-0397-R	PRJNA1122550	False	False	closed			
+10.1371/journal.pone.0163803	PRJNA326901	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0163803&type=printable
+10.1038/s41598-022-27030-z	PRJEB55233	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-022-27030-z.pdf
+10.1371/journal.pone.0229844	PRJNA601001	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0229844&type=printable
+10.1101/2020.09.01.277384	PRJNA556310	False	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2020/09/01/2020.09.01.277384.full.pdf
+10.3389/fpls.2014.00435	PRJNA246736	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2014.00435/pdf
+10.1073/pnas.1811267116	PRJNA477716	True	True	hybrid	publisher	publishedVersion	https://www.pnas.org/content/pnas/116/8/3193.full.pdf
+10.1126/science.aaq0892	PRJNA418175	False	True	green	repository	submittedVersion	http://hdl.handle.net/10026.1/11165
+10.1371/journal.pbio.3001945	PRJEB53625	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosbiology/article/file?id=10.1371/journal.pbio.3001945&type=printable
+10.1186/s42483-022-00144-y	PRJNA857179	True	True	gold	publisher	publishedVersion	https://phytopatholres.biomedcentral.com/counter/pdf/10.1186/s42483-022-00144-y
+10.3389/fpls.2016.01784	PRJNA328045	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2016.01784/pdf
+10.1111/mpp.13413	PRJNA1043471	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/mpp.13413
+10.1101/2026.04.23.720444	PRJNA1454804	False	False	error			
+10.1101/2025.10.14.682320	PRJNA1279063	False	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2025/10/15/2025.10.14.682320.full.pdf
+10.3390/toxins8020046	PRJNA300619	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2072-6651/8/2/46/pdf?version=1455528397
+10.1128/mSystems.00499-21	PRJNA637940	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/msystems.00499-21
+10.3389/ffunb.2021.718557	PRJNA751374	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/ffunb.2021.718557/pdf
+10.1186/s12864-017-3678-6	PRJNA347320	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-017-3678-6
+10.3389/fgene.2023.1166832	PRJNA909570	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fgene.2023.1166832/pdf
+10.1371/journal.pgen.1008272	PRJNA355407	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosgenetics/article/file?id=10.1371/journal.pgen.1008272&type=printable
+10.1094/MPMI-11-23-0181-R	PRJNA290690	False	True	gold	publisher	publishedVersion	https://doi.org/10.1094/mpmi-11-23-0181-r
+10.1371/journal.ppat.1005697	PRJNA306679	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plospathogens/article/file?id=10.1371/journal.ppat.1005697&type=printable
+10.1093/g3journal/jkaf084	PRJNA1187605	True	True	gold	publisher	publishedVersion	https://academic.oup.com/g3journal/advance-article-pdf/doi/10.1093/g3journal/jkaf084/63053970/jkaf084.pdf
+10.1128/AEM.02212-20	PRJNA658390	True	True	green	repository	submittedVersion	https://www.ncbi.nlm.nih.gov/pmc/articles/7755254
+10.1038/s41467-024-49110-6	PRJNA1065649	True	True	gold	publisher	publishedVersion	https://doi.org/10.1038/s41467-024-49110-6
+10.1111/mpp.13155	PRJNA743515	True	True	gold	publisher	publishedVersion	https://doi.org/10.1111/mpp.13155
+10.1111/nph.17625	PRJNA674747	False	True	green	repository	submittedVersion	https://nbn-resolving.org/urn:nbn:de:hebis:30:3-639598
+10.1007/s44154-023-00109-x	PRJNA956133	True	True	gold	publisher	publishedVersion	https://link.springer.com/content/pdf/10.1007/s44154-023-00109-x.pdf
+10.1038/ncomms2427	PRJNA147097	True	True	hybrid	publisher	publishedVersion	https://www.nature.com/articles/ncomms2427.pdf
+10.3389/fmicb.2016.01113	PRJNA293109	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fmicb.2016.01113/pdf
+10.1073/pnas.2418766122	PRJNA971132	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1073/pnas.2418766122
+10.1111/pce.14195	PRJNA631873	False	False	closed			
+# 150/725 done
+10.1038/s41597-024-03361-6	PRJNA1025922	True	True	gold	publisher	publishedVersion	https://doi.org/10.1038/s41597-024-03361-6
+10.1093/gbe/evu101	PRJNA237967	True	True	gold	publisher	publishedVersion	https://academic.oup.com/gbe/article-pdf/6/6/1353/17922438/evu101.pdf
+10.1111/mpp.13309	PRJNA86753	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/mpp.13309
+10.1073/pnas.1918977117	PRJNA564465	True	True	green	repository	submittedVersion	https://www.ncbi.nlm.nih.gov/pmc/articles/7245131
+10.1038/s41467-025-63632-7	PRJNA896582	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-025-63632-7.pdf
+10.3390/jof8060606	PRJNA809650	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/8/6/606/pdf?version=1654566252
+10.3390/jof6040314	PRJNA926806	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/6/4/314/pdf
+10.3389/fmicb.2018.02259	PRJNA473896	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fmicb.2018.02259/pdf
+10.1016/j.micres.2024.127836	PRJNA1085399	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1016/j.micres.2024.127836
+10.3389/fpls.2025.1628068	PRJNA1237996	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2025.1628068/pdf
+10.1002/advs.202518591	PRJNA813432	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/advs.202518591
+10.1186/s12864-016-2684-4	PRJEB12497	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-016-2684-4
+10.3390/jof9100988	PRJNA1011491	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/9/10/988/pdf?version=1696411559
+10.1101/2020.04.28.061093	PRJNA476648	False	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2020/04/29/2020.04.28.061093.full.pdf
+10.1038/s41467-023-37551-4	PRJEB44222	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-023-37551-4.pdf
+10.3390/ijms24119440	PRJNA956871	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/24/11/9440/pdf?version=1685428684
+10.1111/ppa.14111	PRJNA910335	False	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/ppa.14111
+10.1038/s41467-019-10550-0	PRJNA523226	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-019-10550-0.pdf
+10.1038/s41467-023-43442-5	PRJNA975738	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-023-43442-5.pdf
+10.1128/JB.00792-19	PRJNA610657	True	True	green	repository	submittedVersion	https://www.ncbi.nlm.nih.gov/pmc/articles/7283599
+10.1186/s12863-020-00851-5	PRJNA613154	True	True	gold	publisher	publishedVersion	https://bmcgenomdata.biomedcentral.com/track/pdf/10.1186/s12863-020-00851-5
+10.1128/spectrum.02091-25	PRJNA1338360	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/spectrum.02091-25
+10.1371/journal.pgen.1007467	PRJNA447872	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosgenetics/article/file?id=10.1371/journal.pgen.1007467&type=printable
+10.1186/s12864-015-2193-x	PRJNA344467	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-015-2193-x
+10.1186/s12864-021-08033-y	PRJNA670341	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-021-08033-y
+10.1111/jipb.13772	PRJNA1148379	False	False	closed			
+10.1016/j.gene.2014.06.029	PRJNA245071	False	False	closed			
+10.1128/mBio.00454-19	PRJNA516028	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mbio.00454-19
+10.3389/fpls.2022.874654	PRJNA694214	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.874654
+10.1111/mpp.13301	PRJNA844585	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/mpp.13301
+10.3389/fpls.2017.02155	PRJNA415282	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2017.02155
+10.1186/s12864-025-12303-4	PRJNA1101711	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12864-025-12303-4
+10.1038/s41564-020-0774-1	PRJNA490563	False	True	green	repository	submittedVersion	http://hdl.handle.net/10033/622488
+10.3389/fpls.2026.1745952	PRJNA1256908	True	True	gold	publisher	publishedVersion	https://public-pages-files-2025.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2026.1745952/pdf
+10.1038/s41598-019-40754-9	PRJNA357960	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-019-40754-9.pdf
+10.1093/g3journal/jkaf252	PRJNA1287296	True	True	gold	publisher	publishedVersion	https://academic.oup.com/g3journal/advance-article-pdf/doi/10.1093/g3journal/jkaf252/64858531/jkaf252.pdf
+10.1111/ppl.70702	PRJNA1246341	False	False	closed			
+10.1094/MPMI-09-23-0146-FI	PRJNA1063333	False	True	gold	publisher	publishedVersion	https://apsjournals.apsnet.org/doi/pdf/10.1094/MPMI-09-23-0146-FI?download=true
+10.7717/peerj.3237	PRJNA345005	True	True	gold	publisher	publishedVersion	https://doi.org/10.7717/peerj.3237
+10.1128/spectrum.00264-22	PRJNA671670	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/spectrum.00264-22
+10.1093/nar/gkab091	PRJNA672111	True	True	gold	publisher	publishedVersion	https://doi.org/10.1093/nar/gkab091
+10.1186/s12870-025-06565-z	PRJNA1216589	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12870-025-06565-z
+10.1128/spectrum.00754-23	PRJNA854212	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/spectrum.00754-23
+10.1128/mSystems.00580-20	PRJNA664705	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/msystems.00580-20
+10.1128/spectrum.00349-22	PRJNA698760	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/spectrum.00349-22
+10.1186/s12915-023-01513-5	PRJNA904717	True	True	gold	publisher	publishedVersion	https://bmcbiol.biomedcentral.com/counter/pdf/10.1186/s12915-023-01513-5
+10.3389/fpls.2022.1030720	PRJNA352824	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2022.1030720/pdf
+10.1093/femsmc/xtad025	PRJNA938757	True	True	gold	publisher	publishedVersion	https://academic.oup.com/femsmicrobes/advance-article-pdf/doi/10.1093/femsmc/xtad025/54974201/xtad025.pdf
+10.1093/hr/uhag073	PRJNA1145503	False	True	gold	publisher	publishedVersion	https://doi.org/10.1093/hr/uhag073
+10.1111/1462-2920.15432	PRJNA527147	False	False	closed			
+# 200/725 done
+10.1128/mSystems.00650-19	PRJNA565562	True	True	gold	publisher	publishedVersion	https://msystems.asm.org/content/msys/5/1/e00650-19.full.pdf
+10.1128/mbio.02912-25	PRJNA1272045	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mbio.02912-25
+10.3389/fmicb.2022.1001327	PRJNA853492	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fmicb.2022.1001327/pdf
+10.1186/s13059-016-1145-3	PRJEB11304	True	True	gold	publisher	publishedVersion	https://genomebiology.biomedcentral.com/track/pdf/10.1186/s13059-016-1145-3
+10.1111/pce.15037	PRJNA944941	False	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/pce.15037
+10.1038/s41598-017-10405-y	PRJNA371695	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-017-10405-y.pdf
+10.1111/pce.12937	PRJNA336478	True	True	bronze	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/pce.12937
+10.1093/gbe/evw020	PRJNA296778	True	True	gold	publisher	publishedVersion	https://academic.oup.com/gbe/article-pdf/8/3/753/13165041/evw020.pdf
+10.7717/peerj.1549	PRJNA297400	True	True	gold	publisher	publishedVersion	https://peerj.com/articles/1549.pdf
+10.1038/s41598-021-01376-2	PRJEB46991	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-021-01376-2.pdf
+10.1126/science.1194573	PRJEB3069	False	True	green	repository	acceptedVersion	https://research.wur.nl/en/publications/genome-expansion-and-gene-loss-in-powdery-mildew-fungi-reveal-tra
+10.1128/mBio.00895-17	PRJNA383862	True	True	gold	publisher	publishedVersion	https://mbio.asm.org/content/mbio/8/5/e00895-17.full.pdf
+10.1038/s41598-018-20419-9	PRJNA419480	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-018-20419-9.pdf
+10.3389/fmicb.2021.664857	PRJNA646633	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fmicb.2021.664857/pdf
+10.1093/gbe/evz040	PRJNA473305	True	True	gold	publisher	publishedVersion	https://academic.oup.com/gbe/article-pdf/11/3/855/28213107/evz040.pdf
+10.1038/s41598-025-02572-0	PRJNA804666	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-025-02572-0.pdf
+10.1101/gr.152660.112	PRJNA169154	True	True	bronze	publisher	publishedVersion	http://genome.cshlp.org/content/23/8/1271.full.pdf
+10.1002/ps.6380	PRJEB39756	False	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/ps.6380
+10.1111/tpj.70472	PRJNA1166635	False	True	bronze	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/tpj.70472
+10.1093/gbe/evw259	PRJNA311604	True	True	gold	publisher	publishedVersion	https://academic.oup.com/gbe/article-pdf/8/11/3574/9983296/evw259.pdf
+10.1099/mgen.0.001485	PRJNA1111437	True	True	gold	publisher	publishedVersion	https://doi.org/10.1099/mgen.0.001485
+10.3390/ijms252111375	PRJNA985902	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/25/21/11375/pdf?version=1729664503
+10.1093/database/baaf015	PRJNA358831	True	True	gold	publisher	publishedVersion	https://doi.org/10.1093/database/baaf015
+10.1038/s42003-024-06798-y	PRJNA994854	True	True	gold	publisher	publishedVersion	https://doi.org/10.1038/s42003-024-06798-y
+10.1128/genomeA.00987-16	PRJNA329579	True	True	gold	publisher	publishedVersion	https://mra.asm.org/content/ga/4/5/e00987-16.full.pdf
+10.1093/hr/uhae094	PRJNA987192	True	True	gold	publisher	publishedVersion	https://academic.oup.com/hr/advance-article-pdf/doi/10.1093/hr/uhae094/57139718/uhae094.pdf
+10.1038/ng.3485	PRJNA296894	True	True	hybrid	publisher	publishedVersion	https://www.nature.com/articles/ng.3485.pdf
+10.3389/ffunb.2024.1459229	PRJNA325493	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/journals/fungal-biology/articles/10.3389/ffunb.2024.1459229/pdf
+10.3390/jof7020091	PRJNA552738	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/7/2/91/pdf?version=1611807561
+10.1186/s12864-018-4934-0	PRJNA407475	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-018-4934-0
+10.1128/aem.00681-26	PRJNA1405621	False	True	gold	publisher	publishedVersion	https://journals.asm.org/doi/pdf/10.1128/aem.00681-26?download=true
+10.1094/PDIS-06-20-1329-RE	PRJEB19257	False	False	closed			
+10.1094/MPMI-12-17-0309-A	PRJNA391093	False	True	bronze	publisher	publishedVersion	https://apsjournals.apsnet.org/doi/pdf/10.1094/MPMI-12-17-0309-A
+10.1016/j.heliyon.2020.e04952	PRJNA296349	True	True	gold	publisher	publishedVersion	http://www.cell.com/article/S2405844020317953/pdf
+10.2147/IDR.S374335	PRJNA861388	True	True	gold	publisher	publishedVersion	https://www.dovepress.com/getfile.php?fileID=82971
+10.1016/j.foodres.2022.111972	PRJNA839570	False	False	closed			
+10.1094/PHYTO-07-20-0297-A	PRJNA637660	False	True	bronze	publisher	publishedVersion	https://apsjournals.apsnet.org/doi/pdf/10.1094/PHYTO-07-20-0297-A
+10.1111/mpp.13199	PRJNA587128	True	True	gold	publisher	publishedVersion	https://doi.org/10.1111/mpp.13199
+10.1111/mpp.12405	PRJNA294234	True	True	green	repository	submittedVersion	https://www.ncbi.nlm.nih.gov/pmc/articles/6638266
+10.1128/msystems.00248-22	PRJNA810452	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/msystems.00248-22
+10.1371/journal.pone.0218844	PRJNA350867	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0218844&type=printable
+10.1186/s12864-021-07457-w	PRJNA660623	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-021-07457-w
+10.1111/mec.16505	PRJNA764088	True	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/mec.16505
+10.1101/2026.02.17.706082	PRJNA1394492	False	False	error			
+10.1038/s41598-026-43665-8	PRJNA1121488	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-026-43665-8_reference.pdf
+10.1186/1471-2164-15-313	PRJNA202292	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/1471-2164-15-313
+10.1111/nph.19604	PRJNA979975	False	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/nph.19604
+10.1186/s12864-024-10445-5	PRJNA304618	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12864-024-10445-5
+10.3389/fmicb.2020.00051	PRJNA595343	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fmicb.2020.00051/pdf
+10.1094/PHYTO-01-21-0032-R	PRJNA731618	False	False	closed			
+# 250/725 done
+10.1094/PHYTO-05-16-0197-R	PRJNA279922	False	True	hybrid	publisher	publishedVersion	https://apsjournals.apsnet.org/doi/pdf/10.1094/PHYTO-05-16-0197-R
+10.1094/PHYTO-09-21-0393-R	PRJEB6937	False	False	closed			
+10.1186/s12864-019-5485-8	PRJNA381081	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-019-5485-8
+10.3390/v11121092	PRJNA318835	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1999-4915/11/12/1092/pdf?version=1574680175
+10.1371/journal.ppat.1008608	PRJNA601749	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plospathogens/article/file?id=10.1371/journal.ppat.1008608&type=printable
+10.3389/fmicb.2020.01122	PRJNA516233	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fmicb.2020.01122/pdf
+10.1128/MRA.01587-19	PRJNA597539	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mra.01587-19
+10.1128/MRA.01292-19	PRJNA575278	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mra.01292-19
+10.1111/ppa.13597	PRJNA811762	False	False	closed			
+10.1007/s42161-024-01672-6	PRJNA1011022	True	True	hybrid	publisher	publishedVersion	https://link.springer.com/content/pdf/10.1007/s42161-024-01672-6.pdf
+10.1093/ve/veag010	PRJNA1203667	True	True	gold	publisher	publishedVersion	https://doi.org/10.1093/ve/veag010
+10.1101/2025.03.27.645716	PRJNA1220327	False	True	green	repository	acceptedVersion	https://doi.org/10.1101/2025.03.27.645716
+10.3390/plants9070820	PRJNA590139	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/9/7/820/pdf?version=1593615293
+10.1016/j.virol.2026.110820	PRJNA1263482	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1016/j.virol.2026.110820
+10.3390/v13122530	PRJNA802726	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1999-4915/13/12/2530/pdf?version=1639660021
+10.1007/s42161-022-01235-7	PRJNA808246	True	True	hybrid	publisher	publishedVersion	https://link.springer.com/content/pdf/10.1007/s42161-022-01235-7.pdf
+10.1080/15476286.2025.2459039	PRJEB75479	True	True	gold	publisher	publishedVersion	https://www.tandfonline.com/doi/pdf/10.1080/15476286.2025.2459039?needAccess=true
+10.1128/MRA.00673-20	PRJNA607790	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mra.00673-20
+10.3390/plants11151951	PRJNA773642	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/11/15/1951/pdf?version=1658968135
+10.1002/ndr2.12312	PRJNA1081807	False	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/ndr2.12312
+10.1128/MRA.00766-19	PRJNA542720	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mra.00766-19
+10.1128/MRA.01607-18	PRJNA503094	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mra.01607-18
+10.15252/embr.201540509	PRJEB9490	True	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.15252/embr.201540509
+10.3390/v15020401	PRJNA796936	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1999-4915/15/2/401/pdf?version=1675152777
+10.3390/pathogens14111087	PRJNA1232637	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2076-0817/14/11/1087/pdf?version=1761319253
+10.3390/v13040583	PRJNA680190	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1999-4915/13/4/583/pdf?version=1617938299
+10.1128/MRA.01064-18	PRJNA491634	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mra.01064-18
+10.1128/MRA.00214-19	PRJNA524397	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mra.00214-19
+10.1128/mra.00510-26	PRJNA1394657	True	True	gold	publisher	publishedVersion	https://journals.asm.org/doi/pdf/10.1128/mra.00510-26?download=true
+10.1094/PDIS-03-25-0599-PDN	PRJNA1237933	False	False	closed			
+10.1128/MRA.00344-23	PRJNA961054	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mra.00344-23
+10.1128/mra.00096-20	PRJNA606340	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mra.00096-20
+10.1128/spectrum.02340-23	PRJNA996293	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/spectrum.02340-23
+10.1128/MRA.00110-19	PRJNA524449	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mra.00110-19
+10.1128/MRA.00093-19	PRJNA525575	True	True	gold	publisher	publishedVersion	https://mra.asm.org/content/ga/8/15/e00093-19.full.pdf
+10.1099/jgv.0.001525	PRJDB10741	False	False	closed			
+10.3389/fpls.2024.1439380	PRJNA1108966	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2024.1439380
+10.1105/tpc.18.00930	PRJNA505891	True	True	bronze	publisher	publishedVersion	http://www.plantcell.org/content/plantcell/31/9/1968.full.pdf
+10.1101/2025.05.29.656841	PRJNA1055939	False	True	green	repository	acceptedVersion	https://doi.org/10.1101/2025.05.29.656841
+10.1186/s12915-021-01100-6	PRJNA705878	True	True	gold	publisher	publishedVersion	https://bmcbiol.biomedcentral.com/track/pdf/10.1186/s12915-021-01100-6
+10.3389/fpls.2024.1439020	PRJNA761393	True	True	gold	publisher	publishedVersion	https://public-pages-files-2025.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2024.1439020/pdf
+10.1111/tpj.70125	PRJNA1244272	True	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/tpj.70125
+10.3389/fpls.2022.804104	PRJNA775969	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.804104
+10.3390/microorganisms10020343	PRJNA757692	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2076-2607/10/2/343/pdf?version=1644472382
+10.3389/fpls.2022.980587	PRJNA850943	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.980587
+10.3389/fpls.2025.1722162	PRJNA527733	True	True	gold	publisher	publishedVersion	https://public-pages-files-2025.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2025.1722162/pdf
+10.3390/genes16101158	PRJNA1332781	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2073-4425/16/10/1158/pdf?version=1759150473
+10.1007/s13205-023-03803-9	PRJNA870250	True	True	green	repository	acceptedVersion	https://pmc.ncbi.nlm.nih.gov/articles/PMC10630269/pdf/13205_2023_Article_3803.pdf
+10.3389/fgene.2023.1271200	PRJNA977635	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fgene.2023.1271200/pdf?isPublishedV2=False
+10.3390/ijms23010276	PRJNA641525	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/23/1/276/pdf?version=1640658714
+# 300/725 done
+10.1111/tpj.71018	PRJNA1366440	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/tpj.71018
+10.1093/hr/uhad101	PRJNA946259	True	True	gold	publisher	publishedVersion	https://academic.oup.com/hr/advance-article-pdf/doi/10.1093/hr/uhad101/50273553/uhad101.pdf
+10.3389/fpls.2022.836269	PRJNA791339	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.836269
+10.1186/s12870-024-05903-x	PRJNA1191549	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/counter/pdf/10.1186/s12870-024-05903-x
+10.1038/s42003-021-02245-4	PRJNA662919	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s42003-021-02245-4.pdf
+10.3389/fgene.2021.716821	PRJNA746402	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fgene.2021.716821/pdf
+10.1093/femsle/fnag019	PRJNA1328502	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1093/femsle/fnag019
+10.1038/s41467-025-60033-8	PRJEB67960	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-025-60033-8.pdf
+10.1186/s12870-021-03149-5	PRJNA573931	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/track/pdf/10.1186/s12870-021-03149-5
+10.1073/pnas.1907500116	PRJNA527782	True	True	bronze	publisher	publishedVersion	https://www.pnas.org/content/pnas/116/52/27124.full.pdf
+10.3389/fpls.2024.1444271	PRJNA1013391	True	True	gold	publisher	publishedVersion	https://public-pages-files-2025.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2024.1444271/pdf
+10.3389/fpls.2022.1073856	PRJNA901343	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.1073856
+10.1371/journal.pone.0207036	PRJNA484520	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0207036&type=printable
+10.1093/hr/uhac188	PRJNA574559	True	True	gold	publisher	publishedVersion	https://academic.oup.com/hr/article-pdf/doi/10.1093/hr/uhac188/50249962/uhac188.pdf
+10.1128/mra.00473-20	PRJNA577523	True	True	gold	publisher	publishedVersion	https://doi.org/10.1128/mra.00473-20
+10.3389/fpls.2023.1299461	PRJNA976214	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2023.1299461
+10.3389/fpls.2018.00522	PRJNA419139	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2018.00522
+10.3390/plants14233645	PRJNA1335398	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/14/23/3645/pdf?version=1764408869
+10.1016/j.plaphy.2025.110662	PRJNA1243574	False	False	closed			
+10.1186/s12859-026-06368-5	PRJEB59062	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12859-026-06368-5
+10.3389/fpls.2017.02075	PRJNA418364	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2017.02075/pdf
+10.3389/fpls.2025.1537605	PRJNA1183537	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2025.1537605
+10.1104/pp.17.00390	PRJNA384934	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1104/pp.17.00390
+10.3390/ijms20246278	PRJNA589754	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/20/24/6278/pdf?version=1576481605
+10.1016/j.plaphy.2025.109874	PRJNA1189193	False	False	closed			
+10.3390/ijms23094702	PRJNA819185	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/23/9/4702/pdf?version=1650849603
+10.1186/s12870-026-08210-9	PRJNA1354640	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12870-026-08210-9
+10.3390/jof12070540	PRJNA1475220	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/12/7/540/pdf?version=1784706471
+10.3389/fmicb.2022.837056	PRJNA689117	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fmicb.2022.837056
+10.1186/s13059-025-03694-4	PRJNA838764	True	True	gold	publisher	publishedVersion	https://genomebiology.biomedcentral.com/counter/pdf/10.1186/s13059-025-03694-4
+10.1111/pce.70566	PRJNA1366519	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/pce.70566
+10.1186/s12870-021-03245-6	PRJNA681878	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/counter/pdf/10.1186/s12870-021-03245-6
+10.3390/genes14122223	PRJNA593073	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2073-4425/14/12/2223/pdf?version=1703235802
+10.1016/j.plaphy.2018.08.006	PRJNA480999	False	False	closed			
+10.1186/s12284-026-00893-w	PRJNA1103978	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12284-026-00893-w
+10.1186/s12870-026-08540-8	PRJNA982974	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12870-026-08540-8
+10.1111/pbi.13693	PRJNA714375	True	True	gold	publisher	publishedVersion	https://doi.org/10.1111/pbi.13693
+10.1186/s12870-024-05145-x	PRJNA1092346	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12870-024-05145-x
+10.3389/fpls.2022.926621	PRJNA842823	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2022.926621/pdf
+10.3390/plants15121771	PRJNA1471993	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/plants15121771
+10.1186/1471-2164-15-710	PRJNA240676	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/1471-2164-15-710
+10.3389/fpls.2021.701969	PRJNA728113	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2021.701969/pdf
+10.1101/2021.03.26.437179	PRJNA636958	False	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2021/03/28/2021.03.26.437179.full.pdf
+10.3390/ijms232315246	PRJNA763773	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/23/23/15246/pdf?version=1670381017
+10.3389/fpls.2022.972791	PRJNA843784	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2022.972791/pdf
+10.3389/fpls.2025.1694555	PRJNA1305415	True	True	gold	publisher	publishedVersion	https://public-pages-files-2025.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2025.1694555/pdf
+10.1186/s12870-026-08539-1	PRJNA1370671	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12870-026-08539-1
+10.1186/s12864-020-07138-0	PRJNA667277	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-020-07138-0
+10.3390/ijms252413244	PRJNA1170567	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/25/24/13244/pdf?version=1733825723
+10.3390/jof4010039	PRJEB13569	False	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/4/1/39/pdf?version=1525344528
+# 350/725 done
+10.3390/plants12152793	PRJNA986440	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/12/15/2793/pdf?version=1690530417
+10.21203/rs.3.rs-7624510/v1	PRJNA911587	False	True	green	repository	acceptedVersion	https://www.researchsquare.com/article/rs-7624510/latest.pdf
+10.3389/fpls.2022.961586	PRJNA842515	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.961586
+10.1016/j.molp.2024.09.006	PRJNA1161467	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1016/j.molp.2024.09.006
+10.1093/molbev/msz272	PRJNA577532	True	True	hybrid	publisher	publishedVersion	https://academic.oup.com/mbe/article-pdf/37/3/839/32618449/msz272.pdf
+10.1101/2022.08.19.504540	PRJNA759756	False	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2022/08/20/2022.08.19.504540.full.pdf
+10.1038/s41598-025-89119-5	PRJNA395908	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-025-89119-5.pdf
+10.7717/peerj.12968	PRJNA721299	True	True	gold	publisher	publishedVersion	https://doi.org/10.7717/peerj.12968
+10.3389/fgene.2020.00959	PRJNA412801	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fgene.2020.00959/pdf
+10.1016/j.molp.2026.01.005	PRJNA1214325	False	False	closed			
+10.1007/s00122-023-04335-9	PRJNA706136	True	True	hybrid	publisher	publishedVersion	https://link.springer.com/content/pdf/10.1007/s00122-023-04335-9.pdf
+10.1038/s41597-019-0140-4	PRJNA514200	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41597-019-0140-4.pdf
+10.1093/plphys/kiac038	PRJNA750086	True	True	hybrid	publisher	publishedVersion	https://academic.oup.com/plphys/article-pdf/188/4/1944/43110284/kiac038.pdf
+10.1038/srep18283	PRJNA302556	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/srep18283.pdf
+10.3389/fpls.2020.570418	PRJNA630776	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2020.570418/pdf
+10.3390/ijms24031812	PRJNA892753	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/24/3/1812/pdf?version=1673941285
+10.1016/j.plantsci.2019.110178	PRJNA513863	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1016/j.plantsci.2019.110178
+10.3389/fmicb.2025.1546583	PRJNA1193783	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1546583/pdf
+10.1111/tpj.13419	PRJNA321325	False	True	bronze	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/tpj.13419
+10.1093/jxb/erad348	PRJNA926628	False	False	closed			
+10.1093/aob/mcac102	PRJNA733882	True	True	green	repository	submittedVersion	https://www.ncbi.nlm.nih.gov/pmc/articles/9670757
+10.3390/ijms20246135	PRJNA548433	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/20/24/6135/pdf?version=1575544378
+10.3390/jof12070524	PRJNA1423152	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/jof12070524
+10.1186/s12870-023-04331-7	PRJNA926886	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/counter/pdf/10.1186/s12870-023-04331-7
+10.1007/s12298-024-01455-4	PRJNA1080069	True	True	green	repository	acceptedVersion	https://pmc.ncbi.nlm.nih.gov/articles/PMC11150235/pdf/12298_2024_Article_1455.pdf
+10.1093/plphys/kiad460	PRJNA896566	False	False	closed			
+10.1186/s12864-018-5012-3	PRJNA450087	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-018-5012-3.pdf
+10.3390/ijms24043499	PRJNA896484	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/24/4/3499/pdf?version=1675992169
+10.1038/s41598-020-70882-6	PRJNA515188	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-020-70882-6.pdf
+10.3389/fpls.2024.1330061	PRJNA1056156	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2024.1330061
+10.3389/fpls.2019.00268	PRJNA509606	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2019.00268/pdf
+10.1126/science.aba5435	PRJNA540081	False	False	closed			
+10.3390/genes16050539	PRJNA548845	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2073-4425/16/5/539/pdf?version=1746001258
+10.3389/fpls.2026.1776686	PRJNA1392009	True	True	gold	publisher	publishedVersion	https://public-pages-files-2025.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2026.1776686/pdf
+10.1186/s12864-022-08721-3	PRJNA720576	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-022-08721-3
+10.1371/journal.pone.0226106	PRJNA552611	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0226106&type=printable
+10.1186/s12864-019-6161-8	PRJNA531693	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-019-6161-8
+10.3389/fpls.2020.00191	PRJNA564795	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2020.00191/pdf
+10.3390/plants11212883	PRJNA798863	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/11/21/2883/pdf?version=1667354919
+10.1186/s12870-026-08414-z	PRJNA1272129	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12870-026-08414-z
+10.3390/ijms25010591	PRJNA986958	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/25/1/591/pdf?version=1704182662
+10.1186/s12864-025-11995-y	PRJNA952825	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-025-11995-y
+10.1038/s41477-025-02210-7	PRJNA986524	True	True	hybrid	publisher	publishedVersion	https://www.nature.com/articles/s41477-025-02210-7.pdf
+10.1105/tpc.19.00487	PRJNA573599	False	True	green	repository	submittedVersion	https://www.ncbi.nlm.nih.gov/pmc/articles/6961617
+10.1111/pce.15622	PRJNA1156254	False	False	closed			
+10.3390/plants13141989	PRJNA1133704	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/plants13141989
+10.3390/genes11020127	PRJNA548392	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/genes11020127
+10.1186/s12915-024-01852-x	PRJEB59238	True	True	gold	publisher	publishedVersion	https://bmcbiol.biomedcentral.com/counter/pdf/10.1186/s12915-024-01852-x
+10.3389/fpls.2017.01427	PRJNA395311	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2017.01427/pdf
+10.3390/plants11212807	PRJNA862687	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/11/21/2807/pdf?version=1667041501
+# 400/725 done
+10.1038/s41467-026-73123-y	PRJNA1390310	True	True	gold	publisher	publishedVersion	https://doi.org/10.1038/s41467-026-73123-y
+10.1111/pce.13803	PRJNA516527	False	False	closed			
+10.1126/science.aao7294	PRJNA415853	True	True	hybrid	publisher	publishedVersion	https://science.sciencemag.org/content/sci/358/6370/1604.full.pdf
+10.1038/s41467-019-08726-9	PRJNA483762	True	True	gold	publisher	publishedVersion	https://doi.org/10.1038/s41467-019-08726-9
+10.3390/ijms25052701	PRJNA1058883	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/25/5/2701/pdf?version=1708956307
+10.15252/embr.202153400	PRJNA598331	True	True	hybrid	publisher	publishedVersion	https://link.springer.com/content/pdf/10.15252/embr.202153400.pdf
+10.3390/ijms26114983	PRJNA1245489	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/26/11/4983/pdf?version=1747908150
+10.3390/plants11070864	PRJEB48949	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/11/7/864/pdf?version=1648177823
+10.3389/fpls.2022.917493	PRJNA757397	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.917493
+10.1186/s12870-019-1653-x	PRJNA437324	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/counter/pdf/10.1186/s12870-019-1653-x
+10.1186/s12864-017-3642-5	PRJNA327437	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-017-3642-5
+10.1371/journal.pone.0178164	PRJNA246444	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0178164&type=printable
+10.7554/eLife.44279	PRJNA473829	True	True	gold	publisher	publishedVersion	https://doi.org/10.7554/elife.44279
+10.1002/pld3.484	PRJNA327013	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/pld3.484
+10.1073/pnas.2601719123	PRJNA1217477	True	True	hybrid	publisher	publishedVersion	https://www.pnas.org/doi/pdf/10.1073/pnas.2601719123
+10.3390/genes12111789	PRJNA721951	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2073-4425/12/11/1789/pdf?version=1637661551
+10.1186/s13059-021-02568-9	PRJNA755474	True	True	gold	publisher	publishedVersion	https://genomebiology.biomedcentral.com/counter/pdf/10.1186/s13059-021-02568-9
+10.1016/j.xplc.2023.100775	PRJNA640476	True	True	gold	publisher	publishedVersion	https://doi.org/10.1016/j.xplc.2023.100775
+10.1073/pnas.2500029122	PRJNA1188982	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1073/pnas.2500029122
+10.1007/s00122-022-04129-5	PRJNA804213	True	True	hybrid	publisher	publishedVersion	https://link.springer.com/content/pdf/10.1007/s00122-022-04129-5.pdf
+10.1093/jxb/eraf473	PRJNA1123450	False	False	closed			
+10.3389/fgene.2022.1086356	PRJNA531296	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fgene.2022.1086356/pdf
+10.1093/jxb/erae050	PRJNA977839	False	True	bronze	publisher	publishedVersion	https://academic.oup.com/jxb/advance-article-pdf/doi/10.1093/jxb/erae050/56879974/erae050.pdf
+10.1111/nph.19967	PRJNA1129295	False	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/nph.19967
+10.1093/plcell/koaf105	PRJNA1041741	True	True	hybrid	publisher	publishedVersion	https://academic.oup.com/plcell/advance-article-pdf/doi/10.1093/plcell/koaf105/63133103/koaf105.pdf
+10.1186/s12915-023-01520-6	PRJNA918399	True	True	gold	publisher	publishedVersion	https://bmcbiol.biomedcentral.com/counter/pdf/10.1186/s12915-023-01520-6
+10.1111/mpp.12984	PRJNA477359	True	True	gold	publisher	publishedVersion	https://bsppjournals.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/mpp.12984
+10.64898/2026.06.02.729393	PRJNA1465640	True	True	green	repository	acceptedVersion	https://doi.org/10.64898/2026.06.02.729393
+10.1002/imt2.70029	PRJNA1195373	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/imt2.70029
+10.1016/j.celrep.2025.115772	PRJNA1240218	False	True	gold	publisher	publishedVersion	https://www.cell.com/action/showPdf?pii=S2211124725005431
+10.1186/1755-8794-7-40	PRJNA1022321	True	True	gold	publisher	publishedVersion	https://bmcmedgenomics.biomedcentral.com/counter/pdf/10.1186/1755-8794-7-40
+10.1093/jxb/erx338	PRJNA321917	True	True	hybrid	publisher	publishedVersion	https://academic.oup.com/jxb/article-pdf/68/18/5079/25200783/erx338.pdf
+10.1101/2021.08.22.455814	PRJNA508768	False	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2021/08/23/2021.08.22.455814.full.pdf
+10.1101/2023.03.16.532963	PRJNA563186	False	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2023/03/20/2023.03.16.532963.full.pdf
+10.1186/s12870-025-06405-0	PRJNA1203349	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/counter/pdf/10.1186/s12870-025-06405-0
+10.1016/j.xplc.2024.101011	PRJNA1013336	True	True	gold	publisher	publishedVersion	https://doi.org/10.1016/j.xplc.2024.101011
+10.1038/ncomms10456	PRJNA265955	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/ncomms10456.pdf
+10.3390/jof10110773	PRJNA1108053	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/jof10110773
+10.1186/s12870-019-2149-4	PRJNA509214	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/track/pdf/10.1186/s12870-019-2149-4
+10.1093/jxb/eraf432	PRJNA1265690	False	False	closed			
+10.1038/s42003-026-09667-y	PRJNA1270936	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s42003-026-09667-y_reference.pdf
+10.3389/fpls.2020.00908	PRJNA315516	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2020.00908/pdf
+10.1111/pbi.13082	PRJNA471709	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/pbi.13082
+10.1038/s41467-026-69532-8	PRJNA1190367	True	True	gold	publisher	publishedVersion	https://doi.org/10.1038/s41467-026-69532-8
+10.1534/genetics.118.300478	PRJNA417591	True	True	bronze	publisher	publishedVersion	https://www.genetics.org/content/genetics/209/1/143.full.pdf
+10.1186/s12864-016-2780-5	PRJNA308408	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-016-2780-5
+10.1186/s12870-026-08429-6	PRJNA1363716	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12870-026-08429-6
+10.1038/s41598-023-33335-4	PRJNA899438	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-023-33335-4.pdf
+10.1111/mpp.13391	PRJNA918425	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/mpp.13391
+10.1111/nph.20288	PRJNA1144135	True	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/nph.20288
+# 450/725 done
+10.1038/s41438-020-00387-w	PRJNA610066	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41438-020-00387-w.pdf
+10.1038/s41467-023-42522-w	PRJNA938065	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-023-42522-w.pdf
+10.1038/s41467-025-61827-6	PRJNA423161	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-025-61827-6.pdf
+10.1093/plphys/kiab354	PRJNA662936	True	True	hybrid	publisher	publishedVersion	https://academic.oup.com/plphys/article-pdf/187/3/1250/41074103/kiab354.pdf
+10.1111/pbi.70279	PRJNA1031966	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/pbi.70279
+10.1111/nph.18277	PRJNA755600	False	False	closed			
+10.1016/j.celrep.2024.114786	PRJNA336471	False	True	gold	publisher	publishedVersion	https://doi.org/10.1016/j.celrep.2024.114786
+10.1111/nph.71053	PRJEB88178	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/nph.71053
+10.3389/fpls.2022.1037030	PRJNA893349	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2022.1037030/pdf
+10.3390/ijms25116214	PRJNA1073691	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/ijms25116214
+10.1093/jxb/erz345	PRJNA495475	True	True	hybrid	publisher	publishedVersion	https://academic.oup.com/jxb/article-pdf/70/20/5971/30296998/erz345.pdf
+10.1111/nph.71312	PRJNA1394627	False	True	green	repository	submittedVersion	https://pmc.ncbi.nlm.nih.gov/articles/PMC13443279/
+10.1038/s41598-020-80280-7	PRJNA679433	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-020-80280-7.pdf
+10.1038/s41467-019-09287-7	PRJNA510920	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-019-09287-7.pdf
+10.1186/s12864-021-07800-1	PRJNA731024	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-021-07800-1
+10.1002/pld3.64	PRJNA261444	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/pld3.64
+10.1007/s00122-021-03784-4	PRJNA613891	False	False	closed			
+10.1038/s41598-025-21482-9	PRJNA810908	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-025-21482-9.pdf
+10.3390/ijms21165759	PRJNA644654	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/21/16/5759/pdf?version=1597148208
+10.1186/s12863-018-0668-x	PRJNA414570	True	True	gold	publisher	publishedVersion	https://bmcgenomdata.biomedcentral.com/track/pdf/10.1186/s12863-018-0668-x
+10.1094/phyto-08-21-0329-r	PRJNA789389	False	False	closed			
+10.1186/s12864-019-6369-7	PRJNA540228	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-019-6369-7
+10.1093/plcell/koac300	PRJNA869950	True	True	bronze	publisher	publishedVersion	https://academic.oup.com/plcell/article-pdf/35/1/574/48522138/koac300.pdf
+10.3389/fpls.2021.761446	PRJNA767817	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2021.761446
+10.3390/jof7100825	PRJNA759653	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/7/10/825/pdf
+10.3389/fpls.2025.1554036	PRJNA1177658	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2025.1554036/pdf
+10.1038/s41477-019-0509-6	PRJNA491716	False	False	closed			
+10.1371/journal.pone.0261102	PRJNA766564	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0261102&type=printable
+10.3390/biology14111488	PRJNA1321556	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2079-7737/14/11/1488/pdf?version=1761309113
+10.3390/ijms232113589	PRJNA884711	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/23/21/13589/pdf?version=1667649819
+10.1111/nph.17312	PRJNA605937	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/nph.17312
+10.1093/jxb/eraf437	PRJNA1101865	True	True	hybrid	publisher	publishedVersion	https://academic.oup.com/jxb/advance-article-pdf/doi/10.1093/jxb/eraf437/64475376/eraf437.pdf
+10.3389/fmicb.2022.924313	PRJNA824616	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fmicb.2022.924313
+10.1186/s12870-021-03393-9	PRJNA683746	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/counter/pdf/10.1186/s12870-021-03393-9
+10.1016/j.celrep.2025.116575	PRJNA1255829	False	True	gold	publisher	publishedVersion	https://doi.org/10.1016/j.celrep.2025.116575
+10.1093/jxb/eraa601	PRJNA623526	True	True	hybrid	publisher	publishedVersion	https://academic.oup.com/jxb/article-pdf/72/7/2696/36785981/eraa601.pdf
+10.1016/j.celrep.2022.111877	PRJNA819267	False	True	gold	publisher	publishedVersion	https://doi.org/10.1016/j.celrep.2022.111877
+10.1016/j.molp.2021.07.008	PRJNA738667	False	True	bronze	publisher	publishedVersion	http://www.cell.com/article/S1674205221002744/pdf
+10.1111/tpj.70182	PRJNA1006331	False	False	closed			
+10.1007/s00299-025-03544-4	PRJNA1102319	False	True	green	repository	submittedVersion	https://hal.science/hal-05119616/document
+10.1104/pp.15.00852	PRJNA281236	False	True	hybrid	publisher	publishedVersion	http://www.plantphysiol.org/content/plantphysiol/169/4/2422.full.pdf
+10.1101/2026.02.24.707787	PRJNA1426942	False	False	error			
+10.1093/plcell/koaf233	PRJNA1216614	True	True	hybrid	publisher	publishedVersion	https://academic.oup.com/plcell/advance-article-pdf/doi/10.1093/plcell/koaf233/64455239/koaf233.pdf
+10.3390/biology13060441	PRJNA847036	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/biology13060441
+10.3389/fmicb.2022.923281	PRJNA832802	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fmicb.2022.923281
+10.1111/mpp.12734	PRJNA434179	True	True	green	repository	submittedVersion	https://www.ncbi.nlm.nih.gov/pmc/articles/6638163
+10.18699/vjgb-24-103	PRJEB24521	True	True	gold	publisher	publishedVersion	https://vavilov.elpub.ru/jour/article/download/4417/1902
+10.3390/jof11020124	PRJNA1211507	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/11/2/124/pdf?version=1738921875
+10.3390/ijms251910655	PRJNA1112547	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/ijms251910655
+10.1126/sciadv.adv1760	PRJNA1171632	True	True	gold	publisher	publishedVersion	https://doi.org/10.1126/sciadv.adv1760
+# 500/725 done
+10.1111/1462-2920.15031	PRJNA480740	False	False	closed			
+10.1007/s42161-025-01986-z	PRJNA1219206	True	True	hybrid	publisher	publishedVersion	https://link.springer.com/content/pdf/10.1007/s42161-025-01986-z.pdf
+10.3390/plants14020241	PRJDB19723	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/14/2/241/pdf?version=1737034839
+10.1186/s12864-017-3848-6	PRJNA331148	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-017-3848-6
+10.3390/ijms241713263	PRJNA1079030	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/24/17/13263/pdf?version=1693220236
+10.1105/tpc.17.00238	PRJNA431598	False	True	green	repository	submittedVersion	https://www.ncbi.nlm.nih.gov/pmc/articles/5894838
+10.1111/nph.70025	PRJNA1069975	True	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/nph.70025
+10.3389/fpls.2025.1537921	PRJNA1221348	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2025.1537921
+10.3389/fpls.2021.692036	PRJNA717217	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2021.692036/pdf
+10.1016/j.ijfoodmicro.2026.111635	PRJNA1203036	False	False	closed			
+10.1016/j.xplc.2025.101542	PRJNA1226203	True	True	gold	publisher	publishedVersion	https://doi.org/10.1016/j.xplc.2025.101542
+10.3389/fpls.2022.888939	PRJNA761556	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.888939
+10.1111/nph.70621	PRJNA1276321	True	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/nph.70621
+10.3389/fpls.2022.1011064	PRJNA838787	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.1011064
+10.1111/mpp.12464	PRJNA322501	True	True	green	repository	submittedVersion	https://www.ncbi.nlm.nih.gov/pmc/articles/6638281
+10.1038/s41598-024-53643-7	PRJNA1018845	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-024-53643-7.pdf
+10.3389/fpls.2024.1345774	PRJNA522013	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2024.1345774
+10.3389/fpls.2021.700446	PRJNA643674	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2021.700446/pdf
+10.1080/17429145.2024.2393803	PRJNA1100217	False	True	gold	publisher	publishedVersion	https://www.tandfonline.com/doi/pdf/10.1080/17429145.2024.2393803?needAccess=true
+10.1105/tpc.17.00764	PRJNA407369	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1105/tpc.17.00764
+10.1038/s41598-019-52444-7	PRJNA632579	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-019-52444-7.pdf
+10.3390/cells11010037	PRJNA274853	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2073-4409/11/1/37/pdf?version=1640933868
+10.3389/fpls.2022.1055277	PRJNA886841	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.1055277
+10.3390/ijms241914840	PRJNA911470	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/24/19/14840/pdf?version=1696252543
+10.1038/s41467-021-22660-9	PRJNA690691	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-021-22660-9.pdf
+10.1038/s41598-020-73521-2	PRJNA595999	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-020-73521-2.pdf
+10.1111/1758-2229.70034	PRJEB39398	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/1758-2229.70034
+10.3389/fpls.2023.1156514	PRJNA936260	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2023.1156514
+10.1093/dnares/dsag005	PRJNA633940	True	True	gold	publisher	publishedVersion	https://doi.org/10.1093/dnares/dsag005
+10.1094/PHYTO-05-21-0184-A	PRJNA689677	False	False	closed			
+10.3390/ijms22094938	PRJNA509070	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/22/9/4938/pdf?version=1620302121
+10.3390/ijms26125538	PRJNA1265958	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/26/12/5538/pdf?version=1749549184
+10.1093/aobpla/plae056	PRJNA1101972	True	True	gold	publisher	publishedVersion	https://academic.oup.com/aobpla/article-pdf/16/6/plae056/60585247/plae056.pdf
+10.1094/PHYTO-07-24-0240-R	PRJNA1122595	False	False	closed			
+10.1016/j.jare.2020.10.004	PRJNA578698	True	True	gold	publisher	publishedVersion	https://www.sciencedirect.com/science/article/pii/S2090123220302241/pdf
+10.1038/s41467-020-20777-x	PRJNA674985	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-020-20777-x.pdf
+10.3389/fpls.2023.1129515	PRJNA893261	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2023.1129515
+10.1111/pbi.70388	PRJNA1280538	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/pbi.70388
+10.1111/nph.15904	PRJNA492913	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/nph.15904
+10.1111/tpj.14184	PRJEB10574	True	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/tpj.14184
+10.1101/2026.03.24.712282	PRJNA997093	False	False	error			
+10.1371/journal.pone.0214703	PRJNA434655	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0214703&type=printable
+10.1093/plcell/koab049	PRJEB36444	True	True	hybrid	publisher	publishedVersion	https://academic.oup.com/plcell/article-pdf/33/5/1728/38859338/koab049.pdf
+10.3389/fpls.2019.01617	PRJNA575690	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2019.01617/pdf
+10.3390/ijms231810236	PRJNA853857	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/23/18/10236/pdf?version=1662461383
+10.3389/fpls.2023.1212135	PRJNA836253	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2023.1212135/pdf
+10.1093/plphys/kiag187	PRJDB9607	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1093/plphys/kiag187
+10.1093/plphys/kiac408	PRJNA762085	True	True	hybrid	publisher	publishedVersion	https://academic.oup.com/plphys/article-pdf/191/1/575/48449643/kiac408.pdf
+10.1094/MPMI-03-17-0054-R	PRJNA369690	False	True	bronze	publisher	publishedVersion	https://apsjournals.apsnet.org/doi/pdf/10.1094/MPMI-03-17-0054-R
+10.3389/fmicb.2025.1572568	PRJNA1152285	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fmicb.2025.1572568
+# 550/725 done
+10.1038/s41598-025-96159-4	PRJEB79249	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-025-96159-4.pdf
+10.3389/fpls.2019.01704	PRJNA414966	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2019.01704/pdf
+10.3389/fpls.2025.1724180	PRJNA1390436	True	True	gold	publisher	publishedVersion	https://public-pages-files-2025.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2025.1724180/pdf
+10.3389/fpls.2021.664733	PRJNA721468	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2021.664733/pdf
+10.1186/s12870-020-02709-5	PRJNA597792	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/track/pdf/10.1186/s12870-020-02709-5
+10.1038/s41467-023-36248-y	PRJNA819072	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-023-36248-y.pdf
+10.1093/dnares/dsu033	PRJNA256033	True	True	gold	publisher	publishedVersion	https://academic.oup.com/dnaresearch/article-pdf/22/1/1/17462732/dsu033.pdf
+10.3389/fmicb.2019.01474	PRJNA485739	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fmicb.2019.01474/pdf
+10.1093/nar/gkx085	PRJNA294848	True	True	gold	publisher	publishedVersion	https://doi.org/10.1093/nar/gkx085
+10.3389/fpls.2020.00500	PRJNA607858	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2020.00500/pdf
+10.1016/j.molp.2020.08.001	PRJNA151401	False	True	bronze	publisher	publishedVersion	http://www.cell.com/article/S1674205220302574/pdf
+10.1186/s12870-024-05020-9	PRJNA938609	True	True	gold	publisher	publishedVersion	https://link.springer.com/content/pdf/10.1186/s12870-024-05020-9.pdf
+10.3389/fpls.2021.657796	PRJNA483957	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2021.657796/pdf
+10.1111/nph.16907	PRJNA606032	False	False	closed			
+10.1371/journal.pone.0206765	PRJNA407898	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0206765&type=printable
+10.1093/plphys/kiad150	PRJNA810958	False	True	green	repository	submittedVersion	https://pmc.ncbi.nlm.nih.gov/articles/PMC10231366/pdf/kiad150.pdf
+10.1021/acs.jafc.6c00147	PRJNA1416819	False	False	closed			
+10.3390/ijms26115194	PRJNA1250220	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/26/11/5194/pdf?version=1748438150
+10.1038/s41598-017-04792-5	PRJEB21223	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-017-04792-5.pdf
+10.1038/srep37302	PRJNA306542	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/srep37302.pdf
+10.1101/2024.02.16.580628	PRJEB64683	True	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2024/02/17/2024.02.16.580628.full.pdf
+10.1186/s12864-022-08788-y	PRJNA787359	True	True	gold	publisher	publishedVersion	https://link.springer.com/content/pdf/10.1186/s12864-022-08788-y.pdf
+10.1111/tpj.15598	PRJNA740181	False	True	green	repository	submittedVersion	https://hal.science/hal-03452034
+10.1038/s41467-023-43178-2	PRJEB24686	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-023-43178-2.pdf
+10.3389/fmicb.2025.1639396	PRJNA1215988	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fmicb.2025.1639396
+10.1002/ps.70786	PRJNA1139942	False	False	closed			
+10.1038/s41598-024-71941-y	PRJNA376075	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-024-71941-y.pdf
+10.1093/plphys/kiab496	PRJNA742147	True	True	hybrid	publisher	publishedVersion	https://academic.oup.com/plphys/article-pdf/188/1/167/42248220/kiab496.pdf
+10.1186/s12870-024-05455-0	PRJNA1113349	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12870-024-05455-0
+10.1186/s12915-023-01726-8	PRJEB47779	True	True	gold	publisher	publishedVersion	https://bmcbiol.biomedcentral.com/counter/pdf/10.1186/s12915-023-01726-8
+10.21203/rs.3.rs-8610641/v1	PRJNA1414147	False	True	green	repository	acceptedVersion	https://www.researchsquare.com/article/rs-8610641/latest.pdf
+10.3390/genes12060869	PRJNA700112	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2073-4425/12/6/869/pdf?version=1622965682
+10.1038/s41438-020-0316-2	PRJNA550997	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41438-020-0316-2.pdf
+10.3389/fpls.2022.723356	PRJNA739552	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.723356
+10.1080/15592324.2023.2269675	PRJNA322439	True	True	gold	publisher	publishedVersion	https://www.tandfonline.com/doi/pdf/10.1080/15592324.2023.2269675?needAccess=true
+10.1186/s13059-023-02891-3	PRJNA793045	True	True	gold	publisher	publishedVersion	https://genomebiology.biomedcentral.com/counter/pdf/10.1186/s13059-023-02891-3
+10.1038/s41598-020-77593-y	PRJNA667351	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-020-77593-y.pdf
+10.1111/tpj.70590	PRJEB88084	True	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/tpj.70590
+10.21203/rs.3.rs-3910094/v1	PRJNA1052939	False	True	green	repository	acceptedVersion	https://www.researchsquare.com/article/rs-3910094/latest.pdf
+10.1111/jipb.13732	PRJNA1036172	False	False	closed			
+10.1186/s13062-026-00788-2	PRJNA641330	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s13062-026-00788-2
+10.3389/fpls.2022.985396	PRJEB13048	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2022.985396/pdf
+10.7554/eLife.07295	PRJNA276444	True	True	gold	publisher	publishedVersion	https://doi.org/10.7554/elife.07295
+10.1186/s12864-022-08433-8	PRJNA289545	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-022-08433-8
+10.1002/ece3.4724	PRJNA415716	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/ece3.4724
+10.3390/genes13050788	PRJNA782344	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2073-4425/13/5/788/pdf?version=1651141326
+10.1093/plcell/koab221	PRJNA739851	False	True	bronze	publisher	publishedVersion	https://academic.oup.com/plcell/article-pdf/33/12/3675/41505085/koab221.pdf
+10.3390/ijms241914885	PRJNA432224	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/24/19/14885/pdf?version=1696412874
+10.7150/ijbs.70287	PRJNA799026	True	True	gold	publisher	publishedVersion	https://www.ijbs.com/v18p2851.pdf
+10.1016/j.foodchem.2020.127550	PRJNA782220	False	False	closed			
+# 600/725 done
+10.1105/tpc.112.103499	PRJNA209313	False	True	green	repository	submittedVersion	https://www.ncbi.nlm.nih.gov/pmc/articles/3723631
+10.3389/fgene.2022.853910	PRJNA780342	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fgene.2022.853910/pdf
+10.1038/s41588-024-01957-7	PRJNA1153365	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1038/s41588-024-01957-7
+10.1111/nph.71146	PRJNA1200603	False	True	green	repository	publishedVersion	https://research-repository.uwa.edu.au/en/publications/a2985cc4-d471-4ea9-a316-ab5c3a892581
+10.1111/nph.19448	PRJNA979257	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/nph.19448
+10.3389/fpls.2021.736560	PRJNA757130	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2021.736560
+10.1016/j.cub.2017.02.044	PRJNA376551	True	True	hybrid	publisher	publishedVersion	http://www.cell.com/article/S0960982217302142/pdf
+10.1093/plphys/kiac572	PRJNA841838	False	True	green	repository	submittedVersion	https://www.ncbi.nlm.nih.gov/pmc/articles/10022641
+10.3390/ijms26020640	PRJNA1203070	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/26/2/640/pdf?version=1736839571
+10.1038/s41588-025-02281-4	PRJNA953858	True	True	hybrid	publisher	publishedVersion	https://www.nature.com/articles/s41588-025-02281-4.pdf
+10.3390/ijms26104618	PRJNA590671	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/26/10/4618/pdf?version=1747053357
+10.1186/s12870-014-0215-5	PRJNA1367956	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/counter/pdf/10.1186/s12870-014-0215-5
+10.5061/dryad.v6wwpzh20	PRJNA976033	True	False	error			
+10.3390/ijms27010457	PRJEB55781	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/ijms27010457
+10.1186/s12870-026-08643-2	PRJNA1347427	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12870-026-08643-2
+10.1104/pp.20.00773	PRJNA553311	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1104/pp.20.00773
+10.1186/s12870-026-08784-4	PRJNA1426573	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12870-026-08784-4
+10.1093/gigascience/giz039	PRJNA231064	True	True	gold	publisher	publishedVersion	https://academic.oup.com/gigascience/article-pdf/8/5/giz039/28600023/giz039.pdf
+10.1371/journal.pgen.1011052	PRJNA983310	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosgenetics/article/file?id=10.1371/journal.pgen.1011052&type=printable
+10.1093/g3journal/jkae191	PRJNA1006160	True	True	gold	publisher	publishedVersion	https://doi.org/10.1093/g3journal/jkae191
+10.1371/journal.pgen.1007143	PRJNA418121	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosgenetics/article/file?id=10.1371/journal.pgen.1007143&type=printable
+10.3389/fpls.2022.1081948	PRJNA892450	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.1081948
+10.3390/ijms25031492	PRJNA956666	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/25/3/1492/pdf?version=1706183055
+10.1126/science.adl5764	PRJNA1181513	False	False	closed			
+10.1186/s40168-024-01839-4	PRJNA1018308	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s40168-024-01839-4
+10.3389/fpls.2021.721436	PRJNA749126	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2021.721436
+10.3390/plants14203163	PRJNA355905	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/14/20/3163/pdf?version=1760509973
+10.1101/2026.08.07.743458	PRJDB16420	False	False	error			
+10.1186/s12870-025-06495-w	PRJNA735336	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/counter/pdf/10.1186/s12870-025-06495-w
+10.3389/fpls.2021.666660	PRJNA701852	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2021.666660/pdf
+10.1038/s41396-021-01138-y	PRJNA715112	True	True	hybrid	publisher	publishedVersion	https://www.nature.com/articles/s41396-021-01138-y.pdf
+10.3389/fgene.2024.1432997	PRJNA1143388	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2024.1432997/pdf
+10.1111/jac.70189	PRJNA1307747	False	False	closed			
+10.1016/j.molp.2025.07.008	PRJNA1160434	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1016/j.molp.2025.07.008
+10.1094/MPMI-07-22-0153-R	PRJNA818435	False	True	gold	publisher	publishedVersion	https://doi.org/10.1094/mpmi-07-22-0153-r
+10.1105/tpc.19.00806	PRJNA574280	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1105/tpc.19.00806
+10.3389/fgene.2016.00206	PRJNA339565	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fgene.2016.00206/pdf
+10.3389/fpls.2022.817199	PRJNA646588	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.817199
+10.1101/2021.02.21.431301	PRJDB6779	True	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2021/02/28/2021.02.21.431301.full.pdf
+10.3390/ijms24032088	PRJNA665613	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/24/3/2088/pdf?version=1674209275
+10.3390/plants15121772	PRJNA957932	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/plants15121772
+10.1126/sciadv.adt1113	PRJNA980895	True	True	gold	publisher	publishedVersion	https://doi.org/10.1126/sciadv.adt1113
+10.3390/plants8040098	PRJNA528563	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/8/4/98/pdf?version=1556006663
+10.1186/s12985-022-01872-5	PRJNA730918	True	True	gold	publisher	publishedVersion	https://virologyj.biomedcentral.com/counter/pdf/10.1186/s12985-022-01872-5
+10.3390/biology13070522	PRJNA1028178	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2079-7737/13/7/522/pdf?version=1721037524
+10.1186/s12864-019-6011-8	PRJNA541021	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-019-6011-8
+10.1038/s41467-025-61474-x	PRJNA1251656	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-025-61474-x.pdf
+10.1038/s42003-021-02740-8	PRJNA764923	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s42003-021-02740-8.pdf
+10.1111/nph.14960	PRJNA415355	False	False	closed			
+10.1111/nph.13087	PRJNA240125	False	True	bronze	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/nph.13087
+# 650/725 done
+10.1371/journal.pone.0315458	PRJNA908908	True	True	gold	publisher	publishedVersion	https://doi.org/10.1371/journal.pone.0315458
+10.3389/fmicb.2022.1002976	PRJNA868504	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fmicb.2022.1002976
+10.1038/s41588-022-01127-7	PRJNA727473	True	True	hybrid	publisher	publishedVersion	https://www.nature.com/articles/s41588-022-01127-7.pdf
+10.1186/s12864-025-12326-x	PRJNA960915	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12864-025-12326-x
+10.1073/pnas.2116896119	PRJDB12891	True	True	green	repository	publishedVersion	http://hdl.handle.net/2433/275598
+10.1111/pbi.13301	PRJNA574764	True	True	gold	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/pbi.13301
+10.3389/fmicb.2022.1074592	PRJNA859548	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fmicb.2022.1074592
+10.1038/s41598-019-49915-2	PRJNA432496	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-019-49915-2.pdf
+10.1111/plb.13746	PRJNA836737	True	True	hybrid	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/plb.13746
+10.3390/jof10110805	PRJNA934741	True	True	gold	publisher	publishedVersion	https://doi.org/10.3390/jof10110805
+10.1111/pce.15039	PRJNA1039520	False	False	closed			
+10.1186/s13059-021-02446-4	PRJNA730711	True	True	gold	publisher	publishedVersion	https://genomebiology.biomedcentral.com/track/pdf/10.1186/s13059-021-02446-4
+10.1038/nature25966	PRJNA383416	False	False	closed			
+10.3389/fpls.2020.551288	PRJNA649944	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2020.551288/pdf
+10.1111/ppl.14600	PRJNA763324	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/ppl.14600
+10.3389/fmicb.2026.1742203	PRJNA1356531	True	True	gold	publisher	publishedVersion	https://public-pages-files-2025.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2026.1742203/pdf
+10.1186/s12864-026-12947-w	PRJNA1344827	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12864-026-12947-w
+10.1038/s41597-021-00872-4	PRJNA315041	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41597-021-00872-4.pdf
+10.1038/s41438-021-00572-5	PRJNA271927	True	True	gold	publisher	publishedVersion	https://academic.oup.com/hr/article-pdf/doi/10.1038/s41438-021-00572-5/42042559/41438_2021_article_572.pdf
+10.1186/s12864-022-09001-w	PRJNA753546	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-022-09001-w
+10.3389/fpls.2021.717643	PRJNA737303	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2021.717643
+10.3389/fpls.2021.725571	PRJNA757744	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2021.725571
+10.3389/fpls.2022.888519	PRJNA787080	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.888519
+10.1038/s41598-020-70520-1	PRJNA545871	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-020-70520-1.pdf
+10.1111/tpj.15630	PRJNA828454	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/tpj.15630
+10.1186/s12870-021-03110-6	PRJEB39262	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/counter/pdf/10.1186/s12870-021-03110-6
+10.3390/plants13070982	PRJNA1072674	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/13/7/982/pdf?version=1711702023
+10.3389/fgene.2020.565146	PRJNA539945	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fgene.2020.565146/pdf
+10.1186/s12870-025-06505-x	PRJNA935025	True	True	gold	publisher	publishedVersion	https://bmcplantbiol.biomedcentral.com/counter/pdf/10.1186/s12870-025-06505-x
+10.1371/journal.pone.0233616	PRJNA611672	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0233616&type=printable
+10.3390/plants12112139	PRJNA961939	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/12/11/2139/pdf?version=1685342006
+10.3389/fpls.2024.1449826	PRJNA900521	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2024.1449826
+10.3389/fpls.2023.1242463	PRJNA988279	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2023.1242463/pdf?isPublishedV2=False
+10.1186/s13059-025-03906-x	PRJEB88172	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s13059-025-03906-x
+10.1186/s12864-015-1480-x	PRJDB2278	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-015-1480-x
+10.3390/ijms21030848	PRJNA589993	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1422-0067/21/3/848/pdf?version=1580304092
+10.1093/g3journal/jkag151	PRJNA1274897	True	True	gold	publisher	publishedVersion	https://doi.org/10.1093/g3journal/jkag151
+10.3390/plants13233391	PRJNA1115892	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2223-7747/13/23/3391/pdf?version=1733209275
+10.1186/s12864-017-3961-6	PRJNA329199	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-017-3961-6
+10.1111/pce.14579	PRJNA307989	False	True	bronze	publisher	publishedVersion	https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/pce.14579
+10.1038/s41598-022-22660-9	PRJNA858969	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-022-22660-9.pdf
+10.1186/s13059-019-1744-x	PRJNA476679	True	True	gold	publisher	publishedVersion	https://genomebiology.biomedcentral.com/counter/pdf/10.1186/s13059-019-1744-x
+10.3390/cimb43020069	PRJNA273659	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/1467-3045/43/2/69/pdf
+10.1007/s00344-026-12102-5	PRJNA1128586	True	True	hybrid	publisher	publishedVersion	https://link.springer.com/content/pdf/10.1007/s00344-026-12102-5.pdf
+10.1186/s12864-025-12144-1	PRJNA1247987	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12864-025-12144-1
+10.3389/fpls.2021.670216	PRJNA695320	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2021.670216/pdf
+10.3389/fpls.2025.1540179	PRJNA1261096	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2025.1540179/pdf
+10.1038/s41588-019-0425-8	PRJNA515933	False	False	closed			
+10.1093/jxb/eraf337	PRJEB86173	True	True	hybrid	publisher	publishedVersion	https://doi.org/10.1093/jxb/eraf337
+10.1016/j.dib.2019.104150	PRJNA477951	True	True	gold	publisher	publishedVersion	https://www.sciencedirect.com/science/article/pii/S2352340919305049/pdf
+# 700/725 done
+10.1016/j.cub.2026.01.001	PRJNA1211198	False	False	closed			
+10.3389/fpls.2022.979585	PRJNA839539	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2022.979585/pdf
+10.3389/fpls.2022.977056	PRJNA707066	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.977056
+10.3390/jof11050375	PRJNA1077452	True	True	gold	publisher	publishedVersion	https://www.mdpi.com/2309-608X/11/5/375/pdf?version=1747233604
+10.1111/tpj.16978	PRJNA1018253	False	True	hybrid	publisher	publishedVersion	https://doi.org/10.1111/tpj.16978
+10.1186/s12864-026-12921-6	PRJNA1314945	True	True	gold	publisher	publishedVersion	https://doi.org/10.1186/s12864-026-12921-6
+10.1038/s43018-024-00748-7	PRJNA1266229	True	True	green	repository	submittedVersion	https://pmc.ncbi.nlm.nih.gov/articles/PMC11552442/pdf/nihms-2032325.pdf
+10.3389/fpls.2023.1140824	PRJNA936832	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fpls.2023.1140824/pdf
+10.1111/mpp.12867	PRJNA563868	True	True	gold	publisher	publishedVersion	https://doi.org/10.1111/mpp.12867
+10.3389/fgene.2020.00546	PRJNA625627	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/articles/10.3389/fgene.2020.00546/pdf
+10.1038/s41467-017-02782-9	PRJNA391024	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41467-017-02782-9.pdf
+10.3389/fpls.2022.1110910	PRJNA906029	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.1110910
+10.1016/j.jgr.2022.03.005	PRJNA745147	True	True	gold	publisher	publishedVersion	https://www.sciencedirect.com/science/article/pii/S1226845322000343/pdf
+10.3389/fpls.2022.820767	PRJNA776278	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.820767
+10.1093/aob/mcw272	PRJNA349155	True	True	bronze	publisher	publishedVersion	https://academic.oup.com/aob/article-pdf/119/5/915/18765218/mcw272.pdf
+10.1186/s12864-018-4513-4	PRJNA357594	True	True	gold	publisher	publishedVersion	https://bmcgenomics.biomedcentral.com/track/pdf/10.1186/s12864-018-4513-4
+10.1093/plphys/kiac552	PRJNA778182	True	True	green	repository	submittedVersion	https://www.ncbi.nlm.nih.gov/pmc/articles/9922423
+10.1038/s41598-020-59518-x	PRJNA517178	True	True	gold	publisher	publishedVersion	https://www.nature.com/articles/s41598-020-59518-x.pdf
+10.1371/journal.pone.0246052	PRJNA504749	True	True	gold	publisher	publishedVersion	https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0246052&type=printable
+10.1101/2021.05.05.442799	PRJNA725619	False	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2021/05/06/2021.05.05.442799.full.pdf
+10.1038/s41598-024-54355-8	PRJNA971242	True	True	gold	publisher	publishedVersion	https://doi.org/10.1038/s41598-024-54355-8
+10.1111/nph.14833	PRJNA378602	False	True	green	repository	publishedVersion	https://pubmed.ncbi.nlm.nih.gov/29023762/
+10.1101/2022.04.05.487121	PRJEB51973	False	True	green	repository	acceptedVersion	https://www.biorxiv.org/content/biorxiv/early/2022/04/07/2022.04.05.487121.full.pdf
+10.3389/fpls.2026.1896320	PRJNA980182	True	True	gold	publisher	publishedVersion	https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2026.1896320/pdf
+10.3389/fpls.2022.996672	PRJNA450305	True	True	gold	publisher	publishedVersion	https://doi.org/10.3389/fpls.2022.996672
+# DONE

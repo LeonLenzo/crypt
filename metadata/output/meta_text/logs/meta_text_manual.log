@@ -1,0 +1,204 @@
+meta_text --ingest-manual
+  failed_dois.tsv: 170 rows
+  manual_pdfs/:    171 PDFs
+
+  All matches (156):
+    doi_in_body            10.1016/j.molp.2020.08.001       <- 1-s2.0-S1674205220302574-main.pdf
+    doi_in_body            10.1111/nph.19864                <- New Phytologist - 2024 - Lewis - Resurgence of wheat stem rust infections in western Europe  causes and how to curtail them (1).pdf
+    doi_in_body            10.1111/nph.71146                <- New Phytologist - 2026 - Lin - Generation of Brassica napus with enhanced Sclerotinia sclerotiorum resistance through (1).pdf
+    doi_in_body            10.1073/pnas.1918977117          <- ding-et-al-2020-regulators-of-nitric-oxide-signaling-triggered-by-host-perception-in-a-plant-pathogen (1).pdf
+    doi_in_body            10.5061/dryad.v6wwpzh20          <- ijms-24-09351.pdf
+    doi_in_body            10.1038/s41588-019-0425-8        <- s41588-019-0425-8.pdf
+    doi_in_body            10.6084/m9.figshare.28856261     <- s41597-025-06501-8.pdf
+    doi_in_body            10.1126/science.1194573          <- science.1194573 (1).pdf
+    doi_in_body            10.1126/science.aaq0892          <- science.aaq0892 (1).pdf
+    doi_in_body            10.1126/science.adl5764          <- science.adl5764.pdf
+    doi_in_header          10.1186/s12864-026-12964-9       <- 12864_2026_Article_12964.pdf
+    doi_in_header          10.1007/s13205-023-03803-9       <- 13205_2023_Article_3803.pdf
+    doi_in_header          10.1534/genetics.118.300478      <- 143.pdf
+    doi_in_header          10.1105/tpc.112.103499           <- 2356.pdf
+    doi_in_header          10.1101/350785                   <- 350785v1.full.pdf
+    doi_in_header          10.1038/s41396-021-01058-x       <- 41396_2021_Article_1058.pdf
+    doi_in_header          10.1038/s41598-019-40754-9       <- 41598_2019_Article_40754.pdf
+    doi_in_header          10.1101/859728                   <- 859728v1.full.pdf
+    doi_in_header          10.1002/advs.202518591           <- Advanced Science - 2026 - Wang - Hijacking the Host Clock  A Nematode Effector Antagonizes Soybean Circadian Defense and (1).pdf
+    doi_in_header          10.1111/1462-2920.15031          <- Environmental Microbiology - 2020 - Ziv - Sugar‐regulated susceptibility of tomato fruit to Colletotrichum and Penicillium.pdf
+    doi_in_header          10.1111/1462-2920.15432          <- Environmental Microbiology - 2021 - Tang - Comprehensive transcriptome profiling reveals abundant long non‐coding RNAs.pdf
+    doi_in_header          10.1080/00275514.2019.1607135    <- Field pathogenomics of Fusarium head blight reveals pathogen transcriptome differences due to host resistance.pdf
+    doi_in_header          10.1111/jac.70189                <- J Agronomy Crop Science - 2026 - Qu - Salicylic Acid Reprograms Multi‐Omics Regulatory Networks to Enhance Waterlogging.pdf
+    doi_in_header          10.1111/jipb.13732               <- JIPB - 2024 - Lin - A pair of nuclear factor Y transcription factors act as positive regulators in jasmonate signaling and.pdf
+    doi_in_header          10.1111/jipb.13772               <- JIPB - 2024 - Ouyang - Profiling of Phakopsora pachyrhizi transcriptome revealed co‐expressed virulence effectors as.pdf
+    doi_in_header          10.1111/jipb.70241               <- JIPB - 2026 - Kang - A conserved fungal Egh16‐like effector suppresses host defense by disrupting ATP binding of wheat MPK3.pdf
+    doi_in_header          10.1111/mpp.12464                <- MPP-18-1113.pdf
+    doi_in_header          10.1111/mpp.12405                <- MPP-18-363.pdf
+    doi_in_header          10.1046/j.1364-3703.2003.00190.x <- Molecular Plant Pathology - 2003 - Sánchez‐Torres - Isolation and characterization of genes differentially expressed during.pdf
+    doi_in_header          10.1111/mpp.12734                <- Molecular Plant Pathology - 2018 - Tannous - Fungal attack and host defence pathways unveiled in near‐avirulent (1).pdf
+    doi_in_header          10.1111/mpp.70317                <- Molecular Plant Pathology - 2026 - Zhao - Puccinia triticina Effector Pt3863 Targets and Subverts TaRLCK176 to Suppress (1).pdf
+    doi_in_header          10.1002/ndr2.12312               <- New Disease Reports - 2024 - Harju - First detection of orchid fleck virus on Veronica spicata and Dendrochilum magnum (1).pdf
+    doi_in_header          10.1111/nph.12085                <- New Phytologist - 2012 - Gan - Comparative genomic and transcriptomic analyses reveal the hemibiotrophic stage shift of (1).pdf
+    doi_in_header          10.1111/nph.13087                <- New Phytologist - 2014 - Alkan - Simultaneous transcriptome analysis of Colletotrichum gloeosporioides and tomato fruit (1).pdf
+    doi_in_header          10.1111/nph.13948                <- New Phytologist - 2016 - Cao - Characterization of 47 Cys2‐His2 zinc finger proteins required for the development and (1).pdf
+    doi_in_header          10.1111/nph.14833                <- New Phytologist - 2017 - Leyva‐Pérez - Tolerance of olive  Olea europaea  cv Frantoio to Verticillium dahliae relies on (1).pdf
+    doi_in_header          10.1111/nph.14960                <- New Phytologist - 2018 - Matei - How to make a tumour  cell type specific dissection of Ustilago maydis‐induced tumour.pdf
+    doi_in_header          10.1111/nph.15221                <- New Phytologist - 2018 - Müller - Investigations on VELVET regulatory mutants confirm the role of host tissue acidification.pdf
+    doi_in_header          10.1111/nph.15904                <- New Phytologist - 2019 - Sarkar - The inconspicuous gatekeeper  endophytic Serendipita vermifera acts as extended plant (1).pdf
+    doi_in_header          10.1111/nph.16907                <- New Phytologist - 2020 - Tsamir‐Rimon - Rapid starch degradation in the wood of olive trees under heat and drought is.pdf
+    doi_in_header          10.1111/nph.17625                <- New Phytologist - 2021 - Zuo - Cross‐species analysis between the maize smut fungi Ustilago maydis and Sporisorium (2).pdf
+    doi_in_header          10.1111/nph.18277                <- New Phytologist - 2022 - Bvindi - Improved pathogen and stress tolerance in tomato mutants of SET domain histone 3 lysine.pdf
+    doi_in_header          10.1111/nph.18164                <- New Phytologist - 2022 - Lu - Landscape and regulation of alternative splicing and alternative polyadenylation in a plant.pdf
+    doi_in_header          10.1111/nph.18117                <- New Phytologist - 2022 - Ren - MTA1‐mediated RNA m6A modification regulates autophagy and is required for infection of the.pdf
+    doi_in_header          10.1111/nph.19448                <- New Phytologist - 2023 - Huang - The fungal pathogen Ustilago maydis targets the maize corepressor RELK2 to modulate host (1).pdf
+    doi_in_header          10.1111/nph.19967                <- New Phytologist - 2024 - Khan - Tip of the iceberg  Three novel TOPLESS‐interacting effectors of the gall‐inducing fungus (1).pdf
+    doi_in_header          10.1111/nph.71312                <- New Phytologist - 2026 - Lu - Apple ZAT11  a C2H2‐type zinc finger protein  enhances resistance to Penicillium expansum by (1).pdf
+    doi_in_header          10.1105/tpc.17.00238             <- PC_TPC2017BR00238R2.pdf
+    doi_in_header          10.1105/tpc.17.00764             <- PC_TPC2017LSB00764R1.pdf
+    doi_in_header          10.1104/pp.20.00773              <- PP_202000773D.pdf
+    doi_in_header          10.1104/pp.114.255927            <- PP_255927.pdf
+    doi_in_header          10.1104/pp.17.00390              <- PP_PP2017RA00390DR1.pdf
+    doi_in_header          10.1002/ps.6380                  <- Pest Management Science - 2021 - Cook - High frequency of fungicide resistance‐associated mutations in the wheat yellow (1).pdf
+    doi_in_header          10.1002/ps.70786                 <- Pest Management Science - 2026 - Chen - CfCEPs positively regulate the pathogenicity of oil tea anthracnose  potential.pdf
+    doi_in_header          10.1111/ppl.70702                <- Physiologia Plantarum - 2025 - Wen - Characterization of Ralstonia Pseudosolanacearum MSG‐1 and Its Pathogenic Interaction.pdf
+    doi_in_header          10.1111/pce.12937                <- Plant Cell   Environment - 2017 - Haile - Molecular analysis of the early interaction between the grapevine flower and (1).pdf
+    doi_in_header          10.1111/pce.13803                <- Plant Cell   Environment - 2020 - Yang - The transcription factor ZmNAC126 accelerates leaf senescence downstream of the.pdf
+    doi_in_header          10.1111/pce.14195                <- Plant Cell   Environment - 2021 - Ding - Adaptive defence and sensing responses of host plant roots to fungal pathogen.pdf
+    doi_in_header          10.1111/pce.14579                <- Plant Cell   Environment - 2023 - Yan - HSP90 2 modulates 2Q2‐mediated wheat resistance against powdery mildew (1).pdf
+    doi_in_header          10.1111/pce.15037                <- Plant Cell   Environment - 2024 - Darrasse - A stage‐dependent seed defense response to explain efficient seed transmission (1).pdf
+    doi_in_header          10.1111/pce.15039                <- Plant Cell   Environment - 2024 - Yang - Sextuple knockouts of a highly conserved and coexpressed AUXIN INDOLE‐3‐ACETIC.pdf
+    doi_in_header          10.1111/pce.15622                <- Plant Cell   Environment - 2025 - Zhang - FpCBS Affects a Diverse Range of Functions of Fusarium pseudograminearum.pdf
+    doi_in_header          10.1111/ppa.13398                <- Plant Pathology - 2021 - Cheung - Zfp1  a putative Zn II 2Cys6 transcription factor  influences Ustilago maydis (1).pdf
+    doi_in_header          10.1111/ppa.13597                <- Plant Pathology - 2022 - Liebe - Ongoing evolution of Beet necrotic yellow vein virus towards Rz1‐resistance breaking in.pdf
+    doi_in_header          10.1111/ppa.70085                <- Plant Pathology - 2025 - Chellappan - Pan‐Secretome Analysis Reveals Core and Host‐Specific Virulence Factors Shaped by.pdf
+    doi_in_header          10.1111/ppa.14111                <- Plant Pathology - 2025 - Darma - Revisiting the Evolution and Function of NIP2 Paralogues in the Rhynchosporium Spp  (1).pdf
+    doi_in_header          10.1105/tpc.18.00930             <- TPC_201800930R2.pdf
+    doi_in_header          10.1105/tpc.19.00806             <- TPC_201900806DR2.pdf
+    doi_in_header          10.1111/tpj.13419                <- The Plant Journal - 2016 - Christie - Systems genetics reveals a transcriptional network associated with susceptibility in (1).pdf
+    doi_in_header          10.1111/tpj.15630                <- The Plant Journal - 2021 - He - A systems‐biology approach identifies co‐expression modules in response to low phosphate (1).pdf
+    doi_in_header          10.1111/tpj.15598                <- The Plant Journal - 2021 - Marquis - Broad‐spectrum stress tolerance conferred by suppressing jasmonate signaling (1).pdf
+    doi_in_header          10.1111/tpj.16978                <- The Plant Journal - 2024 - Kara - LsRTDv1  a reference transcript dataset for accurate transcript‐specific expression (1).pdf
+    doi_in_header          10.1111/tpj.70182                <- The Plant Journal - 2025 - Jiang - Transcriptomic and metabolomic analyses unveil TaASMT3‐mediated wheat resistance against.pdf
+    doi_in_header          10.1111/tpj.70472                <- The Plant Journal - 2025 - Millett - The fire blight pathogen Erwinia amylovora enters apple leaves through naturally (1).pdf
+    doi_in_header          10.1111/tpj.71018                <- The Plant Journal - 2026 - Raytek - Discovery of pseudobaptigenin synthase in fungal‐infected Trifolium pratense roots (1).pdf
+    doi_in_header          10.1080/17429145.2024.2393803    <- Transcriptome analysis of maize resistance to Fusarium verticillioides (1).pdf
+    doi_in_header          10.1016/j.molp.2025.07.008       <- asdasdasd.pdf
+    doi_in_header          10.1093/jxb/erad348              <- erad348.pdf
+    doi_in_header          10.1093/jxb/erae050              <- erae050.pdf
+    doi_in_header          10.1093/jxb/eraf432              <- eraf432.pdf
+    doi_in_header          10.1093/jxb/eraf473              <- eraf473.pdf
+    doi_in_header          10.3389/fmicb.2024.1418816       <- fmicb-15-1418816.pdf
+    doi_in_header          10.1021/acs.jafc.6c00147         <- jf6c00147.pdf
+    doi_in_header          10.1093/g3journal/jkag151        <- jkag151.pdf
+    doi_in_header          10.3390/jof12070524              <- jof-12-00524 (1).pdf
+    doi_in_header          10.3390/jof12070540              <- jof-12-00540 (1).pdf
+    doi_in_header          10.1128/aem.00681-26             <- kaur-et-al-2026-spatiotemporal-coordination-of-virulence-metabolism-and-stress-responses-shapes-infection-dynamics-of (1).pdf
+    doi_in_header          10.1093/plphys/kiac552           <- kiac552.pdf
+    doi_in_header          10.1093/plphys/kiac572           <- kiac572.pdf
+    doi_in_header          10.1093/plphys/kiad150           <- kiad150.pdf
+    doi_in_header          10.1093/plphys/kiad460           <- kiad460.pdf
+    doi_in_header          10.1093/plphys/kiag187           <- kiag187.pdf
+    doi_in_header          10.1093/plcell/koab221           <- koab221.pdf
+    doi_in_header          10.1093/plcell/koac300           <- koac300.pdf
+    doi_in_header          10.1128/AEM.02212-20             <- liu-et-al-2020-transcription-factor-cfste12-of-colletotrichum-fructicola-is-a-key-regulator-of-early-apple-glomerella (1).pdf
+    doi_in_header          10.1016/j.plaphy.2025.110662     <- main (1).pdf
+    doi_in_header          10.1016/j.plaphy.2025.109874     <- main (2).pdf
+    doi_in_header          10.1016/j.plaphy.2018.08.006     <- main (3).pdf
+    doi_in_header          10.1016/j.molp.2026.01.005       <- main (4).pdf
+    doi_in_header          10.1016/j.ijfoodmicro.2026.111635 <- main (5).pdf
+    doi_in_header          10.1016/j.foodchem.2020.127550   <- main (6).pdf
+    doi_in_header          10.1016/j.foodres.2022.111972    <- main (7).pdf
+    doi_in_header          10.1016/j.molp.2021.07.008       <- main.pdf
+    doi_in_header          10.1016/j.plantsci.2019.110178   <- main123123.pdf
+    doi_in_header          10.1016/j.celrep.2022.111877     <- main_1.pdf
+    doi_in_header          10.1016/j.celrep.2024.114786     <- main_2.pdf
+    doi_in_header          10.1016/j.celrep.2025.115772     <- main_3.pdf
+    doi_in_header          10.1016/j.celrep.2025.116575     <- main_4.pdf
+    doi_in_header          10.1128/mra.00510-26             <- maina-tesoriero-2026-complete-coding-genome-sequence-of-lettuce-necrotic-yellows-virus-a-case-study-of-garlic (1) (1).pdf
+    doi_in_header          10.1016/j.micres.2024.127836     <- mainasd.pdf
+    doi_in_header          10.1016/j.molp.2024.09.006       <- mainasdasd.pdf
+    doi_in_header          10.1016/j.virol.2026.110820      <- mainghh.pdf
+    doi_in_header          10.1093/aob/mcac102              <- mcac102.pdf
+    doi_in_header          10.1093/aob/mcw272               <- mcw272.pdf
+    doi_in_header          10.1094/MPMI-03-17-0054-R        <- mpmi-03-17-0054-r.pdf
+    doi_in_header          10.1094/MPMI-04-18-0107-A        <- mpmi-04-18-0107-a (1).pdf
+    doi_in_header          10.1094/MPMI-05-20-0109-A        <- mpmi-05-20-0109-a (1).pdf
+    doi_in_header          10.1094/MPMI-06-21-0148-A        <- mpmi-06-21-0148-a (1).pdf
+    doi_in_header          10.1094/MPMI-06-22-0133-R        <- mpmi-06-22-0133-r (1).pdf
+    doi_in_header          10.1094/MPMI-07-20-0205-A        <- mpmi-07-20-0205-a (1).pdf
+    doi_in_header          10.1094/MPMI-07-22-0153-R        <- mpmi-07-22-0153-r (1).pdf
+    doi_in_header          10.1094/MPMI-09-23-0146-FI       <- mpmi-09-23-0146-fi (2).pdf
+    doi_in_header          10.1094/MPMI-11-23-0181-R        <- mpmi-11-23-0181-r (1).pdf
+    doi_in_header          10.1094/MPMI-12-17-0309-A        <- mpmi-12-17-0309-a (1).pdf
+    doi_in_header          10.1128/JB.00792-19              <- naren-zhang-2020-global-regulatory-roles-of-the-histidine-responsive-transcriptional-repressor-hutc-in-pseudomonas (1).pdf
+    doi_in_header          10.1038/nature25966              <- nature25966.pdf
+    doi_in_header          10.1038/ng.3485                  <- ng.3485 (1).pdf
+    doi_in_header          10.64898/2026.06.02.729393       <- nihpp-2026.06.02.729393v1.pdf
+    doi_in_header          10.1094/PDIS-03-25-0599-PDN      <- pdis-03-25-0599-pdn.pdf
+    doi_in_header          10.1094/PDIS-06-20-1329-RE       <- pdis-06-20-1329-re.pdf
+    doi_in_header          10.1094/PHYTO-01-21-0032-R       <- phyto-01-21-0032-r.pdf
+    doi_in_header          10.1094/PHYTO-05-21-0184-A       <- phyto-05-21-0184-a.pdf
+    doi_in_header          10.1094/PHYTO-07-20-0297-A       <- phyto-07-20-0297-a (1).pdf
+    doi_in_header          10.1094/PHYTO-07-24-0240-R       <- phyto-07-24-0240-r.pdf
+    doi_in_header          10.1094/phyto-08-21-0329-r       <- phyto-08-21-0329-r.pdf
+    doi_in_header          10.1094/PHYTO-09-21-0393-R       <- phyto-09-21-0393-r.pdf
+    doi_in_header          10.1094/PHYTO-12-24-0397-R       <- phyto-12-24-0397-r.pdf
+    doi_in_header          10.3390/plants15121771           <- plants-15-01771 (1).pdf
+    doi_in_header          10.3390/plants15121772           <- plants-15-01772-v2 (1).pdf
+    doi_in_header          10.1105/tpc.19.00487             <- plcell_v32_1_166.pdf
+    doi_in_header          10.1104/pp.15.00852              <- plphys_v169_4_2422.pdf
+    doi_in_header          10.1007/s00122-021-03784-4       <- s00122-021-03784-4.pdf
+    doi_in_header          10.1007/s00344-026-12102-5       <- s00344-026-12102-5 (1).pdf
+    doi_in_header          10.1007/s11427-024-2780-4        <- s11427-024-2780-4.pdf
+    doi_in_header          10.1007/s12298-024-01455-4       <- s12298-024-01455-4 (1).pdf
+    doi_in_header          10.1186/s12864-026-12921-6       <- s12864-026-12921-6 (1).pdf
+    doi_in_header          10.1186/s12864-026-12947-w       <- s12864-026-12947-w (1).pdf
+    doi_in_header          10.1186/s13062-026-00788-2       <- s13062-026-00788-2 (2) (1).pdf
+    doi_in_header          10.1038/s41467-026-73123-y       <- s41467-026-73123-y (1).pdf
+    doi_in_header          10.1007/s42161-022-01235-7       <- s42161-022-01235-7 (1).pdf
+    doi_in_header          10.1007/s42161-024-01672-6       <- s42161-024-01672-6 (1).pdf
+    doi_in_header          10.1186/s42483-022-00144-y       <- s42483-022-00144-y (1).pdf
+    doi_in_header          10.1126/science.aba5435          <- science.aba5435.pdf
+    doi_in_header          10.1093/hr/uhag073               <- uhag073.pdf
+    doi_in_header          10.1016/j.pmpp.2020.101464       <- xxxxxx.pdf
+    manual_override        10.1101/2025.05.26.656185        <- main_a.pdf
+
+  Matched:  156/170 failed-DOI rows have a PDF
+  Marked 'x' in tsv: 156/170
+  Marked 'x' but NO PDF matched: 0
+  PDF matched but NOT marked 'x': 0
+
+  Duplicate PDFs for an already-matched DOI (15):
+    New Phytologist - 2019 - Sarkar - The inconspicuous gatekeeper  endophytic Serendipita vermifera acts as extended plant.pdf  (doi_in_header -> 10.1111/nph.15904, kept New Phytologist - 2019 - Sarkar - The inconspicuous gatekeeper  endophytic Serendipita vermifera acts as extended plant (1).pdf)
+    New Phytologist - 2023 - Huang - The fungal pathogen Ustilago maydis targets the maize corepressor RELK2 to modulate host.pdf  (doi_in_header -> 10.1111/nph.19448, kept New Phytologist - 2023 - Huang - The fungal pathogen Ustilago maydis targets the maize corepressor RELK2 to modulate host (1).pdf)
+    New Phytologist - 2024 - Khan - Tip of the iceberg  Three novel TOPLESS‐interacting effectors of the gall‐inducing fungus.pdf  (doi_in_header -> 10.1111/nph.19967, kept New Phytologist - 2024 - Khan - Tip of the iceberg  Three novel TOPLESS‐interacting effectors of the gall‐inducing fungus (1).pdf)
+    New Phytologist - 2024 - Lewis - Resurgence of wheat stem rust infections in western Europe  causes and how to curtail them (2) (1).pdf  (doi_in_body -> 10.1111/nph.19864, kept New Phytologist - 2024 - Lewis - Resurgence of wheat stem rust infections in western Europe  causes and how to curtail them (1).pdf)
+    New Phytologist - 2024 - Lewis - Resurgence of wheat stem rust infections in western Europe  causes and how to curtail them.pdf  (doi_in_body -> 10.1111/nph.19864, kept New Phytologist - 2024 - Lewis - Resurgence of wheat stem rust infections in western Europe  causes and how to curtail them (1).pdf)
+    file.pdf  (doi_in_body -> 10.1104/pp.114.255927, kept PP_255927.pdf)
+    Plant Cell   Environment - 2024 - Darrasse - A stage‐dependent seed defense response to explain efficient seed transmission.pdf  (doi_in_header -> 10.1111/pce.15037, kept Plant Cell   Environment - 2024 - Darrasse - A stage‐dependent seed defense response to explain efficient seed transmission (1).pdf)
+    Plant Pathology - 2021 - Cheung - Zfp1  a putative Zn II 2Cys6 transcription factor  influences Ustilago maydis.pdf  (doi_in_header -> 10.1111/ppa.13398, kept Plant Pathology - 2021 - Cheung - Zfp1  a putative Zn II 2Cys6 transcription factor  influences Ustilago maydis (1).pdf)
+    Plant Pathology - 2025 - Darma - Revisiting the Evolution and Function of NIP2 Paralogues in the Rhynchosporium Spp .pdf  (doi_in_header -> 10.1111/ppa.14111, kept Plant Pathology - 2025 - Darma - Revisiting the Evolution and Function of NIP2 Paralogues in the Rhynchosporium Spp  (1).pdf)
+    The Plant Journal - 2021 - He - A systems‐biology approach identifies co‐expression modules in response to low phosphate.pdf  (doi_in_header -> 10.1111/tpj.15630, kept The Plant Journal - 2021 - He - A systems‐biology approach identifies co‐expression modules in response to low phosphate (1).pdf)
+    The Plant Journal - 2024 - Kara - LsRTDv1  a reference transcript dataset for accurate transcript‐specific expression.pdf  (doi_in_header -> 10.1111/tpj.16978, kept The Plant Journal - 2024 - Kara - LsRTDv1  a reference transcript dataset for accurate transcript‐specific expression (1).pdf)
+    The Plant Journal - 2026 - Raytek - Discovery of pseudobaptigenin synthase in fungal‐infected Trifolium pratense roots.pdf  (doi_in_header -> 10.1111/tpj.71018, kept The Plant Journal - 2026 - Raytek - Discovery of pseudobaptigenin synthase in fungal‐infected Trifolium pratense roots (1).pdf)
+    ng.3485.pdf  (doi_in_header -> 10.1038/ng.3485, kept ng.3485 (1).pdf)
+    s42161-022-01235-7 (2).pdf  (doi_in_header -> 10.1007/s42161-022-01235-7, kept s42161-022-01235-7 (1).pdf)
+    s42161-024-01672-6.pdf  (doi_in_header -> 10.1007/s42161-024-01672-6, kept s42161-024-01672-6 (1).pdf)
+
+  failed_dois.tsv rows with NO manual PDF (14):
+    10.1038/s41564-020-0774-1  [not avail]  Single-cell RNA-seq reports growth condition-specific global transcrip
+    10.1038/s43018-024-00748-7  [wrong paper (cancer)]  Codon-mediated translational control of M. oryzae effectors
+    10.1016/j.chom.2026.02.001  [unavailable]  Bacterial entrapment of a fungal carbon repressor prevents plant colon
+    10.1101/510404v1  [updated doi from journal]  Transcriptional responses of the Bdtf1-deletion mutant to the phytoale
+    10.1101/2026.05.09.724051  [no results]  Identification of AvrYr7 in Pst
+    10.1101/2026.04.23.720444  [unavailable]  RNA-seq data supporting gene prediction in haplotype-phased assemblies
+    10.1016/j.gene.2014.06.029  [wrong paper cancer]  RNAseq analyses of pathogenic Burkholderia glumae under in vitro and i
+    10.1101/2026.02.17.706082  [no results]  Wheat leaf rust genomics project
+    10.1099/jgv.0.001525  [paywall]  Determination of the genome sequence of tulip streak virus
+    10.1038/s41477-019-0509-6  [paywall]  Multiple genes recruited from hormone pathways partition maize diterpe
+    10.1101/2026.02.24.707787  [no result]  Transcriptome of Chrysanthemum morifolium infected by Botrytis cinerea
+    10.1101/2026.03.24.712282  [no result]  Dual RNAseq analyses of the early stages of Phytophthora infestans pat
+    10.1101/2026.08.07.743458  [no result]  RNA sequencing of barley leaves infected with wheat blast isolate
+    10.1016/j.cub.2026.01.001  [blank]  RNA-seq of wheat plants
+
+  Ingested into text_cache.jsonl: 3
+  Already cached (skipped):       153
+
+  Updated failed_dois.tsv: 0 rows newly marked 'x'

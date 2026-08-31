@@ -3,6 +3,7 @@
 
 import hashlib
 import json
+import re
 import subprocess
 import sys
 import time
@@ -138,6 +139,146 @@ def build_manifest(data_dir: Path, out_path: Path = None,
 
     print(f"{out_path}: {n_files} files, {total_bytes / 1e9:.2f} GB")
     return out_path
+
+
+# ── taxon name -> NCBI taxid resolution ───────────────────────────────────────
+#
+# Used wherever an LLM extracts a species name as free text (scientific name,
+# common name, cultivar-suffixed, "common (scientific)" pairs) and something
+# downstream needs an actual NCBI taxid — e.g. meta_classify.py resolving
+# named_hosts/named_pathogens right after extraction (deterministic lookup,
+# not asking the LLM to recall taxids from memory, which invites confident-
+# looking wrong numbers), and kraken_run_select.py consuming those taxids.
+#
+# Common-name aliases observed across the full 2,719-sample field/aerial cohort
+# (see kraken_restructure_plan.md / session notes 2026-08-28) plus generically
+# common PHI-base-relevant crop names. Extend as new unresolved names turn up.
+HOST_NAME_ALIASES = {
+    "wheat": "Triticum aestivum", "durum wheat": "Triticum durum",
+    "diploid wheat": "Triticum monococcum",
+    "rice": "Oryza sativa", "maize": "Zea mays", "corn": "Zea mays",
+    "sweet corn": "Zea mays", "barley": "Hordeum vulgare",
+    "potato": "Solanum tuberosum", "tomato": "Solanum lycopersicum",
+    "soybean": "Glycine max", "cotton": "Gossypium hirsutum",
+    "sorghum": "Sorghum bicolor", "millet": "Setaria italica",
+    "oat": "Avena sativa", "rye": "Secale cereale",
+    "grape": "Vitis vinifera", "grapevine": "Vitis vinifera",
+    "vine": "Vitis vinifera", "apple": "Malus domestica",
+    "banana": "Musa acuminata", "coffee": "Coffea arabica",
+    "cassava": "Manihot esculenta", "sweet potato": "Ipomoea batatas",
+    "ipomea batatas": "Ipomoea batatas",   # observed misspelling (Ipomea -> Ipomoea)
+    "lentil": "Lens culinaris", "pea": "Pisum sativum",
+    "field pea": "Pisum sativum",
+    "canola": "Brassica napus", "rapeseed": "Brassica napus",
+    "oilseed rape": "Brassica napus",
+    "sugarcane": "Saccharum officinarum", "sugar beet": "Beta vulgaris",
+    "chard": "Beta vulgaris", "swiss chard": "Beta vulgaris",
+    "strawberry": "Fragaria x ananassa", "triticale": "Triticosecale",
+    "bean": "Phaseolus vulgaris", "common bean": "Phaseolus vulgaris",
+    "broad bean": "Vicia faba", "faba bean": "Vicia faba",
+    "cowpea": "Vigna unguiculata",
+    "cucumber": "Cucumis sativus", "melon": "Cucumis melo",
+    "watermelon": "Citrullus lanatus", "squash": "Cucurbita pepo",
+    "pumpkin": "Cucurbita pepo",
+    "lettuce": "Lactuca sativa",
+    "pepper": "Capsicum annuum", "chili": "Capsicum annuum",
+    "spinach": "Spinacia oleracea",
+    "sunflower": "Helianthus annuus",
+    "pear": "Pyrus communis",
+    "nectarine": "Prunus persica",   # cultivated peach variety, no separate species taxid
+    "switchgrass": "Panicum virgatum",
+    "teosinte": "Zea mays",   # wild ancestor of maize; closest cultivated relative
+    "barberis vulgaris": "Berberis vulgaris",   # observed misspelling (Barberis -> Berberis)
+    "subterranean clover": "Trifolium subterraneum",
+}
+
+_TAXON_TRAILING_AUTHORITY = re.compile(
+    r"\s+(l\.?|mill\.?|dc\.?|lam\.?|linn\.?|willd\.?|thunb\.?)$"
+)
+_TAXON_PAREN = re.compile(r"\(([^)]+)\)")
+
+
+def _clean_taxon_name(s: str) -> str:
+    s = s.strip()
+    s = re.sub(r"\s*'[^']*'", "", s)          # strip 'cultivar' quotes
+    s = _TAXON_TRAILING_AUTHORITY.sub("", s.lower()).strip()
+    return s
+
+
+def _taxon_candidates(part: str) -> list:
+    """Generate resolution candidate strings from one name part: the cleaned
+    string itself, anything in parentheses, anything outside parentheses, and
+    progressively shorter word-prefixes (drops subspecies/variety trailing
+    words, and — critically — still includes single-word candidates so bare
+    common names like "wheat" reach the alias table)."""
+    part = part.strip()
+    cands = []
+    for m in _TAXON_PAREN.finditer(part):
+        cands.append(_clean_taxon_name(m.group(1)))
+    outside = _TAXON_PAREN.sub("", part).strip()
+    if outside:
+        cands.append(_clean_taxon_name(outside))
+    cands.append(_clean_taxon_name(part))
+    expanded = []
+    for c in cands:
+        words = c.split()
+        for n in range(len(words), 0, -1):
+            expanded.append(" ".join(words[:n]))
+    seen, uniq = set(), []
+    for c in expanded:
+        if c and c not in seen:
+            seen.add(c)
+            uniq.append(c)
+    return uniq
+
+
+def resolve_taxon_name(raw: str, name_to_taxid: dict, aliases: dict = None) -> tuple:
+    """Resolve a free-text taxon name (host or pathogen, possibly ';'-separated
+    multi-value, possibly a common name) to an NCBI taxid. Tries, in order:
+    phibase_db.json's name_to_taxid (scientific names) -> live ete3 NCBITaxa
+    (best-effort, optional dependency — skipped if ete3 isn't installed) —
+    against BOTH the raw candidate strings AND their alias-table substitutions
+    (e.g. HOST_NAME_ALIASES maps "spinach" -> "Spinacia oleracea", but that
+    scientific name isn't itself in phibase_db either — it only resolves via
+    ete3 — so the alias substitution needs the same two-tier treatment as a
+    raw candidate, not just a single phibase_db lookup).
+    Returns (taxid_or_None, resolved_name_or_None, method_str) where method_str
+    is one of: phibase_db | alias_table | ete3_live | no_name_stated | unresolved."""
+    aliases = aliases or {}
+    if not raw or not raw.strip():
+        return None, None, "no_name_stated"
+
+    # Build the full candidate list once: raw name-parts plus their alias
+    # substitutions, each tagged with where it came from (for the returned
+    # method_str) so both get an equal shot at phibase_db AND ete3.
+    candidates = []   # [(candidate_str, tag), ...]
+    seen = set()
+    for part in raw.split(";"):
+        for cand in _taxon_candidates(part):
+            if cand not in seen:
+                seen.add(cand)
+                candidates.append((cand, "phibase_db"))
+            if cand in aliases:
+                sci = aliases[cand].lower()
+                if sci not in seen:
+                    seen.add(sci)
+                    candidates.append((sci, "alias_table"))
+
+    for cand, tag in candidates:
+        if cand in name_to_taxid:
+            return name_to_taxid[cand], cand, tag
+
+    try:
+        from ete3 import NCBITaxa
+        ncbi = NCBITaxa()
+        for cand, _tag in candidates:
+            trans = ncbi.get_name_translator([cand.capitalize()])
+            if trans:
+                tid = list(trans.values())[0][0]
+                return tid, cand, "ete3_live"
+    except Exception:
+        pass
+    return None, None, "unresolved"
 
 
 def upload_to_acacia(local_dir: Path, s3_prefix: str, bucket: str,

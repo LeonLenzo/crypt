@@ -472,9 +472,17 @@ def write_candidates(rows: list) -> None:
 
 # ── CDS download (the ONE place in kraken_db_* that downloads) ───────────────
 
-def download_cds(accession: str, dest_dir: Path) -> list:
-    """Download CDS FASTA for accession to dest_dir. Resumable: skips if .fna
-    files already present. Returns list of .fna paths (empty on failure)."""
+def download_cds(accession: str, dest_dir: Path, include: str = "cds") -> list:
+    """Download sequence FASTA for accession to dest_dir. Resumable: skips if
+    .fna files already present. Returns list of .fna paths (empty on failure).
+    include: 'cds' (default, used for pathogen references — smaller, keeps the
+    Kraken2 DB k-mer-specific) or 'genome' (whole genomic assembly — used for
+    host references by kraken_run_select.py, since BBSplit aligns reads rather
+    than doing k-mer LCA, so it doesn't need CDS and genomic sequence also
+    catches intron/UTR-spanning reads a CDS-only reference would miss; genomic
+    assemblies are also far more available for plants than annotated ones —
+    NCBI's plant gene-annotation pipeline coverage is much patchier than for
+    fungi/vertebrates, so requiring annotation would exclude most hosts)."""
     dest_dir.mkdir(parents=True, exist_ok=True)
     existing = [f for f in dest_dir.glob("**/*.fna")
                 if not f.name.endswith(("_clean.fna", "_combined.fna", ".tagged.fna"))]
@@ -483,7 +491,7 @@ def download_cds(accession: str, dest_dir: Path) -> list:
 
     zip_path = dest_dir / "ncbi_dataset.zip"
     cmd = ["datasets", "download", "genome", "accession", accession,
-           "--include", "cds", "--filename", str(zip_path)]
+           "--include", include, "--filename", str(zip_path)]
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
     if r.returncode != 0 or not zip_path.exists():
         print(f"  [{_ts()}] {accession}  download FAILED (rc={r.returncode})", flush=True)

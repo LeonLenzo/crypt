@@ -26,18 +26,13 @@ metadata/output/meta_search/data/serper_cache.json
 metadata/output/meta_text/data/manual_pdfs/
 metadata/output/meta_text/data/text_cache.jsonl.bak
 
-# Legacy (superseded) API caches + large data outputs — scripts kept for
-# history under legacy/, but their large data outputs are fully superseded by
-# the current pipeline's near-identical equivalents (meta_search/meta_text/
-# meta_classify) — no value in carrying both as tracked multi-MB blobs.
-metadata/legacy/output/fetch_lit/data/lit_cache.json
-metadata/legacy/output/fetch_lit/data/literature.json
-metadata/legacy/output/llm_classify/data/classify_cache.jsonl
-metadata/legacy/output/fetch_xml/data/biosample_cache.json
-metadata/legacy/output/ncbi_metadata/data/bp_cache.json
-metadata/legacy/output/ncbi_metadata/data/bs_cache.json
-metadata/legacy/output/ncbi_metadata/data/bioprojects.json
-metadata/legacy/output/filter_kw/data/biosample_kw.tsv
+# legacy/ dirs (superseded scripts + their outputs, kept on disk for local
+# reference only) — excluded from the repo entirely rather than picking
+# through individual files; simpler, and none of it is needed anywhere
+# downstream (nothing reads from legacy/, matching kraken/legacy/ having been
+# fully wiped rather than kept at all — see kraken/README.md "History").
+metadata/legacy/
+stat/legacy/
 
 # classify_metadata.py output — superseded by meta_classify.py's samples.tsv
 # (classify_metadata.py itself not yet moved to legacy/ — separate, low
@@ -99,6 +94,7 @@ __pycache__/
 kraken/pilot/kallisto/indices/
 kraken/pilot/kallisto/quant/
 kraken/pilot/kallisto/reads/
+kraken/pilot/kallisto/refs/
 kraken/pilot/kraken/kraken_db/
 kraken/pilot/kraken/reads/
 scripts/diagnostics/*.log

@@ -48,12 +48,6 @@ metadata/legacy/
 stat/legacy/
 kraken/legacy/
 
-# classify_metadata.py output — superseded by meta_classify.py's samples.tsv
-# (classify_metadata.py itself not yet moved to legacy/ — separate, low
-# priority cleanup — but its stale output shouldn't be carried as a tracked
-# duplicate of the current samples.tsv either)
-metadata/output/classify_metadata/data/samples.tsv
-
 # Log history dirs + .latest symlinks are now TRACKED (transparency — Leon's
 # call 2026-09-01: full run history should be visible in the repo, not just
 # code). Do not re-add exclusions for logs/history/ or logs/*.latest here.

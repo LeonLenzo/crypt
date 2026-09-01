@@ -317,13 +317,16 @@ kraken/output/kraken_run_select/data/run_list.tsv
   built-in downloading; moved to `kraken/legacy/` along with its SLURM wrapper
   (`download_runs.slurm`).
 
-### Still open — superseded but not moved to legacy/ (dead-end branches, still runnable)
-- `metadata/classify_metadata.py` → superseded by `meta_classify.py`
-- `metadata/figures/sample_funnel.py`, `sample_funnel_v2.py` → superseded by `sample_funnel_v3.py`
-- `metadata/figures/lit_resolution_sankey.py` (Plotly) → superseded by
-  `prep_lit_resolution.py` + `lit_resolution_alluvial.R` (R/ggalluvial). **CLAUDE.md's
-  active task list still lists building the Plotly version as an open TODO — stale,
-  the R version already exists and superseded it before that TODO was ever removed.**
+### Also resolved 2026-09-01
+- `metadata/classify_metadata.py`, `metadata/figures/sample_funnel_v2.py`,
+  `metadata/figures/lit_resolution_sankey.py` (+ their tracked output figures) moved
+  to `metadata/legacy/` — all three superseded (by `meta_classify.py`,
+  `sample_funnel_v3.py`, `prep_lit_resolution.py`+`lit_resolution_alluvial.R`
+  respectively). `sample_funnel.py` (v1) had already been removed before this survey.
+- `download_strategy.md` (repo root) — deleted. Built on `sample_funnel_v2.py`'s
+  classification, the dropped control-set, `download.py`, `db_pathogens`, and a
+  500k-read subsampling strategy superseded by `kraken_run_select.py`'s full-file
+  prefetch/fasterq-dump approach — every reference in it was dead.
 
 ### CLAUDE.md drift beyond the above
 - CLAUDE.md's "Module structure" section for metadata/ still describes the dropped

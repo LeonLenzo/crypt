@@ -38,7 +38,7 @@ Three scripts in strict sequential order. All paths use the `stat/output/` tree.
   - `stat/output/stat_build/data/phibase_db.json` — kingdom-separated taxid maps (gitignored — code-not-data policy)
   - `stat/output/stat_build/logs/history/<timestamp>/{build.log,build_summary.txt}` (+ `.latest` symlinks — now tracked)
 - **Calls:** `ete3.NCBITaxa` only, no subprocess
-- **Feeds into:** `stat/stat_fetch.py`, `stat/stat_filter.py`, `kraken/kraken_db_search.py`, `metadata/meta_classify.py`, `kraken/figures/compare_host_pathogen.py`, `stat/diagnostics/*`
+- **Feeds into:** `stat/stat_fetch.py`, `stat/stat_filter.py`, `kraken/kraken_db_search.py`, `metadata/meta_classify.py`, `kraken/figures/compare_host_pathogen.py`
 - **Note:** `ictv_vmr.xlsx` still sits in `data/` but is now orphaned — only the old `stat/legacy/build.py` read it (viruses dropped from scope in the 2026-08-03 eukaryotic-only pivot)
 
 ---
@@ -77,7 +77,17 @@ Three scripts in strict sequential order. All paths use the `stat/output/` tree.
 - **Outputs:** `stat/output/figures/scatter/{scatter.pdf,scatter.png,scatter_caption.txt}` (tracked)
 - **Calls:** ggplot2, dplyr, patchwork
 
-### `stat/diagnostics/` — excluded from detail, still present (`diag_mal_gate.py`, `benchmark_strategies.py`, `check_primary_alignment.py`, `check_refseq_coverage.py`), not part of the main pipeline
+### `stat/diagnostics/` — deleted 2026-09-01
+One-off investigation scripts (`diag_mal_gate.py`, `benchmark_strategies.py`,
+`check_primary_alignment.py`, `check_refseq_coverage.py`) that had already served
+their purpose and referenced stale pre-rename paths. Deleted outright, not moved to
+legacy — no archival value, findings already baked into the pipeline's design.
+
+### `stat/migrate_cache.py` — deleted 2026-09-01
+One-off migration script (old `stat_cache.jsonl` array format → new object format),
+already run and complete. Its own docstring flagged the fallback code in
+`stat_fetch.py` as "can be deleted once stat_cache has been fully rebuilt in the new
+format" — that fallback function was removed too.
 
 ### `stat/legacy/` — superseded scripts, excluded from git entirely (see `.gitignore`)
 
@@ -115,22 +125,20 @@ was dropped entirely, not just moved ("not going to be used moving forwards").
 
 ---
 
-### `metadata/classify_metadata.py` — superseded, not yet moved to `legacy/`
+### `metadata/legacy/classify_metadata.py` — moved to legacy 2026-09-01
 Older 3-call classifier (stress/setting/tissue only, no full-text gate, no host/pathogen
-extraction). Output `metadata/output/classify_metadata/data/samples.tsv` is gitignored
-specifically to avoid it looking like a live duplicate of `meta_classify.py`'s current
-output. Only consumer left: `metadata/figures/sample_funnel_v2.py` (also superseded,
-see below). Low-priority cleanup: move both to `legacy/`.
+extraction). Superseded by `meta_classify.py`. Its only consumer, `sample_funnel_v2.py`,
+moved to legacy alongside it (see below).
 
 ### `metadata/figures/sample_funnel_v3.py` — current primary figure
 - **Inputs:** `metadata/output/meta_classify/data/samples.tsv`
 - **Outputs:** `metadata/output/figures/sankey/sample_funnel_v3.{html,svg,png}`
 - **Calls:** plotly (+kaleido)
-- **Supersedes:** `sample_funnel.py`, `sample_funnel_v2.py` (both stale, read from `classify_metadata.py`'s dead-end output — kept for reference, not moved to legacy)
+- **Supersedes:** `sample_funnel.py` (already gone before this survey), `sample_funnel_v2.py` (moved to `metadata/legacy/figures/` 2026-09-01, read from `classify_metadata.py`'s dead-end output)
 
 ### `metadata/figures/prep_lit_resolution.py` + `metadata/figures/lit_resolution_alluvial.R` — current literature-resolution figure
 - **Inputs:** `bioprojects.json`, `text_cache.jsonl` → `metadata/output/figures/sankey/lit_resolution_data.tsv` → `lit_resolution_alluvial.{png,svg}` (ggplot2 + ggalluvial)
-- **Supersedes:** `metadata/figures/lit_resolution_sankey.py` (Plotly) — explicitly called "retired" in `prep_lit_resolution.py`'s own docstring, though never moved to legacy and still present at top level. **CLAUDE.md's active task list still lists building the Plotly version as an open TODO — it's stale; the R version already superseded it.**
+- **Supersedes:** `metadata/figures/lit_resolution_sankey.py` (Plotly) — explicitly called "retired" in `prep_lit_resolution.py`'s own docstring; moved to `metadata/legacy/figures/` 2026-09-01. CLAUDE.md's active task list previously listed building the Plotly version as an open TODO — fixed 2026-09-01, it was stale (the R version already superseded it).
 
 ### `metadata/tools/export_review_lists.py`, `metadata/tools/review_designs.py` — deleted 2026-09-01
 Both hardcoded a pre-restructure `output/`/`scripts/` path tree that no longer existed
@@ -327,6 +335,13 @@ kraken/output/kraken_run_select/data/run_list.tsv
   classification, the dropped control-set, `download.py`, `db_pathogens`, and a
   500k-read subsampling strategy superseded by `kraken_run_select.py`'s full-file
   prefetch/fasterq-dump approach — every reference in it was dead.
+- `stat/diagnostics/` (4 scripts) and `stat/migrate_cache.py` — deleted (one-off
+  investigation/migration tools, already served their purpose; the latter's own
+  docstring flagged its `stat_fetch.py` fallback as removable once done, so that
+  fallback function was removed too).
+- `metadata/tools/` — now gone entirely: the 2 broken scripts were deleted (see
+  above), and `review_lists/` (8 .docx outputs, orphaned once their generator was
+  deleted) moved to `metadata/legacy/tools/review_lists/`.
 
 ### CLAUDE.md drift beyond the above
 - CLAUDE.md's "Module structure" section for metadata/ still describes the dropped
@@ -378,4 +393,4 @@ kraken/output/kraken_run_select/data/run_list.tsv
    `kraken_db_search.slurm` → `kraken_db_busco.slurm` → `kraken_db_build.slurm` in
    sequence, plus the two benchmark wrappers — the stale classify variants are gone)
 8. Grey/out-of-scope boxes: `stat/legacy/`, `metadata/legacy/`, `kraken/legacy/`,
-   `stat/diagnostics/`, `kraken/pilot/`
+   `kraken/pilot/` (`stat/diagnostics/` deleted 2026-09-01, no longer needs a box)

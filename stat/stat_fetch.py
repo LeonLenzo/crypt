@@ -20,10 +20,6 @@ Output (stat/output/stat_fetch/data/):
 Do NOT run MAL and HAL simultaneously — both write to stat_cache.jsonl.
 Chain: finish MAL, then run HAL.
 
-Note: run stat/migrate_cache.py once to upgrade from old fetch_runs.py format
-(converts old JSON-array entries to the new JSON-object format with RunInfo embedded).
-Old {mode}_runs.json files are read as a migration fallback for RunInfo if present.
-
 Run from crypt/:
     python stat/stat_fetch.py --mode mal
     python stat/stat_fetch.py --mode hal
@@ -348,19 +344,6 @@ def _load_runmeta_from_cache(cache_path: Path, mode_accs: set[str]) -> dict[str,
     return result
 
 
-def _load_runmeta_from_legacy(mode: str) -> dict[str, dict]:
-    """Migration fallback: load RunInfo from old {mode}_runs.json if present.
-    Can be deleted once stat_cache has been fully rebuilt in the new format."""
-    old = OUT_DIR / "data" / f"{mode}_runs.json"
-    if not old.exists():
-        return {}
-    print(f"  Migration fallback: loading RunInfo from {old.name}", flush=True)
-    with open(old) as f:
-        raw = json.load(f)
-    return {acc: {k: row.get(k, "") for k in _RUNINFO_FIELDS}
-            for acc, row in raw.items()}
-
-
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -407,10 +390,7 @@ def main() -> None:
         print(f"  UID checkpoint: {len(uid_done):,} UIDs", flush=True)
         print(f"  Mode accessions:{len(mode_accs):,}", flush=True)
 
-        # RunInfo: prefer cache (new format), fall back to legacy _runs.json
         run_meta = _load_runmeta_from_cache(stat_cache, mode_accs)
-        if not run_meta:
-            run_meta = _load_runmeta_from_legacy(mode)
         print(f"  RunInfo loaded: {len(run_meta):,} runs", flush=True)
 
         # ── Step 1: Fetch UIDs ────────────────────────────────────────────────

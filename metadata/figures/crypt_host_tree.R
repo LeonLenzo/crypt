@@ -57,7 +57,11 @@ MAX_X     <- NUM_X  + 2
 
 tip_dat <- tree_data %>%
   filter(isTip, !is.na(n_biosamples), n_biosamples >= 1) %>%
-  mutate(bar_end = BAR_RING + log10(pmax(n_biosamples, 1)) * BAR_UNIT)
+  # log10(n+1), not log10(n): with a bare log10, any host with exactly 1
+  # BioSample gets log10(1) = 0 -> a zero-length, invisible bar. +1 keeps
+  # every real host visibly marked (log10(2) ~= 0.30) while barely shifting
+  # the larger bars (e.g. wheat's 1258 vs 1259 is indistinguishable).
+  mutate(bar_end = BAR_RING + log10(pmax(n_biosamples, 1) + 1) * BAR_UNIT)
 
 # ── Layers ────────────────────────────────────────────────────────────────────
 for (gx in GRID_X) {

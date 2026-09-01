@@ -140,6 +140,13 @@ moved to legacy alongside it (see below).
 - **Inputs:** `bioprojects.json`, `text_cache.jsonl` → `metadata/output/figures/sankey/lit_resolution_data.tsv` → `lit_resolution_alluvial.{png,svg}` (ggplot2 + ggalluvial)
 - **Supersedes:** `metadata/figures/lit_resolution_sankey.py` (Plotly) — explicitly called "retired" in `prep_lit_resolution.py`'s own docstring; moved to `metadata/legacy/figures/` 2026-09-01. CLAUDE.md's active task list previously listed building the Plotly version as an open TODO — fixed 2026-09-01, it was stale (the R version already superseded it).
 
+### `metadata/figures/crypt_host_tree.py` + `metadata/figures/crypt_host_tree.R` — rebuilt 2026-09-01, brought back from legacy
+- **Inputs:** `metadata/output/meta_classify/data/samples.tsv` (`llm_host_resolved_taxid`, filtered to the 2,719-sample field/aerial cohort — same scope as `kraken_run_select.py`'s default)
+- **Outputs:** `metadata/output/figures/host_tree/crypt_host_tree.{nwk,pdf,png}`, `crypt_host_tree_meta.tsv` (all tracked — small, `host_tree PNG` is explicitly named in the code-not-data policy's figure carve-out)
+- **Calls:** `ete3.NCBITaxa` (Python, local SQLite, must use system python3); ggtree/ape/ggplot2/dplyr/cowplot (R)
+- **Supersedes:** `metadata/legacy/figures/crypt_host_tree.{py,R}` — the retired version used `stat_filter`'s raw, sometimes-generic STAT-inferred `host` column (MAL mode only) and split bars by single-vs-multi-pathogen. The rebuild uses meta_classify.py's LLM-extracted + per-BioSample-disambiguated host call instead (2,278/2,719 BioSamples resolve; 441 genuinely-ambiguous ones excluded and reported, not guessed), and drops the coinfected/not split entirely — Leon: "differentiating between coinfected and not coinfected isn't really important anymore" — one green bar per tip now, a host census not a co-infection-rate figure.
+- **Result**: 69 distinct host taxids (65 tree tips), all confirmed Viridiplantae. Wheat (`Triticum aestivum`) dominates at 1,258/2,278 BioSamples (55%).
+
 ### `metadata/tools/export_review_lists.py`, `metadata/tools/review_designs.py` — deleted 2026-09-01
 Both hardcoded a pre-restructure `output/`/`scripts/` path tree that no longer existed
 anywhere in the repo — genuinely broken (hard `FileNotFoundError`), not just stale.

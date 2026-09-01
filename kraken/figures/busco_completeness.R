@@ -13,7 +13,7 @@ suppressPackageStartupMessages({
 
 # ── data ─────────────────────────────────────────────────────────────────────
 
-scores <- read.delim("kraken/busco_scores.tsv", stringsAsFactors = FALSE) |>
+scores <- read.delim("kraken/output/kraken_db_busco/data/busco_scores.tsv", stringsAsFactors = FALSE) |>
   filter(status %in% c("pass", "fail")) |>
   mutate(
     lineage = recode(busco_lineage,

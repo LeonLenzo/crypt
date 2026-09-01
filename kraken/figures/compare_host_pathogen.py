@@ -10,8 +10,8 @@ Outputs:
 
 Inputs:
   /tmp/setonix_kraken_metrics.json        – merged masked + unmasked + pathogens-only
-  output/00_build/data/phibase_db.json
-  output/02_filter_runs/data/runs.tsv     – STAT euk% per run
+  stat/output/stat_build/data/phibase_db.json
+  stat/output/stat_filter/data/runs.tsv   – STAT euk% per run
 
 Run from crypt/:
   python output/figures/db_comparison/compare_host_pathogen.py
@@ -30,7 +30,7 @@ import numpy as np
 # ── paths ─────────────────────────────────────────────────────────────────────
 ROOT        = Path(__file__).resolve().parents[2]
 KRAKEN_JSON = Path("/tmp/setonix_kraken_metrics.json")
-PHIBASE     = ROOT / "stat/output/build/data/phibase_db.json"
+PHIBASE     = ROOT / "stat/output/stat_build/data/phibase_db.json"
 OUT_DIR     = Path("kraken/output/figures/db_comparison")
 
 # ── load reference DB for species classification ──────────────────────────────
@@ -221,7 +221,7 @@ make_2x2(runs_all, rows_all, "p", "Pathogens-only",
          OUT_DIR / "masked_vs_pathogens.png")
 
 # ── Figure 3: STAT euk% vs pathogens-only ────────────────────────────────────
-RUNS_TSV = ROOT / "stat/output/filter_runs/data/runs.tsv"
+RUNS_TSV = ROOT / "stat/output/stat_filter/data/runs.tsv"
 stat_data = {}
 with open(RUNS_TSV) as f:
     for row in csv.DictReader(f, delimiter="\t"):

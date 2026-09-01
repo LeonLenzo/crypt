@@ -15,7 +15,7 @@ import matplotlib.patches as mpatches
 from collections import Counter
 from pathlib import Path
 
-RUNS_TSV = Path("stat/output/filter_runs/data/runs.tsv")
+RUNS_TSV = Path("stat/output/stat_filter/data/runs.tsv")
 OUT_DIR  = Path("kraken/output/figures/host_breakdown")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 

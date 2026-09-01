@@ -27,8 +27,9 @@ kraken/
 ├── run/                   Submodule 2 — read classification (select → split → assign)
 │   ├── kraken_run_select.py  Step 1/3 — select target BioSamples from samples.tsv,
 │   │                         download reads (prefetch/fasterq-dump) + host CDS.
-│   ├── kraken_run_split.py   Step 2/3 — NOT YET BUILT. BBSplit host-read removal via
-│   │                         a combined multi-reference index.
+│   ├── kraken_run_split.py   Step 2/3 — IN DESIGN. Host-read removal via one
+│   │                         bbmap.sh index per host taxid (not one combined
+│   │                         index — see "Running submodule 2" below for why).
 │   ├── kraken_run_assign.py  Step 3/3 — NOT YET BUILT. Kraken2 classification.
 │   └── classify.py           Kraken2 classification (--run-list/--runs-tsv +
 │                             --reads-dir or ENA streaming) — planned basis for
@@ -99,7 +100,7 @@ after a threshold change only needs `kraken_db_busco.py --finalize-only` (no re-
 
 ```bash
 python kraken/run/kraken_run_select.py --limit N --download   # select + download reads + host CDS
-python kraken/run/kraken_run_split.py                         # NOT YET BUILT — BBSplit host removal
+python kraken/run/kraken_run_split.py                         # IN DESIGN — host-read removal
 python kraken/run/kraken_run_assign.py                         # NOT YET BUILT — Kraken2 classification
 ```
 
@@ -108,6 +109,37 @@ Only step 1 exists so far. `kraken/run/classify.py` (`--run-list`/`--runs-tsv` +
 `kraken/output/run/classify/data/kraken_cache.jsonl`) is the planned basis for
 `kraken_run_assign.py` — kept in the active tree for that reason, not yet wired into
 the new flow.
+
+### `kraken_run_split.py` design (2026-09-01, agreed, not yet built)
+
+**Why not one combined BBSplit index**: the 2,719-sample field/aerial cohort names
+116 distinct candidate host taxids, 94 of which have an NCBI genomic assembly. Total
+combined size across those 94: **~275Gb** — dominated by a handful of extreme
+outliers (`Pinus radiata` 22.4Gb, `Allium sativum` 16.5Gb, `Triticum aestivum` 14.5Gb,
+`Avena insularis` 14.2Gb, `Allium cepa` 12.8Gb, `Vicia faba` 11.8Gb, `Cunninghamia
+lanceolata` 11.2Gb, `Avena sativa` 11.0Gb, `Triticum turgidum` subsp. `durum` 10.0Gb —
+these alone are ~124Gb). Critically, these aren't obscure edge cases to just exclude:
+wheat alone is likely the single most common host in the whole cohort, and even
+excluding only genomes >10Gb (9 species) would drop host-read-removal coverage for
+1,232/2,719 BioSamples (45%). A single combined index isn't buildable at that scale
+on any Setonix node, and excluding the outliers isn't viable either.
+
+**Design**: one `bbmap.sh` index **per distinct host taxid** (94 independent builds,
+not one combined `bbsplit.sh` multi-reference index — with only one reference per
+job, even the 22Gb pine genome indexes fine on its own). For each run:
+1. Look up its candidate host taxid(s) from `run_list.tsv`.
+2. Run `bbmap.sh` separately against each candidate's individual index.
+3. The candidate with the highest mapping rate is the confirmed host — an
+   independent, read-level confirmation, often more reliable than metadata alone.
+   Its unmapped reads are the pathogen-enriched output passed to
+   `kraken_run_assign.py`. Other candidates' stats are kept as QC/confirmation
+   metadata only, not used to filter reads (no cross-candidate intersection).
+
+Stages are independently resumable/isolatable: extract host FASTA from the zips
+`kraken_run_select.py` already downloaded → build one index per taxid (skip if
+already built) → per-run split (skip if already done). BBMap is already available on
+Setonix as a module (`bbmap/38.96--h5c4e2a8_0`) — no bootstrap needed, unlike
+sra-tools/datasets earlier.
 
 **Validation target**: ALL 2,719 field/aerial BioSamples from
 `metadata/figures/sample_funnel_v3.py` — corrected 2026-08-31 from an earlier draft

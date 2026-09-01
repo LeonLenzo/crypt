@@ -261,15 +261,18 @@ def main():
             for row in csv.DictReader(fh, delimiter="\t"):
                 bs_to_runs.setdefault(row["BioSample"], []).append(row["Run"])
 
-        # kraken_run_split.py builds ONE combined multi-reference BBSplit index
-        # from every host taxid fetched here — so a sample doesn't need its own
-        # host confidently resolved to still get correctly host-filtered; BBSplit
-        # sorts each read to whichever reference it actually matches, and the
-        # refstats output ends up as an independent, read-level confirmation of
-        # host identity (often more reliable than metadata guessing). So: pull
-        # CDS for every CANDIDATE in llm_named_hosts_taxids, not just the single
+        # kraken_run_split.py builds ONE bbmap.sh index PER distinct host taxid
+        # fetched here (not one combined multi-reference index — some host
+        # genomes are huge, e.g. wheat 14.5Gb, pine 22.4Gb; combining ~90 of them
+        # into a single BBSplit index would be several hundred Gb and unbuildable
+        # on any Setonix node). A sample doesn't need its own host confidently
+        # resolved to still get correctly host-filtered: kraken_run_split.py runs
+        # each candidate's individual index separately and picks the one with the
+        # highest mapping rate as the confirmed host — an independent, read-level
+        # confirmation (often more reliable than metadata guessing). So: pull CDS
+        # for every CANDIDATE in llm_named_hosts_taxids, not just the single
         # llm_host_resolved_taxid — an unresolved multi-host sample's true host is
-        # still in the index as long as it's one of the named candidates.
+        # still covered as long as it's one of the named candidates.
         # host_taxid (singular, resolved) is kept per-row for provenance/QC only.
         run_rows = []
         host_taxids_needed = set()
@@ -296,9 +299,9 @@ def main():
                 })
 
         print(f"Host resolution: {n_resolved} confidently resolved, {n_unresolved} "
-              f"not per-sample-resolved (still covered by the combined index below "
-              f"as long as their true host is a named candidate)")
-        print(f"Combined BBSplit index will cover {len(host_taxids_needed)} distinct host taxids")
+              f"not per-sample-resolved (still covered by per-candidate indices "
+              f"below as long as their true host is a named candidate)")
+        print(f"Per-taxid host indices needed: {len(host_taxids_needed)} distinct taxids")
         print(f"Runs to process: {len(run_rows)}")
 
         # ── fetch one best CDS assembly per distinct host taxid ───────────────

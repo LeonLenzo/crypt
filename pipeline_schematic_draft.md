@@ -187,8 +187,14 @@ confirmed **fully removed** — dropped 2026-08-28, not just deprecated.
 - **Status (2026-09-01):** smoke-tested with `--limit 2 --download` on Setonix; host resolution worked, but the host genome fetch step hit a 300s timeout — leading theory is it ran on the Setonix login node rather than through SLURM (untested at time of writing, Setonix down for maintenance)
 
 ### `kraken/run/kraken_run_split.py`, `kraken/run/kraken_run_assign.py` — **not built**
-Design agreed (BBSplit host-read removal via a combined multi-reference index;
-Kraken2 classification adapted from `classify.py`) but zero code written.
+Design agreed 2026-09-01 (see kraken/README.md's "kraken_run_split.py design" section
+for full detail): one `bbmap.sh` index per host taxid (94 individual builds, not one
+combined index — ~275Gb total across all host genomes, dominated by outliers like
+wheat/pine/oat that can't just be excluded since they're the dominant crops in the
+cohort). Per run, each candidate host is aligned separately; highest mapping rate
+wins as confirmed host, its unmapped reads feed `kraken_run_assign.py` (Kraken2
+classification, adapted from `classify.py`). Zero code written yet. BBMap available
+on Setonix as a module (`bbmap/38.96--h5c4e2a8_0`), no bootstrap needed.
 
 ---
 

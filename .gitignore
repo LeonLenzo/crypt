@@ -103,3 +103,4 @@ kraken/output/kraken_db_busco/data/busco_downloads/
 kraken/output/kraken_db_build/data/db_v2/
 kraken/output/kraken_db_build/data/db/
 kraken/output/kraken_run_download/data/kraken_reads/
+kraken/output/kraken_run_select/data/reads/

@@ -27,9 +27,10 @@ kraken/
 ├── run/                   Submodule 2 — read classification (select → split → assign)
 │   ├── kraken_run_select.py  Step 1/3 — select target BioSamples from samples.tsv,
 │   │                         download reads (prefetch/fasterq-dump) + host CDS.
-│   ├── kraken_run_split.py   Step 2/3 — IN DESIGN. Host-read removal via one
-│   │                         bbmap.sh index per host taxid (not one combined
-│   │                         index — see "Running submodule 2" below for why).
+│   ├── kraken_run_split.py   Step 2/3 — written, NOT YET TESTED on Setonix.
+│   │                         Host-read removal via one bbmap.sh index per host
+│   │                         taxid (not one combined index — see "Running
+│   │                         submodule 2" below for why).
 │   ├── kraken_run_assign.py  Step 3/3 — NOT YET BUILT. Kraken2 classification.
 │   └── classify.py           Kraken2 classification (--run-list/--runs-tsv +
 │                             --reads-dir or ENA streaming) — planned basis for
@@ -100,17 +101,19 @@ after a threshold change only needs `kraken_db_busco.py --finalize-only` (no re-
 
 ```bash
 python kraken/run/kraken_run_select.py --limit N --download   # select + download reads + host CDS
-python kraken/run/kraken_run_split.py                         # IN DESIGN — host-read removal
+python kraken/run/kraken_run_split.py --build-index            # build per-taxid indices
+python kraken/run/kraken_run_split.py                          # + split (untested on Setonix)
 python kraken/run/kraken_run_assign.py                         # NOT YET BUILT — Kraken2 classification
 ```
 
-Only step 1 exists so far. `kraken/run/classify.py` (`--run-list`/`--runs-tsv` +
-`--reads-dir`, confidence=0.15, min-hit-groups=3, results append to
+Steps 1–2 are written; step 2 hasn't been run against real data yet (Setonix is down
+for maintenance). `kraken/run/classify.py` (`--run-list`/`--runs-tsv` + `--reads-dir`,
+confidence=0.15, min-hit-groups=3, results append to
 `kraken/output/run/classify/data/kraken_cache.jsonl`) is the planned basis for
 `kraken_run_assign.py` — kept in the active tree for that reason, not yet wired into
 the new flow.
 
-### `kraken_run_split.py` design (2026-09-01, agreed, not yet built)
+### `kraken_run_split.py` design (2026-09-01, agreed and written, not yet Setonix-tested)
 
 **Why not one combined BBSplit index**: the 2,719-sample field/aerial cohort names
 116 distinct candidate host taxids, 94 of which have an NCBI genomic assembly. Total
@@ -135,11 +138,21 @@ job, even the 22Gb pine genome indexes fine on its own). For each run:
    `kraken_run_assign.py`. Other candidates' stats are kept as QC/confirmation
    metadata only, not used to filter reads (no cross-candidate intersection).
 
-Stages are independently resumable/isolatable: extract host FASTA from the zips
-`kraken_run_select.py` already downloaded → build one index per taxid (skip if
-already built) → per-run split (skip if already done). BBMap is already available on
-Setonix as a module (`bbmap/38.96--h5c4e2a8_0`) — no bootstrap needed, unlike
-sra-tools/datasets earlier.
+Two stages, each independently resumable (no separate "extract" stage needed —
+`kraken_db_search.download_cds()`, already called by `kraken_run_select.py`, unzips
+on download): **build one index per taxid** (`--build-index`, skips any taxid whose
+index already exists) → **per-run split** (aligns each candidate separately, skips
+nothing yet — re-running currently redoes completed runs; `--limit N` for testing).
+`--workers` defaults to 4, deliberately modest: each `bbmap.sh` job gets its own
+`-Xmx48g` allocation (sized to safely cover even the largest single host genome,
+~22Gb `Pinus radiata`, with headroom) — too much concurrency risks overcommitting
+node memory, since genome sizes across the 94 taxids vary by two orders of
+magnitude. Mapped-read percentage is computed by direct read counting (input reads
+vs. `bbmap.sh`'s unmapped-output reads), not by parsing BBMap's statsfile text —
+avoids depending on an unverified exact key format (no BBMap access to test against
+locally; this all runs on Setonix). BBMap is already available on Setonix as a
+module (`bbmap/38.96--h5c4e2a8_0`) — no bootstrap needed, unlike sra-tools/datasets
+earlier.
 
 **Validation target**: ALL 2,719 field/aerial BioSamples from
 `metadata/figures/sample_funnel_v3.py` — corrected 2026-08-31 from an earlier draft

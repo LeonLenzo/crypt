@@ -100,3 +100,6 @@ kraken/output/db/busco/data/busco_downloads/
 kraken/output/db/build/data/db_v2/
 kraken/output/db/build/data/db/
 kraken/output/run/select/data/reads/
+kraken/output/run/split/data/index/
+kraken/output/run/split/data/reads/
+kraken/output/run/split/data/_tmp/

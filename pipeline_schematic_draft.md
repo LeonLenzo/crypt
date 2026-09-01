@@ -152,9 +152,10 @@ Deleted rather than fixed; would have needed a full rewrite either way.
 ## Module: kraken/
 
 **Two submodules.** Submodule 1 (DB build) is fully restructured and complete.
-Submodule 2 (run/select/split/assign) exists only as step 1 of 3 — `kraken_run_select.py`
-is built and (per 2026-09-01 testing) runs, but `kraken_run_split.py`/`kraken_run_assign.py`
-do not exist yet. `kraken/control/` (the old stratified control-set subpipeline) is
+Submodule 2 (run/select/split/assign) is at step 2 of 3 — `kraken_run_select.py`
+is built and (per 2026-09-01 testing) runs; `kraken_run_split.py` is written but not
+yet tested against real data (Setonix down for maintenance); `kraken_run_assign.py`
+does not exist yet. `kraken/control/` (the old stratified control-set subpipeline) is
 confirmed **fully removed** — dropped 2026-08-28, not just deprecated.
 
 ---
@@ -181,20 +182,32 @@ confirmed **fully removed** — dropped 2026-08-28, not just deprecated.
 
 ### `kraken/run/kraken_run_select.py` — submodule 2, step 1/3 (only step built)
 - **Inputs:** `metadata/output/meta_classify/data/samples.tsv`, `stat/output/stat_filter/data/runs.tsv`; imports from `kraken_db_search.py`; requires `prefetch`/`fasterq-dump` (sra-tools) + `datasets` CLI
-- **Outputs:** `kraken/output/run/select/data/run_list.tsv` (tracked), `.../data/reads/{run}_{1,2}.fastq.gz` (**gitignore gap — not yet excluded, unlike every other kraken large-data subdir; fix before running at scale**), `kraken/output/db/search/data/cds/host/{accession}/` (gitignored, shared pool with pathogen CDS)
+- **Outputs:** `kraken/output/run/select/data/run_list.tsv` (tracked), `.../data/host_taxid_to_accession.json` (tracked — every candidate taxid's downloaded accession, added 2026-09-01 so `kraken_run_split.py` can find/build an index for every named candidate, not just the resolved host), `.../data/reads/{run}_{1,2}.fastq.gz` (gitignored), `kraken/output/db/search/data/cds/host/{accession}/` (gitignored, shared pool with pathogen CDS)
 - **CLI:** `--setting`, `--aerial-only`/`--no-aerial-only`, `--cryptic-only`, `--limit N`, `--download`, `--workers N`
-- **Feeds into:** nothing yet wired downstream — `kraken/run/kraken_run_split.py`/`kraken/run/kraken_run_assign.py` not built
+- **Feeds into:** `kraken/run/kraken_run_split.py`
 - **Status (2026-09-01):** smoke-tested with `--limit 2 --download` on Setonix; host resolution worked, but the host genome fetch step hit a 300s timeout — leading theory is it ran on the Setonix login node rather than through SLURM (untested at time of writing, Setonix down for maintenance)
 
-### `kraken/run/kraken_run_split.py`, `kraken/run/kraken_run_assign.py` — **not built**
-Design agreed 2026-09-01 (see kraken/README.md's "kraken_run_split.py design" section
-for full detail): one `bbmap.sh` index per host taxid (94 individual builds, not one
+### `kraken/run/kraken_run_split.py` — written 2026-09-01, NOT YET TESTED on Setonix
+Design agreed with Leon (full rationale in kraken/README.md's "kraken_run_split.py
+design" section): one `bbmap.sh` index per host taxid (94 individual builds, not one
 combined index — ~275Gb total across all host genomes, dominated by outliers like
 wheat/pine/oat that can't just be excluded since they're the dominant crops in the
+cohort — even excluding only genomes >10Gb would drop coverage for 45% of the
 cohort). Per run, each candidate host is aligned separately; highest mapping rate
-wins as confirmed host, its unmapped reads feed `kraken_run_assign.py` (Kraken2
-classification, adapted from `classify.py`). Zero code written yet. BBMap available
-on Setonix as a module (`bbmap/38.96--h5c4e2a8_0`), no bootstrap needed.
+(computed by direct read counting, not by parsing BBMap's statsfile text) wins as
+confirmed host, its unmapped reads become the final output; other candidates kept
+as QC metadata only.
+- **Inputs:** `kraken/output/run/select/data/{run_list.tsv, host_taxid_to_accession.json, reads/}`, `kraken/output/db/search/data/cds/host/{accession}/*.fna`
+- **Outputs:** `kraken/output/run/split/data/index/{taxid}/` (gitignored), `.../data/reads/{run}_{1,2}.fastq.gz` (gitignored, non-host reads), `.../data/split_results.tsv` (tracked)
+- **CLI:** `--build-index` (stop after indexing), `--limit N`, `--workers N` (default 4 — deliberately modest, each `bbmap.sh` job gets its own `-Xmx48g`)
+- **Calls:** `bbmap.sh` (module `bbmap/38.96--h5c4e2a8_0` on Setonix, no bootstrap needed)
+- **Feeds into:** `kraken/run/kraken_run_assign.py` (not yet built)
+- **Not yet verified**: never run against real data — Setonix down for maintenance when written. The read-counting mapped-% logic and the winner-selection behavior need a real smoke test (`--limit N`) before trusting them at scale.
+
+### `kraken/run/kraken_run_assign.py` — not built
+Kraken2 classification on `kraken_run_split.py`'s non-host reads; planned as a light
+adaptation of `kraken/run/classify.py` (already supports `--reads-dir` for
+pre-downloaded local reads), not a rewrite.
 
 ---
 

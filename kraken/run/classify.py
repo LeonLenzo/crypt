@@ -10,12 +10,12 @@ For each run (from --run-list or --runs-tsv):
 
 Run from crypt/ on Setonix (requires kraken2 in PATH):
     module load kraken2   # or equivalent on Setonix
-    python kraken/classify.py --runs-tsv stat/output/stat_filter/data/runs.tsv --db /scratch/kraken_db
-    python kraken/classify.py --run-list PATH --reads-dir PATH --db /scratch/kraken_db
+    python kraken/run/classify.py --runs-tsv stat/output/stat_filter/data/runs.tsv --db /scratch/kraken_db
+    python kraken/run/classify.py --run-list PATH --reads-dir PATH --db /scratch/kraken_db
 
 Reads from:  --run-list PATH or --runs-tsv PATH (required — no default run source)
-Output:      kraken/output/classify/data/kraken_cache.jsonl
-             kraken/output/classify/data/kraken_cache_index.txt
+Output:      kraken/output/run/classify/data/kraken_cache.jsonl
+             kraken/output/run/classify/data/kraken_cache_index.txt
 """
 
 import argparse
@@ -31,7 +31,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from _util import _Tee, make_log_dir, link_latest
 
 # ── Constants ─────────────────────────────────────────────────────────────────
@@ -46,7 +46,7 @@ WORKERS            = 8          # parallel runs
 # Temp dir: use Setonix scratch if available, else system tmp
 SCRATCH = Path(os.environ.get("MYSCRATCH", tempfile.gettempdir())) / "kraken_tmp"
 
-OUT_DIR = Path("kraken/output/classify")
+OUT_DIR = Path("kraken/output/run/classify")
 
 # ── ENA FTP helpers ───────────────────────────────────────────────────────────
 

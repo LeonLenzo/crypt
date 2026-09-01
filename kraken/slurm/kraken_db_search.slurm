@@ -38,8 +38,8 @@ mkdir -p kraken/slurm/logs
 
 echo "Starting assembly search: $(date)"
 
-python kraken/kraken_db_search.py --download --workers 16
+python kraken/db/kraken_db_search.py --download --workers 16
 
 echo "Search complete: $(date)"
-echo "Candidates: $(wc -l < kraken/output/kraken_db_search/data/ref_candidates.tsv) rows (incl. header)"
+echo "Candidates: $(wc -l < kraken/output/db/search/data/ref_candidates.tsv) rows (incl. header)"
 echo "Next: sbatch kraken/slurm/kraken_db_busco.slurm"

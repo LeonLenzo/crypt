@@ -22,8 +22,8 @@ run metadata; including host CDS creates irreducible noise from k-mer similarity
 between related plant genomes.
 
 Run from crypt/ (requires kraken2 and datasets CLI in PATH):
-    python kraken/kraken_db_build.py                              # default dirs
-    python kraken/kraken_db_build.py --db-dir PATH --genomes-dir PATH   # Setonix scratch
+    python kraken/db/kraken_db_build.py                              # default dirs
+    python kraken/db/kraken_db_build.py --db-dir PATH --genomes-dir PATH   # Setonix scratch
 
 Steps:
     1. Load selected assemblies from kraken_db_busco/data/busco_scores.tsv
@@ -41,7 +41,7 @@ Prerequisites:
 
 Output:
     {db_dir}/                   Kraken2 database directory
-    kraken/output/kraken_db_build/logs/  build log
+    kraken/output/db/build/logs/  build log
 """
 
 import argparse
@@ -54,13 +54,13 @@ import sys
 import urllib.request
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from _util import _Tee, make_log_dir, link_latest, upload_to_acacia
 
-BUSCO_SCORES = Path("kraken/output/kraken_db_busco/data/busco_scores.tsv")
-OUT_DIR      = Path("kraken/output/kraken_db_build")
+BUSCO_SCORES = Path("kraken/output/db/busco/data/busco_scores.tsv")
+OUT_DIR      = Path("kraken/output/db/build")
 DEFAULT_DB          = OUT_DIR / "data" / "db"
-DEFAULT_GENOMES_DIR = Path("kraken/output/kraken_db_search/data/cds/pathogen")
+DEFAULT_GENOMES_DIR = Path("kraken/output/db/search/data/cds/pathogen")
 
 TAXDUMP_URL   = "https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz"
 ACACIA_BUCKET = "pawsey1168-llenzo-kraken-db"

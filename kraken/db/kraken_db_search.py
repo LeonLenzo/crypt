@@ -30,15 +30,15 @@ Three modes, run in order:
               Resumable: skips accessions with .fna files already on disk.
 
 Typical run (select + download in one pass):
-    python kraken/kraken_db_search.py --download
+    python kraken/db/kraken_db_search.py --download
 
-Then: python kraken/kraken_db_busco.py   (on Setonix)
+Then: python kraken/db/kraken_db_busco.py   (on Setonix)
 
 Output:
-    kraken/output/kraken_db_search/data/ref_candidates.tsv   (tracked)
-    kraken/output/kraken_db_search/data/pangenome.tsv        (tracked, --scope only)
-    kraken/output/kraken_db_search/data/genus_fill.tsv       (tracked, --scope only)
-    kraken/output/kraken_db_search/data/cds/pathogen/{accession}/  (gitignored, --download only)
+    kraken/output/db/search/data/ref_candidates.tsv   (tracked)
+    kraken/output/db/search/data/pangenome.tsv        (tracked, --scope only)
+    kraken/output/db/search/data/genus_fill.tsv       (tracked, --scope only)
+    kraken/output/db/search/data/cds/pathogen/{accession}/  (gitignored, --download only)
 """
 
 import argparse
@@ -53,12 +53,12 @@ from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from _util import _Tee, make_log_dir, link_latest
 
 DB_PATH      = Path("stat/output/stat_build/data/phibase_db.json")
 RUNS_TSV     = Path("stat/output/stat_filter/data/runs.tsv")
-OUT_DIR      = Path("kraken/output/kraken_db_search")
+OUT_DIR      = Path("kraken/output/db/search")
 DATA_DIR     = OUT_DIR / "data"
 CANDIDATES_TSV = DATA_DIR / "ref_candidates.tsv"
 DEFAULT_GENOMES_DIR = DATA_DIR / "cds" / "pathogen"
@@ -548,7 +548,7 @@ def run_download(candidates: list, genomes_dir: Path, workers: int) -> None:
     print(f"\n── Download summary ─────────────────────────────────────────────")
     print(f"  Downloaded/cached OK: {n_ok:,}  (already on disk: {n_cached:,})")
     print(f"  Failed:               {n_fail:,}")
-    print(f"\nNext: python kraken/kraken_db_busco.py")
+    print(f"\nNext: python kraken/db/kraken_db_busco.py")
 
 
 # ── main ──────────────────────────────────────────────────────────────────────
@@ -565,7 +565,7 @@ def main():
                     help="Select candidates and write ref_candidates.tsv without downloading "
                          "(default if neither --scope nor --download given)")
     ap.add_argument("--genomes-dir", default=str(DEFAULT_GENOMES_DIR),
-                    help="CDS download directory (default: kraken_db_search/data/cds/pathogen)")
+                    help="CDS download directory (default: kraken/output/db/search/data/cds/pathogen)")
     ap.add_argument("--workers", type=int, default=8)
     args = ap.parse_args()
 
@@ -596,7 +596,7 @@ def main():
         if args.download:
             run_download(rows, Path(args.genomes_dir), args.workers)
         else:
-            print(f"\nNext: python kraken/kraken_db_search.py --download   "
+            print(f"\nNext: python kraken/db/kraken_db_search.py --download   "
                   f"(or re-run this with --download)")
     finally:
         log.close()

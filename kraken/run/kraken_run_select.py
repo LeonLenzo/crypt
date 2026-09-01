@@ -39,13 +39,13 @@ Two things happen, in order:
      kraken_db_build.py's pathogen fetch uses (cds/pathogen/ there).
 
 Run on Setonix (requires sra-tools: prefetch, fasterq-dump; NCBI datasets CLI):
-    python kraken/kraken_run_select.py
-    python kraken/kraken_run_select.py --setting field,greenhouse --limit 50   # broader/smaller test
+    python kraken/run/kraken_run_select.py
+    python kraken/run/kraken_run_select.py --setting field,greenhouse --limit 50   # broader/smaller test
 
 Output:
-    kraken/output/kraken_run_select/data/run_list.tsv   (tracked — Run/BioSample/host/status)
-    kraken/output/kraken_run_select/data/reads/{run}_1.fastq.gz [+ _2]  (gitignored)
-    kraken/output/kraken_db_search/data/cds/host/{accession}/           (gitignored, shared pool)
+    kraken/output/run/select/data/run_list.tsv   (tracked — Run/BioSample/host/status)
+    kraken/output/run/select/data/reads/{run}_1.fastq.gz [+ _2]  (gitignored)
+    kraken/output/db/search/data/cds/host/{accession}/           (gitignored, shared pool)
 """
 
 import argparse
@@ -56,20 +56,20 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from _util import _Tee, make_log_dir, link_latest
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "db"))
 from kraken_db_search import download_cds, datasets_query, quality_key, scaffold_plus
 
 SAMPLES_TSV = Path("metadata/output/meta_classify/data/samples.tsv")
 RUNS_TSV    = Path("stat/output/stat_filter/data/runs.tsv")
 
-OUT_DIR   = Path("kraken/output/kraken_run_select")
+OUT_DIR   = Path("kraken/output/run/select")
 DATA_DIR  = OUT_DIR / "data"
 RUN_LIST  = DATA_DIR / "run_list.tsv"
 READS_DIR = DATA_DIR / "reads"
-HOST_CDS_DIR = Path("kraken/output/kraken_db_search/data/cds/host")
+HOST_CDS_DIR = Path("kraken/output/db/search/data/cds/host")
 
 RUN_LIST_COLS = [
     "Run", "BioSample", "BioProject", "llm_host_resolved", "host_taxid",

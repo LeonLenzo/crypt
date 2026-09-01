@@ -12,24 +12,32 @@ Two submodules, both run on Setonix (large data, needs HPC compute + storage):
 
 ```
 kraken/
-├── kraken_db_search.py   Submodule 1, step 1/3 — select candidate assemblies (query
-│                         NCBI, PHI-base seed pan-genome + genus fill-in) AND download
-│                         their CDS FASTA. The ONE place in the DB pipeline that downloads.
-├── kraken_db_busco.py    Submodule 1, step 2/3 — BUSCO-score every candidate (reads CDS
-│                         already on disk, never downloads), apply completeness thresholds.
-├── kraken_db_build.py    Submodule 1, step 3/3 — build the Kraken2 DB from BUSCO-selected
-│                         assemblies (reads CDS already on disk, never downloads).
-├── kraken_run_select.py  Submodule 2 (run/), step 1/3 — select target BioSamples from
-│                         samples.tsv, download reads (prefetch/fasterq-dump) + host CDS.
-├── kraken_run_split.py   Submodule 2 (run/), step 2/3 — NOT YET BUILT. BBSplit host-read
-│                         removal via a combined multi-reference index.
-├── kraken_run_assign.py  Submodule 2 (run/), step 3/3 — NOT YET BUILT. Kraken2
-│                         classification; planned as a light adaptation of classify.py.
-├── classify.py           Kraken2 classification (--run-list/--runs-tsv + --reads-dir or
-│                         ENA streaming) — planned basis for kraken_run_assign.py.
-├── benchmark_download.py Diagnostic — ENA FTP vs HTTPS vs S3 vs prefetch throughput.
-├── figures/               compare_host_pathogen.py, host_breakdown.py, busco_completeness.R
-└── slurm/                 SLURM wrappers for all of the above
+├── db/                    Submodule 1 — reference DB build (search → busco → build)
+│   ├── kraken_db_search.py   Step 1/3 — select candidate assemblies (query NCBI,
+│   │                         PHI-base seed pan-genome + genus fill-in) AND download
+│   │                         their CDS FASTA. The ONE place in the DB pipeline that
+│   │                         downloads.
+│   ├── kraken_db_busco.py    Step 2/3 — BUSCO-score every candidate (reads CDS
+│   │                         already on disk, never downloads), apply completeness
+│   │                         thresholds.
+│   ├── kraken_db_build.py    Step 3/3 — build the Kraken2 DB from BUSCO-selected
+│   │                         assemblies (reads CDS already on disk, never downloads).
+│   └── figures/               compare_host_pathogen.py, host_breakdown.py,
+│                               busco_completeness.R — all DB-comparison scoped
+├── run/                   Submodule 2 — read classification (select → split → assign)
+│   ├── kraken_run_select.py  Step 1/3 — select target BioSamples from samples.tsv,
+│   │                         download reads (prefetch/fasterq-dump) + host CDS.
+│   ├── kraken_run_split.py   Step 2/3 — NOT YET BUILT. BBSplit host-read removal via
+│   │                         a combined multi-reference index.
+│   ├── kraken_run_assign.py  Step 3/3 — NOT YET BUILT. Kraken2 classification.
+│   └── classify.py           Kraken2 classification (--run-list/--runs-tsv +
+│                             --reads-dir or ENA streaming) — planned basis for
+│                             kraken_run_assign.py (adapt, not rewrite).
+├── benchmark_download.py Diagnostic — ENA FTP vs HTTPS vs S3 vs prefetch throughput
+│                         (not submodule-specific, stays at kraken/ root).
+├── legacy/                excluded from git — download.py + old SLURM wrapper (both
+│                          superseded by kraken_run_select.py's built-in downloading)
+└── slurm/                 SLURM wrappers (all currently db/-scoped)
 ```
 
 `manifest.py` (repo root, shared — see `_util.py`'s `build_manifest()`/`upload_to_acacia()`)
@@ -37,10 +45,23 @@ records what's in a gitignored `data/` dir (path/size/mtime, +md5 for `.k2d` fil
 Setonix data stays visible from the repo without being tracked; kraken/ is its first user
 but it's module-agnostic, not kraken-specific.
 
-Output convention matches `stat/` and `metadata/`: `kraken/output/{script}/{data,logs}/`.
-Large data (CDS downloads, BUSCO lineage caches, Kraken2 DBs, downloaded FASTQ) lives
-gitignored under `data/`; small tracked TSVs (`ref_candidates.tsv`, `busco_scores.tsv`,
-`manifest.tsv`) live alongside it in the same directory.
+Output convention matches `stat/` and `metadata/`, with the db/run split mirrored:
+`kraken/output/{db,run}/{search,busco,build,select,classify}/{data,logs}/`. Figure
+scripts are the one exception — output stays in a shared `kraken/output/figures/`
+collection dir regardless of which submodule the script lives in, matching how
+`stat/output/figures/` and `metadata/output/figures/` work. Large data (CDS downloads,
+BUSCO lineage caches, Kraken2 DBs, downloaded FASTQ) lives gitignored under `data/`;
+small tracked TSVs (`ref_candidates.tsv`, `busco_scores.tsv`, `manifest.tsv`) live
+alongside it in the same directory.
+
+**2026-09-01 restructure**: split the flat `kraken/` script layout into `db/` + `run/`
+subdirectories matching the two submodules (Leon's call — "let's have separate
+kraken/db and kraken/run dirs"). Filenames kept their full `kraken_db_`/`kraken_run_`
+prefixes (searchable/greppable as-is) even though now slightly redundant with the
+parent directory name. Output directories were moved to mirror the split
+(`kraken/output/kraken_db_search/` → `kraken/output/db/search/`, etc.) — this was
+done locally and needs the equivalent move applied on Setonix once it's back from
+maintenance (see the prepared move commands in memory/kraken_restructure_plan.md).
 
 ## Database design
 
@@ -59,17 +80,17 @@ CDS-based sequences are used throughout rather than whole-genome sequences: RNA-
 Run from `crypt/` on Setonix, in order:
 
 ```bash
-python kraken/kraken_db_search.py --scope          # optional: pangenome.tsv / genus_fill.tsv report
-python kraken/kraken_db_search.py --download        # select candidates + download CDS
-python kraken/kraken_db_busco.py                    # BUSCO score + threshold + fallback selection
-python kraken/kraken_db_build.py                    # build the Kraken2 DB
+python kraken/db/kraken_db_search.py --scope          # optional: pangenome.tsv / genus_fill.tsv report
+python kraken/db/kraken_db_search.py --download        # select candidates + download CDS
+python kraken/db/kraken_db_busco.py                    # BUSCO score + threshold + fallback selection
+python kraken/db/kraken_db_build.py                    # build the Kraken2 DB
 ```
 
 Or via SLURM: `sbatch kraken/slurm/kraken_db_search.slurm` → `kraken_db_busco.slurm` →
 `kraken_db_build.slurm`. Each step is resumable (accession-level caches); re-running
 after a threshold change only needs `kraken_db_busco.py --finalize-only` (no re-scan).
 
-**Current DB**: `db_v2` (`kraken/output/kraken_db_build/data/db_v2/`, ~20GB) — built
+**Current DB**: `db_v2` (`kraken/output/db/build/data/db_v2/`, ~20GB) — built
 2026-08-16 from 1,017 BUSCO-selected assemblies (thresholds: fungal ≥ 50%, oomycete ≥
 65%). The older `db_pathogens` pilot DB (pre-BUSCO-rebuild) was dropped 2026-08-28 once
 `db_v2` was confirmed current and working.
@@ -77,14 +98,14 @@ after a threshold change only needs `kraken_db_busco.py --finalize-only` (no re-
 ## Running submodule 2 (select → split → assign)
 
 ```bash
-python kraken/kraken_run_select.py --limit N --download   # select + download reads + host CDS
-python kraken/kraken_run_split.py                         # NOT YET BUILT — BBSplit host removal
-python kraken/kraken_run_assign.py                         # NOT YET BUILT — Kraken2 classification
+python kraken/run/kraken_run_select.py --limit N --download   # select + download reads + host CDS
+python kraken/run/kraken_run_split.py                         # NOT YET BUILT — BBSplit host removal
+python kraken/run/kraken_run_assign.py                         # NOT YET BUILT — Kraken2 classification
 ```
 
-Only step 1 exists so far. `kraken/classify.py` (`--run-list`/`--runs-tsv` +
+Only step 1 exists so far. `kraken/run/classify.py` (`--run-list`/`--runs-tsv` +
 `--reads-dir`, confidence=0.15, min-hit-groups=3, results append to
-`kraken/output/classify/data/kraken_cache.jsonl`) is the planned basis for
+`kraken/output/run/classify/data/kraken_cache.jsonl`) is the planned basis for
 `kraken_run_assign.py` — kept in the active tree for that reason, not yet wired into
 the new flow.
 
@@ -96,9 +117,8 @@ e.g. the documented PST/rust blind spot, which shows up as "clean" per STAT). 46
 the 2,719 happen to already be flagged. Each comes with `pathogen_match_status`, named
 vs STAT-detected pathogens, and a full manuscript.
 
-`kraken/download.py` (the old ENA-curl-based downloader) is superseded by
-`kraken_run_select.py`'s built-in prefetch/fasterq-dump downloading and has moved to
-`kraken/legacy/`.
+`kraken/legacy/download.py` (the old ENA-curl-based downloader) is superseded by
+`kraken_run_select.py`'s built-in prefetch/fasterq-dump downloading.
 
 ## Pilot results
 
@@ -137,8 +157,8 @@ those runs turned out to have unknown ground truth and weren't suitable as contr
 
 | File | Contents |
 |------|----------|
-| `kraken/output/kraken_db_search/data/ref_candidates.tsv` | Candidate assemblies (seed pan-genome + genus fill-in), pre-BUSCO |
-| `kraken/output/kraken_db_busco/data/busco_scores.tsv` | Merged: candidate metadata + BUSCO score + pass/fail + final `selected` decision |
-| `kraken/output/kraken_db_build/data/db_v2/` | Current Kraken2 DB (gitignored; see `manifest.tsv` alongside it) |
-| `kraken/output/classify/data/kraken_cache.jsonl` | Append-only classification cache; one JSON object per run |
-| `kraken/output/kraken_run_select/data/run_list.tsv` | Submodule 2 target BioSamples/Runs + host resolution + download status |
+| `kraken/output/db/search/data/ref_candidates.tsv` | Candidate assemblies (seed pan-genome + genus fill-in), pre-BUSCO |
+| `kraken/output/db/busco/data/busco_scores.tsv` | Merged: candidate metadata + BUSCO score + pass/fail + final `selected` decision |
+| `kraken/output/db/build/data/db_v2/` | Current Kraken2 DB (gitignored; see `manifest.tsv` alongside it) |
+| `kraken/output/run/classify/data/kraken_cache.jsonl` | Append-only classification cache; one JSON object per run |
+| `kraken/output/run/select/data/run_list.tsv` | Submodule 2 target BioSamples/Runs + host resolution + download status |

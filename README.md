@@ -26,7 +26,7 @@ LLM-based study design classification (full-text-gated: 732/1,285 BioProjects wi
 
 Multi-strategy literature resolution linked 58.0% of BioProjects (746/1,286) to a primary publication (PMID or DOI), with full-text methods sections retrieved for 57.0% via PMC/Unpaywall/manual PDF fallback. The remainder are principally data-only submissions and unpublished surveillance datasets.
 
-Kraken2 species-level validation: a BUSCO-screened pathogen CDS database (`db_v2`, 1,017 assemblies, fungal ≥50%/oomycete ≥65% completeness) is built. The validation target is all 2,719 field/aerial BioSamples from the LLM-classified set (not narrowed to already-flagged co-infections — the point is catching what STAT misses, e.g. a confirmed blind spot for *Puccinia striiformis* rust). Read selection/download (`kraken/kraken_run_select.py`) is built and smoke-tested; host-read removal and classification (BBSplit + Kraken2) are still to be built.
+Kraken2 species-level validation: a BUSCO-screened pathogen CDS database (`db_v2`, 1,017 assemblies, fungal ≥50%/oomycete ≥65% completeness) is built. The validation target is all 2,719 field/aerial BioSamples from the LLM-classified set (not narrowed to already-flagged co-infections — the point is catching what STAT misses, e.g. a confirmed blind spot for *Puccinia striiformis* rust). Read selection/download (`kraken/run/kraken_run_select.py`) is built and smoke-tested; host-read removal and classification (BBSplit + Kraken2) are still to be built.
 
 ## Scope
 

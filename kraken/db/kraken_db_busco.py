@@ -18,16 +18,16 @@ kraken_db_build.py should add to the Kraken2 library.
 
 Run on Setonix: sbatch kraken/slurm/kraken_db_busco.slurm
 Run from crypt/:
-    python kraken/kraken_db_busco.py \\
-        --busco-db-path /scratch/pawsey1168/llenzo/crypt/kraken/output/kraken_db_busco/data/busco_downloads \\
-        [--genomes-dir /scratch/pawsey1168/llenzo/crypt/kraken/output/kraken_db_search/data/cds/pathogen] \\
+    python kraken/db/kraken_db_busco.py \\
+        --busco-db-path /scratch/pawsey1168/llenzo/crypt/kraken/output/db/busco/data/busco_downloads \\
+        [--genomes-dir /scratch/pawsey1168/llenzo/crypt/kraken/output/db/search/data/cds/pathogen] \\
         [--busco-out   /scratch/pawsey1168/llenzo/kraken/busco] \\
         [--workers 16] [--cpus-per-busco 8]
         [--fungi-threshold 50.0] [--oomycete-threshold 65.0]
 
 Outputs:
-    kraken/output/kraken_db_busco/data/busco_scores.tsv        (tracked — final merged table)
-    kraken/output/kraken_db_busco/data/busco_scan_cache.tsv    (tracked — resumable raw score cache)
+    kraken/output/db/busco/data/busco_scores.tsv        (tracked — final merged table)
+    kraken/output/db/busco/data/busco_scan_cache.tsv    (tracked — resumable raw score cache)
     {busco-out}/{accession}/                                    (BUSCO run dirs, deleted after scoring)
 """
 
@@ -44,15 +44,15 @@ from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from _util import _Tee, make_log_dir, link_latest
 
-CANDIDATES_TSV = Path("kraken/output/kraken_db_search/data/ref_candidates.tsv")
-DEFAULT_GENOMES_DIR = Path("kraken/output/kraken_db_search/data/cds/pathogen")
-DEFAULT_BUSCO_DB    = Path("kraken/output/kraken_db_busco/data/busco_downloads")
+CANDIDATES_TSV = Path("kraken/output/db/search/data/ref_candidates.tsv")
+DEFAULT_GENOMES_DIR = Path("kraken/output/db/search/data/cds/pathogen")
+DEFAULT_BUSCO_DB    = Path("kraken/output/db/busco/data/busco_downloads")
 DEFAULT_BUSCO_OUT   = Path("/scratch/pawsey1168/llenzo/kraken/busco")  # ephemeral, cleared per-run
 
-OUT_DIR    = Path("kraken/output/kraken_db_busco")
+OUT_DIR    = Path("kraken/output/db/busco")
 DATA_DIR   = OUT_DIR / "data"
 SCAN_CACHE = DATA_DIR / "busco_scan_cache.tsv"
 FINAL_TSV  = DATA_DIR / "busco_scores.tsv"
@@ -393,7 +393,7 @@ def run_finalize(candidates: list, thresholds: dict) -> None:
     print(f"    Fallback (no score):  {n_no_option:>6,}  (busco_error / no_cds, only option)")
     print(f"  Thresholds: fungal >= {thresholds.get('fungal')}%,  oomycete >= {thresholds.get('oomycete')}%")
     print(f"\nOutput: {FINAL_TSV}")
-    print(f"Next:   python kraken/kraken_db_build.py")
+    print(f"Next:   python kraken/db/kraken_db_build.py")
 
 
 # ── main ──────────────────────────────────────────────────────────────────────

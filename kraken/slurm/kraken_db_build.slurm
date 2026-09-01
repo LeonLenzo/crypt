@@ -26,8 +26,8 @@ module load spack/0.23.1
 spack load kraken2
 
 SCRATCH="/scratch/pawsey1168/llenzo"
-DB_DIR="$SCRATCH/crypt/kraken/output/kraken_db_build/data/db_v2"
-GENOMES_DIR="$SCRATCH/crypt/kraken/output/kraken_db_search/data/cds/pathogen"
+DB_DIR="$SCRATCH/crypt/kraken/output/db/build/data/db_v2"
+GENOMES_DIR="$SCRATCH/crypt/kraken/output/db/search/data/cds/pathogen"
 
 mkdir -p kraken/slurm/logs
 mkdir -p "$DB_DIR"
@@ -36,7 +36,7 @@ echo "Starting Kraken2 build: $(date)"
 echo "DB dir:      $DB_DIR"
 echo "Genomes dir: $GENOMES_DIR"
 
-python kraken/kraken_db_build.py \
+python kraken/db/kraken_db_build.py \
     --db-dir "$DB_DIR" \
     --genomes-dir "$GENOMES_DIR" \
     --threads 32

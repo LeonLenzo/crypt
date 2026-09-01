@@ -1,27 +1,21 @@
 #!/usr/bin/env python3
 """
-kraken_classify.py — stream reads from ENA FTP and classify with Kraken2.
+kraken_classify.py — stream/read FASTQ and classify with Kraken2.
 
-For each run in {mode}_runs.json:
-  1. Query ENA portal for FASTQ FTP URLs
-  2. Stream N_READS from ENA (curl | gunzip | head) to a temp FASTQ
-  3. Run kraken2 --report against the pre-built database
-  4. Parse report: extract species-level detections + host %
-  5. Append result to kraken_cache.jsonl (one line per run, resumable)
+For each run (from --run-list or --runs-tsv):
+  1. Get reads — from --reads-dir (pre-downloaded) or stream from ENA FTP
+  2. Run kraken2 --report against the pre-built database
+  3. Parse report: extract species-level detections + host %
+  4. Append result to kraken_cache.jsonl (one line per run, resumable)
 
 Run from crypt/ on Setonix (requires kraken2 in PATH):
     module load kraken2   # or equivalent on Setonix
-    python kraken/classify.py --mode mal --db /scratch/kraken_db
-    python kraken/classify.py --mode hal --db /scratch/kraken_db
-    python kraken/classify.py --mode both --db /scratch/kraken_db
+    python kraken/classify.py --runs-tsv stat/output/stat_filter/data/runs.tsv --db /scratch/kraken_db
+    python kraken/classify.py --run-list PATH --reads-dir PATH --db /scratch/kraken_db
 
-Scale: ~593k runs total (MAL ~48k + HAL ~560k). At 500k reads/run with 8
-parallel workers, expect ~3-5 days on Setonix. Use Slurm array jobs for
-production runs (see kraken_classify.slurm).
-
-Reads from:  output/01_fetch_runs/data/{mode}_runs.json
-Output:      output/kraken_classify/data/kraken_cache.jsonl
-             output/kraken_classify/data/kraken_cache_index.txt
+Reads from:  --run-list PATH or --runs-tsv PATH (required — no default run source)
+Output:      kraken/output/classify/data/kraken_cache.jsonl
+             kraken/output/classify/data/kraken_cache_index.txt
 """
 
 import argparse
@@ -52,7 +46,6 @@ WORKERS            = 8          # parallel runs
 # Temp dir: use Setonix scratch if available, else system tmp
 SCRATCH = Path(os.environ.get("MYSCRATCH", tempfile.gettempdir())) / "kraken_tmp"
 
-IN_DIR  = Path("stat/output/fetch_runs/data")
 OUT_DIR = Path("kraken/output/classify")
 
 # ── ENA FTP helpers ───────────────────────────────────────────────────────────
@@ -320,14 +313,11 @@ def main() -> None:
     global N_READS
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--mode", choices=["mal", "hal", "both"], default="both",
-                    help="Mode filter when reading from JSON (ignored with --runs-tsv)")
     ap.add_argument("--runs-tsv", default=None, metavar="PATH",
-                    help="Read run IDs from runs.tsv (02_filter_runs output) instead of "
-                         "{mode}_runs.json. Preferred for targeted validation runs.")
+                    help="Read run IDs from stat/stat_filter.py's runs.tsv output.")
     ap.add_argument("--run-list", default=None, metavar="PATH",
                     help="Plain text file with one Run accession per line. "
-                         "Bypasses all other filters. Use with control/sample.py output.")
+                         "Bypasses all other filters.")
     ap.add_argument("--biosample-rep", action="store_true",
                     help="With --runs-tsv: keep only biosample_representative=True rows "
                          "(one run per biological sample)")
@@ -414,16 +404,8 @@ def main() -> None:
         fstr = " + ".join(filters) if filters else "none"
         print(f"Loaded {len(all_run_ids):,} runs from {tsv_path} (filters: {fstr})")
     else:
-        modes = ["mal", "hal"] if args.mode == "both" else [args.mode]
-        for mode in modes:
-            runs_path = IN_DIR / f"{mode}_runs.json"
-            if not runs_path.exists():
-                print(f"WARNING: {runs_path} not found — skipping {mode}")
-                continue
-            with open(runs_path) as f:
-                runs = json.load(f)
-            all_run_ids.extend(runs.keys())
-            print(f"Loaded {len(runs):,} {mode.upper()} runs from {runs_path}")
+        sys.exit("Error: pass --run-list PATH or --runs-tsv PATH — no default run "
+                  "source (see --help).")
 
     # ── Resume from cache ──────────────────────────────────────────────────────
     done = _load_cache_index(cache_dir)

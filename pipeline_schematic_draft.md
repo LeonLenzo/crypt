@@ -38,7 +38,7 @@ Three scripts in strict sequential order. All paths use the `stat/output/` tree.
   - `stat/output/stat_build/data/phibase_db.json` — kingdom-separated taxid maps (gitignored — code-not-data policy)
   - `stat/output/stat_build/logs/history/<timestamp>/{build.log,build_summary.txt}` (+ `.latest` symlinks — now tracked)
 - **Calls:** `ete3.NCBITaxa` only, no subprocess
-- **Feeds into:** `stat/stat_fetch.py`, `stat/stat_filter.py`, `kraken/kraken_db_search.py`, `metadata/meta_classify.py`, `kraken/figures/compare_host_pathogen.py` (path broken there, see Issues), `stat/diagnostics/*`
+- **Feeds into:** `stat/stat_fetch.py`, `stat/stat_filter.py`, `kraken/kraken_db_search.py`, `metadata/meta_classify.py`, `kraken/figures/compare_host_pathogen.py`, `stat/diagnostics/*`
 - **Note:** `ictv_vmr.xlsx` still sits in `data/` but is now orphaned — only the old `stat/legacy/build.py` read it (viruses dropped from scope in the 2026-08-03 eukaryotic-only pivot)
 
 ---
@@ -63,7 +63,7 @@ Three scripts in strict sequential order. All paths use the `stat/output/` tree.
   - `stat/output/stat_filter/logs/history/<timestamp>/...` (now tracked)
 - **Calls:** none (pure Python over already-local data)
 - **Key algorithm:** `specific_hits()` — leaf-level species detection via count nesting; `KINGDOM_THRESHOLDS`: Fungi ≥0.5%, Oomycota ≥0.5%, Nematoda ≥1.0%; MAL gate: Viridiplantae ≥1%; HAL gate: any euk pathogen ≥1%
-- **Feeds into:** the single most-consumed file in the pipeline — `stat/figures/prep_scatter.py`, `metadata/meta_search.py`, `metadata/meta_classify.py`, `kraken/kraken_db_search.py`, `kraken/kraken_run_select.py`, `kraken/classify.py`/`kraken/download.py` (via `--runs-tsv`)
+- **Feeds into:** the single most-consumed file in the pipeline — `stat/figures/prep_scatter.py`, `metadata/meta_search.py`, `metadata/meta_classify.py`, `kraken/kraken_db_search.py`, `kraken/kraken_run_select.py`, `kraken/classify.py` (via `--runs-tsv`)
 
 ---
 
@@ -132,11 +132,10 @@ see below). Low-priority cleanup: move both to `legacy/`.
 - **Inputs:** `bioprojects.json`, `text_cache.jsonl` → `metadata/output/figures/sankey/lit_resolution_data.tsv` → `lit_resolution_alluvial.{png,svg}` (ggplot2 + ggalluvial)
 - **Supersedes:** `metadata/figures/lit_resolution_sankey.py` (Plotly) — explicitly called "retired" in `prep_lit_resolution.py`'s own docstring, though never moved to legacy and still present at top level. **CLAUDE.md's active task list still lists building the Plotly version as an open TODO — it's stale; the R version already superseded it.**
 
-### `metadata/tools/export_review_lists.py`, `metadata/tools/review_designs.py` — broken, not just stale
-Both hardcode a pre-restructure `output/`/`scripts/` path tree (e.g.
-`output/05_llm_classify/data/bioproject_llm.tsv`) that **no longer exists anywhere in
-the repo**. Neither can run without a rewrite — this isn't docstring drift, it's a
-hard `FileNotFoundError`.
+### `metadata/tools/export_review_lists.py`, `metadata/tools/review_designs.py` — deleted 2026-09-01
+Both hardcoded a pre-restructure `output/`/`scripts/` path tree that no longer existed
+anywhere in the repo — genuinely broken (hard `FileNotFoundError`), not just stale.
+Deleted rather than fixed; would have needed a full rewrite either way.
 
 ### `metadata/legacy/` — excluded from git entirely, confirmed present locally (ncbi_metadata.py, web_metadata.py, undermind.py, fetch_xml.py, fetch_lit.py, filter_kw.py, llm_classify.py, serper_dump/resolve/scrape.py, backfill_doi.py, tissue_vocab.py, + legacy figures)
 
@@ -162,7 +161,7 @@ confirmed **fully removed** — dropped 2026-08-28, not just deprecated.
 - **Inputs:** `ref_candidates.tsv`; CDS already on disk at `cds/pathogen/`; BUSCO Singularity + lineage DBs (Setonix)
 - **Outputs:** `kraken/output/kraken_db_busco/data/{busco_scores.tsv, busco_scan_cache.tsv}` — thresholds fungi ≥50%, oomycete ≥65% (per-taxid fallback)
 - **Calls:** BUSCO via `subprocess.Popen`
-- **Feeds into:** `kraken/kraken_db_build.py`, `kraken/figures/busco_completeness.R` (path broken there, see Issues)
+- **Feeds into:** `kraken/kraken_db_build.py`, `kraken/figures/busco_completeness.R`
 
 ### `kraken/kraken_db_build.py` — submodule 1, step 3/3
 - **Inputs:** `busco_scores.tsv` (rows `selected=True`); CDS from `cds/pathogen/`; NCBI taxdump (auto-downloaded)
@@ -190,14 +189,13 @@ Kraken2 classification adapted from `classify.py`) but zero code written.
 - **Outputs:** `kraken/output/classify/data/{kraken_cache.jsonl, kraken_cache_index.txt}` (gitignored), optional per-run `.kreport` via `--reports-dir`
 - **Calls:** `kraken2` (subprocess, confidence=0.15, min-hit-groups=3)
 - **Feeds into:** nothing currently — no figure script reads `kraken_cache.jsonl` yet; `kraken/figures/compare_host_pathogen.py` instead expects a manually-scp'd `/tmp/setonix_kraken_metrics.json`
-- **Note:** dead fallback constant `IN_DIR = stat/output/fetch_runs/data` (pre-rename path) only triggers if neither `--run-list` nor `--runs-tsv` is passed — a landmine, not a hard break, for anyone running the bare documented invocation
+- **Status (2026-09-01):** requires `--run-list`/`--runs-tsv` explicitly now — the dead `IN_DIR` fallback landmine was removed. Kept in the active tree (not legacy) since it's the planned basis for `kraken_run_assign.py` ("light adaptation, not a rewrite" — already supports `--reads-dir` for pre-downloaded local reads, which is exactly what `kraken_run_select.py` produces).
 
-### `kraken/download.py`
-- **Inputs:** `--run-list` or `--runs-tsv` + `--biosample-rep`/`--hc`; `--reads-dir` (required)
-- **Outputs:** `{reads-dir}/{run}_{1,2}.fastq.gz`; `download_index.txt` + `errors.log`
-- **Calls:** curl (subprocess, ENA HTTPS)
-- **Feeds into:** `kraken/classify.py --reads-dir`
-- **Note:** docstring usage examples still reference `kraken/control/output/data/run_ids.txt` — dead, control subpipeline dropped
+### `kraken/legacy/download.py` — moved to legacy 2026-09-01
+Superseded by `kraken_run_select.py`'s built-in downloading (prefetch/fasterq-dump)
+— nothing in the current select→split→assign flow calls this anymore. Its SLURM
+wrapper (`download_runs.slurm`) moved to legacy alongside it. Excluded from git
+per the `kraken/legacy/` convention (matches `stat/legacy/`, `metadata/legacy/`).
 
 ### `kraken/benchmark_download.py`
 - **Inputs:** `--methods {ena-ftp,ena-https,sra-s3,prefetch}`, `--run-list` (else falls back to dead `kraken/control/output/data/control_runs.tsv` constant)
@@ -219,21 +217,24 @@ manually-scp'd file not produced by any tracked script.
 
 ---
 
-### `kraken/slurm/` — several stale, some pointing at dropped resources
+### `kraken/slurm/` — cleaned up 2026-09-01
 
 | Script | Calls | Status |
 |---|---|---|
 | `kraken_db_search.slurm` | `kraken_db_search.py --download --workers 16` | current (16 CPU/32G/8h) |
 | `kraken_db_busco.slurm` | `kraken_db_busco.py` | current (128 CPU/230G/24h) |
 | `kraken_db_build.slurm` | `kraken_db_build.py` → `db_v2` | current, only slurm file referencing `db_v2` |
-| `kraken_classify.slurm` | `classify.py --runs-tsv output/02_filter_runs/...` | **stale** — dead pre-restructure path + generic (non-`db_v2`) DB dir |
-| `kraken_classify_test.slurm` | `classify.py` → `$SCRATCH/kraken/db` | **stale** — not `db_v2` |
-| `kraken_classify_pathogens_test.slurm` | `classify.py` → `db_pathogens` | **stale** — `db_pathogens` dropped 2026-08-28 |
-| `smoke_classify.slurm` | `classify.py --run-list kraken/control/...` | **stale on two counts** — dropped control subpipeline + `db_pathogens` |
-| `download_runs.slurm` | `download.py` | current; comment references a not-yet-existing `host_split.py (TBD)` |
 | `benchmark_download.slurm`, `benchmark_workers.slurm` | `benchmark_download.py` | diagnostic, current |
 
+Deleted (all pointed at dropped resources — `db_pathogens`, the removed `control/`
+subpipeline, or a dead pre-restructure `runs.tsv` path): `kraken_classify.slurm`,
+`kraken_classify_test.slurm`, `kraken_classify_pathogens_test.slurm`,
+`smoke_classify.slurm`. A fresh wrapper will get written once `kraken_run_assign.py`
+exists. `download_runs.slurm` moved to `kraken/legacy/` alongside `download.py`
+(superseded by `kraken_run_select.py`'s built-in downloading).
+
 ### `kraken/pilot/` — legacy, excluded from git (kallisto + kraken pilot scripts, historical validation)
+### `kraken/legacy/` — excluded from git (`download.py`, `download_runs.slurm` — superseded by kraken_run_select.py)
 
 ---
 
@@ -245,7 +246,7 @@ stat/output/stat_build/data/phibase_db.json
                  →→  stat/stat_filter.py
                  →→  kraken/kraken_db_search.py
                  →→  metadata/meta_classify.py
-                 →→  kraken/figures/compare_host_pathogen.py  (broken path — see Issues)
+                 →→  kraken/figures/compare_host_pathogen.py
 
 stat/output/stat_fetch/data/stat_cache.jsonl  (unified: RunInfo + STAT per run)
   stat/stat_fetch.py  →→  stat/stat_filter.py
@@ -261,8 +262,8 @@ stat/output/stat_filter/data/runs.tsv  — the single most-consumed file in the 
                       →→  stat/figures/prep_scatter.py
                       →→  kraken/kraken_db_search.py
                       →→  kraken/kraken_run_select.py
-                      →→  kraken/classify.py / kraken/download.py  (via --runs-tsv)
-                      →→  kraken/figures/host_breakdown.py  (broken path)
+                      →→  kraken/classify.py  (via --runs-tsv)
+                      →→  kraken/figures/host_breakdown.py
 
 metadata/output/meta_search/data/bioprojects.json
   meta_search.py  →→  meta_text.py
@@ -285,7 +286,7 @@ kraken/output/kraken_db_search/data/ref_candidates.tsv
 
 kraken/output/kraken_db_busco/data/busco_scores.tsv
   kraken_db_busco.py  →→  kraken_db_build.py
-                      →→  kraken/figures/busco_completeness.R  (broken path)
+                      →→  kraken/figures/busco_completeness.R
 
 kraken/output/kraken_db_build/data/db_v2/
   kraken_db_build.py  →→  kraken/classify.py  (via --db, no code coupling)
@@ -298,28 +299,25 @@ kraken/output/kraken_run_select/data/run_list.tsv
 
 ## Issues found (2026-09-01 survey)
 
-### Genuinely broken, not just stale docstrings
+### Resolved 2026-09-01 (Leon reviewed each item individually)
 - `kraken/figures/compare_host_pathogen.py`, `kraken/figures/host_breakdown.py`,
-  `kraken/figures/busco_completeness.R` — hardcoded pre-rename paths in actual code,
-  will error/produce nothing if run today (table above).
+  `kraken/figures/busco_completeness.R` — hardcoded pre-rename paths fixed.
 - `metadata/tools/export_review_lists.py`, `metadata/tools/review_designs.py` —
-  hardcode a pre-restructure `output/`/`scripts/` tree that no longer exists anywhere
-  in the repo. Not runnable without a rewrite.
+  deleted (broken beyond docstring drift, hardcoded a dead `output/`/`scripts/` tree,
+  would have needed a full rewrite).
 - `kraken/slurm/kraken_classify.slurm`, `kraken_classify_test.slurm`,
-  `kraken_classify_pathogens_test.slurm`, `smoke_classify.slurm` — point at dropped
-  resources (`db_pathogens`, the removed `kraken/control/`, or a dead pre-restructure
-  `runs.tsv` path). Only `kraken_db_build.slurm`/`kraken_db_busco.slurm` reference
-  current `db_v2`.
-- `kraken/kraken_run_select.py`'s `reads/` output dir has no `.gitignore` coverage —
-  every other kraken large-data subdir does. Worth fixing before running at scale,
-  given last session's near-misses on committing large data.
+  `kraken_classify_pathogens_test.slurm`, `smoke_classify.slurm` — deleted (all
+  pointed at dropped resources; a fresh wrapper gets written once
+  `kraken_run_assign.py` exists).
+- `kraken/kraken_run_select.py`'s `reads/` output dir — `.gitignore` gap closed.
+- `kraken/classify.py`'s dead `IN_DIR` fallback landmine — removed; now requires
+  `--run-list`/`--runs-tsv` explicitly and fails loudly otherwise. Kept in the active
+  tree (still the planned basis for `kraken_run_assign.py`).
+- `kraken/download.py` — confirmed genuinely superseded by `kraken_run_select.py`'s
+  built-in downloading; moved to `kraken/legacy/` along with its SLURM wrapper
+  (`download_runs.slurm`).
 
-### Landmines (work today, break on the "obvious" invocation)
-- `kraken/classify.py` and `kraken/download.py` both fall back to a dead
-  `IN_DIR = stat/output/fetch_runs/data/{mode}_runs.json` path (format changed to
-  `stat_cache.jsonl` at rename) if neither `--run-list` nor `--runs-tsv` is passed.
-
-### Superseded but not moved to legacy/ (dead-end branches still runnable)
+### Still open — superseded but not moved to legacy/ (dead-end branches, still runnable)
 - `metadata/classify_metadata.py` → superseded by `meta_classify.py`
 - `metadata/figures/sample_funnel.py`, `sample_funnel_v2.py` → superseded by `sample_funnel_v3.py`
 - `metadata/figures/lit_resolution_sankey.py` (Plotly) → superseded by
@@ -369,11 +367,12 @@ kraken/output/kraken_run_select/data/run_list.tsv
 5. Within kraken/: DB-build sub-lane (kraken_db_search → kraken_db_busco →
    kraken_db_build, ending at `db_v2`) parallel to run/ sub-lane (kraken_run_select
    done; split/assign shown as dashed/greyed "not built yet" boxes)
-6. Figures collapse into one "Figures" box per module; mark the 3 broken
-   `kraken/figures/*` scripts and the 2 superseded-but-live metadata figure scripts
-   with a distinct "stale" style rather than omitting them (useful for a cleanup pass)
-7. Slurm wrappers as a dashed cluster boundary around their target script; mark the
-   4 stale kraken_classify* slurm variants distinctly
-8. Grey/out-of-scope boxes: `stat/legacy/`, `metadata/legacy/`, `stat/diagnostics/`,
-   `kraken/pilot/`, `metadata/tools/review_designs.py`,
-   `metadata/tools/export_review_lists.py` (both broken)
+6. Figures collapse into one "Figures" box per module; mark the remaining
+   superseded-but-live metadata figure scripts (`sample_funnel.py`/`_v2.py`,
+   `lit_resolution_sankey.py`) with a distinct "stale" style rather than omitting
+   them (useful for a future cleanup pass — see "Still open" above)
+7. Slurm wrappers as a dashed cluster boundary around their target script (now just
+   `kraken_db_search.slurm` → `kraken_db_busco.slurm` → `kraken_db_build.slurm` in
+   sequence, plus the two benchmark wrappers — the stale classify variants are gone)
+8. Grey/out-of-scope boxes: `stat/legacy/`, `metadata/legacy/`, `kraken/legacy/`,
+   `stat/diagnostics/`, `kraken/pilot/`

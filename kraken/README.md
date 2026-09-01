@@ -19,8 +19,14 @@ kraken/
 │                         already on disk, never downloads), apply completeness thresholds.
 ├── kraken_db_build.py    Submodule 1, step 3/3 — build the Kraken2 DB from BUSCO-selected
 │                         assemblies (reads CDS already on disk, never downloads).
-├── download.py           Submodule 2 (run/) — download FASTQ reads for classification.
-├── classify.py           Submodule 2 (run/) — classify downloaded reads with Kraken2.
+├── kraken_run_select.py  Submodule 2 (run/), step 1/3 — select target BioSamples from
+│                         samples.tsv, download reads (prefetch/fasterq-dump) + host CDS.
+├── kraken_run_split.py   Submodule 2 (run/), step 2/3 — NOT YET BUILT. BBSplit host-read
+│                         removal via a combined multi-reference index.
+├── kraken_run_assign.py  Submodule 2 (run/), step 3/3 — NOT YET BUILT. Kraken2
+│                         classification; planned as a light adaptation of classify.py.
+├── classify.py           Kraken2 classification (--run-list/--runs-tsv + --reads-dir or
+│                         ENA streaming) — planned basis for kraken_run_assign.py.
 ├── benchmark_download.py Diagnostic — ENA FTP vs HTTPS vs S3 vs prefetch throughput.
 ├── figures/               compare_host_pathogen.py, host_breakdown.py, busco_completeness.R
 └── slurm/                 SLURM wrappers for all of the above
@@ -68,21 +74,31 @@ after a threshold change only needs `kraken_db_busco.py --finalize-only` (no re-
 65%). The older `db_pathogens` pilot DB (pre-BUSCO-rebuild) was dropped 2026-08-28 once
 `db_v2` was confirmed current and working.
 
-## Classifying reads (submodule 2)
+## Running submodule 2 (select → split → assign)
 
 ```bash
-python kraken/download.py --run-list PATH --reads-dir PATH   # pre-download reads
-python kraken/classify.py --run-list PATH --reads-dir PATH   # classify with Kraken2
+python kraken/kraken_run_select.py --limit N --download   # select + download reads + host CDS
+python kraken/kraken_run_split.py                         # NOT YET BUILT — BBSplit host removal
+python kraken/kraken_run_assign.py                         # NOT YET BUILT — Kraken2 classification
 ```
 
-Confidence=0.15, min-hit-groups=3. Results append to `kraken/output/classify/data/kraken_cache.jsonl`.
+Only step 1 exists so far. `kraken/classify.py` (`--run-list`/`--runs-tsv` +
+`--reads-dir`, confidence=0.15, min-hit-groups=3, results append to
+`kraken/output/classify/data/kraken_cache.jsonl`) is the planned basis for
+`kraken_run_assign.py` — kept in the active tree for that reason, not yet wired into
+the new flow.
 
-**Validation target**: 473 field co-infected BioSamples from
-`metadata/figures/sample_funnel_v3.py` (11.1% biotic-only cryptic co-infection rate) —
-each comes with `pathogen_match_status`, named vs STAT-detected pathogens, and a full
-manuscript, making it straightforward to cross-check Kraken2 results against what
-authors actually reported. Not yet extracted into a run-list (`kraken_select.py`,
-not yet built).
+**Validation target**: ALL 2,719 field/aerial BioSamples from
+`metadata/figures/sample_funnel_v3.py` — corrected 2026-08-31 from an earlier draft
+scope of "the 473 already flagged cryptic-co-infected" (restricting to already-flagged
+samples would defeat the point of a validation pass meant to catch what STAT *missed*,
+e.g. the documented PST/rust blind spot, which shows up as "clean" per STAT). 467 of
+the 2,719 happen to already be flagged. Each comes with `pathogen_match_status`, named
+vs STAT-detected pathogens, and a full manuscript.
+
+`kraken/download.py` (the old ENA-curl-based downloader) is superseded by
+`kraken_run_select.py`'s built-in prefetch/fasterq-dump downloading and has moved to
+`kraken/legacy/`.
 
 ## Pilot results
 
@@ -115,7 +131,7 @@ migration to the new scripts was verified to reproduce `db_v2`'s exact compositi
 no data loss. Also dropped: the 2,473-run stratified SRA control set (`control/sample.py`)
 and in silico controls (`control/insilico.py`, stratum J) — abandoned per Leon 2026-08-28,
 those runs turned out to have unknown ground truth and weren't suitable as controls; the
-473-BioSample field co-infected target (above) replaces them as the validation set.
+2,719-BioSample field/aerial target (above) replaces them as the validation set.
 
 ## Key output files
 
@@ -125,3 +141,4 @@ those runs turned out to have unknown ground truth and weren't suitable as contr
 | `kraken/output/kraken_db_busco/data/busco_scores.tsv` | Merged: candidate metadata + BUSCO score + pass/fail + final `selected` decision |
 | `kraken/output/kraken_db_build/data/db_v2/` | Current Kraken2 DB (gitignored; see `manifest.tsv` alongside it) |
 | `kraken/output/classify/data/kraken_cache.jsonl` | Append-only classification cache; one JSON object per run |
+| `kraken/output/kraken_run_select/data/run_list.tsv` | Submodule 2 target BioSamples/Runs + host resolution + download status |

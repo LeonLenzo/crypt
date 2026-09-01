@@ -46,6 +46,7 @@ stat/output/figures/scatter/scatter_data.tsv
 # fully wiped rather than kept at all — see kraken/README.md "History").
 metadata/legacy/
 stat/legacy/
+kraken/legacy/
 
 # classify_metadata.py output — superseded by meta_classify.py's samples.tsv
 # (classify_metadata.py itself not yet moved to legacy/ — separate, low

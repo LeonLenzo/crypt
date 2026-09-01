@@ -4,97 +4,83 @@
 
 A co-infection detection in isolation carries limited biological meaning without study design context. The central confound is that not all positive detections represent ecologically authentic co-infections: a run from a co-inoculation experiment, an abiotic stress trial with a pathogen treatment, or a controlled greenhouse inoculation may show secondary signal by design, not by incidental co-infection. Conversely, a field-collected sample showing secondary signal is far more likely to represent a genuine unreported co-infection.
 
-This module enriches the STAT detections from `runs.tsv` with three layers of context: (1) BioProject and BioSample XML metadata, (2) linked literature and methods sections, and (3) LLM-based study design classification. Together these allow stratification of detections by study intent, setting, and host tissue — the necessary prerequisite for any epidemiological interpretation.
+This module enriches the STAT detections from `runs.tsv` with three layers of context: (1) BioProject and BioSample metadata (including ENA/DDBJ BioSamples, which return empty from NCBI efetch), (2) linked literature and full manuscript text, and (3) LLM-based study design classification. Together these allow stratification of detections by study intent, setting, tissue, and stated pathogen/host — the necessary prerequisite for any epidemiological interpretation.
 
 ## Methods
 
-### BioProject and BioSample metadata
+### BioProject and BioSample metadata + literature linkage (`meta_search.py`)
 
-`metadata/fetch_xml.py` retrieves BioProject XML and BioSample XML records for all accessions in `runs.tsv` via NCBI Entrez POST efetch (batched to avoid URL-length limits). BioSample attributes are parsed for a harmonised field set: `geo_loc_name`, `tissue`, `collection_date`, `age`, `sex`, `disease`, `treatment`, and `description`. Coverage is uneven — the SRA submission process does not mandate these fields — with `geo_loc_name` present in 61% of samples, `tissue` in 56%, and `collection_date` in 42%. The resulting `bioprojects.json` and `biosamples.json` feed all downstream classification steps.
+`metadata/meta_search.py` resolves BioProject/BioSample metadata and literature identifiers in one atomic pass per BioProject, matching NCBI's actual resolution cascade: BioProject XML `<Publication>` field → PMC full-text search → PubMed title search — all NCBI-XML derived, including bare-DOI-no-PMID cases. Only if all three find nothing does it fall through to a Serper web search, then finally DOI extraction/page scrape/CrossRef/PMC-by-DOI. This replaces the old `ncbi_metadata.py` + `web_metadata.py` split.
 
-### Literature linkage
+BioSample XML is parsed for a harmonised field set (`geo_loc_name`, `tissue`, `collection_date`, `isolation_source`, `dev_stage`, `lat_lon`, `host`). Coverage is uneven — the SRA submission process does not mandate these fields, and a nontrivial fraction of populated fields are NCBI placeholder values (`missing`, `not applicable`, `not collected`) rather than real data — see Results below for filtered coverage numbers. `meta_search.py` also fetches ENA/DDBJ BioSamples (`SAME*`/`SAMD*` accessions, which return empty from NCBI efetch) via the EBI BioSamples API; its `bs_description` field (e.g. "RNA-Seq of a field sample of Wheat Yellow Rust") is a particularly strong signal fed directly into the LLM classification prompt.
 
-Literature resolution uses a DOI-first schema: `primary_doi` is the canonical publication identifier (universal across journals, preprints, and data notes), with `primary_pmid` as a secondary identifier when the DOI maps to a PubMed record. This schema extension from PMID-only was necessary to capture the ~2.5% of BioProjects linked only to preprints or data papers not indexed by PubMed.
+### Full-text retrieval (`meta_text.py`)
 
-`metadata/fetch_lit.py` resolves a primary DOI and/or PMID for each BioProject via a six-strategy short-circuit search, stopping at the first successful hit:
+`metadata/meta_text.py` retrieves full manuscript text, in cascade order: PMC OA full-text XML (free, complete, no PDF-parsing artifacts, when `meta_search.py` already resolved a PMCID) → Unpaywall → PDF download → `pdfminer` extraction → manual PDF fallback (`--ingest-manual`, for hand-downloaded PDFs matched against the failed-DOI list). `--apply` writes `full_text` back into `bioprojects.json` in place, which gates entry into classification below — **only BioProjects with retrievable full text are classified at all**, avoiding the old pipeline's failure mode of guessing study design from a title alone.
 
-1. BioProject XML `<Publication>` field
-2. PMC full-text search by BioProject accession
-3. Europe PMC search by BioProject accession
-4. ENA XML project record
-5. Semantic Scholar title search (requires `S2_API_KEY`)
-6. PubMed title search
+### LLM study design classification (`meta_classify.py`)
 
-Where a PMID is resolved, the PMC full-text methods section is retrieved and stored. Three supplementary resolution passes handle BioProjects not resolved by `fetch_lit.py`:
+`metadata/meta_classify.py` replaces the old keyword-based classifier (`filter_kw.py`) and single-pass LLM classifier (`llm_classify.py`) entirely — keyword classification is not used at all in the current pipeline; the old approach's ~51% misclassification rate for `host_study` (pathogen/disease language co-occurring with host biology language) made it unreliable as anything but a discarded baseline.
 
-- **`backfill_doi.py`**: batch-fills `primary_doi` for the ~930 BioProjects that had a PMID but no DOI, via NCBI efetch ArticleIdList. Ensures DOI is populated for all PMID-linked records.
-- **`serper_resolve.py`**: reads saved Google Serper search results (`metadata/output/serper/serper_results.tsv`), extracts DOIs from academic domain links and snippets, resolves to PMIDs via PubMed → EuropePMC, and enriches DOI-only results via CrossRef. Resolves ~64 additional BioProjects.
-- **`serper_scrape.py`**: for BioProjects with Serper hits that did not yield a DOI via link extraction alone, attempts page scraping and title search. Resolves ~39 additional BioProjects.
+Six LLM calls per BioProject (`gpt-4o-mini`): five independent judgment dimensions — `stress` (biotic/abiotic/none), `study_setting` (field/greenhouse/growth_chamber/detached_leaf_assay/in_vitro/unclear), `tissue` (aerial/non-aerial/unclear), `coinfection_intent` (single_pathogen_focus/not_disease_focused/intentional_multi_pathogen), and `hostpath` (named pathogens + named hosts, each as a list with its own confidence) — each with its own confidence + rationale, plus one fact-extraction call for symptom status, exposure type, geographic location, library prep, host cultivar, and host resistance. `--focus {stress|setting|tissue|coinfection|hostpath|extract}` reruns a single dimension.
 
-Where no PMID is available, `primary_doi` alone is sufficient: CrossRef provides title, abstract, and publication date for any DOI, and the abstract is stored for downstream LLM classification. A final manual DOI entry step resolved 31 bot-blocked BioProjects (ScienceDirect and ResearchGate pages) from the Serper unresolved set.
+A separate per-BioSample host disambiguation pass (`--disambiguate-hosts`) resolves which specific host a BioSample belongs to when a BioProject's `named_hosts` has more than one value (e.g. a rust fungus's alternate-host life cycle spanning two plant genera) — `named_hosts` itself is extracted once per BioProject and would otherwise be duplicated identically across every BioSample in a multi-host study, which is structurally wrong for per-sample analysis. The disambiguation prompt uses per-BioSample metadata (`bs_host`, `bs_description`, `tissue`, `isolation_source`) to pick the best-matching candidate, with its own confidence + rationale, and its own cache keyed by BioSample (not BioProject) — including the exact candidate list each resolution was made against, so a later prompt improvement that reshapes the candidates correctly invalidates stale resolutions rather than silently keeping them.
 
-**A critical validation note**: PubMed `esearch` with a `[doi]` term performs fuzzy matching. For ResearchSquare preprint DOIs (pattern `10.21203/rs.3.*`), it returns `count > 1` with unrelated PMIDs. All DOI-to-PMID lookups therefore require `count == 1` before accepting the returned PMID.
-
-### Keyword study design classification
-
-`metadata/filter_kw.py` assigns each BioSample to a treatment category (`single`, `host_study`, `abiotic_stress`, `coinf_experiment`, `surveillance`, `combined_stress`, `unclear`) and setting (`field`, `lab`, `unclear`) using a curated keyword vocabulary applied to BioSample attributes and BioProject title/description. Keyword classification has known limitations: approximately 51% of BioProjects assigned `host_study` by keyword actually belong to other categories, because pathogen and disease language co-occurs with host biology language in study descriptions. Keyword results are retained in `biosample_kw.tsv` but the LLM classification is preferred for downstream analysis.
-
-### LLM study design classification
-
-`metadata/llm_classify.py` submits each BioProject's title, description, and (where available) PMC methods text to GPT-4o-mini for classification into the same treatment and setting vocabulary. The LLM prompt explicitly distinguishes between studies that inoculate plants with a known pathogen (controlled) and studies that collected plants from field environments (field). Classification is cached per BioProject in `llm_classify/data/classify_cache.jsonl` to enable resumable runs and avoid re-billing already-classified entries.
+Author-named pathogens/hosts are resolved to NCBI taxids deterministically in plain Python afterward (`_util.resolve_taxon_name()`), never asked of the LLM — an LLM recalling taxids from memory produces confident-looking wrong numbers.
 
 ## Results
 
-The metadata module enriches all 1,285 BioProjects and 9,002 BioSamples from `runs.tsv`.
+The metadata module enriches all 1,285 BioProjects and 9,002 BioSamples from `runs.tsv`. Of those, 732 BioProjects (6,467 BioSamples) pass the full-text gate and are LLM-classified.
 
-**Literature resolution coverage (9,005 BioSamples; 1,287 BioProjects in runs.tsv):**
+**Literature resolution coverage (1,286 BioProjects):**
 
-| Coverage tier | BioSamples | % |
+| Coverage tier | BioProjects | % |
 |--------------|-----------|---|
-| Has PMID | 6,279 | 69.8% |
-| DOI-only (no PubMed record) | 229 | 2.5% |
-| **Any publication identifier** | **6,508** | **72.3%** |
-| Has abstract | 6,421 | 71.3% |
-| Has methods text (PMC full-text) | 5,393 | 59.9% |
-| Unresolved | 2,496 | 27.7% |
+| Has PMID | 707 | 55.0% |
+| DOI-only (no PubMed record) | 39 | 3.0% |
+| **Any publication identifier** | **746** | **58.0%** |
+| Has abstract | 721 | 56.1% |
+| Has full manuscript text | 733 | 57.0% |
 
-The DOI-first refactor expanded total publication coverage from ~65% (PMID-only strategy) to 72.3% of BioSamples. DOI-only BioProjects now have CrossRef abstracts, enabling LLM classification of ~229 additional BioSamples previously inaccessible to the PMC-only methods extraction.
+**BioSample XML field coverage (9,002 BioSamples, excluding NCBI placeholder values like `missing`/`not applicable`):**
 
-**LLM treatment classification (1,285 BioProjects):**
+| Field | BioSamples | % |
+|-------|-----------|---|
+| `geo_loc_name` | 5,035 | 55.9% |
+| `collection_date` | 4,172 | 46.3% |
+| `tissue` | 4,443 | 49.4% |
 
-| Treatment | BioProjects |
-|-----------|-------------|
-| Single pathogen | 895 |
-| Host biology study | 219 |
-| Abiotic stress | 94 |
-| Co-infection experiment | 21 |
-| Surveillance | 6 |
-| Unclear | 50 |
+**LLM study design classification (732 full-text BioProjects):**
 
-The dominance of single-pathogen studies (70%) reflects the sampling design: both MAL and HAL query by known PHI-base pathogen species, selecting for experiments with a defined pathogen target. The 21 co-infection experiments are flagged for manual exclusion from co-infection rate calculations, as their secondary detections are experimental rather than incidental.
+| Stress | BioProjects | | Coinfection intent | BioProjects |
+|--------|-------------|-|---------------------|-------------|
+| Biotic | 601 | | Single-pathogen focus | 530 |
+| Abiotic | 94 | | Not disease-focused | 133 |
+| None | 37 | | Intentional multi-pathogen | 69 |
 
-**Setting effect on co-infection rate:**
+The dominance of single-pathogen-focus studies (530/732, 72%) reflects the sampling design: both MAL and HAL query by known PHI-base pathogen species, selecting for experiments with a defined pathogen target. The 69 intentional-multi-pathogen BioProjects are flagged (`llm_coinfection_intent == "intentional_multi_pathogen"`) for exclusion from co-infection rate calculations, as their secondary detections are experimental rather than incidental.
 
-LLM study setting classification reveals a clear ecological signal. Field-classified BioProjects show a co-infection rate of 22.7% (277/1,219 biosample-representative runs) versus 11.4% (531/4,650) in controlled laboratory settings. This approximately twofold difference is consistent with the ecological hypothesis: field samples encounter ambient pathogen pressure absent from controlled environments, and co-infecting organisms present at the time of sampling are captured in the sequencing library alongside the target pathogen.
+**Setting effect on co-infection rate** (see `metadata/figures/sample_funnel_v3.py`, 6,467 classified BioSamples): field-collected BioSamples show an 11.1% biotic-only cryptic co-infection rate versus 4.0% in greenhouse and 7.8% in other controlled settings (growth chamber, detached-leaf assay, in vitro) — the field rate is roughly 2.8x the greenhouse rate, consistent with the ecological hypothesis that field samples encounter ambient pathogen pressure absent from controlled environments.
 
 ## Limitations
 
-**LLM classification errors.** GPT-4o-mini classification is not verified against ground truth for the full corpus. Manual review of a subset of BioProjects showed broadly accurate treatment assignments, but edge cases exist — particularly where the BioProject description is sparse and no PMC methods text was available. The `llm_rationale` column in `bioproject_llm.tsv` retains the model's stated reasoning for each classification and should be consulted when individual BioProject assignments are used in analysis.
+**LLM classification errors.** GPT-4o-mini classification is not verified against ground truth for the full corpus. Each of the five judgment dimensions carries its own `llm_*_confidence`/`llm_*_rationale` pair (in `samples.tsv`) and should be consulted when individual BioProject/BioSample assignments are used in analysis, rather than trusting the label alone.
 
-**Publication coverage.** Despite six primary strategies plus three supplementary passes, 27.7% of BioSamples (2,496 BioSamples; 517 BioProjects) remain unresolved. Unresolved submissions skew toward data-only repositories, unpublished surveillance datasets, and multi-omics portals (OmicsDI, GOLD, SEQout) that do not link to a primary publication. Studies without any publication identifier likely bias the `field` count downward, as field monitoring datasets are disproportionately represented in the unpublished tier.
+**Publication coverage.** 42.0% of BioProjects (540/1,286) have no publication identifier at all, and classification is further gated on full-text retrieval succeeding (57.0% of BioProjects) — so the analysable population (732 BPs) is a real subset of the full screened corpus, not all of it. Unresolved/no-full-text submissions skew toward data-only repositories, unpublished surveillance datasets, and multi-omics portals that do not link to a primary publication or whose publisher blocks automated + manual PDF retrieval.
 
-**BioSample XML field coverage.** Geographic (`geo_loc_name`: 61%), tissue (56%), and temporal (`collection_date`: 42%) metadata are available for only a subset of samples, limiting spatial and temporal analyses of co-infection distribution. The `tissue` field in particular would be valuable for distinguishing whether co-infections are tissue-specific (e.g., root vs. leaf pathogens) but cannot be used systematically given incomplete coverage.
+**BioSample XML field coverage.** Geographic (56%), temporal (46%), and tissue (49%) metadata are available for only about half of samples (after excluding placeholder values), limiting spatial and temporal analyses of co-infection distribution.
+
+**Host attribution granularity.** `named_hosts`/`named_pathogens` are extracted once per BioProject, not per BioSample — correct for genuinely BioProject-constant judgments (stress, setting, tissue) but only an approximation for the ~147 multi-host BioProjects, where the per-BioSample disambiguation pass (above) is needed for a confident per-sample host assignment; even then, only BioSamples with clear supporting metadata (`bs_host` etc.) get a confident resolution — the rest are correctly left `unresolved` rather than guessed.
 
 ## Key output files
 
 | File | Contents |
 |------|----------|
-| `metadata/output/fetch_xml/data/bioprojects.json` | BioProject XML records for 1,285 BioProjects |
-| `metadata/output/fetch_xml/data/biosamples.json` | BioSample XML attributes for 9,002 samples |
-| `metadata/output/fetch_lit/data/literature.json` | Resolved DOIs, PMIDs, abstracts, and PMC methods text (tracked) |
-| `metadata/output/fetch_lit/data/lit_cache.json` | Full resolution cache with provenance fields (gitignored; 1.9 GB) |
-| `metadata/output/serper/serper_results.tsv` | Raw Google Serper results for 889 unresolved BioProjects |
-| `metadata/output/serper/unresolved_hits.tsv` | 198 BPs still unresolved after all strategies; Serper top-3 links per BP |
-| `metadata/output/filter_kw/data/biosample_kw.tsv` | 9,002-row biosample table; keyword treatment/setting + metadata |
-| `metadata/output/llm_classify/data/bioproject_llm.tsv` | 1,285-row BioProject table; `llm_treatment`, `llm_study_setting`, `llm_rationale` |
-| `metadata/output/figures/sankey/lit_resolution_sankey.html` | Interactive Sankey: BioSample flow through each resolution strategy |
+| `metadata/output/meta_search/data/bioprojects.json` | Title, description, submission/pub date, pmid/doi/pmcid, abstract, full_text — 1,286 BioProjects |
+| `metadata/output/meta_search/data/biosamples.json` | BioSample XML attributes — 9,002 samples (incl. ENA/DDBJ via EBI API) |
+| `metadata/output/meta_text/data/failed_dois.tsv` | BioProjects with a DOI but no full text retrieved by any automated strategy |
+| `metadata/output/meta_classify/data/samples.tsv` | **Primary analysis input.** One row per biosample_representative BioSample, full-text BioProjects only — 6,467 rows. See CLAUDE.md's Output schemas section for the full column list. |
+| `metadata/output/meta_classify/data/classify_cache.jsonl` | Per-BioProject LLM classification cache (resumable) |
+| `metadata/output/meta_classify/data/host_disambig_cache.jsonl` | Per-BioSample host disambiguation cache |
+| `metadata/output/figures/sankey/sample_funnel_v3.html` | Interactive Sankey: BioSample flow from full-text retrieval through tissue/setting/stress to co-infection outcome |
+| `metadata/output/figures/sankey/lit_resolution_alluvial.png` | Literature resolution flow through each strategy |

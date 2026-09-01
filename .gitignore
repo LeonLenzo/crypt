@@ -85,7 +85,6 @@ kraken/pilot/kallisto/reads/
 kraken/pilot/kallisto/refs/
 kraken/pilot/kraken/kraken_db/
 kraken/pilot/kraken/reads/
-scripts/diagnostics/*.log
 
 # Kraken2 pipeline data — lives on Setonix scratch (~200GB: CDS downloads, BUSCO
 # lineage caches, Kraken2 DBs, downloaded FASTQ). Ignore the data by exact subdir

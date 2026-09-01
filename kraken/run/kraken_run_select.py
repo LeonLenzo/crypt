@@ -44,6 +44,10 @@ Run on Setonix (requires sra-tools: prefetch, fasterq-dump; NCBI datasets CLI):
 
 Output:
     kraken/output/run/select/data/run_list.tsv   (tracked — Run/BioSample/host/status)
+    kraken/output/run/select/data/host_taxid_to_accession.json  (tracked — every
+        candidate taxid's downloaded accession, not just the resolved host per row;
+        consumed by kraken_run_split.py to find/build a per-taxid index for each
+        of a sample's named candidates)
     kraken/output/run/select/data/reads/{run}_1.fastq.gz [+ _2]  (gitignored)
     kraken/output/db/search/data/cds/host/{accession}/           (gitignored, shared pool)
 """
@@ -57,7 +61,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
-from _util import _Tee, make_log_dir, link_latest
+from _util import _Tee, make_log_dir, link_latest, load_json, save_json
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "db"))
 from kraken_db_search import download_cds, datasets_query, quality_key, scaffold_plus
@@ -70,6 +74,9 @@ DATA_DIR  = OUT_DIR / "data"
 RUN_LIST  = DATA_DIR / "run_list.tsv"
 READS_DIR = DATA_DIR / "reads"
 HOST_CDS_DIR = Path("kraken/output/db/search/data/cds/host")
+# Every candidate taxid -> its downloaded accession (not just the resolved host —
+# kraken_run_split.py needs this for every candidate to build/find per-taxid indices).
+HOST_TAXID_MAP = DATA_DIR / "host_taxid_to_accession.json"
 
 RUN_LIST_COLS = [
     "Run", "BioSample", "BioProject", "llm_host_resolved", "host_taxid",
@@ -305,16 +312,24 @@ def main():
         print(f"Runs to process: {len(run_rows)}")
 
         # ── fetch one best CDS assembly per distinct host taxid ───────────────
-        taxid_to_accession = {}
+        # Persisted to HOST_TAXID_MAP (every candidate, not just the resolved host
+        # per row) — kraken_run_split.py needs this to find/build an index for each
+        # of a sample's named candidates, not only the one meta_classify.py resolved.
+        taxid_to_accession = {int(k): v for k, v in load_json(HOST_TAXID_MAP).items()}
         if args.download and host_taxids_needed:
-            print(f"\nFetching host CDS for {len(host_taxids_needed)} distinct taxids …")
-            with ThreadPoolExecutor(max_workers=args.workers) as pool:
-                futs = {pool.submit(ensure_host_cds, tid): tid for tid in host_taxids_needed}
-                for fut in as_completed(futs):
-                    tid = futs[fut]
-                    acc = fut.result()
-                    taxid_to_accession[tid] = acc
-                    print(f"  host taxid {tid}: {'OK ' + acc if acc else 'FAILED'}", flush=True)
+            already_done = {t for t in host_taxids_needed if t in taxid_to_accession}
+            todo = host_taxids_needed - already_done
+            print(f"\nHost CDS: {len(already_done)} taxids already resolved "
+                  f"(from a prior run), {len(todo)} to fetch …")
+            if todo:
+                with ThreadPoolExecutor(max_workers=args.workers) as pool:
+                    futs = {pool.submit(ensure_host_cds, tid): tid for tid in todo}
+                    for fut in as_completed(futs):
+                        tid = futs[fut]
+                        acc = fut.result()
+                        taxid_to_accession[tid] = acc
+                        print(f"  host taxid {tid}: {'OK ' + acc if acc else 'FAILED'}", flush=True)
+                save_json({str(k): v for k, v in taxid_to_accession.items()}, HOST_TAXID_MAP)
             for row in run_rows:
                 if row["host_taxid"]:
                     row["host_accession"] = taxid_to_accession.get(int(row["host_taxid"]), "")

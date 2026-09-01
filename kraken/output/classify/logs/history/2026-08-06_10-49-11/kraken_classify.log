@@ -1,0 +1,56 @@
+Reads will be discarded after classification (use --reads-dir to keep)
+Raw kraken2 reports will be saved to: output/kraken_classify/data/reports
+Loaded 48,418 MAL runs from output/01_fetch_runs/data/mal_runs.json
+--limit 40: processing 40 runs
+
+Total runs: 48,418 | Already done: 0 | Remaining: 40
+Settings: n_reads=500,000, confidence=0.15, workers=4, kraken_threads=4
+DB: kraken/db
+Tmp: /tmp/kraken_tmp
+
+[      1/40] ERR1248475  0.4% classified  | 0.0/s  ETA 0.8h
+[      2/40] ERR266134  29.1% classified  | 0.0/s  ETA 0.6h
+[      3/40] DRR848233  82.7% classified  | 0.0/s  ETA 0.6h
+[      4/40] ERR3327117  0.0% classified  | 0.0/s  ETA 0.6h
+[      5/40] ERR4369937  ERR(stream_failed)  | 0.0/s  ETA 0.5h
+[      6/40] DRR857211  75.7% classified  | 0.0/s  ETA 0.4h
+[      7/40] ERR3170195  67.6% classified  | 0.0/s  ETA 0.4h
+[      8/40] ERR5490438  0.1% classified  | 0.0/s  ETA 0.3h
+[      9/40] ERR4315247  74.5% classified  | 0.0/s  ETA 0.3h
+[     10/40] SRR2932779  58.3% classified  | 0.0/s  ETA 0.4h
+[     11/40] ERR5960078  78.5% classified  | 0.0/s  ETA 0.3h
+[     12/40] SRR6833322  0.2% classified  | 0.0/s  ETA 0.3h
+[     13/40] SRR2079621  35.5% classified  | 0.0/s  ETA 0.3h
+[     14/40] SRR1171035  86.5% classified  | 0.0/s  ETA 0.3h
+[     15/40] SRR8244441  0.1% classified  | 0.0/s  ETA 0.3h
+[     16/40] SRR8707252  1.1% classified  | 0.0/s  ETA 0.3h
+[     17/40] SRR8275515  76.0% classified  | 0.0/s  ETA 0.2h
+[     18/40] SRR8239057  75.9% classified  | 0.0/s  ETA 0.2h
+[     19/40] SRR9677467  0.3% classified  | 0.0/s  ETA 0.2h
+[     20/40] SRR9663124  0.9% classified  | 0.0/s  ETA 0.2h
+[     21/40] SRR9997709  67.7% classified  | 0.0/s  ETA 0.2h
+[     22/40] SRR9997707  68.8% classified  | 0.0/s  ETA 0.2h
+[     23/40] SRR11002782  71.3% classified  | 0.0/s  ETA 0.2h
+[     24/40] SRR11085434  82.1% classified  | 0.0/s  ETA 0.2h
+[     25/40] SRR11721997  5.1% classified  | 0.0/s  ETA 0.2h
+[     26/40] SRR12172940  55.6% classified  | 0.0/s  ETA 0.2h
+[     27/40] SRR12855409  64.2% classified  | 0.0/s  ETA 0.1h
+[     28/40] SRR14753841  4.2% classified  | 0.0/s  ETA 0.1h
+[     29/40] SRR13349983  84.2% classified  | 0.0/s  ETA 0.1h
+[     30/40] SRR16352507  81.8% classified  | 0.0/s  ETA 0.1h
+[     31/40] SRR16796993  60.2% classified  | 0.0/s  ETA 0.1h
+[     32/40] SRR22393097  1.5% classified  | 0.0/s  ETA 0.1h
+[     33/40] SRR21284811  70.8% classified  | 0.0/s  ETA 0.1h
+[     34/40] SRR16965071  0.1% classified  | 0.0/s  ETA 0.1h
+[     35/40] SRR20644641  0.0% classified  | 0.0/s  ETA 0.1h
+[     36/40] SRR32908671  80.1% classified  | 0.0/s  ETA 0.0h
+[     37/40] SRR23943557  0.2% classified  | 0.0/s  ETA 0.0h
+[     38/40] SRR27300087  4.1% classified  | 0.0/s  ETA 0.0h
+[     39/40] SRR24451023  72.2% classified  | 0.0/s  ETA 0.0h
+[     40/40] SRR27461705  1.6% classified  | 0.0/s  ETA 0.0h
+
+── Summary ────────────────────────────────────────
+  Classified: 39
+  Errors:     1
+  Elapsed:    0.4h
+  Cache:      output/kraken_classify/data/kraken_cache.jsonl

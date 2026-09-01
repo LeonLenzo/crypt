@@ -1,0 +1,67 @@
+Reads will be discarded after classification (use --reads-dir to keep)
+Loaded 48,418 MAL runs from output/01_fetch_runs/data/mal_runs.json
+--limit 100: processing 100 runs
+
+Total runs: 48,418 | Already done: 0 | Remaining: 100
+Settings: n_reads=500,000, confidence=0.1, workers=8, kraken_threads=4
+DB: kraken/db
+Tmp: /tmp/kraken_tmp
+
+[      1/100] ERR4369937  ERR(stream_failed)  | 0.1/s  ETA 0.3h
+[      2/100] ERR1248475  0.0% classified  | 0.0/s  ETA 1.1h
+[      3/100] ERR5490438  0.0% classified  | 0.0/s  ETA 0.8h
+[      4/100] ERR3327117  0.0% classified  | 0.0/s  ETA 0.7h
+[      5/100] ERR266134  29.9% classified  | 0.0/s  ETA 0.6h
+[      6/100] DRR848233  100.0% classified  | 0.0/s  ETA 0.7h
+[      7/100] SRR2932779  60.9% classified  | 0.0/s  ETA 0.7h
+[      8/100] DRR857211  76.9% classified  | 0.0/s  ETA 0.6h
+[      9/100] ERR4315247  46.6% classified  | 0.0/s  ETA 0.6h
+[     10/100] SRR6833322  0.1% classified  | 0.0/s  ETA 0.5h
+[     11/100] ERR5960078  60.5% classified  | 0.0/s  ETA 0.6h
+[     12/100] ERR3170195  62.5% classified  | 0.0/s  ETA 0.5h
+[     13/100] SRR8244441  0.1% classified  | 0.0/s  ETA 0.5h
+[     14/100] SRR8239057  76.4% classified  | 0.1/s  ETA 0.5h
+[     15/100] SRR8707252  0.0% classified  | 0.1/s  ETA 0.5h
+[     16/100] SRR2079621  37.0% classified  | 0.1/s  ETA 0.4h
+[     17/100] SRR8275515  76.4% classified  | 0.1/s  ETA 0.4h
+[     18/100] SRR1171035  0.5% classified  | 0.1/s  ETA 0.4h
+[     19/100] SRR9677467  0.0% classified  | 0.1/s  ETA 0.4h
+[     20/100] SRR12172940  57.5% classified  | 0.1/s  ETA 0.4h
+[     21/100] SRR11721997  0.0% classified  | 0.0/s  ETA 0.5h
+[     22/100] SRR12855409  65.7% classified  | 0.0/s  ETA 0.5h
+[     23/100] SRR9997707  21.7% classified  | 0.0/s  ETA 0.4h
+[     24/100] SRR9997709  0.7% classified  | 0.1/s  ETA 0.4h
+[     25/100] SRR9663124  0.8% classified  | 0.1/s  ETA 0.4h
+[     26/100] SRR11085434  83.1% classified  | 0.1/s  ETA 0.4h
+[     27/100] SRR11002782  72.7% classified  | 0.1/s  ETA 0.4h
+[     28/100] SRR14753841  0.1% classified  | 0.0/s  ETA 0.4h
+[     29/100] SRR22393097  0.7% classified  | 0.0/s  ETA 0.4h
+[     30/100] SRR21284811  71.4% classified  | 0.1/s  ETA 0.4h
+[     31/100] SRR13349983  1.1% classified  | 0.0/s  ETA 0.4h
+[     32/100] SRR16796993  20.0% classified  | 0.0/s  ETA 0.4h
+[     33/100] SRR20644641  0.0% classified  | 0.0/s  ETA 0.4h
+[     34/100] SRR32908671  1.8% classified  | 0.0/s  ETA 0.4h
+[     35/100] SRR16352507  82.8% classified  | 0.0/s  ETA 0.4h
+[     36/100] SRR23943557  0.0% classified  | 0.0/s  ETA 0.4h
+[     37/100] SRR27300087  2.6% classified  | 0.1/s  ETA 0.3h
+[     38/100] SRR28028634  ERR(stream_failed)  | 0.1/s  ETA 0.3h
+[     39/100] SRR28030113  ERR(stream_failed)  | 0.1/s  ETA 0.3h
+[     40/100] SRR28029824  ERR(stream_failed)  | 0.1/s  ETA 0.3h
+[     41/100] SRR24451023  73.6% classified  | 0.1/s  ETA 0.3h
+[     42/100] SRR28028742  ERR(stream_failed)  | 0.1/s  ETA 0.3h
+[     43/100] SRR27461705  1.0% classified  | 0.1/s  ETA 0.3h
+[     44/100] SRR16965071  0.1% classified  | 0.1/s  ETA 0.3h
+[     45/100] SRR29695400  0.2% classified  | 0.1/s  ETA 0.3h
+[     46/100] SRR29034694  0.1% classified  | 0.1/s  ETA 0.3h
+[     47/100] SRR27544721  82.0% classified  | 0.1/s  ETA 0.3h
+[     48/100] SRR31306221  28.4% classified  | 0.1/s  ETA 0.3h
+[     49/100] SRR28255400  85.2% classified  | 0.1/s  ETA 0.3h
+[     50/100] SRR34890916  35.7% classified  | 0.1/s  ETA 0.3h
+[     51/100] SRR35085460  0.2% classified  | 0.1/s  ETA 0.2h
+[     52/100] SRR29922829  0.3% classified  | 0.1/s  ETA 0.2h
+[     53/100] SRR29057283  55.0% classified  | 0.1/s  ETA 0.2h
+[     54/100] SRR39667104  ERR(stream_failed)  | 0.1/s  ETA 0.2h
+[     55/100] SRR33983183  0.1% classified  | 0.1/s  ETA 0.2h
+[     56/100] SRR29057155  70.0% classified  | 0.1/s  ETA 0.2h
+[     57/100] SRR34026570  2.2% classified  | 0.1/s  ETA 0.2h
+[     58/100] SRR8205388  0.0% classified  | 0.1/s  ETA 0.2h

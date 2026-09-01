@@ -1,0 +1,57 @@
+Model: gpt-4o-mini  workers: 4  focus: all
+BioProjects: 1,285 total  →  732 with full text (entry gate)  representative BioSamples: 6,467
+Cache: 10 entries
+To classify: 723  skipping cached: 9
+  20 / 723  total dim failures so far: 0  {}
+  40 / 723  total dim failures so far: 0  {}
+  60 / 723  total dim failures so far: 0  {}
+  80 / 723  total dim failures so far: 0  {}
+  100 / 723  total dim failures so far: 0  {}
+  120 / 723  total dim failures so far: 0  {}
+  140 / 723  total dim failures so far: 0  {}
+  160 / 723  total dim failures so far: 0  {}
+  180 / 723  total dim failures so far: 0  {}
+  200 / 723  total dim failures so far: 0  {}
+  220 / 723  total dim failures so far: 0  {}
+  240 / 723  total dim failures so far: 0  {}
+  260 / 723  total dim failures so far: 0  {}
+  280 / 723  total dim failures so far: 0  {}
+  300 / 723  total dim failures so far: 0  {}
+  320 / 723  total dim failures so far: 0  {}
+  340 / 723  total dim failures so far: 0  {}
+  360 / 723  total dim failures so far: 0  {}
+  380 / 723  total dim failures so far: 0  {}
+  400 / 723  total dim failures so far: 0  {}
+  420 / 723  total dim failures so far: 0  {}
+  440 / 723  total dim failures so far: 0  {}
+  460 / 723  total dim failures so far: 0  {}
+  480 / 723  total dim failures so far: 0  {}
+  500 / 723  total dim failures so far: 0  {}
+  520 / 723  total dim failures so far: 0  {}
+  540 / 723  total dim failures so far: 0  {}
+  560 / 723  total dim failures so far: 0  {}
+  580 / 723  total dim failures so far: 0  {}
+  600 / 723  total dim failures so far: 0  {}
+  620 / 723  total dim failures so far: 0  {}
+  640 / 723  total dim failures so far: 0  {}
+  660 / 723  total dim failures so far: 0  {}
+  680 / 723  total dim failures so far: 0  {}
+  700 / 723  total dim failures so far: 0  {}
+  720 / 723  total dim failures so far: 0  {}
+  723 / 723  total dim failures so far: 0  {}
+
+meta_classify summary
+BioProjects classified: 732 / 732 (full-text entry gate)
+BioSample rows:         6,467
+Stress:       biotic=6020  abiotic=305  none=142
+Setting:      field=3282  greenhouse=1272  growth_chamber=921  unclear=798  detached_leaf_assay=128  in_vitro=66
+Tissue:       aerial=5339  non-aerial=862  unclear=266
+Coinfection intent: single_pathogen_focus=5545  not_disease_focused=464  intentional_multi_pathogen=458
+Symptom:      symptomatic=2990  not_stated=2837  mixed=615  asymptomatic=25
+Exposure:     deliberate_inoculation=4649  natural=1227  not_stated=591
+Library prep: not_stated=6060  total_RNA=226  rRNA_depletion=99  polyA_selection=82
+Pathogen match status: match=3503  named_not_detected_by_stat=2038  stat_only_no_named=455  no_match_stat_found_different=377  partial_match_plus_undeclared=83  no_pathogens_either_source=11
+Metadata disagreement: 1,006 / 6,467 rows (15.6%)
+
+Written: metadata/output/meta_classify/data/samples.tsv  (6,467 rows)
+Cache:   metadata/output/meta_classify/data/classify_cache.jsonl  (732 entries)

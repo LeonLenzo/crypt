@@ -1,0 +1,5 @@
+  legacy NCBI cache:  1,754 BPs
+  legacy web cache:   705 BPs (overlay)
+  written: metadata/output/meta_search/data/bp_cache.json  (1,754 BPs, methods_text stripped)
+  copied BioSample cache: 10,465 entries
+  copied Serper cache: 951 BPs

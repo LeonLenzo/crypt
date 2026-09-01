@@ -1,0 +1,240 @@
+Mode: AERIAL
+NCBI_API_KEY set: yes
+Aerial BioSamples: 14,773
+
+── Step 1: SRA run fetch ────────────────────────────────────
+Cached: 0 runs  |  0 UIDs fetched
+  [1/185] +64 UIDs  (total 64)
+  [2/185] +67 UIDs  (total 131)
+  [3/185] +78 UIDs  (total 209)
+  [4/185] +100 UIDs  (total 309)
+  [5/185] +75 UIDs  (total 384)
+  [6/185] +93 UIDs  (total 477)
+  [7/185] +80 UIDs  (total 557)
+  [8/185] +80 UIDs  (total 637)
+  [9/185] +80 UIDs  (total 717)
+  [10/185] +80 UIDs  (total 797)
+  [11/185] +86 UIDs  (total 883)
+  [12/185] +84 UIDs  (total 967)
+  [13/185] +72 UIDs  (total 1,039)
+  [14/185] +74 UIDs  (total 1,113)
+  [15/185] +76 UIDs  (total 1,189)
+  [16/185] +44 UIDs  (total 1,233)
+  [17/185] +80 UIDs  (total 1,313)
+  [18/185] +80 UIDs  (total 1,393)
+  [19/185] +80 UIDs  (total 1,473)
+  [20/185] +69 UIDs  (total 1,542)
+  [21/185] +78 UIDs  (total 1,620)
+  [22/185] +68 UIDs  (total 1,688)
+  [23/185] +80 UIDs  (total 1,768)
+  [24/185] +69 UIDs  (total 1,837)
+  [25/185] +58 UIDs  (total 1,895)
+  [26/185] +105 UIDs  (total 2,000)
+  [27/185] +43 UIDs  (total 2,043)
+  [28/185] +65 UIDs  (total 2,108)
+  [29/185] +80 UIDs  (total 2,188)
+  [30/185] +80 UIDs  (total 2,268)
+  [31/185] +85 UIDs  (total 2,353)
+  [32/185] +85 UIDs  (total 2,438)
+  [33/185] +80 UIDs  (total 2,518)
+  [34/185] +121 UIDs  (total 2,639)
+  [35/185] +43 UIDs  (total 2,682)
+  [36/185] +52 UIDs  (total 2,734)
+  [37/185] +80 UIDs  (total 2,814)
+  [38/185] +88 UIDs  (total 2,902)
+  [39/185] +73 UIDs  (total 2,975)
+  [40/185] +88 UIDs  (total 3,063)
+  [41/185] +80 UIDs  (total 3,143)
+  [42/185] +79 UIDs  (total 3,222)
+  [43/185] +70 UIDs  (total 3,292)
+  [44/185] +95 UIDs  (total 3,387)
+  [45/185] +57 UIDs  (total 3,444)
+  [46/185] +73 UIDs  (total 3,517)
+  [47/185] +88 UIDs  (total 3,605)
+  [48/185] +80 UIDs  (total 3,685)
+  [49/185] +80 UIDs  (total 3,765)
+  [50/185] +78 UIDs  (total 3,843)
+  [51/185] +54 UIDs  (total 3,897)
+  [52/185] +5 UIDs  (total 3,902)
+  [53/185] +80 UIDs  (total 3,982)
+  [54/185] +4 UIDs  (total 3,986)
+  [55/185] +69 UIDs  (total 4,055)
+  [56/185] +63 UIDs  (total 4,118)
+  [57/185] +70 UIDs  (total 4,188)
+  [58/185] +52 UIDs  (total 4,240)
+  [59/185] +80 UIDs  (total 4,320)
+  [60/185] +66 UIDs  (total 4,386)
+  [61/185] +135 UIDs  (total 4,521)
+  [62/185] +80 UIDs  (total 4,601)
+  [63/185] +124 UIDs  (total 4,725)
+  [64/185] +74 UIDs  (total 4,799)
+  [65/185] +78 UIDs  (total 4,877)
+  [66/185] +80 UIDs  (total 4,957)
+  [67/185] +133 UIDs  (total 5,090)
+  [68/185] +79 UIDs  (total 5,169)
+  [69/185] +80 UIDs  (total 5,249)
+  [70/185] +63 UIDs  (total 5,312)
+  [71/185] +106 UIDs  (total 5,418)
+  [72/185] +86 UIDs  (total 5,504)
+  [73/185] +80 UIDs  (total 5,584)
+  [74/185] +92 UIDs  (total 5,676)
+  [75/185] +77 UIDs  (total 5,753)
+  [76/185] +41 UIDs  (total 5,794)
+  [77/185] +42 UIDs  (total 5,836)
+  [78/185] +40 UIDs  (total 5,876)
+  [79/185] +40 UIDs  (total 5,916)
+  [80/185] +77 UIDs  (total 5,993)
+  [81/185] +19 UIDs  (total 6,012)
+  [82/185] +58 UIDs  (total 6,070)
+  [83/185] +101 UIDs  (total 6,171)
+  [84/185] +79 UIDs  (total 6,250)
+  [85/185] +84 UIDs  (total 6,334)
+  [86/185] +92 UIDs  (total 6,426)
+  [87/185] +90 UIDs  (total 6,516)
+  [88/185] +86 UIDs  (total 6,602)
+  [89/185] +79 UIDs  (total 6,681)
+  [90/185] +91 UIDs  (total 6,772)
+  [91/185] +80 UIDs  (total 6,852)
+  [92/185] +67 UIDs  (total 6,919)
+  [93/185] +57 UIDs  (total 6,976)
+  [94/185] +17 UIDs  (total 6,993)
+  [95/185] +78 UIDs  (total 7,071)
+  [96/185] +80 UIDs  (total 7,151)
+  [97/185] +80 UIDs  (total 7,231)
+  [98/185] +80 UIDs  (total 7,311)
+  [99/185] +74 UIDs  (total 7,385)
+  [100/185] +16 UIDs  (total 7,401)
+  [101/185] +0 UIDs  (total 7,401)
+  [102/185] +73 UIDs  (total 7,474)
+  [103/185] +80 UIDs  (total 7,554)
+  [104/185] +160 UIDs  (total 7,714)
+  [105/185] +65 UIDs  (total 7,779)
+  [106/185] +85 UIDs  (total 7,864)
+  [107/185] +54 UIDs  (total 7,918)
+  [108/185] +356 UIDs  (total 8,274)
+  [109/185] +80 UIDs  (total 8,354)
+  [110/185] +80 UIDs  (total 8,434)
+  [111/185] +80 UIDs  (total 8,514)
+  [112/185] +90 UIDs  (total 8,604)
+  [113/185] +86 UIDs  (total 8,690)
+  [114/185] +83 UIDs  (total 8,773)
+  [115/185] +83 UIDs  (total 8,856)
+  [116/185] +77 UIDs  (total 8,933)
+  [117/185] +79 UIDs  (total 9,012)
+  [118/185] +80 UIDs  (total 9,092)
+  [119/185] +155 UIDs  (total 9,247)
+  [120/185] +98 UIDs  (total 9,345)
+  [121/185] +102 UIDs  (total 9,447)
+  [122/185] +80 UIDs  (total 9,527)
+  [123/185] +152 UIDs  (total 9,679)
+  [124/185] +84 UIDs  (total 9,763)
+  [125/185] +80 UIDs  (total 9,843)
+  [126/185] +98 UIDs  (total 9,941)
+  [127/185] +86 UIDs  (total 10,027)
+  [128/185] +80 UIDs  (total 10,107)
+  [129/185] +80 UIDs  (total 10,187)
+  [130/185] +80 UIDs  (total 10,267)
+  [131/185] +80 UIDs  (total 10,347)
+  [132/185] +80 UIDs  (total 10,427)
+  [133/185] +80 UIDs  (total 10,507)
+  [134/185] +91 UIDs  (total 10,598)
+  [135/185] +80 UIDs  (total 10,678)
+  [136/185] +86 UIDs  (total 10,764)
+  [137/185] +74 UIDs  (total 10,838)
+  [138/185] +106 UIDs  (total 10,944)
+  [139/185] +131 UIDs  (total 11,075)
+  [140/185] +105 UIDs  (total 11,180)
+  [141/185] +80 UIDs  (total 11,260)
+  [142/185] +80 UIDs  (total 11,340)
+  [143/185] +107 UIDs  (total 11,447)
+  [144/185] +68 UIDs  (total 11,515)
+  [145/185] +117 UIDs  (total 11,632)
+  [146/185] +74 UIDs  (total 11,706)
+  [147/185] +63 UIDs  (total 11,769)
+  [148/185] +80 UIDs  (total 11,849)
+  [149/185] +80 UIDs  (total 11,929)
+  [150/185] +76 UIDs  (total 12,005)
+  [151/185] +98 UIDs  (total 12,103)
+  [152/185] +80 UIDs  (total 12,183)
+  [153/185] +84 UIDs  (total 12,267)
+  [154/185] +100 UIDs  (total 12,367)
+  [155/185] +80 UIDs  (total 12,447)
+  [156/185] +80 UIDs  (total 12,527)
+  [157/185] +80 UIDs  (total 12,607)
+  [158/185] +80 UIDs  (total 12,687)
+  [159/185] +161 UIDs  (total 12,848)
+  [160/185] +82 UIDs  (total 12,930)
+  [161/185] +82 UIDs  (total 13,012)
+  [162/185] +80 UIDs  (total 13,092)
+  [163/185] +80 UIDs  (total 13,172)
+  [164/185] +152 UIDs  (total 13,324)
+  [165/185] +95 UIDs  (total 13,419)
+  [166/185] +130 UIDs  (total 13,549)
+  [167/185] +80 UIDs  (total 13,629)
+  [168/185] +1,050 UIDs  (total 14,679)
+  [169/185] +67 UIDs  (total 14,746)
+  [170/185] +83 UIDs  (total 14,829)
+  [171/185] +93 UIDs  (total 14,922)
+  [172/185] +107 UIDs  (total 15,029)
+  [173/185] +89 UIDs  (total 15,118)
+  [174/185] +82 UIDs  (total 15,200)
+  [175/185] +87 UIDs  (total 15,287)
+  [176/185] +88 UIDs  (total 15,375)
+  [177/185] +84 UIDs  (total 15,459)
+  [178/185] +89 UIDs  (total 15,548)
+  [179/185] +69 UIDs  (total 15,617)
+  [180/185] +50 UIDs  (total 15,667)
+  [181/185] +43 UIDs  (total 15,710)
+  [182/185] +64 UIDs  (total 15,774)
+  [183/185] +56 UIDs  (total 15,830)
+  [184/185] +56 UIDs  (total 15,886)
+  [185/185] +30 UIDs  (total 15,916)
+  Fetching RunInfo for 15,916 UIDs in 32 batches (0 cached) …
+  [20/32 batches]  10,125 new runs
+  [32/32 batches]  16,129 new runs
+SRA: 16,129 total runs  (16,129 new)
+
+── Step 2: STAT taxonomy fetch ──────────────────────────────
+STAT cache: 608,368 total entries, 10,461 for this mode already cached
+  Fetching STAT for 5,668 runs …
+  [200/5,668] fetched  15:26:12
+  [400/5,668] fetched  15:26:25
+  [600/5,668] fetched  15:26:38
+  [800/5,668] fetched  15:26:52
+  [1,000/5,668] fetched  15:27:05
+  [1,200/5,668] fetched  15:27:19
+  [1,400/5,668] fetched  15:27:32
+  [1,600/5,668] fetched  15:27:45
+  [1,800/5,668] fetched  15:27:58
+  [2,000/5,668] fetched  15:28:12
+  [2,200/5,668] fetched  15:28:25
+  [2,400/5,668] fetched  15:28:39
+  [2,600/5,668] fetched  15:28:52
+  [2,800/5,668] fetched  15:29:06
+  [3,000/5,668] fetched  15:29:19
+  [3,200/5,668] fetched  15:29:32
+  [3,400/5,668] fetched  15:29:45
+  [3,600/5,668] fetched  15:29:59
+  [3,800/5,668] fetched  15:30:12
+  [4,000/5,668] fetched  15:30:26
+  [4,200/5,668] fetched  15:30:39
+  [4,400/5,668] fetched  15:30:53
+  [4,600/5,668] fetched  15:31:06
+  [4,800/5,668] fetched  15:31:19
+  [5,000/5,668] fetched  15:31:33
+  [5,200/5,668] fetched  15:31:46
+  [5,400/5,668] fetched  15:32:00
+  [5,600/5,668] fetched  15:32:13
+  [5,668/5,668] fetched  15:32:17
+
+── 01_fetch_runs AERIAL summary ──────────────────────────
+Mode:              AERIAL
+
+Unique UIDs found:   15,916
+Runs fetched:        16,129  (16,129 new)
+STAT newly fetched:   5,668
+
+Runs: stat/output/fetch_runs/data/aerial_runs.json
+STAT: stat/output/fetch_runs/data/stat_cache.jsonl
+Log:  stat/output/fetch_runs/logs/history/2026-08-11_15-19-07/aerial.log
+

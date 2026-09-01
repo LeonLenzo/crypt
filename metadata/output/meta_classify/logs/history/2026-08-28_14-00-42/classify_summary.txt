@@ -1,0 +1,13 @@
+meta_classify summary
+BioProjects classified: 732 / 732 (full-text entry gate)
+BioSample rows:         6,467
+Stress:       biotic=6020  abiotic=305  none=142
+Setting:      field=3282  greenhouse=1272  growth_chamber=921  unclear=798  detached_leaf_assay=128  in_vitro=66
+Tissue:       aerial=5339  non-aerial=862  unclear=266
+Coinfection intent: single_pathogen_focus=5545  not_disease_focused=464  intentional_multi_pathogen=458
+Symptom:      symptomatic=2990  not_stated=2837  mixed=615  asymptomatic=25
+Exposure:     deliberate_inoculation=4649  natural=1227  not_stated=591
+Library prep: not_stated=6060  total_RNA=226  rRNA_depletion=99  polyA_selection=82
+Pathogen match status: match=2955  named_not_detected_by_stat=2049  no_match_stat_found_different=969  stat_only_no_named=411  partial_match_plus_undeclared=83
+Metadata disagreement: 1,036 / 6,467 rows (16.0%)
+Multi-value named_hosts rows: 1,263  resolved (via host_resolved): 0 (0.0%)  [run --disambiguate-hosts to resolve]

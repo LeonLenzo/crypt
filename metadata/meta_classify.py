@@ -1014,7 +1014,15 @@ def main() -> None:
             for run in run_list:
                 bsid = run["BioSample"]
                 cached_entry = disambig_cache.get(bsid)
-                if cached_entry and cached_entry.get("host_resolved") not in (None, "", "api_error"):
+                # Invalidate if named_hosts changed since this BioSample was last
+                # resolved (e.g. a hostpath prompt fix re-shapes candidates) — a
+                # cached host_resolved value is only meaningful against the exact
+                # candidate list it was picked from. Old cache entries (pre-dating
+                # this fix) have no "candidates" key at all, so they correctly miss
+                # too and get re-resolved once.
+                if (cached_entry
+                        and cached_entry.get("host_resolved") not in (None, "", "api_error")
+                        and cached_entry.get("candidates") == candidates):
                     continue
                 disambig_todo.append((bp, candidates, bsid))
 
@@ -1023,6 +1031,7 @@ def main() -> None:
 
         if disambig_todo:
             n_disambig_done = 0
+            bsid_candidates = {bsid: candidates for bp, candidates, bsid in disambig_todo}
             with open(DISAMBIG_CACHE_PATH, "a") as dfh, \
                  ThreadPoolExecutor(max_workers=args.workers) as pool:
                 futures = {
@@ -1033,7 +1042,7 @@ def main() -> None:
                 for fut in as_completed(futures):
                     bsid = futures[fut]
                     result = fut.result()
-                    rec = {"bsid": bsid, **result}
+                    rec = {"bsid": bsid, "candidates": bsid_candidates[bsid], **result}
                     disambig_cache[bsid] = rec
                     dfh.write(json.dumps(rec) + "\n")
                     dfh.flush()

@@ -2,6 +2,7 @@
 # stat_fetch/data/ is fetch-stage cache/checkpoints; stat_filter/data/ holds
 # the actual final outputs — runs.tsv etc. — and stays tracked)
 stat/output/stat_fetch/data/*
+!stat/output/stat_fetch/data/manifest.tsv
 
 # Intermediate confirmed-run caches — regeneratable from stat_cache
 stat/output/stat_filter/data/*_confirmed.json
@@ -52,30 +53,10 @@ stat/legacy/
 # duplicate of the current samples.tsv either)
 metadata/output/classify_metadata/data/samples.tsv
 
-# Timestamped log history dirs + .latest symlinks — auto-generated, local
-stat/output/stat_build/logs/history/
-stat/output/stat_build/logs/*.latest
-stat/output/stat_fetch/logs/history/
-stat/output/stat_fetch/logs/*.latest
-stat/output/stat_filter/logs/history/
-stat/output/stat_filter/logs/*.latest
-metadata/output/meta_search/logs/history/
-metadata/output/meta_search/logs/*.latest
-metadata/output/meta_text/logs/history/
-metadata/output/meta_text/logs/*.latest
-metadata/output/meta_classify/logs/history/
-metadata/output/meta_classify/logs/*.latest
-kraken/output/classify/logs/history/
-kraken/output/classify/logs/*.latest
-kraken/output/download/logs/history/
-kraken/output/download/logs/*.latest
-kraken/output/kraken_db_search/logs/history/
-kraken/output/kraken_db_search/logs/*.latest
-kraken/output/kraken_db_busco/logs/history/
-kraken/output/kraken_db_busco/logs/*.latest
-kraken/output/kraken_db_build/logs/history/
-kraken/output/kraken_db_build/logs/*.latest
-kraken/slurm/logs/
+# Log history dirs + .latest symlinks are now TRACKED (transparency — Leon's
+# call 2026-09-01: full run history should be visible in the repo, not just
+# code). Do not re-add exclusions for logs/history/ or logs/*.latest here.
+
 # Stray BUSCO container job logs that end up at repo root on Setonix
 /busco_*.log
 busco_downloads/

@@ -1,0 +1,49 @@
+Reads will be discarded after classification (use --reads-dir to keep)
+Raw kraken2 reports will be saved to: output/kraken_classify/data/reports
+Loaded 48,418 MAL runs from output/01_fetch_runs/data/mal_runs.json
+
+Total runs: 48,418 | Already done: 0 | Remaining: 48,418
+Settings: n_reads=500,000, confidence=0.1, workers=8, kraken_threads=4
+DB: kraken/db
+Tmp: /tmp/kraken_tmp
+
+[      1/48,418] ERR4369937  ERR(stream_failed)  | 0.1/s  ETA 158.5h
+[      2/48,418] ERR1248475  0.6% classified  | 0.0/s  ETA 533.0h
+[      3/48,418] ERR5490438  0.3% classified  | 0.0/s  ETA 395.9h
+[      4/48,418] ERR3327117  0.0% classified  | 0.0/s  ETA 411.7h
+[      5/48,418] ERR266134  30.1% classified  | 0.0/s  ETA 349.7h
+[      6/48,418] DRR848233  84.0% classified  | 0.0/s  ETA 329.4h
+[      7/48,418] DRR857211  77.6% classified  | 0.0/s  ETA 366.2h
+[      8/48,418] SRR2932779  61.2% classified  | 0.0/s  ETA 344.2h
+[      9/48,418] SRR6833322  0.4% classified  | 0.0/s  ETA 308.3h
+[     10/48,418] ERR3170195  70.9% classified  | 0.0/s  ETA 347.4h
+[     11/48,418] SRR8244441  0.1% classified  | 0.0/s  ETA 334.5h
+[     12/48,418] SRR8239057  76.5% classified  | 0.0/s  ETA 311.5h
+[     13/48,418] ERR4315247  76.6% classified  | 0.0/s  ETA 291.9h
+[     14/48,418] ERR5960078  80.2% classified  | 0.0/s  ETA 275.7h
+[     15/48,418] SRR8275515  76.5% classified  | 0.0/s  ETA 279.9h
+[     16/48,418] SRR1171035  87.5% classified  | 0.0/s  ETA 274.2h
+[     17/48,418] SRR8707252  1.5% classified  | 0.1/s  ETA 264.7h
+[     18/48,418] SRR2079621  37.1% classified  | 0.1/s  ETA 263.1h
+[     19/48,418] SRR9677467  0.5% classified  | 0.0/s  ETA 271.3h
+[     20/48,418] SRR12172940  57.5% classified  | 0.0/s  ETA 288.3h
+[     21/48,418] SRR12855409  65.8% classified  | 0.0/s  ETA 306.4h
+[     22/48,418] SRR9663124  1.5% classified  | 0.0/s  ETA 304.9h
+[     23/48,418] SRR11085434  83.2% classified  | 0.0/s  ETA 299.3h
+[     24/48,418] SRR11721997  7.5% classified  | 0.0/s  ETA 301.3h
+[     25/48,418] SRR14753841  5.3% classified  | 0.0/s  ETA 290.0h
+[     26/48,418] SRR9997709  71.2% classified  | 0.0/s  ETA 283.0h
+[     27/48,418] SRR11002782  72.7% classified  | 0.0/s  ETA 275.5h
+[     28/48,418] SRR9997707  71.8% classified  | 0.1/s  ETA 266.4h
+[     29/48,418] SRR22393097  1.9% classified  | 0.0/s  ETA 282.2h
+[     30/48,418] SRR21284811  72.1% classified  | 0.0/s  ETA 274.5h
+[     31/48,418] SRR13349983  85.6% classified  | 0.0/s  ETA 284.4h
+[     32/48,418] SRR16796993  63.8% classified  | 0.0/s  ETA 278.8h
+[     33/48,418] SRR20644641  0.0% classified  | 0.0/s  ETA 280.9h
+[     34/48,418] SRR32908671  84.2% classified  | 0.0/s  ETA 276.2h
+[     35/48,418] SRR16352507  82.9% classified  | 0.0/s  ETA 269.0h
+[     36/48,418] SRR28028634  ERR(stream_failed)  | 0.1/s  ETA 265.0h
+[     37/48,418] SRR28030113  ERR(stream_failed)  | 0.1/s  ETA 258.4h
+[     38/48,418] SRR28029824  ERR(stream_failed)  | 0.1/s  ETA 255.1h
+[     39/48,418] SRR28028742  ERR(stream_failed)  | 0.1/s  ETA 249.0h
+[     40/48,418] SRR27461705  2.0% classified  | 0.1/s  ETA 247.4h

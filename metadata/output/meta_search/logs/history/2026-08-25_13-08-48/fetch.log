@@ -1,0 +1,43 @@
+NCBI_API_KEY: yes
+BioProjects: 1,286  BioSamples: 9,002
+  skip (cached): 1,286
+  fetch (new):   0
+  → work items:  0
+Written: metadata/output/meta_search/data/bioprojects.json  (1,286 entries)
+BioSamples: 9,002 total, 931 to fetch
+  931 / 931
+EBI BioSamples: 1,936 ENA/DDBJ total, 398 to fetch
+  398 / 398
+Written: metadata/output/meta_search/data/biosamples.json  (9,002 entries)
+
+───────────────────────────────────────────────────────
+meta_search — resolution report
+───────────────────────────────────────────────────────
+BioProjects in runs.tsv:   1,286
+  has PMID:                  708  (55.1%)
+  has DOI:                   751  (58.4%)
+  has PMCID:                 594  (46.2%)
+  has abstract:              721  (56.1%)
+
+pmid_source breakdown:
+  none                                  549  (42.7%)
+  pmc_search                            393  (30.6%)
+  bioproject_xml                        184  (14.3%)
+  serper_doi→pubmed                      71  (5.5%)
+  serper_doi→crossref_only               48  (3.7%)
+  serper_title→pubmed                    28  (2.2%)
+  pubmed_search                           4  (0.3%)
+  doi_only→crossref                       3  (0.2%)
+  doi_only→pubmed                         3  (0.2%)
+  serper_scrape→crossref_only             3  (0.2%)
+───────────────────────────────────────────────────────
+
+BioSample attribute coverage:
+  bs_description        1,315  (14.6%)
+  collection_date       5,100  (56.7%)
+  dev_stage             2,203  (24.5%)
+  geo_loc_name          6,669  (74.1%)
+  host                  2,705  (30.0%)
+  isolation_source      2,341  (26.0%)
+  lat_lon               1,383  (15.4%)
+  tissue                4,486  (49.8%)

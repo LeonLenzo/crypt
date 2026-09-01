@@ -1,0 +1,103 @@
+STAT cache: output/01_fetch_runs/data/stat_cache.jsonl
+PHI-base: 15,372 pathogen taxids, 21,352 names, 305,355 Viridiplantae names
+
+── MAL: 48,418 runs from output/01_fetch_runs/data/mal_runs.json ──
+
+── Phase 1: retention gate (MAL) ──
+  Runs:           48,418
+  Non-RNA source: 1,419 (GENOMIC/METAGENOMIC/OTHER — excluded)
+  With STAT:      46,315  (95.7%)
+  Failed gate:    40,124
+  Confirmed:      6,191  (13.4% of screened)  [≥1.0% Viridiplantae]
+
+── Phase 3: crypt (MAL) ──
+  Classified: 6,191  |  skipped (no STAT): 0
+
+── HAL: 559,950 runs from output/01_fetch_runs/data/hal_runs.json ──
+
+── Phase 1: retention gate (HAL) ──
+  Runs:           559,950
+  Non-RNA source: 7,343 (GENOMIC/METAGENOMIC/OTHER — excluded)
+  With STAT:      546,816  (97.7%)
+  Failed gate:    529,602
+  Confirmed:      17,214  (3.1% of screened)  [PHI-base pathogen ≥1.0%]
+
+── Phase 3: crypt (HAL) ──
+  Classified: 7,132  |  skipped (no STAT): 10,082
+
+── 02_filter_runs summary ────────────────────────────────
+Modes: MAL + HAL
+
+Gate (MAL):  6,191 / 48,418 confirmed  (13.4%)  [≥1.0% Viridiplantae]
+Gate (HAL):  17,214 / 559,950 confirmed  (3.1%)  [PHI-base pathogen ≥1.0%]
+
+MAL:
+  Runs classified:      6,191
+    single:             5,417
+    multi_species:        772
+    multi_kingdom:          2
+  Unique BioSamples:    4,662
+    single:             4,028
+    multi_species:        632
+    multi_kingdom:          2
+  Library organism detected by STAT: 1,620 / 4,662
+  Interaction status (BioSample):
+    known:            2,254
+    novel_host_range:   534
+    novel_combo:          0
+    unresolved:       1,874
+  Top detected pathogens (BioSample):
+  Puccinia graminis                               209
+  Zymoseptoria tritici                            135
+  Puccinia striiformis                            133
+  Fusarium graminearum                            129
+  Fusarium verticillioides 7600                   126
+  Puccinia striiformis f. sp. tritici             111
+  Sclerotinia sclerotiorum                        109
+  Puccinia graminis f. sp. tritici CRL 75-36-700-3   107
+  Botrytis cinerea                                 97
+  Orthotospovirus impatiensnecromaculae            91
+  Aspergillus flavus                               75
+  Puccinia triticina                               68
+  Alternaria alternata                             59
+  Fusarium oxysporum                               58
+  Pyricularia oryzae                               56
+
+HAL:
+  Runs classified:      7,132
+    single:                 0
+    multi_species:      7,111
+    multi_kingdom:         21
+  Unique BioSamples:    6,455
+    single:                 0
+    multi_species:      6,434
+    multi_kingdom:         21
+  Library organism detected by STAT: 4,365 / 6,455
+  Interaction status (BioSample):
+    known:            5,201
+    novel_host_range: 1,254
+    novel_combo:          0
+    unresolved:           0
+  Top detected pathogens (BioSample):
+  Botrytis cinerea                              1,277
+  Fusarium graminearum                            478
+  Sclerotinia sclerotiorum                        404
+  Alternaria alternata                            277
+  Fusarium oxysporum                              204
+  Pantoea ananatis                                165
+  Fusarium verticillioides 7600                   160
+  Turnip mosaic virus                             152
+  Ustilago maydis                                 140
+  Pseudomonas aeruginosa                          133
+  Potato virus Y                                  128
+  Fusarium pseudograminearum                      127
+  Potato virus S                                  124
+  Phytophthora infestans                          119
+  Verticillium dahliae                            110
+
+Combined:
+  Total rows:          13,323
+  Duplicates removed:  0
+
+Output: output/02_filter_runs/data/runs.tsv  (13,323 rows)
+

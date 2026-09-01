@@ -1,0 +1,13 @@
+Reads will be discarded after classification (use --reads-dir to keep)
+Raw kraken2 reports will be saved to: output/kraken_classify/data/reports
+Loaded 48,418 MAL runs from output/01_fetch_runs/data/mal_runs.json
+--limit 100: processing 100 runs
+
+Total runs: 48,418 | Already done: 0 | Remaining: 100
+Settings: n_reads=500,000, confidence=0.1, workers=8, kraken_threads=4
+DB: kraken/db
+Tmp: /tmp/kraken_tmp
+
+[      1/100] ERR4369937  ERR(stream_failed)  | 0.1/s  ETA 0.3h
+[      2/100] ERR5490438  0.3% classified  | 0.0/s  ETA 2.4h
+[      3/100] ERR1248475  0.6% classified  | 0.0/s  ETA 1.6h

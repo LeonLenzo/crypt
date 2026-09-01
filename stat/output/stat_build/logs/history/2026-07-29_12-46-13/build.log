@@ -1,0 +1,58 @@
+Building PHI-base + ICTV database from output/00_build/data/phi-base_current.csv (scope=plant)
+
+NCBITaxa loaded: /home/leonl/.etetoolkit/taxa.sqlite
+
+[1/6] Parsing PHI-base …
+  PHI-base: 1,181 interactions, 343 pathogen taxids, 273 host taxids (86 rows skipped — missing/non-numeric taxid)
+
+[2/6] Filtering to plant hosts …
+  After plant filter: 205 pathogens, 180 hosts
+
+[3/6] Loading ICTV plant viruses …
+  ICTV plant virus species (all clades): 2,782
+  Resolved to NCBI taxids: 2,771  (unresolved / not in NCBI: 11)
+
+[4/6] Expanding pathogen taxonomy by kingdom …
+  PHI-base seeds by kingdom: {'Fungi': 123, 'Bacteria': 62, 'Oomycota': 11, 'Nematoda': 7}
+  WARNING: 2 seeds unclassified: [13131, 13164]
+  fungi: 123 seed → 632 total (incl. descendants)
+  bacteria: 62 seed → 7,585 total (incl. descendants)
+  oomycota: 11 seed → 24 total (incl. descendants)
+  nematoda: 7 seed → 9 total (incl. descendants)
+  viruses: 2771 seed → 7,122 total (incl. descendants)
+
+[5/6] Expanding host taxonomy …
+  hosts: 180 seed → 2,018 total (incl. descendants)
+
+[6/7] Building name lookup tables …
+  name→taxid entries: 21,352
+
+[7/7] Building Viridiplantae name set for host validation …
+  Viridiplantae names: 305,355
+
+Saved → output/00_build/data/phibase_db.json  (17.7 MB)
+
+Smoke test: PhibaseDB(built=2026-07-29, 15,372 pathogen taxids [incl. 7,122 virus], 2,018 host taxids, 21,352 names)
+  resolve('Fusarium oxysporum') → 5507 (Fusarium oxysporum)
+  is_pathogen(5507) → True
+  is_virus(5507)    → False
+  hosts_of(5507)    → 27 plant hosts
+  known_interaction(F.oxysporum, tomato) → True
+  resolve('Tobacco mosaic virus') → 12242 (virus ✓)
+
+── 00_build summary ────────────────────────────
+Built:                    2026-07-29
+Host scope:               plant
+PHI-base source:          output/00_build/data/phi-base_current.csv
+ICTV VMR source:          output/00_build/data/ictv_vmr.xlsx
+
+Pathogen species (seeds):      205
+Pathogen taxids (total):    15,372
+  of which virus taxids:     7,122
+Host species (seeds):          180
+Host taxids (total):         2,018
+Name lookup entries:        21,352
+
+DB:  output/00_build/data/phibase_db.json
+Log: output/00_build/logs/history/2026-07-29_12-46-13/build.log
+

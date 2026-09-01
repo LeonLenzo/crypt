@@ -1,0 +1,73 @@
+── 02_filter summary ────────────────────────────────
+Modes: MAL + HAL
+
+Gate (MAL):  6,852 / 48,418 confirmed  (14.4%)  [≥1.0% Viridiplantae]
+Gate (HAL):  17,862 / 559,950 confirmed  (3.2%)  [PHI-base pathogen ≥1.0%]
+
+MAL:
+  Runs classified:      6,852
+    single:             5,950
+    multi_species:        898
+    multi_kingdom:          4
+  Unique BioSamples:    5,297
+    single:             4,519
+    multi_species:        774
+    multi_kingdom:          4
+  Interaction status (BioSample):
+    known:            2,470
+    novel_host_range: 1,141
+    novel_combo:          0
+    unresolved:       1,686
+  Top secondary pathogens (BioSample):
+  Puccinia graminis                               151
+  Puccinia graminis f. sp. tritici CRL 75-36-700-3   106
+  Zymoseptoria tritici                             94
+  Pepino mosaic virus                              82
+  Alternaria alternata                             50
+  Botrytis cinerea                                 31
+  Fusarium pseudograminearum                       29
+  Parastagonospora nodorum                         27
+  Fusarium odoratissimum                           20
+  Fusarium verticillioides 7600                    19
+  Varicosavirus lactucae                           18
+  Phytophthora infestans                           17
+  Pyrenophora tritici-repentis                     15
+  Ophiovirus mirafioriense                         14
+  environmental samples                            12
+
+HAL:
+  Runs classified:      7,483
+    single:             6,403
+    multi_species:      1,060
+    multi_kingdom:         20
+  Unique BioSamples:    6,796
+    single:             5,776
+    multi_species:      1,000
+    multi_kingdom:         20
+  Interaction status (BioSample):
+    known:            5,551
+    novel_host_range: 1,245
+    novel_combo:          0
+    unresolved:           0
+  Top secondary pathogens (BioSample):
+  Fusarium pseudograminearum                       98
+  Peanut stripe virus                              70
+  Fusarium oxysporum f. sp. lycopersici            62
+  Pectobacterium brasiliense                       57
+  Phytophthora infestans                           53
+  Fusarium fujikuroi                               41
+  Bean common mosaic virus                         38
+  Alternaria alternata                             36
+  Watermelon mosaic virus                          36
+  Fusarium verticillioides 7600                    34
+  Peanut mottle virus                              33
+  Fusarium oxysporum Fo47                          30
+  Fusarium odoratissimum                           29
+  Potato virus Y                                   26
+  Phytophthora parasitica                          25
+
+Combined:
+  Total rows:          14,335
+  Duplicates removed:  0
+
+Output: output/02_filter/data/crypt.tsv

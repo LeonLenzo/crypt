@@ -1,0 +1,10 @@
+── 01_fetch_runs AERIAL summary ──────────────────────────
+Mode:              AERIAL
+
+Unique UIDs found:   15,916
+Runs fetched:        16,129  (16,129 new)
+STAT newly fetched:   5,668
+
+Runs: stat/output/fetch_runs/data/aerial_runs.json
+STAT: stat/output/fetch_runs/data/stat_cache.jsonl
+Log:  stat/output/fetch_runs/logs/history/2026-08-11_15-19-07/aerial.log

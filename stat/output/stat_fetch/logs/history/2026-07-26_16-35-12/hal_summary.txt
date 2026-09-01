@@ -1,0 +1,10 @@
+── 01_fetch HAL summary ──────────────────────────
+Mode:              HAL
+
+Unique UIDs found:  524,503
+Runs fetched:       559,950  (622 new)
+STAT newly fetched:  65,068
+
+Runs: output/01_fetch/data/hal_runs.json
+STAT: output/01_fetch/data/stat_cache.jsonl
+Log:  output/01_fetch/logs/hal.log

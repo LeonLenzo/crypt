@@ -1,0 +1,7 @@
+Model: gpt-4o-mini  workers: 8  focus: all
+BioProjects: 1,285 total  →  732 with full text (entry gate)  representative BioSamples: 6,467
+Cache: 0 entries
+To classify: 732  skipping cached: 0
+  FAILED PRJEB47693 [tissue] after 6 attempts: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o-mini in organization org-32s3kf6lB2mm0Tdu70d6sBVK on tokens per min (TPM): Limit 200000, Used 200000, Requested 13507. Please try again in 4.052s. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+  [9/732] PRJEB47693: FAILED dims = ['tissue']
+  FAILED PRJEB33109 [setting] after 6 attempts: Error code: 429 - {'error': {'message': 'Rate limit reached for gpt-4o-mini in organization org-32s3kf6lB2mm0Tdu70d6sBVK on tokens per min (TPM): Limit 200000, Used 200000, Requested 16451. Please try again in 4.935s. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}

@@ -1,0 +1,33 @@
+Model: gpt-4o-mini  workers: 4  focus: hostpath
+BioProjects: 1,285 total  →  732 with full text (entry gate)  representative BioSamples: 6,467
+Cache: 732 entries
+To classify: 732  skipping cached: 0
+  20 / 732  total dim failures so far: 0  {}
+  40 / 732  total dim failures so far: 0  {}
+  60 / 732  total dim failures so far: 0  {}
+  80 / 732  total dim failures so far: 0  {}
+  100 / 732  total dim failures so far: 0  {}
+  120 / 732  total dim failures so far: 0  {}
+  140 / 732  total dim failures so far: 0  {}
+  160 / 732  total dim failures so far: 0  {}
+  180 / 732  total dim failures so far: 0  {}
+  200 / 732  total dim failures so far: 0  {}
+  220 / 732  total dim failures so far: 0  {}
+  240 / 732  total dim failures so far: 0  {}
+  260 / 732  total dim failures so far: 0  {}
+  280 / 732  total dim failures so far: 0  {}
+  300 / 732  total dim failures so far: 0  {}
+  320 / 732  total dim failures so far: 0  {}
+  340 / 732  total dim failures so far: 0  {}
+  360 / 732  total dim failures so far: 0  {}
+  380 / 732  total dim failures so far: 0  {}
+  400 / 732  total dim failures so far: 0  {}
+  420 / 732  total dim failures so far: 0  {}
+  440 / 732  total dim failures so far: 0  {}
+  460 / 732  total dim failures so far: 0  {}
+  480 / 732  total dim failures so far: 0  {}
+  500 / 732  total dim failures so far: 0  {}
+  520 / 732  total dim failures so far: 0  {}
+  540 / 732  total dim failures so far: 0  {}
+  560 / 732  total dim failures so far: 0  {}
+  580 / 732  total dim failures so far: 0  {}

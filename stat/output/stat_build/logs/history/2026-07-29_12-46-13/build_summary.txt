@@ -1,0 +1,15 @@
+── 00_build summary ────────────────────────────
+Built:                    2026-07-29
+Host scope:               plant
+PHI-base source:          output/00_build/data/phi-base_current.csv
+ICTV VMR source:          output/00_build/data/ictv_vmr.xlsx
+
+Pathogen species (seeds):      205
+Pathogen taxids (total):    15,372
+  of which virus taxids:     7,122
+Host species (seeds):          180
+Host taxids (total):         2,018
+Name lookup entries:        21,352
+
+DB:  output/00_build/data/phibase_db.json
+Log: output/00_build/logs/history/2026-07-29_12-46-13/build.log

@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 """
-kraken_run_split.py — host-read removal via per-taxid BBMap indices.
+kraken_run_split.py — host genome resolution + host-read removal via
+per-taxid BBMap indices.
 Submodule 2, step 2 of 3 (select -> split -> assign).
+
+Owns host reference genome resolution/download as of the 2026-09-07 refactor
+(moved out of kraken_run_select.py — see that script's docstring for why:
+`select` should stay a cheap, fast, safe-to-rerun filtering step, not do
+multi-GB network I/O as a side effect. `split` is the natural owner since it
+needs the genome on disk to build its BBMap index anyway).
 
 Design (agreed 2026-09-01, see kraken/README.md's "kraken_run_split.py design"
 section for the full rationale): ONE bbmap.sh index PER distinct host taxid, not
@@ -13,16 +20,26 @@ excluded — they're the dominant crops in the cohort, not obscure edge cases.
 A single combined index at that scale isn't buildable on any Setonix node;
 indexing each genome separately is trivial even for the largest one alone.
 
-Two stages, each independently resumable:
+Three stages, each independently resumable:
 
-  1. BUILD INDEX — one bbmap.sh index per distinct host taxid named in
-     kraken_run_select.py's host_taxid_to_accession.json. The genomic FASTA is
-     already extracted (kraken_db_search.download_cds() unzips on download) —
-     no separate "extract" stage needed. Skips any taxid whose index already
-     exists. Embarrassingly parallel across taxids, but kept to a modest
-     default worker count (--workers) since a handful of these genomes are
-     tens of Gb and each bbmap.sh index build gets its own -Xmx allocation —
-     too much concurrency risks overcommitting node memory.
+  0. RESOLVE + DOWNLOAD HOST GENOMES — for every distinct host taxid named
+     across run_list.tsv's candidate_host_taxids column (kraken_run_select.py's
+     output), pick and fetch its single best genomic assembly (not CDS —
+     BBMap aligns reads rather than doing k-mer LCA, so it has no use for
+     CDS/annotation, and NCBI's plant gene-annotation coverage is patchy
+     enough that requiring it would exclude most hosts) via
+     kraken_db_search.download_cds(..., include="genome") into
+     kraken_db_search/data/cds/host/ — the same shared pool
+     kraken_db_build.py's pathogen fetch uses (cds/pathogen/ there). Persists
+     the resolved taxid->accession map so re-runs skip already-fetched taxids.
+
+  1. BUILD INDEX — one bbmap.sh index per distinct host taxid resolved above.
+     The genomic FASTA is already extracted (kraken_db_search.download_cds()
+     unzips on download) — no separate "extract" stage needed. Skips any
+     taxid whose index already exists. Embarrassingly parallel across taxids,
+     but kept to a modest default worker count (--workers) since a handful of
+     these genomes are tens of Gb and each bbmap.sh index build gets its own
+     -Xmx allocation — too much concurrency risks overcommitting node memory.
 
   2. SPLIT — for each run in run_list.tsv, align its reads against EVERY named
      candidate's index separately (not one combined pass). The candidate with
@@ -35,13 +52,15 @@ Two stages, each independently resumable:
      reads), not parsed from BBMap's statsfile text, so it doesn't depend on
      guessing an exact key format.
 
-Run on Setonix (requires the bbmap module):
+Run on Setonix (requires the bbmap module + NCBI datasets CLI):
     module load bbmap/38.96--h5c4e2a8_0
-    python kraken/run/kraken_run_split.py --build-index      # stage 1 only
-    python kraken/run/kraken_run_split.py                    # both stages
+    python kraken/run/kraken_run_split.py --build-index      # stages 0+1 only
+    python kraken/run/kraken_run_split.py                    # all three stages
     python kraken/run/kraken_run_split.py --limit 5           # smoke test
 
 Output:
+    kraken/output/run/split/data/host_taxid_to_accession.json  (tracked — every
+        candidate taxid's downloaded accession; owned here now, not by select)
     kraken/output/run/split/data/index/{taxid}/               (gitignored —
         one BBMap index dir per host taxid)
     kraken/output/run/split/data/reads/{run}_{1,2}.fastq.gz    (gitignored —
@@ -63,12 +82,14 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from _util import _Tee, make_log_dir, link_latest, load_json, save_json
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "db"))
+from kraken_db_search import download_cds, datasets_query, quality_key, scaffold_plus
+
 # ── paths ──────────────────────────────────────────────────────────────────────
 
 SELECT_DATA     = Path("kraken/output/run/select/data")
 RUN_LIST        = SELECT_DATA / "run_list.tsv"
 SELECT_READS_DIR = SELECT_DATA / "reads"
-HOST_TAXID_MAP  = SELECT_DATA / "host_taxid_to_accession.json"
 HOST_CDS_DIR    = Path("kraken/output/db/search/data/cds/host")
 
 OUT_DIR        = Path("kraken/output/run/split")
@@ -76,6 +97,10 @@ DATA_DIR       = OUT_DIR / "data"
 INDEX_DIR      = DATA_DIR / "index"
 SPLIT_READS_DIR = DATA_DIR / "reads"
 SPLIT_RESULTS  = DATA_DIR / "split_results.tsv"
+# Every candidate taxid -> its downloaded accession. Owned by this script now
+# (moved from kraken_run_select.py's data dir 2026-09-07) since this is the
+# script that actually needs and fetches the genome.
+HOST_TAXID_MAP = DATA_DIR / "host_taxid_to_accession.json"
 
 SPLIT_RESULTS_COLS = [
     "Run", "BioSample", "BioProject", "llm_host_resolved",
@@ -90,6 +115,48 @@ SPLIT_RESULTS_COLS = [
 BBMAP_XMX = "48g"
 
 _FASTA_EXCLUDE_SUFFIXES = ("_clean.fna", "_combined.fna", ".tagged.fna")
+
+
+# ── stage 0: resolve + download host genomes (moved from kraken_run_select.py
+# 2026-09-07 — no BUSCO screening needed here, unlike kraken_db_search.py's
+# pathogen selection: host reference genomes are well-annotated model/crop
+# species, not the strain-diversity problem BUSCO filtering solves) ──────────
+
+def best_host_assembly(taxid: int) -> dict:
+    """Pick the single best genomic assembly for a host taxid. Unlike
+    kraken_db_search.py's pathogen selection, does NOT require annotation —
+    BBMap aligns reads rather than doing k-mer LCA, so it has no use for
+    CDS/annotation, and requiring it would exclude most plant hosts (NCBI's
+    plant gene-annotation pipeline coverage is much patchier than fungi/
+    vertebrates — even well-studied species like Nicotiana benthamiana often
+    have zero NCBI-annotated assemblies despite having good genomic ones).
+    Falls back from scaffold-plus down to any assembly — always take
+    something over nothing."""
+    assemblies = datasets_query(taxid)
+    for pool in [
+        [a for a in assemblies if scaffold_plus(a)],
+        assemblies,
+    ]:
+        if pool:
+            break
+    if not pool:
+        return None
+    pool.sort(key=quality_key, reverse=True)
+    return pool[0]
+
+
+def ensure_host_cds(taxid: int) -> str:
+    """Fetch the single best genomic assembly for a host taxid if not already
+    present. Returns the accession, or '' on failure."""
+    best = best_host_assembly(taxid)
+    if not best:
+        return ""
+    accession = best.get("accession", "")
+    if not accession:
+        return ""
+    dest = HOST_CDS_DIR / accession
+    fnas = download_cds(accession, dest, include="genome")
+    return accession if fnas else ""
 
 
 # ── reference lookup ──────────────────────────────────────────────────────────
@@ -248,14 +315,16 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--build-index", action="store_true",
-                    help="Stop after building indices; don't run the split stage")
+                    help="Stop after resolving genomes + building indices; "
+                         "don't run the split stage")
     ap.add_argument("--limit", type=int, default=None,
                     help="Process at most N runs in the split stage (for testing)")
     ap.add_argument("--workers", type=int, default=4,
-                    help="Parallel bbmap.sh jobs (default 4 — kept modest since "
-                         "some host genomes are tens of Gb and each job gets its "
-                         "own -Xmx allocation; too much concurrency risks "
-                         "overcommitting node memory)")
+                    help="Parallel jobs for genome download, index build, and "
+                         "split stages alike (default 4 — kept modest since "
+                         "some host genomes are tens of Gb and each bbmap.sh "
+                         "job gets its own -Xmx allocation; too much "
+                         "concurrency risks overcommitting node memory)")
     args = ap.parse_args()
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -269,13 +338,39 @@ def main():
     try:
         if not RUN_LIST.exists():
             sys.exit(f"Error: {RUN_LIST} not found — run kraken_run_select.py --download first.")
-        taxid_to_accession = {str(k): v for k, v in load_json(HOST_TAXID_MAP).items()}
+
+        # ── stage 0: resolve + download host genomes ────────────────────────
+        with open(RUN_LIST, newline="") as fh:
+            select_rows = list(csv.DictReader(fh, delimiter="\t"))
+        host_taxids_needed = set()
+        for row in select_rows:
+            for t in (row.get("candidate_host_taxids", "") or "").split(";"):
+                t = t.strip()
+                if t:
+                    host_taxids_needed.add(int(t))
+        print(f"Distinct host taxids named across {len(select_rows)} runs: "
+              f"{len(host_taxids_needed)}", flush=True)
+
+        taxid_to_accession = {int(k): v for k, v in load_json(HOST_TAXID_MAP).items()}
+        already_done = {t for t in host_taxids_needed if t in taxid_to_accession}
+        todo = host_taxids_needed - already_done
+        print(f"Host genomes: {len(already_done)} already resolved (from a prior "
+              f"run), {len(todo)} to fetch …", flush=True)
+        if todo:
+            with ThreadPoolExecutor(max_workers=args.workers) as pool:
+                futs = {pool.submit(ensure_host_cds, tid): tid for tid in todo}
+                for fut in as_completed(futs):
+                    tid = futs[fut]
+                    acc = fut.result()
+                    taxid_to_accession[tid] = acc
+                    print(f"  host taxid {tid}: {'OK ' + acc if acc else 'FAILED'}", flush=True)
+            save_json({str(k): v for k, v in taxid_to_accession.items()}, HOST_TAXID_MAP)
+        taxid_to_accession = {str(k): v for k, v in taxid_to_accession.items() if v}
         if not taxid_to_accession:
-            sys.exit(f"Error: {HOST_TAXID_MAP} not found/empty — run "
-                     f"kraken_run_select.py --download first.")
+            sys.exit("Error: no host genomes resolved — nothing to index or split against.")
 
         # ── stage 1: build indices ─────────────────────────────────────────
-        print(f"Building indices for {len(taxid_to_accession)} distinct host taxids "
+        print(f"\nBuilding indices for {len(taxid_to_accession)} distinct host taxids "
               f"({args.workers} workers) …", flush=True)
         n_ok = n_cached = n_fail = 0
         t0 = time.time()
@@ -303,8 +398,7 @@ def main():
             return
 
         # ── stage 2: split ──────────────────────────────────────────────────
-        with open(RUN_LIST, newline="") as fh:
-            rows = list(csv.DictReader(fh, delimiter="\t"))
+        rows = select_rows
         if args.limit:
             rows = rows[:args.limit]
         print(f"\nSplitting {len(rows)} runs against their candidate host "

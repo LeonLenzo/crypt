@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 """
-kraken_run_select.py — select target BioSamples and download reads + host CDS.
+kraken_run_select.py — select target BioSamples and download reads.
 Submodule 2, step 1 of 3 (select -> split -> assign).
 
-Combines selection and download in one script (matching kraken_db_search.py's
-"the ONE place that fetches" pattern) since scratch space is not a limiting
-factor here (Setonix scratch has plenty of headroom) — the only real cost is
-download time, so there is no separate cost to keeping them together.
-
-Two things happen, in order:
+Host reference genome resolution/download moved to kraken_run_split.py
+(2026-09-07 refactor — see kraken/README.md's "select vs split ownership"
+note). Originally built with genome download here too, matching
+kraken_db_search.py's "the ONE place that fetches" pattern — but that made
+`select` a heavy, slow script doing multi-GB network I/O as a side effect of
+what's supposed to be a cheap filtering step, and meant re-running it under
+a different --setting/--limit risked re-triggering large downloads. `split`
+already needs the host genome on disk to build its BBMap index, so it's the
+more natural owner of "make sure the genome exists" — `select` now only
+resolves and records which taxids are needed, it doesn't fetch anything for
+them itself.
 
   1. SELECT — filter metadata/output/meta_classify/data/samples.tsv down to the
      target BioSamples: default is every field, aerial-tissue BioSample
@@ -26,30 +31,24 @@ Two things happen, in order:
      it, no resolution logic here. Host, not pathogen, and from the manuscript
      (LLM), not STAT — STAT's inferred host can be wrong/generic; the
      author-stated host is the ground truth for what to remove as background.
+     Every named candidate taxid (not just the resolved one) is recorded per
+     row in candidate_host_taxids — kraken_run_split.py needs the full set,
+     since an unresolved multi-host sample's true host is still covered as
+     long as it's one of the named candidates.
 
   2. DOWNLOAD — prefetch + fasterq-dump each Run's full reads (no subsampling
      — scratch space isn't the constraint, download time is, and fasterq-dump
-     is the fastest path to full files). For each distinct host taxid named
-     as a candidate (see below), fetch its single best GENOMIC assembly (not
-     CDS — BBSplit aligns reads rather than doing k-mer LCA, so it has no use
-     for CDS/annotation, and NCBI's plant gene-annotation coverage is patchy
-     enough that requiring it would exclude most hosts) via
-     kraken_db_search.download_cds(..., include="genome") into
-     kraken_db_search/data/cds/host/ — the same shared pool
-     kraken_db_build.py's pathogen fetch uses (cds/pathogen/ there).
+     is the fastest path to full files).
 
-Run on Setonix (requires sra-tools: prefetch, fasterq-dump; NCBI datasets CLI):
+Run on Setonix (requires sra-tools: prefetch, fasterq-dump):
     python kraken/run/kraken_run_select.py
     python kraken/run/kraken_run_select.py --setting field,greenhouse --limit 50   # broader/smaller test
 
 Output:
-    kraken/output/run/select/data/run_list.tsv   (tracked — Run/BioSample/host/status)
-    kraken/output/run/select/data/host_taxid_to_accession.json  (tracked — every
-        candidate taxid's downloaded accession, not just the resolved host per row;
-        consumed by kraken_run_split.py to find/build a per-taxid index for each
-        of a sample's named candidates)
+    kraken/output/run/select/data/run_list.tsv   (tracked — Run/BioSample/host/
+        candidate_host_taxids/status; kraken_run_split.py consumes this to
+        resolve+download host genomes itself)
     kraken/output/run/select/data/reads/{run}_1.fastq.gz [+ _2]  (gitignored)
-    kraken/output/db/search/data/cds/host/{accession}/           (gitignored, shared pool)
 """
 
 import argparse
@@ -61,10 +60,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
-from _util import _Tee, make_log_dir, link_latest, load_json, save_json
-
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "db"))
-from kraken_db_search import download_cds, datasets_query, quality_key, scaffold_plus
+from _util import _Tee, make_log_dir, link_latest
 
 SAMPLES_TSV = Path("metadata/output/meta_classify/data/samples.tsv")
 RUNS_TSV    = Path("stat/output/stat_filter/data/runs.tsv")
@@ -73,14 +69,10 @@ OUT_DIR   = Path("kraken/output/run/select")
 DATA_DIR  = OUT_DIR / "data"
 RUN_LIST  = DATA_DIR / "run_list.tsv"
 READS_DIR = DATA_DIR / "reads"
-HOST_CDS_DIR = Path("kraken/output/db/search/data/cds/host")
-# Every candidate taxid -> its downloaded accession (not just the resolved host —
-# kraken_run_split.py needs this for every candidate to build/find per-taxid indices).
-HOST_TAXID_MAP = DATA_DIR / "host_taxid_to_accession.json"
 
 RUN_LIST_COLS = [
     "Run", "BioSample", "BioProject", "llm_host_resolved", "host_taxid",
-    "candidate_host_taxids", "host_accession", "download_status",
+    "candidate_host_taxids", "download_status",
 ]
 
 _CRYPTIC_PMS = {"partial_match_plus_undeclared", "no_match_stat_found_different",
@@ -124,47 +116,6 @@ def select_targets(rows: list, settings: set, require_cryptic: bool,
             continue
         out.append(r)
     return out
-
-
-# ── host CDS: single best assembly per taxid (no BUSCO screening needed —
-# host reference genomes are well-annotated model/crop species, unlike the
-# pathogen strain-diversity problem kraken_db_search.py's seed selection solves) ─
-
-def best_host_assembly(taxid: int) -> dict:
-    """Pick the single best genomic assembly for a host taxid. Unlike
-    kraken_db_search.py's pathogen selection, does NOT require annotation —
-    BBSplit aligns reads rather than doing k-mer LCA, so it has no use for
-    CDS/annotation, and requiring it would exclude most plant hosts (NCBI's
-    plant gene-annotation pipeline coverage is much patchier than fungi/
-    vertebrates — even well-studied species like Nicotiana benthamiana often
-    have zero NCBI-annotated assemblies despite having good genomic ones).
-    Falls back from scaffold-plus down to any assembly — always take
-    something over nothing."""
-    assemblies = datasets_query(taxid)
-    for pool in [
-        [a for a in assemblies if scaffold_plus(a)],
-        assemblies,
-    ]:
-        if pool:
-            break
-    if not pool:
-        return None
-    pool.sort(key=quality_key, reverse=True)
-    return pool[0]
-
-
-def ensure_host_cds(taxid: int) -> str:
-    """Fetch the single best genomic assembly for a host taxid if not already
-    present. Returns the accession, or '' on failure."""
-    best = best_host_assembly(taxid)
-    if not best:
-        return ""
-    accession = best.get("accession", "")
-    if not accession:
-        return ""
-    dest = HOST_CDS_DIR / accession
-    fnas = download_cds(accession, dest, include="genome")
-    return accession if fnas else ""
 
 
 # ── read download (prefetch + fasterq-dump, full files) ──────────────────────
@@ -239,7 +190,7 @@ def main():
     ap.add_argument("--limit", type=int, default=None,
                     help="Process at most N target BioSamples (for testing)")
     ap.add_argument("--download", action="store_true",
-                    help="After selecting + resolving hosts, download reads + host CDS")
+                    help="After selecting + resolving hosts, download reads")
     ap.add_argument("--workers", type=int, default=8)
     args = ap.parse_args()
 
@@ -269,18 +220,20 @@ def main():
                 bs_to_runs.setdefault(row["BioSample"], []).append(row["Run"])
 
         # kraken_run_split.py builds ONE bbmap.sh index PER distinct host taxid
-        # fetched here (not one combined multi-reference index — some host
+        # named here (not one combined multi-reference index — some host
         # genomes are huge, e.g. wheat 14.5Gb, pine 22.4Gb; combining ~90 of them
         # into a single BBSplit index would be several hundred Gb and unbuildable
-        # on any Setonix node). A sample doesn't need its own host confidently
-        # resolved to still get correctly host-filtered: kraken_run_split.py runs
-        # each candidate's individual index separately and picks the one with the
-        # highest mapping rate as the confirmed host — an independent, read-level
-        # confirmation (often more reliable than metadata guessing). So: pull CDS
-        # for every CANDIDATE in llm_named_hosts_taxids, not just the single
-        # llm_host_resolved_taxid — an unresolved multi-host sample's true host is
-        # still covered as long as it's one of the named candidates.
-        # host_taxid (singular, resolved) is kept per-row for provenance/QC only.
+        # on any Setonix node), and it resolves+downloads each one itself (see
+        # module docstring — moved out of this script 2026-09-07). A sample
+        # doesn't need its own host confidently resolved to still get correctly
+        # host-filtered: kraken_run_split.py runs each candidate's individual
+        # index separately and picks the one with the highest mapping rate as
+        # the confirmed host — an independent, read-level confirmation (often
+        # more reliable than metadata guessing). So: record every CANDIDATE in
+        # llm_named_hosts_taxids, not just the single llm_host_resolved_taxid —
+        # an unresolved multi-host sample's true host is still covered as long
+        # as it's one of the named candidates. host_taxid (singular, resolved)
+        # is kept per-row for provenance/QC only.
         run_rows = []
         host_taxids_needed = set()
         n_resolved, n_unresolved = 0, 0
@@ -302,37 +255,15 @@ def main():
                     "llm_host_resolved": host_resolved,
                     "host_taxid": resolved_taxid,
                     "candidate_host_taxids": "; ".join(candidate_taxids),
-                    "host_accession": "", "download_status": "",
+                    "download_status": "",
                 })
 
         print(f"Host resolution: {n_resolved} confidently resolved, {n_unresolved} "
               f"not per-sample-resolved (still covered by per-candidate indices "
               f"below as long as their true host is a named candidate)")
-        print(f"Per-taxid host indices needed: {len(host_taxids_needed)} distinct taxids")
+        print(f"Per-taxid host indices needed: {len(host_taxids_needed)} distinct taxids "
+              f"(resolved+downloaded by kraken_run_split.py, not here)")
         print(f"Runs to process: {len(run_rows)}")
-
-        # ── fetch one best CDS assembly per distinct host taxid ───────────────
-        # Persisted to HOST_TAXID_MAP (every candidate, not just the resolved host
-        # per row) — kraken_run_split.py needs this to find/build an index for each
-        # of a sample's named candidates, not only the one meta_classify.py resolved.
-        taxid_to_accession = {int(k): v for k, v in load_json(HOST_TAXID_MAP).items()}
-        if args.download and host_taxids_needed:
-            already_done = {t for t in host_taxids_needed if t in taxid_to_accession}
-            todo = host_taxids_needed - already_done
-            print(f"\nHost CDS: {len(already_done)} taxids already resolved "
-                  f"(from a prior run), {len(todo)} to fetch …")
-            if todo:
-                with ThreadPoolExecutor(max_workers=args.workers) as pool:
-                    futs = {pool.submit(ensure_host_cds, tid): tid for tid in todo}
-                    for fut in as_completed(futs):
-                        tid = futs[fut]
-                        acc = fut.result()
-                        taxid_to_accession[tid] = acc
-                        print(f"  host taxid {tid}: {'OK ' + acc if acc else 'FAILED'}", flush=True)
-                save_json({str(k): v for k, v in taxid_to_accession.items()}, HOST_TAXID_MAP)
-            for row in run_rows:
-                if row["host_taxid"]:
-                    row["host_accession"] = taxid_to_accession.get(int(row["host_taxid"]), "")
 
         # ── download reads ─────────────────────────────────────────────────────
         if args.download:
@@ -371,9 +302,10 @@ def main():
             w.writerows(run_rows)
         print(f"\nOutput: {RUN_LIST}")
         if not args.download:
-            print("Re-run with --download to fetch reads + host CDS.")
+            print("Re-run with --download to fetch reads.")
         else:
-            print("Next: python kraken/kraken_run_split.py")
+            print("Next: python kraken/run/kraken_run_split.py "
+                  "(resolves + downloads host genomes, builds indices, splits)")
     finally:
         log.close()
 

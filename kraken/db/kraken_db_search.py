@@ -472,6 +472,23 @@ def write_candidates(rows: list) -> None:
 
 # ── CDS download (the ONE place in kraken_db_* that downloads) ───────────────
 
+# Genomic assembly downloads (include="genome", used for HAL host references)
+# range up to ~22.4Gb (Pinus radiata) across the field/aerial cohort's named
+# host candidates, with wheat (Triticum aestivum, ~14-17Gb, ~55% of the whole
+# cohort) the single most common case — nowhere near a corner case. A flat
+# 300s timeout here is far too short for those and was the real cause of the
+# "300s timeout on datasets download genome" failures seen 2026-08-31 and
+# reproduced 2026-09-07 (both on the login node AND, when retested via SLURM
+# on an actual compute node, at the exact same accession/timeout — ruling out
+# the earlier "login-node network throttling" theory entirely; it's simply
+# that large genome downloads need more than 300s, full stop). CDS downloads
+# (include="cds", used for pathogen references) are typically megabytes, so
+# they complete almost immediately regardless of this value — a generous
+# shared timeout costs nothing there.
+_DOWNLOAD_TIMEOUT = 3600   # 1hr — comfortably covers even the largest (~22Gb) genome
+_UNZIP_TIMEOUT    = 1800   # 30min — large zips can genuinely take a while to extract
+
+
 def download_cds(accession: str, dest_dir: Path, include: str = "cds") -> list:
     """Download sequence FASTA for accession to dest_dir. Resumable: skips if
     .fna files already present. Returns list of .fna paths (empty on failure).
@@ -492,13 +509,13 @@ def download_cds(accession: str, dest_dir: Path, include: str = "cds") -> list:
     zip_path = dest_dir / "ncbi_dataset.zip"
     cmd = ["datasets", "download", "genome", "accession", accession,
            "--include", include, "--filename", str(zip_path)]
-    r = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=_DOWNLOAD_TIMEOUT)
     if r.returncode != 0 or not zip_path.exists():
         print(f"  [{_ts()}] {accession}  download FAILED (rc={r.returncode})", flush=True)
         return []
 
     subprocess.run(["unzip", "-q", "-o", str(zip_path), "-d", str(dest_dir)],
-                   capture_output=True, timeout=300)
+                   capture_output=True, timeout=_UNZIP_TIMEOUT)
     zip_path.unlink(missing_ok=True)
 
     fnas = [f for f in dest_dir.glob("**/*.fna")

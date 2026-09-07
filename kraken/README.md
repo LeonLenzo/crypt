@@ -26,11 +26,17 @@ kraken/
 │                               busco_completeness.R — all DB-comparison scoped
 ├── run/                   Submodule 2 — read classification (select → split → assign)
 │   ├── kraken_run_select.py  Step 1/3 — select target BioSamples from samples.tsv,
-│   │                         download reads (prefetch/fasterq-dump) + host CDS.
-│   ├── kraken_run_split.py   Step 2/3 — written, NOT YET TESTED on Setonix.
-│   │                         Host-read removal via one bbmap.sh index per host
-│   │                         taxid (not one combined index — see "Running
-│   │                         submodule 2" below for why).
+│   │                         download reads (prefetch/fasterq-dump) only. Host
+│   │                         genome resolution/download moved to
+│   │                         kraken_run_split.py 2026-09-07 — see that script's
+│   │                         docstring for why (select stays cheap/fast/safe to
+│   │                         rerun; split is the one that actually needs the
+│   │                         genome on disk).
+│   ├── kraken_run_split.py   Step 2/3 — resolves+downloads host genomes, builds
+│   │                         one bbmap.sh index per host taxid (not one combined
+│   │                         index — see "Running submodule 2" below for why),
+│   │                         then splits. Timeout bug found+fixed 2026-09-07
+│   │                         (see below).
 │   ├── kraken_run_assign.py  Step 3/3 — NOT YET BUILT. Kraken2 classification.
 │   └── classify.py           Kraken2 classification (--run-list/--runs-tsv +
 │                             --reads-dir or ENA streaming) — planned basis for
@@ -100,20 +106,44 @@ after a threshold change only needs `kraken_db_busco.py --finalize-only` (no re-
 ## Running submodule 2 (select → split → assign)
 
 ```bash
-python kraken/run/kraken_run_select.py --limit N --download   # select + download reads + host CDS
-python kraken/run/kraken_run_split.py --build-index            # build per-taxid indices
-python kraken/run/kraken_run_split.py                          # + split (untested on Setonix)
+python kraken/run/kraken_run_select.py --limit N --download   # select + download reads only
+python kraken/run/kraken_run_split.py --build-index            # resolve+download host genomes, build per-taxid indices
+python kraken/run/kraken_run_split.py                          # + split
 python kraken/run/kraken_run_assign.py                         # NOT YET BUILT — Kraken2 classification
 ```
 
-Steps 1–2 are written; step 2 hasn't been run against real data yet (Setonix is down
-for maintenance). `kraken/run/classify.py` (`--run-list`/`--runs-tsv` + `--reads-dir`,
-confidence=0.15, min-hit-groups=3, results append to
+Steps 1–2 are written and confirmed working end-to-end on Setonix as of
+2026-09-07 (real `--limit 5 --download` test: host resolution, read download,
+and — after the timeout fix below — host genome download all completed
+successfully via `sbatch`). `kraken/run/classify.py` (`--run-list`/`--runs-tsv` +
+`--reads-dir`, confidence=0.15, min-hit-groups=3, results append to
 `kraken/output/run/classify/data/kraken_cache.jsonl`) is the planned basis for
 `kraken_run_assign.py` — kept in the active tree for that reason, not yet wired into
 the new flow.
 
-### `kraken_run_split.py` design (2026-09-01, agreed and written, not yet Setonix-tested)
+**Real bug found + fixed 2026-09-07**: `kraken_db_search.py`'s `download_cds()` had a
+hardcoded 300s subprocess timeout on `datasets download genome`, which failed
+identically (login node AND, when retested, a real SLURM compute node) on
+`GCA_040256815.2` — *Triticum aestivum* (bread wheat), ~14-17Gb, ~55% of the whole
+2,719-sample cohort. The earlier working theory ("login-node network throttling")
+was wrong — it was simply that large genome downloads need more than 300s, full
+stop, and since wheat dominates the cohort this wasn't a corner case. Fixed by
+raising the timeout to 3600s (`_DOWNLOAD_TIMEOUT`) / 1800s for unzip
+(`_UNZIP_TIMEOUT`) — confirmed fixed by re-running the identical test (wheat genome
+downloaded + extracted successfully in ~6 minutes).
+
+**Select vs split ownership (2026-09-07 refactor)**: host genome resolution/download
+originally lived in `kraken_run_select.py` (matching `kraken_db_search.py`'s "one
+place that fetches" pattern), but that made `select` do multi-GB network I/O as a
+side effect of what should be a cheap, fast, safe-to-rerun filtering step — annoying
+if you want to iterate on `--setting`/`--limit` without re-triggering large
+downloads. Moved to `kraken_run_split.py`, which is the script that actually needs
+the genome on disk to build its BBMap index anyway. `select` now only records which
+taxids are needed (`candidate_host_taxids` in `run_list.tsv`); `split` resolves and
+downloads them itself as its new stage 0, persisting its own
+`host_taxid_to_accession.json` under `run/split/data/` (moved from `run/select/data/`).
+
+### `kraken_run_split.py` design (agreed 2026-09-01, confirmed working on Setonix 2026-09-07)
 
 **Why not one combined BBSplit index**: the 2,719-sample field/aerial cohort names
 116 distinct candidate host taxids, 94 of which have an NCBI genomic assembly. Total
@@ -138,11 +168,12 @@ job, even the 22Gb pine genome indexes fine on its own). For each run:
    `kraken_run_assign.py`. Other candidates' stats are kept as QC/confirmation
    metadata only, not used to filter reads (no cross-candidate intersection).
 
-Two stages, each independently resumable (no separate "extract" stage needed —
-`kraken_db_search.download_cds()`, already called by `kraken_run_select.py`, unzips
-on download): **build one index per taxid** (`--build-index`, skips any taxid whose
-index already exists) → **per-run split** (aligns each candidate separately, skips
-nothing yet — re-running currently redoes completed runs; `--limit N` for testing).
+Three stages, each independently resumable (no separate "extract" stage needed —
+`kraken_db_search.download_cds()` unzips on download): **resolve + download host
+genomes** (skips any taxid already resolved from a prior run) → **build one index
+per taxid** (`--build-index` stops here, skips any taxid whose index already
+exists) → **per-run split** (aligns each candidate separately, skips nothing yet —
+re-running currently redoes completed runs; `--limit N` for testing).
 `--workers` defaults to 4, deliberately modest: each `bbmap.sh` job gets its own
 `-Xmx48g` allocation (sized to safely cover even the largest single host genome,
 ~22Gb `Pinus radiata`, with headroom) — too much concurrency risks overcommitting

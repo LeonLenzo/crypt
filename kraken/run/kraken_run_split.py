@@ -52,19 +52,42 @@ Three stages, each independently resumable:
      reads), not parsed from BBMap's statsfile text, so it doesn't depend on
      guessing an exact key format.
 
-Run on Setonix (requires the bbmap module + NCBI datasets CLI):
-    module load bbmap/38.96--h5c4e2a8_0
-    python kraken/run/kraken_run_split.py --build-index      # stages 0+1 only
-    python kraken/run/kraken_run_split.py                    # all three stages
-    python kraken/run/kraken_run_split.py --limit 5           # smoke test
+**Two aligners available (--aligner {bbmap,hisat2}, default bbmap for now)**:
+BBMap has a hard, undocumented-until-hit 500Mbp-per-chromosome limit — confirmed
+2026-09-07 against real data: Triticum aestivum (wheat, ~55% of the whole cohort)
+fails outright with "AssertionError ... reference file appears empty" (a misleading
+message; the real cause, per BBMap's author on the project tracker, is simply that
+wheat's chromosomes exceed the 500Mbp ceiling BBMap doesn't support, full stop, no
+flag or workaround). HISAT2 uses an FM-index (BWT-based), not BBMap's in-memory
+per-chromosome array approach, so it doesn't share this ceiling, and is the
+standard splice-aware choice for RNA-seq anyway (BBMap is a generic aligner, not
+RNA-seq-specific). Added 2026-09-07 to A/B test against BBMap and a raw-reads
+(no split at all) Kraken2 baseline, per Leon's question: does host-read removal
+even have a material effect on Kraken2's output, given the current Kraken2 DB
+(db_v2) is pathogen-only (host genomes deliberately excluded, see
+kraken_db_build.py) — so a host read can only produce a false pathogen hit if it
+accidentally shares a k-mer with a real pathogen sequence, not from "competing"
+for classification the way it might with a combined DB. Each aligner's indices
+live under their own subdirectory so both can be tested side by side without
+collision.
+
+Run on Setonix (requires the bbmap and/or hisat2 module + NCBI datasets CLI):
+    module load bbmap/38.96--h5c4e2a8_0        # for --aligner bbmap (default)
+    module load hisat2/2.2.1-w7a5u7v            # for --aligner hisat2
+    python kraken/run/kraken_run_split.py --build-index                    # stages 0+1 only
+    python kraken/run/kraken_run_split.py --aligner hisat2                 # all three stages, HISAT2
+    python kraken/run/kraken_run_split.py --limit 5                        # smoke test
 
 Output:
     kraken/output/run/split/data/host_taxid_to_accession.json  (tracked — every
         candidate taxid's downloaded accession; owned here now, not by select)
-    kraken/output/run/split/data/index/{taxid}/               (gitignored —
-        one BBMap index dir per host taxid)
+    kraken/output/run/split/data/index/{aligner}/{taxid}/     (gitignored —
+        one index dir per (aligner, host taxid) pair)
     kraken/output/run/split/data/reads/{run}_{1,2}.fastq.gz    (gitignored —
-        confirmed-host-removed, pathogen-enriched reads)
+        confirmed-host-removed, pathogen-enriched reads; NOTE: shared output
+        path regardless of --aligner used to produce it — don't run both
+        aligners' split stage back to back without moving/renaming results
+        in between, the second run will silently overwrite the first's output)
     kraken/output/run/split/data/split_results.tsv             (tracked — one
         row per run: confirmed host taxid + mapped %, every candidate's mapped
         % for QC, agreement with meta_classify.py's llm_host_resolved)
@@ -111,10 +134,15 @@ SPLIT_RESULTS_COLS = [
 # BBMap needs its whole index (roughly proportional to reference size) resident
 # in memory. 48g comfortably covers even the largest single host genome in this
 # cohort (~22Gb Pinus radiata) with headroom — sized for ONE genome at a time,
-# since indices are per-taxid now, not combined.
+# since indices are per-taxid now, not combined. BBMap CANNOT build for genomes
+# with a chromosome >500Mbp regardless of memory (see module docstring) — this
+# affects wheat and likely other cohort outliers; that's a hard limit, not a
+# memory-tuning problem, and raising BBMAP_XMX will not fix it.
 BBMAP_XMX = "48g"
 
 _FASTA_EXCLUDE_SUFFIXES = ("_clean.fna", "_combined.fna", ".tagged.fna")
+
+ALIGNERS = ("bbmap", "hisat2")
 
 
 # ── stage 0: resolve + download host genomes (moved from kraken_run_select.py
@@ -174,28 +202,73 @@ def find_host_fasta(accession: str) -> Path | None:
 
 # ── stage 1: build one index per taxid ────────────────────────────────────────
 
-def index_ready(taxid: str) -> bool:
+def _index_dir(aligner: str, taxid: str) -> Path:
+    return INDEX_DIR / aligner / taxid
+
+
+def _index_ready_bbmap(taxid: str) -> bool:
     """BBMap writes ref/genome/1/summary.txt on a successful index build."""
-    return (INDEX_DIR / taxid / "ref" / "genome" / "1" / "summary.txt").exists()
+    return (_index_dir("bbmap", taxid) / "ref" / "genome" / "1" / "summary.txt").exists()
 
 
-def build_index(taxid: str, accession: str) -> str:
+def _build_index_bbmap(taxid: str, accession: str) -> str:
     """Build a BBMap index for one host taxid. Resumable: skips if already
     built. Returns 'ok', 'cached', or 'failed'."""
-    if index_ready(taxid):
+    if _index_ready_bbmap(taxid):
         return "cached"
     fasta = find_host_fasta(accession)
     if not fasta:
         return "failed"
-    idx_dir = INDEX_DIR / taxid
+    idx_dir = _index_dir("bbmap", taxid)
     idx_dir.mkdir(parents=True, exist_ok=True)
     cmd = ["bbmap.sh", f"-Xmx{BBMAP_XMX}",
            f"ref={fasta}", f"path={idx_dir}", "build=1", "overwrite=t"]
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
-    if r.returncode != 0 or not index_ready(taxid):
-        print(f"  taxid {taxid}: index build FAILED\n{r.stderr[-1500:]}", flush=True)
+    if r.returncode != 0 or not _index_ready_bbmap(taxid):
+        print(f"  taxid {taxid}: BBMap index build FAILED\n{r.stderr[-1500:]}", flush=True)
         return "failed"
     return "ok"
+
+
+# HISAT2 uses an FM-index (Burrows-Wheeler transform), not BBMap's in-memory
+# per-chromosome array approach — no known chromosome-length ceiling, and it's
+# the standard splice-aware aligner for RNA-seq specifically (BBMap is generic).
+# --large-index forced explicitly rather than relying on hisat2-build's own
+# >4Gb auto-detection, since every genome in this cohort that matters is well
+# past that threshold anyway — no downside to being explicit.
+def _index_ready_hisat2(taxid: str) -> bool:
+    """hisat2-build writes <base>.1.ht2 (or .1.ht2l for --large-index) on success."""
+    base = _index_dir("hisat2", taxid) / taxid
+    return base.with_suffix(".1.ht2l").exists() or base.with_suffix(".1.ht2").exists()
+
+
+def _build_index_hisat2(taxid: str, accession: str, threads: int = 8) -> str:
+    """Build a HISAT2 index for one host taxid. Resumable: skips if already
+    built. Returns 'ok', 'cached', or 'failed'."""
+    if _index_ready_hisat2(taxid):
+        return "cached"
+    fasta = find_host_fasta(accession)
+    if not fasta:
+        return "failed"
+    idx_dir = _index_dir("hisat2", taxid)
+    idx_dir.mkdir(parents=True, exist_ok=True)
+    cmd = ["hisat2-build", "--large-index", "-p", str(threads),
+           str(fasta), str(idx_dir / taxid)]
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=7200)
+    if r.returncode != 0 or not _index_ready_hisat2(taxid):
+        print(f"  taxid {taxid}: HISAT2 index build FAILED\n{r.stderr[-1500:]}", flush=True)
+        return "failed"
+    return "ok"
+
+
+def index_ready(taxid: str, aligner: str) -> bool:
+    return _index_ready_hisat2(taxid) if aligner == "hisat2" else _index_ready_bbmap(taxid)
+
+
+def build_index(taxid: str, accession: str, aligner: str, threads: int = 8) -> str:
+    if aligner == "hisat2":
+        return _build_index_hisat2(taxid, accession, threads)
+    return _build_index_bbmap(taxid, accession)
 
 
 # ── stage 2: split ─────────────────────────────────────────────────────────────
@@ -212,28 +285,63 @@ def _count_fastq_reads(path: Path) -> int:
     return n // 4
 
 
-def align_against_taxid(taxid: str, run: str, r1: Path, r2: Path | None,
-                        work_dir: Path) -> dict:
-    """Align one run's reads against one taxid's pre-built index. Returns
-    {'mapped_pct': float, 'unmapped_r1': Path, 'unmapped_r2': Path|None,
-    'n_input': int, 'n_unmapped': int} or {} on failure."""
-    if not index_ready(taxid):
-        return {}
-    idx_dir = INDEX_DIR / taxid
-    out_u1 = work_dir / f"{run}__{taxid}__unmapped_1.fastq.gz"
+def _align_against_taxid_bbmap(taxid: str, run: str, r1: Path, r2: Path | None,
+                               work_dir: Path) -> dict:
+    idx_dir = _index_dir("bbmap", taxid)
+    out_u1 = work_dir / f"{run}__bbmap__{taxid}__unmapped_1.fastq.gz"
     cmd = ["bbmap.sh", f"-Xmx{BBMAP_XMX}", f"path={idx_dir}", "build=1",
            "overwrite=t", "statsfile=stderr"]
     if r2 is not None:
-        out_u2 = work_dir / f"{run}__{taxid}__unmapped_2.fastq.gz"
+        out_u2 = work_dir / f"{run}__bbmap__{taxid}__unmapped_2.fastq.gz"
         cmd += [f"in={r1}", f"in2={r2}", f"outu={out_u1}", f"outu2={out_u2}"]
     else:
         out_u2 = None
         cmd += [f"in={r1}", f"outu={out_u1}"]
-
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
     if r.returncode != 0:
         return {}
+    return {"unmapped_r1": out_u1, "unmapped_r2": out_u2}
 
+
+def _align_against_taxid_hisat2(taxid: str, run: str, r1: Path, r2: Path | None,
+                                work_dir: Path, threads: int = 8) -> dict:
+    idx_dir = _index_dir("hisat2", taxid)
+    prefix = work_dir / f"{run}__hisat2__{taxid}__unmapped"
+    cmd = ["hisat2", "-p", str(threads), "-x", str(idx_dir / taxid),
+           "-S", "/dev/null"]
+    if r2 is not None:
+        # hisat2's --un-conc-gz <prefix> writes concordantly-unmapped pairs to
+        # <prefix>.1.gz / <prefix>.2.gz automatically — matches our r1/r2 pattern.
+        cmd += ["-1", str(r1), "-2", str(r2), "--un-conc-gz", str(prefix)]
+        out_u1, out_u2 = Path(f"{prefix}.1.gz"), Path(f"{prefix}.2.gz")
+    else:
+        # Single-end: --un-gz <path> writes the exact filename given, no suffix.
+        out_u1 = Path(f"{prefix}.gz")
+        out_u2 = None
+        cmd += ["-U", str(r1), "--un-gz", str(out_u1)]
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
+    if r.returncode != 0:
+        print(f"  {run}/{taxid}: hisat2 align FAILED\n{r.stderr[-1500:]}", flush=True)
+        return {}
+    return {"unmapped_r1": out_u1, "unmapped_r2": out_u2}
+
+
+def align_against_taxid(taxid: str, run: str, r1: Path, r2: Path | None,
+                        work_dir: Path, aligner: str, threads: int = 8) -> dict:
+    """Align one run's reads against one taxid's pre-built index. Returns
+    {'mapped_pct': float, 'unmapped_r1': Path, 'unmapped_r2': Path|None,
+    'n_input': int, 'n_unmapped': int} or {} on failure. Mapped % always
+    computed by direct read counting (input vs. unmapped-output), not by
+    parsing either aligner's own stats text — keeps the two aligners directly
+    comparable and doesn't depend on guessing an exact key format for either."""
+    if not index_ready(taxid, aligner):
+        return {}
+    raw = (_align_against_taxid_hisat2(taxid, run, r1, r2, work_dir, threads)
+           if aligner == "hisat2" else
+           _align_against_taxid_bbmap(taxid, run, r1, r2, work_dir))
+    if not raw:
+        return {}
+    out_u1, out_u2 = raw["unmapped_r1"], raw["unmapped_r2"]
     n_input = _count_fastq_reads(r1) + (_count_fastq_reads(r2) if r2 else 0)
     n_unmapped = _count_fastq_reads(out_u1) + (_count_fastq_reads(out_u2) if out_u2 else 0)
     mapped_pct = (n_input - n_unmapped) / n_input * 100 if n_input else 0.0
@@ -241,7 +349,7 @@ def align_against_taxid(taxid: str, run: str, r1: Path, r2: Path | None,
             "n_input": n_input, "n_unmapped": n_unmapped}
 
 
-def split_run(row: dict, work_dir: Path) -> dict:
+def split_run(row: dict, work_dir: Path, aligner: str, threads: int = 8) -> dict:
     """Run stage 2 for one Run: align against every candidate host's index,
     pick the highest-mapping candidate as confirmed host, keep its unmapped
     reads as the final pathogen-enriched output. Returns a SPLIT_RESULTS row."""
@@ -258,9 +366,9 @@ def split_run(row: dict, work_dir: Path) -> dict:
     results = {}
     for taxid in candidates:
         if paired:
-            res = align_against_taxid(taxid, run, r1, r2, work_dir)
+            res = align_against_taxid(taxid, run, r1, r2, work_dir, aligner, threads)
         else:
-            res = align_against_taxid(taxid, run, se, None, work_dir)
+            res = align_against_taxid(taxid, run, se, None, work_dir, aligner, threads)
         if res:
             results[taxid] = res
 
@@ -319,12 +427,26 @@ def main():
                          "don't run the split stage")
     ap.add_argument("--limit", type=int, default=None,
                     help="Process at most N runs in the split stage (for testing)")
+    ap.add_argument("--aligner", choices=ALIGNERS, default="bbmap",
+                    help="Alignment tool for host-read removal (default: bbmap). "
+                         "bbmap CANNOT build for genomes with a chromosome "
+                         ">500Mbp (wheat and likely other cohort outliers — see "
+                         "module docstring); hisat2 has no such limit and is the "
+                         "standard splice-aware RNA-seq choice. Indices for each "
+                         "aligner live in separate subdirectories so both can be "
+                         "tested without collision — but the final split reads "
+                         "output path is shared regardless of --aligner, so "
+                         "don't run both aligners' split stage back to back "
+                         "without moving results in between.")
     ap.add_argument("--workers", type=int, default=4,
                     help="Parallel jobs for genome download, index build, and "
                          "split stages alike (default 4 — kept modest since "
-                         "some host genomes are tens of Gb and each bbmap.sh "
-                         "job gets its own -Xmx allocation; too much "
-                         "concurrency risks overcommitting node memory)")
+                         "some host genomes are tens of Gb and each aligner job "
+                         "gets a large memory/thread allocation of its own; too "
+                         "much concurrency risks overcommitting node memory)")
+    ap.add_argument("--threads", type=int, default=8,
+                    help="Threads per index-build/alignment job (hisat2 only; "
+                         "bbmap doesn't take a comparable flag here). Default 8.")
     args = ap.parse_args()
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -370,12 +492,12 @@ def main():
             sys.exit("Error: no host genomes resolved — nothing to index or split against.")
 
         # ── stage 1: build indices ─────────────────────────────────────────
-        print(f"\nBuilding indices for {len(taxid_to_accession)} distinct host taxids "
-              f"({args.workers} workers) …", flush=True)
+        print(f"\nBuilding {args.aligner} indices for {len(taxid_to_accession)} "
+              f"distinct host taxids ({args.workers} workers) …", flush=True)
         n_ok = n_cached = n_fail = 0
         t0 = time.time()
         with ThreadPoolExecutor(max_workers=args.workers) as pool:
-            futs = {pool.submit(build_index, taxid, acc): taxid
+            futs = {pool.submit(build_index, taxid, acc, args.aligner, args.threads): taxid
                     for taxid, acc in taxid_to_accession.items() if acc}
             for done, fut in enumerate(as_completed(futs), 1):
                 taxid = futs[fut]
@@ -402,14 +524,15 @@ def main():
         if args.limit:
             rows = rows[:args.limit]
         print(f"\nSplitting {len(rows)} runs against their candidate host "
-              f"indices ({args.workers} workers) …", flush=True)
+              f"{args.aligner} indices ({args.workers} workers) …", flush=True)
 
         work_dir = DATA_DIR / "_tmp"
         work_dir.mkdir(parents=True, exist_ok=True)
         results = []
         t0 = time.time()
         with ThreadPoolExecutor(max_workers=args.workers) as pool:
-            futs = {pool.submit(split_run, row, work_dir): row["Run"] for row in rows}
+            futs = {pool.submit(split_run, row, work_dir, args.aligner, args.threads): row["Run"]
+                    for row in rows}
             for done, fut in enumerate(as_completed(futs), 1):
                 results.append(fut.result())
                 if done % 10 == 0 or done == len(rows):

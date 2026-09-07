@@ -542,24 +542,48 @@ def main():
         rows = select_rows
         if args.limit:
             rows = rows[:args.limit]
-        print(f"\nSplitting {len(rows)} runs against their candidate host "
-              f"{args.aligner} indices ({args.workers} workers) …", flush=True)
+
+        # Resume: skip runs whose split already completed successfully AND
+        # whose promoted output still exists on disk. Only "ok" rows are
+        # cacheable — failures always get retried, since a failure might get
+        # fixed (real example: the 2026-09-07 HISAT2 filename bug) and
+        # shouldn't be silently skipped forever as "already done". The disk
+        # check (not just trusting the TSV row) protects against exactly the
+        # mistake made the same day — deleting _tmp/ output and unknowingly
+        # forcing a full, expensive realignment redo when a completed result
+        # was already sitting there, only a filename fix away from usable.
+        cached_results = {}
+        if SPLIT_RESULTS.exists():
+            with open(SPLIT_RESULTS, newline="") as fh:
+                for r in csv.DictReader(fh, delimiter="\t"):
+                    if r.get("status") != "ok":
+                        continue
+                    final_r1 = SPLIT_READS_DIR / f"{r['Run']}_1.fastq.gz"
+                    final_se = SPLIT_READS_DIR / f"{r['Run']}.fastq.gz"
+                    if final_r1.exists() or final_se.exists():
+                        cached_results[r["Run"]] = r
+
+        rows_todo = [row for row in rows if row["Run"] not in cached_results]
+        print(f"\nSplit: {len(cached_results)} already done (resumed, output "
+              f"verified on disk), {len(rows_todo)} to process against their "
+              f"candidate host {args.aligner} indices ({args.workers} "
+              f"workers) …", flush=True)
 
         work_dir = DATA_DIR / "_tmp"
         work_dir.mkdir(parents=True, exist_ok=True)
-        results = []
+        results = list(cached_results.values())
         t0 = time.time()
         with ThreadPoolExecutor(max_workers=args.workers) as pool:
             futs = {pool.submit(split_run, row, work_dir, args.aligner, args.threads): row["Run"]
-                    for row in rows}
+                    for row in rows_todo}
             for done, fut in enumerate(as_completed(futs), 1):
                 results.append(fut.result())
-                if done % 10 == 0 or done == len(rows):
+                if done % 10 == 0 or done == len(rows_todo):
                     elapsed = time.time() - t0
                     n_status = {}
                     for r in results:
                         n_status[r["status"]] = n_status.get(r["status"], 0) + 1
-                    print(f"  [{done}/{len(rows)}] {n_status}  ({elapsed:.0f}s)", flush=True)
+                    print(f"  [{done}/{len(rows_todo)}] {n_status}  ({elapsed:.0f}s)", flush=True)
 
         with open(SPLIT_RESULTS, "w", newline="") as fh:
             w = csv.DictWriter(fh, fieldnames=SPLIT_RESULTS_COLS, delimiter="\t")

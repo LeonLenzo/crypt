@@ -311,18 +311,37 @@ def _align_against_taxid_hisat2(taxid: str, run: str, r1: Path, r2: Path | None,
            "-S", "/dev/null"]
     if r2 is not None:
         # hisat2's --un-conc-gz <prefix> writes concordantly-unmapped pairs to
-        # <prefix>.1.gz / <prefix>.2.gz automatically — matches our r1/r2 pattern.
+        # <prefix>.1 / <prefix>.2 — content IS gzip-compressed (confirmed via a
+        # live `gzip -c >` pipe on the actual running process, 2026-09-07), but
+        # the FILENAME itself does NOT get a .gz suffix despite the flag name.
+        # Rename to proper .gz-suffixed names immediately so downstream code
+        # (_count_fastq_reads()'s suffix-based gzip detection, and split_run()'s
+        # final promoted filenames) doesn't need special-casing per aligner.
         cmd += ["-1", str(r1), "-2", str(r2), "--un-conc-gz", str(prefix)]
+        raw_u1, raw_u2 = Path(f"{prefix}.1"), Path(f"{prefix}.2")
         out_u1, out_u2 = Path(f"{prefix}.1.gz"), Path(f"{prefix}.2.gz")
     else:
-        # Single-end: --un-gz <path> writes the exact filename given, no suffix.
+        # Single-end: --un-gz <path> writes the exact filename given, still with
+        # the same no-.gz-suffix behavior as above.
+        raw_u1 = Path(f"{prefix}")
         out_u1 = Path(f"{prefix}.gz")
-        out_u2 = None
-        cmd += ["-U", str(r1), "--un-gz", str(out_u1)]
+        raw_u2 = out_u2 = None
+        cmd += ["-U", str(r1), "--un-gz", str(raw_u1)]
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
     if r.returncode != 0:
         print(f"  {run}/{taxid}: hisat2 align FAILED\n{r.stderr[-1500:]}", flush=True)
         return {}
+    if not raw_u1.exists():
+        print(f"  {run}/{taxid}: hisat2 completed but expected output "
+              f"{raw_u1} missing", flush=True)
+        return {}
+    raw_u1.rename(out_u1)
+    if raw_u2 is not None:
+        if not raw_u2.exists():
+            print(f"  {run}/{taxid}: hisat2 completed but expected output "
+                  f"{raw_u2} missing", flush=True)
+            return {}
+        raw_u2.rename(out_u2)
     return {"unmapped_r1": out_u1, "unmapped_r2": out_u2}
 
 

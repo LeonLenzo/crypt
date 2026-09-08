@@ -170,6 +170,19 @@ def download_run(run: str, dest_dir: Path) -> tuple:
             for raw, gz in [(raw_r1, r1), (raw_r2, r2)]:
                 subprocess.run(["gzip", "-f", str(raw)], timeout=1800)
             ok = r1.exists() and r2.exists()
+        elif raw_r1.exists():
+            # Real, recurring case (confirmed 2026-09-08, e.g. SRR8418271):
+            # --split-files always names paired-registered runs *_1/*_2, even
+            # when the run isn't actually usably paired — some SRA submissions
+            # have a fully degenerate second mate (fasterq-dump's own summary:
+            # "reads written" == "reads 0-length" for that mate), so only
+            # *_1.fastq gets written, no *_2.fastq at all. That's real,
+            # substantial single-end-equivalent data, not a failure — rename
+            # to the plain SE filename so downstream code (which only checks
+            # for *_1+*_2 pairs or a bare {run}.fastq) picks it up correctly.
+            raw_r1.rename(raw_se)
+            subprocess.run(["gzip", "-f", str(raw_se)], timeout=1800)
+            ok = se_.exists()
         elif raw_se.exists():
             subprocess.run(["gzip", "-f", str(raw_se)], timeout=1800)
             ok = se_.exists()

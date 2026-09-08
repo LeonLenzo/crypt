@@ -53,6 +53,7 @@ Output:
 
 import argparse
 import csv
+import random
 import subprocess
 import sys
 import time
@@ -188,7 +189,20 @@ def main():
                          "e.g. the documented PST/rust blind spot; useful for a quick "
                          "smoke test only)")
     ap.add_argument("--limit", type=int, default=None,
-                    help="Process at most N target BioSamples (for testing)")
+                    help="Process at most N target BioSamples (for testing). "
+                         "NOTE: samples.tsv is not randomly ordered — rows from "
+                         "the same BioProject sit together (confirmed 2026-09-08: "
+                         "the first 100 field/aerial rows are ALL one wheat "
+                         "BioProject). Pair with --shuffle for a real "
+                         "cross-cohort sample instead of --limit N's plain "
+                         "file-order prefix.")
+    ap.add_argument("--shuffle", action="store_true",
+                    help="Shuffle target BioSamples (fixed --seed, reproducible) "
+                         "before applying --limit, so a small --limit batch spans "
+                         "many BioProjects/hosts instead of just the first ones "
+                         "in samples.tsv's file order.")
+    ap.add_argument("--seed", type=int, default=42,
+                    help="Random seed for --shuffle (default 42, for reproducibility)")
     ap.add_argument("--download", action="store_true",
                     help="After selecting + resolving hosts, download reads")
     ap.add_argument("--workers", type=int, default=8)
@@ -208,6 +222,8 @@ def main():
 
         samples = list(csv.DictReader(open(SAMPLES_TSV), delimiter="\t"))
         targets = select_targets(samples, settings, args.require_cryptic, args.aerial_only)
+        if args.shuffle:
+            random.Random(args.seed).shuffle(targets)
         if args.limit:
             targets = targets[:args.limit]
         print(f"Target BioSamples: {len(targets)} (settings={sorted(settings)}, "

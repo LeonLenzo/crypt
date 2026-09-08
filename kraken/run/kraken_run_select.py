@@ -121,15 +121,21 @@ def select_targets(rows: list, settings: set, require_cryptic: bool,
 
 # ── read download (prefetch + fasterq-dump, full files) ──────────────────────
 
-def download_run(run: str, dest_dir: Path) -> str:
+def download_run(run: str, dest_dir: Path) -> tuple:
     """prefetch + fasterq-dump a run's full reads to dest_dir, gzipped.
-    Returns 'ok', 'cached', or 'failed'. Resumable: skips if gz output exists."""
+    Returns (status, elapsed_seconds, size_bytes) where status is 'ok',
+    'cached', or 'failed'. Resumable: skips if gz output exists. Prints
+    start/finish lines itself (not just the caller's periodic summary) so
+    --workers N's actual concurrency is visible run-by-run in the log, not
+    just as a final rate number."""
     r1 = dest_dir / f"{run}_1.fastq.gz"
     r2 = dest_dir / f"{run}_2.fastq.gz"
     se_ = dest_dir / f"{run}.fastq.gz"
     if (r1.exists() and r2.exists()) or se_.exists():
-        return "cached"
+        return "cached", 0.0, 0
 
+    t0 = time.time()
+    print(f"  [start ] {run}", flush=True)
     dest_dir.mkdir(parents=True, exist_ok=True)
     sra_dir = dest_dir / f"_{run}_sra"
     try:
@@ -138,12 +144,14 @@ def download_run(run: str, dest_dir: Path) -> str:
             capture_output=True, text=True, timeout=3600,
         )
         if r.returncode != 0:
-            return "failed"
+            print(f"  [failed] {run}  (prefetch, {time.time()-t0:.0f}s)", flush=True)
+            return "failed", time.time() - t0, 0
         sra_file = sra_dir / run / f"{run}.sra"
         if not sra_file.exists():
             candidates = list(sra_dir.glob(f"**/{run}.sra"))
             if not candidates:
-                return "failed"
+                print(f"  [failed] {run}  (no .sra found, {time.time()-t0:.0f}s)", flush=True)
+                return "failed", time.time() - t0, 0
             sra_file = candidates[0]
 
         r = subprocess.run(
@@ -151,7 +159,8 @@ def download_run(run: str, dest_dir: Path) -> str:
             capture_output=True, text=True, timeout=7200,
         )
         if r.returncode != 0:
-            return "failed"
+            print(f"  [failed] {run}  (fasterq-dump, {time.time()-t0:.0f}s)", flush=True)
+            return "failed", time.time() - t0, 0
 
         raw_r1 = dest_dir / f"{run}_1.fastq"
         raw_r2 = dest_dir / f"{run}_2.fastq"
@@ -164,7 +173,14 @@ def download_run(run: str, dest_dir: Path) -> str:
         elif raw_se.exists():
             subprocess.run(["gzip", "-f", str(raw_se)], timeout=1800)
             ok = se_.exists()
-        return "ok" if ok else "failed"
+        elapsed = time.time() - t0
+        if not ok:
+            print(f"  [failed] {run}  (no output after gzip, {elapsed:.0f}s)", flush=True)
+            return "failed", elapsed, 0
+        size = sum(p.stat().st_size for p in (r1, r2, se_) if p.exists())
+        rate = size / 1e6 / elapsed if elapsed > 0 else 0
+        print(f"  [done  ] {run}  {size/1e9:.2f}GB in {elapsed:.0f}s ({rate:.1f} MB/s)", flush=True)
+        return "ok", elapsed, size
     finally:
         if sra_dir.exists():
             subprocess.run(["rm", "-rf", str(sra_dir)])
@@ -284,9 +300,15 @@ def main():
         # ── download reads ─────────────────────────────────────────────────────
         if args.download:
             READS_DIR.mkdir(parents=True, exist_ok=True)
-            print(f"\nDownloading reads for {len(run_rows)} runs …")
+            print(f"\nDownloading reads for {len(run_rows)} runs "
+                  f"({args.workers} concurrent workers) …", flush=True)
             t0 = time.time()
             n_ok = n_cached = n_fail = 0
+            total_bytes = 0
+            # Running average of real (non-cached) per-run download time — used
+            # for the ETA below. Cached hits are near-instant and would otherwise
+            # drag the average down to something meaningless for runs still queued.
+            real_run_times = []
             # Runs are unique per row here (one row per Run), so this index is 1:1 —
             # avoids an O(n) scan of run_rows per completion (O(n^2) overall).
             rows_by_run = {row["Run"]: row for row in run_rows}
@@ -297,19 +319,28 @@ def main():
             with ThreadPoolExecutor(max_workers=args.workers) as pool:
                 futs = {pool.submit(work, row): row["Run"] for row in run_rows}
                 for done, fut in enumerate(as_completed(futs), 1):
-                    run, status = fut.result()
+                    run, (status, elapsed_one, size) = fut.result()
                     rows_by_run[run]["download_status"] = status
+                    total_bytes += size
                     if status == "ok":
                         n_ok += 1
+                        real_run_times.append(elapsed_one)
                     elif status == "cached":
                         n_cached += 1
                     else:
                         n_fail += 1
-                    if done % 10 == 0 or done == len(run_rows):
-                        elapsed = time.time() - t0
-                        rate = done / elapsed if elapsed > 0 else 0
-                        print(f"  [{done}/{len(run_rows)}] ok={n_ok} cached={n_cached} "
-                              f"fail={n_fail}  rate={rate:.2f}/s", flush=True)
+
+                    elapsed = time.time() - t0
+                    remaining = len(run_rows) - done
+                    if real_run_times and remaining:
+                        avg = sum(real_run_times) / len(real_run_times)
+                        eta_s = avg * remaining / args.workers
+                        eta_str = f"{eta_s/60:.0f}min" if eta_s < 3600 else f"{eta_s/3600:.1f}hr"
+                    else:
+                        eta_str = "n/a"
+                    print(f"  [{done}/{len(run_rows)}] ok={n_ok} cached={n_cached} "
+                          f"fail={n_fail}  {total_bytes/1e9:.1f}GB total "
+                          f"({elapsed/60:.0f}min elapsed, ~{eta_str} remaining)", flush=True)
 
         # ── write run list ─────────────────────────────────────────────────────
         with open(RUN_LIST, "w", newline="") as fh:

@@ -194,6 +194,19 @@ def download_run(run: str, dest_dir: Path) -> tuple:
         rate = size / 1e6 / elapsed if elapsed > 0 else 0
         print(f"  [done  ] {run}  {size/1e9:.2f}GB in {elapsed:.0f}s ({rate:.1f} MB/s)", flush=True)
         return "ok", elapsed, size
+    except Exception as e:
+        # Any unhandled exception here (subprocess.TimeoutExpired from an
+        # unusually large/slow run being the most likely culprit — prefetch
+        # 3600s / fasterq-dump 7200s / gzip 1800s) used to propagate straight
+        # through the caller's fut.result(), silently killing the main
+        # summary/ETA loop for the rest of the job while workers kept
+        # completing in the background (confirmed 2026-09-10: job 48206160's
+        # counter died at [440/3225] but downloads kept running fine for the
+        # next ~19h). Catch-all here guarantees every future always resolves
+        # so the reporting loop can never die again.
+        elapsed = time.time() - t0
+        print(f"  [failed] {run}  ({type(e).__name__}: {e}, {elapsed:.0f}s)", flush=True)
+        return "failed", elapsed, 0
     finally:
         if sra_dir.exists():
             subprocess.run(["rm", "-rf", str(sra_dir)])

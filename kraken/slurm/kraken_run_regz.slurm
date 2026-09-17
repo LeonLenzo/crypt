@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
 #SBATCH --time=24:00:00
-#SBATCH --array=0-7
+#SBATCH --array=0-15
 #SBATCH --output=kraken/slurm/logs/krsel_regz_%A_%a.out
 #SBATCH --error=kraken/slurm/logs/krsel_regz_%A_%a.err
 

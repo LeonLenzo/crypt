@@ -50,7 +50,7 @@ echo "host=$(hostname) job=$SLURM_JOB_ID task=$SLURM_ARRAY_TASK_ID cpus=${SLURM_
 kraken2 --version | head -1
 
 python kraken/run/classify.py \
-  --run-list  "$RUNS" \
+  --runs-tsv  "$RUNS" \
   --reads-dir "$READS" \
   --db        "$DB" \
   --reports-dir kraken/output/run/classify/data/reports \

@@ -407,7 +407,14 @@ def main() -> None:
 
     if args.run_list:
         run_list_path = Path(args.run_list)
-        all_run_ids = [l.strip() for l in run_list_path.read_text().splitlines() if l.strip()]
+        # Take the first whitespace/tab-delimited field, not the whole line, and
+        # drop a header row if present. Passing run_list.tsv here previously used
+        # the entire TSV line as the run ID, so every lookup missed and every run
+        # reported no_local_reads.
+        raw = [l.strip() for l in run_list_path.read_text().splitlines() if l.strip()]
+        all_run_ids = [l.split()[0] for l in raw]
+        if all_run_ids and all_run_ids[0].lower() in ("run", "run_accession", "accession"):
+            all_run_ids = all_run_ids[1:]
         print(f"Loaded {len(all_run_ids):,} runs from {run_list_path}")
     elif args.runs_tsv:
         tsv_path = Path(args.runs_tsv)

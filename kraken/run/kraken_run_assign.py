@@ -351,6 +351,7 @@ def main() -> None:
         tsv_path = Path(args.runs_tsv)
         with open(tsv_path) as f:
             header = f.readline().strip().split("\t")
+            header = [h.strip() for h in header]   # run_list.tsv is CRLF
             col = {h: i for i, h in enumerate(header)}
             for line in f:
                 parts = line.rstrip("\n").split("\t")

@@ -137,16 +137,26 @@ def _parse_report(report: Path) -> dict:
     except Exception:
         pass
 
-    # Reconstruct total reads from unclassified line (reads = U count, total = U + classified)
-    # Re-parse for n_reads robustly
+    # Total reads = unclassified + everything under root.
+    #
+    # Identify both lines by TAXID, not by rank code. kraken2 writes root's rank
+    # field EMPTY in this version, so the previous matcher ("\tR\t1\t") never
+    # fired and n_reads silently became the unclassified count alone, understating
+    # the denominator of every percentage by 2-3x.
     try:
+        u_clade = root_clade = 0
         with open(report) as f:
-            lines = f.readlines()
-        u_line  = next((l for l in lines if "\tU\t" in l), None)
-        r_line  = next((l for l in lines if "\tR\t1\t" in l or "\tR\t\t1\t" in l), None)
-        u_reads = int(u_line.split("\t")[1]) if u_line else 0
-        r_reads = int(r_line.split("\t")[1]) if r_line else 0
-        n_reads = u_reads + r_reads
+            for line in f:
+                parts = line.rstrip("\n").split("\t")
+                if len(parts) < 6:
+                    continue
+                tid = parts[4].strip()
+                if tid == "0":
+                    u_clade = int(parts[1])
+                elif tid == "1":
+                    root_clade = int(parts[1])
+        if u_clade or root_clade:
+            n_reads = u_clade + root_clade
     except Exception:
         pass
 

@@ -36,6 +36,7 @@ from _util import _Tee, make_log_dir, link_latest
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 
+LOCAL_ONLY         = True       # --reads-dir given but run absent -> error, never stream
 N_READS            = 500_000    # reads to stream per run (per mate for paired-end)
 CONFIDENCE         = 0.15       # kraken2 --confidence threshold (raised from 0.1)
 MIN_HIT_GROUPS     = 3          # kraken2 --minimum-hit-groups (default 2; 3 prevents single-domain FPs)
@@ -83,8 +84,18 @@ def _stream_fastq(url: str, n_reads: int, dest: Path) -> bool:
 # ── Kraken2 runner ────────────────────────────────────────────────────────────
 
 def _run_kraken2(db_dir: Path, reads: list,
-                 report: Path, threads: int, gzipped: bool = False) -> bool:
-    """Run kraken2. reads is [r1] for SE or [r1, r2] for PE."""
+                 report: Path, threads: int, gzipped: bool = False,
+                 mmap: bool = False) -> bool:
+    """Run kraken2. reads is [r1] for SE or [r1, r2] for PE.
+
+    The timeout scales with input size. A flat timeout is what silently
+    truncated 224 files during the download step: large runs exceeded it while
+    small ones passed, so the failure looked sporadic rather than systematic.
+    Budget assumes a pessimistic 5 MB/s through kraken2 plus 300 s to load the
+    database, with a 900 s floor.
+    """
+    nbytes = sum(r.stat().st_size for r in reads if r.exists())
+    budget = max(900, int(nbytes / (5 * 1024 * 1024)) + 300)
     cmd = [
         "kraken2",
         "--db", str(db_dir),
@@ -96,13 +107,16 @@ def _run_kraken2(db_dir: Path, reads: list,
     ]
     if gzipped:
         cmd.append("--gzip-compressed")
+    if mmap:
+        # share one on-disk database across workers instead of each loading 20 GB
+        cmd.append("--memory-mapping")
     if len(reads) == 2:
         cmd += ["--paired", str(reads[0]), str(reads[1])]
     else:
         cmd.append(str(reads[0]))
 
     try:
-        r = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=budget)
         return r.returncode == 0
     except Exception:
         return False
@@ -186,7 +200,8 @@ def _gzip_file(src: Path, dest: Path) -> bool:
 def _process_run(run_id: str, db_dir: Path,
                  tmp_dir: Path, threads: int,
                  reads_dir: Path | None = None,
-                 reports_dir: Path | None = None) -> dict:
+                 reports_dir: Path | None = None,
+                 mmap: bool = False) -> dict:
     """Download, classify, and parse one run. Returns result dict.
 
     If reads_dir is set, gzipped FASTQs are kept after classification.
@@ -222,6 +237,13 @@ def _process_run(run_id: str, db_dir: Path,
         if local_reads:
             reads   = local_reads
             gzipped = True
+        elif reads_dir is not None and LOCAL_ONLY:
+            # reads_dir was given but this run is not in it. Streaming a 500k
+            # subsample here would classify one run on a fraction of the data
+            # while every other run used the full set, and nothing downstream
+            # would show it. Fail loudly instead.
+            result["error"] = "no_local_reads"
+            return result
         else:
             # ── Stream from ENA HTTPS ─────────────────────────────────────────
             r1 = run_tmp / "r1.fastq"
@@ -245,7 +267,7 @@ def _process_run(run_id: str, db_dir: Path,
                     return result
                 reads = [r1]
 
-        ok = _run_kraken2(db_dir, reads, report, threads, gzipped=gzipped)
+        ok = _run_kraken2(db_dir, reads, report, threads, gzipped=gzipped, mmap=mmap)
         if not ok or not report.exists():
             result["error"] = "kraken2_failed"
             return result
@@ -338,6 +360,9 @@ def main() -> None:
     ap.add_argument("--reads-dir", default=None,
                     help="If set, gzipped FASTQs are kept here after classification "
                          "(for archival to Acacia). Omit to discard reads immediately.")
+    ap.add_argument("--memory-mapping", action="store_true",
+                    help="kraken2 --memory-mapping: share one on-disk DB across "
+                         "workers instead of each loading it into RAM")
     ap.add_argument("--reports-dir", default=None,
                     help="If set, raw kraken2 report files are saved here as {run}.txt "
                          "(for reproducibility). Omit to discard after parsing.")
@@ -438,7 +463,8 @@ def main() -> None:
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futures = {
             pool.submit(_process_run, run_id, db_dir,
-                        tmp_dir, args.kraken_threads, reads_dir, reports_dir): run_id
+                        tmp_dir, args.kraken_threads, reads_dir, reports_dir,
+                        args.memory_mapping): run_id
             for run_id in todo
         }
 

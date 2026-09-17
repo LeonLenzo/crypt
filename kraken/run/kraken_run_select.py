@@ -53,7 +53,9 @@ Output:
 
 import argparse
 import csv
+import os
 import random
+import shutil
 import subprocess
 import sys
 import time
@@ -119,6 +121,67 @@ def select_targets(rows: list, settings: set, require_cryptic: bool,
     return out
 
 
+# ── compression ───────────────────────────────────────────────────────────────
+
+# pigz where available (Setonix work nodes have 256 cores); plain gzip otherwise.
+GZIP_THREADS = int(os.environ.get("KRSEL_GZIP_THREADS", "8"))
+
+
+def _compress(raw: Path, gz: Path) -> bool:
+    """Compress raw -> gz, VERIFY the result, and only then remove raw.
+
+    Returns True only if gz is a complete, valid gzip member. On any failure
+    the partial gz is deleted and raw is left in place, so the next attempt
+    (or the recovery fast path in download_run) can retry from the reads
+    already on disk.
+
+    This replaces `subprocess.run(["gzip", "-f", raw], timeout=1800)`, which
+    had three independent faults, all confirmed on 2026-09-14:
+
+      1. The return code was never checked, and the caller's success test was
+         `r1.exists() and r2.exists()`, existence only. A gzip killed partway
+         leaves a *partial* .gz that exists, so the run was recorded as "ok".
+      2. The flat 1800s timeout was far too short for large runs. Four runs of
+         174-230 GB raw each produced a .gz of almost exactly 4.1 GB: the same
+         throughput cut off at the same wall, every time. All were truncated.
+      3. Because download_run's resume test was also existence-only, those
+         truncated files were then treated as cached and skipped forever, so
+         the corruption was permanent and silent. 228 of 3790 .gz files were
+         affected (~6%); every one still had its raw twin, because gzip only
+         unlinks the source on success, which is what made recovery possible.
+
+    The timeout is now scaled to file size against a deliberately pessimistic
+    20 MB/s floor rather than being a flat number, and -k keeps the source
+    until the verify passes.
+    """
+    tool = "pigz" if shutil.which("pigz") else "gzip"
+    budget = max(3600, int(raw.stat().st_size / (20 * 1024 * 1024)))
+    # Never write alongside or reuse a partial member from an earlier attempt.
+    if gz.exists():
+        gz.unlink()
+    cmd = [tool, "-k", "-f"]
+    if tool == "pigz":
+        cmd += ["-p", str(GZIP_THREADS)]
+    cmd.append(str(raw))
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=budget)
+        if r.returncode != 0 or not gz.exists():
+            if gz.exists():
+                gz.unlink()
+            return False
+        t = subprocess.run([tool, "-t", str(gz)], capture_output=True, text=True,
+                           timeout=budget)
+        if t.returncode != 0:
+            gz.unlink()
+            return False
+    except subprocess.TimeoutExpired:
+        if gz.exists():
+            gz.unlink()
+        return False
+    raw.unlink()
+    return True
+
+
 # ── read download (prefetch + fasterq-dump, full files) ──────────────────────
 
 def download_run(run: str, dest_dir: Path) -> tuple:
@@ -131,12 +194,40 @@ def download_run(run: str, dest_dir: Path) -> tuple:
     r1 = dest_dir / f"{run}_1.fastq.gz"
     r2 = dest_dir / f"{run}_2.fastq.gz"
     se_ = dest_dir / f"{run}.fastq.gz"
-    if (r1.exists() and r2.exists()) or se_.exists():
+    raw_r1 = dest_dir / f"{run}_1.fastq"
+    raw_r2 = dest_dir / f"{run}_2.fastq"
+    raw_se = dest_dir / f"{run}.fastq"
+
+    # A surviving raw .fastq means the previous attempt did NOT finish
+    # compressing, because _compress only unlinks raw after the verify passes.
+    # So "gz exists" alone is not evidence of a complete file. That was the
+    # bug that let 228 truncated files be skipped forever. Requiring the raw
+    # to be absent is a stat-only check and correct by construction.
+    if (r1.exists() and r2.exists() and not raw_r1.exists() and not raw_r2.exists()) \
+            or (se_.exists() and not raw_se.exists()):
         return "cached", 0.0, 0
 
     t0 = time.time()
     print(f"  [start ] {run}", flush=True)
     dest_dir.mkdir(parents=True, exist_ok=True)
+
+    # Recovery fast path: the reads are already on disk from an attempt that
+    # died during compression, so recompress rather than re-downloading tens
+    # or hundreds of GB.
+    if (raw_r1.exists() and raw_r2.exists()) or raw_se.exists():
+        if raw_se.exists():
+            done = _compress(raw_se, se_)
+        else:
+            done = all(_compress(raw, gz) for raw, gz in ((raw_r1, r1), (raw_r2, r2)))
+        elapsed = time.time() - t0
+        if done:
+            size = sum(p.stat().st_size for p in (r1, r2, se_) if p.exists())
+            print(f"  [regz  ] {run}  {size/1e9:.2f}GB in {elapsed:.0f}s "
+                  f"(recompressed, no download)", flush=True)
+            return "ok", elapsed, size
+        print(f"  [failed] {run}  (recompress, {elapsed:.0f}s)", flush=True)
+        return "failed", elapsed, 0
+
     sra_dir = dest_dir / f"_{run}_sra"
     try:
         r = subprocess.run(
@@ -162,14 +253,9 @@ def download_run(run: str, dest_dir: Path) -> tuple:
             print(f"  [failed] {run}  (fasterq-dump, {time.time()-t0:.0f}s)", flush=True)
             return "failed", time.time() - t0, 0
 
-        raw_r1 = dest_dir / f"{run}_1.fastq"
-        raw_r2 = dest_dir / f"{run}_2.fastq"
-        raw_se = dest_dir / f"{run}.fastq"
         ok = False
         if raw_r1.exists() and raw_r2.exists():
-            for raw, gz in [(raw_r1, r1), (raw_r2, r2)]:
-                subprocess.run(["gzip", "-f", str(raw)], timeout=1800)
-            ok = r1.exists() and r2.exists()
+            ok = all(_compress(raw, gz) for raw, gz in ((raw_r1, r1), (raw_r2, r2)))
         elif raw_r1.exists():
             # Real, recurring case (confirmed 2026-09-08, e.g. SRR8418271):
             # --split-files always names paired-registered runs *_1/*_2, even
@@ -181,11 +267,9 @@ def download_run(run: str, dest_dir: Path) -> tuple:
             # to the plain SE filename so downstream code (which only checks
             # for *_1+*_2 pairs or a bare {run}.fastq) picks it up correctly.
             raw_r1.rename(raw_se)
-            subprocess.run(["gzip", "-f", str(raw_se)], timeout=1800)
-            ok = se_.exists()
+            ok = _compress(raw_se, se_)
         elif raw_se.exists():
-            subprocess.run(["gzip", "-f", str(raw_se)], timeout=1800)
-            ok = se_.exists()
+            ok = _compress(raw_se, se_)
         elapsed = time.time() - t0
         if not ok:
             print(f"  [failed] {run}  (no output after gzip, {elapsed:.0f}s)", flush=True)

@@ -53,7 +53,7 @@ python kraken/run/kraken_run_assign.py \
   --runs-tsv  "$RUNS" \
   --reads-dir "$READS" \
   --db        "$DB" \
-  --reports-dir kraken/output/run/classify/data/reports \
+  --reports-dir kraken/output/run/assign/data/reports \
   --workers 8 \
   --kraken-threads 4 \
   --array-id    "$SLURM_ARRAY_TASK_ID" \

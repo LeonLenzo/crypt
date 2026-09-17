@@ -111,7 +111,9 @@ def _parse_report(report: Path) -> dict:
     try:
         with open(report) as f:
             for line in f:
-                parts = line.rstrip("\n").split("\t")
+                # strip each field: the file is CRLF, so the LAST column carries a
+                # trailing \r and any comparison against it silently fails
+                parts = [p.strip() for p in line.rstrip("\n").split("\t")]
                 if len(parts) < 6:
                     continue
                 pct   = float(parts[0])
@@ -147,7 +149,9 @@ def _parse_report(report: Path) -> dict:
         u_clade = root_clade = 0
         with open(report) as f:
             for line in f:
-                parts = line.rstrip("\n").split("\t")
+                # strip each field: the file is CRLF, so the LAST column carries a
+                # trailing \r and any comparison against it silently fails
+                parts = [p.strip() for p in line.rstrip("\n").split("\t")]
                 if len(parts) < 6:
                     continue
                 tid = parts[4].strip()
@@ -354,7 +358,9 @@ def main() -> None:
             header = [h.strip() for h in header]   # run_list.tsv is CRLF
             col = {h: i for i, h in enumerate(header)}
             for line in f:
-                parts = line.rstrip("\n").split("\t")
+                # strip each field: the file is CRLF, so the LAST column carries a
+                # trailing \r and any comparison against it silently fails
+                parts = [p.strip() for p in line.rstrip("\n").split("\t")]
                 if args.biosample_rep and parts[col["biosample_representative"]] != "True":
                     continue
                 if args.hc and parts[col["same_genus_secondary"]] != "False":

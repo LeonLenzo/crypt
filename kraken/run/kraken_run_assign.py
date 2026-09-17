@@ -46,7 +46,6 @@ from _util import _Tee, make_log_dir, link_latest
 
 CONFIDENCE         = 0.15       # kraken2 --confidence threshold (raised from 0.1)
 MIN_HIT_GROUPS     = 3          # kraken2 --minimum-hit-groups (default 2; 3 prevents single-domain FPs)
-ENA_RATE           = 8          # max concurrent ENA FTP connections
 KRAKEN_THREADS     = 4          # kraken2 threads per worker (workers × threads ≤ total cores)
 WORKERS            = 8          # parallel runs
 
@@ -55,7 +54,7 @@ SCRATCH = Path(os.environ.get("MYSCRATCH", tempfile.gettempdir())) / "kraken_tmp
 
 OUT_DIR = Path("kraken/output/run/assign")
 
-# ── ENA FTP helpers ───────────────────────────────────────────────────────────
+# ── Kraken2 ───────────────────────────────────────────────────────────────────
 
 def _run_kraken2(db_dir: Path, reads: list,
                  report: Path, threads: int, gzipped: bool = False,
@@ -100,6 +99,9 @@ def _parse_report(report: Path) -> dict:
     """
     Parse a Kraken2 report file.
     Returns {pct_classified, pct_unclassified, n_reads, species: [{taxid, name, pct, reads}]}.
+
+    n_reads here is the read count kraken2 reports for the run, not the removed
+    --n-reads streaming cap. Same name, unrelated quantity.
 
     Report columns: pct  reads  taxReads  rank  taxid  name
     """

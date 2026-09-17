@@ -12,7 +12,7 @@
 
 # Submodule 2 step 3/3: Kraken2 classification of the downloaded cohort.
 #
-# No new script was needed. kraken/run/classify.py already handles pre-downloaded
+# No new script was needed. kraken/run/kraken_run_assign.py already handles pre-downloaded
 # reads via --reads-dir, finds {run}_1.fastq.gz/_2.fastq.gz, skips empty archives,
 # and is resumable through kraken_cache.jsonl + kraken_cache_index.txt.
 #
@@ -49,7 +49,7 @@ RUNS=kraken/output/run/select/data/run_list.tsv
 echo "host=$(hostname) job=$SLURM_JOB_ID task=$SLURM_ARRAY_TASK_ID cpus=${SLURM_CPUS_PER_TASK:-?}"
 kraken2 --version | head -1
 
-python kraken/run/classify.py \
+python kraken/run/kraken_run_assign.py \
   --runs-tsv  "$RUNS" \
   --reads-dir "$READS" \
   --db        "$DB" \

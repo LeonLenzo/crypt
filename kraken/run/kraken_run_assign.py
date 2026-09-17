@@ -1,21 +1,29 @@
-#!/usr/bin/env python3
-"""
-kraken_classify.py — stream/read FASTQ and classify with Kraken2.
+"""kraken_run_assign.py — submodule 2 step 3/3: classify the downloaded cohort.
 
-For each run (from --run-list or --runs-tsv):
-  1. Get reads — from --reads-dir (pre-downloaded) or stream from ENA FTP
-  2. Run kraken2 --report against the pre-built database
-  3. Parse report: extract species-level detections + host %
-  4. Append result to kraken_cache.jsonl (one line per run, resumable)
+For each run in --runs-tsv (or --run-list):
+  1. Locate {run}_1.fastq.gz / _2.fastq.gz, or {run}.fastq.gz, under --reads-dir
+  2. Run kraken2 --report against the pre-built pathogen-only database
+  3. Parse the report: species-level detections + host %
+  4. Append to kraken_cache.jsonl, one line per run, resumable
 
-Run from crypt/ on Setonix (requires kraken2 in PATH):
-    module load kraken2   # or equivalent on Setonix
-    python kraken/run/classify.py --runs-tsv stat/output/stat_filter/data/runs.tsv --db /scratch/kraken_db
-    python kraken/run/classify.py --run-list PATH --reads-dir PATH --db /scratch/kraken_db
+Reads must already be on disk. There is no download or streaming path: reads
+come from kraken_run_select.py. A run missing from --reads-dir is an error,
+never a silent fallback to a subsample, because classifying one run on part of
+its data while every other run uses all of it is invisible downstream.
 
-Reads from:  --run-list PATH or --runs-tsv PATH (required — no default run source)
-Output:      kraken/output/run/classify/data/kraken_cache.jsonl
-             kraken/output/run/classify/data/kraken_cache_index.txt
+The host-removal step (kraken_run_split.py) is deliberately skipped. Removing
+host reads was measured to change the reported percentage, not what Kraken2
+finds, because the database is pathogen-only (ratio 1.00x over 5 ground-truth
+runs).
+
+    module load kraken2/2.1.2-qk2lek6
+    python kraken/run/kraken_run_assign.py \\
+        --runs-tsv  kraken/output/run/select/data/run_list.tsv \\
+        --reads-dir kraken/output/run/select/data/reads \\
+        --db        kraken/output/db/build/data/db_v2
+
+Output: kraken/output/run/assign/data/kraken_cache.jsonl
+        kraken/output/run/assign/data/kraken_cache_index.txt
 """
 
 import argparse
@@ -36,8 +44,6 @@ from _util import _Tee, make_log_dir, link_latest
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 
-LOCAL_ONLY         = True       # --reads-dir given but run absent -> error, never stream
-N_READS            = 500_000    # reads to stream per run (per mate for paired-end)
 CONFIDENCE         = 0.15       # kraken2 --confidence threshold (raised from 0.1)
 MIN_HIT_GROUPS     = 3          # kraken2 --minimum-hit-groups (default 2; 3 prevents single-domain FPs)
 ENA_RATE           = 8          # max concurrent ENA FTP connections
@@ -47,41 +53,9 @@ WORKERS            = 8          # parallel runs
 # Temp dir: use Setonix scratch if available, else system tmp
 SCRATCH = Path(os.environ.get("MYSCRATCH", tempfile.gettempdir())) / "kraken_tmp"
 
-OUT_DIR = Path("kraken/output/run/classify")
+OUT_DIR = Path("kraken/output/run/assign")
 
 # ── ENA FTP helpers ───────────────────────────────────────────────────────────
-
-def _ena_fastq_urls(run: str) -> list[str]:
-    """Return ENA FTP FASTQ URLs for a run accession. Empty list if unavailable."""
-    api = (f"https://www.ebi.ac.uk/ena/portal/api/filereport"
-           f"?accession={run}&result=read_run&fields=fastq_ftp&format=tsv")
-    try:
-        req = urllib.request.Request(api, headers={"User-Agent": "crypt/kraken_classify"})
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            body = resp.read().decode()
-    except Exception:
-        return []
-    lines = [l for l in body.strip().split("\n") if l]
-    if len(lines) < 2:
-        return []
-    ftp_field = lines[1].split("\t")[-1]
-    return [f"https://{p.strip()}" for p in ftp_field.split(";") if p.strip()]
-
-
-def _stream_fastq(url: str, n_reads: int, dest: Path) -> bool:
-    """Stream n_reads from a gzipped ENA HTTPS URL into dest (plain FASTQ)."""
-    cmd = ["bash", "-c",
-           f'curl --silent --fail --max-time 300 "{url}" | gunzip -c | head -n {n_reads * 4}']
-    try:
-        with open(dest, "w") as out:
-            r = subprocess.run(cmd, stdout=out, timeout=360)
-        # head exits 141 (SIGPIPE) once it has enough lines — that's fine
-        return dest.exists() and dest.stat().st_size > 0
-    except Exception:
-        return False
-
-
-# ── Kraken2 runner ────────────────────────────────────────────────────────────
 
 def _run_kraken2(db_dir: Path, reads: list,
                  report: Path, threads: int, gzipped: bool = False,
@@ -185,18 +159,6 @@ def _parse_report(report: Path) -> dict:
 
 # ── Per-run worker ────────────────────────────────────────────────────────────
 
-def _gzip_file(src: Path, dest: Path) -> bool:
-    """Gzip src → dest. Returns True on success."""
-    try:
-        result = subprocess.run(
-            ["gzip", "-c", str(src)],
-            stdout=open(dest, "wb"), timeout=120
-        )
-        return result.returncode == 0
-    except Exception:
-        return False
-
-
 def _process_run(run_id: str, db_dir: Path,
                  tmp_dir: Path, threads: int,
                  reads_dir: Path | None = None,
@@ -237,35 +199,9 @@ def _process_run(run_id: str, db_dir: Path,
         if local_reads:
             reads   = local_reads
             gzipped = True
-        elif reads_dir is not None and LOCAL_ONLY:
-            # reads_dir was given but this run is not in it. Streaming a 500k
-            # subsample here would classify one run on a fraction of the data
-            # while every other run used the full set, and nothing downstream
-            # would show it. Fail loudly instead.
+        else:
             result["error"] = "no_local_reads"
             return result
-        else:
-            # ── Stream from ENA HTTPS ─────────────────────────────────────────
-            r1 = run_tmp / "r1.fastq"
-            r2 = run_tmp / "r2.fastq"
-            urls = _ena_fastq_urls(run_id)
-            if not urls:
-                result["error"] = "no_ena_urls"
-                return result
-            is_paired = len(urls) >= 2
-            if is_paired:
-                ok1 = _stream_fastq(urls[0], N_READS, r1)
-                ok2 = _stream_fastq(urls[1], N_READS, r2)
-                if not (ok1 and ok2):
-                    result["error"] = "stream_failed"
-                    return result
-                reads = [r1, r2]
-            else:
-                ok = _stream_fastq(urls[0], N_READS, r1)
-                if not ok:
-                    result["error"] = "stream_failed"
-                    return result
-                reads = [r1]
 
         ok = _run_kraken2(db_dir, reads, report, threads, gzipped=gzipped, mmap=mmap)
         if not ok or not report.exists():
@@ -280,15 +216,6 @@ def _process_run(run_id: str, db_dir: Path,
             dest = reports_dir / f"{run_id}.txt"
             if not dest.exists():
                 report.rename(dest)
-
-        # archive ENA-streamed reads (skip if reads came from local reads_dir already)
-        if reads_dir is not None and not local_reads:
-            reads_dir.mkdir(parents=True, exist_ok=True)
-            suffixes = ["_1.fastq.gz", "_2.fastq.gz"] if len(reads) == 2 else [".fastq.gz"]
-            for fastq, suffix in zip(reads, suffixes):
-                dest = reads_dir / f"{run_id}{suffix}"
-                if not dest.exists():
-                    _gzip_file(fastq, dest)
 
     finally:
         for f in run_tmp.iterdir():
@@ -332,7 +259,6 @@ def _append_cache(result: dict, cache_dir: Path) -> None:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
-    global N_READS
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--runs-tsv", default=None, metavar="PATH",
@@ -353,11 +279,9 @@ def main() -> None:
                     help=f"Parallel runs (default: {WORKERS})")
     ap.add_argument("--kraken-threads", type=int, default=KRAKEN_THREADS,
                     help=f"Kraken2 threads per worker (default: {KRAKEN_THREADS})")
-    ap.add_argument("--n-reads", type=int, default=N_READS,
-                    help=f"Reads to stream per run (default: {N_READS:,})")
     ap.add_argument("--tmp-dir", default=str(SCRATCH),
                     help=f"Temp directory for intermediate files (default: {SCRATCH})")
-    ap.add_argument("--reads-dir", default=None,
+    ap.add_argument("--reads-dir", required=True,
                     help="If set, gzipped FASTQs are kept here after classification "
                          "(for archival to Acacia). Omit to discard reads immediately.")
     ap.add_argument("--memory-mapping", action="store_true",
@@ -380,22 +304,18 @@ def main() -> None:
     cache_dir.mkdir(parents=True, exist_ok=True)
     logs_base = out_dir / "logs"
     log_dir   = make_log_dir(logs_base)
-    log = _Tee(log_dir / "kraken_classify.log")
-    link_latest(logs_base, log_dir / "kraken_classify.log")
+    log = _Tee(log_dir / "kraken_run_assign.log")
+    link_latest(logs_base, log_dir / "kraken_run_assign.log")
     sys.stdout = log
 
     db_dir  = Path(args.db)
     tmp_dir = Path(args.tmp_dir)
     tmp_dir.mkdir(parents=True, exist_ok=True)
 
-    N_READS = args.n_reads
-
-    reads_dir = Path(args.reads_dir) if args.reads_dir else None
-    if reads_dir:
-        reads_dir.mkdir(parents=True, exist_ok=True)
-        print(f"Reads will be archived (gzipped) to: {reads_dir}")
-    else:
-        print("Reads will be discarded after classification (use --reads-dir to keep)")
+    reads_dir = Path(args.reads_dir)
+    if not reads_dir.is_dir():
+        sys.exit(f"--reads-dir does not exist: {reads_dir}")
+    print(f"Reads read from: {reads_dir}")
 
     reports_dir = Path(args.reports_dir) if args.reports_dir else None
     if reports_dir:
@@ -453,7 +373,7 @@ def main() -> None:
     print(f"\nTotal runs: {len(all_run_ids):,} | "
           f"Already done: {len(done):,} | "
           f"Remaining: {len(todo):,}")
-    print(f"Settings: n_reads={N_READS:,}, confidence={CONFIDENCE}, "
+    print(f"Settings: confidence={CONFIDENCE}, "
           f"min_hit_groups={MIN_HIT_GROUPS}, "
           f"workers={args.workers}, kraken_threads={args.kraken_threads}")
     print(f"DB: {db_dir}")

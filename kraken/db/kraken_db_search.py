@@ -13,15 +13,47 @@ Three modes, run in order:
   (default)   SEED (pan-genome): for each PHI-base euk seed taxid, collect ALL
               scaffold-plus+annotated assemblies. Detected-genera seeds get all of
               them ordered by geographic/temporal diversity; undetected-genera seeds
-              get the single best-quality assembly only. Falls back through
+              get --floor assemblies (db_v2 took one). Falls back through
               scaffold-plus, then contig-level — always take something over nothing.
 
-              GENUS FILL (breadth): for PHI-base genera that appear in STAT
-              detections, add ALL annotated scaffold-plus assemblies for each
-              non-PHI-base species within that genus. Broad/saprophytic genera
-              (Aspergillus, Penicillium …) are excluded.
+              RANK SWEEP (breadth): for every taxon at --sweep-rank containing a
+              seed species, add up to --floor annotated scaffold-plus assemblies for
+              each species in it not already covered by a seed. db_v2 swept at genus
+              with no floor; db_v3 sweeps at order.
 
-              Output: data/ref_candidates.tsv (one row per candidate assembly)
+              Candidate taxids are normalised to their SPECIES node first. NCBI
+              labels many assemblies at strain, varietas or forma rank, and grouping
+              on the assembly's own taxid both re-selects a seed's own strains and
+              splits one species across several nodes so the floor passes while the
+              species stays shallow. See select_rank_sweep.
+
+              --retain guarantees no assembly in the previous selection is dropped,
+              which is what makes the no-cap policy below hold: min(floor, available)
+              is a cap for any species the sweep owns, and db_v2 took non-seed species
+              with no limit.
+
+              Output: data/ref_candidates_<version>.tsv, plus a ref_candidates.tsv
+              symlink to it so kraken_db_busco.py picks up the current version
+              without the previous version's table being overwritten.
+
+Depth policy (measured, see kraken_db_depth_policy.py):
+
+  A FLOOR, not a cap. Misassignment between congeners is driven by the DIFFERENCE in
+  their sampling depth: a k-mer in both species' pangenomes but absent from the
+  shallow one's included assemblies is stored as the deep species, so the shallow
+  species' reads score for the deep one. Over the 26 congener pairs above 1%
+  misassignment, raising the shallow species to 4 assemblies was worth a median
+  1.70 pp against 0.42 pp for capping the deep species at 5, and unlike the cap it
+  costs nothing: it only adds assemblies. Pangenomes are open (Heaps gamma ~0.16,
+  no asymptote), so a cap discards real novel sequence — up to 62% of a species
+  complex's observed k-mer content. Hence --floor with no cap.
+
+  The floor is a target, not a filter. A species with one assembly in existence is
+  included at one; `min(floor, available)`. It still earns its place by giving the
+  LCA a competitor, which is what stops a read being handed to whichever species
+  happens to be in the build, but its own species-level counts are not reliable and
+  should be aggregated to genus when reported. At order scope that applies to about
+  70% of the swept species.
 
   --download  Download CDS FASTA for every candidate with fasta_type=cds into
               data/cds/pathogen/{accession}/. This is the ONLY place in the kraken_db_*
@@ -31,6 +63,10 @@ Three modes, run in order:
 
 Typical run (select + download in one pass):
     python kraken/db/kraken_db_search.py --download
+
+Reproduce db_v2's composition exactly (genus sweep, no floor, broad genera excluded):
+    python kraken/db/kraken_db_search.py --version v2 --sweep-rank genus \
+        --floor 0 --exclude-broad --select-only
 
 Then: python kraken/db/kraken_db_busco.py   (on Setonix)
 
@@ -46,6 +82,7 @@ import csv
 import gzip
 import json
 import shutil
+import sqlite3
 import subprocess
 import sys
 import time
@@ -60,13 +97,26 @@ DB_PATH      = Path("stat/output/stat_build/data/phibase_db.json")
 RUNS_TSV     = Path("stat/output/stat_filter/data/runs.tsv")
 OUT_DIR      = Path("kraken/output/db/search")
 DATA_DIR     = OUT_DIR / "data"
-CANDIDATES_TSV = DATA_DIR / "ref_candidates.tsv"
+CANDIDATES_TSV = DATA_DIR / "ref_candidates.tsv"      # symlink to the current version
 DEFAULT_GENOMES_DIR = DATA_DIR / "cds" / "pathogen"
+
+# holobase supplies the taxonomy tree used to resolve each seed species to its
+# containing order/family/class. NCBI's own assembly records carry no rank above
+# species, so the sweep targets cannot be derived from the datasets output alone.
+HOLOBASE = Path.home() / "data_analysis" / "_refdata" / "holobase.db"
+
+DEFAULT_VERSION    = "v3"
+DEFAULT_FLOOR      = 4        # 0 = no floor, take everything (db_v2's behaviour)
+DEFAULT_SWEEP_RANK = "order"
+SWEEP_RANKS        = ("genus", "family", "order", "class")
 
 YEAR_BIN_SIZE = 5
 LEVEL_RANK = {"Complete Genome": 4, "Chromosome": 3, "Scaffold": 2, "Contig": 1}
 
-# Genera excluded from fill-in: broad/saprophytic, not primarily plant pathogens
+# Genera excluded from the sweep by --exclude-broad: broad/saprophytic, not primarily
+# plant pathogens. db_v2 always excluded these. db_v3 does NOT, by default: the sweep
+# exists to give Kraken2's LCA competitors, and a saprophyte in a target order is as
+# good a competitor as a pathogen. The floor bounds what their inclusion costs.
 BROAD_GENERA = {
     "Aspergillus", "Penicillium", "Trichoderma", "Beauveria", "Metarhizium",
     "Claviceps", "Epichloe", "Ceratocystis", "Leptographium", "Ciboria",
@@ -235,11 +285,16 @@ def greedy_ordered(assemblies: list) -> list:
     return list(zip(selected, reasons))
 
 
-def select_seed(taxid: int, name: str, kingdom: str,
-                detected: bool, assemblies: list) -> list:
-    """detected=True → all scaffold-plus+annotated assemblies, diversity-ordered.
-    detected=False → single best-quality assembly only. Falls back through
-    annotation tiers if needed."""
+def select_seed(taxid: int, name: str, kingdom: str, detected: bool,
+                assemblies: list, floor: int = DEFAULT_FLOOR) -> list:
+    """detected=True → all scaffold-plus+annotated assemblies, diversity-ordered, no
+    cap. detected=False → min(floor, available), diversity-ordered. Falls back through
+    annotation tiers if needed.
+
+    db_v2 took exactly one assembly for an undetected genus, which is why 170 of its
+    309 taxa sat at depth 1 and were the ones losing k-mers to deeper congeners. The
+    floor closes that without touching the deep species.
+    """
     for pool in [
         [a for a in assemblies if scaffold_plus(a) and has_annotation(a)],
         [a for a in assemblies if scaffold_plus(a)],
@@ -250,28 +305,231 @@ def select_seed(taxid: int, name: str, kingdom: str,
     if not pool:
         return []
     pool.sort(key=quality_key, reverse=True)
-    pairs = [(pool[0], "best_quality")] if not detected else greedy_ordered(pool)
+    pairs = greedy_ordered(pool)
+    if not detected and floor > 0:
+        pairs = pairs[:floor]
     return [to_row(a, taxid, name, kingdom, "seed", rank + 1, reason)
             for rank, (a, reason) in enumerate(pairs)]
 
 
-def select_genus_fill(kingdom: str, covered_taxids: set, assemblies: list) -> list:
-    """For a detected genus: take ALL annotated scaffold-plus assemblies for each
-    species not already covered by a PHI-base seed, diversity-ordered within species."""
+def select_rank_sweep(rank_name: str, kingdom: str, covered_taxids: set,
+                      assemblies: list, floor: int = DEFAULT_FLOOR,
+                      exclude_broad: bool = False,
+                      to_species: dict = None) -> list:
+    """Sweep one taxon at --sweep-rank: for each species in it not already covered by
+    a PHI-base seed, take min(floor, available) annotated scaffold-plus assemblies,
+    diversity-ordered within the species. floor=0 takes every assembly.
+
+    One NCBI query covers the whole clade, so an order sweep costs 20 queries rather
+    than one per species. Species with a single assembly are kept at one, not dropped:
+    presence is what creates the LCA competition the sweep exists for.
+
+    NCBI labels many assemblies at a node BELOW species — strain, varietas, forma —
+    so grouping on the assembly's own tax_id is wrong in two ways that both defeat
+    the design. `to_species` maps each NCBI taxid up to its species node and fixes
+    both:
+
+      1. A seed's own strains stopped being recognised as covered, because the
+         covered check compared taxids for equality and a strain taxid never equals
+         its species'. That re-selected assemblies already taken as seeds — 159 of
+         them at order scope, e.g. GCF_014117465.1 as both *Aspergillus flavus*
+         (5059) and *A. flavus* NRRL3357 (332952).
+      2. The floor counted per taxid, so a species whose assemblies sit under
+         several strain nodes looked like several depth-1 taxa and the floor passed
+         while the species stayed shallow. 87 species were split this way, worst
+         *Zymoseptoria tritici* across 6 nodes and *Verticillium dahliae* across 4.
+
+    Rows are emitted under the species taxid, which is the rank the chapter reports
+    at and the rank db_v2 used for its seeds.
+    """
+    to_species = to_species or {}
     by_species = defaultdict(list)
     for a in assemblies:
-        tid = (a.get("organism") or {}).get("tax_id")
-        if not tid or tid in covered_taxids:
+        organism = a.get("organism") or {}
+        tid = organism.get("tax_id")
+        if not tid:
+            continue
+        # Normalise to the species node before either check below.
+        sid = to_species.get(tid, tid)
+        if sid in covered_taxids or tid in covered_taxids:
+            continue
+        if exclude_broad and (organism.get("organism_name") or "").split()[:1] \
+                and (organism.get("organism_name") or "").split()[0] in BROAD_GENERA:
             continue
         if scaffold_plus(a) and has_annotation(a):
-            by_species[tid].append(a)
+            by_species[sid].append(a)
+
     rows = []
-    for tid, pool in by_species.items():
+    for sid, pool in by_species.items():
         pool.sort(key=quality_key, reverse=True)
-        org_name = (pool[0].get("organism") or {}).get("organism_name", str(tid))
-        for rank, (a, reason) in enumerate(greedy_ordered(pool)):
-            rows.append(to_row(a, tid, org_name, kingdom, "genus_fill", rank + 1, reason))
+        # Prefer a name recorded at species rank; strain names carry isolate suffixes
+        # that would make the same species look like several.
+        org_name = SPECIES_NAME.get(sid) or \
+            (pool[0].get("organism") or {}).get("organism_name", str(sid))
+        pairs = greedy_ordered(pool)
+        if floor > 0:
+            pairs = pairs[:floor]
+        for rank, (a, reason) in enumerate(pairs):
+            rows.append(to_row(a, sid, org_name, kingdom,
+                               f"{rank_name}_sweep", rank + 1, reason))
     return rows
+
+
+def holobase_sweep_targets(seed_taxids, rank: str, db_path: Path = HOLOBASE) -> dict:
+    """{clade name: n seed species it contains} for every clade at `rank` holding a
+    seed species. Walks holobase's taxonomy tree, which is keyed on an internal
+    surrogate taxon_id, so seeds are joined in through the ncbi_taxid column.
+
+    Returns {} if holobase is absent, so the caller can fall back to a genus sweep
+    derived from the seed names alone.
+    """
+    if not db_path.exists():
+        print(f"Warning: {db_path} not found — cannot resolve {rank}-level sweep targets")
+        return {}
+
+    con = sqlite3.connect(db_path)
+    node = {tid: (parent, rk, nm) for tid, parent, rk, nm
+            in con.execute("SELECT taxon_id, parent_id, rank, scientific_name FROM taxon")}
+    ncbi2internal = dict(con.execute(
+        "SELECT ncbi_taxid, taxon_id FROM taxon WHERE ncbi_taxid IS NOT NULL"))
+    con.close()
+
+    def ancestor_at(tid):
+        seen = set()
+        while tid in node and tid not in seen:
+            seen.add(tid)
+            parent, rk, name = node[tid]
+            if rk == rank:
+                return name
+            tid = parent
+        return None
+
+    targets, unresolved = defaultdict(int), 0
+    for taxid in seed_taxids:
+        internal = ncbi2internal.get(int(taxid))
+        name = ancestor_at(internal) if internal else None
+        if name:
+            targets[name] += 1
+        else:
+            unresolved += 1
+    if unresolved:
+        print(f"  {unresolved} seed taxids had no {rank} in holobase — not swept")
+    return dict(targets)
+
+
+def holobase_species_map(db_path: Path = HOLOBASE) -> tuple:
+    """Build ({ncbi taxid: species-level ncbi taxid}, {species taxid: species name}).
+
+    NCBI assigns many assemblies to a node below species. Kraken2 would happily build
+    from those, but the depth floor and the seed-coverage check both reason per
+    species, so both need the species node. Species taxids map to themselves, so the
+    caller can apply `to_species.get(tid, tid)` unconditionally.
+
+    Returns ({}, {}) if holobase is absent; the sweep then falls back to grouping on
+    the assembly's own taxid, which is db_v2's behaviour and its bug.
+    """
+    if not db_path.exists():
+        print(f"Warning: {db_path} not found — cannot normalise taxids to species rank")
+        return {}, {}
+
+    con = sqlite3.connect(db_path)
+    # The taxon table is ~3M rows, so hold only what the walk needs: parent and rank
+    # for every node, but names for species nodes alone.
+    parent, rank, ncbi, name = {}, {}, {}, {}
+    for tid, par, rk, nc, nm in con.execute(
+            "SELECT taxon_id, parent_id, rank, ncbi_taxid, scientific_name FROM taxon"):
+        parent[tid], rank[tid] = par, rk
+        if nc is not None:
+            ncbi[tid] = nc
+        if rk == "species":
+            name[tid] = nm
+    con.close()
+
+    internal_of = {nc: tid for tid, nc in ncbi.items()}
+    to_species, species_name, cache = {}, {}, {}
+
+    def species_internal(start):
+        """Nearest ancestor-or-self at species rank, memoised over shared lineages.
+
+        NCBI's root is its own parent, so an unbounded walk never terminates for a
+        taxon with no species ancestor (a genus, a family, root itself). `chain`
+        doubles as the visited set to stop that.
+        """
+        tid, chain, found = start, [], None
+        while tid is not None and tid in rank:
+            if tid in cache:
+                found = cache[tid]
+                break
+            if rank[tid] == "species":
+                found = tid
+                break
+            chain.append(tid)
+            nxt = parent.get(tid)
+            if nxt == tid or nxt in chain:      # self-parent root, or a cycle
+                break
+            tid = nxt
+        for t in chain:
+            cache[t] = found
+        return found
+
+    for nc, tid in internal_of.items():
+        sp = species_internal(tid)
+        if sp is None or sp not in ncbi:
+            continue
+        to_species[nc] = ncbi[sp]
+        species_name[ncbi[sp]] = name[sp]
+    return to_species, species_name
+
+
+# Filled in by run_select once holobase has been read, so select_rank_sweep can name a
+# species without carrying the whole map through every call.
+SPECIES_NAME = {}
+
+
+def retain_previous(rows: list, prev_tsv: Path) -> list:
+    """Add back any assembly in a previous candidate table that the new selection
+    dropped, so a rebuild never shrinks a species' depth.
+
+    The depth policy measured on 2026-09-24 is a floor with NO cap: capping a deep
+    species buys a median 0.42 pp of congener specificity and costs a median 16% of
+    its own observed pangenome, up to 62%. But the sweep's `min(floor, available)` is
+    a cap for any species the sweep owns, and db_v2 took non-seed species through
+    genus fill with no limit. Without this, a rebuild silently trimmed 45 assemblies,
+    including *Fusarium* cf. *solani* 14 -> 4 and *F. lateritium* 15 -> 4, both deep
+    partners in the worst-measured misassignment pairs.
+
+    Retained rows keep their original taxid, source and reason, tagged so the table
+    shows they came from the previous build rather than this selection's rules.
+    """
+    if not prev_tsv.exists():
+        return rows
+    have = {r["accession"] for r in rows}
+    added = []
+    with open(prev_tsv) as fh:
+        for prev in csv.DictReader(fh, delimiter="\t"):
+            acc = prev.get("accession")
+            if not acc or acc in have:
+                continue
+            have.add(acc)
+            kept = dict(prev)
+            # Rows read from TSV carry every field as a string, but rows built by
+            # to_row() carry taxid as an int. Left mixed, the per-taxon counters treat
+            # 5507 and "5507" as two taxa and the selection summary overcounts.
+            if str(kept.get("taxid", "")).isdigit():
+                kept["taxid"] = int(kept["taxid"])
+            kept["selection_reason"] = (
+                f"retained_previous:{prev.get('selection_reason','') or 'na'}")
+            added.append(kept)
+    if added:
+        by_taxon = defaultdict(int)
+        for r in added:
+            by_taxon[r.get("organism_name", "?")] += 1
+        top = sorted(by_taxon.items(), key=lambda kv: -kv[1])[:5]
+        print(f"  retained {len(added)} assemblies the new rules would have dropped "
+              f"(no-cap policy), across {len(by_taxon)} taxa")
+        for nm, n in top:
+            print(f"      +{n:<3} {nm}")
+    return rows + added
 
 
 def load_detected_genera() -> set:
@@ -395,10 +653,25 @@ def run_scope(seeds: dict, t2n: dict, workers: int) -> None:
 
 # ── candidate selection ───────────────────────────────────────────────────────
 
-def run_select(seeds: dict, t2n: dict, workers: int) -> list:
-    covered = set(seeds.keys())
+def run_select(seeds: dict, t2n: dict, workers: int, floor: int = DEFAULT_FLOOR,
+               sweep_rank: str = DEFAULT_SWEEP_RANK,
+               exclude_broad: bool = False, retain: Path = None) -> list:
+    global SPECIES_NAME
     detected_genera = load_detected_genera()
     print(f"STAT-detected genera: {len(detected_genera)}")
+    print(f"Depth floor: {floor or 'none'}   sweep rank: {sweep_rank}"
+          f"   broad genera: {'excluded' if exclude_broad else 'included'}")
+
+    # Taxid -> species taxid, so the sweep's coverage check and depth floor both reason
+    # per species rather than per strain. See select_rank_sweep for what breaks without it.
+    to_species, SPECIES_NAME = holobase_species_map()
+    covered = set(seeds.keys())
+    if to_species:
+        # A seed given at strain or forma-specialis rank still covers its species, and
+        # vice versa, so expand coverage both ways before the sweep runs.
+        covered |= {to_species[t] for t in seeds if t in to_species}
+        print(f"Species-normalised {len(to_species):,} taxids; "
+              f"seed coverage expanded {len(seeds)} -> {len(covered)} taxa")
 
     print(f"\n[1/2] Querying {len(seeds)} seed taxids (all assemblies for detected genera) …")
     all_rows = []
@@ -406,7 +679,7 @@ def run_select(seeds: dict, t2n: dict, workers: int) -> list:
     def work_seed(taxid, kingdom):
         name = t2n.get(str(taxid), str(taxid))
         detected = name.split()[0] in detected_genera
-        return select_seed(taxid, name, kingdom, detected, datasets_query(taxid))
+        return select_seed(taxid, name, kingdom, detected, datasets_query(taxid), floor)
 
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futs = {pool.submit(work_seed, tid, kgd): tid for tid, kgd in seeds.items()}
@@ -419,55 +692,146 @@ def run_select(seeds: dict, t2n: dict, workers: int) -> list:
     seed_count = len(all_rows)
     print(f"  Seed assemblies selected: {seed_count}")
 
-    fill_genera = {}
-    for tid, kingdom in seeds.items():
-        parts = t2n.get(str(tid), "").split()
-        if not parts:
-            continue
-        genus = parts[0]
-        if genus in detected_genera and genus not in BROAD_GENERA:
-            fill_genera[genus] = kingdom
+    # Sweep targets: the clades at sweep_rank that actually contain a seed species.
+    # Above genus that needs a taxonomy tree, which holobase has and NCBI's assembly
+    # records do not (they carry no rank above species). A genus sweep needs no tree,
+    # so it stays available and reproduces db_v2 with --floor 0 --exclude-broad.
+    if sweep_rank == "genus":
+        sweep_targets = {}
+        for tid, kingdom in seeds.items():
+            parts = t2n.get(str(tid), "").split()
+            if parts and parts[0] in detected_genera:
+                sweep_targets[parts[0]] = kingdom
+    else:
+        clades = holobase_sweep_targets(covered, sweep_rank)
+        if not clades:
+            print(f"  No {sweep_rank} targets resolved — falling back to a genus sweep")
+            sweep_targets = {parts[0]: kingdom
+                             for tid, kingdom in seeds.items()
+                             if (parts := t2n.get(str(tid), "").split())
+                             and parts[0] in detected_genera}
+            sweep_rank = "genus"
+        else:
+            # Kingdom only drives the BUSCO lineage call, and busco_lineage_for()
+            # refines it per species anyway. Default the clade to fungal, then mark
+            # the clades that oomycete seeds put in scope — holobase holds no oomycete
+            # assemblies, so those clades come back from NCBI or not at all.
+            sweep_targets = dict.fromkeys(clades, "fungal")
+            oomycete_seeds = {t for t, k in seeds.items() if k == "oomycete"}
+            if oomycete_seeds:
+                for name in holobase_sweep_targets(oomycete_seeds, sweep_rank):
+                    sweep_targets[name] = "oomycete"
+            print(f"  {len(clades)} {sweep_rank}-level clades hold the "
+                  f"{len(covered)} seed species")
 
-    print(f"\n[2/2] Querying {len(fill_genera)} genera for fill-in (all qualifying assemblies) …")
+    if exclude_broad and sweep_rank == "genus":
+        sweep_targets = {g: k for g, k in sweep_targets.items() if g not in BROAD_GENERA}
 
-    def work_genus(genus, kingdom):
-        return select_genus_fill(kingdom, covered, datasets_query(genus))
+    label = "all qualifying assemblies" if not floor else f"up to {floor} per species"
+    print(f"\n[2/2] Sweeping {len(sweep_targets)} {sweep_rank} clades ({label}) …")
+
+    def work_clade(name, kingdom):
+        return select_rank_sweep(sweep_rank, kingdom, covered, datasets_query(name),
+                                 floor, exclude_broad, to_species)
 
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        futs = {pool.submit(work_genus, g, k): g for g, k in fill_genera.items()}
+        futs = {pool.submit(work_clade, n, k): n for n, k in sweep_targets.items()}
         for done, fut in enumerate(as_completed(futs), 1):
             all_rows.extend(fut.result())
             if done % 5 == 0 or done == len(futs):
-                print(f"  {done}/{len(fill_genera)} genera … ({len(all_rows)-seed_count} fill-in so far)",
-                      end="\r", flush=True)
+                print(f"  {done}/{len(sweep_targets)} clades … "
+                      f"({len(all_rows)-seed_count} swept so far)", end="\r", flush=True)
     print()
-    print(f"  Genus fill-in assemblies selected: {len(all_rows) - seed_count}")
+    print(f"  Sweep assemblies selected: {len(all_rows) - seed_count}")
 
-    all_rows.sort(key=lambda r: (r["kingdom"], r["source"], r["organism_name"].lower(), r["selection_rank"]))
+    # Deduplicate before retaining: one accession can qualify under a seed and again
+    # under the sweep. Keep the seed row, which carries the curated taxid and reason.
+    seen, deduped, dropped = set(), [], 0
+    for r in sorted(all_rows, key=lambda r: 0 if r["source"] == "seed" else 1):
+        if r["accession"] in seen:
+            dropped += 1
+            continue
+        seen.add(r["accession"])
+        deduped.append(r)
+    if dropped:
+        print(f"  Dropped {dropped} duplicate accessions (same assembly under a seed "
+              f"and a sweep taxid)")
+    all_rows = deduped
+
+    if retain:
+        all_rows = retain_previous(all_rows, retain)
+
+    all_rows.sort(key=lambda r: (r["kingdom"], r["source"], r["organism_name"].lower(),
+                                 int(r["selection_rank"] or 0)))
     return all_rows
 
 
-def write_candidates(rows: list) -> None:
+def write_candidates(rows: list, version: str = DEFAULT_VERSION,
+                     floor: int = DEFAULT_FLOOR) -> None:
+    """Write data/ref_candidates_<version>.tsv and point ref_candidates.tsv at it.
+
+    The version-stamped name is what keeps the previous build's selection on disk:
+    diffing it against the new one is how the download delta is worked out, and
+    kraken_db_busco.py reads the plain ref_candidates.tsv name, so the symlink lets
+    it pick up the current version without being passed a path.
+    """
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    with open(CANDIDATES_TSV, "w", newline="") as fh:
+    versioned = DATA_DIR / f"ref_candidates_{version}.tsv"
+    with open(versioned, "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=CANDIDATE_COLS, delimiter="\t", extrasaction="ignore")
         w.writeheader()
         w.writerows(rows)
 
+    # Before db_v3, ref_candidates.tsv was a REGULAR FILE holding the previous
+    # selection, and that selection is the only record of what the current database
+    # was built from. Replacing it with a symlink would destroy it, so preserve it
+    # first and never overwrite an existing preserved copy.
+    if CANDIDATES_TSV.is_file() and not CANDIDATES_TSV.is_symlink():
+        legacy = DATA_DIR / "ref_candidates_legacy.tsv"
+        if legacy.exists():
+            raise SystemExit(
+                f"{CANDIDATES_TSV} is a real file and {legacy} already exists — "
+                f"refusing to overwrite either. Move or remove one of them by hand.")
+        CANDIDATES_TSV.rename(legacy)
+        print(f"  preserved the previous selection: {CANDIDATES_TSV.name} -> {legacy.name}")
+    elif CANDIDATES_TSV.is_symlink():
+        CANDIDATES_TSV.unlink()
+    CANDIDATES_TSV.symlink_to(versioned.name)
+
     n_cds    = sum(1 for r in rows if r["fasta_type"] == "cds")
     n_genome = sum(1 for r in rows if r["fasta_type"] == "genome")
     lineage_counts = defaultdict(int)
+    per_taxon = defaultdict(int)
     for r in rows:
         lineage_counts[r["busco_lineage"]] += 1
+        per_taxon[r["taxid"]] += 1
+    source_counts = defaultdict(int)
+    for r in rows:
+        source_counts[r["source"]] += 1
+
+    depth_hist = defaultdict(int)
+    for n in per_taxon.values():
+        depth_hist[min(n, 5)] += 1
+    at_floor = sum(v for k, v in depth_hist.items() if floor and k >= floor)
 
     print(f"\n── Selection summary ────────────────────────────────────────────")
     print(f"  Total candidates:  {len(rows):>6,}")
+    print(f"  Distinct taxa:     {len(per_taxon):>6,}")
     print(f"  CDS FASTA:         {n_cds:>6,}")
     print(f"  Genomic FASTA:     {n_genome:>6,}  (no annotation — not downloaded)")
-    print(f"  BUSCO lineages:")
-    for lineage, n in sorted(lineage_counts.items()):
-        print(f"    {lineage:<30} {n:>6,}")
-    print(f"\nOutput: {CANDIDATES_TSV}")
+    print(f"  By source:")
+    for source, n in sorted(source_counts.items()):
+        print(f"    {source:<30} {n:>6,}")
+    print(f"  Assemblies per taxon:")
+    for depth in sorted(depth_hist):
+        label = f"{depth}" if depth < 5 else "5+"
+        print(f"    {label:>3}: {depth_hist[depth]:>6,} taxa")
+    if floor:
+        print(f"  Taxa at the floor of {floor}: {at_floor:,}/{len(per_taxon):,} "
+              f"({at_floor/max(len(per_taxon),1)*100:.0f}%) — the rest have no deeper "
+              f"assemblies in existence and go in shallow, see the docstring")
+    print(f"\nOutput: {versioned}")
+    print(f"        {CANDIDATES_TSV} -> {versioned.name}")
 
 
 # ── CDS download (the ONE place in kraken_db_* that downloads) ───────────────
@@ -583,6 +947,32 @@ def main():
                          "(default if neither --scope nor --download given)")
     ap.add_argument("--genomes-dir", default=str(DEFAULT_GENOMES_DIR),
                     help="CDS download directory (default: kraken/output/db/search/data/cds/pathogen)")
+    ap.add_argument("--version", default=DEFAULT_VERSION,
+                    help=f"Build version, names the output table (default: {DEFAULT_VERSION}). "
+                         "Writes ref_candidates_<version>.tsv so the previous version's "
+                         "selection stays on disk to diff the download delta against")
+    ap.add_argument("--floor", type=int, default=DEFAULT_FLOOR,
+                    help=f"Assemblies per species to aim for (default: {DEFAULT_FLOOR}). "
+                         "Applies to swept species and to seeds in undetected genera; "
+                         "never caps a detected seed. 0 takes every assembly, which is "
+                         "db_v2's behaviour. Species with fewer in existence go in shallow")
+    ap.add_argument("--sweep-rank", default=DEFAULT_SWEEP_RANK, choices=SWEEP_RANKS,
+                    help=f"Rank to sweep for breadth (default: {DEFAULT_SWEEP_RANK}). "
+                         "Ranks above genus are resolved through holobase's taxonomy "
+                         "tree; genus needs no tree. Order captures all of Pucciniales, "
+                         "where 11 of the 18 rust species missing from db_v2 sit outside "
+                         "its rust genera")
+    ap.add_argument("--exclude-broad", action="store_true",
+                    help="Exclude BROAD_GENERA (Aspergillus, Penicillium …) from the "
+                         "sweep, as db_v2 did. Off by default: the sweep exists to give "
+                         "LCA competitors and a saprophyte competes as well as a pathogen")
+    ap.add_argument("--retain", default=str(DATA_DIR / "ref_candidates_legacy.tsv"),
+                    help="Previous candidate table whose assemblies must never be "
+                         "dropped, enforcing the no-cap policy. The sweep's "
+                         "min(floor, available) is a cap for species it owns, and "
+                         "db_v2 took non-seed species with no limit, so without this a "
+                         "rebuild trims deep species the bias analysis says to keep. "
+                         "Pass --retain '' to select from the rules alone")
     ap.add_argument("--workers", type=int, default=8)
     args = ap.parse_args()
 
@@ -607,8 +997,10 @@ def main():
             run_scope(seeds, t2n, args.workers)
             return
 
-        rows = run_select(seeds, t2n, args.workers)
-        write_candidates(rows)
+        rows = run_select(seeds, t2n, args.workers, args.floor,
+                          args.sweep_rank, args.exclude_broad,
+                          Path(args.retain) if args.retain else None)
+        write_candidates(rows, args.version, args.floor)
 
         if args.download:
             run_download(rows, Path(args.genomes_dir), args.workers)

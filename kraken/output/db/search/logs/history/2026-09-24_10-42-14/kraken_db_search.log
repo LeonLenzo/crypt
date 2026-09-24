@@ -1,0 +1,34 @@
+STAT-detected genera: 38
+Depth floor: 4   sweep rank: order   broad genera: included
+
+[1/2] Querying 133 seed taxids (all assemblies for detected genera) …
+  10/133 seeds … (19 assemblies so far)  20/133 seeds … (64 assemblies so far)  30/133 seeds … (122 assemblies so far)  40/133 seeds … (151 assemblies so far)  50/133 seeds … (194 assemblies so far)  60/133 seeds … (238 assemblies so far)  70/133 seeds … (263 assemblies so far)  80/133 seeds … (282 assemblies so far)  90/133 seeds … (500 assemblies so far)  100/133 seeds … (606 assemblies so far)  110/133 seeds … (642 assemblies so far)  120/133 seeds … (744 assemblies so far)  130/133 seeds … (764 assemblies so far)  133/133 seeds … (780 assemblies so far)
+  Seed assemblies selected: 780
+  3 seed taxids had no order in holobase — not swept
+  20 order-level clades hold the 133 seed species
+
+[2/2] Sweeping 20 order clades (up to 4 per species) …
+  5/20 clades … (210 swept so far)  10/20 clades … (669 swept so far)  15/20 clades … (895 swept so far)  20/20 clades … (1436 swept so far)
+  Sweep assemblies selected: 1436
+  preserved the previous selection: ref_candidates.tsv -> ref_candidates_legacy.tsv
+
+── Selection summary ────────────────────────────────────────────
+  Total candidates:   2,216
+  Distinct taxa:      1,087
+  CDS FASTA:          2,150
+  Genomic FASTA:         66  (no annotation — not downloaded)
+  By source:
+    order_sweep                     1,436
+    seed                              780
+  Assemblies per taxon:
+      1:    653 taxa
+      2:    290 taxa
+      3:     57 taxa
+      4:     55 taxa
+     5+:     32 taxa
+  Taxa at the floor of 4: 87/1,087 (8%) — the rest have no deeper assemblies in existence and go in shallow, see the docstring
+
+Output: kraken/output/db/search/data/ref_candidates_v3.tsv
+        kraken/output/db/search/data/ref_candidates.tsv -> ref_candidates_v3.tsv
+
+Next: python kraken/db/kraken_db_search.py --download   (or re-run this with --download)

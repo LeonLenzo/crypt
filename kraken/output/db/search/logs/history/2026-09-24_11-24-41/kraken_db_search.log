@@ -1,0 +1,42 @@
+STAT-detected genera: 38
+Depth floor: 4   sweep rank: order   broad genera: included
+Species-normalised 2,778,093 taxids; seed coverage expanded 133 -> 133 taxa
+
+[1/2] Querying 133 seed taxids (all assemblies for detected genera) …
+  10/133 seeds … (36 assemblies so far)  20/133 seeds … (64 assemblies so far)  30/133 seeds … (126 assemblies so far)  40/133 seeds … (145 assemblies so far)  50/133 seeds … (186 assemblies so far)  60/133 seeds … (237 assemblies so far)  70/133 seeds … (261 assemblies so far)  80/133 seeds … (323 assemblies so far)  90/133 seeds … (495 assemblies so far)  100/133 seeds … (606 assemblies so far)  110/133 seeds … (645 assemblies so far)  120/133 seeds … (732 assemblies so far)  130/133 seeds … (773 assemblies so far)  133/133 seeds … (780 assemblies so far)
+  Seed assemblies selected: 780
+  3 seed taxids had no order in holobase — not swept
+  20 order-level clades hold the 133 seed species
+
+[2/2] Sweeping 20 order clades (up to 4 per species) …
+  5/20 clades … (105 swept so far)  10/20 clades … (368 swept so far)  15/20 clades … (1080 swept so far)  20/20 clades … (1248 swept so far)
+  Sweep assemblies selected: 1248
+  Dropped 9 duplicate accessions (same assembly under a seed and a sweep taxid)
+  retained 44 assemblies the new rules would have dropped (no-cap policy), across 12 taxa
+      +11  Fusarium lateritium
+      +10  Fusarium cf. solani
+      +5   Phytophthora fragariae
+      +3   [Neocosmospora] sp. B6999-1
+      +3   [Neocosmospora] sp. B6999-4
+
+── Selection summary ────────────────────────────────────────────
+  Total candidates:   2,063
+  Distinct taxa:        949
+  CDS FASTA:          1,997
+  Genomic FASTA:         66  (no annotation — not downloaded)
+  By source:
+    genus_fill                         42
+    order_sweep                     1,244
+    seed                              777
+  Assemblies per taxon:
+      1:    566 taxa
+      2:    228 taxa
+      3:     57 taxa
+      4:     63 taxa
+     5+:     35 taxa
+  Taxa at the floor of 4: 98/949 (10%) — the rest have no deeper assemblies in existence and go in shallow, see the docstring
+
+Output: kraken/output/db/search/data/ref_candidates_v3.tsv
+        kraken/output/db/search/data/ref_candidates.tsv -> ref_candidates_v3.tsv
+
+Next: python kraken/db/kraken_db_search.py --download   (or re-run this with --download)

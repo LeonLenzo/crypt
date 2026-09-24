@@ -103,3 +103,13 @@ kraken/output/run/select/data/reads/
 kraken/output/run/split/data/index/
 kraken/output/run/split/data/reads/
 kraken/output/run/split/data/_tmp/
+
+# FracMinHash sketch cache — one .npy per assembly (~700 MB on Setonix), the only
+# expensive part of kraken_db_saturation.py and fully rebuilt by --stage sketch.
+# The curve/bias/policy stages read it and write the small TSVs, which stay tracked.
+kraken/output/db/saturation/data/sketches/
+
+# Stray SLURM .out/.err that older kraken scripts dropped at the repo root on
+# Setonix before every --output path pointed at kraken/slurm/logs/.
+/*.out
+/*.err

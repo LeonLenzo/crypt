@@ -1,0 +1,27 @@
+deep_species	shallow_species	deep_assemblies	misassigned_deep_full	misassigned_deep_capped	cap_benefit_pp	misassigned_shallow_at_floor	floor_benefit_pp	deep_pangenome_kept_at_cap	deep_pangenome_lost_at_cap_pp	shallow_assemblies_available	floor_reachable
+Fusarium cf. solani	Fusarium ambrosium	14	0.133432	0.100267	3.317	0.000823	13.261	0.477	52.3	5	True
+Fusarium proliferatum	Fusarium fujikuroi	9	0.08946	0.072486	1.697	0.024342	6.512	0.6829	31.7	29	True
+Fusarium fujikuroi	Fusarium proliferatum	18	0.088139	0.079698	0.844	0.041722	4.642	0.8726	12.7	44	True
+Verticillium dahliae	Verticillium longisporum	11	0.085057	0.079695	0.536	0.002177	8.288	0.9128	8.7	21	True
+Fusarium oxysporum	Fusarium odoratissimum	55	0.083367	0.055478	2.789	0.0	8.337	0.3833	61.7	7	True
+Fusarium oxysporum	Fusarium proliferatum	55	0.065196	0.037474	2.772	0.044303	2.089	0.3833	61.7	44	True
+Fusarium graminearum	Fusarium pseudograminearum	16	0.05638	0.054279	0.21	0.006696	4.968	0.8589	14.1	5	True
+Fusarium culmorum	Fusarium pseudograminearum	8	0.055508	0.051742	0.377	0.005481	5.003	0.9234	7.7	5	True
+Fusarium graminearum	Fusarium culmorum	16	0.048731	0.044439	0.429	0.028022	2.071	0.8589	14.1	14	True
+Fusarium cf. solani	Fusarium floridanum	14	0.039255	0.033514	0.574	0.00078	3.847	0.477	52.3	5	True
+Fusarium proliferatum	Fusarium oxysporum	9	0.031236	0.019994	1.124	0.020985	1.025	0.6829	31.7	457	True
+Fusarium culmorum	Fusarium graminearum	8	0.029246	0.025105	0.414	0.00784	2.141	0.9234	7.7	135	True
+Verticillium dahliae	Verticillium nonalfalfae	11	0.027783	0.026422	0.136	0.019016	0.877	0.9128	8.7	24	True
+Fusarium cf. solani	Fusarium euwallaceae	14	0.025797	0.020381	0.542	0.0	2.58	0.477	52.3	7	True
+Verticillium nonalfalfae	Verticillium longisporum	17	0.022316	0.016729	0.559	0.000385	2.193	0.9074	9.3	21	True
+Fusarium oxysporum	Fusarium fujikuroi	55	0.019238	0.011198	0.804	0.006448	1.279	0.3833	61.7	29	True
+Verticillium nonalfalfae	Verticillium dahliae	17	0.015982	0.014494	0.149	0.004633	1.135	0.9074	9.3	57	True
+Fusarium fujikuroi	Fusarium oxysporum	18	0.015803	0.01462	0.118	0.010857	0.495	0.8726	12.7	457	True
+Fusarium cf. solani	Fusarium falciforme	14	0.015421	0.008483	0.694	0.00219	1.323	0.477	52.3	12	True
+Pyrenophora tritici-repentis	Pyrenophora teres	24	0.012318	0.011279	0.104	0.002267	1.005	0.8824	11.8	6	True
+Fusarium culmorum	Fusarium lateritium	8	0.011892	0.011722	0.017	0.003807	0.808	0.9234	7.7	16	True
+Fusarium graminearum	Fusarium lateritium	16	0.011777	0.011604	0.017	0.003726	0.805	0.8589	14.1	16	True
+Pyricularia oryzae	Pyricularia grisea	45	0.011526	0.008035	0.349	0.0	1.153	0.8165	18.3	14	True
+Fusarium lateritium	Fusarium pseudograminearum	15	0.01117	0.010305	0.086	0.000536	1.063	0.4208	57.9	5	True
+Fusarium cf. solani	Fusarium lateritium	14	0.010955	0.007447	0.351	0.010572	0.038	0.477	52.3	16	True
+Fusarium proliferatum	Fusarium odoratissimum	9	0.010281	0.007603	0.268	0.0	1.028	0.6829	31.7	7	True

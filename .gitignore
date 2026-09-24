@@ -44,9 +44,6 @@ stat/output/figures/scatter/scatter_data.tsv
 # through individual files; simpler, and none of it is needed anywhere
 # downstream (nothing reads from legacy/, matching kraken/legacy/ having been
 # fully wiped rather than kept at all — see kraken/README.md "History").
-metadata/legacy/
-stat/legacy/
-kraken/legacy/
 
 # Log history dirs + .latest symlinks are now TRACKED (transparency — Leon's
 # call 2026-09-01: full run history should be visible in the repo, not just
@@ -117,3 +114,7 @@ kraken/output/db/saturation/data/sketches/
 # Ensembl Plants REST species list — cache for kraken_db_hosts.py geo lookups,
 # refetched if absent. Not needed on Setonix (which downloads via --from-table).
 kraken/output/db/search/data/ensembl_species.json
+
+# Personal reference/prose: pipeline schematic, literature notes, manuscript drafts.
+# Kept on disk for navigation, not version-controlled (Leon's call 2026-09-24).
+docs/

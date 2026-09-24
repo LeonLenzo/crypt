@@ -215,15 +215,85 @@ def quality_key(a) -> tuple:
 def scaffold_plus(a) -> bool:
     return level_rank(a) >= 2
 
-def busco_lineage_for(kingdom: str, organism_name: str) -> str:
+# Phylum -> BUSCO lineage. Populated from holobase by holobase_phylum_map(); the genus
+# sets above are the fallback when holobase is unavailable.
+PHYLUM_LINEAGE = {
+    "Basidiomycota":   "basidiomycota_odb10",
+    "Ascomycota":      "ascomycota_odb10",
+    "Chytridiomycota": "fungi_odb10",
+    "Blastocladiomycota": "fungi_odb10",
+    "Mucoromycota":    "fungi_odb10",
+    "Zoopagomycota":   "fungi_odb10",
+    "Oomycota":        "stramenopiles_odb10",
+}
+PHYLUM_OF = {}
+
+
+def busco_lineage_for(kingdom: str, organism_name: str, taxid=None) -> str:
+    """Pick the BUSCO lineage database for an assembly.
+
+    Taxonomy first, genus lists second. BASIDIOMYCETE_GENERA holds 17 genera, all
+    pathogens, which covered db_v2 because db_v2 only ever saw pathogens. An
+    order-level sweep does not stay inside it: 160 of db_v3's 228 Basidiomycota
+    candidates fall in 63 genera outside the list (Lentinula, Tulasnella,
+    Ceratobasidium, Amanita, Agaricus …) and would be scored against
+    ascomycota_odb10, producing spuriously low completeness for exactly the breadth
+    the sweep was added to provide.
+    """
     if kingdom == "oomycete":
         return "stramenopiles_odb10"
+    if taxid is not None:
+        lineage = PHYLUM_LINEAGE.get(PHYLUM_OF.get(int(taxid)))
+        if lineage:
+            return lineage
     genus = organism_name.split()[0]
     if genus in BASIDIOMYCETE_GENERA:
         return "basidiomycota_odb10"
     if genus in CHYTRID_GENERA:
         return "fungi_odb10"
     return "ascomycota_odb10"
+
+
+def holobase_phylum_map(db_path: Path = HOLOBASE) -> dict:
+    """{ncbi taxid: phylum name}, by walking holobase's tree up to phylum rank.
+
+    Returns {} if holobase is absent, so busco_lineage_for falls back to the genus
+    sets. Guards against NCBI's self-parent root, as holobase_species_map does.
+    """
+    if not db_path.exists():
+        print(f"Warning: {db_path} not found — BUSCO lineages fall back to genus lists")
+        return {}
+    con = sqlite3.connect(db_path)
+    parent, rank, ncbi, name = {}, {}, {}, {}
+    for tid, par, rk, nc, nm in con.execute(
+            "SELECT taxon_id, parent_id, rank, ncbi_taxid, scientific_name FROM taxon"):
+        parent[tid], rank[tid] = par, rk
+        if nc is not None:
+            ncbi[tid] = nc
+        if rk == "phylum":
+            name[tid] = nm
+    con.close()
+
+    cache, out = {}, {}
+    for nc, tid in ((nc, tid) for tid, nc in ncbi.items()):
+        start, chain, found = tid, [], None
+        while start is not None and start in rank:
+            if start in cache:
+                found = cache[start]
+                break
+            if rank[start] == "phylum":
+                found = name.get(start)
+                break
+            chain.append(start)
+            nxt = parent.get(start)
+            if nxt == start or nxt in chain:
+                break
+            start = nxt
+        for t in chain:
+            cache[t] = found
+        if found:
+            out[nc] = found
+    return out
 
 def to_row(a: dict, taxid: int, organism_name: str, kingdom: str,
            source: str, rank: int, reason: str) -> dict:
@@ -247,7 +317,7 @@ def to_row(a: dict, taxid: int, organism_name: str, kingdom: str,
         "scaffold_n50_kb":     f"{int(n50)/1000:.0f}" if n50 else "",
         "total_length_mb":     f"{int(total)/1e6:.1f}" if total else "",
         "fasta_type":          "cds" if ann else "genome",
-        "busco_lineage":       busco_lineage_for(kingdom, organism_name),
+        "busco_lineage":       busco_lineage_for(kingdom, organism_name, taxid),
         "selection_rank":      rank,
         "selection_reason":    reason,
     }
@@ -656,7 +726,7 @@ def run_scope(seeds: dict, t2n: dict, workers: int) -> None:
 def run_select(seeds: dict, t2n: dict, workers: int, floor: int = DEFAULT_FLOOR,
                sweep_rank: str = DEFAULT_SWEEP_RANK,
                exclude_broad: bool = False, retain: Path = None) -> list:
-    global SPECIES_NAME
+    global SPECIES_NAME, PHYLUM_OF
     detected_genera = load_detected_genera()
     print(f"STAT-detected genera: {len(detected_genera)}")
     print(f"Depth floor: {floor or 'none'}   sweep rank: {sweep_rank}"
@@ -665,6 +735,7 @@ def run_select(seeds: dict, t2n: dict, workers: int, floor: int = DEFAULT_FLOOR,
     # Taxid -> species taxid, so the sweep's coverage check and depth floor both reason
     # per species rather than per strain. See select_rank_sweep for what breaks without it.
     to_species, SPECIES_NAME = holobase_species_map()
+    PHYLUM_OF = holobase_phylum_map()
     covered = set(seeds.keys())
     if to_species:
         # A seed given at strain or forma-specialis rank still covers its species, and
@@ -980,6 +1051,13 @@ def main():
                          "re-selecting there would re-query NCBI, whose catalogue moves, "
                          "so the cluster's table would stop matching the repo's. "
                          "Requires --download")
+    ap.add_argument("--relabel-lineage", nargs="?", const=str(CANDIDATES_TSV),
+                    default=None,
+                    help="Recompute the busco_lineage column of an existing candidate "
+                         "table in place and exit (default: the ref_candidates.tsv "
+                         "symlink). Use after changing busco_lineage_for(); avoids "
+                         "re-selecting, which would re-query NCBI and could change the "
+                         "assembly set the CDS were downloaded against")
     ap.add_argument("--workers", type=int, default=8)
     args = ap.parse_args()
 
@@ -997,6 +1075,37 @@ def main():
         # is gitignored and regenerated by stat/stat_build.py, so on Setonix it is
         # routinely absent after a scratch purge and loading it here failed the job in
         # 15 seconds.
+        if args.relabel_lineage:
+            # Recompute busco_lineage in place, without re-selecting. The lineage is a
+            # label on an already-chosen assembly set, so re-running selection to fix it
+            # would re-query NCBI and risk changing the set the CDS were downloaded
+            # against. Cheap to re-run whenever busco_lineage_for() changes.
+            global PHYLUM_OF
+            PHYLUM_OF = holobase_phylum_map()
+            table = Path(args.relabel_lineage)
+            if not table.exists():
+                raise SystemExit(f"--relabel-lineage {table} not found")
+            with open(table) as fh:
+                rows = list(csv.DictReader(fh, delimiter="\t"))
+            changed = defaultdict(int)
+            for r in rows:
+                new = busco_lineage_for(r["kingdom"], r["organism_name"], r["taxid"])
+                if new != r["busco_lineage"]:
+                    changed[(r["busco_lineage"], new)] += 1
+                    r["busco_lineage"] = new
+            with open(table, "w", newline="") as fh:
+                w = csv.DictWriter(fh, fieldnames=CANDIDATE_COLS, delimiter="\t",
+                                   extrasaction="ignore")
+                w.writeheader()
+                w.writerows(rows)
+            total = sum(changed.values())
+            print(f"Relabelled {total} of {len(rows)} rows in {table}")
+            for (old, new), n in sorted(changed.items(), key=lambda kv: -kv[1]):
+                print(f"  {n:>5}  {old} -> {new}")
+            if not total:
+                print("  (nothing to change)")
+            return
+
         if args.from_table:
             if not args.download:
                 raise SystemExit("--from-table only makes sense with --download")

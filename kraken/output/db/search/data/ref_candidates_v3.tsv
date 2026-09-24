@@ -48,12 +48,12 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 886606	Acephala macrosclerotiorum	fungal	order_sweep	GCA_014904845.1	Scaffold	2020-10-20	True		21022	173	73.7	cds	ascomycota_odb10	1	best_quality
 245562	Acidomyces sp. 'richmondensis'	fungal	order_sweep	GCA_001592465.1	Scaffold	2016-03-15	True		11177	42	29.9	cds	ascomycota_odb10	1	best_quality
 150365	Acrodontium crateriforme	fungal	order_sweep	GCA_033807595.1	Complete Genome	2023-11-20	True	Taiwan	7899	1746	23.1	cds	ascomycota_odb10	1	best_quality
-5341	Agaricus bisporus	fungal	order_sweep	GCA_014872705.1	Chromosome	2020-10-21	True	USA	11763	1931	30.7	cds	ascomycota_odb10	1	best_quality
-5341	Agaricus bisporus	fungal	order_sweep	GCF_000300575.1	Scaffold	2012-11-30	True		10444	2335	30.2	cds	ascomycota_odb10	2	new_year_bin:2010
-5341	Agaricus bisporus	fungal	order_sweep	GCF_000300555.1	Scaffold	2012-10-16	True		11255	1225	32.6	cds	ascomycota_odb10	3	quality_fill
-5341	Agaricus bisporus	fungal	order_sweep	GCA_000300555.1	Scaffold	2012-10-16	True		11271	1225	32.6	cds	ascomycota_odb10	4	quality_fill
-84603	Agrocybe chaxingu	fungal	order_sweep	GCA_027627235.1	Scaffold	2023-01-10	True	Viet Nam	12419	18	40.3	cds	ascomycota_odb10	1	best_quality
-84607	Agrocybe pediades	fungal	order_sweep	GCA_015484485.1	Scaffold	2020-11-15	True		17274	105	45.1	cds	ascomycota_odb10	1	best_quality
+5341	Agaricus bisporus	fungal	order_sweep	GCA_014872705.1	Chromosome	2020-10-21	True	USA	11763	1931	30.7	cds	basidiomycota_odb10	1	best_quality
+5341	Agaricus bisporus	fungal	order_sweep	GCF_000300575.1	Scaffold	2012-11-30	True		10444	2335	30.2	cds	basidiomycota_odb10	2	new_year_bin:2010
+5341	Agaricus bisporus	fungal	order_sweep	GCF_000300555.1	Scaffold	2012-10-16	True		11255	1225	32.6	cds	basidiomycota_odb10	3	quality_fill
+5341	Agaricus bisporus	fungal	order_sweep	GCA_000300555.1	Scaffold	2012-10-16	True		11271	1225	32.6	cds	basidiomycota_odb10	4	quality_fill
+84603	Agrocybe chaxingu	fungal	order_sweep	GCA_027627235.1	Scaffold	2023-01-10	True	Viet Nam	12419	18	40.3	cds	basidiomycota_odb10	1	best_quality
+84607	Agrocybe pediades	fungal	order_sweep	GCA_015484485.1	Scaffold	2020-11-15	True		17274	105	45.1	cds	basidiomycota_odb10	1	best_quality
 2714763	Akanthomyces lecanii	fungal	order_sweep	GCA_001636795.1	Scaffold	2016-05-04	True	China	11030	3946	35.6	cds	ascomycota_odb10	1	best_quality
 2714763	Akanthomyces lecanii	fungal	order_sweep	GCA_001653215.1	Scaffold	2016-05-27	True	Mexico	8126	22	32.6	cds	ascomycota_odb10	2	new_country:Mexico
 2231603	Akanthomyces muscarius	fungal	order_sweep	GCF_028009165.1	Chromosome	2023-01-26	True	United Kingdom	12347	4857	36.2	cds	ascomycota_odb10	1	best_quality
@@ -102,19 +102,19 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 1187951	Alternaria ventricosa	fungal	order_sweep	GCA_023758065.1	Scaffold	2022-06-17	True	China	10954	1329	34.7	cds	ascomycota_odb10	2	quality_fill
 566460	Alternaria viburni	fungal	order_sweep	GCF_023758015.1	Scaffold	2022-06-17	True	Netherlands	11747	1054	36.4	cds	ascomycota_odb10	1	best_quality
 566460	Alternaria viburni	fungal	order_sweep	GCA_023758015.1	Scaffold	2022-06-17	True	Netherlands	11747	1054	36.4	cds	ascomycota_odb10	2	quality_fill
-87326	Amanita brunnescens	fungal	order_sweep	GCA_001691785.3	Scaffold	2018-10-17	True	USA	14506	13	36.0	cds	ascomycota_odb10	1	best_quality
-933333	Amanita inopinata	fungal	order_sweep	GCA_001691775.3	Scaffold	2018-10-17	True	United Kingdom	7564	140	20.1	cds	ascomycota_odb10	1	best_quality
-41956	Amanita muscaria	fungal	order_sweep	GCA_054369615.1	Scaffold	2026-01-06	True	USA	15791	2172	110.3	cds	ascomycota_odb10	1	best_quality
-41956	Amanita muscaria	fungal	order_sweep	GCA_000827485.1	Scaffold	2015-01-27	True		18091	168	40.7	cds	ascomycota_odb10	2	new_year_bin:2015
-67723	Amanita phalloides	fungal	order_sweep	GCA_032173475.1	Scaffold	2023-09-28	True	Portugal	8742	320	35.5	cds	ascomycota_odb10	1	best_quality
-1004511	Amanita polypyramis	fungal	order_sweep	GCA_001691755.2	Scaffold	2018-10-17	True	USA	7962	64	19.7	cds	ascomycota_odb10	1	best_quality
-235537	Amanita thiersii	fungal	order_sweep	GCA_002554575.1	Scaffold	2017-10-16	True		10346	77	33.7	cds	ascomycota_odb10	1	best_quality
+87326	Amanita brunnescens	fungal	order_sweep	GCA_001691785.3	Scaffold	2018-10-17	True	USA	14506	13	36.0	cds	basidiomycota_odb10	1	best_quality
+933333	Amanita inopinata	fungal	order_sweep	GCA_001691775.3	Scaffold	2018-10-17	True	United Kingdom	7564	140	20.1	cds	basidiomycota_odb10	1	best_quality
+41956	Amanita muscaria	fungal	order_sweep	GCA_054369615.1	Scaffold	2026-01-06	True	USA	15791	2172	110.3	cds	basidiomycota_odb10	1	best_quality
+41956	Amanita muscaria	fungal	order_sweep	GCA_000827485.1	Scaffold	2015-01-27	True		18091	168	40.7	cds	basidiomycota_odb10	2	new_year_bin:2015
+67723	Amanita phalloides	fungal	order_sweep	GCA_032173475.1	Scaffold	2023-09-28	True	Portugal	8742	320	35.5	cds	basidiomycota_odb10	1	best_quality
+1004511	Amanita polypyramis	fungal	order_sweep	GCA_001691755.2	Scaffold	2018-10-17	True	USA	7962	64	19.7	cds	basidiomycota_odb10	1	best_quality
+235537	Amanita thiersii	fungal	order_sweep	GCA_002554575.1	Scaffold	2017-10-16	True		10346	77	33.7	cds	basidiomycota_odb10	1	best_quality
 455074	Amniculicola lignicola	fungal	order_sweep	GCA_010015725.1	Scaffold	2020-01-29	True		15585	439	49.6	cds	ascomycota_odb10	1	best_quality
 5101	Amorphotheca resinae	fungal	order_sweep	GCF_003019875.1	Scaffold	2018-03-27	True		9642	1981	28.6	cds	ascomycota_odb10	1	best_quality
 5101	Amorphotheca resinae	fungal	order_sweep	GCA_003019875.1	Scaffold	2018-03-27	True		9642	1981	28.6	cds	ascomycota_odb10	2	quality_fill
 50730	Ampelomyces quisqualis	fungal	order_sweep	GCA_010094095.1	Scaffold	2020-01-31	True		11147	4301	36.8	cds	ascomycota_odb10	1	best_quality
 45428	Amylocarpus encephaloides	fungal	order_sweep	GCA_019669835.1	Scaffold	2021-08-18	True		11869	75	46.3	cds	ascomycota_odb10	1	best_quality
-55340	Amylostereum chailletii	fungal	order_sweep	GCA_022385825.1	Scaffold	2022-02-17	True		14729	43	38.2	cds	ascomycota_odb10	1	best_quality
+55340	Amylostereum chailletii	fungal	order_sweep	GCA_022385825.1	Scaffold	2022-02-17	True		14729	43	38.2	cds	basidiomycota_odb10	1	best_quality
 326616	Annulohypoxylon bovei	fungal	order_sweep	GCA_022836615.1	Scaffold	2022-04-06	True		11202	228	41.8	cds	ascomycota_odb10	1	best_quality
 1927788	Annulohypoxylon maeteangense	fungal	order_sweep	GCF_022496945.1	Scaffold	2022-02-28	True		11000	1645	38.2	cds	ascomycota_odb10	1	best_quality
 1927788	Annulohypoxylon maeteangense	fungal	order_sweep	GCA_022496945.1	Scaffold	2022-02-28	True		11000	1645	38.2	cds	ascomycota_odb10	2	quality_fill
@@ -127,10 +127,10 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 12942	Aphanocladium album	fungal	order_sweep	GCA_029218145.1	Scaffold	2023-03-15	True	Italy	11167	38	35.1	cds	ascomycota_odb10	1	best_quality
 462254	Aplosporella prunicola	fungal	order_sweep	GCF_010093885.1	Scaffold	2020-01-31	True		12531	958	32.8	cds	ascomycota_odb10	1	best_quality
 462254	Aplosporella prunicola	fungal	order_sweep	GCA_010093885.1	Scaffold	2020-01-31	True		12545	958	32.8	cds	ascomycota_odb10	2	quality_fill
-47427	Armillaria gallica	fungal	order_sweep	GCA_002307695.1	Scaffold	2017-09-18	True		25695	1035	85.3	cds	ascomycota_odb10	1	best_quality
-1076256	Armillaria solidipes	fungal	order_sweep	GCA_002307675.1	Scaffold	2017-09-18	True		20808	716	58.0	cds	ascomycota_odb10	1	best_quality
-530044	Arthromyces matolae	fungal	order_sweep	GCA_018855395.1	Scaffold	2021-06-11	True	Belize	16549	6	50.5	cds	ascomycota_odb10	1	best_quality
-48021	Artomyces pyxidatus	fungal	order_sweep	GCA_022160305.1	Scaffold	2022-02-09	True		15125	473	38.0	cds	ascomycota_odb10	1	best_quality
+47427	Armillaria gallica	fungal	order_sweep	GCA_002307695.1	Scaffold	2017-09-18	True		25695	1035	85.3	cds	basidiomycota_odb10	1	best_quality
+1076256	Armillaria solidipes	fungal	order_sweep	GCA_002307675.1	Scaffold	2017-09-18	True		20808	716	58.0	cds	basidiomycota_odb10	1	best_quality
+530044	Arthromyces matolae	fungal	order_sweep	GCA_018855395.1	Scaffold	2021-06-11	True	Belize	16549	6	50.5	cds	basidiomycota_odb10	1	best_quality
+48021	Artomyces pyxidatus	fungal	order_sweep	GCA_022160305.1	Scaffold	2022-02-09	True		15125	473	38.0	cds	basidiomycota_odb10	1	best_quality
 487661	Aspergillus aculeatinus	fungal	order_sweep	GCF_003184765.1	Scaffold	2018-06-04	True		12024	494	36.5	cds	ascomycota_odb10	1	best_quality
 487661	Aspergillus aculeatinus	fungal	order_sweep	GCA_003184765.1	Scaffold	2018-06-04	True		12028	494	36.5	cds	ascomycota_odb10	2	quality_fill
 5053	Aspergillus aculeatus	fungal	order_sweep	GCF_001890905.1	Scaffold	2016-12-08	True		10830	1635	35.4	cds	ascomycota_odb10	1	best_quality
@@ -323,9 +323,9 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 5066	Aspergillus wentii	fungal	order_sweep	GCA_026184555.1	Scaffold	2022-11-15	True	Sierra Leone	11819	1129	31.5	cds	ascomycota_odb10	2	new_country:Sierra Leone
 5066	Aspergillus wentii	fungal	order_sweep	GCF_001890725.1	Scaffold	2016-12-08	True		12433	4128	31.4	cds	ascomycota_odb10	3	new_year_bin:2015
 5066	Aspergillus wentii	fungal	order_sweep	GCA_001890725.1	Scaffold	2016-12-08	True		12435	4128	31.4	cds	ascomycota_odb10	4	quality_fill
-117018	Asterophora parasitica	fungal	order_sweep	GCA_018282005.1	Scaffold	2021-05-05	True	Netherlands	9451	42	34.1	cds	ascomycota_odb10	1	best_quality
-40419	Auriscalpium vulgare	fungal	order_sweep	GCA_022160275.1	Scaffold	2022-02-09	True		16942	83	39.6	cds	ascomycota_odb10	1	best_quality
-181123	Austropuccinia psidii	fungal	order_sweep	GCA_000469055.2	Scaffold	2021-07-19	True	Brazil	133973	6	649.0	cds	ascomycota_odb10	1	best_quality
+117018	Asterophora parasitica	fungal	order_sweep	GCA_018282005.1	Scaffold	2021-05-05	True	Netherlands	9451	42	34.1	cds	basidiomycota_odb10	1	best_quality
+40419	Auriscalpium vulgare	fungal	order_sweep	GCA_022160275.1	Scaffold	2022-02-09	True		16942	83	39.6	cds	basidiomycota_odb10	1	best_quality
+181123	Austropuccinia psidii	fungal	order_sweep	GCA_000469055.2	Scaffold	2021-07-19	True	Brazil	133973	6	649.0	cds	basidiomycota_odb10	1	best_quality
 1709381	Baudoinia panamericana	fungal	order_sweep	GCF_000338955.1	Scaffold	2013-02-11	True		10500	1300	21.9	cds	ascomycota_odb10	1	best_quality
 1709381	Baudoinia panamericana	fungal	order_sweep	GCA_000338955.1	Scaffold	2013-02-11	True		10508	1300	21.9	cds	ascomycota_odb10	2	quality_fill
 1069075	Beauveria asiatica	fungal	order_sweep	GCA_053540845.1	Scaffold	2025-11-18	True	South Korea	10186	41	32.8	cds	ascomycota_odb10	1	best_quality
@@ -347,10 +347,10 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 110534	Biscogniauxia marginata	fungal	order_sweep	GCA_022695795.1	Scaffold	2022-03-02	True	Germany	11381	324	45.6	cds	ascomycota_odb10	1	best_quality
 97377	Biscogniauxia mediterranea	fungal	order_sweep	GCA_022478735.1	Scaffold	2022-03-02	True	Iran	11018	272	44.0	cds	ascomycota_odb10	1	best_quality
 97377	Biscogniauxia mediterranea	fungal	order_sweep	GCA_022478745.1	Scaffold	2022-03-02	True	USA	11077	145	44.8	cds	ascomycota_odb10	2	new_country:USA
-530045	Blastosporella zonata	fungal	order_sweep	GCA_018856295.1	Scaffold	2021-06-11	True	Colombia	12126	8	48.7	cds	ascomycota_odb10	1	best_quality
+530045	Blastosporella zonata	fungal	order_sweep	GCA_018856295.1	Scaffold	2021-06-11	True	Colombia	12126	8	48.7	cds	basidiomycota_odb10	1	best_quality
 2867405	Blumeria hordei	fungal	order_sweep	GCA_000151065.3	Scaffold	2013-08-06	True		6485	2030	118.7	cds	ascomycota_odb10	1	best_quality
-1095465	Bondarzewia mesenterica	fungal	order_sweep	GCA_004802705.1	Scaffold	2019-04-22	True	Germany	10523	49	36.7	cds	ascomycota_odb10	1	best_quality
-264124	Botryobasidium botryosum	fungal	order_sweep	GCA_000697705.1	Scaffold	2014-06-05	True		16502	445	46.7	cds	ascomycota_odb10	1	best_quality
+1095465	Bondarzewia mesenterica	fungal	order_sweep	GCA_004802705.1	Scaffold	2019-04-22	True	Germany	10523	49	36.7	cds	basidiomycota_odb10	1	best_quality
+264124	Botryobasidium botryosum	fungal	order_sweep	GCA_000697705.1	Scaffold	2014-06-05	True		16502	445	46.7	cds	basidiomycota_odb10	1	best_quality
 38488	Botryotinia calthae	fungal	order_sweep	GCA_004379285.1	Scaffold	2019-03-26	True	Canada	12263	56	47.4	cds	ascomycota_odb10	1	best_quality
 54673	Botryotinia convoluta	fungal	order_sweep	GCA_004786275.1	Scaffold	2019-04-12	True	USA	12417	98	45.3	cds	ascomycota_odb10	1	best_quality
 278944	Botryotinia narcissicola	fungal	order_sweep	GCA_004786225.1	Scaffold	2019-04-12	True	Canada	12236	43	54.8	cds	ascomycota_odb10	1	best_quality
@@ -363,28 +363,28 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 1485229	Cadophora sp. DSE1049	fungal	order_sweep	GCA_003073865.1	Scaffold	2018-04-30	True		22762	236	70.5	cds	ascomycota_odb10	1	best_quality
 1763456	Calycina marina	fungal	order_sweep	GCA_019669825.1	Scaffold	2021-08-18	True		9557	54	34.2	cds	ascomycota_odb10	1	best_quality
 110548	Camillea tinctor	fungal	order_sweep	GCA_022578605.1	Scaffold	2022-03-02	True		11860	529	45.0	cds	ascomycota_odb10	1	best_quality
-71730	Candolleomyces candolleanus	fungal	order_sweep	GCA_055944365.1	Scaffold	2026-03-15	True	Mexico	15437	2142	55.8	cds	ascomycota_odb10	1	best_quality
-2917767	Candolleomyces efflorescens	fungal	order_sweep	GCA_027579765.1	Scaffold	2023-01-06	True	Viet Nam	9128	158	33.6	cds	ascomycota_odb10	1	best_quality
-2828524	Candolleomyces eurysporus	fungal	order_sweep	GCA_027579435.1	Scaffold	2023-01-06	True	Viet Nam	16680	79	70.0	cds	ascomycota_odb10	1	best_quality
+71730	Candolleomyces candolleanus	fungal	order_sweep	GCA_055944365.1	Scaffold	2026-03-15	True	Mexico	15437	2142	55.8	cds	basidiomycota_odb10	1	best_quality
+2917767	Candolleomyces efflorescens	fungal	order_sweep	GCA_027579765.1	Scaffold	2023-01-06	True	Viet Nam	9128	158	33.6	cds	basidiomycota_odb10	1	best_quality
+2828524	Candolleomyces eurysporus	fungal	order_sweep	GCA_027579435.1	Scaffold	2023-01-06	True	Viet Nam	16680	79	70.0	cds	basidiomycota_odb10	1	best_quality
 2041049	Cephalotrichum gorgonifer	fungal	order_sweep	GCA_900312665.1	Scaffold	2022-11-03	True		10469	2038	35.9	cds	ascomycota_odb10	1	best_quality
-2600201	Ceratobasidium sp. 370	fungal	order_sweep	GCA_019677355.1	Scaffold	2021-08-18	True		11825	7	47.3	cds	ascomycota_odb10	1	best_quality
-2600202	Ceratobasidium sp. 392	fungal	order_sweep	GCA_019677385.1	Scaffold	2021-08-18	True		15075	8	52.5	cds	ascomycota_odb10	1	best_quality
-2600203	Ceratobasidium sp. 394	fungal	order_sweep	GCA_019616325.1	Scaffold	2021-08-16	True		18856	9	53.5	cds	ascomycota_odb10	1	best_quality
-2600204	Ceratobasidium sp. 395	fungal	order_sweep	GCA_019616345.1	Scaffold	2021-08-16	True		20868	12	67.0	cds	ascomycota_odb10	1	best_quality
-2600205	Ceratobasidium sp. 414	fungal	order_sweep	GCA_019616945.1	Scaffold	2021-08-16	True		12204	35	50.4	cds	ascomycota_odb10	1	best_quality
-2600206	Ceratobasidium sp. 423	fungal	order_sweep	GCA_019616915.1	Scaffold	2021-08-16	True		14999	5	66.4	cds	ascomycota_odb10	1	best_quality
-2600207	Ceratobasidium sp. 428	fungal	order_sweep	GCA_019623705.1	Scaffold	2021-08-16	True		25099	12	69.1	cds	ascomycota_odb10	1	best_quality
-170446	Ceratobasidium sp. AG-Ba	fungal	order_sweep	GCA_016906575.1	Complete Genome	2021-02-18	True		29016	3506	96.3	cds	ascomycota_odb10	1	best_quality
-170446	Ceratobasidium sp. AG-Ba	fungal	order_sweep	GCA_016906555.1	Complete Genome	2021-02-18	True		14514	3193	48.4	cds	ascomycota_odb10	2	quality_fill
-305860	Ceratobasidium sp. AG-I	fungal	order_sweep	GCA_015039395.1	Scaffold	2020-10-27	True		18054	322	58.4	cds	ascomycota_odb10	1	best_quality
-2601501	Ceratobasidium sp. UAMH 11750	fungal	order_sweep	GCA_019677335.1	Scaffold	2021-08-18	True	USA	16692	9	47.8	cds	ascomycota_odb10	1	best_quality
+2600201	Ceratobasidium sp. 370	fungal	order_sweep	GCA_019677355.1	Scaffold	2021-08-18	True		11825	7	47.3	cds	basidiomycota_odb10	1	best_quality
+2600202	Ceratobasidium sp. 392	fungal	order_sweep	GCA_019677385.1	Scaffold	2021-08-18	True		15075	8	52.5	cds	basidiomycota_odb10	1	best_quality
+2600203	Ceratobasidium sp. 394	fungal	order_sweep	GCA_019616325.1	Scaffold	2021-08-16	True		18856	9	53.5	cds	basidiomycota_odb10	1	best_quality
+2600204	Ceratobasidium sp. 395	fungal	order_sweep	GCA_019616345.1	Scaffold	2021-08-16	True		20868	12	67.0	cds	basidiomycota_odb10	1	best_quality
+2600205	Ceratobasidium sp. 414	fungal	order_sweep	GCA_019616945.1	Scaffold	2021-08-16	True		12204	35	50.4	cds	basidiomycota_odb10	1	best_quality
+2600206	Ceratobasidium sp. 423	fungal	order_sweep	GCA_019616915.1	Scaffold	2021-08-16	True		14999	5	66.4	cds	basidiomycota_odb10	1	best_quality
+2600207	Ceratobasidium sp. 428	fungal	order_sweep	GCA_019623705.1	Scaffold	2021-08-16	True		25099	12	69.1	cds	basidiomycota_odb10	1	best_quality
+170446	Ceratobasidium sp. AG-Ba	fungal	order_sweep	GCA_016906575.1	Complete Genome	2021-02-18	True		29016	3506	96.3	cds	basidiomycota_odb10	1	best_quality
+170446	Ceratobasidium sp. AG-Ba	fungal	order_sweep	GCA_016906555.1	Complete Genome	2021-02-18	True		14514	3193	48.4	cds	basidiomycota_odb10	2	quality_fill
+305860	Ceratobasidium sp. AG-I	fungal	order_sweep	GCA_015039395.1	Scaffold	2020-10-27	True		18054	322	58.4	cds	basidiomycota_odb10	1	best_quality
+2601501	Ceratobasidium sp. UAMH 11750	fungal	order_sweep	GCA_019677335.1	Scaffold	2021-08-18	True	USA	16692	9	47.8	cds	basidiomycota_odb10	1	best_quality
 259994	Ceratocystis pirilliformis	fungal	order_sweep	GCA_042258205.1	Scaffold	2024-09-25	True	South Africa	6657	91	26.2	cds	ascomycota_odb10	1	best_quality
 357750	Cercospora berteroae	fungal	order_sweep	GCA_002933655.1	Scaffold	2018-02-20	True	Romania	11903	105	33.9	cds	ascomycota_odb10	1	best_quality
 296797	Chlorociboria aeruginascens	fungal	order_sweep	GCA_002276475.2	Scaffold	2017-09-06	True	Austria	8648	111	33.1	cds	ascomycota_odb10	1	best_quality
 647257	Ciborinia camelliae	fungal	order_sweep	GCA_025890175.1	Scaffold	2022-10-27	True	Italy	11490	2727	46.4	cds	ascomycota_odb10	1	best_quality
 491253	Cladobotryum mycophilum	fungal	order_sweep	GCA_036429605.1	Chromosome	2024-02-07	True	Greece	12283	5067	40.6	cds	ascomycota_odb10	1	best_quality
 706981	Clathrospora elynae	fungal	order_sweep	GCA_010015635.1	Scaffold	2020-01-29	True		13611	181	37.4	cds	ascomycota_odb10	1	best_quality
-1486700	Clavulina sp. PMI_390	fungal	order_sweep	GCA_015039315.1	Scaffold	2020-10-28	True		15449	268	41.6	cds	ascomycota_odb10	1	best_quality
+1486700	Clavulina sp. PMI_390	fungal	order_sweep	GCA_015039315.1	Scaffold	2020-10-28	True		15449	268	41.6	cds	basidiomycota_odb10	1	best_quality
 160290	Clonostachys byssicola	fungal	order_sweep	GCA_902006505.2	Scaffold	2021-11-18	True		18488	890	55.1	cds	ascomycota_odb10	1	best_quality
 1926264	Clonostachys chloroleuca	fungal	order_sweep	GCA_037952775.1	Scaffold	2024-04-03	True	China	21504	37472	59.4	cds	ascomycota_odb10	1	best_quality
 1926264	Clonostachys chloroleuca	fungal	order_sweep	GCA_902074915.1	Scaffold	2023-01-31	True		19562	626	61.4	cds	ascomycota_odb10	2	quality_fill
@@ -456,14 +456,14 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 912113	Colletotrichum tropicale	fungal	order_sweep	GCA_013201785.1	Scaffold	2020-06-01	True	Japan	14794	692	55.8	cds	ascomycota_odb10	1	best_quality
 1131913	Colletotrichum viniferum	fungal	order_sweep	GCA_013201765.1	Scaffold	2020-06-01	True	Japan	14534	144	68.5	cds	ascomycota_odb10	1	best_quality
 1216348	Colletotrichum zoysiae	fungal	order_sweep	GCA_030867305.1	Scaffold	2023-08-22	True		15325	179	46.5	cds	ascomycota_odb10	1	best_quality
-64659	Collybia nuda	fungal	order_sweep	GCA_015584075.1	Scaffold	2020-11-16	True		14876	265	43.5	cds	ascomycota_odb10	1	best_quality
-2773346	Collybiopsis luxurians	fungal	order_sweep	GCA_000827265.1	Scaffold	2015-01-26	True		22036	635	66.3	cds	ascomycota_odb10	1	best_quality
+64659	Collybia nuda	fungal	order_sweep	GCA_015584075.1	Scaffold	2020-11-16	True		14876	265	43.5	cds	basidiomycota_odb10	1	best_quality
+2773346	Collybiopsis luxurians	fungal	order_sweep	GCA_000827265.1	Scaffold	2015-01-26	True		22036	635	66.3	cds	basidiomycota_odb10	1	best_quality
 2025994	Coniella lustricola	fungal	order_sweep	GCA_003019895.1	Scaffold	2018-03-27	True		11314	141	36.6	cds	ascomycota_odb10	1	best_quality
 1077358	Coniothyrium glycines	fungal	order_sweep	GCA_050859405.1	Scaffold	2025-06-09	True	Zambia	10350	281	32.2	cds	ascomycota_odb10	1	best_quality
 1105319	Conoideocrella luteorostrata	fungal	order_sweep	GCA_032433595.1	Scaffold	2023-10-06	True	USA	12844	111	47.4	cds	ascomycota_odb10	1	best_quality
-752674	Coprinellus aureogranulatus	fungal	order_sweep	GCA_027627275.1	Scaffold	2023-01-10	True	Viet Nam	20316	17	58.2	cds	ascomycota_odb10	1	best_quality
-5346	Coprinopsis cinerea	fungal	order_sweep	GCA_000182895.1	Scaffold	2010-06-16	True		13355	3468	36.2	cds	ascomycota_odb10	1	best_quality
-230819	Coprinopsis marcescibilis	fungal	order_sweep	GCA_004369085.1	Scaffold	2019-03-25	True		14628	134	38.9	cds	ascomycota_odb10	1	best_quality
+752674	Coprinellus aureogranulatus	fungal	order_sweep	GCA_027627275.1	Scaffold	2023-01-10	True	Viet Nam	20316	17	58.2	cds	basidiomycota_odb10	1	best_quality
+5346	Coprinopsis cinerea	fungal	order_sweep	GCA_000182895.1	Scaffold	2010-06-16	True		13355	3468	36.2	cds	basidiomycota_odb10	1	best_quality
+230819	Coprinopsis marcescibilis	fungal	order_sweep	GCA_004369085.1	Scaffold	2019-03-25	True		14628	134	38.9	cds	basidiomycota_odb10	1	best_quality
 983339	Cordyceps cateniannulata	fungal	order_sweep	GCA_056505955.1	Complete Genome	2026-04-01	True	China	10743	4790	32.7	cds	ascomycota_odb10	1	best_quality
 983339	Cordyceps cateniannulata	fungal	order_sweep	GCA_059933775.1	Scaffold	2026-08-07	True	Taiwan	9876	4082	33.1	cds	ascomycota_odb10	2	new_country:Taiwan
 114497	Cordyceps fumosorosea	fungal	order_sweep	GCF_001636725.1	Scaffold	2016-05-04	True	Portugal	10061	872	33.5	cds	ascomycota_odb10	1	best_quality
@@ -477,19 +477,19 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 73501	Cordyceps militaris	fungal	order_sweep	GCA_000225605.1	Scaffold	2011-09-12	True		9651	4551	32.3	cds	ascomycota_odb10	3	quality_fill
 2004951	Cordyceps sp. RAO-2017	fungal	order_sweep	GCA_002591385.1	Scaffold	2017-10-18	True	Ghana	11255	18	32.3	cds	ascomycota_odb10	1	best_quality
 59586	Corynespora cassiicola	fungal	order_sweep	GCA_003016335.1	Scaffold	2018-03-26	True		17158	2506	44.8	cds	ascomycota_odb10	1	best_quality
-179855	Crepidotus variabilis	fungal	order_sweep	GCA_015657495.1	Scaffold	2020-11-15	True		14572	323	38.6	cds	ascomycota_odb10	1	best_quality
-60197	Cronartium quercuum	fungal	order_sweep	GCA_015951145.1	Scaffold	2020-12-03	True		13765	313	76.6	cds	ascomycota_odb10	1	best_quality
-60197	Cronartium quercuum	fungal	order_sweep	GCA_061372115.1	Complete Genome	2026-09-17	True	USA	979	5404	86.9	cds	ascomycota_odb10	2	new_country:USA; new_year_bin:2025
-68775	Crucibulum laeve	fungal	order_sweep	GCA_004379715.1	Scaffold	2019-03-25	True		14217	634	44.7	cds	ascomycota_odb10	1	best_quality
+179855	Crepidotus variabilis	fungal	order_sweep	GCA_015657495.1	Scaffold	2020-11-15	True		14572	323	38.6	cds	basidiomycota_odb10	1	best_quality
+60197	Cronartium quercuum	fungal	order_sweep	GCA_015951145.1	Scaffold	2020-12-03	True		13765	313	76.6	cds	basidiomycota_odb10	1	best_quality
+60197	Cronartium quercuum	fungal	order_sweep	GCA_061372115.1	Complete Genome	2026-09-17	True	USA	979	5404	86.9	cds	basidiomycota_odb10	2	new_country:USA; new_year_bin:2025
+68775	Crucibulum laeve	fungal	order_sweep	GCA_004379715.1	Scaffold	2019-03-25	True		14217	634	44.7	cds	basidiomycota_odb10	1	best_quality
 45142	Cucurbitaria berberidis	fungal	order_sweep	GCF_010015615.1	Scaffold	2020-01-29	True		12384	6234	32.9	cds	ascomycota_odb10	1	best_quality
 45142	Cucurbitaria berberidis	fungal	order_sweep	GCA_010015615.1	Scaffold	2020-01-29	True		12426	6234	32.9	cds	ascomycota_odb10	2	quality_fill
 354080	Cudoniella acicularis	fungal	order_sweep	GCA_013054445.1	Scaffold	2020-05-12	True	Germany	15765	32	59.0	cds	ascomycota_odb10	1	best_quality
 2739213	Curvularia cactivora	fungal	order_sweep	GCA_059054275.1	Scaffold	2026-07-07	True	Ecuador	8905	184	29.8	cds	ascomycota_odb10	1	best_quality
 95742	Curvularia clavata	fungal	order_sweep	GCA_023920165.1	Complete Genome	2022-06-27	True	China	10170	4750	32.4	cds	ascomycota_odb10	1	best_quality
 90978	Curvularia kusanoi	fungal	order_sweep	GCA_011058905.1	Scaffold	2020-03-03	True	Brazil	11490	1018	33.3	cds	ascomycota_odb10	1	best_quality
-1973307	Cyclocybe aegerita	fungal	order_sweep	GCA_977927295.1	Scaffold	2026-03-01	True	Austria	12357	88	40.5	cds	ascomycota_odb10	1	best_quality
-1973307	Cyclocybe aegerita	fungal	order_sweep	GCA_902728275.1	Scaffold	2020-02-12	True		13341	768	44.8	cds	ascomycota_odb10	2	new_year_bin:2020
-394432	Cylindrobasidium torrendii	fungal	order_sweep	GCA_000934385.1	Scaffold	2015-02-26	True		13927	90	31.6	cds	ascomycota_odb10	1	best_quality
+1973307	Cyclocybe aegerita	fungal	order_sweep	GCA_977927295.1	Scaffold	2026-03-01	True	Austria	12357	88	40.5	cds	basidiomycota_odb10	1	best_quality
+1973307	Cyclocybe aegerita	fungal	order_sweep	GCA_902728275.1	Scaffold	2020-02-12	True		13341	768	44.8	cds	basidiomycota_odb10	2	new_year_bin:2020
+394432	Cylindrobasidium torrendii	fungal	order_sweep	GCA_000934385.1	Scaffold	2015-02-26	True		13927	90	31.6	cds	basidiomycota_odb10	1	best_quality
 595255	Cylindrodendrum hubeiense	fungal	order_sweep	GCA_014621425.1	Scaffold	2020-09-17	True	Germany	13745	85	48.8	cds	ascomycota_odb10	1	best_quality
 1230097	Cytospora leucostoma	fungal	order_sweep	GCA_003795295.1	Scaffold	2018-11-19	True	China	10072	412	37.6	cds	ascomycota_odb10	1	best_quality
 448051	Cytospora schulzeri	fungal	order_sweep	GCA_003795315.1	Scaffold	2018-11-19	True	China	10561	594	38.3	cds	ascomycota_odb10	1	best_quality
@@ -509,9 +509,9 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 114800	Daldinia vernicosa	fungal	order_sweep	GCA_022497035.1	Scaffold	2022-02-28	True	Netherlands	10671	552	35.8	cds	ascomycota_odb10	2	quality_fill
 184978	Decorospora gaudefroyi	fungal	order_sweep	GCA_010015605.1	Scaffold	2020-01-29	True		11835	150	30.6	cds	ascomycota_odb10	1	best_quality
 1504671	Delitschia confertaspora	fungal	order_sweep	GCA_010093945.1	Scaffold	2020-01-31	True		10171	69	31.2	cds	ascomycota_odb10	1	best_quality
-1314803	Dendrothele bispora	fungal	order_sweep	GCA_004369135.1	Scaffold	2019-03-25	True		33636	118	130.7	cds	ascomycota_odb10	1	best_quality
-205917	Dentipellis fragilis	fungal	order_sweep	GCA_004679275.1	Scaffold	2019-04-05	True	Germany	11717	28	32.2	cds	ascomycota_odb10	1	best_quality
-1883078	Dentipellis sp. KUC8613	fungal	order_sweep	GCA_002286715.1	Scaffold	2017-09-06	True		14316	478	36.7	cds	ascomycota_odb10	1	best_quality
+1314803	Dendrothele bispora	fungal	order_sweep	GCA_004369135.1	Scaffold	2019-03-25	True		33636	118	130.7	cds	basidiomycota_odb10	1	best_quality
+205917	Dentipellis fragilis	fungal	order_sweep	GCA_004679275.1	Scaffold	2019-04-05	True	Germany	11717	28	32.2	cds	basidiomycota_odb10	1	best_quality
+1883078	Dentipellis sp. KUC8613	fungal	order_sweep	GCA_002286715.1	Scaffold	2017-09-06	True		14316	478	36.7	cds	basidiomycota_odb10	1	best_quality
 1214573	Diaporthe ampelina	fungal	order_sweep	GCA_001006365.1	Scaffold	2015-05-13	True	USA	10704	132	47.3	cds	ascomycota_odb10	1	best_quality
 1214568	Diaporthe amygdali	fungal	order_sweep	GCF_026229845.1	Scaffold	2022-11-17	True	Portugal	15635	1008	51.5	cds	ascomycota_odb10	1	best_quality
 1214568	Diaporthe amygdali	fungal	order_sweep	GCA_026229845.1	Scaffold	2022-11-17	True	Portugal	15636	1008	51.5	cds	ascomycota_odb10	2	quality_fill
@@ -569,7 +569,7 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 97096	Eutypa lata	fungal	order_sweep	GCF_000349385.1	Scaffold	2013-03-28	True		11685	68	54.0	cds	ascomycota_odb10	1	best_quality
 97096	Eutypa lata	fungal	order_sweep	GCA_000349385.1	Scaffold	2013-03-28	True		11685	68	54.0	cds	ascomycota_odb10	2	quality_fill
 702011	Extremus antarcticus	fungal	order_sweep	GCA_033117895.1	Scaffold	2023-10-30	True	Antarctica	12873	396	33.0	cds	ascomycota_odb10	1	best_quality
-40457	Fistulina hepatica	fungal	order_sweep	GCA_000934395.1	Scaffold	2015-02-26	True		11244	350	33.8	cds	ascomycota_odb10	1	best_quality
+40457	Fistulina hepatica	fungal	order_sweep	GCA_000934395.1	Scaffold	2015-02-26	True		11244	350	33.8	cds	basidiomycota_odb10	1	best_quality
 329885	Friedmanniomyces endolithicus	fungal	order_sweep	GCA_030412055.1	Scaffold	2023-07-06	True	Antarctica	38469	64	75.8	cds	ascomycota_odb10	1	best_quality
 329885	Friedmanniomyces endolithicus	fungal	order_sweep	GCA_005059855.1	Scaffold	2019-05-02	True	Antarctica	18027	383	46.7	cds	ascomycota_odb10	2	new_year_bin:2015
 329885	Friedmanniomyces endolithicus	fungal	order_sweep	GCA_030553325.1	Scaffold	2023-07-31	True	Antarctica	25689	173	64.6	cds	ascomycota_odb10	3	quality_fill
@@ -699,7 +699,7 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 36779	Gaeumannomyces tritici	fungal	order_sweep	GCF_000145635.1	Scaffold	2010-08-25	True		14458	6704	43.6	cds	ascomycota_odb10	2	new_year_bin:2010
 36779	Gaeumannomyces tritici	fungal	order_sweep	GCA_051938685.1	Chromosome	2025-08-12	True	United Kingdom	10370	6461	43.4	cds	ascomycota_odb10	3	quality_fill
 36779	Gaeumannomyces tritici	fungal	order_sweep	GCA_051938735.1	Chromosome	2025-08-12	True	United Kingdom	10509	7115	44.3	cds	ascomycota_odb10	4	quality_fill
-109633	Galerina marginata	fungal	order_sweep	GCA_000697645.1	Scaffold	2014-06-06	True		21390	1220	59.4	cds	ascomycota_odb10	1	best_quality
+109633	Galerina marginata	fungal	order_sweep	GCA_000697645.1	Scaffold	2014-06-06	True		21390	1220	59.4	cds	basidiomycota_odb10	1	best_quality
 1094350	Geosmithia morbida	fungal	order_sweep	GCF_012550715.1	Scaffold	2020-04-20	True	USA	7812	1305	26.5	cds	ascomycota_odb10	1	best_quality
 1094350	Geosmithia morbida	fungal	order_sweep	GCA_012550715.1	Scaffold	2020-04-20	True	USA	7812	1305	26.5	cds	ascomycota_odb10	2	quality_fill
 101852	Glarea lozoyensis	fungal	order_sweep	GCF_000409485.1	Scaffold	2013-06-14	True	Spain	13081	2105	39.5	cds	ascomycota_odb10	1	best_quality
@@ -710,13 +710,13 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 62708	Golovinomyces cichoracearum	fungal	order_sweep	GCA_003611215.1	Scaffold	2018-10-03	True	USA	6647	5	59.1	cds	ascomycota_odb10	2	quality_fill
 62708	Golovinomyces cichoracearum	fungal	order_sweep	GCA_003611235.1	Scaffold	2018-10-03	True	USA	6532	5	65.9	cds	ascomycota_odb10	3	quality_fill
 62714	Golovinomyces magnicellulatus	fungal	order_sweep	GCA_006912115.1	Scaffold	2019-07-11	True	USA	8172	4	129.9	cds	ascomycota_odb10	1	best_quality
-856835	Guyanagaster necrorhizus	fungal	order_sweep	GCF_019112545.1	Scaffold	2021-07-05	True		14263	1338	53.7	cds	ascomycota_odb10	1	best_quality
-856835	Guyanagaster necrorhizus	fungal	order_sweep	GCA_019112545.1	Scaffold	2021-07-05	True		14267	1338	53.7	cds	ascomycota_odb10	2	quality_fill
-231916	Gymnopilus dilepis	fungal	order_sweep	GCA_002938385.1	Scaffold	2018-02-22	True	USA	16222	34	46.7	cds	ascomycota_odb10	1	best_quality
-1447940	Gymnopus androsaceus	fungal	order_sweep	GCA_009733575.1	Scaffold	2019-12-05	True		29370	172	89.1	cds	ascomycota_odb10	1	best_quality
+856835	Guyanagaster necrorhizus	fungal	order_sweep	GCF_019112545.1	Scaffold	2021-07-05	True		14263	1338	53.7	cds	basidiomycota_odb10	1	best_quality
+856835	Guyanagaster necrorhizus	fungal	order_sweep	GCA_019112545.1	Scaffold	2021-07-05	True		14267	1338	53.7	cds	basidiomycota_odb10	2	quality_fill
+231916	Gymnopilus dilepis	fungal	order_sweep	GCA_002938385.1	Scaffold	2018-02-22	True	USA	16222	34	46.7	cds	basidiomycota_odb10	1	best_quality
+1447940	Gymnopus androsaceus	fungal	order_sweep	GCA_009733575.1	Scaffold	2019-12-05	True		29370	172	89.1	cds	basidiomycota_odb10	1	best_quality
 5044	Hapsidospora chrysogena	fungal	order_sweep	GCA_000769265.1	Scaffold	2014-08-15	True		8901	167	28.6	cds	ascomycota_odb10	1	best_quality
-76867	Hebeloma cylindrosporum	fungal	order_sweep	GCA_000827355.1	Scaffold	2015-01-30	True		15373	1069	38.2	cds	ascomycota_odb10	1	best_quality
-135208	Hericium alpestre	fungal	order_sweep	GCA_004681135.1	Scaffold	2019-04-05	True	Germany	11007	17	37.5	cds	ascomycota_odb10	1	best_quality
+76867	Hebeloma cylindrosporum	fungal	order_sweep	GCA_000827355.1	Scaffold	2015-01-30	True		15373	1069	38.2	cds	basidiomycota_odb10	1	best_quality
+135208	Hericium alpestre	fungal	order_sweep	GCA_004681135.1	Scaffold	2019-04-05	True	Germany	11007	17	37.5	cds	basidiomycota_odb10	1	best_quality
 984962	Heterobasidion irregulare	fungal	order_sweep	GCF_000320585.1	Scaffold	2014-01-17	True	USA	13269	2573	33.6	cds	basidiomycota_odb10	1	best_quality
 984962	Heterobasidion irregulare	fungal	order_sweep	GCA_000320585.2	Scaffold	2014-01-17	True	USA	13271	2573	33.6	cds	basidiomycota_odb10	2	quality_fill
 332947	Hirsutella minnesotensis	fungal	order_sweep	GCA_000956045.1	Scaffold	2015-04-01	True	China	12700	382	51.1	cds	ascomycota_odb10	1	best_quality
@@ -727,10 +727,10 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 2482752	Hyaloscypha bicolor	fungal	order_sweep	GCA_002865645.1	Scaffold	2018-01-08	True		18611	1976	82.4	cds	ascomycota_odb10	2	quality_fill
 2082293	Hyaloscypha hepaticicola	fungal	order_sweep	GCA_002865625.1	Scaffold	2018-01-08	True		16783	701	57.4	cds	ascomycota_odb10	1	best_quality
 2482757	Hyaloscypha variabilis	fungal	order_sweep	GCA_002865655.1	Scaffold	2018-01-08	True		20379	2140	55.9	cds	ascomycota_odb10	1	best_quality
-139363	Hydnum rufescens	fungal	order_sweep	GCA_014904985.1	Scaffold	2020-10-20	True		18664	218	67.1	cds	ascomycota_odb10	1	best_quality
+139363	Hydnum rufescens	fungal	order_sweep	GCA_014904985.1	Scaffold	2020-10-20	True		18664	218	67.1	cds	basidiomycota_odb10	1	best_quality
 595503	Hymenoscyphus albidus	fungal	order_sweep	GCA_911693285.1	Scaffold	2021-08-03	True		13647	135	51.2	cds	ascomycota_odb10	1	best_quality
 746836	Hymenoscyphus fraxineus	fungal	order_sweep	GCA_911649665.1	Scaffold	2021-08-03	True		13848	1034	64.2	cds	ascomycota_odb10	1	best_quality
-71945	Hypholoma sublateritium	fungal	order_sweep	GCA_000827495.1	Scaffold	2015-03-02	True		17768	299	48.0	cds	ascomycota_odb10	1	best_quality
+71945	Hypholoma sublateritium	fungal	order_sweep	GCA_000827495.1	Scaffold	2015-03-02	True		17768	299	48.0	cds	basidiomycota_odb10	1	best_quality
 2487000	Hypomontagnella monticulosa	fungal	order_sweep	GCA_022385585.1	Scaffold	2022-02-22	True	USA	12167	744	42.4	cds	ascomycota_odb10	1	best_quality
 1799007	Hypoxylon argillaceum	fungal	order_sweep	GCA_022495175.1	Scaffold	2022-02-28	True	USA	12590	147	54.4	cds	ascomycota_odb10	1	best_quality
 326656	Hypoxylon cercidicola	fungal	order_sweep	GCA_022578845.1	Scaffold	2022-03-03	True	France	11824	1301	36.6	cds	ascomycota_odb10	1	best_quality
@@ -748,55 +748,55 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 2594544	Hypoxylon texense	fungal	order_sweep	GCA_051132625.1	Complete Genome	2025-06-28	True	USA	12439	5110	45.1	cds	ascomycota_odb10	1	best_quality
 326681	Hypoxylon trugodes	fungal	order_sweep	GCF_022578975.1	Scaffold	2022-03-03	True	Sri Lanka	11996	3593	39.4	cds	ascomycota_odb10	1	best_quality
 326681	Hypoxylon trugodes	fungal	order_sweep	GCA_022578975.1	Scaffold	2022-03-03	True	Sri Lanka	11996	3593	39.4	cds	ascomycota_odb10	2	quality_fill
-39966	Hypsizygus marmoreus	fungal	order_sweep	GCA_001605315.2	Scaffold	2018-07-25	True		16627	765	42.7	cds	ascomycota_odb10	1	best_quality
+39966	Hypsizygus marmoreus	fungal	order_sweep	GCA_001605315.2	Scaffold	2018-07-25	True		16627	765	42.7	cds	basidiomycota_odb10	1	best_quality
 1955266	Jackrogersella minutella	fungal	order_sweep	GCA_022578535.1	Scaffold	2022-02-28	True	France	10913	136	35.7	cds	ascomycota_odb10	1	best_quality
-1392244	Kalmanozyma brasiliensis	fungal	order_sweep	GCF_000497045.1	Scaffold	2013-11-15	True	Brazil	6421	721	17.3	cds	ascomycota_odb10	1	best_quality
-1392244	Kalmanozyma brasiliensis	fungal	order_sweep	GCA_000497045.1	Scaffold	2013-11-15	True	Brazil	6421	721	17.3	cds	ascomycota_odb10	2	quality_fill
+1392244	Kalmanozyma brasiliensis	fungal	order_sweep	GCF_000497045.1	Scaffold	2013-11-15	True	Brazil	6421	721	17.3	cds	basidiomycota_odb10	1	best_quality
+1392244	Kalmanozyma brasiliensis	fungal	order_sweep	GCA_000497045.1	Scaffold	2013-11-15	True	Brazil	6421	721	17.3	cds	basidiomycota_odb10	2	quality_fill
 301204	Karstenula rhodostoma	fungal	order_sweep	GCA_010093485.1	Scaffold	2020-01-31	True		15040	1929	45.1	cds	ascomycota_odb10	1	best_quality
-89243	Laccaria amethystina	fungal	order_sweep	GCA_000827195.2	Scaffold	2026-07-27	True		17550	122	52.6	cds	ascomycota_odb10	1	best_quality
-29883	Laccaria bicolor	fungal	order_sweep	GCA_058411285.1	Scaffold	2026-06-25	True		26761	52	69.9	cds	ascomycota_odb10	1	best_quality
-29883	Laccaria bicolor	fungal	order_sweep	GCF_000143565.1	Scaffold	2008-01-11	True	USA	18213	785	64.9	cds	ascomycota_odb10	2	new_country:USA; new_year_bin:2005
-29883	Laccaria bicolor	fungal	order_sweep	GCA_059996225.1	Scaffold	2026-08-11	True		21673	160	67.7	cds	ascomycota_odb10	3	quality_fill
-29883	Laccaria bicolor	fungal	order_sweep	GCA_059927845.1	Scaffold	2026-08-06	True		23976	107	79.1	cds	ascomycota_odb10	4	quality_fill
+89243	Laccaria amethystina	fungal	order_sweep	GCA_000827195.2	Scaffold	2026-07-27	True		17550	122	52.6	cds	basidiomycota_odb10	1	best_quality
+29883	Laccaria bicolor	fungal	order_sweep	GCA_058411285.1	Scaffold	2026-06-25	True		26761	52	69.9	cds	basidiomycota_odb10	1	best_quality
+29883	Laccaria bicolor	fungal	order_sweep	GCF_000143565.1	Scaffold	2008-01-11	True	USA	18213	785	64.9	cds	basidiomycota_odb10	2	new_country:USA; new_year_bin:2005
+29883	Laccaria bicolor	fungal	order_sweep	GCA_059996225.1	Scaffold	2026-08-11	True		21673	160	67.7	cds	basidiomycota_odb10	3	quality_fill
+29883	Laccaria bicolor	fungal	order_sweep	GCA_059927845.1	Scaffold	2026-08-06	True		23976	107	79.1	cds	basidiomycota_odb10	4	quality_fill
 869390	Lasiodiplodia hormozganensis	fungal	order_sweep	GCA_030512325.1	Scaffold	2023-07-20	True	Canada	12652	291	43.2	cds	ascomycota_odb10	1	best_quality
-2804958	Lentinula aff. detonsa	fungal	order_sweep	GCA_027886315.1	Scaffold	2023-01-17	True	Mexico	12151	57	33.3	cds	ascomycota_odb10	1	best_quality
-2804958	Lentinula aff. detonsa	fungal	order_sweep	GCA_027886325.1	Scaffold	2023-01-17	True	Mexico	11873	75	33.3	cds	ascomycota_odb10	2	quality_fill
-2804960	Lentinula aff. lateritia	fungal	order_sweep	GCA_027886305.1	Scaffold	2023-01-17	True	Nepal	12631	44	39.9	cds	ascomycota_odb10	1	best_quality
-40481	Lentinula boryana	fungal	order_sweep	GCA_027886635.1	Scaffold	2023-01-17	True	Brazil	11928	69	32.4	cds	ascomycota_odb10	1	best_quality
-2804962	Lentinula detonsa	fungal	order_sweep	GCA_027886465.1	Scaffold	2023-01-17	True	Costa Rica	12378	80	33.6	cds	ascomycota_odb10	1	best_quality
-5353	Lentinula edodes	fungal	order_sweep	GCA_027886755.1	Scaffold	2023-01-17	True	Brazil	13817	66	37.7	cds	ascomycota_odb10	1	best_quality
-5353	Lentinula edodes	fungal	order_sweep	GCA_027887095.1	Scaffold	2023-01-17	True	Australia	13370	68	37.8	cds	ascomycota_odb10	2	new_country:Australia
-5353	Lentinula edodes	fungal	order_sweep	GCA_027917475.1	Scaffold	2023-01-17	True	Viet Nam	13619	83	37.5	cds	ascomycota_odb10	3	new_country:Viet Nam
-5353	Lentinula edodes	fungal	order_sweep	GCA_027917485.1	Scaffold	2023-01-17	True	Russia	12994	76	37.5	cds	ascomycota_odb10	4	new_country:Russia
-40482	Lentinula lateritia	fungal	order_sweep	GCA_027917355.1	Scaffold	2023-01-17	True	Brazil	12463	47	38.9	cds	ascomycota_odb10	1	best_quality
-40482	Lentinula lateritia	fungal	order_sweep	GCA_027917575.1	Scaffold	2023-01-17	True	USA	13699	37	39.5	cds	ascomycota_odb10	2	new_country:USA
-42442	Lentinula novae-zelandiae	fungal	order_sweep	GCA_027921425.1	Scaffold	2023-01-17	True	Costa Rica	12288	54	35.6	cds	ascomycota_odb10	1	best_quality
-153919	Lentinula raphanica	fungal	order_sweep	GCA_027886345.1	Scaffold	2023-01-17	True	Papua New Guinea	14928	75	39.9	cds	ascomycota_odb10	1	best_quality
-153919	Lentinula raphanica	fungal	order_sweep	GCA_027886495.1	Scaffold	2023-01-17	True	New Zealand	14354	44	40.1	cds	ascomycota_odb10	2	new_country:New Zealand
-153919	Lentinula raphanica	fungal	order_sweep	GCA_027886735.1	Scaffold	2023-01-17	True	USA	14794	42	38.6	cds	ascomycota_odb10	3	new_country:USA
-153919	Lentinula raphanica	fungal	order_sweep	GCA_027886695.1	Scaffold	2023-01-17	True		14700	41	38.6	cds	ascomycota_odb10	4	quality_fill
+2804958	Lentinula aff. detonsa	fungal	order_sweep	GCA_027886315.1	Scaffold	2023-01-17	True	Mexico	12151	57	33.3	cds	basidiomycota_odb10	1	best_quality
+2804958	Lentinula aff. detonsa	fungal	order_sweep	GCA_027886325.1	Scaffold	2023-01-17	True	Mexico	11873	75	33.3	cds	basidiomycota_odb10	2	quality_fill
+2804960	Lentinula aff. lateritia	fungal	order_sweep	GCA_027886305.1	Scaffold	2023-01-17	True	Nepal	12631	44	39.9	cds	basidiomycota_odb10	1	best_quality
+40481	Lentinula boryana	fungal	order_sweep	GCA_027886635.1	Scaffold	2023-01-17	True	Brazil	11928	69	32.4	cds	basidiomycota_odb10	1	best_quality
+2804962	Lentinula detonsa	fungal	order_sweep	GCA_027886465.1	Scaffold	2023-01-17	True	Costa Rica	12378	80	33.6	cds	basidiomycota_odb10	1	best_quality
+5353	Lentinula edodes	fungal	order_sweep	GCA_027886755.1	Scaffold	2023-01-17	True	Brazil	13817	66	37.7	cds	basidiomycota_odb10	1	best_quality
+5353	Lentinula edodes	fungal	order_sweep	GCA_027887095.1	Scaffold	2023-01-17	True	Australia	13370	68	37.8	cds	basidiomycota_odb10	2	new_country:Australia
+5353	Lentinula edodes	fungal	order_sweep	GCA_027917475.1	Scaffold	2023-01-17	True	Viet Nam	13619	83	37.5	cds	basidiomycota_odb10	3	new_country:Viet Nam
+5353	Lentinula edodes	fungal	order_sweep	GCA_027917485.1	Scaffold	2023-01-17	True	Russia	12994	76	37.5	cds	basidiomycota_odb10	4	new_country:Russia
+40482	Lentinula lateritia	fungal	order_sweep	GCA_027917355.1	Scaffold	2023-01-17	True	Brazil	12463	47	38.9	cds	basidiomycota_odb10	1	best_quality
+40482	Lentinula lateritia	fungal	order_sweep	GCA_027917575.1	Scaffold	2023-01-17	True	USA	13699	37	39.5	cds	basidiomycota_odb10	2	new_country:USA
+42442	Lentinula novae-zelandiae	fungal	order_sweep	GCA_027921425.1	Scaffold	2023-01-17	True	Costa Rica	12288	54	35.6	cds	basidiomycota_odb10	1	best_quality
+153919	Lentinula raphanica	fungal	order_sweep	GCA_027886345.1	Scaffold	2023-01-17	True	Papua New Guinea	14928	75	39.9	cds	basidiomycota_odb10	1	best_quality
+153919	Lentinula raphanica	fungal	order_sweep	GCA_027886495.1	Scaffold	2023-01-17	True	New Zealand	14354	44	40.1	cds	basidiomycota_odb10	2	new_country:New Zealand
+153919	Lentinula raphanica	fungal	order_sweep	GCA_027886735.1	Scaffold	2023-01-17	True	USA	14794	42	38.6	cds	basidiomycota_odb10	3	new_country:USA
+153919	Lentinula raphanica	fungal	order_sweep	GCA_027886695.1	Scaffold	2023-01-17	True		14700	41	38.6	cds	basidiomycota_odb10	4	quality_fill
 690899	Lentithecium fluviatile	fungal	order_sweep	GCA_010405425.1	Scaffold	2020-02-10	True		16711	1053	54.7	cds	ascomycota_odb10	1	best_quality
 1485227	Leptodontidium sp. 2 PMI_412	fungal	order_sweep	GCA_021432625.1	Scaffold	2021-12-27	True		22050	313	73.8	cds	ascomycota_odb10	1	best_quality
-1714833	Leucoagaricus sp. SymC.cos	fungal	order_sweep	GCA_001563735.1	Scaffold	2016-02-25	True	Panama	12834	117	119.0	cds	ascomycota_odb10	1	best_quality
-56174	Leucocoprinus birnbaumii	fungal	order_sweep	GCA_027627405.1	Scaffold	2023-01-10	True	Viet Nam	13108	32	45.7	cds	ascomycota_odb10	1	best_quality
-79220	Leucocoprinus gongylophorus	fungal	order_sweep	GCA_052360485.1	Scaffold	2025-08-29	True	Panama	8213	6119	74.3	cds	ascomycota_odb10	1	best_quality
+1714833	Leucoagaricus sp. SymC.cos	fungal	order_sweep	GCA_001563735.1	Scaffold	2016-02-25	True	Panama	12834	117	119.0	cds	basidiomycota_odb10	1	best_quality
+56174	Leucocoprinus birnbaumii	fungal	order_sweep	GCA_027627405.1	Scaffold	2023-01-10	True	Viet Nam	13108	32	45.7	cds	basidiomycota_odb10	1	best_quality
+79220	Leucocoprinus gongylophorus	fungal	order_sweep	GCA_052360485.1	Scaffold	2025-08-29	True	Panama	8213	6119	74.3	cds	basidiomycota_odb10	1	best_quality
 673940	Lindgomyces ingoldianus	fungal	order_sweep	GCF_010093535.1	Scaffold	2020-01-31	True		15946	1218	69.0	cds	ascomycota_odb10	1	best_quality
 673940	Lindgomyces ingoldianus	fungal	order_sweep	GCA_010093535.1	Scaffold	2020-01-31	True		15954	1218	69.0	cds	ascomycota_odb10	2	quality_fill
 147567	Lojkania enalia	fungal	order_sweep	GCA_010094045.1	Scaffold	2020-01-31	True		13746	255	61.2	cds	ascomycota_odb10	1	best_quality
 372055	Lophiostoma macrostomum	fungal	order_sweep	GCA_010405375.1	Scaffold	2020-02-10	True		16135	160	42.6	cds	ascomycota_odb10	1	best_quality
 690887	Lophiotrema nucula	fungal	order_sweep	GCA_010015825.1	Scaffold	2020-01-29	True		18115	984	48.6	cds	ascomycota_odb10	1	best_quality
-201230	Macrolepiota fuliginosa	fungal	order_sweep	GCA_015584085.1	Scaffold	2020-11-17	True		15754	54	46.4	cds	ascomycota_odb10	1	best_quality
+201230	Macrolepiota fuliginosa	fungal	order_sweep	GCA_015584085.1	Scaffold	2020-11-17	True		15754	54	46.4	cds	basidiomycota_odb10	1	best_quality
 301207	Macroventuria anomochaeta	fungal	order_sweep	GCF_010093625.1	Scaffold	2020-01-31	True		12940	659	33.3	cds	ascomycota_odb10	1	best_quality
 301207	Macroventuria anomochaeta	fungal	order_sweep	GCA_010093625.1	Scaffold	2020-01-31	True		12954	659	33.3	cds	ascomycota_odb10	2	quality_fill
 148304	Magnaporthiopsis poae	fungal	order_sweep	GCA_000193285.1	Scaffold	2011-03-21	True		12163	3427	39.5	cds	ascomycota_odb10	1	best_quality
-585013	Marasmius crinis-equi	fungal	order_sweep	GCA_040437605.1	Scaffold	2024-07-01	True	Ghana	19307	25	72.8	cds	ascomycota_odb10	1	best_quality
-1328755	Marasmius fiardii	fungal	order_sweep	GCA_014904975.1	Scaffold	2020-10-20	True		17096	324	59.4	cds	ascomycota_odb10	1	best_quality
-181124	Marasmius oreades	fungal	order_sweep	GCF_018924745.1	Chromosome	2021-06-17	True	Sweden	13700	4073	44.3	cds	ascomycota_odb10	1	best_quality
-181124	Marasmius oreades	fungal	order_sweep	GCA_018924745.1	Chromosome	2021-06-17	True	Sweden	13701	4073	44.3	cds	ascomycota_odb10	2	quality_fill
-3065222	Marasmius sp. AFHP31	fungal	order_sweep	GCA_024721195.1	Scaffold	2022-08-19	True	Peru	21762	42	84.7	cds	ascomycota_odb10	1	best_quality
-585030	Marasmius tenuissimus	fungal	order_sweep	GCA_029532415.1	Scaffold	2023-03-31	True	Ghana	24462	2479	71.1	cds	ascomycota_odb10	1	best_quality
-585030	Marasmius tenuissimus	fungal	order_sweep	GCA_055000085.1	Scaffold	2026-02-12	True	Ghana	17734	26	65.9	cds	ascomycota_odb10	2	new_year_bin:2025
-585030	Marasmius tenuissimus	fungal	order_sweep	GCA_040207205.1	Scaffold	2024-06-17	True	Ghana	16375	187	69.8	cds	ascomycota_odb10	3	quality_fill
+585013	Marasmius crinis-equi	fungal	order_sweep	GCA_040437605.1	Scaffold	2024-07-01	True	Ghana	19307	25	72.8	cds	basidiomycota_odb10	1	best_quality
+1328755	Marasmius fiardii	fungal	order_sweep	GCA_014904975.1	Scaffold	2020-10-20	True		17096	324	59.4	cds	basidiomycota_odb10	1	best_quality
+181124	Marasmius oreades	fungal	order_sweep	GCF_018924745.1	Chromosome	2021-06-17	True	Sweden	13700	4073	44.3	cds	basidiomycota_odb10	1	best_quality
+181124	Marasmius oreades	fungal	order_sweep	GCA_018924745.1	Chromosome	2021-06-17	True	Sweden	13701	4073	44.3	cds	basidiomycota_odb10	2	quality_fill
+3065222	Marasmius sp. AFHP31	fungal	order_sweep	GCA_024721195.1	Scaffold	2022-08-19	True	Peru	21762	42	84.7	cds	basidiomycota_odb10	1	best_quality
+585030	Marasmius tenuissimus	fungal	order_sweep	GCA_029532415.1	Scaffold	2023-03-31	True	Ghana	24462	2479	71.1	cds	basidiomycota_odb10	1	best_quality
+585030	Marasmius tenuissimus	fungal	order_sweep	GCA_055000085.1	Scaffold	2026-02-12	True	Ghana	17734	26	65.9	cds	basidiomycota_odb10	2	new_year_bin:2025
+585030	Marasmius tenuissimus	fungal	order_sweep	GCA_040207205.1	Scaffold	2024-06-17	True	Ghana	16375	187	69.8	cds	basidiomycota_odb10	3	quality_fill
 45293	Massarina eburnea	fungal	order_sweep	GCA_010093635.1	Scaffold	2020-01-31	True		12935	1569	38.2	cds	ascomycota_odb10	1	best_quality
 100047	Melanomma pulvis-pyrius	fungal	order_sweep	GCA_010093585.1	Scaffold	2020-01-31	True		15834	64	42.1	cds	ascomycota_odb10	1	best_quality
 92629	Metarhizium album	fungal	order_sweep	GCF_000804445.1	Scaffold	2014-12-18	True	Philippines	8472	1087	30.4	cds	ascomycota_odb10	1	best_quality
@@ -817,10 +817,10 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 2075419	Microascus stellatus	fungal	order_sweep	GCA_042186575.1	Scaffold	2024-09-18	True	Germany	10380	47	29.5	cds	ascomycota_odb10	1	best_quality
 196109	Microdochium bolleyi	fungal	order_sweep	GCA_001566295.1	Scaffold	2016-02-23	True		13165	1333	38.8	cds	ascomycota_odb10	1	best_quality
 324773	Moelleriella libera	fungal	order_sweep	GCA_001636675.1	Scaffold	2016-05-04	True	China	8461	1279	30.9	cds	ascomycota_odb10	1	best_quality
-84753	Moesziomyces antarcticus	fungal	order_sweep	GCF_000747765.1	Scaffold	2014-08-21	True	nd	6764	701	18.1	cds	ascomycota_odb10	1	best_quality
-84753	Moesziomyces antarcticus	fungal	order_sweep	GCA_000747765.1	Scaffold	2014-08-21	True	nd	6766	701	18.1	cds	ascomycota_odb10	2	quality_fill
-84753	Moesziomyces antarcticus	fungal	order_sweep	GCA_000334475.1	Scaffold	2013-01-25	True		6543	730	18.1	cds	ascomycota_odb10	3	quality_fill
-84754	Moesziomyces aphidis	fungal	order_sweep	GCA_000517465.1	Scaffold	2014-01-10	True	Germany	6011	713	17.9	cds	ascomycota_odb10	1	best_quality
+84753	Moesziomyces antarcticus	fungal	order_sweep	GCF_000747765.1	Scaffold	2014-08-21	True	nd	6764	701	18.1	cds	basidiomycota_odb10	1	best_quality
+84753	Moesziomyces antarcticus	fungal	order_sweep	GCA_000747765.1	Scaffold	2014-08-21	True	nd	6766	701	18.1	cds	basidiomycota_odb10	2	quality_fill
+84753	Moesziomyces antarcticus	fungal	order_sweep	GCA_000334475.1	Scaffold	2013-01-25	True		6543	730	18.1	cds	basidiomycota_odb10	3	quality_fill
+84754	Moesziomyces aphidis	fungal	order_sweep	GCA_000517465.1	Scaffold	2014-01-10	True	Germany	6011	713	17.9	cds	basidiomycota_odb10	1	best_quality
 149040	Mollisia scopiformis	fungal	order_sweep	GCF_001500285.1	Scaffold	2016-01-07	True		18556	1332	48.9	cds	ascomycota_odb10	1	best_quality
 149040	Mollisia scopiformis	fungal	order_sweep	GCA_001500285.1	Scaffold	2016-01-07	True		18567	1332	48.9	cds	ascomycota_odb10	2	quality_fill
 5098	Monascus purpureus	fungal	order_sweep	GCA_025999795.1	Chromosome	2022-10-06	True	Thailand	9151	3076	24.5	cds	ascomycota_odb10	1	best_quality
@@ -872,7 +872,7 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 264951	Paecilomyces variotii	fungal	order_sweep	GCA_030060715.1	Scaffold	2023-05-22	True	USA	9209	364	31.0	cds	ascomycota_odb10	2	new_country:USA
 264951	Paecilomyces variotii	fungal	order_sweep	GCA_030061355.1	Scaffold	2023-05-22	True	Belgium	9275	291	31.4	cds	ascomycota_odb10	3	new_country:Belgium
 264951	Paecilomyces variotii	fungal	order_sweep	GCA_030061565.1	Scaffold	2023-05-22	True	South Africa	8799	818	28.7	cds	ascomycota_odb10	4	new_country:South Africa
-181874	Panaeolus cyanescens	fungal	order_sweep	GCA_002938355.1	Scaffold	2018-02-22	True	USA	13420	33	44.3	cds	ascomycota_odb10	1	best_quality
+181874	Panaeolus cyanescens	fungal	order_sweep	GCA_002938355.1	Scaffold	2018-02-22	True	USA	13420	33	44.3	cds	basidiomycota_odb10	1	best_quality
 300254	Paraconiothyrium brasiliense	fungal	order_sweep	GCA_022225985.2	Scaffold	2024-08-22	True	Canada	12000	1676	39.3	cds	ascomycota_odb10	1	best_quality
 565426	Paraphaeosphaeria minitans	fungal	order_sweep	GCA_048937215.1	Scaffold	2025-03-25	True	Netherlands	13032	82	45.8	cds	ascomycota_odb10	1	best_quality
 565426	Paraphaeosphaeria minitans	fungal	order_sweep	GCA_048937275.1	Scaffold	2025-03-25	True	Germany	13126	79	45.4	cds	ascomycota_odb10	2	new_country:Germany
@@ -948,25 +948,25 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 2839758	Penicillium ucsense	fungal	order_sweep	GCA_014839855.1	Scaffold	2020-10-02	True	Brazil	8173	151	30.4	cds	ascomycota_odb10	2	quality_fill
 60134	Penicillium viridicatum	fungal	order_sweep	GCA_902713535.1	Scaffold	2025-02-20	True	Italy	11372	172	31.8	cds	ascomycota_odb10	1	best_quality
 29845	Penicillium vulpinum	fungal	order_sweep	GCA_002072255.1	Scaffold	2017-03-24	True	Denmark	10278	528	31.0	cds	ascomycota_odb10	1	best_quality
-718367	Peniophora sp. CBMAI 1063	fungal	order_sweep	GCA_900536885.1	Scaffold	2019-08-29	True		17204	156	47.0	cds	ascomycota_odb10	1	best_quality
-1314672	Peniophora sp. CONT	fungal	order_sweep	GCA_001632445.1	Scaffold	2016-04-28	True		18940	128	46.0	cds	ascomycota_odb10	1	best_quality
+718367	Peniophora sp. CBMAI 1063	fungal	order_sweep	GCA_900536885.1	Scaffold	2019-08-29	True		17204	156	47.0	cds	basidiomycota_odb10	1	best_quality
+1314672	Peniophora sp. CONT	fungal	order_sweep	GCA_001632445.1	Scaffold	2016-04-28	True		18940	128	46.0	cds	basidiomycota_odb10	1	best_quality
 97972	Periconia macrospinosa	fungal	order_sweep	GCA_003073855.1	Scaffold	2018-04-30	True		18735	141	55.0	cds	ascomycota_odb10	1	best_quality
 765868	Phaeosphaeriaceae sp. SRC1lsM3a	fungal	order_sweep	GCA_001644525.1	Scaffold	2016-05-17	True		14425	1539	36.1	cds	ascomycota_odb10	1	best_quality
 576137	Phialocephala subalpina	fungal	order_sweep	GCA_900073065.1	Scaffold	2016-12-03	True		20173	1434	69.7	cds	ascomycota_odb10	1	best_quality
-171480	Phlegmacium glaucopus	fungal	order_sweep	GCA_015039465.1	Scaffold	2020-10-27	True		20328	432	63.5	cds	ascomycota_odb10	1	best_quality
+171480	Phlegmacium glaucopus	fungal	order_sweep	GCA_015039465.1	Scaffold	2020-10-27	True		20328	432	63.5	cds	basidiomycota_odb10	1	best_quality
 108571	Phlyctema vagabunda	fungal	order_sweep	GCA_045999785.1	Chromosome	2024-12-11	True	Italy	11476	3905	38.2	cds	ascomycota_odb10	1	best_quality
-109636	Pholiota conissans	fungal	order_sweep	GCA_015484465.1	Scaffold	2020-11-15	True		16587	101	44.0	cds	ascomycota_odb10	1	best_quality
+109636	Pholiota conissans	fungal	order_sweep	GCA_015484465.1	Scaffold	2020-11-15	True		16587	101	44.0	cds	basidiomycota_odb10	1	best_quality
 55181	Phyllosticta citricarpa	fungal	order_sweep	GCA_037962995.1	Scaffold	2024-04-03	True		10231	611	30.8	cds	ascomycota_odb10	1	best_quality
 1077377	Plenodomus tracheiphilus	fungal	order_sweep	GCA_010093695.1	Scaffold	2020-01-31	True		13204	533	34.2	cds	ascomycota_odb10	1	best_quality
 100044	Pleomassaria siparia	fungal	order_sweep	GCA_010093715.1	Scaffold	2020-01-31	True		13450	1889	43.2	cds	ascomycota_odb10	1	best_quality
 3349763	Pleosporales sp. CAS-2024a	fungal	order_sweep	GCA_048340545.1	Scaffold	2025-03-04	True	Argentina	8929	155	31.1	cds	ascomycota_odb10	1	best_quality
-5321	Pleurotus cornucopiae	fungal	order_sweep	GCA_019677325.2	Chromosome	2021-08-25	True	China	10437	3564	32.4	cds	ascomycota_odb10	1	best_quality
-34470	Pleurotus djamor	fungal	order_sweep	GCA_029747585.1	Scaffold	2023-04-14	True	Viet Nam	19702	53	62.5	cds	ascomycota_odb10	1	best_quality
-5323	Pleurotus eryngii	fungal	order_sweep	GCA_015484515.1	Scaffold	2020-11-15	True		15954	242	44.6	cds	ascomycota_odb10	1	best_quality
-5322	Pleurotus ostreatus	fungal	order_sweep	GCA_029852705.2	Chromosome	2023-05-15	True	Taiwan	13411	3339	35.3	cds	ascomycota_odb10	1	best_quality
-5322	Pleurotus ostreatus	fungal	order_sweep	GCA_000697685.1	Scaffold	2014-06-05	True		12296	3270	34.3	cds	ascomycota_odb10	2	new_year_bin:2010
-28995	Pleurotus pulmonarius	fungal	order_sweep	GCA_047301645.1	Scaffold	2025-01-29	True	Malaysia	14485	33	41.1	cds	ascomycota_odb10	1	best_quality
-181527	Pluteus cervinus	fungal	order_sweep	GCA_004369065.1	Scaffold	2019-03-25	True		19812	103	52.2	cds	ascomycota_odb10	1	best_quality
+5321	Pleurotus cornucopiae	fungal	order_sweep	GCA_019677325.2	Chromosome	2021-08-25	True	China	10437	3564	32.4	cds	basidiomycota_odb10	1	best_quality
+34470	Pleurotus djamor	fungal	order_sweep	GCA_029747585.1	Scaffold	2023-04-14	True	Viet Nam	19702	53	62.5	cds	basidiomycota_odb10	1	best_quality
+5323	Pleurotus eryngii	fungal	order_sweep	GCA_015484515.1	Scaffold	2020-11-15	True		15954	242	44.6	cds	basidiomycota_odb10	1	best_quality
+5322	Pleurotus ostreatus	fungal	order_sweep	GCA_029852705.2	Chromosome	2023-05-15	True	Taiwan	13411	3339	35.3	cds	basidiomycota_odb10	1	best_quality
+5322	Pleurotus ostreatus	fungal	order_sweep	GCA_000697685.1	Scaffold	2014-06-05	True		12296	3270	34.3	cds	basidiomycota_odb10	2	new_year_bin:2010
+28995	Pleurotus pulmonarius	fungal	order_sweep	GCA_047301645.1	Scaffold	2025-01-29	True	Malaysia	14485	33	41.1	cds	basidiomycota_odb10	1	best_quality
+181527	Pluteus cervinus	fungal	order_sweep	GCA_004369065.1	Scaffold	2019-03-25	True		19812	103	52.2	cds	basidiomycota_odb10	1	best_quality
 280754	Pochonia chlamydosporia	fungal	order_sweep	GCA_057381195.1	Complete Genome	2026-05-11	True	China	14433	6552	53.6	cds	ascomycota_odb10	1	best_quality
 280754	Pochonia chlamydosporia	fungal	order_sweep	GCF_001653235.2	Chromosome	2017-07-10	True		14204	5359	44.2	cds	ascomycota_odb10	2	new_year_bin:2015
 280754	Pochonia chlamydosporia	fungal	order_sweep	GCA_001653235.2	Chromosome	2017-07-10	True		14204	5359	44.2	cds	ascomycota_odb10	3	quality_fill
@@ -979,14 +979,14 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 101475	Poronia punctata	fungal	order_sweep	GCA_022579005.1	Scaffold	2022-03-03	True	Netherlands	9862	138	48.0	cds	ascomycota_odb10	1	best_quality
 321146	Pseudocercospora eumusae	fungal	order_sweep	GCA_001578235.1	Scaffold	2016-03-01	True	France	10939	112	47.1	cds	ascomycota_odb10	1	best_quality
 113226	Pseudocercospora musae	fungal	order_sweep	GCA_001578225.1	Scaffold	2016-03-01	True	Cuba	10402	44	60.4	cds	ascomycota_odb10	1	best_quality
-84751	Pseudozyma flocculosa	fungal	order_sweep	GCF_000417875.1	Scaffold	2013-07-08	True		6877	920	23.3	cds	ascomycota_odb10	1	best_quality
-84751	Pseudozyma flocculosa	fungal	order_sweep	GCA_000417875.1	Scaffold	2013-07-08	True		6877	920	23.3	cds	ascomycota_odb10	2	quality_fill
-327079	Pseudozyma hubeiensis	fungal	order_sweep	GCF_000403515.1	Scaffold	2013-05-16	True		7472	446	18.4	cds	ascomycota_odb10	1	best_quality
-327079	Pseudozyma hubeiensis	fungal	order_sweep	GCA_000403515.1	Scaffold	2013-05-16	True		7472	446	18.4	cds	ascomycota_odb10	2	quality_fill
-181762	Psilocybe cubensis	fungal	order_sweep	GCF_017499595.1	Chromosome	2022-02-04	True	USA	13330	3624	46.4	cds	ascomycota_odb10	1	best_quality
-181762	Psilocybe cubensis	fungal	order_sweep	GCA_017499595.2	Chromosome	2022-02-04	True	USA	13330	3624	46.4	cds	ascomycota_odb10	2	quality_fill
-93625	Psilocybe cyanescens	fungal	order_sweep	GCA_002938375.1	Scaffold	2018-02-22	True	USA	15936	55	47.5	cds	ascomycota_odb10	1	best_quality
-1884261	Pterulicium gracile	fungal	order_sweep	GCA_004369125.1	Scaffold	2019-03-25	True		12872	639	34.8	cds	ascomycota_odb10	1	best_quality
+84751	Pseudozyma flocculosa	fungal	order_sweep	GCF_000417875.1	Scaffold	2013-07-08	True		6877	920	23.3	cds	basidiomycota_odb10	1	best_quality
+84751	Pseudozyma flocculosa	fungal	order_sweep	GCA_000417875.1	Scaffold	2013-07-08	True		6877	920	23.3	cds	basidiomycota_odb10	2	quality_fill
+327079	Pseudozyma hubeiensis	fungal	order_sweep	GCF_000403515.1	Scaffold	2013-05-16	True		7472	446	18.4	cds	basidiomycota_odb10	1	best_quality
+327079	Pseudozyma hubeiensis	fungal	order_sweep	GCA_000403515.1	Scaffold	2013-05-16	True		7472	446	18.4	cds	basidiomycota_odb10	2	quality_fill
+181762	Psilocybe cubensis	fungal	order_sweep	GCF_017499595.1	Chromosome	2022-02-04	True	USA	13330	3624	46.4	cds	basidiomycota_odb10	1	best_quality
+181762	Psilocybe cubensis	fungal	order_sweep	GCA_017499595.2	Chromosome	2022-02-04	True	USA	13330	3624	46.4	cds	basidiomycota_odb10	2	quality_fill
+93625	Psilocybe cyanescens	fungal	order_sweep	GCA_002938375.1	Scaffold	2018-02-22	True	USA	15936	55	47.5	cds	basidiomycota_odb10	1	best_quality
+1884261	Pterulicium gracile	fungal	order_sweep	GCA_004369125.1	Scaffold	2019-03-25	True		12872	639	34.8	cds	basidiomycota_odb10	1	best_quality
 27349	Puccinia sorghi	fungal	order_sweep	GCA_001263375.1	Scaffold	2015-08-07	True	Argentina	21078	19	99.5	cds	basidiomycota_odb10	1	best_quality
 33203	Purpureocillium lilacinum	fungal	order_sweep	GCF_001653265.1	Scaffold	2016-05-27	True	China	11763	3199	38.5	cds	ascomycota_odb10	1	best_quality
 33203	Purpureocillium lilacinum	fungal	order_sweep	GCA_033847395.1	Scaffold	2023-11-21	True	Netherlands	14420	471	40.6	cds	ascomycota_odb10	2	new_country:Netherlands; new_year_bin:2020
@@ -1024,11 +1024,11 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 1690608	Saxophila tyrrhenica	fungal	order_sweep	GCA_035928015.1	Scaffold	2024-01-22	True	Italy	11205	1415	25.9	cds	ascomycota_odb10	2	quality_fill
 563466	Scedosporium apiospermum	fungal	order_sweep	GCF_000732125.1	Scaffold	2014-07-21	True	France	8376	1381	43.4	cds	ascomycota_odb10	1	best_quality
 563466	Scedosporium apiospermum	fungal	order_sweep	GCA_000732125.1	Scaffold	2014-07-21	True	France	8376	1381	43.4	cds	ascomycota_odb10	2	quality_fill
-5334	Schizophyllum commune	fungal	order_sweep	GCF_000143185.2	Scaffold	2022-05-17	True		16187	2560	38.7	cds	ascomycota_odb10	1	best_quality
-5334	Schizophyllum commune	fungal	order_sweep	GCA_041438035.1	Scaffold	2024-08-22	True	Russia	13398	225	38.0	cds	ascomycota_odb10	2	new_country:Russia
-5334	Schizophyllum commune	fungal	order_sweep	GCA_041438045.1	Scaffold	2024-08-22	True	Australia	13532	194	38.3	cds	ascomycota_odb10	3	new_country:Australia
-5334	Schizophyllum commune	fungal	order_sweep	GCA_041438155.1	Scaffold	2024-08-22	True	Japan	13371	265	37.7	cds	ascomycota_odb10	4	new_country:Japan
-160053	Schizophyllum fasciatum	fungal	order_sweep	GCA_041438165.1	Scaffold	2024-08-22	True		11722	86	30.4	cds	ascomycota_odb10	1	best_quality
+5334	Schizophyllum commune	fungal	order_sweep	GCF_000143185.2	Scaffold	2022-05-17	True		16187	2560	38.7	cds	basidiomycota_odb10	1	best_quality
+5334	Schizophyllum commune	fungal	order_sweep	GCA_041438035.1	Scaffold	2024-08-22	True	Russia	13398	225	38.0	cds	basidiomycota_odb10	2	new_country:Russia
+5334	Schizophyllum commune	fungal	order_sweep	GCA_041438045.1	Scaffold	2024-08-22	True	Australia	13532	194	38.3	cds	basidiomycota_odb10	3	new_country:Australia
+5334	Schizophyllum commune	fungal	order_sweep	GCA_041438155.1	Scaffold	2024-08-22	True	Japan	13371	265	37.7	cds	basidiomycota_odb10	4	new_country:Japan
+160053	Schizophyllum fasciatum	fungal	order_sweep	GCA_041438165.1	Scaffold	2024-08-22	True		11722	86	30.4	cds	basidiomycota_odb10	1	best_quality
 77105	Sclerotinia borealis	fungal	order_sweep	GCA_000503235.1	Scaffold	2013-12-05	True	Russia	10166	131	39.5	cds	ascomycota_odb10	1	best_quality
 215465	Septoria linicola	fungal	order_sweep	GCA_024114885.1	Complete Genome	2022-07-01	True	France	13096	2858	39.6	cds	ascomycota_odb10	1	best_quality
 210430	Setomelanomma holmii	fungal	order_sweep	GCA_010015745.1	Scaffold	2020-01-29	True		14389	235	39.2	cds	ascomycota_odb10	1	best_quality
@@ -1040,7 +1040,7 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 85929	Sphaerulina musiva	fungal	order_sweep	GCA_052057135.1	Complete Genome	2025-08-15	True	USA	9801	2368	29.8	cds	ascomycota_odb10	2	new_country:USA; new_year_bin:2025
 85929	Sphaerulina musiva	fungal	order_sweep	GCA_058225075.1	Chromosome	2026-06-16	True	Canada	9834	2310	31.5	cds	ascomycota_odb10	3	new_country:Canada
 85929	Sphaerulina musiva	fungal	order_sweep	GCA_000320565.2	Scaffold	2013-02-27	True		10156	2041	29.4	cds	ascomycota_odb10	4	quality_fill
-117069	Sphagnurus paluster	fungal	order_sweep	GCA_018282025.1	Scaffold	2021-05-05	True	Netherlands	12368	20	44.0	cds	ascomycota_odb10	1	best_quality
+117069	Sphagnurus paluster	fungal	order_sweep	GCA_018282025.1	Scaffold	2021-05-05	True	Netherlands	12368	20	44.0	cds	basidiomycota_odb10	1	best_quality
 280036	Sporisorium graminicola	fungal	order_sweep	GCF_005498985.1	Chromosome	2019-06-06	True	Russia	6591	966	19.6	cds	basidiomycota_odb10	1	best_quality
 280036	Sporisorium graminicola	fungal	order_sweep	GCA_005498985.1	Chromosome	2019-06-06	True	Russia	6591	966	19.6	cds	basidiomycota_odb10	2	quality_fill
 718229	Sporormia fimetaria	fungal	order_sweep	GCA_010093795.1	Scaffold	2020-01-31	True		10774	522	25.9	cds	ascomycota_odb10	1	best_quality
@@ -1052,8 +1052,8 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 74722	Stachybotrys chartarum	fungal	order_sweep	GCA_000732565.1	Scaffold	2014-07-23	True	USA	11453	200	36.5	cds	ascomycota_odb10	3	quality_fill
 388913	Stachybotrys chlorohalonatus	fungal	order_sweep	GCA_000732775.1	Scaffold	2014-07-24	True	USA	10706	114	34.4	cds	ascomycota_odb10	1	best_quality
 2606854	Stagonosporopsis vannaccii	fungal	order_sweep	GCA_028584115.1	Scaffold	2023-02-10	True	Brazil	12024	204	31.0	cds	ascomycota_odb10	1	best_quality
-40492	Stereum hirsutum	fungal	order_sweep	GCF_000264905.1	Scaffold	2012-06-04	True		14062	1799	46.5	cds	ascomycota_odb10	1	best_quality
-40492	Stereum hirsutum	fungal	order_sweep	GCA_000264905.1	Scaffold	2012-06-04	True		14066	1799	46.5	cds	ascomycota_odb10	2	quality_fill
+40492	Stereum hirsutum	fungal	order_sweep	GCF_000264905.1	Scaffold	2012-06-04	True		14062	1799	46.5	cds	basidiomycota_odb10	1	best_quality
+40492	Stereum hirsutum	fungal	order_sweep	GCA_000264905.1	Scaffold	2012-06-04	True		14066	1799	46.5	cds	basidiomycota_odb10	2	quality_fill
 112123	Stipitochalara longipes	fungal	order_sweep	GCA_009732865.1	Scaffold	2019-12-05	True		19753	2686	52.4	cds	ascomycota_odb10	1	best_quality
 1736662	Stylonectria norvegica	fungal	order_sweep	GCA_014621405.1	Scaffold	2020-09-17	True	Germany	10132	59	35.1	cds	ascomycota_odb10	1	best_quality
 1806994	Synchytrium microbalum	fungal	order_sweep	GCF_006535985.1	Scaffold	2019-07-01	True	USA	6304	519	26.2	cds	fungi_odb10	1	best_quality
@@ -1074,16 +1074,16 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 28564	Talaromyces stipitatus	fungal	order_sweep	GCF_000003125.1	Scaffold	2008-12-22	True		12455	4363	35.7	cds	ascomycota_odb10	1	best_quality
 28564	Talaromyces stipitatus	fungal	order_sweep	GCA_000003125.1	Scaffold	2008-12-22	True		12457	4363	35.7	cds	ascomycota_odb10	2	quality_fill
 198730	Talaromyces verruculosus	fungal	order_sweep	GCA_001305275.1	Scaffold	2015-10-01	True	China	11326	353	37.6	cds	ascomycota_odb10	1	best_quality
-117070	Tephrocybe rancida	fungal	order_sweep	GCA_018858115.1	Scaffold	2021-06-11	True	Netherlands	16872	32	66.6	cds	ascomycota_odb10	1	best_quality
-2724996	Tephrocybe sp. NHM501043	fungal	order_sweep	GCA_018855915.1	Scaffold	2021-06-11	True	Laos	12567	10	64.3	cds	ascomycota_odb10	1	best_quality
+117070	Tephrocybe rancida	fungal	order_sweep	GCA_018858115.1	Scaffold	2021-06-11	True	Netherlands	16872	32	66.6	cds	basidiomycota_odb10	1	best_quality
+2724996	Tephrocybe sp. NHM501043	fungal	order_sweep	GCA_018855915.1	Scaffold	2021-06-11	True	Laos	12567	10	64.3	cds	basidiomycota_odb10	1	best_quality
 161662	Teratosphaeria nubilosa	fungal	order_sweep	GCA_010093825.1	Scaffold	2020-01-31	True		10998	240	28.4	cds	ascomycota_odb10	1	best_quality
 2901253	Teratosphaeriaceae sp. CCFEE 6253	fungal	order_sweep	GCA_033119285.1	Scaffold	2023-10-30	True	Antarctica	20598	21	49.4	cds	ascomycota_odb10	1	best_quality
-2788930	Termitomyces sp. 'cryptogamus'	fungal	order_sweep	GCA_020091625.1	Scaffold	2021-09-22	True	South Africa	12242	5405	70.0	cds	ascomycota_odb10	1	best_quality
-1306850	Termitomyces sp. J132	fungal	order_sweep	GCA_001263195.1	Scaffold	2015-08-10	True	South Africa	11143	269	67.3	cds	ascomycota_odb10	1	best_quality
-2053460	Termitomyces sp. Mi166#008	fungal	order_sweep	GCA_018857285.1	Scaffold	2021-06-11	True	South Africa	16376	10	71.4	cds	ascomycota_odb10	1	best_quality
-2053456	Termitomyces sp. Mn162	fungal	order_sweep	GCA_017607575.1	Scaffold	2021-03-29	True	South Africa	12347	22	70.2	cds	ascomycota_odb10	1	best_quality
-2053459	Termitomyces sp. T159_Od127	fungal	order_sweep	GCA_018857305.1	Scaffold	2021-06-11	True	South Africa	12399	6	76.3	cds	ascomycota_odb10	1	best_quality
-2053458	Termitomyces sp. T32_za158	fungal	order_sweep	GCA_018857265.1	Scaffold	2021-06-11	True	South Africa	12998	9	56.9	cds	ascomycota_odb10	1	best_quality
+2788930	Termitomyces sp. 'cryptogamus'	fungal	order_sweep	GCA_020091625.1	Scaffold	2021-09-22	True	South Africa	12242	5405	70.0	cds	basidiomycota_odb10	1	best_quality
+1306850	Termitomyces sp. J132	fungal	order_sweep	GCA_001263195.1	Scaffold	2015-08-10	True	South Africa	11143	269	67.3	cds	basidiomycota_odb10	1	best_quality
+2053460	Termitomyces sp. Mi166#008	fungal	order_sweep	GCA_018857285.1	Scaffold	2021-06-11	True	South Africa	16376	10	71.4	cds	basidiomycota_odb10	1	best_quality
+2053456	Termitomyces sp. Mn162	fungal	order_sweep	GCA_017607575.1	Scaffold	2021-03-29	True	South Africa	12347	22	70.2	cds	basidiomycota_odb10	1	best_quality
+2053459	Termitomyces sp. T159_Od127	fungal	order_sweep	GCA_018857305.1	Scaffold	2021-06-11	True	South Africa	12399	6	76.3	cds	basidiomycota_odb10	1	best_quality
+2053458	Termitomyces sp. T32_za158	fungal	order_sweep	GCA_018857265.1	Scaffold	2021-06-11	True	South Africa	12998	9	56.9	cds	basidiomycota_odb10	1	best_quality
 1882483	Testicularia cyperi	fungal	order_sweep	GCA_003144125.1	Scaffold	2018-05-21	True		7069	1345	20.8	cds	basidiomycota_odb10	1	best_quality
 5087	Thermoascus aurantiacus	fungal	order_sweep	GCA_042370945.1	Scaffold	2024-09-19	True		8761	2250	28.5	cds	ascomycota_odb10	1	best_quality
 5088	Thermoascus crustaceus	fungal	order_sweep	GCF_041956765.1	Scaffold	2024-09-16	True	USA	10411	3065	31.4	cds	ascomycota_odb10	1	best_quality
@@ -1162,29 +1162,29 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 5547	Trichoderma viride	fungal	order_sweep	GCA_052570055.1	Scaffold	2025-09-12	True	United Kingdom	10220	869	37.0	cds	ascomycota_odb10	2	quality_fill
 5547	Trichoderma viride	fungal	order_sweep	GCA_052570065.1	Scaffold	2025-09-12	True	United Kingdom	10255	903	36.7	cds	ascomycota_odb10	3	quality_fill
 5547	Trichoderma viride	fungal	order_sweep	GCA_052570145.1	Scaffold	2025-09-12	True	United Kingdom	10547	128	35.6	cds	ascomycota_odb10	4	quality_fill
-2724999	Tricholoma furcatifolium	fungal	order_sweep	GCA_018854895.1	Scaffold	2021-06-11	True	Malaysia	15788	11	49.8	cds	ascomycota_odb10	1	best_quality
-40145	Tricholoma matsutake	fungal	order_sweep	GCA_014904895.1	Scaffold	2020-10-20	True		22777	321	175.8	cds	ascomycota_odb10	1	best_quality
+2724999	Tricholoma furcatifolium	fungal	order_sweep	GCA_018854895.1	Scaffold	2021-06-11	True	Malaysia	15788	11	49.8	cds	basidiomycota_odb10	1	best_quality
+40145	Tricholoma matsutake	fungal	order_sweep	GCA_014904895.1	Scaffold	2020-10-20	True		22777	321	175.8	cds	basidiomycota_odb10	1	best_quality
 47278	Trichothecium roseum	fungal	order_sweep	GCA_026184415.1	Complete Genome	2022-11-21	True	China	9102	4290	33.5	cds	ascomycota_odb10	1	best_quality
-156515	Tulasnella calospora	fungal	order_sweep	GCA_000827465.1	Scaffold	2015-02-03	True		19545	160	62.4	cds	ascomycota_odb10	1	best_quality
-2600220	Tulasnella sp. 330	fungal	order_sweep	GCA_019632275.1	Scaffold	2021-08-16	True		9644	176	42.3	cds	ascomycota_odb10	1	best_quality
-2600221	Tulasnella sp. 331	fungal	order_sweep	GCA_019632265.1	Scaffold	2021-08-16	True		9801	36	44.5	cds	ascomycota_odb10	1	best_quality
-2600222	Tulasnella sp. 332	fungal	order_sweep	GCA_019632285.1	Scaffold	2021-08-16	True		9671	36	44.6	cds	ascomycota_odb10	1	best_quality
-2600223	Tulasnella sp. 403	fungal	order_sweep	GCA_019632305.1	Scaffold	2021-08-16	True		8982	23	30.0	cds	ascomycota_odb10	1	best_quality
-2600224	Tulasnella sp. 408	fungal	order_sweep	GCA_019633405.1	Scaffold	2021-08-16	True		14638	9	63.6	cds	ascomycota_odb10	1	best_quality
-2600225	Tulasnella sp. 417	fungal	order_sweep	GCA_019633465.1	Scaffold	2021-08-16	True		14817	9	61.5	cds	ascomycota_odb10	1	best_quality
-2600226	Tulasnella sp. 418	fungal	order_sweep	GCA_019632295.1	Scaffold	2021-08-16	True		12435	19	32.8	cds	ascomycota_odb10	1	best_quality
-2600227	Tulasnella sp. 419	fungal	order_sweep	GCA_019633455.1	Scaffold	2021-08-16	True		12896	18	33.7	cds	ascomycota_odb10	1	best_quality
-2600228	Tulasnella sp. 424	fungal	order_sweep	GCA_019633425.1	Scaffold	2021-08-16	True		12201	195	48.4	cds	ascomycota_odb10	1	best_quality
-2600229	Tulasnella sp. 425	fungal	order_sweep	GCA_019633485.1	Scaffold	2021-08-16	True		11641	190	48.4	cds	ascomycota_odb10	1	best_quality
-2600231	Tulasnella sp. 427	fungal	order_sweep	GCA_019633495.1	Scaffold	2021-08-16	True		12776	10	39.3	cds	ascomycota_odb10	1	best_quality
-2600232	Tulasnella sp. JGI-2019a	fungal	order_sweep	GCA_019633535.1	Scaffold	2021-08-16	True		14030	103	44.2	cds	ascomycota_odb10	1	best_quality
-2600232	Tulasnella sp. JGI-2019a	fungal	order_sweep	GCA_019633545.1	Scaffold	2021-08-16	True		14715	54	45.5	cds	ascomycota_odb10	2	quality_fill
-2600232	Tulasnella sp. JGI-2019a	fungal	order_sweep	GCA_019633555.1	Scaffold	2021-08-16	True		14840	56	46.2	cds	ascomycota_odb10	3	quality_fill
-2601502	Tulasnella sp. UAMH 9824	fungal	order_sweep	GCA_019633595.1	Scaffold	2021-08-16	True	USA	12984	26	49.8	cds	ascomycota_odb10	1	best_quality
+156515	Tulasnella calospora	fungal	order_sweep	GCA_000827465.1	Scaffold	2015-02-03	True		19545	160	62.4	cds	basidiomycota_odb10	1	best_quality
+2600220	Tulasnella sp. 330	fungal	order_sweep	GCA_019632275.1	Scaffold	2021-08-16	True		9644	176	42.3	cds	basidiomycota_odb10	1	best_quality
+2600221	Tulasnella sp. 331	fungal	order_sweep	GCA_019632265.1	Scaffold	2021-08-16	True		9801	36	44.5	cds	basidiomycota_odb10	1	best_quality
+2600222	Tulasnella sp. 332	fungal	order_sweep	GCA_019632285.1	Scaffold	2021-08-16	True		9671	36	44.6	cds	basidiomycota_odb10	1	best_quality
+2600223	Tulasnella sp. 403	fungal	order_sweep	GCA_019632305.1	Scaffold	2021-08-16	True		8982	23	30.0	cds	basidiomycota_odb10	1	best_quality
+2600224	Tulasnella sp. 408	fungal	order_sweep	GCA_019633405.1	Scaffold	2021-08-16	True		14638	9	63.6	cds	basidiomycota_odb10	1	best_quality
+2600225	Tulasnella sp. 417	fungal	order_sweep	GCA_019633465.1	Scaffold	2021-08-16	True		14817	9	61.5	cds	basidiomycota_odb10	1	best_quality
+2600226	Tulasnella sp. 418	fungal	order_sweep	GCA_019632295.1	Scaffold	2021-08-16	True		12435	19	32.8	cds	basidiomycota_odb10	1	best_quality
+2600227	Tulasnella sp. 419	fungal	order_sweep	GCA_019633455.1	Scaffold	2021-08-16	True		12896	18	33.7	cds	basidiomycota_odb10	1	best_quality
+2600228	Tulasnella sp. 424	fungal	order_sweep	GCA_019633425.1	Scaffold	2021-08-16	True		12201	195	48.4	cds	basidiomycota_odb10	1	best_quality
+2600229	Tulasnella sp. 425	fungal	order_sweep	GCA_019633485.1	Scaffold	2021-08-16	True		11641	190	48.4	cds	basidiomycota_odb10	1	best_quality
+2600231	Tulasnella sp. 427	fungal	order_sweep	GCA_019633495.1	Scaffold	2021-08-16	True		12776	10	39.3	cds	basidiomycota_odb10	1	best_quality
+2600232	Tulasnella sp. JGI-2019a	fungal	order_sweep	GCA_019633535.1	Scaffold	2021-08-16	True		14030	103	44.2	cds	basidiomycota_odb10	1	best_quality
+2600232	Tulasnella sp. JGI-2019a	fungal	order_sweep	GCA_019633545.1	Scaffold	2021-08-16	True		14715	54	45.5	cds	basidiomycota_odb10	2	quality_fill
+2600232	Tulasnella sp. JGI-2019a	fungal	order_sweep	GCA_019633555.1	Scaffold	2021-08-16	True		14840	56	46.2	cds	basidiomycota_odb10	3	quality_fill
+2601502	Tulasnella sp. UAMH 9824	fungal	order_sweep	GCA_019633595.1	Scaffold	2021-08-16	True	USA	12984	26	49.8	cds	basidiomycota_odb10	1	best_quality
 307758	Ustilago bromivora	fungal	order_sweep	GCA_900080155.1	Complete Genome	2016-11-03	True		7227	877	20.4	cds	basidiomycota_odb10	1	best_quality
 307758	Ustilago bromivora	fungal	order_sweep	GCA_900519155.1	Scaffold	2021-02-22	True		6051	116	20.4	cds	basidiomycota_odb10	2	new_year_bin:2020
 110526	Ustulina deusta	fungal	order_sweep	GCA_022496955.1	Scaffold	2022-02-28	True		12519	172	49.7	cds	ascomycota_odb10	1	best_quality
-1314805	Vararia minispora	fungal	order_sweep	GCA_022160365.1	Scaffold	2022-02-09	True		10966	83	36.8	cds	ascomycota_odb10	1	best_quality
+1314805	Vararia minispora	fungal	order_sweep	GCA_022160365.1	Scaffold	2022-02-09	True		10966	83	36.8	cds	basidiomycota_odb10	1	best_quality
 2656787	Venustampulla echinocandica	fungal	order_sweep	GCF_003357145.1	Scaffold	2018-08-03	True	Japan	10707	3782	33.6	cds	ascomycota_odb10	1	best_quality
 2656787	Venustampulla echinocandica	fungal	order_sweep	GCA_003357145.1	Scaffold	2018-08-03	True	Japan	10707	3782	33.6	cds	ascomycota_odb10	2	quality_fill
 1690605	Vermiconidia calcicola	fungal	order_sweep	GCA_033675295.1	Scaffold	2023-11-15	True	Italy	21515	177	58.6	cds	ascomycota_odb10	1	best_quality
@@ -1193,7 +1193,7 @@ taxid	organism_name	kingdom	source	accession	assembly_level	release_date	has_ann
 27335	Verticillium albo-atrum	fungal	order_sweep	GCA_052569925.1	Scaffold	2025-09-12	True	United Kingdom	9952	1482	35.6	cds	ascomycota_odb10	2	quality_fill
 1051613	Verticillium alfalfae	fungal	order_sweep	GCF_000150825.1	Scaffold	2008-06-16	True		10237	2315	32.8	cds	ascomycota_odb10	1	best_quality
 1051613	Verticillium alfalfae	fungal	order_sweep	GCA_000150825.1	Scaffold	2008-06-16	True		10237	2315	32.8	cds	ascomycota_odb10	2	quality_fill
-36659	Volvariella volvacea	fungal	order_sweep	GCA_001691835.3	Scaffold	2018-10-17	True	China	11047	84	35.3	cds	ascomycota_odb10	1	best_quality
+36659	Volvariella volvacea	fungal	order_sweep	GCA_001691835.3	Scaffold	2018-10-17	True	China	11047	84	35.3	cds	basidiomycota_odb10	1	best_quality
 318751	Westerdykella ornata	fungal	order_sweep	GCF_010094085.1	Scaffold	2020-01-31	True		10405	804	27.0	cds	ascomycota_odb10	1	best_quality
 318751	Westerdykella ornata	fungal	order_sweep	GCA_010094085.1	Scaffold	2020-01-31	True		10410	804	27.0	cds	ascomycota_odb10	2	quality_fill
 110547	Whalleya microplaca	fungal	order_sweep	GCA_022497155.1	Scaffold	2022-02-28	True		12551	645	48.3	cds	ascomycota_odb10	1	best_quality

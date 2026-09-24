@@ -15,7 +15,9 @@
 #
 # Prerequisites:
 #   1. sbatch kraken/slurm/kraken_db_search.slurm  →  ref_candidates.tsv + cds/pathogen/
-#   2. sbatch kraken/slurm/kraken_db_busco.slurm   →  busco_scores.tsv (selected=True rows)
+#   2. sbatch kraken/slurm/kraken_db_hosts.slurm   →  host_candidates.tsv + cds/host/
+#   3. sbatch kraken/slurm/kraken_db_busco.slurm   →  busco_scores.tsv (selected=True rows)
+# db_v3 adds host plant CDS (--host-table); db_v2 was fungi + oomycetes only.
 #
 # Run from crypt/: sbatch kraken/slurm/kraken_db_build.slurm
 
@@ -26,7 +28,7 @@ module load spack/0.23.1
 spack load kraken2
 
 SCRATCH="/scratch/pawsey1168/llenzo"
-DB_DIR="$SCRATCH/crypt/kraken/output/db/build/data/db_v2"
+DB_DIR="$SCRATCH/crypt/kraken/output/db/build/data/db_v3"
 GENOMES_DIR="$SCRATCH/crypt/kraken/output/db/search/data/cds/pathogen"
 
 mkdir -p kraken/slurm/logs
@@ -36,9 +38,14 @@ echo "Starting Kraken2 build: $(date)"
 echo "DB dir:      $DB_DIR"
 echo "Genomes dir: $GENOMES_DIR"
 
+HOST_TABLE="kraken/output/db/search/data/host_candidates.tsv"
+HOST_GENOMES_DIR="$SCRATCH/crypt/kraken/output/db/search/data/cds/host"
+
 python kraken/db/kraken_db_build.py \
     --db-dir "$DB_DIR" \
     --genomes-dir "$GENOMES_DIR" \
+    --host-table "$HOST_TABLE" \
+    --host-genomes-dir "$HOST_GENOMES_DIR" \
     --threads 32
 
 echo "Build complete: $(date)"

@@ -17,9 +17,13 @@ Scope: fungi + oomycetes selected by kraken_db_search.py + kraken_db_busco.py.
     Shared k-mers between species resolve to their LCA (genus/family), not to a
     false species-level hit. This allows a broad DB without sensitivity loss.
 
-Host sequences are intentionally excluded — host identity is inferred from SRA
-run metadata; including host CDS creates irreducible noise from k-mer similarity
-between related plant genomes.
+Host CDS is included via --host-table (kraken_db_hosts.py), reversing db_v2's
+exclusion. The old objection — k-mer similarity between related plant genomes —
+is real but lands on host IDENTITY (wheat vs barley), which is taken from SRA
+metadata, not on pathogen calls. Excluding hosts is worse: a host read with no
+home in the DB is absorbed by the nearest fungal CDS and reported as a fungal
+hit, a false positive in the quantity the chapter reports. Hosts are not
+BUSCO-screened and are tagged with the taxid host resolution assigned.
 
 Run from crypt/ (requires kraken2 and datasets CLI in PATH):
     python kraken/db/kraken_db_build.py                              # default dirs
@@ -95,6 +99,29 @@ def load_selected(tsv_path: Path) -> list:
     n_fallback = sum(1 for r in rows if "fallback" in r["busco_status"])
     print(f"Selected assemblies: {len(rows)} ({n_seed} seed, {n_fill} genus fill-in, "
           f"{n_fallback} below-threshold fallback)", flush=True)
+    return rows
+
+
+def load_host_table(tsv_path: Path) -> list:
+    """Load host_candidates.tsv from kraken_db_hosts.py. Same shape as load_selected's
+    output, but hosts are never BUSCO-screened, so every row is taken."""
+    if not tsv_path.exists():
+        print(f"WARNING: {tsv_path} not found — run kraken_db_hosts.py first", flush=True)
+        return []
+    rows = []
+    with open(tsv_path, newline="") as fh:
+        for row in csv.DictReader(fh, delimiter="\t"):
+            if not row.get("accession"):
+                continue
+            rows.append({
+                "taxid":         int(row["taxid"]),
+                "organism_name": row.get("organism_name", str(row["taxid"])),
+                "kingdom":       "host",
+                "source":        row.get("source", "host"),
+                "accession":     row["accession"],
+                "fasta_type":    row.get("fasta_type", "cds"),
+                "busco_status":  "host_not_screened",
+            })
     return rows
 
 
@@ -184,6 +211,14 @@ def main() -> None:
                     help="Kraken2 database output directory")
     ap.add_argument("--genomes-dir", default=str(DEFAULT_GENOMES_DIR),
                     help="Directory with CDS FASTA already downloaded by kraken_db_search.py")
+    ap.add_argument("--host-table", default=None,
+                    help="Optional host_candidates.tsv from kraken_db_hosts.py. Adds "
+                         "host plant CDS to the build so host reads have a correct home "
+                         "and stop being absorbed into fungal calls. Hosts are not "
+                         "BUSCO-screened. Reverses db_v2's host exclusion.")
+    ap.add_argument("--host-genomes-dir",
+                    default="kraken/output/db/search/data/cds/host",
+                    help="Directory with host CDS from kraken_db_hosts.py --download")
     ap.add_argument("--threads", type=int, default=32,
                     help="Threads for kraken2-build --build (default: 32)")
     ap.add_argument("--build-only", action="store_true",
@@ -207,6 +242,20 @@ def main() -> None:
         db_dir.mkdir(parents=True, exist_ok=True)
 
         selected = load_selected(Path(args.busco_scores))
+        # Each assembly carries the directory its CDS lives in, so pathogen and host
+        # trees can be added in one pass. Pathogens come from --genomes-dir.
+        for a in selected:
+            a["genomes_dir"] = genomes_dir
+
+        if args.host_table:
+            host_dir = Path(args.host_genomes_dir)
+            hosts = load_host_table(Path(args.host_table))
+            for a in hosts:
+                a["genomes_dir"] = host_dir
+            selected.extend(hosts)
+            print(f"Host assemblies added to build: {len(hosts)} "
+                  f"(from {args.host_table})", flush=True)
+
         if not selected:
             print("No assemblies to build with. Run kraken_db_search.py + "
                   "kraken_db_busco.py first.", flush=True)
@@ -236,7 +285,7 @@ def main() -> None:
                     n_skipped += 1
                     continue
 
-                taxon_dir = genomes_dir / accession
+                taxon_dir = asm["genomes_dir"] / accession
                 fnas = [f for f in taxon_dir.glob("**/*.fna")
                         if not f.name.endswith(("_clean.fna", "_combined.fna"))]
                 if not fnas:
@@ -245,10 +294,18 @@ def main() -> None:
                     n_missing += 1
                     continue
 
-                tag_taxid = read_assembly_taxid(taxon_dir, taxid)
-                if tag_taxid != taxid:
-                    print(f"  NOTE: taxid corrected {taxid} → {tag_taxid} "
-                          f"(stale taxid in ref_candidates)", flush=True)
+                if source.startswith("host"):
+                    # Hosts are tagged with the taxid run_list.tsv resolved them to, not
+                    # the download's own report. An Ensembl assembly can carry a
+                    # subspecies taxid (e.g. rice Japonica Group) that host resolution
+                    # never emits, which would split host reads across a taxid the
+                    # classification side never looks for.
+                    tag_taxid = taxid
+                else:
+                    tag_taxid = read_assembly_taxid(taxon_dir, taxid)
+                    if tag_taxid != taxid:
+                        print(f"  NOTE: taxid corrected {taxid} → {tag_taxid} "
+                              f"(stale taxid in ref_candidates)", flush=True)
                 for fna in fnas:
                     tag_fasta_headers(fna, tag_taxid)
                 seen_accessions.add(accession)

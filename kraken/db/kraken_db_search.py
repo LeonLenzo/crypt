@@ -973,6 +973,13 @@ def main():
                          "db_v2 took non-seed species with no limit, so without this a "
                          "rebuild trims deep species the bias analysis says to keep. "
                          "Pass --retain '' to select from the rules alone")
+    ap.add_argument("--from-table", nargs="?", const=str(CANDIDATES_TSV), default=None,
+                    help="Skip selection and download exactly what this candidate table "
+                         "names (default: the ref_candidates.tsv symlink). Use this on "
+                         "Setonix: selection is reviewed locally and committed, and "
+                         "re-selecting there would re-query NCBI, whose catalogue moves, "
+                         "so the cluster's table would stop matching the repo's. "
+                         "Requires --download")
     ap.add_argument("--workers", type=int, default=8)
     args = ap.parse_args()
 
@@ -995,6 +1002,26 @@ def main():
 
         if args.scope:
             run_scope(seeds, t2n, args.workers)
+            return
+
+        if args.from_table:
+            # Download against the committed selection rather than re-deriving it.
+            # Re-selecting would re-query NCBI, and its catalogue moves: a run days
+            # later can return a different assembly set, so the table on Setonix would
+            # silently stop matching the one in the repo that the build was planned
+            # from. Selection happens once, locally, and is reviewed; the cluster only
+            # fetches what it names.
+            table = Path(args.from_table)
+            if not table.exists():
+                raise SystemExit(f"--from-table {table} not found")
+            with open(table) as fh:
+                rows = list(csv.DictReader(fh, delimiter="\t"))
+            n_cds = sum(1 for r in rows if r["fasta_type"] == "cds")
+            print(f"Downloading from {table} as selected: {len(rows):,} candidates, "
+                  f"{n_cds:,} with CDS")
+            if not args.download:
+                raise SystemExit("--from-table only makes sense with --download")
+            run_download(rows, Path(args.genomes_dir), args.workers)
             return
 
         rows = run_select(seeds, t2n, args.workers, args.floor,

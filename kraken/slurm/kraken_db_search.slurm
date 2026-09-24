@@ -38,7 +38,11 @@ mkdir -p kraken/slurm/logs
 
 echo "Starting assembly search: $(date)"
 
-python kraken/db/kraken_db_search.py --download --workers 16
+# --from-table downloads exactly what the committed ref_candidates.tsv names.
+# Without it, --download re-runs selection here and re-queries NCBI, whose
+# catalogue moves, so this table would stop matching the one in the repo that
+# the build was planned from. Selection is done and reviewed locally.
+python kraken/db/kraken_db_search.py --download --from-table --workers 16
 
 echo "Search complete: $(date)"
 echo "Candidates: $(wc -l < kraken/output/db/search/data/ref_candidates.tsv) rows (incl. header)"

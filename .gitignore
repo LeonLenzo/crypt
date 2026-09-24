@@ -113,3 +113,7 @@ kraken/output/db/saturation/data/sketches/
 # Setonix before every --output path pointed at kraken/slurm/logs/.
 /*.out
 /*.err
+
+# Ensembl Plants REST species list — cache for kraken_db_hosts.py geo lookups,
+# refetched if absent. Not needed on Setonix (which downloads via --from-table).
+kraken/output/db/search/data/ensembl_species.json

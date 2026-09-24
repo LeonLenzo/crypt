@@ -19,14 +19,18 @@ Design, and how it differs from the pathogen sweep in kraken_db_search.py:
                   entries are genus-level taxids with no species assembly. --audit
                   reports these; they are dropped or flagged, never silently fetched.
 
-  A pangenome floor. The dominant hosts have real pan-transcriptomes on Ensembl
-                  (wheat ~19 cultivars, barley and rice similar), and each cultivar
-                  adds accessory transcripts that catch host reads a single reference
-                  misses. --big-floor cultivars for the dominant hosts (wheat, rice,
-                  barley), 1 reference for the rest. Kraken2 stores each minimizer
-                  once, so shared transcripts across cultivars add no weight; only the
+  A pangenome cap. The dominant hosts have real pan-transcriptomes on Ensembl (wheat
+                  19 cultivars, rice 16, barley 77), and each cultivar adds accessory
+                  transcripts that catch host reads a single reference misses. HOST_CAPS
+                  sets the count per dominant host: wheat and rice take all (they
+                  dominate the cohort), barley is capped at a geographically diverse 20
+                  (77 is disproportionate to its 3.5% run share). Every other host takes
+                  one reference (--default-cap). Kraken2 stores each minimizer once, so
+                  shared transcripts across cultivars add no weight; only the
                   cultivar-specific sequence costs anything, and there is no
-                  discrimination downside since host identity comes from metadata.
+                  discrimination downside since host identity comes from metadata. Using
+                  every cultivar of all three would add only ~0.4 GB to the database
+                  (measured), so the caps are about proportion, not database cost.
 
   Two sources.    Ensembl Plants first, NCBI second. Ensembl carries curated plant
                   annotation and the cultivar pan-transcriptomes NCBI lacks; it is also
@@ -50,6 +54,7 @@ Usage:
 import argparse
 import csv
 import gzip
+import json
 import re
 import shutil
 import sys
@@ -69,10 +74,20 @@ HOST_TSV  = DATA_DIR / "host_candidates.tsv"
 HOST_CDS  = DATA_DIR / "cds" / "host"
 ENSEMBL_FTP  = "https://ftp.ebi.ac.uk/ensemblgenomes/pub/plants"
 
-# Hosts that get more than one assembly: the few that dominate the cohort. Wheat, rice,
-# barley are >50%, >5%, >3% of runs respectively; the rest have a long thin tail where
-# one reference is plenty. Keyed by NCBI taxid.
-BIG_HOSTS = {4565, 4530, 4513}   # Triticum aestivum, Oryza sativa, Hordeum vulgare
+# How many cultivar transcriptomes to take for the dominant hosts. None = take every
+# cultivar Ensembl has. An integer caps the count and, when it is below what Ensembl
+# offers, the cultivars are chosen for geographic spread (see geo_diverse_dirs) rather
+# than alphabetically. Every other host gets one reference. Keyed by NCBI taxid.
+#   wheat 52% of runs, rice 7%, barley 3.5% — wheat/rice take the whole pan-transcriptome;
+#   barley has 77 cultivars, disproportionate to its run share, so it is capped at a
+#   geographically diverse 20.
+HOST_CAPS = {4565: None, 4530: None, 4513: 20}   # Triticum, Oryza, Hordeum
+# Future completeness pass: four more hosts have Ensembl pan-transcriptomes we take only
+# one of — potato (2 cultivars, 14 runs), cacao (2, 10), olive (2, 3), oat (25, 1). The
+# database cost of adding them is negligible (dedup), but the run counts do not justify
+# the extra references yet. For a more complete reference product, bump these in
+# HOST_CAPS (all for potato/cacao/olive; a geo-diverse handful for oat's 25). Left at the
+# default deliberately, 2026-09-24 — the current cohort does not support the depth.
 
 # Resolved host taxids that are not plant hosts — metadata errors in run_list.tsv that
 # resolved faithfully from wrong submitter input. Their reads stay in the cohort but
@@ -125,17 +140,79 @@ def ensembl_species_index(release: int) -> list:
     return sorted(n.rstrip("/") for n in _ftp_listing(base) if n.endswith("/"))
 
 
-def ensembl_dirs_for(latin_name: str, species_index: list, floor: int) -> list:
-    """Up to `floor` Ensembl species dirs for a host, reference first then cultivars.
+def ensembl_species_records(division_cache: Path) -> list:
+    """The EnsemblGenomes plants species list (REST), cached. Used only to map a
+    cultivar dir to its GCA accession, which is how geographic origin is then looked
+    up at NCBI — the FTP layout carries no provenance."""
+    if division_cache.exists():
+        return json.loads(division_cache.read_text()).get("species", [])
+    url = "https://rest.ensembl.org/info/species?division=EnsemblPlants"
+    req = urllib.request.Request(url, headers={"Content-type": "application/json"})
+    with urllib.request.urlopen(req, timeout=120) as resp:
+        payload = json.loads(resp.read())
+    division_cache.write_text(json.dumps(payload))
+    return payload.get("species", [])
 
-    Matches `genus_species` exactly (the reference assembly) and as a prefix of
-    `genus_species_<cultivar>` (pangenome members), so the dominant hosts pull their
-    whole pan-transcriptome up to the floor while the tail takes one reference.
+
+def cultivar_accessions(prefix: str, records: list) -> dict:
+    """{cultivar dir: GCA accession} for one host's Ensembl cultivars."""
+    out = {}
+    for s in records:
+        name = s.get("name", "")
+        if name == prefix or name.startswith(prefix + "_"):
+            acc = s.get("accession", "")
+            if acc.startswith("GC"):
+                out[name] = acc
+    return out
+
+
+def ncbi_geo(taxid: int) -> dict:
+    """{GCA accession (versionless): country} from NCBI BioSample, for one host taxon.
+    Country is the first field of geo_loc_name; placeholder values are dropped."""
+    junk = {"not collected", "not applicable", "missing", "", "unknown"}
+    out = {}
+    for a in S.datasets_query(taxid):
+        acc = a.get("accession", "")
+        attrs = {x.get("name"): x.get("value")
+                 for x in (a.get("assembly_info", {})
+                           .get("biosample", {}).get("attributes") or [])}
+        loc = attrs.get("geo_loc_name") or attrs.get("country") or ""
+        country = loc.split(":")[0].strip()
+        if country.lower() not in junk:
+            out[acc.split(".")[0]] = country
+    return out
+
+
+def ensembl_dirs_for(latin_name, species_index, cap, records=None, geo=None) -> list:
+    """Ensembl species dirs for a host: reference first, then cultivars.
+
+    cap is None to take every cultivar, or an integer. When the integer is below the
+    number available and geographic metadata is supplied, the cultivars are chosen for
+    country spread (one per new country first, then fill) rather than alphabetically —
+    a wide cultivar pool is only worth capping if the kept ones span the gene pool.
     """
     prefix = "_".join(latin_name.lower().split()[:2])
     exact = [d for d in species_index if d == prefix]
     cultivars = sorted(d for d in species_index if d.startswith(prefix + "_"))
-    return (exact + cultivars)[:floor]
+
+    if cap is None or len(exact) + len(cultivars) <= cap:
+        return exact + cultivars
+    keep = cap - len(exact)                       # slots left after the reference
+    if geo and records:
+        acc = cultivar_accessions(prefix, records)
+        ordered, seen = [], set()
+        # First pass: one cultivar per country not yet represented.
+        for d in cultivars:
+            c = geo.get((acc.get(d, "")).split(".")[0])
+            if c and c not in seen:
+                seen.add(c)
+                ordered.append(d)
+        # Second pass: fill remaining slots with whatever is left, geo-known first.
+        rest = [d for d in cultivars if d not in ordered]
+        rest.sort(key=lambda d: 0 if geo.get((acc.get(d, "")).split(".")[0]) else 1)
+        ordered += rest
+        return exact + ordered[:keep]
+    return (exact + cultivars)[:cap]
 
 
 def download_ensembl_cds(species_dir: str, release: int, dest: Path) -> list:
@@ -186,7 +263,7 @@ def ncbi_best_annotated(taxid: int, floor: int) -> list:
     return [(acc, genes) for _, acc, genes in scored[:floor]]
 
 
-def select_hosts(run_list: Path, big_floor: int) -> tuple:
+def select_hosts(run_list: Path, default_cap: int) -> tuple:
     """Return (candidate rows, audit dict). One row per chosen assembly, columns
     matching CANDIDATE_COLS so the download and build steps are source-agnostic."""
     to_species, sci_name = S.holobase_species_map()
@@ -195,6 +272,11 @@ def select_hosts(run_list: Path, big_floor: int) -> tuple:
     species_index = ensembl_species_index(release)
     print(f"Ensembl Plants release-{release}: {len(species_index)} species dirs", flush=True)
 
+    # Geographic-diversity data is needed only for hosts capped below their available
+    # cultivar count (barley). Fetch lazily and cache per host.
+    ens_records = ensembl_species_records(DATA_DIR / "ensembl_species.json")
+    geo_cache = {}
+
     rows, audit = [], {"not_host": [], "no_assembly": []}
     for taxid, n_runs in sorted(runs.items(), key=lambda kv: -kv[1]):
         name = sci_name.get(taxid, str(taxid))
@@ -202,19 +284,24 @@ def select_hosts(run_list: Path, big_floor: int) -> tuple:
             audit["not_host"].append((taxid, name, n_runs))
             continue
 
-        floor = big_floor if taxid in BIG_HOSTS else 1
+        cap = HOST_CAPS.get(taxid, default_cap)
 
         # Ensembl first — it carries curated plant annotation and the pangenome
-        # cultivar transcriptomes NCBI lacks (wheat alone has ~19). NCBI covers the
+        # cultivar transcriptomes NCBI lacks (wheat ~19, barley 77). NCBI covers the
         # tail Ensembl does not annotate. accession is the Ensembl species dir or the
         # GCA; the download step routes on `source`.
         picks, source = [], None
-        ens_dirs = ensembl_dirs_for(name, species_index, floor)
+        geo = None
+        if cap is not None:                       # only capped hosts need geo ordering
+            if taxid not in geo_cache:
+                geo_cache[taxid] = ncbi_geo(taxid)
+            geo = geo_cache[taxid]
+        ens_dirs = ensembl_dirs_for(name, species_index, cap, ens_records, geo)
         if ens_dirs:
             source = "host_ensembl"
             picks = [(d, "ensembl:" + str(release), 0) for d in ens_dirs]
         else:
-            got = ncbi_best_annotated(taxid, floor)
+            got = ncbi_best_annotated(taxid, cap if cap is not None else 1)
             if got:
                 source = "host_ncbi"
                 picks = [(acc, "", genes) for acc, genes in got]
@@ -242,7 +329,7 @@ def select_hosts(run_list: Path, big_floor: int) -> tuple:
                 "fasta_type": "cds",
                 "busco_lineage": "",   # hosts are not BUSCO-screened
                 "selection_rank": rank,
-                "selection_reason": f"host_floor:{floor}",
+                "selection_reason": f"host_cap:{cap if cap is not None else 'all'}",
             })
     return rows, audit
 
@@ -271,9 +358,10 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--run-list", default=str(RUN_LIST))
-    ap.add_argument("--big-floor", type=int, default=5,
-                    help="Ensembl cultivar transcriptomes for the dominant hosts "
-                         "(wheat/rice/barley); 1 reference for every other host")
+    ap.add_argument("--default-cap", type=int, default=1,
+                    help="cultivar transcriptomes per host not named in HOST_CAPS "
+                         "(default 1 reference). The dominant hosts are set in "
+                         "HOST_CAPS: wheat/rice take all, barley a geo-diverse 20")
     ap.add_argument("--audit", action="store_true",
                     help="report the host list and exit, fetch nothing")
     ap.add_argument("--download", action="store_true",
@@ -295,7 +383,7 @@ def main():
         print(f"Using committed selection: {HOST_TSV} ({len(rows)} rows). "
               f"--reselect to regenerate.")
     else:
-        rows, audit = select_hosts(Path(args.run_list), args.big_floor)
+        rows, audit = select_hosts(Path(args.run_list), args.default_cap)
         runs_total = sum(load_host_runs(Path(args.run_list)).values())
         print_audit(runs_total, rows, audit)
         if args.audit:

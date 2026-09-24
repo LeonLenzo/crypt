@@ -31,7 +31,16 @@ SCRATCH="/scratch/pawsey1168/llenzo"
 GENOMES_DIR="$SCRATCH/crypt/kraken/output/db/search/data/cds/pathogen"
 BUSCO_OUT="$SCRATCH/kraken/busco"
 BUSCO_DB_PATH="$SCRATCH/crypt/kraken/output/db/busco/data/busco_downloads"
-BUSCO_SIF="$SCRATCH/containers/busco_v5.7.0.sif"
+# The BUSCO container lives on /software (project storage, not purged), NOT on
+# /scratch, which the 21-day purge wipes — a purged container silently marks every
+# assembly busco_error in ~90 s (seen 2026-09-24). Prefer the persistent copy; fall
+# back to a scratch copy or a fresh pull if it is ever missing.
+BUSCO_SIF="/software/projects/pawsey1168/llenzo/containers/busco_v5.7.0.sif"
+if [ ! -f "$BUSCO_SIF" ]; then
+    echo "BUSCO container missing at $BUSCO_SIF — pulling fresh"
+    mkdir -p "$(dirname "$BUSCO_SIF")"
+    singularity pull "$BUSCO_SIF" docker://ezlabgva/busco:v5.7.0_cv1
+fi
 DATASETS_BIN="$SCRATCH/bin/datasets"
 
 # Bootstrap NCBI datasets CLI if not already present

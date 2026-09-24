@@ -238,11 +238,21 @@ def run_scan(candidates: list, genomes_dir: Path, busco_out: Path, busco_db: Pat
             cpus: int, workers: int, thresholds: dict) -> None:
     busco_out.mkdir(parents=True, exist_ok=True)
 
+    # Treat only real outcomes as done. busco_error (and an empty status) mean the scan
+    # never produced a verdict — e.g. the container image was missing after a scratch
+    # purge, which silently marked ~990 assemblies busco_error in one 90-second run.
+    # Those must be retried, not skipped, so they are excluded from done_accs even
+    # though a row for them exists. The cache is append-only and run_finalize keeps the
+    # last row per accession, so a successful re-scan supersedes the stale error.
+    RETRYABLE = {"busco_error", ""}
     done_accs = set()
     if SCAN_CACHE.exists():
         with open(SCAN_CACHE, newline="") as fh:
             for row in csv.DictReader(fh, delimiter="\t"):
-                done_accs.add(row["accession"])
+                if (row.get("status") or "") in RETRYABLE:
+                    done_accs.discard(row["accession"])
+                else:
+                    done_accs.add(row["accession"])
     print(f"Candidates: {len(candidates):,}  already scored: {len(done_accs):,}", flush=True)
 
     todo = [r for r in candidates if r["accession"] not in done_accs]

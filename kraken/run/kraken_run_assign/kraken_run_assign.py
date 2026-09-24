@@ -1,0 +1,450 @@
+"""kraken_run_assign.py — submodule 2 step 3/3: classify the downloaded cohort.
+
+For each run in --runs-tsv (or --run-list):
+  1. Locate {run}_1.fastq.gz / _2.fastq.gz, or {run}.fastq.gz, under --reads-dir
+  2. Run kraken2 --report against the pre-built pathogen-only database
+  3. Parse the report: species-level detections + host %
+  4. Append to kraken_cache.jsonl, one line per run, resumable
+
+Reads must already be on disk. There is no download or streaming path: reads
+come from kraken_run_select.py. A run missing from --reads-dir is an error,
+never a silent fallback to a subsample, because classifying one run on part of
+its data while every other run uses all of it is invisible downstream.
+
+The host-removal step (kraken_run_split.py) is deliberately skipped. Removing
+host reads was measured to change the reported percentage, not what Kraken2
+finds, because the database is pathogen-only (ratio 1.00x over 5 ground-truth
+runs).
+
+    module load kraken2/2.1.2-qk2lek6
+    python kraken/run/kraken_run_assign.py \\
+        --runs-tsv  kraken/run/kraken_run_select/data/run_list.tsv \\
+        --reads-dir kraken/run/kraken_run_select/data/reads \\
+        --db        kraken/db/kraken_db_build/data/db_v2
+
+Output: kraken/run/kraken_run_assign/data/kraken_cache.jsonl
+        kraken/run/kraken_run_assign/data/kraken_cache_index.txt
+"""
+
+import argparse
+import fcntl
+import json
+import os
+import subprocess
+import sys
+import tempfile
+import threading
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent.parent))
+from _util import _Tee, make_log_dir, link_latest
+
+# ── Constants ─────────────────────────────────────────────────────────────────
+
+CONFIDENCE         = 0.15       # kraken2 --confidence threshold (raised from 0.1)
+MIN_HIT_GROUPS     = 3          # kraken2 --minimum-hit-groups (default 2; 3 prevents single-domain FPs)
+KRAKEN_THREADS     = 4          # kraken2 threads per worker (workers × threads ≤ total cores)
+WORKERS            = 8          # parallel runs
+
+# Temp dir: use Setonix scratch if available, else system tmp
+SCRATCH = Path(os.environ.get("MYSCRATCH", tempfile.gettempdir())) / "kraken_tmp"
+
+OUT_DIR = Path("kraken/run/kraken_run_assign")
+
+# ── Kraken2 ───────────────────────────────────────────────────────────────────
+
+def _run_kraken2(db_dir: Path, reads: list,
+                 report: Path, threads: int, gzipped: bool = False,
+                 mmap: bool = False) -> bool:
+    """Run kraken2. reads is [r1] for SE or [r1, r2] for PE.
+
+    The timeout scales with input size. A flat timeout is what silently
+    truncated 224 files during the download step: large runs exceeded it while
+    small ones passed, so the failure looked sporadic rather than systematic.
+    Budget assumes a pessimistic 5 MB/s through kraken2 plus 300 s to load the
+    database, with a 900 s floor.
+    """
+    nbytes = sum(r.stat().st_size for r in reads if r.exists())
+    budget = max(900, int(nbytes / (5 * 1024 * 1024)) + 300)
+    cmd = [
+        "kraken2",
+        "--db", str(db_dir),
+        "--report", str(report),
+        "--confidence", str(CONFIDENCE),
+        "--minimum-hit-groups", str(MIN_HIT_GROUPS),
+        "--threads", str(threads),
+        "--output", "/dev/null",   # discard per-read output; we only need the report
+    ]
+    if gzipped:
+        cmd.append("--gzip-compressed")
+    if mmap:
+        # share one on-disk database across workers instead of each loading 20 GB
+        cmd.append("--memory-mapping")
+    if len(reads) == 2:
+        cmd += ["--paired", str(reads[0]), str(reads[1])]
+    else:
+        cmd.append(str(reads[0]))
+
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=budget)
+        return r.returncode == 0
+    except Exception:
+        return False
+
+
+def _parse_report(report: Path) -> dict:
+    """
+    Parse a Kraken2 report file.
+    Returns {pct_classified, pct_unclassified, n_reads, species: [{taxid, name, pct, reads}]}.
+
+    n_reads here is the read count kraken2 reports for the run, not the removed
+    --n-reads streaming cap. Same name, unrelated quantity.
+
+    Report columns: pct  reads  taxReads  rank  taxid  name
+    """
+    species = []
+    pct_unclassified = 0.0
+    n_reads = 0
+
+    try:
+        with open(report) as f:
+            for line in f:
+                # strip each field: the file is CRLF, so the LAST column carries a
+                # trailing \r and any comparison against it silently fails
+                parts = [p.strip() for p in line.rstrip("\n").split("\t")]
+                if len(parts) < 6:
+                    continue
+                pct   = float(parts[0])
+                reads = int(parts[1])
+                rank  = parts[3].strip()
+                taxid = int(parts[4].strip())
+                name  = parts[5].strip()
+
+                if rank == "U":                 # unclassified root
+                    pct_unclassified = pct
+                    n_reads = int(parts[1]) + int(parts[1])   # U + classified
+                elif rank == "R" and taxid == 1:
+                    # root = total classified; n_reads = classified + unclassified
+                    # (we'll overwrite below with the correct total)
+                    pass
+                elif rank == "S" and pct > 0:
+                    species.append({
+                        "taxid": taxid,
+                        "name":  name,
+                        "pct":   round(pct, 4),
+                        "reads": reads,
+                    })
+    except Exception:
+        pass
+
+    # Total reads = unclassified + everything under root.
+    #
+    # Identify both lines by TAXID, not by rank code. kraken2 writes root's rank
+    # field EMPTY in this version, so the previous matcher ("\tR\t1\t") never
+    # fired and n_reads silently became the unclassified count alone, understating
+    # the denominator of every percentage by 2-3x.
+    try:
+        u_clade = root_clade = 0
+        with open(report) as f:
+            for line in f:
+                # strip each field: the file is CRLF, so the LAST column carries a
+                # trailing \r and any comparison against it silently fails
+                parts = [p.strip() for p in line.rstrip("\n").split("\t")]
+                if len(parts) < 6:
+                    continue
+                tid = parts[4].strip()
+                if tid == "0":
+                    u_clade = int(parts[1])
+                elif tid == "1":
+                    root_clade = int(parts[1])
+        if u_clade or root_clade:
+            n_reads = u_clade + root_clade
+    except Exception:
+        pass
+
+    return {
+        "pct_unclassified": round(pct_unclassified, 4),
+        "pct_classified":   round(100.0 - pct_unclassified, 4),
+        "n_reads":          n_reads,
+        "species":          sorted(species, key=lambda x: -x["pct"]),
+    }
+
+
+# ── Per-run worker ────────────────────────────────────────────────────────────
+
+def _process_run(run_id: str, db_dir: Path,
+                 tmp_dir: Path, threads: int,
+                 reads_dir: Path | None = None,
+                 reports_dir: Path | None = None,
+                 mmap: bool = False) -> dict:
+    """Download, classify, and parse one run. Returns result dict.
+
+    If reads_dir is set, gzipped FASTQs are kept after classification.
+    If reports_dir is set, the raw kraken2 report is saved there as {run_id}.txt.
+    """
+    result = {
+        "run":   run_id,
+        "error": None,
+        "ts":    time.strftime("%Y-%m-%dT%H:%M:%S"),
+    }
+
+    run_tmp = tmp_dir / run_id
+    run_tmp.mkdir(parents=True, exist_ok=True)
+
+    try:
+        report  = run_tmp / "report.txt"
+        gzipped = False
+
+        # ── Use pre-downloaded reads from reads_dir (download.py output) ──────
+        local_reads = []
+        MIN_SIZE = 10_000  # bytes; empty gzip is ~20 bytes
+        if reads_dir is not None:
+            r1_pe = reads_dir / f"{run_id}_1.fastq.gz"
+            r2_pe = reads_dir / f"{run_id}_2.fastq.gz"
+            r1_se = reads_dir / f"{run_id}.fastq.gz"
+            if r1_pe.exists() and r1_pe.stat().st_size >= MIN_SIZE:
+                local_reads = ([r1_pe, r2_pe]
+                               if (r2_pe.exists() and r2_pe.stat().st_size >= MIN_SIZE)
+                               else [r1_pe])
+            elif r1_se.exists() and r1_se.stat().st_size >= MIN_SIZE:
+                local_reads = [r1_se]
+
+        if local_reads:
+            reads   = local_reads
+            gzipped = True
+        else:
+            result["error"] = "no_local_reads"
+            return result
+
+        ok = _run_kraken2(db_dir, reads, report, threads, gzipped=gzipped, mmap=mmap)
+        if not ok or not report.exists():
+            result["error"] = "kraken2_failed"
+            return result
+
+        result.update(_parse_report(report))
+
+        # save raw report for reproducibility
+        if reports_dir is not None:
+            reports_dir.mkdir(parents=True, exist_ok=True)
+            dest = reports_dir / f"{run_id}.txt"
+            if not dest.exists():
+                report.rename(dest)
+
+    finally:
+        for f in run_tmp.iterdir():
+            f.unlink(missing_ok=True)
+        run_tmp.rmdir()
+
+    return result
+
+
+# ── Cache helpers ─────────────────────────────────────────────────────────────
+
+_cache_lock = threading.Lock()
+
+
+def _load_cache_index(cache_dir: Path) -> set[str]:
+    """Return set of already-processed run accessions."""
+    idx = cache_dir / "kraken_cache_index.txt"
+    if idx.exists():
+        return set(idx.read_text().splitlines())
+    return set()
+
+
+def _append_cache(result: dict, cache_dir: Path) -> None:
+    """Append one result to kraken_cache.jsonl and update index.
+    Thread-safe (threading.Lock) and process-safe (fcntl.flock) for array jobs."""
+    line = json.dumps(result) + "\n"
+    run  = result["run"]
+    with _cache_lock:
+        for path, content in [
+            (cache_dir / "kraken_cache.jsonl",       line),
+            (cache_dir / "kraken_cache_index.txt",   run + "\n"),
+        ]:
+            with open(path, "a") as f:
+                fcntl.flock(f, fcntl.LOCK_EX)
+                try:
+                    f.write(content)
+                finally:
+                    fcntl.flock(f, fcntl.LOCK_UN)
+
+
+# ── Main ──────────────────────────────────────────────────────────────────────
+
+def main() -> None:
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--runs-tsv", default=None, metavar="PATH",
+                    help="Read run IDs from stat/stat_filter.py's runs.tsv output.")
+    ap.add_argument("--run-list", default=None, metavar="PATH",
+                    help="Plain text file with one Run accession per line. "
+                         "Bypasses all other filters.")
+    ap.add_argument("--biosample-rep", action="store_true",
+                    help="With --runs-tsv: keep only biosample_representative=True rows "
+                         "(one run per biological sample)")
+    ap.add_argument("--hc", action="store_true",
+                    help="With --runs-tsv: keep only same_genus_secondary=False rows "
+                         "(high-confidence, excludes same-genus co-infections)")
+    ap.add_argument("--db", required=True, help="Path to Kraken2 database directory")
+    ap.add_argument("--out-dir", default=str(OUT_DIR),
+                    help=f"Output directory for cache and logs (default: {OUT_DIR})")
+    ap.add_argument("--workers", type=int, default=WORKERS,
+                    help=f"Parallel runs (default: {WORKERS})")
+    ap.add_argument("--kraken-threads", type=int, default=KRAKEN_THREADS,
+                    help=f"Kraken2 threads per worker (default: {KRAKEN_THREADS})")
+    ap.add_argument("--tmp-dir", default=str(SCRATCH),
+                    help=f"Temp directory for intermediate files (default: {SCRATCH})")
+    ap.add_argument("--reads-dir", required=True,
+                    help="If set, gzipped FASTQs are kept here after classification "
+                         "(for archival to Acacia). Omit to discard reads immediately.")
+    ap.add_argument("--memory-mapping", action="store_true",
+                    help="kraken2 --memory-mapping: share one on-disk DB across "
+                         "workers instead of each loading it into RAM")
+    ap.add_argument("--reports-dir", default=None,
+                    help="If set, raw kraken2 report files are saved here as {run}.txt "
+                         "(for reproducibility). Omit to discard after parsing.")
+    ap.add_argument("--limit", type=int, default=None,
+                    help="Process at most N runs (useful for testing)")
+    ap.add_argument("--array-id", type=int, default=None,
+                    help="Slurm array task ID (0-indexed). Passed via $SLURM_ARRAY_TASK_ID.")
+    ap.add_argument("--array-count", type=int, default=None,
+                    help="Total Slurm array tasks. Passed via $SLURM_ARRAY_TASK_COUNT.")
+    args = ap.parse_args()
+
+    out_dir = Path(args.out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    cache_dir = out_dir / "data"
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    logs_base = out_dir / "logs"
+    log_dir   = make_log_dir(logs_base)
+    log = _Tee(log_dir / "kraken_run_assign.log")
+    link_latest(logs_base, log_dir / "kraken_run_assign.log")
+    sys.stdout = log
+
+    db_dir  = Path(args.db)
+    tmp_dir = Path(args.tmp_dir)
+    tmp_dir.mkdir(parents=True, exist_ok=True)
+
+    reads_dir = Path(args.reads_dir)
+    if not reads_dir.is_dir():
+        sys.exit(f"--reads-dir does not exist: {reads_dir}")
+    print(f"Reads read from: {reads_dir}")
+
+    reports_dir = Path(args.reports_dir) if args.reports_dir else None
+    if reports_dir:
+        reports_dir.mkdir(parents=True, exist_ok=True)
+        print(f"Raw kraken2 reports will be saved to: {reports_dir}")
+
+    # ── Load runs ──────────────────────────────────────────────────────────────
+    all_run_ids: list[str] = []
+
+    if args.run_list:
+        run_list_path = Path(args.run_list)
+        # Take the first whitespace/tab-delimited field, not the whole line, and
+        # drop a header row if present. Passing run_list.tsv here previously used
+        # the entire TSV line as the run ID, so every lookup missed and every run
+        # reported no_local_reads.
+        raw = [l.strip() for l in run_list_path.read_text().splitlines() if l.strip()]
+        all_run_ids = [l.split()[0] for l in raw]
+        if all_run_ids and all_run_ids[0].lower() in ("run", "run_accession", "accession"):
+            all_run_ids = all_run_ids[1:]
+        print(f"Loaded {len(all_run_ids):,} runs from {run_list_path}")
+    elif args.runs_tsv:
+        tsv_path = Path(args.runs_tsv)
+        with open(tsv_path) as f:
+            header = f.readline().strip().split("\t")
+            header = [h.strip() for h in header]   # run_list.tsv is CRLF
+            col = {h: i for i, h in enumerate(header)}
+            for line in f:
+                # strip each field: the file is CRLF, so the LAST column carries a
+                # trailing \r and any comparison against it silently fails
+                parts = [p.strip() for p in line.rstrip("\n").split("\t")]
+                if args.biosample_rep and parts[col["biosample_representative"]] != "True":
+                    continue
+                if args.hc and parts[col["same_genus_secondary"]] != "False":
+                    continue
+                all_run_ids.append(parts[col["Run"]])
+        filters = []
+        if args.biosample_rep:
+            filters.append("biosample_representative")
+        if args.hc:
+            filters.append("HC (same_genus_secondary=False)")
+        fstr = " + ".join(filters) if filters else "none"
+        print(f"Loaded {len(all_run_ids):,} runs from {tsv_path} (filters: {fstr})")
+    else:
+        sys.exit("Error: pass --run-list PATH or --runs-tsv PATH — no default run "
+                  "source (see --help).")
+
+    # ── Resume from cache ──────────────────────────────────────────────────────
+    done = _load_cache_index(cache_dir)
+    todo = [r for r in all_run_ids if r not in done]
+    if args.array_id is not None and args.array_count:
+        todo = todo[args.array_id::args.array_count]
+        print(f"Array task {args.array_id}/{args.array_count}: {len(todo)} runs assigned")
+
+    if args.limit:
+        todo = todo[:args.limit]
+        print(f"--limit {args.limit}: processing {len(todo)} runs")
+
+    print(f"\nTotal runs: {len(all_run_ids):,} | "
+          f"Already done: {len(done):,} | "
+          f"Remaining: {len(todo):,}")
+    print(f"Settings: confidence={CONFIDENCE}, "
+          f"min_hit_groups={MIN_HIT_GROUPS}, "
+          f"workers={args.workers}, kraken_threads={args.kraken_threads}")
+    print(f"DB: {db_dir}")
+    print(f"Tmp: {tmp_dir}\n")
+
+    if not todo:
+        print("All runs already classified. Done.")
+        return
+
+    # ── Classify ───────────────────────────────────────────────────────────────
+    n_ok = n_err = 0
+    t0 = time.time()
+
+    with ThreadPoolExecutor(max_workers=args.workers) as pool:
+        futures = {
+            pool.submit(_process_run, run_id, db_dir,
+                        tmp_dir, args.kraken_threads, reads_dir, reports_dir,
+                        args.memory_mapping): run_id
+            for run_id in todo
+        }
+
+        for i, fut in enumerate(as_completed(futures), 1):
+            run_id = futures[fut]
+            try:
+                result = fut.result()
+            except Exception as e:
+                result = {"run": run_id, "error": str(e),
+                          "ts": time.strftime("%Y-%m-%dT%H:%M:%S")}
+
+            _append_cache(result, cache_dir)
+
+            if result.get("error"):
+                n_err += 1
+                status = f"ERR({result['error']})"
+            else:
+                n_ok += 1
+                status = f"{result.get('pct_classified', 0):.1f}% classified"
+
+            elapsed = time.time() - t0
+            rate = i / elapsed if elapsed > 0 else 0
+            eta  = (len(todo) - i) / rate if rate > 0 else 0
+            print(f"[{i:>7}/{len(todo):,}] {run_id}  {status}  "
+                  f"| {rate:.1f}/s  ETA {eta/3600:.1f}h", flush=True)
+
+    elapsed = time.time() - t0
+    print(f"\n── Summary ────────────────────────────────────────")
+    print(f"  Classified: {n_ok:,}")
+    print(f"  Errors:     {n_err:,}")
+    print(f"  Elapsed:    {elapsed/3600:.1f}h")
+    print(f"  Cache:      {cache_dir / 'kraken_cache.jsonl'}")
+
+    log.close()
+
+
+if __name__ == "__main__":
+    main()

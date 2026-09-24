@@ -32,6 +32,6 @@ mkdir -p kraken/slurm/logs
 echo "Starting host selection + download: $(date)"
 # Downloads the committed host_candidates.tsv selection (no --reselect), so the
 # cluster fetches exactly what was reviewed locally, not a fresh Ensembl/NCBI query.
-python kraken/db/kraken_db_hosts.py --download --workers 16
+python kraken/db/search/search.py --download --workers 16
 echo "Host download complete: $(date)"
 echo "Next: sbatch kraken/slurm/kraken_db_build.slurm"

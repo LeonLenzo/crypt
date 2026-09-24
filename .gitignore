@@ -1,43 +1,43 @@
 # Large STAT cache — 2.4 GB, auto-fetched by stat/stat_fetch.py (all of
 # stat_fetch/data/ is fetch-stage cache/checkpoints; stat_filter/data/ holds
 # the actual final outputs — runs.tsv etc. — and stays tracked)
-stat/output/stat_fetch/data/*
-!stat/output/stat_fetch/data/manifest.tsv
+stat/stat_fetch/data/*
+!stat/stat_fetch/data/manifest.tsv
 
 # Intermediate confirmed-run caches — regeneratable from stat_cache
-stat/output/stat_filter/data/*_confirmed.json
+stat/stat_filter/data/*_confirmed.json
 
 # Large species distribution table (38k rows)
-stat/output/stat_filter/data/*_species_dist.tsv
+stat/stat_filter/data/*_species_dist.tsv
 
 # Reference DB source files — auto-downloaded by stat/stat_build.py
-stat/output/stat_build/data/phi-base_current.csv
-stat/output/stat_build/data/ictv_vmr.xlsx
+stat/stat_build/data/phi-base_current.csv
+stat/stat_build/data/ictv_vmr.xlsx
 
 # meta_search.py raw API response caches — regeneratable
-metadata/output/meta_search/data/bp_cache.json
-metadata/output/meta_search/data/bs_cache.json
-metadata/output/meta_search/data/serper_cache.json
+metadata/meta_search/data/bp_cache.json
+metadata/meta_search/data/bs_cache.json
+metadata/meta_search/data/serper_cache.json
 
 # meta_text.py: manually-downloaded copyrighted journal PDFs (715MB+, and not
 # ours to redistribute) — never committed. Its .bak sibling is working-copy
 # cruft, also excluded.
-metadata/output/meta_text/data/manual_pdfs/
-metadata/output/meta_text/data/text_cache.jsonl.bak
+metadata/meta_text/data/manual_pdfs/
+metadata/meta_text/data/text_cache.jsonl.bak
 
 # The repo is for code (+ small figures/manifests to discuss results), not
 # data — 2026-08-31 policy, purged from history at the same time. These are
 # all locally regeneratable (or synced to Setonix directly, outside git) —
 # see the module docstrings/READMEs for how each is produced.
-metadata/output/meta_search/data/bioprojects.json
-metadata/output/meta_search/data/biosamples.json
-metadata/output/meta_text/data/text_cache.jsonl
-metadata/output/meta_classify/data/samples.tsv
-metadata/output/meta_classify/data/classify_cache.jsonl
-metadata/output/meta_classify/data/host_disambig_cache.jsonl
-stat/output/stat_build/data/phibase_db.json
-stat/output/stat_filter/data/runs.tsv
-stat/output/figures/scatter/scatter_data.tsv
+metadata/meta_search/data/bioprojects.json
+metadata/meta_search/data/biosamples.json
+metadata/meta_text/data/text_cache.jsonl
+metadata/meta_classify/data/samples.tsv
+metadata/meta_classify/data/classify_cache.jsonl
+metadata/meta_classify/data/host_disambig_cache.jsonl
+stat/stat_build/data/phibase_db.json
+stat/stat_filter/data/runs.tsv
+stat/stat_filter/figures/scatter_data.tsv
 
 # legacy/ dirs (superseded scripts + their outputs, kept on disk for local
 # reference only) — excluded from the repo entirely rather than picking
@@ -54,10 +54,10 @@ stat/output/figures/scatter/scatter_data.tsv
 busco_downloads/
 
 # Kraken2 classify cache — large, regeneratable on Setonix
-kraken/output/run/classify/data/kraken_cache*.jsonl
-kraken/output/run/classify/data/kraken_cache*.txt
-kraken/output/run/classify/data/reports/
-kraken/output/run/classify/data/reports_v1/
+kraken/run/kraken_run_assign/data/kraken_cache*.jsonl
+kraken/run/kraken_run_assign/data/kraken_cache*.txt
+kraken/run/kraken_run_assign/data/reports/
+kraken/run/kraken_run_assign/data/reports_v1/
 
 # Old output/ directory — local pipeline data, all superseded by module layout
 /output/
@@ -92,19 +92,19 @@ kraken/pilot/kraken/reads/
 # Paths updated 2026-09-01 for the db/ + run/ submodule split (kraken_db_search ->
 # db/search, etc.). kraken_run_download/ dropped entirely — dead/superseded, its
 # only content was the already-deleted abandoned control-set reads.
-kraken/output/db/search/data/cds/
-kraken/output/db/busco/data/busco_downloads/
-kraken/output/db/build/data/db_v2/
-kraken/output/db/build/data/db/
-kraken/output/run/select/data/reads/
-kraken/output/run/split/data/index/
-kraken/output/run/split/data/reads/
-kraken/output/run/split/data/_tmp/
+kraken/db/search/data/cds/
+kraken/db/utilities/busco/data/busco_downloads/
+kraken/db/build/data/db_v2/
+kraken/db/build/data/db/
+kraken/run/kraken_run_select/data/reads/
+kraken/run/kraken_run_split/data/index/
+kraken/run/kraken_run_split/data/reads/
+kraken/run/kraken_run_split/data/_tmp/
 
 # FracMinHash sketch cache — one .npy per assembly (~700 MB on Setonix), the only
 # expensive part of kraken_db_saturation.py and fully rebuilt by --stage sketch.
 # The curve/bias/policy stages read it and write the small TSVs, which stay tracked.
-kraken/output/db/saturation/data/sketches/
+kraken/db/utilities/saturation/data/sketches/
 
 # Stray SLURM .out/.err that older kraken scripts dropped at the repo root on
 # Setonix before every --output path pointed at kraken/slurm/logs/.
@@ -113,7 +113,7 @@ kraken/output/db/saturation/data/sketches/
 
 # Ensembl Plants REST species list — cache for kraken_db_hosts.py geo lookups,
 # refetched if absent. Not needed on Setonix (which downloads via --from-table).
-kraken/output/db/search/data/ensembl_species.json
+kraken/db/search/data/ensembl_species.json
 
 # Personal reference/prose: pipeline schematic, literature notes, manuscript drafts.
 # Kept on disk for navigation, not version-controlled (Leon's call 2026-09-24).

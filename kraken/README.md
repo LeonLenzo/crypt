@@ -67,7 +67,7 @@ subdirectories matching the two submodules (Leon's call — "let's have separate
 kraken/db and kraken/run dirs"). Filenames kept their full `kraken_db_`/`kraken_run_`
 prefixes (searchable/greppable as-is) even though now slightly redundant with the
 parent directory name. Output directories were moved to mirror the split
-(`kraken/output/kraken_db_search/` → `kraken/output/db/search/`, etc.) — this was
+(`kraken/output/kraken_db_search/` → `kraken/db/search/`, etc.) — this was
 done locally and needs the equivalent move applied on Setonix once it's back from
 maintenance (see the prepared move commands in memory/kraken_restructure_plan.md).
 
@@ -88,17 +88,17 @@ CDS-based sequences are used throughout rather than whole-genome sequences: RNA-
 Run from `crypt/` on Setonix, in order:
 
 ```bash
-python kraken/db/kraken_db_search.py --scope          # optional: pangenome.tsv / genus_fill.tsv report
-python kraken/db/kraken_db_search.py --download        # select candidates + download CDS
-python kraken/db/kraken_db_busco.py                    # BUSCO score + threshold + fallback selection
-python kraken/db/kraken_db_build.py                    # build the Kraken2 DB
+python kraken/db/search.py --scope          # optional: pangenome.tsv / genus_fill.tsv report
+python kraken/db/search.py --download        # select candidates + download CDS
+python kraken/db/utilities/busco.py                    # BUSCO score + threshold + fallback selection
+python kraken/db/build.py                    # build the Kraken2 DB
 ```
 
 Or via SLURM: `sbatch kraken/slurm/kraken_db_search.slurm` → `kraken_db_busco.slurm` →
 `kraken_db_build.slurm`. Each step is resumable (accession-level caches); re-running
 after a threshold change only needs `kraken_db_busco.py --finalize-only` (no re-scan).
 
-**Current DB**: `db_v2` (`kraken/output/db/build/data/db_v2/`, ~20GB) — built
+**Current DB**: `db_v2` (`kraken/db/build/data/db_v2/`, ~20GB) — built
 2026-08-16 from 1,017 BUSCO-selected assemblies (thresholds: fungal ≥ 50%, oomycete ≥
 65%). The older `db_pathogens` pilot DB (pre-BUSCO-rebuild) was dropped 2026-08-28 once
 `db_v2` was confirmed current and working.
@@ -117,7 +117,7 @@ Steps 1–2 are written and confirmed working end-to-end on Setonix as of
 and — after the timeout fix below — host genome download all completed
 successfully via `sbatch`). `kraken/run/classify.py` (`--run-list`/`--runs-tsv` +
 `--reads-dir`, confidence=0.15, min-hit-groups=3, results append to
-`kraken/output/run/classify/data/kraken_cache.jsonl`) is the planned basis for
+`kraken/run/kraken_run_assign/data/kraken_cache.jsonl`) is the planned basis for
 `kraken_run_assign.py` — kept in the active tree for that reason, not yet wired into
 the new flow.
 
@@ -233,8 +233,8 @@ those runs turned out to have unknown ground truth and weren't suitable as contr
 
 | File | Contents |
 |------|----------|
-| `kraken/output/db/search/data/ref_candidates.tsv` | Candidate assemblies (seed pan-genome + genus fill-in), pre-BUSCO |
-| `kraken/output/db/busco/data/busco_scores.tsv` | Merged: candidate metadata + BUSCO score + pass/fail + final `selected` decision |
-| `kraken/output/db/build/data/db_v2/` | Current Kraken2 DB (gitignored; see `manifest.tsv` alongside it) |
-| `kraken/output/run/classify/data/kraken_cache.jsonl` | Append-only classification cache; one JSON object per run |
-| `kraken/output/run/select/data/run_list.tsv` | Submodule 2 target BioSamples/Runs + host resolution + download status |
+| `kraken/db/search/data/ref_candidates.tsv` | Candidate assemblies (seed pan-genome + genus fill-in), pre-BUSCO |
+| `kraken/db/utilities/busco/data/busco_scores.tsv` | Merged: candidate metadata + BUSCO score + pass/fail + final `selected` decision |
+| `kraken/db/build/data/db_v2/` | Current Kraken2 DB (gitignored; see `manifest.tsv` alongside it) |
+| `kraken/run/kraken_run_assign/data/kraken_cache.jsonl` | Append-only classification cache; one JSON object per run |
+| `kraken/run/kraken_run_select/data/run_list.tsv` | Submodule 2 target BioSamples/Runs + host resolution + download status |

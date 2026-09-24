@@ -24,7 +24,7 @@
 #                `gzip -t` pass is not evidence that the download finished.
 #
 # Expected read counts come from NCBI STAT's own tax_totals.total, already held
-# in stat/output/stat_fetch/data/stat_cache.jsonl for 607k runs (0.3% of which
+# in stat/stat_fetch/data/stat_cache.jsonl for 607k runs (0.3% of which
 # STAT subsampled, where analysed < total; total is still the true spot count).
 # Extracted to spots.tsv and shipped alongside this job.
 #
@@ -35,7 +35,7 @@
 # Paired runs: each mate file should hold `spots` records, so expected records
 # per file == spots regardless of mate.
 #
-# Output: kraken/output/run/select/data/verify_%a.tsv
+# Output: kraken/run/kraken_run_select/data/verify_%a.tsv
 #   file  kind(gz|raw)  bytes  twin(yes|no)  records  expected  ratio  integrity  verdict
 #
 #   verdict  COMPLETE    integrity ok and records within 1% of expected
@@ -45,13 +45,13 @@
 #            NO_EXPECTED no spot count available for this run
 #
 # Run from crypt/: sbatch kraken/slurm/kraken_run_verify.slurm
-# Collate:         cat kraken/output/run/select/data/verify_*.tsv > verify.tsv
+# Collate:         cat kraken/run/kraken_run_select/data/verify_*.tsv > verify.tsv
 
 set -uo pipefail
 
-READS=/scratch/pawsey1168/llenzo/crypt/kraken/output/run/select/data/reads
-OUT=/scratch/pawsey1168/llenzo/crypt/kraken/output/run/select/data
-SPOTS=/scratch/pawsey1168/llenzo/crypt/kraken/output/run/select/data/spots.tsv
+READS=/scratch/pawsey1168/llenzo/crypt/kraken/run/kraken_run_select/data/reads
+OUT=/scratch/pawsey1168/llenzo/crypt/kraken/run/kraken_run_select/data
+SPOTS=/scratch/pawsey1168/llenzo/crypt/kraken/run/kraken_run_select/data/spots.tsv
 THREADS=${SLURM_CPUS_PER_TASK:-8}
 TASK=${SLURM_ARRAY_TASK_ID:-0}
 NTASK=${SLURM_ARRAY_TASK_COUNT:-1}

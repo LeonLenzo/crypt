@@ -60,7 +60,7 @@ The metadata module enriches all 1,285 BioProjects and 9,002 BioSamples from `ru
 
 The dominance of single-pathogen-focus studies (530/732, 72%) reflects the sampling design: both MAL and HAL query by known PHI-base pathogen species, selecting for experiments with a defined pathogen target. The 69 intentional-multi-pathogen BioProjects are flagged (`llm_coinfection_intent == "intentional_multi_pathogen"`) for exclusion from co-infection rate calculations, as their secondary detections are experimental rather than incidental.
 
-**Setting effect on co-infection rate** (see `metadata/figures/sample_funnel_v3.py`, 6,467 classified BioSamples): field-collected BioSamples show an 11.1% biotic-only cryptic co-infection rate versus 4.0% in greenhouse and 7.8% in other controlled settings (growth chamber, detached-leaf assay, in vitro) — the field rate is roughly 2.8x the greenhouse rate, consistent with the ecological hypothesis that field samples encounter ambient pathogen pressure absent from controlled environments.
+**Setting effect on co-infection rate** (see `metadata/meta_classify/figures/sample_funnel_v3.py`, 6,467 classified BioSamples): field-collected BioSamples show an 11.1% biotic-only cryptic co-infection rate versus 4.0% in greenhouse and 7.8% in other controlled settings (growth chamber, detached-leaf assay, in vitro) — the field rate is roughly 2.8x the greenhouse rate, consistent with the ecological hypothesis that field samples encounter ambient pathogen pressure absent from controlled environments.
 
 ## Limitations
 
@@ -76,11 +76,11 @@ The dominance of single-pathogen-focus studies (530/732, 72%) reflects the sampl
 
 | File | Contents |
 |------|----------|
-| `metadata/output/meta_search/data/bioprojects.json` | Title, description, submission/pub date, pmid/doi/pmcid, abstract, full_text — 1,286 BioProjects |
-| `metadata/output/meta_search/data/biosamples.json` | BioSample XML attributes — 9,002 samples (incl. ENA/DDBJ via EBI API) |
-| `metadata/output/meta_text/data/failed_dois.tsv` | BioProjects with a DOI but no full text retrieved by any automated strategy |
-| `metadata/output/meta_classify/data/samples.tsv` | **Primary analysis input.** One row per biosample_representative BioSample, full-text BioProjects only — 6,467 rows. See CLAUDE.md's Output schemas section for the full column list. |
-| `metadata/output/meta_classify/data/classify_cache.jsonl` | Per-BioProject LLM classification cache (resumable) |
-| `metadata/output/meta_classify/data/host_disambig_cache.jsonl` | Per-BioSample host disambiguation cache |
-| `metadata/output/figures/sankey/sample_funnel_v3.html` | Interactive Sankey: BioSample flow from full-text retrieval through tissue/setting/stress to co-infection outcome |
-| `metadata/output/figures/sankey/lit_resolution_alluvial.png` | Literature resolution flow through each strategy |
+| `metadata/meta_search/data/bioprojects.json` | Title, description, submission/pub date, pmid/doi/pmcid, abstract, full_text — 1,286 BioProjects |
+| `metadata/meta_search/data/biosamples.json` | BioSample XML attributes — 9,002 samples (incl. ENA/DDBJ via EBI API) |
+| `metadata/meta_text/data/failed_dois.tsv` | BioProjects with a DOI but no full text retrieved by any automated strategy |
+| `metadata/meta_classify/data/samples.tsv` | **Primary analysis input.** One row per biosample_representative BioSample, full-text BioProjects only — 6,467 rows. See CLAUDE.md's Output schemas section for the full column list. |
+| `metadata/meta_classify/data/classify_cache.jsonl` | Per-BioProject LLM classification cache (resumable) |
+| `metadata/meta_classify/data/host_disambig_cache.jsonl` | Per-BioSample host disambiguation cache |
+| `metadata/meta_classify/figures/sample_funnel_v3.html` | Interactive Sankey: BioSample flow from full-text retrieval through tissue/setting/stress to co-infection outcome |
+| `metadata/meta_text/figures/lit_resolution_alluvial.png` | Literature resolution flow through each strategy |

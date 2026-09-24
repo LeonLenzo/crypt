@@ -1,0 +1,10 @@
+Reads will be discarded after classification (use --reads-dir to keep)
+Loaded 0 runs from /dev/null
+--limit 1: processing 0 runs
+
+Total runs: 0 | Already done: 40 | Remaining: 0
+Settings: n_reads=500,000, confidence=0.15, min_hit_groups=3, workers=8, kraken_threads=4
+DB: /tmp
+Tmp: /tmp/kraken_tmp
+
+All runs already classified. Done.

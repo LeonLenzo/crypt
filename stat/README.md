@@ -69,6 +69,6 @@ The much lower HAL gate pass rate (1.0% vs 13.2% MAL) reflects the difference in
 
 | File | Contents |
 |------|----------|
-| `stat/output/stat_build/data/phibase_db.json` | Reference DB: taxid maps, name allowlists, kingdom assignments |
-| `stat/output/stat_fetch/data/stat_cache.jsonl` | Unified cache: RunInfo + STAT per run, append-only (607,197 entries) |
-| `stat/output/stat_filter/data/runs.tsv` | 10,995 confirmed runs; one row per run with co-infection classification |
+| `stat/stat_build/data/phibase_db.json` | Reference DB: taxid maps, name allowlists, kingdom assignments |
+| `stat/stat_fetch/data/stat_cache.jsonl` | Unified cache: RunInfo + STAT per run, append-only (607,197 entries) |
+| `stat/stat_filter/data/runs.tsv` | 10,995 confirmed runs; one row per run with co-infection classification |

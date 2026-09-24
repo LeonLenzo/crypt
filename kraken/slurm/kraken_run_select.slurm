@@ -47,4 +47,4 @@ export KRSEL_GZIP_THREADS=8
 cd /scratch/pawsey1168/llenzo/crypt || exit 1
 
 echo "host=$(hostname) job=$SLURM_JOB_ID cpus=${SLURM_CPUS_PER_TASK:-?} pigz_threads=$KRSEL_GZIP_THREADS"
-python kraken/run/kraken_run_select.py --download --workers 8
+python kraken/run/kraken_run_select/kraken_run_select.py --download --workers 8

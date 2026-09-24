@@ -32,7 +32,7 @@ export OPENBLAS_NUM_THREADS=1
 export MKL_NUM_THREADS=1
 
 SCRATCH="/scratch/pawsey1168/llenzo"
-GENOMES_DIR="$SCRATCH/crypt/kraken/output/db/search/data/cds/pathogen"
+GENOMES_DIR="$SCRATCH/crypt/kraken/db/search/data/cds/pathogen"
 
 mkdir -p kraken/slurm/logs
 
@@ -42,7 +42,7 @@ echo "genomes dir : $GENOMES_DIR"
 echo "python      : $(python3 -c 'import sys,numpy;print(sys.version.split()[0], "numpy", numpy.__version__)')"
 echo
 
-python3 -u kraken/db/kraken_db_saturation.py \
+python3 -u kraken/db/utilities/saturation/saturation.py \
     --genomes-dir "$GENOMES_DIR" \
     --stage all \
     --workers 64 \

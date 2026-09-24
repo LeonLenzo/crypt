@@ -42,18 +42,18 @@ module load kraken2/2.1.2-qk2lek6
 
 cd /scratch/pawsey1168/llenzo/crypt || exit 1
 
-DB=kraken/output/db/build/data/db_v2
-READS=kraken/output/run/select/data/reads
-RUNS=kraken/output/run/select/data/run_list.tsv
+DB=kraken/db/build/data/db_v2
+READS=kraken/run/kraken_run_select/data/reads
+RUNS=kraken/run/kraken_run_select/data/run_list.tsv
 
 echo "host=$(hostname) job=$SLURM_JOB_ID task=$SLURM_ARRAY_TASK_ID cpus=${SLURM_CPUS_PER_TASK:-?}"
 kraken2 --version | head -1
 
-python kraken/run/kraken_run_assign.py \
+python kraken/run/kraken_run_assign/kraken_run_assign.py \
   --runs-tsv  "$RUNS" \
   --reads-dir "$READS" \
   --db        "$DB" \
-  --reports-dir kraken/output/run/assign/data/reports \
+  --reports-dir kraken/run/kraken_run_assign/data/reports \
   --workers 8 \
   --kraken-threads 4 \
   --array-id    "$SLURM_ARRAY_TASK_ID" \

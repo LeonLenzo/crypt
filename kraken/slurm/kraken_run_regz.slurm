@@ -35,7 +35,7 @@
 
 set -uo pipefail
 
-READS=/scratch/pawsey1168/llenzo/crypt/kraken/output/run/select/data/reads
+READS=/scratch/pawsey1168/llenzo/crypt/kraken/run/kraken_run_select/data/reads
 THREADS=${SLURM_CPUS_PER_TASK:-8}
 TASK=${SLURM_ARRAY_TASK_ID:-0}
 NTASK=${SLURM_ARRAY_TASK_COUNT:-1}

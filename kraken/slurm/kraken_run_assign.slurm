@@ -52,6 +52,14 @@ DB=kraken/build/data/db_v3
 READS=kraken/select/data/reads
 RUNS=kraken/select/data/run_list.tsv
 
+# --tmp-dir must be set explicitly. kraken_assign.py defaults it to $MYSCRATCH, and
+# MYSCRATCH follows PAWSEY_PROJECT, which is still the deprecated fl3 on this account:
+# /scratch/fl3/llenzo. The 2026-09-25 run lost 443 of 3,225 runs to
+# "[Errno 2] No such file or directory: /scratch/fl3/llenzo/kraken_tmp/<run>", the
+# per-run dir disappearing after it was created, consistent with fl3 being decommissioned
+# underneath the job. Never let this default through on Setonix.
+TMP=/scratch/pawsey1168/llenzo/kraken_tmp
+
 echo "host=$(hostname) job=$SLURM_JOB_ID task=$SLURM_ARRAY_TASK_ID cpus=${SLURM_CPUS_PER_TASK:-?}"
 kraken2 --version | head -1
 
@@ -60,6 +68,7 @@ python kraken/assign/kraken_assign.py \
   --reads-dir "$READS" \
   --db        "$DB" \
   --reports-dir kraken/assign/data/reports \
+  --tmp-dir     "$TMP" \
   --workers 4 \
   --kraken-threads 8 \
   --array-id    "$SLURM_ARRAY_TASK_ID" \

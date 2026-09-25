@@ -53,11 +53,9 @@ records what's in a gitignored `data/` dir (path/size/mtime, +md5 for `.k2d` fil
 Setonix data stays visible from the repo without being tracked; kraken/ is its first user
 but it's module-agnostic, not kraken-specific.
 
-Output convention matches `stat/` and `metadata/`, with the db/run split mirrored:
-`kraken/output/{db,run}/{search,busco,build,select,classify}/{data,logs}/`. Figure
-scripts are the one exception — output stays in a shared `kraken/output/figures/`
-collection dir regardless of which submodule the script lives in, matching how
-`stat/output/figures/` and `metadata/output/figures/` work. Large data (CDS downloads,
+Output convention matches `stat/` and `metadata/`: each script owns its outputs, at
+`kraken/<step>/{data,logs,figures}/`. The shared `kraken/output/` tree, including the
+collected `kraken/output/figures/`, is gone. Large data (CDS downloads,
 BUSCO lineage caches, Kraken2 DBs, downloaded FASTQ) lives gitignored under `data/`;
 small tracked TSVs (`ref_candidates.tsv`, `busco_scores.tsv`, `manifest.tsv`) live
 alongside it in the same directory.
@@ -66,10 +64,13 @@ alongside it in the same directory.
 subdirectories matching the two submodules (Leon's call — "let's have separate
 kraken/db and kraken/run dirs"). Filenames kept their full `kraken_db_`/`kraken_run_`
 prefixes (searchable/greppable as-is) even though now slightly redundant with the
-parent directory name. Output directories were moved to mirror the split
-(`kraken/output/kraken_db_search/` → `kraken/search/`, etc.) — this was
-done locally and needs the equivalent move applied on Setonix once it's back from
-maintenance (see the prepared move commands in memory/kraken_restructure_plan.md).
+parent directory name.
+
+**2026-09-25 flatten**: the `db/` + `run/` layer was dropped again. Directories lost the
+module prefix and scripts kept it, so the pipeline is `kraken/{search,build,select,assign}/
+kraken_<step>.py`, with analysis and QC under `kraken/utilities/`. The Setonix scratch
+data was migrated to match on the same day (same-filesystem renames) and the remote
+repo pulled, so local and Setonix now share one layout.
 
 ## Database design
 

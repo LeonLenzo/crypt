@@ -4,7 +4,7 @@ crypt_host_tree.py
 
 NCBI taxonomy tree of plant host species across the 2,719-sample field/aerial
 validation cohort (metadata/classify/data/samples.tsv, same
-selection as kraken/run/kraken_run_select.py's default scope). Each tip = one
+selection as kraken/select/kraken_select.py's default scope). Each tip = one
 host species; n_biosamples = BioSamples in the cohort resolved to that host.
 
 Rebuilt 2026-09-01 from the retired metadata/legacy/figures/crypt_host_tree.py

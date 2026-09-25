@@ -11,7 +11,7 @@
 set -euo pipefail
 module load bwa/0.7.17 samtools/1.15
 CDS=/scratch/pawsey1168/llenzo/crypt/kraken/search/data/cds/pathogen
-W=/scratch/pawsey1168/llenzo/crypt/kraken/output/run/phak_cf; cd $W
+W=/scratch/pawsey1168/llenzo/crypt/kraken/assign/data/phak_cf; cd $W
 
 echo "=== combined tagged reference $(date) ==="
 : > combined.fa

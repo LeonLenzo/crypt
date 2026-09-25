@@ -56,8 +56,8 @@ busco_downloads/
 # Kraken2 classify cache — large, regeneratable on Setonix
 kraken/assign/data/kraken_cache*.jsonl
 kraken/assign/data/kraken_cache*.txt
-kraken/assign/data/reports/
-kraken/assign/data/reports_v1/
+# every reports dir is data: reports/ is the current DB's, reports_db_v2/ the baseline
+kraken/assign/data/reports*/
 # ad-hoc classification analyses run from kraken/slurm/ (db_v2-vs-v3 comparison,
 # the Phakopsora counterfactual): reports and extracted reads, both regenerable
 kraken/assign/data/compare_v2v3/

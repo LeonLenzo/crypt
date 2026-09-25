@@ -377,12 +377,22 @@ def main() -> None:
         sys.exit("Error: pass --run-list PATH or --runs-tsv PATH — no default run "
                   "source (see --help).")
 
-    # ── Resume from cache ──────────────────────────────────────────────────────
+    # ── Slice the array FIRST, then resume ─────────────────────────────────────
+    # Order matters. Striding the resume-filtered list gives every task a different
+    # list to stride, because each reads the cache at its own start time, so the
+    # slices stop partitioning the work: the 2026-09-25 db_v3 run classified 542 runs
+    # twice and left ~800 assigned to no task at all. Slicing the full, stable run
+    # list keeps every task's share fixed no matter what the cache holds, and resume
+    # still works because the filter is applied to the slice afterwards.
     done = _load_cache_index(cache_dir)
-    todo = [r for r in all_run_ids if r not in done]
     if args.array_id is not None and args.array_count:
-        todo = todo[args.array_id::args.array_count]
-        print(f"Array task {args.array_id}/{args.array_count}: {len(todo)} runs assigned")
+        mine = all_run_ids[args.array_id::args.array_count]
+        todo = [r for r in mine if r not in done]
+        print(f"Array task {args.array_id}/{args.array_count}: "
+              f"{len(mine)} runs in slice, {len(mine) - len(todo)} already done, "
+              f"{len(todo)} to do")
+    else:
+        todo = [r for r in all_run_ids if r not in done]
 
     if args.limit:
         todo = todo[:args.limit]

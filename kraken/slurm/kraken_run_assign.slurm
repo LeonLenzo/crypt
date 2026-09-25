@@ -18,7 +18,8 @@
 #
 # The split/host-removal step is deliberately skipped. Host-read removal was
 # measured to change the reported percentage, not what Kraken2 finds, because
-# db_v2 is pathogen-only (ratio 1.00x across 5 ground-truth runs).
+# db_v2 was pathogen-only (ratio 1.00x across 5 ground-truth runs). db_v3 holds host
+# CDS, but the same finding stands: see crypt-host-removal-not-needed.
 #
 #   cd /scratch/pawsey1168/llenzo/crypt
 #   sbatch kraken/slurm/kraken_run_assign.slurm
@@ -26,9 +27,14 @@
 # 16 array tasks, strided (todo[array_id::array_count]) so each gets a mixed
 # spread of run sizes rather than a contiguous block. ~200 runs per task.
 #
-# --mem=200G with --workers 8: each kraken2 process loads db_v2 (20 GB) into RAM
-# unless --memory-mapping is used. Node has 245 GB. If memory becomes the limit,
-# add --memory-mapping to share one on-disk copy instead, at some speed cost.
+# --mem=200G with --workers 4: each kraken2 process loads db_v3's 27.4 GB hash.k2d
+# into RAM, so 4 x 27.4 = 110 GB on a 245 GB node. db_v2 was 6.3 GB and allowed 8.
+#
+# Do NOT use --memory-mapping here, despite what the db_v2-era note said. Benchmarked
+# 2026-09-25 on the 5 ground-truth runs: the RAM config finished in 3m42s, while the
+# mmap config wrote zero reports in 13 minutes with kraken2 pinned at 1.6% CPU. The
+# index lives on Lustre and Kraken2's hash lookups are random access, so every page
+# fault becomes a filesystem RPC. It does not amortise; it is I/O bound throughout.
 #
 # The kraken2 timeout inside classify.py scales with input size. Do not replace
 # it with a flat value: that is precisely what silently truncated 224 files
@@ -42,7 +48,7 @@ module load kraken2/2.1.2-qk2lek6
 
 cd /scratch/pawsey1168/llenzo/crypt || exit 1
 
-DB=kraken/build/data/db_v2
+DB=kraken/build/data/db_v3
 READS=kraken/select/data/reads
 RUNS=kraken/select/data/run_list.tsv
 
@@ -54,7 +60,7 @@ python kraken/assign/kraken_assign.py \
   --reads-dir "$READS" \
   --db        "$DB" \
   --reports-dir kraken/assign/data/reports \
-  --workers 8 \
-  --kraken-threads 4 \
+  --workers 4 \
+  --kraken-threads 8 \
   --array-id    "$SLURM_ARRAY_TASK_ID" \
   --array-count "$SLURM_ARRAY_TASK_COUNT"

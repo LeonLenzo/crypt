@@ -12,7 +12,7 @@
 
 # Submodule 2 step 3/3: Kraken2 classification of the downloaded cohort.
 #
-# No new script was needed. kraken/run/kraken_run_assign.py already handles pre-downloaded
+# No new script was needed. kraken/assign.py already handles pre-downloaded
 # reads via --reads-dir, finds {run}_1.fastq.gz/_2.fastq.gz, skips empty archives,
 # and is resumable through kraken_cache.jsonl + kraken_cache_index.txt.
 #
@@ -42,18 +42,18 @@ module load kraken2/2.1.2-qk2lek6
 
 cd /scratch/pawsey1168/llenzo/crypt || exit 1
 
-DB=kraken/db/build/data/db_v2
-READS=kraken/run/kraken_run_select/data/reads
-RUNS=kraken/run/kraken_run_select/data/run_list.tsv
+DB=kraken/build/data/db_v2
+READS=kraken/select/data/reads
+RUNS=kraken/select/data/run_list.tsv
 
 echo "host=$(hostname) job=$SLURM_JOB_ID task=$SLURM_ARRAY_TASK_ID cpus=${SLURM_CPUS_PER_TASK:-?}"
 kraken2 --version | head -1
 
-python kraken/run/kraken_run_assign/kraken_run_assign.py \
+python kraken/assign/kraken_assign.py \
   --runs-tsv  "$RUNS" \
   --reads-dir "$READS" \
   --db        "$DB" \
-  --reports-dir kraken/run/kraken_run_assign/data/reports \
+  --reports-dir kraken/assign/data/reports \
   --workers 8 \
   --kraken-threads 4 \
   --array-id    "$SLURM_ARRAY_TASK_ID" \

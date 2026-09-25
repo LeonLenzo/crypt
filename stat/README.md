@@ -21,7 +21,7 @@ Notably, `txid{n}[Host]` does not work as an SRA eSearch field — it is a free-
 
 ### Reference database
 
-`stat/stat_build.py` constructs a local reference database (`phibase_db.json`) from PHI-base (plant entries, eukaryotic pathogens only):
+`stat/build.py` constructs a local reference database (`phibase_db.json`) from PHI-base (plant entries, eukaryotic pathogens only):
 
 - **PHI-base** fungi + oomycetes: 205 seed pathogen taxids expanded to all descendant strains, formae speciales, and named variants via `ete3 NCBITaxa`. The expansion uses `intermediate_nodes=True`, which is essential — the default returns only leaf taxa, silently dropping species nodes that have named strains as children (affecting rust f. sp. taxa and many other plant pathogens).
 
@@ -29,7 +29,7 @@ The database contains 665 pathogen taxids (Fungi + Oomycota scope), a 21,352-ent
 
 ### Co-infection detection
 
-For each run passing the retention gate, `specific_hits()` in `stat/stat_filter.py` identifies leaf-level species detections by finding k-mer counts not nested under any more-specific count — returning species-diagnostic signal rather than genus-level aggregates. This is the core non-trivial algorithm; genus-level counts in STAT reflect LCA promotion of shared k-mers and are not informative for co-infection detection.
+For each run passing the retention gate, `specific_hits()` in `stat/filter.py` identifies leaf-level species detections by finding k-mer counts not nested under any more-specific count — returning species-diagnostic signal rather than genus-level aggregates. This is the core non-trivial algorithm; genus-level counts in STAT reflect LCA promotion of shared k-mers and are not informative for co-infection detection.
 
 Detected species are classified by their interaction status relative to the study host:
 
@@ -69,6 +69,6 @@ The much lower HAL gate pass rate (1.0% vs 13.2% MAL) reflects the difference in
 
 | File | Contents |
 |------|----------|
-| `stat/stat_build/data/phibase_db.json` | Reference DB: taxid maps, name allowlists, kingdom assignments |
-| `stat/stat_fetch/data/stat_cache.jsonl` | Unified cache: RunInfo + STAT per run, append-only (607,197 entries) |
-| `stat/stat_filter/data/runs.tsv` | 10,995 confirmed runs; one row per run with co-infection classification |
+| `stat/build/data/phibase_db.json` | Reference DB: taxid maps, name allowlists, kingdom assignments |
+| `stat/fetch/data/stat_cache.jsonl` | Unified cache: RunInfo + STAT per run, append-only (607,197 entries) |
+| `stat/filter/data/runs.tsv` | 10,995 confirmed runs; one row per run with co-infection classification |

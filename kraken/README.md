@@ -67,7 +67,7 @@ subdirectories matching the two submodules (Leon's call — "let's have separate
 kraken/db and kraken/run dirs"). Filenames kept their full `kraken_db_`/`kraken_run_`
 prefixes (searchable/greppable as-is) even though now slightly redundant with the
 parent directory name. Output directories were moved to mirror the split
-(`kraken/output/kraken_db_search/` → `kraken/db/search/`, etc.) — this was
+(`kraken/output/kraken_db_search/` → `kraken/search/`, etc.) — this was
 done locally and needs the equivalent move applied on Setonix once it's back from
 maintenance (see the prepared move commands in memory/kraken_restructure_plan.md).
 
@@ -88,17 +88,22 @@ CDS-based sequences are used throughout rather than whole-genome sequences: RNA-
 Run from `crypt/` on Setonix, in order:
 
 ```bash
-python kraken/db/search.py --scope          # optional: pangenome.tsv / genus_fill.tsv report
-python kraken/db/search.py --download        # select candidates + download CDS
-python kraken/db/utilities/busco.py                    # BUSCO score + threshold + fallback selection
-python kraken/db/build.py                    # build the Kraken2 DB
+python kraken/search/kraken_search.py --scope       # optional: pangenome.tsv / genus_fill.tsv report
+python kraken/search/kraken_search.py --download    # select candidates + download CDS
+python kraken/search/kraken_hosts.py                # resolve + download host CDS
+python kraken/utilities/busco/kraken_busco.py       # BUSCO score + threshold + fallback selection
+python kraken/build/kraken_build.py                 # build the Kraken2 DB
 ```
 
 Or via SLURM: `sbatch kraken/slurm/kraken_db_search.slurm` → `kraken_db_busco.slurm` →
 `kraken_db_build.slurm`. Each step is resumable (accession-level caches); re-running
 after a threshold change only needs `kraken_db_busco.py --finalize-only` (no re-scan).
 
-**Current DB**: `db_v2` (`kraken/db/build/data/db_v2/`, ~20GB) — built
+**Current DB**: `db_v3` (`kraken/build/data/db_v3/`), built 2026-09-24, 2,115
+assemblies and 1,043 taxa, `hash.k2d` 27.4 GB. Superseded `db_v2`, below, which is kept
+only as the comparison baseline. The fuller docs reconcile is still outstanding.
+
+**Previous DB**: `db_v2` (`kraken/build/data/db_v2/`, ~20GB) — built
 2026-08-16 from 1,017 BUSCO-selected assemblies (thresholds: fungal ≥ 50%, oomycete ≥
 65%). The older `db_pathogens` pilot DB (pre-BUSCO-rebuild) was dropped 2026-08-28 once
 `db_v2` was confirmed current and working.
@@ -106,10 +111,12 @@ after a threshold change only needs `kraken_db_busco.py --finalize-only` (no re-
 ## Running submodule 2 (select → split → assign)
 
 ```bash
-python kraken/run/kraken_run_select.py --limit N --download   # select + download reads only
-python kraken/run/kraken_run_split.py --build-index            # resolve+download host genomes, build per-taxid indices
-python kraken/run/kraken_run_split.py                          # + split
-python kraken/run/kraken_run_assign.py                         # NOT YET BUILT — Kraken2 classification
+python kraken/select/kraken_select.py --limit N --download   # select + download reads only
+python kraken/assign/kraken_assign.py --db <db> --reads-dir <dir>  # Kraken2 classification
+
+# deprecated, kept for history — host removal changes the percentage, not what Kraken2 finds:
+python kraken/utilities/split/kraken_split.py --build-index
+python kraken/utilities/split/kraken_split.py
 ```
 
 Steps 1–2 are written and confirmed working end-to-end on Setonix as of
@@ -117,7 +124,7 @@ Steps 1–2 are written and confirmed working end-to-end on Setonix as of
 and — after the timeout fix below — host genome download all completed
 successfully via `sbatch`). `kraken/run/classify.py` (`--run-list`/`--runs-tsv` +
 `--reads-dir`, confidence=0.15, min-hit-groups=3, results append to
-`kraken/run/kraken_run_assign/data/kraken_cache.jsonl`) is the planned basis for
+`kraken/assign/data/kraken_cache.jsonl`) is the planned basis for
 `kraken_run_assign.py` — kept in the active tree for that reason, not yet wired into
 the new flow.
 
@@ -233,8 +240,8 @@ those runs turned out to have unknown ground truth and weren't suitable as contr
 
 | File | Contents |
 |------|----------|
-| `kraken/db/search/data/ref_candidates.tsv` | Candidate assemblies (seed pan-genome + genus fill-in), pre-BUSCO |
-| `kraken/db/utilities/busco/data/busco_scores.tsv` | Merged: candidate metadata + BUSCO score + pass/fail + final `selected` decision |
-| `kraken/db/build/data/db_v2/` | Current Kraken2 DB (gitignored; see `manifest.tsv` alongside it) |
-| `kraken/run/kraken_run_assign/data/kraken_cache.jsonl` | Append-only classification cache; one JSON object per run |
-| `kraken/run/kraken_run_select/data/run_list.tsv` | Submodule 2 target BioSamples/Runs + host resolution + download status |
+| `kraken/search/data/ref_candidates.tsv` | Candidate assemblies (seed pan-genome + genus fill-in), pre-BUSCO |
+| `kraken/utilities/busco/data/busco_scores.tsv` | Merged: candidate metadata + BUSCO score + pass/fail + final `selected` decision |
+| `kraken/build/data/db_v2/` | Current Kraken2 DB (gitignored; see `manifest.tsv` alongside it) |
+| `kraken/assign/data/kraken_cache.jsonl` | Append-only classification cache; one JSON object per run |
+| `kraken/select/data/run_list.tsv` | Submodule 2 target BioSamples/Runs + host resolution + download status |

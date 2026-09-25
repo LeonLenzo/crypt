@@ -42,8 +42,8 @@ echo "Starting assembly search: $(date)"
 # Without it, --download re-runs selection here and re-queries NCBI, whose
 # catalogue moves, so this table would stop matching the one in the repo that
 # the build was planned from. Selection is done and reviewed locally.
-python kraken/db/search/search.py --download --from-table --workers 16
+python kraken/search/kraken_search.py --download --from-table --workers 16
 
 echo "Search complete: $(date)"
-echo "Candidates: $(wc -l < kraken/db/search/data/ref_candidates.tsv) rows (incl. header)"
+echo "Candidates: $(wc -l < kraken/search/data/ref_candidates.tsv) rows (incl. header)"
 echo "Next: sbatch kraken/slurm/kraken_db_busco.slurm"

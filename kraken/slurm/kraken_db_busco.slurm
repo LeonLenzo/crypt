@@ -18,7 +18,7 @@
 #   2. git pull on Setonix to get the latest ref_candidates.tsv (if selected locally)
 #
 # Lineage DBs are downloaded automatically inside this script to
-# $SCRATCH/crypt/kraken/db/utilities/busco/data/busco_downloads/lineages/.
+# $SCRATCH/crypt/kraken/utilities/busco/data/busco_downloads/lineages/.
 #
 # Run from crypt/: sbatch kraken/slurm/kraken_db_busco.slurm
 
@@ -28,9 +28,9 @@ module load python/3.11.6
 module load singularity/3.11.4-nompi
 
 SCRATCH="/scratch/pawsey1168/llenzo"
-GENOMES_DIR="$SCRATCH/crypt/kraken/db/search/data/cds/pathogen"
+GENOMES_DIR="$SCRATCH/crypt/kraken/search/data/cds/pathogen"
 BUSCO_OUT="$SCRATCH/kraken/busco"
-BUSCO_DB_PATH="$SCRATCH/crypt/kraken/db/utilities/busco/data/busco_downloads"
+BUSCO_DB_PATH="$SCRATCH/crypt/kraken/utilities/busco/data/busco_downloads"
 # The BUSCO container lives on /software (project storage, not purged), NOT on
 # /scratch, which the 21-day purge wipes — a purged container silently marks every
 # assembly busco_error in ~90 s (seen 2026-09-24). Prefer the persistent copy; fall
@@ -96,7 +96,7 @@ echo "Genomes dir:  $GENOMES_DIR"
 echo "BUSCO out:    $BUSCO_OUT"
 echo "BUSCO DBs:    $BUSCO_DB_PATH"
 
-python kraken/db/utilities/busco/busco.py \
+python kraken/utilities/busco/kraken_busco.py \
     --genomes-dir    "$GENOMES_DIR" \
     --busco-out      "$BUSCO_OUT" \
     --busco-db-path  "$BUSCO_DB_PATH" \

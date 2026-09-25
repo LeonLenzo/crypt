@@ -10,17 +10,17 @@ This module enriches the STAT detections from `runs.tsv` with three layers of co
 
 ### BioProject and BioSample metadata + literature linkage (`meta_search.py`)
 
-`metadata/meta_search.py` resolves BioProject/BioSample metadata and literature identifiers in one atomic pass per BioProject, matching NCBI's actual resolution cascade: BioProject XML `<Publication>` field → PMC full-text search → PubMed title search — all NCBI-XML derived, including bare-DOI-no-PMID cases. Only if all three find nothing does it fall through to a Serper web search, then finally DOI extraction/page scrape/CrossRef/PMC-by-DOI. This replaces the old `ncbi_metadata.py` + `web_metadata.py` split.
+`metadata/search.py` resolves BioProject/BioSample metadata and literature identifiers in one atomic pass per BioProject, matching NCBI's actual resolution cascade: BioProject XML `<Publication>` field → PMC full-text search → PubMed title search — all NCBI-XML derived, including bare-DOI-no-PMID cases. Only if all three find nothing does it fall through to a Serper web search, then finally DOI extraction/page scrape/CrossRef/PMC-by-DOI. This replaces the old `ncbi_metadata.py` + `web_metadata.py` split.
 
 BioSample XML is parsed for a harmonised field set (`geo_loc_name`, `tissue`, `collection_date`, `isolation_source`, `dev_stage`, `lat_lon`, `host`). Coverage is uneven — the SRA submission process does not mandate these fields, and a nontrivial fraction of populated fields are NCBI placeholder values (`missing`, `not applicable`, `not collected`) rather than real data — see Results below for filtered coverage numbers. `meta_search.py` also fetches ENA/DDBJ BioSamples (`SAME*`/`SAMD*` accessions, which return empty from NCBI efetch) via the EBI BioSamples API; its `bs_description` field (e.g. "RNA-Seq of a field sample of Wheat Yellow Rust") is a particularly strong signal fed directly into the LLM classification prompt.
 
 ### Full-text retrieval (`meta_text.py`)
 
-`metadata/meta_text.py` retrieves full manuscript text, in cascade order: PMC OA full-text XML (free, complete, no PDF-parsing artifacts, when `meta_search.py` already resolved a PMCID) → Unpaywall → PDF download → `pdfminer` extraction → manual PDF fallback (`--ingest-manual`, for hand-downloaded PDFs matched against the failed-DOI list). `--apply` writes `full_text` back into `bioprojects.json` in place, which gates entry into classification below — **only BioProjects with retrievable full text are classified at all**, avoiding the old pipeline's failure mode of guessing study design from a title alone.
+`metadata/text.py` retrieves full manuscript text, in cascade order: PMC OA full-text XML (free, complete, no PDF-parsing artifacts, when `meta_search.py` already resolved a PMCID) → Unpaywall → PDF download → `pdfminer` extraction → manual PDF fallback (`--ingest-manual`, for hand-downloaded PDFs matched against the failed-DOI list). `--apply` writes `full_text` back into `bioprojects.json` in place, which gates entry into classification below — **only BioProjects with retrievable full text are classified at all**, avoiding the old pipeline's failure mode of guessing study design from a title alone.
 
 ### LLM study design classification (`meta_classify.py`)
 
-`metadata/meta_classify.py` replaces the old keyword-based classifier (`filter_kw.py`) and single-pass LLM classifier (`llm_classify.py`) entirely — keyword classification is not used at all in the current pipeline; the old approach's ~51% misclassification rate for `host_study` (pathogen/disease language co-occurring with host biology language) made it unreliable as anything but a discarded baseline.
+`metadata/classify.py` replaces the old keyword-based classifier (`filter_kw.py`) and single-pass LLM classifier (`llm_classify.py`) entirely — keyword classification is not used at all in the current pipeline; the old approach's ~51% misclassification rate for `host_study` (pathogen/disease language co-occurring with host biology language) made it unreliable as anything but a discarded baseline.
 
 Six LLM calls per BioProject (`gpt-4o-mini`): five independent judgment dimensions — `stress` (biotic/abiotic/none), `study_setting` (field/greenhouse/growth_chamber/detached_leaf_assay/in_vitro/unclear), `tissue` (aerial/non-aerial/unclear), `coinfection_intent` (single_pathogen_focus/not_disease_focused/intentional_multi_pathogen), and `hostpath` (named pathogens + named hosts, each as a list with its own confidence) — each with its own confidence + rationale, plus one fact-extraction call for symptom status, exposure type, geographic location, library prep, host cultivar, and host resistance. `--focus {stress|setting|tissue|coinfection|hostpath|extract}` reruns a single dimension.
 
@@ -60,7 +60,7 @@ The metadata module enriches all 1,285 BioProjects and 9,002 BioSamples from `ru
 
 The dominance of single-pathogen-focus studies (530/732, 72%) reflects the sampling design: both MAL and HAL query by known PHI-base pathogen species, selecting for experiments with a defined pathogen target. The 69 intentional-multi-pathogen BioProjects are flagged (`llm_coinfection_intent == "intentional_multi_pathogen"`) for exclusion from co-infection rate calculations, as their secondary detections are experimental rather than incidental.
 
-**Setting effect on co-infection rate** (see `metadata/meta_classify/figures/sample_funnel_v3.py`, 6,467 classified BioSamples): field-collected BioSamples show an 11.1% biotic-only cryptic co-infection rate versus 4.0% in greenhouse and 7.8% in other controlled settings (growth chamber, detached-leaf assay, in vitro) — the field rate is roughly 2.8x the greenhouse rate, consistent with the ecological hypothesis that field samples encounter ambient pathogen pressure absent from controlled environments.
+**Setting effect on co-infection rate** (see `metadata/classify/figures/sample_funnel_v3.py`, 6,467 classified BioSamples): field-collected BioSamples show an 11.1% biotic-only cryptic co-infection rate versus 4.0% in greenhouse and 7.8% in other controlled settings (growth chamber, detached-leaf assay, in vitro) — the field rate is roughly 2.8x the greenhouse rate, consistent with the ecological hypothesis that field samples encounter ambient pathogen pressure absent from controlled environments.
 
 ## Limitations
 
@@ -76,11 +76,11 @@ The dominance of single-pathogen-focus studies (530/732, 72%) reflects the sampl
 
 | File | Contents |
 |------|----------|
-| `metadata/meta_search/data/bioprojects.json` | Title, description, submission/pub date, pmid/doi/pmcid, abstract, full_text — 1,286 BioProjects |
-| `metadata/meta_search/data/biosamples.json` | BioSample XML attributes — 9,002 samples (incl. ENA/DDBJ via EBI API) |
-| `metadata/meta_text/data/failed_dois.tsv` | BioProjects with a DOI but no full text retrieved by any automated strategy |
-| `metadata/meta_classify/data/samples.tsv` | **Primary analysis input.** One row per biosample_representative BioSample, full-text BioProjects only — 6,467 rows. See CLAUDE.md's Output schemas section for the full column list. |
-| `metadata/meta_classify/data/classify_cache.jsonl` | Per-BioProject LLM classification cache (resumable) |
-| `metadata/meta_classify/data/host_disambig_cache.jsonl` | Per-BioSample host disambiguation cache |
-| `metadata/meta_classify/figures/sample_funnel_v3.html` | Interactive Sankey: BioSample flow from full-text retrieval through tissue/setting/stress to co-infection outcome |
-| `metadata/meta_text/figures/lit_resolution_alluvial.png` | Literature resolution flow through each strategy |
+| `metadata/search/data/bioprojects.json` | Title, description, submission/pub date, pmid/doi/pmcid, abstract, full_text — 1,286 BioProjects |
+| `metadata/search/data/biosamples.json` | BioSample XML attributes — 9,002 samples (incl. ENA/DDBJ via EBI API) |
+| `metadata/text/data/failed_dois.tsv` | BioProjects with a DOI but no full text retrieved by any automated strategy |
+| `metadata/classify/data/samples.tsv` | **Primary analysis input.** One row per biosample_representative BioSample, full-text BioProjects only — 6,467 rows. See CLAUDE.md's Output schemas section for the full column list. |
+| `metadata/classify/data/classify_cache.jsonl` | Per-BioProject LLM classification cache (resumable) |
+| `metadata/classify/data/host_disambig_cache.jsonl` | Per-BioSample host disambiguation cache |
+| `metadata/classify/figures/sample_funnel_v3.html` | Interactive Sankey: BioSample flow from full-text retrieval through tissue/setting/stress to co-infection outcome |
+| `metadata/text/figures/lit_resolution_alluvial.png` | Literature resolution flow through each strategy |

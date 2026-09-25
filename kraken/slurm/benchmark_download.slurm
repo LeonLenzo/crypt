@@ -6,15 +6,15 @@
 #SBATCH --mem=4G
 #SBATCH --time=00:30:00
 #SBATCH --partition=work
-#SBATCH --output=/scratch/pawsey1168/llenzo/crypt/kraken/benchmark_download/data/benchmark_%j.log
+#SBATCH --output=/scratch/pawsey1168/llenzo/crypt/kraken/utilities/benchmark_download/data/benchmark_%j.log
 
 module load python/3.11.6
 
 cd /scratch/pawsey1168/llenzo/crypt
 
-python kraken/benchmark_download/benchmark_download.py \
+python kraken/utilities/benchmark_download/kraken_benchmark_download.py \
     --runs 5 \
     --methods ena-ftp ena-https \
     --workers 1 8 \
     --tmp-dir /scratch/pawsey1168/llenzo/kraken_tmp/bench \
-    --out kraken/benchmark_download/data/benchmark.tsv
+    --out kraken/utilities/benchmark_download/data/benchmark.tsv

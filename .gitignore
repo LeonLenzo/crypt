@@ -58,6 +58,10 @@ kraken/assign/data/kraken_cache*.jsonl
 kraken/assign/data/kraken_cache*.txt
 kraken/assign/data/reports/
 kraken/assign/data/reports_v1/
+# ad-hoc classification analyses run from kraken/slurm/ (db_v2-vs-v3 comparison,
+# the Phakopsora counterfactual): reports and extracted reads, both regenerable
+kraken/assign/data/compare_v2v3/
+kraken/assign/data/phak_cf/
 
 # Old output/ directory — local pipeline data, all superseded by module layout
 /output/

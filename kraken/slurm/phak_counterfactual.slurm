@@ -9,7 +9,11 @@
 #SBATCH --output=/scratch/pawsey1168/llenzo/crypt/kraken/slurm/logs/phak_cf_%j.out
 #SBATCH --error=/scratch/pawsey1168/llenzo/crypt/kraken/slurm/logs/phak_cf_%j.err
 set -euo pipefail
-module load spack/0.23.1 && spack load kraken2 && spack load bwa && spack load samtools
+# bwa and samtools are NOT spack packages here: the 2026-09-25 run died at step 4 with
+# "Error: Spec 'bwa' matches no installed packages" after 6 minutes of work. Plain
+# modules, matching phak_align.slurm which is why that one worked.
+module load kraken2/2.1.2-qk2lek6
+module load bwa/0.7.17 samtools/1.15
 BASE=/scratch/pawsey1168/llenzo/crypt/kraken
 CDS=$BASE/search/data/cds/pathogen
 READS=$BASE/select/data/reads

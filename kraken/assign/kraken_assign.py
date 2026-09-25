@@ -57,7 +57,7 @@ OUT_DIR = Path("kraken/assign")
 
 def _run_kraken2(db_dir: Path, reads: list,
                  report: Path, threads: int, gzipped: bool = False,
-                 mmap: bool = False) -> bool:
+                 mmap: bool = False, minimizer_data: bool = False) -> bool:
     """Run kraken2. reads is [r1] for SE or [r1, r2] for PE.
 
     The timeout scales with input size. A flat timeout is what silently
@@ -77,6 +77,14 @@ def _run_kraken2(db_dir: Path, reads: list,
         "--threads", str(threads),
         "--output", "/dev/null",   # discard per-read output; we only need the report
     ]
+    if minimizer_data:
+        # adds two columns to the report: minimizers and DISTINCT minimizers per taxon.
+        # Distinct minimizers over the taxon's total in the DB (kraken2-inspect) is the
+        # fraction of its k-mer space actually seen — the KrakenUniq criterion, which
+        # separates a real detection from reads piled on one conserved repeat. A flat
+        # read floor cannot: it moved the co-infection rate from 98.8% to 49.7% across
+        # 1 to 10,000 reads with no principled place to stop.
+        cmd.append("--report-minimizer-data")
     if gzipped:
         cmd.append("--gzip-compressed")
     if mmap:
@@ -102,7 +110,14 @@ def _parse_report(report: Path) -> dict:
     n_reads here is the read count kraken2 reports for the run, not the removed
     --n-reads streaming cap. Same name, unrelated quantity.
 
-    Report columns: pct  reads  taxReads  rank  taxid  name
+    Report columns, without --report-minimizer-data:
+        pct  reads  taxReads  rank  taxid  name                        (6 cols)
+    and with it, two columns are inserted after taxReads:
+        pct  reads  taxReads  minimizers  distinct  rank  taxid  name  (8 cols)
+
+    The layout is detected per line from the column count rather than assumed, so a
+    cohort containing both formats still parses. Indexing blind would read the
+    minimizer count as the rank code and silently drop every species.
     """
     species = []
     pct_unclassified = 0.0
@@ -116,11 +131,14 @@ def _parse_report(report: Path) -> dict:
                 parts = [p.strip() for p in line.rstrip("\n").split("\t")]
                 if len(parts) < 6:
                     continue
+                mini = len(parts) >= 8          # --report-minimizer-data layout
                 pct   = float(parts[0])
                 reads = int(parts[1])
-                rank  = parts[3].strip()
-                taxid = int(parts[4].strip())
-                name  = parts[5].strip()
+                rank  = parts[5] if mini else parts[3]
+                taxid = int(parts[6] if mini else parts[4])
+                name  = parts[7] if mini else parts[5]
+                n_min = int(parts[3]) if mini and parts[3].isdigit() else None
+                n_dis = int(parts[4]) if mini and parts[4].isdigit() else None
 
                 if rank == "U":                 # unclassified root
                     pct_unclassified = pct
@@ -130,12 +148,16 @@ def _parse_report(report: Path) -> dict:
                     # (we'll overwrite below with the correct total)
                     pass
                 elif rank == "S" and pct > 0:
-                    species.append({
+                    rec = {
                         "taxid": taxid,
                         "name":  name,
                         "pct":   round(pct, 4),
                         "reads": reads,
-                    })
+                    }
+                    if n_dis is not None:
+                        rec["minimizers"] = n_min
+                        rec["distinct_minimizers"] = n_dis
+                    species.append(rec)
     except Exception:
         pass
 
@@ -178,7 +200,7 @@ def _process_run(run_id: str, db_dir: Path,
                  tmp_dir: Path, threads: int,
                  reads_dir: Path | None = None,
                  reports_dir: Path | None = None,
-                 mmap: bool = False) -> dict:
+                 mmap: bool = False, minimizer_data: bool = False) -> dict:
     """Download, classify, and parse one run. Returns result dict.
 
     If reads_dir is set, gzipped FASTQs are kept after classification.
@@ -218,7 +240,8 @@ def _process_run(run_id: str, db_dir: Path,
             result["error"] = "no_local_reads"
             return result
 
-        ok = _run_kraken2(db_dir, reads, report, threads, gzipped=gzipped, mmap=mmap)
+        ok = _run_kraken2(db_dir, reads, report, threads, gzipped=gzipped, mmap=mmap,
+                          minimizer_data=minimizer_data)
         if not ok or not report.exists():
             result["error"] = "kraken2_failed"
             return result
@@ -299,6 +322,11 @@ def main() -> None:
     ap.add_argument("--reads-dir", required=True,
                     help="If set, gzipped FASTQs are kept here after classification "
                          "(for archival to Acacia). Omit to discard reads immediately.")
+    ap.add_argument("--report-minimizer-data", action="store_true",
+                    help="Ask kraken2 for minimizer and distinct-minimizer counts per "
+                         "taxon. Distinct minimizers over the taxon's DB total gives "
+                         "the fraction of its k-mer space seen, which is what "
+                         "distinguishes a real detection from a read pile-up.")
     ap.add_argument("--memory-mapping", action="store_true",
                     help="kraken2 --memory-mapping: share one on-disk DB across "
                          "workers instead of each loading it into RAM")
@@ -419,7 +447,8 @@ def main() -> None:
         futures = {
             pool.submit(_process_run, run_id, db_dir,
                         tmp_dir, args.kraken_threads, reads_dir, reports_dir,
-                        args.memory_mapping): run_id
+                        args.memory_mapping,
+                        args.report_minimizer_data): run_id
             for run_id in todo
         }
 

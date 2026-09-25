@@ -69,6 +69,7 @@ python kraken/assign/kraken_assign.py \
   --db        "$DB" \
   --reports-dir kraken/assign/data/reports \
   --tmp-dir     "$TMP" \
+  --report-minimizer-data \
   --workers 4 \
   --kraken-threads 8 \
   --array-id    "$SLURM_ARRAY_TASK_ID" \

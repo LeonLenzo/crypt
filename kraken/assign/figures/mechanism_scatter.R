@@ -51,7 +51,9 @@ p <- ggplot(d, aes(x = reads, y = kmer_pct)) +
            label = "1% of k-mer space") +
   scale_x_log10(breaks = c(1e2, 1e3, 1e4, 1e5, 1e6, 1e7),
                 labels = c("100", "1k", "10k", "100k", "1M", "10M")) +
-  scale_y_log10(breaks = 10^(-3:2), labels = pow10) +
+  # data runs to log10 = -4.74, so the ticks have to reach -5 or the axis is
+  # labelled over only part of its range
+  scale_y_log10(breaks = 10^(-5:2), labels = pow10) +
   scale_fill_manual(values = PAL, labels = LAB, name = NULL) +
   scale_shape_manual(values = SHP, labels = LAB, name = NULL) +
   scale_size_manual(values = c(target = 2.6, secondary = 2.6, artefact = 2.6, other = 1.6),

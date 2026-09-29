@@ -46,7 +46,9 @@ p <- ggplot(d, aes(x = reads, y = kmer_pct)) +
   geom_hline(yintercept = 1, linetype = "dashed", linewidth = 1.2, colour = "black") +
   facet_wrap(~class, nrow = 1) +
   scale_x_log10(breaks = c(1e2, 1e4, 1e6), labels = c("100", "10k", "1M")) +
-  scale_y_log10(breaks = 10^(-3:2), labels = pow10) +
+  # data runs to log10 = -4.74, so the ticks have to reach -5 or the axis is
+  # labelled over only part of its range
+  scale_y_log10(breaks = 10^(-5:2), labels = pow10) +
   scale_colour_manual(values = c("above the criterion" = "#2a78d6", "below" = "grey70"),
                       name = NULL) +
   guides(colour = guide_legend(override.aes = list(size = 4.5, alpha = 1))) +

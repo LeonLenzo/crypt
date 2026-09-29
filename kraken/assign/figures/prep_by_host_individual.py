@@ -7,14 +7,15 @@ sys.path.insert(0, str(ROOT / "kraken" / "assign"))
 from kraken_report_analysis import load_reference, load_run_to_biosample, parse_report  # noqa
 csv.field_size_limit(10 ** 7)
 pathogens, hosts = load_reference()
-run2bs = load_run_to_biosample()
-llm = {}
-for r in csv.DictReader(open(ROOT / "metadata/classify/data/samples.tsv"), delimiter="\t"):
-    llm[r["BioSample"].strip()] = (r.get("llm_host_resolved") or "").strip()
+# read-based host call per run (kraken_host_call.py), which resolves all 3,220 runs;
+# the LLM host label left ~450 unresolved
+host_of = {}
+for r in csv.DictReader(open(ROOT / "kraken/assign/host/data/host_calls.tsv"), delimiter="\t"):
+    host_of[r["run"].strip()] = (r.get("host") or "").strip()
 
 pts = collections.defaultdict(lambda: collections.defaultdict(list))
 for p in sorted((ROOT / "kraken/assign/data/reports").glob("*.txt")):
-    h = llm.get(run2bs.get(p.stem, ""), "") or "unresolved"
+    h = host_of.get(p.stem, "") or "unresolved"
     for rec in parse_report(p):
         if rec["rank"] != "S" or rec["distinct"] is None:
             continue

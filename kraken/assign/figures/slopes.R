@@ -22,11 +22,13 @@ bh$host <- factor(bh$host, levels = c("Triticum aestivum","Hordeum vulgare","Zea
                   "Brassica napus"))
 
 b <- ggplot(bh, aes(host, species, fill = slope)) +
-  geom_tile(colour = "white", linewidth = 0.5) +
-  geom_text(aes(label = sprintf("%.2f", slope)), size = 2.7,
-            colour = ifelse(bh$slope < CUT, "white", "black")) +
-  scale_fill_gradient2(midpoint = CUT, low = "#b3261e", mid = "grey92", high = "#2a78d6",
-                       name = "slope", limits = c(0, 1.35)) +
+  geom_tile(colour = "grey96", linewidth = 0.6) +
+  geom_text(aes(label = sprintf("%.2f", slope),
+                colour = abs(slope - CUT) > 0.28), size = 2.8, fontface = "bold") +
+  scale_fill_gradient2(midpoint = CUT, low = "#c0392b", mid = "#f4f4f2", high = "#2a78d6",
+                       name = "slope", limits = c(-0.15, 1.05),
+                       breaks = c(0, CUT, 1), labels = c("0.0", "0.55", "1.0")) +
+  scale_colour_manual(values = c(`TRUE` = "white", `FALSE` = "grey20"), guide = "none") +
   labs(x = NULL, y = NULL,
        title = "Accumulation slope per host x pathogen species",
        subtitle = "blue = accumulates (real), red = plateaus (artefact). A taxon can be real on\nits host and cross-map on another. Midpoint = 0.55 cut.") +
@@ -35,8 +37,9 @@ b <- ggplot(bh, aes(host, species, fill = slope)) +
         plot.background = element_rect(fill = "white", colour = NA),
         axis.text.x = element_text(angle = 30, hjust = 1, size = 9, face = "italic"),
         axis.text.y = element_text(size = 8, face = "italic"),
+        panel.grid = element_blank(),
         plot.title = element_text(size = 13),
-        plot.margin = margin(6, 40, 6, 6))
+        plot.margin = margin(6, 20, 6, 6))
 
 ggsave("kraken/assign/figures/slopes.png", b, width = 10.5, height = 9,
        dpi = 300, bg = "white", device = ragg::agg_png)

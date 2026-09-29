@@ -20,7 +20,9 @@ d <- read.delim("kraken/assign/figures/mechanism_scatter.tsv", sep = "\t", check
 # percent, so the decades land on 10^-3..10^2 and label as powers rather than as
 # strings of leading zeros
 d$kmer_pct <- d$kmer_frac * 100
-pow10 <- function(x) parse(text = sprintf("10^%d", round(log10(x))))
+# bare exponents, not 10^x: the axis title carries the log10, so the ticks only
+# need to say which decade
+pow10 <- function(x) round(log10(x))
 
 # NOT "artefact": of the 124 Phakopsora/Melampsora detections above the line, 123 are
 # the declaring study's own pathogen. The taxon is not spurious, the low-coverage

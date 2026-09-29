@@ -21,7 +21,9 @@ d <- read.delim("kraken/assign/figures/detection_panels.tsv", sep = "\t", check.
 # rather than as 0.001%/0.1%/1%: on a log axis the exponent is the quantity being
 # varied, and reading four leading zeros is harder than reading -3.
 d$kmer_pct <- d$kmer_frac * 100
-pow10 <- function(x) parse(text = sprintf("10^%d", round(log10(x))))
+# bare exponents, not 10^x: the axis title carries the log10, so the ticks only
+# need to say which decade
+pow10 <- function(x) round(log10(x))
 
 ORD <- c("declared", "secondary pathogen", "secondary non-pathogen")
 TITLE <- c(declared                 = "Declared by the study",
@@ -49,7 +51,7 @@ p <- ggplot(d, aes(x = reads, y = kmer_pct)) +
                       name = NULL) +
   guides(colour = guide_legend(override.aes = list(size = 4.5, alpha = 1))) +
   labs(x = "reads assigned to the taxon",
-       y = "% of the taxon's k-mer space observed",
+       y = expression(log[10]*" (% of k-mer space observed)"),
        title = "The criterion agrees with the studies without being shown them",
        subtitle = paste0("3,220 runs, db_v3, species rank, 100-read floor. Dashed line: 1% of ",
                          "k-mer space. Host taxa excluded.\nSecondary pathogens and ",

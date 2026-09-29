@@ -4,12 +4,32 @@ kraken_host_call.py — call each run's host from its own reads, not from its me
 
 The LLM host extraction leaves gaps: 451 of 3,220 runs have no usable value, and those
 runs then carry no host in any per-host analysis. But db_v3 contains 95 host assemblies,
-so the reads themselves say which plant they came from. This assigns the host as the
-plant taxon covering the largest share of its own k-mer space — the same criterion used
-for pathogen detection, for the same reason: a read count can pile up on a conserved
-region, a k-mer fraction cannot.
+so the reads themselves say which plant they came from. This assigns the host as the plant taxon with the most reads, and it deliberately does
+NOT apply the k-mer-fraction criterion used for pathogen detection. Detection asks
+whether an organism is present at all and needs an absolute bar; host assignment is a
+ranking question, because every plant RNA-seq library has a host, so withholding a call
+below a threshold just manufactures gaps. Measured both ways over 3,220 runs: ranking
+by reads agrees with the LLM 91.2% of the time against 90.2% for k-mer fraction, and
+either way every run gets a call. Reads is also the sounder key here, since the k-mer
+fraction normalises by how much of that plant sits in db_v3 and so favours hosts with
+smaller CDS sets, which has nothing to do with which plant the library came from.
 
-Validated against the LLM where the LLM made a call: 93.0% agreement (2,425/2,608).
+The k-mer fraction is still reported per call, as a confidence signal rather than a
+gate, and it earns its place: it is the only thing separating "host identified" from
+"host absent from db_v3, here is its nearest relative". Fragaria is not in db_v3 at
+all, so the 30 runs the LLM called strawberry are called Populus x canadensis (17),
+Arachis hypogaea (7) and Glycine max (6). Ranking alone cannot detect that; low
+coverage can. A call resting on under 1% of the host's k-mer space is flagged
+low_coverage, and those flags are diagnostic of database gaps rather than weak data.
+
+A second caveat, and the reason a correct host can still score low: polyploids lose
+k-mer space to the LCA when a relative sharing a subgenome is also in the database.
+db_v3 holds hexaploid T. aestivum (ABD) and tetraploid T. turgidum (AB), so 14.4M of
+the 51.8M minimizers in the Triticum clade (27.7%) sit at the genus node rather than
+on either species. That also drives the 92 T. aestivum -> T. turgidum calls. For
+polyploid hosts, read the genus-level signal alongside the species call.
+
+Validated against the LLM where the LLM made a call: 91.2% agreement.
 The residual disagreements are mostly nomenclature rather than error, and are reported
 rather than silently resolved:
 
@@ -49,10 +69,11 @@ def main():
     ap.add_argument("--reports-dir", default="kraken/assign/data/reports")
     ap.add_argument("--inspect", default="kraken/build/data/db_v3_inspect.tsv")
     ap.add_argument("--out", default="kraken/assign/host/data/host_calls.tsv")
-    ap.add_argument("--min-kmer-frac", type=float, default=0.01,
-                    help="a host call needs this share of the plant's k-mer space "
-                         "(default: 0.01). Below it, the call is left blank rather "
-                         "than guessed.")
+    ap.add_argument("--rank-by", choices=("reads", "kmer"), default="reads",
+                    help="which signal ranks the candidate hosts (default: reads)")
+    ap.add_argument("--low-coverage-below", type=float, default=0.01,
+                    help="flag (do not drop) calls resting on less than this share of "
+                         "the host's k-mer space (default: 0.01)")
     args = ap.parse_args()
 
     db = json.loads((ROOT / "stat/build/data/phibase_db.json").read_text())
@@ -83,12 +104,13 @@ def main():
             if not total:
                 continue
             frac = rec["distinct"] / total
-            if best is None or frac > best[2]:
-                best = (rec["taxid"], rec["name"], frac, rec["reads_clade"])
+            key = rec["reads_clade"] if args.rank_by == "reads" else frac
+            if best is None or key > best[4]:
+                best = (rec["taxid"], rec["name"], frac, rec["reads_clade"], key)
 
         bs = run2bs.get(p.stem, "")
         prev = llm.get(bs, "")
-        called = best is not None and best[2] >= args.min_kmer_frac
+        called = best is not None
         if called:
             n_called += 1
             if unusable(prev):
@@ -106,6 +128,8 @@ def main():
             "host_taxid": best[0] if called else "",
             "kmer_frac": round(best[2], 6) if best else "",
             "reads": best[3] if best else "",
+            "confidence": ("low_coverage" if called and best[2] < args.low_coverage_below
+                           else "ok" if called else ""),
             "llm_host": prev, "status": status,
         })
 
@@ -121,7 +145,9 @@ def main():
     print(f"  agrees with the LLM : {n_agree:,}")
     print(f"  differs             : {n_dis:,}")
     print(f"  NEW (LLM had none)  : {n_new:,}")
+    low = sum(1 for r in rows if r["confidence"] == "low_coverage")
     print(f"  no call             : {len(rows)-n_called:,}")
+    print(f"  flagged low_coverage: {low:,} (called, but on <1% of the host's k-mer space)")
     print(f"  wrote {out}")
 
 

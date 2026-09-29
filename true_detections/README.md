@@ -2,13 +2,10 @@ Hey Gang!
 
 Been digging into the Kraken2 data and few things have emerged, think we have some solid methods moving forwards and thought I would give you a quick update. Would love any feed back!
 
-## Telling real infections from noise
-
+## The problem
 How we decide which pathogen detections in the SRA screen are real, and which are
 artefacts of the classifier. Short version: a real infection leaves a genome-wide
 signal that grows as we sequence deeper; a false one does not.
-
-## The problem
 
 Kraken2 assigns reads to species by matching short genome fragments (k-mers). It is
 sensitive, but it over-calls: reads from a conserved region shared across many fungi,

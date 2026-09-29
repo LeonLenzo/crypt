@@ -17,6 +17,11 @@ library(ggplot2)
 
 d <- read.delim("kraken/assign/figures/mechanism_scatter.tsv", sep = "\t", check.names = FALSE)
 
+# percent, so the decades land on 10^-3..10^2 and label as powers rather than as
+# strings of leading zeros
+d$kmer_pct <- d$kmer_frac * 100
+pow10 <- function(x) parse(text = sprintf("10^%d", round(log10(x))))
+
 # NOT "artefact": of the 124 Phakopsora/Melampsora detections above the line, 123 are
 # the declaring study's own pathogen. The taxon is not spurious, the low-coverage
 # detections of it are, and the criterion tells them apart without seeing the metadata.
@@ -36,16 +41,15 @@ SHP <- c(target = 21, secondary = 22, artefact = 24, other = 21)
 d$class <- factor(d$class, levels = c("target", "secondary", "artefact", "other"))
 d <- d[order(d$class, decreasing = TRUE), ]      # draw the grey cloud underneath
 
-p <- ggplot(d, aes(x = reads, y = kmer_frac)) +
+p <- ggplot(d, aes(x = reads, y = kmer_pct)) +
   geom_point(aes(fill = class, shape = class, size = class, alpha = class),
              colour = "black", stroke = 0.7) +
-  geom_hline(yintercept = 0.01, linetype = "dashed", linewidth = 1.2, colour = "black") +
-  annotate("text", x = 2.5e7, y = 0.028, hjust = 1, size = 4.4,
+  geom_hline(yintercept = 1, linetype = "dashed", linewidth = 1.2, colour = "black") +
+  annotate("text", x = 2.5e7, y = 2.8, hjust = 1, size = 4.4,
            label = "1% of k-mer space") +
   scale_x_log10(breaks = c(1e2, 1e3, 1e4, 1e5, 1e6, 1e7),
                 labels = c("100", "1k", "10k", "100k", "1M", "10M")) +
-  scale_y_log10(breaks = c(1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1),
-                labels = c("0.001%", "0.01%", "0.1%", "1%", "10%", "100%")) +
+  scale_y_log10(breaks = 10^(-3:2), labels = pow10) +
   scale_fill_manual(values = PAL, labels = LAB, name = NULL) +
   scale_shape_manual(values = SHP, labels = LAB, name = NULL) +
   scale_size_manual(values = c(target = 2.6, secondary = 2.6, artefact = 2.6, other = 1.6),

@@ -17,6 +17,12 @@ library(ggplot2)
 
 d <- read.delim("kraken/assign/figures/detection_panels.tsv", sep = "\t", check.names = FALSE)
 
+# Work in percent so the decade labels land on 10^-3 to 10^2, and label them as powers
+# rather than as 0.001%/0.1%/1%: on a log axis the exponent is the quantity being
+# varied, and reading four leading zeros is harder than reading -3.
+d$kmer_pct <- d$kmer_frac * 100
+pow10 <- function(x) parse(text = sprintf("10^%d", round(log10(x))))
+
 ORD <- c("declared", "secondary pathogen", "secondary non-pathogen")
 TITLE <- c(declared                 = "Declared by the study",
            `secondary pathogen`     = "Secondary, a known pathogen",
@@ -30,21 +36,20 @@ d$class <- factor(d$class, levels = ORD, labels = LAB)
 d$passes <- factor(d$passes, levels = c("yes", "no"),
                    labels = c("above the criterion", "below"))
 
-p <- ggplot(d, aes(x = reads, y = kmer_frac)) +
+p <- ggplot(d, aes(x = reads, y = kmer_pct)) +
   # No outline here, against the usual house mark. At 52k points per panel a border
   # fuses into a solid slab and the panel stops reading as a density; unoutlined
   # semi-transparent points let the shape of the cloud through instead.
   geom_point(aes(colour = passes), shape = 16, size = 1.5, alpha = 0.45) +
-  geom_hline(yintercept = 0.01, linetype = "dashed", linewidth = 1.2, colour = "black") +
+  geom_hline(yintercept = 1, linetype = "dashed", linewidth = 1.2, colour = "black") +
   facet_wrap(~class, nrow = 1) +
   scale_x_log10(breaks = c(1e2, 1e4, 1e6), labels = c("100", "10k", "1M")) +
-  scale_y_log10(breaks = c(1e-5, 1e-3, 1e-2, 1e-1, 1),
-                labels = c("0.001%", "0.1%", "1%", "10%", "100%")) +
+  scale_y_log10(breaks = 10^(-3:2), labels = pow10) +
   scale_colour_manual(values = c("above the criterion" = "#2a78d6", "below" = "grey70"),
                       name = NULL) +
   guides(colour = guide_legend(override.aes = list(size = 4.5, alpha = 1))) +
   labs(x = "reads assigned to the taxon",
-       y = "fraction of k-mer space observed",
+       y = "% of the taxon's k-mer space observed",
        title = "The criterion agrees with the studies without being shown them",
        subtitle = paste0("3,220 runs, db_v3, species rank, 100-read floor. Dashed line: 1% of ",
                          "k-mer space. Host taxa excluded.\nSecondary pathogens and ",

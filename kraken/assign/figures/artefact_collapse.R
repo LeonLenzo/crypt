@@ -22,10 +22,10 @@ TOP_N <- 16
 d <- read.delim("kraken/assign/figures/artefact_collapse.tsv", sep = "\t", check.names = FALSE)
 d <- head(d[order(-d$runs_readfloor), ], TOP_N)
 
-# Italic binomials via plotmath, NOT ggtext. ggtext 0.1.2 silently no-ops under
-# ggplot2 4.0.3: element_markdown() is still the theme element class, but the markup
-# renders literally as *Name* instead of italicising, with no warning. Any other
-# figure in this project relying on element_markdown is worth re-checking.
+# Italic binomials via plotmath, NOT ggtext. element_markdown() renders literally
+# whenever a complete theme is in play, and theme_minimal is the house theme, so it is
+# not avoidable here. Upgrading ggtext 0.1.2 -> 0.2.0 does not help: the element really
+# is class element_markdown, ggtext's draw method just is not dispatched. No warning.
 d$label <- factor(d$taxon, levels = rev(d$taxon[order(d$retained_pct)]))
 italicise <- function(x) parse(text = sprintf('italic("%s")', x))
 
@@ -42,8 +42,9 @@ p <- ggplot() +
                colour = "black", linewidth = 1.2) +
   geom_point(data = long, aes(y = label, x = runs, fill = stage),
              shape = 21, size = 4, stroke = 1, colour = "black") +
-  scale_fill_manual(values = c("Read-count floor only (≥ 100 reads)"      = "lightgray",
-                               "k-mer criterion (≥ 1% of k-mer space)" = "#292c56")) +
+  # validated categorical blue, not the Lenzo et al. 2026 manuscript palette
+  scale_fill_manual(values = c("Read-count floor only (≥ 100 reads)"    = "grey80",
+                               "k-mer criterion (≥ 1% of k-mer space)" = "#2a78d6")) +
   # Median k-mer fraction as a right-hand axis, not a geom_text at an invented x
   # position: padding the x scale to make room would imply runs that do not exist.
   # Putting the mechanism beside the collapse is the whole point of the figure.

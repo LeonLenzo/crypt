@@ -51,7 +51,9 @@ so the test is applied per host, not globally.
 Read across a row: *Sclerotinia* is real on canola and soybean (blue) but noise on wheat
 (red); stripe rust (*Puccinia striiformis*) is real on wheat but noise on maize. The
 colours track known host ranges, which is the check that the method is measuring real
-biology.
+biology. A few cells are ringed: low slope but kept anyway, because coverage is high —
+saturated real infections like soybean rust on soybean, where the whole genome is already
+seen so it can no longer grow.
 
 ## What this changes
 

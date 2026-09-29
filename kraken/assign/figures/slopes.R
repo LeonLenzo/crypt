@@ -13,7 +13,11 @@ library(ggplot2)
 
 CUT <- 0.55
 
-bh <- read.delim("kraken/assign/figures/slopes_byhost.tsv", sep = "\t", check.names = FALSE)
+bh <- read.delim("kraken/assign/figures/model2d.tsv", sep = "\t", check.names = FALSE)
+# cells the combined rule keeps despite a low slope, because coverage (level) is high:
+# saturated real detections. These would read as "artefact" on slope colour alone.
+L_CUT <- 1e4
+bh$rescued <- bh$slope < CUT & bh$med_distinct >= L_CUT
 # order species by their spread across hosts (most host-variable at top)
 sp_order <- names(sort(tapply(bh$slope, bh$species, function(v) max(v) - min(v))))
 bh$species <- factor(bh$species, levels = sp_order)
@@ -23,6 +27,8 @@ bh$host <- factor(bh$host, levels = c("Triticum aestivum","Hordeum vulgare","Zea
 
 b <- ggplot(bh, aes(host, species, fill = slope)) +
   geom_tile(colour = "grey96", linewidth = 0.6) +
+  geom_point(data = function(x) x[x$rescued, ], shape = 21, size = 9, stroke = 1.4,
+             fill = NA, colour = "grey15") +
   geom_text(aes(label = sprintf("%.2f", slope),
                 colour = abs(slope - CUT) > 0.28), size = 2.8, fontface = "bold") +
   scale_fill_gradient2(midpoint = CUT, low = "#c0392b", mid = "#f4f4f2", high = "#2a78d6",
@@ -31,7 +37,7 @@ b <- ggplot(bh, aes(host, species, fill = slope)) +
   scale_colour_manual(values = c(`TRUE` = "white", `FALSE` = "grey20"), guide = "none") +
   labs(x = NULL, y = NULL,
        title = "Accumulation slope per host x pathogen species",
-       subtitle = "blue = accumulates (real), red = plateaus (artefact). A taxon can be real on\nits host and cross-map on another. Midpoint = 0.55 cut.") +
+       subtitle = "Fill = accumulation slope (blue real, red artefact). Ringed cells are kept anyway:\nlow slope but high genome coverage = a real, fully-covered infection. Cut = 0.55.") +
   theme_minimal(base_size = 12) +
   theme(panel.background = element_rect(fill = "white", colour = NA),
         plot.background = element_rect(fill = "white", colour = NA),

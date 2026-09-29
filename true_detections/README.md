@@ -1,4 +1,8 @@
-# Telling real infections from noise
+Hey Gang!
+
+Been digging into the Kraken2 data and few things have emerged, think we have some solid methods moving forwards and thought I would give you a quick update. Would love any feed back!
+
+## Telling real infections from noise
 
 How we decide which pathogen detections in the SRA screen are real, and which are
 artefacts of the classifier. Short version: a real infection leaves a genome-wide
@@ -15,13 +19,13 @@ rust was "detected" in almost every wheat sample, which is not credible.
 ## The insight
 
 Count **how much of an organism's genome we actually see** (distinct k-mers), not how
-many reads landed on it. A real infection accumulates new genome as reads increase, so
+many reads landed on it. A real infection accumulates new kmers as reads increase, so
 its cloud **rises**. A false one stacks reads onto the same small fragment, so its cloud
 stays **flat** no matter how much data arrives.
 
 ![examples](example_detections.png)
 
-*Zymoseptoria* and *Puccinia triticina* on wheat rise cleanly — real. *Melampsora* on
+*Zymoseptoria* and *Puccinia triticina* on wheat rise cleanly — real. *Melampsora* (poplar rust) on
 wheat is flat — noise. *Phakopsora* (soybean rust) is the same organism read on two
 hosts: a genuine, rising infection on soybean, and a flat artefact on wheat. The
 classifier makes the same call on both; the shape of the cloud tells them apart.

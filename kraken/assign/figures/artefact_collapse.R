@@ -54,7 +54,7 @@ p <- ggplot() +
                      name = "median fraction of k-mer space observed")) +
   labs(x = "SRA runs with the taxon detected", y = NULL, fill = NULL,
        title = "Detections before and after the k-mer criterion",
-       subtitle = "3,220 wheat-cohort runs, db_v3, species rank") +
+       subtitle = "3,220 runs across 73 host species (46% wheat), db_v3, species rank") +
   theme_minimal(base_size = 16) +
   theme(
     panel.background = element_rect(fill = "white", colour = NA),

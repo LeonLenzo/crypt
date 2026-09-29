@@ -42,7 +42,7 @@ p <- ggplot(d, aes(x = reads, y = kmer_pct)) +
   # No outline here, against the usual house mark. At 52k points per panel a border
   # fuses into a solid slab and the panel stops reading as a density; unoutlined
   # semi-transparent points let the shape of the cloud through instead.
-  geom_point(aes(colour = passes), shape = 16, size = 1.5, alpha = 0.45) +
+  geom_point(aes(colour = passes), shape = 16, size = 1.4, alpha = 0.18) +
   geom_hline(yintercept = 1, linetype = "dashed", linewidth = 1.2, colour = "black") +
   facet_wrap(~class, nrow = 1) +
   scale_x_log10(breaks = c(1e2, 1e4, 1e6), labels = c("100", "10k", "1M")) +
@@ -55,7 +55,8 @@ p <- ggplot(d, aes(x = reads, y = kmer_pct)) +
   labs(x = "reads assigned to the taxon",
        y = expression(log[10]*" (% of k-mer space observed)"),
        title = "The criterion agrees with the studies without being shown them",
-       subtitle = paste0("3,220 runs, db_v3, species rank, 100-read floor. Dashed line: 1% of ",
+       subtitle = paste0("3,220 runs across 73 host species (46% wheat), db_v3, species rank, ",
+                         "100-read floor. Dashed line: 1% of ",
                          "k-mer space. Host taxa excluded.\nSecondary pathogens and ",
                          "non-pathogens behave alike (11.4% vs 11.3%): the criterion tests ",
                          "presence, not whether an organism is on a pathogen list.")) +

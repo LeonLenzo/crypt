@@ -65,7 +65,7 @@ p <- ggplot(d, aes(x = reads, y = kmer_pct)) +
          shape = guide_legend(nrow = 2, byrow = TRUE)) +
   labs(x = "reads assigned to the taxon", y = "fraction of the taxon's k-mer space observed",
        title = "Genome coverage separates real detections from read pile-ups",
-       subtitle = paste0("3,220 runs, db_v3, species rank; other taxa thinned to 25% for legibility.\n",
+       subtitle = paste0("3,220 runs across 73 host species (46% wheat), db_v3, species rank;\nother taxa thinned to 25% for legibility. ",
                          "Of 124 Phakopsora/Melampsora detections above the line, 123 are the ",
                          "declaring study's own pathogen.")) +
   theme_minimal(base_size = 16) +

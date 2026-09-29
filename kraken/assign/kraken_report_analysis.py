@@ -86,6 +86,29 @@ def parse_report(path):
             yield rec
 
 
+def expand_declared(recs, declared):
+    """Widen the declared set to the ranks the report actually calls.
+
+    Declared taxids come from the paper and sit at whatever rank the authors named.
+    Matching only against a detection's ancestors catches a declaration at genus, but
+    NOT one below the detected rank — and forma specialis is extremely common: barley
+    studies declare Puccinia graminis f. sp. tritici (56615) and Pyrenophora teres f.
+    teres (97479), Kraken2 calls the species, and every one was scored undeclared. Wheat
+    hid the bug because 709 of its samples resolve to 27350, the species node itself.
+
+    So for any node whose taxid is declared, its species-rank ancestor counts as declared
+    too. Combined with the existing ancestor test this makes the match symmetric.
+    """
+    out = set(declared)
+    for rec in recs:
+        if str(rec["taxid"]) not in declared:
+            continue
+        for r, tid, _ in rec["lineage"]:
+            if r == "S":
+                out.add(str(tid))
+    return out
+
+
 def ancestor_at(rec, rank):
     for r, tid, name in rec["lineage"]:
         if r == rank:
@@ -140,7 +163,7 @@ def load_samples():
 
 # ── detection ─────────────────────────────────────────────────────────────────
 def detections_for_run(path, pathogens, hosts, db_minimizers, rank,
-                       min_reads, min_kmer_frac):
+                       min_reads, min_kmer_frac, recs=None):
     """Pathogen taxa in one report that clear the criterion, at the given rank.
 
     Species rank is "S"; Kraken2 also emits S1/S2 for subspecies and formae speciales,
@@ -148,7 +171,7 @@ def detections_for_run(path, pathogens, hosts, db_minimizers, rank,
     "S" avoids double counting a species and its f.sp.
     """
     out = []
-    for rec in parse_report(path):
+    for rec in (recs if recs is not None else parse_report(path)):
         if rec["rank"] != rank:
             continue
         tid = str(rec["taxid"])
@@ -266,10 +289,11 @@ def main():
         run = p.stem
         bs = run2bs.get(run, "")
         meta = samples.get(bs, {})
-        declared = meta.get("declared", set())
+        recs = list(parse_report(p))
+        declared = expand_declared(recs, meta.get("declared", set()))
         for rank, label in (("S", "species"), ("G", "genus")):
             hits = detections_for_run(p, pathogens, hosts, db_minimizers, rank,
-                                      args.min_reads, args.min_kmer_frac)
+                                      args.min_reads, args.min_kmer_frac, recs=recs)
             for h in hits:
                 h["is_declared"] = bool(h.pop("lineage_taxids") & declared)
             cryptic = [h for h in hits if not h["is_declared"]]

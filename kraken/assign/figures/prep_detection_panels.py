@@ -21,7 +21,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "kraken" / "assign"))
 from kraken_report_analysis import (          # noqa: E402
-    load_reference, load_inspect, load_run_to_biosample, load_samples, parse_report)
+    load_reference, load_inspect, load_run_to_biosample, load_samples, parse_report,
+    expand_declared)
 
 MIN_READS = 100
 CRITERION = 0.01
@@ -46,9 +47,12 @@ rows = []
 for p in sorted((ROOT / "kraken/assign/data/reports").glob("*.txt")):
     run = p.stem
     bs = run2bs.get(run, "")
-    declared = samples.get(bs, {}).get("declared", set())
     host = host_of.get(bs, "unresolved")
-    for rec in parse_report(p):
+    recs = list(parse_report(p))
+    # symmetric: a study declaring a forma specialis still counts when Kraken2 calls
+    # the species. Without this every barley study reads as undeclared.
+    declared = expand_declared(recs, samples.get(bs, {}).get("declared", set()))
+    for rec in recs:
         if rec["rank"] != "S" or rec["distinct"] is None:
             continue
         tid = str(rec["taxid"])

@@ -9,7 +9,7 @@
 # undeclared detections that survive are candidates rather than leftovers.
 #
 # Input : kraken/assign/figures/detection_panels.tsv  (prep_detection_panels.py)
-# Output: kraken/assign/figures/detection_panels.{png,pdf}
+# Output: kraken/assign/figures/detection_panels.png
 #
 # Self-contained mode. Palette is the validated colourblind-safe categorical set.
 
@@ -99,7 +99,5 @@ stem <- if (is.null(job$host)) "kraken/assign/figures/detection_panels"
         else sprintf("kraken/assign/figures/detection_panels_%s", job$key)
 ggsave(paste0(stem, ".png"), p, width = 14.5, height = 6.2,
        dpi = 300, bg = "white", device = ragg::agg_png)
-ggsave(paste0(stem, ".pdf"), p, width = 14.5, height = 6.2,
-       bg = "white", device = cairo_pdf)
-cat("wrote ", stem, ".{png,pdf}  (n=", nrow(d), ")\n", sep = "")
+cat("wrote ", stem, ".png  (n=", nrow(d), ")\n", sep = "")
 }

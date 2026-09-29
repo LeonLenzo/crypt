@@ -9,7 +9,7 @@
 #
 # Input : kraken/assign/figures/mechanism_scatter.tsv  (mech.py; the unhighlighted
 #         cloud is thinned to 25% deliberately, it is background)
-# Output: kraken/assign/figures/mechanism_scatter.{png,pdf}
+# Output: kraken/assign/figures/mechanism_scatter.png
 #
 # Self-contained mode. Italics via plotmath, not ggtext: see artefact_collapse.R.
 
@@ -79,6 +79,4 @@ p <- ggplot(d, aes(x = reads, y = kmer_pct)) +
 
 ggsave("kraken/assign/figures/mechanism_scatter.png", p, width = 11, height = 7.5,
        dpi = 300, bg = "white", device = ragg::agg_png)
-ggsave("kraken/assign/figures/mechanism_scatter.pdf", p, width = 11, height = 7.5,
-       bg = "white", device = cairo_pdf)
-cat("wrote kraken/assign/figures/mechanism_scatter.{png,pdf}\n")
+cat("wrote kraken/assign/figures/mechanism_scatter.png\n")

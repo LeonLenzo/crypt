@@ -10,7 +10,7 @@
 # that fall away are the ones that were never really there.
 #
 # Input : kraken/assign/figures/artefact_collapse.tsv  (collapse.py)
-# Output: kraken/assign/figures/artefact_collapse.{png,pdf}
+# Output: kraken/assign/figures/artefact_collapse.png
 #
 # Self-contained mode: axis titles, labels and legend kept.
 
@@ -68,6 +68,4 @@ p <- ggplot() +
 # ragg, not the default png device: the default substitutes ">=" for the U+2265 glyph
 ggsave("kraken/assign/figures/artefact_collapse.png", p, width = 11, height = 7, dpi = 300,
        bg = "white", device = ragg::agg_png)
-ggsave("kraken/assign/figures/artefact_collapse.pdf", p, width = 11, height = 7, bg = "white",
-       device = cairo_pdf)
-cat("wrote kraken/assign/figures/artefact_collapse.{png,pdf}\n")
+cat("wrote kraken/assign/figures/artefact_collapse.png\n")

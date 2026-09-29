@@ -33,10 +33,21 @@ samples = load_samples()
 if not db_min:
     sys.exit("no db_v3_inspect.tsv — the k-mer fraction cannot be computed")
 
+# host comes along so the panels can be split by it: the cohort is 73 species, not
+# wheat, and mixing them lets one host's pathogens read as another's noise
+import csv as _csv                                                        # noqa: E402
+host_of = {}
+with open(ROOT / "metadata/classify/data/samples.tsv", newline="") as fh:
+    for row in _csv.DictReader(fh, delimiter="\t"):
+        host_of[row["BioSample"].strip()] = (
+            (row.get("llm_host_resolved") or row.get("stat_host") or "").strip() or "unresolved")
+
 rows = []
 for p in sorted((ROOT / "kraken/assign/data/reports").glob("*.txt")):
     run = p.stem
-    declared = samples.get(run2bs.get(run, ""), {}).get("declared", set())
+    bs = run2bs.get(run, "")
+    declared = samples.get(bs, {}).get("declared", set())
+    host = host_of.get(bs, "unresolved")
     for rec in parse_report(p):
         if rec["rank"] != "S" or rec["distinct"] is None:
             continue
@@ -63,7 +74,7 @@ for p in sorted((ROOT / "kraken/assign/data/reports").glob("*.txt")):
         else:
             cls = "secondary non-pathogen"
         rows.append({
-            "run": run, "taxon": rec["name"], "reads": rec["reads_clade"],
+            "run": run, "host": host, "taxon": rec["name"], "reads": rec["reads_clade"],
             "kmer_frac": round(frac, 8),
             "class": cls,
             "passes": "yes" if frac >= CRITERION else "no",

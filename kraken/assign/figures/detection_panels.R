@@ -15,7 +15,19 @@
 
 library(ggplot2)
 
-d <- read.delim("kraken/assign/figures/detection_panels.tsv", sep = "\t", check.names = FALSE)
+ALL <- read.delim("kraken/assign/figures/detection_panels.tsv", sep = "\t", check.names = FALSE)
+
+# One image per host with enough samples to be worth reading, plus one pooled. The
+# cohort spans 73 host species, and a pathogen that is ordinary on one host reads as
+# noise when pooled with another's.
+MIN_DETECTIONS <- 400
+tab   <- sort(table(ALL$host), decreasing = TRUE)
+hosts <- names(tab)[tab >= MIN_DETECTIONS & names(tab) != "unresolved"]
+jobs  <- c(list(list(key = "all", host = NULL)),
+           lapply(hosts, function(h) list(key = gsub("[^A-Za-z0-9]+", "_", tolower(h)), host = h)))
+
+for (job in jobs) {
+d <- if (is.null(job$host)) ALL else ALL[ALL$host == job$host, ]
 
 # Work in percent so the decade labels land on 10^-3 to 10^2, and label them as powers
 # rather than as 0.001%/0.1%/1%: on a log axis the exponent is the quantity being
@@ -29,12 +41,21 @@ ORD <- c("declared", "secondary pathogen", "secondary non-pathogen")
 TITLE <- c(declared                 = "Declared by the study",
            `secondary pathogen`     = "Secondary, a known pathogen",
            `secondary non-pathogen` = "Secondary, not a known pathogen")
-n   <- table(d$class)
-pct <- tapply(d$passes == "yes", d$class, mean) * 100
+# fixed levels, because a single host can have zero detections in a class and an
+# absent level would otherwise drop out of the table and break the labels
+n   <- table(factor(d$class, levels = ORD))
+pct <- sapply(ORD, function(k) {
+  v <- d$passes[d$class == k]
+  if (length(v) == 0) NA_real_ else mean(v == "yes") * 100
+})
 LAB <- sapply(ORD, function(k)
-  sprintf("%s\nn = %s, %.1f%% above the criterion",
-          TITLE[[k]], format(n[[k]], big.mark = ","), pct[[k]]))
+  if (is.na(pct[[k]]))
+    sprintf("%s\nno detections", TITLE[[k]])
+  else
+    sprintf("%s\nn = %s, %.1f%% above the criterion",
+            TITLE[[k]], format(n[[k]], big.mark = ","), pct[[k]]))
 d$class <- factor(d$class, levels = ORD, labels = LAB)
+d <- d[!is.na(d$class), ]
 d$passes <- factor(d$passes, levels = c("yes", "no"),
                    labels = c("above the criterion", "below"))
 
@@ -54,12 +75,15 @@ p <- ggplot(d, aes(x = reads, y = kmer_pct)) +
   guides(colour = guide_legend(override.aes = list(size = 4.5, alpha = 1))) +
   labs(x = "reads assigned to the taxon",
        y = expression(log[10]*" (% of k-mer space observed)"),
-       title = "The criterion agrees with the studies without being shown them",
-       subtitle = paste0("3,220 runs across 73 host species (46% wheat), db_v3, species rank, ",
-                         "100-read floor. Dashed line: 1% of ",
-                         "k-mer space. Host taxa excluded.\nSecondary pathogens and ",
-                         "non-pathogens behave alike (11.4% vs 11.3%): the criterion tests ",
-                         "presence, not whether an organism is on a pathogen list.")) +
+       title = if (is.null(job$host)) "The criterion agrees with the studies without being shown them"
+               else sprintf("Detections in %s", job$host),
+       subtitle = if (is.null(job$host))
+                    paste0("3,220 runs across 73 host species (46% wheat), db_v3, species rank, ",
+                           "100-read floor. Dashed line: 1% of k-mer space. Host taxa excluded.")
+                  else
+                    sprintf(paste0("db_v3, species rank, 100-read floor, host taxa excluded. ",
+                                   "Dashed line: 1%% of k-mer space.\n%s detections from this host."),
+                            format(nrow(d), big.mark = ","))) +
   theme_minimal(base_size = 16) +
   theme(
     panel.background = element_rect(fill = "white", colour = NA),
@@ -71,8 +95,11 @@ p <- ggplot(d, aes(x = reads, y = kmer_pct)) +
     panel.spacing    = unit(1.4, "lines"),
     plot.margin      = margin(8, 12, 8, 14))
 
-ggsave("kraken/assign/figures/detection_panels.png", p, width = 14.5, height = 6.2,
+stem <- if (is.null(job$host)) "kraken/assign/figures/detection_panels"
+        else sprintf("kraken/assign/figures/detection_panels_%s", job$key)
+ggsave(paste0(stem, ".png"), p, width = 14.5, height = 6.2,
        dpi = 300, bg = "white", device = ragg::agg_png)
-ggsave("kraken/assign/figures/detection_panels.pdf", p, width = 14.5, height = 6.2,
+ggsave(paste0(stem, ".pdf"), p, width = 14.5, height = 6.2,
        bg = "white", device = cairo_pdf)
-cat("wrote kraken/assign/figures/detection_panels.{png,pdf}\n")
+cat("wrote ", stem, ".{png,pdf}  (n=", nrow(d), ")\n", sep = "")
+}

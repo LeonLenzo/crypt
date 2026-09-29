@@ -211,6 +211,9 @@ def main() -> None:
                     help="Kraken2 database output directory")
     ap.add_argument("--genomes-dir", default=str(DEFAULT_GENOMES_DIR),
                     help="Directory with CDS FASTA already downloaded by kraken_db_search.py")
+    ap.add_argument("--allow-missing", action="store_true",
+                    help="build even though selected assemblies have no CDS on disk. "
+                         "Off by default: db_v3 shipped without Fragaria this way.")
     ap.add_argument("--host-table", default=None,
                     help="Optional host_candidates.tsv from kraken_db_hosts.py. Adds "
                          "host plant CDS to the build so host reads have a correct home "
@@ -265,6 +268,7 @@ def main() -> None:
             upload_to_acacia(genomes_dir, "kraken_transcriptomes", bucket=ACACIA_BUCKET)
 
         n_found, n_missing, n_skipped, n_added = 0, 0, 0, 0
+        missing_accessions = []
         seen_accessions: set = set()
         prepared: list = []  # (tag_taxid, fnas)
 
@@ -291,6 +295,7 @@ def main() -> None:
                 if not fnas:
                     print(f"  MISSING: no CDS at {taxon_dir} — run "
                           f"kraken_db_search.py --download first", flush=True)
+                    missing_accessions.append((accession, asm.get("organism_name", "")))
                     n_missing += 1
                     continue
 
@@ -317,6 +322,20 @@ def main() -> None:
             print(f"  Found on disk:  {n_found}")
             print(f"  Skipped:        {n_skipped}")
             print(f"  Missing:        {n_missing}")
+            if missing_accessions:
+                # db_v3 was built with Fragaria x ananassa missing because its CDS
+                # download had failed, leaving an empty directory. The build said so,
+                # twice, and the summary said "Missing: 2" — and it was not read, so
+                # strawberry silently had no host in the database and every strawberry
+                # library was called as Populus or Arachis. Reporting was never the
+                # problem, so the build now refuses to finish instead.
+                for acc, name in missing_accessions:
+                    print(f"    missing: {acc}  {name}", flush=True)
+                if not args.allow_missing:
+                    sys.exit(
+                        f"\nABORT: {n_missing} selected assemblies have no CDS on disk "
+                        f"(listed above).\nRe-run kraken_db_search.py --download, or pass "
+                        f"--allow-missing to build without them.")
 
             # ── Add to library — no BBDuk masking, Kraken2 LCA handles shared k-mers ──
             print(f"\n── Adding to Kraken2 library ────────────────────────────────────")

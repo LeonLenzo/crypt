@@ -25,10 +25,12 @@ for line in open(ROOT / "kraken/build/data/db_v3_inspect.tsv"):
     if len(f)<6: continue
     if f[3].strip()=="S": cur=int(f[4]); SUBS.setdefault(cur,[])
     elif f[3].strip() in ("S1","S2") and cur is not None: SUBS[cur].append(int(f[4]))
-host_of={}
+host_of={}; bs_of={}
 for r in csv.DictReader(open(ROOT/"kraken/assign/host/data/host_calls.tsv"),delimiter="\t"):
     host_of[r["run"].strip()]=(r.get("host") or "").strip()
+    bs_of[r["run"].strip()]=(r.get("biosample") or "").strip()
 
+# each point carries its run so the per-run/biosample call survives to the output
 pts=collections.defaultdict(lambda: collections.defaultdict(list))
 for p in sorted((ROOT/"kraken/assign/data/reports").glob("*.txt")):
     h=host_of.get(p.stem,"") or "unresolved"
@@ -38,7 +40,7 @@ for p in sorted((ROOT/"kraken/assign/data/reports").glob("*.txt")):
         tid=int(rec["taxid"])
         if str(tid) in hosts or str(tid) not in pathogens or rec["reads_clade"]<100 or rec["distinct"]<1: continue
         subr=sum(sub_reads.get(s,0) for s in SUBS.get(tid,[]))
-        pts[(rec["name"],tid)][h].append((rec["reads_clade"],rec["distinct"],subr/rec["reads_clade"]))
+        pts[(rec["name"],tid)][h].append((rec["reads_clade"],rec["distinct"],subr/rec["reads_clade"],p.stem))
 
 def fit(P):
     xs=[math.log10(a) for a,_ in P]; ys=[math.log10(b) for _,b in P]; n=len(P)
@@ -56,7 +58,7 @@ W=dict(tight=.20, rising=.25, cov=.20, on_line=.15, unbiased=.20)
 def clip(v,lo=0.0,hi=1.0): return max(lo,min(hi,v))
 
 def score_cloud(P, ceil, band=0.4):
-    rd=[(r,d) for r,d,_ in P]; keep=list(rd)
+    rd=[(e[0],e[1]) for e in P]; keep=list(rd)
     for _ in range(6):
         f=fit(keep)
         if not f: break
@@ -67,9 +69,9 @@ def score_cloud(P, ceil, band=0.4):
     if not f: return [(0.0,"crash-out")]*len(P)
     a,b,r2=f
     F_tight=clip(r2); F_rising=clip(b/0.6)
-    has_sub=max(fr for *_,fr in P)>0
+    has_sub=max(e[2] for e in P)>0
     out=[]
-    for (r,d,fr) in P:
+    for (r,d,fr,_run) in P:
         cov = clip((math.log10(d/ceil)+3)/3) if ceil else 0.3   # frac 0.001->0 .. 1->1
         resid = math.log10(d)-(a+b*math.log10(r))
         F_on = clip(1+resid/band)                               # 1 on/above line, 0 a band below
@@ -83,13 +85,15 @@ keep_sp=set(); rows=[]
 for (sp,tid),hs in pts.items():
     ceil=CEIL.get(tid)
     for h,P in hs.items():
-        span=(max(math.log10(r) for r,_,_ in P)-min(math.log10(r) for r,_,_ in P)) if P else 0
+        span=(max(math.log10(e[0]) for e in P)-min(math.log10(e[0]) for e in P)) if P else 0
         if len(P)>=15 and span>=0.7:
             res=score_cloud(P,ceil); keep_sp.add(sp)
         else:
             res=[(float("nan"),"unclassified")]*len(P)
-        for (r,d,fr),(s,c) in zip(P,res): rows.append([sp,h,r,d,round(fr,3),s,c])
+        for (r,d,fr,run),(s,c) in zip(P,res):
+            cov = round(d/ceil, 5) if ceil else ""      # fraction of genome k-mer space seen in this run
+            rows.append([sp,h,run,bs_of.get(run,""),r,d,round(fr,3),cov,s,c])
 out=ROOT/"kraken/filter/data/_classified.tsv"
 with open(out,"w",newline="") as fh:
-    w=csv.writer(fh,delimiter="\t"); w.writerow(["species","host","reads","distinct","fsp_frac","score","cls"]); w.writerows(rows)
+    w=csv.writer(fh,delimiter="\t"); w.writerow(["species","host","run","biosample","reads","distinct","fsp_frac","coverage","score","cls"]); w.writerows(rows)
 print(f"  {len(keep_sp)} species scored, {len(rows)} detections")

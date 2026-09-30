@@ -138,3 +138,7 @@ kraken/filter/data/splitfig.tsv
 # _scratch holds superseded exploratory versions, kept on disk for local reference
 # only (same treatment as legacy/): excluded from the repo entirely.
 kraken/filter/_scratch/
+
+# kraken/align: kallisto indices + per-sample abundances, large and built on Setonix
+kraken/align/data/*
+!kraken/align/data/.gitkeep

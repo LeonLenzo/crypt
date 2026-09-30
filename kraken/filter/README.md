@@ -94,6 +94,51 @@ ground truth this filter should be tuned against. See the memory note
 Alternative separation methods tried (a 1D line residual, a GMM cluster, a rarefaction
 test) are compared in `figures/method_comparison.png`; none beat the scored per-host model.
 
+## Co-occurrence networks and the co-infection rate
+
+`figures/prep_network.py` + `figures/network.R` build a per-host pathogen co-occurrence
+network (`figures/networks/`). Two thresholds gate what counts as a co-infection, and they
+answer two different questions:
+
+- **`score >= 0.7`** (real-shape): the detection has a genuine accumulation curve, not a
+  pile-up artefact. Conservative: it keeps ~94% of known-real detections and removes 100%
+  of the known off-host artefacts (Phakopsora/wheat, Melampsora/wheat, striiformis/maize).
+- **`coverage >= 1%`** (DNA present): at least 1% of the organism's genome k-mer space is
+  seen in that sample. Without it, the rate is dominated by trace detections: a few hundred
+  reads of a species sitting on its real curve counted as an infection, pushing wheat
+  co-infection to 80%. The floor brings it to a defensible level (wheat 47%, maize 39%).
+
+Edges are not raw co-occurrence counts. Two common pathogens share a sample by chance, so a
+count-based edge links everything to everything (74% of wheat pairs). Instead each pair is
+tested against a null built from the two prevalences (Fisher's exact, one-sided); an edge is
+a co-occurrence **beyond chance** (BH-adjusted p < 0.05), width = log2 fold-enrichment.
+
+### Why 1% coverage is defensible, and what it does not prove
+
+1% of a median pathogen genome is ~50,000 distinct genomic k-mers observed, spread across
+the genome. For an organism that is not present, random 35-mer collisions yield essentially
+zero distinct matches, so ~50k k-mers is about three orders of magnitude above the
+random-match null. **1% coverage objectively means the organism's DNA is present in the
+sample.** That is the claim it supports, and it is quantitative.
+
+It is **not** an artefact-rate control, and we do not claim it is. We tried to anchor a floor
+to a false-positive rate using the cleanest artefact null available (obligate rusts and
+powdery mildew detected on hosts they physically cannot infect, i.e. pure cross-mapping):
+that null reaches 13% coverage at its 75th percentile and up to 74%. So coverage does not
+separate real infection from artefact. The high off-host coverage is real organism DNA
+present for other reasons (spore drift onto the wrong crop, or a mis-called host), not a
+k-mer artefact. Consequently:
+
+- DNA presence is not proof of **active** co-infection. Spore contamination, surface
+  inoculum, and mixed samples all deposit real DNA. This limitation applies to all
+  SRA-based co-infection inference; it is disclosed, not thresholded away.
+- Which reads belong to which organism when congeners share genome, and whether a call
+  survives competitive assignment, cannot be settled by Kraken2 k-mer counts. That is the
+  job of the `align` module (competitive read assignment, per-gene resolution), which is the
+  ground truth these thresholds should ultimately be checked against.
+
+`THRESH` and `COVFLOOR` are one-line parameters in `prep_network.py`.
+
 ## What this changes
 
 The co-infection rate is built from the kept detections only. The filter removes roughly
@@ -107,15 +152,21 @@ detect.py            classifier: scores every host x species cloud -> data/_clas
 charts.R             one chart per species (63), faceted by host, points coloured by score
 charts/              the 63 per-species PNGs
 data/                classifier output + figure inputs (large tables gitignored, rebuilt from reports)
-figures/             the explanatory figures and their scripts
+figures/             the explanatory figures and their scripts, plus:
+  prep_taxonomy.py     pathogen/host lineages (PHI-base taxids + NCBI dump) for the trees
+  composite.R          taxonomy-ordered grid of every detection cloud (composite_grid.{png,pdf})
+  prep_network.py      co-occurrence association edges/nodes per host (score + coverage floors)
+  network.R            per-host co-occurrence networks
+  networks/            one network PNG per host with enough co-occurrence
 _scratch/            earlier exploratory versions of the idea, kept for reference
 ```
 
 Run from the repository root (`phd/01-review`):
 
 ```
-python3 kraken/filter/detect.py     # -> data/_classified.tsv
-Rscript  kraken/filter/charts.R     # -> charts/*.png
+python3 kraken/filter/detect.py            # -> data/_classified.tsv (score + coverage per detection)
+Rscript  kraken/filter/charts.R            # -> charts/*.png
+python3 kraken/filter/figures/prep_network.py && Rscript kraken/filter/figures/network.R
 ```
 
 Figure scripts under `figures/` regenerate the same way (prep `.py` then `.R`). Inputs are

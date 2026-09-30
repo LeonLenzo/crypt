@@ -1,18 +1,19 @@
-# Complexity by host — per-species detail
+# Complexity by host — per-detection real vs crash-out
 
-One image per pathogen species (61), each showing reads vs distinct genome fragments
-(k-mers) with one panel per host. This is the per-species detail behind the
-tightness model in `../true_detections/`.
+One image per pathogen species, faceted by host. Each detection is labelled:
 
-**How to read each plot:** each panel is one host. Points that rise **tightly** along
-the fit (R² ≥ 0.5, blue, ✓ real) are a genuine infection — coverage grows cleanly with
-sequencing depth. A **flat or scattered** fit (red, ✗ artefact) is a pile-up on one
-fragment or cross-mapping from a relative. Tightness, not the amount of signal, so
-genuine low-abundance infections are kept. Hosts come from the read-based call
-(`kraken_host_call.py`), which resolves every run — no "unresolved".
+- **real** (blue): coverage accumulates with depth — on the fitted accumulation line,
+  or has seen ≥10% of the genome (saturated).
+- **crash-out** (orange): reads stack on a fixed sliver — fallen below the line, no
+  broad coverage.
 
-The same organism can be real on one host and an artefact on another — see
-`Bipolaris_maydis.png` (real on maize and barley, artefact on wheat).
+Classification is per (host × species): fit the real accumulation line to the upper
+cloud, require it to rise (else the whole cloud is floor), then split each detection by
+residual, with a saturation rescue for the high-depth tip. Hosts from the read-based
+call. Cells with too few runs to fit are omitted.
 
-*Regenerate: `kraken/assign/figures/prep_by_host_individual.py` then
-`complexity_by_host_individual.R`.*
+Per-detection labels: `_classified.tsv` (species, host, reads, distinct, cls). Crash-outs
+are a separate group, not discarded — kept for alignment (which genes they hit).
+
+Regenerate: `kraken/assign/figures/prep_by_host_individual.py` then
+`complexity_by_host_individual.R`.

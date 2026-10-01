@@ -1,0 +1,1763 @@
+Target BioSamples: 2719 (settings=['field'], cryptic_only=False, aerial_only=True)
+Host resolution: 2143 confidently resolved, 576 not per-sample-resolved (still covered by per-candidate indices below as long as their true host is a named candidate)
+Per-taxid host indices needed: 111 distinct taxids (resolved+downloaded by kraken_run_split.py, not here)
+Runs to process: 3225
+
+Downloading reads for 3225 runs (8 concurrent workers) …
+  [1/3225] ok=0 cached=1 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [2/3225] ok=0 cached=2 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [3/3225] ok=0 cached=3 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [4/3225] ok=0 cached=4 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [5/3225] ok=0 cached=5 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [6/3225] ok=0 cached=6 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [7/3225] ok=0 cached=7 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [8/3225] ok=0 cached=8 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [9/3225] ok=0 cached=9 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [10/3225] ok=0 cached=10 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [11/3225] ok=0 cached=11 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [12/3225] ok=0 cached=12 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [13/3225] ok=0 cached=13 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [14/3225] ok=0 cached=14 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [15/3225] ok=0 cached=15 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [16/3225] ok=0 cached=16 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [17/3225] ok=0 cached=17 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [18/3225] ok=0 cached=18 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [19/3225] ok=0 cached=19 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [20/3225] ok=0 cached=20 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [21/3225] ok=0 cached=21 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [22/3225] ok=0 cached=22 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [23/3225] ok=0 cached=23 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [24/3225] ok=0 cached=24 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [25/3225] ok=0 cached=25 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [26/3225] ok=0 cached=26 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [27/3225] ok=0 cached=27 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [28/3225] ok=0 cached=28 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [29/3225] ok=0 cached=29 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [30/3225] ok=0 cached=30 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [31/3225] ok=0 cached=31 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [32/3225] ok=0 cached=32 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [33/3225] ok=0 cached=33 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [34/3225] ok=0 cached=34 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [35/3225] ok=0 cached=35 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [36/3225] ok=0 cached=36 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [37/3225] ok=0 cached=37 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [38/3225] ok=0 cached=38 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [39/3225] ok=0 cached=39 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [40/3225] ok=0 cached=40 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [41/3225] ok=0 cached=41 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [42/3225] ok=0 cached=42 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [43/3225] ok=0 cached=43 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [44/3225] ok=0 cached=44 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [45/3225] ok=0 cached=45 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [46/3225] ok=0 cached=46 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [47/3225] ok=0 cached=47 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [48/3225] ok=0 cached=48 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [49/3225] ok=0 cached=49 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [50/3225] ok=0 cached=50 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [51/3225] ok=0 cached=51 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [52/3225] ok=0 cached=52 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [53/3225] ok=0 cached=53 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [54/3225] ok=0 cached=54 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [55/3225] ok=0 cached=55 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [56/3225] ok=0 cached=56 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [57/3225] ok=0 cached=57 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [58/3225] ok=0 cached=58 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [59/3225] ok=0 cached=59 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [60/3225] ok=0 cached=60 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [61/3225] ok=0 cached=61 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [62/3225] ok=0 cached=62 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [63/3225] ok=0 cached=63 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [64/3225] ok=0 cached=64 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [65/3225] ok=0 cached=65 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [66/3225] ok=0 cached=66 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [67/3225] ok=0 cached=67 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [68/3225] ok=0 cached=68 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [69/3225] ok=0 cached=69 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [70/3225] ok=0 cached=70 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [71/3225] ok=0 cached=71 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [72/3225] ok=0 cached=72 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [73/3225] ok=0 cached=73 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [74/3225] ok=0 cached=74 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [75/3225] ok=0 cached=75 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [76/3225] ok=0 cached=76 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [77/3225] ok=0 cached=77 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [78/3225] ok=0 cached=78 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [79/3225] ok=0 cached=79 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [80/3225] ok=0 cached=80 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [81/3225] ok=0 cached=81 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [82/3225] ok=0 cached=82 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [83/3225] ok=0 cached=83 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [84/3225] ok=0 cached=84 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [85/3225] ok=0 cached=85 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [86/3225] ok=0 cached=86 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [87/3225] ok=0 cached=87 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [88/3225] ok=0 cached=88 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [89/3225] ok=0 cached=89 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [90/3225] ok=0 cached=90 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [91/3225] ok=0 cached=91 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [92/3225] ok=0 cached=92 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [93/3225] ok=0 cached=93 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [94/3225] ok=0 cached=94 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [95/3225] ok=0 cached=95 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [96/3225] ok=0 cached=96 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [97/3225] ok=0 cached=97 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [98/3225] ok=0 cached=98 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [99/3225] ok=0 cached=99 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [100/3225] ok=0 cached=100 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [101/3225] ok=0 cached=101 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [102/3225] ok=0 cached=102 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [103/3225] ok=0 cached=103 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [104/3225] ok=0 cached=104 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [105/3225] ok=0 cached=105 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [106/3225] ok=0 cached=106 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [107/3225] ok=0 cached=107 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [108/3225] ok=0 cached=108 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [109/3225] ok=0 cached=109 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [110/3225] ok=0 cached=110 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [111/3225] ok=0 cached=111 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [112/3225] ok=0 cached=112 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [113/3225] ok=0 cached=113 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [114/3225] ok=0 cached=114 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [115/3225] ok=0 cached=115 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [116/3225] ok=0 cached=116 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [117/3225] ok=0 cached=117 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [118/3225] ok=0 cached=118 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [119/3225] ok=0 cached=119 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [120/3225] ok=0 cached=120 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [121/3225] ok=0 cached=121 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [122/3225] ok=0 cached=122 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [123/3225] ok=0 cached=123 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [124/3225] ok=0 cached=124 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [125/3225] ok=0 cached=125 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [126/3225] ok=0 cached=126 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [127/3225] ok=0 cached=127 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [128/3225] ok=0 cached=128 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [129/3225] ok=0 cached=129 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [130/3225] ok=0 cached=130 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [131/3225] ok=0 cached=131 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [132/3225] ok=0 cached=132 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [133/3225] ok=0 cached=133 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [134/3225] ok=0 cached=134 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [135/3225] ok=0 cached=135 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [136/3225] ok=0 cached=136 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [137/3225] ok=0 cached=137 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [138/3225] ok=0 cached=138 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [139/3225] ok=0 cached=139 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [140/3225] ok=0 cached=140 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [141/3225] ok=0 cached=141 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [142/3225] ok=0 cached=142 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [143/3225] ok=0 cached=143 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [144/3225] ok=0 cached=144 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [145/3225] ok=0 cached=145 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [146/3225] ok=0 cached=146 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [147/3225] ok=0 cached=147 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [148/3225] ok=0 cached=148 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [149/3225] ok=0 cached=149 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [150/3225] ok=0 cached=150 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [151/3225] ok=0 cached=151 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [152/3225] ok=0 cached=152 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [153/3225] ok=0 cached=153 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [154/3225] ok=0 cached=154 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [155/3225] ok=0 cached=155 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [156/3225] ok=0 cached=156 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [157/3225] ok=0 cached=157 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [158/3225] ok=0 cached=158 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [159/3225] ok=0 cached=159 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [160/3225] ok=0 cached=160 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [161/3225] ok=0 cached=161 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [162/3225] ok=0 cached=162 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [163/3225] ok=0 cached=163 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [164/3225] ok=0 cached=164 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [165/3225] ok=0 cached=165 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [166/3225] ok=0 cached=166 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [167/3225] ok=0 cached=167 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [168/3225] ok=0 cached=168 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [169/3225] ok=0 cached=169 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [170/3225] ok=0 cached=170 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [171/3225] ok=0 cached=171 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [172/3225] ok=0 cached=172 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [173/3225] ok=0 cached=173 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [174/3225] ok=0 cached=174 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [175/3225] ok=0 cached=175 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [176/3225] ok=0 cached=176 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [177/3225] ok=0 cached=177 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [178/3225] ok=0 cached=178 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [179/3225] ok=0 cached=179 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [180/3225] ok=0 cached=180 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [181/3225] ok=0 cached=181 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [182/3225] ok=0 cached=182 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [183/3225] ok=0 cached=183 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [184/3225] ok=0 cached=184 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [185/3225] ok=0 cached=185 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [186/3225] ok=0 cached=186 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [187/3225] ok=0 cached=187 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [188/3225] ok=0 cached=188 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [189/3225] ok=0 cached=189 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [190/3225] ok=0 cached=190 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [191/3225] ok=0 cached=191 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [192/3225] ok=0 cached=192 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [193/3225] ok=0 cached=193 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [194/3225] ok=0 cached=194 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [195/3225] ok=0 cached=195 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [196/3225] ok=0 cached=196 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [197/3225] ok=0 cached=197 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [198/3225] ok=0 cached=198 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [199/3225] ok=0 cached=199 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [200/3225] ok=0 cached=200 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [201/3225] ok=0 cached=201 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [202/3225] ok=0 cached=202 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [203/3225] ok=0 cached=203 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [204/3225] ok=0 cached=204 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [205/3225] ok=0 cached=205 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [206/3225] ok=0 cached=206 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [207/3225] ok=0 cached=207 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [208/3225] ok=0 cached=208 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [209/3225] ok=0 cached=209 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [210/3225] ok=0 cached=210 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [211/3225] ok=0 cached=211 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [212/3225] ok=0 cached=212 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [213/3225] ok=0 cached=213 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [214/3225] ok=0 cached=214 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [215/3225] ok=0 cached=215 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [216/3225] ok=0 cached=216 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [217/3225] ok=0 cached=217 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [218/3225] ok=0 cached=218 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [219/3225] ok=0 cached=219 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [220/3225] ok=0 cached=220 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [221/3225] ok=0 cached=221 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [222/3225] ok=0 cached=222 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [223/3225] ok=0 cached=223 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [224/3225] ok=0 cached=224 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [225/3225] ok=0 cached=225 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [226/3225] ok=0 cached=226 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [227/3225] ok=0 cached=227 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [228/3225] ok=0 cached=228 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [229/3225] ok=0 cached=229 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [230/3225] ok=0 cached=230 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [231/3225] ok=0 cached=231 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [232/3225] ok=0 cached=232 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [233/3225] ok=0 cached=233 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [234/3225] ok=0 cached=234 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [235/3225] ok=0 cached=235 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [236/3225] ok=0 cached=236 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [237/3225] ok=0 cached=237 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [238/3225] ok=0 cached=238 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [239/3225] ok=0 cached=239 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [240/3225] ok=0 cached=240 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [241/3225] ok=0 cached=241 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [242/3225] ok=0 cached=242 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [243/3225] ok=0 cached=243 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [244/3225] ok=0 cached=244 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [245/3225] ok=0 cached=245 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [246/3225] ok=0 cached=246 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [247/3225] ok=0 cached=247 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [248/3225] ok=0 cached=248 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [249/3225] ok=0 cached=249 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [250/3225] ok=0 cached=250 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [251/3225] ok=0 cached=251 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [252/3225] ok=0 cached=252 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [253/3225] ok=0 cached=253 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [254/3225] ok=0 cached=254 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [255/3225] ok=0 cached=255 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [256/3225] ok=0 cached=256 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [257/3225] ok=0 cached=257 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [258/3225] ok=0 cached=258 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [259/3225] ok=0 cached=259 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [260/3225] ok=0 cached=260 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [261/3225] ok=0 cached=261 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [262/3225] ok=0 cached=262 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [263/3225] ok=0 cached=263 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [264/3225] ok=0 cached=264 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [265/3225] ok=0 cached=265 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [266/3225] ok=0 cached=266 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [267/3225] ok=0 cached=267 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [268/3225] ok=0 cached=268 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [269/3225] ok=0 cached=269 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [270/3225] ok=0 cached=270 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [271/3225] ok=0 cached=271 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [272/3225] ok=0 cached=272 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [273/3225] ok=0 cached=273 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [274/3225] ok=0 cached=274 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [275/3225] ok=0 cached=275 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [276/3225] ok=0 cached=276 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [277/3225] ok=0 cached=277 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [278/3225] ok=0 cached=278 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [279/3225] ok=0 cached=279 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [280/3225] ok=0 cached=280 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [281/3225] ok=0 cached=281 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [282/3225] ok=0 cached=282 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [283/3225] ok=0 cached=283 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [284/3225] ok=0 cached=284 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [285/3225] ok=0 cached=285 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [286/3225] ok=0 cached=286 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [287/3225] ok=0 cached=287 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [288/3225] ok=0 cached=288 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [289/3225] ok=0 cached=289 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [290/3225] ok=0 cached=290 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [291/3225] ok=0 cached=291 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [292/3225] ok=0 cached=292 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [293/3225] ok=0 cached=293 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [294/3225] ok=0 cached=294 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [295/3225] ok=0 cached=295 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [296/3225] ok=0 cached=296 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [297/3225] ok=0 cached=297 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [298/3225] ok=0 cached=298 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [299/3225] ok=0 cached=299 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [300/3225] ok=0 cached=300 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [301/3225] ok=0 cached=301 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [302/3225] ok=0 cached=302 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [303/3225] ok=0 cached=303 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [304/3225] ok=0 cached=304 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [305/3225] ok=0 cached=305 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [306/3225] ok=0 cached=306 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [307/3225] ok=0 cached=307 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [308/3225] ok=0 cached=308 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [309/3225] ok=0 cached=309 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [310/3225] ok=0 cached=310 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [311/3225] ok=0 cached=311 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [312/3225] ok=0 cached=312 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [313/3225] ok=0 cached=313 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [314/3225] ok=0 cached=314 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [315/3225] ok=0 cached=315 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [316/3225] ok=0 cached=316 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [317/3225] ok=0 cached=317 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [318/3225] ok=0 cached=318 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [319/3225] ok=0 cached=319 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [320/3225] ok=0 cached=320 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [321/3225] ok=0 cached=321 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [322/3225] ok=0 cached=322 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [323/3225] ok=0 cached=323 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [324/3225] ok=0 cached=324 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [325/3225] ok=0 cached=325 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [326/3225] ok=0 cached=326 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [327/3225] ok=0 cached=327 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [328/3225] ok=0 cached=328 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [329/3225] ok=0 cached=329 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [330/3225] ok=0 cached=330 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [331/3225] ok=0 cached=331 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [332/3225] ok=0 cached=332 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [333/3225] ok=0 cached=333 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [334/3225] ok=0 cached=334 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [335/3225] ok=0 cached=335 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [336/3225] ok=0 cached=336 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [337/3225] ok=0 cached=337 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [338/3225] ok=0 cached=338 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [339/3225] ok=0 cached=339 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [340/3225] ok=0 cached=340 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [341/3225] ok=0 cached=341 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [342/3225] ok=0 cached=342 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [343/3225] ok=0 cached=343 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [344/3225] ok=0 cached=344 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [345/3225] ok=0 cached=345 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [346/3225] ok=0 cached=346 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [347/3225] ok=0 cached=347 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [348/3225] ok=0 cached=348 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [349/3225] ok=0 cached=349 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [350/3225] ok=0 cached=350 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [351/3225] ok=0 cached=351 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [352/3225] ok=0 cached=352 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [353/3225] ok=0 cached=353 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [354/3225] ok=0 cached=354 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [355/3225] ok=0 cached=355 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [356/3225] ok=0 cached=356 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [357/3225] ok=0 cached=357 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [358/3225] ok=0 cached=358 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [359/3225] ok=0 cached=359 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [360/3225] ok=0 cached=360 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [361/3225] ok=0 cached=361 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [362/3225] ok=0 cached=362 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [363/3225] ok=0 cached=363 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [364/3225] ok=0 cached=364 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [365/3225] ok=0 cached=365 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [366/3225] ok=0 cached=366 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [367/3225] ok=0 cached=367 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [368/3225] ok=0 cached=368 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [369/3225] ok=0 cached=369 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [370/3225] ok=0 cached=370 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [371/3225] ok=0 cached=371 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [372/3225] ok=0 cached=372 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [373/3225] ok=0 cached=373 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [374/3225] ok=0 cached=374 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [375/3225] ok=0 cached=375 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [376/3225] ok=0 cached=376 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [377/3225] ok=0 cached=377 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [378/3225] ok=0 cached=378 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [379/3225] ok=0 cached=379 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [380/3225] ok=0 cached=380 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [381/3225] ok=0 cached=381 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [382/3225] ok=0 cached=382 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [383/3225] ok=0 cached=383 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [384/3225] ok=0 cached=384 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [385/3225] ok=0 cached=385 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [386/3225] ok=0 cached=386 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [387/3225] ok=0 cached=387 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [388/3225] ok=0 cached=388 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [389/3225] ok=0 cached=389 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [390/3225] ok=0 cached=390 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [391/3225] ok=0 cached=391 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [392/3225] ok=0 cached=392 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [393/3225] ok=0 cached=393 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [394/3225] ok=0 cached=394 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [395/3225] ok=0 cached=395 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [396/3225] ok=0 cached=396 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [397/3225] ok=0 cached=397 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [398/3225] ok=0 cached=398 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [399/3225] ok=0 cached=399 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [400/3225] ok=0 cached=400 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [401/3225] ok=0 cached=401 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [402/3225] ok=0 cached=402 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [403/3225] ok=0 cached=403 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [404/3225] ok=0 cached=404 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [405/3225] ok=0 cached=405 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [406/3225] ok=0 cached=406 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [407/3225] ok=0 cached=407 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [408/3225] ok=0 cached=408 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [409/3225] ok=0 cached=409 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [410/3225] ok=0 cached=410 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [411/3225] ok=0 cached=411 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [412/3225] ok=0 cached=412 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [413/3225] ok=0 cached=413 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [414/3225] ok=0 cached=414 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [415/3225] ok=0 cached=415 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [416/3225] ok=0 cached=416 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [417/3225] ok=0 cached=417 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [418/3225] ok=0 cached=418 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [419/3225] ok=0 cached=419 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [420/3225] ok=0 cached=420 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [421/3225] ok=0 cached=421 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [422/3225] ok=0 cached=422 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [423/3225] ok=0 cached=423 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [424/3225] ok=0 cached=424 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [425/3225] ok=0 cached=425 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [426/3225] ok=0 cached=426 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [427/3225] ok=0 cached=427 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [428/3225] ok=0 cached=428 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [429/3225] ok=0 cached=429 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [430/3225] ok=0 cached=430 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [431/3225] ok=0 cached=431 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [432/3225] ok=0 cached=432 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [433/3225] ok=0 cached=433 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [434/3225] ok=0 cached=434 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [435/3225] ok=0 cached=435 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [436/3225] ok=0 cached=436 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [437/3225] ok=0 cached=437 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [438/3225] ok=0 cached=438 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [439/3225] ok=0 cached=439 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [440/3225] ok=0 cached=440 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [441/3225] ok=0 cached=441 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [442/3225] ok=0 cached=442 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [443/3225] ok=0 cached=443 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] SRR29077175
+  [444/3225] ok=0 cached=444 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [445/3225] ok=0 cached=445 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [446/3225] ok=0 cached=446 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [447/3225] ok=0 cached=447 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [448/3225] ok=0 cached=448 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [449/3225] ok=0 cached=449 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [450/3225] ok=0 cached=450 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [451/3225] ok=0 cached=451 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [452/3225] ok=0 cached=452 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [453/3225] ok=0 cached=453 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [454/3225] ok=0 cached=454 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [455/3225] ok=0 cached=455 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [456/3225] ok=0 cached=456 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [457/3225] ok=0 cached=457 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [458/3225] ok=0 cached=458 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [459/3225] ok=0 cached=459 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [460/3225] ok=0 cached=460 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [461/3225] ok=0 cached=461 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [462/3225] ok=0 cached=462 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [463/3225] ok=0 cached=463 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [464/3225] ok=0 cached=464 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [465/3225] ok=0 cached=465 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [466/3225] ok=0 cached=466 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [467/3225] ok=0 cached=467 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [468/3225] ok=0 cached=468 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [469/3225] ok=0 cached=469 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [470/3225] ok=0 cached=470 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [471/3225] ok=0 cached=471 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [472/3225] ok=0 cached=472 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [473/3225] ok=0 cached=473 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [474/3225] ok=0 cached=474 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [475/3225] ok=0 cached=475 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [476/3225] ok=0 cached=476 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [477/3225] ok=0 cached=477 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [478/3225] ok=0 cached=478 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [479/3225] ok=0 cached=479 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [480/3225] ok=0 cached=480 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [481/3225] ok=0 cached=481 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [482/3225] ok=0 cached=482 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [483/3225] ok=0 cached=483 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [484/3225] ok=0 cached=484 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [485/3225] ok=0 cached=485 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [486/3225] ok=0 cached=486 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [487/3225] ok=0 cached=487 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [488/3225] ok=0 cached=488 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [489/3225] ok=0 cached=489 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [490/3225] ok=0 cached=490 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [491/3225] ok=0 cached=491 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [492/3225] ok=0 cached=492 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [493/3225] ok=0 cached=493 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [494/3225] ok=0 cached=494 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [495/3225] ok=0 cached=495 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [496/3225] ok=0 cached=496 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [497/3225] ok=0 cached=497 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [498/3225] ok=0 cached=498 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [499/3225] ok=0 cached=499 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [500/3225] ok=0 cached=500 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [501/3225] ok=0 cached=501 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [502/3225] ok=0 cached=502 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [503/3225] ok=0 cached=503 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [504/3225] ok=0 cached=504 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [505/3225] ok=0 cached=505 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [506/3225] ok=0 cached=506 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [507/3225] ok=0 cached=507 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [508/3225] ok=0 cached=508 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [509/3225] ok=0 cached=509 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [510/3225] ok=0 cached=510 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [511/3225] ok=0 cached=511 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [512/3225] ok=0 cached=512 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [513/3225] ok=0 cached=513 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [514/3225] ok=0 cached=514 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [515/3225] ok=0 cached=515 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [516/3225] ok=0 cached=516 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [517/3225] ok=0 cached=517 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [518/3225] ok=0 cached=518 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [519/3225] ok=0 cached=519 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [520/3225] ok=0 cached=520 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [521/3225] ok=0 cached=521 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [522/3225] ok=0 cached=522 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [523/3225] ok=0 cached=523 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [524/3225] ok=0 cached=524 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [525/3225] ok=0 cached=525 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [526/3225] ok=0 cached=526 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [527/3225] ok=0 cached=527 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [528/3225] ok=0 cached=528 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [529/3225] ok=0 cached=529 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [530/3225] ok=0 cached=530 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [531/3225] ok=0 cached=531 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [532/3225] ok=0 cached=532 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [533/3225] ok=0 cached=533 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [534/3225] ok=0 cached=534 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [535/3225] ok=0 cached=535 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [536/3225] ok=0 cached=536 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [537/3225] ok=0 cached=537 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [538/3225] ok=0 cached=538 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [539/3225] ok=0 cached=539 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [540/3225] ok=0 cached=540 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [541/3225] ok=0 cached=541 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [542/3225] ok=0 cached=542 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [543/3225] ok=0 cached=543 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [544/3225] ok=0 cached=544 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [545/3225] ok=0 cached=545 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [546/3225] ok=0 cached=546 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [547/3225] ok=0 cached=547 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [548/3225] ok=0 cached=548 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [549/3225] ok=0 cached=549 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [550/3225] ok=0 cached=550 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [551/3225] ok=0 cached=551 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [552/3225] ok=0 cached=552 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [553/3225] ok=0 cached=553 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [554/3225] ok=0 cached=554 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [555/3225] ok=0 cached=555 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [556/3225] ok=0 cached=556 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [557/3225] ok=0 cached=557 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [558/3225] ok=0 cached=558 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [559/3225] ok=0 cached=559 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [560/3225] ok=0 cached=560 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [561/3225] ok=0 cached=561 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [562/3225] ok=0 cached=562 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [563/3225] ok=0 cached=563 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [564/3225] ok=0 cached=564 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [565/3225] ok=0 cached=565 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [566/3225] ok=0 cached=566 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [567/3225] ok=0 cached=567 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [568/3225] ok=0 cached=568 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [569/3225] ok=0 cached=569 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [570/3225] ok=0 cached=570 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [571/3225] ok=0 cached=571 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [572/3225] ok=0 cached=572 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [573/3225] ok=0 cached=573 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [574/3225] ok=0 cached=574 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [575/3225] ok=0 cached=575 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [576/3225] ok=0 cached=576 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [577/3225] ok=0 cached=577 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [578/3225] ok=0 cached=578 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [579/3225] ok=0 cached=579 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [580/3225] ok=0 cached=580 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [581/3225] ok=0 cached=581 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [582/3225] ok=0 cached=582 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [583/3225] ok=0 cached=583 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [584/3225] ok=0 cached=584 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [585/3225] ok=0 cached=585 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [586/3225] ok=0 cached=586 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [587/3225] ok=0 cached=587 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [588/3225] ok=0 cached=588 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [589/3225] ok=0 cached=589 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [590/3225] ok=0 cached=590 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [591/3225] ok=0 cached=591 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [592/3225] ok=0 cached=592 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [593/3225] ok=0 cached=593 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [594/3225] ok=0 cached=594 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [595/3225] ok=0 cached=595 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [596/3225] ok=0 cached=596 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [597/3225] ok=0 cached=597 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [598/3225] ok=0 cached=598 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [599/3225] ok=0 cached=599 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [600/3225] ok=0 cached=600 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [601/3225] ok=0 cached=601 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [602/3225] ok=0 cached=602 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [603/3225] ok=0 cached=603 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [604/3225] ok=0 cached=604 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [605/3225] ok=0 cached=605 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [606/3225] ok=0 cached=606 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [607/3225] ok=0 cached=607 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [608/3225] ok=0 cached=608 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [609/3225] ok=0 cached=609 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [610/3225] ok=0 cached=610 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [611/3225] ok=0 cached=611 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [612/3225] ok=0 cached=612 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [613/3225] ok=0 cached=613 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [614/3225] ok=0 cached=614 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [615/3225] ok=0 cached=615 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [616/3225] ok=0 cached=616 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [617/3225] ok=0 cached=617 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [618/3225] ok=0 cached=618 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [619/3225] ok=0 cached=619 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [620/3225] ok=0 cached=620 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [621/3225] ok=0 cached=621 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [622/3225] ok=0 cached=622 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [623/3225] ok=0 cached=623 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [624/3225] ok=0 cached=624 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [625/3225] ok=0 cached=625 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [626/3225] ok=0 cached=626 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [627/3225] ok=0 cached=627 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [628/3225] ok=0 cached=628 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [629/3225] ok=0 cached=629 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [630/3225] ok=0 cached=630 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [631/3225] ok=0 cached=631 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [632/3225] ok=0 cached=632 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [633/3225] ok=0 cached=633 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [634/3225] ok=0 cached=634 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [635/3225] ok=0 cached=635 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [636/3225] ok=0 cached=636 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [637/3225] ok=0 cached=637 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [638/3225] ok=0 cached=638 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [639/3225] ok=0 cached=639 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [640/3225] ok=0 cached=640 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [641/3225] ok=0 cached=641 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [642/3225] ok=0 cached=642 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [643/3225] ok=0 cached=643 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [644/3225] ok=0 cached=644 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [645/3225] ok=0 cached=645 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [646/3225] ok=0 cached=646 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [647/3225] ok=0 cached=647 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [648/3225] ok=0 cached=648 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [649/3225] ok=0 cached=649 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [650/3225] ok=0 cached=650 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [651/3225] ok=0 cached=651 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [652/3225] ok=0 cached=652 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [653/3225] ok=0 cached=653 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [654/3225] ok=0 cached=654 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [655/3225] ok=0 cached=655 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [656/3225] ok=0 cached=656 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [657/3225] ok=0 cached=657 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [658/3225] ok=0 cached=658 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [659/3225] ok=0 cached=659 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [660/3225] ok=0 cached=660 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [661/3225] ok=0 cached=661 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [662/3225] ok=0 cached=662 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [663/3225] ok=0 cached=663 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [664/3225] ok=0 cached=664 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [665/3225] ok=0 cached=665 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [666/3225] ok=0 cached=666 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [667/3225] ok=0 cached=667 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [668/3225] ok=0 cached=668 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [669/3225] ok=0 cached=669 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [670/3225] ok=0 cached=670 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [671/3225] ok=0 cached=671 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [672/3225] ok=0 cached=672 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [673/3225] ok=0 cached=673 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [674/3225] ok=0 cached=674 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [675/3225] ok=0 cached=675 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [676/3225] ok=0 cached=676 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [677/3225] ok=0 cached=677 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [678/3225] ok=0 cached=678 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [679/3225] ok=0 cached=679 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [680/3225] ok=0 cached=680 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [681/3225] ok=0 cached=681 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [682/3225] ok=0 cached=682 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [683/3225] ok=0 cached=683 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [684/3225] ok=0 cached=684 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [685/3225] ok=0 cached=685 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [686/3225] ok=0 cached=686 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [687/3225] ok=0 cached=687 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [688/3225] ok=0 cached=688 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [689/3225] ok=0 cached=689 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [690/3225] ok=0 cached=690 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [691/3225] ok=0 cached=691 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [692/3225] ok=0 cached=692 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [693/3225] ok=0 cached=693 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [694/3225] ok=0 cached=694 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [695/3225] ok=0 cached=695 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [696/3225] ok=0 cached=696 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [697/3225] ok=0 cached=697 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [698/3225] ok=0 cached=698 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [699/3225] ok=0 cached=699 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [700/3225] ok=0 cached=700 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [701/3225] ok=0 cached=701 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [702/3225] ok=0 cached=702 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [703/3225] ok=0 cached=703 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [704/3225] ok=0 cached=704 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [705/3225] ok=0 cached=705 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [706/3225] ok=0 cached=706 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [707/3225] ok=0 cached=707 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [708/3225] ok=0 cached=708 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [709/3225] ok=0 cached=709 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [710/3225] ok=0 cached=710 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [711/3225] ok=0 cached=711 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [712/3225] ok=0 cached=712 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [713/3225] ok=0 cached=713 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [714/3225] ok=0 cached=714 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [715/3225] ok=0 cached=715 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [716/3225] ok=0 cached=716 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [717/3225] ok=0 cached=717 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [718/3225] ok=0 cached=718 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [719/3225] ok=0 cached=719 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [720/3225] ok=0 cached=720 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [721/3225] ok=0 cached=721 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [722/3225] ok=0 cached=722 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [723/3225] ok=0 cached=723 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [724/3225] ok=0 cached=724 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [725/3225] ok=0 cached=725 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [726/3225] ok=0 cached=726 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [727/3225] ok=0 cached=727 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [728/3225] ok=0 cached=728 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [729/3225] ok=0 cached=729 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [730/3225] ok=0 cached=730 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [731/3225] ok=0 cached=731 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [732/3225] ok=0 cached=732 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [733/3225] ok=0 cached=733 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [734/3225] ok=0 cached=734 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [735/3225] ok=0 cached=735 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [736/3225] ok=0 cached=736 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [737/3225] ok=0 cached=737 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [738/3225] ok=0 cached=738 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [739/3225] ok=0 cached=739 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [740/3225] ok=0 cached=740 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [741/3225] ok=0 cached=741 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [742/3225] ok=0 cached=742 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [743/3225] ok=0 cached=743 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [744/3225] ok=0 cached=744 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [745/3225] ok=0 cached=745 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [746/3225] ok=0 cached=746 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [747/3225] ok=0 cached=747 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [748/3225] ok=0 cached=748 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [749/3225] ok=0 cached=749 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [750/3225] ok=0 cached=750 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [751/3225] ok=0 cached=751 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [752/3225] ok=0 cached=752 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [753/3225] ok=0 cached=753 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [754/3225] ok=0 cached=754 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [755/3225] ok=0 cached=755 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [756/3225] ok=0 cached=756 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [757/3225] ok=0 cached=757 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [758/3225] ok=0 cached=758 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [759/3225] ok=0 cached=759 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [760/3225] ok=0 cached=760 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [761/3225] ok=0 cached=761 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [762/3225] ok=0 cached=762 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [763/3225] ok=0 cached=763 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [764/3225] ok=0 cached=764 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [765/3225] ok=0 cached=765 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [766/3225] ok=0 cached=766 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [767/3225] ok=0 cached=767 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [768/3225] ok=0 cached=768 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [769/3225] ok=0 cached=769 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [770/3225] ok=0 cached=770 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [771/3225] ok=0 cached=771 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [772/3225] ok=0 cached=772 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] ERR4315649
+  [773/3225] ok=0 cached=773 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [774/3225] ok=0 cached=774 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [775/3225] ok=0 cached=775 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] ERR4315465
+  [776/3225] ok=0 cached=776 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] ERR4315624
+  [777/3225] ok=0 cached=777 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [778/3225] ok=0 cached=778 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] ERR4315650
+  [start ] ERR4315192
+  [779/3225] ok=0 cached=779 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] ERR4315381
+  [780/3225] ok=0 cached=780 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] ERR4315533
+  [done  ] ERR4315192  3.41GB in 1107s (3.1 MB/s)
+  [781/3225] ok=1 cached=780 fail=0  3.4GB total (18min elapsed, ~93.9hr remaining)
+  [start ] ERR4315161
+  [done  ] ERR4315650  3.69GB in 1435s (2.6 MB/s)
+  [782/3225] ok=2 cached=780 fail=0  7.1GB total (24min elapsed, ~107.8hr remaining)
+  [start ] ERR4315372
+  [done  ] ERR4315381  3.35GB in 1647s (2.0 MB/s)
+  [783/3225] ok=3 cached=780 fail=0  10.5GB total (27min elapsed, ~118.4hr remaining)
+  [start ] ERR4315614
+  [done  ] ERR4315624  4.00GB in 1751s (2.3 MB/s)
+  [784/3225] ok=4 cached=780 fail=0  14.5GB total (29min elapsed, ~125.9hr remaining)
+  [start ] ERR4315154
+  [done  ] ERR4315465  4.22GB in 2177s (1.9 MB/s)
+  [785/3225] ok=5 cached=780 fail=0  18.7GB total (36min elapsed, ~137.5hr remaining)
+  [start ] ERR4315667
+  [done  ] ERR4315533  3.83GB in 2224s (1.7 MB/s)
+  [786/3225] ok=6 cached=780 fail=0  22.5GB total (37min elapsed, ~146.0hr remaining)
+  [start ] ERR4315497
+  [done  ] ERR4315649  6.71GB in 2705s (2.5 MB/s)
+  [787/3225] ok=7 cached=780 fail=0  29.2GB total (45min elapsed, ~157.8hr remaining)
+  [start ] ERR4315541
+  [done  ] ERR4315372  3.80GB in 2242s (1.7 MB/s)
+  [788/3225] ok=8 cached=780 fail=0  33.0GB total (61min elapsed, ~161.7hr remaining)
+  [start ] ERR4315406
+  [done  ] ERR4315497  3.15GB in 1559s (2.0 MB/s)
+  [789/3225] ok=9 cached=780 fail=0  36.1GB total (63min elapsed, ~158.3hr remaining)
+  [start ] ERR4315638
+  [done  ] ERR4315614  2.57GB in 2219s (1.2 MB/s)
+  [790/3225] ok=10 cached=780 fail=0  38.7GB total (64min elapsed, ~161.2hr remaining)
+  [start ] ERR4315239
+  [done  ] ERR4315154  3.77GB in 2529s (1.5 MB/s)
+  [791/3225] ok=11 cached=780 fail=0  42.5GB total (71min elapsed, ~165.9hr remaining)
+  [start ] ERR4315597
+  [done  ] ERR4315161  3.87GB in 3470s (1.1 MB/s)
+  [792/3225] ok=12 cached=780 fail=0  46.4GB total (76min elapsed, ~176.4hr remaining)
+  [start ] ERR4315506
+  [done  ] SRR29077175  6.41GB in 5283s (1.2 MB/s)
+  [793/3225] ok=13 cached=780 fail=0  52.8GB total (88min elapsed, ~197.1hr remaining)
+  [start ] ERR4315532
+  [done  ] ERR4315406  3.72GB in 2060s (1.8 MB/s)
+  [794/3225] ok=14 cached=780 fail=0  56.5GB total (96min elapsed, ~195.4hr remaining)
+  [start ] ERR4315327
+  [done  ] ERR4315638  3.20GB in 1993s (1.6 MB/s)
+  [795/3225] ok=15 cached=780 fail=0  59.7GB total (96min elapsed, ~193.5hr remaining)
+  [start ] ERR4315232
+  [done  ] ERR4315541  3.29GB in 3188s (1.0 MB/s)
+  [796/3225] ok=16 cached=780 fail=0  63.0GB total (98min elapsed, ~198.1hr remaining)
+  [start ] ERR4315269
+  [done  ] ERR4315506  2.55GB in 1408s (1.8 MB/s)
+  [797/3225] ok=17 cached=780 fail=0  65.5GB total (100min elapsed, ~193.4hr remaining)
+  [start ] ERR4315601
+  [done  ] ERR4315667  6.18GB in 3839s (1.6 MB/s)
+  [798/3225] ok=18 cached=780 fail=0  71.7GB total (100min elapsed, ~200.5hr remaining)
+  [start ] ERR4315159
+  [done  ] ERR4315239  3.77GB in 2369s (1.6 MB/s)
+  [799/3225] ok=19 cached=780 fail=0  75.5GB total (104min elapsed, ~200.4hr remaining)
+  [start ] ERR4315368
+  [done  ] ERR4315597  3.00GB in 2071s (1.4 MB/s)
+  [800/3225] ok=20 cached=780 fail=0  78.5GB total (106min elapsed, ~199.0hr remaining)
+  [start ] ERR4761826
+  [done  ] ERR4315532  3.07GB in 1320s (2.3 MB/s)
+  [801/3225] ok=21 cached=780 fail=0  81.6GB total (110min elapsed, ~194.8hr remaining)
+  [start ] ERR4315283
+  [done  ] ERR4315232  3.87GB in 1747s (2.2 MB/s)
+  [802/3225] ok=22 cached=780 fail=0  85.4GB total (125min elapsed, ~192.5hr remaining)
+  [start ] ERR4315445
+  [done  ] ERR4315283  2.81GB in 1121s (2.5 MB/s)
+  [803/3225] ok=23 cached=780 fail=0  88.2GB total (129min elapsed, ~188.2hr remaining)
+  [start ] ERR4315651
+  [done  ] ERR4315269  3.26GB in 1926s (1.7 MB/s)
+  [804/3225] ok=24 cached=780 fail=0  91.5GB total (130min elapsed, ~187.0hr remaining)
+  [start ] ERR4315175
+  [done  ] ERR4315159  4.27GB in 1849s (2.3 MB/s)
+  [805/3225] ok=25 cached=780 fail=0  95.8GB total (131min elapsed, ~185.7hr remaining)
+  [start ] ERR4315227
+  [done  ] ERR4315601  3.45GB in 2058s (1.7 MB/s)
+  [806/3225] ok=26 cached=780 fail=0  99.2GB total (134min elapsed, ~185.1hr remaining)
+  [start ] ERR4315210
+  [done  ] ERR4761826  3.87GB in 1762s (2.2 MB/s)
+  [807/3225] ok=27 cached=780 fail=0  103.1GB total (135min elapsed, ~183.6hr remaining)
+  [start ] ERR4315628
+  [done  ] ERR4315327  4.32GB in 2490s (1.7 MB/s)
+  [808/3225] ok=28 cached=780 fail=0  107.4GB total (137min elapsed, ~184.5hr remaining)
+  [start ] ERR4315345
+  [done  ] ERR4315175  2.33GB in 933s (2.5 MB/s)
+  [809/3225] ok=29 cached=780 fail=0  109.7GB total (146min elapsed, ~180.7hr remaining)
+  [start ] ERR4315642
+  [done  ] ERR4315651  3.11GB in 1281s (2.4 MB/s)
+  [810/3225] ok=30 cached=780 fail=0  112.8GB total (150min elapsed, ~178.2hr remaining)
+  [start ] ERR4315186
+  [done  ] ERR4315445  4.21GB in 1730s (2.4 MB/s)
+  [811/3225] ok=31 cached=780 fail=0  117.0GB total (154min elapsed, ~177.1hr remaining)
+  [start ] ERR4315487
+  [done  ] ERR4315368  4.66GB in 3095s (1.5 MB/s)
+  [812/3225] ok=32 cached=780 fail=0  121.7GB total (155min elapsed, ~179.6hr remaining)
+  [start ] ERR4315516
+  [done  ] ERR4315210  3.28GB in 1360s (2.4 MB/s)
+  [813/3225] ok=33 cached=780 fail=0  125.0GB total (157min elapsed, ~177.5hr remaining)
+  [start ] ERR4315229
+  [done  ] ERR4315628  3.39GB in 1334s (2.5 MB/s)
+  [814/3225] ok=34 cached=780 fail=0  128.4GB total (157min elapsed, ~175.5hr remaining)
+  [start ] ERR4315236
+  [done  ] ERR4315345  3.16GB in 1269s (2.5 MB/s)
+  [815/3225] ok=35 cached=780 fail=0  131.5GB total (158min elapsed, ~173.5hr remaining)
+  [start ] ERR4315562
+  [done  ] ERR4315227  4.32GB in 1726s (2.5 MB/s)
+  [816/3225] ok=36 cached=780 fail=0  135.8GB total (160min elapsed, ~172.6hr remaining)
+  [start ] ERR4315462
+  [done  ] ERR4315186  2.85GB in 1120s (2.5 MB/s)
+  [817/3225] ok=37 cached=780 fail=0  138.7GB total (169min elapsed, ~170.4hr remaining)
+  [start ] ERR4315441
+  [done  ] ERR4315642  3.44GB in 1389s (2.5 MB/s)
+  [818/3225] ok=38 cached=780 fail=0  142.1GB total (169min elapsed, ~168.9hr remaining)
+  [start ] ERR4315432
+  [done  ] ERR4315487  2.51GB in 979s (2.6 MB/s)
+  [819/3225] ok=39 cached=780 fail=0  144.6GB total (171min elapsed, ~166.6hr remaining)
+  [start ] ERR4315374
+  [done  ] ERR4315516  2.88GB in 1176s (2.4 MB/s)
+  [820/3225] ok=40 cached=780 fail=0  147.5GB total (175min elapsed, ~164.8hr remaining)
+  [start ] ERR4315410
+  [done  ] ERR4315229  2.85GB in 1191s (2.4 MB/s)
+  [821/3225] ok=41 cached=780 fail=0  150.4GB total (177min elapsed, ~163.1hr remaining)
+  [start ] ERR4315436
+  [done  ] ERR4315462  3.01GB in 1125s (2.7 MB/s)
+  [822/3225] ok=42 cached=780 fail=0  153.4GB total (179min elapsed, ~161.4hr remaining)
+  [start ] ERR4315451
+  [done  ] ERR4315236  3.71GB in 1482s (2.5 MB/s)
+  [823/3225] ok=43 cached=780 fail=0  157.1GB total (182min elapsed, ~160.5hr remaining)
+  [start ] ERR4315488
+  [done  ] ERR4315562  4.06GB in 1737s (2.3 MB/s)
+  [824/3225] ok=44 cached=780 fail=0  161.2GB total (187min elapsed, ~160.1hr remaining)
+  [start ] ERR4315534
+  [done  ] ERR4315374  3.07GB in 1517s (2.0 MB/s)
+  [825/3225] ok=45 cached=780 fail=0  164.2GB total (196min elapsed, ~159.2hr remaining)
+  [start ] ERR4315604
+  [done  ] ERR4315432  3.61GB in 1861s (1.9 MB/s)
+  [826/3225] ok=46 cached=780 fail=0  167.8GB total (200min elapsed, ~159.1hr remaining)
+  [start ] ERR4315184
+  [done  ] ERR4315441  3.98GB in 2042s (1.9 MB/s)
+  [827/3225] ok=47 cached=780 fail=0  171.8GB total (203min elapsed, ~159.3hr remaining)
+  [start ] ERR4315456
+  [done  ] ERR4315410  3.39GB in 1741s (1.9 MB/s)
+  [828/3225] ok=48 cached=780 fail=0  175.2GB total (204min elapsed, ~158.9hr remaining)
+  [start ] ERR4315286
+  [done  ] ERR4315451  4.28GB in 1835s (2.3 MB/s)
+  [829/3225] ok=49 cached=780 fail=0  179.5GB total (209min elapsed, ~158.7hr remaining)
+  [start ] ERR4315171
+  [done  ] ERR4315436  3.82GB in 1977s (1.9 MB/s)
+  [830/3225] ok=50 cached=780 fail=0  183.3GB total (210min elapsed, ~158.7hr remaining)
+  [start ] ERR4315639
+  [done  ] ERR4315488  4.07GB in 2011s (2.0 MB/s)
+  [831/3225] ok=51 cached=780 fail=0  187.4GB total (216min elapsed, ~158.8hr remaining)
+  [start ] ERR4315270
+  [done  ] ERR4315534  5.15GB in 2145s (2.4 MB/s)
+  [832/3225] ok=52 cached=780 fail=0  192.5GB total (223min elapsed, ~159.2hr remaining)
+  [start ] ERR4315481
+  [done  ] ERR4315184  3.41GB in 1404s (2.4 MB/s)
+  [833/3225] ok=53 cached=780 fail=0  195.9GB total (223min elapsed, ~158.3hr remaining)
+  [start ] ERR4315569
+  [done  ] ERR4315171  2.37GB in 1037s (2.3 MB/s)
+  [834/3225] ok=54 cached=780 fail=0  198.3GB total (226min elapsed, ~156.9hr remaining)
+  [start ] ERR4315655
+  [done  ] ERR4315286  3.50GB in 1359s (2.6 MB/s)
+  [835/3225] ok=55 cached=780 fail=0  201.8GB total (227min elapsed, ~156.0hr remaining)
+  [start ] ERR4315172
+  [done  ] ERR4315456  4.15GB in 1569s (2.6 MB/s)
+  [836/3225] ok=56 cached=780 fail=0  206.0GB total (229min elapsed, ~155.5hr remaining)
+  [start ] ERR4315425
+  [done  ] ERR4315604  3.45GB in 2071s (1.7 MB/s)
+  [837/3225] ok=57 cached=780 fail=0  209.4GB total (230min elapsed, ~155.7hr remaining)
+  [start ] ERR4315358
+  [done  ] ERR4315639  3.80GB in 1547s (2.5 MB/s)
+  [838/3225] ok=58 cached=780 fail=0  213.2GB total (235min elapsed, ~155.2hr remaining)
+  [start ] ERR4315203
+  [done  ] ERR4315481  2.07GB in 882s (2.3 MB/s)
+  [839/3225] ok=59 cached=780 fail=0  215.3GB total (238min elapsed, ~153.7hr remaining)
+  [start ] ERR4315275
+  [done  ] ERR4315270  2.72GB in 1425s (1.9 MB/s)
+  [840/3225] ok=60 cached=780 fail=0  218.0GB total (239min elapsed, ~153.1hr remaining)
+  [start ] ERR4761824
+  [done  ] ERR4315569  2.98GB in 1166s (2.6 MB/s)
+  [841/3225] ok=61 cached=780 fail=0  221.0GB total (243min elapsed, ~152.1hr remaining)
+  [start ] ERR4315351
+  [done  ] ERR4315172  2.65GB in 1056s (2.5 MB/s)
+  [842/3225] ok=62 cached=780 fail=0  223.6GB total (244min elapsed, ~151.0hr remaining)
+  [start ] ERR4315503
+  [done  ] ERR4315655  3.21GB in 1296s (2.5 MB/s)
+  [843/3225] ok=63 cached=780 fail=0  226.8GB total (248min elapsed, ~150.2hr remaining)
+  [start ] ERR4315623
+  [done  ] ERR4761824  2.57GB in 1014s (2.5 MB/s)
+  [844/3225] ok=64 cached=780 fail=0  229.4GB total (256min elapsed, ~149.1hr remaining)
+  [start ] ERR4315670
+  [done  ] ERR4315351  2.21GB in 963s (2.3 MB/s)
+  [845/3225] ok=65 cached=780 fail=0  231.6GB total (259min elapsed, ~148.0hr remaining)
+  [start ] ERR4315544
+  [done  ] ERR4315358  3.65GB in 1857s (2.0 MB/s)
+  [846/3225] ok=66 cached=780 fail=0  235.3GB total (261min elapsed, ~148.0hr remaining)
+  [start ] ERR4315578
+  [done  ] ERR4315275  3.40GB in 1539s (2.2 MB/s)
+  [847/3225] ok=67 cached=780 fail=0  238.7GB total (263min elapsed, ~147.6hr remaining)
+  [start ] ERR4315659
+  [done  ] ERR4315503  3.41GB in 1366s (2.5 MB/s)
+  [848/3225] ok=68 cached=780 fail=0  242.1GB total (267min elapsed, ~147.0hr remaining)
+  [start ] ERR4315574
+  [done  ] ERR4315670  1.95GB in 956s (2.0 MB/s)
+  [849/3225] ok=69 cached=780 fail=0  244.0GB total (272min elapsed, ~146.0hr remaining)
+  [start ] ERR4315321
+  [done  ] ERR4315203  5.70GB in 2236s (2.5 MB/s)
+  [850/3225] ok=70 cached=780 fail=0  249.7GB total (273min elapsed, ~146.5hr remaining)
+  [start ] ERR4315633
+  [done  ] ERR4315425  5.08GB in 2619s (1.9 MB/s)
+  [851/3225] ok=71 cached=780 fail=0  254.8GB total (273min elapsed, ~147.4hr remaining)
+  [start ] ERR4315453
+  [done  ] ERR4315623  3.98GB in 1688s (2.4 MB/s)
+  [852/3225] ok=72 cached=780 fail=0  258.8GB total (276min elapsed, ~147.2hr remaining)
+  [start ] ERR4315174
+  [done  ] ERR4315574  1.99GB in 752s (2.6 MB/s)
+  [853/3225] ok=73 cached=780 fail=0  260.8GB total (280min elapsed, ~146.0hr remaining)
+  [start ] ERR4315675
+  [done  ] ERR4315659  3.08GB in 1196s (2.6 MB/s)
+  [854/3225] ok=74 cached=780 fail=0  263.9GB total (283min elapsed, ~145.3hr remaining)
+  [start ] ERR4315302
+  [done  ] ERR4315578  4.13GB in 1555s (2.7 MB/s)
+  [855/3225] ok=75 cached=780 fail=0  268.0GB total (287min elapsed, ~145.0hr remaining)
+  [start ] ERR4315169
+  [done  ] ERR4315544  4.13GB in 2077s (2.0 MB/s)
+  [856/3225] ok=76 cached=780 fail=0  272.1GB total (294min elapsed, ~145.3hr remaining)
+  [start ] ERR4315359
+  [done  ] ERR4315675  1.88GB in 931s (2.0 MB/s)
+  [857/3225] ok=77 cached=780 fail=0  274.0GB total (295min elapsed, ~144.3hr remaining)
+  [start ] ERR4315198
+  [done  ] ERR4315453  3.91GB in 1629s (2.4 MB/s)
+  [858/3225] ok=78 cached=780 fail=0  277.9GB total (300min elapsed, ~144.1hr remaining)
+  [start ] ERR4315251
+  [done  ] ERR4315174  3.85GB in 1508s (2.6 MB/s)
+  [859/3225] ok=79 cached=780 fail=0  281.8GB total (301min elapsed, ~143.8hr remaining)
+  [start ] ERR4315314
+  [done  ] ERR4315169  2.73GB in 1075s (2.5 MB/s)
+  [860/3225] ok=80 cached=780 fail=0  284.5GB total (305min elapsed, ~143.1hr remaining)
+  [start ] ERR4315554
+  [done  ] ERR4315321  4.14GB in 2116s (2.0 MB/s)
+  [861/3225] ok=81 cached=780 fail=0  288.6GB total (308min elapsed, ~143.4hr remaining)
+  [start ] ERR4315602
+  [done  ] ERR4315302  4.16GB in 1531s (2.7 MB/s)
+  [862/3225] ok=82 cached=780 fail=0  292.8GB total (309min elapsed, ~143.1hr remaining)
+  [start ] ERR4315259
+  [done  ] ERR4315198  3.08GB in 1313s (2.3 MB/s)
+  [863/3225] ok=83 cached=780 fail=0  295.9GB total (317min elapsed, ~142.6hr remaining)
+  [start ] ERR4315200
+  [done  ] ERR4315314  1.87GB in 956s (2.0 MB/s)
+  [864/3225] ok=84 cached=780 fail=0  297.7GB total (317min elapsed, ~141.8hr remaining)
+  [start ] ERR4315643
+  [done  ] ERR4315251  2.93GB in 1179s (2.5 MB/s)
+  [865/3225] ok=85 cached=780 fail=0  300.7GB total (319min elapsed, ~141.2hr remaining)
+  [start ] ERR4315257
+  [done  ] ERR4315633  7.07GB in 2827s (2.5 MB/s)
+  [866/3225] ok=86 cached=780 fail=0  307.7GB total (320min elapsed, ~142.2hr remaining)
+  [start ] ERR4315271
+  [done  ] ERR4315359  3.95GB in 1959s (2.0 MB/s)
+  [867/3225] ok=87 cached=780 fail=0  311.7GB total (326min elapsed, ~142.3hr remaining)
+  [start ] ERR4315376
+  [done  ] ERR4315554  3.40GB in 1341s (2.5 MB/s)
+  [868/3225] ok=88 cached=780 fail=0  315.1GB total (327min elapsed, ~141.9hr remaining)
+  [start ] ERR4315331
+  [done  ] ERR4315259  4.30GB in 1650s (2.6 MB/s)
+  [869/3225] ok=89 cached=780 fail=0  319.4GB total (336min elapsed, ~141.8hr remaining)
+  [start ] ERR4315219
+  [done  ] ERR4315602  3.39GB in 1801s (1.9 MB/s)
+  [870/3225] ok=90 cached=780 fail=0  322.8GB total (338min elapsed, ~141.8hr remaining)
+  [start ] ERR4315447
+  [done  ] ERR4315643  3.45GB in 1379s (2.5 MB/s)
+  [871/3225] ok=91 cached=780 fail=0  326.2GB total (340min elapsed, ~141.4hr remaining)
+  [start ] ERR4315393
+  [done  ] ERR4315200  3.01GB in 1560s (1.9 MB/s)
+  [872/3225] ok=92 cached=780 fail=0  329.2GB total (343min elapsed, ~141.2hr remaining)
+  [start ] ERR4315285
+  [done  ] ERR4315331  2.67GB in 1069s (2.5 MB/s)
+  [873/3225] ok=93 cached=780 fail=0  331.9GB total (345min elapsed, ~140.5hr remaining)
+  [start ] ERR4315581
+  [done  ] ERR4315257  4.32GB in 1699s (2.5 MB/s)
+  [874/3225] ok=94 cached=780 fail=0  336.2GB total (348min elapsed, ~140.5hr remaining)
+  [start ] ERR4315185
+  [done  ] ERR4315271  3.25GB in 1711s (1.9 MB/s)
+  [875/3225] ok=95 cached=780 fail=0  339.5GB total (348min elapsed, ~140.4hr remaining)
+  [start ] ERR4315188
+  [done  ] ERR4315376  3.61GB in 1830s (2.0 MB/s)
+  [876/3225] ok=96 cached=780 fail=0  343.1GB total (357min elapsed, ~140.4hr remaining)
+  [start ] ERR4315373
+  [done  ] ERR4315393  1.95GB in 997s (2.0 MB/s)
+  [877/3225] ok=97 cached=780 fail=0  345.0GB total (357min elapsed, ~139.8hr remaining)
+  [start ] ERR4315572
+  [done  ] ERR4315447  3.11GB in 1356s (2.3 MB/s)
+  [878/3225] ok=98 cached=780 fail=0  348.1GB total (360min elapsed, ~139.4hr remaining)
+  [start ] ERR4315435
+  [done  ] ERR4315581  2.69GB in 1054s (2.6 MB/s)
+  [879/3225] ok=99 cached=780 fail=0  350.8GB total (363min elapsed, ~138.8hr remaining)
+  [start ] ERR4315262
+  [done  ] ERR4315219  4.02GB in 1602s (2.5 MB/s)
+  [880/3225] ok=100 cached=780 fail=0  354.8GB total (363min elapsed, ~138.7hr remaining)
+  [start ] ERR4761825
+  [done  ] ERR4315185  2.66GB in 1075s (2.5 MB/s)
+  [881/3225] ok=101 cached=780 fail=0  357.5GB total (366min elapsed, ~138.1hr remaining)
+  [start ] ERR4315150
+  [done  ] ERR4315188  3.49GB in 1465s (2.4 MB/s)
+  [882/3225] ok=102 cached=780 fail=0  361.0GB total (373min elapsed, ~137.9hr remaining)
+  [start ] ERR4315421
+  [done  ] ERR4315285  3.53GB in 2165s (1.6 MB/s)
+  [883/3225] ok=103 cached=780 fail=0  364.5GB total (379min elapsed, ~138.2hr remaining)
+  [start ] ERR4315315
+  [done  ] ERR4315572  4.55GB in 1719s (2.6 MB/s)
+  [884/3225] ok=104 cached=780 fail=0  369.1GB total (386min elapsed, ~138.1hr remaining)
+  [start ] ERR4315205
+  [done  ] ERR4761825  3.57GB in 1399s (2.6 MB/s)
+  [885/3225] ok=105 cached=780 fail=0  372.6GB total (386min elapsed, ~137.8hr remaining)
+  [start ] ERR4315616
+  [done  ] ERR4315150  2.62GB in 1254s (2.1 MB/s)
+  [886/3225] ok=106 cached=780 fail=0  375.3GB total (387min elapsed, ~137.4hr remaining)
+  [start ] ERR4315404
+  [done  ] ERR4315262  3.22GB in 1696s (1.9 MB/s)
+  [887/3225] ok=107 cached=780 fail=0  378.5GB total (391min elapsed, ~137.4hr remaining)
+  [start ] ERR4315216
+  [done  ] ERR4315373  4.49GB in 2267s (2.0 MB/s)
+  [888/3225] ok=108 cached=780 fail=0  383.0GB total (394min elapsed, ~137.8hr remaining)
+  [start ] ERR4315310
+  [done  ] ERR4315435  4.32GB in 2199s (2.0 MB/s)
+  [889/3225] ok=109 cached=780 fail=0  387.3GB total (397min elapsed, ~138.1hr remaining)
+  [start ] ERR4315460
+  [done  ] ERR4315205  2.31GB in 956s (2.4 MB/s)
+  [890/3225] ok=110 cached=780 fail=0  389.6GB total (401min elapsed, ~137.5hr remaining)
+  [start ] ERR4315674
+  [done  ] ERR4315404  2.53GB in 1003s (2.5 MB/s)
+  [891/3225] ok=111 cached=780 fail=0  392.1GB total (403min elapsed, ~136.9hr remaining)
+  [start ] ERR4315648
+  [done  ] ERR4315421  4.03GB in 2042s (2.0 MB/s)
+  [892/3225] ok=112 cached=780 fail=0  396.2GB total (407min elapsed, ~137.1hr remaining)
+  [start ] ERR4315553
+  [done  ] ERR4315616  2.39GB in 1388s (1.7 MB/s)
+  [893/3225] ok=113 cached=780 fail=0  398.5GB total (409min elapsed, ~136.8hr remaining)
+  [start ] ERR4315538
+  [done  ] ERR4315315  3.79GB in 1943s (1.9 MB/s)
+  [894/3225] ok=114 cached=780 fail=0  402.3GB total (412min elapsed, ~136.9hr remaining)
+  [start ] ERR4315472
+  [done  ] ERR4315216  3.75GB in 1421s (2.6 MB/s)
+  [895/3225] ok=115 cached=780 fail=0  406.1GB total (415min elapsed, ~136.7hr remaining)
+  [start ] ERR4315656
+  [done  ] ERR4315674  2.08GB in 1075s (1.9 MB/s)
+  [896/3225] ok=116 cached=780 fail=0  408.2GB total (419min elapsed, ~136.2hr remaining)
+  [start ] ERR4315370
+  [done  ] ERR4315538  1.34GB in 694s (1.9 MB/s)
+  [897/3225] ok=117 cached=780 fail=0  409.5GB total (421min elapsed, ~135.5hr remaining)
+  [start ] ERR4315563
+  [done  ] ERR4315460  3.83GB in 1481s (2.6 MB/s)
+  [898/3225] ok=118 cached=780 fail=0  413.3GB total (421min elapsed, ~135.3hr remaining)
+  [start ] ERR4315611
+  [done  ] ERR4315648  3.53GB in 1331s (2.7 MB/s)
+  [899/3225] ok=119 cached=780 fail=0  416.9GB total (425min elapsed, ~135.0hr remaining)
+  [start ] ERR4315263
+  [done  ] ERR4315310  3.96GB in 2017s (2.0 MB/s)
+  [900/3225] ok=120 cached=780 fail=0  420.8GB total (428min elapsed, ~135.1hr remaining)
+  [start ] ERR4315369
+  [done  ] ERR4315472  2.80GB in 1160s (2.4 MB/s)
+  [901/3225] ok=121 cached=780 fail=0  423.6GB total (431min elapsed, ~134.7hr remaining)
+  [start ] ERR4315305
+  [done  ] ERR4315553  4.17GB in 1643s (2.5 MB/s)
+  [902/3225] ok=122 cached=780 fail=0  427.8GB total (434min elapsed, ~134.7hr remaining)
+  [start ] ERR4315199
+  [done  ] ERR4315656  3.86GB in 1484s (2.6 MB/s)
+  [903/3225] ok=123 cached=780 fail=0  431.6GB total (440min elapsed, ~134.5hr remaining)
+  [start ] ERR4315584
+  [done  ] ERR4315370  3.33GB in 1622s (2.1 MB/s)
+  [904/3225] ok=124 cached=780 fail=0  435.0GB total (446min elapsed, ~134.4hr remaining)
+  [start ] ERR4315391
+  [done  ] ERR4315563  4.09GB in 1688s (2.4 MB/s)
+  [905/3225] ok=125 cached=780 fail=0  439.1GB total (449min elapsed, ~134.4hr remaining)
+  [start ] ERR4315559
+  [done  ] ERR4315263  3.29GB in 1465s (2.2 MB/s)
+  [906/3225] ok=126 cached=780 fail=0  442.4GB total (450min elapsed, ~134.2hr remaining)
+  [start ] ERR4315165
+  [done  ] ERR4315199  2.37GB in 1016s (2.3 MB/s)
+  [907/3225] ok=127 cached=780 fail=0  444.7GB total (451min elapsed, ~133.7hr remaining)
+  [start ] ERR4315237
+  [done  ] ERR4315611  3.32GB in 1838s (1.8 MB/s)
+  [908/3225] ok=128 cached=780 fail=0  448.0GB total (452min elapsed, ~133.8hr remaining)
+  [start ] ERR4315442
+  [done  ] ERR4315584  2.28GB in 1096s (2.1 MB/s)
+  [909/3225] ok=129 cached=780 fail=0  450.3GB total (458min elapsed, ~133.3hr remaining)
+  [start ] ERR4315312
+  [done  ] ERR4315305  3.27GB in 1637s (2.0 MB/s)
+  [910/3225] ok=130 cached=780 fail=0  453.6GB total (458min elapsed, ~133.3hr remaining)
+  [start ] ERR4315189
+  [done  ] ERR4315369  4.41GB in 2201s (2.0 MB/s)
+  [911/3225] ok=131 cached=780 fail=0  458.0GB total (465min elapsed, ~133.5hr remaining)
+  [start ] ERR4315350
+  [done  ] ERR4315165  4.01GB in 1601s (2.5 MB/s)
+  [912/3225] ok=132 cached=780 fail=0  462.0GB total (477min elapsed, ~133.5hr remaining)
+  [start ] ERR4315292
+  [done  ] ERR4315559  3.98GB in 1670s (2.4 MB/s)
+  [913/3225] ok=133 cached=780 fail=0  466.0GB total (477min elapsed, ~133.4hr remaining)
+  [start ] ERR4315240
+  [done  ] ERR4315442  3.66GB in 1522s (2.4 MB/s)
+  [914/3225] ok=134 cached=780 fail=0  469.6GB total (478min elapsed, ~133.3hr remaining)
+  [start ] ERR4315260
+  [done  ] ERR4315391  3.85GB in 1951s (2.0 MB/s)
+  [915/3225] ok=135 cached=780 fail=0  473.5GB total (479min elapsed, ~133.4hr remaining)
+  [start ] ERR4315466
+  [done  ] ERR4315237  4.37GB in 1695s (2.6 MB/s)
+  [916/3225] ok=136 cached=780 fail=0  477.9GB total (479min elapsed, ~133.3hr remaining)
+  [start ] ERR4315463
+  [done  ] ERR4315350  2.78GB in 1200s (2.3 MB/s)
+  [917/3225] ok=137 cached=780 fail=0  480.6GB total (485min elapsed, ~133.0hr remaining)
+  [start ] ERR4315505
+  [done  ] ERR4315312  3.53GB in 1766s (2.0 MB/s)
+  [918/3225] ok=138 cached=780 fail=0  484.2GB total (487min elapsed, ~133.0hr remaining)
+  [start ] ERR4315457
+  [done  ] ERR4315189  3.80GB in 1879s (2.0 MB/s)
+  [919/3225] ok=139 cached=780 fail=0  488.0GB total (489min elapsed, ~133.1hr remaining)
+  [start ] ERR4315166
+  [done  ] ERR4315292  2.69GB in 993s (2.7 MB/s)
+  [920/3225] ok=140 cached=780 fail=0  490.7GB total (493min elapsed, ~132.6hr remaining)
+  [start ] ERR4315346
+  [done  ] ERR4315463  3.40GB in 1342s (2.5 MB/s)
+  [921/3225] ok=141 cached=780 fail=0  494.1GB total (502min elapsed, ~132.4hr remaining)
+  [start ] ERR4315439
+  [done  ] ERR4315240  4.14GB in 1561s (2.7 MB/s)
+  [922/3225] ok=142 cached=780 fail=0  498.2GB total (503min elapsed, ~132.3hr remaining)
+  [start ] ERR4315204
+  [done  ] ERR4315466  3.21GB in 1630s (2.0 MB/s)
+  [923/3225] ok=143 cached=780 fail=0  501.4GB total (506min elapsed, ~132.2hr remaining)
+  [924/3225] ok=143 cached=781 fail=0  501.4GB total (506min elapsed, ~132.2hr remaining)
+  [start ] ERR4315606
+  [done  ] ERR4315505  3.39GB in 1310s (2.6 MB/s)
+  [925/3225] ok=144 cached=781 fail=0  504.8GB total (507min elapsed, ~131.9hr remaining)
+  [start ] ERR4315595
+  [done  ] ERR4315260  3.59GB in 1810s (2.0 MB/s)
+  [926/3225] ok=145 cached=781 fail=0  508.4GB total (508min elapsed, ~131.9hr remaining)
+  [start ] ERR4315238
+  [done  ] ERR4315166  2.81GB in 1096s (2.6 MB/s)
+  [927/3225] ok=146 cached=781 fail=0  511.2GB total (508min elapsed, ~131.6hr remaining)
+  [start ] ERR4315211
+  [done  ] ERR4315457  3.63GB in 1333s (2.7 MB/s)
+  [928/3225] ok=147 cached=781 fail=0  514.8GB total (509min elapsed, ~131.4hr remaining)
+  [start ] ERR4315536
+  [done  ] ERR4315346  3.51GB in 1403s (2.5 MB/s)
+  [929/3225] ok=148 cached=781 fail=0  518.4GB total (516min elapsed, ~131.2hr remaining)
+  [start ] ERR4315340
+  [done  ] ERR4315204  3.63GB in 1419s (2.6 MB/s)
+  [930/3225] ok=149 cached=781 fail=0  522.0GB total (527min elapsed, ~131.0hr remaining)
+  [start ] ERR4315431
+  [done  ] ERR4315211  3.19GB in 1162s (2.7 MB/s)
+  [931/3225] ok=150 cached=781 fail=0  525.2GB total (527min elapsed, ~130.7hr remaining)
+  [start ] ERR4315385
+  [done  ] ERR4315606  2.56GB in 1398s (1.8 MB/s)
+  [932/3225] ok=151 cached=781 fail=0  527.7GB total (529min elapsed, ~130.5hr remaining)
+  [start ] ERR4315375
+  [done  ] ERR4315439  3.48GB in 1699s (2.0 MB/s)
+  [933/3225] ok=152 cached=781 fail=0  531.2GB total (530min elapsed, ~130.5hr remaining)
+  [start ] ERR4315427
+  [done  ] ERR4315595  3.60GB in 1748s (2.1 MB/s)
+  [934/3225] ok=153 cached=781 fail=0  534.8GB total (536min elapsed, ~130.5hr remaining)
+  [start ] ERR4315256
+  [done  ] ERR4315238  4.61GB in 1717s (2.7 MB/s)
+  [935/3225] ok=154 cached=781 fail=0  539.4GB total (536min elapsed, ~130.4hr remaining)
+  [start ] ERR4315654
+  [done  ] ERR4315536  3.97GB in 1945s (2.0 MB/s)
+  [936/3225] ok=155 cached=781 fail=0  543.4GB total (542min elapsed, ~130.5hr remaining)
+  [start ] ERR4315324
+  [done  ] ERR4315654  2.42GB in 1057s (2.3 MB/s)
+  [937/3225] ok=156 cached=781 fail=0  545.8GB total (554min elapsed, ~130.2hr remaining)
+  [start ] ERR4315273
+  [done  ] ERR4315340  4.54GB in 2255s (2.0 MB/s)
+  [938/3225] ok=157 cached=781 fail=0  550.4GB total (554min elapsed, ~130.4hr remaining)
+  [start ] ERR4315289
+  [done  ] ERR4315427  2.64GB in 1458s (1.8 MB/s)
+  [939/3225] ok=158 cached=781 fail=0  553.0GB total (554min elapsed, ~130.3hr remaining)
+  [start ] ERR4315344
+  [done  ] ERR4315385  3.42GB in 1640s (2.1 MB/s)
+  [940/3225] ok=159 cached=781 fail=0  556.4GB total (554min elapsed, ~130.2hr remaining)
+  [start ] ERR4315547
+  [done  ] ERR4315256  3.99GB in 1533s (2.6 MB/s)
+  [941/3225] ok=160 cached=781 fail=0  560.4GB total (561min elapsed, ~130.1hr remaining)
+  [start ] ERR4315235
+  [done  ] ERR4315431  4.27GB in 2084s (2.1 MB/s)
+  [942/3225] ok=161 cached=781 fail=0  564.7GB total (561min elapsed, ~130.3hr remaining)
+  [start ] ERR4315596
+  [done  ] ERR4315375  4.38GB in 2055s (2.1 MB/s)
+  [943/3225] ok=162 cached=781 fail=0  569.1GB total (564min elapsed, ~130.4hr remaining)
+  [start ] ERR4315478
+  [done  ] ERR4315324  4.19GB in 1988s (2.1 MB/s)
+  [944/3225] ok=163 cached=781 fail=0  573.3GB total (575min elapsed, ~130.5hr remaining)
+  [start ] ERR4315278
+  [done  ] ERR4315344  3.32GB in 1261s (2.6 MB/s)
+  [945/3225] ok=164 cached=781 fail=0  576.6GB total (575min elapsed, ~130.3hr remaining)
+  [start ] ERR4315399
+  [done  ] ERR4315289  3.41GB in 1285s (2.7 MB/s)
+  [946/3225] ok=165 cached=781 fail=0  580.0GB total (575min elapsed, ~130.1hr remaining)
+  [start ] ERR4315458
+  [done  ] ERR4315273  3.59GB in 1551s (2.3 MB/s)
+  [947/3225] ok=166 cached=781 fail=0  583.6GB total (580min elapsed, ~130.0hr remaining)
+  [start ] ERR4315590
+  [done  ] ERR4315596  3.07GB in 1451s (2.1 MB/s)
+  [948/3225] ok=167 cached=781 fail=0  586.6GB total (586min elapsed, ~129.8hr remaining)
+  [start ] ERR4315627
+  [done  ] ERR4315235  3.88GB in 1468s (2.6 MB/s)
+  [949/3225] ok=168 cached=781 fail=0  590.5GB total (586min elapsed, ~129.7hr remaining)
+  [start ] ERR4315594
+  [done  ] ERR4315478  3.74GB in 1379s (2.7 MB/s)
+  [950/3225] ok=169 cached=781 fail=0  594.3GB total (587min elapsed, ~129.5hr remaining)
+  [951/3225] ok=169 cached=782 fail=0  594.3GB total (587min elapsed, ~129.4hr remaining)
+  [start ] ERR4315213
+  [done  ] ERR4315547  4.37GB in 2068s (2.1 MB/s)
+  [952/3225] ok=170 cached=782 fail=0  598.6GB total (589min elapsed, ~129.6hr remaining)
+  [start ] ERR4315678
+  [done  ] ERR4315399  2.73GB in 1312s (2.1 MB/s)
+  [953/3225] ok=171 cached=782 fail=0  601.4GB total (597min elapsed, ~129.4hr remaining)
+  [start ] ERR4315147
+  [done  ] ERR4315278  3.09GB in 1385s (2.2 MB/s)
+  [954/3225] ok=172 cached=782 fail=0  604.5GB total (598min elapsed, ~129.2hr remaining)
+  [start ] ERR4315438
+  [done  ] ERR4315627  2.84GB in 1059s (2.7 MB/s)
+  [955/3225] ok=173 cached=782 fail=0  607.3GB total (603min elapsed, ~128.9hr remaining)
+  [start ] ERR4315282
+  [done  ] ERR4315213  3.01GB in 1125s (2.7 MB/s)
+  [956/3225] ok=174 cached=782 fail=0  610.3GB total (605min elapsed, ~128.6hr remaining)
+  [start ] ERR4315558
+  [done  ] ERR4315458  5.32GB in 1853s (2.9 MB/s)
+  [957/3225] ok=175 cached=782 fail=0  615.6GB total (606min elapsed, ~128.6hr remaining)
+  [start ] ERR4315630
+  [done  ] ERR4315590  3.47GB in 1645s (2.1 MB/s)
+  [958/3225] ok=176 cached=782 fail=0  619.1GB total (607min elapsed, ~128.6hr remaining)
+  [start ] ERR4315218
+  [done  ] ERR4315678  2.96GB in 1179s (2.5 MB/s)
+  [959/3225] ok=177 cached=782 fail=0  622.1GB total (609min elapsed, ~128.3hr remaining)
+  [start ] ERR4315543
+  [done  ] ERR4315594  3.11GB in 1592s (2.0 MB/s)
+  [960/3225] ok=178 cached=782 fail=0  625.2GB total (612min elapsed, ~128.3hr remaining)
+  [start ] ERR4315450
+  [done  ] ERR4315147  4.17GB in 1505s (2.8 MB/s)
+  [961/3225] ok=179 cached=782 fail=0  629.3GB total (622min elapsed, ~128.1hr remaining)
+  [start ] ERR4315617
+  [done  ] ERR4315630  2.69GB in 1051s (2.6 MB/s)
+  [962/3225] ok=180 cached=782 fail=0  632.0GB total (624min elapsed, ~127.8hr remaining)
+  [start ] ERR4315539
+  [done  ] ERR4315558  2.69GB in 1198s (2.2 MB/s)
+  [963/3225] ok=181 cached=782 fail=0  634.7GB total (625min elapsed, ~127.6hr remaining)
+  [start ] ERR4315527
+  [done  ] ERR4315218  3.73GB in 1499s (2.5 MB/s)
+  [964/3225] ok=182 cached=782 fail=0  638.5GB total (632min elapsed, ~127.5hr remaining)
+  [start ] ERR4315567
+  [done  ] ERR4315282  3.69GB in 1742s (2.1 MB/s)
+  [965/3225] ok=183 cached=782 fail=0  642.1GB total (632min elapsed, ~127.5hr remaining)
+  [start ] ERR4315461
+  [done  ] ERR4315438  4.38GB in 2267s (1.9 MB/s)
+  [966/3225] ok=184 cached=782 fail=0  646.5GB total (636min elapsed, ~127.7hr remaining)
+  [start ] ERR4315296
+  [done  ] ERR4315450  3.32GB in 1647s (2.0 MB/s)
+  [967/3225] ok=185 cached=782 fail=0  649.8GB total (640min elapsed, ~127.6hr remaining)
+  [start ] ERR4315484
+  [done  ] ERR4315617  2.42GB in 1379s (1.8 MB/s)
+  [968/3225] ok=186 cached=782 fail=0  652.3GB total (645min elapsed, ~127.5hr remaining)
+  [start ] ERR4315473
+  [done  ] ERR4315527  2.55GB in 1199s (2.1 MB/s)
+  [969/3225] ok=187 cached=782 fail=0  654.8GB total (645min elapsed, ~127.2hr remaining)
+  [970/3225] ok=187 cached=783 fail=0  654.8GB total (645min elapsed, ~127.2hr remaining)
+  [start ] ERR4315657
+  [done  ] ERR4315543  4.94GB in 2473s (2.0 MB/s)
+  [971/3225] ok=188 cached=783 fail=0  659.8GB total (650min elapsed, ~127.5hr remaining)
+  [start ] ERR4315311
+  [done  ] ERR4315567  3.00GB in 1140s (2.6 MB/s)
+  [972/3225] ok=189 cached=783 fail=0  662.8GB total (651min elapsed, ~127.2hr remaining)
+  [start ] ERR4315509
+  [done  ] ERR4315461  3.25GB in 1230s (2.6 MB/s)
+  [973/3225] ok=190 cached=783 fail=0  666.0GB total (653min elapsed, ~127.0hr remaining)
+  [start ] ERR4315348
+  [done  ] ERR4315539  4.05GB in 1958s (2.1 MB/s)
+  [974/3225] ok=191 cached=783 fail=0  670.1GB total (657min elapsed, ~127.1hr remaining)
+  [start ] ERR4315416
+  [done  ] ERR4315484  2.90GB in 1127s (2.6 MB/s)
+  [975/3225] ok=192 cached=783 fail=0  673.0GB total (659min elapsed, ~126.8hr remaining)
+  [start ] ERR4315183
+  [done  ] ERR4315296  4.47GB in 1647s (2.7 MB/s)
+  [976/3225] ok=193 cached=783 fail=0  677.4GB total (663min elapsed, ~126.8hr remaining)
+  [start ] ERR4315612
+  [done  ] ERR4315473  2.94GB in 1178s (2.5 MB/s)
+  [977/3225] ok=194 cached=783 fail=0  680.4GB total (665min elapsed, ~126.5hr remaining)
+  [start ] ERR4315415
+  [done  ] ERR4315348  3.67GB in 1460s (2.5 MB/s)
+  [978/3225] ok=195 cached=783 fail=0  684.0GB total (677min elapsed, ~126.4hr remaining)
+  [start ] ERR4315500
+  [done  ] ERR4315183  2.42GB in 1173s (2.1 MB/s)
+  [979/3225] ok=196 cached=783 fail=0  686.4GB total (678min elapsed, ~126.2hr remaining)
+  [start ] ERR4315618
+  [done  ] ERR4315416  4.37GB in 1644s (2.7 MB/s)
+  [980/3225] ok=197 cached=783 fail=0  690.8GB total (684min elapsed, ~126.1hr remaining)
+  [start ] ERR4315163
+  [done  ] ERR4315415  3.19GB in 1200s (2.7 MB/s)
+  [981/3225] ok=198 cached=783 fail=0  694.0GB total (685min elapsed, ~125.9hr remaining)
+  [start ] ERR4315387
+  [done  ] ERR4315311  4.71GB in 2290s (2.1 MB/s)
+  [982/3225] ok=199 cached=783 fail=0  698.7GB total (688min elapsed, ~126.1hr remaining)
+  [start ] ERR4315303
+  [done  ] ERR4315509  5.49GB in 2266s (2.4 MB/s)
+  [983/3225] ok=200 cached=783 fail=0  704.2GB total (689min elapsed, ~126.3hr remaining)
+  [start ] ERR4315634
+  [done  ] ERR4315612  2.86GB in 1582s (1.8 MB/s)
+  [984/3225] ok=201 cached=783 fail=0  707.1GB total (690min elapsed, ~126.3hr remaining)
+  [start ] ERR4315298
+  [done  ] ERR4315657  4.07GB in 2833s (1.4 MB/s)
+  [985/3225] ok=202 cached=783 fail=0  711.1GB total (693min elapsed, ~126.7hr remaining)
+  [start ] ERR4315480
+  [done  ] ERR4315163  2.47GB in 975s (2.5 MB/s)
+  [986/3225] ok=203 cached=783 fail=0  713.6GB total (700min elapsed, ~126.4hr remaining)
+  [start ] ERR4315579
+  [done  ] ERR4315480  2.76GB in 1051s (2.6 MB/s)
+  [987/3225] ok=204 cached=783 fail=0  716.3GB total (710min elapsed, ~126.1hr remaining)
+  [start ] ERR4315528
+  [done  ] ERR4315298  3.43GB in 1241s (2.8 MB/s)
+  [988/3225] ok=205 cached=783 fail=0  719.8GB total (710min elapsed, ~125.9hr remaining)
+  [start ] ERR4315221
+  [done  ] ERR4315634  3.71GB in 1448s (2.6 MB/s)
+  [989/3225] ok=206 cached=783 fail=0  723.5GB total (713min elapsed, ~125.8hr remaining)
+  [start ] ERR4315267
+  [done  ] ERR4315618  4.32GB in 2169s (2.0 MB/s)
+  [990/3225] ok=207 cached=783 fail=0  727.8GB total (714min elapsed, ~125.9hr remaining)
+  [start ] ERR4315196
+  [done  ] ERR4315500  5.82GB in 2270s (2.6 MB/s)
+  [991/3225] ok=208 cached=783 fail=0  733.6GB total (715min elapsed, ~126.1hr remaining)
+  [start ] ERR4315299
+  [done  ] ERR4315303  3.45GB in 1689s (2.0 MB/s)
+  [992/3225] ok=209 cached=783 fail=0  737.1GB total (716min elapsed, ~126.1hr remaining)
+  [start ] ERR4315317
+  [done  ] ERR4315387  3.77GB in 1957s (1.9 MB/s)
+  [993/3225] ok=210 cached=783 fail=0  740.9GB total (717min elapsed, ~126.1hr remaining)
+  [start ] ERR4315479
+  [done  ] ERR4315579  4.02GB in 1455s (2.8 MB/s)
+  [994/3225] ok=211 cached=783 fail=0  744.9GB total (724min elapsed, ~126.0hr remaining)
+  [start ] ERR4315426
+  [done  ] ERR4315221  3.11GB in 1138s (2.7 MB/s)
+  [995/3225] ok=212 cached=783 fail=0  748.0GB total (729min elapsed, ~125.8hr remaining)
+  [start ] ERR4315170
+  [done  ] ERR4315299  3.00GB in 1074s (2.8 MB/s)
+  [996/3225] ok=213 cached=783 fail=0  751.0GB total (733min elapsed, ~125.5hr remaining)
+  [start ] ERR4315577
+  [done  ] ERR4315528  3.03GB in 1377s (2.2 MB/s)
+  [997/3225] ok=214 cached=783 fail=0  754.0GB total (733min elapsed, ~125.4hr remaining)
+  [start ] ERR4315397
+  [done  ] ERR4315267  2.96GB in 1264s (2.3 MB/s)
+  [998/3225] ok=215 cached=783 fail=0  757.0GB total (734min elapsed, ~125.2hr remaining)
+  [start ] ERR4315568
+  [done  ] ERR4315479  3.11GB in 1170s (2.7 MB/s)
+  [999/3225] ok=216 cached=783 fail=0  760.1GB total (737min elapsed, ~125.0hr remaining)
+  [start ] ERR3383639
+  [done  ] ERR4315196  4.41GB in 1573s (2.8 MB/s)
+  [1000/3225] ok=217 cached=783 fail=0  764.5GB total (740min elapsed, ~124.9hr remaining)
+  [start ] ERR3383634
+  [done  ] ERR4315317  3.47GB in 1685s (2.1 MB/s)
+  [1001/3225] ok=218 cached=783 fail=0  768.0GB total (744min elapsed, ~124.9hr remaining)
+  [start ] ERR3383640
+  [done  ] ERR4315426  3.57GB in 1737s (2.1 MB/s)
+  [1002/3225] ok=219 cached=783 fail=0  771.5GB total (753min elapsed, ~124.9hr remaining)
+  [start ] ERR3383641
+  [done  ] ERR4315397  3.22GB in 1397s (2.3 MB/s)
+  [1003/3225] ok=220 cached=783 fail=0  774.8GB total (756min elapsed, ~124.7hr remaining)
+  [start ] ERR3383636
+  [done  ] ERR4315568  3.62GB in 1335s (2.7 MB/s)
+  [1004/3225] ok=221 cached=783 fail=0  778.4GB total (756min elapsed, ~124.6hr remaining)
+  [start ] ERR3383642
+  [done  ] ERR4315170  4.59GB in 1717s (2.7 MB/s)
+  [1005/3225] ok=222 cached=783 fail=0  783.0GB total (758min elapsed, ~124.5hr remaining)
+  [start ] ERR3383638
+  [done  ] ERR4315577  5.06GB in 1839s (2.8 MB/s)
+  [1006/3225] ok=223 cached=783 fail=0  788.0GB total (763min elapsed, ~124.6hr remaining)
+  [start ] ERR3383637
+  [done  ] ERR3383640  4.06GB in 1945s (2.1 MB/s)
+  [1007/3225] ok=224 cached=783 fail=0  792.1GB total (777min elapsed, ~124.6hr remaining)
+  [start ] ERR3383635
+  [done  ] ERR3383639  5.48GB in 2620s (2.1 MB/s)
+  [1008/3225] ok=225 cached=783 fail=0  797.6GB total (781min elapsed, ~124.9hr remaining)
+  [start ] ERR3383632
+  [done  ] ERR3383634  5.04GB in 2429s (2.1 MB/s)
+  [1009/3225] ok=226 cached=783 fail=0  802.6GB total (781min elapsed, ~125.1hr remaining)
+  [start ] ERR3383633
+  [done  ] ERR3383636  3.94GB in 1941s (2.0 MB/s)
+  [1010/3225] ok=227 cached=783 fail=0  806.6GB total (789min elapsed, ~125.2hr remaining)
+  [start ] SRR23706858
+  [done  ] ERR3383641  4.59GB in 2194s (2.1 MB/s)
+  [1011/3225] ok=228 cached=783 fail=0  811.1GB total (790min elapsed, ~125.3hr remaining)
+  [start ] SRR23706859
+  [done  ] ERR3383642  4.57GB in 2204s (2.1 MB/s)
+  [1012/3225] ok=229 cached=783 fail=0  815.7GB total (793min elapsed, ~125.4hr remaining)
+  [start ] SRR23706857
+  [done  ] ERR3383638  5.48GB in 2609s (2.1 MB/s)
+  [1013/3225] ok=230 cached=783 fail=0  821.2GB total (801min elapsed, ~125.7hr remaining)
+  [start ] SRR23706864
+  [done  ] ERR3383637  4.88GB in 2334s (2.1 MB/s)
+  [1014/3225] ok=231 cached=783 fail=0  826.1GB total (802min elapsed, ~125.9hr remaining)
+  [start ] SRR23706866
+  [done  ] ERR3383633  4.05GB in 1905s (2.1 MB/s)
+  [1015/3225] ok=232 cached=783 fail=0  830.1GB total (813min elapsed, ~125.9hr remaining)
+  [start ] SRR23706861
+  [done  ] ERR3383632  4.22GB in 2012s (2.1 MB/s)
+  [1016/3225] ok=233 cached=783 fail=0  834.3GB total (814min elapsed, ~126.0hr remaining)
+  [start ] SRR23706860
+  [done  ] ERR3383635  6.52GB in 3075s (2.1 MB/s)
+  [1017/3225] ok=234 cached=783 fail=0  840.8GB total (828min elapsed, ~126.4hr remaining)
+  [start ] SRR23706863
+  [start ] SRR23706865
+  [start ] SRR23706867
+  [start ] SRR9185094
+  [done  ] SRR9185094  0.78GB in 316s (2.5 MB/s)
+  [start ] SRR9185093
+  [start ] SRR24010223
+  [start ] SRR24010249
+  [done  ] SRR9185093  0.59GB in 240s (2.5 MB/s)
+  [start ] SRR24010232
+  [start ] SRR24010219
+  [start ] SRR24010240
+  [done  ] SRR24010223  3.54GB in 1643s (2.2 MB/s)
+  [start ] SRR24010221
+  [start ] SRR24010214
+  [done  ] SRR24010232  3.64GB in 1639s (2.2 MB/s)
+  [start ] SRR24010220
+  [start ] SRR24010235
+  [start ] SRR24010225
+  [done  ] SRR24010219  3.58GB in 1670s (2.1 MB/s)
+  [start ] SRR24010245
+  [done  ] SRR24010240  3.73GB in 1602s (2.3 MB/s)
+  [start ] SRR24010231
+  [done  ] SRR24010214  3.84GB in 1553s (2.5 MB/s)
+  [start ] SRR24010238
+  [done  ] SRR24010221  4.05GB in 1605s (2.5 MB/s)
+  [start ] SRR24010216
+  [done  ] SRR24010220  3.62GB in 1592s (2.3 MB/s)
+  [start ] SRR24010233
+  [done  ] SRR24010235  3.64GB in 1639s (2.2 MB/s)
+  [start ] SRR24010218
+  [done  ] SRR24010225  3.60GB in 1598s (2.3 MB/s)
+  [start ] SRR24010222
+  [done  ] SRR24010249  9.09GB in 3655s (2.5 MB/s)
+  [start ] SRR24010242
+  [done  ] SRR24010216  3.65GB in 1534s (2.4 MB/s)
+  [start ] SRR24010215
+  [done  ] SRR24010218  3.63GB in 1521s (2.4 MB/s)
+  [start ] SRR24010213
+  [done  ] SRR24010222  3.69GB in 1536s (2.4 MB/s)
+  [start ] SRR24010248
+  [done  ] SRR24010231  7.99GB in 2863s (2.8 MB/s)
+  [start ] SRR24010217
+  [done  ] SRR24010245  9.39GB in 3387s (2.8 MB/s)
+  [start ] SRR24010229
+  [done  ] SRR24010238  7.70GB in 2662s (2.9 MB/s)
+  [start ] SRR24010244
+  [done  ] SRR24010242  7.16GB in 2527s (2.8 MB/s)
+  [start ] SRR24010226
+  [done  ] SRR24010215  3.49GB in 1453s (2.4 MB/s)
+  [start ] SRR24010250
+  [done  ] SRR24010213  3.71GB in 1496s (2.5 MB/s)
+  [start ] SRR24010230
+  [done  ] SRR24010233  8.10GB in 3317s (2.4 MB/s)
+  [start ] SRR24010241
+  [done  ] SRR24010217  3.59GB in 1517s (2.4 MB/s)
+  [start ] SRR24010228
+  [done  ] SRR24010226  3.64GB in 1473s (2.5 MB/s)
+  [start ] SRR24010234
+  [done  ] SRR24010229  6.15GB in 2126s (2.9 MB/s)
+  [start ] SRR24010243
+  [done  ] SRR24010248  8.78GB in 3332s (2.6 MB/s)
+  [start ] SRR24010247
+  [done  ] SRR24010244  7.15GB in 2528s (2.8 MB/s)
+  [start ] SRR24010246
+  [done  ] SRR24010241  7.57GB in 2719s (2.8 MB/s)
+  [start ] SRR24010236
+  [done  ] SRR24010243  3.67GB in 1477s (2.5 MB/s)
+  [start ] SRR24010239
+  [done  ] SRR24010250  8.88GB in 3215s (2.8 MB/s)
+  [start ] SRR1425535
+  [failed] SRR1425535  (no output after gzip, 20s)
+  [start ] SRR1425603
+  [failed] SRR1425603  (no output after gzip, 29s)
+  [start ] SRR1425536
+  [failed] SRR1425536  (no output after gzip, 18s)
+  [start ] SRR1425602
+  [failed] SRR1425602  (no output after gzip, 21s)
+  [start ] SRR7753256
+  [done  ] SRR24010230  8.84GB in 3255s (2.7 MB/s)
+  [start ] SRR7753254
+  [done  ] SRR24010228  7.62GB in 2731s (2.8 MB/s)
+  [start ] SRR7753255
+  [done  ] SRR24010234  7.76GB in 2821s (2.8 MB/s)
+  [start ] SRR7753253
+  [done  ] SRR24010247  7.77GB in 2936s (2.6 MB/s)
+  [start ] SRR12329590
+  [done  ] SRR24010246  8.47GB in 3129s (2.7 MB/s)
+  [start ] SRR12329588
+  [done  ] SRR7753256  4.97GB in 2581s (1.9 MB/s)
+  [start ] SRR12329589
+  [done  ] SRR24010239  7.68GB in 2781s (2.8 MB/s)
+  [start ] SRR12329597
+  [done  ] SRR24010236  7.72GB in 3006s (2.6 MB/s)
+  [start ] SRR12329596
+  [done  ] SRR7753255  5.39GB in 2759s (2.0 MB/s)
+  [start ] SRR12329595
+  [start ] ERR3856832
+  [done  ] SRR12329596  3.66GB in 1882s (1.9 MB/s)
+  [start ] ERR3856822
+  [done  ] SRR12329597  4.15GB in 2189s (1.9 MB/s)
+  [start ] ERR3856838
+  [done  ] SRR12329590  5.86GB in 3164s (1.9 MB/s)
+  [start ] ERR3856836
+  [done  ] SRR12329595  3.58GB in 1884s (1.9 MB/s)
+  [start ] ERR3856821
+  [start ] ERR3856814
+  [done  ] SRR12329588  6.07GB in 3479s (1.7 MB/s)
+  [start ] ERR3856842
+  [done  ] SRR12329589  5.88GB in 3055s (1.9 MB/s)
+  [start ] ERR3856813
+  [done  ] ERR3856822  3.82GB in 1431s (2.7 MB/s)
+  [start ] ERR3856823
+  [done  ] ERR3856838  4.16GB in 1395s (3.0 MB/s)
+  [start ] ERR3856820
+  [done  ] ERR3856821  3.06GB in 1090s (2.8 MB/s)
+  [start ] ERR3856824
+  [done  ] ERR3856814  3.30GB in 1172s (2.8 MB/s)
+  [start ] ERR3856833
+  [done  ] ERR3856836  4.80GB in 1622s (3.0 MB/s)
+  [start ] ERR3856843
+  [done  ] ERR3856842  3.55GB in 1176s (3.0 MB/s)
+  [start ] ERR3856854
+  [done  ] ERR3856823  2.65GB in 932s (2.8 MB/s)
+  [start ] ERR3856830
+  [done  ] ERR3856820  2.29GB in 810s (2.8 MB/s)
+  [start ] ERR3856848
+  [done  ] ERR3856824  2.44GB in 851s (2.9 MB/s)
+  [start ] ERR3856818
+  [done  ] ERR3856813  4.26GB in 1484s (2.9 MB/s)
+  [start ] ERR3856840
+  [done  ] ERR3856833  3.14GB in 1011s (3.1 MB/s)
+  [start ] ERR3856825
+  [done  ] ERR3856830  0.98GB in 341s (2.9 MB/s)
+  [start ] ERR3856835
+  [done  ] ERR3856854  1.96GB in 844s (2.3 MB/s)
+  [start ] ERR3856851
+  [done  ] ERR3856843  2.76GB in 1316s (2.1 MB/s)
+  [start ] ERR3856855
+  [done  ] ERR3856848  2.12GB in 888s (2.4 MB/s)
+  [start ] ERR3856845
+  [done  ] ERR3856832  10.99GB in 4058s (2.7 MB/s)
+  [start ] ERR3856847
+  [done  ] ERR3856818  3.21GB in 1143s (2.8 MB/s)
+  [start ] ERR3856819
+  [done  ] ERR3856851  2.04GB in 873s (2.3 MB/s)
+  [start ] ERR3856853
+  [done  ] ERR3856840  3.85GB in 1274s (3.0 MB/s)
+  [start ] ERR3856817
+  [done  ] ERR3856825  3.29GB in 1164s (2.8 MB/s)
+  [start ] ERR3856815
+  [done  ] ERR3856855  1.81GB in 801s (2.3 MB/s)
+  [start ] ERR3856852
+  [done  ] ERR3856835  5.11GB in 1669s (3.1 MB/s)
+  [start ] ERR3856846
+  [done  ] ERR3856853  2.04GB in 963s (2.1 MB/s)
+  [start ] ERR3856841
+  [done  ] ERR3856817  3.20GB in 1242s (2.6 MB/s)
+  [start ] ERR3856837
+  [done  ] ERR3856852  2.25GB in 987s (2.3 MB/s)
+  [start ] ERR3856816
+  [done  ] ERR3856815  3.64GB in 1374s (2.6 MB/s)
+  [start ] ERR3856849
+  [done  ] ERR3856819  4.07GB in 1651s (2.5 MB/s)
+  [start ] ERR3856844
+  [done  ] ERR3856845  6.64GB in 2382s (2.8 MB/s)
+  [start ] ERR3856839
+  [done  ] ERR3856816  2.73GB in 1085s (2.5 MB/s)
+  [start ] ERR3856850
+  [done  ] ERR3856849  1.92GB in 928s (2.1 MB/s)
+  [start ] ERR3856834
+  [done  ] ERR3856841  4.27GB in 1515s (2.8 MB/s)
+  [start ] ERR3856831
+  [done  ] ERR3856847  7.12GB in 2706s (2.6 MB/s)
+  [start ] SRR28704973
+  [done  ] ERR3856837  3.86GB in 1363s (2.8 MB/s)
+  [start ] SRR28704971
+  [done  ] ERR3856831  1.09GB in 412s (2.6 MB/s)
+  [start ] SRR28704970
+  [done  ] ERR3856839  4.76GB in 1689s (2.8 MB/s)
+  [start ] SRR28704972
+  [done  ] ERR3856850  2.88GB in 1342s (2.2 MB/s)
+  [start ] SRR28704968
+  [done  ] ERR3856844  6.31GB in 2566s (2.5 MB/s)
+  [start ] SRR28704969
+  [done  ] ERR3856834  4.78GB in 1993s (2.4 MB/s)
+  [start ] SRR14386297
+  [done  ] SRR28704973  3.47GB in 2020s (1.7 MB/s)
+  [start ] SRR14386301
+  [done  ] ERR3856846  6.26GB in 3868s (1.6 MB/s)
+  [start ] SRR14386300
+  [done  ] SRR28704971  3.38GB in 1997s (1.7 MB/s)
+  [start ] SRR14386302
+  [done  ] SRR28704970  3.77GB in 2209s (1.7 MB/s)
+  [start ] SRR14386303
+  [done  ] SRR28704972  3.24GB in 1896s (1.7 MB/s)
+  [start ] SRR14386296
+  [done  ] SRR28704968  3.53GB in 2075s (1.7 MB/s)
+  [start ] SRR579539
+  [done  ] SRR28704969  3.26GB in 1793s (1.8 MB/s)
+  [start ] SRR579535
+  [done  ] SRR14386297  2.98GB in 1864s (1.6 MB/s)
+  [start ] SRR579533
+  [failed] SRR579539  (no output after gzip, 534s)
+  [start ] SRR579534
+  [done  ] SRR14386300  3.61GB in 2011s (1.8 MB/s)
+  [start ] ERR3500539
+  [done  ] SRR14386302  3.63GB in 1952s (1.9 MB/s)
+  [start ] ERR3500541
+  [done  ] SRR14386303  3.04GB in 1636s (1.9 MB/s)
+  [start ] ERR3500540
+  [done  ] SRR14386301  4.03GB in 2293s (1.8 MB/s)
+  [start ] ERR3500542
+  [done  ] SRR14386296  2.94GB in 2248s (1.3 MB/s)
+  [start ] ERR3500554
+  [done  ] SRR579534  3.72GB in 1990s (1.9 MB/s)
+  [start ] ERR3500545
+  [done  ] SRR579535  5.11GB in 3000s (1.7 MB/s)
+  [start ] ERR3500544
+  [done  ] ERR3500554  3.39GB in 1978s (1.7 MB/s)
+  [start ] ERR3500553
+  [start ] ERR3500547
+  [start ] ERR3500543
+  [done  ] SRR579533  6.84GB in 3633s (1.9 MB/s)
+  [start ] ERR3500552
+  [done  ] ERR3500545  2.95GB in 1604s (1.8 MB/s)
+  [start ] ERR3500551
+  [start ] ERR3500548
+  [start ] ERR3500546
+  [done  ] ERR3500544  2.83GB in 1531s (1.8 MB/s)
+  [start ] ERR3500550
+  [done  ] ERR3500543  2.91GB in 1476s (2.0 MB/s)
+  [start ] ERR3500549
+  [done  ] ERR3500547  3.20GB in 1636s (2.0 MB/s)
+  [start ] ERR3500558
+  [done  ] ERR3500546  2.90GB in 1548s (1.9 MB/s)
+  [start ] ERR3500557
+  [done  ] ERR3500553  3.43GB in 1777s (1.9 MB/s)
+  [start ] ERR3500555
+  [done  ] ERR3500548  3.11GB in 1602s (1.9 MB/s)
+  [start ] ERR3500556
+  [done  ] ERR3500552  3.30GB in 1715s (1.9 MB/s)
+  [start ] ERR3500514
+  [done  ] ERR3500551  3.39GB in 2021s (1.7 MB/s)
+  [start ] ERR3500513
+  [done  ] ERR3500550  3.19GB in 1678s (1.9 MB/s)
+  [start ] ERR3500511
+  [done  ] ERR3500549  3.24GB in 1766s (1.8 MB/s)
+  [start ] ERR3500512
+  [start ] ERR3500528
+  [start ] ERR3500529
+  [start ] ERR3500530
+  [start ] ERR3500527
+  [start ] ERR3500533
+  [start ] ERR3500532
+  [start ] ERR3500534
+  [start ] ERR3500531
+  [start ] ERR3500506
+  [start ] ERR3500505
+  [start ] ERR3500504
+  [start ] ERR3500503
+  [start ] ERR3500515
+  [start ] ERR3500517
+  [done  ] ERR3500512  7.77GB in 3996s (1.9 MB/s)
+  [start ] ERR3500518

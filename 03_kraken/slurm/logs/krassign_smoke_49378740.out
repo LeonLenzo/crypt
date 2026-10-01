@@ -1,0 +1,22 @@
+Reads will be archived (gzipped) to: kraken/output/run/select/data/reads
+Raw kraken2 reports will be saved to: kraken/output/run/classify_smoke/reports
+Loaded 3,226 runs from kraken/output/run/select/data/run_list.tsv
+--limit 6: processing 6 runs
+
+Total runs: 3,226 | Already done: 0 | Remaining: 6
+Settings: n_reads=500,000, confidence=0.15, min_hit_groups=3, workers=3, kraken_threads=10
+DB: kraken/output/db/build/data/db_v2
+Tmp: /scratch/fl3/llenzo/kraken_tmp
+
+[      1/6] Run	BioSample	BioProject	llm_host_resolved	host_taxid	candidate_host_taxids	download_status  ERR(no_local_reads)  | 176.5/s  ETA 0.0h
+[      2/6] ERR3170234	SAMEA5366356	PRJEB31334	wheat	4565	4565	cached  ERR(no_local_reads)  | 224.2/s  ETA 0.0h
+[      3/6] ERR3170248	SAMEA5366370	PRJEB31334	wheat	4565	4565	cached  ERR(no_local_reads)  | 275.4/s  ETA 0.0h
+[      4/6] ERR3170229	SAMEA5366351	PRJEB31334	wheat	4565	4565	cached  ERR(no_local_reads)  | 315.5/s  ETA 0.0h
+[      5/6] ERR3188443	SAMEA5366264	PRJEB31334	wheat	4565	4565	cached  ERR(no_local_reads)  | 350.1/s  ETA 0.0h
+[      6/6] ERR3170256	SAMEA5366378	PRJEB31334	wheat	4565	4565	cached  ERR(no_local_reads)  | 373.6/s  ETA 0.0h
+
+── Summary ────────────────────────────────────────
+  Classified: 0
+  Errors:     6
+  Elapsed:    0.0h
+  Cache:      kraken/output/run/classify_smoke/data/kraken_cache.jsonl

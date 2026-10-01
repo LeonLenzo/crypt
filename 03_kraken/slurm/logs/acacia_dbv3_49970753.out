@@ -1,0 +1,36 @@
+=== db_v3 pass 1 Fri Sep 25 09:30:33 AM AWST 2026 ===
+=== db_v3 had errors, retrying ===
+=== db_v3 pass 2 Fri Sep 25 09:33:24 AM AWST 2026 ===
+=== db_v3 had errors, retrying ===
+=== db_v3 pass 3 Fri Sep 25 09:36:02 AM AWST 2026 ===
+=== db_v3 had errors, retrying ===
+=== db_v3 pass 4 Fri Sep 25 09:38:59 AM AWST 2026 ===
+=== db_v3 had errors, retrying ===
+=== db_v3 pass 5 Fri Sep 25 09:41:41 AM AWST 2026 ===
+=== db_v3 had errors, retrying ===
+=== db_v3 pass 6 Fri Sep 25 09:44:34 AM AWST 2026 ===
+=== db_v3 had errors, retrying ===
+=== db_v3 STILL FAILING after 6 passes ===
+=== cds_pathogen pass 1 Fri Sep 25 09:47:19 AM AWST 2026 ===
+=== cds_pathogen had errors, retrying ===
+=== cds_pathogen pass 2 Fri Sep 25 09:52:01 AM AWST 2026 ===
+=== cds_pathogen had errors, retrying ===
+=== cds_pathogen pass 3 Fri Sep 25 09:56:11 AM AWST 2026 ===
+=== cds_pathogen had errors, retrying ===
+=== cds_pathogen pass 4 Fri Sep 25 10:00:15 AM AWST 2026 ===
+=== cds_pathogen had errors, retrying ===
+=== cds_pathogen pass 5 Fri Sep 25 10:04:49 AM AWST 2026 ===
+=== cds_pathogen had errors, retrying ===
+=== cds_pathogen pass 6 Fri Sep 25 10:09:04 AM AWST 2026 ===
+=== cds_pathogen had errors, retrying ===
+=== cds_pathogen STILL FAILING after 6 passes ===
+=== cds_host pass 1 Fri Sep 25 10:13:22 AM AWST 2026 ===
+=== cds_host had errors, retrying ===
+=== cds_host pass 2 Fri Sep 25 10:15:24 AM AWST 2026 ===
+=== cds_host had errors, retrying ===
+=== cds_host pass 3 Fri Sep 25 10:17:31 AM AWST 2026 ===
+=== cds_host had errors, retrying ===
+=== cds_host pass 4 Fri Sep 25 10:19:41 AM AWST 2026 ===
+=== cds_host had errors, retrying ===
+=== cds_host pass 5 Fri Sep 25 10:21:50 AM AWST 2026 ===
+=== cds_host had errors, retrying ===

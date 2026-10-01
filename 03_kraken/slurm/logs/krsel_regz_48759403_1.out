@@ -1,0 +1,31 @@
+task 1/16  candidate raw files: 353  threads=32
+  [keep-gz ] ERR10886910_1.fastq.gz valid, removed redundant raw (22G)
+  [orphan   ] ERR3500507_2.fastq has no .gz, compressing
+  [ok       ] ERR3500507_2.fastq.gz  17G -> 4.3G  in 142s
+  [keep-gz ] ERR3500517_1.fastq.gz valid, removed redundant raw (16G)
+  [orphan   ] ERR3500527_2.fastq has no .gz, compressing
+  [ok       ] ERR3500527_2.fastq.gz  16G -> 4.0G  in 117s
+  [keep-gz ] ERR3500535_2.fastq.gz valid, removed redundant raw (16G)
+  [orphan   ] ERR3500555_2.fastq has no .gz, compressing
+  [ok       ] ERR3500555_2.fastq.gz  15G -> 3.9G  in 111s
+  [truncated] SRR12149187_2.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] SRR12149187_2.fastq.gz  20G -> 3.7G  in 112s
+  [truncated] SRR21195577_1.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] SRR21195577_1.fastq.gz  19G -> 3.7G  in 112s
+  [truncated] SRR23706860_1.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] SRR23706860_1.fastq.gz  30G -> 5.5G  in 170s
+  [truncated] SRR2517427.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] SRR2517427.fastq.gz  27G -> 6.1G  in 163s
+  [keep-gz ] SRR26175769_2.fastq.gz valid, removed redundant raw (21G)
+  [orphan   ] SRR31200170_2.fastq has no .gz, compressing
+  [ok       ] SRR31200170_2.fastq.gz  41G -> 7.1G  in 217s
+  [keep-gz ] SRR31514633_2.fastq.gz valid, removed redundant raw (164G)
+  [orphan   ] SRR31850431_2.fastq has no .gz, compressing
+  [ok       ] SRR31850431_2.fastq.gz  30G -> 4.6G  in 158s
+  [truncated] SRR33696070_1.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] SRR33696070_1.fastq.gz  42G -> 9.2G  in 3090s
+
+task 1 done: recovered=10 kept-existing-gz=5 failed=0
+  raw removed:   489G
+  gz written:    52G
+  net reclaimed: 438G

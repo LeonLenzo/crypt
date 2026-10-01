@@ -1,0 +1,38 @@
+Target BioSamples: 100 (settings=['field'], cryptic_only=False, aerial_only=True)
+Host resolution: 80 confidently resolved, 20 not per-sample-resolved (still covered by per-candidate indices below as long as their true host is a named candidate)
+Per-taxid host indices needed: 29 distinct taxids (resolved+downloaded by kraken_run_split.py, not here)
+Runs to process: 133
+
+Downloading reads for 133 runs (8 concurrent workers) …
+  [start ] SRR6218781
+  [start ] SRR36292483
+  [start ] SRR21796865
+  [1/133] ok=0 cached=1 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] SRR31850432
+  [start ] ERR4315477
+  [start ] SRR6221907
+  [2/133] ok=0 cached=2 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [3/133] ok=0 cached=3 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] ERR4761816
+  [start ] ERR1607793
+  [done  ] ERR4761816  4.55GB in 1638s (2.8 MB/s)
+  [4/133] ok=1 cached=3 fail=0  4.5GB total (27min elapsed, ~7.3hr remaining)
+  [start ] ERR4315603
+  [done  ] ERR4315477  2.79GB in 1904s (1.5 MB/s)
+  [5/133] ok=2 cached=3 fail=0  7.3GB total (32min elapsed, ~7.9hr remaining)
+  [start ] SRR18840566
+  [done  ] ERR1607793  5.17GB in 1929s (2.7 MB/s)
+  [6/133] ok=3 cached=3 fail=0  12.5GB total (32min elapsed, ~8.0hr remaining)
+  [start ] SRR22975696
+  [failed] SRR18840566  (no output after gzip, 70s)
+  [7/133] ok=3 cached=3 fail=1  12.5GB total (33min elapsed, ~8.0hr remaining)
+  [start ] ERR4315332
+  [start ] ERR7421539
+  [failed] ERR7421539  (no output after gzip, 47s)
+  [start ] SRR12888334
+  [done  ] SRR21796865  3.92GB in 3063s (1.3 MB/s)
+  [start ] SRR9276717
+  [done  ] SRR6221907  9.03GB in 3111s (2.9 MB/s)
+  [start ] SRR36616580
+  [done  ] SRR36616580  0.12GB in 63s (1.9 MB/s)
+  [start ] SRR8418271

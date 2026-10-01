@@ -1,0 +1,24 @@
+=== db_v3/opts.k2d START Fri Sep 25 10:48:35 AM AWST 2026 ===
+=== db_v3/opts.k2d OK Fri Sep 25 10:48:37 AM AWST 2026 ===
+=== db_v3/taxo.k2d START Fri Sep 25 10:48:37 AM AWST 2026 ===
+=== db_v3/taxo.k2d OK Fri Sep 25 10:48:38 AM AWST 2026 ===
+=== db_v3/seqid2taxid.map START Fri Sep 25 10:48:38 AM AWST 2026 ===
+=== db_v3/seqid2taxid.map OK Fri Sep 25 10:48:52 AM AWST 2026 ===
+=== db_v3/hash.k2d START Fri Sep 25 10:48:52 AM AWST 2026 ===
+=== db_v3/hash.k2d OK Fri Sep 25 10:53:34 AM AWST 2026 ===
+=== db_v3/taxonomy START Fri Sep 25 10:53:34 AM AWST 2026 ===
+=== db_v3/taxonomy OK Fri Sep 25 10:54:01 AM AWST 2026 ===
+=== cds/pathogen START Fri Sep 25 10:54:01 AM AWST 2026 ===
+=== cds/pathogen OK Fri Sep 25 10:59:30 AM AWST 2026 ===
+=== cds/host START Fri Sep 25 10:59:30 AM AWST 2026 ===
+=== cds/host OK Fri Sep 25 11:02:50 AM AWST 2026 ===
+=== db_v3/library START Fri Sep 25 11:02:50 AM AWST 2026 ===
+=== db_v3/library OK Fri Sep 25 11:10:14 AM AWST 2026 ===
+=== busco START Fri Sep 25 11:10:14 AM AWST 2026 ===
+=== busco OK Fri Sep 25 11:11:26 AM AWST 2026 ===
+=== db_v2 START Fri Sep 25 11:11:26 AM AWST 2026 ===
+=== db_v2 OK Fri Sep 25 11:12:45 AM AWST 2026 ===
+=== USAGE Fri Sep 25 11:12:45 AM AWST 2026 ===
+Total Objects: 18949
+   Total Size: 169842608622
+=== ALL STEPS OK ===

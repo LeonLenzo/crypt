@@ -1,0 +1,49 @@
+Target BioSamples: 100 (settings=['field'], cryptic_only=False, aerial_only=True)
+Host resolution: 80 confidently resolved, 20 not per-sample-resolved (still covered by per-candidate indices below as long as their true host is a named candidate)
+Per-taxid host indices needed: 29 distinct taxids (resolved+downloaded by kraken_run_split.py, not here)
+Runs to process: 133
+
+Downloading reads for 133 runs (16 concurrent workers) …
+  [start ] SRR31850432
+  [start ] SRR6218781
+  [start ] SRR18840566
+  [start ] ERR7421539
+  [start ] SRR22975696
+  [start ] SRR9276717
+  [start ] SRR12888334
+  [start ] SRR8418271
+  [start ] ERR4315564
+  [start ] SRR31851397
+  [start ] SRR6218744
+  [start ] ERR15005446
+  [1/133] ok=0 cached=1 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [2/133] ok=0 cached=2 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] ERR10886911
+  [start ] ERR10886909
+  [start ] ERR4315411
+  [start ] ERR1607758
+  [3/133] ok=0 cached=3 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [4/133] ok=0 cached=4 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [5/133] ok=0 cached=5 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [6/133] ok=0 cached=6 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [7/133] ok=0 cached=7 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [8/133] ok=0 cached=8 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [9/133] ok=0 cached=9 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [10/133] ok=0 cached=10 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [11/133] ok=0 cached=11 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [12/133] ok=0 cached=12 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [failed] SRR8418271  (prefetch, 10s)
+  [13/133] ok=0 cached=12 fail=1  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] ERR10886910
+  [failed] SRR9276717  (prefetch, 15s)
+  [14/133] ok=0 cached=12 fail=2  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] ERR1607755
+  [failed] ERR7421539  (no output after gzip, 48s)
+  [15/133] ok=0 cached=12 fail=3  0.0GB total (1min elapsed, ~n/a remaining)
+  [start ] ERR4315390
+  [failed] SRR18840566  (no output after gzip, 69s)
+  [16/133] ok=0 cached=12 fail=4  0.0GB total (1min elapsed, ~n/a remaining)
+  [start ] SRR24901493
+  [done  ] SRR12888334  1.40GB in 765s (1.8 MB/s)
+  [17/133] ok=1 cached=12 fail=4  1.4GB total (13min elapsed, ~1.5hr remaining)
+  [start ] SRR36367295

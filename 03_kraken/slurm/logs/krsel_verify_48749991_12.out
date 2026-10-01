@@ -1,0 +1,6 @@
+task 12/16  files: 4148  threads=32
+  distinct runs on disk: 2077   with spot counts: 2077
+task 12 done -> /scratch/pawsey1168/llenzo/crypt/kraken/output/run/select/data/verify_12.tsv
+  SHORT        1
+  COMPLETE     247
+  CORRUPT      11

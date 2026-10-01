@@ -1,0 +1,22 @@
+Reads read from: kraken/output/run/select/data/reads
+Raw kraken2 reports will be saved to: kraken/output/run/classify_smoke/reports
+Loaded 3,225 runs from kraken/output/run/select/data/run_list.tsv (filters: none)
+--limit 6: processing 6 runs
+
+Total runs: 3,225 | Already done: 0 | Remaining: 6
+Settings: confidence=0.15, min_hit_groups=3, workers=3, kraken_threads=10
+DB: kraken/output/db/build/data/db_v2
+Tmp: /scratch/fl3/llenzo/kraken_tmp
+
+[      1/6] ERR3170248  62.9% classified  | 0.0/s  ETA 0.1h
+[      2/6] ERR3170234  59.4% classified  | 0.0/s  ETA 0.1h
+[      3/6] ERR3170229  71.0% classified  | 0.0/s  ETA 0.0h
+[      4/6] ERR3188443  43.9% classified  | 0.0/s  ETA 0.0h
+[      5/6] ERR3170256  56.3% classified  | 0.0/s  ETA 0.0h
+[      6/6] ERR3170278  61.1% classified  | 0.0/s  ETA 0.0h
+
+── Summary ────────────────────────────────────────
+  Classified: 6
+  Errors:     0
+  Elapsed:    0.1h
+  Cache:      kraken/output/run/classify_smoke/data/kraken_cache.jsonl

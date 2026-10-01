@@ -1,0 +1,4499 @@
+Starting Kraken2 build: Thu Sep 24 09:04:24 PM AWST 2026
+DB dir:      /scratch/pawsey1168/llenzo/crypt/kraken/output/db/build/data/db_v3
+Genomes dir: /scratch/pawsey1168/llenzo/crypt/kraken/output/db/search/data/cds/pathogen
+Selected assemblies: 2020 (739 seed, 42 genus fill-in, 0 below-threshold fallback)
+Host assemblies added to build: 95 (from kraken/output/db/search/data/host_candidates.tsv)
+
+── Preparing FASTAs from /scratch/pawsey1168/llenzo/crypt/kraken/output/db/search/data/cds/pathogen ──────────────────────────
+
+[1/2115] GCA_057674285.1  taxid=3469074  (genus_fill) [Neocosmospora] sp. B6999-1
+
+[2/2115] GCA_057674405.1  taxid=3469074  (genus_fill) [Neocosmospora] sp. B6999-1
+
+[3/2115] GCA_057674425.1  taxid=3469074  (genus_fill) [Neocosmospora] sp. B6999-1
+
+[4/2115] GCA_057673925.1  taxid=3469077  (genus_fill) [Neocosmospora] sp. B6999-4
+
+[5/2115] GCA_057673945.1  taxid=3469077  (genus_fill) [Neocosmospora] sp. B6999-4
+
+[6/2115] GCA_057674065.1  taxid=3469077  (genus_fill) [Neocosmospora] sp. B6999-4
+
+[7/2115] GCA_004168565.1  taxid=119927  (genus_fill) Alternaria tenuissima
+
+[8/2115] GCA_057676245.1  taxid=131363  (genus_fill) Fusarium ambrosium
+
+[9/2115] GCA_057675785.1  taxid=1715230  (genus_fill) Fusarium cf. solani
+
+[10/2115] GCA_057675825.1  taxid=1715230  (genus_fill) Fusarium cf. solani
+
+[11/2115] GCA_057675845.1  taxid=1715230  (genus_fill) Fusarium cf. solani
+
+[12/2115] GCA_057675945.1  taxid=1715230  (genus_fill) Fusarium cf. solani
+
+[13/2115] GCA_057675965.1  taxid=1715230  (genus_fill) Fusarium cf. solani
+
+[14/2115] GCA_057674765.1  taxid=1715230  (genus_fill) Fusarium cf. solani
+
+[15/2115] GCA_057675065.1  taxid=1715230  (genus_fill) Fusarium cf. solani
+
+[16/2115] GCA_057675685.1  taxid=1715230  (genus_fill) Fusarium cf. solani
+
+[17/2115] GCA_057675705.1  taxid=1715230  (genus_fill) Fusarium cf. solani
+
+[18/2115] GCA_057675765.1  taxid=1715230  (genus_fill) Fusarium cf. solani
+
+[19/2115] GCA_027945515.1  taxid=195108  (genus_fill) Fusarium falciforme
+
+[20/2115] GCA_057675305.1  taxid=1325733  (genus_fill) Fusarium floridanum
+
+[21/2115] GCA_052570365.1  taxid=5523  (genus_fill) Fusarium lateritium
+
+[22/2115] GCA_052570435.1  taxid=5523  (genus_fill) Fusarium lateritium
+
+[23/2115] GCA_052570465.1  taxid=5523  (genus_fill) Fusarium lateritium
+
+[24/2115] GCA_052570605.1  taxid=5523  (genus_fill) Fusarium lateritium
+
+[25/2115] GCA_052570615.1  taxid=5523  (genus_fill) Fusarium lateritium
+
+[26/2115] GCA_052570645.1  taxid=5523  (genus_fill) Fusarium lateritium
+
+[27/2115] GCA_052571635.1  taxid=5523  (genus_fill) Fusarium lateritium
+
+[28/2115] GCA_052570225.1  taxid=5523  (genus_fill) Fusarium lateritium
+
+[29/2115] GCA_052570285.1  taxid=5523  (genus_fill) Fusarium lateritium
+
+[30/2115] GCA_052570295.1  taxid=5523  (genus_fill) Fusarium lateritium
+
+[31/2115] GCA_052570305.1  taxid=5523  (genus_fill) Fusarium lateritium
+
+[32/2115] GCA_057674295.1  taxid=3469074  (order_sweep) [Neocosmospora] sp. B6999-1
+
+[33/2115] GCA_057674185.1  taxid=3469074  (order_sweep) [Neocosmospora] sp. B6999-1
+
+[34/2115] GCA_057674245.1  taxid=3469074  (order_sweep) [Neocosmospora] sp. B6999-1
+
+[35/2115] GCA_057674335.1  taxid=3469074  (order_sweep) [Neocosmospora] sp. B6999-1
+
+[36/2115] GCA_057674085.1  taxid=3469075  (order_sweep) [Neocosmospora] sp. B6999-2
+
+[37/2115] GCA_057674165.1  taxid=3469075  (order_sweep) [Neocosmospora] sp. B6999-2
+
+[38/2115] GCA_057674105.1  taxid=3469076  (order_sweep) [Neocosmospora] sp. B6999-3
+
+[39/2115] GCA_057673975.1  taxid=3469077  (order_sweep) [Neocosmospora] sp. B6999-4
+
+[40/2115] GCA_057673805.1  taxid=3469077  (order_sweep) [Neocosmospora] sp. B6999-4
+
+[41/2115] GCA_057673865.1  taxid=3469077  (order_sweep) [Neocosmospora] sp. B6999-4
+
+[42/2115] GCA_057673905.1  taxid=3469077  (order_sweep) [Neocosmospora] sp. B6999-4
+
+[43/2115] GCA_057673785.1  taxid=3469078  (order_sweep) [Neocosmospora] sp. B6999-5
+
+[44/2115] GCA_000825705.1  taxid=1531966  (order_sweep) [Torrubiella] hemipterigena
+
+[45/2115] GCF_010015735.1  taxid=1450171  (order_sweep) Aaosphaeria arxii
+  NOTE: taxid corrected 1450171 → 1450172 (stale taxid in ref_candidates)
+
+[46/2115] GCA_010015735.1  taxid=1450171  (order_sweep) Aaosphaeria arxii
+  NOTE: taxid corrected 1450171 → 1450172 (stale taxid in ref_candidates)
+
+[47/2115] GCA_014904845.1  taxid=886606  (order_sweep) Acephala macrosclerotiorum
+
+[48/2115] GCA_001592465.1  taxid=245562  (order_sweep) Acidomyces sp. 'richmondensis'
+  NOTE: taxid corrected 245562 → 766039 (stale taxid in ref_candidates)
+
+[49/2115] GCA_033807595.1  taxid=150365  (order_sweep) Acrodontium crateriforme
+
+[50/2115] GCA_014872705.1  taxid=5341  (order_sweep) Agaricus bisporus
+  NOTE: taxid corrected 5341 → 192524 (stale taxid in ref_candidates)
+
+[51/2115] GCF_000300575.1  taxid=5341  (order_sweep) Agaricus bisporus
+  NOTE: taxid corrected 5341 → 936046 (stale taxid in ref_candidates)
+
+[52/2115] GCF_000300555.1  taxid=5341  (order_sweep) Agaricus bisporus
+  NOTE: taxid corrected 5341 → 597362 (stale taxid in ref_candidates)
+
+[53/2115] GCA_000300555.1  taxid=5341  (order_sweep) Agaricus bisporus
+  NOTE: taxid corrected 5341 → 597362 (stale taxid in ref_candidates)
+
+[54/2115] GCA_027627235.1  taxid=84603  (order_sweep) Agrocybe chaxingu
+
+[55/2115] GCA_015484485.1  taxid=84607  (order_sweep) Agrocybe pediades
+
+[56/2115] GCA_001636795.1  taxid=2714763  (order_sweep) Akanthomyces lecanii
+  NOTE: taxid corrected 2714763 → 1081108 (stale taxid in ref_candidates)
+
+[57/2115] GCA_001653215.1  taxid=2714763  (order_sweep) Akanthomyces lecanii
+
+[58/2115] GCF_028009165.1  taxid=2231603  (order_sweep) Akanthomyces muscarius
+
+[59/2115] GCA_028009165.1  taxid=2231603  (order_sweep) Akanthomyces muscarius
+
+[60/2115] GCF_004154835.1  taxid=156630  (order_sweep) Alternaria arborescens
+
+[61/2115] GCA_004154815.1  taxid=156630  (order_sweep) Alternaria arborescens
+
+[62/2115] GCA_004154835.1  taxid=156630  (order_sweep) Alternaria arborescens
+
+[63/2115] GCA_004155955.1  taxid=156630  (order_sweep) Alternaria arborescens
+
+[64/2115] GCF_024043155.1  taxid=232088  (order_sweep) Alternaria arbusti
+
+[65/2115] GCA_024043155.1  taxid=232088  (order_sweep) Alternaria arbusti
+
+[66/2115] GCF_907166805.1  taxid=119953  (order_sweep) Alternaria atra
+
+[67/2115] GCA_907166805.1  taxid=119953  (order_sweep) Alternaria atra
+
+[68/2115] GCF_013036055.1  taxid=1187904  (order_sweep) Alternaria burnsii
+
+[69/2115] GCA_951284595.1  taxid=1187904  (order_sweep) Alternaria burnsii
+
+[70/2115] GCA_013036055.1  taxid=1187904  (order_sweep) Alternaria burnsii
+
+[71/2115] GCF_024043145.1  taxid=181017  (order_sweep) Alternaria conjuncta
+
+[72/2115] GCA_024043145.1  taxid=181017  (order_sweep) Alternaria conjuncta
+
+[73/2115] GCF_042100115.1  taxid=48095  (order_sweep) Alternaria dauci
+
+[74/2115] GCA_042100115.1  taxid=48095  (order_sweep) Alternaria dauci
+
+[75/2115] GCF_023757985.1  taxid=181014  (order_sweep) Alternaria ethzedia
+
+[76/2115] GCA_023757985.1  taxid=181014  (order_sweep) Alternaria ethzedia
+
+[77/2115] GCF_023758085.1  taxid=1187925  (order_sweep) Alternaria hordeiaustralica
+
+[78/2115] GCA_023758085.1  taxid=1187925  (order_sweep) Alternaria hordeiaustralica
+
+[79/2115] GCF_024043165.1  taxid=1187928  (order_sweep) Alternaria incomplexa
+
+[80/2115] GCA_024043165.1  taxid=1187928  (order_sweep) Alternaria incomplexa
+
+[81/2115] GCF_024043175.1  taxid=45303  (order_sweep) Alternaria infectoria
+
+[82/2115] GCA_024043175.1  taxid=45303  (order_sweep) Alternaria infectoria
+
+[83/2115] GCF_023757995.1  taxid=283354  (order_sweep) Alternaria metachromatica
+
+[84/2115] GCA_023757995.1  taxid=283354  (order_sweep) Alternaria metachromatica
+
+[85/2115] GCF_023758075.1  taxid=430562  (order_sweep) Alternaria novae-zelandiae
+
+[86/2115] GCA_023758075.1  taxid=430562  (order_sweep) Alternaria novae-zelandiae
+
+[87/2115] GCF_024291825.1  taxid=1187938  (order_sweep) Alternaria postmessia
+
+[88/2115] GCA_024291825.1  taxid=1187938  (order_sweep) Alternaria postmessia
+
+[89/2115] GCA_024043135.1  taxid=1187941  (order_sweep) Alternaria rosae
+
+[90/2115] GCA_023758125.1  taxid=2817039  (order_sweep) Alternaria sp. Ai002NY15
+
+[91/2115] GCA_023758005.1  taxid=2817042  (order_sweep) Alternaria sp. BMP 0032
+
+[92/2115] GCA_023758145.1  taxid=2817041  (order_sweep) Alternaria sp. BMP 2799
+
+[93/2115] GCA_003574525.1  taxid=1678846  (order_sweep) Alternaria sp. MG1
+
+[94/2115] GCA_004154735.1  taxid=119927  (order_sweep) Alternaria tenuissima
+
+[95/2115] GCA_004154745.1  taxid=119927  (order_sweep) Alternaria tenuissima
+
+[96/2115] GCA_004154845.1  taxid=119927  (order_sweep) Alternaria tenuissima
+
+[97/2115] GCA_004156015.1  taxid=119927  (order_sweep) Alternaria tenuissima
+
+[98/2115] GCF_023758025.1  taxid=297637  (order_sweep) Alternaria triticimaculans
+
+[99/2115] GCA_023758025.1  taxid=297637  (order_sweep) Alternaria triticimaculans
+
+[100/2115] GCF_023758065.1  taxid=1187951  (order_sweep) Alternaria ventricosa
+
+[101/2115] GCA_023758065.1  taxid=1187951  (order_sweep) Alternaria ventricosa
+
+[102/2115] GCF_023758015.1  taxid=566460  (order_sweep) Alternaria viburni
+
+[103/2115] GCA_023758015.1  taxid=566460  (order_sweep) Alternaria viburni
+
+[104/2115] GCA_001691785.3  taxid=87326  (order_sweep) Amanita brunnescens
+  NOTE: taxid corrected 87326 → 1457509 (stale taxid in ref_candidates)
+
+[105/2115] GCA_001691775.3  taxid=933333  (order_sweep) Amanita inopinata
+  NOTE: taxid corrected 933333 → 1457513 (stale taxid in ref_candidates)
+
+[106/2115] GCA_054369615.1  taxid=41956  (order_sweep) Amanita muscaria
+
+[107/2115] GCA_000827485.1  taxid=41956  (order_sweep) Amanita muscaria
+  NOTE: taxid corrected 41956 → 946122 (stale taxid in ref_candidates)
+
+[108/2115] GCA_032173475.1  taxid=67723  (order_sweep) Amanita phalloides
+
+[109/2115] GCA_001691755.2  taxid=1004511  (order_sweep) Amanita polypyramis
+  NOTE: taxid corrected 1004511 → 1457511 (stale taxid in ref_candidates)
+
+[110/2115] GCA_002554575.1  taxid=235537  (order_sweep) Amanita thiersii
+  NOTE: taxid corrected 235537 → 703135 (stale taxid in ref_candidates)
+
+[111/2115] GCA_010015725.1  taxid=455074  (order_sweep) Amniculicola lignicola
+  NOTE: taxid corrected 455074 → 1392246 (stale taxid in ref_candidates)
+
+[112/2115] GCF_003019875.1  taxid=5101  (order_sweep) Amorphotheca resinae
+  NOTE: taxid corrected 5101 → 857342 (stale taxid in ref_candidates)
+
+[113/2115] GCA_003019875.1  taxid=5101  (order_sweep) Amorphotheca resinae
+  NOTE: taxid corrected 5101 → 857342 (stale taxid in ref_candidates)
+
+[114/2115] GCA_010094095.1  taxid=50730  (order_sweep) Ampelomyces quisqualis
+
+[115/2115] GCA_019669835.1  taxid=45428  (order_sweep) Amylocarpus encephaloides
+
+[116/2115] GCA_022385825.1  taxid=55340  (order_sweep) Amylostereum chailletii
+
+[117/2115] GCA_022836615.1  taxid=326616  (order_sweep) Annulohypoxylon bovei
+  NOTE: taxid corrected 326616 → 326617 (stale taxid in ref_candidates)
+
+[118/2115] GCF_022496945.1  taxid=1927788  (order_sweep) Annulohypoxylon maeteangense
+
+[119/2115] GCA_022496945.1  taxid=1927788  (order_sweep) Annulohypoxylon maeteangense
+
+[120/2115] GCA_022695765.1  taxid=326622  (order_sweep) Annulohypoxylon moriforme
+
+[121/2115] GCA_022496965.1  taxid=326626  (order_sweep) Annulohypoxylon nitens
+
+[122/2115] GCA_040104375.1  taxid=2857486  (order_sweep) Annulohypoxylon sp. FPYF3050
+
+[123/2115] GCA_022695755.1  taxid=326628  (order_sweep) Annulohypoxylon stygium
+
+[124/2115] GCF_022578515.1  taxid=327061  (order_sweep) Annulohypoxylon truncatum
+
+[125/2115] GCA_022578515.1  taxid=327061  (order_sweep) Annulohypoxylon truncatum
+
+[126/2115] GCA_029218145.1  taxid=12942  (order_sweep) Aphanocladium album
+
+[127/2115] GCF_010093885.1  taxid=462254  (order_sweep) Aplosporella prunicola
+  NOTE: taxid corrected 462254 → 1176127 (stale taxid in ref_candidates)
+
+[128/2115] GCA_010093885.1  taxid=462254  (order_sweep) Aplosporella prunicola
+  NOTE: taxid corrected 462254 → 1176127 (stale taxid in ref_candidates)
+
+[129/2115] GCA_002307695.1  taxid=47427  (order_sweep) Armillaria gallica
+
+[130/2115] GCA_002307675.1  taxid=1076256  (order_sweep) Armillaria solidipes
+
+[131/2115] GCA_018855395.1  taxid=530044  (order_sweep) Arthromyces matolae
+
+[132/2115] GCA_022160305.1  taxid=48021  (order_sweep) Artomyces pyxidatus
+
+[133/2115] GCF_003184765.1  taxid=487661  (order_sweep) Aspergillus aculeatinus
+  NOTE: taxid corrected 487661 → 1448322 (stale taxid in ref_candidates)
+
+[134/2115] GCA_003184765.1  taxid=487661  (order_sweep) Aspergillus aculeatinus
+  NOTE: taxid corrected 487661 → 1448322 (stale taxid in ref_candidates)
+
+[135/2115] GCF_001890905.1  taxid=5053  (order_sweep) Aspergillus aculeatus
+  NOTE: taxid corrected 5053 → 690307 (stale taxid in ref_candidates)
+
+[136/2115] GCA_001890905.1  taxid=5053  (order_sweep) Aspergillus aculeatus
+  NOTE: taxid corrected 5053 → 690307 (stale taxid in ref_candidates)
+
+[137/2115] GCF_023601865.1  taxid=1070780  (order_sweep) Aspergillus affinis
+
+[138/2115] GCA_023601865.2  taxid=1070780  (order_sweep) Aspergillus affinis
+
+[139/2115] GCF_009176365.1  taxid=209559  (order_sweep) Aspergillus alliaceus
+
+[140/2115] GCA_013421405.2  taxid=209559  (order_sweep) Aspergillus alliaceus
+
+[141/2115] GCA_009176365.1  taxid=209559  (order_sweep) Aspergillus alliaceus
+
+[142/2115] GCA_009193605.1  taxid=209559  (order_sweep) Aspergillus alliaceus
+
+[143/2115] GCF_047715705.1  taxid=176160  (order_sweep) Aspergillus ambiguus
+
+[144/2115] GCA_047715705.1  taxid=176160  (order_sweep) Aspergillus ambiguus
+
+[145/2115] GCA_009193545.1  taxid=656916  (order_sweep) Aspergillus arachidicola
+
+[146/2115] GCA_047715765.1  taxid=41725  (order_sweep) Aspergillus aurantiobrunneus
+
+[147/2115] GCA_009193465.1  taxid=36643  (order_sweep) Aspergillus avenaceus
+
+[148/2115] GCA_009193595.1  taxid=1226010  (order_sweep) Aspergillus bertholletiae
+
+[149/2115] GCF_001889945.1  taxid=319629  (order_sweep) Aspergillus brasiliensis
+  NOTE: taxid corrected 319629 → 767769 (stale taxid in ref_candidates)
+
+[150/2115] GCA_027924045.1  taxid=319629  (order_sweep) Aspergillus brasiliensis
+
+[151/2115] GCA_027924065.1  taxid=319629  (order_sweep) Aspergillus brasiliensis
+
+[152/2115] GCA_027924085.1  taxid=319629  (order_sweep) Aspergillus brasiliensis
+
+[153/2115] GCF_003184695.1  taxid=1191711  (order_sweep) Aspergillus brunneoviolaceus
+  NOTE: taxid corrected 1191711 → 1450534 (stale taxid in ref_candidates)
+
+[154/2115] GCA_003184695.1  taxid=1191711  (order_sweep) Aspergillus brunneoviolaceus
+  NOTE: taxid corrected 1191711 → 1450534 (stale taxid in ref_candidates)
+
+[155/2115] GCF_009193585.1  taxid=61420  (order_sweep) Aspergillus caelatus
+
+[156/2115] GCA_009193585.1  taxid=61420  (order_sweep) Aspergillus caelatus
+
+[157/2115] GCA_001511075.1  taxid=454130  (order_sweep) Aspergillus calidoustus
+
+[158/2115] GCA_045785085.1  taxid=1810905  (order_sweep) Aspergillus californicus
+
+[159/2115] GCA_059056005.1  taxid=41067  (order_sweep) Aspergillus candidus
+
+[160/2115] GCF_002847045.1  taxid=41067  (order_sweep) Aspergillus candidus
+
+[161/2115] GCA_002847045.1  taxid=41067  (order_sweep) Aspergillus candidus
+
+[162/2115] GCA_025688815.1  taxid=1810906  (order_sweep) Aspergillus carlsbadensis
+
+[163/2115] GCA_044048685.1  taxid=176166  (order_sweep) Aspergillus cavernicola
+
+[164/2115] GCF_016861735.1  taxid=182096  (order_sweep) Aspergillus chevalieri
+
+[165/2115] GCA_016861735.1  taxid=182096  (order_sweep) Aspergillus chevalieri
+
+[166/2115] GCF_000002715.2  taxid=5057  (order_sweep) Aspergillus clavatus
+  NOTE: taxid corrected 5057 → 344612 (stale taxid in ref_candidates)
+
+[167/2115] GCA_000002715.1  taxid=5057  (order_sweep) Aspergillus clavatus
+  NOTE: taxid corrected 5057 → 344612 (stale taxid in ref_candidates)
+
+[168/2115] GCA_009193565.1  taxid=138285  (order_sweep) Aspergillus coremiiformis
+
+[169/2115] GCF_003184835.1  taxid=319631  (order_sweep) Aspergillus costaricensis
+  NOTE: taxid corrected 319631 → 1448317 (stale taxid in ref_candidates)
+
+[170/2115] GCA_003184835.1  taxid=319631  (order_sweep) Aspergillus costaricensis
+  NOTE: taxid corrected 319631 → 1448317 (stale taxid in ref_candidates)
+
+[171/2115] GCA_001717485.1  taxid=573508  (order_sweep) Aspergillus cristatus
+
+[172/2115] GCA_048571495.1  taxid=41757  (order_sweep) Aspergillus crustosus
+
+[173/2115] GCA_047715865.1  taxid=1810909  (order_sweep) Aspergillus desertorum
+
+[174/2115] GCA_056321185.1  taxid=1915368  (order_sweep) Aspergillus destruens
+
+[175/2115] GCA_056320525.1  taxid=1915368  (order_sweep) Aspergillus destruens
+
+[176/2115] GCA_025688805.1  taxid=41743  (order_sweep) Aspergillus egyptiacus
+
+[177/2115] GCA_003184645.1  taxid=41066  (order_sweep) Aspergillus ellipticus
+  NOTE: taxid corrected 41066 → 1448320 (stale taxid in ref_candidates)
+
+[178/2115] GCA_047715845.1  taxid=1810910  (order_sweep) Aspergillus falconensis
+
+[179/2115] GCA_014281895.1  taxid=1287682  (order_sweep) Aspergillus felis
+
+[180/2115] GCA_014281915.1  taxid=1287682  (order_sweep) Aspergillus felis
+
+[181/2115] GCF_003184825.1  taxid=1191702  (order_sweep) Aspergillus fijiensis
+  NOTE: taxid corrected 1191702 → 1448319 (stale taxid in ref_candidates)
+
+[182/2115] GCA_003184825.1  taxid=1191702  (order_sweep) Aspergillus fijiensis
+  NOTE: taxid corrected 1191702 → 1448319 (stale taxid in ref_candidates)
+
+[183/2115] GCA_047715815.1  taxid=447248  (order_sweep) Aspergillus filifer
+
+[184/2115] GCF_000149645.3  taxid=36630  (order_sweep) Aspergillus fischeri
+  NOTE: taxid corrected 36630 → 331117 (stale taxid in ref_candidates)
+
+[185/2115] GCA_016748045.1  taxid=36630  (order_sweep) Aspergillus fischeri
+
+[186/2115] GCA_000149645.4  taxid=36630  (order_sweep) Aspergillus fischeri
+  NOTE: taxid corrected 36630 → 331117 (stale taxid in ref_candidates)
+
+[187/2115] GCA_048565125.1  taxid=658358  (order_sweep) Aspergillus floccosus
+
+[188/2115] GCF_047715535.1  taxid=210207  (order_sweep) Aspergillus foveolatus
+
+[189/2115] GCA_047715535.1  taxid=210207  (order_sweep) Aspergillus foveolatus
+
+[190/2115] GCA_047715895.1  taxid=1250369  (order_sweep) Aspergillus fruticulosus
+
+[191/2115] GCA_012656225.1  taxid=340414  (order_sweep) Aspergillus fumigatiaffinis
+
+[192/2115] GCA_012656285.1  taxid=340414  (order_sweep) Aspergillus fumigatiaffinis
+
+[193/2115] GCA_012656295.1  taxid=340414  (order_sweep) Aspergillus fumigatiaffinis
+
+[194/2115] GCA_012656325.1  taxid=340414  (order_sweep) Aspergillus fumigatiaffinis
+
+[195/2115] GCA_058970245.1  taxid=746128  (order_sweep) Aspergillus fumigatus
+
+[196/2115] GCA_040142855.1  taxid=746128  (order_sweep) Aspergillus fumigatus
+
+[197/2115] GCA_001029325.1  taxid=746128  (order_sweep) Aspergillus fumigatus
+  NOTE: taxid corrected 746128 → 1437362 (stale taxid in ref_candidates)
+
+[198/2115] GCA_000731615.1  taxid=746128  (order_sweep) Aspergillus fumigatus
+
+[199/2115] GCA_045785125.1  taxid=1506149  (order_sweep) Aspergillus germanicus
+
+[200/2115] GCF_001890805.1  taxid=41413  (order_sweep) Aspergillus glaucus
+  NOTE: taxid corrected 41413 → 1160497 (stale taxid in ref_candidates)
+
+[201/2115] GCA_001890805.1  taxid=41413  (order_sweep) Aspergillus glaucus
+  NOTE: taxid corrected 41413 → 1160497 (stale taxid in ref_candidates)
+
+[202/2115] GCA_044048675.1  taxid=176169  (order_sweep) Aspergillus granulosus
+
+[203/2115] GCA_001696595.2  taxid=1873369  (order_sweep) Aspergillus hancockii
+
+[204/2115] GCA_045784785.1  taxid=41742  (order_sweep) Aspergillus heterothallicus
+
+[205/2115] GCA_014281905.1  taxid=1194566  (order_sweep) Aspergillus hiratsukae
+
+[206/2115] GCA_014281935.1  taxid=1194566  (order_sweep) Aspergillus hiratsukae
+
+[207/2115] GCF_003184865.1  taxid=319626  (order_sweep) Aspergillus homomorphus
+  NOTE: taxid corrected 319626 → 1450537 (stale taxid in ref_candidates)
+
+[208/2115] GCA_003184865.1  taxid=319626  (order_sweep) Aspergillus homomorphus
+  NOTE: taxid corrected 319626 → 1450537 (stale taxid in ref_candidates)
+
+[209/2115] GCF_003184845.1  taxid=301854  (order_sweep) Aspergillus ibericus
+  NOTE: taxid corrected 301854 → 1448316 (stale taxid in ref_candidates)
+
+[210/2115] GCA_003184845.1  taxid=301854  (order_sweep) Aspergillus ibericus
+  NOTE: taxid corrected 301854 → 1448316 (stale taxid in ref_candidates)
+
+[211/2115] GCA_003184685.1  taxid=1232676  (order_sweep) Aspergillus indologenus
+  NOTE: taxid corrected 1232676 → 1450541 (stale taxid in ref_candidates)
+
+[212/2115] GCA_045784725.1  taxid=469274  (order_sweep) Aspergillus insuetus
+
+[213/2115] GCF_003184785.1  taxid=34381  (order_sweep) Aspergillus japonicus
+  NOTE: taxid corrected 34381 → 1448312 (stale taxid in ref_candidates)
+
+[214/2115] GCA_003184785.1  taxid=34381  (order_sweep) Aspergillus japonicus
+  NOTE: taxid corrected 34381 → 1448312 (stale taxid in ref_candidates)
+
+[215/2115] GCF_047715665.1  taxid=1810916  (order_sweep) Aspergillus karnatakaensis
+
+[216/2115] GCA_047715665.1  taxid=1810916  (order_sweep) Aspergillus karnatakaensis
+
+[217/2115] GCA_044089335.1  taxid=714993  (order_sweep) Aspergillus keveii
+
+[218/2115] GCF_010724455.1  taxid=293939  (order_sweep) Aspergillus lentulus
+
+[219/2115] GCA_010723975.1  taxid=293939  (order_sweep) Aspergillus lentulus
+
+[220/2115] GCA_010724455.1  taxid=293939  (order_sweep) Aspergillus lentulus
+
+[221/2115] GCA_010724575.1  taxid=293939  (order_sweep) Aspergillus lentulus
+
+[222/2115] GCA_009176345.1  taxid=41062  (order_sweep) Aspergillus leporis
+
+[223/2115] GCF_016861625.1  taxid=1069201  (order_sweep) Aspergillus luchuensis
+
+[224/2115] GCA_001890685.1  taxid=1069201  (order_sweep) Aspergillus luchuensis
+  NOTE: taxid corrected 1069201 → 1137211 (stale taxid in ref_candidates)
+
+[225/2115] GCA_000239835.2  taxid=1069201  (order_sweep) Aspergillus luchuensis
+  NOTE: taxid corrected 1069201 → 1033177 (stale taxid in ref_candidates)
+
+[226/2115] GCA_016861625.1  taxid=1069201  (order_sweep) Aspergillus luchuensis
+
+[227/2115] GCF_044049455.1  taxid=176173  (order_sweep) Aspergillus lucknowensis
+
+[228/2115] GCA_044049455.1  taxid=176173  (order_sweep) Aspergillus lucknowensis
+
+[229/2115] GCA_056320545.1  taxid=1915373  (order_sweep) Aspergillus magnivesiculatus
+
+[230/2115] GCA_030674015.1  taxid=138277  (order_sweep) Aspergillus melleus
+
+[231/2115] GCA_009176455.1  taxid=656917  (order_sweep) Aspergillus minisclerotigenes
+
+[232/2115] GCF_047715735.1  taxid=41759  (order_sweep) Aspergillus multicolor
+
+[233/2115] GCA_047715735.1  taxid=41759  (order_sweep) Aspergillus multicolor
+
+[234/2115] GCF_003369625.1  taxid=1810919  (order_sweep) Aspergillus mulundensis
+
+[235/2115] GCA_003369625.1  taxid=1810919  (order_sweep) Aspergillus mulundensis
+
+[236/2115] GCA_015844325.1  taxid=2582783  (order_sweep) Aspergillus nanangensis
+
+[237/2115] GCA_048626375.1  taxid=91484  (order_sweep) Aspergillus navahoensis
+
+[238/2115] GCF_003184625.1  taxid=1196635  (order_sweep) Aspergillus neoniger
+  NOTE: taxid corrected 1196635 → 1448310 (stale taxid in ref_candidates)
+
+[239/2115] GCA_003184625.1  taxid=1196635  (order_sweep) Aspergillus neoniger
+  NOTE: taxid corrected 1196635 → 1448310 (stale taxid in ref_candidates)
+
+[240/2115] GCA_059491275.1  taxid=162425  (order_sweep) Aspergillus nidulans
+
+[241/2115] GCF_000011425.1  taxid=162425  (order_sweep) Aspergillus nidulans
+  NOTE: taxid corrected 162425 → 227321 (stale taxid in ref_candidates)
+
+[242/2115] GCF_000149205.2  taxid=162425  (order_sweep) Aspergillus nidulans
+  NOTE: taxid corrected 162425 → 227321 (stale taxid in ref_candidates)
+
+[243/2115] GCA_000011425.1  taxid=162425  (order_sweep) Aspergillus nidulans
+  NOTE: taxid corrected 162425 → 227321 (stale taxid in ref_candidates)
+
+[244/2115] GCA_009176405.1  taxid=986946  (order_sweep) Aspergillus novoparasiticus
+
+[245/2115] GCA_047715755.1  taxid=1250372  (order_sweep) Aspergillus oleicola
+
+[246/2115] GCA_057808355.1  taxid=5062  (order_sweep) Aspergillus oryzae
+
+[247/2115] GCF_000184455.2  taxid=5062  (order_sweep) Aspergillus oryzae
+  NOTE: taxid corrected 5062 → 510516 (stale taxid in ref_candidates)
+
+[248/2115] GCA_057808365.1  taxid=5062  (order_sweep) Aspergillus oryzae
+
+[249/2115] GCA_057913135.1  taxid=5062  (order_sweep) Aspergillus oryzae
+
+[250/2115] GCA_037075405.1  taxid=5067  (order_sweep) Aspergillus parasiticus
+
+[251/2115] GCA_009176385.1  taxid=5067  (order_sweep) Aspergillus parasiticus
+
+[252/2115] GCA_003344505.1  taxid=5063  (order_sweep) Aspergillus phoenicis
+  NOTE: taxid corrected 5063 → 1353007 (stale taxid in ref_candidates)
+
+[253/2115] GCF_003184755.1  taxid=319630  (order_sweep) Aspergillus piperis
+  NOTE: taxid corrected 319630 → 1448313 (stale taxid in ref_candidates)
+
+[254/2115] GCA_003184755.1  taxid=319630  (order_sweep) Aspergillus piperis
+  NOTE: taxid corrected 319630 → 1448313 (stale taxid in ref_candidates)
+
+[255/2115] GCA_056320485.1  taxid=41414  (order_sweep) Aspergillus proliferans
+
+[256/2115] GCA_009193665.1  taxid=1825620  (order_sweep) Aspergillus pseudocaelatus
+
+[257/2115] GCF_044049435.1  taxid=176178  (order_sweep) Aspergillus pseudodeflectus
+
+[258/2115] GCA_044049435.1  taxid=176178  (order_sweep) Aspergillus pseudodeflectus
+
+[259/2115] GCF_009193645.1  taxid=1506151  (order_sweep) Aspergillus pseudonomiae
+
+[260/2115] GCA_009176395.1  taxid=1506151  (order_sweep) Aspergillus pseudonomiae
+
+[261/2115] GCA_009193645.1  taxid=1506151  (order_sweep) Aspergillus pseudonomiae
+
+[262/2115] GCF_009193445.1  taxid=132259  (order_sweep) Aspergillus pseudotamarii
+
+[263/2115] GCA_009193445.1  taxid=132259  (order_sweep) Aspergillus pseudotamarii
+
+[264/2115] GCA_044049465.1  taxid=1810923  (order_sweep) Aspergillus pseudoustus
+
+[265/2115] GCF_018340605.1  taxid=1517512  (order_sweep) Aspergillus pseudoviridinutans
+
+[266/2115] GCA_018340605.1  taxid=1517512  (order_sweep) Aspergillus pseudoviridinutans
+
+[267/2115] GCF_016861865.1  taxid=1220207  (order_sweep) Aspergillus puulaauensis
+
+[268/2115] GCA_056320505.1  taxid=1220207  (order_sweep) Aspergillus puulaauensis
+
+[269/2115] GCA_016861865.1  taxid=1220207  (order_sweep) Aspergillus puulaauensis
+
+[270/2115] GCA_047715885.1  taxid=41761  (order_sweep) Aspergillus recurvatus
+
+[271/2115] GCF_000600275.1  taxid=396024  (order_sweep) Aspergillus ruber
+  NOTE: taxid corrected 396024 → 1388766 (stale taxid in ref_candidates)
+
+[272/2115] GCA_000600275.1  taxid=396024  (order_sweep) Aspergillus ruber
+  NOTE: taxid corrected 396024 → 1388766 (stale taxid in ref_candidates)
+
+[273/2115] GCF_003184585.1  taxid=979771  (order_sweep) Aspergillus saccharolyticus
+  NOTE: taxid corrected 979771 → 1450539 (stale taxid in ref_candidates)
+
+[274/2115] GCA_003184585.1  taxid=979771  (order_sweep) Aspergillus saccharolyticus
+  NOTE: taxid corrected 979771 → 1450539 (stale taxid in ref_candidates)
+
+[275/2115] GCA_003184635.1  taxid=487660  (order_sweep) Aspergillus sclerotiicarbonarius
+  NOTE: taxid corrected 487660 → 1448318 (stale taxid in ref_candidates)
+
+[276/2115] GCA_009193525.1  taxid=1034303  (order_sweep) Aspergillus sergii
+
+[277/2115] GCA_047715515.1  taxid=1810925  (order_sweep) Aspergillus similis
+
+[278/2115] GCA_047715635.1  taxid=41731  (order_sweep) Aspergillus spectabilis
+
+[279/2115] GCA_047715645.1  taxid=1810908  (order_sweep) Aspergillus spinulosporus
+
+[280/2115] GCF_047715825.1  taxid=1810926  (order_sweep) Aspergillus stella-maris
+
+[281/2115] GCA_047715825.1  taxid=1810926  (order_sweep) Aspergillus stella-maris
+
+[282/2115] GCF_001890705.1  taxid=75750  (order_sweep) Aspergillus sydowii
+  NOTE: taxid corrected 75750 → 1036612 (stale taxid in ref_candidates)
+
+[283/2115] GCA_001890705.1  taxid=75750  (order_sweep) Aspergillus sydowii
+  NOTE: taxid corrected 75750 → 1036612 (stale taxid in ref_candidates)
+
+[284/2115] GCA_002850765.1  taxid=482145  (order_sweep) Aspergillus taichungensis
+
+[285/2115] GCA_009193485.1  taxid=41984  (order_sweep) Aspergillus tamarii
+
+[286/2115] GCA_004798825.1  taxid=1220188  (order_sweep) Aspergillus tanneri
+
+[287/2115] GCF_000149615.1  taxid=33178  (order_sweep) Aspergillus terreus
+  NOTE: taxid corrected 33178 → 341663 (stale taxid in ref_candidates)
+
+[288/2115] GCA_016808415.1  taxid=33178  (order_sweep) Aspergillus terreus
+
+[289/2115] GCA_009014675.2  taxid=33178  (order_sweep) Aspergillus terreus
+
+[290/2115] GCA_009932835.1  taxid=33178  (order_sweep) Aspergillus terreus
+
+[291/2115] GCA_047715525.1  taxid=36642  (order_sweep) Aspergillus terricola
+  NOTE: taxid corrected 36642 → 138288 (stale taxid in ref_candidates)
+
+[292/2115] GCA_045791975.1  taxid=1883080  (order_sweep) Aspergillus tetrazonus
+
+[293/2115] GCA_009193505.1  taxid=1034304  (order_sweep) Aspergillus transmontanensis
+
+[294/2115] GCA_049803905.1  taxid=5068  (order_sweep) Aspergillus tubingensis
+
+[295/2115] GCF_013340325.1  taxid=5068  (order_sweep) Aspergillus tubingensis
+
+[296/2115] GCA_001890745.1  taxid=5068  (order_sweep) Aspergillus tubingensis
+  NOTE: taxid corrected 5068 → 767770 (stale taxid in ref_candidates)
+
+[297/2115] GCA_027923605.1  taxid=5068  (order_sweep) Aspergillus tubingensis
+
+[298/2115] GCF_001078395.1  taxid=91492  (order_sweep) Aspergillus udagawae
+
+[299/2115] GCA_010724135.1  taxid=91492  (order_sweep) Aspergillus udagawae
+
+[300/2115] GCA_001078395.2  taxid=91492  (order_sweep) Aspergillus udagawae
+
+[301/2115] GCA_010723835.1  taxid=91492  (order_sweep) Aspergillus udagawae
+
+[302/2115] GCF_047715775.1  taxid=1810928  (order_sweep) Aspergillus undulatus
+
+[303/2115] GCA_047715775.1  taxid=1810928  (order_sweep) Aspergillus undulatus
+
+[304/2115] GCA_047715655.1  taxid=40381  (order_sweep) Aspergillus unguis
+
+[305/2115] GCA_000812125.1  taxid=40382  (order_sweep) Aspergillus ustus
+
+[306/2115] GCF_003184745.1  taxid=446911  (order_sweep) Aspergillus uvarum
+  NOTE: taxid corrected 446911 → 1448315 (stale taxid in ref_candidates)
+
+[307/2115] GCA_003184745.1  taxid=446911  (order_sweep) Aspergillus uvarum
+  NOTE: taxid corrected 446911 → 1448315 (stale taxid in ref_candidates)
+
+[308/2115] GCF_003184925.1  taxid=288669  (order_sweep) Aspergillus vadensis
+  NOTE: taxid corrected 288669 → 1448311 (stale taxid in ref_candidates)
+
+[309/2115] GCA_003184925.1  taxid=288669  (order_sweep) Aspergillus vadensis
+  NOTE: taxid corrected 288669 → 1448311 (stale taxid in ref_candidates)
+
+[310/2115] GCA_047715575.1  taxid=176181  (order_sweep) Aspergillus varians
+
+[311/2115] GCA_047715615.1  taxid=1810929  (order_sweep) Aspergillus venezuelensis
+
+[312/2115] GCF_001890125.1  taxid=46472  (order_sweep) Aspergillus versicolor
+  NOTE: taxid corrected 46472 → 1036611 (stale taxid in ref_candidates)
+
+[313/2115] GCA_001890125.1  taxid=46472  (order_sweep) Aspergillus versicolor
+  NOTE: taxid corrected 46472 → 1036611 (stale taxid in ref_candidates)
+
+[314/2115] GCA_003184705.1  taxid=657443  (order_sweep) Aspergillus violaceofuscus
+  NOTE: taxid corrected 657443 → 1450538 (stale taxid in ref_candidates)
+
+[315/2115] GCF_018404265.1  taxid=75553  (order_sweep) Aspergillus viridinutans
+
+[316/2115] GCA_018404265.1  taxid=75553  (order_sweep) Aspergillus viridinutans
+
+[317/2115] GCA_056321165.1  taxid=469283  (order_sweep) Aspergillus vitricola
+
+[318/2115] GCA_056320585.1  taxid=469283  (order_sweep) Aspergillus vitricola
+
+[319/2115] GCF_003344945.1  taxid=1341132  (order_sweep) Aspergillus welwitschiae
+
+[320/2115] GCA_003344945.1  taxid=1341132  (order_sweep) Aspergillus welwitschiae
+
+[321/2115] GCA_046000195.1  taxid=5066  (order_sweep) Aspergillus wentii
+
+[322/2115] GCA_026184555.1  taxid=5066  (order_sweep) Aspergillus wentii
+
+[323/2115] GCF_001890725.1  taxid=5066  (order_sweep) Aspergillus wentii
+  NOTE: taxid corrected 5066 → 1073089 (stale taxid in ref_candidates)
+
+[324/2115] GCA_001890725.1  taxid=5066  (order_sweep) Aspergillus wentii
+  NOTE: taxid corrected 5066 → 1073089 (stale taxid in ref_candidates)
+
+[325/2115] GCA_018282005.1  taxid=117018  (order_sweep) Asterophora parasitica
+
+[326/2115] GCA_022160275.1  taxid=40419  (order_sweep) Auriscalpium vulgare
+
+[327/2115] GCA_000469055.2  taxid=181123  (order_sweep) Austropuccinia psidii
+  NOTE: taxid corrected 181123 → 1389203 (stale taxid in ref_candidates)
+
+[328/2115] GCF_000338955.1  taxid=1709381  (order_sweep) Baudoinia panamericana
+  NOTE: taxid corrected 1709381 → 717646 (stale taxid in ref_candidates)
+
+[329/2115] GCA_000338955.1  taxid=1709381  (order_sweep) Baudoinia panamericana
+  NOTE: taxid corrected 1709381 → 717646 (stale taxid in ref_candidates)
+
+[330/2115] GCA_053540845.1  taxid=1069075  (order_sweep) Beauveria asiatica
+
+[331/2115] GCA_038367545.1  taxid=1069075  (order_sweep) Beauveria asiatica
+
+[332/2115] GCA_053540825.1  taxid=1069075  (order_sweep) Beauveria asiatica
+
+[333/2115] GCA_001636735.1  taxid=118266  (order_sweep) Beauveria brongniartii
+  NOTE: taxid corrected 118266 → 1081107 (stale taxid in ref_candidates)
+
+[334/2115] GCA_053540745.1  taxid=2684613  (order_sweep) Beauveria gryllotalpidicola
+
+[335/2115] GCA_053540725.1  taxid=2857482  (order_sweep) Beauveria mimosiformis
+
+[336/2115] GCA_053539385.1  taxid=2857483  (order_sweep) Beauveria namnaoensis
+
+[337/2115] GCA_053539405.1  taxid=2857483  (order_sweep) Beauveria namnaoensis
+
+[338/2115] GCA_053539345.1  taxid=2857484  (order_sweep) Beauveria neobassiana
+
+[339/2115] GCA_053539365.1  taxid=2857484  (order_sweep) Beauveria neobassiana
+
+[340/2115] GCA_057190295.1  taxid=2857484  (order_sweep) Beauveria neobassiana
+
+[341/2115] GCA_053539325.1  taxid=2857485  (order_sweep) Beauveria thailandica
+
+[342/2115] GCA_053539305.1  taxid=2857485  (order_sweep) Beauveria thailandica
+
+[343/2115] GCA_053539275.1  taxid=2857485  (order_sweep) Beauveria thailandica
+
+[344/2115] GCA_010015655.1  taxid=147497  (order_sweep) Bimuria novae-zelandiae
+  NOTE: taxid corrected 147497 → 1447943 (stale taxid in ref_candidates)
+
+[345/2115] GCA_055773965.2  taxid=1918533  (order_sweep) Bipolaris sivanesaniana
+
+[346/2115] GCA_022695795.1  taxid=110534  (order_sweep) Biscogniauxia marginata
+
+[347/2115] GCA_022478735.1  taxid=97377  (order_sweep) Biscogniauxia mediterranea
+
+[348/2115] GCA_022478745.1  taxid=97377  (order_sweep) Biscogniauxia mediterranea
+
+[349/2115] GCA_018856295.1  taxid=530045  (order_sweep) Blastosporella zonata
+
+[350/2115] GCA_000151065.3  taxid=2867405  (order_sweep) Blumeria hordei
+
+[351/2115] GCA_004802705.1  taxid=1095465  (order_sweep) Bondarzewia mesenterica
+
+[352/2115] GCA_000697705.1  taxid=264124  (order_sweep) Botryobasidium botryosum
+  NOTE: taxid corrected 264124 → 930990 (stale taxid in ref_candidates)
+
+[353/2115] GCA_004379285.1  taxid=38488  (order_sweep) Botryotinia calthae
+
+[354/2115] GCA_004786275.1  taxid=54673  (order_sweep) Botryotinia convoluta
+
+[355/2115] GCA_004786225.1  taxid=278944  (order_sweep) Botryotinia narcissicola
+
+[356/2115] GCA_004916875.1  taxid=278940  (order_sweep) Botrytis galanthina
+
+[357/2115] GCA_004786245.1  taxid=278943  (order_sweep) Botrytis hyacinthi
+
+[358/2115] GCA_004786145.1  taxid=278948  (order_sweep) Botrytis paeoniae
+
+[359/2115] GCA_004786265.1  taxid=87229  (order_sweep) Botrytis porri
+
+[360/2115] GCA_004786125.1  taxid=87230  (order_sweep) Botrytis tulipae
+
+[361/2115] GCA_010015675.1  taxid=147558  (order_sweep) Byssothecium circinans
+
+[362/2115] GCA_003073865.1  taxid=1485229  (order_sweep) Cadophora sp. DSE1049
+
+[363/2115] GCA_019669825.1  taxid=1763456  (order_sweep) Calycina marina
+
+[364/2115] GCA_022578605.1  taxid=110548  (order_sweep) Camillea tinctor
+
+[365/2115] GCA_055944365.1  taxid=71730  (order_sweep) Candolleomyces candolleanus
+
+[366/2115] GCA_027579765.1  taxid=2917767  (order_sweep) Candolleomyces efflorescens
+
+[367/2115] GCA_027579435.1  taxid=2828524  (order_sweep) Candolleomyces eurysporus
+
+[368/2115] GCA_900312665.1  taxid=2041049  (order_sweep) Cephalotrichum gorgonifer
+
+[369/2115] GCA_019677355.1  taxid=2600201  (order_sweep) Ceratobasidium sp. 370
+
+[370/2115] GCA_019677385.1  taxid=2600202  (order_sweep) Ceratobasidium sp. 392
+
+[371/2115] GCA_019616325.1  taxid=2600203  (order_sweep) Ceratobasidium sp. 394
+
+[372/2115] GCA_019616345.1  taxid=2600204  (order_sweep) Ceratobasidium sp. 395
+
+[373/2115] GCA_019616945.1  taxid=2600205  (order_sweep) Ceratobasidium sp. 414
+
+[374/2115] GCA_019616915.1  taxid=2600206  (order_sweep) Ceratobasidium sp. 423
+
+[375/2115] GCA_019623705.1  taxid=2600207  (order_sweep) Ceratobasidium sp. 428
+
+[376/2115] GCA_016906575.1  taxid=170446  (order_sweep) Ceratobasidium sp. AG-Ba
+
+[377/2115] GCA_016906555.1  taxid=170446  (order_sweep) Ceratobasidium sp. AG-Ba
+
+[378/2115] GCA_015039395.1  taxid=305860  (order_sweep) Ceratobasidium sp. AG-I
+
+[379/2115] GCA_019677335.1  taxid=2601501  (order_sweep) Ceratobasidium sp. UAMH 11750
+
+[380/2115] GCA_042258205.1  taxid=259994  (order_sweep) Ceratocystis pirilliformis
+
+[381/2115] GCA_002933655.1  taxid=357750  (order_sweep) Cercospora berteroae
+
+[382/2115] GCA_002276475.2  taxid=296797  (order_sweep) Chlorociboria aeruginascens
+
+[383/2115] GCA_025890175.1  taxid=647257  (order_sweep) Ciborinia camelliae
+
+[384/2115] GCA_036429605.1  taxid=491253  (order_sweep) Cladobotryum mycophilum
+
+[385/2115] GCA_010015635.1  taxid=706981  (order_sweep) Clathrospora elynae
+
+[386/2115] GCA_015039315.1  taxid=1486700  (order_sweep) Clavulina sp. PMI_390
+
+[387/2115] GCA_902006505.2  taxid=160290  (order_sweep) Clonostachys byssicola
+
+[388/2115] GCA_037952775.1  taxid=1926264  (order_sweep) Clonostachys chloroleuca
+
+[389/2115] GCA_902074915.1  taxid=1926264  (order_sweep) Clonostachys chloroleuca
+
+[390/2115] GCA_902077795.2  taxid=160324  (order_sweep) Clonostachys rhizophaga
+
+[391/2115] GCA_003369635.1  taxid=565419  (order_sweep) Coleophoma crateriformis
+
+[392/2115] GCA_003369665.1  taxid=1849047  (order_sweep) Coleophoma cylindrospora
+
+[393/2115] GCF_030869225.1  taxid=1671311  (order_sweep) Colletotrichum abscissum
+
+[394/2115] GCA_023376855.1  taxid=1671311  (order_sweep) Colletotrichum abscissum
+
+[395/2115] GCA_030869225.1  taxid=1671311  (order_sweep) Colletotrichum abscissum
+
+[396/2115] GCA_030867225.1  taxid=5460  (order_sweep) Colletotrichum caudatum
+
+[397/2115] GCA_030867335.1  taxid=343994  (order_sweep) Colletotrichum cereale
+
+[398/2115] GCA_001937105.1  taxid=708187  (order_sweep) Colletotrichum chlorophyti
+
+[399/2115] GCA_031006325.1  taxid=1836956  (order_sweep) Colletotrichum chrysophilum
+
+[400/2115] GCA_026319245.1  taxid=1836956  (order_sweep) Colletotrichum chrysophilum
+
+[401/2115] GCF_030867565.1  taxid=1209916  (order_sweep) Colletotrichum costaricense
+
+[402/2115] GCA_030867565.1  taxid=1209916  (order_sweep) Colletotrichum costaricense
+
+[403/2115] GCA_030869315.1  taxid=1209917  (order_sweep) Colletotrichum cuscutae
+
+[404/2115] GCF_034447905.1  taxid=34406  (order_sweep) Colletotrichum destructivum
+
+[405/2115] GCA_034447905.1  taxid=34406  (order_sweep) Colletotrichum destructivum
+
+[406/2115] GCA_030867245.1  taxid=1173702  (order_sweep) Colletotrichum eremochloae
+
+[407/2115] GCA_030867235.1  taxid=129314  (order_sweep) Colletotrichum falcatum
+
+[408/2115] GCA_023376865.1  taxid=2940390  (order_sweep) Colletotrichum filicis
+
+[409/2115] GCF_027942845.1  taxid=710243  (order_sweep) Colletotrichum fioriniae
+
+[410/2115] GCF_000582985.1  taxid=710243  (order_sweep) Colletotrichum fioriniae
+
+[411/2115] GCA_027942845.1  taxid=710243  (order_sweep) Colletotrichum fioriniae
+
+[412/2115] GCA_000582985.1  taxid=710243  (order_sweep) Colletotrichum fioriniae
+
+[413/2115] GCA_001855235.1  taxid=1573173  (order_sweep) Colletotrichum incanum
+
+[414/2115] GCA_001625285.1  taxid=1573173  (order_sweep) Colletotrichum incanum
+
+[415/2115] GCF_051148585.1  taxid=2283408  (order_sweep) Colletotrichum jinshuiense
+
+[416/2115] GCA_051148585.1  taxid=2283408  (order_sweep) Colletotrichum jinshuiense
+
+[417/2115] GCA_032988895.1  taxid=34407  (order_sweep) Colletotrichum kahawae
+
+[418/2115] GCF_011947395.1  taxid=1095194  (order_sweep) Colletotrichum karsti
+
+[419/2115] GCA_011947395.2  taxid=1095194  (order_sweep) Colletotrichum karsti
+
+[420/2115] GCA_030413865.1  taxid=1209924  (order_sweep) Colletotrichum limetticola
+
+[421/2115] GCF_023278565.1  taxid=145971  (order_sweep) Colletotrichum lupini
+
+[422/2115] GCA_023278565.1  taxid=145971  (order_sweep) Colletotrichum lupini
+
+[423/2115] GCA_030868995.1  taxid=1209925  (order_sweep) Colletotrichum melonis
+
+[424/2115] GCA_014235935.1  taxid=2175873  (order_sweep) Colletotrichum musicola
+
+[425/2115] GCA_026319155.1  taxid=2664923  (order_sweep) Colletotrichum noveboracense
+
+[426/2115] GCA_001563115.1  taxid=306554  (order_sweep) Colletotrichum nymphaeae
+
+[427/2115] GCF_001831195.1  taxid=1209926  (order_sweep) Colletotrichum orchidophilum
+
+[428/2115] GCA_001831195.1  taxid=1209926  (order_sweep) Colletotrichum orchidophilum
+
+[429/2115] GCA_014235945.1  taxid=2175906  (order_sweep) Colletotrichum plurivorum
+
+[430/2115] GCA_001563125.1  taxid=1209931  (order_sweep) Colletotrichum salicis
+
+[431/2115] GCA_006783085.1  taxid=2078593  (order_sweep) Colletotrichum shisoi
+
+[432/2115] GCA_004367935.1  taxid=1347389  (order_sweep) Colletotrichum sidae
+
+[433/2115] GCA_001563135.1  taxid=703756  (order_sweep) Colletotrichum simmondsii
+
+[434/2115] GCA_014235955.1  taxid=2175907  (order_sweep) Colletotrichum sojae
+
+[435/2115] GCA_030867255.1  taxid=1500509  (order_sweep) Colletotrichum somersetense
+
+[436/2115] GCA_044063575.1  taxid=3239297  (order_sweep) Colletotrichum sp. CLE4
+
+[437/2115] GCA_025327165.1  taxid=2838796  (order_sweep) Colletotrichum sp. SAR 10_70
+
+[438/2115] GCA_025327135.1  taxid=2838797  (order_sweep) Colletotrichum sp. SAR 10_71
+
+[439/2115] GCA_025327155.1  taxid=2838798  (order_sweep) Colletotrichum sp. SAR 10_75
+
+[440/2115] GCA_025330015.1  taxid=2838800  (order_sweep) Colletotrichum sp. SAR 10_77
+
+[441/2115] GCA_025327125.1  taxid=2838801  (order_sweep) Colletotrichum sp. SAR 10_86
+
+[442/2115] GCA_028654355.1  taxid=2838804  (order_sweep) Colletotrichum sp. SAR 10_99
+
+[443/2115] GCA_025328985.1  taxid=2838810  (order_sweep) Colletotrichum sp. SAR11_239
+
+[444/2115] GCA_025328625.1  taxid=2838811  (order_sweep) Colletotrichum sp. SAR11_240
+
+[445/2115] GCA_025328355.1  taxid=2838812  (order_sweep) Colletotrichum sp. SAR11_57
+
+[446/2115] GCA_025328345.1  taxid=2838813  (order_sweep) Colletotrichum sp. SAR11_59
+
+[447/2115] GCA_004366825.1  taxid=1347390  (order_sweep) Colletotrichum spinosum
+
+[448/2115] GCA_030867325.1  taxid=1173701  (order_sweep) Colletotrichum sublineola
+
+[449/2115] GCA_000696135.1  taxid=1173701  (order_sweep) Colletotrichum sublineola
+
+[450/2115] GCF_030869305.1  taxid=1209934  (order_sweep) Colletotrichum tamarilloi
+
+[451/2115] GCA_030869305.1  taxid=1209934  (order_sweep) Colletotrichum tamarilloi
+
+[452/2115] GCA_026229895.1  taxid=1306861  (order_sweep) Colletotrichum tanaceti
+
+[453/2115] GCA_005350895.1  taxid=1306861  (order_sweep) Colletotrichum tanaceti
+
+[454/2115] GCA_001625265.1  taxid=708197  (order_sweep) Colletotrichum tofieldiae
+
+[455/2115] GCA_013201785.1  taxid=912113  (order_sweep) Colletotrichum tropicale
+
+[456/2115] GCA_013201765.1  taxid=1131913  (order_sweep) Colletotrichum viniferum
+
+[457/2115] GCA_030867305.1  taxid=1216348  (order_sweep) Colletotrichum zoysiae
+
+[458/2115] GCA_015584075.1  taxid=64659  (order_sweep) Collybia nuda
+
+[459/2115] GCA_000827265.1  taxid=2773346  (order_sweep) Collybiopsis luxurians
+  NOTE: taxid corrected 2773346 → 944289 (stale taxid in ref_candidates)
+
+[460/2115] GCA_003019895.1  taxid=2025994  (order_sweep) Coniella lustricola
+
+[461/2115] GCA_050859405.1  taxid=1077358  (order_sweep) Coniothyrium glycines
+
+[462/2115] GCA_032433595.1  taxid=1105319  (order_sweep) Conoideocrella luteorostrata
+
+[463/2115] GCA_027627275.1  taxid=752674  (order_sweep) Coprinellus aureogranulatus
+
+[464/2115] GCA_000182895.1  taxid=5346  (order_sweep) Coprinopsis cinerea
+  NOTE: taxid corrected 5346 → 240176 (stale taxid in ref_candidates)
+
+[465/2115] GCA_004369085.1  taxid=230819  (order_sweep) Coprinopsis marcescibilis
+
+[466/2115] GCA_056505955.1  taxid=983339  (order_sweep) Cordyceps cateniannulata
+
+[467/2115] GCA_059933775.1  taxid=983339  (order_sweep) Cordyceps cateniannulata
+
+[468/2115] GCF_001636725.1  taxid=114497  (order_sweep) Cordyceps fumosorosea
+  NOTE: taxid corrected 114497 → 1081104 (stale taxid in ref_candidates)
+
+[469/2115] GCA_001636725.1  taxid=114497  (order_sweep) Cordyceps fumosorosea
+  NOTE: taxid corrected 114497 → 1081104 (stale taxid in ref_candidates)
+
+[470/2115] GCF_051103115.1  taxid=43265  (order_sweep) Cordyceps javanica
+
+[471/2115] GCA_006981975.1  taxid=43265  (order_sweep) Cordyceps javanica
+
+[472/2115] GCA_051103115.1  taxid=43265  (order_sweep) Cordyceps javanica
+
+[473/2115] GCA_006981985.1  taxid=43265  (order_sweep) Cordyceps javanica
+
+[474/2115] GCA_008080495.1  taxid=73501  (order_sweep) Cordyceps militaris
+
+[475/2115] GCF_000225605.1  taxid=73501  (order_sweep) Cordyceps militaris
+  NOTE: taxid corrected 73501 → 983644 (stale taxid in ref_candidates)
+
+[476/2115] GCA_000225605.1  taxid=73501  (order_sweep) Cordyceps militaris
+  NOTE: taxid corrected 73501 → 983644 (stale taxid in ref_candidates)
+
+[477/2115] GCA_002591385.1  taxid=2004951  (order_sweep) Cordyceps sp. RAO-2017
+
+[478/2115] GCA_003016335.1  taxid=59586  (order_sweep) Corynespora cassiicola
+  NOTE: taxid corrected 59586 → 1448308 (stale taxid in ref_candidates)
+
+[479/2115] GCA_015657495.1  taxid=179855  (order_sweep) Crepidotus variabilis
+
+[480/2115] GCA_015951145.1  taxid=60197  (order_sweep) Cronartium quercuum
+  NOTE: taxid corrected 60197 → 708437 (stale taxid in ref_candidates)
+
+[481/2115] GCA_004379715.1  taxid=68775  (order_sweep) Crucibulum laeve
+
+[482/2115] GCF_010015615.1  taxid=45142  (order_sweep) Cucurbitaria berberidis
+  NOTE: taxid corrected 45142 → 1168544 (stale taxid in ref_candidates)
+
+[483/2115] GCA_010015615.1  taxid=45142  (order_sweep) Cucurbitaria berberidis
+  NOTE: taxid corrected 45142 → 1168544 (stale taxid in ref_candidates)
+
+[484/2115] GCA_013054445.1  taxid=354080  (order_sweep) Cudoniella acicularis
+
+[485/2115] GCA_059054275.1  taxid=2739213  (order_sweep) Curvularia cactivora
+
+[486/2115] GCA_023920165.1  taxid=95742  (order_sweep) Curvularia clavata
+
+[487/2115] GCA_011058905.1  taxid=90978  (order_sweep) Curvularia kusanoi
+
+[488/2115] GCA_977927295.1  taxid=1973307  (order_sweep) Cyclocybe aegerita
+
+[489/2115] GCA_902728275.1  taxid=1973307  (order_sweep) Cyclocybe aegerita
+
+[490/2115] GCA_000934385.1  taxid=394432  (order_sweep) Cylindrobasidium torrendii
+  NOTE: taxid corrected 394432 → 1314674 (stale taxid in ref_candidates)
+
+[491/2115] GCA_014621425.1  taxid=595255  (order_sweep) Cylindrodendrum hubeiense
+
+[492/2115] GCA_003795295.1  taxid=1230097  (order_sweep) Cytospora leucostoma
+
+[493/2115] GCA_003795315.1  taxid=448051  (order_sweep) Cytospora schulzeri
+
+[494/2115] GCA_022478815.1  taxid=326643  (order_sweep) Daldinia bambusicola
+
+[495/2115] GCF_022478825.1  taxid=326644  (order_sweep) Daldinia caldariorum
+
+[496/2115] GCA_022478825.1  taxid=326644  (order_sweep) Daldinia caldariorum
+
+[497/2115] GCF_008694065.1  taxid=326645  (order_sweep) Daldinia childiae
+
+[498/2115] GCA_008694065.1  taxid=326645  (order_sweep) Daldinia childiae
+
+[499/2115] GCF_022478715.1  taxid=326647  (order_sweep) Daldinia decipiens
+
+[500/2115] GCA_022478715.1  taxid=326647  (order_sweep) Daldinia decipiens
+
+[501/2115] GCA_022478725.1  taxid=292717  (order_sweep) Daldinia eschscholtzii
+
+[502/2115] GCF_022478755.1  taxid=103429  (order_sweep) Daldinia loculata
+
+[503/2115] GCA_022478755.1  taxid=103429  (order_sweep) Daldinia loculata
+
+[504/2115] GCA_002120325.1  taxid=1001832  (order_sweep) Daldinia sp. EC12
+
+[505/2115] GCA_025201765.1  taxid=2614575  (order_sweep) Daldinia sp. FL1419
+
+[506/2115] GCF_022497035.1  taxid=114800  (order_sweep) Daldinia vernicosa
+
+[507/2115] GCA_022497035.1  taxid=114800  (order_sweep) Daldinia vernicosa
+
+[508/2115] GCA_010015605.1  taxid=184978  (order_sweep) Decorospora gaudefroyi
+
+[509/2115] GCA_010093945.1  taxid=1504671  (order_sweep) Delitschia confertaspora
+  NOTE: taxid corrected 1504671 → 1513339 (stale taxid in ref_candidates)
+
+[510/2115] GCA_004369135.1  taxid=1314803  (order_sweep) Dendrothele bispora
+  NOTE: taxid corrected 1314803 → 1314807 (stale taxid in ref_candidates)
+
+[511/2115] GCA_004679275.1  taxid=205917  (order_sweep) Dentipellis fragilis
+
+[512/2115] GCA_002286715.1  taxid=1883078  (order_sweep) Dentipellis sp. KUC8613
+
+[513/2115] GCA_001006365.1  taxid=1214573  (order_sweep) Diaporthe ampelina
+
+[514/2115] GCF_026229845.1  taxid=1214568  (order_sweep) Diaporthe amygdali
+
+[515/2115] GCA_026229845.1  taxid=1214568  (order_sweep) Diaporthe amygdali
+
+[516/2115] GCA_042257625.1  taxid=127596  (order_sweep) Diaporthe australafricana
+
+[517/2115] GCA_024867555.1  taxid=83184  (order_sweep) Diaporthe eres
+
+[518/2115] GCA_022570805.2  taxid=83184  (order_sweep) Diaporthe eres
+
+[519/2115] GCA_001702395.2  taxid=158607  (order_sweep) Diaporthe helianthi
+
+[520/2115] GCA_023242295.1  taxid=2419934  (order_sweep) Diaporthe ilicicola
+
+[521/2115] GCA_022225965.2  taxid=117547  (order_sweep) Diatrype stigma
+
+[522/2115] GCF_010094145.1  taxid=100019  (order_sweep) Didymella exigua
+  NOTE: taxid corrected 100019 → 1150837 (stale taxid in ref_candidates)
+
+[523/2115] GCA_010094145.1  taxid=100019  (order_sweep) Didymella exigua
+  NOTE: taxid corrected 100019 → 1150837 (stale taxid in ref_candidates)
+
+[524/2115] GCA_011058895.1  taxid=1769908  (order_sweep) Didymella heteroderae
+
+[525/2115] GCA_011058865.1  taxid=2301244  (order_sweep) Didymella keratinophila
+
+[526/2115] GCA_022225945.2  taxid=749634  (order_sweep) Didymella pomorum
+
+[527/2115] GCA_002204255.1  taxid=2795749  (order_sweep) Diplocarpon coronariae
+
+[528/2115] GCA_024741835.1  taxid=946123  (order_sweep) Diplocarpon mali
+
+[529/2115] GCA_002317995.1  taxid=946125  (order_sweep) Diplocarpon rosae
+
+[530/2115] GCF_001883845.1  taxid=236234  (order_sweep) Diplodia corticola
+
+[531/2115] GCA_001883845.1  taxid=236234  (order_sweep) Diplodia corticola
+
+[532/2115] GCA_021495925.2  taxid=856260  (order_sweep) Diplodia intermedia
+
+[533/2115] GCA_056582465.1  taxid=66738  (order_sweep) Diplodia sapinea
+
+[534/2115] GCA_056582485.1  taxid=66738  (order_sweep) Diplodia sapinea
+
+[535/2115] GCA_021436965.2  taxid=420778  (order_sweep) Diplodia seriata
+
+[536/2115] GCA_001975905.1  taxid=420778  (order_sweep) Diplodia seriata
+
+[537/2115] GCA_001006355.1  taxid=420778  (order_sweep) Diplodia seriata
+
+[538/2115] GCA_965644035.1  taxid=148313  (order_sweep) Discula destructiva
+
+[539/2115] GCF_010015565.1  taxid=112489  (order_sweep) Dissoconium aciculare
+  NOTE: taxid corrected 112489 → 1314786 (stale taxid in ref_candidates)
+
+[540/2115] GCA_010015565.1  taxid=112489  (order_sweep) Dissoconium aciculare
+  NOTE: taxid corrected 112489 → 1314786 (stale taxid in ref_candidates)
+
+[541/2115] GCF_010015815.1  taxid=548649  (order_sweep) Dothidotthia symphoricarpi
+  NOTE: taxid corrected 548649 → 1392245 (stale taxid in ref_candidates)
+
+[542/2115] GCA_010015815.1  taxid=548649  (order_sweep) Dothidotthia symphoricarpi
+  NOTE: taxid corrected 548649 → 1392245 (stale taxid in ref_candidates)
+
+[543/2115] GCF_001625195.1  taxid=98403  (order_sweep) Drechmeria coniospora
+
+[544/2115] GCA_001618945.2  taxid=98403  (order_sweep) Drechmeria coniospora
+
+[545/2115] GCA_001625195.1  taxid=98403  (order_sweep) Drechmeria coniospora
+
+[546/2115] GCF_000298775.1  taxid=698440  (order_sweep) Drepanopeziza brunnea
+  NOTE: taxid corrected 698440 → 1072389 (stale taxid in ref_candidates)
+
+[547/2115] GCA_000298775.1  taxid=698440  (order_sweep) Drepanopeziza brunnea
+  NOTE: taxid corrected 698440 → 1072389 (stale taxid in ref_candidates)
+
+[548/2115] GCA_002240705.1  taxid=519963  (order_sweep) Elaphomyces granulatus
+
+[549/2115] GCA_036872715.1  taxid=574655  (order_sweep) Elasticomyces elasticus
+
+[550/2115] GCA_036320705.1  taxid=574655  (order_sweep) Elasticomyces elasticus
+
+[551/2115] GCA_035926115.1  taxid=574655  (order_sweep) Elasticomyces elasticus
+
+[552/2115] GCA_036320685.1  taxid=574655  (order_sweep) Elasticomyces elasticus
+
+[553/2115] GCA_049307695.1  taxid=1805848  (order_sweep) Emarellia grisea
+
+[554/2115] GCF_019669845.1  taxid=2614577  (order_sweep) Emericellopsis atlantica
+
+[555/2115] GCA_019669845.1  taxid=2614577  (order_sweep) Emericellopsis atlantica
+
+[556/2115] GCF_022114955.1  taxid=2686198  (order_sweep) Emericellopsis cladophorae
+
+[557/2115] GCA_022114955.2  taxid=2686198  (order_sweep) Emericellopsis cladophorae
+
+[558/2115] GCA_041154705.1  taxid=79588  (order_sweep) Epichloe bromicola
+
+[559/2115] GCA_041154725.1  taxid=79588  (order_sweep) Epichloe bromicola
+
+[560/2115] GCA_019721275.1  taxid=105696  (order_sweep) Epicoccum nigrum
+
+[561/2115] GCA_002116315.1  taxid=105696  (order_sweep) Epicoccum nigrum
+
+[562/2115] GCA_024703715.1  taxid=52586  (order_sweep) Erysiphe necator
+
+[563/2115] GCA_000798715.1  taxid=52586  (order_sweep) Erysiphe necator
+
+[564/2115] GCA_003610855.1  taxid=212602  (order_sweep) Erysiphe neolycopersici
+
+[565/2115] GCA_002918395.1  taxid=225359  (order_sweep) Erysiphe pulchra
+
+[566/2115] GCA_001278495.1  taxid=150374  (order_sweep) Escovopsis weberi
+
+[567/2115] GCF_000349385.1  taxid=97096  (order_sweep) Eutypa lata
+  NOTE: taxid corrected 97096 → 1287681 (stale taxid in ref_candidates)
+
+[568/2115] GCA_000349385.1  taxid=97096  (order_sweep) Eutypa lata
+  NOTE: taxid corrected 97096 → 1287681 (stale taxid in ref_candidates)
+
+[569/2115] GCA_033117895.1  taxid=702011  (order_sweep) Extremus antarcticus
+
+[570/2115] GCA_000934395.1  taxid=40457  (order_sweep) Fistulina hepatica
+  NOTE: taxid corrected 40457 → 1128425 (stale taxid in ref_candidates)
+
+[571/2115] GCA_030412055.1  taxid=329885  (order_sweep) Friedmanniomyces endolithicus
+
+[572/2115] GCA_005059855.1  taxid=329885  (order_sweep) Friedmanniomyces endolithicus
+
+[573/2115] GCA_030553325.1  taxid=329885  (order_sweep) Friedmanniomyces endolithicus
+
+[574/2115] GCA_030553385.1  taxid=329885  (order_sweep) Friedmanniomyces endolithicus
+
+[575/2115] GCA_005059865.1  taxid=329884  (order_sweep) Friedmanniomyces simplex
+
+[576/2115] GCA_038181435.1  taxid=5515  (order_sweep) Fusarium acuminatum
+
+[577/2115] GCA_012932015.1  taxid=78861  (order_sweep) Fusarium acutatum
+
+[578/2115] GCA_001654555.2  taxid=1803897  (order_sweep) Fusarium agapanthi
+
+[579/2115] GCA_057674905.1  taxid=2698982  (order_sweep) Fusarium akasia
+
+[580/2115] GCA_057674945.1  taxid=2698982  (order_sweep) Fusarium akasia
+
+[581/2115] GCA_012931995.1  taxid=1237068  (order_sweep) Fusarium albosuccineum
+
+[582/2115] GCA_057676225.1  taxid=131363  (order_sweep) Fusarium ambrosium
+
+[583/2115] GCA_057676205.1  taxid=131363  (order_sweep) Fusarium ambrosium
+
+[584/2115] GCA_003947045.1  taxid=131363  (order_sweep) Fusarium ambrosium
+
+[585/2115] GCA_057676125.1  taxid=131363  (order_sweep) Fusarium ambrosium
+
+[586/2115] GCA_022627115.1  taxid=48484  (order_sweep) Fusarium annulatum
+
+[587/2115] GCA_013364935.1  taxid=48485  (order_sweep) Fusarium anthophilum
+
+[588/2115] GCA_012932025.1  taxid=2364996  (order_sweep) Fusarium austroafricanum
+
+[589/2115] GCA_013364965.1  taxid=282268  (order_sweep) Fusarium austroamericanum
+
+[590/2115] GCA_057674825.1  taxid=2698983  (order_sweep) Fusarium awan
+
+[591/2115] GCA_057674865.1  taxid=2698983  (order_sweep) Fusarium awan
+
+[592/2115] GCA_002980475.2  taxid=44412  (order_sweep) Fusarium beomiforme
+
+[593/2115] GCA_013758895.1  taxid=79018  (order_sweep) Fusarium bulbicola
+
+[594/2115] GCA_057675645.1  taxid=1715230  (order_sweep) Fusarium cf. solani
+
+[595/2115] GCA_057674545.1  taxid=1715230  (order_sweep) Fusarium cf. solani
+
+[596/2115] GCA_057674555.1  taxid=1715230  (order_sweep) Fusarium cf. solani
+
+[597/2115] GCA_057675865.1  taxid=1715230  (order_sweep) Fusarium cf. solani
+
+[598/2115] GCA_022627125.1  taxid=2885761  (order_sweep) Fusarium chuoi
+
+[599/2115] GCA_022627105.1  taxid=2885761  (order_sweep) Fusarium chuoi
+
+[600/2115] GCA_013781345.1  taxid=1567539  (order_sweep) Fusarium coicis
+
+[601/2115] GCA_027627305.1  taxid=57161  (order_sweep) Fusarium decemcellulare
+
+[602/2115] GCA_013266205.1  taxid=57161  (order_sweep) Fusarium decemcellulare
+
+[603/2115] GCA_013396175.1  taxid=48507  (order_sweep) Fusarium denticulatum
+
+[604/2115] GCA_057676085.1  taxid=2951361  (order_sweep) Fusarium drepaniforme
+
+[605/2115] GCA_057674645.1  taxid=1325734  (order_sweep) Fusarium duplospermum
+
+[606/2115] GCA_003946985.1  taxid=1325734  (order_sweep) Fusarium duplospermum
+
+[607/2115] GCA_057674665.1  taxid=1325734  (order_sweep) Fusarium duplospermum
+
+[608/2115] GCA_027945365.1  taxid=61235  (order_sweep) Fusarium equiseti
+
+[609/2115] GCA_910393935.1  taxid=61235  (order_sweep) Fusarium equiseti
+
+[610/2115] GCA_057674965.1  taxid=1147111  (order_sweep) Fusarium euwallaceae
+
+[611/2115] GCA_057675025.1  taxid=1147111  (order_sweep) Fusarium euwallaceae
+
+[612/2115] GCA_057675505.1  taxid=1147111  (order_sweep) Fusarium euwallaceae
+
+[613/2115] GCA_057675525.1  taxid=1147111  (order_sweep) Fusarium euwallaceae
+
+[614/2115] GCA_027945495.1  taxid=195108  (order_sweep) Fusarium falciforme
+
+[615/2115] GCF_026873545.1  taxid=195108  (order_sweep) Fusarium falciforme
+
+[616/2115] GCA_026873545.1  taxid=195108  (order_sweep) Fusarium falciforme
+
+[617/2115] GCA_027945505.1  taxid=195108  (order_sweep) Fusarium falciforme
+
+[618/2115] GCA_003012295.1  taxid=2675880  (order_sweep) Fusarium flagelliforme
+
+[619/2115] GCA_057675205.1  taxid=1325733  (order_sweep) Fusarium floridanum
+
+[620/2115] GCA_003947005.1  taxid=1325733  (order_sweep) Fusarium floridanum
+
+[621/2115] GCA_057675325.1  taxid=1325733  (order_sweep) Fusarium floridanum
+
+[622/2115] GCA_057675345.1  taxid=1325733  (order_sweep) Fusarium floridanum
+
+[623/2115] GCA_013266175.1  taxid=282569  (order_sweep) Fusarium gaditjirri
+
+[624/2115] GCA_013396165.1  taxid=78864  (order_sweep) Fusarium globosum
+
+[625/2115] GCA_013266165.1  taxid=86546  (order_sweep) Fusarium graminum
+
+[626/2115] GCA_013396295.1  taxid=42747  (order_sweep) Fusarium heterosporum
+
+[627/2115] GCA_027945245.1  taxid=2494466  (order_sweep) Fusarium irregulare
+
+[628/2115] GCA_027945235.1  taxid=2494466  (order_sweep) Fusarium irregulare
+
+[629/2115] GCF_025433545.1  taxid=1328300  (order_sweep) Fusarium keratoplasticum
+
+[630/2115] GCA_025433555.1  taxid=1328300  (order_sweep) Fusarium keratoplasticum
+
+[631/2115] GCA_025433545.1  taxid=1328300  (order_sweep) Fusarium keratoplasticum
+
+[632/2115] GCA_057675985.1  taxid=2010991  (order_sweep) Fusarium kuroshium
+
+[633/2115] GCA_003698175.1  taxid=2010991  (order_sweep) Fusarium kuroshium
+
+[634/2115] GCA_022180325.1  taxid=179993  (order_sweep) Fusarium langsethiae
+
+[635/2115] GCA_001292635.1  taxid=179993  (order_sweep) Fusarium langsethiae
+
+[636/2115] GCA_022180345.1  taxid=179993  (order_sweep) Fusarium langsethiae
+
+[637/2115] GCA_052570515.1  taxid=5523  (order_sweep) Fusarium lateritium
+
+[638/2115] GCA_052570155.1  taxid=5523  (order_sweep) Fusarium lateritium
+
+[639/2115] GCA_052570355.1  taxid=5523  (order_sweep) Fusarium lateritium
+
+[640/2115] GCA_052570455.1  taxid=5523  (order_sweep) Fusarium lateritium
+
+[641/2115] GCA_003012285.1  taxid=694270  (order_sweep) Fusarium longipes
+
+[642/2115] GCF_900044065.1  taxid=192010  (order_sweep) Fusarium mangiferae
+
+[643/2115] GCA_900044065.1  taxid=192010  (order_sweep) Fusarium mangiferae
+
+[644/2115] GCA_057675485.1  taxid=2951228  (order_sweep) Fusarium mekan
+
+[645/2115] GCA_057674785.1  taxid=2951228  (order_sweep) Fusarium mekan
+
+[646/2115] GCA_013396015.1  taxid=751941  (order_sweep) Fusarium mexicanum
+
+[647/2115] GCA_013396205.1  taxid=1567541  (order_sweep) Fusarium mundagurra
+
+[648/2115] GCF_019915245.1  taxid=1042133  (order_sweep) Fusarium musae
+
+[649/2115] GCA_019915245.1  taxid=1042133  (order_sweep) Fusarium musae
+
+[650/2115] GCA_013396005.1  taxid=42672  (order_sweep) Fusarium napiforme
+
+[651/2115] GCA_054098485.1  taxid=1053271  (order_sweep) Fusarium nematophilum
+
+[652/2115] GCA_002894225.1  taxid=42673  (order_sweep) Fusarium nygamai
+
+[653/2115] GCA_057674705.1  taxid=1325738  (order_sweep) Fusarium obliquiseptatum
+
+[654/2115] GCA_057675085.1  taxid=1325738  (order_sweep) Fusarium obliquiseptatum
+
+[655/2115] GCA_057675185.1  taxid=2604345  (order_sweep) Fusarium oligoseptatum
+
+[656/2115] GCA_003946995.1  taxid=2604345  (order_sweep) Fusarium oligoseptatum
+
+[657/2115] GCA_057676005.1  taxid=2951362  (order_sweep) Fusarium papillatum
+
+[658/2115] GCA_057676105.1  taxid=2951362  (order_sweep) Fusarium papillatum
+
+[659/2115] GCA_013396025.1  taxid=47803  (order_sweep) Fusarium phyllophilum
+
+[660/2115] GCA_046056315.1  taxid=36050  (order_sweep) Fusarium poae
+
+[661/2115] GCA_001675295.1  taxid=36050  (order_sweep) Fusarium poae
+
+[662/2115] GCF_019609905.1  taxid=36050  (order_sweep) Fusarium poae
+
+[663/2115] GCA_019609905.1  taxid=36050  (order_sweep) Fusarium poae
+
+[664/2115] GCA_057674445.1  taxid=986114  (order_sweep) Fusarium pseudensiforme
+
+[665/2115] GCA_057674525.1  taxid=986114  (order_sweep) Fusarium pseudensiforme
+
+[666/2115] GCA_013395995.1  taxid=48495  (order_sweep) Fusarium pseudoanthophilum
+
+[667/2115] GCA_013396035.1  taxid=56676  (order_sweep) Fusarium pseudocircinatum
+
+[668/2115] GCA_057675605.1  taxid=2698985  (order_sweep) Fusarium rekanum
+
+[669/2115] GCA_057675625.1  taxid=2698985  (order_sweep) Fusarium rekanum
+
+[670/2115] GCA_013266185.1  taxid=1208366  (order_sweep) Fusarium sarcochroum
+
+[671/2115] GCA_023101225.1  taxid=2747967  (order_sweep) Fusarium solani-melongenae
+
+[672/2115] GCA_022627095.1  taxid=2874508  (order_sweep) Fusarium sp. FIESC RH6
+
+[673/2115] GCA_056098845.1  taxid=3387622  (order_sweep) Fusarium sp. IMII-1
+
+[674/2115] GCA_025433615.1  taxid=2898545  (order_sweep) Fusarium sp. LHS14.1
+
+[675/2115] GCA_013396255.1  taxid=122381  (order_sweep) Fusarium sp. NRRL 25303
+
+[676/2115] GCA_013266265.1  taxid=2692428  (order_sweep) Fusarium sp. NRRL 66182
+
+[677/2115] GCA_025433565.1  taxid=2898544  (order_sweep) Fusarium sp. Ph1
+
+[678/2115] GCF_013396195.1  taxid=1567544  (order_sweep) Fusarium tjaetaba
+
+[679/2115] GCA_013396195.1  taxid=1567544  (order_sweep) Fusarium tjaetaba
+
+[680/2115] GCA_027945595.1  taxid=1237075  (order_sweep) Fusarium torreyae
+
+[681/2115] GCA_900312805.1  taxid=33205  (order_sweep) Fusarium torulosum
+
+[682/2115] GCA_057675105.1  taxid=1325736  (order_sweep) Fusarium tuaranense
+
+[683/2115] GCA_057675225.1  taxid=1325736  (order_sweep) Fusarium tuaranense
+
+[684/2115] GCF_000151355.1  taxid=2747968  (order_sweep) Fusarium vanettenii
+
+[685/2115] GCA_000151355.1  taxid=2747968  (order_sweep) Fusarium vanettenii
+
+[686/2115] GCA_057675405.1  taxid=2698986  (order_sweep) Fusarium variasi
+
+[687/2115] GCA_057675385.1  taxid=2698986  (order_sweep) Fusarium variasi
+
+[688/2115] GCF_900007375.1  taxid=56646  (order_sweep) Fusarium venenatum
+
+[689/2115] GCA_900007375.1  taxid=56646  (order_sweep) Fusarium venenatum
+
+[690/2115] GCA_057675365.1  taxid=2698987  (order_sweep) Fusarium warna
+
+[691/2115] GCA_013266195.1  taxid=1053134  (order_sweep) Fusarium zealandicum
+
+[692/2115] GCA_051938895.1  taxid=36778  (order_sweep) Gaeumannomyces avenae
+
+[693/2115] GCA_051938825.1  taxid=36778  (order_sweep) Gaeumannomyces avenae
+
+[694/2115] GCA_051938815.1  taxid=1940676  (order_sweep) Gaeumannomyces hyphopodioides
+
+[695/2115] GCA_051938805.1  taxid=1940676  (order_sweep) Gaeumannomyces hyphopodioides
+
+[696/2115] GCA_051938625.1  taxid=36779  (order_sweep) Gaeumannomyces tritici
+
+[697/2115] GCF_000145635.1  taxid=36779  (order_sweep) Gaeumannomyces tritici
+  NOTE: taxid corrected 36779 → 644352 (stale taxid in ref_candidates)
+
+[698/2115] GCA_051938685.1  taxid=36779  (order_sweep) Gaeumannomyces tritici
+
+[699/2115] GCA_051938735.1  taxid=36779  (order_sweep) Gaeumannomyces tritici
+
+[700/2115] GCA_000697645.1  taxid=109633  (order_sweep) Galerina marginata
+  NOTE: taxid corrected 109633 → 685588 (stale taxid in ref_candidates)
+
+[701/2115] GCF_012550715.1  taxid=1094350  (order_sweep) Geosmithia morbida
+
+[702/2115] GCA_012550715.1  taxid=1094350  (order_sweep) Geosmithia morbida
+
+[703/2115] GCF_000409485.1  taxid=101852  (order_sweep) Glarea lozoyensis
+  NOTE: taxid corrected 101852 → 1116229 (stale taxid in ref_candidates)
+
+[704/2115] GCA_000409485.1  taxid=101852  (order_sweep) Glarea lozoyensis
+  NOTE: taxid corrected 101852 → 1116229 (stale taxid in ref_candidates)
+
+[705/2115] GCA_027946515.1  taxid=1191159  (order_sweep) Gnomoniopsis smithogilvyi
+
+[706/2115] GCA_003611195.1  taxid=62708  (order_sweep) Golovinomyces cichoracearum
+
+[707/2115] GCA_003611215.1  taxid=62708  (order_sweep) Golovinomyces cichoracearum
+
+[708/2115] GCA_003611235.1  taxid=62708  (order_sweep) Golovinomyces cichoracearum
+
+[709/2115] GCA_006912115.1  taxid=62714  (order_sweep) Golovinomyces magnicellulatus
+
+[710/2115] GCF_019112545.1  taxid=856835  (order_sweep) Guyanagaster necrorhizus
+
+[711/2115] GCA_019112545.1  taxid=856835  (order_sweep) Guyanagaster necrorhizus
+
+[712/2115] GCA_002938385.1  taxid=231916  (order_sweep) Gymnopilus dilepis
+
+[713/2115] GCA_009733575.1  taxid=1447940  (order_sweep) Gymnopus androsaceus
+  NOTE: taxid corrected 1447940 → 1447944 (stale taxid in ref_candidates)
+
+[714/2115] GCA_000769265.1  taxid=5044  (order_sweep) Hapsidospora chrysogena
+  NOTE: taxid corrected 5044 → 857340 (stale taxid in ref_candidates)
+
+[715/2115] GCA_000827355.1  taxid=76867  (order_sweep) Hebeloma cylindrosporum
+
+[716/2115] GCA_004681135.1  taxid=135208  (order_sweep) Hericium alpestre
+
+[717/2115] GCF_000320585.1  taxid=984962  (order_sweep) Heterobasidion irregulare
+  NOTE: taxid corrected 984962 → 747525 (stale taxid in ref_candidates)
+
+[718/2115] GCA_000320585.2  taxid=984962  (order_sweep) Heterobasidion irregulare
+  NOTE: taxid corrected 984962 → 747525 (stale taxid in ref_candidates)
+
+[719/2115] GCA_000956045.1  taxid=332947  (order_sweep) Hirsutella minnesotensis
+  NOTE: taxid corrected 332947 → 1043627 (stale taxid in ref_candidates)
+
+[720/2115] GCA_020360975.2  taxid=111463  (order_sweep) Hirsutella rhossiliensis
+
+[721/2115] GCF_020360975.1  taxid=111463  (order_sweep) Hirsutella rhossiliensis
+
+[722/2115] GCA_020360975.1  taxid=111463  (order_sweep) Hirsutella rhossiliensis
+
+[723/2115] GCF_002865645.1  taxid=2482752  (order_sweep) Hyaloscypha bicolor
+  NOTE: taxid corrected 2482752 → 1095630 (stale taxid in ref_candidates)
+
+[724/2115] GCA_002865645.1  taxid=2482752  (order_sweep) Hyaloscypha bicolor
+  NOTE: taxid corrected 2482752 → 1095630 (stale taxid in ref_candidates)
+
+[725/2115] GCA_002865625.1  taxid=2082293  (order_sweep) Hyaloscypha hepaticicola
+
+[726/2115] GCA_002865655.1  taxid=2482757  (order_sweep) Hyaloscypha variabilis
+  NOTE: taxid corrected 2482757 → 1149755 (stale taxid in ref_candidates)
+
+[727/2115] GCA_014904985.1  taxid=139363  (order_sweep) Hydnum rufescens
+  NOTE: taxid corrected 139363 → 1448309 (stale taxid in ref_candidates)
+
+[728/2115] GCA_911693285.1  taxid=595503  (order_sweep) Hymenoscyphus albidus
+
+[729/2115] GCA_911649665.1  taxid=746836  (order_sweep) Hymenoscyphus fraxineus
+
+[730/2115] GCA_000827495.1  taxid=71945  (order_sweep) Hypholoma sublateritium
+  NOTE: taxid corrected 71945 → 945553 (stale taxid in ref_candidates)
+
+[731/2115] GCA_022385585.1  taxid=2487000  (order_sweep) Hypomontagnella monticulosa
+
+[732/2115] GCA_022495175.1  taxid=1799007  (order_sweep) Hypoxylon argillaceum
+
+[733/2115] GCA_022578845.1  taxid=326656  (order_sweep) Hypoxylon cercidicola
+
+[734/2115] GCA_022578875.1  taxid=326657  (order_sweep) Hypoxylon crocopeplum
+
+[735/2115] GCA_022578945.1  taxid=109372  (order_sweep) Hypoxylon fuscum
+
+[736/2115] GCA_022578595.1  taxid=110542  (order_sweep) Hypoxylon rubiginosum
+
+[737/2115] GCA_022578615.1  taxid=110542  (order_sweep) Hypoxylon rubiginosum
+
+[738/2115] GCA_002120315.1  taxid=1001833  (order_sweep) Hypoxylon sp. CI-4A
+
+[739/2115] GCA_002120305.1  taxid=1001938  (order_sweep) Hypoxylon sp. CO27-5
+
+[740/2115] GCA_002120335.1  taxid=1001937  (order_sweep) Hypoxylon sp. EC38
+
+[741/2115] GCA_022578575.1  taxid=2614586  (order_sweep) Hypoxylon sp. FL0543
+
+[742/2115] GCA_022497025.1  taxid=2614585  (order_sweep) Hypoxylon sp. FL0890
+
+[743/2115] GCA_022495205.1  taxid=2663364  (order_sweep) Hypoxylon sp. FL1150
+
+[744/2115] GCA_022578955.1  taxid=2614582  (order_sweep) Hypoxylon sp. FL1857
+
+[745/2115] GCA_051132625.1  taxid=2594544  (order_sweep) Hypoxylon texense
+
+[746/2115] GCF_022578975.1  taxid=326681  (order_sweep) Hypoxylon trugodes
+
+[747/2115] GCA_022578975.1  taxid=326681  (order_sweep) Hypoxylon trugodes
+
+[748/2115] GCA_001605315.2  taxid=39966  (order_sweep) Hypsizygus marmoreus
+
+[749/2115] GCA_022578535.1  taxid=1955266  (order_sweep) Jackrogersella minutella
+
+[750/2115] GCF_000497045.1  taxid=1392244  (order_sweep) Kalmanozyma brasiliensis
+  NOTE: taxid corrected 1392244 → 1365824 (stale taxid in ref_candidates)
+
+[751/2115] GCA_000497045.1  taxid=1392244  (order_sweep) Kalmanozyma brasiliensis
+  NOTE: taxid corrected 1392244 → 1365824 (stale taxid in ref_candidates)
+
+[752/2115] GCA_010093485.1  taxid=301204  (order_sweep) Karstenula rhodostoma
+  NOTE: taxid corrected 301204 → 1392251 (stale taxid in ref_candidates)
+
+[753/2115] GCA_000827195.2  taxid=89243  (order_sweep) Laccaria amethystina
+  NOTE: taxid corrected 89243 → 1095629 (stale taxid in ref_candidates)
+
+[754/2115] GCA_058411285.1  taxid=29883  (order_sweep) Laccaria bicolor
+
+[755/2115] GCF_000143565.1  taxid=29883  (order_sweep) Laccaria bicolor
+  NOTE: taxid corrected 29883 → 486041 (stale taxid in ref_candidates)
+
+[756/2115] GCA_059996225.1  taxid=29883  (order_sweep) Laccaria bicolor
+
+[757/2115] GCA_059927845.1  taxid=29883  (order_sweep) Laccaria bicolor
+  NOTE: taxid corrected 29883 → 1035138 (stale taxid in ref_candidates)
+
+[758/2115] GCA_030512325.1  taxid=869390  (order_sweep) Lasiodiplodia hormozganensis
+
+[759/2115] GCA_027886315.1  taxid=2804958  (order_sweep) Lentinula aff. detonsa
+
+[760/2115] GCA_027886325.1  taxid=2804958  (order_sweep) Lentinula aff. detonsa
+
+[761/2115] GCA_027886305.1  taxid=2804960  (order_sweep) Lentinula aff. lateritia
+
+[762/2115] GCA_027886635.1  taxid=40481  (order_sweep) Lentinula boryana
+
+[763/2115] GCA_027886465.1  taxid=2804962  (order_sweep) Lentinula detonsa
+
+[764/2115] GCA_027886755.1  taxid=5353  (order_sweep) Lentinula edodes
+
+[765/2115] GCA_027887095.1  taxid=5353  (order_sweep) Lentinula edodes
+
+[766/2115] GCA_027917475.1  taxid=5353  (order_sweep) Lentinula edodes
+
+[767/2115] GCA_027917485.1  taxid=5353  (order_sweep) Lentinula edodes
+
+[768/2115] GCA_027917355.1  taxid=40482  (order_sweep) Lentinula lateritia
+
+[769/2115] GCA_027917575.1  taxid=40482  (order_sweep) Lentinula lateritia
+
+[770/2115] GCA_027921425.1  taxid=42442  (order_sweep) Lentinula novae-zelandiae
+
+[771/2115] GCA_027886345.1  taxid=153919  (order_sweep) Lentinula raphanica
+
+[772/2115] GCA_027886495.1  taxid=153919  (order_sweep) Lentinula raphanica
+
+[773/2115] GCA_027886735.1  taxid=153919  (order_sweep) Lentinula raphanica
+
+[774/2115] GCA_027886695.1  taxid=153919  (order_sweep) Lentinula raphanica
+
+[775/2115] GCA_010405425.1  taxid=690899  (order_sweep) Lentithecium fluviatile
+  NOTE: taxid corrected 690899 → 1168545 (stale taxid in ref_candidates)
+
+[776/2115] GCA_021432625.1  taxid=1485227  (order_sweep) Leptodontidium sp. 2 PMI_412
+
+[777/2115] GCA_001563735.1  taxid=1714833  (order_sweep) Leucoagaricus sp. SymC.cos
+
+[778/2115] GCA_027627405.1  taxid=56174  (order_sweep) Leucocoprinus birnbaumii
+
+[779/2115] GCA_052360485.1  taxid=79220  (order_sweep) Leucocoprinus gongylophorus
+
+[780/2115] GCF_010093535.1  taxid=673940  (order_sweep) Lindgomyces ingoldianus
+
+[781/2115] GCA_010093535.1  taxid=673940  (order_sweep) Lindgomyces ingoldianus
+
+[782/2115] GCA_010094045.1  taxid=147567  (order_sweep) Lojkania enalia
+
+[783/2115] GCA_010405375.1  taxid=372055  (order_sweep) Lophiostoma macrostomum
+  NOTE: taxid corrected 372055 → 1314788 (stale taxid in ref_candidates)
+
+[784/2115] GCA_010015825.1  taxid=690887  (order_sweep) Lophiotrema nucula
+
+[785/2115] GCA_015584085.1  taxid=201230  (order_sweep) Macrolepiota fuliginosa
+  NOTE: taxid corrected 201230 → 1400762 (stale taxid in ref_candidates)
+
+[786/2115] GCF_010093625.1  taxid=301207  (order_sweep) Macroventuria anomochaeta
+
+[787/2115] GCA_010093625.1  taxid=301207  (order_sweep) Macroventuria anomochaeta
+
+[788/2115] GCA_000193285.1  taxid=148304  (order_sweep) Magnaporthiopsis poae
+  NOTE: taxid corrected 148304 → 644358 (stale taxid in ref_candidates)
+
+[789/2115] GCA_040437605.1  taxid=585013  (order_sweep) Marasmius crinis-equi
+
+[790/2115] GCA_014904975.1  taxid=1328755  (order_sweep) Marasmius fiardii
+  NOTE: taxid corrected 1328755 → 1328756 (stale taxid in ref_candidates)
+
+[791/2115] GCF_018924745.1  taxid=181124  (order_sweep) Marasmius oreades
+
+[792/2115] GCA_018924745.1  taxid=181124  (order_sweep) Marasmius oreades
+
+[793/2115] GCA_024721195.1  taxid=3065222  (order_sweep) Marasmius sp. AFHP31
+
+[794/2115] GCA_029532415.1  taxid=585030  (order_sweep) Marasmius tenuissimus
+
+[795/2115] GCA_055000085.1  taxid=585030  (order_sweep) Marasmius tenuissimus
+
+[796/2115] GCA_040207205.1  taxid=585030  (order_sweep) Marasmius tenuissimus
+
+[797/2115] GCA_010093635.1  taxid=45293  (order_sweep) Massarina eburnea
+  NOTE: taxid corrected 45293 → 1395130 (stale taxid in ref_candidates)
+
+[798/2115] GCA_010093585.1  taxid=100047  (order_sweep) Melanomma pulvis-pyrius
+  NOTE: taxid corrected 100047 → 1314802 (stale taxid in ref_candidates)
+
+[799/2115] GCF_000804445.1  taxid=92629  (order_sweep) Metarhizium album
+  NOTE: taxid corrected 92629 → 1081103 (stale taxid in ref_candidates)
+
+[800/2115] GCA_000804445.1  taxid=92629  (order_sweep) Metarhizium album
+  NOTE: taxid corrected 92629 → 1081103 (stale taxid in ref_candidates)
+
+[801/2115] GCA_000426985.1  taxid=5530  (order_sweep) Metarhizium anisopliae
+  NOTE: taxid corrected 5530 → 1291519 (stale taxid in ref_candidates)
+
+[802/2115] GCA_000426965.1  taxid=5530  (order_sweep) Metarhizium anisopliae
+  NOTE: taxid corrected 5530 → 1291518 (stale taxid in ref_candidates)
+
+[803/2115] GCF_013426205.1  taxid=500148  (order_sweep) Metarhizium brunneum
+
+[804/2115] GCF_000814965.1  taxid=500148  (order_sweep) Metarhizium brunneum
+  NOTE: taxid corrected 500148 → 1276141 (stale taxid in ref_candidates)
+
+[805/2115] GCA_013426205.1  taxid=500148  (order_sweep) Metarhizium brunneum
+
+[806/2115] GCA_039795395.1  taxid=500148  (order_sweep) Metarhizium brunneum
+
+[807/2115] GCA_000814955.1  taxid=169041  (order_sweep) Metarhizium guizhouense
+  NOTE: taxid corrected 169041 → 1276136 (stale taxid in ref_candidates)
+
+[808/2115] GCA_020102295.1  taxid=2596975  (order_sweep) Metarhizium humberi
+
+[809/2115] GCA_000814975.1  taxid=3151832  (order_sweep) Metarhizium hybridum
+
+[810/2115] GCF_000814945.1  taxid=1650735  (order_sweep) Metarhizium majus
+  NOTE: taxid corrected 1650735 → 1276143 (stale taxid in ref_candidates)
+
+[811/2115] GCA_000814945.1  taxid=1650735  (order_sweep) Metarhizium majus
+  NOTE: taxid corrected 1650735 → 1276143 (stale taxid in ref_candidates)
+
+[812/2115] GCA_007866325.1  taxid=1649241  (order_sweep) Metarhizium rileyi
+
+[813/2115] GCA_001636745.1  taxid=1649241  (order_sweep) Metarhizium rileyi
+
+[814/2115] GCA_042186575.1  taxid=2075419  (order_sweep) Microascus stellatus
+
+[815/2115] GCA_001566295.1  taxid=196109  (order_sweep) Microdochium bolleyi
+
+[816/2115] GCA_001636675.1  taxid=324773  (order_sweep) Moelleriella libera
+  NOTE: taxid corrected 324773 → 1081109 (stale taxid in ref_candidates)
+
+[817/2115] GCF_000747765.1  taxid=84753  (order_sweep) Moesziomyces antarcticus
+
+[818/2115] GCA_000747765.1  taxid=84753  (order_sweep) Moesziomyces antarcticus
+
+[819/2115] GCA_000334475.1  taxid=84753  (order_sweep) Moesziomyces antarcticus
+  NOTE: taxid corrected 84753 → 1151754 (stale taxid in ref_candidates)
+
+[820/2115] GCA_000517465.1  taxid=84754  (order_sweep) Moesziomyces aphidis
+
+[821/2115] GCF_001500285.1  taxid=149040  (order_sweep) Mollisia scopiformis
+
+[822/2115] GCA_001500285.1  taxid=149040  (order_sweep) Mollisia scopiformis
+
+[823/2115] GCA_025999795.1  taxid=5098  (order_sweep) Monascus purpureus
+
+[824/2115] GCA_006542485.1  taxid=5098  (order_sweep) Monascus purpureus
+
+[825/2115] GCA_058219135.1  taxid=5098  (order_sweep) Monascus purpureus
+
+[826/2115] GCA_017357885.1  taxid=61207  (order_sweep) Monilinia vaccinii-corymbosi
+
+[827/2115] GCA_004154925.1  taxid=155416  (order_sweep) Monosporascus cannonballus
+
+[828/2115] GCA_004155895.1  taxid=155416  (order_sweep) Monosporascus cannonballus
+
+[829/2115] GCA_004154915.1  taxid=155417  (order_sweep) Monosporascus ibericus
+
+[830/2115] GCA_004155035.1  taxid=2211642  (order_sweep) Monosporascus sp. 5C6A
+
+[831/2115] GCA_004155055.1  taxid=2211644  (order_sweep) Monosporascus sp. CRB-8-3
+
+[832/2115] GCA_004155915.1  taxid=2211643  (order_sweep) Monosporascus sp. CRB-9-2
+
+[833/2115] GCA_004155935.1  taxid=2211647  (order_sweep) Monosporascus sp. GIB2
+
+[834/2115] GCA_004154975.1  taxid=2211646  (order_sweep) Monosporascus sp. MC13-8B
+
+[835/2115] GCA_004155925.1  taxid=2211645  (order_sweep) Monosporascus sp. MG133
+
+[836/2115] GCA_004155945.1  taxid=1081914  (order_sweep) Monosporascus sp. mg162
+
+[837/2115] GCA_022578505.1  taxid=561989  (order_sweep) Nemania abortiva
+
+[838/2115] GCA_022578665.1  taxid=389665  (order_sweep) Nemania diffusa
+
+[839/2115] GCA_022578855.1  taxid=109381  (order_sweep) Nemania serpens
+
+[840/2115] GCA_022578675.1  taxid=109381  (order_sweep) Nemania serpens
+
+[841/2115] GCA_022578685.1  taxid=109381  (order_sweep) Nemania serpens
+
+[842/2115] GCA_022578715.1  taxid=2614608  (order_sweep) Nemania sp. FL0916
+
+[843/2115] GCA_022578495.1  taxid=2614580  (order_sweep) Nemania sp. NC0429
+
+[844/2115] GCF_000385595.1  taxid=310453  (order_sweep) Neofusicoccum parvum
+  NOTE: taxid corrected 310453 → 1287680 (stale taxid in ref_candidates)
+
+[845/2115] GCA_056114585.1  taxid=310453  (order_sweep) Neofusicoccum parvum
+
+[846/2115] GCA_030270345.1  taxid=310453  (order_sweep) Neofusicoccum parvum
+
+[847/2115] GCA_030270365.1  taxid=310453  (order_sweep) Neofusicoccum parvum
+
+[848/2115] GCA_021436925.2  taxid=45134  (order_sweep) Neofusicoccum ribis
+
+[849/2115] GCF_010093505.1  taxid=245834  (order_sweep) Neohortaea acidophila
+
+[850/2115] GCA_010093505.1  taxid=245834  (order_sweep) Neohortaea acidophila
+
+[851/2115] GCA_037954305.1  taxid=2732573  (order_sweep) Neonectria magnoliae
+
+[852/2115] GCA_037954315.1  taxid=979145  (order_sweep) Neonectria punicea
+
+[853/2115] GCA_001636815.1  taxid=150359  (order_sweep) Niveomyces insectorum
+  NOTE: taxid corrected 150359 → 1081102 (stale taxid in ref_candidates)
+
+[854/2115] GCA_021642125.2  taxid=749835  (order_sweep) Nothophoma quercina
+
+[855/2115] GCA_042604555.1  taxid=86028  (order_sweep) Oculimacula yallundae
+
+[856/2115] GCA_010093685.1  taxid=1469910  (order_sweep) Ophiobolus disseminans
+
+[857/2115] GCA_002591415.1  taxid=1399860  (order_sweep) Ophiocordyceps australis
+
+[858/2115] GCA_002591405.1  taxid=1399860  (order_sweep) Ophiocordyceps australis
+
+[859/2115] GCA_003339455.1  taxid=2039875  (order_sweep) Ophiocordyceps camponoti-leonardi (nom. inval.)
+
+[860/2115] GCA_002591395.1  taxid=2004952  (order_sweep) Ophiocordyceps camponoti-rufipedis
+
+[861/2115] GCA_003339415.1  taxid=2039874  (order_sweep) Ophiocordyceps camponoti-saundersi (nom. inval.)
+
+[862/2115] GCA_001633055.2  taxid=1330020  (order_sweep) Ophiocordyceps polyrhachis-furcata
+  NOTE: taxid corrected 1330020 → 1330021 (stale taxid in ref_candidates)
+
+[863/2115] GCA_000448365.1  taxid=72228  (order_sweep) Ophiocordyceps sinensis
+  NOTE: taxid corrected 72228 → 911162 (stale taxid in ref_candidates)
+
+[864/2115] GCA_001272575.2  taxid=268505  (order_sweep) Ophiocordyceps unilateralis
+
+[865/2115] GCA_000410735.1  taxid=61273  (order_sweep) Ophiostoma piceae
+  NOTE: taxid corrected 61273 → 1262450 (stale taxid in ref_candidates)
+
+[866/2115] GCA_042257975.1  taxid=3004212  (order_sweep) Paecilomyces lecythidis
+
+[867/2115] GCA_042258045.1  taxid=3004212  (order_sweep) Paecilomyces lecythidis
+
+[868/2115] GCA_030060675.1  taxid=264951  (order_sweep) Paecilomyces variotii
+
+[869/2115] GCA_030060715.1  taxid=264951  (order_sweep) Paecilomyces variotii
+
+[870/2115] GCA_030061355.1  taxid=264951  (order_sweep) Paecilomyces variotii
+
+[871/2115] GCA_030061565.1  taxid=264951  (order_sweep) Paecilomyces variotii
+
+[872/2115] GCA_002938355.1  taxid=181874  (order_sweep) Panaeolus cyanescens
+
+[873/2115] GCA_022225985.2  taxid=300254  (order_sweep) Paraconiothyrium brasiliense
+
+[874/2115] GCA_048937215.1  taxid=565426  (order_sweep) Paraphaeosphaeria minitans
+
+[875/2115] GCA_048937275.1  taxid=565426  (order_sweep) Paraphaeosphaeria minitans
+
+[876/2115] GCA_048937285.1  taxid=565426  (order_sweep) Paraphaeosphaeria minitans
+
+[877/2115] GCA_048937315.1  taxid=565426  (order_sweep) Paraphaeosphaeria minitans
+
+[878/2115] GCA_037672785.1  taxid=1460663  (order_sweep) Paraphaeosphaeria sporulosa
+
+[879/2115] GCF_001642045.1  taxid=1460663  (order_sweep) Paraphaeosphaeria sporulosa
+
+[880/2115] GCA_001642045.1  taxid=1460663  (order_sweep) Paraphaeosphaeria sporulosa
+
+[881/2115] GCF_001890105.1  taxid=41063  (order_sweep) Penicilliopsis zonata
+  NOTE: taxid corrected 41063 → 1073090 (stale taxid in ref_candidates)
+
+[882/2115] GCA_001890105.1  taxid=41063  (order_sweep) Penicilliopsis zonata
+  NOTE: taxid corrected 41063 → 1073090 (stale taxid in ref_candidates)
+
+[883/2115] GCA_002072345.1  taxid=416450  (order_sweep) Penicillium antarcticum
+
+[884/2115] GCF_001773325.1  taxid=1835702  (order_sweep) Penicillium arizonense
+
+[885/2115] GCA_001773325.1  taxid=1835702  (order_sweep) Penicillium arizonense
+
+[886/2115] GCA_902713515.1  taxid=293381  (order_sweep) Penicillium bialowiezense
+
+[887/2115] GCA_056365515.1  taxid=707954  (order_sweep) Penicillium biforme
+
+[888/2115] GCA_002016555.1  taxid=104259  (order_sweep) Penicillium brasilianum
+
+[889/2115] GCA_001048715.1  taxid=104259  (order_sweep) Penicillium brasilianum
+
+[890/2115] GCA_040144005.1  taxid=5074  (order_sweep) Penicillium brevicompactum
+
+[891/2115] GCA_056164985.1  taxid=5075  (order_sweep) Penicillium camemberti
+
+[892/2115] GCA_000513335.1  taxid=5075  (order_sweep) Penicillium camemberti
+  NOTE: taxid corrected 5075 → 1429867 (stale taxid in ref_candidates)
+
+[893/2115] GCA_000710275.1  taxid=5076  (order_sweep) Penicillium chrysogenum
+
+[894/2115] GCA_056320565.1  taxid=5076  (order_sweep) Penicillium chrysogenum
+
+[895/2115] GCA_002072405.1  taxid=36646  (order_sweep) Penicillium coprophilum
+
+[896/2115] GCA_056320115.1  taxid=70792  (order_sweep) Penicillium corylophilum
+
+[897/2115] GCA_902712905.1  taxid=36656  (order_sweep) Penicillium crustosum
+
+[898/2115] GCA_043643955.1  taxid=36656  (order_sweep) Penicillium crustosum
+
+[899/2115] GCA_014621375.1  taxid=36656  (order_sweep) Penicillium crustosum
+
+[900/2115] GCA_002072245.1  taxid=69771  (order_sweep) Penicillium decumbens
+
+[901/2115] GCA_902713485.1  taxid=74830  (order_sweep) Penicillium discolor
+
+[902/2115] GCA_911456345.1  taxid=1303716  (order_sweep) Penicillium egyptiacum
+
+[903/2115] GCA_002072365.1  taxid=254877  (order_sweep) Penicillium flavigenum
+
+[904/2115] GCA_001513925.1  taxid=48697  (order_sweep) Penicillium freii
+
+[905/2115] GCA_902713545.1  taxid=203109  (order_sweep) Penicillium manginii
+
+[906/2115] GCA_911174845.1  taxid=60175  (order_sweep) Penicillium nalgiovense
+
+[907/2115] GCA_002072425.1  taxid=60175  (order_sweep) Penicillium nalgiovense
+
+[908/2115] GCA_911174865.1  taxid=60175  (order_sweep) Penicillium nalgiovense
+
+[909/2115] GCA_911174875.1  taxid=60175  (order_sweep) Penicillium nalgiovense
+
+[910/2115] GCA_001278595.1  taxid=229535  (order_sweep) Penicillium nordicum
+
+[911/2115] GCA_047150385.1  taxid=69780  (order_sweep) Penicillium ochrochloron
+
+[912/2115] GCA_911174995.1  taxid=99116  (order_sweep) Penicillium olsonii
+
+[913/2115] GCA_911150065.1  taxid=99116  (order_sweep) Penicillium olsonii
+
+[914/2115] GCA_911150075.1  taxid=99116  (order_sweep) Penicillium olsonii
+
+[915/2115] GCA_911174945.1  taxid=99116  (order_sweep) Penicillium olsonii
+
+[916/2115] GCF_001723175.1  taxid=69781  (order_sweep) Penicillium oxalicum
+
+[917/2115] GCA_000346795.1  taxid=69781  (order_sweep) Penicillium oxalicum
+  NOTE: taxid corrected 69781 → 933388 (stale taxid in ref_candidates)
+
+[918/2115] GCA_001723175.3  taxid=69781  (order_sweep) Penicillium oxalicum
+
+[919/2115] GCA_902713495.1  taxid=293373  (order_sweep) Penicillium palitans
+
+[920/2115] GCA_902713525.1  taxid=1131562  (order_sweep) Penicillium pancosmium
+
+[921/2115] GCA_002072265.1  taxid=60169  (order_sweep) Penicillium polonicum
+
+[922/2115] GCF_964197705.1  taxid=3158075  (order_sweep) Penicillium psychrofluorescens
+
+[923/2115] GCA_964197705.1  taxid=3158075  (order_sweep) Penicillium psychrofluorescens
+
+[924/2115] GCA_011392555.1  taxid=69785  (order_sweep) Penicillium rolfsii
+
+[925/2115] GCA_023141165.1  taxid=5082  (order_sweep) Penicillium roqueforti
+
+[926/2115] GCA_023137995.1  taxid=5082  (order_sweep) Penicillium roqueforti
+
+[927/2115] GCA_023141195.1  taxid=5082  (order_sweep) Penicillium roqueforti
+
+[928/2115] GCF_015533775.1  taxid=5082  (order_sweep) Penicillium roqueforti
+
+[929/2115] GCF_000226395.1  taxid=1108849  (order_sweep) Penicillium rubens
+  NOTE: taxid corrected 1108849 → 500485 (stale taxid in ref_candidates)
+
+[930/2115] GCA_028751425.1  taxid=1108849  (order_sweep) Penicillium rubens
+
+[931/2115] GCA_011058885.1  taxid=1108849  (order_sweep) Penicillium rubens
+
+[932/2115] GCA_000226395.1  taxid=1108849  (order_sweep) Penicillium rubens
+  NOTE: taxid corrected 1108849 → 500485 (stale taxid in ref_candidates)
+
+[933/2115] GCA_911197225.1  taxid=1612424  (order_sweep) Penicillium salamii
+
+[934/2115] GCA_911174905.1  taxid=1612424  (order_sweep) Penicillium salamii
+
+[935/2115] GCA_911174925.1  taxid=1612424  (order_sweep) Penicillium salamii
+
+[936/2115] GCA_911197175.1  taxid=1612424  (order_sweep) Penicillium salamii
+
+[937/2115] GCF_002072235.1  taxid=60172  (order_sweep) Penicillium solitum
+
+[938/2115] GCA_002072235.1  taxid=60172  (order_sweep) Penicillium solitum
+
+[939/2115] GCA_002072375.1  taxid=303698  (order_sweep) Penicillium steckii
+
+[940/2115] GCA_001908125.1  taxid=1316194  (order_sweep) Penicillium subrubescens
+
+[941/2115] GCA_907164605.1  taxid=2036924  (order_sweep) Penicillium taurinense
+
+[942/2115] GCA_907164625.1  taxid=2608786  (order_sweep) Penicillium terrarumae
+
+[943/2115] GCA_030142185.1  taxid=293382  (order_sweep) Penicillium thymicola
+
+[944/2115] GCA_014839625.1  taxid=2839758  (order_sweep) Penicillium ucsense
+
+[945/2115] GCA_014839855.1  taxid=2839758  (order_sweep) Penicillium ucsense
+
+[946/2115] GCA_902713535.1  taxid=60134  (order_sweep) Penicillium viridicatum
+
+[947/2115] GCA_002072255.1  taxid=29845  (order_sweep) Penicillium vulpinum
+
+[948/2115] GCA_900536885.1  taxid=718367  (order_sweep) Peniophora sp. CBMAI 1063
+
+[949/2115] GCA_001632445.1  taxid=1314672  (order_sweep) Peniophora sp. CONT
+
+[950/2115] GCA_003073855.1  taxid=97972  (order_sweep) Periconia macrospinosa
+
+[951/2115] GCA_001644525.1  taxid=765868  (order_sweep) Phaeosphaeriaceae sp. SRC1lsM3a
+
+[952/2115] GCA_900073065.1  taxid=576137  (order_sweep) Phialocephala subalpina
+
+[953/2115] GCA_015039465.1  taxid=171480  (order_sweep) Phlegmacium glaucopus
+
+[954/2115] GCA_045999785.1  taxid=108571  (order_sweep) Phlyctema vagabunda
+
+[955/2115] GCA_015484465.1  taxid=109636  (order_sweep) Pholiota conissans
+
+[956/2115] GCA_037962995.1  taxid=55181  (order_sweep) Phyllosticta citricarpa
+
+[957/2115] GCA_010093695.1  taxid=1077377  (order_sweep) Plenodomus tracheiphilus
+
+[958/2115] GCA_010093715.1  taxid=100044  (order_sweep) Pleomassaria siparia
+  NOTE: taxid corrected 100044 → 1314801 (stale taxid in ref_candidates)
+
+[959/2115] GCA_048340545.1  taxid=3349763  (order_sweep) Pleosporales sp. CAS-2024a
+
+[960/2115] GCA_019677325.2  taxid=5321  (order_sweep) Pleurotus cornucopiae
+
+[961/2115] GCA_029747585.1  taxid=34470  (order_sweep) Pleurotus djamor
+
+[962/2115] GCA_015484515.1  taxid=5323  (order_sweep) Pleurotus eryngii
+
+[963/2115] GCA_029852705.2  taxid=5322  (order_sweep) Pleurotus ostreatus
+
+[964/2115] GCA_000697685.1  taxid=5322  (order_sweep) Pleurotus ostreatus
+  NOTE: taxid corrected 5322 → 1137138 (stale taxid in ref_candidates)
+
+[965/2115] GCA_047301645.1  taxid=28995  (order_sweep) Pleurotus pulmonarius
+
+[966/2115] GCA_004369065.1  taxid=181527  (order_sweep) Pluteus cervinus
+
+[967/2115] GCA_057381195.1  taxid=280754  (order_sweep) Pochonia chlamydosporia
+
+[968/2115] GCF_001653235.2  taxid=280754  (order_sweep) Pochonia chlamydosporia
+  NOTE: taxid corrected 280754 → 1380566 (stale taxid in ref_candidates)
+
+[969/2115] GCA_001653235.2  taxid=280754  (order_sweep) Pochonia chlamydosporia
+  NOTE: taxid corrected 280754 → 1380566 (stale taxid in ref_candidates)
+
+[970/2115] GCA_051988445.2  taxid=79252  (order_sweep) Podosphaera aphanis
+
+[971/2115] GCA_051988555.2  taxid=79252  (order_sweep) Podosphaera aphanis
+
+[972/2115] GCA_051996105.2  taxid=79249  (order_sweep) Podosphaera leucotricha
+
+[973/2115] GCA_051996125.2  taxid=79249  (order_sweep) Podosphaera leucotricha
+
+[974/2115] GCA_055796225.1  taxid=79249  (order_sweep) Podosphaera leucotricha
+
+[975/2115] GCA_010093805.1  taxid=682080  (order_sweep) Polyplosphaeria fusca
+
+[976/2115] GCA_022579005.1  taxid=101475  (order_sweep) Poronia punctata
+
+[977/2115] GCA_001578235.1  taxid=321146  (order_sweep) Pseudocercospora eumusae
+
+[978/2115] GCA_001578225.1  taxid=113226  (order_sweep) Pseudocercospora musae
+
+[979/2115] GCF_000417875.1  taxid=84751  (order_sweep) Pseudozyma flocculosa
+  NOTE: taxid corrected 84751 → 1277687 (stale taxid in ref_candidates)
+
+[980/2115] GCA_000417875.1  taxid=84751  (order_sweep) Pseudozyma flocculosa
+  NOTE: taxid corrected 84751 → 1277687 (stale taxid in ref_candidates)
+
+[981/2115] GCF_000403515.1  taxid=327079  (order_sweep) Pseudozyma hubeiensis
+  NOTE: taxid corrected 327079 → 1305764 (stale taxid in ref_candidates)
+
+[982/2115] GCA_000403515.1  taxid=327079  (order_sweep) Pseudozyma hubeiensis
+  NOTE: taxid corrected 327079 → 1305764 (stale taxid in ref_candidates)
+
+[983/2115] GCF_017499595.1  taxid=181762  (order_sweep) Psilocybe cubensis
+
+[984/2115] GCA_017499595.2  taxid=181762  (order_sweep) Psilocybe cubensis
+
+[985/2115] GCA_002938375.1  taxid=93625  (order_sweep) Psilocybe cyanescens
+
+[986/2115] GCA_004369125.1  taxid=1884261  (order_sweep) Pterulicium gracile
+
+[987/2115] GCA_001263375.1  taxid=27349  (order_sweep) Puccinia sorghi
+
+[988/2115] GCF_001653265.1  taxid=33203  (order_sweep) Purpureocillium lilacinum
+
+[989/2115] GCA_033847395.1  taxid=33203  (order_sweep) Purpureocillium lilacinum
+
+[990/2115] GCA_003144605.1  taxid=33203  (order_sweep) Purpureocillium lilacinum
+
+[991/2115] GCA_001653205.1  taxid=33203  (order_sweep) Purpureocillium lilacinum
+
+[992/2115] GCF_022605165.1  taxid=2060973  (order_sweep) Purpureocillium takamizusanense
+
+[993/2115] GCA_022605165.1  taxid=2060973  (order_sweep) Purpureocillium takamizusanense
+
+[994/2115] GCA_001644535.1  taxid=765867  (order_sweep) Pyrenochaeta sp. DS3sAY3a
+
+[995/2115] GCA_000465215.2  taxid=91370  (order_sweep) Pyrenophora seminiperda
+
+[996/2115] GCF_004355905.1  taxid=148305  (order_sweep) Pyricularia grisea
+
+[997/2115] GCA_024704025.1  taxid=148305  (order_sweep) Pyricularia grisea
+
+[998/2115] GCA_004355905.1  taxid=148305  (order_sweep) Pyricularia grisea
+
+[999/2115] GCA_024704135.1  taxid=148305  (order_sweep) Pyricularia grisea
+
+[1000/2115] GCF_004337985.1  taxid=1578925  (order_sweep) Pyricularia pennisetigena
+
+[1001/2115] GCA_004337985.1  taxid=1578925  (order_sweep) Pyricularia pennisetigena
+
+[1002/2115] GCA_004337975.1  taxid=403063  (order_sweep) Pyricularia sp. CBS 133598
+
+[1003/2115] GCF_900074925.1  taxid=112498  (order_sweep) Ramularia collo-cygni
+
+[1004/2115] GCA_900074925.1  taxid=112498  (order_sweep) Ramularia collo-cygni
+
+[1005/2115] GCF_041956645.1  taxid=89139  (order_sweep) Rasamsonia byssochlamydoides
+
+[1006/2115] GCA_041956645.1  taxid=89139  (order_sweep) Rasamsonia byssochlamydoides
+
+[1007/2115] GCA_041956655.1  taxid=68825  (order_sweep) Rasamsonia emersonii
+
+[1008/2115] GCF_035927965.1  taxid=574656  (order_sweep) Recurvomyces mirabilis
+
+[1009/2115] GCA_035135035.1  taxid=574656  (order_sweep) Recurvomyces mirabilis
+
+[1010/2115] GCA_035927965.1  taxid=574656  (order_sweep) Recurvomyces mirabilis
+
+[1011/2115] GCA_033675085.1  taxid=574656  (order_sweep) Recurvomyces mirabilis
+
+[1012/2115] GCA_900074905.1  taxid=914238  (order_sweep) Rhynchosporium agropyri
+
+[1013/2115] GCA_900074895.1  taxid=38038  (order_sweep) Rhynchosporium secalis
+
+[1014/2115] GCA_022497145.1  taxid=392036  (order_sweep) Rostrohypoxylon terebratum
+
+[1015/2115] GCA_010015785.1  taxid=131308  (order_sweep) Saccharata proteae
+  NOTE: taxid corrected 131308 → 1314787 (stale taxid in ref_candidates)
+
+[1016/2115] GCA_005059885.1  taxid=706561  (order_sweep) Salinomyces thailandicus
+
+[1017/2115] GCA_021176775.1  taxid=1610689  (order_sweep) Sarocladium implicatum
+
+[1018/2115] GCA_042370655.1  taxid=5046  (order_sweep) Sarocladium strictum
+
+[1019/2115] GCF_035928015.1  taxid=1690608  (order_sweep) Saxophila tyrrhenica
+
+[1020/2115] GCA_035928015.1  taxid=1690608  (order_sweep) Saxophila tyrrhenica
+
+[1021/2115] GCF_000732125.1  taxid=563466  (order_sweep) Scedosporium apiospermum
+
+[1022/2115] GCA_000732125.1  taxid=563466  (order_sweep) Scedosporium apiospermum
+
+[1023/2115] GCF_000143185.2  taxid=5334  (order_sweep) Schizophyllum commune
+  NOTE: taxid corrected 5334 → 578458 (stale taxid in ref_candidates)
+
+[1024/2115] GCA_041438035.1  taxid=5334  (order_sweep) Schizophyllum commune
+
+[1025/2115] GCA_041438045.1  taxid=5334  (order_sweep) Schizophyllum commune
+
+[1026/2115] GCA_041438155.1  taxid=5334  (order_sweep) Schizophyllum commune
+
+[1027/2115] GCA_041438165.1  taxid=160053  (order_sweep) Schizophyllum fasciatum
+
+[1028/2115] GCA_000503235.1  taxid=77105  (order_sweep) Sclerotinia borealis
+
+[1029/2115] GCA_024114885.1  taxid=215465  (order_sweep) Septoria linicola
+
+[1030/2115] GCA_010015745.1  taxid=210430  (order_sweep) Setomelanomma holmii
+
+[1031/2115] GCF_042370955.1  taxid=398408  (order_sweep) Sodiomyces alcalophilus
+  NOTE: taxid corrected 398408 → 591952 (stale taxid in ref_candidates)
+
+[1032/2115] GCA_042370955.1  taxid=398408  (order_sweep) Sodiomyces alcalophilus
+  NOTE: taxid corrected 398408 → 591952 (stale taxid in ref_candidates)
+
+[1033/2115] GCF_003711515.1  taxid=1302862  (order_sweep) Sodiomyces alkalinus
+  NOTE: taxid corrected 1302862 → 1314773 (stale taxid in ref_candidates)
+
+[1034/2115] GCA_003711515.1  taxid=1302862  (order_sweep) Sodiomyces alkalinus
+  NOTE: taxid corrected 1302862 → 1314773 (stale taxid in ref_candidates)
+
+[1035/2115] GCF_000320565.1  taxid=85929  (order_sweep) Sphaerulina musiva
+  NOTE: taxid corrected 85929 → 692275 (stale taxid in ref_candidates)
+
+[1036/2115] GCA_052057135.1  taxid=85929  (order_sweep) Sphaerulina musiva
+
+[1037/2115] GCA_058225075.1  taxid=85929  (order_sweep) Sphaerulina musiva
+
+[1038/2115] GCA_000320565.2  taxid=85929  (order_sweep) Sphaerulina musiva
+  NOTE: taxid corrected 85929 → 692275 (stale taxid in ref_candidates)
+
+[1039/2115] GCA_018282025.1  taxid=117069  (order_sweep) Sphagnurus paluster
+
+[1040/2115] GCF_005498985.1  taxid=280036  (order_sweep) Sporisorium graminicola
+
+[1041/2115] GCA_005498985.1  taxid=280036  (order_sweep) Sporisorium graminicola
+
+[1042/2115] GCA_010093795.1  taxid=718229  (order_sweep) Sporormia fimetaria
+  NOTE: taxid corrected 718229 → 1340428 (stale taxid in ref_candidates)
+
+[1043/2115] GCA_000474925.1  taxid=29908  (order_sweep) Sporothrix schenckii
+  NOTE: taxid corrected 29908 → 1391915 (stale taxid in ref_candidates)
+
+[1044/2115] GCA_042257735.1  taxid=5173  (order_sweep) Sporothrix stenoceras
+
+[1045/2115] GCA_042257785.1  taxid=5173  (order_sweep) Sporothrix stenoceras
+
+[1046/2115] GCA_000732765.1  taxid=74722  (order_sweep) Stachybotrys chartarum
+  NOTE: taxid corrected 74722 → 1283842 (stale taxid in ref_candidates)
+
+[1047/2115] GCA_000730325.1  taxid=74722  (order_sweep) Stachybotrys chartarum
+  NOTE: taxid corrected 74722 → 1280523 (stale taxid in ref_candidates)
+
+[1048/2115] GCA_000732565.1  taxid=74722  (order_sweep) Stachybotrys chartarum
+  NOTE: taxid corrected 74722 → 1280524 (stale taxid in ref_candidates)
+
+[1049/2115] GCA_000732775.1  taxid=388913  (order_sweep) Stachybotrys chlorohalonatus
+  NOTE: taxid corrected 388913 → 1283841 (stale taxid in ref_candidates)
+
+[1050/2115] GCA_028584115.1  taxid=2606854  (order_sweep) Stagonosporopsis vannaccii
+
+[1051/2115] GCF_000264905.1  taxid=40492  (order_sweep) Stereum hirsutum
+  NOTE: taxid corrected 40492 → 721885 (stale taxid in ref_candidates)
+
+[1052/2115] GCA_000264905.1  taxid=40492  (order_sweep) Stereum hirsutum
+  NOTE: taxid corrected 40492 → 721885 (stale taxid in ref_candidates)
+
+[1053/2115] GCA_009732865.1  taxid=112123  (order_sweep) Stipitochalara longipes
+  NOTE: taxid corrected 112123 → 1379296 (stale taxid in ref_candidates)
+
+[1054/2115] GCA_014621405.1  taxid=1736662  (order_sweep) Stylonectria norvegica
+
+[1055/2115] GCF_006535985.1  taxid=1806994  (order_sweep) Synchytrium microbalum
+
+[1056/2115] GCA_006535985.1  taxid=1806994  (order_sweep) Synchytrium microbalum
+
+[1057/2115] GCF_001896365.1  taxid=1196081  (order_sweep) Talaromyces amestolkiae
+
+[1058/2115] GCA_001896365.1  taxid=1196081  (order_sweep) Talaromyces amestolkiae
+
+[1059/2115] GCF_001907595.1  taxid=1441469  (order_sweep) Talaromyces atroroseus
+
+[1060/2115] GCA_001907595.1  taxid=1441469  (order_sweep) Talaromyces atroroseus
+
+[1061/2115] GCA_000985935.1  taxid=28573  (order_sweep) Talaromyces islandicus
+
+[1062/2115] GCA_009650675.1  taxid=37727  (order_sweep) Talaromyces marneffei
+
+[1063/2115] GCF_000001985.1  taxid=37727  (order_sweep) Talaromyces marneffei
+  NOTE: taxid corrected 37727 → 441960 (stale taxid in ref_candidates)
+
+[1064/2115] GCA_000001985.1  taxid=37727  (order_sweep) Talaromyces marneffei
+  NOTE: taxid corrected 37727 → 441960 (stale taxid in ref_candidates)
+
+[1065/2115] GCF_009556855.1  taxid=37727  (order_sweep) Talaromyces marneffei
+
+[1066/2115] GCA_011392495.1  taxid=128442  (order_sweep) Talaromyces pinophilus
+
+[1067/2115] GCA_000829775.1  taxid=128442  (order_sweep) Talaromyces pinophilus
+
+[1068/2115] GCF_013368755.1  taxid=121627  (order_sweep) Talaromyces rugulosus
+
+[1069/2115] GCA_013368755.1  taxid=121627  (order_sweep) Talaromyces rugulosus
+
+[1070/2115] GCF_000003125.1  taxid=28564  (order_sweep) Talaromyces stipitatus
+  NOTE: taxid corrected 28564 → 441959 (stale taxid in ref_candidates)
+
+[1071/2115] GCA_000003125.1  taxid=28564  (order_sweep) Talaromyces stipitatus
+  NOTE: taxid corrected 28564 → 441959 (stale taxid in ref_candidates)
+
+[1072/2115] GCA_001305275.1  taxid=198730  (order_sweep) Talaromyces verruculosus
+
+[1073/2115] GCA_018858115.1  taxid=117070  (order_sweep) Tephrocybe rancida
+
+[1074/2115] GCA_018855915.1  taxid=2724996  (order_sweep) Tephrocybe sp. NHM501043
+
+[1075/2115] GCA_010093825.1  taxid=161662  (order_sweep) Teratosphaeria nubilosa
+
+[1076/2115] GCA_033119285.1  taxid=2901253  (order_sweep) Teratosphaeriaceae sp. CCFEE 6253
+
+[1077/2115] GCA_020091625.1  taxid=2788930  (order_sweep) Termitomyces sp. 'cryptogamus'
+
+[1078/2115] GCA_001263195.1  taxid=1306850  (order_sweep) Termitomyces sp. J132
+
+[1079/2115] GCA_018857285.1  taxid=2053460  (order_sweep) Termitomyces sp. Mi166#008
+
+[1080/2115] GCA_017607575.1  taxid=2053456  (order_sweep) Termitomyces sp. Mn162
+
+[1081/2115] GCA_018857305.1  taxid=2053459  (order_sweep) Termitomyces sp. T159_Od127
+
+[1082/2115] GCA_018857265.1  taxid=2053458  (order_sweep) Termitomyces sp. T32_za158
+
+[1083/2115] GCA_003144125.1  taxid=1882483  (order_sweep) Testicularia cyperi
+
+[1084/2115] GCA_042370945.1  taxid=5087  (order_sweep) Thermoascus aurantiacus
+  NOTE: taxid corrected 5087 → 1133049 (stale taxid in ref_candidates)
+
+[1085/2115] GCF_041956765.1  taxid=5088  (order_sweep) Thermoascus crustaceus
+
+[1086/2115] GCA_041956765.1  taxid=5088  (order_sweep) Thermoascus crustaceus
+
+[1087/2115] GCA_041956715.1  taxid=1131473  (order_sweep) Thermoascus thermophilus
+
+[1088/2115] GCF_041956625.1  taxid=28565  (order_sweep) Thermomyces dupontii
+
+[1089/2115] GCA_041956625.1  taxid=28565  (order_sweep) Thermomyces dupontii
+
+[1090/2115] GCF_041956635.1  taxid=5541  (order_sweep) Thermomyces lanuginosus
+
+[1091/2115] GCA_041956635.1  taxid=5541  (order_sweep) Thermomyces lanuginosus
+
+[1092/2115] GCA_000968615.1  taxid=72032  (order_sweep) Thielaviopsis punctulata
+
+[1093/2115] GCA_002901185.1  taxid=45235  (order_sweep) Tolypocladium capitatum
+
+[1094/2115] GCA_059792055.1  taxid=1436177  (order_sweep) Tolypocladium endophyticum
+
+[1095/2115] GCA_001189435.1  taxid=71617  (order_sweep) Tolypocladium ophioglossoides
+  NOTE: taxid corrected 71617 → 1163406 (stale taxid in ref_candidates)
+
+[1096/2115] GCA_002916505.1  taxid=94208  (order_sweep) Tolypocladium paradoxum
+
+[1097/2115] GCF_010094035.1  taxid=390896  (order_sweep) Trematosphaeria pertusa
+
+[1098/2115] GCA_010094035.1  taxid=390896  (order_sweep) Trematosphaeria pertusa
+
+[1099/2115] GCA_051819885.1  taxid=1195187  (order_sweep) Trichoderma aethiopicum
+
+[1100/2115] GCA_051819865.1  taxid=1571655  (order_sweep) Trichoderma afarasin
+
+[1101/2115] GCF_033847375.1  taxid=173216  (order_sweep) Trichoderma aggressivum
+  NOTE: taxid corrected 173216 → 173218 (stale taxid in ref_candidates)
+
+[1102/2115] GCA_033847375.1  taxid=173216  (order_sweep) Trichoderma aggressivum
+  NOTE: taxid corrected 173216 → 173218 (stale taxid in ref_candidates)
+
+[1103/2115] GCA_003012105.1  taxid=490622  (order_sweep) Trichoderma arundinaceum
+
+[1104/2115] GCA_052084505.1  taxid=702382  (order_sweep) Trichoderma asperelloides
+
+[1105/2115] GCA_021066465.1  taxid=702382  (order_sweep) Trichoderma asperelloides
+
+[1106/2115] GCF_020647865.1  taxid=101201  (order_sweep) Trichoderma asperellum
+
+[1107/2115] GCA_036173025.1  taxid=101201  (order_sweep) Trichoderma asperellum
+
+[1108/2115] GCA_013423425.1  taxid=101201  (order_sweep) Trichoderma asperellum
+
+[1109/2115] GCF_020647795.1  taxid=63577  (order_sweep) Trichoderma atroviride
+
+[1110/2115] GCA_020647795.1  taxid=63577  (order_sweep) Trichoderma atroviride
+
+[1111/2115] GCA_051820515.1  taxid=362043  (order_sweep) Trichoderma austrokoningii
+
+[1112/2115] GCA_051820595.1  taxid=911154  (order_sweep) Trichoderma barbatum
+
+[1113/2115] GCF_028502605.1  taxid=2034170  (order_sweep) Trichoderma breve
+
+[1114/2115] GCA_028502605.1  taxid=2034170  (order_sweep) Trichoderma breve
+
+[1115/2115] GCF_050948025.1  taxid=1738374  (order_sweep) Trichoderma camerunense
+
+[1116/2115] GCA_050948025.1  taxid=1738374  (order_sweep) Trichoderma camerunense
+
+[1117/2115] GCA_051819845.1  taxid=1491460  (order_sweep) Trichoderma ceciliae
+
+[1118/2115] GCA_048183105.1  taxid=3060474  (order_sweep) Trichoderma cf. simile WF8
+
+[1119/2115] GCA_051820575.1  taxid=257799  (order_sweep) Trichoderma chlorosporum
+
+[1120/2115] GCF_003025115.1  taxid=58853  (order_sweep) Trichoderma citrinoviride
+
+[1121/2115] GCA_003025115.1  taxid=58853  (order_sweep) Trichoderma citrinoviride
+
+[1122/2115] GCA_051820635.1  taxid=1490983  (order_sweep) Trichoderma compactum
+
+[1123/2115] GCA_020631695.1  taxid=654480  (order_sweep) Trichoderma cornu-damae
+
+[1124/2115] GCF_050947405.1  taxid=549676  (order_sweep) Trichoderma evansii
+
+[1125/2115] GCA_050947405.1  taxid=549676  (order_sweep) Trichoderma evansii
+
+[1126/2115] GCA_060224215.1  taxid=398673  (order_sweep) Trichoderma gamsii
+
+[1127/2115] GCF_001481775.2  taxid=398673  (order_sweep) Trichoderma gamsii
+
+[1128/2115] GCA_002894205.1  taxid=398673  (order_sweep) Trichoderma gamsii
+
+[1129/2115] GCA_001481775.2  taxid=398673  (order_sweep) Trichoderma gamsii
+
+[1130/2115] GCF_004382785.1  taxid=65468  (order_sweep) Trichoderma ghanense
+
+[1131/2115] GCA_004382785.1  taxid=65468  (order_sweep) Trichoderma ghanense
+
+[1132/2115] GCA_051819905.1  taxid=1195189  (order_sweep) Trichoderma gracile
+
+[1133/2115] GCA_002022785.1  taxid=1491466  (order_sweep) Trichoderma guizhouense
+
+[1134/2115] GCF_003025095.1  taxid=5544  (order_sweep) Trichoderma harzianum
+  NOTE: taxid corrected 5544 → 983964 (stale taxid in ref_candidates)
+
+[1135/2115] GCA_033847385.1  taxid=5544  (order_sweep) Trichoderma harzianum
+
+[1136/2115] GCA_002894145.1  taxid=5544  (order_sweep) Trichoderma harzianum
+
+[1137/2115] GCA_000988865.1  taxid=5544  (order_sweep) Trichoderma harzianum
+
+[1138/2115] GCA_011066345.1  taxid=1567552  (order_sweep) Trichoderma lentiforme
+
+[1139/2115] GCA_050947385.1  taxid=5548  (order_sweep) Trichoderma longibrachiatum
+
+[1140/2115] GCA_003025155.1  taxid=5548  (order_sweep) Trichoderma longibrachiatum
+  NOTE: taxid corrected 5548 → 983965 (stale taxid in ref_candidates)
+
+[1141/2115] GCA_050948085.1  taxid=173947  (order_sweep) Trichoderma novae-zelandiae
+
+[1142/2115] GCA_001050175.1  taxid=858221  (order_sweep) Trichoderma parareesei
+
+[1143/2115] GCA_050703535.1  taxid=504485  (order_sweep) Trichoderma pleuroticola
+
+[1144/2115] GCF_000167675.1  taxid=51453  (order_sweep) Trichoderma reesei
+  NOTE: taxid corrected 51453 → 431241 (stale taxid in ref_candidates)
+
+[1145/2115] GCA_000513815.1  taxid=51453  (order_sweep) Trichoderma reesei
+  NOTE: taxid corrected 51453 → 1344414 (stale taxid in ref_candidates)
+
+[1146/2115] GCA_000167675.2  taxid=51453  (order_sweep) Trichoderma reesei
+  NOTE: taxid corrected 51453 → 431241 (stale taxid in ref_candidates)
+
+[1147/2115] GCA_020045945.2  taxid=1491008  (order_sweep) Trichoderma semiorbis
+
+[1148/2115] GCA_019565615.1  taxid=1491479  (order_sweep) Trichoderma simmonsii
+
+[1149/2115] GCA_054367885.1  taxid=2724209  (order_sweep) Trichoderma sp. SZMC 28011
+
+[1150/2115] GCA_050947985.1  taxid=2818457  (order_sweep) Trichoderma sp. SZMC 28012
+
+[1151/2115] GCA_050948005.1  taxid=2682604  (order_sweep) Trichoderma sp. SZMC 28013
+
+[1152/2115] GCA_051820695.1  taxid=2724212  (order_sweep) Trichoderma sp. SZMC 28014
+
+[1153/2115] GCA_050948045.1  taxid=2818454  (order_sweep) Trichoderma sp. SZMC 28015
+
+[1154/2115] GCA_051820155.1  taxid=2724206  (order_sweep) Trichoderma sp. TUCIM 5745
+
+[1155/2115] GCA_051820675.1  taxid=202918  (order_sweep) Trichoderma velutinum
+
+[1156/2115] GCA_052570025.1  taxid=5547  (order_sweep) Trichoderma viride
+
+[1157/2115] GCA_052570055.1  taxid=5547  (order_sweep) Trichoderma viride
+
+[1158/2115] GCA_052570065.1  taxid=5547  (order_sweep) Trichoderma viride
+
+[1159/2115] GCA_052570145.1  taxid=5547  (order_sweep) Trichoderma viride
+
+[1160/2115] GCA_018854895.1  taxid=2724999  (order_sweep) Tricholoma furcatifolium
+
+[1161/2115] GCA_014904895.1  taxid=40145  (order_sweep) Tricholoma matsutake
+
+[1162/2115] GCA_026184415.1  taxid=47278  (order_sweep) Trichothecium roseum
+
+[1163/2115] GCA_000827465.1  taxid=156515  (order_sweep) Tulasnella calospora
+  NOTE: taxid corrected 156515 → 1051891 (stale taxid in ref_candidates)
+
+[1164/2115] GCA_019632275.1  taxid=2600220  (order_sweep) Tulasnella sp. 330
+
+[1165/2115] GCA_019632265.1  taxid=2600221  (order_sweep) Tulasnella sp. 331
+
+[1166/2115] GCA_019632285.1  taxid=2600222  (order_sweep) Tulasnella sp. 332
+
+[1167/2115] GCA_019632305.1  taxid=2600223  (order_sweep) Tulasnella sp. 403
+
+[1168/2115] GCA_019633405.1  taxid=2600224  (order_sweep) Tulasnella sp. 408
+
+[1169/2115] GCA_019633465.1  taxid=2600225  (order_sweep) Tulasnella sp. 417
+
+[1170/2115] GCA_019632295.1  taxid=2600226  (order_sweep) Tulasnella sp. 418
+
+[1171/2115] GCA_019633455.1  taxid=2600227  (order_sweep) Tulasnella sp. 419
+
+[1172/2115] GCA_019633425.1  taxid=2600228  (order_sweep) Tulasnella sp. 424
+
+[1173/2115] GCA_019633485.1  taxid=2600229  (order_sweep) Tulasnella sp. 425
+
+[1174/2115] GCA_019633495.1  taxid=2600231  (order_sweep) Tulasnella sp. 427
+
+[1175/2115] GCA_019633535.1  taxid=2600232  (order_sweep) Tulasnella sp. JGI-2019a
+
+[1176/2115] GCA_019633545.1  taxid=2600232  (order_sweep) Tulasnella sp. JGI-2019a
+
+[1177/2115] GCA_019633555.1  taxid=2600232  (order_sweep) Tulasnella sp. JGI-2019a
+
+[1178/2115] GCA_019633595.1  taxid=2601502  (order_sweep) Tulasnella sp. UAMH 9824
+
+[1179/2115] GCA_900080155.1  taxid=307758  (order_sweep) Ustilago bromivora
+
+[1180/2115] GCA_900519155.1  taxid=307758  (order_sweep) Ustilago bromivora
+
+[1181/2115] GCA_022496955.1  taxid=110526  (order_sweep) Ustulina deusta
+
+[1182/2115] GCA_022160365.1  taxid=1314805  (order_sweep) Vararia minispora
+  NOTE: taxid corrected 1314805 → 1314806 (stale taxid in ref_candidates)
+
+[1183/2115] GCF_003357145.1  taxid=2656787  (order_sweep) Venustampulla echinocandica
+
+[1184/2115] GCA_003357145.1  taxid=2656787  (order_sweep) Venustampulla echinocandica
+
+[1185/2115] GCA_033675295.1  taxid=1690605  (order_sweep) Vermiconidia calcicola
+
+[1186/2115] GCA_035928285.1  taxid=1690605  (order_sweep) Vermiconidia calcicola
+
+[1187/2115] GCA_052569915.1  taxid=27335  (order_sweep) Verticillium albo-atrum
+
+[1188/2115] GCA_052569925.1  taxid=27335  (order_sweep) Verticillium albo-atrum
+
+[1189/2115] GCF_000150825.1  taxid=1051613  (order_sweep) Verticillium alfalfae
+
+[1190/2115] GCA_000150825.1  taxid=1051613  (order_sweep) Verticillium alfalfae
+
+[1191/2115] GCA_001691835.3  taxid=36659  (order_sweep) Volvariella volvacea
+  NOTE: taxid corrected 36659 → 1457512 (stale taxid in ref_candidates)
+
+[1192/2115] GCF_010094085.1  taxid=318751  (order_sweep) Westerdykella ornata
+
+[1193/2115] GCA_010094085.1  taxid=318751  (order_sweep) Westerdykella ornata
+
+[1194/2115] GCA_022497155.1  taxid=110547  (order_sweep) Whalleya microplaca
+
+[1195/2115] GCA_022495125.1  taxid=114808  (order_sweep) Xylaria acuta
+
+[1196/2115] GCA_022578905.1  taxid=114810  (order_sweep) Xylaria arbuscula
+
+[1197/2115] GCA_022385695.1  taxid=114810  (order_sweep) Xylaria arbuscula
+
+[1198/2115] GCF_022495145.1  taxid=326684  (order_sweep) Xylaria bambusicola
+
+[1199/2115] GCA_022495145.1  taxid=326684  (order_sweep) Xylaria bambusicola
+
+[1200/2115] GCA_022495115.1  taxid=114812  (order_sweep) Xylaria castorea
+
+[1201/2115] GCA_022385715.1  taxid=114814  (order_sweep) Xylaria cubensis
+
+[1202/2115] GCA_027595895.1  taxid=42375  (order_sweep) Xylaria curta
+
+[1203/2115] GCA_022495235.1  taxid=42375  (order_sweep) Xylaria curta
+
+[1204/2115] GCA_022495195.1  taxid=323540  (order_sweep) Xylaria digitata
+
+[1205/2115] GCA_007182795.1  taxid=2512241  (order_sweep) Xylaria flabelliformis
+
+[1206/2115] GCA_022495055.1  taxid=363999  (order_sweep) Xylaria grammica
+
+[1207/2115] GCA_004014815.1  taxid=363999  (order_sweep) Xylaria grammica
+
+[1208/2115] GCA_004768795.1  taxid=37992  (order_sweep) Xylaria hypoxylon
+
+[1209/2115] GCA_022385655.1  taxid=492091  (order_sweep) Xylaria intraflava
+
+[1210/2115] GCA_025201785.1  taxid=114818  (order_sweep) Xylaria longipes
+
+[1211/2115] GCA_022385595.1  taxid=665665  (order_sweep) Xylaria palmicola
+
+[1212/2115] GCA_003426235.1  taxid=77046  (order_sweep) Xylaria polymorpha
+
+[1213/2115] GCA_022385635.1  taxid=743287  (order_sweep) Xylaria scruposa
+
+[1214/2115] GCA_022385685.1  taxid=2663373  (order_sweep) Xylaria sp. CBS 124048
+
+[1215/2115] GCA_022578865.1  taxid=2614587  (order_sweep) Xylaria sp. FL0043
+
+[1216/2115] GCA_022578765.1  taxid=2614584  (order_sweep) Xylaria sp. FL0933
+
+[1217/2115] GCA_022495085.1  taxid=2614583  (order_sweep) Xylaria sp. FL1042
+
+[1218/2115] GCA_022578965.1  taxid=2614573  (order_sweep) Xylaria sp. FL1777
+
+[1219/2115] GCA_022495065.1  taxid=477509  (order_sweep) Xylaria telfairii
+
+[1220/2115] GCA_022578775.1  taxid=743302  (order_sweep) Xylaria venustula
+
+[1221/2115] GCA_022578815.1  taxid=2614588  (order_sweep) Xylariaceae sp. FL0016
+
+[1222/2115] GCA_022578795.1  taxid=2614589  (order_sweep) Xylariaceae sp. FL0255
+
+[1223/2115] GCA_022385605.1  taxid=2614590  (order_sweep) Xylariaceae sp. FL0594
+
+[1224/2115] GCA_022578705.1  taxid=2614591  (order_sweep) Xylariaceae sp. FL1019
+
+[1225/2115] GCA_025201745.1  taxid=2614592  (order_sweep) Xylariaceae sp. FL1651
+
+[1226/2115] GCA_002003505.1  taxid=1813822  (order_sweep) Xylariales sp. No.14919
+
+[1227/2115] GCF_010093935.1  taxid=395010  (order_sweep) Zasmidium cellare
+  NOTE: taxid corrected 395010 → 1080233 (stale taxid in ref_candidates)
+
+[1228/2115] GCA_035040045.1  taxid=395010  (order_sweep) Zasmidium cellare
+
+[1229/2115] GCA_010093935.1  taxid=395010  (order_sweep) Zasmidium cellare
+  NOTE: taxid corrected 395010 → 1080233 (stale taxid in ref_candidates)
+
+[1230/2115] GCA_000818155.1  taxid=105487  (seed) 105487
+
+[1231/2115] GCA_000813385.1  taxid=105487  (seed) 105487
+  NOTE: taxid corrected 105487 → 578113 (stale taxid in ref_candidates)
+
+[1232/2115] GCA_046529785.1  taxid=914237  (seed) 914237
+
+[1233/2115] GCA_900074885.1  taxid=914237  (seed) 914237
+  NOTE: taxid corrected 914237 → 2792576 (stale taxid in ref_candidates)
+
+[1234/2115] GCA_016097525.1  taxid=5599  (seed) Alternaria alternata
+
+[1235/2115] GCF_001642055.1  taxid=5599  (seed) Alternaria alternata
+
+[1236/2115] GCA_004154755.1  taxid=5599  (seed) Alternaria alternata
+
+[1237/2115] GCA_001642055.1  taxid=5599  (seed) Alternaria alternata
+
+[1238/2115] GCA_023079265.1  taxid=29001  (seed) Alternaria brassicicola
+  SKIP: no annotation (CDS-only DB)
+
+[1239/2115] GCA_019059555.1  taxid=160389  (seed) Alternaria longipes
+  SKIP: no annotation (CDS-only DB)
+
+[1240/2115] GCA_019702505.1  taxid=48097  (seed) Alternaria panax
+
+[1241/2115] GCA_002952155.1  taxid=48100  (seed) Alternaria solani
+  SKIP: no annotation (CDS-only DB)
+
+[1242/2115] GCA_016097375.2  taxid=205686  (seed) Ascochyta lentis
+
+[1243/2115] GCA_022607105.2  taxid=205686  (seed) Ascochyta lentis
+
+[1244/2115] GCF_004011695.2  taxid=5454  (seed) Ascochyta rabiei
+
+[1245/2115] GCA_001630375.1  taxid=5454  (seed) Ascochyta rabiei
+
+[1246/2115] GCA_004011695.2  taxid=5454  (seed) Ascochyta rabiei
+
+[1247/2115] GCA_001990825.1  taxid=40993  (seed) Aspergillus carbonarius
+
+[1248/2115] GCF_009017415.1  taxid=5059  (seed) Aspergillus flavus
+
+[1249/2115] GCA_003709025.1  taxid=5059  (seed) Aspergillus flavus
+
+[1250/2115] GCA_002443195.2  taxid=5059  (seed) Aspergillus flavus
+
+[1251/2115] GCA_002443215.2  taxid=5059  (seed) Aspergillus flavus
+
+[1252/2115] GCA_002456175.2  taxid=5059  (seed) Aspergillus flavus
+
+[1253/2115] GCA_014784225.2  taxid=5059  (seed) Aspergillus flavus
+
+[1254/2115] GCA_009017415.1  taxid=5059  (seed) Aspergillus flavus
+
+[1255/2115] GCF_014117465.1  taxid=5059  (seed) Aspergillus flavus
+
+[1256/2115] GCA_014117485.1  taxid=5059  (seed) Aspergillus flavus
+
+[1257/2115] GCA_014117465.1  taxid=5059  (seed) Aspergillus flavus
+
+[1258/2115] GCA_027574695.1  taxid=5059  (seed) Aspergillus flavus
+
+[1259/2115] GCA_000006275.3  taxid=5059  (seed) Aspergillus flavus
+
+[1260/2115] GCA_009176375.1  taxid=5059  (seed) Aspergillus flavus
+
+[1261/2115] GCA_055697485.1  taxid=5061  (seed) Aspergillus niger
+
+[1262/2115] GCA_023137835.1  taxid=5061  (seed) Aspergillus niger
+
+[1263/2115] GCA_023137895.1  taxid=5061  (seed) Aspergillus niger
+
+[1264/2115] GCA_023137925.1  taxid=5061  (seed) Aspergillus niger
+
+[1265/2115] GCA_023137955.1  taxid=5061  (seed) Aspergillus niger
+
+[1266/2115] GCA_023091265.1  taxid=5061  (seed) Aspergillus niger
+
+[1267/2115] GCF_000002855.4  taxid=5061  (seed) Aspergillus niger
+
+[1268/2115] GCA_051529875.1  taxid=5061  (seed) Aspergillus niger
+
+[1269/2115] GCF_003184595.1  taxid=5061  (seed) Aspergillus niger
+
+[1270/2115] GCA_027923745.1  taxid=5061  (seed) Aspergillus niger
+
+[1271/2115] GCA_027923785.1  taxid=5061  (seed) Aspergillus niger
+
+[1272/2115] GCA_027923725.1  taxid=5061  (seed) Aspergillus niger
+
+[1273/2115] GCA_027923805.1  taxid=5061  (seed) Aspergillus niger
+
+[1274/2115] GCA_027923825.1  taxid=5061  (seed) Aspergillus niger
+
+[1275/2115] GCA_027923865.1  taxid=5061  (seed) Aspergillus niger
+
+[1276/2115] GCA_027923945.1  taxid=5061  (seed) Aspergillus niger
+
+[1277/2115] GCA_027923985.1  taxid=5061  (seed) Aspergillus niger
+
+[1278/2115] GCA_027924005.1  taxid=5061  (seed) Aspergillus niger
+
+[1279/2115] GCA_023134295.1  taxid=5061  (seed) Aspergillus niger
+
+[1280/2115] GCA_023134325.1  taxid=5061  (seed) Aspergillus niger
+
+[1281/2115] GCA_023134355.1  taxid=5061  (seed) Aspergillus niger
+
+[1282/2115] GCA_023134385.1  taxid=5061  (seed) Aspergillus niger
+
+[1283/2115] GCA_001515345.1  taxid=5061  (seed) Aspergillus niger
+
+[1284/2115] GCA_023134475.1  taxid=5061  (seed) Aspergillus niger
+
+[1285/2115] GCA_023134515.1  taxid=5061  (seed) Aspergillus niger
+
+[1286/2115] GCA_023137765.1  taxid=5061  (seed) Aspergillus niger
+
+[1287/2115] GCA_023137805.1  taxid=5061  (seed) Aspergillus niger
+
+[1288/2115] GCA_023137865.1  taxid=5061  (seed) Aspergillus niger
+
+[1289/2115] GCA_023137965.1  taxid=5061  (seed) Aspergillus niger
+
+[1290/2115] GCA_023134445.1  taxid=5061  (seed) Aspergillus niger
+
+[1291/2115] GCA_023137795.1  taxid=5061  (seed) Aspergillus niger
+
+[1292/2115] GCA_023091205.1  taxid=5061  (seed) Aspergillus niger
+
+[1293/2115] GCA_003344705.1  taxid=5061  (seed) Aspergillus niger
+
+[1294/2115] GCA_023134235.1  taxid=5061  (seed) Aspergillus niger
+
+[1295/2115] GCA_003184595.1  taxid=5061  (seed) Aspergillus niger
+
+[1296/2115] GCA_900248155.1  taxid=5061  (seed) Aspergillus niger
+
+[1297/2115] GCA_000002855.2  taxid=5061  (seed) Aspergillus niger
+
+[1298/2115] GCA_023134265.1  taxid=5061  (seed) Aspergillus niger
+
+[1299/2115] GCA_023134415.1  taxid=5061  (seed) Aspergillus niger
+
+[1300/2115] GCA_023137675.1  taxid=5061  (seed) Aspergillus niger
+
+[1301/2115] GCA_023137705.1  taxid=5061  (seed) Aspergillus niger
+
+[1302/2115] GCA_023137735.1  taxid=5061  (seed) Aspergillus niger
+
+[1303/2115] GCA_026108165.1  taxid=40380  (seed) Aspergillus ochraceus
+  SKIP: no annotation (CDS-only DB)
+
+[1304/2115] GCF_000280675.1  taxid=176275  (seed) Beauveria bassiana
+
+[1305/2115] GCA_053540785.1  taxid=176275  (seed) Beauveria bassiana
+
+[1306/2115] GCA_053540805.1  taxid=176275  (seed) Beauveria bassiana
+
+[1307/2115] GCA_000280675.1  taxid=176275  (seed) Beauveria bassiana
+
+[1308/2115] GCA_053540765.1  taxid=176275  (seed) Beauveria bassiana
+
+[1309/2115] GCF_028858645.1  taxid=5016  (seed) Bipolaris maydis
+
+[1310/2115] GCA_028564845.1  taxid=5016  (seed) Bipolaris maydis
+
+[1311/2115] GCF_000354255.1  taxid=5016  (seed) Bipolaris maydis
+
+[1312/2115] GCA_028858645.1  taxid=5016  (seed) Bipolaris maydis
+
+[1313/2115] GCA_028858655.1  taxid=5016  (seed) Bipolaris maydis
+
+[1314/2115] GCA_000354255.1  taxid=5016  (seed) Bipolaris maydis
+
+[1315/2115] GCA_000338975.1  taxid=5016  (seed) Bipolaris maydis
+
+[1316/2115] GCF_000523455.1  taxid=101162  (seed) Bipolaris oryzae
+
+[1317/2115] GCA_000523455.1  taxid=101162  (seed) Bipolaris oryzae
+
+[1318/2115] GCF_000338995.1  taxid=45130  (seed) Bipolaris sorokiniana
+
+[1319/2115] GCA_013416765.1  taxid=45130  (seed) Bipolaris sorokiniana
+
+[1320/2115] GCA_000338995.1  taxid=45130  (seed) Bipolaris sorokiniana
+
+[1321/2115] GCF_000527765.1  taxid=40125  (seed) Bipolaris victoriae
+
+[1322/2115] GCA_000527765.1  taxid=40125  (seed) Bipolaris victoriae
+
+[1323/2115] GCF_000523435.1  taxid=5017  (seed) Bipolaris zeicola
+
+[1324/2115] GCA_000523435.1  taxid=5017  (seed) Bipolaris zeicola
+
+[1325/2115] GCA_905067625.1  taxid=34373  (seed) Blumeria graminis
+
+[1326/2115] GCA_000418435.1  taxid=34373  (seed) Blumeria graminis
+
+[1327/2115] GCA_900519115.1  taxid=34373  (seed) Blumeria graminis
+
+[1328/2115] GCA_021436945.2  taxid=55169  (seed) Botryosphaeria dothidea
+
+[1329/2115] GCA_000227075.1  taxid=40559  (seed) Botrytis cinerea
+
+[1330/2115] GCA_052570975.1  taxid=40559  (seed) Botrytis cinerea
+
+[1331/2115] GCA_052571015.1  taxid=40559  (seed) Botrytis cinerea
+
+[1332/2115] GCA_052571025.1  taxid=40559  (seed) Botrytis cinerea
+
+[1333/2115] GCA_053455415.1  taxid=40559  (seed) Botrytis cinerea
+
+[1334/2115] GCA_052569665.1  taxid=40559  (seed) Botrytis cinerea
+
+[1335/2115] GCA_052570965.1  taxid=40559  (seed) Botrytis cinerea
+
+[1336/2115] GCA_000349525.1  taxid=40559  (seed) Botrytis cinerea
+
+[1337/2115] GCF_000143535.2  taxid=40559  (seed) Botrytis cinerea
+
+[1338/2115] GCA_000143535.4  taxid=40559  (seed) Botrytis cinerea
+
+[1339/2115] GCA_052569675.1  taxid=40559  (seed) Botrytis cinerea
+
+[1340/2115] GCA_052570955.1  taxid=40559  (seed) Botrytis cinerea
+
+[1341/2115] GCA_004786205.1  taxid=278938  (seed) Botrytis elliptica
+
+[1342/2115] GCA_000389695.3  taxid=5158  (seed) Ceratocystis fimbriata
+
+[1343/2115] GCA_002018265.1  taxid=312341  (seed) Ceratocystis harringtonii
+  SKIP: no annotation (CDS-only DB)
+
+[1344/2115] GCA_006681795.1  taxid=929235  (seed) Ceratocystis manginecans
+  SKIP: no annotation (CDS-only DB)
+
+[1345/2115] GCA_026120055.1  taxid=132184  (seed) Cercospora apii
+  SKIP: no annotation (CDS-only DB)
+
+[1346/2115] GCF_033473495.1  taxid=122368  (seed) Cercospora beticola
+
+[1347/2115] GCA_963585935.1  taxid=122368  (seed) Cercospora beticola
+
+[1348/2115] GCF_002742065.1  taxid=122368  (seed) Cercospora beticola
+
+[1349/2115] GCA_033473495.1  taxid=122368  (seed) Cercospora beticola
+
+[1350/2115] GCA_002742065.1  taxid=122368  (seed) Cercospora beticola
+
+[1351/2115] GCA_058382225.1  taxid=1868926  (seed) Cercospora cf. flagellaris
+  SKIP: no annotation (CDS-only DB)
+
+[1352/2115] GCA_009193115.1  taxid=84275  (seed) Cercospora kikuchii
+  SKIP: no annotation (CDS-only DB)
+
+[1353/2115] GCA_002994015.1  taxid=29003  (seed) Cercospora nicotianae
+  SKIP: no annotation (CDS-only DB)
+
+[1354/2115] GCA_010093985.1  taxid=135779  (seed) Cercospora zeae-maydis
+
+[1355/2115] GCA_008122225.1  taxid=984309  (seed) Ciboria shiraiana
+  SKIP: no annotation (CDS-only DB)
+
+[1356/2115] GCA_000347355.1  taxid=5111  (seed) Claviceps purpurea
+
+[1357/2115] GCA_902827195.2  taxid=29856  (seed) Clonostachys rosea
+
+[1358/2115] GCA_902085965.1  taxid=29856  (seed) Clonostachys rosea
+
+[1359/2115] GCA_037954465.1  taxid=27357  (seed) Colletotrichum acutatum
+
+[1360/2115] GCA_045514765.1  taxid=702518  (seed) Colletotrichum asianum
+
+[1361/2115] GCA_009806415.1  taxid=702518  (seed) Colletotrichum asianum
+
+[1362/2115] GCA_011947485.2  taxid=538528  (seed) Colletotrichum camelliae
+
+[1363/2115] GCA_002249775.1  taxid=27358  (seed) Colletotrichum coccodes
+  SKIP: no annotation (CDS-only DB)
+
+[1364/2115] GCA_013201875.1  taxid=690256  (seed) Colletotrichum fructicola
+
+[1365/2115] GCA_013201905.1  taxid=690256  (seed) Colletotrichum fructicola
+
+[1366/2115] GCA_013201925.1  taxid=690256  (seed) Colletotrichum fructicola
+
+[1367/2115] GCA_012932255.1  taxid=690256  (seed) Colletotrichum fructicola
+
+[1368/2115] GCF_011800055.1  taxid=474922  (seed) Colletotrichum gloeosporioides
+
+[1369/2115] GCA_021432615.1  taxid=474922  (seed) Colletotrichum gloeosporioides
+
+[1370/2115] GCA_011800055.1  taxid=474922  (seed) Colletotrichum gloeosporioides
+
+[1371/2115] GCA_029226625.1  taxid=31870  (seed) Colletotrichum graminicola
+
+[1372/2115] GCF_000149035.1  taxid=31870  (seed) Colletotrichum graminicola
+
+[1373/2115] GCA_000149035.1  taxid=31870  (seed) Colletotrichum graminicola
+
+[1374/2115] GCA_000313795.2  taxid=80884  (seed) Colletotrichum higginsianum
+
+[1375/2115] GCF_001672515.1  taxid=80884  (seed) Colletotrichum higginsianum
+
+[1376/2115] GCA_001672515.1  taxid=80884  (seed) Colletotrichum higginsianum
+
+[1377/2115] GCA_003386485.1  taxid=1585795  (seed) Colletotrichum lentis
+  SKIP: no annotation (CDS-only DB)
+
+[1378/2115] GCA_001693025.3  taxid=290576  (seed) Colletotrichum lindemuthianum
+  SKIP: no annotation (CDS-only DB)
+
+[1379/2115] GCA_000350065.2  taxid=5465  (seed) Colletotrichum orbiculare
+
+[1380/2115] GCA_018906675.1  taxid=1209932  (seed) Colletotrichum scovillei
+
+[1381/2115] GCA_018906765.1  taxid=1209932  (seed) Colletotrichum scovillei
+
+[1382/2115] GCA_018907675.1  taxid=1209932  (seed) Colletotrichum scovillei
+
+[1383/2115] GCA_013201745.1  taxid=690259  (seed) Colletotrichum siamense
+
+[1384/2115] GCA_013201755.1  taxid=690259  (seed) Colletotrichum siamense
+
+[1385/2115] GCA_013201795.1  taxid=690259  (seed) Colletotrichum siamense
+
+[1386/2115] GCA_013201865.1  taxid=690259  (seed) Colletotrichum siamense
+
+[1387/2115] GCA_036851105.1  taxid=1209068  (seed) Colletotrichum tabaci
+
+[1388/2115] GCA_004367215.1  taxid=5466  (seed) Colletotrichum trifolii
+
+[1389/2115] GCF_011745365.1  taxid=5116  (seed) Cryphonectria parasitica
+
+[1390/2115] GCA_011745365.1  taxid=5116  (seed) Cryphonectria parasitica
+
+[1391/2115] GCA_005212705.1  taxid=5503  (seed) Curvularia lunata
+  SKIP: no annotation (CDS-only DB)
+
+[1392/2115] GCA_003795275.1  taxid=252740  (seed) Cytospora chrysosperma
+
+[1393/2115] GCA_000340195.1  taxid=64363  (seed) Dothistroma septosporum
+
+[1394/2115] GCA_003814445.1  taxid=35717  (seed) Epichloe festucae
+
+[1395/2115] GCF_000359705.1  taxid=93612  (seed) Exserohilum turcicum
+
+[1396/2115] GCA_000359705.1  taxid=93612  (seed) Exserohilum turcicum
+
+[1397/2115] GCF_020509005.1  taxid=5499  (seed) Fulvia fulva
+
+[1398/2115] GCA_034268455.1  taxid=5499  (seed) Fulvia fulva
+
+[1399/2115] GCA_034269425.1  taxid=5499  (seed) Fulvia fulva
+
+[1400/2115] GCA_020509005.2  taxid=5499  (seed) Fulvia fulva
+
+[1401/2115] GCA_035196885.1  taxid=5499  (seed) Fulvia fulva
+
+[1402/2115] GCA_035196915.1  taxid=5499  (seed) Fulvia fulva
+
+[1403/2115] GCA_025258505.1  taxid=282267  (seed) Fusarium asiaticum
+  SKIP: no annotation (CDS-only DB)
+
+[1404/2115] GCA_012959155.1  taxid=40199  (seed) Fusarium avenaceum
+
+[1405/2115] GCA_000769215.1  taxid=40199  (seed) Fusarium avenaceum
+
+[1406/2115] GCA_018282135.1  taxid=40199  (seed) Fusarium avenaceum
+
+[1407/2115] GCA_013396185.1  taxid=48490  (seed) Fusarium circinatum
+
+[1408/2115] GCA_016952355.1  taxid=5516  (seed) Fusarium culmorum
+
+[1409/2115] GCA_052570695.1  taxid=5516  (seed) Fusarium culmorum
+
+[1410/2115] GCA_052570705.1  taxid=5516  (seed) Fusarium culmorum
+
+[1411/2115] GCA_052570715.1  taxid=5516  (seed) Fusarium culmorum
+
+[1412/2115] GCA_052570805.1  taxid=5516  (seed) Fusarium culmorum
+
+[1413/2115] GCA_052570815.1  taxid=5516  (seed) Fusarium culmorum
+
+[1414/2115] GCA_052570865.1  taxid=5516  (seed) Fusarium culmorum
+
+[1415/2115] GCA_052571695.1  taxid=5516  (seed) Fusarium culmorum
+
+[1416/2115] GCA_900096505.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1417/2115] GCA_900096645.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1418/2115] GCA_900096685.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1419/2115] GCA_900096705.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1420/2115] GCA_009663055.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1421/2115] GCA_009663095.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1422/2115] GCA_009663115.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1423/2115] GCA_900079805.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1424/2115] GCA_901677955.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1425/2115] GCA_901677965.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1426/2115] GCA_902702945.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1427/2115] GCA_001023065.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1428/2115] GCA_001023035.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1429/2115] GCA_001023045.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1430/2115] GCF_900079805.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1431/2115] GCA_900096615.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1432/2115] GCA_900096625.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1433/2115] GCA_900096635.1  taxid=5127  (seed) Fusarium fujikuroi
+
+[1434/2115] GCA_061310925.1  taxid=5518  (seed) Fusarium graminearum
+
+[1435/2115] GCA_061311055.1  taxid=5518  (seed) Fusarium graminearum
+
+[1436/2115] GCA_061311125.1  taxid=5518  (seed) Fusarium graminearum
+
+[1437/2115] GCA_061311145.1  taxid=5518  (seed) Fusarium graminearum
+
+[1438/2115] GCA_061311225.1  taxid=5518  (seed) Fusarium graminearum
+
+[1439/2115] GCA_061311255.1  taxid=5518  (seed) Fusarium graminearum
+
+[1440/2115] GCA_061311265.1  taxid=5518  (seed) Fusarium graminearum
+
+[1441/2115] GCA_061311355.1  taxid=5518  (seed) Fusarium graminearum
+
+[1442/2115] GCA_061311405.1  taxid=5518  (seed) Fusarium graminearum
+
+[1443/2115] GCA_061311445.1  taxid=5518  (seed) Fusarium graminearum
+
+[1444/2115] GCA_061311525.1  taxid=5518  (seed) Fusarium graminearum
+
+[1445/2115] GCA_037213105.1  taxid=5518  (seed) Fusarium graminearum
+
+[1446/2115] GCA_061311535.1  taxid=5518  (seed) Fusarium graminearum
+
+[1447/2115] GCA_061311545.1  taxid=5518  (seed) Fusarium graminearum
+
+[1448/2115] GCA_037255895.1  taxid=5518  (seed) Fusarium graminearum
+
+[1449/2115] GCA_900073075.1  taxid=5518  (seed) Fusarium graminearum
+
+[1450/2115] GCA_037074405.1  taxid=5518  (seed) Fusarium graminearum
+
+[1451/2115] GCA_037074415.1  taxid=5518  (seed) Fusarium graminearum
+
+[1452/2115] GCA_900044135.1  taxid=5518  (seed) Fusarium graminearum
+
+[1453/2115] GCA_000240135.3  taxid=5518  (seed) Fusarium graminearum
+
+[1454/2115] GCA_905359485.1  taxid=5518  (seed) Fusarium graminearum
+
+[1455/2115] GCA_905359455.1  taxid=5518  (seed) Fusarium graminearum
+
+[1456/2115] GCA_000599445.1  taxid=5518  (seed) Fusarium graminearum
+
+[1457/2115] GCA_905359475.1  taxid=5518  (seed) Fusarium graminearum
+
+[1458/2115] GCA_901446245.1  taxid=5518  (seed) Fusarium graminearum
+
+[1459/2115] GCA_002352725.1  taxid=5518  (seed) Fusarium graminearum
+
+[1460/2115] GCA_905332025.1  taxid=5518  (seed) Fusarium graminearum
+
+[1461/2115] GCA_012959185.1  taxid=5518  (seed) Fusarium graminearum
+
+[1462/2115] GCF_000240135.3  taxid=5518  (seed) Fusarium graminearum
+
+[1463/2115] GCA_061310975.1  taxid=5518  (seed) Fusarium graminearum
+
+[1464/2115] GCA_061310985.1  taxid=5518  (seed) Fusarium graminearum
+
+[1465/2115] GCF_000260195.1  taxid=2502994  (seed) Fusarium odoratissimum
+
+[1466/2115] GCA_052550365.1  taxid=2502994  (seed) Fusarium odoratissimum
+
+[1467/2115] GCA_000350365.1  taxid=2502994  (seed) Fusarium odoratissimum
+
+[1468/2115] GCA_000260195.2  taxid=2502994  (seed) Fusarium odoratissimum
+
+[1469/2115] GCA_026229875.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1470/2115] GCA_014154955.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1471/2115] GCA_001702695.2  taxid=5507  (seed) Fusarium oxysporum
+
+[1472/2115] GCA_032884055.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1473/2115] GCA_013363075.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1474/2115] GCF_000149955.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1475/2115] GCA_025331925.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1476/2115] GCA_000149955.2  taxid=5507  (seed) Fusarium oxysporum
+
+[1477/2115] GCF_013085055.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1478/2115] GCA_013085055.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1479/2115] GCA_055853645.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1480/2115] GCA_054130785.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1481/2115] GCA_053754965.2  taxid=5507  (seed) Fusarium oxysporum
+  NOTE: taxid corrected 5507 → 61366 (stale taxid in ref_candidates)
+
+[1482/2115] GCA_053754965.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1483/2115] GCA_003615085.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1484/2115] GCF_000271745.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1485/2115] GCA_057814765.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1486/2115] GCA_054098455.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1487/2115] GCA_051622415.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1488/2115] GCA_051622495.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1489/2115] GCA_051622515.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1490/2115] GCA_051622595.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1491/2115] GCA_038050555.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1492/2115] GCA_004141715.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1493/2115] GCA_030020275.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1494/2115] GCA_027945265.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1495/2115] GCA_027945335.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1496/2115] GCA_027945535.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1497/2115] GCA_027945555.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1498/2115] GCA_003615115.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1499/2115] GCA_003615155.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1500/2115] GCA_003615165.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1501/2115] GCA_003615185.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1502/2115] GCA_003615075.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1503/2115] GCA_000350345.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1504/2115] GCA_003615095.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1505/2115] GCA_900096695.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1506/2115] GCA_000260215.2  taxid=5507  (seed) Fusarium oxysporum
+
+[1507/2115] GCA_000260155.3  taxid=5507  (seed) Fusarium oxysporum
+
+[1508/2115] GCA_000260175.2  taxid=5507  (seed) Fusarium oxysporum
+
+[1509/2115] GCA_000259975.2  taxid=5507  (seed) Fusarium oxysporum
+
+[1510/2115] GCA_000260495.2  taxid=5507  (seed) Fusarium oxysporum
+
+[1511/2115] GCA_000260075.2  taxid=5507  (seed) Fusarium oxysporum
+
+[1512/2115] GCA_000260235.2  taxid=5507  (seed) Fusarium oxysporum
+
+[1513/2115] GCA_000271705.2  taxid=5507  (seed) Fusarium oxysporum
+
+[1514/2115] GCA_032206225.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1515/2115] GCA_000271745.2  taxid=5507  (seed) Fusarium oxysporum
+
+[1516/2115] GCA_027945255.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1517/2115] GCA_027945275.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1518/2115] GCA_027945305.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1519/2115] GCA_027945315.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1520/2115] GCA_024865645.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1521/2115] GCA_018894095.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1522/2115] GCA_030719095.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1523/2115] GCA_053754955.2  taxid=5507  (seed) Fusarium oxysporum
+  NOTE: taxid corrected 5507 → 61366 (stale taxid in ref_candidates)
+
+[1524/2115] GCA_053754955.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1525/2115] GCA_031834405.1  taxid=5507  (seed) Fusarium oxysporum
+
+[1526/2115] GCF_900067095.1  taxid=948311  (seed) Fusarium proliferatum
+
+[1527/2115] GCA_022627135.1  taxid=948311  (seed) Fusarium proliferatum
+
+[1528/2115] GCA_003615215.1  taxid=948311  (seed) Fusarium proliferatum
+
+[1529/2115] GCA_017309865.1  taxid=948311  (seed) Fusarium proliferatum
+
+[1530/2115] GCA_017309895.1  taxid=948311  (seed) Fusarium proliferatum
+
+[1531/2115] GCA_003290285.1  taxid=948311  (seed) Fusarium proliferatum
+
+[1532/2115] GCA_900029915.1  taxid=948311  (seed) Fusarium proliferatum
+
+[1533/2115] GCA_900067095.1  taxid=948311  (seed) Fusarium proliferatum
+
+[1534/2115] GCA_017309875.1  taxid=948311  (seed) Fusarium proliferatum
+
+[1535/2115] GCA_016952305.1  taxid=101028  (seed) Fusarium pseudograminearum
+
+[1536/2115] GCA_001703955.2  taxid=101028  (seed) Fusarium pseudograminearum
+
+[1537/2115] GCA_024752415.1  taxid=101028  (seed) Fusarium pseudograminearum
+
+[1538/2115] GCF_000303195.2  taxid=101028  (seed) Fusarium pseudograminearum
+
+[1539/2115] GCA_000303195.2  taxid=101028  (seed) Fusarium pseudograminearum
+
+[1540/2115] GCA_055255615.1  taxid=42676  (seed) Fusarium sacchari
+  SKIP: no annotation (CDS-only DB)
+
+[1541/2115] GCF_050947815.1  taxid=5128  (seed) Fusarium sambucinum
+
+[1542/2115] GCA_041870755.1  taxid=5128  (seed) Fusarium sambucinum
+
+[1543/2115] GCA_050947815.1  taxid=5128  (seed) Fusarium sambucinum
+
+[1544/2115] GCA_027945525.1  taxid=169388  (seed) Fusarium solani
+
+[1545/2115] GCA_003012315.1  taxid=5514  (seed) Fusarium sporotrichioides
+
+[1546/2115] GCF_000149555.1  taxid=117187  (seed) Fusarium verticillioides
+
+[1547/2115] GCA_003316975.2  taxid=117187  (seed) Fusarium verticillioides
+
+[1548/2115] GCA_000149555.1  taxid=117187  (seed) Fusarium verticillioides
+
+[1549/2115] GCA_003316995.2  taxid=117187  (seed) Fusarium verticillioides
+
+[1550/2115] GCA_013363175.1  taxid=232082  (seed) Fusarium virguliforme
+  SKIP: no annotation (CDS-only DB)
+
+[1551/2115] GCA_001457955.1  taxid=13563  (seed) Heterobasidion annosum
+  SKIP: no annotation (CDS-only DB)
+
+[1552/2115] GCA_008931885.1  taxid=45133  (seed) Lasiodiplodia theobromae
+
+[1553/2115] GCA_002111425.1  taxid=45133  (seed) Lasiodiplodia theobromae
+
+[1554/2115] GCF_000143105.1  taxid=226899  (seed) Leptographium clavigerum
+
+[1555/2115] GCA_000143105.2  taxid=226899  (seed) Leptographium clavigerum
+  NOTE: taxid corrected 226899 → 655863 (stale taxid in ref_candidates)
+
+[1556/2115] GCF_000204055.1  taxid=203908  (seed) Melampsora laricis-populina
+
+[1557/2115] GCA_000204055.1  taxid=203908  (seed) Melampsora laricis-populina
+
+[1558/2115] GCF_019434415.1  taxid=92637  (seed) Metarhizium acridum
+
+[1559/2115] GCF_000187405.1  taxid=92637  (seed) Metarhizium acridum
+
+[1560/2115] GCA_019434415.1  taxid=92637  (seed) Metarhizium acridum
+
+[1561/2115] GCA_019434395.1  taxid=92637  (seed) Metarhizium acridum
+
+[1562/2115] GCA_000187405.1  taxid=92637  (seed) Metarhizium acridum
+
+[1563/2115] GCF_000187425.2  taxid=568076  (seed) Metarhizium robertsii
+
+[1564/2115] GCA_000187425.2  taxid=568076  (seed) Metarhizium robertsii
+
+[1565/2115] GCA_000591435.1  taxid=568076  (seed) Metarhizium robertsii
+
+[1566/2115] GCA_055672675.1  taxid=38448  (seed) Monilinia fructicola
+  SKIP: no annotation (CDS-only DB)
+
+[1567/2115] GCA_000183025.1  taxid=153609  (seed) Moniliophthora perniciosa
+
+[1568/2115] GCF_000328475.2  taxid=5270  (seed) Mycosarcoma maydis
+
+[1569/2115] GCA_000328475.2  taxid=5270  (seed) Mycosarcoma maydis
+
+[1570/2115] GCA_016801405.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1571/2115] GCA_020568415.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1572/2115] GCA_020575375.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1573/2115] GCA_020575405.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1574/2115] GCA_020575445.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1575/2115] GCA_020575485.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1576/2115] GCA_020575615.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1577/2115] GCA_020575645.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1578/2115] GCA_020575775.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1579/2115] GCA_020575955.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1580/2115] GCA_020575975.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1581/2115] GCA_020575995.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1582/2115] GCA_020568465.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1583/2115] GCA_020576185.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1584/2115] GCA_020576195.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1585/2115] GCA_020576365.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1586/2115] GCA_020577795.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1587/2115] GCA_020577805.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1588/2115] GCA_020577855.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1589/2115] GCA_020577905.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1590/2115] GCA_020577915.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1591/2115] GCA_020578075.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1592/2115] GCA_020578085.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1593/2115] GCA_020568635.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1594/2115] GCA_020578095.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1595/2115] GCA_020578105.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1596/2115] GCA_020578115.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1597/2115] GCA_020578205.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1598/2115] GCA_020578265.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1599/2115] GCA_020578295.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1600/2115] GCA_020578315.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1601/2115] GCA_020578375.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1602/2115] GCA_020578445.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1603/2115] GCA_020578515.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1604/2115] GCA_020568705.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1605/2115] GCA_020578585.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1606/2115] GCA_020578615.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1607/2115] GCA_020579815.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1608/2115] GCA_020579825.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1609/2115] GCA_020579835.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1610/2115] GCA_020579845.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1611/2115] GCA_020579855.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1612/2115] GCA_020580075.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1613/2115] GCA_020580085.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1614/2115] GCA_020580115.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1615/2115] GCA_020568765.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1616/2115] GCA_020580145.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1617/2115] GCA_020580155.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1618/2115] GCA_020580305.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1619/2115] GCA_020580415.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1620/2115] GCA_020580425.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1621/2115] GCA_020580485.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1622/2115] GCA_020580655.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1623/2115] GCA_020580665.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1624/2115] GCA_020580695.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1625/2115] GCA_020580725.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1626/2115] GCA_020568775.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1627/2115] GCA_020580775.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1628/2115] GCA_020580905.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1629/2115] GCA_020581045.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1630/2115] GCA_020581155.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1631/2115] GCA_020581165.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1632/2115] GCA_020581275.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1633/2115] GCA_000146915.2  taxid=13684  (seed) Parastagonospora nodorum
+
+[1634/2115] GCA_020568935.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1635/2115] GCA_020568945.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1636/2115] GCA_020569145.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1637/2115] GCA_020569235.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1638/2115] GCF_000146915.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1639/2115] GCA_020569285.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1640/2115] GCA_020569485.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1641/2115] GCA_020569495.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1642/2115] GCA_020569505.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1643/2115] GCA_020569515.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1644/2115] GCA_020569685.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1645/2115] GCA_020569895.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1646/2115] GCA_020569945.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1647/2115] GCA_020570015.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1648/2115] GCA_020570045.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1649/2115] GCA_020557385.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1650/2115] GCA_020570345.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1651/2115] GCA_020570355.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1652/2115] GCA_020570395.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1653/2115] GCA_020570405.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1654/2115] GCA_020570415.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1655/2115] GCA_020570525.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1656/2115] GCA_020570635.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1657/2115] GCA_020570685.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1658/2115] GCA_020570735.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1659/2115] GCA_020570935.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1660/2115] GCA_020567955.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1661/2115] GCA_020570965.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1662/2115] GCA_020570975.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1663/2115] GCA_020571265.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1664/2115] GCA_020571295.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1665/2115] GCA_020571325.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1666/2115] GCA_020571545.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1667/2115] GCA_020571575.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1668/2115] GCA_020571605.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1669/2115] GCA_020571815.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1670/2115] GCA_020571885.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1671/2115] GCA_020568045.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1672/2115] GCA_020571895.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1673/2115] GCA_020571965.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1674/2115] GCA_020572075.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1675/2115] GCA_020572205.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1676/2115] GCA_020572305.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1677/2115] GCA_020572315.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1678/2115] GCA_020572345.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1679/2115] GCA_020572395.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1680/2115] GCA_020572635.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1681/2115] GCA_020572645.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1682/2115] GCA_020568055.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1683/2115] GCA_020572675.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1684/2115] GCA_020572945.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1685/2115] GCA_020572955.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1686/2115] GCA_020572985.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1687/2115] GCA_020572995.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1688/2115] GCA_020573275.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1689/2115] GCA_020573285.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1690/2115] GCA_020573315.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1691/2115] GCA_020573325.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1692/2115] GCA_020573495.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1693/2115] GCA_020568095.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1694/2115] GCA_020573595.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1695/2115] GCA_020573605.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1696/2115] GCA_020573625.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1697/2115] GCA_020573725.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1698/2115] GCA_020573765.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1699/2115] GCA_020573915.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1700/2115] GCA_020574055.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1701/2115] GCA_020574085.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1702/2115] GCA_020574115.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1703/2115] GCA_020574145.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1704/2115] GCA_020568205.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1705/2115] GCA_020574155.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1706/2115] GCA_020574265.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1707/2115] GCA_020574295.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1708/2115] GCA_020574345.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1709/2115] GCA_020574365.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1710/2115] GCA_020574375.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1711/2115] GCA_020574385.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1712/2115] GCA_020574405.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1713/2115] GCA_020574595.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1714/2115] GCA_020574615.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1715/2115] GCA_020568325.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1716/2115] GCA_020574715.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1717/2115] GCA_020574725.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1718/2115] GCA_020574755.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1719/2115] GCA_020574825.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1720/2115] GCA_020574875.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1721/2115] GCA_020575035.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1722/2115] GCA_020575105.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1723/2115] GCA_020575195.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1724/2115] GCA_020575285.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1725/2115] GCA_020575355.1  taxid=13684  (seed) Parastagonospora nodorum
+
+[1726/2115] GCF_016767815.1  taxid=36651  (seed) Penicillium digitatum
+
+[1727/2115] GCF_000315645.1  taxid=36651  (seed) Penicillium digitatum
+
+[1728/2115] GCA_016767815.1  taxid=36651  (seed) Penicillium digitatum
+
+[1729/2115] GCA_012295545.2  taxid=36651  (seed) Penicillium digitatum
+
+[1730/2115] GCA_000315645.2  taxid=36651  (seed) Penicillium digitatum
+
+[1731/2115] GCA_000315665.1  taxid=36651  (seed) Penicillium digitatum
+
+[1732/2115] GCA_022829055.1  taxid=27334  (seed) Penicillium expansum
+
+[1733/2115] GCA_002116305.1  taxid=40296  (seed) Penicillium italicum
+  SKIP: no annotation (CDS-only DB)
+
+[1734/2115] GCA_025201825.1  taxid=170000  (seed) Phakopsora pachyrhizi
+
+[1735/2115] GCA_943846425.1  taxid=170000  (seed) Phakopsora pachyrhizi
+
+[1736/2115] GCF_022343315.1  taxid=5022  (seed) Plenodomus lingam
+
+[1737/2115] GCF_000230375.1  taxid=5022  (seed) Plenodomus lingam
+
+[1738/2115] GCA_022343315.1  taxid=5022  (seed) Plenodomus lingam
+
+[1739/2115] GCA_000230375.1  taxid=5022  (seed) Plenodomus lingam
+
+[1740/2115] GCF_000340215.1  taxid=1873960  (seed) Pseudocercospora fijiensis
+
+[1741/2115] GCA_000340215.1  taxid=1873960  (seed) Pseudocercospora fijiensis
+
+[1742/2115] GCA_014298035.1  taxid=685502  (seed) Pseudocercospora fuligena
+
+[1743/2115] GCA_000601435.1  taxid=285811  (seed) Pseudopyrenochaeta lycopersici
+  SKIP: no annotation (CDS-only DB)
+
+[1744/2115] GCA_008522505.1  taxid=5297  (seed) Puccinia graminis
+
+[1745/2115] GCF_000149925.1  taxid=5297  (seed) Puccinia graminis
+
+[1746/2115] GCA_000149925.1  taxid=5297  (seed) Puccinia graminis
+
+[1747/2115] GCF_021901695.1  taxid=27350  (seed) Puccinia striiformis
+
+[1748/2115] GCA_002920065.1  taxid=27350  (seed) Puccinia striiformis
+
+[1749/2115] GCA_025169535.1  taxid=27350  (seed) Puccinia striiformis
+
+[1750/2115] GCA_025169555.1  taxid=27350  (seed) Puccinia striiformis
+
+[1751/2115] GCA_021901655.1  taxid=27350  (seed) Puccinia striiformis
+
+[1752/2115] GCA_021901695.1  taxid=27350  (seed) Puccinia striiformis
+
+[1753/2115] GCA_001191645.1  taxid=27350  (seed) Puccinia striiformis
+
+[1754/2115] GCA_977970215.1  taxid=208348  (seed) Puccinia triticina
+
+[1755/2115] GCF_026914185.1  taxid=208348  (seed) Puccinia triticina
+
+[1756/2115] GCA_000151525.2  taxid=208348  (seed) Puccinia triticina
+
+[1757/2115] GCA_977970225.1  taxid=208348  (seed) Puccinia triticina
+
+[1758/2115] GCA_026914185.2  taxid=208348  (seed) Puccinia triticina
+
+[1759/2115] GCA_026914185.1  taxid=208348  (seed) Puccinia triticina
+
+[1760/2115] GCA_026914245.1  taxid=208348  (seed) Puccinia triticina
+
+[1761/2115] GCA_958299125.1  taxid=76659  (seed) Pyrenopeziza brassicae
+  SKIP: no annotation (CDS-only DB)
+
+[1762/2115] GCA_900232045.3  taxid=53485  (seed) Pyrenophora teres
+
+[1763/2115] GCA_006112615.1  taxid=53485  (seed) Pyrenophora teres
+
+[1764/2115] GCF_000166005.1  taxid=53485  (seed) Pyrenophora teres
+
+[1765/2115] GCA_031213615.1  taxid=53485  (seed) Pyrenophora teres
+
+[1766/2115] GCA_900231935.2  taxid=53485  (seed) Pyrenophora teres
+
+[1767/2115] GCA_000166005.1  taxid=53485  (seed) Pyrenophora teres
+
+[1768/2115] GCF_003171515.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1769/2115] GCF_000149985.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1770/2115] GCA_022813065.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1771/2115] GCA_003231425.2  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1772/2115] GCA_003231325.2  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1773/2115] GCA_003231415.2  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1774/2115] GCA_022788425.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1775/2115] GCA_022788435.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1776/2115] GCA_022788445.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1777/2115] GCA_022788505.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1778/2115] GCA_003171545.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1779/2115] GCA_022578395.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1780/2115] GCA_022544805.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1781/2115] GCA_003231345.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1782/2115] GCA_003231355.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1783/2115] GCA_003231365.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1784/2115] GCA_000149985.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1785/2115] GCA_022837075.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1786/2115] GCA_022813025.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1787/2115] GCA_022788405.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1788/2115] GCA_022788415.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1789/2115] GCA_022788515.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1790/2115] GCA_022578365.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1791/2115] GCA_022544795.1  taxid=45151  (seed) Pyrenophora tritici-repentis
+
+[1792/2115] GCA_004346965.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1793/2115] GCA_055689555.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1794/2115] GCA_055689575.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1795/2115] GCA_055689595.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1796/2115] GCA_055689605.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1797/2115] GCA_055689635.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1798/2115] GCA_055697835.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1799/2115] GCA_055697855.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1800/2115] GCA_055697875.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1801/2115] GCA_055697895.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1802/2115] GCA_055697915.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1803/2115] GCA_055689495.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1804/2115] GCA_055697935.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1805/2115] GCA_055697955.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1806/2115] GCA_055697975.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1807/2115] GCA_055697985.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1808/2115] GCA_055774735.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1809/2115] GCA_049355315.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1810/2115] GCA_049355325.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1811/2115] GCA_049355335.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1812/2115] GCA_049355375.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1813/2115] GCA_049355395.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1814/2115] GCA_025134795.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1815/2115] GCA_049355405.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1816/2115] GCA_049355415.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1817/2115] GCA_000002495.2  taxid=318829  (seed) Pyricularia oryzae
+
+[1818/2115] GCA_025135345.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1819/2115] GCA_024703665.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1820/2115] GCA_024704035.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1821/2115] GCA_024704055.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1822/2115] GCA_024704115.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1823/2115] GCA_024704145.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1824/2115] GCA_024704165.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1825/2115] GCA_024703655.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1826/2115] GCA_024704195.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1827/2115] GCA_024704225.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1828/2115] GCA_024704235.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1829/2115] GCA_024704255.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1830/2115] GCA_024704275.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1831/2115] GCA_000292585.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1832/2115] GCA_024703685.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1833/2115] GCA_024703975.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1834/2115] GCF_000002495.2  taxid=318829  (seed) Pyricularia oryzae
+
+[1835/2115] GCA_055689515.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1836/2115] GCA_055689535.1  taxid=318829  (seed) Pyricularia oryzae
+
+[1837/2115] GCF_016906535.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1838/2115] GCA_905219595.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1839/2115] GCA_905219655.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1840/2115] GCA_905232135.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1841/2115] GCA_015342435.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1842/2115] GCA_000832345.2  taxid=456999  (seed) Rhizoctonia solani
+
+[1843/2115] GCA_000524645.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1844/2115] GCA_000334115.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1845/2115] GCA_905219545.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1846/2115] GCA_905219565.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1847/2115] GCA_905219585.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1848/2115] GCA_001286725.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1849/2115] GCA_905219605.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1850/2115] GCA_905219615.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1851/2115] GCA_905219625.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1852/2115] GCA_905219635.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1853/2115] GCA_905219645.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1854/2115] GCA_015341985.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1855/2115] GCA_000695385.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1856/2115] GCA_049245135.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1857/2115] GCA_026686785.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1858/2115] GCA_015342405.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1859/2115] GCA_015342415.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1860/2115] GCA_016906535.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1861/2115] GCA_905219575.1  taxid=456999  (seed) Rhizoctonia solani
+
+[1862/2115] GCA_001445595.3  taxid=77044  (seed) Rosellinia necatrix
+
+[1863/2115] GCA_001857865.1  taxid=5180  (seed) Sclerotinia sclerotiorum
+
+[1864/2115] GCF_000146945.2  taxid=5180  (seed) Sclerotinia sclerotiorum
+
+[1865/2115] GCA_000146945.2  taxid=5180  (seed) Sclerotinia sclerotiorum
+
+[1866/2115] GCA_012274445.1  taxid=2698418  (seed) Sclerotiophoma versabilis
+  SKIP: no annotation (CDS-only DB)
+
+[1867/2115] GCA_059642765.1  taxid=39703  (seed) Septoria lycopersici
+  SKIP: no annotation (CDS-only DB)
+
+[1868/2115] GCA_900162835.1  taxid=72558  (seed) Sporisorium reilianum
+
+[1869/2115] GCA_000230245.1  taxid=72558  (seed) Sporisorium reilianum
+  NOTE: taxid corrected 72558 → 999809 (stale taxid in ref_candidates)
+
+[1870/2115] GCA_900002365.1  taxid=49012  (seed) Sporisorium scitamineum
+
+[1871/2115] GCA_001243155.1  taxid=49012  (seed) Sporisorium scitamineum
+
+[1872/2115] GCA_003268335.2  taxid=183478  (seed) Stemphylium lycopersici
+
+[1873/2115] GCA_003268315.2  taxid=183478  (seed) Stemphylium lycopersici
+
+[1874/2115] GCA_001191545.2  taxid=183478  (seed) Stemphylium lycopersici
+
+[1875/2115] GCA_006535955.1  taxid=286115  (seed) Synchytrium endobioticum
+
+[1876/2115] GCA_020647635.1  taxid=29875  (seed) Trichoderma virens
+
+[1877/2115] GCA_020647705.1  taxid=29875  (seed) Trichoderma virens
+
+[1878/2115] GCF_000170995.1  taxid=29875  (seed) Trichoderma virens
+
+[1879/2115] GCA_000170995.2  taxid=29875  (seed) Trichoderma virens
+
+[1880/2115] GCF_000687475.1  taxid=1159556  (seed) Ustilaginoidea virens
+
+[1881/2115] GCA_000687475.2  taxid=1159556  (seed) Ustilaginoidea virens
+
+[1882/2115] GCA_020827535.1  taxid=185366  (seed) Ustilago esculenta
+  SKIP: no annotation (CDS-only DB)
+
+[1883/2115] GCA_022749175.1  taxid=120017  (seed) Ustilago hordei
+
+[1884/2115] GCA_023748715.1  taxid=120017  (seed) Ustilago hordei
+
+[1885/2115] GCA_023748725.1  taxid=120017  (seed) Ustilago hordei
+
+[1886/2115] GCA_023748735.1  taxid=120017  (seed) Ustilago hordei
+
+[1887/2115] GCA_023748765.1  taxid=120017  (seed) Ustilago hordei
+
+[1888/2115] GCA_000286035.1  taxid=120017  (seed) Ustilago hordei
+
+[1889/2115] GCA_023748825.1  taxid=120017  (seed) Ustilago hordei
+
+[1890/2115] GCA_003320035.1  taxid=27337  (seed) Verticillium dahliae
+
+[1891/2115] GCA_002892995.1  taxid=27337  (seed) Verticillium dahliae
+
+[1892/2115] GCA_002893045.1  taxid=27337  (seed) Verticillium dahliae
+
+[1893/2115] GCA_054858055.1  taxid=27337  (seed) Verticillium dahliae
+
+[1894/2115] GCA_002893025.1  taxid=27337  (seed) Verticillium dahliae
+
+[1895/2115] GCF_000150675.1  taxid=27337  (seed) Verticillium dahliae
+
+[1896/2115] GCA_011066465.2  taxid=27337  (seed) Verticillium dahliae
+
+[1897/2115] GCA_002893035.1  taxid=27337  (seed) Verticillium dahliae
+
+[1898/2115] GCA_000150675.2  taxid=27337  (seed) Verticillium dahliae
+
+[1899/2115] GCA_004109745.1  taxid=27337  (seed) Verticillium dahliae
+
+[1900/2115] GCA_011066485.2  taxid=27337  (seed) Verticillium dahliae
+
+[1901/2115] GCA_018994065.1  taxid=100787  (seed) Verticillium longisporum
+
+[1902/2115] GCA_001268145.1  taxid=100787  (seed) Verticillium longisporum
+
+[1903/2115] GCA_018994105.1  taxid=100787  (seed) Verticillium longisporum
+
+[1904/2115] GCA_001268165.1  taxid=100787  (seed) Verticillium longisporum
+
+[1905/2115] GCA_018994095.1  taxid=100787  (seed) Verticillium longisporum
+
+[1906/2115] GCF_003724135.2  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1907/2115] GCA_052571295.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1908/2115] GCA_052571305.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1909/2115] GCA_052571405.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1910/2115] GCA_052571445.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1911/2115] GCA_052571455.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1912/2115] GCA_052571485.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1913/2115] GCA_052571575.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1914/2115] GCA_003724135.2  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1915/2115] GCA_052569935.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1916/2115] GCA_052571055.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1917/2115] GCA_052571105.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1918/2115] GCA_052426695.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1919/2115] GCA_052571115.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1920/2115] GCA_052571205.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1921/2115] GCA_052571225.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1922/2115] GCA_052571255.1  taxid=1051616  (seed) Verticillium nonalfalfae
+
+[1923/2115] GCF_000219625.1  taxid=1047171  (seed) Zymoseptoria tritici
+
+[1924/2115] GCA_900184115.1  taxid=1047171  (seed) Zymoseptoria tritici
+
+[1925/2115] GCA_900184105.1  taxid=1047171  (seed) Zymoseptoria tritici
+
+[1926/2115] GCA_900099495.1  taxid=1047171  (seed) Zymoseptoria tritici
+
+[1927/2115] GCA_900091695.1  taxid=1047171  (seed) Zymoseptoria tritici
+
+[1928/2115] GCA_000219625.1  taxid=1047171  (seed) Zymoseptoria tritici
+
+[1929/2115] GCA_009733045.1  taxid=53985  (genus_fill) Phytophthora fragariae
+
+[1930/2115] GCA_009733065.1  taxid=53985  (genus_fill) Phytophthora fragariae
+
+[1931/2115] GCA_009733085.1  taxid=53985  (genus_fill) Phytophthora fragariae
+
+[1932/2115] GCA_009733105.1  taxid=53985  (genus_fill) Phytophthora fragariae
+
+[1933/2115] GCA_009733125.1  taxid=53985  (genus_fill) Phytophthora fragariae
+
+[1934/2115] GCA_000785735.3  taxid=325452  (genus_fill) Phytophthora kernoviae
+
+[1935/2115] GCA_001707905.2  taxid=325452  (genus_fill) Phytophthora kernoviae
+
+[1936/2115] GCA_001712715.2  taxid=325452  (genus_fill) Phytophthora kernoviae
+
+[1937/2115] GCA_020800235.2  taxid=164328  (genus_fill) Phytophthora ramorum
+
+[1938/2115] GCA_020800215.1  taxid=164328  (genus_fill) Phytophthora ramorum
+
+[1939/2115] GCA_046862035.1  taxid=164328  (genus_fill) Phytophthora ramorum
+
+[1940/2115] GCA_008271595.1  taxid=1485010  (order_sweep) [Pythium] brassicae (nom. inval.)
+
+[1941/2115] GCA_006386115.1  taxid=82926  (order_sweep) Globisporangium splendens
+
+[1942/2115] GCA_947650285.1  taxid=162125  (order_sweep) Hyaloperonospora brassicae
+
+[1943/2115] GCA_027925865.1  taxid=4803  (order_sweep) Lagenidium giganteum
+
+[1944/2115] GCA_001712635.2  taxid=2483409  (order_sweep) Nothophytophthora sp. Chile5
+
+[1945/2115] GCA_026184515.1  taxid=230839  (order_sweep) Peronosclerospora sorghi
+
+[1946/2115] GCA_947650345.1  taxid=86335  (order_sweep) Peronospora destructor
+
+[1947/2115] GCA_021491655.1  taxid=542832  (order_sweep) Peronospora effusa
+
+[1948/2115] GCA_003843895.1  taxid=542832  (order_sweep) Peronospora effusa
+
+[1949/2115] GCA_003704535.1  taxid=542832  (order_sweep) Peronospora effusa
+
+[1950/2115] GCA_920940705.1  taxid=134698  (order_sweep) Peronospora farinosa
+
+[1951/2115] GCA_018873745.1  taxid=2496075  (order_sweep) Phytophthora aleatoria
+
+[1952/2115] GCA_019155685.1  taxid=109152  (order_sweep) Phytophthora boehmeriae
+
+[1953/2115] GCF_018691715.1  taxid=4785  (order_sweep) Phytophthora cinnamomi
+
+[1954/2115] GCA_018691715.1  taxid=4785  (order_sweep) Phytophthora cinnamomi
+
+[1955/2115] GCA_031305395.1  taxid=4793  (order_sweep) Phytophthora citrophthora
+
+[1956/2115] GCA_009732925.1  taxid=53985  (order_sweep) Phytophthora fragariae
+
+[1957/2115] GCA_009732985.1  taxid=53985  (order_sweep) Phytophthora fragariae
+
+[1958/2115] GCA_009733005.1  taxid=53985  (order_sweep) Phytophthora fragariae
+
+[1959/2115] GCA_009733025.1  taxid=53985  (order_sweep) Phytophthora fragariae
+
+[1960/2115] GCA_016865095.1  taxid=53986  (order_sweep) Phytophthora idaei
+
+[1961/2115] GCA_016880985.1  taxid=53986  (order_sweep) Phytophthora idaei
+
+[1962/2115] GCA_016880175.1  taxid=53986  (order_sweep) Phytophthora idaei
+
+[1963/2115] GCA_000333075.3  taxid=325452  (order_sweep) Phytophthora kernoviae
+
+[1964/2115] GCA_001712645.2  taxid=325452  (order_sweep) Phytophthora kernoviae
+
+[1965/2115] GCA_000785725.3  taxid=325452  (order_sweep) Phytophthora kernoviae
+
+[1966/2115] GCA_001712705.2  taxid=325452  (order_sweep) Phytophthora kernoviae
+
+[1967/2115] GCA_002215365.1  taxid=4795  (order_sweep) Phytophthora megakarya
+
+[1968/2115] GCA_002911725.1  taxid=4796  (order_sweep) Phytophthora palmivora
+
+[1969/2115] GCA_019155715.1  taxid=221518  (order_sweep) Phytophthora pseudosyringae
+
+[1970/2115] GCA_020800215.2  taxid=164328  (order_sweep) Phytophthora ramorum
+
+[1971/2115] GCA_046861845.1  taxid=164328  (order_sweep) Phytophthora ramorum
+
+[1972/2115] GCA_046861995.1  taxid=164328  (order_sweep) Phytophthora ramorum
+
+[1973/2115] GCF_020800215.1  taxid=164328  (order_sweep) Phytophthora ramorum
+
+[1974/2115] GCA_009733145.1  taxid=129364  (order_sweep) Phytophthora rubi
+
+[1975/2115] GCA_009732905.1  taxid=129364  (order_sweep) Phytophthora rubi
+
+[1976/2115] GCA_009732945.1  taxid=129364  (order_sweep) Phytophthora rubi
+
+[1977/2115] GCF_900000015.1  taxid=4781  (order_sweep) Plasmopara halstedii
+
+[1978/2115] GCA_900000015.1  taxid=4781  (order_sweep) Plasmopara halstedii
+
+[1979/2115] GCA_026401375.1  taxid=114742  (order_sweep) Pythium insidiosum
+
+[1980/2115] GCA_026401395.1  taxid=114742  (order_sweep) Pythium insidiosum
+
+[1981/2115] GCF_004359215.1  taxid=4779  (seed) Bremia lactucae
+
+[1982/2115] GCA_004359215.2  taxid=4779  (seed) Bremia lactucae
+
+[1983/2115] GCA_000173235.2  taxid=272952  (seed) Hyaloperonospora arabidopsidis
+  SKIP: no annotation (CDS-only DB)
+
+[1984/2115] GCA_002099245.1  taxid=230439  (seed) Peronospora tabacina
+  SKIP: no annotation (CDS-only DB)
+
+[1985/2115] GCA_017309695.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1986/2115] GCA_016864755.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1987/2115] GCA_016864775.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1988/2115] GCA_016864795.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1989/2115] GCA_016864815.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1990/2115] GCA_016864835.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1991/2115] GCA_016864855.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1992/2115] GCA_016865055.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1993/2115] GCA_016865075.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1994/2115] GCA_016865085.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1995/2115] GCA_003287315.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1996/2115] GCA_016864635.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1997/2115] GCA_016864715.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1998/2115] GCA_018873755.1  taxid=29920  (seed) Phytophthora cactorum
+
+[1999/2115] GCA_016906365.1  taxid=29920  (seed) Phytophthora cactorum
+
+[2000/2115] GCA_016864665.1  taxid=29920  (seed) Phytophthora cactorum
+
+[2001/2115] GCA_016864695.1  taxid=29920  (seed) Phytophthora cactorum
+
+[2002/2115] GCA_016864735.1  taxid=29920  (seed) Phytophthora cactorum
+
+[2003/2115] GCA_016618375.1  taxid=4784  (seed) Phytophthora capsici
+
+[2004/2115] GCA_012552325.1  taxid=4787  (seed) Phytophthora infestans
+
+[2005/2115] GCA_026225685.1  taxid=4787  (seed) Phytophthora infestans
+
+[2006/2115] GCF_000142945.1  taxid=4787  (seed) Phytophthora infestans
+
+[2007/2115] GCA_000142945.1  taxid=4787  (seed) Phytophthora infestans
+
+[2008/2115] GCA_002812785.1  taxid=100870  (seed) Phytophthora litchii
+  SKIP: no annotation (CDS-only DB)
+
+[2009/2115] GCF_000247585.1  taxid=4792  (seed) Phytophthora nicotianae
+
+[2010/2115] GCA_001483015.1  taxid=4792  (seed) Phytophthora nicotianae
+
+[2011/2115] GCA_000247585.2  taxid=4792  (seed) Phytophthora nicotianae
+
+[2012/2115] GCA_000509465.1  taxid=4792  (seed) Phytophthora nicotianae
+
+[2013/2115] GCA_000509485.1  taxid=4792  (seed) Phytophthora nicotianae
+
+[2014/2115] GCA_000509505.1  taxid=4792  (seed) Phytophthora nicotianae
+
+[2015/2115] GCA_000509525.1  taxid=4792  (seed) Phytophthora nicotianae
+
+[2016/2115] GCA_001482985.1  taxid=4792  (seed) Phytophthora nicotianae
+
+[2017/2115] GCF_000149755.1  taxid=67593  (seed) Phytophthora sojae
+
+[2018/2115] GCA_000149755.2  taxid=67593  (seed) Phytophthora sojae
+
+[2019/2115] GCA_055472655.1  taxid=143451  (seed) Plasmopara viticola
+  SKIP: no annotation (CDS-only DB)
+
+[2020/2115] GCA_027475745.1  taxid=65070  (seed) Pythium aphanidermatum
+  SKIP: no annotation (CDS-only DB)
+
+[2021/2115] triticum_aestivum  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2022/2115] triticum_aestivum_alchemy  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2023/2115] triticum_aestivum_arinalrfor  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2024/2115] triticum_aestivum_cadenza  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2025/2115] triticum_aestivum_claire  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2026/2115] triticum_aestivum_jagger  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2027/2115] triticum_aestivum_julius  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2028/2115] triticum_aestivum_kariega  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2029/2115] triticum_aestivum_lancer  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2030/2115] triticum_aestivum_landmark  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2031/2115] triticum_aestivum_mace  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2032/2115] triticum_aestivum_mattis  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2033/2115] triticum_aestivum_norin61  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2034/2115] triticum_aestivum_paragon  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2035/2115] triticum_aestivum_refseqv2  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2036/2115] triticum_aestivum_renan  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2037/2115] triticum_aestivum_robigus  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2038/2115] triticum_aestivum_stanley  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2039/2115] triticum_aestivum_weebil  taxid=4565  (host_ensembl) Triticum aestivum
+
+[2040/2115] oryza_sativa  taxid=4530  (host_ensembl) Oryza sativa
+
+[2041/2115] oryza_sativa_arc  taxid=4530  (host_ensembl) Oryza sativa
+
+[2042/2115] oryza_sativa_azucena  taxid=4530  (host_ensembl) Oryza sativa
+
+[2043/2115] oryza_sativa_chaomeo  taxid=4530  (host_ensembl) Oryza sativa
+
+[2044/2115] oryza_sativa_gobolsailbalam  taxid=4530  (host_ensembl) Oryza sativa
+
+[2045/2115] oryza_sativa_ir64  taxid=4530  (host_ensembl) Oryza sativa
+
+[2046/2115] oryza_sativa_ketannangka  taxid=4530  (host_ensembl) Oryza sativa
+
+[2047/2115] oryza_sativa_khaoyaiguang  taxid=4530  (host_ensembl) Oryza sativa
+
+[2048/2115] oryza_sativa_larhamugad  taxid=4530  (host_ensembl) Oryza sativa
+
+[2049/2115] oryza_sativa_lima  taxid=4530  (host_ensembl) Oryza sativa
+
+[2050/2115] oryza_sativa_liuxu  taxid=4530  (host_ensembl) Oryza sativa
+
+[2051/2115] oryza_sativa_mh63  taxid=4530  (host_ensembl) Oryza sativa
+
+[2052/2115] oryza_sativa_n22  taxid=4530  (host_ensembl) Oryza sativa
+
+[2053/2115] oryza_sativa_natelboro  taxid=4530  (host_ensembl) Oryza sativa
+
+[2054/2115] oryza_sativa_pr106  taxid=4530  (host_ensembl) Oryza sativa
+
+[2055/2115] oryza_sativa_zs97  taxid=4530  (host_ensembl) Oryza sativa
+
+[2056/2115] zea_mays  taxid=4577  (host_ensembl) Zea mays
+
+[2057/2115] glycine_max  taxid=3847  (host_ensembl) Glycine max
+
+[2058/2115] solanum_lycopersicum_gca000188115v5cm  taxid=4081  (host_ensembl) Solanum lycopersicum
+
+[2059/2115] hordeum_vulgare  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2060/2115] hordeum_vulgare_10tj18  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2061/2115] hordeum_vulgare_aizu6  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2062/2115] hordeum_vulgare_barke  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2063/2115] hordeum_vulgare_bonus  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2064/2115] hordeum_vulgare_bowman  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2065/2115] hordeum_vulgare_ft11  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2066/2115] hordeum_vulgare_ft262  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2067/2115] hordeum_vulgare_ft286  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2068/2115] hordeum_vulgare_ft628  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2069/2115] hordeum_vulgare_goldenpromise  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2070/2115] hordeum_vulgare_hor10096  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2071/2115] hordeum_vulgare_hor10350  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2072/2115] hordeum_vulgare_hor10892  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2073/2115] hordeum_vulgare_hor1168  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2074/2115] hordeum_vulgare_hor12184  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2075/2115] hordeum_vulgare_hor13594  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2076/2115] hordeum_vulgare_hor13942  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2077/2115] hordeum_vulgare_hor14273  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2078/2115] hordeum_vulgare_hor1702  taxid=4513  (host_ensembl) Hordeum vulgare
+
+[2079/2115] brassica_napus  taxid=3708  (host_ensembl) Brassica napus
+
+[2080/2115] vitis_vinifera  taxid=29760  (host_ensembl) Vitis vinifera
+
+[2081/2115] malus_domestica_golden  taxid=3750  (host_ensembl) Malus domestica
+
+[2082/2115] lactuca_sativa_gca002870075v4gb  taxid=4236  (host_ensembl) Lactuca sativa
+
+[2083/2115] arabidopsis_thaliana  taxid=3702  (host_ensembl) Arabidopsis thaliana
+
+[2084/2115] GCA_024323335.2  taxid=3888  (host_ncbi) Lathyrus oleraceus
+
+[2085/2115] musa_acuminata  taxid=4641  (host_ensembl) Musa acuminata
+
+[2086/2115] GCA_032690845.1  taxid=4511  (host_ncbi) Eleusine coracana
+
+[2087/2115] GCF_011075055.1  taxid=29780  (host_ncbi) Mangifera indica
+
+[2088/2115] GCF_000715075.1  taxid=4097  (host_ncbi) Nicotiana tabacum
+
+[2089/2115] GCA_040938325.1  taxid=3635  (host_ncbi) Gossypium hirsutum
+
+[2090/2115] GCA_050043575.1  taxid=3746  (host_ncbi) 3746
+  MISSING: no CDS at /scratch/pawsey1168/llenzo/crypt/kraken/output/db/search/data/cds/host/GCA_050043575.1 — run kraken_db_search.py --download first
+
+[2091/2115] solanum_tuberosum  taxid=4113  (host_ensembl) Solanum tuberosum
+
+[2092/2115] arachis_hypogaea  taxid=3818  (host_ensembl) Arachis hypogaea
+
+[2093/2115] GCA_050043575.1  taxid=3747  (host_ncbi) Fragaria x ananassa
+  MISSING: no CDS at /scratch/pawsey1168/llenzo/crypt/kraken/output/db/search/data/cds/host/GCA_050043575.1 — run kraken_db_search.py --download first
+
+[2094/2115] theobroma_cacao  taxid=3641  (host_ensembl) Theobroma cacao
+
+[2095/2115] setaria_italica  taxid=4555  (host_ensembl) Setaria italica
+
+[2096/2115] helianthus_annuus  taxid=4232  (host_ensembl) Helianthus annuus
+
+[2097/2115] GCA_022201065.1  taxid=2711  (host_ncbi) Citrus sinensis
+
+[2098/2115] cucumis_sativus  taxid=3659  (host_ensembl) Cucumis sativus
+
+[2099/2115] GCF_055761805.1  taxid=4442  (host_ncbi) Camellia sinensis
+
+[2100/2115] brachypodium_distachyon  taxid=15368  (host_ensembl) Brachypodium distachyon
+
+[2101/2115] GCF_042453785.1  taxid=3749  (host_ncbi) 3749
+
+[2102/2115] daucus_carota  taxid=4039  (host_ensembl) Daucus carota
+
+[2103/2115] GCA_900231445.1  taxid=4567  (host_ncbi) 4567
+
+[2104/2115] GCF_002806865.2  taxid=3663  (host_ncbi) Cucurbita pepo
+
+[2105/2115] olea_europaea  taxid=4146  (host_ensembl) Olea europaea
+
+[2106/2115] GCA_022201065.1  taxid=2706  (host_ncbi) 2706
+  SKIP: duplicate accession
+
+[2107/2115] triticum_turgidum  taxid=4571  (host_ensembl) Triticum turgidum
+
+[2108/2115] vicia_faba  taxid=3906  (host_ensembl) Vicia faba
+
+[2109/2115] GCF_048544455.1  taxid=37657  (host_ncbi) Silene latifolia
+
+[2110/2115] GCF_009905375.1  taxid=4045  (host_ncbi) Apium graveolens
+
+[2111/2115] sorghum_bicolor  taxid=4558  (host_ensembl) Sorghum bicolor
+
+[2112/2115] manihot_esculenta  taxid=3983  (host_ensembl) Manihot esculenta
+
+[2113/2115] avena_sativa_gca947310285v1cm  taxid=4498  (host_ensembl) Avena sativa
+
+[2114/2115] GCA_051991645.1  taxid=3690  (host_ncbi) Populus x canadensis
+
+[2115/2115] GCA_059738795.1  taxid=4120  (host_ncbi) Ipomoea batatas
+
+── Prepare summary ──────────────────────────────────────────────
+  Selected total: 2115
+  Found on disk:  2081
+  Skipped:        32
+  Missing:        2
+
+── Adding to Kraken2 library ────────────────────────────────────
+  FASTAs added to library: 2081
+Downloading taxonomy from https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz …
+Taxonomy installed.
+
+Building Kraken2 database in /scratch/pawsey1168/llenzo/crypt/kraken/output/db/build/data/db_v3 (threads=32) …
+Creating sequence ID to taxonomy ID map (step 1)...
+Sequence ID to taxonomy ID map complete. [15.989s]
+Estimating required capacity (step 2)...
+Estimated hash table requirement: 27425442376 bytes
+Capacity estimation complete. [2m40.399s]
+Building database files (step 3)...
+Database files completed. [3h6m16.863s]
+Database construction complete. [Total: 3h9m18.345s]
+Database build complete.
+
+Kraken2 DB ready: /scratch/pawsey1168/llenzo/crypt/kraken/output/db/build/data/db_v3
+Classify with:  kraken2 --db /scratch/pawsey1168/llenzo/crypt/kraken/output/db/build/data/db_v3 --confidence 0.15 --minimum-hit-groups 3 --threads N ...
+Build complete: Fri Sep 25 01:59:31 AM AWST 2026

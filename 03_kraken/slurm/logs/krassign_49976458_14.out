@@ -1,0 +1,218 @@
+host=nid001693 job=49976536 task=14 cpus=112
+Kraken version 2.1.2
+Reads read from: kraken/select/data/reads
+Raw kraken2 reports will be saved to: kraken/assign/data/reports
+Loaded 3,225 runs from kraken/select/data/run_list.tsv (filters: none)
+Array task 14/16: 200 runs assigned
+
+Total runs: 3,225 | Already done: 18 | Remaining: 200
+Settings: confidence=0.15, min_hit_groups=3, workers=4, kraken_threads=8
+DB: kraken/build/data/db_v3
+Tmp: /scratch/fl3/llenzo/kraken_tmp
+
+[      1/200] ERR3170212  86.2% classified  | 0.0/s  ETA 5.9h
+[      2/200] ERR3170277  84.0% classified  | 0.0/s  ETA 3.2h
+[      3/200] ERR3170224  78.9% classified  | 0.0/s  ETA 2.1h
+[      4/200] ERR3188474  73.9% classified  | 0.0/s  ETA 2.0h
+[      5/200] ERR3170266  79.6% classified  | 0.0/s  ETA 2.2h
+[      6/200] ERR3170230  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR3170230')  | 0.0/s  ETA 2.0h
+[      7/200] ERR3170184  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR3170184')  | 0.0/s  ETA 1.9h
+[      8/200] ERR3188456  82.8% classified  | 0.0/s  ETA 1.8h
+[      9/200] ERR1607838  71.3% classified  | 0.0/s  ETA 1.8h
+[     10/200] ERR1607765  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR1607765')  | 0.0/s  ETA 1.8h
+[     11/200] ERR1607819  69.8% classified  | 0.0/s  ETA 1.6h
+[     12/200] ERR1607733  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR1607733')  | 0.0/s  ETA 1.7h
+[     13/200] ERR1607842  80.1% classified  | 0.0/s  ETA 1.6h
+[     14/200] ERR1607862  54.9% classified  | 0.0/s  ETA 1.5h
+[     15/200] ERR1607775  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR1607775')  | 0.0/s  ETA 1.8h
+[     16/200] ERR15005466  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR15005466')  | 0.0/s  ETA 1.7h
+[     17/200] ERR15005505  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR15005505')  | 0.0/s  ETA 1.6h
+[     18/200] ERR15005501  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR15005501')  | 0.0/s  ETA 1.6h
+[     19/200] ERR15005460  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR15005460')  | 0.0/s  ETA 1.7h
+[     20/200] ERR15005497  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR15005497')  | 0.0/s  ETA 1.7h
+[     21/200] ERR15005535  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR15005535')  | 0.0/s  ETA 1.6h
+[     22/200] ERR15005530  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR15005530')  | 0.0/s  ETA 1.5h
+[     23/200] ERR12013047  83.9% classified  | 0.0/s  ETA 1.6h
+[     24/200] ERR6847882  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR6847882')  | 0.0/s  ETA 1.6h
+[     25/200] ERR6847892  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR6847892')  | 0.0/s  ETA 1.5h
+[     26/200] ERR12013060  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR12013060')  | 0.0/s  ETA 1.6h
+[     27/200] ERR4315658  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR4315658')  | 0.0/s  ETA 1.6h
+[     28/200] SRR7797534  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR7797534')  | 0.0/s  ETA 1.5h
+[     29/200] SRR29077176  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR29077176')  | 0.0/s  ETA 1.5h
+[     30/200] ERR4315300  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR4315300')  | 0.0/s  ETA 1.5h
+[     31/200] ERR4315576  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR4315576')  | 0.0/s  ETA 1.5h
+[     32/200] ERR4315542  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR4315542')  | 0.0/s  ETA 1.5h
+[     33/200] ERR4315477  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR4315477')  | 0.0/s  ETA 1.4h
+[     34/200] ERR4761830  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR4761830')  | 0.0/s  ETA 1.4h
+[     35/200] ERR4315168  83.4% classified  | 0.0/s  ETA 1.5h
+[     36/200] ERR4761820  77.6% classified  | 0.0/s  ETA 1.4h
+[     37/200] ERR4315588  78.6% classified  | 0.0/s  ETA 1.4h
+[     38/200] ERR4315585  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR4315585')  | 0.0/s  ETA 1.4h
+[     39/200] ERR4315409  77.4% classified  | 0.0/s  ETA 1.4h
+[     40/200] ERR4315407  76.5% classified  | 0.0/s  ETA 1.4h
+[     41/200] ERR4315341  77.5% classified  | 0.0/s  ETA 1.4h
+[     42/200] ERR4315265  79.5% classified  | 0.0/s  ETA 1.3h
+[     43/200] ERR4315330  76.2% classified  | 0.0/s  ETA 1.3h
+[     44/200] ERR4315252  75.9% classified  | 0.0/s  ETA 1.3h
+[     45/200] ERR4315652  83.6% classified  | 0.0/s  ETA 1.3h
+[     46/200] ERR4315301  83.5% classified  | 0.0/s  ETA 1.3h
+[     47/200] ERR4315532  75.2% classified  | 0.0/s  ETA 1.3h
+[     48/200] ERR4315642  74.5% classified  | 0.0/s  ETA 1.3h
+[     49/200] ERR4315650  82.5% classified  | 0.0/s  ETA 1.3h
+[     50/200] ERR4315550  80.2% classified  | 0.0/s  ETA 1.2h
+[     51/200] ERR4315581  83.2% classified  | 0.0/s  ETA 1.3h
+[     52/200] ERR4315351  93.9% classified  | 0.0/s  ETA 1.2h
+[     53/200] ERR4315198  80.1% classified  | 0.0/s  ETA 1.2h
+[     54/200] ERR4315604  82.3% classified  | 0.0/s  ETA 1.2h
+[     55/200] ERR4315559  81.5% classified  | 0.0/s  ETA 1.2h
+[     56/200] ERR4315460  81.8% classified  | 0.0/s  ETA 1.2h
+[     57/200] ERR4315439  77.9% classified  | 0.0/s  ETA 1.2h
+[     58/200] ERR4315273  83.1% classified  | 0.0/s  ETA 1.2h
+[     59/200] ERR4315147  87.0% classified  | 0.0/s  ETA 1.2h
+[     60/200] ERR4315564  79.5% classified  | 0.0/s  ETA 1.2h
+[     61/200] ERR4315480  79.1% classified  | 0.0/s  ETA 1.2h
+[     62/200] ERR3383640  82.5% classified  | 0.0/s  ETA 1.2h
+[     63/200] SRR24010231  80.9% classified  | 0.0/s  ETA 1.2h
+[     64/200] SRR24010241  76.8% classified  | 0.0/s  ETA 1.2h
+[     65/200] SRR12329590  82.7% classified  | 0.0/s  ETA 1.2h
+[     66/200] ERR3856824  53.3% classified  | 0.0/s  ETA 1.2h
+[     67/200] ERR3856817  57.4% classified  | 0.0/s  ETA 1.2h
+[     68/200] SRR28704972  80.2% classified  | 0.0/s  ETA 1.2h
+[     69/200] SRR23706863  56.4% classified  | 0.0/s  ETA 1.2h
+[     70/200] ERR3500542  84.3% classified  | 0.0/s  ETA 1.2h
+[     71/200] ERR3500556  83.1% classified  | 0.0/s  ETA 1.2h
+[     72/200] ERR3500503  81.5% classified  | 0.0/s  ETA 1.2h
+[     73/200] ERR3500537  83.8% classified  | 0.0/s  ETA 1.2h
+[     74/200] SRR1576668  78.2% classified  | 0.0/s  ETA 1.2h
+[     75/200] SRR2185181  98.5% classified  | 0.0/s  ETA 1.2h
+[     76/200] SRR1557213  81.0% classified  | 0.0/s  ETA 1.2h
+[     77/200] SRR22139844  11.1% classified  | 0.0/s  ETA 1.2h
+[     78/200] SRR391830  70.2% classified  | 0.0/s  ETA 1.1h
+[     79/200] SRR6242035  66.5% classified  | 0.0/s  ETA 1.1h
+[     80/200] SRR1576785  79.0% classified  | 0.0/s  ETA 1.1h
+[     81/200] SRR32620560  86.0% classified  | 0.0/s  ETA 1.1h
+[     82/200] SRR6242061  73.1% classified  | 0.0/s  ETA 1.1h
+[     83/200] ERR789379  66.5% classified  | 0.0/s  ETA 1.1h
+[     84/200] SRR32620578  82.9% classified  | 0.0/s  ETA 1.1h
+[     85/200] SRR8718797  93.9% classified  | 0.0/s  ETA 1.1h
+[     86/200] SRR8718826  98.1% classified  | 0.0/s  ETA 1.1h
+[     87/200] SRR8718840  96.5% classified  | 0.0/s  ETA 1.0h
+[     88/200] SRR8718808  97.8% classified  | 0.0/s  ETA 1.0h
+[     89/200] ERR13149129  76.2% classified  | 0.0/s  ETA 1.0h
+[     90/200] ERR13166132  73.5% classified  | 0.0/s  ETA 1.0h
+[     91/200] ERR13070694  68.8% classified  | 0.0/s  ETA 1.0h
+[     92/200] SRR34026581  75.3% classified  | 0.0/s  ETA 1.0h
+[     93/200] SRR3750709  87.0% classified  | 0.0/s  ETA 1.0h
+[     94/200] SRR9684540  62.3% classified  | 0.0/s  ETA 1.0h
+[     95/200] SRR3750730  91.5% classified  | 0.0/s  ETA 1.0h
+[     96/200] SRR20695274  74.9% classified  | 0.0/s  ETA 1.0h
+[     97/200] SRR3750732  87.1% classified  | 0.0/s  ETA 1.0h
+[     98/200] ERR5928169  74.2% classified  | 0.0/s  ETA 1.0h
+[     99/200] SRR2873755  83.1% classified  | 0.0/s  ETA 0.9h
+[    100/200] ERR5928177  83.7% classified  | 0.0/s  ETA 0.9h
+[    101/200] SRR21195572  85.1% classified  | 0.0/s  ETA 0.9h
+[    102/200] ERR5928195  80.2% classified  | 0.0/s  ETA 0.9h
+[    103/200] ERR5928207  80.7% classified  | 0.0/s  ETA 0.9h
+[    104/200] ERR5928214  84.8% classified  | 0.0/s  ETA 0.9h
+[    105/200] SRR14871460  87.7% classified  | 0.0/s  ETA 0.9h
+[    106/200] SRR14871465  82.0% classified  | 0.0/s  ETA 0.9h
+[    107/200] ERR6548378  90.7% classified  | 0.0/s  ETA 0.9h
+[    108/200] SRR31200169  91.7% classified  | 0.0/s  ETA 0.9h
+[    109/200] ERR5696219  93.2% classified  | 0.0/s  ETA 0.9h
+[    110/200] ERR5696288  91.5% classified  | 0.0/s  ETA 0.9h
+[    111/200] ERR5696306  93.1% classified  | 0.0/s  ETA 0.9h
+[    112/200] ERR6548349  91.3% classified  | 0.0/s  ETA 0.9h
+[    113/200] ERR5696254  92.2% classified  | 0.0/s  ETA 0.8h
+[    114/200] SRR4296239  67.5% classified  | 0.0/s  ETA 0.8h
+[    115/200] ERR5696226  91.3% classified  | 0.0/s  ETA 0.8h
+[    116/200] ERR5696292  93.7% classified  | 0.0/s  ETA 0.8h
+[    117/200] SRR12888337  66.7% classified  | 0.0/s  ETA 0.8h
+[    118/200] SRR20324129  87.3% classified  | 0.0/s  ETA 0.8h
+[    119/200] SRR11216284  7.8% classified  | 0.0/s  ETA 0.8h
+[    120/200] SRR11216309  7.5% classified  | 0.0/s  ETA 0.8h
+[    121/200] SRR8733380  57.5% classified  | 0.0/s  ETA 0.8h
+[    122/200] ERR4421880  50.6% classified  | 0.0/s  ETA 0.8h
+[    123/200] SRR6041852  84.2% classified  | 0.0/s  ETA 0.8h
+[    124/200] SRR38293583  89.4% classified  | 0.0/s  ETA 0.8h
+[    125/200] SRR31850424  85.7% classified  | 0.0/s  ETA 0.8h
+[    126/200] SRR10765499  81.8% classified  | 0.0/s  ETA 0.8h
+[    127/200] SRR2558706  45.3% classified  | 0.0/s  ETA 0.8h
+[    128/200] SRR23869857  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR23869857')  | 0.0/s  ETA 0.8h
+[    129/200] SRR11928835  15.8% classified  | 0.0/s  ETA 0.7h
+[    130/200] SRR8168844  84.1% classified  | 0.0/s  ETA 0.7h
+[    131/200] SRR18070416  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR18070416')  | 0.0/s  ETA 0.7h
+[    132/200] SRR27326545  70.6% classified  | 0.0/s  ETA 0.7h
+[    133/200] SRR33696068  83.8% classified  | 0.0/s  ETA 0.7h
+[    134/200] SRR15141031  59.6% classified  | 0.0/s  ETA 0.7h
+[    135/200] SRR8204136  84.4% classified  | 0.0/s  ETA 0.7h
+[    136/200] SRR15141410  64.9% classified  | 0.0/s  ETA 0.7h
+[    137/200] SRR15141440  65.5% classified  | 0.0/s  ETA 0.6h
+[    138/200] SRR32764820  80.2% classified  | 0.0/s  ETA 0.6h
+[    139/200] SRR10291728  78.5% classified  | 0.0/s  ETA 0.6h
+[    140/200] ERR10886952  87.6% classified  | 0.0/s  ETA 0.6h
+[    141/200] ERR10887002  87.1% classified  | 0.0/s  ETA 0.6h
+[    142/200] ERR10886939  85.2% classified  | 0.0/s  ETA 0.6h
+[    143/200] ERR10886965  86.4% classified  | 0.0/s  ETA 0.6h
+[    144/200] SRR31514633  96.5% classified  | 0.0/s  ETA 0.6h
+[    145/200] SRR8418334  64.2% classified  | 0.0/s  ETA 0.6h
+[    146/200] SRR8418250  56.3% classified  | 0.0/s  ETA 0.6h
+[    147/200] SRR8418257  58.2% classified  | 0.0/s  ETA 0.6h
+[    148/200] ERR10886962  90.7% classified  | 0.0/s  ETA 0.6h
+[    149/200] SRR8418343  74.6% classified  | 0.0/s  ETA 0.5h
+[    150/200] ERR1360192  73.9% classified  | 0.0/s  ETA 0.5h
+[    151/200] SRR31278118  79.0% classified  | 0.0/s  ETA 0.5h
+[    152/200] SRR9276717  83.8% classified  | 0.0/s  ETA 0.5h
+[    153/200] ERR7421533  65.2% classified  | 0.0/s  ETA 0.5h
+[    154/200] SRR33846326  85.3% classified  | 0.0/s  ETA 0.5h
+[    155/200] SRR6218752  85.5% classified  | 0.0/s  ETA 0.5h
+[    156/200] SRR32959933  82.5% classified  | 0.0/s  ETA 0.5h
+[    157/200] ERR10926643  88.4% classified  | 0.0/s  ETA 0.5h
+[    158/200] SRR34300138  28.2% classified  | 0.0/s  ETA 0.4h
+[    159/200] SRR36910261  29.5% classified  | 0.0/s  ETA 0.4h
+[    160/200] SRR34300168  27.2% classified  | 0.0/s  ETA 0.4h
+[    161/200] SRR36910250  25.7% classified  | 0.0/s  ETA 0.4h
+[    162/200] SRR36910260  26.3% classified  | 0.0/s  ETA 0.4h
+[    163/200] SRR36910231  27.5% classified  | 0.0/s  ETA 0.4h
+[    164/200] SRR36367272  71.1% classified  | 0.0/s  ETA 0.4h
+[    165/200] SRR36292478  57.6% classified  | 0.0/s  ETA 0.4h
+[    166/200] SRR36292468  55.1% classified  | 0.0/s  ETA 0.4h
+[    167/200] SRR36367283  66.6% classified  | 0.0/s  ETA 0.4h
+[    168/200] SRR36292498  60.0% classified  | 0.0/s  ETA 0.3h
+[    169/200] SRR36910243  26.6% classified  | 0.0/s  ETA 0.3h
+[    170/200] SRR36367310  69.6% classified  | 0.0/s  ETA 0.3h
+[    171/200] SRR34300164  25.1% classified  | 0.0/s  ETA 0.3h
+[    172/200] SRR26214566  90.9% classified  | 0.0/s  ETA 0.3h
+[    173/200] SRR25969013  91.5% classified  | 0.0/s  ETA 0.3h
+[    174/200] SRR30126656  84.4% classified  | 0.0/s  ETA 0.3h
+[    175/200] SRR25968999  87.8% classified  | 0.0/s  ETA 0.3h
+[    176/200] SRR11497261  70.5% classified  | 0.0/s  ETA 0.3h
+[    177/200] SRR1975193  61.1% classified  | 0.0/s  ETA 0.3h
+[    178/200] SRR26511470  86.0% classified  | 0.0/s  ETA 0.2h
+[    179/200] SRR8984106  80.2% classified  | 0.0/s  ETA 0.2h
+[    180/200] SRR31830259  89.7% classified  | 0.0/s  ETA 0.2h
+[    181/200] SRR28718298  77.8% classified  | 0.0/s  ETA 0.2h
+[    182/200] SRR1793833  90.8% classified  | 0.0/s  ETA 0.2h
+[    183/200] SRR8569394  79.8% classified  | 0.0/s  ETA 0.2h
+[    184/200] SRR6039729  79.3% classified  | 0.0/s  ETA 0.2h
+[    185/200] SRR37491909  22.7% classified  | 0.0/s  ETA 0.2h
+[    186/200] ERR3850354  72.0% classified  | 0.0/s  ETA 0.2h
+[    187/200] SRR7526699  71.7% classified  | 0.0/s  ETA 0.1h
+[    188/200] SRR14224166  85.0% classified  | 0.0/s  ETA 0.1h
+[    189/200] SRR12998709  80.6% classified  | 0.0/s  ETA 0.1h
+[    190/200] SRR36993186  90.4% classified  | 0.0/s  ETA 0.1h
+[    191/200] SRR4044953  77.0% classified  | 0.0/s  ETA 0.1h
+[    192/200] SRR31204183  88.3% classified  | 0.0/s  ETA 0.1h
+[    193/200] SRR30427804  85.1% classified  | 0.0/s  ETA 0.1h
+[    194/200] SRR36610581  88.8% classified  | 0.0/s  ETA 0.1h
+[    195/200] SRR8416457  76.0% classified  | 0.0/s  ETA 0.1h
+[    196/200] SRR3724140  77.9% classified  | 0.0/s  ETA 0.0h
+[    197/200] SRR3724171  74.8% classified  | 0.0/s  ETA 0.0h
+[    198/200] SRR6292051  83.1% classified  | 0.0/s  ETA 0.0h
+[    199/200] SRR27846623  91.5% classified  | 0.0/s  ETA 0.0h
+[    200/200] ERR986091  68.3% classified  | 0.0/s  ETA 0.0h
+
+── Summary ────────────────────────────────────────
+  Classified: 174
+  Errors:     26
+  Elapsed:    2.2h
+  Cache:      kraken/assign/data/kraken_cache.jsonl

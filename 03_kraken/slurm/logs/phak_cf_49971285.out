@@ -1,0 +1,6 @@
+=== 1. per-read kraken2 (db_v3) Fri Sep 25 09:49:59 AM AWST 2026 ===
+=== 2. extract Phakopsora(170000) read-pair IDs ===
+248504 /scratch/pawsey1168/llenzo/crypt/kraken/output/run/phak_cf/phak_ids.txt
+=== 3. pull those read pairs ===
+  extracted: 248504 pairs
+=== 4. combined tagged reference (Phakopsora + P.striiformis CDS) ===

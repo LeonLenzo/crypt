@@ -1,0 +1,12 @@
+Note: when this module is unloaded, the shell environment will NOT revert to
+its original state, and retain some Spack settings. If you need the original
+shell environment, start a new shell session instead. 
+[1;93m==>[0m Warning: upstream not found: /software/projects/fl3/setonix/2025.08/software/.spack-db/index.json
+[1;93m==>[0m Warning: Failed to initialize repository: '/software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo'.
+  No repo.yaml found in '/software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo'
+  To remove the bad repository, run this command:
+      spack repo rm /software/projects/$PAWSEY_PROJECT/$USER/setonix/2025.08/spack_repo
+Taxonomy parsed and converted.
+CHT created with 11 bits reserved for taxid.
+Completed processing of 34333138 sequences, 45634088740 bp
+Writing data to disk...  complete.

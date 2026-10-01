@@ -1,0 +1,124 @@
+[09:05:22] k=31 scaled=200 stage=bias
+[09:05:22] 1052 selected assemblies across 309 taxa
+[09:05:23] Aspergillus flavus         vs Aspergillus niger          depths 1-13
+[09:05:26] Aspergillus niger          vs Aspergillus flavus         depths 1-42
+[09:05:27] Fusarium cf. solani        vs Fusarium ambrosium         depths 1-14
+[09:05:28] Fusarium cf. solani        vs Fusarium euwallaceae       depths 1-14
+[09:05:28] Fusarium cf. solani        vs Fusarium falciforme        depths 1-14
+[09:05:29] Fusarium cf. solani        vs Fusarium floridanum        depths 1-14
+[09:05:30] Fusarium cf. solani        vs Fusarium lateritium        depths 1-14
+[09:05:31] Fusarium cf. solani        vs Fusarium poae              depths 1-14
+[09:05:31] Fusarium cf. solani        vs Fusarium culmorum          depths 1-14
+[09:05:32] Fusarium cf. solani        vs Fusarium fujikuroi         depths 1-14
+[09:05:33] Fusarium cf. solani        vs Fusarium graminearum       depths 1-14
+[09:05:33] Fusarium cf. solani        vs Fusarium odoratissimum     depths 1-14
+[09:05:35] Fusarium cf. solani        vs Fusarium oxysporum         depths 1-14
+[09:05:35] Fusarium cf. solani        vs Fusarium proliferatum      depths 1-14
+[09:05:36] Fusarium cf. solani        vs Fusarium pseudograminearum depths 1-14
+[09:05:37] Fusarium cf. solani        vs Fusarium verticillioides   depths 1-14
+[09:05:37] Fusarium lateritium        vs Fusarium ambrosium         depths 1-15
+[09:05:38] Fusarium lateritium        vs Fusarium cf. solani        depths 1-15
+[09:05:39] Fusarium lateritium        vs Fusarium euwallaceae       depths 1-15
+[09:05:39] Fusarium lateritium        vs Fusarium falciforme        depths 1-15
+[09:05:40] Fusarium lateritium        vs Fusarium floridanum        depths 1-15
+[09:05:41] Fusarium lateritium        vs Fusarium poae              depths 1-15
+[09:05:41] Fusarium lateritium        vs Fusarium culmorum          depths 1-15
+[09:05:42] Fusarium lateritium        vs Fusarium fujikuroi         depths 1-15
+[09:05:43] Fusarium lateritium        vs Fusarium graminearum       depths 1-15
+[09:05:44] Fusarium lateritium        vs Fusarium odoratissimum     depths 1-15
+[09:05:45] Fusarium lateritium        vs Fusarium oxysporum         depths 1-15
+[09:05:45] Fusarium lateritium        vs Fusarium proliferatum      depths 1-15
+[09:05:46] Fusarium lateritium        vs Fusarium pseudograminearum depths 1-15
+[09:05:47] Fusarium lateritium        vs Fusarium verticillioides   depths 1-15
+[09:05:47] Fusarium culmorum          vs Fusarium ambrosium         depths 1-8
+[09:05:47] Fusarium culmorum          vs Fusarium cf. solani        depths 1-8
+[09:05:48] Fusarium culmorum          vs Fusarium euwallaceae       depths 1-8
+[09:05:48] Fusarium culmorum          vs Fusarium falciforme        depths 1-8
+[09:05:48] Fusarium culmorum          vs Fusarium floridanum        depths 1-8
+[09:05:48] Fusarium culmorum          vs Fusarium lateritium        depths 1-8
+[09:05:48] Fusarium culmorum          vs Fusarium poae              depths 1-8
+[09:05:49] Fusarium culmorum          vs Fusarium fujikuroi         depths 1-8
+[09:05:49] Fusarium culmorum          vs Fusarium graminearum       depths 1-8
+[09:05:49] Fusarium culmorum          vs Fusarium odoratissimum     depths 1-8
+[09:05:50] Fusarium culmorum          vs Fusarium oxysporum         depths 1-8
+[09:05:50] Fusarium culmorum          vs Fusarium proliferatum      depths 1-8
+[09:05:50] Fusarium culmorum          vs Fusarium pseudograminearum depths 1-8
+[09:05:51] Fusarium culmorum          vs Fusarium verticillioides   depths 1-8
+[09:05:52] Fusarium fujikuroi         vs Fusarium ambrosium         depths 1-18
+[09:05:53] Fusarium fujikuroi         vs Fusarium cf. solani        depths 1-18
+[09:05:53] Fusarium fujikuroi         vs Fusarium euwallaceae       depths 1-18
+[09:05:54] Fusarium fujikuroi         vs Fusarium falciforme        depths 1-18
+[09:05:55] Fusarium fujikuroi         vs Fusarium floridanum        depths 1-18
+[09:05:56] Fusarium fujikuroi         vs Fusarium lateritium        depths 1-18
+[09:05:57] Fusarium fujikuroi         vs Fusarium poae              depths 1-18
+[09:05:58] Fusarium fujikuroi         vs Fusarium culmorum          depths 1-18
+[09:05:59] Fusarium fujikuroi         vs Fusarium graminearum       depths 1-18
+[09:06:00] Fusarium fujikuroi         vs Fusarium odoratissimum     depths 1-18
+[09:06:01] Fusarium fujikuroi         vs Fusarium oxysporum         depths 1-18
+[09:06:02] Fusarium fujikuroi         vs Fusarium proliferatum      depths 1-18
+[09:06:03] Fusarium fujikuroi         vs Fusarium pseudograminearum depths 1-18
+[09:06:04] Fusarium fujikuroi         vs Fusarium verticillioides   depths 1-18
+[09:06:05] Fusarium graminearum       vs Fusarium ambrosium         depths 1-16
+[09:06:06] Fusarium graminearum       vs Fusarium cf. solani        depths 1-16
+[09:06:06] Fusarium graminearum       vs Fusarium euwallaceae       depths 1-16
+[09:06:07] Fusarium graminearum       vs Fusarium falciforme        depths 1-16
+[09:06:08] Fusarium graminearum       vs Fusarium floridanum        depths 1-16
+[09:06:09] Fusarium graminearum       vs Fusarium lateritium        depths 1-16
+[09:06:09] Fusarium graminearum       vs Fusarium poae              depths 1-16
+[09:06:10] Fusarium graminearum       vs Fusarium culmorum          depths 1-16
+[09:06:11] Fusarium graminearum       vs Fusarium fujikuroi         depths 1-16
+[09:06:11] Fusarium graminearum       vs Fusarium odoratissimum     depths 1-16
+[09:06:12] Fusarium graminearum       vs Fusarium oxysporum         depths 1-16
+[09:06:13] Fusarium graminearum       vs Fusarium proliferatum      depths 1-16
+[09:06:14] Fusarium graminearum       vs Fusarium pseudograminearum depths 1-16
+[09:06:15] Fusarium graminearum       vs Fusarium verticillioides   depths 1-16
+[09:06:23] Fusarium oxysporum         vs Fusarium ambrosium         depths 1-55
+[09:06:31] Fusarium oxysporum         vs Fusarium cf. solani        depths 1-55
+[09:06:39] Fusarium oxysporum         vs Fusarium euwallaceae       depths 1-55
+[09:06:47] Fusarium oxysporum         vs Fusarium falciforme        depths 1-55
+[09:06:55] Fusarium oxysporum         vs Fusarium floridanum        depths 1-55
+[09:07:04] Fusarium oxysporum         vs Fusarium lateritium        depths 1-55
+[09:07:12] Fusarium oxysporum         vs Fusarium poae              depths 1-55
+[09:07:20] Fusarium oxysporum         vs Fusarium culmorum          depths 1-55
+[09:07:28] Fusarium oxysporum         vs Fusarium fujikuroi         depths 1-55
+[09:07:36] Fusarium oxysporum         vs Fusarium graminearum       depths 1-55
+[09:07:45] Fusarium oxysporum         vs Fusarium odoratissimum     depths 1-55
+[09:07:53] Fusarium oxysporum         vs Fusarium proliferatum      depths 1-55
+[09:08:01] Fusarium oxysporum         vs Fusarium pseudograminearum depths 1-55
+[09:08:10] Fusarium oxysporum         vs Fusarium verticillioides   depths 1-55
+[09:08:10] Fusarium proliferatum      vs Fusarium ambrosium         depths 1-9
+[09:08:10] Fusarium proliferatum      vs Fusarium cf. solani        depths 1-9
+[09:08:11] Fusarium proliferatum      vs Fusarium euwallaceae       depths 1-9
+[09:08:11] Fusarium proliferatum      vs Fusarium falciforme        depths 1-9
+[09:08:11] Fusarium proliferatum      vs Fusarium floridanum        depths 1-9
+[09:08:12] Fusarium proliferatum      vs Fusarium lateritium        depths 1-9
+[09:08:12] Fusarium proliferatum      vs Fusarium poae              depths 1-9
+[09:08:12] Fusarium proliferatum      vs Fusarium culmorum          depths 1-9
+[09:08:13] Fusarium proliferatum      vs Fusarium fujikuroi         depths 1-9
+[09:08:13] Fusarium proliferatum      vs Fusarium graminearum       depths 1-9
+[09:08:13] Fusarium proliferatum      vs Fusarium odoratissimum     depths 1-9
+[09:08:14] Fusarium proliferatum      vs Fusarium oxysporum         depths 1-9
+[09:08:15] Fusarium proliferatum      vs Fusarium pseudograminearum depths 1-9
+[09:08:15] Fusarium proliferatum      vs Fusarium verticillioides   depths 1-9
+[09:08:15] Phytophthora fragariae     vs Phytophthora kernoviae     depths 1-9
+[09:08:16] Phytophthora fragariae     vs Phytophthora ramorum       depths 1-9
+[09:08:16] Phytophthora fragariae     vs Phytophthora cactorum      depths 1-9
+[09:08:17] Phytophthora fragariae     vs Phytophthora infestans     depths 1-9
+[09:08:17] Phytophthora fragariae     vs Phytophthora nicotianae    depths 1-9
+[09:08:18] Phytophthora cactorum      vs Phytophthora fragariae     depths 1-18
+[09:08:19] Phytophthora cactorum      vs Phytophthora kernoviae     depths 1-18
+[09:08:20] Phytophthora cactorum      vs Phytophthora ramorum       depths 1-18
+[09:08:21] Phytophthora cactorum      vs Phytophthora infestans     depths 1-18
+[09:08:22] Phytophthora cactorum      vs Phytophthora nicotianae    depths 1-18
+[09:08:23] Phytophthora nicotianae    vs Phytophthora fragariae     depths 1-8
+[09:08:23] Phytophthora nicotianae    vs Phytophthora kernoviae     depths 1-8
+[09:08:23] Phytophthora nicotianae    vs Phytophthora ramorum       depths 1-8
+[09:08:23] Phytophthora nicotianae    vs Phytophthora cactorum      depths 1-8
+[09:08:24] Phytophthora nicotianae    vs Phytophthora infestans     depths 1-8
+[09:08:25] Pyrenophora tritici-repent vs Pyrenophora teres          depths 1-24
+[09:08:29] Pyricularia oryzae         vs Pyricularia grisea         depths 1-45
+[09:08:29] Verticillium dahliae       vs Verticillium longisporum   depths 1-11
+[09:08:30] Verticillium dahliae       vs Verticillium nonalfalfae   depths 1-11
+[09:08:30] Verticillium nonalfalfae   vs Verticillium dahliae       depths 1-17
+[09:08:31] Verticillium nonalfalfae   vs Verticillium longisporum   depths 1-17
+[09:08:31] wrote kraken/output/db/saturation/data/depth_bias.tsv (2245 rows)

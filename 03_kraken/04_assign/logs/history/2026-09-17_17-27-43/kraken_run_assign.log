@@ -1,0 +1,199 @@
+Reads read from: kraken/output/run/select/data/reads
+Raw kraken2 reports will be saved to: kraken/output/run/assign/data/reports
+Loaded 3,225 runs from kraken/output/run/select/data/run_list.tsv (filters: none)
+Array task 8/16: 202 runs assigned
+
+Total runs: 3,225 | Already done: 0 | Remaining: 202
+Settings: confidence=0.15, min_hit_groups=3, workers=8, kraken_threads=4
+DB: kraken/output/db/build/data/db_v2
+Tmp: /scratch/fl3/llenzo/kraken_tmp
+
+[      1/202] ERR3170246  56.6% classified  | 0.0/s  ETA 7.3h
+[      2/202] ERR3170236  58.4% classified  | 0.0/s  ETA 4.7h
+[      3/202] ERR3188437  57.7% classified  | 0.0/s  ETA 3.1h
+[      4/202] ERR3188433  49.4% classified  | 0.0/s  ETA 2.5h
+[      5/202] ERR3170210  39.6% classified  | 0.0/s  ETA 2.0h
+[      6/202] ERR3170224  58.3% classified  | 0.0/s  ETA 1.7h
+[      7/202] ERR3188455  55.7% classified  | 0.0/s  ETA 1.5h
+[      8/202] ERR3170194  69.2% classified  | 0.0/s  ETA 1.3h
+[      9/202] ERR3170191  58.2% classified  | 0.0/s  ETA 1.5h
+[     10/202] ERR1607801  44.3% classified  | 0.0/s  ETA 1.3h
+[     11/202] ERR1607859  37.7% classified  | 0.0/s  ETA 1.2h
+[     12/202] ERR1607762  22.0% classified  | 0.0/s  ETA 1.1h
+[     13/202] ERR1607749  38.0% classified  | 0.0/s  ETA 1.1h
+[     14/202] ERR1607784  60.1% classified  | 0.0/s  ETA 1.1h
+[     15/202] ERR3170208  27.2% classified  | 0.1/s  ETA 1.0h
+[     16/201] ERR1607853  33.7% classified  | 0.1/s  ETA 1.0h
+[     17/201] ERR1607777  29.6% classified  | 0.1/s  ETA 1.0h
+[     18/202] ERR15005519  5.1% classified  | 0.0/s  ETA 1.0h
+[     19/202] ERR12013049  64.6% classified  | 0.1/s  ETA 1.0h
+[     20/202] ERR15005517  17.6% classified  | 0.1/s  ETA 0.9h
+[     21/202] ERR15005522  10.8% classified  | 0.1/s  ETA 0.9h
+[[     22/201] ERR12013038  69.2% classified  | 0.1/s  ETA 0.9h
+[     23/201] ERR15005542  20.2% classified  | 0.1/s  ETA 0.9[[     24/202] ERR4315685  65.6% classified  | 0.1/s  ETA 0.9h
+[     25/202] ERR6847890  46.6% classified  | 0.1/s  ETA 0.9h
+[     26/202] ERR6847879  49.2% classified  | 0.1/s  ETA 0.9h
+[     27/202] ERR12013079  40.7% classified  | 0.1/s  ETA 0.9h
+[     28/202] ERR4315613  33.8% classified  | 0.1/s  ETA 0.9h
+[  [     29/201] ERR4315308  57.3% classified  | 0.1/s  ETA 0.[  [     30/201] ERR4315510  63.5% classified  | 0.1/s  ETA 0.8[ [     31/201] ERR4315261  60.8% classified  | 0.1/s  ETA 0.8h
+[     32/201] ERR4315307  53.0% classified  | 0.1/s  ETA 0.[     33/202] ERR4315444  45.1% classified  | 0.1/s  ETA 0.8h
+[     34/202] SRR29076502  6.5% classified  | 0.1/s  ETA 0.8h
+[ [[     35/201] ERR4315608  37.2% classified  | 0.1/s  ETA 0.8h
+[     36/201] ERR4315551  37.6% classified  | 0.1/s  ETA 0.8h
+[     37/201] ERR4315552  51.8% classified  | 0.1/s  ETA 0.8h
+[     38/201] ERR4315383  59.9% classified  | 0.1/s  ETA 0.8h
+[     39/201] ERR4315521  68.5% classified  | 0.1/s  ETA 0.[ [     40/202] ERR4315190  28.0% classified  | 0.1/s  ETA 0.7h
+[     41/202] ERR4315669  38.3% classified  | 0.1/s  ETA 0.7h
+[     42/202] ERR4315155  49.0% classified  | 0.1/s  ETA 0.7h
+[     43/202] ERR4315423  63.9% classified  | 0.1/s  ETA 0.7h
+[[     44/201] ERR4315209  57.8% classified  | 0.1/s  ETA 0.7h[     45/202] ERR4315342  42.6% classified  | 0.1/s  ETA 0.7h
+[     46/202] ERR4315398  4.6% classified  | 0.1/s  ETA 0.7h
+[     47/202] ERR4315283  59.1% classified  | 0.1/s  ETA 0.7h
+[     48/202] ERR4315492  29.0% classified  | 0.1/s  ETA 0.7h
+[     49/202] ERR4315546  42.9% classified  | 0.1/s  ETA 0.7h
+[ [     50/201] ERR4315655  22.9% classified  | 0.1/s  ETA 0.7[     51/202] ERR4315569  33.7% classified  | 0.1/s  ETA 0.7h
+[     52/202] ERR4315667  50.1% classified  | 0.1/s  ETA 0.7h
+[     53/202] ERR4315150  51.7% classified  | 0.1/s  ETA 0.7h
+[     54/202] ERR4315240  46.6% classified  | 0.1/s  ETA 0.7h
+[     55/202] ERR4315441  37.8% classified  | 0.1/s  ETA 0.6h
+[ [     56/201] ERR4315633  57.7% classified  | 0.1/s  ETA 0.7h
+[     57/201] ERR4315611  50.5% classified  | 0.1/s  ETA 0.6h
+[     58/201] ERR4315431  54.6% classified  | 0.1/s  ETA 0.6[     59/202] ERR4315399  22.5% classified  | 0.1/s  ETA 0.6h
+[     60/202] SRR1425535  ERR(no_local_reads)  | 0.1/s  ETA 0.6h
+[     61/202] ERR4315415  29.0% classified  | 0.1/s  ETA 0.6h
+[     62/202] ERR4315340  55.0% classified  | 0.1/s  ETA 0.6h
+[ [     63/201] ERR4315426  45.6% classified  | 0.1/s  ETA 0.6h
+[     64/201] SRR579539  ERR(no_local_reads)  | 0.1/s  ETA 0[   [     65/201] ERR4315500  16.5% classified  | 0.1/s  ETA 0.6h
+[     66/201] SRR24010240  32.8% classified  | 0.1/s  ETA 0.[  [     67/201] ERR3856836  53.6% classified  | 0.1/s  ETA 0.6h
+[     68/201] ERR3856835  33.6% classified  | 0.1/s  ETA 0.6h
+[     69/201] ERR3856839  32.9% classified  | 0.1/s  ETA 0.[     70/202] ERR3500551  3.3% classified  | 0.1/s  ETA 0.6h
+[  [     71/201] SRR24010248  30.9% classified  | 0.1/s  ETA[     [     72/201] SRR1555294  45.0% classified  | 0.1/s  ETA 0.6h
+[     73/201] SRR1557214  27.7% classified  | 0.1/s  ETA 0.6h
+[     74/201] ERR3500523  1.6% classified  | 0.1/s  ETA 0.6h
+[     75/201] ERR13340223  55.6% classified  | 0.1/s  ETA 0.6h
+[     76/201] SRR391844  3.5% classified  | 0.1/s  ETA 0.6h
+[     77/201] SRR391843  3.5% classified  | 0.1/s  ETA [    [     78/201] ERR3500533  3.1% classified  | 0.1/s  ETA 0.6h
+[     79/201] SRR1583680  69.5% classified  | 0.1/s  ETA 0[   [     80/201] SRR6242060  5.7% classified  | 0.1/s  ETA 0[     81/202] SRR26175771  4.6% classified  | 0.1/s  ETA 0.5h
+[     82/202] SRR1576647  12.9% classified  | 0.1/s  ETA 0.5h
+[[     83/201] SRR26175769  0.9% classified  | 0.1/s  ETA 0.5h[     84/202] SRR6242030  24.9% classified  | 0.1/s  ETA 0.5h
+[     85/202] ERR2099152  72.0% classified  | 0.1/s  ETA 0.5h
+[     86/202] SRR8718812  10.1% classified  | 0.1/s  ETA 0.5h
+[     87/202] SRR8718846  7.7% classified  | 0.1/s  ETA 0.5h
+[     88/202] SRR8718798  9.9% classified  | 0.1/s  ETA 0.5h
+[     89/202] SRR8718832  8.6% classified  | 0.1/s  ETA 0.5h
+[     90/202] SRR12149184  43.6% classified  | 0.1/s  ETA 0.5h
+[     91/202] ERR13107145  21.9% classified  | 0.1/s  ETA 0.5h
+[     92/202] ERR13108602  1.1% classified  | 0.1/s  ETA 0.5h
+[     93/202] SRR34026571  52.9% classified  | 0.1/s  ETA 0.5h
+[     94/202] ERR13107472  1.0% classified  | 0.1/s  ETA 0[   [     95/202] SRR6242052  1.1% classified  | 0.1/s  ETA 0.[     96/202] ERR5928167  13.0% classified  | 0.1/s  ETA 0.5h
+[  [     97/202] ERR5928194  0.7% classified  | 0.1/s  ETA 0.[     98/202] ERR5928202  1.3% classified  | 0.1/s  ETA 0.5h
+[     99/202] ERR5928181  1.0% classified  | 0.1/s  ETA 0.5h
+[    100/202] ERR5928218  1.1% classified  | 0.1/s  ETA 0.4h
+[    101/202] SRR2874385  15.3% classified  | 0.1/s  ETA 0.5h
+[    102/202] SRR20067738  1.0% classified  | 0.1/s  ETA 0.5h
+[    103/202] SRR21195559  22.2% classified  | 0.1/s  ETA 0.5h
+[    104/202] SRR21195561  7.3% classified  | 0.1/s  ETA 0.5h
+[    105/202] ERR5696213  2.5% classified  | 0.1/s  ETA 0.5h
+[    106/202] ERR5696278  3.4% classified  | 0.1/s  ETA 0.5h
+[    107/202] ERR5696248  23.7% classified  | 0.1/s  ETA 0.5h
+[    108/202] SRR9684522  18.9% classified  | 0.1/s  ETA 0.4h
+[    109/202] SRR6242034  19.9% classified  | 0.1/s  ETA 0.4h
+[    110/202] ERR6548384  2.6% classified  | 0.1/s  ETA 0.4h
+[    111/202] ERR5696300  2.8% classified  | 0.1/s  ETA 0.4h
+[    112/202] ERR5696258  4.7% classified  | 0.1/s  ETA 0.4h
+[    113/202] ERR5696268  2.6% classified  | 0.1/s  ETA 0.4h
+[    114/202] SRR31200163  4.3% classified  | 0.1/s  ETA 0.4h
+[    115/202] SRR14871473  2.2% classified  | 0.1/s  ETA 0.4h
+[    116/202] ERR5696234  5.0% classified  | 0.1/s  ETA 0.4h
+[    117/202] SRR11216278  0.5% classified  | 0.1/s  ETA 0.4h
+[    118/202] ERR6548358  78.5% classified  | 0.1/s  ETA 0.4h
+[    119/202] SRR2922404  1.5% classified  | 0.1/s  ETA 0.4h
+[    120/202] SRR11216292  0.8% classified  | 0.1/s  ETA 0.4h
+[    121/202] SRR11216298  0.4% classified  | 0.1/s  ETA 0.4h
+[    122/202] SRR20324142  0.9% classified  | 0.1/s  ETA 0.4h
+[    123/202] SRR6221905  0.9% classified  | 0.1/s  ETA 0.4h
+[    124/202] SRR10386364  0.4% classified  | 0.1/s  ETA 0.4h
+[    125/202] SRR20324135  4.8% classified  | 0.1/s  ETA 0.4h
+[    126/202] SRR23870001  7.9% classified  | 0.1/s  ETA 0.3h
+[    127/202] SRR16930843  2.8% classified  | 0.1/s  ETA 0.3h
+[    128/202] SRR33583436  0.2% classified  | 0.1/s  ETA 0.3h
+[    129/202] SRR28475135  28.7% classified  | 0.1/s  ETA 0.3h
+[    130/201] SRR2517429  1.9% classified  | 0.1/s  ETA 0.3h
+[    131/201] SRR7500369  0.6% classified  | 0.1/s  ETA 0.3h
+[    132/201] SRR15141137  16.0% classified  | 0.1/s  ETA 0.3h
+[    133/201] SRR15141128  27.6% classified  | 0.1/s  ETA 0.3h
+[    134/201] SRR15141039  16.3% classified  | 0.1/s  ETA 0.3h
+[    135/201] SRR32589262  14.4% classified  | 0.1/s  ETA 0.3h[[    136/201] SRR8204117  7.9% classified  | 0.1/s  ETA 0.3h
+[    137/201] SRR36368722  0.5% classified  | 0.1/s  ETA 0.3h
+[    138/201] SRR31850425  0.6% classified  | 0.1/s  ETA 0.3h
+[    139/201] SRR10291761  29.4% classified  | 0.1/s  ETA 0.3h
+[    140/201] ERR10887005  25.6% classified  | 0.1/s  ETA 0.3h
+[    141/201] SRR10291756  49.0% classified  | 0.1/s  ETA 0.3h
+[    142/201] ERR10886988  7.1% classified  | 0.1/s  ETA 0.3h
+[    143/201] SRR8418268  10.0% classified  | 0.1/s  ETA 0.3h
+[    144/201] SRR8418385  6.2% classified  | 0.1/s  ETA 0.3h
+[    145/201] SRR8418284  7.8% classified  | 0.1/s  ETA 0.3h
+[    146/201] SRR8418266  9.0% classified  | 0.1/s  ETA 0.3h
+[    147/201] SRR36950021  2.5% classified  | 0.1/s  ETA 0.3h
+[    148/201] SRR14212083  2.6% classified  | 0.1/s  ETA 0.3h
+[    149/201] SRR27311339  14.5% classified  | 0.1/s  ETA 0.3h
+[    150/201] ERR7421529  50.0% classified  | 0.1/s  ETA 0.3h
+[    151/201] SRR9684552  6.0% classified  | 0.1/s  ETA 0.2h
+[    152/201] ERR7421545  27.2% classified  | 0.1/s  ETA 0.2h
+[    153/201] ERR10886958  12.4% classified  | 0.1/s  ETA 0.2h
+[    154/201] ERR10886947  6.8% classified  | 0.1/s  ETA 0.2h
+[    155/201] ERR10886991  6.8% classified  | 0.1/s  ETA 0.2h
+[    156/201] SRR32959941  9.0% classified  | 0.1/s  ETA 0.2h
+[    157/201] SRR34300158  8.5% classified  | 0.1/s  ETA 0.2h
+[    158/201] SRR31278122  5.0% classified  | 0.1/s  ETA 0.2h
+[    159/201] SRR36910208  5.4% classified  | 0.1/s  ETA 0.2h
+[    160/201] SRR34300106  4.6% classified  | 0.1/s  ETA 0.2h
+[    161/201] SRR34300142  5.0% classified  | 0.1/s  ETA 0.2h
+[    162/201] SRR10582639  5.2% classified  | 0.1/s  ETA 0.2h
+[    163/201] SRR36367302  13.1% classified  | 0.1/s  ETA 0.2h
+[    164/201] SRR34300109  4.8% classified  | 0.1/s  ETA 0.2h
+[    165/201] SRR34300161  8.6% classified  | 0.1/s  ETA 0.2h
+[    166/201] ERR10926675  8.5% classified  | 0.1/s  ETA 0.2h
+[    167/201] SRR34300101  6.9% classified  | 0.1/s  ETA 0.2h
+[    168/201] SRR36910267  2.8% classified  | 0.1/s  ETA 0.2h
+[    169/201] SRR36910249  2.8% classified  | 0.1/s  ETA 0.2h
+[    170/201] SRR25969048  8.6% classified  | 0.1/s  ETA 0.2h
+[    171/201] SRR36367330  18.1% classified  | 0.1/s  ETA 0.2h
+[    172/201] SRR25968998  9.4% classified  | 0.1/s  ETA 0.2h
+[    173/201] SRR26214562  13.5% classified  | 0.1/s  ETA 0.2h
+[    174/201] SRR36292455  5.1% classified  | 0.1/s  ETA 0.1h
+[    175/201] SRR1975203  61.4% classified  | 0.1/s  ETA 0.1h
+[    176/201] SRR22975703  12.1% classified  | 0.1/s  ETA 0.1h
+[    177/201] SRR36367339  15.6% classified  | 0.1/s  ETA 0.1h
+[    178/201] SRR12133604  23.4% classified  | 0.1/s  ETA 0.1h
+[    179/201] SRR37491912  7.4% classified  | 0.1/s  ETA 0.1h
+[    180/201] SRR8984126  59.7% classified  | 0.1/s  ETA 0.1h
+[    181/201] SRR6395492  76.5% classified  | 0.1/s  ETA 0.1h
+[    182/201] SRR1793815  2.8% classified  | 0.1/s  ETA 0.1h
+[    183/201] SRR32021761  4.4% classified  | 0.1/s  ETA 0.1h
+[    184/201] ERR990472  76.2% classified  | 0.1/s  ETA 0.1h
+[    185/201] SRR6039740  6.5% classified  | 0.1/s  ETA 0.1h
+[    186/201] SRR11067668  8.5% classified  | 0.1/s  ETA 0.1h
+[    187/201] SRR8984117  51.7% classified  | 0.1/s  ETA 0.1h
+[    188/201] SRR34094677  23.3% classified  | 0.1/s  ETA 0.1h
+[    189/201] SRR6189720  37.7% classified  | 0.1/s  ETA 0.1h
+[    190/201] SRR24115445  6.2% classified  | 0.1/s  ETA 0.1h
+[    191/201] SRR10189431  58.2% classified  | 0.1/s  ETA 0.1h
+[    192/201] SRR8416463  27.9% classified  | 0.1/s  ETA 0.0h
+[    193/201] SRR18064502  33.1% classified  | 0.1/s  ETA 0.0h
+[    194/201] SRR22540860  17.6% classified  | 0.1/s  ETA 0.0h
+[    195/201] SRR5387720  8.3% classified  | 0.1/s  ETA 0.0h
+[    196/201] SRR3724099  10.2% classified  | 0.1/s  ETA 0.0h
+[    197/201] ERR14823240  23.0% classified  | 0.1/s  ETA 0.0h
+[    198/201] SRR29327393  2.1% classified  | 0.1/s  ETA 0.0h
+[    199/201] SRR16017073  4.6% classified  | 0.1/s  ETA 0.0h
+[    200/201] SRR1773573  3.9% classified  | 0.1/s  ETA 0.0h
+[    201/201] SRR33510057  11.6% classified  | 0.1/s  ETA 0.0h
+
+─[    202/202] ERR4352135  8.4% classified  | 0.0/s  ETA 0.0h
+
+── Summary ────────────────────────────────────────
+  Classified: 202
+  Errors:     0
+  Elapsed:    1.1h
+  Cache:      kraken/output/run/assign/data/kraken_cache.jsonl

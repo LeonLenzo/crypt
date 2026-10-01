@@ -1,0 +1,3 @@
+task 5/8  candidate raw files: 359  threads=32
+  [orphan   ] ERR10886911_2.fastq has no .gz, compressing
+  [ok       ] ERR10886911_2.fastq.gz  21G -> 3.9G  in 119s

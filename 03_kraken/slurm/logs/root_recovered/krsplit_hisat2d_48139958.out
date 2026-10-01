@@ -1,0 +1,12 @@
+Distinct host taxids named across 5 runs: 1
+Host genomes: 1 already resolved (from a prior run), 0 to fetch …
+
+Building hisat2 indices for 1 distinct host taxids (4 workers) …
+  [1/1] built=0 cached=1 failed=0  (0s)
+Index build complete: 0 built, 1 already cached, 0 failed
+
+Splitting 5 runs against their candidate host hisat2 indices (4 workers) …
+  [5/5] {'ok': 5}  (2059s)
+
+Output: kraken/output/run/split/data/split_results.tsv
+Next: python kraken/run/kraken_run_assign.py

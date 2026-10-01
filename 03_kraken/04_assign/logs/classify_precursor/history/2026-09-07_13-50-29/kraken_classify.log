@@ -1,0 +1,19 @@
+Reads will be archived (gzipped) to: kraken/output/run/select/data/reads
+Loaded 5 runs from ground_truth_runs.txt
+
+Total runs: 5 | Already done: 0 | Remaining: 5
+Settings: n_reads=500,000, confidence=0.15, min_hit_groups=3, workers=5, kraken_threads=4
+DB: kraken/output/db/build/data/db_v2
+Tmp: /scratch/fl3/llenzo/kraken_tmp
+
+[      1/5] ERR3170248  62.9% classified  | 0.0/s  ETA 0.1h
+[      2/5] ERR3170256  56.3% classified  | 0.0/s  ETA 0.1h
+[      3/5] ERR3188443  43.9% classified  | 0.0/s  ETA 0.0h
+[      4/5] ERR3170234  59.4% classified  | 0.0/s  ETA 0.0h
+[      5/5] ERR3170229  71.0% classified  | 0.0/s  ETA 0.0h
+
+── Summary ────────────────────────────────────────
+  Classified: 5
+  Errors:     0
+  Elapsed:    0.1h
+  Cache:      kraken/output/run/classify/data/kraken_cache.jsonl

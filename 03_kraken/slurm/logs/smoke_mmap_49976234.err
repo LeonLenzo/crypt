@@ -1,0 +1,9 @@
+usage: kraken_assign.py [-h] [--runs-tsv PATH] [--run-list PATH]
+                        [--biosample-rep] [--hc] --db DB [--out-dir OUT_DIR]
+                        [--workers WORKERS] [--kraken-threads KRAKEN_THREADS]
+                        [--tmp-dir TMP_DIR] --reads-dir READS_DIR
+                        [--memory-mapping] [--reports-dir REPORTS_DIR]
+                        [--limit LIMIT] [--array-id ARRAY_ID]
+                        [--array-count ARRAY_COUNT]
+kraken_assign.py: error: unrecognized arguments: \
+/var/spool/slurmd/job49976234/slurm_script: line 28: --workers: command not found

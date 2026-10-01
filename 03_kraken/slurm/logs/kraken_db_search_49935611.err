@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/scratch/pawsey1168/llenzo/crypt/kraken/db/kraken_db_search.py", line 1042, in <module>
+    main()
+  File "/scratch/pawsey1168/llenzo/crypt/kraken/db/kraken_db_search.py", line 995, in main
+    db  = json.load(open(DB_PATH))
+                    ^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'stat/output/stat_build/data/phibase_db.json'

@@ -1,0 +1,1 @@
+FATAL:   While checking container encryption: could not open image /scratch/pawsey1168/llenzo/containers/busco_v5.7.0.sif: failed to retrieve path for /scratch/pawsey1168/llenzo/containers/busco_v5.7.0.sif: lstat /scratch/pawsey1168/llenzo/containers: no such file or directory

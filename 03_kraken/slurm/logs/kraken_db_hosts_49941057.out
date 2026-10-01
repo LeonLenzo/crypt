@@ -1,0 +1,10 @@
+Starting host selection + download: Thu Sep 24 01:52:08 PM AWST 2026
+Using committed selection: kraken/output/db/search/data/host_candidates.tsv (95 rows). --reselect to regenerate.
+
+Downloading host CDS → kraken/output/db/search/data/cds/host
+  [5/95] ok=5 fail=0  [10/95] ok=10 fail=0  [15/95] ok=15 fail=0  [20/95] ok=20 fail=0  [25/95] ok=25 fail=0  [30/95] ok=30 fail=0  [35/95] ok=35 fail=0  [40/95] ok=40 fail=0  [45/95] ok=45 fail=0  [50/95] ok=50 fail=0  [55/95] ok=55 fail=0  [60/95] ok=60 fail=0  [13:53:13] GCA_050043575.1  download FAILED (rc=1)
+  [65/95] ok=64 fail=1  [70/95] ok=69 fail=1  [75/95] ok=74 fail=1  [80/95] ok=79 fail=1  [85/95] ok=84 fail=1  [90/95] ok=89 fail=1  [13:53:35] GCA_050043575.1  download FAILED (rc=1)
+  [95/95] ok=93 fail=2
+  Host CDS: 93 ok, 2 failed
+Host download complete: Thu Sep 24 01:54:47 PM AWST 2026
+Next: sbatch kraken/slurm/kraken_db_build.slurm

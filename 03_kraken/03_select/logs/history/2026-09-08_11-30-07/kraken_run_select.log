@@ -1,0 +1,6 @@
+Target BioSamples: 100 (settings=['field'], cryptic_only=False, aerial_only=True)
+Host resolution: 80 confidently resolved, 20 not per-sample-resolved (still covered by per-candidate indices below as long as their true host is a named candidate)
+Per-taxid host indices needed: 29 distinct taxids (resolved+downloaded by kraken_run_split.py, not here)
+Runs to process: 133
+
+Downloading reads for 133 runs …

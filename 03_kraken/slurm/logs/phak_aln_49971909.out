@@ -1,0 +1,27 @@
+=== combined tagged reference Fri Sep 25 10:03:45 AM AWST 2026 ===
+37833
+49163
+=== map 248,504 Phakopsora-called read pairs Fri Sep 25 10:04:46 AM AWST 2026 ===
+--- flagstat ---
+533669 + 0 in total (QC-passed reads + QC-failed reads)
+497008 + 0 primary
+0 + 0 secondary
+36661 + 0 supplementary
+0 + 0 duplicates
+0 + 0 primary duplicates
+505653 + 0 mapped (94.75% : N/A)
+468992 + 0 primary mapped (94.36% : N/A)
+497008 + 0 paired in sequencing
+248504 + 0 read1
+248504 + 0 read2
+268488 + 0 properly paired (54.02% : N/A)
+440976 + 0 with itself and mate mapped
+28016 + 0 singletons (5.64% : N/A)
+166830 + 0 with mate mapped to a different chr
+116337 + 0 with mate mapped to a different chr (mapQ>=5)
+--- primary alignments: reference species x confidence ---
+ 249028 PHAK ambiguous(MAPQ<20)
+ 256604 PHAK unique(MAPQ>=20)
+     18 PSTR ambiguous(MAPQ<20)
+      3 PSTR unique(MAPQ>=20)
+=== DONE Fri Sep 25 10:04:55 AM AWST 2026 ===

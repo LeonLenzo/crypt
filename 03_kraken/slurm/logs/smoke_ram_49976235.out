@@ -1,0 +1,24 @@
+host=nid001599 job=49976235 config=ram
+               total        used        free      shared  buff/cache   available
+Mem:             250           9         241           3           4         241
+Reads read from: kraken/select/data/reads
+Raw kraken2 reports will be saved to: kraken/assign/smoke_ram/reports
+Loaded 5 runs from kraken/assign/data/ground_truth_runs.txt
+
+Total runs: 5 | Already done: 0 | Remaining: 5
+Settings: confidence=0.15, min_hit_groups=3, workers=4, kraken_threads=8
+DB: kraken/build/data/db_v3
+Tmp: /scratch/fl3/llenzo/kraken_tmp
+
+[      1/5] ERR3170248  80.0% classified  | 0.0/s  ETA 0.1h
+[      2/5] ERR3170234  70.8% classified  | 0.0/s  ETA 0.1h
+[      3/5] ERR3170229  82.3% classified  | 0.0/s  ETA 0.0h
+[      4/5] ERR3188443  80.7% classified  | 0.0/s  ETA 0.0h
+[      5/5] ERR3170256  76.6% classified  | 0.0/s  ETA 0.0h
+
+── Summary ────────────────────────────────────────
+  Classified: 5
+  Errors:     0
+  Elapsed:    0.1h
+  Cache:      kraken/assign/smoke_ram/data/kraken_cache.jsonl
+=== CONFIG ram WALL-CLOCK: 200s ===

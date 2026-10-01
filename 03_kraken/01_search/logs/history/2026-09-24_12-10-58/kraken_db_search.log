@@ -1,0 +1,90 @@
+Downloading from kraken/output/db/search/data/ref_candidates.tsv as selected: 2,063 candidates, 1,997 with CDS
+
+Downloading CDS for 1,997 candidates → kraken/output/db/search/data/cds/pathogen
+  [12:10:59] [25/1997] ok=25 (cached=0) fail=0  rate=692.8/s
+  [12:11:06] [50/1997] ok=50 (cached=0) fail=0  rate=6.7/s
+  [12:11:06] [75/1997] ok=75 (cached=0) fail=0  rate=10.0/s
+  [12:11:22] [100/1997] ok=100 (cached=0) fail=0  rate=4.2/s
+  [12:11:44] [125/1997] ok=125 (cached=0) fail=0  rate=2.7/s
+  [12:12:04] [150/1997] ok=150 (cached=0) fail=0  rate=2.3/s
+  [12:12:26] [175/1997] ok=175 (cached=0) fail=0  rate=2.0/s
+  [12:12:49] [200/1997] ok=200 (cached=0) fail=0  rate=1.8/s
+  [12:13:09] [225/1997] ok=225 (cached=0) fail=0  rate=1.7/s
+  [12:13:33] [250/1997] ok=250 (cached=0) fail=0  rate=1.6/s
+  [12:13:51] [275/1997] ok=275 (cached=0) fail=0  rate=1.6/s
+  [12:14:13] [300/1997] ok=300 (cached=0) fail=0  rate=1.5/s
+  [12:14:30] [325/1997] ok=325 (cached=0) fail=0  rate=1.5/s
+  [12:14:47] [350/1997] ok=350 (cached=0) fail=0  rate=1.5/s
+  [12:15:06] [375/1997] ok=375 (cached=0) fail=0  rate=1.5/s
+  [12:15:07] [400/1997] ok=400 (cached=0) fail=0  rate=1.6/s
+  [12:15:07] [425/1997] ok=425 (cached=0) fail=0  rate=1.7/s
+  [12:15:14] [450/1997] ok=450 (cached=0) fail=0  rate=1.8/s
+  [12:15:37] [475/1997] ok=475 (cached=0) fail=0  rate=1.7/s
+  [12:15:56] [500/1997] ok=500 (cached=0) fail=0  rate=1.7/s
+  [12:16:17] [525/1997] ok=525 (cached=0) fail=0  rate=1.6/s
+  [12:16:38] [550/1997] ok=550 (cached=0) fail=0  rate=1.6/s
+  [12:16:46] [575/1997] ok=575 (cached=0) fail=0  rate=1.7/s
+  [12:16:46] [600/1997] ok=600 (cached=0) fail=0  rate=1.7/s
+  [12:16:46] [625/1997] ok=625 (cached=0) fail=0  rate=1.8/s
+  [12:16:46] [650/1997] ok=650 (cached=0) fail=0  rate=1.9/s
+  [12:16:46] [675/1997] ok=675 (cached=0) fail=0  rate=1.9/s
+  [12:17:07] [700/1997] ok=700 (cached=0) fail=0  rate=1.9/s
+  [12:17:26] [725/1997] ok=725 (cached=0) fail=0  rate=1.9/s
+  [12:17:45] [750/1997] ok=750 (cached=0) fail=0  rate=1.8/s
+  [12:18:03] [775/1997] ok=775 (cached=0) fail=0  rate=1.8/s
+  [12:18:28] [800/1997] ok=800 (cached=0) fail=0  rate=1.8/s
+  [12:18:48] [825/1997] ok=825 (cached=0) fail=0  rate=1.8/s
+  [12:19:08] [850/1997] ok=850 (cached=0) fail=0  rate=1.7/s
+  [12:19:32] [875/1997] ok=875 (cached=0) fail=0  rate=1.7/s
+  [12:19:52] [900/1997] ok=900 (cached=0) fail=0  rate=1.7/s
+  [12:20:14] [925/1997] ok=925 (cached=0) fail=0  rate=1.7/s
+  [12:20:33] [950/1997] ok=950 (cached=0) fail=0  rate=1.7/s
+  [12:20:52] [975/1997] ok=975 (cached=0) fail=0  rate=1.6/s
+  [12:21:07] [1000/1997] ok=1000 (cached=0) fail=0  rate=1.6/s
+  [12:21:27] [1025/1997] ok=1024 (cached=0) fail=1  rate=1.6/s
+  [12:21:47] [1050/1997] ok=1049 (cached=0) fail=1  rate=1.6/s
+  [12:22:07] [1075/1997] ok=1074 (cached=0) fail=1  rate=1.6/s
+  [12:22:29] [1100/1997] ok=1099 (cached=0) fail=1  rate=1.6/s
+  [12:22:53] [1125/1997] ok=1124 (cached=0) fail=1  rate=1.6/s
+  [12:22:58] GCF_003025105.1  download FAILED (rc=1)
+  [12:23:13] [1150/1997] ok=1148 (cached=0) fail=2  rate=1.6/s
+  [12:23:29] [1175/1997] ok=1173 (cached=0) fail=2  rate=1.6/s
+  [12:23:46] [1200/1997] ok=1198 (cached=0) fail=2  rate=1.6/s
+  [12:24:04] [1225/1997] ok=1223 (cached=0) fail=2  rate=1.6/s
+  [12:24:04] [1250/1997] ok=1248 (cached=0) fail=2  rate=1.6/s
+  [12:24:04] [1275/1997] ok=1273 (cached=0) fail=2  rate=1.6/s
+  [12:24:04] [1300/1997] ok=1298 (cached=0) fail=2  rate=1.7/s
+  [12:24:04] [1325/1997] ok=1323 (cached=0) fail=2  rate=1.7/s
+  [12:24:05] [1350/1997] ok=1348 (cached=0) fail=2  rate=1.7/s
+  [12:24:05] [1375/1997] ok=1373 (cached=0) fail=2  rate=1.7/s
+  [12:24:05] [1400/1997] ok=1398 (cached=0) fail=2  rate=1.8/s
+  [12:24:17] [1425/1997] ok=1423 (cached=0) fail=2  rate=1.8/s
+  [12:24:18] [1450/1997] ok=1448 (cached=0) fail=2  rate=1.8/s
+  [12:24:19] [1475/1997] ok=1473 (cached=0) fail=2  rate=1.8/s
+  [12:24:19] [1500/1997] ok=1498 (cached=0) fail=2  rate=1.9/s
+  [12:24:20] [1525/1997] ok=1523 (cached=0) fail=2  rate=1.9/s
+  [12:24:21] [1550/1997] ok=1548 (cached=0) fail=2  rate=1.9/s
+  [12:24:21] [1575/1997] ok=1573 (cached=0) fail=2  rate=2.0/s
+  [12:24:21] [1600/1997] ok=1598 (cached=0) fail=2  rate=2.0/s
+  [12:24:21] [1625/1997] ok=1623 (cached=0) fail=2  rate=2.0/s
+  [12:24:21] [1650/1997] ok=1648 (cached=0) fail=2  rate=2.1/s
+  [12:24:22] [1675/1997] ok=1673 (cached=0) fail=2  rate=2.1/s
+  [12:24:22] [1700/1997] ok=1698 (cached=0) fail=2  rate=2.1/s
+  [12:24:22] [1725/1997] ok=1723 (cached=0) fail=2  rate=2.1/s
+  [12:24:23] [1750/1997] ok=1748 (cached=0) fail=2  rate=2.2/s
+  [12:24:23] [1775/1997] ok=1773 (cached=0) fail=2  rate=2.2/s
+  [12:24:23] [1800/1997] ok=1798 (cached=0) fail=2  rate=2.2/s
+  [12:24:23] [1825/1997] ok=1823 (cached=0) fail=2  rate=2.3/s
+  [12:24:24] [1850/1997] ok=1848 (cached=0) fail=2  rate=2.3/s
+  [12:24:24] [1875/1997] ok=1873 (cached=0) fail=2  rate=2.3/s
+  [12:24:24] [1900/1997] ok=1898 (cached=0) fail=2  rate=2.4/s
+  [12:24:32] [1925/1997] ok=1922 (cached=0) fail=3  rate=2.4/s
+  [12:24:37] [1950/1997] ok=1947 (cached=0) fail=3  rate=2.4/s
+  [12:24:37] [1975/1997] ok=1972 (cached=0) fail=3  rate=2.4/s
+  [12:24:53] [1997/1997] ok=1994 (cached=0) fail=3  rate=2.4/s
+
+── Download summary ─────────────────────────────────────────────
+  Downloaded/cached OK: 1,994  (already on disk: 0)
+  Failed:               3
+
+Next: python kraken/db/kraken_db_busco.py

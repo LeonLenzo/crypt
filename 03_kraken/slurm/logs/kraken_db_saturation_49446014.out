@@ -1,0 +1,5 @@
+host        : nid001146
+job         : 49446014
+genomes dir : /scratch/pawsey1168/llenzo/crypt/kraken/output/db/search/data/cds/pathogen
+python      : 3.11.7 numpy 1.24.4
+

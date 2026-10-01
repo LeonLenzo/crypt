@@ -1,0 +1,1229 @@
+Target BioSamples: 2719 (settings=['field'], cryptic_only=False, aerial_only=True)
+Host resolution: 2143 confidently resolved, 576 not per-sample-resolved (still covered by per-candidate indices below as long as their true host is a named candidate)
+Per-taxid host indices needed: 111 distinct taxids (resolved+downloaded by kraken_run_split.py, not here)
+Runs to process: 3225
+
+Downloading reads for 3225 runs (8 concurrent workers) …
+  [start ] ERR3170278
+  [start ] ERR3188475
+  [start ] ERR3170246
+  [start ] ERR3170203
+  [1/3225] ok=0 cached=1 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] ERR3188462
+  [start ] ERR3188476
+  [2/3225] ok=0 cached=2 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [start ] ERR3170261
+  [start ] ERR3170233
+  [3/3225] ok=0 cached=3 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [4/3225] ok=0 cached=4 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [5/3225] ok=0 cached=5 fail=0  0.0GB total (0min elapsed, ~n/a remaining)
+  [done  ] ERR3170246  2.91GB in 1246s (2.3 MB/s)
+  [6/3225] ok=1 cached=5 fail=0  2.9GB total (21min elapsed, ~139.2hr remaining)
+  [start ] ERR3188464
+  [done  ] ERR3170261  4.29GB in 1661s (2.6 MB/s)
+  [7/3225] ok=2 cached=5 fail=0  7.2GB total (28min elapsed, ~162.4hr remaining)
+  [start ] ERR3170205
+  [done  ] ERR3170203  3.42GB in 1754s (2.0 MB/s)
+  [8/3225] ok=3 cached=5 fail=0  10.6GB total (29min elapsed, ~173.5hr remaining)
+  [start ] ERR3170241
+  [done  ] ERR3188475  3.36GB in 1790s (1.9 MB/s)
+  [9/3225] ok=4 cached=5 fail=0  14.0GB total (30min elapsed, ~180.1hr remaining)
+  [start ] ERR3188440
+  [done  ] ERR3188476  3.50GB in 1888s (1.9 MB/s)
+  [10/3225] ok=5 cached=5 fail=0  17.5GB total (31min elapsed, ~186.2hr remaining)
+  [start ] ERR3170272
+  [done  ] ERR3170233  3.86GB in 1981s (2.0 MB/s)
+  [11/3225] ok=6 cached=5 fail=0  21.3GB total (33min elapsed, ~192.0hr remaining)
+  [start ] ERR3188432
+  [done  ] ERR3188462  3.98GB in 2206s (1.8 MB/s)
+  [12/3225] ok=7 cached=5 fail=0  25.3GB total (37min elapsed, ~199.6hr remaining)
+  [start ] ERR3170255
+  [done  ] ERR3170278  6.83GB in 2731s (2.5 MB/s)
+  [13/3225] ok=8 cached=5 fail=0  32.2GB total (46min elapsed, ~212.7hr remaining)
+  [start ] ERR3170277
+  [done  ] ERR3188464  3.32GB in 1608s (2.1 MB/s)
+  [14/3225] ok=9 cached=5 fail=0  35.5GB total (48min elapsed, ~208.9hr remaining)
+  [start ] ERR3170180
+  [done  ] ERR3170241  2.89GB in 1137s (2.5 MB/s)
+  [15/3225] ok=10 cached=5 fail=0  38.4GB total (48min elapsed, ~200.7hr remaining)
+  [start ] ERR3170244
+  [done  ] ERR3170205  3.35GB in 1650s (2.0 MB/s)
+  [16/3225] ok=11 cached=5 fail=0  41.7GB total (55min elapsed, ~199.1hr remaining)
+  [start ] ERR3188455
+  [done  ] ERR3170272  3.86GB in 1478s (2.6 MB/s)
+  [17/3225] ok=12 cached=5 fail=0  45.6GB total (56min elapsed, ~196.1hr remaining)
+  [start ] ERR3188434
+  [done  ] ERR3188440  3.80GB in 1909s (2.0 MB/s)
+  [18/3225] ok=13 cached=5 fail=0  49.4GB total (62min elapsed, ~197.4hr remaining)
+  [start ] ERR3170242
+  [done  ] ERR3170255  3.66GB in 1532s (2.4 MB/s)
+  [19/3225] ok=14 cached=5 fail=0  53.0GB total (62min elapsed, ~195.4hr remaining)
+  [start ] ERR3188436
+  [done  ] ERR3188432  4.50GB in 2252s (2.0 MB/s)
+  [20/3225] ok=15 cached=5 fail=0  57.5GB total (71min elapsed, ~199.0hr remaining)
+  [start ] ERR3188461
+  [done  ] ERR3170244  3.63GB in 1403s (2.6 MB/s)
+  [21/3225] ok=16 cached=5 fail=0  61.2GB total (72min elapsed, ~196.3hr remaining)
+  [start ] ERR3170264
+  [done  ] ERR3170277  4.28GB in 1703s (2.5 MB/s)
+  [22/3225] ok=17 cached=5 fail=0  65.5GB total (74min elapsed, ~195.8hr remaining)
+  [start ] ERR3170179
+  [done  ] ERR3170180  3.68GB in 1920s (1.9 MB/s)
+  [23/3225] ok=18 cached=5 fail=0  69.1GB total (80min elapsed, ~196.7hr remaining)
+  [start ] ERR3170251
+  [done  ] ERR3170242  3.15GB in 1210s (2.6 MB/s)
+  [24/3225] ok=19 cached=5 fail=0  72.3GB total (82min elapsed, ~193.4hr remaining)
+  [start ] ERR3170195
+  [done  ] ERR3188455  3.87GB in 1929s (2.0 MB/s)
+  [25/3225] ok=20 cached=5 fail=0  76.2GB total (87min elapsed, ~194.4hr remaining)
+  [start ] ERR3188479
+  [done  ] ERR3188434  3.90GB in 2131s (1.8 MB/s)
+  [26/3225] ok=21 cached=5 fail=0  80.1GB total (92min elapsed, ~196.3hr remaining)
+  [start ] ERR3188442
+  [done  ] ERR3188436  4.30GB in 2345s (1.8 MB/s)
+  [27/3225] ok=22 cached=5 fail=0  84.4GB total (101min elapsed, ~199.2hr remaining)
+  [start ] ERR3170209
+  [done  ] ERR3188461  3.99GB in 1991s (2.0 MB/s)
+  [28/3225] ok=23 cached=5 fail=0  88.4GB total (104min elapsed, ~200.1hr remaining)
+  [start ] ERR3170188
+  [done  ] ERR3170251  3.92GB in 1506s (2.6 MB/s)
+  [29/3225] ok=24 cached=5 fail=0  92.3GB total (105min elapsed, ~198.7hr remaining)
+  [start ] ERR3188469
+  [done  ] ERR3170264  4.93GB in 2011s (2.5 MB/s)
+  [30/3225] ok=25 cached=5 fail=0  97.2GB total (105min elapsed, ~199.6hr remaining)
+  [start ] ERR3188480
+  [done  ] ERR3170179  3.90GB in 1901s (2.1 MB/s)
+  [31/3225] ok=26 cached=5 fail=0  101.1GB total (106min elapsed, ~199.9hr remaining)
+  [start ] ERR3188451
+  [done  ] ERR3170195  3.93GB in 2106s (1.9 MB/s)
+  [32/3225] ok=27 cached=5 fail=0  105.0GB total (117min elapsed, ~201.1hr remaining)
+  [start ] ERR3170224
+  [done  ] ERR3188479  4.39GB in 2151s (2.0 MB/s)
+  [33/3225] ok=28 cached=5 fail=0  109.4GB total (123min elapsed, ~202.4hr remaining)
+  [start ] ERR3188452
+  [done  ] ERR3188442  3.82GB in 2009s (1.9 MB/s)
+  [34/3225] ok=29 cached=5 fail=0  113.2GB total (125min elapsed, ~203.0hr remaining)
+  [start ] ERR3188465
+  [done  ] ERR3170209  3.44GB in 1693s (2.0 MB/s)
+  [35/3225] ok=30 cached=5 fail=0  116.7GB total (130min elapsed, ~202.5hr remaining)
+  [start ] ERR3170275
+  [done  ] ERR3170188  3.89GB in 1869s (2.1 MB/s)
+  [36/3225] ok=31 cached=5 fail=0  120.6GB total (135min elapsed, ~202.5hr remaining)
+  [start ] ERR3170274
+  [done  ] ERR3188469  3.90GB in 1939s (2.0 MB/s)
+  [37/3225] ok=32 cached=5 fail=0  124.5GB total (137min elapsed, ~202.9hr remaining)
+  [start ] ERR3188460
+  [done  ] ERR3188451  4.17GB in 2072s (2.0 MB/s)
+  [38/3225] ok=33 cached=5 fail=0  128.6GB total (140min elapsed, ~203.6hr remaining)
+  [start ] ERR3170239
+  [done  ] ERR3188480  4.15GB in 2110s (2.0 MB/s)
+  [39/3225] ok=34 cached=5 fail=0  132.8GB total (140min elapsed, ~204.4hr remaining)
+  [start ] ERR3188444
+  [done  ] ERR3170224  3.70GB in 1847s (2.0 MB/s)
+  [40/3225] ok=35 cached=5 fail=0  136.5GB total (148min elapsed, ~204.3hr remaining)
+  [start ] ERR3188468
+  [done  ] ERR3188452  3.45GB in 1722s (2.0 MB/s)
+  [41/3225] ok=36 cached=5 fail=0  139.9GB total (152min elapsed, ~203.9hr remaining)
+  [start ] ERR3170197
+  [done  ] ERR3170274  3.74GB in 1365s (2.7 MB/s)
+  [42/3225] ok=37 cached=5 fail=0  143.7GB total (158min elapsed, ~202.4hr remaining)
+  [start ] ERR3170252
+  [done  ] ERR3188465  4.17GB in 2217s (1.9 MB/s)
+  [43/3225] ok=38 cached=5 fail=0  147.8GB total (162min elapsed, ~203.5hr remaining)
+  [start ] ERR3170265
+  [done  ] ERR3170275  5.14GB in 2022s (2.5 MB/s)
+  [44/3225] ok=39 cached=5 fail=0  153.0GB total (163min elapsed, ~203.9hr remaining)
+  [start ] ERR3188445
+  [done  ] ERR3188460  3.79GB in 1875s (2.0 MB/s)
+  [45/3225] ok=40 cached=5 fail=0  156.8GB total (168min elapsed, ~203.9hr remaining)
+  [start ] ERR3170199
+  [done  ] ERR3170239  4.58GB in 1803s (2.5 MB/s)
+  [46/3225] ok=41 cached=5 fail=0  161.4GB total (170min elapsed, ~203.7hr remaining)
+  [start ] ERR3188470
+  [done  ] ERR3188444  3.97GB in 1960s (2.0 MB/s)
+  [47/3225] ok=42 cached=5 fail=0  165.3GB total (173min elapsed, ~204.0hr remaining)
+  [start ] ERR3188439
+  [done  ] ERR3170252  3.57GB in 1435s (2.5 MB/s)
+  [48/3225] ok=43 cached=5 fail=0  168.9GB total (182min elapsed, ~202.8hr remaining)
+  [start ] ERR3188437
+  [done  ] ERR3170197  3.25GB in 1825s (1.8 MB/s)
+  [49/3225] ok=44 cached=5 fail=0  172.1GB total (182min elapsed, ~202.7hr remaining)
+  [start ] ERR3188467
+  [done  ] ERR3188468  4.74GB in 2349s (2.0 MB/s)
+  [50/3225] ok=45 cached=5 fail=0  176.9GB total (187min elapsed, ~203.9hr remaining)
+  [start ] ERR3188441
+  [done  ] ERR3188445  3.83GB in 1987s (1.9 MB/s)
+  [51/3225] ok=46 cached=5 fail=0  180.7GB total (196min elapsed, ~204.2hr remaining)
+  [start ] ERR3170212
+  [done  ] ERR3188470  3.51GB in 1764s (2.0 MB/s)
+  [52/3225] ok=47 cached=5 fail=0  184.2GB total (200min elapsed, ~203.9hr remaining)
+  [start ] ERR3188463
+  [done  ] ERR3170199  3.89GB in 1894s (2.1 MB/s)
+  [53/3225] ok=48 cached=5 fail=0  188.1GB total (200min elapsed, ~204.0hr remaining)
+  [start ] ERR3170190
+  [done  ] ERR3188439  3.71GB in 1837s (2.0 MB/s)
+  [54/3225] ok=49 cached=5 fail=0  191.8GB total (204min elapsed, ~203.9hr remaining)
+  [start ] ERR3188481
+  [done  ] ERR3170265  5.91GB in 2497s (2.4 MB/s)
+  [55/3225] ok=50 cached=5 fail=0  197.7GB total (204min elapsed, ~205.2hr remaining)
+  [start ] ERR3188453
+  [done  ] ERR3188467  3.74GB in 1853s (2.0 MB/s)
+  [56/3225] ok=51 cached=5 fail=0  201.5GB total (213min elapsed, ~205.1hr remaining)
+  [start ] ERR3170214
+  [done  ] ERR3188437  3.86GB in 1947s (2.0 MB/s)
+  [57/3225] ok=52 cached=5 fail=0  205.3GB total (214min elapsed, ~205.2hr remaining)
+  [start ] ERR3188450
+  [done  ] ERR3188441  3.96GB in 2032s (1.9 MB/s)
+  [58/3225] ok=53 cached=5 fail=0  209.3GB total (221min elapsed, ~205.5hr remaining)
+  [start ] ERR3170237
+  [done  ] ERR3170212  3.46GB in 1693s (2.0 MB/s)
+  [59/3225] ok=54 cached=5 fail=0  212.7GB total (225min elapsed, ~205.1hr remaining)
+  [start ] ERR3170219
+  [done  ] ERR3188453  3.33GB in 1752s (1.9 MB/s)
+  [60/3225] ok=55 cached=5 fail=0  216.1GB total (233min elapsed, ~204.8hr remaining)
+  [start ] ERR3170198
+  [done  ] ERR3188481  3.78GB in 1832s (2.1 MB/s)
+  [61/3225] ok=56 cached=5 fail=0  219.9GB total (234min elapsed, ~204.7hr remaining)
+  [start ] ERR3170185
+  [done  ] ERR3170190  4.31GB in 2090s (2.1 MB/s)
+  [62/3225] ok=57 cached=5 fail=0  224.2GB total (235min elapsed, ~205.1hr remaining)
+  [start ] ERR3188473
+  [done  ] ERR3188463  4.21GB in 2395s (1.8 MB/s)
+  [63/3225] ok=58 cached=5 fail=0  228.4GB total (240min elapsed, ~206.0hr remaining)
+  [start ] ERR3188435
+  [done  ] ERR3170214  3.20GB in 1621s (2.0 MB/s)
+  [64/3225] ok=59 cached=5 fail=0  231.6GB total (240min elapsed, ~205.4hr remaining)
+  [start ] ERR3188433
+  [done  ] ERR3170237  4.32GB in 1691s (2.6 MB/s)
+  [65/3225] ok=60 cached=5 fail=0  235.9GB total (249min elapsed, ~205.1hr remaining)
+  [start ] ERR3188477
+  [done  ] ERR3188450  4.39GB in 2181s (2.0 MB/s)
+  [66/3225] ok=61 cached=5 fail=0  240.3GB total (250min elapsed, ~205.5hr remaining)
+  [start ] ERR3170187
+  [done  ] ERR3170219  3.15GB in 1585s (2.0 MB/s)
+  [67/3225] ok=62 cached=5 fail=0  243.4GB total (251min elapsed, ~205.0hr remaining)
+  [start ] ERR3170258
+  [done  ] ERR3170185  4.20GB in 2017s (2.1 MB/s)
+  [68/3225] ok=63 cached=5 fail=0  247.6GB total (268min elapsed, ~205.2hr remaining)
+  [start ] ERR3170204
+  [done  ] ERR3188435  3.60GB in 1752s (2.1 MB/s)
+  [69/3225] ok=64 cached=5 fail=0  251.3GB total (269min elapsed, ~204.9hr remaining)
+  [start ] ERR3188474
+  [done  ] ERR3170198  4.59GB in 2226s (2.1 MB/s)
+  [70/3225] ok=65 cached=5 fail=0  255.8GB total (270min elapsed, ~205.4hr remaining)
+  [start ] ERR3170193
+  [done  ] ERR3188433  3.72GB in 1803s (2.1 MB/s)
+  [71/3225] ok=66 cached=5 fail=0  259.6GB total (270min elapsed, ~205.2hr remaining)
+  [start ] ERR3170207
+  [done  ] ERR3188473  4.42GB in 2522s (1.8 MB/s)
+  [72/3225] ok=67 cached=5 fail=0  264.0GB total (277min elapsed, ~206.2hr remaining)
+  [start ] ERR3170183
+  [done  ] ERR3170258  4.55GB in 1660s (2.7 MB/s)
+  [73/3225] ok=68 cached=5 fail=0  268.5GB total (279min elapsed, ~205.8hr remaining)
+  [start ] ERR3188478
+  [done  ] ERR3170187  3.70GB in 1782s (2.1 MB/s)
+  [74/3225] ok=69 cached=5 fail=0  272.2GB total (280min elapsed, ~205.6hr remaining)
+  [start ] ERR3188454
+  [done  ] ERR3188477  4.75GB in 2514s (1.9 MB/s)
+  [75/3225] ok=70 cached=5 fail=0  277.0GB total (291min elapsed, ~206.5hr remaining)
+  [start ] ERR3188466
+  [done  ] ERR3170193  3.53GB in 1755s (2.0 MB/s)
+  [76/3225] ok=71 cached=5 fail=0  280.5GB total (299min elapsed, ~206.2hr remaining)
+  [start ] ERR3170222
+  [done  ] ERR3170204  4.14GB in 2076s (2.0 MB/s)
+  [77/3225] ok=72 cached=5 fail=0  284.6GB total (302min elapsed, ~206.5hr remaining)
+  [start ] ERR3170213
+  [done  ] ERR3188474  4.47GB in 2239s (2.0 MB/s)
+  [78/3225] ok=73 cached=5 fail=0  289.1GB total (306min elapsed, ~206.9hr remaining)
+  [start ] ERR3170196
+  [done  ] ERR3188478  3.61GB in 1735s (2.1 MB/s)
+  [79/3225] ok=74 cached=5 fail=0  292.7GB total (308min elapsed, ~206.6hr remaining)
+  [start ] ERR3170225
+  [done  ] ERR3188454  3.53GB in 1777s (2.0 MB/s)
+  [80/3225] ok=75 cached=5 fail=0  296.3GB total (310min elapsed, ~206.4hr remaining)
+  [start ] ERR3170210
+  [done  ] ERR3170207  4.69GB in 2555s (1.8 MB/s)
+  [81/3225] ok=76 cached=5 fail=0  301.0GB total (313min elapsed, ~207.3hr remaining)
+  [start ] ERR3170227
+  [done  ] ERR3170183  4.80GB in 2310s (2.1 MB/s)
+  [82/3225] ok=77 cached=5 fail=0  305.8GB total (315min elapsed, ~207.8hr remaining)
+  [start ] ERR3170192
+  [done  ] ERR3188466  4.03GB in 2000s (2.0 MB/s)
+  [83/3225] ok=78 cached=5 fail=0  309.8GB total (324min elapsed, ~207.9hr remaining)
+  [start ] ERR3170263
+  [done  ] ERR3170213  3.41GB in 1675s (2.0 MB/s)
+  [84/3225] ok=79 cached=5 fail=0  313.2GB total (330min elapsed, ~207.5hr remaining)
+  [start ] ERR3188471
+  [failed] ERR3188471  (prefetch, 10s)
+  [85/3225] ok=79 cached=5 fail=1  313.2GB total (330min elapsed, ~207.4hr remaining)
+  [start ] ERR3170279
+  [done  ] ERR3170225  3.60GB in 1848s (1.9 MB/s)
+  [86/3225] ok=80 cached=5 fail=1  316.8GB total (338min elapsed, ~207.3hr remaining)
+  [start ] ERR3170235
+  [done  ] ERR3170222  4.46GB in 2464s (1.8 MB/s)
+  [87/3225] ok=81 cached=5 fail=1  321.3GB total (340min elapsed, ~208.0hr remaining)
+  [start ] ERR3170230
+  [done  ] ERR3170196  4.19GB in 2082s (2.0 MB/s)
+  [88/3225] ok=82 cached=5 fail=1  325.4GB total (341min elapsed, ~208.1hr remaining)
+  [start ] ERR3170202
+  [done  ] ERR3170210  3.84GB in 1878s (2.0 MB/s)
+  [89/3225] ok=83 cached=5 fail=1  329.3GB total (341min elapsed, ~208.0hr remaining)
+  [start ] ERR3170220
+  [done  ] ERR3170227  3.53GB in 1767s (2.0 MB/s)
+  [90/3225] ok=84 cached=5 fail=1  332.8GB total (342min elapsed, ~207.8hr remaining)
+  [start ] ERR3170273
+  [done  ] ERR3170192  3.59GB in 1844s (1.9 MB/s)
+  [91/3225] ok=85 cached=5 fail=1  336.4GB total (346min elapsed, ~207.6hr remaining)
+  [start ] ERR3170226
+  [done  ] ERR3170263  4.05GB in 1591s (2.5 MB/s)
+  [92/3225] ok=86 cached=5 fail=1  340.5GB total (351min elapsed, ~207.2hr remaining)
+  [start ] ERR3170201
+  [done  ] ERR3170279  3.26GB in 1270s (2.6 MB/s)
+  [93/3225] ok=87 cached=5 fail=1  343.7GB total (352min elapsed, ~206.3hr remaining)
+  [start ] ERR3170232
+  [done  ] ERR3170235  3.83GB in 1462s (2.6 MB/s)
+  [94/3225] ok=88 cached=5 fail=1  347.5GB total (363min elapsed, ~205.7hr remaining)
+  [start ] ERR3170231
+  [done  ] ERR3170273  3.49GB in 1261s (2.8 MB/s)
+  [95/3225] ok=89 cached=5 fail=1  351.0GB total (363min elapsed, ~204.9hr remaining)
+  [start ] ERR3170211
+  [done  ] ERR3170202  3.16GB in 1559s (2.0 MB/s)
+  [96/3225] ok=90 cached=5 fail=1  354.2GB total (367min elapsed, ~204.4hr remaining)
+  [start ] ERR3170236
+  [done  ] ERR3170226  3.16GB in 1584s (2.0 MB/s)
+  [97/3225] ok=91 cached=5 fail=1  357.4GB total (372min elapsed, ~204.0hr remaining)
+  [start ] ERR3188438
+  [done  ] ERR3170230  3.59GB in 1925s (1.9 MB/s)
+  [98/3225] ok=92 cached=5 fail=1  360.9GB total (372min elapsed, ~204.0hr remaining)
+  [start ] ERR3170262
+  [done  ] ERR3170220  4.12GB in 2007s (2.1 MB/s)
+  [99/3225] ok=93 cached=5 fail=1  365.1GB total (374min elapsed, ~204.1hr remaining)
+  [start ] ERR3170268
+  [done  ] ERR3170232  3.46GB in 1699s (2.0 MB/s)
+  [100/3225] ok=94 cached=5 fail=1  368.5GB total (380min elapsed, ~203.8hr remaining)
+  [start ] ERR3170269
+  [done  ] ERR3170201  3.73GB in 1845s (2.0 MB/s)
+  [101/3225] ok=95 cached=5 fail=1  372.3GB total (381min elapsed, ~203.7hr remaining)
+  [start ] ERR3170276
+  [done  ] ERR3170231  3.35GB in 1707s (2.0 MB/s)
+  [102/3225] ok=96 cached=5 fail=1  375.6GB total (391min elapsed, ~203.4hr remaining)
+  [start ] ERR3170181
+  [done  ] ERR3170236  4.13GB in 1600s (2.6 MB/s)
+  [103/3225] ok=97 cached=5 fail=1  379.7GB total (393min elapsed, ~203.0hr remaining)
+  [start ] ERR3188447
+  [done  ] ERR3170268  3.24GB in 1226s (2.6 MB/s)
+  [104/3225] ok=98 cached=5 fail=1  383.0GB total (395min elapsed, ~202.3hr remaining)
+  [start ] ERR3170266
+  [done  ] ERR3170211  4.12GB in 2063s (2.0 MB/s)
+  [105/3225] ok=99 cached=5 fail=1  387.1GB total (398min elapsed, ~202.4hr remaining)
+  [start ] ERR3188446
+  [done  ] ERR3170262  4.33GB in 1581s (2.7 MB/s)
+  [106/3225] ok=100 cached=5 fail=1  391.4GB total (399min elapsed, ~202.0hr remaining)
+  [start ] ERR3170217
+  [done  ] ERR3170269  3.66GB in 1290s (2.8 MB/s)
+  [107/3225] ok=101 cached=5 fail=1  395.1GB total (401min elapsed, ~201.4hr remaining)
+  [start ] ERR3188483
+  [done  ] ERR3170276  3.25GB in 1234s (2.6 MB/s)
+  [108/3225] ok=102 cached=5 fail=1  398.3GB total (402min elapsed, ~200.6hr remaining)
+  [start ] ERR3170257
+  [done  ] ERR3188438  4.59GB in 2250s (2.0 MB/s)
+  [109/3225] ok=103 cached=5 fail=1  402.9GB total (410min elapsed, ~201.0hr remaining)
+  [start ] ERR3188457
+  [done  ] ERR3170266  3.02GB in 1108s (2.7 MB/s)
+  [110/3225] ok=104 cached=5 fail=1  406.0GB total (413min elapsed, ~200.1hr remaining)
+  [start ] ERR3170243
+  [done  ] ERR3170257  3.00GB in 1141s (2.6 MB/s)
+  [111/3225] ok=105 cached=5 fail=1  409.0GB total (421min elapsed, ~199.3hr remaining)
+  [start ] ERR3170267
+  [done  ] ERR3170181  3.84GB in 1849s (2.1 MB/s)
+  [112/3225] ok=106 cached=5 fail=1  412.8GB total (422min elapsed, ~199.3hr remaining)
+  [start ] ERR3170194
+  [done  ] ERR3188447  3.57GB in 1741s (2.1 MB/s)
+  [113/3225] ok=107 cached=5 fail=1  416.4GB total (422min elapsed, ~199.1hr remaining)
+  [start ] ERR3188431
+  [done  ] ERR3188483  4.31GB in 1443s (3.0 MB/s)
+  [114/3225] ok=108 cached=5 fail=1  420.7GB total (425min elapsed, ~198.6hr remaining)
+  [start ] ERR3170254
+  [done  ] ERR3170217  3.76GB in 1815s (2.1 MB/s)
+  [115/3225] ok=109 cached=5 fail=1  424.4GB total (429min elapsed, ~198.6hr remaining)
+  [start ] ERR3170240
+  [done  ] ERR3170243  2.91GB in 1059s (2.7 MB/s)
+  [116/3225] ok=110 cached=5 fail=1  427.3GB total (431min elapsed, ~197.7hr remaining)
+  [start ] ERR3188472
+  [done  ] ERR3188446  4.50GB in 2170s (2.1 MB/s)
+  [117/3225] ok=111 cached=5 fail=1  431.8GB total (434min elapsed, ~198.0hr remaining)
+  [start ] ERR3170238
+  [done  ] ERR3170267  3.12GB in 1147s (2.7 MB/s)
+  [118/3225] ok=112 cached=5 fail=1  435.0GB total (440min elapsed, ~197.3hr remaining)
+  [start ] ERR3188459
+  [done  ] ERR3188457  4.08GB in 1950s (2.1 MB/s)
+  [119/3225] ok=113 cached=5 fail=1  439.0GB total (442min elapsed, ~197.3hr remaining)
+  [start ] ERR3188482
+  [done  ] ERR3170240  3.45GB in 1238s (2.8 MB/s)
+  [120/3225] ok=114 cached=5 fail=1  442.5GB total (450min elapsed, ~196.7hr remaining)
+  [start ] ERR3170223
+  [done  ] ERR3188431  3.67GB in 1726s (2.1 MB/s)
+  [121/3225] ok=115 cached=5 fail=1  446.2GB total (451min elapsed, ~196.5hr remaining)
+  [start ] ERR3170184
+  [done  ] ERR3170254  4.21GB in 1580s (2.7 MB/s)
+  [122/3225] ok=116 cached=5 fail=1  450.4GB total (452min elapsed, ~196.3hr remaining)
+  [start ] ERR3188449
+  [done  ] ERR3170194  4.32GB in 2046s (2.1 MB/s)
+  [123/3225] ok=117 cached=5 fail=1  454.7GB total (456min elapsed, ~196.4hr remaining)
+  [start ] ERR3170200
+  [done  ] ERR3188482  2.90GB in 1000s (2.9 MB/s)
+  [124/3225] ok=118 cached=5 fail=1  457.6GB total (459min elapsed, ~195.6hr remaining)
+  [start ] ERR3170189
+  [done  ] ERR3188472  3.97GB in 1919s (2.1 MB/s)
+  [125/3225] ok=119 cached=5 fail=1  461.6GB total (463min elapsed, ~195.6hr remaining)
+  [start ] ERR3170216
+  [done  ] ERR3170238  4.83GB in 1871s (2.6 MB/s)
+  [126/3225] ok=120 cached=5 fail=1  466.4GB total (465min elapsed, ~195.6hr remaining)
+  [start ] ERR3170249
+  [done  ] ERR3188459  4.20GB in 2023s (2.1 MB/s)
+  [127/3225] ok=121 cached=5 fail=1  470.6GB total (474min elapsed, ~195.7hr remaining)
+  [start ] ERR3170186
+  [done  ] ERR3170223  3.46GB in 1795s (1.9 MB/s)
+  [128/3225] ok=122 cached=5 fail=1  474.0GB total (480min elapsed, ~195.6hr remaining)
+  [start ] ERR3170191
+  [done  ] ERR3188449  3.50GB in 1704s (2.1 MB/s)
+  [129/3225] ok=123 cached=5 fail=1  477.5GB total (480min elapsed, ~195.5hr remaining)
+  [start ] ERR3170206
+  [done  ] ERR3170200  3.34GB in 1614s (2.1 MB/s)
+  [130/3225] ok=124 cached=5 fail=1  480.9GB total (483min elapsed, ~195.2hr remaining)
+  [start ] ERR3170228
+  [done  ] ERR3170249  3.04GB in 1135s (2.7 MB/s)
+  [131/3225] ok=125 cached=5 fail=1  483.9GB total (484min elapsed, ~194.6hr remaining)
+  [start ] ERR3188458
+  [done  ] ERR3170184  4.29GB in 2069s (2.1 MB/s)
+  [132/3225] ok=126 cached=5 fail=1  488.2GB total (486min elapsed, ~194.7hr remaining)
+  [start ] ERR3170221
+  [done  ] ERR3170189  3.58GB in 1713s (2.1 MB/s)
+  [133/3225] ok=127 cached=5 fail=1  491.8GB total (488min elapsed, ~194.6hr remaining)
+  [start ] ERR3170215
+  [done  ] ERR3170216  4.06GB in 2197s (1.8 MB/s)
+  [134/3225] ok=128 cached=5 fail=1  495.9GB total (500min elapsed, ~194.8hr remaining)
+  [start ] ERR3170182
+  [done  ] ERR3170206  3.30GB in 1495s (2.2 MB/s)
+  [135/3225] ok=129 cached=5 fail=1  499.2GB total (505min elapsed, ~194.5hr remaining)
+  [start ] ERR3170247
+  [done  ] ERR3170186  4.61GB in 2065s (2.2 MB/s)
+  [136/3225] ok=130 cached=5 fail=1  503.8GB total (508min elapsed, ~194.7hr remaining)
+  [start ] ERR3170245
+  [done  ] ERR3170191  4.07GB in 1817s (2.2 MB/s)
+  [137/3225] ok=131 cached=5 fail=1  507.8GB total (510min elapsed, ~194.6hr remaining)
+  [start ] ERR3188456
+  [done  ] ERR3170215  3.72GB in 1672s (2.2 MB/s)
+  [138/3225] ok=132 cached=5 fail=1  511.5GB total (515min elapsed, ~194.4hr remaining)
+  [start ] ERR3170259
+  [done  ] ERR3170221  4.08GB in 1862s (2.2 MB/s)
+  [139/3225] ok=133 cached=5 fail=1  515.6GB total (517min elapsed, ~194.4hr remaining)
+  [start ] ERR3170260
+  [done  ] ERR3188458  4.26GB in 2011s (2.1 MB/s)
+  [140/3225] ok=134 cached=5 fail=1  519.9GB total (517min elapsed, ~194.5hr remaining)
+  [start ] ERR3188448
+  [done  ] ERR3170228  4.53GB in 2088s (2.2 MB/s)
+  [141/3225] ok=135 cached=5 fail=1  524.4GB total (518min elapsed, ~194.6hr remaining)
+  [start ] ERR3170250
+  [done  ] ERR3170182  3.67GB in 1674s (2.2 MB/s)
+  [142/3225] ok=136 cached=5 fail=1  528.1GB total (527min elapsed, ~194.5hr remaining)
+  [start ] ERR3170218
+  [done  ] ERR3170247  3.81GB in 1377s (2.8 MB/s)
+  [143/3225] ok=137 cached=5 fail=1  531.9GB total (528min elapsed, ~194.1hr remaining)
+  [start ] ERR4315679
+  [done  ] ERR4315679  0.51GB in 197s (2.6 MB/s)
+  [144/3225] ok=138 cached=5 fail=1  532.4GB total (531min elapsed, ~192.7hr remaining)
+  [start ] ERR3170208
+  [done  ] ERR3170245  4.18GB in 1563s (2.7 MB/s)
+  [145/3225] ok=139 cached=5 fail=1  536.6GB total (534min elapsed, ~192.5hr remaining)
+  [start ] ERR3170253
+  [done  ] ERR3170260  3.59GB in 1317s (2.7 MB/s)
+  [146/3225] ok=140 cached=5 fail=1  540.2GB total (539min elapsed, ~192.1hr remaining)
+  [start ] ERR1607767
+  [done  ] ERR3170250  3.24GB in 1286s (2.5 MB/s)
+  [147/3225] ok=141 cached=5 fail=1  543.4GB total (539min elapsed, ~191.6hr remaining)
+  [start ] ERR1607848
+  [done  ] ERR3170259  4.20GB in 1521s (2.8 MB/s)
+  [148/3225] ok=142 cached=5 fail=1  547.6GB total (541min elapsed, ~191.4hr remaining)
+  [start ] ERR1607770
+  [done  ] ERR3188456  3.92GB in 1873s (2.1 MB/s)
+  [149/3225] ok=143 cached=5 fail=1  551.5GB total (541min elapsed, ~191.4hr remaining)
+  [start ] ERR1607794
+  [done  ] ERR3188448  3.49GB in 1697s (2.1 MB/s)
+  [150/3225] ok=144 cached=5 fail=1  555.0GB total (546min elapsed, ~191.2hr remaining)
+  [start ] ERR1607841
+  [done  ] ERR3170253  2.33GB in 864s (2.7 MB/s)
+  [151/3225] ok=145 cached=5 fail=1  557.4GB total (549min elapsed, ~190.5hr remaining)
+  [start ] ERR1607756
+  [done  ] ERR1607767  2.58GB in 951s (2.7 MB/s)
+  [152/3225] ok=146 cached=5 fail=1  559.9GB total (554min elapsed, ~189.8hr remaining)
+  [start ] ERR1607768
+  [done  ] ERR1607770  2.42GB in 874s (2.8 MB/s)
+  [153/3225] ok=147 cached=5 fail=1  562.4GB total (555min elapsed, ~189.1hr remaining)
+  [start ] ERR1607838
+  [done  ] ERR1607794  2.20GB in 877s (2.5 MB/s)
+  [154/3225] ok=148 cached=5 fail=1  564.6GB total (556min elapsed, ~188.4hr remaining)
+  [start ] ERR1607846
+  [done  ] ERR1607841  1.84GB in 705s (2.6 MB/s)
+  [155/3225] ok=149 cached=5 fail=1  566.4GB total (558min elapsed, ~187.6hr remaining)
+  [start ] ERR1607845
+  [done  ] ERR3170218  3.79GB in 1811s (2.1 MB/s)
+  [156/3225] ok=150 cached=5 fail=1  570.2GB total (558min elapsed, ~187.5hr remaining)
+  [start ] ERR1607730
+  [done  ] ERR3170208  4.07GB in 1919s (2.1 MB/s)
+  [157/3225] ok=151 cached=5 fail=1  574.3GB total (563min elapsed, ~187.6hr remaining)
+  [start ] ERR1607750
+  [done  ] ERR1607848  4.78GB in 1846s (2.6 MB/s)
+  [158/3225] ok=152 cached=5 fail=1  579.0GB total (570min elapsed, ~187.6hr remaining)
+  [start ] ERR1607754
+  [done  ] ERR1607756  3.86GB in 1472s (2.6 MB/s)
+  [159/3225] ok=153 cached=5 fail=1  582.9GB total (573min elapsed, ~187.3hr remaining)
+  [start ] ERR1607782
+  [done  ] ERR1607768  2.47GB in 1213s (2.0 MB/s)
+  [160/3225] ok=154 cached=5 fail=1  585.4GB total (575min elapsed, ~186.9hr remaining)
+  [start ] ERR1607749
+  [done  ] ERR1607845  2.92GB in 1152s (2.5 MB/s)
+  [161/3225] ok=155 cached=5 fail=1  588.3GB total (577min elapsed, ~186.4hr remaining)
+  [start ] ERR1607816
+  [done  ] ERR1607838  3.48GB in 1364s (2.6 MB/s)
+  [162/3225] ok=156 cached=5 fail=1  591.8GB total (578min elapsed, ~186.1hr remaining)
+  [start ] ERR1607757
+  [done  ] ERR1607750  2.86GB in 1409s (2.0 MB/s)
+  [163/3225] ok=157 cached=5 fail=1  594.6GB total (587min elapsed, ~185.8hr remaining)
+  [start ] ERR1607831
+  [done  ] ERR1607846  5.49GB in 2147s (2.6 MB/s)
+  [164/3225] ok=158 cached=5 fail=1  600.1GB total (591min elapsed, ~186.0hr remaining)
+  [start ] ERR1607825
+  [done  ] ERR1607754  4.09GB in 1549s (2.6 MB/s)
+  [165/3225] ok=159 cached=5 fail=1  604.2GB total (596min elapsed, ~185.8hr remaining)
+  [start ] ERR1607822
+  [done  ] ERR1607730  5.78GB in 2374s (2.4 MB/s)
+  [166/3225] ok=160 cached=5 fail=1  610.0GB total (597min elapsed, ~186.2hr remaining)
+  [start ] ERR1607766
+  [done  ] ERR1607749  2.80GB in 1369s (2.0 MB/s)
+  [167/3225] ok=161 cached=5 fail=1  612.8GB total (598min elapsed, ~185.8hr remaining)
+  [start ] ERR1607813
+  [done  ] ERR1607757  3.36GB in 1278s (2.6 MB/s)
+  [168/3225] ok=162 cached=5 fail=1  616.2GB total (599min elapsed, ~185.5hr remaining)
+  [start ] ERR1607812
+  [done  ] ERR1607816  3.70GB in 1439s (2.6 MB/s)
+  [169/3225] ok=163 cached=5 fail=1  619.9GB total (601min elapsed, ~185.2hr remaining)
+  [start ] ERR1607819
+  [done  ] ERR1607831  3.22GB in 1140s (2.8 MB/s)
+  [170/3225] ok=164 cached=5 fail=1  623.1GB total (606min elapsed, ~184.8hr remaining)
+  [start ] ERR1607760
+  [done  ] ERR1607782  4.82GB in 2008s (2.4 MB/s)
+  [171/3225] ok=165 cached=5 fail=1  627.9GB total (607min elapsed, ~184.9hr remaining)
+  [start ] ERR1607852
+  [done  ] ERR1607825  2.59GB in 1033s (2.5 MB/s)
+  [172/3225] ok=166 cached=5 fail=1  630.5GB total (609min elapsed, ~184.4hr remaining)
+  [start ] ERR1607821
+  [done  ] ERR1607813  1.94GB in 754s (2.6 MB/s)
+  [173/3225] ok=167 cached=5 fail=1  632.4GB total (610min elapsed, ~183.7hr remaining)
+  [start ] ERR1607799
+  [done  ] ERR1607766  2.48GB in 957s (2.6 MB/s)
+  [174/3225] ok=168 cached=5 fail=1  634.9GB total (613min elapsed, ~183.1hr remaining)
+  [start ] ERR1607843
+  [done  ] ERR1607822  3.23GB in 1235s (2.6 MB/s)
+  [175/3225] ok=169 cached=5 fail=1  638.1GB total (616min elapsed, ~182.8hr remaining)
+  [176/3225] ok=169 cached=6 fail=1  638.1GB total (616min elapsed, ~182.7hr remaining)
+  [start ] ERR1607762
+  [done  ] ERR1607812  3.76GB in 1577s (2.4 MB/s)
+  [177/3225] ok=170 cached=6 fail=1  641.9GB total (626min elapsed, ~182.5hr remaining)
+  [start ] ERR1607779
+  [done  ] ERR1607843  2.38GB in 998s (2.4 MB/s)
+  [178/3225] ok=171 cached=6 fail=1  644.3GB total (630min elapsed, ~182.0hr remaining)
+  [start ] ERR1607761
+  [done  ] ERR1607819  4.35GB in 1759s (2.5 MB/s)
+  [179/3225] ok=172 cached=6 fail=1  648.6GB total (630min elapsed, ~182.0hr remaining)
+  [start ] ERR1607780
+  [done  ] ERR1607760  3.85GB in 1519s (2.5 MB/s)
+  [180/3225] ok=173 cached=6 fail=1  652.5GB total (631min elapsed, ~181.8hr remaining)
+  [start ] ERR1607783
+  [done  ] ERR1607821  3.31GB in 1400s (2.4 MB/s)
+  [181/3225] ok=174 cached=6 fail=1  655.8GB total (632min elapsed, ~181.6hr remaining)
+  [start ] ERR1607824
+  [done  ] ERR1607799  3.29GB in 1404s (2.3 MB/s)
+  [182/3225] ok=175 cached=6 fail=1  659.1GB total (633min elapsed, ~181.3hr remaining)
+  [start ] ERR1607833
+  [done  ] ERR1607852  4.25GB in 1664s (2.6 MB/s)
+  [183/3225] ok=176 cached=6 fail=1  663.3GB total (634min elapsed, ~181.2hr remaining)
+  [start ] ERR1607795
+  [done  ] ERR1607762  3.34GB in 1794s (1.9 MB/s)
+  [184/3225] ok=177 cached=6 fail=1  666.6GB total (646min elapsed, ~181.2hr remaining)
+  [start ] ERR1607774
+  [done  ] ERR1607783  2.20GB in 927s (2.4 MB/s)
+  [185/3225] ok=178 cached=6 fail=1  668.8GB total (647min elapsed, ~180.7hr remaining)
+  [start ] ERR1607765
+  [done  ] ERR1607761  3.63GB in 1497s (2.4 MB/s)
+  [186/3225] ok=179 cached=6 fail=1  672.5GB total (655min elapsed, ~180.5hr remaining)
+  [start ] ERR1607823
+  [done  ] ERR1607779  3.42GB in 1852s (1.8 MB/s)
+  [187/3225] ok=180 cached=6 fail=1  675.9GB total (656min elapsed, ~180.5hr remaining)
+  [start ] ERR1607742
+  [done  ] ERR1607795  3.55GB in 1499s (2.4 MB/s)
+  [188/3225] ok=181 cached=6 fail=1  679.5GB total (659min elapsed, ~180.3hr remaining)
+  [start ] ERR1607814
+  [done  ] ERR1607824  4.00GB in 1886s (2.1 MB/s)
+  [189/3225] ok=182 cached=6 fail=1  683.5GB total (663min elapsed, ~180.4hr remaining)
+  [start ] ERR1607773
+  [done  ] ERR1607833  5.47GB in 2101s (2.6 MB/s)
+  [190/3225] ok=183 cached=6 fail=1  688.9GB total (669min elapsed, ~180.5hr remaining)
+  [start ] ERR1607849
+  [done  ] ERR1607780  5.63GB in 2388s (2.4 MB/s)
+  [191/3225] ok=184 cached=6 fail=1  694.6GB total (670min elapsed, ~180.9hr remaining)
+  [start ] ERR1607810
+  [done  ] ERR1607765  3.08GB in 1644s (1.9 MB/s)
+  [192/3225] ok=185 cached=6 fail=1  697.6GB total (674min elapsed, ~180.8hr remaining)
+  [start ] ERR1607859
+  [done  ] ERR1607774  3.76GB in 2097s (1.8 MB/s)
+  [193/3225] ok=186 cached=6 fail=1  701.4GB total (681min elapsed, ~180.9hr remaining)
+  [194/3225] ok=186 cached=7 fail=1  701.4GB total (681min elapsed, ~180.9hr remaining)
+  [start ] ERR1607743
+  [done  ] ERR1607823  5.09GB in 2006s (2.5 MB/s)
+  [195/3225] ok=187 cached=7 fail=1  706.5GB total (688min elapsed, ~181.0hr remaining)
+  [start ] ERR1607781
+  [done  ] ERR1607849  3.54GB in 1513s (2.3 MB/s)
+  [196/3225] ok=188 cached=7 fail=1  710.0GB total (694min elapsed, ~180.8hr remaining)
+  [start ] ERR1607828
+  [done  ] ERR1607859  2.77GB in 1208s (2.3 MB/s)
+  [197/3225] ok=189 cached=7 fail=1  712.8GB total (694min elapsed, ~180.4hr remaining)
+  [start ] ERR1607863
+  [done  ] ERR1607814  4.49GB in 2093s (2.1 MB/s)
+  [198/3225] ok=190 cached=7 fail=1  717.3GB total (694min elapsed, ~180.6hr remaining)
+  [start ] ERR1607851
+  [done  ] ERR1607773  3.41GB in 1869s (1.8 MB/s)
+  [199/3225] ok=191 cached=7 fail=1  720.7GB total (695min elapsed, ~180.6hr remaining)
+  [start ] ERR1607735
+  [done  ] ERR1607810  4.05GB in 1725s (2.3 MB/s)
+  [200/3225] ok=192 cached=7 fail=1  724.7GB total (699min elapsed, ~180.6hr remaining)
+  [start ] ERR1607771
+  [done  ] ERR1607742  5.76GB in 2632s (2.2 MB/s)
+  [201/3225] ok=193 cached=7 fail=1  730.5GB total (700min elapsed, ~181.0hr remaining)
+  [start ] ERR1607733
+  [done  ] ERR1607781  3.71GB in 1581s (2.3 MB/s)
+  [202/3225] ok=194 cached=7 fail=1  734.2GB total (715min elapsed, ~180.9hr remaining)
+  [start ] ERR1607747
+  [done  ] ERR1607863  3.08GB in 1230s (2.5 MB/s)
+  [203/3225] ok=195 cached=7 fail=1  737.3GB total (715min elapsed, ~180.5hr remaining)
+  [start ] ERR1607803
+  [done  ] ERR1607735  2.30GB in 1225s (1.9 MB/s)
+  [204/3225] ok=196 cached=7 fail=1  739.6GB total (715min elapsed, ~180.2hr remaining)
+  [start ] ERR1607807
+  [done  ] ERR1607743  4.95GB in 2093s (2.4 MB/s)
+  [205/3225] ok=197 cached=7 fail=1  744.5GB total (716min elapsed, ~180.3hr remaining)
+  [start ] ERR1607790
+  [done  ] ERR1607851  3.96GB in 1545s (2.6 MB/s)
+  [206/3225] ok=198 cached=7 fail=1  748.5GB total (720min elapsed, ~180.2hr remaining)
+  [start ] ERR1607802
+  [done  ] ERR1607771  3.46GB in 1773s (2.0 MB/s)
+  [207/3225] ok=199 cached=7 fail=1  752.0GB total (728min elapsed, ~180.2hr remaining)
+  [start ] ERR1607738
+  [done  ] ERR1607828  5.57GB in 2102s (2.6 MB/s)
+  [208/3225] ok=200 cached=7 fail=1  757.5GB total (729min elapsed, ~180.3hr remaining)
+  [start ] ERR1607801
+  [done  ] ERR1607803  2.50GB in 1006s (2.5 MB/s)
+  [209/3225] ok=201 cached=7 fail=1  760.0GB total (731min elapsed, ~179.9hr remaining)
+  [start ] ERR1607764
+  [done  ] ERR1607747  2.31GB in 1138s (2.0 MB/s)
+  [210/3225] ok=202 cached=7 fail=1  762.3GB total (734min elapsed, ~179.5hr remaining)
+  [start ] ERR1607805
+  [done  ] ERR1607802  2.33GB in 946s (2.5 MB/s)
+  [211/3225] ok=203 cached=7 fail=1  764.7GB total (736min elapsed, ~179.1hr remaining)
+  [start ] ERR1607806
+  [done  ] ERR1607733  5.20GB in 2136s (2.4 MB/s)
+  [212/3225] ok=204 cached=7 fail=1  769.9GB total (736min elapsed, ~179.2hr remaining)
+  [start ] ERR1607818
+  [done  ] ERR1607790  3.73GB in 1452s (2.6 MB/s)
+  [213/3225] ok=205 cached=7 fail=1  773.6GB total (740min elapsed, ~179.0hr remaining)
+  [start ] ERR4152485
+  [done  ] ERR1607807  4.37GB in 1698s (2.6 MB/s)
+  [214/3225] ok=206 cached=7 fail=1  778.0GB total (743min elapsed, ~179.0hr remaining)
+  [start ] ERR1607804
+  [done  ] ERR1607801  3.11GB in 1260s (2.5 MB/s)
+  [215/3225] ok=207 cached=7 fail=1  781.1GB total (750min elapsed, ~178.7hr remaining)
+  [start ] ERR1607856
+  [done  ] ERR1607738  2.82GB in 1393s (2.0 MB/s)
+  [216/3225] ok=208 cached=7 fail=1  783.9GB total (751min elapsed, ~178.5hr remaining)
+  [start ] ERR1607826
+  [done  ] ERR1607764  3.57GB in 1399s (2.6 MB/s)
+  [217/3225] ok=209 cached=7 fail=1  787.5GB total (755min elapsed, ~178.2hr remaining)
+  [start ] ERR1607842
+  [done  ] ERR1607806  3.04GB in 1204s (2.5 MB/s)
+  [218/3225] ok=210 cached=7 fail=1  790.5GB total (756min elapsed, ~177.9hr remaining)
+  [start ] ERR1607744
+  [done  ] ERR1607805  3.63GB in 1438s (2.5 MB/s)
+  [219/3225] ok=211 cached=7 fail=1  794.2GB total (757min elapsed, ~177.7hr remaining)
+  [start ] ERR1607732
+  [done  ] ERR1607818  3.51GB in 1366s (2.6 MB/s)
+  [220/3225] ok=212 cached=7 fail=1  797.7GB total (759min elapsed, ~177.5hr remaining)
+  [start ] ERR1607763
+  [done  ] ERR1607826  2.81GB in 1092s (2.6 MB/s)
+  [221/3225] ok=213 cached=7 fail=1  800.5GB total (770min elapsed, ~177.2hr remaining)
+  [start ] ERR1607844
+  [done  ] ERR1607856  3.27GB in 1200s (2.7 MB/s)
+  [222/3225] ok=214 cached=7 fail=1  803.7GB total (770min elapsed, ~176.9hr remaining)
+  [start ] ERR1607861
+  [done  ] ERR4152485  4.86GB in 1893s (2.6 MB/s)
+  [223/3225] ok=215 cached=7 fail=1  808.6GB total (772min elapsed, ~176.9hr remaining)
+  [start ] ERR1607808
+  [done  ] ERR1607804  4.51GB in 1779s (2.5 MB/s)
+  [224/3225] ok=216 cached=7 fail=1  813.1GB total (773min elapsed, ~176.9hr remaining)
+  [start ] ERR1607772
+  [done  ] ERR1607842  2.78GB in 1100s (2.5 MB/s)
+  [225/3225] ok=217 cached=7 fail=1  815.9GB total (773min elapsed, ~176.5hr remaining)
+  [start ] ERR1607769
+  [done  ] ERR1607763  3.19GB in 1351s (2.4 MB/s)
+  [226/3225] ok=218 cached=7 fail=1  819.1GB total (781min elapsed, ~176.3hr remaining)
+  [start ] ERR1607830
+  [done  ] ERR1607744  4.00GB in 1565s (2.6 MB/s)
+  [227/3225] ok=219 cached=7 fail=1  823.1GB total (782min elapsed, ~176.2hr remaining)
+  [start ] ERR1607817
+  [done  ] ERR1607844  2.16GB in 854s (2.5 MB/s)
+  [228/3225] ok=220 cached=7 fail=1  825.2GB total (784min elapsed, ~175.7hr remaining)
+  [start ] ERR1607864
+  [done  ] ERR1607808  2.58GB in 1004s (2.6 MB/s)
+  [229/3225] ok=221 cached=7 fail=1  827.8GB total (789min elapsed, ~175.3hr remaining)
+  [start ] ERR1607778
+  [done  ] ERR1607861  3.91GB in 1321s (3.0 MB/s)
+  [230/3225] ok=222 cached=7 fail=1  831.7GB total (792min elapsed, ~175.1hr remaining)
+  [start ] ERR1607739
+  [done  ] ERR1607817  2.06GB in 750s (2.7 MB/s)
+  [231/3225] ok=223 cached=7 fail=1  833.8GB total (794min elapsed, ~174.6hr remaining)
+  [start ] ERR1607729
+  [done  ] ERR1607769  3.40GB in 1306s (2.6 MB/s)
+  [232/3225] ok=224 cached=7 fail=1  837.2GB total (795min elapsed, ~174.4hr remaining)
+  [start ] ERR1607811
+  [done  ] ERR1607732  5.74GB in 2253s (2.5 MB/s)
+  [233/3225] ok=225 cached=7 fail=1  842.9GB total (795min elapsed, ~174.6hr remaining)
+  [start ] ERR1607862
+  [done  ] ERR1607772  3.40GB in 1666s (2.0 MB/s)
+  [234/3225] ok=226 cached=7 fail=1  846.3GB total (801min elapsed, ~174.5hr remaining)
+  [start ] ERR1607800
+  [done  ] ERR1607864  3.80GB in 1455s (2.6 MB/s)
+  [235/3225] ok=227 cached=7 fail=1  850.1GB total (808min elapsed, ~174.4hr remaining)
+  [start ] ERR1607809
+  [done  ] ERR1607862  2.03GB in 854s (2.4 MB/s)
+  [236/3225] ok=228 cached=7 fail=1  852.2GB total (809min elapsed, ~173.9hr remaining)
+  [start ] ERR1607746
+  [done  ] ERR1607739  2.21GB in 1086s (2.0 MB/s)
+  [237/3225] ok=229 cached=7 fail=1  854.4GB total (810min elapsed, ~173.6hr remaining)
+  [start ] ERR1607785
+  [done  ] ERR1607778  3.97GB in 1532s (2.6 MB/s)
+  [238/3225] ok=230 cached=7 fail=1  858.3GB total (814min elapsed, ~173.5hr remaining)
+  [start ] ERR1607854
+  [done  ] ERR1607830  5.46GB in 1992s (2.7 MB/s)
+  [239/3225] ok=231 cached=7 fail=1  863.8GB total (814min elapsed, ~173.6hr remaining)
+  [start ] ERR1607748
+  [done  ] ERR1607811  3.51GB in 1388s (2.5 MB/s)
+  [240/3225] ok=232 cached=7 fail=1  867.3GB total (818min elapsed, ~173.4hr remaining)
+  [start ] ERR1607784
+  [done  ] ERR1607746  1.50GB in 725s (2.1 MB/s)
+  [241/3225] ok=233 cached=7 fail=1  868.8GB total (821min elapsed, ~172.9hr remaining)
+  [start ] ERR1607776
+  [done  ] ERR1607800  3.66GB in 1470s (2.5 MB/s)
+  [242/3225] ok=234 cached=7 fail=1  872.4GB total (825min elapsed, ~172.8hr remaining)
+  [start ] ERR1607777
+  [done  ] ERR1607809  3.13GB in 1240s (2.5 MB/s)
+  [243/3225] ok=235 cached=7 fail=1  875.6GB total (829min elapsed, ~172.5hr remaining)
+  [start ] ERR1607731
+  [done  ] ERR1607729  5.51GB in 2166s (2.5 MB/s)
+  [244/3225] ok=236 cached=7 fail=1  881.1GB total (831min elapsed, ~172.7hr remaining)
+  [start ] ERR1607736
+  [done  ] ERR1607748  2.28GB in 1105s (2.1 MB/s)
+  [245/3225] ok=237 cached=7 fail=1  883.4GB total (833min elapsed, ~172.4hr remaining)
+  [start ] ERR1607792
+  [done  ] ERR1607785  4.01GB in 1572s (2.6 MB/s)
+  [246/3225] ok=238 cached=7 fail=1  887.4GB total (836min elapsed, ~172.3hr remaining)
+  [start ] ERR1607759
+  [done  ] ERR1607854  4.18GB in 1530s (2.7 MB/s)
+  [247/3225] ok=239 cached=7 fail=1  891.6GB total (840min elapsed, ~172.2hr remaining)
+  [start ] ERR1607798
+  [done  ] ERR1607776  3.25GB in 1252s (2.6 MB/s)
+  [248/3225] ok=240 cached=7 fail=1  894.8GB total (842min elapsed, ~171.9hr remaining)
+  [start ] ERR1607796
+  [done  ] ERR1607784  4.07GB in 1603s (2.5 MB/s)
+  [249/3225] ok=241 cached=7 fail=1  898.9GB total (845min elapsed, ~171.8hr remaining)
+  [start ] ERR1607775
+  [done  ] ERR1607731  3.01GB in 1154s (2.6 MB/s)
+  [250/3225] ok=242 cached=7 fail=1  901.9GB total (848min elapsed, ~171.6hr remaining)
+  [start ] ERR1607820
+  [done  ] ERR1607792  3.39GB in 1299s (2.6 MB/s)
+  [251/3225] ok=243 cached=7 fail=1  905.3GB total (855min elapsed, ~171.4hr remaining)
+  [start ] ERR1607839
+  [done  ] ERR1607736  3.16GB in 1548s (2.0 MB/s)
+  [252/3225] ok=244 cached=7 fail=1  908.4GB total (856min elapsed, ~171.2hr remaining)
+  [start ] ERR1607753
+  [done  ] ERR1607796  2.61GB in 1033s (2.5 MB/s)
+  [253/3225] ok=245 cached=7 fail=1  911.0GB total (859min elapsed, ~170.9hr remaining)
+  [start ] ERR1607737
+  [done  ] ERR1607777  4.34GB in 2132s (2.0 MB/s)
+  [254/3225] ok=246 cached=7 fail=1  915.4GB total (861min elapsed, ~171.1hr remaining)
+  [start ] ERR1607815
+  [done  ] ERR1607759  4.75GB in 1775s (2.7 MB/s)
+  [255/3225] ok=247 cached=7 fail=1  920.1GB total (866min elapsed, ~171.1hr remaining)
+  [start ] ERR1607734
+  [done  ] ERR1607839  2.40GB in 932s (2.6 MB/s)
+  [256/3225] ok=248 cached=7 fail=1  922.5GB total (870min elapsed, ~170.7hr remaining)
+  [start ] ERR1607829
+  [done  ] ERR1607820  3.80GB in 1436s (2.6 MB/s)
+  [257/3225] ok=249 cached=7 fail=1  926.3GB total (872min elapsed, ~170.6hr remaining)
+  [start ] ERR1607834
+  [done  ] ERR1607798  5.50GB in 2184s (2.5 MB/s)
+  [258/3225] ok=250 cached=7 fail=1  931.8GB total (876min elapsed, ~170.7hr remaining)
+  [start ] ERR1607853
+  [done  ] ERR1607737  2.46GB in 1207s (2.0 MB/s)
+  [259/3225] ok=251 cached=7 fail=1  934.3GB total (880min elapsed, ~170.5hr remaining)
+  [start ] ERR1607865
+  [done  ] ERR1607753  4.20GB in 1588s (2.6 MB/s)
+  [260/3225] ok=252 cached=7 fail=1  938.5GB total (883min elapsed, ~170.4hr remaining)
+  [261/3225] ok=252 cached=8 fail=1  938.5GB total (883min elapsed, ~170.3hr remaining)
+  [start ] ERR1607752
+  [done  ] ERR1607815  3.46GB in 1351s (2.6 MB/s)
+  [262/3225] ok=253 cached=8 fail=1  942.0GB total (883min elapsed, ~170.1hr remaining)
+  [start ] ERR1607797
+  [done  ] ERR1607775  5.00GB in 2399s (2.1 MB/s)
+  [263/3225] ok=254 cached=8 fail=1  947.0GB total (885min elapsed, ~170.4hr remaining)
+  [start ] ERR15005468
+  [done  ] ERR1607829  3.37GB in 1313s (2.6 MB/s)
+  [264/3225] ok=255 cached=8 fail=1  950.3GB total (892min elapsed, ~170.2hr remaining)
+  [start ] ERR15005445
+  [done  ] ERR1607865  3.33GB in 1249s (2.7 MB/s)
+  [265/3225] ok=256 cached=8 fail=1  953.7GB total (900min elapsed, ~170.0hr remaining)
+  [start ] ERR15005501
+  [done  ] ERR1607853  4.14GB in 1511s (2.7 MB/s)
+  [266/3225] ok=257 cached=8 fail=1  957.8GB total (901min elapsed, ~169.9hr remaining)
+  [start ] ERR15005464
+  [done  ] ERR1607734  5.60GB in 2220s (2.5 MB/s)
+  [267/3225] ok=258 cached=8 fail=1  963.4GB total (903min elapsed, ~170.0hr remaining)
+  [start ] ERR15005451
+  [done  ] ERR1607834  5.15GB in 1922s (2.7 MB/s)
+  [268/3225] ok=259 cached=8 fail=1  968.5GB total (904min elapsed, ~170.1hr remaining)
+  [start ] ERR15005503
+  [done  ] ERR1607797  4.88GB in 1713s (2.8 MB/s)
+  [269/3225] ok=260 cached=8 fail=1  973.4GB total (912min elapsed, ~170.0hr remaining)
+  [start ] ERR15005516
+  [done  ] ERR15005445  2.52GB in 1349s (1.9 MB/s)
+  [270/3225] ok=261 cached=8 fail=1  975.9GB total (914min elapsed, ~169.9hr remaining)
+  [start ] ERR15005467
+  [done  ] ERR1607752  4.98GB in 1895s (2.6 MB/s)
+  [271/3225] ok=262 cached=8 fail=1  980.9GB total (914min elapsed, ~169.9hr remaining)
+  [start ] ERR15005509
+  [done  ] ERR15005468  4.39GB in 2129s (2.1 MB/s)
+  [272/3225] ok=263 cached=8 fail=1  985.3GB total (920min elapsed, ~170.0hr remaining)
+  [start ] ERR15005518
+  [done  ] ERR15005451  3.09GB in 1501s (2.1 MB/s)
+  [273/3225] ok=264 cached=8 fail=1  988.4GB total (928min elapsed, ~169.9hr remaining)
+  [start ] ERR15005456
+  [done  ] ERR15005503  3.60GB in 1756s (2.0 MB/s)
+  [274/3225] ok=265 cached=8 fail=1  992.0GB total (933min elapsed, ~169.9hr remaining)
+  [start ] ERR15005458
+  [done  ] ERR15005464  4.11GB in 1994s (2.1 MB/s)
+  [275/3225] ok=266 cached=8 fail=1  996.1GB total (935min elapsed, ~170.0hr remaining)
+  [start ] ERR15005523
+  [done  ] ERR15005501  4.45GB in 2205s (2.0 MB/s)
+  [276/3225] ok=267 cached=8 fail=1  1000.6GB total (937min elapsed, ~170.1hr remaining)
+  [start ] ERR15005450
+  [done  ] ERR15005509  3.71GB in 1766s (2.1 MB/s)
+  [277/3225] ok=268 cached=8 fail=1  1004.3GB total (944min elapsed, ~170.1hr remaining)
+  [start ] ERR15005537
+  [done  ] ERR15005516  3.87GB in 1987s (1.9 MB/s)
+  [278/3225] ok=269 cached=8 fail=1  1008.1GB total (945min elapsed, ~170.2hr remaining)
+  [start ] ERR15005508
+  [done  ] ERR15005467  3.92GB in 1875s (2.1 MB/s)
+  [279/3225] ok=270 cached=8 fail=1  1012.1GB total (946min elapsed, ~170.2hr remaining)
+  [start ] ERR15005484
+  [done  ] ERR15005518  4.11GB in 2155s (1.9 MB/s)
+  [280/3225] ok=271 cached=8 fail=1  1016.2GB total (956min elapsed, ~170.3hr remaining)
+  [start ] ERR15005482
+  [done  ] ERR15005456  4.09GB in 2013s (2.0 MB/s)
+  [281/3225] ok=272 cached=8 fail=1  1020.3GB total (961min elapsed, ~170.4hr remaining)
+  [start ] ERR15005466
+  [done  ] ERR15005458  3.73GB in 1860s (2.0 MB/s)
+  [282/3225] ok=273 cached=8 fail=1  1024.0GB total (964min elapsed, ~170.4hr remaining)
+  [start ] ERR15005473
+  [done  ] ERR15005523  3.84GB in 1882s (2.0 MB/s)
+  [283/3225] ok=274 cached=8 fail=1  1027.8GB total (966min elapsed, ~170.4hr remaining)
+  [start ] ERR15005488
+  [done  ] ERR15005484  3.29GB in 1619s (2.0 MB/s)
+  [284/3225] ok=275 cached=8 fail=1  1031.1GB total (973min elapsed, ~170.3hr remaining)
+  [start ] ERR15005457
+  [done  ] ERR15005508  3.21GB in 1688s (1.9 MB/s)
+  [285/3225] ok=276 cached=8 fail=1  1034.3GB total (973min elapsed, ~170.3hr remaining)
+  [start ] ERR15005470
+  [done  ] ERR15005537  3.54GB in 1878s (1.9 MB/s)
+  [286/3225] ok=277 cached=8 fail=1  1037.9GB total (975min elapsed, ~170.3hr remaining)
+  [start ] ERR15005476
+  [done  ] ERR15005450  5.99GB in 2996s (2.0 MB/s)
+  [287/3225] ok=278 cached=8 fail=1  1043.9GB total (987min elapsed, ~170.7hr remaining)
+  [start ] ERR15005524
+  [done  ] ERR15005482  4.79GB in 2380s (2.0 MB/s)
+  [288/3225] ok=279 cached=8 fail=1  1048.7GB total (996min elapsed, ~170.9hr remaining)
+  [start ] ERR15005517
+  [done  ] ERR15005466  4.11GB in 2092s (2.0 MB/s)
+  [289/3225] ok=280 cached=8 fail=1  1052.8GB total (996min elapsed, ~171.0hr remaining)
+  [start ] ERR15005463
+  [done  ] ERR15005488  3.73GB in 1874s (2.0 MB/s)
+  [290/3225] ok=281 cached=8 fail=1  1056.5GB total (997min elapsed, ~171.0hr remaining)
+  [start ] ERR15005475
+  [done  ] ERR15005473  4.56GB in 2335s (2.0 MB/s)
+  [291/3225] ok=282 cached=8 fail=1  1061.1GB total (1003min elapsed, ~171.2hr remaining)
+  [start ] ERR15005504
+  [done  ] ERR15005476  3.58GB in 1752s (2.0 MB/s)
+  [292/3225] ok=283 cached=8 fail=1  1064.6GB total (1004min elapsed, ~171.2hr remaining)
+  [start ] ERR15005495
+  [done  ] ERR15005457  4.12GB in 2100s (2.0 MB/s)
+  [293/3225] ok=284 cached=8 fail=1  1068.8GB total (1008min elapsed, ~171.3hr remaining)
+  [start ] ERR15005500
+  [done  ] ERR15005470  4.35GB in 2136s (2.0 MB/s)
+  [294/3225] ok=285 cached=8 fail=1  1073.1GB total (1009min elapsed, ~171.4hr remaining)
+  [start ] ERR15005478
+  [done  ] ERR15005524  4.75GB in 2318s (2.1 MB/s)
+  [295/3225] ok=286 cached=8 fail=1  1077.9GB total (1026min elapsed, ~171.6hr remaining)
+  [start ] ERR15005453
+  [done  ] ERR15005517  3.70GB in 1825s (2.0 MB/s)
+  [296/3225] ok=287 cached=8 fail=1  1081.6GB total (1026min elapsed, ~171.5hr remaining)
+  [start ] ERR15005496
+  [done  ] ERR15005475  4.10GB in 1933s (2.1 MB/s)
+  [297/3225] ok=288 cached=8 fail=1  1085.7GB total (1029min elapsed, ~171.6hr remaining)
+  [start ] ERR15005505
+  [done  ] ERR15005463  4.10GB in 2013s (2.0 MB/s)
+  [298/3225] ok=289 cached=8 fail=1  1089.8GB total (1030min elapsed, ~171.6hr remaining)
+  [start ] ERR15005474
+  [done  ] ERR15005495  3.50GB in 1706s (2.1 MB/s)
+  [299/3225] ok=290 cached=8 fail=1  1093.3GB total (1033min elapsed, ~171.6hr remaining)
+  [start ] ERR15005444
+  [done  ] ERR15005478  3.50GB in 1702s (2.1 MB/s)
+  [300/3225] ok=291 cached=8 fail=1  1096.8GB total (1037min elapsed, ~171.5hr remaining)
+  [start ] ERR15005462
+  [done  ] ERR15005504  4.37GB in 2192s (2.0 MB/s)
+  [301/3225] ok=292 cached=8 fail=1  1101.1GB total (1040min elapsed, ~171.6hr remaining)
+  [start ] ERR15005528
+  [done  ] ERR15005500  3.99GB in 2028s (2.0 MB/s)
+  [302/3225] ok=293 cached=8 fail=1  1105.1GB total (1041min elapsed, ~171.7hr remaining)
+  [start ] ERR15005521
+  [done  ] ERR15005496  3.14GB in 1630s (1.9 MB/s)
+  [303/3225] ok=294 cached=8 fail=1  1108.3GB total (1053min elapsed, ~171.6hr remaining)
+  [start ] ERR15005532
+  [done  ] ERR15005444  2.62GB in 1468s (1.8 MB/s)
+  [304/3225] ok=295 cached=8 fail=1  1110.9GB total (1057min elapsed, ~171.5hr remaining)
+  [start ] ERR15005519
+  [done  ] ERR15005505  3.10GB in 1693s (1.8 MB/s)
+  [305/3225] ok=296 cached=8 fail=1  1114.0GB total (1058min elapsed, ~171.4hr remaining)
+  [start ] ERR15005526
+  [done  ] ERR15005453  4.31GB in 2258s (1.9 MB/s)
+  [306/3225] ok=297 cached=8 fail=1  1118.3GB total (1063min elapsed, ~171.6hr remaining)
+  [start ] ERR15005494
+  [done  ] ERR15005474  4.39GB in 2279s (1.9 MB/s)
+  [307/3225] ok=298 cached=8 fail=1  1122.7GB total (1068min elapsed, ~171.7hr remaining)
+  [start ] ERR15005513
+  [done  ] ERR15005462  3.69GB in 1924s (1.9 MB/s)
+  [308/3225] ok=299 cached=8 fail=1  1126.4GB total (1069min elapsed, ~171.7hr remaining)
+  [start ] ERR15005483
+  [done  ] ERR15005521  3.58GB in 1859s (1.9 MB/s)
+  [309/3225] ok=300 cached=8 fail=1  1130.0GB total (1072min elapsed, ~171.7hr remaining)
+  [start ] ERR15005485
+  [done  ] ERR15005528  4.49GB in 2260s (2.0 MB/s)
+  [310/3225] ok=301 cached=8 fail=1  1134.4GB total (1077min elapsed, ~171.8hr remaining)
+  [start ] ERR15005514
+  [done  ] ERR15005519  3.51GB in 1754s (2.0 MB/s)
+  [311/3225] ok=302 cached=8 fail=1  1138.0GB total (1087min elapsed, ~171.8hr remaining)
+  [start ] ERR15005471
+  [done  ] ERR15005513  2.30GB in 1174s (2.0 MB/s)
+  [312/3225] ok=303 cached=8 fail=1  1140.3GB total (1087min elapsed, ~171.6hr remaining)
+  [start ] ERR15005512
+  [done  ] ERR15005532  4.60GB in 2342s (2.0 MB/s)
+  [313/3225] ok=304 cached=8 fail=1  1144.9GB total (1092min elapsed, ~171.7hr remaining)
+  [start ] ERR15005460
+  [done  ] ERR15005526  4.35GB in 2111s (2.1 MB/s)
+  [314/3225] ok=305 cached=8 fail=1  1149.2GB total (1093min elapsed, ~171.8hr remaining)
+  [start ] ERR15005515
+  [done  ] ERR15005494  3.51GB in 1806s (1.9 MB/s)
+  [315/3225] ok=306 cached=8 fail=1  1152.7GB total (1093min elapsed, ~171.8hr remaining)
+  [start ] ERR15005481
+  [done  ] ERR15005483  3.28GB in 1632s (2.0 MB/s)
+  [316/3225] ok=307 cached=8 fail=1  1156.0GB total (1096min elapsed, ~171.7hr remaining)
+  [start ] ERR15005472
+  [done  ] ERR15005514  3.45GB in 1738s (2.0 MB/s)
+  [317/3225] ok=308 cached=8 fail=1  1159.4GB total (1106min elapsed, ~171.7hr remaining)
+  [start ] ERR15005538
+  [done  ] ERR15005471  3.09GB in 1503s (2.1 MB/s)
+  [318/3225] ok=309 cached=8 fail=1  1162.5GB total (1112min elapsed, ~171.5hr remaining)
+  [start ] ERR15005486
+  [done  ] ERR15005485  4.97GB in 2431s (2.0 MB/s)
+  [319/3225] ok=310 cached=8 fail=1  1167.5GB total (1113min elapsed, ~171.7hr remaining)
+  [start ] ERR15005502
+  [done  ] ERR15005512  3.52GB in 1797s (2.0 MB/s)
+  [320/3225] ok=311 cached=8 fail=1  1171.0GB total (1117min elapsed, ~171.7hr remaining)
+  [start ] ERR15005522
+  [done  ] ERR15005460  3.19GB in 1560s (2.0 MB/s)
+  [321/3225] ok=312 cached=8 fail=1  1174.2GB total (1118min elapsed, ~171.6hr remaining)
+  [start ] ERR15005469
+  [done  ] ERR15005472  3.64GB in 1766s (2.1 MB/s)
+  [322/3225] ok=313 cached=8 fail=1  1177.9GB total (1126min elapsed, ~171.5hr remaining)
+  [start ] ERR15005542
+  [done  ] ERR15005515  3.68GB in 2028s (1.8 MB/s)
+  [323/3225] ok=314 cached=8 fail=1  1181.6GB total (1127min elapsed, ~171.6hr remaining)
+  [start ] ERR15005447
+  [done  ] ERR15005481  5.17GB in 2535s (2.0 MB/s)
+  [324/3225] ok=315 cached=8 fail=1  1186.7GB total (1136min elapsed, ~171.8hr remaining)
+  [start ] ERR15005511
+  [done  ] ERR15005486  3.74GB in 1837s (2.0 MB/s)
+  [325/3225] ok=316 cached=8 fail=1  1190.5GB total (1142min elapsed, ~171.8hr remaining)
+  [start ] ERR15005540
+  [done  ] ERR15005502  3.49GB in 1776s (2.0 MB/s)
+  [326/3225] ok=317 cached=8 fail=1  1194.0GB total (1143min elapsed, ~171.7hr remaining)
+  [start ] ERR15005520
+  [done  ] ERR15005538  4.30GB in 2252s (1.9 MB/s)
+  [327/3225] ok=318 cached=8 fail=1  1198.2GB total (1144min elapsed, ~171.9hr remaining)
+  [start ] ERR15005527
+  [done  ] ERR15005522  3.52GB in 1712s (2.1 MB/s)
+  [328/3225] ok=319 cached=8 fail=1  1201.8GB total (1146min elapsed, ~171.8hr remaining)
+  [start ] ERR15005448
+  [done  ] ERR15005469  3.40GB in 1678s (2.0 MB/s)
+  [329/3225] ok=320 cached=8 fail=1  1205.2GB total (1146min elapsed, ~171.7hr remaining)
+  [start ] ERR15005497
+  [done  ] ERR15005542  4.87GB in 2415s (2.0 MB/s)
+  [330/3225] ok=321 cached=8 fail=1  1210.0GB total (1166min elapsed, ~171.9hr remaining)
+  [start ] ERR15005506
+  [done  ] ERR15005447  5.07GB in 2417s (2.1 MB/s)
+  [331/3225] ok=322 cached=8 fail=1  1215.1GB total (1167min elapsed, ~172.0hr remaining)
+  [332/3225] ok=322 cached=9 fail=1  1215.1GB total (1167min elapsed, ~172.0hr remaining)
+  [start ] ERR15005480
+  [done  ] ERR15005540  3.38GB in 1674s (2.0 MB/s)
+  [333/3225] ok=323 cached=9 fail=1  1218.5GB total (1170min elapsed, ~171.9hr remaining)
+  [start ] ERR15005510
+  [done  ] ERR15005511  4.35GB in 2139s (2.0 MB/s)
+  [334/3225] ok=324 cached=9 fail=1  1222.8GB total (1171min elapsed, ~172.0hr remaining)
+  [start ] ERR15005541
+  [done  ] ERR15005527  3.69GB in 1793s (2.1 MB/s)
+  [335/3225] ok=325 cached=9 fail=1  1226.5GB total (1174min elapsed, ~172.0hr remaining)
+  [start ] ERR15005492
+  [done  ] ERR15005520  3.81GB in 1871s (2.0 MB/s)
+  [336/3225] ok=326 cached=9 fail=1  1230.3GB total (1174min elapsed, ~171.9hr remaining)
+  [start ] ERR15005455
+  [done  ] ERR15005497  4.18GB in 2075s (2.0 MB/s)
+  [337/3225] ok=327 cached=9 fail=1  1234.5GB total (1181min elapsed, ~172.0hr remaining)
+  [start ] ERR15005533
+  [done  ] ERR15005510  3.11GB in 1487s (2.1 MB/s)
+  [338/3225] ok=328 cached=9 fail=1  1237.6GB total (1195min elapsed, ~171.9hr remaining)
+  [start ] ERR15005529
+  [done  ] ERR15005506  3.53GB in 1756s (2.0 MB/s)
+  [339/3225] ok=329 cached=9 fail=1  1241.2GB total (1195min elapsed, ~171.8hr remaining)
+  [start ] ERR15005465
+  [done  ] ERR15005541  3.09GB in 1458s (2.1 MB/s)
+  [340/3225] ok=330 cached=9 fail=1  1244.3GB total (1196min elapsed, ~171.7hr remaining)
+  [start ] ERR15005491
+  [done  ] ERR15005448  6.69GB in 3173s (2.1 MB/s)
+  [341/3225] ok=331 cached=9 fail=1  1250.9GB total (1199min elapsed, ~172.1hr remaining)
+  [start ] ERR15005499
+  [done  ] ERR15005492  3.63GB in 1767s (2.1 MB/s)
+  [342/3225] ok=332 cached=9 fail=1  1254.6GB total (1203min elapsed, ~172.0hr remaining)
+  [start ] ERR15005479
+  [done  ] ERR15005480  4.80GB in 2374s (2.0 MB/s)
+  [343/3225] ok=333 cached=9 fail=1  1259.4GB total (1206min elapsed, ~172.2hr remaining)
+  [start ] ERR15005477
+  [done  ] ERR15005455  4.51GB in 2195s (2.1 MB/s)
+  [344/3225] ok=334 cached=9 fail=1  1263.9GB total (1210min elapsed, ~172.2hr remaining)
+  [start ] ERR15005449
+  [done  ] ERR15005533  4.09GB in 1905s (2.1 MB/s)
+  [345/3225] ok=335 cached=9 fail=1  1268.0GB total (1213min elapsed, ~172.2hr remaining)
+  [start ] ERR15005530
+  [done  ] ERR15005465  3.09GB in 1444s (2.1 MB/s)
+  [346/3225] ok=336 cached=9 fail=1  1271.1GB total (1219min elapsed, ~172.1hr remaining)
+  [start ] ERR15005498
+  [done  ] ERR15005491  4.01GB in 1889s (2.1 MB/s)
+  [347/3225] ok=337 cached=9 fail=1  1275.1GB total (1227min elapsed, ~172.1hr remaining)
+  [start ] ERR15005539
+  [done  ] ERR15005499  4.21GB in 1934s (2.2 MB/s)
+  [348/3225] ok=338 cached=9 fail=1  1279.3GB total (1231min elapsed, ~172.1hr remaining)
+  [start ] ERR15005454
+  [done  ] ERR15005529  5.28GB in 2477s (2.1 MB/s)
+  [349/3225] ok=339 cached=9 fail=1  1284.6GB total (1236min elapsed, ~172.2hr remaining)
+  [start ] ERR15005534
+  [done  ] ERR15005479  4.47GB in 1993s (2.2 MB/s)
+  [350/3225] ok=340 cached=9 fail=1  1289.0GB total (1236min elapsed, ~172.3hr remaining)
+  [start ] ERR15005452
+  [done  ] ERR15005477  4.09GB in 1845s (2.2 MB/s)
+  [351/3225] ok=341 cached=9 fail=1  1293.1GB total (1237min elapsed, ~172.2hr remaining)
+  [start ] ERR15005531
+  [done  ] ERR15005530  4.25GB in 1946s (2.2 MB/s)
+  [352/3225] ok=342 cached=9 fail=1  1297.4GB total (1245min elapsed, ~172.2hr remaining)
+  [start ] ERR15005487
+  [done  ] ERR15005449  5.32GB in 2430s (2.2 MB/s)
+  [353/3225] ok=343 cached=9 fail=1  1302.7GB total (1251min elapsed, ~172.4hr remaining)
+  [start ] ERR15005525
+  [done  ] ERR15005498  4.41GB in 2028s (2.2 MB/s)
+  [354/3225] ok=344 cached=9 fail=1  1307.1GB total (1253min elapsed, ~172.4hr remaining)
+  [start ] ERR15005543
+  [done  ] ERR15005539  4.53GB in 2164s (2.1 MB/s)
+  [355/3225] ok=345 cached=9 fail=1  1311.6GB total (1263min elapsed, ~172.5hr remaining)
+  [start ] ERR15005461
+  [done  ] ERR15005452  3.68GB in 1729s (2.1 MB/s)
+  [356/3225] ok=346 cached=9 fail=1  1315.3GB total (1265min elapsed, ~172.4hr remaining)
+  [start ] ERR15005459
+  [done  ] ERR15005454  4.40GB in 2065s (2.1 MB/s)
+  [357/3225] ok=347 cached=9 fail=1  1319.7GB total (1265min elapsed, ~172.5hr remaining)
+  [start ] ERR15005490
+  [done  ] ERR15005531  4.31GB in 2030s (2.1 MB/s)
+  [358/3225] ok=348 cached=9 fail=1  1324.0GB total (1271min elapsed, ~172.5hr remaining)
+  [start ] ERR15005507
+  [done  ] ERR15005487  3.42GB in 1603s (2.1 MB/s)
+  [359/3225] ok=349 cached=9 fail=1  1327.5GB total (1272min elapsed, ~172.4hr remaining)
+  [start ] ERR15005489
+  [done  ] ERR15005534  4.61GB in 2147s (2.1 MB/s)
+  [360/3225] ok=350 cached=9 fail=1  1332.1GB total (1272min elapsed, ~172.4hr remaining)
+  [start ] ERR15005493
+  [done  ] ERR15005525  3.77GB in 1705s (2.2 MB/s)
+  [361/3225] ok=351 cached=9 fail=1  1335.8GB total (1279min elapsed, ~172.4hr remaining)
+  [start ] ERR15005535
+  [done  ] ERR15005543  3.90GB in 1789s (2.2 MB/s)
+  [362/3225] ok=352 cached=9 fail=1  1339.7GB total (1283min elapsed, ~172.3hr remaining)
+  [start ] ERR12013072
+  [done  ] ERR15005459  3.54GB in 1419s (2.5 MB/s)
+  [363/3225] ok=353 cached=9 fail=1  1343.3GB total (1289min elapsed, ~172.2hr remaining)
+  [start ] ERR12013065
+  [done  ] ERR15005507  2.97GB in 1384s (2.1 MB/s)
+  [364/3225] ok=354 cached=9 fail=1  1346.2GB total (1294min elapsed, ~172.0hr remaining)
+  [start ] ERR12013064
+  [done  ] ERR15005461  4.05GB in 1867s (2.2 MB/s)
+  [365/3225] ok=355 cached=9 fail=1  1350.3GB total (1294min elapsed, ~172.0hr remaining)
+  [start ] ERR12013055
+  [done  ] ERR15005493  3.48GB in 1635s (2.1 MB/s)
+  [366/3225] ok=356 cached=9 fail=1  1353.8GB total (1299min elapsed, ~171.9hr remaining)
+  [start ] ERR12013040
+  [done  ] ERR15005490  4.64GB in 2183s (2.1 MB/s)
+  [367/3225] ok=357 cached=9 fail=1  1358.4GB total (1302min elapsed, ~172.0hr remaining)
+  [start ] ERR12013050
+  [done  ] ERR12013072  2.70GB in 1356s (2.0 MB/s)
+  [368/3225] ok=358 cached=9 fail=1  1361.1GB total (1306min elapsed, ~171.8hr remaining)
+  [start ] ERR12013049
+  [done  ] ERR15005535  4.09GB in 1941s (2.1 MB/s)
+  [369/3225] ok=359 cached=9 fail=1  1365.2GB total (1312min elapsed, ~171.8hr remaining)
+  [start ] ERR12013061
+  [done  ] ERR15005489  5.20GB in 2540s (2.0 MB/s)
+  [370/3225] ok=360 cached=9 fail=1  1370.4GB total (1314min elapsed, ~172.0hr remaining)
+  [start ] ERR12013045
+  [done  ] ERR12013050  1.51GB in 810s (1.9 MB/s)
+  [371/3225] ok=361 cached=9 fail=1  1371.9GB total (1315min elapsed, ~171.7hr remaining)
+  [start ] ERR12013033
+  [done  ] ERR12013040  1.81GB in 973s (1.9 MB/s)
+  [372/3225] ok=362 cached=9 fail=1  1373.7GB total (1315min elapsed, ~171.4hr remaining)
+  [start ] ERR12013031
+  [done  ] ERR12013049  1.44GB in 784s (1.8 MB/s)
+  [373/3225] ok=363 cached=9 fail=1  1375.2GB total (1319min elapsed, ~171.1hr remaining)
+  [start ] ERR12013035
+  [done  ] ERR12013031  1.72GB in 928s (1.9 MB/s)
+  [374/3225] ok=364 cached=9 fail=1  1376.9GB total (1331min elapsed, ~170.8hr remaining)
+  [start ] ERR12013062
+  [done  ] ERR12013045  1.94GB in 1031s (1.9 MB/s)
+  [375/3225] ok=365 cached=9 fail=1  1378.8GB total (1331min elapsed, ~170.5hr remaining)
+  [start ] ERR12013034
+  [done  ] ERR12013033  1.89GB in 995s (1.9 MB/s)
+  [376/3225] ok=366 cached=9 fail=1  1380.7GB total (1332min elapsed, ~170.3hr remaining)
+  [start ] ERR12013032
+  [done  ] ERR12013065  5.24GB in 2805s (1.9 MB/s)
+  [377/3225] ok=367 cached=9 fail=1  1386.0GB total (1336min elapsed, ~170.5hr remaining)
+  [start ] ERR12013060
+  [done  ] ERR12013064  4.63GB in 2641s (1.8 MB/s)
+  [378/3225] ok=368 cached=9 fail=1  1390.6GB total (1338min elapsed, ~170.7hr remaining)
+  [start ] ERR12013030
+  [done  ] ERR12013035  2.39GB in 1283s (1.9 MB/s)
+  [379/3225] ok=369 cached=9 fail=1  1393.0GB total (1340min elapsed, ~170.5hr remaining)
+  [start ] ERR12013056
+  [done  ] ERR12013062  1.64GB in 871s (1.9 MB/s)
+  [380/3225] ok=370 cached=9 fail=1  1394.6GB total (1345min elapsed, ~170.2hr remaining)
+  [start ] ERR12013036
+  [done  ] ERR12013032  1.53GB in 830s (1.8 MB/s)
+  [381/3225] ok=371 cached=9 fail=1  1396.1GB total (1346min elapsed, ~169.9hr remaining)
+  [start ] ERR12013028
+  [done  ] ERR12013034  1.64GB in 884s (1.9 MB/s)
+  [382/3225] ok=372 cached=9 fail=1  1397.8GB total (1346min elapsed, ~169.7hr remaining)
+  [start ] ERR12013066
+  [done  ] ERR12013055  6.81GB in 3641s (1.9 MB/s)
+  [383/3225] ok=373 cached=9 fail=1  1404.6GB total (1355min elapsed, ~170.1hr remaining)
+  [start ] ERR12013027
+  [done  ] ERR12013030  1.97GB in 1052s (1.9 MB/s)
+  [384/3225] ok=374 cached=9 fail=1  1406.6GB total (1356min elapsed, ~169.9hr remaining)
+  [start ] ERR12013052
+  [done  ] ERR12013028  1.84GB in 994s (1.8 MB/s)
+  [385/3225] ok=375 cached=9 fail=1  1408.4GB total (1362min elapsed, ~169.6hr remaining)
+  [start ] ERR12013069
+  [done  ] ERR12013036  1.91GB in 1042s (1.8 MB/s)
+  [386/3225] ok=376 cached=9 fail=1  1410.3GB total (1363min elapsed, ~169.4hr remaining)
+  [start ] ERR12013038
+  [done  ] ERR12013061  6.14GB in 3325s (1.8 MB/s)
+  [387/3225] ok=377 cached=9 fail=1  1416.4GB total (1367min elapsed, ~169.7hr remaining)
+  [start ] ERR12013037
+  [done  ] ERR12013027  1.68GB in 903s (1.9 MB/s)
+  [388/3225] ok=378 cached=9 fail=1  1418.1GB total (1370min elapsed, ~169.5hr remaining)
+  [start ] ERR12013053
+  [done  ] ERR12013052  1.85GB in 974s (1.9 MB/s)
+  [389/3225] ok=379 cached=9 fail=1  1420.0GB total (1372min elapsed, ~169.2hr remaining)
+  [start ] ERR12013063
+  [done  ] ERR12013038  2.20GB in 1132s (1.9 MB/s)
+  [390/3225] ok=380 cached=9 fail=1  1422.2GB total (1382min elapsed, ~169.0hr remaining)
+  [start ] ERR12013077
+  [done  ] ERR12013056  4.95GB in 2615s (1.9 MB/s)
+  [391/3225] ok=381 cached=9 fail=1  1427.1GB total (1384min elapsed, ~169.2hr remaining)
+  [start ] ERR12013039
+  [done  ] ERR12013053  1.63GB in 838s (1.9 MB/s)
+  [392/3225] ok=382 cached=9 fail=1  1428.8GB total (1384min elapsed, ~168.9hr remaining)
+  [start ] ERR12013029
+  [done  ] ERR12013037  2.33GB in 1198s (1.9 MB/s)
+  [393/3225] ok=383 cached=9 fail=1  1431.1GB total (1387min elapsed, ~168.7hr remaining)
+  [start ] ERR12013047
+  [done  ] ERR12013060  5.71GB in 3166s (1.8 MB/s)
+  [394/3225] ok=384 cached=9 fail=1  1436.8GB total (1388min elapsed, ~169.0hr remaining)
+  [start ] ERR12013048
+  [done  ] ERR12013029  1.55GB in 803s (1.9 MB/s)
+  [395/3225] ok=385 cached=9 fail=1  1438.4GB total (1397min elapsed, ~168.7hr remaining)
+  [start ] ERR12013059
+  [done  ] ERR12013077  2.10GB in 1073s (2.0 MB/s)
+  [396/3225] ok=386 cached=9 fail=1  1440.5GB total (1400min elapsed, ~168.5hr remaining)
+  [start ] ERR12013067
+  [done  ] ERR12013039  2.09GB in 1063s (2.0 MB/s)
+  [397/3225] ok=387 cached=9 fail=1  1442.5GB total (1401min elapsed, ~168.3hr remaining)
+  [start ] ERR12013073
+  [done  ] ERR12013047  1.54GB in 881s (1.8 MB/s)
+  [398/3225] ok=388 cached=9 fail=1  1444.1GB total (1402min elapsed, ~168.0hr remaining)
+  [start ] ERR12013054
+  [done  ] ERR12013066  6.51GB in 3347s (1.9 MB/s)
+  [399/3225] ok=389 cached=9 fail=1  1450.6GB total (1402min elapsed, ~168.4hr remaining)
+  [start ] ERR12013057
+  [done  ] ERR12013048  1.59GB in 802s (2.0 MB/s)
+  [400/3225] ok=390 cached=9 fail=1  1452.2GB total (1402min elapsed, ~168.1hr remaining)
+  [start ] ERR12013075
+  [done  ] ERR12013059  1.51GB in 869s (1.7 MB/s)
+  [401/3225] ok=391 cached=9 fail=1  1453.7GB total (1412min elapsed, ~167.8hr remaining)
+  [start ] ERR12013079
+  [done  ] ERR12013073  1.52GB in 764s (2.0 MB/s)
+  [402/3225] ok=392 cached=9 fail=1  1455.2GB total (1414min elapsed, ~167.5hr remaining)
+  [start ] ERR12013042
+  [done  ] ERR12013069  6.23GB in 3167s (2.0 MB/s)
+  [403/3225] ok=393 cached=9 fail=1  1461.4GB total (1415min elapsed, ~167.8hr remaining)
+  [start ] ERR12013071
+  [done  ] ERR12013075  1.64GB in 823s (2.0 MB/s)
+  [404/3225] ok=394 cached=9 fail=1  1463.1GB total (1415min elapsed, ~167.5hr remaining)
+  [start ] ERR12013076
+  [done  ] ERR12013063  5.29GB in 2684s (2.0 MB/s)
+  [405/3225] ok=395 cached=9 fail=1  1468.4GB total (1417min elapsed, ~167.7hr remaining)
+  [start ] ERR12013051
+  [done  ] ERR12013054  1.84GB in 905s (2.0 MB/s)
+  [406/3225] ok=396 cached=9 fail=1  1470.2GB total (1417min elapsed, ~167.4hr remaining)
+  [start ] ERR12013078
+  [done  ] ERR12013071  1.42GB in 784s (1.8 MB/s)
+  [407/3225] ok=397 cached=9 fail=1  1471.6GB total (1428min elapsed, ~167.2hr remaining)
+  [start ] ERR12013070
+  [done  ] ERR12013076  1.71GB in 929s (1.8 MB/s)
+  [408/3225] ok=398 cached=9 fail=1  1473.4GB total (1431min elapsed, ~166.9hr remaining)
+  [start ] ERR6847886
+  [done  ] ERR12013051  1.65GB in 861s (1.9 MB/s)
+  [409/3225] ok=399 cached=9 fail=1  1475.0GB total (1431min elapsed, ~166.6hr remaining)
+  [start ] ERR6847892
+  [done  ] ERR12013042  1.83GB in 1051s (1.7 MB/s)
+  [410/3225] ok=400 cached=9 fail=1  1476.8GB total (1432min elapsed, ~166.4hr remaining)
+  [start ] ERR6847894
+  [done  ] ERR12013078  1.74GB in 894s (1.9 MB/s)
+  [411/3225] ok=401 cached=9 fail=1  1478.6GB total (1432min elapsed, ~166.2hr remaining)
+  [start ] ERR6847888

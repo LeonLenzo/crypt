@@ -1,0 +1,9 @@
+Reads will be archived (gzipped) to: kraken/output/run/split/data/reads
+Loaded 5 runs from ground_truth_runs.txt
+
+Total runs: 5 | Already done: 5 | Remaining: 0
+Settings: n_reads=500,000, confidence=0.15, min_hit_groups=3, workers=5, kraken_threads=4
+DB: kraken/output/db/build/data/db_v2
+Tmp: /scratch/fl3/llenzo/kraken_tmp
+
+All runs already classified. Done.

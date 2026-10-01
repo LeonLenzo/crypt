@@ -1,0 +1,4 @@
+task 6/8  candidate raw files: 359  threads=32
+  [truncated] ERR12013057_2.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] ERR12013057_2.fastq.gz  19G -> 3.4G  in 100s
+  [orphan   ] ERR3500503_2.fastq has no .gz, compressing

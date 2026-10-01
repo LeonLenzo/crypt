@@ -1,0 +1,6 @@
+Target BioSamples: 5 (settings=['field'], cryptic_only=False, aerial_only=True)
+Host resolution: 5 confidently resolved, 0 not per-sample-resolved (still covered by per-candidate indices below as long as their true host is a named candidate)
+Per-taxid host indices needed: 1 distinct taxids
+Runs to process: 5
+
+Host CDS: 0 taxids already resolved (from a prior run), 1 to fetch …

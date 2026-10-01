@@ -1,0 +1,2 @@
+task 2/8  candidate raw files: 359  threads=32
+  [truncated] ERR10886910_1.fastq.gz failed gzip -t, recompressing from raw

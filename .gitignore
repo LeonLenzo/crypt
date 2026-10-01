@@ -146,3 +146,21 @@ docs/*
 # 04_align: kallisto indices + per-sample abundances, large and built on Setonix
 04_align/data/*
 !04_align/data/.gitkeep
+
+# Setonix-only data outputs. These never existed on the local checkout, so they had no
+# rule until the 2026-10-01 renumbering surfaced them as untracked. Data, per the
+# code-not-data policy: the repo carries code, small figures, manifests and logs.
+03_kraken/02_build/data/db_v3_summary.txt
+03_kraken/03_select/data/run_list.tsv
+03_kraken/03_select/data/spots.tsv
+03_kraken/03_select/data/verify*.tsv
+03_kraken/03_select/data/host_taxid_to_accession.json
+03_kraken/04_assign/data/classify_smoke/
+03_kraken/04_assign/smoke_ram/
+03_kraken/04_assign/smoke_mmap/
+
+# One pathological SLURM log: the retired backup_dbv3.slurm retried a hard S3 refusal in
+# a tight loop and produced 13.8 MB of identical errors. The failure is understood (wrong
+# Acacia allocation, see the Acacia note) and the file would otherwise need a history
+# rewrite to remove. Kept on disk on Setonix, out of git.
+03_kraken/slurm/logs/acacia_dbv3_49970753.err

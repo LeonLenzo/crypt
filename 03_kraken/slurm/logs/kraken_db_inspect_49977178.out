@@ -1,0 +1,11 @@
+host=nid001236 job=49977178 db=kraken/build/data/db_v3
+# Database options: nucleotide db, k = 35, l = 31
+# Spaced mask = 11111111111111111111111111111111110011001100110011001100110011
+# Toggle mask = 1110001101111110001010001100010000100111000110110101101000101101
+# Total taxonomy nodes: 1889
+# Table size: 4800752701
+# Table capacity: 6856360594
+# Min clear hash value = 0
+=== full per-taxon minimizer counts Fri Sep 25 12:27:14 PM AWST 2026 ===
+rows: 1889
+done: Fri Sep 25 12:27:55 PM AWST 2026

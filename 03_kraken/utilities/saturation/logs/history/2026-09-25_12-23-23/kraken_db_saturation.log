@@ -1,0 +1,284 @@
+[12:23:23] k=31 scaled=200 stage=all
+[12:23:23] 2020 selected assemblies across 937 taxa
+[12:23:24] sketch: 972 to do, 1017 cached, 31 missing CDS
+  missing: GCA_002812785.1, GCA_026120055.1, GCA_001457955.1, GCA_055472655.1, GCA_003386485.1, GCA_019059555.1, GCA_020827535.1, GCA_058382225.1, GCA_002099245.1, GCA_013363175.1
+[12:23:28]   25/972  GCF_023601865.1  88,990 hashes  3.7s
+[12:23:29]   50/972  GCA_045999785.1  82,722 hashes  4.2s
+[12:23:31]   75/972  GCA_026401375.1  87,919 hashes  3.5s
+[12:23:32]  100/972  GCA_003184625.1  83,207 hashes  3.3s
+[12:23:33]  125/972  GCA_001633055.2  59,626 hashes  2.7s
+[12:23:35]  150/972  GCF_001642045.1  93,689 hashes  3.5s
+[12:23:36]  175/972  GCA_027886695.1  89,748 hashes  3.5s
+[12:23:37]  200/972  GCA_021432625.1  130,287 hashes  5.7s
+[12:23:38]  225/972  GCA_050948025.1  93,038 hashes  3.3s
+[12:23:40]  250/972  GCA_015039465.1  94,597 hashes  4.9s
+[12:23:41]  275/972  GCA_009193665.1  93,127 hashes  3.7s
+[12:23:42]  300/972  GCA_051820675.1  93,542 hashes  3.6s
+[12:23:43]  325/972  GCA_002554575.1  63,926 hashes  2.6s
+[12:23:45]  350/972  GCA_026184515.1  73,227 hashes  4.3s
+[12:23:46]  375/972  GCA_022578965.1  82,923 hashes  3.2s
+[12:23:47]  400/972  GCA_022578715.1  87,712 hashes  3.3s
+[12:23:49]  425/972  GCA_018854895.1  85,886 hashes  3.9s
+[12:23:50]  450/972  GCA_050948045.1  92,539 hashes  3.6s
+[12:23:51]  475/972  GCF_000385595.1  64,965 hashes  2.5s
+[12:23:52]  500/972  GCA_027924045.1  83,464 hashes  3.2s
+[12:23:54]  525/972  GCA_009932835.1  76,153 hashes  2.6s
+[12:23:55]  550/972  GCF_003184785.1  83,439 hashes  3.2s
+[12:23:56]  575/972  GCA_001691835.3  78,654 hashes  4.0s
+[12:23:58]  600/972  GCA_001890105.1  70,400 hashes  2.6s
+[12:23:59]  625/972  GCA_047715735.1  87,931 hashes  3.3s
+[12:24:00]  650/972  GCA_010093885.1  77,940 hashes  3.1s
+[12:24:01]  675/972  GCA_039795395.1  82,274 hashes  3.0s
+[12:24:02]  700/972  GCA_023141165.1  72,862 hashes  2.6s
+[12:24:03]  725/972  GCA_042257735.1  81,572 hashes  2.7s
+[12:24:05]  750/972  GCF_010015815.1  78,075 hashes  3.0s
+[12:24:06]  775/972  GCA_061311525.1  91,947 hashes  3.6s
+[12:24:07]  800/972  GCF_035927965.1  77,653 hashes  2.8s
+[12:24:09]  825/972  GCA_025890175.1  79,815 hashes  2.9s
+[12:24:10]  850/972  GCA_047150385.1  74,725 hashes  2.7s
+[12:24:11]  875/972  GCA_001029325.1  70,554 hashes  2.4s
+[12:24:12]  900/972  GCA_902713485.1  88,099 hashes  3.1s
+[12:24:13]  925/972  GCA_051996125.2  75,785 hashes  4.0s
+[12:24:14]  950/972  GCA_059933775.1  71,341 hashes  2.5s
+[12:24:19]  972/972  GCA_027627275.1  130,297 hashes  10.3s
+[12:24:19] sketch done: 972 written, 0 failed
+[12:24:23] wrote kraken/utilities/saturation/data/sketch_index.tsv
+[12:24:23] curve: 90 taxa with >= 4 assemblies
+[12:24:49] Parastagonospora nodorum                     n=156  pan/single=1.56x  95% at n=68  shared 0.0% -> 0.0%
+[12:28:27] Fusarium oxysporum                           n= 57  pan/single=5.25x  95% at n=48  shared 70.8% -> 31.1%
+[12:28:45] Pyricularia oryzae                           n= 45  pan/single=1.55x  95% at n=27  shared 89.2% -> 68.1%
+[12:31:55] Aspergillus niger                            n= 42  pan/single=3.49x  95% at n=39  shared 85.0% -> 65.0%
+[12:33:38] Fusarium graminearum                         n= 31  pan/single=1.51x  95% at n=21  shared 76.7% -> 58.4%
+[12:33:47] Rhizoctonia solani                           n= 25  pan/single=14.34x  95% at n=23  shared 0.0% -> 0.0%
+[12:33:54] Pyrenophora tritici-repentis                 n= 24  pan/single=1.38x  95% at n=16  shared 12.1% -> 10.2%
+[12:34:58] Fusarium fujikuroi                           n= 18  pan/single=1.52x  95% at n=14  shared 77.6% -> 65.2%
+[12:35:21] Phytophthora cactorum                        n= 18  pan/single=1.44x  95% at n=14  shared 72.4% -> 56.0%
+[12:35:27] Verticillium nonalfalfae                     n= 17  pan/single=1.15x  95% at n=6  shared 70.6% -> 68.2%
+[12:36:23] Fusarium lateritium                          n= 15  pan/single=6.73x  95% at n=14  shared 29.8% -> 36.3%
+[12:37:15] Fusarium cf. solani                          n= 14  pan/single=3.31x  95% at n=11  shared 87.5% -> 67.5%
+[12:38:10] Aspergillus flavus                           n= 13  pan/single=1.48x  95% at n=10  shared 92.4% -> 77.1%
+[12:38:15] Botrytis cinerea                             n= 12  pan/single=1.58x  95% at n=10  shared 20.0% -> 14.7%
+[12:38:19] Verticillium dahliae                         n= 11  pan/single=1.42x  95% at n=8  shared 89.9% -> 76.7%
+[12:38:53] Fusarium proliferatum                        n=  9  pan/single=2.34x  95% at n=8  shared 84.8% -> 68.1%
+[12:39:05] Phytophthora fragariae                       n=  9  pan/single=1.27x  95% at n=6  shared 71.9% -> 63.9%
+[12:39:33] Fusarium culmorum                            n=  8  pan/single=1.24x  95% at n=5  shared 70.8% -> 64.8%
+[12:39:42] Phytophthora nicotianae                      n=  8  pan/single=1.57x  95% at n=6  shared 5.5% -> 4.4%
+[12:39:45] [Neocosmospora] sp. B6999-1                  n=  7  pan/single=1.09x  95% at n=2  shared 87.0% -> 85.4%
+[12:39:48] [Neocosmospora] sp. B6999-4                  n=  7  pan/single=1.06x  95% at n=2  shared 84.4% -> 82.6%
+[12:39:50] Bipolaris maydis                             n=  7  pan/single=1.12x  95% at n=3  shared 25.9% -> 24.5%
+[12:39:53] Puccinia striiformis                         n=  7  pan/single=1.75x  95% at n=6  shared 0.3% -> 0.2%
+[12:39:56] Puccinia triticina                           n=  7  pan/single=1.63x  95% at n=6  shared 0.7% -> 0.5%
+[12:39:57] Ustilago hordei                              n=  7  pan/single=1.09x  95% at n=3  shared 53.0% -> 49.5%
+[12:40:05] Phytophthora kernoviae                       n=  7  pan/single=1.61x  95% at n=6  shared 3.7% -> 3.9%
+[12:40:13] Phytophthora ramorum                         n=  7  pan/single=1.45x  95% at n=6  shared 4.1% -> 3.3%
+[12:40:14] Fulvia fulva                                 n=  6  pan/single=1.02x  95% at n=1  shared 0.0% -> 0.0%
+[12:40:22] Penicillium digitatum                        n=  6  pan/single=1.12x  95% at n=3  shared 18.6% -> 17.3%
+[12:40:24] Pyrenophora teres                            n=  6  pan/single=1.34x  95% at n=5  shared 11.9% -> 10.4%
+[12:40:24] Zymoseptoria tritici                         n=  6  pan/single=1.67x  95% at n=5  shared 0.0% -> 0.0%
+[12:40:28] Alternaria tenuissima                        n=  5  pan/single=1.52x  95% at n=4  shared 91.5% -> 83.2%
+[12:40:47] Fusarium ambrosium                           n=  5  pan/single=1.43x  95% at n=4  shared 88.2% -> 83.7%
+[12:41:05] Fusarium falciforme                          n=  5  pan/single=1.48x  95% at n=4  shared 62.2% -> 53.6%
+[12:41:23] Fusarium floridanum                          n=  5  pan/single=1.14x  95% at n=3  shared 94.1% -> 92.4%
+[12:41:25] Beauveria bassiana                           n=  5  pan/single=1.71x  95% at n=4  shared 76.8% -> 61.9%
+[12:41:27] Cercospora beticola                          n=  5  pan/single=1.14x  95% at n=3  shared 13.0% -> 12.0%
+[12:41:44] Fusarium pseudograminearum                   n=  5  pan/single=1.63x  95% at n=5  shared 48.4% -> 40.2%
+[12:41:46] Metarhizium acridum                          n=  5  pan/single=1.34x  95% at n=3  shared 20.7% -> 19.1%
+[12:41:48] Verticillium longisporum                     n=  5  pan/single=1.50x  95% at n=4  shared 62.5% -> 58.5%
+[12:41:48] Agaricus bisporus                            n=  4  pan/single=1.72x  95% at n=4  shared 0.0% -> 0.0%
+[12:41:51] Alternaria arborescens                       n=  4  pan/single=1.20x  95% at n=3  shared 70.9% -> 65.9%
+[12:42:09] Aspergillus alliaceus                        n=  4  pan/single=1.31x  95% at n=4  shared 5.0% -> 4.7%
+[12:42:26] Aspergillus brasiliensis                     n=  4  pan/single=1.78x  95% at n=4  shared 16.3% -> 12.5%
+[12:42:43] Aspergillus fumigatiaffinis                  n=  4  pan/single=1.15x  95% at n=3  shared 47.1% -> 43.6%
+[12:43:00] Aspergillus fumigatus                        n=  4  pan/single=1.26x  95% at n=3  shared 32.4% -> 29.1%
+[12:43:17] Aspergillus lentulus                         n=  4  pan/single=1.12x  95% at n=3  shared 45.6% -> 43.1%
+[12:43:34] Aspergillus luchuensis                       n=  4  pan/single=1.35x  95% at n=4  shared 76.4% -> 69.1%
+[12:43:51] Aspergillus nidulans                         n=  4  pan/single=1.07x  95% at n=2  shared 48.5% -> 47.3%
+[12:44:08] Aspergillus oryzae                           n=  4  pan/single=1.22x  95% at n=3  shared 96.4% -> 92.7%
+[12:44:25] Aspergillus terreus                          n=  4  pan/single=2.02x  95% at n=4  shared 11.7% -> 8.5%
+[12:44:42] Aspergillus tubingensis                      n=  4  pan/single=1.62x  95% at n=4  shared 85.3% -> 75.6%
+[12:44:59] Aspergillus udagawae                         n=  4  pan/single=1.37x  95% at n=4  shared 42.7% -> 35.9%
+[12:45:16] Aspergillus wentii                           n=  4  pan/single=1.09x  95% at n=2  shared 1.5% -> 1.5%
+[12:45:24] Colletotrichum fioriniae                     n=  4  pan/single=1.42x  95% at n=3  shared 36.2% -> 31.9%
+[12:45:25] Cordyceps javanica                           n=  4  pan/single=1.23x  95% at n=3  shared 2.9% -> 2.6%
+[12:45:26] Elasticomyces elasticus                      n=  4  pan/single=3.23x  95% at n=4  shared 0.0% -> 0.0%
+[12:45:27] Friedmanniomyces endolithicus                n=  4  pan/single=1.78x  95% at n=4  shared 0.9% -> 0.7%
+[12:45:42] Fusarium euwallaceae                         n=  4  pan/single=1.06x  95% at n=2  shared 93.8% -> 92.7%
+[12:45:56] Fusarium poae                                n=  4  pan/single=1.21x  95% at n=3  shared 28.3% -> 26.5%
+[12:45:57] Gaeumannomyces tritici                       n=  4  pan/single=1.32x  95% at n=4  shared 54.9% -> 46.2%
+[12:45:59] Laccaria bicolor                             n=  4  pan/single=2.70x  95% at n=4  shared 7.9% -> 4.7%
+[12:46:01] Lentinula edodes                             n=  4  pan/single=2.03x  95% at n=4  shared 46.1% -> 34.6%
+[12:46:03] Lentinula raphanica                          n=  4  pan/single=1.95x  95% at n=4  shared 0.6% -> 0.4%
+[12:46:04] Metarhizium brunneum                         n=  4  pan/single=1.36x  95% at n=4  shared 73.2% -> 66.4%
+[12:46:05] Neofusicoccum parvum                         n=  4  pan/single=1.56x  95% at n=4  shared 52.9% -> 42.2%
+[12:46:06] Paecilomyces variotii                        n=  4  pan/single=2.03x  95% at n=4  shared 2.5% -> 1.7%
+[12:46:07] Paraphaeosphaeria minitans                   n=  4  pan/single=1.13x  95% at n=3  shared 6.7% -> 6.4%
+[12:46:13] Penicillium nalgiovense                      n=  4  pan/single=1.18x  95% at n=3  shared 43.4% -> 41.3%
+[12:46:18] Penicillium olsonii                          n=  4  pan/single=1.51x  95% at n=4  shared 5.5% -> 4.7%
+[12:46:24] Penicillium roqueforti                       n=  4  pan/single=1.13x  95% at n=3  shared 20.4% -> 21.5%
+[12:46:30] Penicillium rubens                           n=  4  pan/single=1.19x  95% at n=3  shared 93.6% -> 87.0%
+[12:46:36] Penicillium salamii                          n=  4  pan/single=1.53x  95% at n=4  shared 6.8% -> 6.7%
+[12:46:37] Purpureocillium lilacinum                    n=  4  pan/single=1.55x  95% at n=4  shared 3.2% -> 2.3%
+[12:46:39] Pyricularia grisea                           n=  4  pan/single=2.05x  95% at n=4  shared 28.2% -> 53.4%
+[12:46:39] Recurvomyces mirabilis                       n=  4  pan/single=1.85x  95% at n=4  shared 0.0% -> 0.0%
+[12:46:40] Schizophyllum commune                        n=  4  pan/single=3.16x  95% at n=4  shared 0.8% -> 0.5%
+[12:46:40] Sphaerulina musiva                           n=  4  pan/single=1.49x  95% at n=4  shared 0.0% -> 0.0%
+[12:46:42] Talaromyces marneffei                        n=  4  pan/single=1.07x  95% at n=2  shared 4.7% -> 4.7%
+[12:46:48] Trichoderma gamsii                           n=  4  pan/single=1.43x  95% at n=4  shared 38.1% -> 31.7%
+[12:46:54] Trichoderma harzianum                        n=  4  pan/single=3.05x  95% at n=4  shared 67.2% -> 60.8%
+[12:47:00] Trichoderma viride                           n=  4  pan/single=2.98x  95% at n=4  shared 31.0% -> 24.0%
+[12:47:03] Alternaria alternata                         n=  4  pan/single=1.77x  95% at n=4  shared 89.1% -> 71.9%
+[12:47:11] Colletotrichum fructicola                    n=  4  pan/single=1.12x  95% at n=2  shared 92.5% -> 89.0%
+[12:47:19] Colletotrichum siamense                      n=  4  pan/single=1.72x  95% at n=4  shared 82.3% -> 73.4%
+[12:47:34] Fusarium odoratissimum                       n=  4  pan/single=1.26x  95% at n=3  shared 97.7% -> 93.1%
+[12:47:49] Fusarium verticillioides                     n=  4  pan/single=1.25x  95% at n=3  shared 79.1% -> 71.6%
+[12:47:49] Plenodomus lingam                            n=  4  pan/single=1.10x  95% at n=2  shared 0.6% -> 0.6%
+[12:47:55] Trichoderma virens                           n=  4  pan/single=1.37x  95% at n=4  shared 17.1% -> 14.8%
+[12:48:00] Phytophthora infestans                       n=  4  pan/single=1.46x  95% at n=4  shared 4.4% -> 3.6%
+[12:48:00] wrote kraken/utilities/saturation/data/saturation_curve.tsv (857 rows)
+[12:48:00] wrote kraken/utilities/saturation/data/saturation_summary.tsv (90 rows)
+[12:48:00] Aspergillus flavus         vs Aspergillus alliaceus      depths 1-13
+[12:48:01] Aspergillus flavus         vs Aspergillus brasiliensis   depths 1-13
+[12:48:01] Aspergillus flavus         vs Aspergillus fumigatiaffini depths 1-13
+[12:48:01] Aspergillus flavus         vs Aspergillus fumigatus      depths 1-13
+[12:48:02] Aspergillus flavus         vs Aspergillus lentulus       depths 1-13
+[12:48:02] Aspergillus flavus         vs Aspergillus luchuensis     depths 1-13
+[12:48:02] Aspergillus flavus         vs Aspergillus nidulans       depths 1-13
+[12:48:03] Aspergillus flavus         vs Aspergillus oryzae         depths 1-13
+[12:48:03] Aspergillus flavus         vs Aspergillus terreus        depths 1-13
+[12:48:04] Aspergillus flavus         vs Aspergillus tubingensis    depths 1-13
+[12:48:04] Aspergillus flavus         vs Aspergillus udagawae       depths 1-13
+[12:48:05] Aspergillus flavus         vs Aspergillus wentii         depths 1-13
+[12:48:05] Aspergillus flavus         vs Aspergillus niger          depths 1-13
+[12:48:08] Aspergillus niger          vs Aspergillus alliaceus      depths 1-42
+[12:48:11] Aspergillus niger          vs Aspergillus brasiliensis   depths 1-42
+[12:48:14] Aspergillus niger          vs Aspergillus fumigatiaffini depths 1-42
+[12:48:17] Aspergillus niger          vs Aspergillus fumigatus      depths 1-42
+[12:48:20] Aspergillus niger          vs Aspergillus lentulus       depths 1-42
+[12:48:23] Aspergillus niger          vs Aspergillus luchuensis     depths 1-42
+[12:48:25] Aspergillus niger          vs Aspergillus nidulans       depths 1-42
+[12:48:28] Aspergillus niger          vs Aspergillus oryzae         depths 1-42
+[12:48:31] Aspergillus niger          vs Aspergillus terreus        depths 1-42
+[12:48:34] Aspergillus niger          vs Aspergillus tubingensis    depths 1-42
+[12:48:37] Aspergillus niger          vs Aspergillus udagawae       depths 1-42
+[12:48:40] Aspergillus niger          vs Aspergillus wentii         depths 1-42
+[12:48:43] Aspergillus niger          vs Aspergillus flavus         depths 1-42
+[12:48:44] Fusarium cf. solani        vs Fusarium ambrosium         depths 1-14
+[12:48:44] Fusarium cf. solani        vs Fusarium falciforme        depths 1-14
+[12:48:45] Fusarium cf. solani        vs Fusarium floridanum        depths 1-14
+[12:48:46] Fusarium cf. solani        vs Fusarium lateritium        depths 1-14
+[12:48:46] Fusarium cf. solani        vs Fusarium euwallaceae       depths 1-14
+[12:48:47] Fusarium cf. solani        vs Fusarium poae              depths 1-14
+[12:48:47] Fusarium cf. solani        vs Fusarium culmorum          depths 1-14
+[12:48:48] Fusarium cf. solani        vs Fusarium fujikuroi         depths 1-14
+[12:48:49] Fusarium cf. solani        vs Fusarium graminearum       depths 1-14
+[12:48:49] Fusarium cf. solani        vs Fusarium odoratissimum     depths 1-14
+[12:48:50] Fusarium cf. solani        vs Fusarium oxysporum         depths 1-14
+[12:48:51] Fusarium cf. solani        vs Fusarium proliferatum      depths 1-14
+[12:48:51] Fusarium cf. solani        vs Fusarium pseudograminearum depths 1-14
+[12:48:52] Fusarium cf. solani        vs Fusarium verticillioides   depths 1-14
+[12:48:52] Fusarium lateritium        vs Fusarium ambrosium         depths 1-15
+[12:48:53] Fusarium lateritium        vs Fusarium cf. solani        depths 1-15
+[12:48:54] Fusarium lateritium        vs Fusarium falciforme        depths 1-15
+[12:48:54] Fusarium lateritium        vs Fusarium floridanum        depths 1-15
+[12:48:55] Fusarium lateritium        vs Fusarium euwallaceae       depths 1-15
+[12:48:55] Fusarium lateritium        vs Fusarium poae              depths 1-15
+[12:48:56] Fusarium lateritium        vs Fusarium culmorum          depths 1-15
+[12:48:57] Fusarium lateritium        vs Fusarium fujikuroi         depths 1-15
+[12:48:57] Fusarium lateritium        vs Fusarium graminearum       depths 1-15
+[12:48:58] Fusarium lateritium        vs Fusarium odoratissimum     depths 1-15
+[12:48:59] Fusarium lateritium        vs Fusarium oxysporum         depths 1-15
+[12:48:59] Fusarium lateritium        vs Fusarium proliferatum      depths 1-15
+[12:49:00] Fusarium lateritium        vs Fusarium pseudograminearum depths 1-15
+[12:49:01] Fusarium lateritium        vs Fusarium verticillioides   depths 1-15
+[12:49:01] Fusarium culmorum          vs Fusarium ambrosium         depths 1-8
+[12:49:01] Fusarium culmorum          vs Fusarium cf. solani        depths 1-8
+[12:49:01] Fusarium culmorum          vs Fusarium falciforme        depths 1-8
+[12:49:01] Fusarium culmorum          vs Fusarium floridanum        depths 1-8
+[12:49:02] Fusarium culmorum          vs Fusarium lateritium        depths 1-8
+[12:49:02] Fusarium culmorum          vs Fusarium euwallaceae       depths 1-8
+[12:49:02] Fusarium culmorum          vs Fusarium poae              depths 1-8
+[12:49:02] Fusarium culmorum          vs Fusarium fujikuroi         depths 1-8
+[12:49:03] Fusarium culmorum          vs Fusarium graminearum       depths 1-8
+[12:49:03] Fusarium culmorum          vs Fusarium odoratissimum     depths 1-8
+[12:49:03] Fusarium culmorum          vs Fusarium oxysporum         depths 1-8
+[12:49:04] Fusarium culmorum          vs Fusarium proliferatum      depths 1-8
+[12:49:04] Fusarium culmorum          vs Fusarium pseudograminearum depths 1-8
+[12:49:04] Fusarium culmorum          vs Fusarium verticillioides   depths 1-8
+[12:49:05] Fusarium fujikuroi         vs Fusarium ambrosium         depths 1-18
+[12:49:06] Fusarium fujikuroi         vs Fusarium cf. solani        depths 1-18
+[12:49:06] Fusarium fujikuroi         vs Fusarium falciforme        depths 1-18
+[12:49:07] Fusarium fujikuroi         vs Fusarium floridanum        depths 1-18
+[12:49:08] Fusarium fujikuroi         vs Fusarium lateritium        depths 1-18
+[12:49:09] Fusarium fujikuroi         vs Fusarium euwallaceae       depths 1-18
+[12:49:10] Fusarium fujikuroi         vs Fusarium poae              depths 1-18
+[12:49:10] Fusarium fujikuroi         vs Fusarium culmorum          depths 1-18
+[12:49:11] Fusarium fujikuroi         vs Fusarium graminearum       depths 1-18
+[12:49:12] Fusarium fujikuroi         vs Fusarium odoratissimum     depths 1-18
+[12:49:13] Fusarium fujikuroi         vs Fusarium oxysporum         depths 1-18
+[12:49:14] Fusarium fujikuroi         vs Fusarium proliferatum      depths 1-18
+[12:49:15] Fusarium fujikuroi         vs Fusarium pseudograminearum depths 1-18
+[12:49:16] Fusarium fujikuroi         vs Fusarium verticillioides   depths 1-18
+[12:49:18] Fusarium graminearum       vs Fusarium ambrosium         depths 1-31
+[12:49:19] Fusarium graminearum       vs Fusarium cf. solani        depths 1-31
+[12:49:21] Fusarium graminearum       vs Fusarium falciforme        depths 1-31
+[12:49:23] Fusarium graminearum       vs Fusarium floridanum        depths 1-31
+[12:49:25] Fusarium graminearum       vs Fusarium lateritium        depths 1-31
+[12:49:27] Fusarium graminearum       vs Fusarium euwallaceae       depths 1-31
+[12:49:28] Fusarium graminearum       vs Fusarium poae              depths 1-31
+[12:49:30] Fusarium graminearum       vs Fusarium culmorum          depths 1-31
+[12:49:32] Fusarium graminearum       vs Fusarium fujikuroi         depths 1-31
+[12:49:34] Fusarium graminearum       vs Fusarium odoratissimum     depths 1-31
+[12:49:36] Fusarium graminearum       vs Fusarium oxysporum         depths 1-31
+[12:49:38] Fusarium graminearum       vs Fusarium proliferatum      depths 1-31
+[12:49:39] Fusarium graminearum       vs Fusarium pseudograminearum depths 1-31
+[12:49:41] Fusarium graminearum       vs Fusarium verticillioides   depths 1-31
+[12:49:49] Fusarium oxysporum         vs Fusarium ambrosium         depths 1-57
+[12:49:56] Fusarium oxysporum         vs Fusarium cf. solani        depths 1-57
+[12:50:04] Fusarium oxysporum         vs Fusarium falciforme        depths 1-57
+[12:50:11] Fusarium oxysporum         vs Fusarium floridanum        depths 1-57
+[12:50:19] Fusarium oxysporum         vs Fusarium lateritium        depths 1-57
+[12:50:27] Fusarium oxysporum         vs Fusarium euwallaceae       depths 1-57
+[12:50:34] Fusarium oxysporum         vs Fusarium poae              depths 1-57
+[12:50:41] Fusarium oxysporum         vs Fusarium culmorum          depths 1-57
+[12:50:49] Fusarium oxysporum         vs Fusarium fujikuroi         depths 1-57
+[12:50:57] Fusarium oxysporum         vs Fusarium graminearum       depths 1-57
+[12:51:05] Fusarium oxysporum         vs Fusarium odoratissimum     depths 1-57
+[12:51:12] Fusarium oxysporum         vs Fusarium proliferatum      depths 1-57
+[12:51:20] Fusarium oxysporum         vs Fusarium pseudograminearum depths 1-57
+[12:51:27] Fusarium oxysporum         vs Fusarium verticillioides   depths 1-57
+[12:51:28] Fusarium proliferatum      vs Fusarium ambrosium         depths 1-9
+[12:51:28] Fusarium proliferatum      vs Fusarium cf. solani        depths 1-9
+[12:51:28] Fusarium proliferatum      vs Fusarium falciforme        depths 1-9
+[12:51:29] Fusarium proliferatum      vs Fusarium floridanum        depths 1-9
+[12:51:29] Fusarium proliferatum      vs Fusarium lateritium        depths 1-9
+[12:51:29] Fusarium proliferatum      vs Fusarium euwallaceae       depths 1-9
+[12:51:30] Fusarium proliferatum      vs Fusarium poae              depths 1-9
+[12:51:30] Fusarium proliferatum      vs Fusarium culmorum          depths 1-9
+[12:51:30] Fusarium proliferatum      vs Fusarium fujikuroi         depths 1-9
+[12:51:31] Fusarium proliferatum      vs Fusarium graminearum       depths 1-9
+[12:51:31] Fusarium proliferatum      vs Fusarium odoratissimum     depths 1-9
+[12:51:32] Fusarium proliferatum      vs Fusarium oxysporum         depths 1-9
+[12:51:32] Fusarium proliferatum      vs Fusarium pseudograminearum depths 1-9
+[12:51:32] Fusarium proliferatum      vs Fusarium verticillioides   depths 1-9
+[12:51:32] Phytophthora fragariae     vs Phytophthora kernoviae     depths 1-9
+[12:51:33] Phytophthora fragariae     vs Phytophthora ramorum       depths 1-9
+[12:51:33] Phytophthora fragariae     vs Phytophthora cactorum      depths 1-9
+[12:51:34] Phytophthora fragariae     vs Phytophthora infestans     depths 1-9
+[12:51:34] Phytophthora fragariae     vs Phytophthora nicotianae    depths 1-9
+[12:51:35] Phytophthora cactorum      vs Phytophthora fragariae     depths 1-18
+[12:51:36] Phytophthora cactorum      vs Phytophthora kernoviae     depths 1-18
+[12:51:37] Phytophthora cactorum      vs Phytophthora ramorum       depths 1-18
+[12:51:38] Phytophthora cactorum      vs Phytophthora infestans     depths 1-18
+[12:51:38] Phytophthora cactorum      vs Phytophthora nicotianae    depths 1-18
+[12:51:39] Phytophthora nicotianae    vs Phytophthora fragariae     depths 1-8
+[12:51:39] Phytophthora nicotianae    vs Phytophthora kernoviae     depths 1-8
+[12:51:39] Phytophthora nicotianae    vs Phytophthora ramorum       depths 1-8
+[12:51:40] Phytophthora nicotianae    vs Phytophthora cactorum      depths 1-8
+[12:51:40] Phytophthora nicotianae    vs Phytophthora infestans     depths 1-8
+[12:51:41] Pyrenophora tritici-repent vs Pyrenophora teres          depths 1-24
+[12:51:44] Pyricularia oryzae         vs Pyricularia grisea         depths 1-45
+[12:51:45] Verticillium dahliae       vs Verticillium longisporum   depths 1-11
+[12:51:45] Verticillium dahliae       vs Verticillium nonalfalfae   depths 1-11
+[12:51:45] Verticillium nonalfalfae   vs Verticillium dahliae       depths 1-17
+[12:51:46] Verticillium nonalfalfae   vs Verticillium longisporum   depths 1-17
+[12:51:46] wrote kraken/utilities/saturation/data/depth_bias.tsv (3143 rows)

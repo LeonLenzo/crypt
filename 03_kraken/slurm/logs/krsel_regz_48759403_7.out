@@ -1,0 +1,50 @@
+task 7/16  candidate raw files: 353  threads=32
+  [truncated] ERR1607758_2.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] ERR1607758_2.fastq.gz  7.0G -> 1.9G  in 45s
+  [orphan   ] ERR3500510_2.fastq has no .gz, compressing
+  [ok       ] ERR3500510_2.fastq.gz  17G -> 4.3G  in 126s
+  [truncated] ERR3500522_2.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] ERR3500522_2.fastq.gz  15G -> 3.7G  in 109s
+  [orphan   ] ERR3500530_2.fastq has no .gz, compressing
+  [ok       ] ERR3500530_2.fastq.gz  16G -> 4.1G  in 119s
+  [orphan   ] ERR3500538_2.fastq has no .gz, compressing
+  [ok       ] ERR3500538_2.fastq.gz  16G -> 4.1G  in 120s
+  [orphan   ] ERR3500558_2.fastq has no .gz, compressing
+  [ok       ] ERR3500558_2.fastq.gz  15G -> 3.8G  in 113s
+  [truncated] ERR6548345_2.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] ERR6548345_2.fastq.gz  18G -> 4.2G  in 119s
+  [orphan   ] SRR14871468_2.fastq has no .gz, compressing
+  [ok       ] SRR14871468_2.fastq.gz  20G -> 6.0G  in 139s
+  [truncated] SRR21195581_2.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] SRR21195581_2.fastq.gz  19G -> 3.6G  in 112s
+  [truncated] SRR23706864_1.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] SRR23706864_1.fastq.gz  30G -> 5.3G  in 167s
+  [truncated] SRR2517433.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] SRR2517433.fastq.gz  32G -> 7.2G  in 188s
+  [orphan   ] SRR31200152_2.fastq has no .gz, compressing
+  [ok       ] SRR31200152_2.fastq.gz  32G -> 5.5G  in 162s
+  [orphan   ] SRR31514625_2.fastq has no .gz, compressing
+  [ok       ] SRR31514625_2.fastq.gz  67G -> 8.4G  in 257s
+  [orphan   ] SRR31850421_2.fastq has no .gz, compressing
+  [ok       ] SRR31850421_2.fastq.gz  36G -> 5.7G  in 168s
+  [orphan   ] SRR31850434_2.fastq has no .gz, compressing
+  [ok       ] SRR31850434_2.fastq.gz  28G -> 4.2G  in 127s
+  [truncated] SRR33696077_1.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] SRR33696077_1.fastq.gz  25G -> 5.5G  in 140s
+  [orphan   ] SRR36368718_2.fastq has no .gz, compressing
+  [ok       ] SRR36368718_2.fastq.gz  45G -> 6.9G  in 204s
+  [orphan   ] SRR36950016_2.fastq has no .gz, compressing
+  [ok       ] SRR36950016_2.fastq.gz  112G -> 16G  in 454s
+  [truncated] SRR38293582.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] SRR38293582.fastq.gz  22G -> 11G  in 196s
+  [truncated] SRR6242050.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] SRR6242050.fastq.gz  42G -> 7.9G  in 210s
+  [orphan   ] SRR7500374_2.fastq has no .gz, compressing
+  [ok       ] SRR7500374_2.fastq.gz  12G -> 3.0G  in 81s
+  [truncated] SRR9684521.fastq.gz failed gzip -t, recompressing from raw
+  [ok       ] SRR9684521.fastq.gz  46G -> 9.7G  in 279s
+
+task 7 done: recovered=22 kept-existing-gz=0 failed=0
+  raw removed:   661G
+  gz written:    130G
+  net reclaimed: 531G

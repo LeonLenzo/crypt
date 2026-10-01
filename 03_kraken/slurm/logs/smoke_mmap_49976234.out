@@ -1,0 +1,4 @@
+host=nid001220 job=49976234 config=mmap
+               total        used        free      shared  buff/cache   available
+Mem:             250          11         222           3          22         239
+=== CONFIG mmap WALL-CLOCK: 1s ===

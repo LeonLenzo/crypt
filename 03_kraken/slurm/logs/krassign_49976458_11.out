@@ -1,0 +1,218 @@
+host=nid001646 job=49976523 task=11 cpus=112
+Kraken version 2.1.2
+Reads read from: kraken/select/data/reads
+Raw kraken2 reports will be saved to: kraken/assign/data/reports
+Loaded 3,225 runs from kraken/select/data/run_list.tsv (filters: none)
+Array task 11/16: 200 runs assigned
+
+Total runs: 3,225 | Already done: 16 | Remaining: 200
+Settings: confidence=0.15, min_hit_groups=3, workers=4, kraken_threads=8
+DB: kraken/build/data/db_v3
+Tmp: /scratch/fl3/llenzo/kraken_tmp
+
+[      1/200] ERR3170205  80.0% classified  | 0.0/s  ETA 6.3h
+[      2/200] ERR3188437  81.7% classified  | 0.0/s  ETA 3.5h
+[      3/200] ERR3188469  80.8% classified  | 0.0/s  ETA 2.3h
+[      4/200] ERR3188477  79.5% classified  | 0.0/s  ETA 2.0h
+[      5/200] ERR3170268  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR3170268')  | 0.0/s  ETA 2.6h
+[      6/200] ERR3170192  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR3170192')  | 0.0/s  ETA 2.6h
+[      7/200] ERR3188472  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR3188472')  | 0.0/s  ETA 2.5h
+[      8/200] ERR3170221  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR3170221')  | 0.0/s  ETA 2.4h
+[      9/200] ERR1607770  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR1607770')  | 0.0/s  ETA 2.2h
+[     10/200] ERR1607825  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR1607825')  | 0.0/s  ETA 2.1h
+[     11/200] ERR1607783  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR1607783')  | 0.0/s  ETA 1.9h
+[     12/200] ERR1607818  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR1607818')  | 0.0/s  ETA 2.2h
+[     13/200] ERR1607828  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR1607828')  | 0.0/s  ETA 2.2h
+[     14/200] ERR1607736  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR1607736')  | 0.0/s  ETA 2.2h
+[     15/200] ERR1607864  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR1607864')  | 0.0/s  ETA 2.0h
+[     16/200] ERR1607758  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR1607758')  | 0.0/s  ETA 2.1h
+[     17/200] ERR15005483  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR15005483')  | 0.0/s  ETA 2.2h
+[     18/200] ERR15005495  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR15005495')  | 0.0/s  ETA 2.1h
+[     19/200] ERR15005450  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR15005450')  | 0.0/s  ETA 2.1h
+[     20/200] ERR15005511  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR15005511')  | 0.0/s  ETA 2.0h
+[     21/200] ERR12013031  83.3% classified  | 0.0/s  ETA 2.0h
+[     22/200] ERR15005491  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR15005491')  | 0.0/s  ETA 2.0h
+[     23/200] ERR12013053  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR12013053')  | 0.0/s  ETA 1.9h
+[     24/200] ERR15005459  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR15005459')  | 0.0/s  ETA 1.9h
+[     25/200] ERR12013076  73.3% classified  | 0.0/s  ETA 1.8h
+[     26/200] ERR6847897  82.8% classified  | 0.0/s  ETA 2.0h
+[     27/200] ERR4315264  77.4% classified  | 0.0/s  ETA 2.0h
+[     28/200] SRR29076533  73.9% classified  | 0.0/s  ETA 1.9h
+[     29/200] SRR29077171  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR29077171')  | 0.0/s  ETA 1.9h
+[     30/200] ERR4315400  79.5% classified  | 0.0/s  ETA 1.9h
+[     31/200] ERR4315357  79.7% classified  | 0.0/s  ETA 1.9h
+[     32/200] ERR4315162  69.6% classified  | 0.0/s  ETA 1.8h
+[     33/200] ERR4315319  80.0% classified  | 0.0/s  ETA 1.8h
+[     34/200] ERR4315464  73.6% classified  | 0.0/s  ETA 1.8h
+[     35/200] ERR4315452  81.5% classified  | 0.0/s  ETA 1.8h
+[     36/200] ERR4315320  81.5% classified  | 0.0/s  ETA 1.7h
+[     37/200] ERR4315230  79.0% classified  | 0.0/s  ETA 1.7h
+[     38/200] ERR4315570  83.7% classified  | 0.0/s  ETA 1.7h
+[     39/200] ERR4315402  16.8% classified  | 0.0/s  ETA 1.7h
+[     40/200] ERR4315389  79.6% classified  | 0.0/s  ETA 1.7h
+[     41/200] ERR4315258  78.2% classified  | 0.0/s  ETA 1.7h
+[     42/200] ERR4315518  83.9% classified  | 0.0/s  ETA 1.6h
+[     43/200] ERR4315284  78.4% classified  | 0.0/s  ETA 1.6h
+[     44/200] ERR4315417  73.4% classified  | 0.0/s  ETA 1.6h
+[     45/200] ERR4315152  83.9% classified  | 0.0/s  ETA 1.6h
+[     46/200] ERR4315560  82.7% classified  | 0.0/s  ETA 1.6h
+[     47/200] ERR4315476  80.6% classified  | 0.0/s  ETA 1.5h
+[     48/200] ERR4315287  82.9% classified  | 0.0/s  ETA 1.5h
+[     49/200] ERR4315406  72.9% classified  | 0.0/s  ETA 1.5h
+[     50/200] ERR4315175  35.6% classified  | 0.0/s  ETA 1.5h
+[     51/200] ERR4315410  75.7% classified  | 0.0/s  ETA 1.5h
+[     52/200] ERR4315331  64.6% classified  | 0.0/s  ETA 1.5h
+[     53/200] ERR4315425  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR4315425')  | 0.0/s  ETA 1.5h
+[     54/200] ERR4315205  79.9% classified  | 0.0/s  ETA 1.4h
+[     55/200] ERR4315174  61.2% classified  | 0.0/s  ETA 1.4h
+[     56/200] ERR4315627  85.2% classified  | 0.0/s  ETA 1.4h
+[     57/200] ERR4315463  85.2% classified  | 0.0/s  ETA 1.4h
+[     58/200] ERR4315369  81.2% classified  | 0.0/s  ETA 1.4h
+[     59/200] ERR4315375  80.9% classified  | 0.0/s  ETA 1.4h
+[     60/200] ERR4315163  77.7% classified  | 0.0/s  ETA 1.4h
+[     61/200] ERR4315567  80.8% classified  | 0.0/s  ETA 1.3h
+[     62/200] ERR4315577  78.1% classified  | 0.0/s  ETA 1.4h
+[     63/200] SRR1425602  ERR(no_local_reads)  | 0.0/s  ETA 1.3h
+[     64/200] SRR24010214  82.8% classified  | 0.0/s  ETA 1.3h
+[     65/200] SRR24010229  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR24010229')  | 0.0/s  ETA 1.3h
+[     66/200] ERR3856855  80.5% classified  | 0.0/s  ETA 1.3h
+[     67/200] ERR3856814  51.5% classified  | 0.0/s  ETA 1.3h
+[     68/200] ERR3856834  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR3856834')  | 0.0/s  ETA 1.3h
+[     69/200] ERR3500550  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR3500550')  | 0.0/s  ETA 1.3h
+[     70/200] SRR23706857  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR23706857')  | 0.0/s  ETA 1.3h
+[     71/200] SRR579533  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR579533')  | 0.0/s  ETA 1.3h
+[     72/200] ERR3500534  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR3500534')  | 0.0/s  ETA 1.4h
+[     73/200] ERR3500525  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR3500525')  | 0.0/s  ETA 1.4h
+[     74/200] SRR1562081  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR1562081')  | 0.0/s  ETA 1.4h
+[     75/200] SRR26175768  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR26175768')  | 0.0/s  ETA 1.4h
+[     76/200] SRR11440843  82.8% classified  | 0.0/s  ETA 1.4h
+[     77/200] SRR391841  68.8% classified  | 0.0/s  ETA 1.4h
+[     78/200] SRR391840  69.5% classified  | 0.0/s  ETA 1.3h
+[     79/200] SRR31839224  83.2% classified  | 0.0/s  ETA 1.3h
+[     80/200] SRR6242059  74.6% classified  | 0.0/s  ETA 1.3h
+[     81/200] ERR13340224  84.6% classified  | 0.0/s  ETA 1.3h
+[     82/200] SRR32620570  73.5% classified  | 0.0/s  ETA 1.3h
+[     83/200] SRR6242053  69.7% classified  | 0.0/s  ETA 1.3h
+[     84/200] ERR789112  61.2% classified  | 0.0/s  ETA 1.3h
+[     85/200] ERR789369  74.9% classified  | 0.0/s  ETA 1.2h
+[     86/200] SRR8718818  97.3% classified  | 0.0/s  ETA 1.2h
+[     87/200] SRR8718839  91.3% classified  | 0.0/s  ETA 1.2h
+[     88/200] SRR8718815  97.9% classified  | 0.0/s  ETA 1.2h
+[     89/200] ERR2099115  73.7% classified  | 0.0/s  ETA 1.2h
+[     90/200] ERR13149232  77.2% classified  | 0.0/s  ETA 1.2h
+[     91/200] ERR13105496  82.9% classified  | 0.0/s  ETA 1.2h
+[     92/200] SRR34026570  76.5% classified  | 0.0/s  ETA 1.2h
+[     93/200] SRR4240603  85.3% classified  | 0.0/s  ETA 1.2h
+[     94/200] SRR34026591  76.5% classified  | 0.0/s  ETA 1.1h
+[     95/200] SRR9684539  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR9684539')  | 0.0/s  ETA 1.1h
+[     96/200] SRR3750721  82.2% classified  | 0.0/s  ETA 1.1h
+[     97/200] SRR3750727  87.4% classified  | 0.0/s  ETA 1.1h
+[     98/200] ERR5928154  81.1% classified  | 0.0/s  ETA 1.1h
+[     99/200] ERR5928172  85.5% classified  | 0.0/s  ETA 1.1h
+[    100/200] SRR2873756  82.5% classified  | 0.0/s  ETA 1.1h
+[    101/200] ERR5928187  84.9% classified  | 0.0/s  ETA 1.1h
+[    102/200] ERR5928225  77.6% classified  | 0.0/s  ETA 1.0h
+[    103/200] ERR5928211  80.2% classified  | 0.0/s  ETA 1.0h
+[    104/200] SRR21195582  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR21195582')  | 0.0/s  ETA 1.0h
+[    105/200] SRR2170110  66.5% classified  | 0.0/s  ETA 1.0h
+[    106/200] SRR20067742  85.9% classified  | 0.0/s  ETA 1.0h
+[    107/200] ERR5696203  91.6% classified  | 0.0/s  ETA 1.0h
+[    108/200] SRR14871479  88.2% classified  | 0.0/s  ETA 1.0h
+[    109/200] ERR5696273  91.4% classified  | 0.0/s  ETA 1.0h
+[    110/200] ERR5696283  93.0% classified  | 0.0/s  ETA 1.0h
+[    111/200] ERR5696244  90.2% classified  | 0.0/s  ETA 0.9h
+[    112/200] ERR6548351  91.6% classified  | 0.0/s  ETA 0.9h
+[    113/200] ERR6548362  83.8% classified  | 0.0/s  ETA 0.9h
+[    114/200] ERR5696270  92.6% classified  | 0.0/s  ETA 0.9h
+[    115/200] ERR5696255  91.8% classified  | 0.0/s  ETA 0.9h
+[    116/200] ERR5696210  90.9% classified  | 0.0/s  ETA 0.9h
+[    117/200] SRR12888336  66.2% classified  | 0.0/s  ETA 0.9h
+[    118/200] SRR2920074  40.2% classified  | 0.0/s  ETA 0.8h
+[    119/200] SRR20324143  85.2% classified  | 0.0/s  ETA 0.8h
+[    120/200] SRR11216283  7.3% classified  | 0.0/s  ETA 0.8h
+[    121/200] SRR11216281  10.5% classified  | 0.0/s  ETA 0.8h
+[    122/200] SRR11216296  9.1% classified  | 0.0/s  ETA 0.8h
+[    123/200] SRR2517432  78.3% classified  | 0.0/s  ETA 0.8h
+[    124/200] SRR31850419  82.6% classified  | 0.0/s  ETA 0.8h
+[    125/200] SRR10386365  61.2% classified  | 0.0/s  ETA 0.8h
+[    126/200] SRR36368721  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR36368721')  | 0.0/s  ETA 0.8h
+[    127/200] SRR2922440  40.1% classified  | 0.0/s  ETA 0.8h
+[    128/200] SRR33583438  36.0% classified  | 0.0/s  ETA 0.8h
+[    129/200] SRR23869864  88.2% classified  | 0.0/s  ETA 0.8h
+[    130/200] SRR7500370  81.4% classified  | 0.0/s  ETA 0.7h
+[    131/200] SRR16930845  29.2% classified  | 0.0/s  ETA 0.7h
+[    132/200] SRR28544667  50.6% classified  | 0.0/s  ETA 0.7h
+[    133/200] SRR8639448  95.7% classified  | 0.0/s  ETA 0.7h
+[    134/200] SRR27326702  51.6% classified  | 0.0/s  ETA 0.7h
+[    135/200] SRR15141215  58.6% classified  | 0.0/s  ETA 0.7h
+[    136/200] SRR15141038  68.9% classified  | 0.0/s  ETA 0.7h
+[    137/200] SRR15141218  76.5% classified  | 0.0/s  ETA 0.7h
+[    138/200] SRR8204152  66.1% classified  | 0.0/s  ETA 0.7h
+[    139/200] SRR32920595  53.9% classified  | 0.0/s  ETA 0.6h
+[    140/200] SRR10291747  84.8% classified  | 0.0/s  ETA 0.7h
+[    141/200] ERR10886970  83.4% classified  | 0.0/s  ETA 0.6h
+[    142/200] ERR10886916  84.5% classified  | 0.0/s  ETA 0.6h
+[    143/200] SRR36950016  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR36950016')  | 0.0/s  ETA 0.6h
+[    144/200] ERR10886957  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR10886957')  | 0.0/s  ETA 0.6h
+[    145/200] ERR10886913  82.8% classified  | 0.0/s  ETA 0.6h
+[    146/200] ERR10886990  80.2% classified  | 0.0/s  ETA 0.6h
+[    147/200] SRR24901494  76.9% classified  | 0.0/s  ETA 0.6h
+[    148/200] SRR8418332  60.9% classified  | 0.0/s  ETA 0.6h
+[    149/200] SRR8418319  55.6% classified  | 0.0/s  ETA 0.6h
+[    150/200] SRR8418363  66.0% classified  | 0.0/s  ETA 0.6h
+[    151/200] SRR8418264  50.8% classified  | 0.0/s  ETA 0.5h
+[    152/200] SRR27311745  40.9% classified  | 0.0/s  ETA 0.5h
+[    153/200] SRR10095075  75.4% classified  | 0.0/s  ETA 0.5h
+[    154/200] ERR7421534  69.5% classified  | 0.0/s  ETA 0.5h
+[    155/200] ERR7421522  66.4% classified  | 0.0/s  ETA 0.5h
+[    156/200] SRR15274850  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR15274850')  | 0.0/s  ETA 0.5h
+[    157/200] SRR32959936  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR32959936')  | 0.0/s  ETA 0.5h
+[    158/200] SRR34300116  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR34300116')  | 0.0/s  ETA 0.5h
+[    159/200] SRR34300123  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR34300123')  | 0.0/s  ETA 0.5h
+[    160/200] ERR10926702  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR10926702')  | 0.0/s  ETA 0.4h
+[    161/200] SRR36367296  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR36367296')  | 0.0/s  ETA 0.4h
+[    162/200] SRR36910233  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR36910233')  | 0.0/s  ETA 0.4h
+[    163/200] SRR36910235  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR36910235')  | 0.0/s  ETA 0.4h
+[    164/200] SRR36367285  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR36367285')  | 0.0/s  ETA 0.4h
+[    165/200] SRR36910202  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR36910202')  | 0.0/s  ETA 0.4h
+[    166/200] SRR34300125  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR34300125')  | 0.0/s  ETA 0.4h
+[    167/200] SRR36292476  62.1% classified  | 0.0/s  ETA 0.4h
+[    168/200] SRR36910241  29.4% classified  | 0.0/s  ETA 0.4h
+[    169/200] SRR34300120  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR34300120')  | 0.0/s  ETA 0.4h
+[    170/200] SRR34300170  28.9% classified  | 0.0/s  ETA 0.3h
+[    171/200] SRR26214564  90.7% classified  | 0.0/s  ETA 0.3h
+[    172/200] SRR36367287  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR36367287')  | 0.0/s  ETA 0.3h
+[    173/200] SRR25969068  87.4% classified  | 0.0/s  ETA 0.3h
+[    174/200] SRR22975704  91.1% classified  | 0.0/s  ETA 0.3h
+[    175/200] SRR25969024  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR25969024')  | 0.0/s  ETA 0.3h
+[    176/200] SRR1975204  68.8% classified  | 0.0/s  ETA 0.3h
+[    177/200] SRR8984114  75.7% classified  | 0.0/s  ETA 0.3h
+[    178/200] SRR11066777  84.4% classified  | 0.0/s  ETA 0.3h
+[    179/200] SRR7403500  83.4% classified  | 0.0/s  ETA 0.2h
+[    180/200] SRR12133606  28.2% classified  | 0.0/s  ETA 0.2h
+[    181/200] SRR6395491  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR6395491')  | 0.0/s  ETA 0.2h
+[    182/200] SRR3571661  69.7% classified  | 0.0/s  ETA 0.2h
+[    183/200] SRR37491895  38.1% classified  | 0.0/s  ETA 0.2h
+[    184/200] SRR6039743  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR6039743')  | 0.0/s  ETA 0.2h
+[    185/200] SRR1793876  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR1793876')  | 0.0/s  ETA 0.2h
+[    186/200] SRR6189709  79.6% classified  | 0.0/s  ETA 0.2h
+[    187/200] ERR990471  76.4% classified  | 0.0/s  ETA 0.1h
+[    188/200] SRR34094678  33.2% classified  | 0.0/s  ETA 0.1h
+[    189/200] SRR37049209  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/SRR37049209')  | 0.0/s  ETA 0.1h
+[    190/200] SRR36993188  90.3% classified  | 0.0/s  ETA 0.1h
+[    191/200] SRR10499796  86.2% classified  | 0.0/s  ETA 0.1h
+[    192/200] DRR125458  85.1% classified  | 0.0/s  ETA 0.1h
+[    193/200] SRR35031040  80.6% classified  | 0.0/s  ETA 0.1h
+[    194/200] ERR14823246  ERR([Errno 2] No such file or directory: '/scratch/fl3/llenzo/kraken_tmp/ERR14823246')  | 0.0/s  ETA 0.1h
+[    195/200] SRR22540862  92.0% classified  | 0.0/s  ETA 0.1h
+[    196/200] SRR8416455  74.8% classified  | 0.0/s  ETA 0.0h
+[    197/200] SRR15539004  73.7% classified  | 0.0/s  ETA 0.0h
+[    198/200] SRR3724095  77.1% classified  | 0.0/s  ETA 0.0h
+[    199/200] SRR6292089  82.4% classified  | 0.0/s  ETA 0.0h
+[    200/200] SRR35248609  34.4% classified  | 0.0/s  ETA 0.0h
+
+── Summary ────────────────────────────────────────
+  Classified: 145
+  Errors:     55
+  Elapsed:    2.2h
+  Cache:      kraken/assign/data/kraken_cache.jsonl

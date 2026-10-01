@@ -286,7 +286,7 @@ def upload_to_acacia(local_dir: Path, s3_prefix: str, bucket: str,
                      profile: str = "acacia") -> bool:
     """Sync a local directory to Pawsey's Acacia S3 object store via `aws s3 sync`.
     Returns True on success. Used for archiving large Setonix-scratch data
-    (survives scratch wipes) — currently kraken/ DB build assemblies; any module
+    (survives scratch wipes) — currently 03_kraken/ DB build assemblies; any module
     with large regeneratable-but-expensive data on scratch can reuse this."""
     s3_uri = f"s3://{bucket}/{s3_prefix}/"
     print(f"\nUploading {local_dir} -> {s3_uri} …", flush=True)

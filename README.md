@@ -14,9 +14,9 @@ The pipeline is organised into three sequential modules, each with its own ratio
 
 | Module | Purpose | README |
 |--------|---------|--------|
-| **[stat/](stat/)** | STAT k-mer screening of 608,368 SRA runs; primary co-infection detection | [stat/README.md](stat/README.md) |
-| **[metadata/](metadata/)** | BioProject/BioSample enrichment, literature linkage, and LLM study design classification | [metadata/README.md](metadata/README.md) |
-| **[kraken/](kraken/)** | Orthogonal Kraken2 species-level validation of STAT detections | [kraken/README.md](kraken/README.md) |
+| **[01_stat/](01_stat/)** | STAT k-mer screening of 608,368 SRA runs; primary co-infection detection | [01_stat/README.md](01_stat/README.md) |
+| **[02_literature/](02_literature/)** | BioProject/BioSample enrichment, literature linkage, and LLM study design classification | [02_literature/README.md](02_literature/README.md) |
+| **[03_kraken/](03_kraken/)** | Orthogonal Kraken2 species-level validation of STAT detections | [03_kraken/README.md](03_kraken/README.md) |
 
 ## Headline results
 

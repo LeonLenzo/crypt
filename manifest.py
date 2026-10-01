@@ -6,7 +6,7 @@ Any module that keeps large regeneratable-but-expensive data on Setonix scratch
 (gitignored, too big to commit) can use this to record what exists there — a
 small manifest.tsv (relative path, size, mtime, +md5 for checksum-worthy files)
 that IS committed, so the repo shows what's on remote scratch without holding
-the data itself. First used by kraken/ (CDS downloads, BUSCO lineage caches,
+the data itself. First used by 03_kraken/ (CDS downloads, BUSCO lineage caches,
 Kraken2 DBs, downloaded FASTQ, ~200GB total) — reusable by any module.
 
 Usage:

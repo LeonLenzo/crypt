@@ -1,49 +1,49 @@
-# Large STAT cache — 2.4 GB, auto-fetched by stat/fetch.py (all of
+# Large STAT cache — 2.4 GB, auto-fetched by 01_stat/02_fetch/stat_fetch.py (all of
 # stat_fetch/data/ is fetch-stage cache/checkpoints; stat_filter/data/ holds
 # the actual final outputs — runs.tsv etc. — and stays tracked)
-stat/fetch/data/*
-!stat/fetch/data/manifest.tsv
+01_stat/02_fetch/data/*
+!01_stat/02_fetch/data/manifest.tsv
 
 # Intermediate confirmed-run caches — regeneratable from stat_cache
-stat/filter/data/*_confirmed.json
+01_stat/03_filter/data/*_confirmed.json
 
 # Large species distribution table (38k rows)
-stat/filter/data/*_species_dist.tsv
+01_stat/03_filter/data/*_species_dist.tsv
 
-# Reference DB source files — auto-downloaded by stat/build.py
-stat/build/data/phi-base_current.csv
-stat/build/data/ictv_vmr.xlsx
+# Reference DB source files — auto-downloaded by 01_stat/01_build/stat_build.py
+01_stat/01_build/data/phi-base_current.csv
+01_stat/01_build/data/ictv_vmr.xlsx
 
 # meta_search.py raw API response caches — regeneratable
-metadata/search/data/bp_cache.json
-metadata/search/data/bs_cache.json
-metadata/search/data/serper_cache.json
+02_literature/01_search/data/bp_cache.json
+02_literature/01_search/data/bs_cache.json
+02_literature/01_search/data/serper_cache.json
 
 # meta_text.py: manually-downloaded copyrighted journal PDFs (715MB+, and not
 # ours to redistribute) — never committed. Its .bak sibling is working-copy
 # cruft, also excluded.
-metadata/text/data/manual_pdfs/
-metadata/text/data/text_cache.jsonl.bak
+02_literature/02_text/data/manual_pdfs/
+02_literature/02_text/data/text_cache.jsonl.bak
 
 # The repo is for code (+ small figures/manifests to discuss results), not
 # data — 2026-08-31 policy, purged from history at the same time. These are
 # all locally regeneratable (or synced to Setonix directly, outside git) —
 # see the module docstrings/READMEs for how each is produced.
-metadata/search/data/bioprojects.json
-metadata/search/data/biosamples.json
-metadata/text/data/text_cache.jsonl
-metadata/classify/data/samples.tsv
-metadata/classify/data/classify_cache.jsonl
-metadata/classify/data/host_disambig_cache.jsonl
-stat/build/data/phibase_db.json
-stat/filter/data/runs.tsv
-stat/filter/figures/scatter_data.tsv
+02_literature/01_search/data/bioprojects.json
+02_literature/01_search/data/biosamples.json
+02_literature/02_text/data/text_cache.jsonl
+02_literature/03_classify/data/samples.tsv
+02_literature/03_classify/data/classify_cache.jsonl
+02_literature/03_classify/data/host_disambig_cache.jsonl
+01_stat/01_build/data/phibase_db.json
+01_stat/03_filter/data/runs.tsv
+01_stat/03_filter/figures/scatter_data.tsv
 
 # legacy/ dirs (superseded scripts + their outputs, kept on disk for local
 # reference only) — excluded from the repo entirely rather than picking
 # through individual files; simpler, and none of it is needed anywhere
 # downstream (nothing reads from legacy/, matching kraken/legacy/ having been
-# fully wiped rather than kept at all — see kraken/README.md "History").
+# fully wiped rather than kept at all — see 03_kraken/README.md "History").
 
 # Log history dirs + .latest symlinks are now TRACKED (transparency — Leon's
 # call 2026-09-01: full run history should be visible in the repo, not just
@@ -54,14 +54,14 @@ stat/filter/figures/scatter_data.tsv
 busco_downloads/
 
 # Kraken2 classify cache — large, regeneratable on Setonix
-kraken/assign/data/kraken_cache*.jsonl
-kraken/assign/data/kraken_cache*.txt
+03_kraken/04_assign/data/kraken_cache*.jsonl
+03_kraken/04_assign/data/kraken_cache*.txt
 # every reports dir is data: reports/ is the current DB's, reports_db_v2/ the baseline
-kraken/assign/data/reports*/
-# ad-hoc classification analyses run from kraken/slurm/ (db_v2-vs-v3 comparison,
+03_kraken/04_assign/data/reports*/
+# ad-hoc classification analyses run from 03_kraken/slurm/ (db_v2-vs-v3 comparison,
 # the Phakopsora counterfactual): reports and extracted reads, both regenerable
-kraken/assign/data/compare_v2v3/
-kraken/assign/data/phak_cf/
+03_kraken/04_assign/data/compare_v2v3/
+03_kraken/04_assign/data/phak_cf/
 
 # Old output/ directory — local pipeline data, all superseded by module layout
 /output/
@@ -80,12 +80,12 @@ __pycache__/
 .env
 
 # Kraken2 large files (reproducible, not tracked)
-kraken/utilities/pilot/kallisto/indices/
-kraken/utilities/pilot/kallisto/quant/
-kraken/utilities/pilot/kallisto/reads/
-kraken/utilities/pilot/kallisto/refs/
-kraken/utilities/pilot/kraken/kraken_db/
-kraken/utilities/pilot/kraken/reads/
+03_kraken/utilities/pilot/kallisto/indices/
+03_kraken/utilities/pilot/kallisto/quant/
+03_kraken/utilities/pilot/kallisto/reads/
+03_kraken/utilities/pilot/kallisto/refs/
+03_kraken/utilities/pilot/kraken/kraken_db/
+03_kraken/utilities/pilot/kraken/reads/
 
 # Kraken2 pipeline data — lives on Setonix scratch (~200GB: CDS downloads, BUSCO
 # lineage caches, Kraken2 DBs, downloaded FASTQ). Ignore the data by exact subdir
@@ -94,51 +94,51 @@ kraken/utilities/pilot/kraken/reads/
 # (generated by manifest.py, at repo root) records what exists remotely without
 # holding the data itself. See memory/kraken_restructure_plan.md.
 # Paths updated 2026-09-25 for the flattened module/<step>/ layout (kraken/db/search
-# -> kraken/search, kraken/db/utilities -> kraken/utilities, etc.). The four kraken/db/
+# -> 03_kraken/01_search, kraken/db/utilities -> 03_kraken/utilities, etc.). The four kraken/db/
 # entries below were missed when the structure moved and left the Setonix data dirs
 # unignored; db_v3 added at the same time. kraken_run_download/ dropped entirely.
-kraken/search/data/cds/
-kraken/utilities/busco/data/busco_downloads/
-kraken/utilities/busco/data/busco_scan_cache.tsv
-kraken/build/data/db_v2/
-kraken/build/data/db_v3/
-kraken/build/data/db/
-kraken/select/data/reads/
-kraken/utilities/split/data/index/
-kraken/utilities/split/data/reads/
-kraken/utilities/split/data/_tmp/
+03_kraken/01_search/data/cds/
+03_kraken/utilities/busco/data/busco_downloads/
+03_kraken/utilities/busco/data/busco_scan_cache.tsv
+03_kraken/02_build/data/db_v2/
+03_kraken/02_build/data/db_v3/
+03_kraken/02_build/data/db/
+03_kraken/03_select/data/reads/
+03_kraken/utilities/split/data/index/
+03_kraken/utilities/split/data/reads/
+03_kraken/utilities/split/data/_tmp/
 
 # FracMinHash sketch cache — one .npy per assembly (~700 MB on Setonix), the only
 # expensive part of kraken_db_saturation.py and fully rebuilt by --stage sketch.
 # The curve/bias/policy stages read it and write the small TSVs, which stay tracked.
-kraken/utilities/saturation/data/sketches/
+03_kraken/utilities/saturation/data/sketches/
 
 # Stray SLURM .out/.err that older kraken scripts dropped at the repo root on
-# Setonix before every --output path pointed at kraken/slurm/logs/.
+# Setonix before every --output path pointed at 03_kraken/slurm/logs/.
 /*.out
 /*.err
 
 # Ensembl Plants REST species list — cache for kraken_hosts.py geo lookups, refetched
 # if absent, not needed on Setonix (which downloads via --from-table). The ignore here
 # pointed at the pre-flatten path and so never applied; the file is now tracked at
-# kraken/search/data/ensembl_species.json (84 KB). Left tracked deliberately — untrack
+# 03_kraken/01_search/data/ensembl_species.json (84 KB). Left tracked deliberately — untrack
 # with `git rm --cached` if the cache should stay local-only.
 
 # Personal reference/prose: pipeline schematic, literature notes, manuscript drafts.
 # Kept on disk for navigation, not version-controlled (Leon's call 2026-09-24).
 docs/
 
-# kraken/filter: large regeneratable data tables (rebuilt by detect.py / prep_*.py from
-# kraken/assign/data/reports, itself gitignored). Small manifests with no generator
+# 03_kraken/05_filter: large regeneratable data tables (rebuilt by detect.py / prep_*.py from
+# 03_kraken/04_assign/data/reports, itself gitignored). Small manifests with no generator
 # (model2d.tsv, slopes_*, graminis_*, fsp_*) stay tracked; scripts + figures stay tracked.
-kraken/filter/data/_classified.tsv
-kraken/filter/data/complexity_byhost.tsv
-kraken/filter/data/three.tsv
-kraken/filter/data/splitfig.tsv
+03_kraken/05_filter/data/_classified.tsv
+03_kraken/05_filter/data/complexity_byhost.tsv
+03_kraken/05_filter/data/three.tsv
+03_kraken/05_filter/data/splitfig.tsv
 # _scratch holds superseded exploratory versions, kept on disk for local reference
 # only (same treatment as legacy/): excluded from the repo entirely.
-kraken/filter/_scratch/
+03_kraken/05_filter/_scratch/
 
-# kraken/align: kallisto indices + per-sample abundances, large and built on Setonix
-kraken/align/data/*
-!kraken/align/data/.gitkeep
+# 04_align: kallisto indices + per-sample abundances, large and built on Setonix
+04_align/data/*
+!04_align/data/.gitkeep

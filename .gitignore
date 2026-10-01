@@ -126,7 +126,11 @@ __pycache__/
 
 # Personal reference/prose: pipeline schematic, literature notes, manuscript drafts.
 # Kept on disk for navigation, not version-controlled (Leon's call 2026-09-24).
-docs/
+# docs/ holds drafts, the manuscript and collaborators' material: all local.
+# The pipeline schematic is the exception - it is documentation a reader of the repo
+# needs, so it is tracked.
+docs/*
+!docs/pipeline_schematic.md
 
 # 03_kraken/05_filter: large regeneratable data tables (rebuilt by detect.py / prep_*.py from
 # 03_kraken/04_assign/data/reports, itself gitignored). Small manifests with no generator

@@ -10,13 +10,21 @@ This project mines public SRA data for evidence of unreported co-infection using
 
 ## Modules
 
-The pipeline is organised into three sequential modules, each with its own rationale, methods, findings, and limitations documented in the respective module README.
+The pipeline is organised into four sequential modules, each with its own rationale, methods, findings, and limitations documented in the respective module README. Module and step directories are numbered in workflow order, so the tree reads as the pipeline: a numbered directory is a step, an unnumbered one (`slurm/`, `utilities/`, `data/`, `logs/`, `figures/`) is support.
 
-| Module | Purpose | README |
-|--------|---------|--------|
-| **[01_stat/](01_stat/)** | STAT k-mer screening of 608,368 SRA runs; primary co-infection detection | [01_stat/README.md](01_stat/README.md) |
-| **[02_literature/](02_literature/)** | BioProject/BioSample enrichment, literature linkage, and LLM study design classification | [02_literature/README.md](02_literature/README.md) |
-| **[03_kraken/](03_kraken/)** | Orthogonal Kraken2 species-level validation of STAT detections | [03_kraken/README.md](03_kraken/README.md) |
+| Module | Evidence | Purpose | README |
+|--------|----------|---------|--------|
+| **[01_stat/](01_stat/)** | NCBI's pre-computed k-mer profiles | screen 608,368 SRA runs for secondary pathogen signal | [01_stat/README.md](01_stat/README.md) |
+| **[02_literature/](02_literature/)** | the papers | BioProject/BioSample enrichment, literature linkage, LLM study design classification | [02_literature/README.md](02_literature/README.md) |
+| **[03_kraken/](03_kraken/)** | the reads, by k-mer | orthogonal Kraken2 species-level detection, artefact filtering, co-occurrence networks | [03_kraken/README.md](03_kraken/README.md) |
+| **[04_align/](04_align/)** | the reads, by competitive EM | resolve which genes a detection's reads hit, and whether a co-infection survives competition | [04_align/README.md](04_align/README.md) |
+
+```
+01_stat/        01_build  02_fetch  03_filter
+02_literature/  01_search  02_text  03_classify
+03_kraken/      01_search  02_build  03_select  04_assign  05_filter      slurm/  utilities/
+04_align/
+```
 
 ## Headline results
 
@@ -26,7 +34,15 @@ LLM-based study design classification (full-text-gated: 732/1,285 BioProjects wi
 
 Multi-strategy literature resolution linked 58.0% of BioProjects (746/1,286) to a primary publication (PMID or DOI), with full-text methods sections retrieved for 57.0% via PMC/Unpaywall/manual PDF fallback. The remainder are principally data-only submissions and unpublished surveillance datasets.
 
-Kraken2 species-level validation: a BUSCO-screened pathogen CDS database (`db_v2`, 1,017 assemblies, fungal ≥50%/oomycete ≥65% completeness) is built. The validation target is all 2,719 field/aerial BioSamples from the LLM-classified set (not narrowed to already-flagged co-infections — the point is catching what STAT misses, e.g. a confirmed blind spot for *Puccinia striiformis* rust). Read selection/download (`kraken/run/kraken_run_select.py`) is built and smoke-tested; host-read removal and classification (BBSplit + Kraken2) are still to be built.
+The STAT co-infection rates above are the screen's own estimate and are superseded by the Kraken2 pass below. STAT resolves k-mers shared between close relatives to their lowest common ancestor, which costs species-level resolution in exactly the taxonomically dense clades co-infection work depends on: a kallisto pilot confirmed STAT reports 0% eukaryotic signal for all 15 runs dominated by *Puccinia striiformis* f. sp. *tritici*, while Kraken2 and kallisto both place it at 65 to 68%. The screening funnel above stands; the co-infection rate derived from it does not.
+
+**Kraken2 species-level detection.** The target is all 2,719 field/aerial BioSamples from the LLM-classified set, deliberately not narrowed to already-flagged co-infections, since the point is catching what STAT missed. The current database (`db_v3`) holds 2,115 BUSCO-screened assemblies (2,020 pathogen, 95 host) spanning 1,043 distinct taxa, against db_v2's 326. Breadth was the fix for a specific failure: with only 326 taxa most reads had exactly one plausible match and received a confident species call whether or not the species was present, which is why soybean rust was "detected" in every wheat sample. Kraken2's LCA can only decline to resolve a read when two or more database taxa compete for its k-mers, so the rebuild added competitors rather than additional nameable pathogens. Measured on three wheat runs against identical parameters, db_v3 cut the soybean-rust artefact by 65 to 72%, brought host reads from 0 to 2.3-3.0% (there was no *Triticum* in db_v2 at all), reduced unclassified reads by 11 to 17 percentage points, and left the true target unchanged. 3,220 of 3,225 runs are classified; the 5 failures are known-failed downloads.
+
+BUSCO completeness screening is retained as a QC record rather than a filter. Of the 2,063 candidate assemblies scanned, 1,986 pass, 7 fall below the completeness bar and 70 have no CDS at all; median completeness among the 1,993 scored is 98.4%. All 1,986 passing assemblies are selected, and a per-taxid fallback adds 34 more that failed but are their taxon's only representative, so the screen cannot remove a taxon. It prunes surplus assemblies within a taxon and nothing else, and the attrition that actually matters is missing annotation, ten times more common than failing completeness.
+
+**Detection filtering and co-occurrence.** A raw read count cannot separate a real infection from a classifier pile-up, so each (host x species) detection is scored on the shape of its k-mer accumulation curve: a real infection accumulates new distinct k-mers as sequencing deepens, an artefact stacks reads onto the same fragment. Two thresholds then gate what counts as a co-infection, and they answer different questions. `score >= 0.7` is the artefact filter, keeping ~94% of known-real detections and removing 100% of the known off-host artefacts. `coverage >= 1%` is a presence floor, meaning the organism's DNA is in the sample. The resulting rates are 47% of wheat samples co-infected and 39% of maize. Co-occurrence edges are tested against a prevalence null (Fisher's exact, BH-adjusted p < 0.05) rather than counted raw, because two common pathogens share a sample by chance; only wheat, maize and barley carry three or more significant edges. Full rationale and the limits of the coverage floor: [03_kraken/05_filter/README.md](03_kraken/05_filter/README.md).
+
+**What is not yet resolved.** DNA presence is not proof of active co-infection, and coverage cannot separate the two: spore drift, surface inoculum and mixed samples all deposit real organism DNA. The clearest case is the residual soybean rust on wheat, which read-level alignment confirms is genuinely *Phakopsora*-like sequence rather than misclassified stripe rust (of 248,504 reads, 94% map to *Phakopsora* and 18 to *P. striiformis*), yet *P. pachyrhizi* cannot infect wheat. This limitation is inherent to SRA-based co-infection inference and is disclosed rather than thresholded away. Resolving it is the job of [04_align/](04_align/), which uses competitive read assignment to ask which genes a detection's reads hit and whether a call survives when congeners and the host compete for the same reads. That module is specified but not yet run.
 
 ## Scope
 

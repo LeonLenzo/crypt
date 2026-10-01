@@ -5,9 +5,9 @@ Each feature is 0-1; the score is their weighted mean; real if score >= 0.5. A w
 score, not hard gates, so a shallow slope no longer flips a whole cloud when the fit is
 tight (fixes nicotianae/pseudograminearum), and each feature's contribution is inspectable.
 
-  tightness  R2 of the upper accumulation line   (is there a clean real line at all)   w .25
-  rising     slope of that line, clipped          (coverage grows with depth)           w .15
-  coverage   distinct / genome ceiling, log       (breadth of genome seen; saturation)  w .25
+  tightness  R2 of the upper accumulation line   (is there a clean real line at all)   w .20
+  rising     slope of that line, clipped          (coverage grows with depth)           w .25
+  coverage   distinct / db minimizer ceiling, log (breadth of reference seen)           w .20
   on_line    this point's residual vs the line    (sits on the real line, not the floor) w .15
   unbiased   1 - f.sp. fraction                    (not biased to a sub-taxon sliver)    w .20
 """

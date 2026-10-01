@@ -73,7 +73,7 @@ Five features, each 0 to 1, combined as a weighted mean; real if score >= 0.5:
 |-----------|-------------------------------------------|:------:|
 | tightness | R2 of the upper accumulation line         | 0.20   |
 | rising    | slope of that line, clipped               | 0.25   |
-| coverage  | distinct / genome ceiling, log-scaled     | 0.20   |
+| coverage  | distinct / db minimizer ceiling, log      | 0.20   |
 | on_line   | this point's residual vs the fitted line  | 0.15   |
 | unbiased  | 1 minus f.sp. fraction                    | 0.20   |
 
@@ -103,8 +103,8 @@ answer two different questions:
 - **`score >= 0.7`** (real-shape): the detection has a genuine accumulation curve, not a
   pile-up artefact. Conservative: it keeps ~94% of known-real detections and removes 100%
   of the known off-host artefacts (Phakopsora/wheat, Melampsora/wheat, striiformis/maize).
-- **`coverage >= 1%`** (DNA present): at least 1% of the organism's genome k-mer space is
-  seen in that sample. Without it, the rate is dominated by trace detections: a few hundred
+- **`coverage >= 1%`** (DNA present): at least 1% of the k-mer space the database holds for
+  that organism is seen in that sample. Without it, the rate is dominated by trace detections: a few hundred
   reads of a species sitting on its real curve counted as an infection, pushing wheat
   co-infection to 80%. The floor brings it to a defensible level (wheat 47%, maize 39%).
 
@@ -115,11 +115,43 @@ a co-occurrence **beyond chance** (BH-adjusted p < 0.05), width = log2 fold-enri
 
 ### Why 1% coverage is defensible, and what it does not prove
 
-1% of a median pathogen genome is ~50,000 distinct genomic k-mers observed, spread across
-the genome. For an organism that is not present, random 35-mer collisions yield essentially
-zero distinct matches, so ~50k k-mers is about three orders of magnitude above the
-random-match null. **1% coverage objectively means the organism's DNA is present in the
-sample.** That is the claim it supports, and it is quantitative.
+Coverage is `distinct / ceiling`, where the ceiling is the number of distinct minimizers
+that taxon holds in db_v3, read from `kraken2-inspect` (`02_build/data/db_v3_inspect.tsv`).
+Across the 944 species-rank taxa in the database the median ceiling is 4,080,004
+minimizers, so a 1% call means roughly **40,800 distinct k-mers observed** for a typical
+taxon. For an organism that is not present, random 35-mer collisions yield essentially zero
+distinct matches, so that is about three orders of magnitude above the random-match null.
+**At the median, 1% coverage objectively means the organism's DNA is present in the sample.**
+That is the claim it supports, and it is quantitative.
+
+#### The denominator is the database, not the genome
+
+Two consequences follow from the ceiling being reference-derived, and they pull in opposite
+directions.
+
+The useful one: reference incompleteness largely cancels. A fragmented assembly contributes
+fewer minimizers to the database, so it shrinks the numerator and the denominator together
+and the ratio is close to unchanged. This is why assembly completeness is not filtered on.
+BUSCO screening is kept as a QC record in `utilities/busco/` rather than as a gate, and its
+own table shows why: of the 2,063 candidate assemblies scanned, 1,986 pass, 7 fall below the
+completeness bar and 70 have no CDS at all. Median completeness among the 1,993 scored is
+98.4%, and only 6 sit below 50%. Every passing assembly is selected, and a per-taxid
+fallback adds 34 more that did not pass but are their taxon's only representative (31 with
+no score, 3 below threshold at 1.4%, 11.7% and 41.5%). So the screen can only prune surplus
+assemblies within a taxon, never remove one, and the dominant form of attrition is missing
+annotation (70) rather than poor completeness (7).
+
+The caveat: because the floor is **relative**, the absolute k-mer evidence behind a 1% call
+scales with how much sequence the database holds for that taxon, and that varies by four
+orders of magnitude. 109 taxa (11.5%) have ceilings under 1M minimizers, where 1% is fewer
+than 10,000 k-mers; 43 (4.6%) under 500k; and four sit under 100k, where 1% is between 49
+and 974 k-mers and the three-orders-of-magnitude margin does not hold at all. These are
+thin references rather than small genomes, mostly unnamed isolates (`Colletotrichum sp.
+SAR 10_71` at 4,888 minimizers, `Monosporascus sp. MC13-8B` at 22,843). A 1% call on one of
+those is not the same evidence as a 1% call on a well-sequenced species, and the single
+threshold does not distinguish them. The fix is an absolute distinct-k-mer floor alongside
+the relative one; it is not yet applied, and the taxa it would affect are not among the
+pathogens driving any current result.
 
 It is **not** an artefact-rate control, and we do not claim it is. We tried to anchor a floor
 to a false-positive rate using the cleanest artefact null available (obligate rusts and

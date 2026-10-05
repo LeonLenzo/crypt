@@ -1,0 +1,7 @@
+rule_id	BioProject	dir	file	sheet	header_row	key_col	key_regex	sra_key	value_col	value_prefix	field	evidence_id	override	note
+kashima-site	PRJDB7234	doi_10.1093_pcp_pcab088	Copy of pcp-2021-e-00065-File009.xlsx	TableS2	7	sampleID		bs_description~(?:Sample ID:\s*|:)(\d{4,6})\s*$	field	Japan: 	location	ev-kashima-supp	yes	Takatsuki (Osaka) 926 / Kizu (Kyoto) 144; overrides the portal's country-level value
+kashima-year	PRJDB7234	doi_10.1093_pcp_pcab088	Copy of pcp-2021-e-00065-File009.xlsx	TableS2	7	sampleID		bs_description~(?:Sample ID:\s*|:)(\d{4,6})\s*$	year		collection_date	ev-kashima-supp	yes	2015 Takatsuki / 2016 Kizugawa
+harris-674915-year	PRJNA674915	doi_10.1186_s12870-023-04223-w	grapes.csv		0	sampleName	_0*(\d+)_([LR])$	LibraryName	Year		collection_date	ev-harris-samples	yes	per-sample table; joins on vine number + tissue letter
+harris-674915-tissue	PRJNA674915	doi_10.1186_s12870-023-04223-w	grapes.csv		0	sampleName	_0*(\d+)_([LR])$	LibraryName	Tissue		tissue	ev-harris-samples	yes	per-sample table; joins on vine number + tissue letter
+harris-915033-year	PRJNA915033	doi_10.1186_s12870-023-04223-w	grapes.csv		0	sampleName	_0*(\d+)_([LR])$	LibraryName	Year		collection_date	ev-harris-samples	yes	per-sample table; joins on vine number + tissue letter
+harris-915033-tissue	PRJNA915033	doi_10.1186_s12870-023-04223-w	grapes.csv		0	sampleName	_0*(\d+)_([LR])$	LibraryName	Tissue		tissue	ev-harris-samples	yes	per-sample table; joins on vine number + tissue letter

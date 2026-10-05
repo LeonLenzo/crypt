@@ -43,3 +43,22 @@ hashida-fl-fth	PRJNA726716	treatment=FL/FTH	setting	growth chamber	ev-hashida-ch
 hashida-cl-cth	PRJNA726716	treatment=CL/CTH	setting	growth chamber	ev-hashida-chamber	yes	constant light, constant temp/humidity
 hashida-fl-cth	PRJNA726716	treatment=FL/CTH	setting	growth chamber	ev-hashida-chamber	yes	field light, constant temp/humidity
 hashida-cl-fth	PRJNA726716	treatment=CL/FTH	setting	growth chamber	ev-hashida-chamber	yes	constant light, field temp/humidity
+swi19-f16-site	PRJNA510920	SampleName~^[49][sw]-[0-9]+$	location	Philippines: Los Banos, Laguna, IRRI	ev-swift2019-f16		replaces the BioSample geo_loc_name 'USA', which is the SUBMITTING institution's country (NYU); the plants were grown at IRRI in the Philippines
+swi19-f16-year	PRJNA510920	SampleName~^[49][sw]-[0-9]+$	collection_date	2016	ev-swift2019-f16		year only; the paper gives the season (July-December) and 49 DAS, but no sowing date, so a month would be inferred rather than read
+swi19-f16-setting	PRJNA510920	SampleName~^[49][sw]-[0-9]+$	setting	field	ev-swift2019-f16		open paddy; N and water doses imposed by fertiliser, draining and rain exclusion. In scope on the same reasoning as Baihe (leon 2026-10-05)
+swi19-f16-tissue	PRJNA510920	SampleName~^[49][sw]-[0-9]+$	tissue	leaf	ev-swift2019-leaf		asserted from the paper, not trusted from the archive: this BioProject's BioSample tissue reads 'leaf' for all 411 runs including 57 root libraries
+swi19-f17-site	PRJNA510920	SampleName~_year_2$	location	Philippines: Los Banos, Laguna, IRRI	ev-swift2019-f17		replaces the BioSample geo_loc_name 'USA', which is the SUBMITTING institution's country (NYU); the plants were grown at IRRI in the Philippines
+swi19-f17-year	PRJNA510920	SampleName~_year_2$	collection_date	2017	ev-swift2019-f17		year only; the paper gives the season (July-December) and 49 DAS, but no sowing date, so a month would be inferred rather than read
+swi19-f17-setting	PRJNA510920	SampleName~_year_2$	setting	field	ev-swift2019-f17		second season at the same IRRI site
+swi19-f17-tissue	PRJNA510920	SampleName~_year_2$	tissue	leaf	ev-swift2019-leaf		49 DAS leaf, as season one
+swi19-dose-setting	PRJNA510920	SampleName~percent_Water_.*mM_Nitrogen	setting	growth chamber	ev-swift2019-chamber		sand pots under a 12 h/12 h cycle at 27/25 C and 70% RH. 48 planned, 2 excluded on QC, 46 deposited
+swi19-dose-tissue	PRJNA510920	SampleName~percent_Water_.*mM_Nitrogen	tissue	leaf	ev-swift2019-chamber		youngest mature leaf
+swi19-hydro-setting	PRJNA510920	SampleName~min_leaf_;BioProject=PRJNA510920	setting	growth chamber (hydroponic)	ev-swift2019-hydro		MS media, no soil. Indoor controlled: the paper samples '2 h after subjective dawn', so the photoperiod is imposed, but it never states the chamber specs for this experiment
+swi19-hydro-l-tissue	PRJNA510920	SampleName~min_leaf_	tissue	leaf	ev-swift2019-hydro		the submitter names these 'leaf'; the paper calls the same material 'shoots'. Aerial either way
+swi19-hydro-r-setting	PRJNA510920	SampleName~min_root_	setting	growth chamber (hydroponic)	ev-swift2019-hydro		as the shoot arm
+swi19-hydro-r-tissue	PRJNA510920	SampleName~min_root_	tissue	root	ev-swift2019-hydro		CORRECTS the archive, which labels these 'leaf'. The paper: 'a portion of rice shoots and roots were sampled'. Non-aerial, out of scope for the cohort
+har21e-674915-year	PRJNA674915		collection_date	2017	ev-har21e-design	yes	whole-project: the paper collected all of its data in 2017. Fills the 4 runs grapes.csv has no key for (19L, 30L, 91L, 163L) and confirms the other 212
+har21e-674915-site	PRJNA674915		location	USA: Missouri, Mount Vernon (Univ. Missouri Southwest Research Center vineyard)	ev-har21e-design	yes	whole-project; the paper gives 37 4.26 N, 93 52.44 W for the trial
+harris-915033-y2017-gap	PRJNA915033	LibraryName~^(19|91|163)R$	collection_date	2017	ev-harris-numbering	yes	gap fill by the numbering rule; these 3 keys are absent from grapes.csv
+harris-915033-y2018-gap	PRJNA915033	LibraryName~^(223L|225L|225R|235L|235R|250L|252L|253L|257L|270L|273L|276L|284R|298L|307L|312L|329L|332L|338L|339L|344L|358L|379L)$	collection_date	2018	ev-harris-numbering	yes	gap fill by the numbering rule; 23 keys absent from grapes.csv, all in 217-432
+harris-915033-y2019-gap	PRJNA915033	LibraryName~^(451L|451R|595L)$	collection_date	2019	ev-harris-numbering	yes	gap fill by the numbering rule; 3 keys absent from grapes.csv, all in 433-648

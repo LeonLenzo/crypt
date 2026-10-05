@@ -188,3 +188,21 @@ docs/*
 # policy; the prompts that produced them are tracked and are the reproducible part.
 01a_Literature/data/*
 !01a_Literature/data/.gitkeep
+
+# 01a_Literature working files. studies/ is the manual drop zone and holds publisher PDFs and
+# supplementary spreadsheets, which are not ours to redistribute (same grounds as
+# 02_literature/02_text/data/manual_pdfs/). The adapters ARE the reproducible part and are
+# tracked; so are the Undermind reports and the prompts.
+# git does not descend into an excluded directory, so re-including a file inside one needs the
+# directories re-included at every level first. `studies/*` alone would hide the adapters.
+01a_Literature/studies/**
+!01a_Literature/studies/*/
+!01a_Literature/studies/*/adapter.yaml
+01a_Literature/*.pdf
+01a_Literature/*.xls
+01a_Literature/*.xlsx
+
+# WSL writes an alternate-data-stream sidecar next to anything downloaded through Windows.
+# Pure noise, never ours, and they appear beside every PDF and spreadsheet dropped into
+# 01a_Literature/studies/.
+*:Zone.Identifier

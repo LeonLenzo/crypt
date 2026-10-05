@@ -1,0 +1,48 @@
+# Adapter for 10.1111/ppa.13134
+#
+# Fill this in once, by hand, after reading the paper's methods and opening its supplement.
+# Nothing here is code: it names a file, a sheet, and which columns carry what.
+#
+# Delete `blocked:` when you fill the rest in. Leave a reason there if the paper genuinely
+# cannot be resolved, so it stops reappearing in the worklist.
+blocked: not yet attempted
+
+paper_ref: 10.1111/ppa.13134
+doi: 10.1111/ppa.13134
+bioprojects: []
+
+# The supplement file, relative to this directory, and the sheet holding one row per sequenced
+# sample. Drop the file in beside this adapter.
+supplement:
+  file:
+  sheet:
+
+# The column in that sheet whose values match an SRA identifier, and which identifier it is.
+# Candidates measured for these BioProjects (unique per run, so usable as a join target):
+#   (none; no BioProject needs a supplement)
+#
+# CHECK THIS BEFORE ANYTHING ELSE. If no column matches any SRA identifier, the table is not
+# describing the sequenced samples and must not be merged. PRJNA1217477's PNAS supplement
+# tabulates the origins of the inoculum ISOLATES, not the glasshouse plants that were
+# sequenced; merging it would have stamped Californian vineyard coordinates onto Arabidopsis.
+join:
+  column:
+  matches:          # one of: Run, Experiment, LibraryName, SampleName, BioSample
+
+# Columns carrying the fields we need. Leave blank where the supplement does not have it.
+columns:
+  tissue:
+  location:
+  collection_date:
+  setting:
+
+# Where a column holds codes rather than values, map them here, and say where the mapping came
+# from. An entry without evidence is a guess, and guesses here are indistinguishable from data.
+# Worked example, PRJNA383416 (Kremling et al. 2018, doi:10.1038/nature25966):
+#   value_map:
+#     tissue:
+#       GRoot:  {value: "germinating seedling root",  setting: "growth chamber",
+#                evidence: "Methods, Tissue collection: walk-in growth chamber, vermiculite"}
+#       LMAD:   {value: "mature leaf, day",           setting: "field",
+#                evidence: "Methods: Musgrave Research Farm, collected 11:00-13:00"}
+value_map:

@@ -120,9 +120,12 @@ things:
 - *Setting conflates study design with stated location.* PRJNA1217477 (211 samples, 8% of the
   analysed cohort) is a *Botrytis cinerea* inoculation atlas at UC Davis; PRJNA526829 (60) is
   *in vitro* on artificial surfaces; PRJNA328045 (39) is controlled compatible/incompatible
-  inoculation. All are classified `field`. A title-keyword screen flags roughly 353 samples
-  (13.4%) as plausibly non-field. The LLM judged these per-BioProject from full text and still
-  got them wrong, so re-reading titles is not the fix; this needs a sample-level check.
+  inoculation. All are classified `field`. All three are now registered in
+  [`_exclusions.py`](../_exclusions.py) and dropped at the analysis stage, taking the field
+  cohort from 3,282 BioSamples to 2,972. A title-keyword screen flags roughly 353 samples
+  (13.4%) as plausibly non-field, so the registry records what has been checked rather than
+  everything that is wrong. The LLM judged these per-BioProject from full text and still got
+  them wrong, so re-reading titles is not the fix; this needs a sample-level check.
 - *Location conflates the submitting institution with the collection site.* "USA: California,
   Davis" (223 samples) is UC Davis, not a paddock. Geocoding cannot tell the two apart, because
   only the study design distinguishes them, and plotting institutions on a map as if they were

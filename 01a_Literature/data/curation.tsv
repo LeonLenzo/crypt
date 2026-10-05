@@ -21,3 +21,25 @@ krem-l3-setting	PRJNA383416	LibraryName~(^|_)L3(Base|Tip|Mid)(_|$)	setting	green
 krem-l3-date	PRJNA383416	LibraryName~(^|_)L3(Base|Tip|Mid)(_|$)	collection_date	2015-06	ev-krem-greenhouse	yes	collected 16-20 June 2015
 krem-g-setting	PRJNA383416	LibraryName~(^|_)G(Root|Shoot)(_|$)	setting	growth chamber	ev-krem-chamber	yes	walk-in chamber, vermiculite, germinating seedlings. G is germinating, not greenhouse
 krem-lmid-dropped	PRJNA383416	LibraryName~(^|_)LMid(_|$)	setting	dropped-no-evidence	ev-krem-lmid-absent	yes	11 runs. Flagged not deleted, so the denominator stays computable
+xia2020t-site	PRJNA609211	LibraryStrategy=RNA-Seq;dev_stage~^(tillering|booting|heading)$	location	China: Shanghai, Baihe Experimental Station	ev-xia2020t-site	yes	12 genotypes x 6 timepoints, drought/well-watered/recovery
+xia2020t-year	PRJNA609211	LibraryStrategy=RNA-Seq;dev_stage~^(tillering|booting|heading)$	collection_date	2014	ev-xia2020t-site	yes	single season
+xia2020t-setting	PRJNA609211	LibraryStrategy=RNA-Seq;dev_stage~^(tillering|booting|heading)$	setting	field	ev-xia2020t-site	yes	same facility as ma2016 and luo2020; in scope per leon 2026-10-05
+xia2020m-site	PRJNA609211	LibraryStrategy=ncRNA-Seq	location	China: Shanghai, Baihe Experimental Station	ev-xia2020m-site	yes	66 small-RNA libraries, 6 genotypes; exactly the 66 ncRNA-Seq runs
+xia2020m-year	PRJNA609211	LibraryStrategy=ncRNA-Seq	collection_date	2014	ev-xia2020m-site	yes	single season
+xia2020m-setting	PRJNA609211	LibraryStrategy=ncRNA-Seq	setting	field	ev-xia2020m-site	yes	same field experiment as xia2020t, small-RNA libraries from it
+ppr-chamber-setting	PRJNA609211	dev_stage~^Four-leaf-seedling$	setting	growth chamber	ev-ppr-chamber	yes	78 runs: Normal/ABA/PEG/NaCl/H2O2 panel, hydroponic, 15-day-old seedlings
+harris-site-674915	PRJNA674915		location	USA: Missouri, Mount Vernon (Univ. Missouri Southwest Research Center vineyard)	ev-harris-site	yes	37.074167 N 93.879167 W; whole project is this one vineyard
+harris-site-915033	PRJNA915033		location	USA: Missouri, Mount Vernon (Univ. Missouri Southwest Research Center vineyard)	ev-harris-site	yes	same vineyard
+harris-setting-674915	PRJNA674915		setting	field	ev-harris-site	yes	outdoor experimental vineyard; irrigation regimes applied but ambient otherwise
+harris-setting-915033	PRJNA915033		setting	field	ev-harris-site	yes	same vineyard
+harris-tissue-leaf-674915	PRJNA674915	LibraryName~L$	tissue	leaf	ev-harris-tissue	yes	L suffix; see evidence, this is inference not a methods statement
+harris-tissue-repro-674915	PRJNA674915	LibraryName~R$	tissue	reproductive (flower/fruit)	ev-harris-tissue	yes	R suffix
+harris-tissue-leaf-915033	PRJNA915033	LibraryName~L$	tissue	leaf	ev-harris-tissue	yes	L suffix
+harris-tissue-repro-915033	PRJNA915033	LibraryName~R$	tissue	reproductive (flower/fruit)	ev-harris-tissue	yes	R suffix
+hashida-field-site	PRJNA726716	treatment=FIELD	location	Japan: Shiga, Otsu (Ryukoku University)	ev-hashida-field	yes	34 57' 43.4'' N 135 56' 22.6'' E; overrides geo_loc_name "Japan", country-level
+hashida-field-date	PRJNA726716	treatment=FIELD	collection_date	2017-09	ev-hashida-field	yes	transferred 19:00 on 18 Sep 2017, sampled 2-hourly over 24 h; BioSample sampling_time carries the hour
+hashida-field-setting	PRJNA726716	treatment=FIELD	setting	field (chamber-raised, transferred outdoors)	ev-hashida-field	yes	NOT field-grown throughout; see evidence. Leon's call needed on whether this counts
+hashida-fl-fth	PRJNA726716	treatment=FL/FTH	setting	growth chamber	ev-hashida-chamber	yes	SmartGC simulating field light and field temp/humidity
+hashida-cl-cth	PRJNA726716	treatment=CL/CTH	setting	growth chamber	ev-hashida-chamber	yes	constant light, constant temp/humidity
+hashida-fl-cth	PRJNA726716	treatment=FL/CTH	setting	growth chamber	ev-hashida-chamber	yes	field light, constant temp/humidity
+hashida-cl-fth	PRJNA726716	treatment=CL/FTH	setting	growth chamber	ev-hashida-chamber	yes	constant light, field temp/humidity

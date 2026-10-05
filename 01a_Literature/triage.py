@@ -301,6 +301,56 @@ _EBI_ATTR_MAP = {
 _EBI_LOCALITY = "geographic location (region and locality)"
 
 
+# ENA's portal answers for a WHOLE PROJECT in one request, and returns more than the
+# per-sample route does. Measured 2026-10-05 on PRJDB7234: 1,557 runs in 3.6 s against an
+# estimated 8.5 minutes for 1,017 sequential EBI BioSamples calls, and the portal additionally
+# carries `country` ("Japan:Osaka, Takatsuki") which the per-sample route never returned.
+#
+# It was returning HTTP 500 on every field list earlier the same day, which is why the slow
+# path was built at all. Treat portal failure as expected and fall back rather than trusting it.
+_ENA_PORTAL = "https://www.ebi.ac.uk/ena/portal/api/filereport"
+_ENA_PORTAL_FIELDS = ("run_accession,sample_accession,collection_date,country,location,"
+                      "tissue_type,cultivar,description,sample_title,host,strain,isolate,"
+                      "dev_stage,sample_alias")
+# portal field -> the name used everywhere else here
+_ENA_PORTAL_MAP = {"collection_date": "collection_date", "country": "geo_loc_name",
+                   "location": "lat_lon", "tissue_type": "tissue", "cultivar": "cultivar",
+                   "host": "host", "strain": "strain", "isolate": "isolate",
+                   "dev_stage": "dev_stage", "sample_title": "bs_description"}
+
+
+def ena_portal_attrs(bp: str) -> dict:
+    """BioSample accession -> attributes, for a whole ENA/DDBJ project in one request.
+
+    Returns {} on any failure so the caller falls back to the per-sample route. Placeholder
+    values are dropped here as everywhere else.
+    """
+    import io
+    q = urllib.parse.urlencode({"accession": bp, "result": "read_run",
+                                "fields": _ENA_PORTAL_FIELDS, "format": "tsv"})
+    try:
+        req = urllib.request.Request(f"{_ENA_PORTAL}?{q}", headers=UA)
+        with urllib.request.urlopen(req, timeout=180) as r:
+            body = r.read().decode("utf-8", "replace")
+        if not body.startswith("run_accession"):
+            return {}
+    except Exception as exc:
+        print(f"    ENA portal unavailable for {bp} ({type(exc).__name__}); "
+              f"falling back to per-sample", file=sys.stderr)
+        return {}
+    out: dict = {}
+    for row in csv.DictReader(io.StringIO(body), delimiter="\t"):
+        acc = row.get("sample_accession", "")
+        if not acc:
+            continue
+        d = out.setdefault(acc, {})
+        for src, dst in _ENA_PORTAL_MAP.items():
+            v = (row.get(src) or "").strip()
+            if v and v.lower() not in _PLACEHOLDER and dst not in d:
+                d[dst] = v
+    return out
+
+
 def _ebi_biosample(acc: str) -> dict:
     req = urllib.request.Request(f"{_EBI_BASE}/{acc}",
                                  headers={**UA, "Accept": "application/json"})
@@ -323,7 +373,8 @@ def _ebi_biosample(acc: str) -> dict:
     return out
 
 
-def biosample_attrs(accs: list[str], refresh: bool = False) -> dict:
+def biosample_attrs(accs: list[str], refresh: bool = False,
+                    project: str | None = None) -> dict:
     """BioSample accession -> attribute dict, placeholders dropped, cached per BioProject batch.
 
     Values NCBI uses to mean "no answer" are removed here rather than downstream, because a
@@ -335,6 +386,14 @@ def biosample_attrs(accs: list[str], refresh: bool = False) -> dict:
     out = {}
     ebi = [a for a in accs if a[:4] in _EBI_PREFIXES]
     ncbi = [a for a in accs if a[:4] not in _EBI_PREFIXES]
+    if ebi and project:
+        got = ena_portal_attrs(project)
+        if got:
+            hit = {a: got[a] for a in ebi if a in got}
+            print(f"    {len(hit)} of {len(ebi)} ENA/DDBJ BioSamples from the portal "
+                  f"in ONE request", file=sys.stderr)
+            out.update(hit)
+            ebi = [a for a in ebi if a not in hit]
     if ebi:
         # EBI BioSamples serves one sample per request and EBI shares a 2 req/s limiter.
         print(f"    {len(ebi)} ENA/DDBJ BioSamples via EBI", file=sys.stderr)
@@ -421,6 +480,68 @@ def triage_state(rows: list[dict], attrs: dict | None = None) -> tuple[str, str,
 COHORT   = HERE / "data/kraken_cohort_studies.tsv"
 RESOLVED  = HERE / "data/resolved_accessions.tsv"
 RUN_SCOPE = HERE / "data/run_scope.tsv"
+MENTIONS  = HERE / "data/accession_papers.tsv"
+FOUND     = HERE / "data/found.tsv"
+
+
+def found_accessions() -> list[dict]:
+    """BioProjects recorded in found.tsv during review, as links.
+
+    This is the feedback loop that makes found.tsv worth keeping. An accession read out of a
+    paper's data statement is a fact the pipeline can act on, but only if something reads it:
+    PRJNA609211 and PRJNA825139 sat in bioprojects.tsv for an hour with no rows in runs.tsv,
+    because the full rebuild only knew the accessions Undermind and the cohort had supplied.
+
+    relation is `cited`: the paper named the accession, which is stronger than a full-text
+    `mentions` hit and weaker than `generated`. Who produced the data stays a human call.
+    """
+    if not FOUND.exists():
+        return []
+    out, seen = [], set()
+    with open(FOUND) as fh:
+        for r in csv.DictReader(fh, delimiter="\t"):
+            if r.get("kind") != "bioproject" or not r.get("value"):
+                continue
+            key = (r["paper_key"], r["value"])
+            if key in seen:
+                continue
+            seen.add(key)
+            out.append(dict(paper_ref=r["paper_key"], BioProject=r["value"],
+                            relation="cited", section="found_during_review",
+                            evidence=f"recorded in found.tsv by {r.get('found_by','')}: "
+                                     f"{r.get('note','')[:200]}"))
+    return out
+
+
+
+def mention_links() -> list[dict]:
+    """Links from accession_papers.py: papers whose full text names an accession.
+
+    relation is `mentions`, which is weaker than every other relation here and deliberately
+    so. A Europe PMC full-text hit proves the accession appears in the paper and nothing
+    more: of the eleven papers naming PRJNA306542, five contributed no data to it and were
+    reanalysing. Promoting a mention to `generated` is the error the relation column exists
+    to prevent.
+
+    Without these the link table knows only what Undermind and our own cohort told it, so
+    PRJNA306542 reads as a one-paper project when it is in fact six experiments from six
+    papers, and `studies/by-project/` built from it shows one symlink instead of eleven.
+    """
+    if not MENTIONS.exists():
+        return []
+    out, seen = [], set()
+    with open(MENTIONS) as fh:
+        for r in csv.DictReader(fh, delimiter="\t"):
+            key = ((r.get("doi") or "").strip().lower(), r["accession"])
+            if not all(key) or key in seen:
+                continue
+            seen.add(key)
+            out.append(dict(paper_ref=key[0], BioProject=r["accession"],
+                            relation="mentions", section="europepmc_fulltext",
+                            evidence=f"Europe PMC full text names {r['accession']}; "
+                                     f"{r.get('year','')} {r.get('title','')[:140]}"))
+    return out
+
 
 _RANGE = re.compile(r"^([A-Z]+)(\d+)\s*-\s*([A-Z]+)?(\d+)$", re.I)
 
@@ -551,6 +672,24 @@ def build_papers(refs: dict, links: list[dict], cohort: list[dict],
         if not r["sources"]:
             r["sources"].add("undermind_report")
 
+    # Papers found by Europe PMC full-text search enter as rows too, or they have no worklist
+    # entry, no directory, and no place in studies/by-project/ — which showed ONE symlink for
+    # a project cited by eleven papers. They are candidates like any other: a mention is not
+    # evidence of scope, and `undermind_decision` stays empty to say nobody has screened them.
+    for l in links:
+        if l.get("relation") != "mentions":
+            continue
+        key = _norm_doi(l["paper_ref"])
+        if not key:
+            continue
+        r = row(key)
+        r["doi"] = r["doi"] or key
+        r["sources"].add("europepmc_mention")
+        r["bioprojects"].add(l["BioProject"])
+        if not r["title"]:
+            ev = l.get("evidence", "")
+            r["title"] = ev.split("; ", 1)[1] if "; " in ev else ev
+
     for c in cohort:
         key = _norm_doi(c.get("doi"))
         if not key:
@@ -629,7 +768,8 @@ def main() -> None:
     if args.from_undermind:
         prov = undermind_provenance(mds)
         refs = undermind_references(mds)
-        links = paper_links(mds) + resolved_links()
+        links = paper_links(mds) + resolved_links() + mention_links() + found_accessions()
+        accs = list(dict.fromkeys(accs + [l["BioProject"] for l in found_accessions()]))
         accs = list(dict.fromkeys(accs + sorted(prov)
                                   + [l["BioProject"] for l in resolved_links()]))
     cohort = [] if args.no_cohort else cohort_studies()
@@ -678,7 +818,7 @@ def main() -> None:
                     attrs = {}      # a sampled cache cannot answer a full request
             if not attrs and len(bs_all) > 1:
                 take = bs_all if want_all else bs_all[:BS_SAMPLE]
-                attrs = biosample_attrs(take)
+                attrs = biosample_attrs(take, project=acc)
                 save_attr_cache(cache, attrs, bs_all)
 
         state, geo_pct, date_pct = triage_state(rows, attrs)

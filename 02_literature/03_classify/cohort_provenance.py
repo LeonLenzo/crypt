@@ -115,13 +115,25 @@ def main():
         # normalise the supplement's country too, not just the parsed one: supplements use
         # their own spellings ("UK", "Czechia") and bypassing country() left them unaliased
         ctry = country(clean(sp.get("country"))) or country(loc)
-        cy = year(clean(sp.get("date"))) or year(clean(r.get("collection_date")))
+        # Record WHERE the year came from, not just the year. `location_source` below
+        # describes the LOCATION only, and the year is resolved independently, so a consumer
+        # that reuses location_source for the year mislabels it. Measured 2026-10-05 while
+        # importing this table into 01a_Literature: 52 of 1,843 rows disagreed, including 9
+        # where the location is LLM-derived but the year is a sound BioSample value.
+        sp_year = year(clean(sp.get("date")))
+        bs_year = year(clean(r.get("collection_date")))
+        cy = sp_year or bs_year
+        ysrc = "supplement" if sp_year else ("biosample" if bs_year else "none")
+        # year_upper_bound is a DEPOSIT-time proxy (submission or publication), set only when
+        # no collection year exists. It is not an observation and must never be read as one.
         ub = year(r.get("submission_date")) or year(r.get("pub_date"))
         rows.append({
             "BioSample": r["BioSample"], "BioProject": r["BioProject"],
             "location": loc, "country": ctry, "location_source": src,
             "geo_agreement": r.get("geo_agreement", ""),
-            "collection_year": cy or "", "year_upper_bound": "" if cy else (ub or ""),
+            "collection_year": cy or "", "year_source": ysrc,
+            "year_upper_bound": "" if cy else (ub or ""),
+            "year_upper_bound_kind": "" if cy else ("submission_or_pub_date" if ub else ""),
             "author_sample_type": clean(sp.get("sample_type")),
             "doi": r.get("doi", ""), "pmid": r.get("pmid", ""),
         })

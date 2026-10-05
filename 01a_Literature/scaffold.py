@@ -166,6 +166,57 @@ def join_candidates(runs: list[dict], attrs: dict | None = None) -> list[str]:
     return out
 
 
+def inbox_files() -> list[Path]:
+    """Loose files sitting in studies/ itself, not yet filed against a paper.
+
+    An inbox, deliberately. While a project is being worked, PDFs and supplements arrive
+    faster than their owning paper is known, and guessing wrong is worse than waiting: five
+    papers ended up in doi_10.1038_srep37302/ because that was the directory open at the
+    time, and four of them had nothing to do with it. Drop files here, file them once the
+    paper is identified.
+    """
+    if not STUDIES.is_dir():
+        return []
+    return sorted(f for f in STUDIES.iterdir()
+                  if f.is_file() and ":Zone.Identifier" not in f.name
+                  and not f.name.startswith("~$"))
+
+
+def build_project_views(links: list[dict], dirs: dict) -> int:
+    """studies/by-project/<PRJ>/ -> symlinks to every paper directory touching that project.
+
+    The relationship is a graph and a directory tree cannot hold one: Ada21 names ten
+    BioProjects, PRJNA306542 is cited by eleven papers. Files belong to PAPERS (a supplement
+    is a property of a paper) and curation rules belong to PROJECTS, so the files live under
+    the paper and this gives the other lookup without duplicating a byte.
+
+    Regenerated each run, so a stale symlink cannot outlive the link it came from.
+    """
+    root = STUDIES / "by-project"
+    if root.exists():
+        for d in sorted(root.iterdir()):
+            if d.is_dir():
+                for l in d.iterdir():
+                    l.unlink()
+                d.rmdir()
+    made = 0
+    by_bp = collections.defaultdict(set)
+    for l in links:
+        if l["BioProject"] and l["paper_ref"] in dirs:
+            by_bp[l["BioProject"]].add(dirs[l["paper_ref"]])
+    for bp, paper_dirs in sorted(by_bp.items()):
+        live = [d for d in sorted(paper_dirs) if (STUDIES / d).is_dir()]
+        if not live:
+            continue
+        (root / bp).mkdir(parents=True, exist_ok=True)
+        for d in live:
+            link = root / bp / d
+            if not link.exists():
+                link.symlink_to(Path("../..") / d)
+            made += 1
+    return made
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -294,6 +345,18 @@ def main() -> None:
             f.suffix.lower() in (".xls", ".xlsx", ".csv", ".tsv", ".txt")
             for f in d.iterdir() if f.is_file()) else ""
         made += 1
+
+    dirs = {w["paper_key"]: w["dir"] for w in work}
+    n_links = build_project_views(links, dirs)
+    if n_links:
+        print(f"  by-project/: {n_links} symlinks across "
+              f"{len(list((STUDIES / 'by-project').iterdir()))} projects")
+    loose = inbox_files()
+    if loose:
+        print(f"\n  INBOX: {len(loose)} unfiled file(s) in studies/ — "
+              f"file them once their paper is known")
+        for f in loose[:10]:
+            print(f"    {f.name[:70]}")
 
     out = DATA / "worklist.tsv"
     with open(out, "w", newline="") as fh:

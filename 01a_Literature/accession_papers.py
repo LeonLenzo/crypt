@@ -121,6 +121,19 @@ def main() -> None:
         print(f"  [{i}/{len(accs)}] {acc:<14}{len(got):>3} papers, {len(new):>3} new{flag}")
         time.sleep(0.5)
 
+    # MERGE, never replace. Running this for two accessions once wiped the 69 rows an earlier
+    # umbrella sweep had found, and the loss was silent: the file still looked valid, just
+    # smaller, and the link table built from it reported PRJNA306542 as a one-paper project.
+    prior = []
+    if OUT.exists():
+        with open(OUT) as fh:
+            prior = list(csv.DictReader(fh, delimiter="\t"))
+    fresh = {(r["accession"], r["doi"]) for r in recs}
+    kept = [r for r in prior if (r["accession"], r.get("doi", "")) not in fresh]
+    if kept:
+        print(f"  merging with {len(kept)} existing rows for other accessions")
+    recs = recs + kept
+
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with open(OUT, "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=["accession", "doi", "pmid", "year", "journal",

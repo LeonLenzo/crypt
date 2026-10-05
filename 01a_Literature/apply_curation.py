@@ -48,6 +48,48 @@ DATA       = HERE / "data"
 RUNS       = DATA / "runs.tsv"
 CURATION   = DATA / "curation.tsv"
 PROVENANCE = DATA / "provenance.tsv"
+JOINS      = DATA / "joins.tsv"
+STUDIES    = HERE / "studies"
+
+# A join must match most of the project's samples or it is not describing them. PRJNA1217477's
+# supplement matched 0 of 450 because it tabulated inoculum isolates rather than the sequenced
+# plants; merging it would have stamped Californian vineyard coordinates onto Arabidopsis.
+MIN_JOIN_RATE = 0.60
+
+# How much a value is worth, by where it came from. A writer at a higher tier replaces a
+# lower one FREELY; replacing an equal or higher tier needs an explicit `override: yes`.
+#
+# This is structural on purpose. Before it, every rule needed override=yes to beat even an
+# archive value, so precedence lived in whether the author remembered the column rather than
+# in the code — and a hand rule read out of a paper could be silently blocked by a bulk
+# import that had got there first. Reading the paper is the whole point of the manual pass;
+# it must win.
+TIER = {"": 0, "absent": 0, "not_fetched": 0,
+        "biosample": 1,          # the archive record
+        "_import": 2,            # import_provenance.py bulk batches
+        "_join": 3,              # a rate-checked join to a paper's supplement
+        "_rule": 4}              # a hand-written rule quoting a paper's methods
+
+
+def tier_of(src: str, rule_ids: set, join_ids: set) -> int:
+    if src in rule_ids:
+        return TIER["_rule"]
+    if src in join_ids:
+        return TIER["_join"]
+    if src.startswith("import-"):
+        return TIER["_import"]
+    return TIER.get(src, 1)
+
+
+def may_write(new_src: str, held_src: str, rule: dict,
+              rule_ids: set, join_ids: set) -> bool:
+    """May a writer replace what is already there?"""
+    if held_src in ("", "absent", "not_fetched") or held_src == new_src:
+        return True
+    hi, lo = tier_of(new_src, rule_ids, join_ids), tier_of(held_src, rule_ids, join_ids)
+    if hi > lo:
+        return True
+    return (rule.get("override") or "").lower() in ("yes", "true", "1")
 
 # Fields a rule may set, each paired with its _source column in runs.tsv.
 SETTABLE = {"tissue": "tissue_source", "location": "location_source",
@@ -67,6 +109,122 @@ def attrs_for(bp: str) -> dict:
         return {}
     o = json.loads(f.read_text())
     return o.get("attrs", o) if isinstance(o, dict) else {}
+
+
+def _sra_key(spec: str, run: dict, a: dict) -> str:
+    """The join key on the SRA side.
+
+    Either a bare column name (`SampleName`), or `column~regex` where capture group 1 is the
+    key. The regex form is needed because submitters bury the key in free text: PRJDB7234's
+    DDBJ descriptions end "... Sample ID: 20001", and that integer is what the paper's
+    supplementary table is keyed on. Nothing in the structured fields carries it.
+    """
+    if "~" in spec:
+        col, rx = (x.strip() for x in spec.split("~", 1))
+        m = re.search(rx, a.get(col, run.get(col, "")) or "")
+        return m.group(1) if m and m.groups() else ""
+    return (a.get(spec.strip(), run.get(spec.strip(), "")) or "").strip()
+
+
+def load_join_table(rule: dict) -> dict:
+    """{key -> row} from a supplement, using the rule's file, sheet and header row."""
+    path = STUDIES / rule["dir"] / rule["file"]
+    if not path.exists():
+        print(f"  {rule['rule_id']}: no such file {path}", file=sys.stderr)
+        return {}
+    try:
+        import pandas as pd
+    except ImportError:
+        sys.exit("pandas needed for join rules")
+    hdr = int(rule.get("header_row") or 0)
+    if path.suffix.lower() in (".xlsx", ".xls"):
+        df = pd.read_excel(path, sheet_name=rule["sheet"] or 0, header=hdr)
+    else:
+        df = pd.read_csv(path, sep="\t" if path.suffix.lower() == ".tsv" else ",", header=hdr)
+    kc = rule["key_col"]
+    if kc not in df.columns:
+        print(f"  {rule['rule_id']}: key column {kc!r} not in {list(df.columns)[:8]}",
+              file=sys.stderr)
+        return {}
+    # The supplement's key often needs reshaping to meet SRA's. Harris's table is keyed
+    # `A1Y1_001_L` while SRA's LibraryName is `1L`: same sample, different spelling of the
+    # same vine number and tissue letter. `key_regex` names a pattern whose capture groups are
+    # concatenated to form the key, so `_0*(\d+)_([LR])$` turns one into the other and the
+    # leading-zero strip happens in the pattern rather than in code.
+    krx = re.compile(rule["key_regex"]) if rule.get("key_regex") else None
+    out, unmatched = {}, 0
+    for rec in df.dropna(subset=[kc]).to_dict("records"):
+        k = rec[kc]
+        k = str(int(k)) if isinstance(k, float) and k.is_integer() else str(k).strip()
+        if krx:
+            m = krx.search(k)
+            if not m:
+                unmatched += 1
+                continue
+            k = "".join(g for g in m.groups() if g is not None)
+        out[k] = rec
+    if unmatched:
+        print(f"  {rule['rule_id']}: key_regex did not match {unmatched} of "
+              f"{unmatched + len(out)} table rows", file=sys.stderr)
+    return out
+
+
+def apply_joins(runs: list[dict], attr_cache: dict, prov: dict, dry: bool,
+                rule_ids: set, join_ids: set) -> tuple[collections.Counter, list]:
+    """Apply every join rule: match SRA runs to supplement rows, then set fields.
+
+    Reports the match rate and REFUSES below MIN_JOIN_RATE rather than merging a table that is
+    not about these samples. A join that matches nothing is the single most dangerous thing in
+    this module, because a merge still "succeeds" and writes confident wrong values.
+    """
+    applied, problems = collections.Counter(), []
+    rules = read(JOINS)
+    for rule in rules:
+        if rule.get("evidence_id") and rule["evidence_id"] not in prov:
+            sys.exit(f"join {rule['rule_id']}: evidence_id {rule['evidence_id']!r} not in "
+                     f"provenance.tsv")
+        field = rule["field"]
+        if field not in SETTABLE:
+            sys.exit(f"join {rule['rule_id']}: field {field!r} is not settable")
+        table = load_join_table(rule)
+        if not table:
+            problems.append((rule["rule_id"], "table unreadable or key column missing"))
+            continue
+        a_all = attr_cache.get(rule["BioProject"], {})
+        mine = [r for r in runs if r["BioProject"] == rule["BioProject"]]
+        hits = 0
+        for r in mine:
+            k = _sra_key(rule["sra_key"], r, a_all.get(r["BioSample"], {}))
+            if k and k in table:
+                hits += 1
+        rate = hits / len(mine) if mine else 0
+        if rate < MIN_JOIN_RATE:
+            problems.append((rule["rule_id"],
+                             f"REFUSED: joined {hits}/{len(mine)} ({rate:.0%}), "
+                             f"below {MIN_JOIN_RATE:.0%}. Is this table about these samples?"))
+            continue
+        srccol = SETTABLE[field]
+        for r in mine:
+            k = _sra_key(rule["sra_key"], r, a_all.get(r["BioSample"], {}))
+            rec = table.get(k)
+            if not rec:
+                continue
+            val = rec.get(rule["value_col"])
+            if val is None or str(val).strip() in ("", "nan"):
+                continue
+            val = str(int(val)) if isinstance(val, float) and val.is_integer() else str(val).strip()
+            if rule.get("value_prefix"):
+                val = rule["value_prefix"] + val
+            held = r.get(srccol, "")
+            if r.get(field) and not may_write(rule["rule_id"], held, rule,
+                                              rule_ids, join_ids):
+                continue
+            if not dry:
+                r[field], r[srccol] = val, rule["rule_id"]
+            applied[rule["rule_id"]] += 1
+        print(f"  {rule['rule_id']:<26}joined {hits}/{len(mine)} ({rate:.0%})  "
+              f"{field} <- {rule['value_col']}")
+    return applied, problems
 
 
 def matches(rule: dict, run: dict, a: dict) -> bool:
@@ -133,9 +291,23 @@ def main() -> None:
         for field, srccol in SETTABLE.items():
             val, src = r.get(field, ""), r.get(srccol, "")
             print(f"\n  {field} = {val!r}\n    source: {src or '(none)'}")
-            rule = next((x for x in rules if x["rule_id"] == src), None)
+            rule = next((x for x in rules + read(JOINS) if x["rule_id"] == src), None)
+            # import_provenance.py writes an evidence_id straight into the _source column:
+            # a bulk import is not a predicate over runs, so it has no rule to name. Resolve
+            # it directly, or 2,407 imported values read as unevidenced.
+            if rule is None and src in prov:
+                ev = prov[src]
+                print(f"    bulk import {src}")
+                print(f"    evidence {ev['evidence_id']}  {ev['locus']}")
+                print(f"      \"{ev['quote'][:260]}\"")
+                print(f"    entered by {ev['entered_by']} on {ev['ts'][:10]}")
+                continue
             if rule:
-                print(f"    rule {rule['rule_id']}: where {rule['predicate'] or '(all runs)'}")
+                if rule.get("sra_key"):
+                    print(f"    join {rule['rule_id']}: {rule['file']} sheet {rule['sheet']}, "
+                          f"{rule['key_col']} <-> {rule['sra_key']}, value {rule['value_col']}")
+                else:
+                    print(f"    rule {rule['rule_id']}: where {rule['predicate'] or '(all runs)'}")
                 ev = prov.get(rule.get("evidence_id", ""))
                 if ev:
                     print(f"    evidence {ev['evidence_id']}  {ev['doi']}  {ev['locus']}")
@@ -145,6 +317,9 @@ def main() -> None:
 
     applied = collections.Counter()
     conflicts = []
+    replaced = collections.Counter()
+    rule_ids = {x["rule_id"] for x in rules}
+    join_ids = {x["rule_id"] for x in read(JOINS)}
     for rule in rules:
         a_all = attr_cache.get(rule["BioProject"], {})
         field = rule["field"]
@@ -159,18 +334,34 @@ def main() -> None:
             if not matches(rule, r, a):
                 continue
             existing, esrc = r.get(field, ""), r.get(srccol, "")
-            if existing and esrc not in ("", "not_fetched", "absent", rule["rule_id"]):
+            if existing and not may_write(rule["rule_id"], esrc, rule, rule_ids, join_ids):
                 conflicts.append((rule["rule_id"], r["Run"], field, existing, rule["value"]))
-                if (rule.get("override") or "").lower() not in ("yes", "true", "1"):
-                    continue
+                continue
+            if existing and esrc != rule["rule_id"]:
+                replaced[(rule["rule_id"], esrc)] += 1
             r[field] = rule["value"]
             r[srccol] = rule["rule_id"]
             applied[rule["rule_id"]] += 1
 
-    print(f"{len(rules)} rules over {len(runs):,} runs\n")
+    japplied, jproblems = apply_joins(runs, attr_cache, prov, args.dry_run,
+                                      rule_ids, join_ids)
+    for rid, n in japplied.items():
+        applied[rid] += n
+    for rid, msg in jproblems:
+        print(f"  !! {rid}: {msg}", file=sys.stderr)
+
+    print(f"{len(rules)} predicate rules + {len(read(JOINS))} join rules "
+          f"over {len(runs):,} runs\n")
+    all_rules = rules + read(JOINS)
     for rid, n in applied.most_common():
-        rule = next(x for x in rules if x["rule_id"] == rid)
-        print(f"  {rid:<26}{n:>6} runs   {rule['field']} = {rule['value'][:46]}")
+        rule = next(x for x in all_rules if x["rule_id"] == rid)
+        # join rules have no literal `value`; they report the supplement column instead
+        shown = rule.get("value") or f"<- {rule.get('value_col','?')} (join)"
+        print(f"  {rid:<26}{n:>6} runs   {rule['field']} = {shown[:46]}")
+    if replaced:
+        print("\n  replaced a lower-tier value (precedence working as intended):")
+        for (new, old), n in replaced.most_common(8):
+            print(f"    {n:>6} x  {new} over {old}")
     if conflicts:
         print(f"\n  {len(conflicts)} conflicts with an existing curated value "
               f"(skipped unless override=yes):")

@@ -52,7 +52,7 @@ BUSCO completeness screening is retained as a QC record rather than a filter. Of
 
 **Host scope:** Viridiplantae (plant hosts) only, anchored by PHI-base plant–pathogen interaction records and the ICTV plant virus master species list.
 
-**Pathogen scope:** Eukaryotic pathogens only (fungi, oomycetes, nematodes). Bacterial co-detections are excluded — PolyA+ library selection systematically depletes bacterial mRNA, making bacterial STAT percentages unreliable indicators of co-infection. Viral detections were also excluded as STAT's k-mer approach lacks the specificity to discriminate closely related plant virus strains at the thresholds used here.
+**Pathogen scope: fungi and oomycetes only.** Bacteria and viruses are excluded for the same underlying reason before any classifier is involved: polyA+ selection, which most of this cohort used, removes most bacterial and many viral reads, so their percentages do not measure what was in the tissue. On top of that, STAT's k-mers cannot discriminate closely related plant virus strains at these thresholds, and viral genomes are too small and fragmented for the Kraken2 pass. Nematodes are excluded because annotated assemblies are absent for most PHI-base seeds, so there is nothing to build a reference from; the Nematoda entry left in the STAT gate is inert, admitting 2 of 10,995 retained runs and none on nematode signal alone.
 
 ## References
 

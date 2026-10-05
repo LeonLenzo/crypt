@@ -50,7 +50,14 @@ Bacterial and viral co-detections are excluded. PolyA+ library selection systema
 |---------|---------------------|
 | Fungi | ≥ 0.5% STAT reads |
 | Oomycota | ≥ 0.5% STAT reads |
-| Nematoda | ≥ 1.0% STAT reads |
+| Nematoda | ≥ 1.0% STAT reads (inert, see below) |
+
+The Nematoda row is a leftover. `stat_build.py` excludes nematodes from the reference, because
+annotated assemblies are absent for most PHI-base seeds, so no nematode can be *identified*
+even if its signal clears the gate. It never has: 2 of the 10,995 retained runs exceed 1.0%
+nematode, and neither was admitted on nematode signal alone, both clearing the fungal or
+oomycete gate independently. Harmless as it stands, and worth removing when `stat_filter.py`
+is next touched.
 
 A LibrarySource pre-filter (`TRANSCRIPTOMIC`, `TRANSCRIPTOMIC SINGLE CELL`, `METATRANSCRIPTOMIC`, `VIRAL RNA`) removes GENOMIC and METAGENOMIC runs that appear in RNA-Seq strategy results due to submitter labelling errors (1,365 MAL and 6,573 HAL runs removed).
 

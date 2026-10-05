@@ -30,6 +30,32 @@ inoculation, all classified `field`, all now in `../_exclusions.py`.
 This module inverts the order. Find the studies first, by what they did rather than by what
 was detected in them, then pull their accessions.
 
+**Scope: aerial tissue only.** Root and rhizosphere material carries a large soil-derived
+community, so a fungal detection there is as likely to be a saprotroph or root endophyte as a
+pathogen, and the signal-to-noise ratio is much worse than in leaf or spike tissue. This also
+keeps the new frame consistent with the existing one, where the Kraken2 target is field and
+aerial and `llm_tissue` splits the classified cohort 5,339 aerial to 862 non-aerial.
+
+## What the frame has to carry
+
+The hypothesis is that polymicrobial infection is more common in the field than is reported,
+and that public RNA libraries hold the evidence. **Cryptic is defined against the authors'
+own claim**: in a study naming pathogen X it means anything detected beyond X, and in an
+abiotic or no-stress study it means any pathogen at all, since nothing was expected.
+Deliberate multi-pathogen designs are explicitly not cryptic.
+
+That definition puts a requirement on the frame that a pure prevalence frame does not have.
+Each study must come with **what its authors claimed about pathogens, including claiming
+nothing**. Without that, a detection is just a detection and cannot be called cryptic. It is
+the single most important thing this module collects, and it is why the search asks for the
+authors' stated pathogens alongside the accessions.
+
+It also produces a comparator the database-first route cannot. Asking every retrieved study
+what it reported gives the rate at which field studies report co-infection **themselves**,
+which is the "than we think" half of the hypothesis and has never been measured here. The
+existing cohort cannot supply it, because the STAT gate only ever admitted studies that
+already had a detection.
+
 ## What this costs, and what it does not
 
 It is tempting to read literature-first as trading coverage for cleanliness. The trade is
@@ -60,15 +86,18 @@ positives to a methods section someone reads.
 
 Nothing here is built. The intended shape:
 
-1. **Search.** Semantic literature retrieval for bulk RNA-seq of field-collected plant tissue,
-   with no host or pathogen constraint. See `prompts/undermind_field_rnaseq.md` for the prompt
-   and the reasoning behind each clause.
+1. **Search.** Semantic literature retrieval for bulk RNA-seq of field-collected aerial plant
+   tissue, with no host or pathogen constraint. The aim is completeness: every qualifying
+   study counts once, surveillance and drought alike, because a denominator is only a
+   denominator if nothing was chosen for it. See `prompts/undermind_field_rnaseq.md` for the
+   prompt and the reasoning behind each clause.
 2. **Resolve paper to accession.** The inverse of what `02_literature/01_search` does, and it
    fails differently: papers deposit without a per-run mapping, give a BioProject with no
    sample-level key, or say "available on request". This attrition sets the real yield and
    should be measured on the first 20 papers before anything is committed to.
-3. **Apply inclusion criteria by hand.** Field-collected, bulk RNA, public reads, and
-   per-sample metadata linking each accession to a site and a date. Record the reason for each
+3. **Apply inclusion criteria by hand.** Field-collected, aerial tissue, bulk RNA, public
+   reads, per-sample metadata linking each accession to a site and a date, and a recorded
+   statement of what the authors said about pathogens. Record the reason for each
    rejection, so the frame is reproducible rather than a judgment that happened once.
 4. **Hand the accession list downstream.** The detection stack does not change. `03_kraken`
    and `04_kallisto` are the instrument, and the instrument is fine; only the frame was wrong.

@@ -1,0 +1,9 @@
+/home/leonl/data_analysis/phd/01-review/04_kallisto/01_select/data/strata.tsv: 200 detections, 174 runs, 19 hosts
+  strong        40 detections    40 runs   20 species  10 hosts  -> expect confirm
+  borderline    40 detections    38 runs   23 species  14 hosts  -> expect unknown-calibrates-floor
+  congeneric    40 detections    27 runs   25 species   6 hosts  -> expect collapse-if-cross-map
+  off_host      40 detections    34 runs   13 species   9 hosts  -> expect reject
+  discordant    40 detections    40 runs   18 species  14 hosts  -> expect unknown-criteria-conflict
+  mid           40 detections    40 runs   20 species  17 hosts  -> expect unknown-mid-range
+
+host coverage: 19/19 flagged hosts (all represented)

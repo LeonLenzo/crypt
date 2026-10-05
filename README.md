@@ -10,17 +10,19 @@ This project mines public SRA data for evidence of unreported co-infection using
 
 ## Modules
 
-The pipeline is organised into four sequential modules, each with its own rationale, methods, findings, and limitations documented in the respective module README. Module and step directories are numbered in workflow order, so the tree reads as the pipeline: a numbered directory is a step, an unnumbered one (`slurm/`, `utilities/`, `data/`, `logs/`, `figures/`) is support.
+The pipeline is organised into modules, each with its own rationale, methods, findings, and limitations documented in the respective module README. `01_stat` through `04_kallisto` run in sequence. `01a_Literature` is a second entry point rather than a step in that sequence: it builds a cohort from the papers instead of from detector hits, so it is an alternative to `01_stat` as the sampling frame, and it exists because the STAT gate selects for pathogen presence and cannot support a prevalence estimate. Module and step directories are numbered in workflow order, so the tree reads as the pipeline: a numbered directory is a step, an unnumbered one (`slurm/`, `utilities/`, `data/`, `logs/`, `figures/`) is support.
 
 | Module | Evidence | Purpose | README |
 |--------|----------|---------|--------|
 | **[01_stat/](01_stat/)** | NCBI's pre-computed k-mer profiles | screen 608,368 SRA runs for secondary pathogen signal | [01_stat/README.md](01_stat/README.md) |
+| **[01a_Literature/](01a_Literature/)** | the papers, as the frame | construct a cohort from published field RNA-seq studies rather than from detector hits | [01a_Literature/README.md](01a_Literature/README.md) |
 | **[02_literature/](02_literature/)** | the papers | BioProject/BioSample enrichment, literature linkage, LLM study design classification | [02_literature/README.md](02_literature/README.md) |
 | **[03_kraken/](03_kraken/)** | the reads, by k-mer | orthogonal Kraken2 species-level detection, artefact filtering, co-occurrence networks | [03_kraken/README.md](03_kraken/README.md) |
 | **[04_kallisto/](04_kallisto/)** | the reads, by competitive EM | resolve which genes a detection's reads hit, and whether a co-infection survives competition | [04_kallisto/README.md](04_kallisto/README.md) |
 
 ```
 01_stat/        01_build  02_fetch  03_filter
+01a_Literature/ prompts  data
 02_literature/  01_search  02_text  03_classify
 03_kraken/      01_search  02_build  03_select  04_assign  05_filter      slurm/  utilities/
 04_kallisto/    01_select  02_build  03_quant  04_confirm                 slurm/

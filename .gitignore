@@ -183,3 +183,8 @@ docs/*
 02_literature/03_classify/data/localities.tsv
 02_literature/03_classify/data/localities_plot.tsv
 02_literature/03_classify/data/geocode_cache.json
+
+# 01a_Literature: search returns and resolved accession lists. Data, per the code-not-data
+# policy; the prompts that produced them are tracked and are the reproducible part.
+01a_Literature/data/*
+!01a_Literature/data/.gitkeep

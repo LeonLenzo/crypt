@@ -28,6 +28,54 @@ A separate per-BioSample host disambiguation pass (`--disambiguate-hosts`) resol
 
 Author-named pathogens/hosts are resolved to NCBI taxids deterministically in plain Python afterward (`_util.resolve_taxon_name()`), never asked of the LLM — an LLM recalling taxids from memory produces confident-looking wrong numbers.
 
+### Provenance enrichment (`supp_provenance.py`, `cohort_provenance.py`, `geocode_localities.py`, `provenance_tracker.py`)
+
+BioSample XML carries usable geography for 56% of samples and a collection date for 46%, which
+is too thin for spatial or temporal analysis. Papers' supplementary tables often carry the
+per-sample detail the SRA submission omitted, so a fourth layer recovers it.
+
+`02_text/supp_provenance.py` mines per-sample provenance from supplementary spreadsheets.
+Adding a supplement is a CONFIG entry (file, sheet, column names), not code; the header row is
+found by content, so banner rows above it need no offset. Journals publish whichever accession
+flavour they prefer (ERS/SRR/SAMEA), so each is resolved to a BioSample through ENA and cached.
+ENA's comma-batched accession query silently returns nothing, so accessions are queried one at
+a time.
+
+`03_classify/cohort_provenance.py` merges three location sources in priority order: supplement >
+BioSample `geo_loc_name` > `llm_geographic_location`. It also normalises country names
+(`COUNTRY_ALIAS`, `NOT_A_COUNTRY`), which collapsed 61 raw strings to 53 real countries by
+unifying UK/United Kingdom, mapping US states that had leaked into the country field, and
+dropping "South America" as not a country.
+
+`03_classify/geocode_localities.py` geocodes locality strings via Nominatim at 1 request/second,
+cached. It parses the three naming conventions in play (NCBI `Country: region, locality`, most
+specific last; LLM `locality, country`, most specific first; supplement bare name) and rejects
+hits whose class is not a settlement (road, building, amenity) or whose country disagrees with
+the record. `accept-language=en` is mandatory, or Nominatim returns local-language country
+names and every country check fails.
+
+`03_classify/provenance_tracker.py` is the worklist, ranking BioProjects by missing provenance
+and classing them DONE / ok / TARGET / SETTING? / NO DOI. `SETTING?` means the title indicates
+controlled or in-vitro work, so a single location is already correct and chasing its supplement
+cannot help.
+
+Three supplements are configured. The largest by far is Adams et al. (2021) *BMC Genomics*, the
+rust expression browser, whose metadata table spans 12 studies and covers 898 of our BioSamples.
+Together they raised location coverage from 81.4% to 86.0% and collection year from 57.3% to
+69.7%; PRJEB31334 went from a single "Ethiopia" label to 75 distinct localities, PRJEB15280 from
+none to 69.
+
+Two cautions, both learned the hard way. **Not every supplement describes the sequenced
+samples**: PRJNA1217477's PNAS supplement tabulates the origins of the inoculum *isolates*
+(Californian vineyards), not the glasshouse plants that were sequenced, so merging it would have
+stamped vineyard coordinates onto *Arabidopsis*. Check the table keys against a sample accession
+before configuring it. And a collector's surname in a Location field geocodes happily to a
+street address.
+
+The gain has plateaued. Almost all of it came from two rust surveillance corpora; the rest of
+the unresolved cohort is controlled experiments where a single location is correct rather than
+missing. There is little point chasing further supplements for geography.
+
 ## Results
 
 The metadata module enriches all 1,285 BioProjects and 9,002 BioSamples from `runs.tsv`. Of those, 732 BioProjects (6,467 BioSamples) pass the full-text gate and are LLM-classified.
@@ -64,6 +112,53 @@ The dominance of single-pathogen-focus studies (530/732, 72%) reflects the sampl
 
 ## Limitations
 
+**Per-sample provenance is not verified, and this threatens the chapter's headline.** The
+setting contrast above rests on `llm_study_setting == "field"` meaning field-collected, and
+hand-checking shows it does not reliably mean that. Three fields each conflate two different
+things:
+
+- *Setting conflates study design with stated location.* PRJNA1217477 (211 samples, 8% of the
+  analysed cohort) is a *Botrytis cinerea* inoculation atlas at UC Davis; PRJNA526829 (60) is
+  *in vitro* on artificial surfaces; PRJNA328045 (39) is controlled compatible/incompatible
+  inoculation. All are classified `field`. A title-keyword screen flags roughly 353 samples
+  (13.4%) as plausibly non-field. The LLM judged these per-BioProject from full text and still
+  got them wrong, so re-reading titles is not the fix; this needs a sample-level check.
+- *Location conflates the submitting institution with the collection site.* "USA: California,
+  Davis" (223 samples) is UC Davis, not a paddock. Geocoding cannot tell the two apart, because
+  only the study design distinguishes them, and plotting institutions on a map as if they were
+  field surveys is exactly the artefact that would manufacture the result.
+- *Date conflates collection with isolation and deposit.* 83 samples are dated before 2010, back
+  to 1925, with `isolation_source` values like "Federation" (a wheat cultivar released in 1901)
+  and "spores". These are culture-collection and archival isolates, not field observations.
+
+Where a supplement supplies an author-declared Field/Lab column, 10 samples the authors
+themselves call Lab are classified `field` by the pipeline. Supplements are currently the only
+source that catches this.
+
+The designed fix is a per-sample verification assigning each BioSample three independent
+classes rather than trusting one LLM field: `design` (field-collected | inoculated | in-vitro |
+archival-isolate | mapping/other), `location_kind` (collection-site | institution |
+country-only | none), and `date_kind` (field-collection | isolate-origin | submission-proxy).
+The field co-infection rate would then be computed on `design == field-collected` only, and the
+maps drawn on `location_kind == collection-site` only. The counts will move; that is the point.
+It is designed, not built. Until it is, **do not quote the field co-infection rate, the
+country/locality map, or the 2,643-sample denominator as settled.** The supplement mining and
+geocoding above are the evidence that verification will draw on, not a substitute for it.
+
+**Where the two location sources disagree.** For the 515 BioSamples with both a BioSample
+`geo_loc_name` and an LLM-extracted location, 202 disagree (`geo_agreement`). BioSample is
+currently trusted by default, but the direction of the disagreement, study site versus
+submitting institution, has not been characterised.
+
+**Geocoding misses.** 199 of 467 locality strings did not geocode. Most are plot codes and road
+names that the settlement-class filter correctly rejected, but some are real regions it
+over-rejected (for example "Southern New South Wales"). The nulls in `geocode_cache.json` are
+worth a manual pass.
+
+**`map_localities.R` subtitle is wrong.** It recomputes the country-only/no-location split
+differently from the data and miscounts it. The 388 sites and 1,450 samples in the title are
+correct. Fix or drop the subtitle before the figure is used.
+
 **LLM classification errors.** GPT-4o-mini classification is not verified against ground truth for the full corpus. Each of the five judgment dimensions carries its own `llm_*_confidence`/`llm_*_rationale` pair (in `samples.tsv`) and should be consulted when individual BioProject/BioSample assignments are used in analysis, rather than trusting the label alone.
 
 **Publication coverage.** 42.0% of BioProjects (540/1,286) have no publication identifier at all, and classification is further gated on full-text retrieval succeeding (57.0% of BioProjects) — so the analysable population (732 BPs) is a real subset of the full screened corpus, not all of it. Unresolved/no-full-text submissions skew toward data-only repositories, unpublished surveillance datasets, and multi-omics portals that do not link to a primary publication or whose publisher blocks automated + manual PDF retrieval.
@@ -84,3 +179,13 @@ The dominance of single-pathogen-focus studies (530/732, 72%) reflects the sampl
 | `02_literature/03_classify/data/host_disambig_cache.jsonl` | Per-BioSample host disambiguation cache |
 | `02_literature/03_classify/figures/sample_funnel_v3.html` | Interactive Sankey: BioSample flow from full-text retrieval through tissue/setting/stress to co-infection outcome |
 | `02_literature/02_text/figures/lit_resolution_alluvial.png` | Literature resolution flow through each strategy |
+| `02_literature/02_text/data/supp_provenance.tsv` | Per-sample provenance mined from supplementary tables — 1,272 BioSamples |
+| `02_literature/03_classify/data/cohort_provenance.tsv` | **Merged per-sample provenance.** Location, country, source, collection year, author-declared sample type — 2,643 rows |
+| `02_literature/03_classify/data/provenance_tracker.tsv` | Worklist of BioProjects ranked by missing provenance, classed DONE / ok / TARGET / SETTING? / NO DOI |
+| `02_literature/03_classify/data/localities.tsv` | 388 geocoded collection sites, plus the rejected strings |
+| `02_literature/03_classify/figures/map_sample_origins.png` | Country-level map: proportional symbols, ranked bars, year histogram |
+| `02_literature/03_classify/figures/map_localities.png` | Locality-level point map with a Europe inset (subtitle miscounts, see Limitations) |
+
+All data outputs in this table are gitignored, per the repository's code-not-data policy. The
+configured supplements themselves live in `02_text/data/supp_data/` and are likewise excluded:
+they are publishers' copyrighted supplementary files.

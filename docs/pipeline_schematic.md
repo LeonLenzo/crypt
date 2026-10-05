@@ -63,9 +63,10 @@ the code that wrote them.
                          + co-occurrence  <───────┴────────────┘
                          └─> data/_classified.tsv ──┐
                                                     │
-04_align                 competitive read assignment│
+04_kallisto              competitive read assignment│
                          <──────────────────────────┘ + cds/pathogen/
-                         └─> (specified, not yet run)
+                         └─> 03_quant/data/ (174 runs)
+                             04_confirm/ ─> calls.tsv (not yet produced)
 ```
 
 `01_stat/01_build/data/phibase_db.json` is the one artefact consumed by three different
@@ -161,16 +162,21 @@ one. The attrition worth watching is the 70 missing annotations, not the 7 failu
 was local. Report read **counts**, not percentages: a percentage moves whenever the
 dominant organism's abundance moves, which conflates two different things.
 
-### 04_align — resolve what k-mers cannot
+### 04_kallisto — resolve what k-mers cannot
 
 | Step | Consumes | Produces |
 |---|---|---|
-| `align.py` | `03_kraken/05_filter/data/_classified.tsv`, `03_kraken/01_search/data/cds/pathogen/` | specified, not yet run |
+| `01_select/kallisto_select.py` | `03_kraken/05_filter/data/_classified.tsv` | `01_select/data/strata.tsv`, 174 runs across six strata |
+| `02_build/kallisto_neighbours.py` | the cached FracMinHash sketches | `02_build/data/neighbours.tsv`, measured containment |
+| `02_build/kallisto_build.py` | `03_kraken/01_search/data/cds/{pathogen,host}/`, `strata.tsv`, `neighbours.tsv` | one kallisto index per host (Setonix scratch) |
+| `03_quant/kallisto_quant.py` | the per-host indices, the same fastqs as `04_assign` | abundance + bus per run, 174/174 complete |
+| `04_confirm/kallisto_confirm.py` | the quant output | `calls.tsv`, **not yet produced** |
 
 Promoted out of `03_kraken` because it answers a different question by a different method
 (kallisto competitive EM, not k-mer counts), and because its output calibrates the
-`05_filter` thresholds. Nesting it under kraken inverted that dependency. See
-[../04_align/README.md](../04_align/README.md).
+`05_filter` thresholds. Nesting it under kraken inverted that dependency. Renamed from
+`04_align` on 2026-10-02, once kallisto was settled as the method rather than one candidate
+among several. See [../04_kallisto/README.md](../04_kallisto/README.md).
 
 ---
 

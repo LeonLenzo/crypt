@@ -143,9 +143,15 @@ docs/*
 # only (same treatment as legacy/): excluded from the repo entirely.
 03_kraken/05_filter/_scratch/
 
-# 04_align: kallisto indices + per-sample abundances, large and built on Setonix
-04_align/data/*
-!04_align/data/.gitkeep
+# 04_kallisto: the large, Setonix-built outputs only. The small step outputs that ARE the
+# record stay tracked: 01_select/data/strata.tsv (the calibration set, deterministic but the
+# definition of the experiment) and 02_build/data/neighbours.tsv (the containment measurement,
+# cheap to recompute but only from sketches that live on scratch under a purge).
+04_kallisto/02_build/data/idx/
+04_kallisto/03_quant/data/*
+!04_kallisto/03_quant/data/.gitkeep
+04_kallisto/04_confirm/data/*
+!04_kallisto/04_confirm/data/.gitkeep
 
 # Setonix-only data outputs. These never existed on the local checkout, so they had no
 # rule until the 2026-10-01 renumbering surfaced them as untracked. Data, per the
@@ -164,3 +170,16 @@ docs/*
 # Acacia allocation, see the Acacia note) and the file would otherwise need a history
 # rewrite to remove. Kept on disk on Setonix, out of git.
 03_kraken/slurm/logs/acacia_dbv3_49970753.err
+
+# Provenance enrichment (2026-10-02), same code-not-data rule. The supplements are
+# publishers' copyrighted supplementary files, not ours to redistribute; the rest are
+# regeneratable from them plus the caches (ENA accession resolution, Nominatim geocodes).
+02_literature/02_text/data/supp_data/
+02_literature/02_text/data/supp_accession_map.json
+02_literature/02_text/data/supp_provenance.tsv
+02_literature/03_classify/data/cohort_provenance.tsv
+02_literature/03_classify/data/provenance_tracker.tsv
+02_literature/03_classify/data/country_summary.tsv
+02_literature/03_classify/data/localities.tsv
+02_literature/03_classify/data/localities_plot.tsv
+02_literature/03_classify/data/geocode_cache.json

@@ -1,0 +1,8 @@
+ts	level	key	decision	reason	evidence	decided_by
+2026-10-05T15:15:26	paper	10.1038/nature25966	split	already checked metadata, some field some inside runs	supp	leon
+2026-10-05T15:35:23	paper	10.3389/fgene.2021.716821	accession-hunt	found pdf, saved to studies	pdf, no accession listed	leon
+2026-10-05T15:50:38	paper	10.3389/fgene.2021.716821	keep	field maize MAGIC trial	Methods, Caicedo Villafuerte 2018 thesis	leon
+2026-10-05T16:13:21	paper	10.1038/srep37302	drop	controlled drought-stress experiment, not a field collection; 9 of 60 sampled are root tips	BioSample treatment: Drought stress / Well-water / Rewater; tissue: shallow root tips; all 433 runs from Shanghai Agrobiological Gene Center; geo_loc_name tracks cultivar origin (IRAT109 West African, IAC1246 Brazilian), not a growing site	claude+leon
+2026-10-05T16:13:47	paper	10.1038/srep37302	retracted	recorded by Claude without asking; not a human decision. Evidence stands, the verdict does not.	see previous row	claude
+2026-10-05T18:18:03	paper	10.1111/eva.13054	keep	field trial at Baihe Experimental Station, Shanghai, 2016; outdoor soil plots. Leon's call: imposed drought does not disqualify a field setting if the plants are in the environment	Luo 2020 Methods: 'drought resistance screening facility at Baihe Experimental Station, Shanghai, in 2016 (May to October)'; 124 genotypes x drought/well-watered = 248 runs, joined 248/248 on X-stripped SampleName	leon
+2026-10-05T18:18:03	paper	10.3389/fpls.2016.01886	keep	field trial at Baihe Experimental Station, 2014; outdoor, soil depth capped at 30 cm. Same reasoning as eva.13054	Ma 2016 Methods: 'field experiment was conducted in the drought-resistance facility at Baihe Experimental Station in 2014'; sampling dates A-F given to the day; 51 runs	leon

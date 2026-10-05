@@ -189,6 +189,16 @@ docs/*
 01a_Literature/data/*
 !01a_Literature/data/.gitkeep
 
+# ...except the hand-built records, which are NOT regenerable and are the only irreplaceable
+# artefacts in this module. Same grounds as _exclusions.py: a curated judgment with its
+# evidence is closer to code than to data. Losing runs.tsv costs a few hours of refetching;
+# losing these costs every paper anyone has read.
+!01a_Literature/data/decisions.tsv
+!01a_Literature/data/found.tsv
+!01a_Literature/data/curation.tsv
+!01a_Literature/data/provenance.tsv
+!01a_Literature/data/run_scope.tsv
+
 # 01a_Literature working files. studies/ is the manual drop zone and holds publisher PDFs and
 # supplementary spreadsheets, which are not ours to redistribute (same grounds as
 # 02_literature/02_text/data/manual_pdfs/). The adapters ARE the reproducible part and are

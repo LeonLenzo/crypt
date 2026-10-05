@@ -418,7 +418,76 @@ def triage_state(rows: list[dict], attrs: dict | None = None) -> tuple[str, str,
     return state, g, t
 
 
-COHORT = HERE / "data/kraken_cohort_studies.tsv"
+COHORT   = HERE / "data/kraken_cohort_studies.tsv"
+RESOLVED  = HERE / "data/resolved_accessions.tsv"
+RUN_SCOPE = HERE / "data/run_scope.tsv"
+
+_RANGE = re.compile(r"^([A-Z]+)(\d+)\s*-\s*([A-Z]+)?(\d+)$", re.I)
+
+
+def expand_spec(spec: str, rows: list[dict]) -> set[str]:
+    """Run accessions a scope spec covers, resolved against this project's actual runs.
+
+    A paper often deposits into a shared umbrella BioProject and accounts for only part of it.
+    Wei et al. 2016 names 12 RNA-seq pools inside PRJNA306542, which holds 433 runs from the
+    same centre; without a scope the link claims all 433 and overstates that paper's
+    contribution 36-fold. Any count built on the link table inherits that error.
+
+    Grammar, deliberately small:
+        all                      every run in the project (the default when unspecified)
+        SRX1521275-SRX1521286    inclusive range over Experiment or Run accessions
+        SRR1,SRR2,...            an explicit list
+    Ranges expand against the accessions that EXIST rather than by arithmetic, so a gap in the
+    numbering cannot invent a run that was never deposited.
+    """
+    spec = (spec or "all").strip()
+    if spec.lower() in ("", "all", "*"):
+        return {r["Run"] for r in rows}
+    out: set[str] = set()
+    for part in (p.strip() for p in spec.split(",") if p.strip()):
+        m = _RANGE.match(part)
+        if m:
+            pre, lo, _, hi = m.group(1).upper(), int(m.group(2)), m.group(3), int(m.group(4))
+            for r in rows:
+                for col in ("Experiment", "Run"):
+                    v = r.get(col, "")
+                    mm = re.match(r"^([A-Z]+)(\d+)$", v, re.I)
+                    if mm and mm.group(1).upper() == pre and lo <= int(mm.group(2)) <= hi:
+                        out.add(r["Run"])
+            continue
+        for r in rows:
+            if part.upper() in (r.get("Run", "").upper(), r.get("Experiment", "").upper()):
+                out.add(r["Run"])
+    return out
+
+
+def run_scopes() -> dict:
+    """(paper_key, BioProject) -> dict(spec, note, evidence). Curated, one row per claim."""
+    if not RUN_SCOPE.exists():
+        return {}
+    with open(RUN_SCOPE) as fh:
+        return {(r["paper_key"], r["BioProject"]): r
+                for r in csv.DictReader(fh, delimiter="\t") if r.get("paper_key")}
+
+
+
+def resolved_links() -> list[dict]:
+    """Links recovered by resolve_accessions.py from GEO/SRA-study/run accessions.
+
+    Written as `sra_linked`, never `generated`: an archive lookup connected the paper to the
+    BioProject, which is not a claim about who produced the data. The accession the link came
+    through is kept in `evidence` so the chain is auditable, which matters because a single
+    cited run is weak evidence: Kim22c's five example runs resolve to five different projects.
+    """
+    if not RESOLVED.exists():
+        return []
+    with open(RESOLVED) as fh:
+        return [dict(paper_ref=r["paper_ref"], BioProject=r["BioProject"],
+                     relation="sra_linked", section="resolved_accession",
+                     evidence=f"{r['via']} ({r['via_kind']}) -> {r['BioProject']} via SRA runinfo")
+                for r in csv.DictReader(fh, delimiter="\t")
+                if r["status"] == "resolved" and r["BioProject"]]
+
 
 
 def _norm_doi(d: str) -> str:
@@ -510,13 +579,30 @@ def build_papers(refs: dict, links: list[dict], cohort: list[dict],
     return out, extra_links
 
 
-def _write(path: Path, recs: list[dict], fields: list[str]) -> None:
+def _write(path: Path, recs: list[dict], fields: list[str], key: str | None = None) -> None:
+    """Write a table, merging over any existing rows when `key` is given.
+
+    Merging is not a nicety. A scoped run (`--accessions PRJNA746402`) computes rows for one
+    project, and a plain overwrite then replaces a 327-project table with a 1-project table.
+    That happened on 2026-10-05 and silently destroyed the registry; the tables had to be
+    rebuilt. A scoped run must only ever update the rows it actually recomputed.
+    """
+    merged = recs
+    if key and path.exists():
+        with open(path) as fh:
+            old = {r[key]: r for r in csv.DictReader(fh, delimiter="\t") if r.get(key)}
+        n_before = len(old)
+        for r in recs:
+            old[r[key]] = r
+        merged = list(old.values())
+        if len(merged) > len(recs):
+            print(f"  merged {len(recs)} recomputed row(s) into {n_before} existing")
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=fields, delimiter="\t", extrasaction="ignore")
         w.writeheader()
-        w.writerows(recs)
-    print(f"  wrote {path.relative_to(ROOT)}  ({len(recs)} rows)")
+        w.writerows(merged)
+    print(f"  wrote {path.relative_to(ROOT)}  ({len(merged)} rows)")
 
 
 def main() -> None:
@@ -543,8 +629,9 @@ def main() -> None:
     if args.from_undermind:
         prov = undermind_provenance(mds)
         refs = undermind_references(mds)
-        links = paper_links(mds)
-        accs = list(dict.fromkeys(accs + sorted(prov)))
+        links = paper_links(mds) + resolved_links()
+        accs = list(dict.fromkeys(accs + sorted(prov)
+                                  + [l["BioProject"] for l in resolved_links()]))
     cohort = [] if args.no_cohort else cohort_studies()
     if cohort:
         # Cohort accessions join the SAME funnel. Their `screened`/`gate_passed` are already
@@ -561,6 +648,7 @@ def main() -> None:
 
     BS_CACHE.mkdir(parents=True, exist_ok=True)
     bioprojects, runs = [], []
+    runs_by_bp: dict[str, list[dict]] = {}
     for i, acc in enumerate(accs, 1):
         try:
             rows = runinfo(acc, args.refresh)
@@ -647,6 +735,7 @@ def main() -> None:
                 setting="", setting_source="",
             ))
 
+        runs_by_bp[acc] = rows
         if i % 10 == 0 or i == len(accs):
             print(f"  [{i}/{len(accs)}] {acc}", file=sys.stderr)
         time.sleep(0.12)
@@ -655,6 +744,27 @@ def main() -> None:
 
     papers, cohort_links = build_papers(refs, links, cohort, bioprojects)
     links = links + cohort_links
+
+    # Attach the run scope to every claim. Unscoped claims say so explicitly rather than
+    # leaving the column blank, because "all 433" and "we never checked" must not look alike.
+    scopes = run_scopes()
+    for l in links:
+        sc = scopes.get((l["paper_ref"], l["BioProject"]))
+        rows_for = runs_by_bp.get(l["BioProject"], [])
+        if sc:
+            hits = expand_spec(sc["spec"], rows_for)
+            l["run_scope"] = "subset"
+            l["run_spec"] = sc["spec"]
+            l["n_runs_claimed"] = len(hits)
+            l["scope_evidence"] = sc.get("evidence", "")[:300]
+            if not hits:
+                print(f"  WARNING: scope {sc['spec']!r} for {l['paper_ref']} / "
+                      f"{l['BioProject']} matched 0 runs", file=sys.stderr)
+        else:
+            l["run_scope"] = "all"
+            l["run_spec"] = ""
+            l["n_runs_claimed"] = len(rows_for)
+            l["scope_evidence"] = ""
 
     # A BioProject reached by the cohort but never named by Undermind has no accession_source.
     # Label it, or "where did this come from" has a blank answer for a third of the table.
@@ -695,14 +805,19 @@ def main() -> None:
         b["primary_conflict"] = "yes" if len(cands) > 1 else ""
 
     print()
-    _write(HERE / "data/bioprojects.tsv", bioprojects, list(bioprojects[0]))
+    _write(HERE / "data/bioprojects.tsv", bioprojects, list(bioprojects[0]), key="BioProject")
+    if not args.from_undermind:
+        print("  scoped run: papers.tsv and paper_bioproject.tsv left untouched "
+              "(they are derived from the full corpus, not from one accession)")
+        return
     _write(HERE / "data/papers.tsv", papers,
            ["paper_key", "doi", "paper_ref", "sources", "n_bioprojects", "bioprojects",
             "undermind_decision", "title", "pdf", "supplement", "library_prep",
             "sampling_design", "status"])
     _write(HERE / "data/paper_bioproject.tsv", links,
-           ["paper_ref", "BioProject", "relation", "section", "evidence"])
-    _write(HERE / "data/runs.tsv", runs, list(runs[0]) if runs else ["Run"])
+           ["paper_ref", "BioProject", "relation", "run_scope", "run_spec", "n_runs_claimed",
+            "section", "evidence", "scope_evidence"])
+    _write(HERE / "data/runs.tsv", runs, list(runs[0]) if runs else ["Run"], key="Run")
 
     print(f"\n{len(bioprojects)} BioProjects, {len(papers)} papers, {len(links)} claims, "
           f"{len(runs):,} runs")

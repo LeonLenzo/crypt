@@ -1,0 +1,23 @@
+rule_id	BioProject	predicate	field	value	evidence_id	override	note
+luo2020-site	PRJNA306542	tissue=Leaf;dev_stage=heading	location	China: Shanghai, Baihe Experimental Station	ev-luo2020-site	yes	overrides geo_loc_name "China", which is country-level only
+luo2020-year	PRJNA306542	tissue=Leaf;dev_stage=heading	collection_date	2016	ev-luo2020-site	yes	year only; the paper does not date the sequenced samples further. 2017 was the morphological replication
+luo2020-setting	PRJNA306542	tissue=Leaf;dev_stage=heading	setting	field	ev-luo2020-design	yes	outdoor soil plots with imposed drought and drip-irrigated controls; in scope per leon 2026-10-05
+ma2016-site	PRJNA306542	tissue=leaf;dev_stage=Panicle initiation Period	location	China: Shanghai, Baihe Experimental Station	ev-ma2016-site	yes	overrides geo_loc_name Brazil/China/Cote d'Ivoire, which are CULTIVAR origins not growing sites
+ma2016-year	PRJNA306542	tissue=leaf;dev_stage=Panicle initiation Period	collection_date	2014	ev-ma2016-dates	yes	per-timepoint dates exist in the A-F treatment codes; not yet resolved per run
+ma2016-setting	PRJNA306542	tissue=leaf;dev_stage=Panicle initiation Period	setting	field	ev-ma2016-site	yes	same facility as luo2020; in scope per leon 2026-10-05
+cai21b-site	PRJNA746402		location	Spain: Pontevedra, Salcedo	ev-cai21b-site	yes	42 24' N 8 38' W, 20 m. Overrides geo_loc_name "Spain", country-level only. Whole project is this one trial
+cai21b-year	PRJNA746402		collection_date	2015	ev-cai21b-site	yes	single season; sampling is at female flowering then every 15 days to 90 ddff, carried in BioSample `age`
+cai21b-setting	PRJNA746402		setting	field	ev-cai21b-site	yes	field trial, hand-sown, 60000 plants/ha; kept by leon 2026-10-05
+krem-lmad8-date	PRJNA383416	LibraryName~(^|_)LMAD8(_|$)	collection_date	2014-08-08	ev-krem-field	yes	mature leaf, day batch 1. The 8 in LMAD8 is the collection DATE not a replicate
+krem-lmad26-date	PRJNA383416	LibraryName~(^|_)LMAD26(_|$)	collection_date	2014-08-26	ev-krem-field	yes	mature leaf, day batch 2
+krem-lman8-date	PRJNA383416	LibraryName~(^|_)LMAN8(_|$)	collection_date	2014-08-08	ev-krem-field	yes	mature leaf, night batch 1
+krem-lman26-date	PRJNA383416	LibraryName~(^|_)LMAN26(_|$)	collection_date	2014-08-26	ev-krem-field	yes	mature leaf, night batch 2
+krem-kern-date	PRJNA383416	LibraryName~(^|_)Kern(_|$)	collection_date	2014	ev-krem-field	yes	kernels harvested 25 Aug - 19 Sep 2014, a range, so year only
+krem-field-site	PRJNA383416	LibraryName~(^|_)(LMAD|LMAN)\d+(_|$)	location	USA: New York, Cornell Musgrave Research Farm	ev-krem-field	yes	field M1, Lima silt loam
+krem-kern-site	PRJNA383416	LibraryName~(^|_)Kern(_|$)	location	USA: New York, Cornell Musgrave Research Farm	ev-krem-field	yes	same plots as the mature leaves
+krem-field-setting	PRJNA383416	LibraryName~(^|_)(LMAD|LMAN)\d+(_|$)	setting	field	ev-krem-field	yes	outdoor field plots, ambient
+krem-kern-setting	PRJNA383416	LibraryName~(^|_)Kern(_|$)	setting	field	ev-krem-field	yes	outdoor field plots, ambient
+krem-l3-setting	PRJNA383416	LibraryName~(^|_)L3(Base|Tip|Mid)(_|$)	setting	greenhouse	ev-krem-greenhouse	yes	Guterman Greenhouse, supplementary lighting
+krem-l3-date	PRJNA383416	LibraryName~(^|_)L3(Base|Tip|Mid)(_|$)	collection_date	2015-06	ev-krem-greenhouse	yes	collected 16-20 June 2015
+krem-g-setting	PRJNA383416	LibraryName~(^|_)G(Root|Shoot)(_|$)	setting	growth chamber	ev-krem-chamber	yes	walk-in chamber, vermiculite, germinating seedlings. G is germinating, not greenhouse
+krem-lmid-dropped	PRJNA383416	LibraryName~(^|_)LMid(_|$)	setting	dropped-no-evidence	ev-krem-lmid-absent	yes	11 runs. Flagged not deleted, so the denominator stays computable

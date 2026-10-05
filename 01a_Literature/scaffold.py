@@ -38,7 +38,7 @@ Usage:
     python 01a_Literature/scaffold.py              # create or refresh every paper directory
     python 01a_Literature/scaffold.py --needs-only # only papers that need something
 """
-import argparse, collections, csv, re, sys
+import argparse, collections, csv, json, re, sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -130,12 +130,21 @@ def read(name: str) -> list[dict]:
         return list(csv.DictReader(fh, delimiter="\t"))
 
 
-def join_candidates(runs: list[dict]) -> list[str]:
-    """SRA identifier columns that are unique per run, so usable as a join target.
+def join_candidates(runs: list[dict], attrs: dict | None = None) -> list[str]:
+    """Columns a supplement could join on, with how well each discriminates.
 
-    A column with one distinct value across hundreds of runs (PRJNA383416's SampleName is
-    "Maize 3 prime RNASeq" on all 1,960) is useless as a key, and reporting it as a candidate
-    would send someone down a dead end.
+    Two kinds, and missing the second is a real failure mode. The obvious kind is an SRA
+    identifier. The other is a BIOLOGICAL ATTRIBUTE carried in the BioSample: genotype,
+    cultivar, ecotype, isolate, line. Supplements are written by biologists about plants, so
+    they key on the plant far more often than on an archive accession.
+
+    PRJNA746402 is the case that forced this. Its supplement matched 0 of 450 runs on every
+    SRA identifier, which by the usual rule means "this table does not describe the sequenced
+    samples" and stop. It in fact joins perfectly on `ecotype`, 6 of 6 genotypes, and the run
+    identifiers are an anonymous ZEMAYS1_38_1 scheme that could never have matched anything.
+
+    An attribute is reported with its distinct count, because a genotype column is a
+    many-to-one join: it carries study design down to groups of runs, not to single runs.
     """
     out = []
     for col in ("Run", "Experiment", "LibraryName", "SampleName", "BioSample"):
@@ -145,6 +154,15 @@ def join_candidates(runs: list[dict]) -> list[str]:
         n = len(set(vals))
         tag = "unique" if n == len(runs) else f"{n} distinct of {len(runs)}"
         out.append(f"{col} ({tag})")
+
+    # Attribute values, from whatever BioSamples were fetched. Single-valued attributes are
+    # dropped: a column that is "Spain" on every row joins everything to everything.
+    for key in ("ecotype", "cultivar", "genotype", "isolate", "strain", "host",
+                "tissue", "dev_stage", "treatment", "collected_by"):
+        vals = [a[key] for a in (attrs or {}).values() if a.get(key)]
+        n = len(set(vals))
+        if n > 1:
+            out.append(f"BioSample.{key} ({n} distinct values, many-to-one)")
     return out
 
 
@@ -153,6 +171,12 @@ def main() -> None:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--needs-only", action="store_true",
                     help="skip papers whose BioProjects are all sra-complete")
+    ap.add_argument("--materialise", action="store_true",
+                    help="also create the per-paper directories. Off by default: 423 stub "
+                         "directories holding nothing but a blank adapter are noise, and "
+                         "review.py creates each one on sight when you reach that paper.")
+    ap.add_argument("--key", nargs="*", metavar="K", default=None,
+                    help="materialise only these papers (by key, ref or directory name)")
     args = ap.parse_args()
 
     papers = read("papers.tsv")
@@ -163,6 +187,13 @@ def main() -> None:
     runs_by_bp = collections.defaultdict(list)
     for r in runs:
         runs_by_bp[r["BioProject"]].append(r)
+    attrs_by_bp = {}
+    for f in (DATA / "biosample_attrs").glob("*.json") if (DATA / "biosample_attrs").is_dir() else []:
+        try:
+            obj = json.loads(f.read_text())
+        except Exception:
+            continue
+        attrs_by_bp[f.stem] = obj.get("attrs", obj) if isinstance(obj, dict) else {}
     bps_by_ref = collections.defaultdict(list)
     for l in links:
         bps_by_ref[l["paper_ref"]].append(l)
@@ -209,6 +240,13 @@ def main() -> None:
     for w in work:
         if args.needs_only and w["need"] in ("none", "no-accession"):
             continue
+        if args.key is not None and not ({w["paper_key"], w.get("paper_ref"), w["dir"]}
+                                         & set(args.key)):
+            continue
+        # The directory is a drop zone for files a human downloads. Creating 423 of them
+        # before anyone has downloaded anything just buries the one that matters.
+        if not (args.materialise or args.key) and not (STUDIES / w["dir"]).exists():
+            continue
         d = STUDIES / w["dir"]
         d.mkdir(parents=True, exist_ok=True)
         affected = [b for b in (bps[a] for a in w["bioprojects"].split(";") if a)
@@ -233,7 +271,7 @@ def main() -> None:
                       f"- BioSample coverage: geography {b['geo_pct'] or '?'}%, "
                       f"date {b['date_pct'] or '?'}%", "",
                       "Join targets available in SRA for this project:"]
-            lines += [f"  - {c}" for c in join_candidates(rr)] or ["  - (no runs cached)"]
+            lines += [f"  - {c}" for c in join_candidates(rr, attrs_by_bp.get(b['BioProject']))] or ["  - (no runs cached)"]
             if b["triage"] == "one-biosample":
                 lines += ["", "> All runs share a single BioSample, so SRA holds no per-run "
                           "metadata at all. A supplement is mandatory, and the join will have "
@@ -263,8 +301,10 @@ def main() -> None:
         w8.writeheader()
         w8.writerows(work)
 
-    print(f"{len(work)} papers; {made} directories created or refreshed under "
-          f"{STUDIES.relative_to(ROOT)}/")
+    note = "" if (args.materialise or args.key) else \
+        "  (existing only; --materialise or --key to create more)"
+    print(f"{len(work)} papers; {made} directories written under "
+          f"{STUDIES.relative_to(ROOT)}/{note}")
     for need, n in collections.Counter(w["need"] for w in work).most_common():
         ra = sum(w["runs_affected"] for w in work if w["need"] == need)
         print(f"  {need:<14}{n:>4} papers{ra:>9,} runs affected")

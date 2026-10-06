@@ -79,3 +79,8 @@ man24b-site	PRJEB83049		location	USA: Nebraska, Lincoln (UNL Havelock Research F
 man24b-date	PRJEB83049		collection_date	2021-08-05	ev-man24b-sampling		single sampling day, 09:24 to 11:51; identical to the archive's value, asserted from the paper so the agreement is on the record
 man24b-tissue	PRJEB83049		tissue	leaf	ev-man24b-sampling		fourth leaf counting down from the flag leaf; the archive leaves tissue blank for all 822
 man24b-selection	PRJEB83049		sampling_selection	unselected	ev-man24b-sampling		one representative plant per plot, chosen by plot position and avoiding edges; a flowering-time panel, nothing to do with disease
+tor23d-setting	PRJEB67964		setting	field	ev-tor23d-site		whole-project; Havelock Farm, randomized complete block design, planted 6 May 2020
+tor23d-site	PRJEB67964		location	USA: Nebraska, Lincoln (UNL Havelock Research Farm)	ev-tor23d-site		the paper gives 40.852 N, 96.616 W; replaces the archive's country-level 'USA'. Same farm as PRJEB83049, where the sorghum paper writes it 40.86, -96.60
+tor23d-date	PRJEB67964		collection_date	2020-07-08	ev-tor23d-sampling		single morning, seven researchers in parallel, finished before noon; identical to the archive's value, asserted from the paper so the agreement is on the record
+tor23d-tissue	PRJEB67964		tissue	leaf	ev-tor23d-sampling		five leaf disks from the pre-ante-penultimate leaf; the archive leaves tissue blank for all 750
+tor23d-selection	PRJEB67964		sampling_selection	unselected	ev-tor23d-sampling		one representative plant per plot, chosen by plot position and excluding edges; a diversity panel for expression-trait linkage, nothing to do with disease

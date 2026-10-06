@@ -74,3 +74,8 @@ unselected-PRJDB7234	PRJDB7234		sampling_selection	unselected	ev-unselected-samp
 kashima-setting	PRJDB7234		setting	field	ev-kashima-site		whole-project: seedlings were transplanted to a paddy field about a month after sowing and every sequenced sample was taken there. Ambient, no imposed treatment. Covers all 1,557 runs including the 26 the supplement join misses, which the archive independently places at Takatsuki. Leon's call 2026-10-06
 has24d-setting	PRJNA1074001		setting	growth chamber	ev-has24d-chamber		whole-project: all 1,168 runs are the 73-condition growth chamber panel, 8 time points x 2 cultivars x 73 conditions. Leon's call 2026-10-06: none of these enter the field cohort
 has24d-selection	PRJNA1074001		sampling_selection	unselected	ev-has24d-chamber		sampled by chamber condition and 3-hourly clock time; disease played no part in which samples exist
+man24b-setting	PRJEB83049		setting	field	ev-man24b-site		whole-project; Havelock Research Farm, replicated single-row plots, nitrogen applied, planted 25 May 2021
+man24b-site	PRJEB83049		location	USA: Nebraska, Lincoln (UNL Havelock Research Farm)	ev-man24b-site		the paper gives 40.86, -96.60; replaces the archive's country-level 'USA'
+man24b-date	PRJEB83049		collection_date	2021-08-05	ev-man24b-sampling		single sampling day, 09:24 to 11:51; identical to the archive's value, asserted from the paper so the agreement is on the record
+man24b-tissue	PRJEB83049		tissue	leaf	ev-man24b-sampling		fourth leaf counting down from the flag leaf; the archive leaves tissue blank for all 822
+man24b-selection	PRJEB83049		sampling_selection	unselected	ev-man24b-sampling		one representative plant per plot, chosen by plot position and avoiding edges; a flowering-time panel, nothing to do with disease

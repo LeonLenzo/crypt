@@ -15,15 +15,11 @@ PRJNA1428298	340	340	mixed sample	metagenome	RNA-Seq:340	review	organism is 'mix
 PRJNA1314945	306	306	Triticum aestivum	plant	RNA-Seq:306	review	library_strategy says RNA-Seq on all 306 runs, but the paper title contains 'slaf-seq', which is a GENOMIC DNA assay. Check the methods before spending time on this: the submitter's assay metadata may be wrong	10.1186/s12864-026-12921-6
 PRJNA322529	281	0	Panicum virgatum	virus	OTHER:281	review	mixed assay: 0/281 RNA-Seq, rest OTHERx281	Lov16
 PRJNA1279063	268	24	Pyricularia oryzae	fungus	WGS:244; RNA-Seq:24	review	mixed assay: 24/268 RNA-Seq, rest WGSx244	10.1101/2025.10.14.682320
-PRJNA297424	239	239	Oryza sativa	plant	RNA-Seq:239	keep	plant organism, all RNA-Seq	Ple15
-PRJNA976033	231	231	Helianthus annuus subsp. annuus	plant	RNA-Seq:231	keep	plant organism, all RNA-Seq	10.5061/dryad.v6wwpzh20
-PRJNA1153365	229	229	Brassica napus	plant	RNA-Seq:229	keep	plant organism, all RNA-Seq	10.1038/s41588-024-01957-7
 PRJNA513863	189	189	Vitis vinifera	plant	RNA-Seq:189	keep	plant organism, all RNA-Seq	10.1016/j.plantsci.2019.110178
 PRJNA825139	185	185	Oryza sativa	plant	RNA-Seq:185	keep	plant organism, all RNA-Seq	
 PRJEB84390	171	100	Puccinia triticina	fungus	RNA-Seq:100; WGS:71	review	mixed assay: 100/171 RNA-Seq, rest WGSx71	Tsu25
 PRJNA630305	162	162	Fagus grandifolia	plant	RNA-Seq:162	keep	plant organism, all RNA-Seq	
 PRJEB44222	151	144	Phakopsora pachyrhizi	fungus	RNA-Seq:144; WGS:7	review	mixed assay: 144/151 RNA-Seq, rest WGSx7	10.1038/s41467-023-37551-4
-PRJNA753546	151	151	Zea mays	plant	RNA-Seq:151	keep	plant organism, all RNA-Seq	10.1186/s12864-022-09001-w
 PRJNA727473	150	44	Avena sativa	plant	WGS:95; RNA-Seq:44; Hi-C:11	review	mixed assay: 44/150 RNA-Seq, rest WGSx95/Hi-Cx11	10.1038/s41588-022-01127-7
 PRJEB43702	144	144	Setaria italica	plant	RNA-Seq:144	keep	plant organism, all RNA-Seq	
 PRJEB59062	141	141	Triticum aestivum	plant	RNA-Seq:141	keep	plant organism, all RNA-Seq	10.1186/s12859-026-06368-5
@@ -277,6 +273,7 @@ PRJNA1232637	3	3	Wheat streak mosaic virus	virus	RNA-Seq:3	review	organism is a 
 PRJNA1470426	3	3	plant metagenome	metagenome	RNA-Seq:3	review	organism is 'plant metagenome'; check whether the tissue is plant and the library polyA	Amo26
 PRJNA743866	3	3	plant metagenome	metagenome	RNA-Seq:3	review	organism is 'plant metagenome'; check whether the tissue is plant and the library polyA	Elw23
 PRJNA748945	3	3	Citrus sinensis	plant	RNA-Seq:3	keep	plant organism, all RNA-Seq	Ram22b
+PRJNA753546	3	3	Zea mays	plant	RNA-Seq:3	keep	plant organism, all RNA-Seq	10.1186/s12864-022-09001-w
 PRJNA928104	3	3	metagenome	metagenome	RNA-Seq:3	review	organism is 'metagenome'; check whether the tissue is plant and the library polyA	Kim24c
 PRJNA717145	3	3	Solanum lycopersicum	plant	RNA-Seq:3	keep	plant organism, all RNA-Seq	Maa21
 PRJNA246736	3	3	Botrytis cinerea B05.10	fungus	RNA-Seq:3	review	organism is the PATHOGEN (Botrytis cinerea B05.10); may be in-planta dual RNA-seq or may be axenic culture - the archive cannot tell you which	10.3389/fpls.2014.00435

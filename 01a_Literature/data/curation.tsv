@@ -119,3 +119,8 @@ bnapus-setting	PRJNA1153365		setting	field	ev-bnapus-site		China National Rapese
 bnapus-site	PRJNA1153365		location	China: Hubei, Wuhan, Yangluo	ev-bnapus-site		the paper gives 30 43' N, 114 31' E for Yangluo; replaces the archive's 'China: Yangluo'
 bnapus-tissue	PRJNA1153365		tissue	silique	ev-bnapus-silique		seed pod at 18 days after pollination. Aerial but reproductive, not foliar
 bnapus-selection	PRJNA1153365		sampling_selection	unselected	ev-bnapus-silique		an accession panel sampled at a fixed developmental stage for a structural-variation eQTL study; disease played no part
+van23-setting	PRJEB46163		setting	field	ev-van23-site		vines in 2x2x1.5 m concrete caissons filled with soil, outdoors at an experimental farm; closer to a soil-controlled field plot than to a pot
+van23-site	PRJEB46163		location	Italy: Veneto, Legnaro (L. Toniolo experimental farm, University of Padua)	ev-van23-site		replaces the archive's country-level 'Italy'. The three soil names are origins, not sites
+van23-date	PRJEB46163		collection_date	2017	ev-van23-site	yes	OVERRIDES the archive's '2014-24-06', which is malformed and predates the 2015 planting
+van23-tissue	PRJEB46163		tissue	berry (skin or pulp)	ev-van23-site		skin and pulp were separated and sequenced apart; the per-sample split is in the paper's Table S5 and is not joined here
+van23-selection	PRJEB46163		sampling_selection	symptom-avoided	ev-van23-symptomavoided		berries showing damage or pathogen infection symptoms were deliberately excluded, so prevalence here is deflated by design

@@ -1,0 +1,34 @@
+Kovaleski AP, Londo JP. 2019. "Tempo of gene regulation in wild and cultivated Vitis species
+shows coordination between cold deacclimation and budbreak."
+Plant Science 287:110178. doi:10.1016/j.plantsci.2019.110178
+
+PAYWALLED. PDF supplied by Leon 2026-10-06; stored as plantsci-2019-110178.pdf.
+ena_sample_titles.tsv is one ENA portal request, kept because runs.tsv holds GSM accessions
+while the Day labels live in the portal's sample_title.
+
+Source for PRJNA513863, 189 runs -> 17 field, 172 controlled.
+
+THE SPLIT IS ONE SENTENCE: "Day 0 samples were field-collected." Everything after Day 0 is a
+forcing time course indoors: "Dormant canes were collected ... in mid-winter [February 2015;
+1030 chill units] ... The cuttings were randomized and placed with cut ends in cups of water
+and placed within a growth room with forcing conditions: 22 C and 16/8 h light/dark." Buds
+were then sampled DAILY until budbreak, to day 10-17 depending on genotype.
+
+So 17 Day-0 runs are field and the other 172 are growth chamber (forcing). Without the paper
+this project looks like 189 field dormant-bud runs; the archive gives no hint either way.
+
+TWO SOURCE SITES, about 6 km apart, both near Geneva NY:
+  wild V. amurensis (PI588635) and V. riparia (PI588275) - USDA cold hardy grapevine
+    germplasm repository, Geneva, New York, "maintained as two own-rooted clonal vines"
+  cultivated V. vinifera 'Cabernet Sauvignon' and 'Riesling' - "a local commercial vineyard
+    (42.845 N, 77.004 W)"
+
+NOT field (natural population) despite "wild species": these are wild TAXA maintained as
+clonal accessions in a repository, not wild stands.
+
+ORIGIN vs SITE, stated by the authors themselves: "The V. riparia accession was originally
+collected in North Dakota, USA, while V. vinifera 'Cabernet Sauvignon' and 'Riesling' are
+cultivars domesticated in France and Germany." Those are germplasm origins. The plants were
+in New York.
+
+Evidence: ev-kov19-split, ev-kov19-sites.

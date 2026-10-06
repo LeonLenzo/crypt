@@ -881,6 +881,8 @@ def main() -> None:
                 #   inoculated        no: disease introduced by the experimenter
                 #   fungicide-treated no: fungal colonisation actively suppressed, so an
                 #                     absence of signal is partly an absence of opportunity
+                #   symptom-avoided   no: the sampler deliberately skipped visibly diseased
+                #                     material, so prevalence is deflated by design
                 # Nothing in `setting` or `tissue` distinguishes these; a field study can be
                 # any of them. The sunflower Heliaphen cohort (PRJNA976033) is why the fourth
                 # value exists: outdoor, potted, leaf, dated - and dosed twice with Ortiva Top

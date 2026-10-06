@@ -1,0 +1,39 @@
+Vannozzi A, Perin C, Palumbo F, Sandri M, Zuccolotto P, Zenoni S, Farinati S, Barcaccia G,
+Pindo M, Sonego P, Cestaro A, Lucchin M. 2023. "Dissecting the effect of soil on plant
+phenology and berry transcriptional plasticity in two Italian grapevine varieties
+(Vitis vinifera L.)." Horticulture Research 10:uhad056.
+doi:10.1093/hr/uhad056   PMC10199706   open access.
+
+NOTE: our tables reach this paper by its PubMed/EPMC DOI 10.1093/hr/uhad056. The accession
+PRJEB46163's study_title still carries the earlier working title, "Dissecting the effect of
+soil on BERRY transcriptional plasticity...".
+
+Retrieved 2026-10-06 from
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10199706/fullTextXML
+
+Source for PRJEB46163, 108 runs = 3 soils x 3 biological replicates x 2 varieties x 2 tissues
+x 3 developmental stages.
+
+*** THEY DELIBERATELY AVOIDED DISEASED MATERIAL ***
+"Three berries were gathered from the median part of a cluster representative of each plant at
+the same day time (about 11 a.m.), avoiding those showing damages or pathogen infection
+symptoms."
+
+This is NEGATIVE disease selection and it deflates prevalence by design, the mirror image of
+Ada21's surveillance cohort. sampling_selection = symptom-avoided.
+
+SITE: "the L. Toniolo experimental farm of the University of Padua located in Legnaro (L)
+municipality, where the experiment took place." Vines in concrete caissons (2 m x 2 m x 1.5 m
+deep) filled with soil, outdoors. A nearby met station sits at 45.348, 11.953.
+
+ORIGIN vs SITE: the three soils came from Fumane, Vittorio Veneto and Legnaro, and those three
+localities are SOIL origins, not growing sites. All the plants were at Legnaro. Do not map the
+soil names to locations.
+
+DATE: 2017. "three developmental stages ... in two tissues (skin and pulp) and in three
+biological replicates in the 2017 season". Phenology was monitored across 2017 and 2018, but
+the RNA-seq is 2017 only.
+  THE ARCHIVE DATE IS WRONG. collection_date reads "2014-24-06" on all 108 runs: malformed
+  (there is no month 24) and three years before the 2015 planting. Overridden.
+
+Evidence: ev-van23-site, ev-van23-symptomavoided.

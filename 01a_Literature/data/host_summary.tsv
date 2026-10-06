@@ -3,13 +3,14 @@ Oryza sativa (rice)	2784	6	6	2013-2017	5	0	2784	0	leaf	field:2680; field (chambe
 Arabidopsis thaliana	2580	5	2	2016-2018	3	0	2580	0	leaf	field (potted, outdoor common garden):2580	unselected:2580
 Zea mays (maize)	2030	4	33	2014-2020	4	0	2030	0	leaf	field:2030	unselected:2009; symptom-avoided:21
 Vitis vinifera (grapevine)	1706	4	3	2015-2019	4	0	1322	384	Leaf	field:1602; field (excised, forced indoors):104	unselected:1322; inoculated:384
-Sorghum bicolor	1020	3	3	2016-2021	2	0	1020	0	leaf	field:1020	unselected:1019; symptom-avoided:1
+Sorghum bicolor	1120	4	4	2016-2021	3	0	1120	0	leaf	field:1120	unselected:1119; symptom-avoided:1
 Triticum aestivum (bread wheat)	903	5	356	2013-2018	6	0	0	903	leaf	field:903	disease-selected:903
 Populus nigra (black poplar)	461	1	1	2015	1	0	461	0	xylem,cambium	field:461	unselected:461
 Arabidopsis halleri	384	1	1	2019-2020	2	384	384	0	rosette leaf	field (natural population):384	unselected:384
 Helianthus annuus (sunflower)	231	1	1	2018	1	0	0	231	leaf	field (potted, outdoor common garden):231	fungicide-treated:231
 Brassica napus (oilseed rape)	229	1	1		0	0	229	0	silique	field:229	unselected:229
 Fagus grandifolia (American beech)	217	1	2	2017-2018	2	217	217	0	leaf	field (natural population):217	unselected:217
+Solanum lycopersicum	126	1	1		0	0	0	126	fruit pericarp and epidermal tissue of the blossom end halves	field (excised, lab-inoculated):126	inoculated:126
 Vitis vinifera subsp. sylvestris (wild grape)	108	1	1	2017	1	0	108	0	berry (skin or pulp)	field:108	symptom-avoided:108
 Vitis spp. (wild grapevine)	79	1	1	2015	1	0	79	0	bud (forced, deacclimating)	field (excised, forced indoors):68; field:11	unselected:79
 Zea mays teosinte subspp.	42	1	4	2017	1	21	42	0	leaf	field (natural population):21; field:21	unselected:42

@@ -128,3 +128,11 @@ ppr-chamber-hormones	PRJNA609211	SampleName~^(GA|IAA)-[0-9]+$	setting	growth cha
 ppr-chamber-hormones-sel	PRJNA609211	SampleName~^(GA|IAA)-[0-9]+$	sampling_selection	unselected	ev-ppr-suppS1		hormone-treated seedlings; disease played no part
 ppr-chamber-ck-kt	PRJNA609211	SampleName~^(Ck|KT)-[0-9]+$	setting	growth chamber	ev-ppr-suppS1		INFERRED, not keyed. Ck-1 and Ck-2 ARE in Supplementary Table S1 as 'CK to GA, IAA, CTK / 4h' (matched case-insensitively); Ck-3 is its third replicate, which the key omits. KT-1/2/3 is almost certainly the cytokinin arm - the key carries CTK-2 and CTK-3 and the Methods list 50 uM cytokinin for 4 h - but KT is not the spelling the key uses, so this is read from the naming series and not from the table
 ppr-chamber-ck-kt-sel	PRJNA609211	SampleName~^(Ck|KT)-[0-9]+$	sampling_selection	unselected	ev-ppr-suppS1		hormone panel; disease played no part
+fhb-59062-setting	PRJEB59062		setting	growth chamber	ev-fhb-chamber		the PathoV experiment; spores inoculated into the floral cavity at mid-anthesis in a growth chamber
+fhb-59062-site	PRJEB59062		location	France (INRAE/UCA, growth chamber)	ev-fhb-chamber		a chamber, so the location is the institution rather than a growing site; recorded for completeness only
+fhb-59062-tissue	PRJEB59062		tissue	spike (post-anthesis)	ev-fhb-split		inoculation into the six central spikelets of flowering spikes
+fhb-59062-selection	PRJEB59062		sampling_selection	inoculated	ev-fhb-chamber		Fusarium graminearum applied by the experimenters, and F. graminearum is a target of this study's own detection
+fhb-59238-setting	PRJEB59238		setting	growth chamber	ev-fhb-chamber		the HostV experiment; spores inoculated into the floral cavity at mid-anthesis in a growth chamber
+fhb-59238-site	PRJEB59238		location	France (INRAE/UCA, growth chamber)	ev-fhb-chamber		a chamber, so the location is the institution rather than a growing site; recorded for completeness only
+fhb-59238-tissue	PRJEB59238		tissue	spike (post-anthesis)	ev-fhb-split		inoculation into the six central spikelets of flowering spikes
+fhb-59238-selection	PRJEB59238		sampling_selection	inoculated	ev-fhb-chamber		Fusarium graminearum applied by the experimenters, and F. graminearum is a target of this study's own detection

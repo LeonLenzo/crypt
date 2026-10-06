@@ -1,0 +1,42 @@
+Fabre F, Bormann J, Urbach S, Roche S, Langin T, Bonhomme L et al. 2024. "Integrative systems
+biology of wheat susceptibility to Fusarium graminearum uncovers a conserved gene regulatory
+network and identifies master regulators targeted by fungal core effectors."
+BMC Biology 22:44. doi:10.1186/s12915-024-01852-x   PMC10916188   open access.
+
+Retrieved 2026-10-06 from
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10916188/fullTextXML
+
+Source for TWO projects, both dropped from the field cohort:
+  PRJEB59062  141 runs, 47 BioSamples  = the PathoV experiment
+  PRJEB59238  128 runs, 90 BioSamples  = the HostV experiment
+
+  "a first experiment, referred to as PathoV, was conducted on the susceptible wheat cultivar
+   'Recital' which was inoculated with three F. graminearum strains of contrasting
+   aggressiveness (MDC_Fg1, MDC_Fg13 and MDC_FgU1 ...) or with water as control. To study the
+   FHB responses of different wheat genetic backgrounds, a second experiment referred to as
+   HostV was conducted on five cultivars of contrasting susceptibility, 'Arche' (ARC),
+   'Courtot' (COU), 'Chinese Spring' (CS), 'Recital' (REC), and 'Renan' (REN); all were
+   inoculated with the aggressive strain MDC_Fg1 or with water as control."
+
+  "a complete factorial experiment was repeated in the same GROWTH CHAMBER than HostV and
+   PathoV ... MDC_Fg1 spores were inoculated ... at mid-anthesis with 10 uL of a solution at a
+   concentration of 10^5 spores/mL in the floral cavity of the six central spikelets of three
+   synchronous flowering spikes of each biological replicate."
+
+  Data availability confirms the split: "PathoV RNA-seq raw reads (NewMyco project) ...
+  PRJEB59062. HostV RNA-seq raw reads (WheatOMICS project) ... PRJEB59238."
+
+The word "field" appears NOWHERE in the paper.
+
+Why this matters beyond the setting: the inoculated organism is FUSARIUM GRAMINEARUM, a
+target of this study's own detection. A co-infection analysis on these runs would be reading
+the experiment. sampling_selection = inoculated.
+
+The archive alone was nearly enough here, unusually: study_title reads "Interaction between
+the wheat cultivar 'Recital' and 3 Fusarium graminearum strains", sample titles read
+Recital-MDC_Fg1-48hpi-3 (hours post inoculation) and dev_stage reads Spike_PostAnthesis.
+
+NOTE on PRJEB59238: 75 of its 128 runs are ncRNA-Seq, size-selected away from mRNA and so
+useless for fungal transcript detection even if the setting had qualified. 53 are RNA-Seq.
+
+Evidence: ev-fhb-chamber, ev-fhb-split.

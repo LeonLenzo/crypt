@@ -105,3 +105,6 @@ krem-tissue-gshoot	PRJNA383416	LibraryName~(^|_)GShoot(_|$)	tissue	germinating s
 paa26-setting	PRJEB83648		setting	field (natural population)	ev-paa26-treatment		wild Arabidopsis halleri clonal patches at a long-term molecular-ecology site. The cold treatment is delivered to leaves in situ by a portable chiller, so the plants never leave the environment
 paa26-site	PRJEB83648		location	Japan: Hyogo, Taka-cho, Monzen	ev-paa26-site		the paper gives 35 05'N, 134 54'E, alt. 145 m; replaces the archive's country-level 'Japan'
 paa26-selection	PRJEB83648		sampling_selection	unselected	ev-paa26-treatment		a single leaf per plant at hourly timepoints from the same clonal patch, each plant sampled once; disease played no part in which plants were sampled
+von21-setting	PRJNA701940		setting	field	ev-von21-vineyard		dedicated experimental vineyard established 2010, randomized complete block, vines in ground for 7-8 years by sampling
+von21-site	PRJNA701940		location	USA: California, Davis (UC Davis experimental leafroll vineyard)	ev-von21-vineyard		replaces the archive's 'USA: Davis'
+von21-selection	PRJNA701940		sampling_selection	inoculated	ev-von21-selection		GLRaVs introduced by chip-bud grafting in 2009; disease present by the experimenters' design

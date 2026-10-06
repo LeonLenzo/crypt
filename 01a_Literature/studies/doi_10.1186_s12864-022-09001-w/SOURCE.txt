@@ -1,0 +1,49 @@
+Lappe RR, Elmore MG, Lozier ZR, Jander G, Miller WA, Whitham SA. 2022. "Metagenomic
+identification of novel viruses of maize and teosinte in North America."
+BMC Genomics 23:767. doi:10.1186/s12864-022-09001-w   PMC9685911   open access.
+
+paper_ref: (linked by DOI)
+
+Retrieved 2026-10-06 from
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9685911/fullTextXML
+
+Source for PRJNA753546, 151 runs: 148 maize/teosinte leaf (field) and 3 whole insect.
+
+*** READ THIS BEFORE USING THESE RUNS: THE LIBRARIES ARE RIBODEPLETED, NOT polyA ***
+"The DNA-free total RNA was subjected to ribosomal RNA depletion by Illumina Ribo-Zero rRNA
+Removal Kit (Plant Leaf) ... Strand-specific cDNA libraries were prepared from ribosomal
+depleted RNA using the NEBNext Ultra II Directional RNA Library Prep kit."
+
+Every other project in this cohort is polyA-selected. A ribodepleted library retains
+non-polyadenylated and bacterial transcripts that polyA selection removes, so the MICROBIAL
+FRACTION of reads is systematically higher here for reasons of chemistry, not biology.
+Fungal mRNA is polyadenylated and is captured by both methods, so these runs are usable for
+fungal detection - but any comparison expressed as a PERCENTAGE of classified reads is
+invalid against the rest of the cohort. CLAUDE.md's existing rule, report read counts and not
+percentages, is what makes these runs safe to include.
+
+The archive's library_selection reads "cDNA" on all 151, which does not distinguish the two
+chemistries. Only the paper does.
+
+TWO ARMS, different provenance:
+  123 Mexico  "collected in the state of Guanajuato, Mexico, in areas between and surrounding
+              the cities of Irapuato and Moroleon ... collected with scissors in October, 2017"
+              No symptom criterion. Per-sample GPS is in the paper's Supplementary Table 1,
+              NOT pulled.
+   25 USA     "Additional leaf samples from asymptomatic maize plants that were infested with
+              aphids were collected within Iowa, Illinois, Indiana, North Carolina, and South
+              Dakota". Explicitly asymptomatic. Selected for APHID infestation, which is an
+              insect-vector criterion and not a fungal-disease one, so still unselected for
+              our purposes. No date given.
+    3 insect  whole insect, Ithaca New York. Not plant tissue; no setting written.
+
+DISCREPANCY: the archive places several USA samples in CALIFORNIA (Russell Ranch, Student
+Farm, "Taco Corn"), which the paper's plant-material section does not list among its USA
+states. Recorded rather than reconciled.
+
+ARCHIVE LOCATION TRAP: all 123 Mexico runs carry location "Mexico: Mexico 1" ... "Mexico:
+Mexico 123" - a per-sample COUNTER with a country prefix, not a locality. Taken at face value
+this project looks like 151 distinct localities; it is about 20. lappe_runs.csv normalises
+them and keeps the archive string in ArchiveLocation.
+
+Evidence: ev-lappe-site, ev-lappe-ribodepleted.

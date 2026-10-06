@@ -112,3 +112,6 @@ ple15-setting	PRJNA297424		setting	field	ev-ple15-site		two adjacent fields unde
 ple15-site	PRJNA297424		location	Philippines: Los Banos, Laguna, IRRI	ev-ple15-site		string matched to PRJNA510920 (Swift 2019) so IRRI groups as one site across both studies
 ple15-tissue	PRJNA297424		tissue	leaf	ev-ple15-sampling		six young leaves from six different plants per sample, vegetative stage
 ple15-selection	PRJNA297424		sampling_selection	unselected	ev-ple15-sampling		sampled on a fixed calendar every two days, 4 h after sunrise, by genotype and field type; disease played no part
+sunflower-setting	PRJNA976033		setting	field (potted, outdoor common garden)	ev-sunflower-heliaphen		10 L pots on a robotised outdoor platform with per-pot irrigation; the paper calls it a common garden. Same setting value as the Sato clusters
+sunflower-date	PRJNA976033		collection_date	2018	ev-sunflower-heliaphen		planted 17 April 2018, leaf sampled at the ends of the two stress periods (12 June and 3 August), harvest 31 August
+sunflower-selection	PRJNA976033		sampling_selection	fungicide-treated	ev-sunflower-fungicide		Ortiva Top twice, plus rain exclusion. NOT usable in a prevalence denominator: absence of fungal signal here is partly absence of opportunity

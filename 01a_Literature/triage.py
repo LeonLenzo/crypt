@@ -873,11 +873,18 @@ def main() -> None:
                 location=loc, location_source=loc_src,
                 collection_date=dat, date_source=dat_src,
                 setting="", setting_source="",
-                # Whether the SAMPLING conditioned on disease. Surveillance cohorts are
-                # collected BECAUSE a plant is symptomatic, which makes them the best
-                # co-infection test set available and an unusable prevalence denominator.
-                # Neither `setting` nor `tissue` distinguishes the two, so it is its own
-                # field: a field study can be either.
+                # How the EXPERIMENT relates to disease presence, which decides whether a
+                # sample can contribute to a prevalence estimate:
+                #   unselected        it can
+                #   disease-selected  no: sampled BECAUSE symptomatic, so prevalence is
+                #                     inflated by construction. Best co-infection test set.
+                #   inoculated        no: disease introduced by the experimenter
+                #   fungicide-treated no: fungal colonisation actively suppressed, so an
+                #                     absence of signal is partly an absence of opportunity
+                # Nothing in `setting` or `tissue` distinguishes these; a field study can be
+                # any of them. The sunflower Heliaphen cohort (PRJNA976033) is why the fourth
+                # value exists: outdoor, potted, leaf, dated - and dosed twice with Ortiva Top
+                # with rain excluded from the pots.
                 sampling_selection="", sampling_selection_source="",
                 # Is this the run to use for its LIBRARY? `biosample_representative`
                 # downstream assumes one BioSample per biological sample, which fails when a

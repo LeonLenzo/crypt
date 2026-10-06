@@ -82,6 +82,21 @@ EXCLUDED = {
         evidence="Classified llm_study_setting == 'field'; the title and methods describe in vitro work.",
         decided="2026-10-02",
     ),
+    "PRJNA1428298": dict(kind="inoculated", n_biosamples=340,
+        reason="Pilot experiment for PRJNA1217477, the same UC Davis Botrytis atlas, and excluded "
+               "for the same reason: every plant was deliberately inoculated, so a secondary "
+               "detection is the experiment rather than a cryptic co-infection.",
+        evidence="NCBI project_description names its parent outright: 'This dataset includes pilot "
+                 "experiment data generated to support large-scale comparative analyses across "
+                 "multiple eudicot species infected with 72 Botrytis isolates, i.e., PRJNA1217477: "
+                 "Co-transcriptomic networks to identify conserved and lineage-specific mechanisms "
+                 "for core eudicot defenses against a generalist pathogen'. Same submitter "
+                 "(University of California, Davis). Title: 'Pilot co transcriptomic experiment for "
+                 "large scale analysis of eudicot defenses against 72 Botrytis cinerea isolates'. "
+                 "Found 2026-10-06 by offtarget_screen.py, which flagged it as organism 'mixed "
+                 "sample' with 340 RNA-Seq runs; it shares a paper (10.1073/pnas.2601719123) with "
+                 "PRJNA1217477 but was never linked to the exclusion.",
+        decided="2026-10-06"),
     "PRJNA328045": dict(
         kind="inoculated",
         n_biosamples=39,

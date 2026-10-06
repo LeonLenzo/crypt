@@ -84,3 +84,8 @@ tor23d-site	PRJEB67964		location	USA: Nebraska, Lincoln (UNL Havelock Research F
 tor23d-date	PRJEB67964		collection_date	2020-07-08	ev-tor23d-sampling		single morning, seven researchers in parallel, finished before noon; identical to the archive's value, asserted from the paper so the agreement is on the record
 tor23d-tissue	PRJEB67964		tissue	leaf	ev-tor23d-sampling		five leaf disks from the pre-ante-penultimate leaf; the archive leaves tissue blank for all 750
 tor23d-selection	PRJEB67964		sampling_selection	unselected	ev-tor23d-sampling		one representative plant per plot, chosen by plot position and excluding edges; a diversity panel for expression-trait linkage, nothing to do with disease
+sez23-setting	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$	setting	field (natural forest)	ev-sez23-site		unmanaged second-growth forest in two ForestGEO Forest Dynamics Plots, not an agricultural trial. Labelled distinctly so wild stands can be separated from crop sites later
+sez23-y17	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$;SampleName~^[HS]7	collection_date	2017	ev-sez23-naming		year digit 7; season is in the name too but not recorded, per leon on granularity
+sez23-y18	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$;SampleName~^[HS]8	collection_date	2018	ev-sez23-naming		year digit 8
+sez23-tissue	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$	tissue	leaf	ev-sez23-site		10 leaf discs per sample, flash frozen in the field
+sez23-selection	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$	sampling_selection	unselected	ev-sez23-site		tagged trees in permanent forest plots sampled three times a year; disease played no part in which trees exist

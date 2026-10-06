@@ -140,3 +140,6 @@ sorgfus-setting	PRJNA573931		setting	greenhouse	ev-sorgfus-greenhouse		UNL Plant
 sorgfus-site	PRJNA573931		location	USA: Nebraska, Lincoln (UNL Plant Growth facilities)	ev-sorgfus-greenhouse		a greenhouse, so this is the institution and not a growing site; replaces the archive's 'USA: Nebraska'
 sorgfus-tissue	PRJNA573931		tissue	peduncle	ev-sorgfus-greenhouse		wound-inoculated at the peduncle between anthesis and seed set
 sorgfus-selection	PRJNA573931		sampling_selection	inoculated	ev-sorgfus-greenhouse		every plant wound-inoculated, controls with sterile potato dextrose broth; the inocula are fungi this pipeline detects
+tomfruit-setting	PRJNA623526		setting	field (excised, lab-inoculated)	ev-tomfruit-fieldgrown		fruit grown under standard field conditions at UC Davis then harvested and inoculated indoors. Field-derived tissue per leon's Kovaleski ruling, but organisms were ADDED here, which that case did not involve - hence the distinct label
+tomfruit-site	PRJNA623526		location	USA: California, Davis (UC Davis Plant Sciences Field Facilities)	ev-tomfruit-fieldgrown		where the fruit was grown
+tomfruit-selection	PRJNA623526		sampling_selection	inoculated	ev-tomfruit-inoculated		Botrytis cinerea, Fusarium acuminatum and Rhizopus stolonifer applied to harvested fruit; all three are detected by this pipeline, so a hit reads the experiment

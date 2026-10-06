@@ -1,0 +1,42 @@
+Silva CJ, Adaskaveg JA, Mesquida-Pesci SD, Ortega-Salazar I, Pattathil S, Zhang L, Hahn MG,
+van Kan JAL, Cantu D, Powell ALT, Wang D, Casteel CL, Seymour GB, Blanco-Ulate B. 2021.
+"Host susceptibility factors render ripe tomato fruit vulnerable to fungal disease despite
+active immune responses." Journal of Experimental Botany 72:2696-2709.
+doi:10.1093/jxb/eraa601   PMC8006553   open access.
+
+Retrieved 2026-10-06 from
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8006553/fullTextXML
+
+Source for PRJNA623526, 126 runs.
+
+THE TISSUE IS FIELD-GROWN, THE EXPERIMENT IS A LAB INOCULATION.
+  "Tomato (Solanum lycopersicum) cv. 'Ailsa Craig' (AC), isogenic non-ripening mutants rin,
+   nor, and Cnr, and CRISPR-based PL (PL5-4) and PG2a (PG21) mutants with azygous control
+   plants were grown under standard FIELD conditions in the Department of Plant Sciences
+   Field Facilities at the University of California, Davis. Fruit were tagged at 3 d
+   post-anthesis (dpa) and HARVESTED at 31 dpa for mature green (MG) and at 42 dpa for red
+   ripe (RR)"
+  "Using unripe and ripe fruit INOCULATED WITH THREE FUNGAL PATHOGENS, we identified common
+   pathogen responses" - Botrytis cinerea, Fusarium acuminatum, Rhizopus stolonifer.
+
+So the setting follows Leon's Kovaleski ruling of 2026-10-06 - field-grown tissue taken
+indoors is still field-derived - but with the difference that organisms were ADDED here,
+which Kovaleski did not have. setting = field (excised, lab-inoculated);
+sampling_selection = inoculated, which keeps the whole project out of any prevalence
+denominator.
+
+WHY THE MOCK/TREATED SPLIT WAS NOT PURSUED. It would not change the disposition:
+  - all three inocula are fungi this pipeline detects, so a hit reads the experiment
+  - the material is detached, cut ("blossom end halves"), wounded and incubated humid, so any
+    resident organism blooms and abundance means nothing about the field
+  - mock and inoculated fruit were handled in one experiment, so spore cross-contamination
+    between arms is a live risk in a shared incubator
+Even a perfectly clean mock arm would be wounded detached fruit, not a plant in a field.
+
+UNRESOLVED, and recorded so nobody assumes it was checked: which of the 126 runs are mock.
+ENA sample_title gives only batch codes (BI16 x94, FC17 x16, BI17 x16). GEO holds the
+characteristics but serves a reCAPTCHA to scripts. The paper's own supplement
+(eraa601_suppl_supplementary_table_s1-s8.xlsx) exists - Europe PMC's supplementaryFiles zip
+names it - but that zip downloads truncated and all three PMC /bin/ mirrors return 403/404.
+
+Evidence: ev-tomfruit-fieldgrown, ev-tomfruit-inoculated.

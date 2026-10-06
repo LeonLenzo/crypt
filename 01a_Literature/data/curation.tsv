@@ -94,3 +94,11 @@ rog23c-site	PRJNA527833		location	France: Orleans (INRAE common garden)	ev-rog23
 rog23c-date	PRJNA527833		collection_date	2015-06	ev-rog23c-site		harvested in June 2015; the paper gives the month, not the day
 rog23c-tissue	PRJNA527833		tissue	xylem,cambium	ev-rog23c-site		young differentiating xylem and cambium, pooled per tree. Aerial (stem) tissue, leon's call 2026-10-06, though woody vascular tissue rather than leaf
 rog23c-selection	PRJNA527833		sampling_selection	unselected	ev-rog23c-site		sampled by genotype across 11 natural populations; a wood-property association panel, nothing to do with disease
+krem-tissue-lmad	PRJNA383416	LibraryName~(^|_)LMAD\d+(_|$)	tissue	adult leaf (day)	ev-krem-leafkernel		1-cm section beside the midrib, collected 11:00-13:00
+krem-tissue-lman	PRJNA383416	LibraryName~(^|_)LMAN\d+(_|$)	tissue	adult leaf (night)	ev-krem-leafkernel		same plots and plants, collected 23:00-01:00
+krem-tissue-kern	PRJNA383416	LibraryName~(^|_)Kern(_|$)	tissue	immature kernel	ev-krem-leafkernel		seven developing kernels pooled from three plants at 350 growing-degree days after self-pollination. Aerial but REPRODUCTIVE tissue, not foliar
+krem-tissue-l3base	PRJNA383416	LibraryName~(^|_)L3Base(_|$)	tissue	third leaf (base)	ev-krem-tissues		greenhouse arm
+krem-tissue-l3tip	PRJNA383416	LibraryName~(^|_)L3Tip(_|$)	tissue	third leaf (tip)	ev-krem-tissues		greenhouse arm
+krem-tissue-l3mid	PRJNA383416	LibraryName~(^|_)L3Mid(_|$)	tissue	third leaf (middle)	ev-krem-tissues		26 runs. CAUTION: the paper's seven tissues are base and tip only; a middle section is deposited but never described, so this value is read off the token by analogy, not from the methods
+krem-tissue-groot	PRJNA383416	LibraryName~(^|_)GRoot(_|$)	tissue	germinating seedling root	ev-krem-tissues		2 cm of root, germinated in vermiculite. NON-AERIAL, excluded by the tissue rule as well as by its growth-chamber setting
+krem-tissue-gshoot	PRJNA383416	LibraryName~(^|_)GShoot(_|$)	tissue	germinating seedling shoot (whole)	ev-krem-tissues		whole shoot, not a leaf section

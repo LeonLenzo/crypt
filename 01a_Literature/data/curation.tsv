@@ -136,3 +136,7 @@ fhb-59238-setting	PRJEB59238		setting	growth chamber	ev-fhb-chamber		the HostV e
 fhb-59238-site	PRJEB59238		location	France (INRAE/UCA, growth chamber)	ev-fhb-chamber		a chamber, so the location is the institution rather than a growing site; recorded for completeness only
 fhb-59238-tissue	PRJEB59238		tissue	spike (post-anthesis)	ev-fhb-split		inoculation into the six central spikelets of flowering spikes
 fhb-59238-selection	PRJEB59238		sampling_selection	inoculated	ev-fhb-chamber		Fusarium graminearum applied by the experimenters, and F. graminearum is a target of this study's own detection
+sorgfus-setting	PRJNA573931		setting	greenhouse	ev-sorgfus-greenhouse		UNL Plant Growth facilities, 25.4 cm pots under supplemental high-pressure sodium lights, grown year-round
+sorgfus-site	PRJNA573931		location	USA: Nebraska, Lincoln (UNL Plant Growth facilities)	ev-sorgfus-greenhouse		a greenhouse, so this is the institution and not a growing site; replaces the archive's 'USA: Nebraska'
+sorgfus-tissue	PRJNA573931		tissue	peduncle	ev-sorgfus-greenhouse		wound-inoculated at the peduncle between anthesis and seed set
+sorgfus-selection	PRJNA573931		sampling_selection	inoculated	ev-sorgfus-greenhouse		every plant wound-inoculated, controls with sterile potato dextrose broth; the inocula are fungi this pipeline detects

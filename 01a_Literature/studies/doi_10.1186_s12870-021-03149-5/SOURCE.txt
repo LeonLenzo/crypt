@@ -1,0 +1,38 @@
+Funnell-Harris DL, Scully ED, Sattler SE, Graybosch RA, Pedersen JF et al. 2021. "Pathogen
+and drought stress affect cell wall and phytohormone signaling to shape host responses in a
+sorghum COMT bmr12 mutant." BMC Plant Biology 21:395.
+doi:10.1186/s12870-021-03149-5   PMC8379876   open access.
+
+Retrieved 2026-10-06 from
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8379876/fullTextXML
+
+Source for PRJNA573931, 129 runs. GREENHOUSE, dropped from the field cohort.
+
+  "Greenhouse-grown seeds were planted at the University of Nebraska (UNL) Plant Growth
+   facilities. Plants were grown year-round with supplemental high-pressure sodium lights in
+   25.4-cm-diameter pots containing a soil mixture with a 1:2:1:1 ratio of soil: peat moss:
+   vermiculite: sand."
+
+  "Well-watered and water limited Tx430 wild-type and near-isogenic bmr6 and bmr12 plants at
+   anthesis were WOUND-INOCULATED at the peduncle with F. thapsinum, M. phaseolina, or potato
+   dextrose broth (PDB) between anthesis and seed set."
+
+EVERY plant was wound-inoculated, the controls with sterile broth, so the whole project is
+sampling_selection = inoculated. And the inocula are FUNGAL - Fusarium thapsinum and
+Macrophomina phaseolina - both of which this study's own pipeline detects, so a co-infection
+analysis here would read the experiment. Same situation as PRJEB59062/PRJEB59238.
+
+*** ANOTHER TRAP PHRASE ***
+"water-limited plants were watered only when soil moisture fell below 25% FIELD CAPACITY".
+Field capacity is a soil-physics term for the water a soil holds after free drainage. It says
+nothing about the setting, and a keyword search for "field" hits it. Compare the Setaria
+greenhouse project, where "naturally occurring water-limited conditions" was the misleading
+phrase. Both would classify as field on an abstract or a grep.
+
+The archive was close to sufficient again: study_title reads "Sorghum bicolor inoculation
+with fungal pathogens under water limited and well-watered conditions", tissue_type reads
+Peduncle, dev_stage reads "between anthesis and seed set", and the sample names encode it
+all (bmr12_fus_dry_13_d = bmr12 genotype, F. thapsinum, water-limited, 13 days after
+inoculation, replicate d). The paper supplied the greenhouse, which the archive did not.
+
+Evidence: ev-sorgfus-greenhouse.

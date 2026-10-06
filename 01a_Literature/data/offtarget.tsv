@@ -20,11 +20,8 @@ PRJEB84390	171	100	Puccinia triticina	fungus	RNA-Seq:100; WGS:71	review	mixed as
 PRJNA630305	162	162	Fagus grandifolia	plant	RNA-Seq:162	keep	plant organism, all RNA-Seq	
 PRJEB44222	151	144	Phakopsora pachyrhizi	fungus	RNA-Seq:144; WGS:7	review	mixed assay: 144/151 RNA-Seq, rest WGSx7	10.1038/s41467-023-37551-4
 PRJNA727473	150	44	Avena sativa	plant	WGS:95; RNA-Seq:44; Hi-C:11	review	mixed assay: 44/150 RNA-Seq, rest WGSx95/Hi-Cx11	10.1038/s41588-022-01127-7
-PRJEB43702	144	144	Setaria italica	plant	RNA-Seq:144	keep	plant organism, all RNA-Seq	
-PRJEB59062	141	141	Triticum aestivum	plant	RNA-Seq:141	keep	plant organism, all RNA-Seq	10.1186/s12859-026-06368-5
 PRJNA306542	134	134	Oryza sativa	plant	RNA-Seq:134	keep	plant organism, all RNA-Seq	10.1038/srep37302
 PRJNA573931	129	129	Sorghum bicolor	plant	RNA-Seq:129	keep	plant organism, all RNA-Seq	10.1186/s12870-021-03149-5
-PRJEB59238	128	53	Triticum aestivum	plant	ncRNA-Seq:75; RNA-Seq:53	review	mixed assay: 53/128 RNA-Seq, rest ncRNA-Seqx75	10.1186/s12915-024-01852-x
 PRJNA623526	126	126	Solanum lycopersicum	plant	RNA-Seq:126	keep	plant organism, all RNA-Seq	10.1093/jxb/eraa601
 PRJNA802726	116	114	viral metagenome	metagenome	RNA-Seq:114; WGA:2	review	mixed assay: 114/116 RNA-Seq, rest WGAx2	10.3390/v13122530
 PRJNA476648	115	57	Colletotrichum fructicola	fungus	WGS:58; RNA-Seq:57	review	mixed assay: 57/115 RNA-Seq, rest WGSx58	10.1101/2020.04.28.061093
@@ -136,7 +133,6 @@ PRJNA355407	22	7	Pyricularia oryzae	fungus	WGS:13; RNA-Seq:7; POOLCLONE:2	review
 PRJNA339565	22	22	Zea mays	plant	RNA-Seq:22	keep	plant organism, all RNA-Seq	10.3389/fgene.2016.00206
 PRJNA590139	21	21	mixed sample	metagenome	RNA-Seq:21	review	organism is 'mixed sample'; check whether the tissue is plant and the library polyA	10.3390/plants9070820
 PRJNA1181034	21	21	Fusarium graminearum	fungus	RNA-Seq:21	review	organism is the PATHOGEN (Fusarium graminearum); may be in-planta dual RNA-seq or may be axenic culture - the archive cannot tell you which	10.1186/s12864-026-12964-9
-PRJNA609211	21	21	Oryza sativa	plant	RNA-Seq:21	keep	plant organism, all RNA-Seq	
 PRJNA725323	20	12	Puccinia triticina	fungus	RNA-Seq:12; WGS:6; Hi-C:1; WGA:1	review	mixed assay: 12/20 RNA-Seq, rest WGSx6/Hi-Cx1/WGAx1	10.1371/journal.pone.0280004
 PRJNA1022321	18	18	Lactuca sativa	plant	RNA-Seq:18	keep	plant organism, all RNA-Seq	10.1186/1755-8794-7-40
 PRJNA1113144	18	18	Fusarium oxysporum	fungus	RNA-Seq:18	review	organism is the PATHOGEN (Fusarium oxysporum); may be in-planta dual RNA-seq or may be axenic culture - the archive cannot tell you which	10.1186/s12870-024-06032-1
@@ -225,6 +221,7 @@ PRJNA1203036	9	9	Solanum lycopersicum	plant	RNA-Seq:9	keep	plant organism, all R
 PRJNA434179	9	9	Malus domestica	plant	RNA-Seq:9	keep	plant organism, all RNA-Seq	10.1111/mpp.12734
 PRJNA1171632	9	6	Triticum aestivum	plant	RNA-Seq:6; AMPLICON:3	review	mixed assay: 6/9 RNA-Seq, rest AMPLICONx3	10.1126/sciadv.adv1760
 PRJNA961939	9	9	Daucus carota	plant	RNA-Seq:9	keep	plant organism, all RNA-Seq	10.3390/plants12112139
+PRJNA609211	9	9	Oryza sativa	plant	RNA-Seq:9	keep	plant organism, all RNA-Seq	
 PRJEB39756	8	8	Puccinia striiformis f. sp. tritici	fungus	RNA-Seq:8	review	organism is the PATHOGEN (Puccinia striiformis f. sp. tritici); may be in-planta dual RNA-seq or may be axenic culture - the archive cannot tell you which	10.1002/ps.6380
 PRJNA527147	8	8	Ustilaginoidea virens	fungus	RNA-Seq:8	review	organism is the PATHOGEN (Ustilaginoidea virens); may be in-planta dual RNA-seq or may be axenic culture - the archive cannot tell you which	10.1111/1462-2920.15432
 PRJNA491634	8	8	Arracacha virus B	virus	RNA-Seq:8	review	organism is a virus (Arracacha virus B); out of scope as a SUBJECT per CLAUDE.md, but the library may still be infected plant tissue	10.1128/mra.01064-18

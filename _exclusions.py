@@ -82,6 +82,21 @@ EXCLUDED = {
         evidence="Classified llm_study_setting == 'field'; the title and methods describe in vitro work.",
         decided="2026-10-02",
     ),
+    "PRJNA1314945": dict(kind="wrong-assay", n_biosamples=306,
+        reason="Not RNA-seq at all. SLAF-seq is Specific-Locus Amplified Fragment sequencing, a "
+               "reduced-representation GENOMIC DNA method for SNP genotyping. There is no "
+               "transcriptome here, so there are no fungal transcripts to find.",
+        evidence="Paper is Yang et al. 2026, BMC Genomics, 'SLAF-seq efficiently identifies SNP "
+                 "markers for wheat (Triticum aestivum L.) improvement' (10.1186/s12864-026-12921-6, "
+                 "PMC13471324), which names PRJNA1314945 as its deposit. It describes 'a "
+                 "reduced-representation genome sequencing technology' in which 'two optimal "
+                 "restriction enzymes are chosen for double digestion' and 'Qualified genomic DNA "
+                 "samples were individually digested'. The word RNA does not appear anywhere in the "
+                 "paper. The ENA study title is literally 'SLAF-seq Date of 306 wheat varieties'. "
+                 "DESPITE THIS the archive records library_strategy=RNA-Seq, library_selection=cDNA "
+                 "and library_source=TRANSCRIPTOMIC on all 306 runs, so offtarget_screen.py passed it "
+                 "as 'plant organism, all RNA-Seq'. The submitter's assay metadata is simply wrong.",
+        decided="2026-10-06"),
     "PRJNA1428298": dict(kind="inoculated", n_biosamples=340,
         reason="Pilot experiment for PRJNA1217477, the same UC Davis Botrytis atlas, and excluded "
                "for the same reason: every plant was deliberately inoculated, so a secondary "

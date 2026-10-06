@@ -78,6 +78,32 @@ ORG_CLASS = [
 ]
 
 
+# Assay names that mean GENOMIC DNA, however the submitter labelled the library. PRJNA1314945
+# is why this exists: its paper is "SLAF-seq efficiently identifies SNP markers for wheat",
+# it describes digesting "Qualified genomic DNA samples" with restriction enzymes, and the
+# word RNA appears nowhere in it - yet all 306 runs are registered as library_strategy
+# RNA-Seq, library_selection cDNA, library_source TRANSCRIPTOMIC. The assay screen, which is
+# the one axis meant to be decisive, passed it as "plant organism, all RNA-Seq".
+#
+# So the submitter's strategy field is not trustworthy on its own, and the cheapest
+# independent check is the title. Matched case-insensitively against the paper title.
+DNA_ASSAY_WORDS = [
+    "slaf-seq", "slaf seq", "rad-seq", "radseq", "ddrad", "gbs ", "genotyping-by-sequencing",
+    "genotyping by sequencing", "reduced-representation", "reduced representation",
+    "exome", "whole-genome resequencing", "whole genome resequencing", "resequencing",
+    "bisulfite", "methylome", "chip-seq", "atac-seq", "hi-c", "amplicon",
+]
+
+
+def dna_assay_hint(*texts: str) -> str:
+    """Return the first DNA-assay word found in any of these strings, or ''."""
+    blob = " ".join((t or "").lower() for t in texts)
+    for w in DNA_ASSAY_WORDS:
+        if w in blob:
+            return w.strip()
+    return ""
+
+
 def classify_organism(org: str) -> str:
     o = (org or "").strip().lower()
     if not o:
@@ -98,6 +124,17 @@ def main() -> None:
     runs = list(csv.DictReader(RUNS.open(), delimiter="\t"))
     bps = {r["BioProject"]: r for r in csv.DictReader(BPS.open(), delimiter="\t")}
 
+    # Paper titles, for the independent assay check. Keyed by BioProject through papers.tsv's
+    # semicolon-separated bioprojects column.
+    titles = {}
+    papers = HERE / "data" / "papers.tsv"
+    if papers.exists():
+        for r in csv.DictReader(papers.open(), delimiter="\t"):
+            for bp in (r.get("bioprojects") or "").split(";"):
+                bp = bp.strip()
+                if bp:
+                    titles.setdefault(bp, []).append(r.get("title") or "")
+
     by_bp = collections.defaultdict(list)
     for r in runs:
         if args.all or not r["setting"]:
@@ -113,8 +150,15 @@ def main() -> None:
         org = (bps.get(bp, {}).get("organism") or "").strip()
         oc = classify_organism(org)
 
-        # The assay test first, because it is the one that decides.
-        if n_rna == 0 and n_bad == n:
+        # Before trusting library_strategy at all, see whether the paper title says the
+        # project is a DNA assay. The strategy field can be flatly wrong (PRJNA1314945).
+        hint = dna_assay_hint(*titles.get(bp, []))
+        if hint and n_rna == n:
+            rec, why = "review", (f"library_strategy says RNA-Seq on all {n} runs, but the paper title "
+                                  f"contains {hint!r}, which is a GENOMIC DNA assay. Check the methods "
+                                  f"before spending time on this: the submitter's assay metadata may be wrong")
+        # The assay test, otherwise, because it is the one that decides.
+        elif n_rna == 0 and n_bad == n:
             rec, why = "reject", f"no RNA-Seq at all; {n} runs are {'/'.join(sorted(k for k in strat if k in WRONG_ASSAY))}"
         elif oc == "built-env":
             rec, why = "reject", "built-environment metagenome, not a plant sample"

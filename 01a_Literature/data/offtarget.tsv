@@ -11,14 +11,8 @@ PRJNA181960	2	0	Puccinia striiformis f. sp. tritici 08/21	fungus	WGS:2	reject	no
 PRJNA383860	2	0	Glycine max	plant	WGS:2	reject	no RNA-Seq at all; 2 runs are WGS	Dia19
 PRJNA256347	1	0	Puccinia striiformis f. sp. tritici	fungus	WGS:1	reject	no RNA-Seq at all; 1 runs are WGS	Hub15
 PRJNA1217477	740	740	mixed sample	metagenome	RNA-Seq:740	review	organism is 'mixed sample'; check whether the tissue is plant and the library polyA	Sin26b
-PRJNA527833	461	461	Populus nigra	plant	RNA-Seq:461	keep	plant organism, all RNA-Seq	Rog23c
-PRJNA527782	395	395	Sorghum bicolor	plant	RNA-Seq:395	keep	plant organism, all RNA-Seq	
-PRJEB83648	384	384	Arabidopsis halleri subsp. gemmifera	plant	RNA-Seq:384	keep	plant organism, all RNA-Seq	
-PRJNA701940	384	384	Vitis vinifera	plant	RNA-Seq:384	keep	plant organism, all RNA-Seq	
-PRJNA630305	379	379	Fagus grandifolia	plant	RNA-Seq:379	keep	plant organism, all RNA-Seq	
-PRJNA488315	364	364	Arabidopsis thaliana	plant	RNA-Seq:364	keep	plant organism, all RNA-Seq	
 PRJNA1428298	340	340	mixed sample	metagenome	RNA-Seq:340	review	organism is 'mixed sample'; check whether the tissue is plant and the library polyA	10.1073/pnas.2601719123
-PRJNA1314945	306	306	Triticum aestivum	plant	RNA-Seq:306	keep	plant organism, all RNA-Seq	10.1186/s12864-026-12921-6
+PRJNA1314945	306	306	Triticum aestivum	plant	RNA-Seq:306	review	library_strategy says RNA-Seq on all 306 runs, but the paper title contains 'slaf-seq', which is a GENOMIC DNA assay. Check the methods before spending time on this: the submitter's assay metadata may be wrong	10.1186/s12864-026-12921-6
 PRJNA322529	281	0	Panicum virgatum	virus	OTHER:281	review	mixed assay: 0/281 RNA-Seq, rest OTHERx281	Lov16
 PRJNA1279063	268	24	Pyricularia oryzae	fungus	WGS:244; RNA-Seq:24	review	mixed assay: 24/268 RNA-Seq, rest WGSx244	10.1101/2025.10.14.682320
 PRJNA297424	239	239	Oryza sativa	plant	RNA-Seq:239	keep	plant organism, all RNA-Seq	Ple15
@@ -27,6 +21,7 @@ PRJNA1153365	229	229	Brassica napus	plant	RNA-Seq:229	keep	plant organism, all R
 PRJNA513863	189	189	Vitis vinifera	plant	RNA-Seq:189	keep	plant organism, all RNA-Seq	10.1016/j.plantsci.2019.110178
 PRJNA825139	185	185	Oryza sativa	plant	RNA-Seq:185	keep	plant organism, all RNA-Seq	
 PRJEB84390	171	100	Puccinia triticina	fungus	RNA-Seq:100; WGS:71	review	mixed assay: 100/171 RNA-Seq, rest WGSx71	Tsu25
+PRJNA630305	162	162	Fagus grandifolia	plant	RNA-Seq:162	keep	plant organism, all RNA-Seq	
 PRJEB44222	151	144	Phakopsora pachyrhizi	fungus	RNA-Seq:144; WGS:7	review	mixed assay: 144/151 RNA-Seq, rest WGSx7	10.1038/s41467-023-37551-4
 PRJNA753546	151	151	Zea mays	plant	RNA-Seq:151	keep	plant organism, all RNA-Seq	10.1186/s12864-022-09001-w
 PRJNA727473	150	44	Avena sativa	plant	WGS:95; RNA-Seq:44; Hi-C:11	review	mixed assay: 44/150 RNA-Seq, rest WGSx95/Hi-Cx11	10.1038/s41588-022-01127-7

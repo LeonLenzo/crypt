@@ -1,11 +1,11 @@
 rule_id	BioProject	predicate	field	value	evidence_id	override	note
-luo2020-site	PRJNA306542	tissue=Leaf;dev_stage=heading	location	China: Shanghai, Baihe Experimental Station	ev-luo2020-site	yes	overrides geo_loc_name "China", which is country-level only
+luo2020-site	PRJNA306542	tissue=Leaf;dev_stage=heading	location	China: Shanghai, Baihe Experimental Station	ev-luo2020-site	yes	"overrides geo_loc_name ""China"", which is country-level only"
 luo2020-year	PRJNA306542	tissue=Leaf;dev_stage=heading	collection_date	2016	ev-luo2020-site	yes	year only; the paper does not date the sequenced samples further. 2017 was the morphological replication
 luo2020-setting	PRJNA306542	tissue=Leaf;dev_stage=heading	setting	field	ev-luo2020-design	yes	outdoor soil plots with imposed drought and drip-irrigated controls; in scope per leon 2026-10-05
 ma2016-site	PRJNA306542	tissue=leaf;dev_stage=Panicle initiation Period	location	China: Shanghai, Baihe Experimental Station	ev-ma2016-site	yes	overrides geo_loc_name Brazil/China/Cote d'Ivoire, which are CULTIVAR origins not growing sites
 ma2016-year	PRJNA306542	tissue=leaf;dev_stage=Panicle initiation Period	collection_date	2014	ev-ma2016-dates	yes	per-timepoint dates exist in the A-F treatment codes; not yet resolved per run
 ma2016-setting	PRJNA306542	tissue=leaf;dev_stage=Panicle initiation Period	setting	field	ev-ma2016-site	yes	same facility as luo2020; in scope per leon 2026-10-05
-cai21b-site	PRJNA746402		location	Spain: Pontevedra, Salcedo	ev-cai21b-site	yes	42 24' N 8 38' W, 20 m. Overrides geo_loc_name "Spain", country-level only. Whole project is this one trial
+cai21b-site	PRJNA746402		location	Spain: Pontevedra, Salcedo	ev-cai21b-site	yes	"42 24' N 8 38' W, 20 m. Overrides geo_loc_name ""Spain"", country-level only. Whole project is this one trial"
 cai21b-year	PRJNA746402		collection_date	2015	ev-cai21b-site	yes	single season; sampling is at female flowering then every 15 days to 90 ddff, carried in BioSample `age`
 cai21b-setting	PRJNA746402		setting	field	ev-cai21b-site	yes	field trial, hand-sown, 60000 plants/ha; kept by leon 2026-10-05
 krem-lmad8-date	PRJNA383416	LibraryName~(^|_)LMAD8(_|$)	collection_date	2014-08-08	ev-krem-field	yes	mature leaf, day batch 1. The 8 in LMAD8 is the collection DATE not a replicate
@@ -36,7 +36,7 @@ harris-tissue-leaf-674915	PRJNA674915	LibraryName~L$	tissue	leaf	ev-harris-tissu
 harris-tissue-repro-674915	PRJNA674915	LibraryName~R$	tissue	reproductive (flower/fruit)	ev-harris-tissue	yes	R suffix
 harris-tissue-leaf-915033	PRJNA915033	LibraryName~L$	tissue	leaf	ev-harris-tissue	yes	L suffix
 harris-tissue-repro-915033	PRJNA915033	LibraryName~R$	tissue	reproductive (flower/fruit)	ev-harris-tissue	yes	R suffix
-hashida-field-site	PRJNA726716	treatment=FIELD	location	Japan: Shiga, Otsu (Ryukoku University)	ev-hashida-field	yes	34 57' 43.4'' N 135 56' 22.6'' E; overrides geo_loc_name "Japan", country-level
+hashida-field-site	PRJNA726716	treatment=FIELD	location	Japan: Shiga, Otsu (Ryukoku University)	ev-hashida-field	yes	"34 57' 43.4'' N 135 56' 22.6'' E; overrides geo_loc_name ""Japan"", country-level"
 hashida-field-date	PRJNA726716	treatment=FIELD	collection_date	2017-09	ev-hashida-field	yes	transferred 19:00 on 18 Sep 2017, sampled 2-hourly over 24 h; BioSample sampling_time carries the hour
 hashida-field-setting	PRJNA726716	treatment=FIELD	setting	field (chamber-raised, transferred outdoors)	ev-hashida-field	yes	NOT field-grown throughout; see evidence. Leon's call needed on whether this counts
 hashida-fl-fth	PRJNA726716	treatment=FL/FTH	setting	growth chamber	ev-hashida-chamber	yes	SmartGC simulating field light and field temp/humidity
@@ -84,7 +84,7 @@ tor23d-site	PRJEB67964		location	USA: Nebraska, Lincoln (UNL Havelock Research F
 tor23d-date	PRJEB67964		collection_date	2020-07-08	ev-tor23d-sampling		single morning, seven researchers in parallel, finished before noon; identical to the archive's value, asserted from the paper so the agreement is on the record
 tor23d-tissue	PRJEB67964		tissue	leaf	ev-tor23d-sampling		five leaf disks from the pre-ante-penultimate leaf; the archive leaves tissue blank for all 750
 tor23d-selection	PRJEB67964		sampling_selection	unselected	ev-tor23d-sampling		one representative plant per plot, chosen by plot position and excluding edges; a diversity panel for expression-trait linkage, nothing to do with disease
-sez23-setting	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$	setting	field (natural forest)	ev-sez23-site		unmanaged second-growth forest in two ForestGEO Forest Dynamics Plots, not an agricultural trial. Labelled distinctly so wild stands can be separated from crop sites later
+sez23-setting	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$	setting	field (natural population)	ev-sez23-site		unmanaged second-growth forest in two ForestGEO Forest Dynamics Plots, not an agricultural trial. Value harmonised 2026-10-06 from 'field (natural forest)' so that wild stands are ONE queryable category alongside Paa26's wild Arabidopsis patches; the forest detail lives in this note and in the location
 sez23-y17	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$;SampleName~^[HS]7	collection_date	2017	ev-sez23-naming		year digit 7; season is in the name too but not recorded, per leon on granularity
 sez23-y18	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$;SampleName~^[HS]8	collection_date	2018	ev-sez23-naming		year digit 8
 sez23-tissue	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$	tissue	leaf	ev-sez23-site		10 leaf discs per sample, flash frozen in the field
@@ -102,3 +102,6 @@ krem-tissue-l3tip	PRJNA383416	LibraryName~(^|_)L3Tip(_|$)	tissue	third leaf (tip
 krem-tissue-l3mid	PRJNA383416	LibraryName~(^|_)L3Mid(_|$)	tissue	third leaf (middle)	ev-krem-tissues		26 runs. CAUTION: the paper's seven tissues are base and tip only; a middle section is deposited but never described, so this value is read off the token by analogy, not from the methods
 krem-tissue-groot	PRJNA383416	LibraryName~(^|_)GRoot(_|$)	tissue	germinating seedling root	ev-krem-tissues		2 cm of root, germinated in vermiculite. NON-AERIAL, excluded by the tissue rule as well as by its growth-chamber setting
 krem-tissue-gshoot	PRJNA383416	LibraryName~(^|_)GShoot(_|$)	tissue	germinating seedling shoot (whole)	ev-krem-tissues		whole shoot, not a leaf section
+paa26-setting	PRJEB83648		setting	field (natural population)	ev-paa26-treatment		wild Arabidopsis halleri clonal patches at a long-term molecular-ecology site. The cold treatment is delivered to leaves in situ by a portable chiller, so the plants never leave the environment
+paa26-site	PRJEB83648		location	Japan: Hyogo, Taka-cho, Monzen	ev-paa26-site		the paper gives 35 05'N, 134 54'E, alt. 145 m; replaces the archive's country-level 'Japan'
+paa26-selection	PRJEB83648		sampling_selection	unselected	ev-paa26-treatment		a single leaf per plant at hourly timepoints from the same clonal patch, each plant sampled once; disease played no part in which plants were sampled

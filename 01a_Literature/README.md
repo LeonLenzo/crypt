@@ -56,6 +56,31 @@ which is the "than we think" half of the hypothesis and has never been measured 
 existing cohort cannot supply it, because the STAT gate only ever admitted studies that
 already had a detection.
 
+### A deposit with no manuscript is rejected
+
+**Inclusion criterion, Leon's call 2026-10-06: an archive deposit with no available manuscript
+does not enter the cohort, however good its metadata.** Recorded in `data/decisions.tsv` at
+`level = policy`.
+
+This follows from the paragraph above rather than adding to it. If cryptic is defined against
+what the authors claimed, then a deposit nobody has written up has no claim to define it
+against. There is no methods section to verify the setting, no statement of which pathogen was
+expected, and so a detection in it cannot be classified as cryptic or not. Such a deposit is
+not weak evidence, it is evidence of a different kind, and mixing it in would quietly change
+what the denominator means.
+
+Two consequences worth stating plainly, because this criterion costs something real:
+
+- It rejects exactly the material the parked metadata field screen is designed to surface
+  (`crypt-metadata-field-screen`): large unpublished surveillance deposits, often with better
+  per-sample metadata than published studies. That route therefore cannot feed this cohort. It
+  remains the right tool for measuring **what this cohort missed**, which is a separate job.
+- "Has a manuscript" is a claim about the DATA, not about a single paper. The Sato 2024
+  Arabidopsis cluster qualifies: its RNA-seq has no dedicated paper, but the field experiment
+  is described in Sato et al. 2024 and the sequencing in Tomita et al. v3, so both the setting
+  and the authors' silence on pathogens are documented. A deposit fails this test when nothing
+  anywhere describes it.
+
 ## What this costs, and what it does not
 
 It is tempting to read literature-first as trading coverage for cleanliness. The trade is

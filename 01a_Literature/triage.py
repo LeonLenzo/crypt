@@ -873,22 +873,41 @@ def main() -> None:
                 location=loc, location_source=loc_src,
                 collection_date=dat, date_source=dat_src,
                 setting="", setting_source="",
-                # How the EXPERIMENT relates to disease presence, which decides whether a
-                # sample can contribute to a prevalence estimate:
-                #   unselected        it can
-                #   disease-selected  no: sampled BECAUSE symptomatic, so prevalence is
-                #                     inflated by construction. Best co-infection test set.
-                #   inoculated        no: disease introduced by the experimenter
-                #   fungicide-treated no: fungal colonisation actively suppressed, so an
-                #                     absence of signal is partly an absence of opportunity
-                #   symptom-avoided   YES, for the cryptic question. The sampler skipped
-                #                     VISIBLY diseased material, which is a visual judgement
-                #                     and not a test for infection: a plant with no symptoms
-                #                     can carry latent or endophytic infection, which is what
-                #                     cryptic means. So these measure CRYPTIC infection only -
-                #                     a lower bound on total infection and the right number
-                #                     for this study. Leon's call 2026-10-06; the first version
-                #                     of this comment had it backwards.
+                # How the EXPERIMENT relates to disease presence. This does NOT decide
+                # whether a sample counts. EVERY stratum contributes; what changes is what
+                # counts as a finding in it, and what an absence means.
+                #
+                # Leon's framing, 2026-10-06. Two questions, two evidence standards:
+                #
+                #   a known pathogen is already present
+                #     disease-selected  sampled BECAUSE symptomatic. The primary pathogen is
+                #                       known, so a FINDING is any pathogen BEYOND it. This
+                #                       is the co-infection question and these are its best
+                #                       samples, not its compromised ones.
+                #     inoculated        same standard, but the primary organism was chosen by
+                #                       the experimenter. The inoculum itself is never a
+                #                       finding, and susceptibility may be manipulated.
+                #
+                #   no pathogen is known to be present
+                #     unselected        a FINDING is any ONE unreported pathogen. No second
+                #                       organism is needed; one is the result.
+                #     symptom-avoided   same standard, and arguably the cleanest. The sampler
+                #                       skipped VISIBLY diseased material, which is a visual
+                #                       judgement and not a test for infection: an
+                #                       asymptomatic plant can carry latent or endophytic
+                #                       infection, which is precisely what cryptic means.
+                #
+                #   detection is chemically suppressed
+                #     fungicide-treated positives still count, and a pathogen surviving
+                #                       fungicide is a real finding. An ABSENCE is
+                #                       uninformative, because it is partly an absence of
+                #                       opportunity. So: numerator yes, absence no.
+                #
+                # An earlier version of this comment framed the field as deciding membership
+                # of a single prevalence denominator, and called three of the five values
+                # unusable. That was wrong twice over: it discarded the strongest co-infection
+                # samples we have, and it demanded a second organism in samples where one
+                # unreported pathogen is already the result.
                 # Nothing in `setting` or `tissue` distinguishes these; a field study can be
                 # any of them. The sunflower Heliaphen cohort (PRJNA976033) is why the fourth
                 # value exists: outdoor, potted, leaf, dated - and dosed twice with Ortiva Top

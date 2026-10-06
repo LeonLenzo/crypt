@@ -194,7 +194,12 @@ def main() -> None:
         a["sel"][r["sampling_selection"] or "(none)"] += 1
         a["tissues"][r["tissue"]] += 1
 
-    CRYPTIC = {"unselected", "symptom-avoided"}
+    # Two evidence standards, not one denominator and a discard pile. See triage.py's
+    # sampling_selection comment: in samples with a KNOWN pathogen a finding is a pathogen
+    # beyond it, and in samples with none a single unreported pathogen is already the finding.
+    # Fungicide-treated samples count toward a numerator but their absences are uninformative.
+    COINFECTION = {"disease-selected", "inoculated"}
+    DISCOVERY = {"unselected", "symptom-avoided"}
     out = []
     for host, a in sorted(agg.items(), key=lambda kv: -kv[1]["n"]):
         yrs = sorted(a["years"])
@@ -204,8 +209,10 @@ def main() -> None:
             years=f"{yrs[0]}-{yrs[-1]}" if len(yrs) > 1 else (yrs[0] if yrs else ""),
             n_years=len(yrs),
             wild=sum(v for k, v in a["settings"].items() if "natural population" in k),
-            cryptic_denominator=sum(v for k, v in a["sel"].items() if k in CRYPTIC),
-            excluded=sum(v for k, v in a["sel"].items() if k not in CRYPTIC),
+            coinfection_set=sum(v for k, v in a["sel"].items() if k in COINFECTION),
+            discovery_set=sum(v for k, v in a["sel"].items() if k in DISCOVERY),
+            positives_only=sum(v for k, v in a["sel"].items() if k == "fungicide-treated"),
+            unflagged=sum(v for k, v in a["sel"].items() if k == "(none)"),
             main_tissue=a["tissues"].most_common(1)[0][0],
             settings="; ".join(f"{k}:{v}" for k, v in a["settings"].most_common()),
             selection="; ".join(f"{k}:{v}" for k, v in a["sel"].most_common())))
@@ -214,11 +221,13 @@ def main() -> None:
         w.writeheader()
         w.writerows(out)
 
-    print(f"\n{'host':<40}{'samp':>6}{'proj':>5}{'loc':>5}{'years':>12}{'wild':>6}{'crypt':>7}  tissue")
+    print(f"\n{'host':<40}{'samp':>6}{'proj':>5}{'loc':>5}{'years':>12}{'wild':>6}"
+          f"{'coinf':>7}{'disc':>7}  tissue")
     print("-" * 108)
     for r in out:
         print(f"{r['host'][:39]:<40}{r['samples']:>6}{r['projects']:>5}{r['localities']:>5}"
-              f"{r['years']:>12}{r['wild'] or '':>6}{r['cryptic_denominator']:>7}  {r['main_tissue'][:22]}")
+              f"{r['years']:>12}{r['wild'] or '':>6}{r['coinfection_set'] or '':>7}"
+              f"{r['discovery_set'] or '':>7}  {r['main_tissue'][:22]}")
     print("-" * 108)
     print(f"{'TOTAL':<40}{sum(r['samples'] for r in out):>6}"
           f"{len({p for a in agg.values() for p in a['projects']}):>5}"

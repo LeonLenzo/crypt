@@ -60,12 +60,15 @@ PORTAL = ("https://www.ebi.ac.uk/ena/portal/api/filereport"
 # `disease-selected` is the point of this table. These leaves were collected BECAUSE they
 # were showing yellow rust, which is exactly the condition the cryptic co-infection
 # hypothesis wants to test (the authors reported Pst and nothing else, so any second
-# pathogen is unreported) and exactly the wrong thing to put in a prevalence denominator.
+# pathogen is unreported). These are therefore the cohort's PRIMARY co-infection samples:
+# the question asked of them is not "is anything here" but "is anything here besides Pst".
+# They are not a prevalence sample, which is a different question, not a lesser one.
 # Neither `setting` nor `tissue` can express that, which is why the field exists.
 #
 # `inoculated` is a third case, not a shade of the other two: a Lab row is an archived
 # isolate deliberately put onto wheat, so disease is present by the experimenter's design
-# rather than by the sampler's choice. Also unusable as a denominator, for a different reason.
+# rather than by the sampler's choice. Same evidence standard as `disease-selected` - a
+# finding is a pathogen beyond the inoculum - but with a susceptibility confound on top.
 SAMPLE_TYPE_MAP = {
     "Field": ("field", "disease-selected"),
     "Lab": ("growth chamber (lab inoculation)", "inoculated"),

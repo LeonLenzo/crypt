@@ -46,7 +46,7 @@ from __future__ import annotations
 import collections, json, re, sys, urllib.parse, urllib.request
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent / "01a_Literature"
+HERE = Path(__file__).resolve().parent          # 01a_Literature/
 STUDIES = HERE / "studies"
 EPMC = "https://www.ebi.ac.uk/europepmc/webservices/rest"
 
@@ -100,14 +100,15 @@ def cmd_fulltext(pmcid: str) -> None:
     out.mkdir(parents=True, exist_ok=True)
     f = out / f"{doi.split('/')[-1]}_fulltext.xml"
     f.write_text(xml)
-    print(f"{doi}  {pmcid}  {len(xml):,} bytes -> {f.relative_to(HERE.parent)}")
+    print(f"{doi}  {pmcid}  {len(xml):,} bytes -> {f.relative_to(HERE)}")
     for t in re.findall(r"<title>(.*?)</title>", xml, re.S):
         t = re.sub(r"<[^>]+>", "", t).strip()
         if t:
             print(f"  SEC: {t}")
 
 
-def cmd_sections(arg: str, pattern: str, cap: int = 2500) -> None:
+def cmd_sections(arg: str, pattern: str, cap=2500) -> None:
+    cap = int(cap)          # argv strings
     xml, _ = resolve(arg)
     rx = re.compile(pattern, re.I)
     for blk in xml.split("<title>")[1:]:
@@ -142,7 +143,7 @@ def cmd_geo(gse: str) -> None:
             sys.exit("REFUSED: GEO served a reCAPTCHA; wait, then retry")
         cache.parent.mkdir(parents=True, exist_ok=True)
         cache.write_text(txt)
-        print(f"cached -> {cache.relative_to(HERE.parent)}")
+        print(f"cached -> {cache.relative_to(HERE)}")
     recs = []
     for blk in txt.split("^SAMPLE = ")[1:]:
         d = {"GSM": blk.split("\n", 1)[0].strip()}
@@ -156,6 +157,10 @@ def cmd_geo(gse: str) -> None:
                 d[kk.strip()] = vv.strip()
             elif k in ("source_name_ch1", "molecule_ch1", "title"):
                 d[k] = v
+            elif k in ("growth_protocol_ch1", "extract_protocol_ch1"):
+                # Where SETTING lives for a GEO deposit: the per-sample growth protocol is
+                # routinely the only statement that the plants were in a field at all.
+                d.setdefault(k, v[:300])
         recs.append(d)
     print(f"{gse}: {len(recs)} samples")
     for k in sorted({k for r in recs for k in r} - {"GSM"}):
@@ -182,7 +187,7 @@ def cmd_ena(acc: str) -> None:
     cache = HERE / "data" / "ena" / f"{acc}.tsv"
     cache.parent.mkdir(parents=True, exist_ok=True)
     cache.write_text(txt)
-    print(f"{acc}: {len(rows)} runs -> {cache.relative_to(HERE.parent)}")
+    print(f"{acc}: {len(rows)} runs -> {cache.relative_to(HERE)}")
     for k in hdr[1:]:
         c = collections.Counter(r.get(k, "") for r in rows)
         if len(c) <= 6:

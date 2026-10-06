@@ -1,0 +1,45 @@
+Luo Z, Xiong J, Xia H, Ma X, Gao M, Wang L, Liu H, Zhao Y, Li Z, Luo L et al. 2022.
+"Pentatricopeptide Repeat Gene-Mediated Mitochondrial RNA Editing Impacts on Rice Drought
+Tolerance." Frontiers in Plant Science 13:926285. doi:10.3389/fpls.2022.926285  PMC9343880
+
+paper_ref: Luo22 (our tables also reach it by DOI)
+
+fpls-13-926285.pdf supplied by leon 2026-10-05.
+Data_Sheet_1.XLSX, Data_Sheet_2.XLSX, Data_Sheet_3.xlsx supplied by leon 2026-10-06, after
+Frontiers, Europe PMC and both NCBI /bin/ paths all refused them to a script.
+
+  Data_Sheet_1  PPR gene catalogue, 496 rows
+  Data_Sheet_2  mitochondrial editing-site matrix, 507 x 1306
+  Data_Sheet_3  the 16 numbered Supplementary Tables
+
+FOUR BIOPROJECTS, FOUR RELATIONSHIPS. Data availability names PRJNA609211, PRJNA260762,
+PRJNA825139 and PRJNA306542. Only the first and third are this group's own; PRJNA306542 and
+PRJNA260762 are reanalysed (see crypt-umbrella-bioprojects).
+
+At least three sequencing arms:
+  1. growth-chamber hormone and abiotic-stress panel on Nipponbare. "cultured in the nutrient
+     solution proposed by Yoshida et al. (1976) in a growth chamber (16 h light at 30 C and
+     8 h dark at 25 C) for 15 days after germination", then PEG6000 / H2O2 / NaCl / antimycin
+     A and ABA / GA4 / IAA / CTK / ethephon.
+  2. the Baihe field experiment, 2016 (May to October), paired fields - a drought DT field
+     from July 5 to August 15 and a drip-irrigated CK control - transplanted 15 June.
+  3. CRISPR-Cas9 knockouts ppr035-1,2,3 and ppr406-1,2,3 plus WT, bred to T3 "for further
+     field and laboratory experiments".
+
+WHAT Supplementary Table S1 SETTLES (in Data_Sheet_3): it is the per-sample key for arm 1 -
+'Sample name in NCBI', 'Description', 'Time point'. Its 101 names match 69 runs of
+PRJNA609211 and INDEPENDENTLY VALIDATE the chamber call already made there from
+dev_stage=Four-leaf-seedling: 63 were already correct, and 6 more were labelled from this key.
+It also exposes arm 3's naming - J003R/J004R/J020R/J021R against descriptions WT, ppr035-1,
+ppr035-2, ppr406-1, ppr406-2 - and none of those names is in runs.tsv, so that arm is absent
+from our cohort.
+
+WHAT IT DOES NOT SETTLE: PRJNA825139. None of Table S1's 101 names, and neither of Table S2's
+two 124-value landrace code columns ('RNA-sequencing and editing investigation code in CK' and
+'... in DT'), matches any of that project's 185 sample names, case-sensitively or not. Those
+185 runs carry 74 distinct name bases (34CK/34DT, AP126/AP184/AP196/AP902/APWT,
+M133b/N133b/M133b_NIP, WC1L/WC2L/WT1L, AA, A1-A3, B1-B3, C1-C2) and remain unsplit.
+
+STILL UNKNOWN in PRJNA609211: 9 runs named Col-1/2/3, BCk-1/2/3, Bcol-1/2/3, in no table.
+
+Evidence: ev-ppr-suppS1, ev-ppr-chamber, ev-xia2020t-site, ev-xia2020m-site.

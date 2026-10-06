@@ -93,7 +93,8 @@ def may_write(new_src: str, held_src: str, rule: dict,
 
 # Fields a rule may set, each paired with its _source column in runs.tsv.
 SETTABLE = {"tissue": "tissue_source", "location": "location_source",
-            "collection_date": "date_source", "setting": "setting_source"}
+            "collection_date": "date_source", "setting": "setting_source",
+            "sampling_selection": "sampling_selection_source"}
 
 
 def read(p: Path) -> list[dict]:

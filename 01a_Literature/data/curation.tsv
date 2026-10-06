@@ -62,3 +62,12 @@ har21e-674915-site	PRJNA674915		location	USA: Missouri, Mount Vernon (Univ. Miss
 harris-915033-y2017-gap	PRJNA915033	LibraryName~^(19|91|163)R$	collection_date	2017	ev-harris-numbering	yes	gap fill by the numbering rule; these 3 keys are absent from grapes.csv
 harris-915033-y2018-gap	PRJNA915033	LibraryName~^(223L|225L|225R|235L|235R|250L|252L|253L|257L|270L|273L|276L|284R|298L|307L|312L|329L|332L|338L|339L|344L|358L|379L)$	collection_date	2018	ev-harris-numbering	yes	gap fill by the numbering rule; 23 keys absent from grapes.csv, all in 217-432
 harris-915033-y2019-gap	PRJNA915033	LibraryName~^(451L|451R|595L)$	collection_date	2019	ev-harris-numbering	yes	gap fill by the numbering rule; 3 keys absent from grapes.csv, all in 433-648
+unselected-PRJNA306542	PRJNA306542		sampling_selection	unselected	ev-unselected-sampling		whole-project: the sampling criterion was genotype, treatment, stage or clock time, never disease
+unselected-PRJNA609211	PRJNA609211		sampling_selection	unselected	ev-unselected-sampling		whole-project: the sampling criterion was genotype, treatment, stage or clock time, never disease
+unselected-PRJNA746402	PRJNA746402		sampling_selection	unselected	ev-unselected-sampling		whole-project: the sampling criterion was genotype, treatment, stage or clock time, never disease
+unselected-PRJNA383416	PRJNA383416		sampling_selection	unselected	ev-unselected-sampling		whole-project: the sampling criterion was genotype, treatment, stage or clock time, never disease
+unselected-PRJNA674915	PRJNA674915		sampling_selection	unselected	ev-unselected-sampling		whole-project: the sampling criterion was genotype, treatment, stage or clock time, never disease
+unselected-PRJNA915033	PRJNA915033		sampling_selection	unselected	ev-unselected-sampling		whole-project: the sampling criterion was genotype, treatment, stage or clock time, never disease
+unselected-PRJNA726716	PRJNA726716		sampling_selection	unselected	ev-unselected-sampling		whole-project: the sampling criterion was genotype, treatment, stage or clock time, never disease
+unselected-PRJNA510920	PRJNA510920		sampling_selection	unselected	ev-unselected-sampling		whole-project: the sampling criterion was genotype, treatment, stage or clock time, never disease
+unselected-PRJDB7234	PRJDB7234		sampling_selection	unselected	ev-unselected-sampling		whole-project: the sampling criterion was genotype, treatment, stage or clock time, never disease

@@ -873,6 +873,12 @@ def main() -> None:
                 location=loc, location_source=loc_src,
                 collection_date=dat, date_source=dat_src,
                 setting="", setting_source="",
+                # Whether the SAMPLING conditioned on disease. Surveillance cohorts are
+                # collected BECAUSE a plant is symptomatic, which makes them the best
+                # co-infection test set available and an unusable prevalence denominator.
+                # Neither `setting` nor `tissue` distinguishes the two, so it is its own
+                # field: a field study can be either.
+                sampling_selection="", sampling_selection_source="",
             ))
 
         runs_by_bp[acc] = rows

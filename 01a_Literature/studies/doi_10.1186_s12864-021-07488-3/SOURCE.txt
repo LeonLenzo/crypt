@@ -1,0 +1,26 @@
+Adams TM et al. 2021. "Rust expression browser: an open source database for simultaneous
+analysis of host and pathogen gene expression profiles with expVIP." BMC Genomics 22:166.
+doi:10.1186/s12864-021-07488-3   PMC7941908   open access, CC BY 4.0
+
+Both files were retrieved by Claude on 2026-10-06, not supplied by hand:
+  PMC7941908_fulltext.xml
+    https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7941908/fullTextXML
+  12864_2021_7488_MOESM1_ESM.xlsx   (Supplementary Table S1)
+    https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7941908/supplementaryFiles
+    (zip; this is the single .xlsx member)
+
+Supplementary Table S1 is a per-sample table, 1,025 data rows, columns:
+  Study | Sample IDs | Date Isolated1 | Host Species | Host Variety | Location |
+  Country | Collector | Accession Code | Sample Type
+
+Sample Type is Field 939 / Lab 85 / None 1. The superscript 1 on "Date Isolated" is
+footnoted in the sheet's last row:
+  "Pst-infected samples from Pst isolates initially found prior to 2013 were inoculated
+   onto wheat under laboratory conditions (date shown represents the initial isolation)."
+Accordingly the date is a COLLECTION date for Field rows and an ISOLATION date for Lab
+rows. The two are separable without ambiguity: every Lab row is dated before 2013
+(1978-2012) and every Field row 2013-2018.
+
+The larger figshare deposit (10.6084/m9.figshare.13177163, 975 MB) holds the expression
+matrices used to build the browser and was NOT downloaded; Table S1 carries all the
+sample metadata we need.

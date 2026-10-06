@@ -105,19 +105,24 @@ value_map:
 
 
 def dir_name(paper: dict) -> str:
-    """Filesystem-safe directory name for a paper.
+    """Filesystem-safe directory name for a paper. ALWAYS the DOI where one exists.
 
-    Prefer the Undermind reference, which is short and readable. Cohort papers have no
-    reference, so fall back to a slug of the DOI. Never return an empty string: `STUDIES / ""`
-    resolves to `studies/` itself, and 182 papers without a reference each overwrote a
-    NEEDED.md there instead of getting a directory.
+    The DOI comes first on purpose, changed 2026-10-06 (leon's call). This function used to
+    prefer the Undermind reference because it is short and readable, but a ref is not a stable
+    identifier: the same paper carries different refs across search reports, and a ref tells a
+    reader nothing. It also broke an audit - a DOI-keyed check for "does this evidenced paper
+    have a local source" reported `Cai21b` as missing while its PDF sat inside it. See
+    studies/README.md.
+
+    Never return an empty string: `STUDIES / ""` resolves to `studies/` itself, and 182 papers
+    without a reference each overwrote a NEEDED.md there instead of getting a directory.
     """
-    ref = (paper.get("paper_ref") or "").strip()
-    if ref:
-        return re.sub(r"[^A-Za-z0-9._-]", "_", ref)
     doi = (paper.get("doi") or "").strip()
     if doi:
         return "doi_" + re.sub(r"[^A-Za-z0-9._-]", "_", doi)
+    ref = (paper.get("paper_ref") or "").strip()
+    if ref:
+        return re.sub(r"[^A-Za-z0-9._-]", "_", ref)
     key = (paper.get("paper_key") or "").strip()
     return re.sub(r"[^A-Za-z0-9._-]", "_", key) or "_unkeyed"
 

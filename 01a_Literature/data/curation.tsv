@@ -89,3 +89,8 @@ sez23-y17	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$;SampleName~^[HS]7	collection_
 sez23-y18	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$;SampleName~^[HS]8	collection_date	2018	ev-sez23-naming		year digit 8
 sez23-tissue	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$	tissue	leaf	ev-sez23-site		10 leaf discs per sample, flash frozen in the field
 sez23-selection	PRJNA630305	SampleName~^[HS]\d\dFg\d+r?$	sampling_selection	unselected	ev-sez23-site		tagged trees in permanent forest plots sampled three times a year; disease played no part in which trees exist
+rog23c-setting	PRJNA527833		setting	field	ev-rog23c-site		whole-project: 4-year-old trees in a common garden trial, in ground at INRAE Orleans. Not potted, so plain `field` rather than the Sato cluster's parenthetical
+rog23c-site	PRJNA527833		location	France: Orleans (INRAE common garden)	ev-rog23c-site		the archive carries no location at all for any of the 461 runs
+rog23c-date	PRJNA527833		collection_date	2015-06	ev-rog23c-site		harvested in June 2015; the paper gives the month, not the day
+rog23c-tissue	PRJNA527833		tissue	xylem,cambium	ev-rog23c-site		young differentiating xylem and cambium, pooled per tree. Aerial (stem) tissue, leon's call 2026-10-06, though woody vascular tissue rather than leaf
+rog23c-selection	PRJNA527833		sampling_selection	unselected	ev-rog23c-site		sampled by genotype across 11 natural populations; a wood-property association panel, nothing to do with disease

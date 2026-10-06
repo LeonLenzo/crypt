@@ -1,0 +1,33 @@
+Zhang Y et al. 2021. "Response of Multiple Tissues to Drought Revealed by a Weighted Gene
+Co-Expression Network Analysis in Foxtail Millet [Setaria italica (L.) P. Beauv.]."
+Frontiers in Plant Science 12:746166. doi:10.3389/fpls.2021.746166  PMC8790073  open access.
+
+Retrieved 2026-10-06 from
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8790073/fullTextXML
+ena_sample_titles.tsv is one ENA portal request: runs.tsv holds SAMEA accessions as
+SampleName, while the tissue and treatment live in the portal's sample_title.
+
+Source for PRJEB43702, 144 runs = 72 BioSamples x 2 runs. NOT FIELD.
+
+  "Drought-sensitive accessions (Ci134 and Ci603) and drought-tolerant accessions (Ci328 and
+   Ci409) were planted in pots (diameter, 30 cm; depth, 40 cm) with five uniform individuals
+   selected from 10 seedlings in each pot after 15 days of seed sowing. ALL OF THE POTS WERE
+   PLACED IN THE GREENHOUSE at the Institute of Crop Sciences, Chinese Academy of Agricultural
+   Sciences (Beijing, China). After 45 days of growth under normal conditions with weekly
+   watering ... For the drought treatment, we randomly selected five pots from each accession
+   to stop watering for 2 weeks."
+
+*** A PHRASE THAT WOULD FOOL A KEYWORD OR LLM CLASSIFIER ***
+The abstract says the tissues were examined "under NATURALLY OCCURRING WATER-LIMITED
+CONDITIONS", and the introduction contrasts the work with PEG studies because PEG "is
+different from gradually occurring natural drought conditions in the field". Both phrases
+describe the DROUGHT METHOD - withholding water rather than osmotic shock - and neither says
+anything about the setting, which is pots in a Beijing greenhouse. Read only the abstract and
+this project classifies as field. This is the same hazard that made llm_study_setting call a
+UC Davis inoculation atlas "field" (see crypt-sample-provenance-unverified).
+
+Design: 4 cultivars x 3 tissues (root/stem/leaf, 48 runs each) x 2 treatments (control,
+drought) x 3 replicates = 72 BioSamples, each deposited as 2 runs. 48 of the 144 runs are
+ROOT and would fail the aerial-tissue rule even if the setting qualified.
+
+Evidence: ev-setaria-greenhouse.

@@ -38,7 +38,7 @@ harris-tissue-leaf-915033	PRJNA915033	LibraryName~L$	tissue	leaf	ev-harris-tissu
 harris-tissue-repro-915033	PRJNA915033	LibraryName~R$	tissue	reproductive (flower/fruit)	ev-harris-tissue	yes	R suffix
 hashida-field-site	PRJNA726716	treatment=FIELD	location	Japan: Shiga, Otsu (Ryukoku University)	ev-hashida-field	yes	"34 57' 43.4'' N 135 56' 22.6'' E; overrides geo_loc_name ""Japan"", country-level"
 hashida-field-date	PRJNA726716	treatment=FIELD	collection_date	2017-09	ev-hashida-field	yes	transferred 19:00 on 18 Sep 2017, sampled 2-hourly over 24 h; BioSample sampling_time carries the hour
-hashida-field-setting	PRJNA726716	treatment=FIELD	setting	field (chamber-raised, transferred outdoors)	ev-hashida-field	yes	NOT field-grown throughout; see evidence. Leon's call needed on whether this counts
+hashida-field-setting	PRJNA726716	treatment=FIELD	setting	field (chamber-raised, transferred outdoors)	ev-hashida-field	yes	chamber-raised for 17 days, then ~72 h outdoors (48 h acclimation + a 24 h sampling window) at Ryukoku, Otsu, 18-21 September 2017. Corrected from '24 h' 2026-10-06. Not a seasonal series: Experiment_2 is chamber-only
 hashida-fl-fth	PRJNA726716	treatment=FL/FTH	setting	growth chamber	ev-hashida-chamber	yes	SmartGC simulating field light and field temp/humidity
 hashida-cl-cth	PRJNA726716	treatment=CL/CTH	setting	growth chamber	ev-hashida-chamber	yes	constant light, constant temp/humidity
 hashida-fl-cth	PRJNA726716	treatment=FL/CTH	setting	growth chamber	ev-hashida-chamber	yes	field light, constant temp/humidity
@@ -123,4 +123,4 @@ van23-setting	PRJEB46163		setting	field	ev-van23-site		vines in 2x2x1.5 m concre
 van23-site	PRJEB46163		location	Italy: Veneto, Legnaro (L. Toniolo experimental farm, University of Padua)	ev-van23-site		replaces the archive's country-level 'Italy'. The three soil names are origins, not sites
 van23-date	PRJEB46163		collection_date	2017	ev-van23-site	yes	OVERRIDES the archive's '2014-24-06', which is malformed and predates the 2015 planting
 van23-tissue	PRJEB46163		tissue	berry (skin or pulp)	ev-van23-site		skin and pulp were separated and sequenced apart; the per-sample split is in the paper's Table S5 and is not joined here
-van23-selection	PRJEB46163		sampling_selection	symptom-avoided	ev-van23-symptomavoided		berries showing damage or pathogen infection symptoms were deliberately excluded, so prevalence here is deflated by design
+van23-selection	PRJEB46163		sampling_selection	symptom-avoided	ev-symptom-avoided-meaning		berries showing damage or pathogen symptoms were deliberately excluded. This measures CRYPTIC infection specifically, not a deflated total: see ev-symptom-avoided-meaning

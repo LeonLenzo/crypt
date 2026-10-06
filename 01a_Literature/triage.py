@@ -881,13 +881,26 @@ def main() -> None:
                 #   inoculated        no: disease introduced by the experimenter
                 #   fungicide-treated no: fungal colonisation actively suppressed, so an
                 #                     absence of signal is partly an absence of opportunity
-                #   symptom-avoided   no: the sampler deliberately skipped visibly diseased
-                #                     material, so prevalence is deflated by design
+                #   symptom-avoided   YES, for the cryptic question. The sampler skipped
+                #                     VISIBLY diseased material, which is a visual judgement
+                #                     and not a test for infection: a plant with no symptoms
+                #                     can carry latent or endophytic infection, which is what
+                #                     cryptic means. So these measure CRYPTIC infection only -
+                #                     a lower bound on total infection and the right number
+                #                     for this study. Leon's call 2026-10-06; the first version
+                #                     of this comment had it backwards.
                 # Nothing in `setting` or `tissue` distinguishes these; a field study can be
                 # any of them. The sunflower Heliaphen cohort (PRJNA976033) is why the fourth
                 # value exists: outdoor, potted, leaf, dated - and dosed twice with Ortiva Top
                 # with rain excluded from the pots.
                 sampling_selection="", sampling_selection_source="",
+                # A `field*` setting means the TISSUE was field-grown, not that sampling
+                # happened outdoors. Leon's call 2026-10-06 on PRJNA513863: dormant canes cut
+                # from a vineyard in February and forced indoors for up to 17 days are still
+                # field samples, because the organisms in them were acquired in the vineyard
+                # and a growth room is not a source of grapevine pathogens. The parenthetical
+                # carries what was done to the tissue afterwards, and the study's join table
+                # keeps a DaysForced column, because the caveat is about abundance not identity.
                 # Is this the run to use for its LIBRARY? `biosample_representative`
                 # downstream assumes one BioSample per biological sample, which fails when a
                 # submitter registers the same library twice: Sato 2024's Arabidopsis cluster

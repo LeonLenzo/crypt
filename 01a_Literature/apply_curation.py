@@ -269,6 +269,46 @@ def matches(rule: dict, run: dict, a: dict) -> bool:
     return True
 
 
+def check_sources(prov: list[dict]) -> list[str]:
+    """Warn where an evidence row's paper has no copy on disk.
+
+    An evidence row is a quote attributed to a paper. If nobody can open that paper locally,
+    the quote cannot be checked against it, which makes the row the weakest kind of link in
+    the chain: plausible, attributed, and unverifiable. This does not block a write - the
+    quote may well be right, and some sources are paywalled - but it is worth saying out loud
+    every run rather than discovering it months later.
+
+    Added 2026-10-06, after an ad-hoc version of this check found that seven of the fourteen
+    papers curated that day had been read from Europe PMC into a temporary directory and never
+    filed. Directories are matched on the DOI slug AND on the paper_key, because some
+    directories predate the DOI naming convention (see studies/Cai21b/NAMING.txt), and the
+    paper_ref is resolved through papers.tsv because some provenance rows carry the DOI in
+    paper_key rather than the short ref.
+    """
+    refs = {}
+    for r in read(DATA / "papers.tsv"):
+        d, ref = (r.get("doi") or "").strip(), (r.get("paper_ref") or "").strip()
+        if d and ref:
+            refs[d] = ref
+    seen, warn = {}, []
+    for r in prov:
+        doi, key = (r.get("doi") or "").strip(), (r.get("paper_key") or "").strip()
+        if not doi or doi == "(multiple)":
+            continue
+        if doi in seen:
+            continue
+        cands = [STUDIES / ("doi_" + doi.replace("/", "_"))]
+        for alt in (key, refs.get(doi)):
+            if alt and alt != doi:
+                cands.append(STUDIES / alt)
+        ok = any(d.is_dir() and any(f.is_file() and f.name != "adapter.yaml"
+                                    for f in d.rglob("*")) for d in cands)
+        seen[doi] = ok
+        if not ok:
+            warn.append(f"{doi}  ({key or 'no paper_key'}), {sum(1 for x in prov if x.get('doi') == doi)} evidence rows")
+    return warn
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -278,9 +318,18 @@ def main() -> None:
 
     runs = read(RUNS)
     rules = read(CURATION)
-    prov = {p["evidence_id"]: p for p in read(PROVENANCE)}
+    prov_rows = read(PROVENANCE)
+    prov = {p["evidence_id"]: p for p in prov_rows}
     if not rules:
         sys.exit(f"{CURATION} is empty; nothing to apply")
+
+    unsourced = check_sources(prov_rows)
+    if unsourced:
+        print(f"WARNING: {len(unsourced)} evidenced paper(s) have no copy under studies/, so "
+              f"their quotes cannot be checked:", file=sys.stderr)
+        for w in unsourced:
+            print(f"  {w}", file=sys.stderr)
+        print(file=sys.stderr)
 
     by_run = {r["Run"]: r for r in runs}
     attr_cache = {bp: attrs_for(bp) for bp in {r["BioProject"] for r in runs}}

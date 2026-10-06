@@ -108,3 +108,7 @@ paa26-selection	PRJEB83648		sampling_selection	unselected	ev-paa26-treatment		a 
 von21-setting	PRJNA701940		setting	field	ev-von21-vineyard		dedicated experimental vineyard established 2010, randomized complete block, vines in ground for 7-8 years by sampling
 von21-site	PRJNA701940		location	USA: California, Davis (UC Davis experimental leafroll vineyard)	ev-von21-vineyard		replaces the archive's 'USA: Davis'
 von21-selection	PRJNA701940		sampling_selection	inoculated	ev-von21-selection		GLRaVs introduced by chip-bud grafting in 2009; disease present by the experimenters' design
+ple15-setting	PRJNA297424		setting	field	ev-ple15-site		two adjacent fields under normal irrigated-lowland and rainfed-upland practice; both are real fields, so one setting value covers the project
+ple15-site	PRJNA297424		location	Philippines: Los Banos, Laguna, IRRI	ev-ple15-site		string matched to PRJNA510920 (Swift 2019) so IRRI groups as one site across both studies
+ple15-tissue	PRJNA297424		tissue	leaf	ev-ple15-sampling		six young leaves from six different plants per sample, vegetative stage
+ple15-selection	PRJNA297424		sampling_selection	unselected	ev-ple15-sampling		sampled on a fixed calendar every two days, 4 h after sunrise, by genotype and field type; disease played no part

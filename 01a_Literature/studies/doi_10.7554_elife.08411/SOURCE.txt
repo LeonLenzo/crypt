@@ -1,0 +1,22 @@
+Plessis A, Hafemeister C, Wilkins O, Gonzaga ZJ, Meyer RS, Pires I, Muller C,
+Septiningsih EM, Bonneau R, Purugganan M. 2015. "Multiple abiotic stimuli are integrated
+in the regulation of rice gene expression under field conditions." eLife 4:e08411.
+doi:10.7554/eLife.08411   PMC4718725   open access.
+
+paper_ref: Ple15
+
+Retrieved 2026-10-06 from
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4718725/fullTextXML
+Stored as: PMC4718725_fulltext.xml
+
+Source for PRJNA297424, 239 field runs at IRRI Los Banos, Philippines, 2013. Two seasons
+x 15 timepoints two days apart, in two adjacent fields (irrigated lowland and rainfed
+upland). Same site as PRJNA510920 (Swift 2019), so IRRI now groups across two studies.
+
+NOT YET PULLED: the per-sample irrigated-vs-rainfed and genotype assignment. The deposit is
+a GEO submission (GSM* sample names) and GEO was rate-limiting with a reCAPTCHA when this
+was curated. It does not affect the setting, since both fields are real fields under normal
+cultivation practice, but it would be needed to split the project by cultivation system.
+Retry: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1899360&form=text&view=brief
+
+Evidence: ev-ple15-site, ev-ple15-sampling.

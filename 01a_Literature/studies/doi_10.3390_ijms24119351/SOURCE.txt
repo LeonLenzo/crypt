@@ -1,0 +1,32 @@
+Temme AA, Kerr KL, Nolting KM, Dittmar EL, Masalia RR, Bucksch AK, Burke JM, Donovan LA.
+2023. "Similar Transcriptomic Responses to Early and Late Drought Stresses Produce
+Divergent Phenotypic Outcomes in Sunflower."
+Int J Mol Sci 24:9351. doi:10.3390/ijms24119351   PMC10253505   open access.
+
+paper_ref: Tem23
+
+Retrieved 2026-10-06 from
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10253505/fullTextXML
+Stored as: PMC10253505_fulltext.xml
+
+Source for PRJNA976033, 231 runs. Heliaphen outdoor high-throughput phenotyping platform,
+INRAE Toulouse, 2018. Six oilseed lines, five irrigation regimes, 10 L pots, planted
+17 April 2018, leaf sampled at the ends of the two stress periods (12 June, 3 August),
+harvest 31 August.
+
+*** WHY THIS COHORT IS FLAGGED sampling_selection = fungicide-treated ***
+
+  "were provided Ortiva Top fungicide on 28 May and 15 June"
+  "Soil around the plants was covered with a silicone cover to limit soil evaporation and
+   was protected from rain using a cone-shaped polystyrene skirt."
+
+Ortiva Top is azoxystrobin plus difenoconazole: broad-spectrum, systemic, applied twice,
+with rain excluded from the pots. Fungal colonisation was actively suppressed.
+
+On setting, tissue, location and date this looks like an ideal outdoor field cohort. For a
+fungal co-infection question it is actively misleading, because a low or absent signal here
+is partly an absence of OPPORTUNITY rather than an observation about field prevalence. That
+is the opposite error to an inoculated cohort and just as disqualifying, which is why the
+fourth sampling_selection value exists.
+
+Evidence: ev-sunflower-heliaphen, ev-sunflower-fungicide.

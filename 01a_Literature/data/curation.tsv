@@ -115,3 +115,7 @@ ple15-selection	PRJNA297424		sampling_selection	unselected	ev-ple15-sampling		sa
 sunflower-setting	PRJNA976033		setting	field (potted, outdoor common garden)	ev-sunflower-heliaphen		10 L pots on a robotised outdoor platform with per-pot irrigation; the paper calls it a common garden. Same setting value as the Sato clusters
 sunflower-date	PRJNA976033		collection_date	2018	ev-sunflower-heliaphen		planted 17 April 2018, leaf sampled at the ends of the two stress periods (12 June and 3 August), harvest 31 August
 sunflower-selection	PRJNA976033		sampling_selection	fungicide-treated	ev-sunflower-fungicide		Ortiva Top twice, plus rain exclusion. NOT usable in a prevalence denominator: absence of fungal signal here is partly absence of opportunity
+bnapus-setting	PRJNA1153365		setting	field	ev-bnapus-site		China National Rapeseed Variety Field Test protocol; standard crop field management
+bnapus-site	PRJNA1153365		location	China: Hubei, Wuhan, Yangluo	ev-bnapus-site		the paper gives 30 43' N, 114 31' E for Yangluo; replaces the archive's 'China: Yangluo'
+bnapus-tissue	PRJNA1153365		tissue	silique	ev-bnapus-silique		seed pod at 18 days after pollination. Aerial but reproductive, not foliar
+bnapus-selection	PRJNA1153365		sampling_selection	unselected	ev-bnapus-silique		an accession panel sampled at a fixed developmental stage for a structural-variation eQTL study; disease played no part

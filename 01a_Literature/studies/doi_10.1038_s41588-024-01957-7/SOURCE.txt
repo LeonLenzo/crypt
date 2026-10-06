@@ -1,0 +1,29 @@
+Zhang Y, Yang Z, He Y, Liu D, Liu Y, Liang C et al. 2024. "Structural variation reshapes
+population gene expression and trait variation in 2,105 Brassica napus accessions."
+Nature Genetics. doi:10.1038/s41588-024-01957-7   PMC11549052   open access.
+
+paper_ref: (linked by DOI)
+
+Retrieved 2026-10-06 from
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11549052/fullTextXML
+Stored as: PMC11549052_fulltext.xml
+
+Source for PRJNA1153365, 229 silique runs at Yangluo, China.
+
+THREE SIBLING RNA-seq DEPOSITS, only one of which is in our tables. Data availability:
+"population RNA-seq data of SAMs, leaves and siliques (BioProject, accession nos.
+PRJNA1149544, PRJNA1157560 and PRJNA1153365, respectively)". So:
+  PRJNA1149544  shoot apical meristems  NOT in runs.tsv
+  PRJNA1157560  leaves                  NOT in runs.tsv
+  PRJNA1153365  siliques                ours, 229 runs
+All three are aerial tissue from the same field experiment, so the two missing ones are a
+gap in the cohort rather than anything excluded. Worth pulling.
+
+DATE: unresolved. The archive records collection_date as the literal string "missing" on all
+229 runs and gives dev_stage "18 days after pollination", which is a developmental stage, not
+a calendar date. The paper states the accessions were "planted in Wuhan, Yangluo, Qinghai and
+Yangzhou, in the six growth seasons (2012-2018)" without saying which season produced the
+silique RNA-seq. Supplementary Methods, which the paper points to for RNA extraction, was
+being checked when this was curated.
+
+Evidence: ev-bnapus-site, ev-bnapus-silique.

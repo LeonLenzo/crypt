@@ -1,0 +1,9 @@
+Mangal H et al. 2025. 'Genes and pathways determining flowering time variation in temperate-adapted sorghum.' The Plant Journal 122:e70250. doi:10.1111/tpj.70250  PMC12129571  open access.
+
+paper_ref: Man24b
+
+Retrieved by Claude on 2026-10-06 from:
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12129571/fullTextXML
+Stored as: PMC12129571_fulltext.xml
+
+Source paper for PRJEB83049, 822 field runs at UNL Havelock Research Farm, Lincoln NE, sampled in a single morning on 5 Aug 2021. Evidence: ev-man24b-site, ev-man24b-sampling, ev-man24b-scope.

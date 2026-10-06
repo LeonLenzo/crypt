@@ -1,0 +1,9 @@
+Hashida Y et al. 2025. 'Field-crop transcriptome models are enhanced by measurements in systematically controlled environments.' Genome Biology 26. doi:10.1186/s13059-025-03690-8  PMC12302906  open access.
+
+paper_ref: Has24d
+
+Retrieved by Claude on 2026-10-06 from:
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12302906/fullTextXML
+Stored as: PMC12302906_fulltext.xml
+
+PRJNA1074001 is ENTIRELY growth chamber: 1,168 samples = 8 time points x 2 cultivars x 73 photoperiod/temperature conditions. Analysis repo naganolab/GC_73_conditions. Evidence: ev-has24d-chamber, ev-has24d-scope. Decision: drop.

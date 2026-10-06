@@ -1,0 +1,12 @@
+'Circadian entrainment to environmental cues in a natural plant population.' bioRxiv doi:10.64898/2026.01.23.701304
+
+PREPRINT. Versions matter: check api.biorxiv.org/details/biorxiv/<doi> before assuming
+this version's content. Tom26 taught that lesson (v1/v2 lacked a whole field arm).
+
+paper_ref: Paa26
+
+Retrieved by Claude on 2026-10-06 from:
+  https://www.biorxiv.org/content/10.64898/2026.01.23.701304v1.full-text
+Stored as: biorxiv_2026.01.23.701304_v1.html
+
+Source for PRJEB83648, 384 field runs. Wild Arabidopsis halleri subsp. gemmifera at Monzen, Taka-cho, Hyogo, Japan; hourly sampling across four seasonal campaigns 2019-2020; in-situ cold treatment by portable chiller. Evidence: ev-paa26-site, ev-paa26-treatment.

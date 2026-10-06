@@ -1,0 +1,14 @@
+Cross-reference used for the EPICON FIELD SITE only.
+
+'Multi-season analysis reveals hundreds of drought-responsive genes in sorghum.' 2026.
+PMC12863931, open access. Retrieved 2026-10-06 from
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12863931/fullTextXML
+
+Why it is here: the 2019 paper's main text never names the field site, it is in the SI
+Appendix, and Europe PMC's supplementary zip for PMC6936495 is TRUNCATED and unreadable.
+This companion names the site and states year 1 followed the same protocol: 'plants being
+sown in pre-wetted plots at Kearny Agricultural Research and Extension Center (Parlier, CA,
+USA)'. Evidence: ev-var19-site.
+
+STILL WANTED: the 2019 SI Appendix itself, which would make the site evidence primary
+rather than a cross-reference.

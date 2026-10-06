@@ -1,0 +1,9 @@
+Vondras AM et al. 2021. 'Rootstock influences the effect of grapevine leafroll-associated viruses on berry development and metabolism via abscisic acid signalling.' Molecular Plant Pathology 22:984-1005. doi:10.1111/mpp.13077  PMC8295520  open access.
+
+paper_ref: Von21
+
+Retrieved by Claude on 2026-10-06 from:
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8295520/fullTextXML
+Stored as: PMC8295520_fulltext.xml
+
+Source for PRJNA701940, 384 field runs, UC Davis experimental leafroll vineyard. GLRaVs introduced by chip-bud grafting in 2009, so sampling_selection = inoculated. Evidence: ev-von21-vineyard, ev-von21-sampling, ev-von21-selection.

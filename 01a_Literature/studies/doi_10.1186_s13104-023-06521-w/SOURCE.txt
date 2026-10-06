@@ -1,0 +1,9 @@
+Rogier O et al. 2023. 'RNAseq based variant dataset in a black poplar association panel.' BMC Research Notes 16. doi:10.1186/s13104-023-06521-w  PMC10546633  open access.
+
+paper_ref: Rog23c
+
+Retrieved by Claude on 2026-10-06 from:
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10546633/fullTextXML
+Stored as: PMC10546633_fulltext.xml
+
+Data descriptor for PRJNA527833, 461 field runs. Xylem and cambium harvested June 2015 from 480 Populus nigra in a common garden at INRAE Orleans. The archive held NO location and NO date. Evidence: ev-rog23c-site, ev-rog23c-scope.

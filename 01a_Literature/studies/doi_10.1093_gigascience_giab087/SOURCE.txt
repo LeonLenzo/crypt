@@ -1,0 +1,9 @@
+Harris ZN et al. 2021. 'Multi-dimensional leaf phenotypes reflect root system genotype in grafted grapevine over the growing season.' GigaScience 10:giab087. doi:10.1093/gigascience/giab087  PMC8716362  open access.
+
+paper_ref: Har21e
+
+Retrieved by Claude on 2026-10-06 from:
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8716362/fullTextXML
+Stored as: PMC8716362_fulltext.xml
+
+Supplies the 2017 grapevine year and the three phenological sampling dates (anthesis 22 May, veraison 30 July, harvest 25 September 2017), plus the Mount Vernon site with coordinates. Evidence: ev-har21e-design.

@@ -1,0 +1,30 @@
+Tomita A et al. "Transcriptomic biomarkers reveal jasmonic and salicylic acid state under
+field herbivory." bioRxiv doi:10.1101/2025.05.29.656841   paper_ref: Tom26
+
+*** VERSIONS DIFFER MATERIALLY. BOTH ARE STORED HERE ON PURPOSE. ***
+
+  v1 (2025-06-01) and v2 (2025-06-16)
+      titled "Systematic measurements of dose-dependent responses for combinatorial
+      treatments of SA and JA led to the development of transcriptomic biomarkers".
+      NO field arm at all. Results and Methods cover only the in vitro 96-well SA/JA
+      dose matrix. Data availability names ONLY PRJNA1232845.
+  v3 (2026-02-13)
+      retitled as above. ADDS "Field experiment under naturally occurring herbivores",
+      "RNA-Seq experiment of Field samples", and all eight PRJNA1055xxx accessions.
+
+Reading v1 and concluding the eight Arabidopsis accessions were not in the paper was an
+error made on 2026-10-06 and corrected the same day. Check the version list first:
+  https://api.biorxiv.org/details/biorxiv/10.1101/2025.05.29.656841
+
+Retrieved 2026-10-06 from
+  https://www.biorxiv.org/content/10.1101/2025.05.29.656841v3.full-text   (-> v3 file)
+  https://www.biorxiv.org/content/10.1101/2025.05.29.656841v1.full-text   (-> v1 file)
+
+What v3 supplies: the RNA-seq methods for the Sato 2024 Arabidopsis cluster (leaf harvested
+three weeks post-transplantation within two hours of solar noon, Lasy-Seq v1.1, HiSeq2500
+and HiSeqX giving 50-bp and 150-bp reads). Crucially it states "we reused field data
+deposited by Sato et al. (2024)", which is why its relation to those eight projects is
+`reanalysed` and not `generated`. Evidence: ev-tom26-rnaseq.
+
+Tom26's OWN deposit is PRJNA1232845 (768 in vitro SA/JA seedling samples, 64 concentration
+combinations, Ryukoku University), which is NOT in runs.tsv.

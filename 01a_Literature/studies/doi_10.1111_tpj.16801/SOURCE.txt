@@ -1,0 +1,13 @@
+Torres-Rodriguez JV et al. 2024. 'Population-level gene expression can repeatedly link genes to functions in maize.' The Plant Journal 119:844-860. doi:10.1111/tpj.16801
+
+CAUTION: the published version is PAYWALLED and absent from PMC. The file here is the
+author preprint, bioRxiv doi:10.1101/2023.10.31.565032, which carries the same accession
+and the same methods. All quotes in ev-tor23d-* come from the preprint and say so.
+
+paper_ref: Tor23d
+
+Retrieved by Claude on 2026-10-06 from:
+  https://www.biorxiv.org/content/10.1101/2023.10.31.565032v1.full-text
+Stored as: biorxiv_2023.10.31.565032_v1.html
+
+Source paper for PRJEB67964, 750 field runs, WiDiv maize at Havelock Farm Lincoln NE, sampled 8 July 2020. Identified only via Col26's reference list; our own tables had no usable link.

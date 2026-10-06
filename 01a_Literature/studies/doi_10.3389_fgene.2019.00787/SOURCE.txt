@@ -1,0 +1,17 @@
+Sato Y, Tezuka A, Kashima M, Deguchi A, Shimizu-Inatsugi R, Yamazaki M, Shimizu KK,
+Nagano AJ. 2019. "Transcriptional Variation in Glucosinolate Biosynthetic Genes and
+Inducible Responses to Aphid Herbivory on Field-Grown Arabidopsis thaliana."
+Frontiers in Genetics 10:787. doi:10.3389/fgene.2019.00787  PMC6749069  open access.
+
+paper_ref: Sat19
+
+Retrieved 2026-10-06 from
+  https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6749069/fullTextXML
+Stored as: PMC6749069_fulltext.xml
+
+Source for PRJNA488315, 364 runs / 182 samples. This is the 2016 PREDECESSOR of the
+2017-2018 eight-project cluster (doi_10.1038_s41467-024-52374-7): same group, same site
+(UZH Irchel outdoor garden), same potted-transfer design, same herbivore survey method.
+Read-count data and code: https://github.com/naganolab/AthRNAseq2016Zurich_Sato_et_al
+
+Evidence: ev-sat19-site, ev-sat19-design, ev-sat19-dedup.

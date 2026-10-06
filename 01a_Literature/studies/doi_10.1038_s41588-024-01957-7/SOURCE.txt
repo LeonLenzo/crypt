@@ -19,11 +19,29 @@ PRJNA1149544, PRJNA1157560 and PRJNA1153365, respectively)". So:
 All three are aerial tissue from the same field experiment, so the two missing ones are a
 gap in the cohort rather than anything excluded. Worth pulling.
 
-DATE: unresolved. The archive records collection_date as the literal string "missing" on all
-229 runs and gives dev_stage "18 days after pollination", which is a developmental stage, not
-a calendar date. The paper states the accessions were "planted in Wuhan, Yangluo, Qinghai and
-Yangzhou, in the six growth seasons (2012-2018)" without saying which season produced the
-silique RNA-seq. Supplementary Methods, which the paper points to for RNA extraction, was
-being checked when this was curated.
+DATE: NOT PUBLISHED. Settled 2026-10-06 - do not look again without a new source.
+
+Checked, all of it:
+  - archive: collection_date is the literal string "missing" on all 229 runs; dev_stage gives
+    "18 days after pollination", a developmental stage, not a calendar date
+  - main text Methods: accessions were "planted in Wuhan, Yangluo, Qinghai and Yangzhou, in
+    the six growth seasons (2012-2018)" and never assigns a season to the silique RNA-seq
+  - Supplementary Methods (MOESM1, "RNA extraction and library preparation of RNA-Seq"):
+    "Shoot apical meristem (SAM), young leaves and developing siliques and seeds at 18 days
+    after pollination (DAP) were collected for RNA-Seq. Each sample was immediately flash
+    frozen in liquid nitrogen; each sequenced sample comprised a mixture of four plants from
+    each accession." Stage and pooling, no year. The word Yangluo does not appear in MOESM1.
+  - MOESM3, all 23 supplementary tables: no year, season or date column anywhere. Table S1 is
+    the accession panel keyed on Sample ID (GDRP001...), which matches our SampleName
+    (Silique_GDRP003), but its only place column is "Origin" = germplasm country of origin
+    (China, Australia, ...), NOT a growing site. Do not mistake it for one.
+
+So these 229 are the cohort's only undated samples, and that is a property of the published
+record rather than of our curation. A year could only come from the authors or from the
+Chinese GSA deposit (PRJCA013095).
+
+MOESM1 also reveals FIVE RNA-seq tissue arms, not three: "RNA-Seq for SAM, siliques,
+developing seeds at 20 and 40 DAF, and seedling leaves". Data availability names only three
+NCBI BioProjects, so the seed arms are presumably in PRJCA013095 at the NGDC.
 
 Evidence: ev-bnapus-site, ev-bnapus-silique.

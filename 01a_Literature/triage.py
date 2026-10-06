@@ -879,6 +879,13 @@ def main() -> None:
                 # Neither `setting` nor `tissue` distinguishes the two, so it is its own
                 # field: a field study can be either.
                 sampling_selection="", sampling_selection_source="",
+                # Is this the run to use for its LIBRARY? `biosample_representative`
+                # downstream assumes one BioSample per biological sample, which fails when a
+                # submitter registers the same library twice: Sato 2024's Arabidopsis cluster
+                # sequenced 2,398 libraries on both HiSeq2500 and HiSeqX and deposited them as
+                # 4,796 runs under 4,796 distinct BioSamples. Deduplicating on BioSample counts
+                # every leaf twice. Empty means "not assessed", not "no".
+                library_representative="", library_representative_source="",
             ))
 
         runs_by_bp[acc] = rows

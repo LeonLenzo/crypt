@@ -1,0 +1,39 @@
+The Sato 2024 Arabidopsis field cluster: eight BioProjects, one experiment, two papers.
+
+PRJNA1055060 Zurich 2017 HiSeq2500    PRJNA1055734 Zurich 2017 HiSeqX
+PRJNA1055104 Zurich 2018 HiSeq2500    PRJNA1056126 Zurich 2018 HiSeqX
+PRJNA1055317 Otsu   2017 HiSeq2500    PRJNA1055736 Otsu   2017 HiSeqX
+PRJNA1055424 Otsu   2018 HiSeq2500    PRJNA1055939 Otsu   2018 HiSeqX
+
+4,796 runs = 2,398 libraries x 2 platforms. Submitter: University of Zurich.
+
+The RNA-Seq has NO paper of its own. Evidence comes from two sources:
+
+  Sato Y, Shimizu-Inatsugi R, Takeda K, Schmid B, Nagano AJ, Shimizu KK. 2024.
+  "Reducing herbivory in mixed planting by genomic prediction of neighbor effects in the
+  field." Nature Communications 15:8482.  doi:10.1038/s41467-024-52374-7  PMC11458863
+  Open access. Fetched from Europe PMC 2026-10-06.
+    Supplies: the FIELD EXPERIMENT. Both sites with coordinates, the potting and transfer,
+    the randomised block design, the herbivore surveys, the sampling window.
+    Contains NO RNA-Seq section and deposits no sequence data. Its own deposits are
+    phenotypes (github.com/yassato/AraHerbNeighborGen, Zenodo 10.5281/zenodo.7945317),
+    flea-beetle COI sequences (OQ857829-OQ857834) and AraGWAS genotypes.
+
+  Tomita A, Maeda T, Mori-Moriyama N, Nomura Y, Kurita Y, Kashima M, Betsuyaku S, Sato Y,
+  Nagano AJ. "Transcriptomic biomarkers reveal jasmonic and salicylic acid state under
+  field herbivory." bioRxiv doi:10.1101/2025.05.29.656841 -- VERSION 3 ONLY.
+    https://www.biorxiv.org/content/10.1101/2025.05.29.656841v3.full-text
+    Supplies: the SEQUENCING. Leaf harvested three weeks post-transplantation within a
+    two-hour window around solar noon at each site, Lasy-Seq v1.1, HiSeq2500 and HiSeqX
+    giving 50-bp and 150-bp 3'-end reads respectively.
+    CAUTION: v1 and v2 are titled "Systematic measurements of dose-dependent responses for
+    combinatorial treatments of SA and JA..." and contain NO field arm at all. Only v3
+    (2026-02-13) adds the field work and names these eight accessions. Tom26 states it
+    REUSED this data; its own deposit is PRJNA1232845 (768 in vitro SA/JA seedling samples).
+
+Neither paper reports plant pathogens. Sato 2024 concerns insect herbivores; Tom26 concerns
+SA/JA signalling state. Any fungus or oomycete in these reads is unreported by both.
+
+sato24_runs.py derives the per-run table and the deduplication from runs.tsv plus the
+project-to-site mapping in its PROJECTS dict (taken from the NCBI project titles, each of
+which names its site, year and instrument).

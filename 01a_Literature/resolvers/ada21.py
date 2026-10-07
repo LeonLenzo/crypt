@@ -47,6 +47,7 @@ from pathlib import Path
 _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
+from _resolver import finish
 from _layout import STUDIES
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -222,15 +223,10 @@ def main() -> None:
         ))
     rows.sort(key=lambda r: r["Run"])
 
-    with OUT.open("w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(rows[0]))
-        w.writeheader()
-        w.writerows(rows)
+    finish(rows, OUT, key_col="Run", bioprojects=None)
 
     n_f = sum(1 for r in rows if r["SampleType"] == "Field")
     locs = {r["Location"] for r in rows if r["SampleType"] == "Field" and r["Location"]}
-    print(f"\nwrote {OUT.relative_to(ROOT)}: {len(rows)} runs "
-          f"({n_f} Field, {len(rows) - n_f} other)", file=sys.stderr)
     print(f"  field localities: {len(locs)} distinct, "
           f"{len({r['Country'] for r in rows if r['SampleType'] == 'Field'})} countries",
           file=sys.stderr)

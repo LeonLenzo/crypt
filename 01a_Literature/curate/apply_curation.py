@@ -48,14 +48,15 @@ sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
 from _paths import ROOT          # repo-wide
 from _layout import CURATION, DATA, JOINS, PROVENANCE, STUDIES
+# One definition of the join key, the BioSample loader and the refusal bar, shared with the
+# resolvers so a resolver's predicted rate IS the rate this module achieves. See _resolver.
+from _resolver import MIN_JOIN_RATE, attrs_for, sra_key as _sra_key
 
 RUNS       = DATA / "runs.tsv"
 
 # A join must match most of the project's samples or it is not describing them. PRJNA1217477's
 # supplement matched 0 of 450 because it tabulated inoculum isolates rather than the sequenced
 # plants; merging it would have stamped Californian vineyard coordinates onto Arabidopsis.
-MIN_JOIN_RATE = 0.60
-
 # How much a value is worth, by where it came from. A writer at a higher tier replaces a
 # lower one FREELY; replacing an equal or higher tier needs an explicit `override: yes`.
 #
@@ -103,29 +104,6 @@ def read(p: Path) -> list[dict]:
         return []
     with open(p) as fh:
         return list(csv.DictReader(fh, delimiter="\t"))
-
-
-def attrs_for(bp: str) -> dict:
-    f = DATA / "biosample_attrs" / f"{bp}.json"
-    if not f.exists():
-        return {}
-    o = json.loads(f.read_text())
-    return o.get("attrs", o) if isinstance(o, dict) else {}
-
-
-def _sra_key(spec: str, run: dict, a: dict) -> str:
-    """The join key on the SRA side.
-
-    Either a bare column name (`SampleName`), or `column~regex` where capture group 1 is the
-    key. The regex form is needed because submitters bury the key in free text: PRJDB7234's
-    DDBJ descriptions end "... Sample ID: 20001", and that integer is what the paper's
-    supplementary table is keyed on. Nothing in the structured fields carries it.
-    """
-    if "~" in spec:
-        col, rx = (x.strip() for x in spec.split("~", 1))
-        m = re.search(rx, a.get(col, run.get(col, "")) or "")
-        return m.group(1) if m and m.groups() else ""
-    return (a.get(spec.strip(), run.get(spec.strip(), "")) or "").strip()
 
 
 def load_join_table(rule: dict) -> dict:

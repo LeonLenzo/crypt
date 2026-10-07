@@ -43,6 +43,7 @@ from pathlib import Path
 _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
+from _resolver import finish
 from _layout import STUDIES
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -149,15 +150,11 @@ def main() -> None:
     print("  day cross-check: every supplement day within 1 of the archive's UTC day",
           file=sys.stderr)
 
-    out.sort(key=lambda r: r["Run"])
-    with OUT.open("w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(out[0]))
-        w.writeheader()
-        w.writerows(out)
+    finish(out, OUT, key_col="Run", bioprojects=None,
+           sort_key=lambda r: r["Run"])
 
     days = {r["CollectionDateLocal"][:10] for r in out}
     hours = {r["CollectionDateLocal"][11:16] for r in out if len(r["CollectionDateLocal"]) > 10}
-    print(f"\nwrote {OUT.relative_to(ROOT)}: {len(out)} runs", file=sys.stderr)
     print(f"  {len(days)} calendar days, {len(hours)} distinct local hours", file=sys.stderr)
     print(f"  sites: {sorted({r['Site'] for r in out})}", file=sys.stderr)
     if miss:

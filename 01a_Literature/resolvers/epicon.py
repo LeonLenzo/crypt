@@ -60,6 +60,7 @@ from pathlib import Path
 _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
+from _resolver import finish
 from _layout import RUNS, STUDIES
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -144,25 +145,15 @@ def main() -> None:
     if len(days) < 10:
         sys.exit(f"REFUSED: only {len(days)} distinct dates; the weekly series did not parse")
 
-    rows.sort(key=lambda r: r["SampleName"])
-    with OUT.open("w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(rows[0]))
-        w.writeheader()
-        w.writerows(rows)
+    finish(rows, OUT, key_col="SampleName", bioprojects=["PRJNA527782"],
+           sort_key=lambda r: r["SampleName"])
 
     tis = collections.Counter(r["Tissue"] for r in rows)
-    print(f"\nwrote {OUT.relative_to(ROOT)}: {len(rows)} samples", file=sys.stderr)
     print(f"  tissue: {dict(tis)}", file=sys.stderr)
     print(f"  {len(days)} weekly dates, {days[0]} to {days[-1]}", file=sys.stderr)
     print(f"  genotypes: {dict(collections.Counter(r['Genotype'] for r in rows))}", file=sys.stderr)
     print(f"  regimes: {dict(collections.Counter(r['WateringRegime'] for r in rows))}", file=sys.stderr)
 
-    # How many of ours will actually join?
-    ours = [r for r in csv.DictReader(RUNS.open(), delimiter="\t")
-            if r["BioProject"] == "PRJNA527782"]
-    keys = {r["SampleName"] for r in rows}
-    hit = sum(1 for r in ours if r["SampleName"] in keys)
-    print(f"  joins {hit}/{len(ours)} of our runs on SampleName", file=sys.stderr)
 
 
 if __name__ == "__main__":

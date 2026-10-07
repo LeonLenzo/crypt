@@ -65,6 +65,7 @@ from pathlib import Path
 _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
+from _resolver import finish
 from _layout import BIOSAMPLE, RUNS, STUDIES
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -135,35 +136,18 @@ def main() -> None:
             sys.exit(f"REFUSED: genotype {geno} should be {expect} per the paper's accession "
                      f"list, but BioSample cultivar says {sorted(cvs)}")
 
-    if len({r["SourceMaterialID"] for r in rows}) != len(rows):
-        dup = [k for k, n in collections.Counter(r["SourceMaterialID"] for r in rows).items() if n > 1]
-        sys.exit(f"REFUSED: source_material_id is the join key and is not unique: {dup}")
-
     days = sorted({r["CollectionDate"] for r in rows})
     if len(days) < 4:
         sys.exit(f"REFUSED: only {len(days)} distinct date(s); the series did not expand")
 
-    rows.sort(key=lambda r: (r["GenotypeCode"], r["Treatment"], r["Week"], r["Replicate"]))
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    with OUT.open("w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(rows[0]))
-        w.writeheader()
-        w.writerows(rows)
-
-    print(f"wrote {OUT.relative_to(ROOT)}: {len(rows)} samples", file=sys.stderr)
+    finish(rows, OUT, key_col="SourceMaterialID", sra_key_spec="source_material_id",
+           bioprojects=[BIOPROJECT],
+           sort_key=lambda r: (r["GenotypeCode"], r["Treatment"], r["Week"], r["Replicate"]))
     print(f"  dates: {', '.join(days)}", file=sys.stderr)
     print(f"  per date: {dict(collections.Counter(r['CollectionDate'] for r in rows))}", file=sys.stderr)
     print(f"  treatment: {dict(collections.Counter(r['TreatmentDesc'] for r in rows))}", file=sys.stderr)
     print(f"  accession: {dict(collections.Counter(r['Accession'] for r in rows))}", file=sys.stderr)
     print(f"  archive said: {dict(collections.Counter(r['ArchiveDate'] for r in rows))}", file=sys.stderr)
-
-    # How many of our runs will the join actually reach?
-    ours = [r for r in csv.DictReader(RUNS.open(), delimiter="\t")
-            if r["BioProject"] == BIOPROJECT]
-    keys = {r["SourceMaterialID"] for r in rows}
-    hit = sum(1 for r in ours
-              if (a.get(r["BioSample"], {}).get("source_material_id") or "") in keys)
-    print(f"  joins {hit}/{len(ours)} of our runs on source_material_id", file=sys.stderr)
 
 
 if __name__ == "__main__":

@@ -51,6 +51,7 @@ from pathlib import Path
 _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
+from _resolver import finish
 from _layout import RUNS, STUDIES
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -134,16 +135,10 @@ def main() -> None:
         print(f"  all {chosen_plat['X']} picks are HiSeqX, as the read lengths predict",
               file=sys.stderr)
 
-    rows.sort(key=lambda r: r["Run"])
-    STUDY.mkdir(parents=True, exist_ok=True)
-    with OUT.open("w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(rows[0]))
-        w.writeheader()
-        w.writerows(rows)
+    finish(rows, OUT, key_col="Run", bioprojects=None,
+           sort_key=lambda r: r["Run"])
 
     keep = sum(1 for r in rows if r["LibraryRepresentative"] == "yes")
-    print(f"\nwrote {OUT.relative_to(ROOT)}: {len(rows)} runs, {keep} representative",
-          file=sys.stderr)
     for site in sorted(SITES):
         for year in ("2017", "2018"):
             n = sum(1 for r in rows if r["Site"] == site and r["Year"] == year

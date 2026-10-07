@@ -118,3 +118,35 @@ next one exists. `sources.py` wraps the endpoints; the rule is to never retype a
 polyA mRNA whatever the organism, but the strategy field itself can lie: PRJNA1314945 is 306
 SLAF-seq genotyping runs all registered as RNA-Seq/cDNA/TRANSCRIPTOMIC, caught only by a
 DNA-assay word in the paper title. Organism is never decisive on its own.
+
+## Generated vs hand-written tables
+
+This cost real work on 2026-10-06: `papers.tsv` was hand-annotated with paper_refs, a status
+and a library_prep note, and a later `triage.py` run silently discarded all of it.
+
+    GENERATED, never hand-edit   runs.tsv  bioprojects.tsv  papers.tsv
+                                 paper_bioproject.tsv  offtarget.tsv  host_summary.tsv
+    HAND-WRITTEN, tracked in git curation.tsv  joins.tsv  provenance.tsv  found.tsv
+                                 decisions.tsv  _exclusions.py
+
+Anything worth keeping goes in a hand-written table. A fact about a paper goes in
+`provenance.tsv` or `found.tsv`, never in `papers.tsv`.
+
+`found.tsv` is also an INPUT: a row with `kind = bioproject` feeds `found_accessions()` and
+becomes a `cited` claim on the next rebuild. That is the designed way to tell the pipeline
+about an accession found while reading.
+
+**`relation = generated` is a human verdict and not ours to write.** `found_accessions()`
+deliberately emits `cited` only, because who produced a deposit is Leon's call; record the
+data-availability quote as evidence and leave the attribution to him.
+
+## Rebuilding after adding accessions
+
+    python 01a_Literature/triage.py --from-undermind --accessions PRJ... # NEVER --accessions alone
+    python 01a_Literature/import_provenance.py                          # restores import-* tier
+    python 01a_Literature/apply_curation.py                             # restores rule/join tiers
+
+`--accessions` without `--from-undermind` rebuilds the universe from that list plus the Kraken
+cohort only, dropping every literature-first candidate. Back up `runs.tsv` and
+`bioprojects.tsv` first: they are gitignored, so there is no git safety net. Then diff
+per-run values against the backup and confirm ZERO regressions before moving on.

@@ -1,0 +1,1020 @@
+bp	host	group	screened	infield	coinf
+PRJNA609706	Zea mays	cereal	107	0	0
+PRJNA1085269	Zea mays	cereal	91	0	0
+PRJEB50522	Triticum aestivum	cereal	81	0	4
+PRJNA484520	Triticum aestivum	cereal	63	0	19
+PRJNA509214	Triticum aestivum	cereal	55	0	0
+PRJNA1123450	Zea mays	cereal	54	0	0
+PRJNA731024	Triticum aestivum	cereal	48	0	0
+PRJNA1031678	Oryza sativa	cereal	40	0	17
+PRJEB26891	Oryza sativa	cereal	40	0	0
+PRJNA909570	Triticum aestivum	cereal	36	0	0
+PRJNA1237996	Triticum aestivum	cereal	36	0	0
+PRJNA1250817	Triticum aestivum	cereal	28	0	0
+PRJNA573599	Zea mays	cereal	26	0	1
+PRJNA250530	Zea mays	cereal	24	0	0
+PRJNA673988	Zea mays	cereal	24	0	0
+PRJNA646251	Oryza sativa	cereal	24	0	0
+PRJEB51980	Triticum aestivum	cereal	24	0	0
+PRJNA313195	Triticum aestivum	cereal	21	0	0
+PRJNA751374	Zea mays	cereal	21	0	0
+PRJNA450087	Triticum aestivum	cereal	21	0	1
+PRJNA918399	Triticum aestivum	cereal	21	0	0
+PRJNA1195871	Triticum aestivum	cereal	20	0	0
+PRJEB9304	Oryza sativa	cereal	20	0	0
+PRJNA395908	Zea mays	cereal	19	0	5
+PRJNA308408	Zea mays	cereal	18	0	0
+PRJNA1457771	Triticum aestivum	cereal	16	8	0
+PRJNA1455163	Oryza sativa	cereal	16	0	0
+PRJNA445615	Zea mays	cereal	15	0	0
+PRJNA838764	Triticum aestivum	cereal	14	0	1
+PRJNA1240218	Zea mays	cereal	14	0	0
+PRJNA861273	Triticum aestivum	cereal	14	0	0
+PRJNA415716	Triticum aestivum	cereal	14	0	0
+PRJNA529541	Zea mays	cereal	12	0	0
+PRJNA799676	Triticum aestivum	cereal	12	0	0
+PRJEB55233	Triticum aestivum	cereal	12	0	0
+PRJNA674747	Zea mays	cereal	12	0	0
+PRJNA914331	Triticum aestivum	cereal	12	0	0
+PRJNA311604	Zea mays	cereal	12	0	0
+PRJNA842823	Triticum aestivum	cereal	12	0	3
+PRJNA560644	Zea mays	cereal	11	0	1
+PRJNA1162778	Triticum aestivum	cereal	11	0	0
+PRJNA1273519	Oryza sativa	cereal	11	0	0
+PRJNA1156920	Zea mays	cereal	11	0	2
+PRJNA531693	Triticum turgidum	cereal	11	0	1
+PRJNA542779	Triticum aestivum	cereal	11	0	0
+PRJNA767817	Zea mays	cereal	11	0	0
+PRJDB19723	Oryza sativa Japonica Group	cereal	11	0	0
+PRJNA352342	Oryza sativa	cereal	10	0	10
+PRJEB49021	Triticum aestivum	cereal	10	0	0
+PRJNA472465	Zea mays	cereal	10	0	6
+PRJNA1423152	Triticum turgidum subsp. durum	cereal	10	0	3
+PRJNA757397	Zea mays	cereal	10	0	1
+PRJNA721951	Zea mays	cereal	10	0	0
+PRJNA1255829	Triticum aestivum	cereal	10	0	0
+PRJNA1112547	Oryza sativa Indica Group	cereal	10	0	0
+PRJEB79249	Triticum aestivum	cereal	10	0	0
+PRJNA483957	Triticum aestivum	cereal	10	0	0
+PRJNA1293538	Zea mays	cereal	9	0	5
+PRJNA876621	Zea mays	cereal	9	0	0
+PRJNA1287296	Triticum aestivum	cereal	9	0	0
+PRJNA514418	Triticum aestivum	cereal	9	0	6
+PRJNA1392009	Triticum aestivum	cereal	9	0	4
+PRJNA977839	Triticum turgidum subsp. durum	cereal	9	0	0
+PRJNA1073691	Oryza sativa	cereal	9	0	0
+PRJNA633940	Setaria italica	cereal	9	0	0
+PRJEB24686	Triticum aestivum	cereal	9	0	0
+PRJNA1113349	Zea mays	cereal	9	0	0
+PRJNA979257	Zea mays	cereal	9	0	0
+PRJNA540383	Triticum aestivum	cereal	8	0	3
+PRJEB5141	Zea mays	cereal	8	0	8
+PRJNA891124	Zea mays	cereal	8	0	2
+PRJNA771518	Zea mays	cereal	8	0	0
+PRJNA1101865	Zea mays	cereal	8	0	0
+PRJNA1314400	Oryza sativa	cereal	8	0	0
+PRJNA1221348	Triticum aestivum	cereal	8	0	0
+PRJNA632579	Triticum aestivum	cereal	8	0	0
+PRJNA869553	Oryza sativa Japonica Group	cereal	8	0	0
+PRJNA388142	Oryza sativa	cereal	7	0	0
+PRJNA776741	Triticum aestivum	cereal	7	0	6
+PRJNA780900	Triticum aestivum	cereal	7	0	6
+PRJNA834779	Triticum turgidum	cereal	7	0	5
+PRJNA630776	Triticum aestivum	cereal	7	0	5
+PRJNA1129295	Zea mays	cereal	7	0	0
+PRJNA786267	Triticum aestivum	cereal	7	0	0
+PRJNA1425155	Triticum turgidum subsp. dicoccum	cereal	7	0	0
+PRJNA1039328	Oryza sativa	cereal	7	0	0
+PRJNA905255	Triticum aestivum	cereal	6	0	3
+PRJNA655998	Zea mays	cereal	6	0	0
+PRJNA436064	Zea mays	cereal	6	0	0
+PRJNA675178	Zea mays	cereal	6	0	0
+PRJNA179498	Oryza sativa	cereal	6	0	0
+PRJNA418175	Oryza sativa	cereal	6	0	0
+PRJNA1043471	Zea mays	cereal	6	0	0
+PRJNA506360	Zea mays	cereal	6	0	0
+PRJNA306679	Zea mays	cereal	6	0	0
+PRJNA1347294	Oryza sativa	cereal	6	0	0
+PRJDB41276	Triticum aestivum	cereal	6	0	0
+PRJNA325291	Oryza sativa	cereal	6	0	0
+PRJNA1122186	Zea mays	cereal	6	0	0
+PRJNA1043087	Zea mays	cereal	6	0	0
+PRJNA1318025	Triticum aestivum	cereal	6	0	2
+PRJNA419139	Zea mays	cereal	6	0	4
+PRJDB39328	Oryza sativa	cereal	6	0	1
+PRJNA1156254	Triticum aestivum	cereal	6	0	1
+PRJNA1190367	Zea mays	cereal	6	0	0
+PRJNA1371123	Oryza sativa	cereal	6	0	0
+PRJNA938065	Zea mays	cereal	6	0	0
+PRJNA681568	Triticum aestivum	cereal	6	0	0
+PRJNA854090	Zea mays	cereal	6	0	0
+PRJNA613891	Zea mays	cereal	6	0	0
+PRJNA683746	Triticum aestivum	cereal	6	0	0
+PRJNA819267	Zea mays	cereal	6	0	0
+PRJNA1102319	Zea mays	cereal	6	0	0
+PRJNA1470446	Avena sativa	cereal	6	0	0
+PRJEB24521	Oryza sativa	cereal	6	0	0
+PRJNA1203410	Oryza sativa	cereal	6	0	0
+PRJNA739552	Oryza sativa	cereal	6	0	0
+PRJNA1136561	Zea mays	cereal	6	0	0
+PRJDB39595	Triticum aestivum	cereal	5	0	3
+PRJEB67960	Triticum aestivum	cereal	5	0	2
+PRJNA1189264	Oryza sativa	cereal	5	0	1
+PRJNA649398	Triticum aestivum	cereal	5	0	5
+PRJNA816710	Triticum aestivum	cereal	5	0	1
+PRJNA644654	Oryza sativa Japonica Group	cereal	5	0	0
+PRJNA804578	Triticum aestivum	cereal	5	0	0
+PRJNA597792	Oryza sativa	cereal	5	0	0
+PRJNA1445478	Triticum aestivum	cereal	5	0	0
+PRJNA793045	Zea mays	cereal	5	0	0
+PRJNA526380	Zea mays	cereal	5	0	0
+PRJNA1367956	Triticum turgidum	cereal	5	0	0
+PRJNA700975	Zea mays	cereal	4	0	4
+PRJNA1157721	Zea mays	cereal	4	0	1
+PRJNA534209	Triticum polonicum	cereal	4	0	2
+PRJNA972519	Triticum aestivum	cereal	4	0	1
+PRJNA843784	Zea mays	cereal	4	0	4
+PRJDB39419	Triticum aestivum	cereal	4	0	0
+PRJNA508768	Zea mays	cereal	4	0	0
+PRJNA530033	Zea mays subsp. mays	cereal	4	0	0
+PRJNA1203203	Avena sativa	cereal	4	0	0
+PRJDB37035	Oryza sativa	cereal	4	0	0
+PRJNA324305	Triticum aestivum	cereal	4	0	0
+PRJNA738872	Oryza sativa	cereal	4	0	0
+PRJNA431598	Zea mays	cereal	4	0	0
+PRJEB98125	Zea mays	cereal	4	0	0
+PRJNA423270	Zea mays	cereal	4	0	0
+PRJNA1479129	Triticum aestivum	cereal	4	0	0
+PRJNA811718	Oryza sativa	cereal	4	0	0
+PRJNA1265958	Triticum aestivum	cereal	4	0	0
+PRJNA742147	Zea mays	cereal	4	0	0
+PRJNA289545	Triticum aestivum	cereal	4	0	0
+PRJNA1103823	Triticum aestivum	cereal	4	0	0
+PRJNA1312333	Zea mays	cereal	4	0	0
+PRJNA1263823	Oryza sativa	cereal	4	0	0
+PRJNA764923	Oryza sativa	cereal	4	0	0
+PRJNA904271	Triticum aestivum	cereal	4	0	0
+PRJNA936832	Triticum aestivum	cereal	4	0	0
+PRJNA883377	Triticum aestivum	cereal	3	0	1
+PRJNA260080	Oryza sativa	cereal	3	0	0
+PRJNA245759	Oryza sativa	cereal	3	0	0
+PRJNA1188614	Sorghum bicolor	cereal	3	0	0
+PRJNA915611	Triticum aestivum	cereal	3	0	0
+PRJNA1187605	Zea mays	cereal	3	0	0
+PRJNA904717	Triticum aestivum	cereal	3	0	0
+PRJNA352824	Oryza sativa	cereal	3	0	0
+PRJNA574053	Oryza	cereal	3	0	0
+PRJNA870298	Triticum aestivum	cereal	3	0	0
+PRJNA1031822	Triticum aestivum	cereal	3	0	0
+PRJNA1017666	Triticum aestivum	cereal	3	0	0
+PRJNA527733	Zea mays	cereal	3	0	2
+PRJNA1065005	Zea mays	cereal	3	0	1
+PRJNA1335398	Oryza sativa	cereal	3	0	2
+PRJNA1370671	Oryza sativa	cereal	3	0	3
+PRJNA667277	Sorghum bicolor	cereal	3	0	3
+PRJNA577532	Triticum aestivum	cereal	3	0	3
+PRJNA1214325	Oryza sativa Japonica Group	cereal	3	0	2
+PRJNA975311	Zea mays	cereal	3	0	1
+PRJNA912078	Oryza sativa Indica Group	cereal	3	0	1
+PRJNA483762	Triticum aestivum	cereal	3	0	1
+PRJNA437324	Zea mays	cereal	3	0	1
+PRJNA1188982	Triticum aestivum	cereal	3	0	0
+PRJNA472447	Zea mays	cereal	3	0	0
+PRJNA1354973	Zea mays	cereal	3	0	0
+PRJNA491716	Zea mays	cereal	3	0	0
+PRJNA930136	Avena sativa	cereal	3	0	0
+PRJNA838787	Triticum aestivum	cereal	3	0	0
+PRJNA868217	Zea mays	cereal	3	0	0
+PRJNA936260	Oryza sativa	cereal	3	0	0
+PRJNA575690	Sorghum bicolor	cereal	3	0	0
+PRJNA957090	Triticum aestivum	cereal	3	0	0
+PRJNA623421	Triticum aestivum	cereal	3	0	0
+PRJNA906119	Triticum aestivum	cereal	3	0	0
+PRJNA1250220	Oryza sativa	cereal	3	0	0
+PRJNA1477694	Triticum aestivum	cereal	3	0	0
+PRJNA541959	Zea mays	cereal	3	0	0
+PRJNA782220	Triticum aestivum	cereal	3	0	0
+PRJNA1426573	Triticum aestivum	cereal	3	0	0
+PRJNA352773	Oryza sativa Japonica Group	cereal	3	0	0
+PRJNA415355	Zea mays	cereal	3	0	0
+PRJNA1468456	Triticum aestivum	cereal	3	0	0
+PRJNA1356531	Triticum aestivum	cereal	3	0	0
+PRJNA900521	Triticum aestivum	cereal	3	0	0
+PRJDB15953	Triticum aestivum	cereal	2	0	0
+PRJEB108982	Triticum aestivum	cereal	2	0	0
+PRJNA290690	Triticum aestivum	cereal	2	0	0
+PRJNA295929	Triticum aestivum	cereal	2	0	0
+PRJNA345005	Zea mays	cereal	2	0	0
+PRJNA1013391	Triticum aestivum	cereal	2	0	2
+PRJNA562779	Oryza sativa	cereal	2	0	1
+PRJNA762295	Oryza sativa	cereal	2	0	1
+PRJNA1103978	Oryza sativa	cereal	2	0	1
+PRJNA240676	Zea mays	cereal	2	0	2
+PRJNA759756	Triticum aestivum	cereal	2	0	2
+PRJNA1465031	Triticum aestivum	cereal	2	0	1
+PRJNA733882	Triticum aestivum	cereal	2	0	2
+PRJNA548845	Zea mays	cereal	2	0	1
+PRJNA1419210	Oryza sativa	cereal	2	0	2
+PRJNA1255403	Oryza sativa	cereal	2	0	1
+PRJNA1133704	Triticum aestivum	cereal	2	0	2
+PRJNA1390310	Triticum aestivum	cereal	2	0	1
+PRJNA395311	Oryza sativa	cereal	2	0	1
+PRJNA1106750	Triticum aestivum	cereal	2	0	1
+PRJNA1015022	Avena sativa	cereal	2	0	0
+PRJNA541994	Triticum aestivum	cereal	2	0	0
+PRJNA1326257	Oryza sativa	cereal	2	0	0
+PRJNA1135242	Oryza sativa Indica Group	cereal	2	0	0
+PRJNA772299	Zea mays	cereal	2	0	0
+PRJNA1142098	Oryza sativa	cereal	2	0	0
+PRJNA1276321	Triticum aestivum	cereal	2	0	0
+PRJNA358683	Oryza sativa Indica Group	cereal	2	0	0
+PRJNA1255857	Triticum aestivum	cereal	2	0	0
+PRJNA1402668	Oryza sativa	cereal	2	0	0
+PRJNA1073425	Triticum aestivum	cereal	2	0	0
+PRJDB42527	Triticum dicoccoides	cereal	2	0	0
+PRJNA485739	Triticum aestivum	cereal	2	0	0
+PRJNA294848	Zea mays	cereal	2	0	0
+PRJNA1242805	Zea mays	cereal	2	0	0
+PRJNA579047	Zea mays	cereal	2	0	0
+PRJNA1187339	Oryza sativa	cereal	2	0	0
+PRJNA596609	Avena sativa	cereal	2	0	0
+PRJEB55781	Triticum turgidum subsp. durum x Triticum dicoccoides	cereal	2	0	0
+PRJNA575568	Triticum aestivum	cereal	2	0	0
+PRJNA960823	Triticum aestivum	cereal	2	0	0
+PRJNA304266	Triticum polonicum	cereal	2	0	0
+PRJNA1251656	Oryza sativa Japonica Group	cereal	2	0	0
+PRJNA1088814	Oryza sativa	cereal	2	0	0
+PRJNA1337793	Triticum aestivum	cereal	2	0	0
+PRJNA1402980	Oryza sativa	cereal	2	0	0
+PRJNA265628	Zea mays	cereal	2	0	0
+PRJNA515933	Triticum aestivum	cereal	2	0	0
+PRJNA372579	Zea mays	cereal	1	0	0
+PRJNA372589	Zea mays	cereal	1	0	0
+PRJNA372582	Zea mays	cereal	1	0	0
+PRJNA372591	Zea mays	cereal	1	0	0
+PRJNA441049	Zea mays	cereal	1	0	0
+PRJNA372598	Zea mays	cereal	1	0	0
+PRJNA545805	Triticum aestivum	cereal	1	0	0
+PRJNA373361	Zea mays	cereal	1	0	0
+PRJNA372585	Zea mays	cereal	1	0	0
+PRJNA372580	Zea mays	cereal	1	0	0
+PRJNA373363	Zea mays	cereal	1	0	0
+PRJNA372593	Zea mays	cereal	1	0	0
+PRJNA372596	Zea mays	cereal	1	0	0
+PRJNA372576	Zea mays	cereal	1	0	0
+PRJNA372571	Zea mays	cereal	1	0	0
+PRJNA372584	Zea mays	cereal	1	0	0
+PRJNA372573	Zea mays	cereal	1	0	0
+PRJNA373360	Zea mays	cereal	1	0	0
+PRJNA373358	Zea mays	cereal	1	0	0
+PRJNA372578	Zea mays	cereal	1	0	0
+PRJNA372586	Zea mays	cereal	1	0	0
+PRJNA1111043	Triticum aestivum	cereal	1	0	0
+PRJNA372575	Zea mays	cereal	1	0	0
+PRJNA372595	Zea mays	cereal	1	0	0
+PRJNA1025922	Triticum aestivum	cereal	1	0	0
+PRJNA372592	Zea mays	cereal	1	0	0
+PRJNA373362	Zea mays	cereal	1	0	0
+PRJNA372597	Zea mays	cereal	1	0	0
+PRJNA372572	Zea mays	cereal	1	0	0
+PRJNA373359	Zea mays	cereal	1	0	0
+PRJNA372594	Zea mays	cereal	1	0	0
+PRJNA372588	Zea mays	cereal	1	0	0
+PRJNA372590	Zea mays	cereal	1	0	0
+PRJNA372577	Zea mays	cereal	1	0	0
+PRJNA372587	Zea mays	cereal	1	0	0
+PRJNA672111	Zea mays	cereal	1	0	0
+PRJNA373349	Zea mays	cereal	1	0	0
+PRJNA646633	Oryza sativa	cereal	1	0	0
+PRJNA373353	Zea mays	cereal	1	0	0
+PRJNA373354	Zea mays	cereal	1	0	0
+PRJNA373348	Zea mays	cereal	1	0	0
+PRJNA861388	Oryza sativa	cereal	1	0	0
+PRJNA373356	Zea mays	cereal	1	0	0
+PRJNA373186	Zea mays	cereal	1	0	0
+PRJNA373350	Zea mays	cereal	1	0	0
+PRJNA373355	Zea mays	cereal	1	0	0
+PRJNA373352	Zea mays	cereal	1	0	0
+PRJNA373346	Zea mays	cereal	1	0	0
+PRJNA1394492	Triticum aestivum	cereal	1	0	0
+PRJNA372583	Zea mays	cereal	1	0	0
+PRJNA372581	Zea mays	cereal	1	0	0
+PRJNA373364	Zea mays	cereal	1	0	0
+PRJNA373357	Zea mays	cereal	1	0	0
+PRJNA373351	Zea mays	cereal	1	0	0
+PRJNA373347	Zea mays	cereal	1	0	0
+PRJNA372570	Zea mays	cereal	1	0	0
+PRJNA373187	Zea mays	cereal	1	0	0
+PRJNA1124355	Zea mays	cereal	1	0	0
+PRJNA372374	Sorghum bicolor	cereal	1	0	1
+PRJNA258891	Zea mays	cereal	1	0	1
+PRJNA506746	Zea mays	cereal	1	0	1
+PRJNA689117	Zea mays	cereal	1	0	1
+PRJNA761500	Zea mays	cereal	1	0	1
+PRJNA986440	Zea mays	cereal	1	0	1
+PRJNA372372	Sorghum bicolor	cereal	1	0	1
+PRJNA798863	Zea mays	cereal	1	0	1
+PRJNA649099	Triticum aestivum	cereal	1	0	1
+PRJNA562045	Zea mays	cereal	1	0	1
+PRJNA562996	Oryza sativa	cereal	1	0	0
+PRJNA477253	Zea mays	cereal	1	0	0
+PRJNA810908	Avena sativa	cereal	1	0	0
+PRJNA794002	Avena sativa	cereal	1	0	0
+PRJNA1135931	Oryza sativa	cereal	1	0	0
+PRJNA819278	Zea mays	cereal	1	0	0
+PRJNA911470	Triticum aestivum	cereal	1	0	0
+PRJNA1038948	Zea mays	cereal	1	0	0
+PRJDB9607	Zea mays	cereal	1	0	0
+PRJDB36677	Zea mays	cereal	1	0	0
+PRJNA819072	Triticum aestivum	cereal	1	0	0
+PRJNA839510	Triticum aestivum	cereal	1	0	0
+PRJNA506031	Triticum aestivum	cereal	1	0	0
+PRJNA810958	Zea mays	cereal	1	0	0
+PRJDB13025	Triticum aestivum	cereal	1	0	0
+PRJNA1132728	Triticum aestivum	cereal	1	0	0
+PRJNA523972	Triticum aestivum	cereal	1	0	0
+PRJNA1147428	Triticum aestivum	cereal	1	0	0
+PRJNA1052939	Setaria italica	cereal	1	0	0
+PRJNA957941	Triticum aestivum	cereal	1	0	0
+PRJNA1038810	Zea mays	cereal	1	0	0
+PRJNA1286949	Triticum aestivum	cereal	1	0	0
+PRJNA780342	Triticum aestivum	cereal	1	0	0
+PRJNA1139870	Triticum aestivum	cereal	1	0	0
+PRJNA1038947	Zea mays	cereal	1	0	0
+PRJNA437780	Oryza sativa	cereal	1	0	0
+PRJNA1347427	Zea mays	cereal	1	0	0
+PRJNA553311	Triticum aestivum	cereal	1	0	0
+PRJNA956666	Zea mays	cereal	1	0	0
+PRJNA819211	Oryza sativa	cereal	1	0	0
+PRJNA1018308	Zea mays	cereal	1	0	0
+PRJNA265627	Zea mays	cereal	1	0	0
+PRJNA355905	Triticum aestivum	cereal	1	0	0
+PRJNA1405827	Oryza sativa	cereal	1	0	0
+PRJNA1160434	Triticum urartu	cereal	1	0	0
+PRJNA957932	Zea mays	cereal	1	0	0
+PRJNA698070	Zea mays subsp. parviglumis	cereal	1	0	0
+PRJNA528563	Triticum aestivum	cereal	1	0	0
+PRJNA980895	Zea mays	cereal	1	0	0
+PRJNA1417981	Oryza sativa	cereal	1	0	0
+PRJNA556349	Zea mays	cereal	1	0	0
+PRJNA836737	Triticum aestivum	cereal	1	0	0
+PRJNA1276679	Triticum aestivum	cereal	1	0	0
+PRJNA432496	Triticum aestivum	cereal	1	0	0
+PRJNA361024	Oryza sativa Japonica Group	cereal	1	0	0
+PRJNA1066067	Setaria italica	cereal	1	0	0
+PRJNA566021	Oryza sativa	cereal	1	0	0
+PRJNA907016	Zea mays	cereal	1	0	0
+PRJNA828454	Zea mays	cereal	1	0	0
+PRJNA545871	Setaria italica	cereal	1	0	0
+PRJNA935025	Zea mays	cereal	1	0	0
+PRJNA611672	Zea mays	cereal	1	0	0
+PRJNA470527	Triticum monococcum	cereal	1	0	0
+PRJNA988279	Oryza sativa	cereal	1	0	0
+PRJNA1014593	Oryza sativa	cereal	1	0	0
+PRJDB2278	Secale cereale	cereal	1	0	0
+PRJNA589993	Oryza sativa	cereal	1	0	0
+PRJNA548085	Sorghum bicolor	cereal	1	0	0
+PRJNA1038808	Zea mays	cereal	1	0	0
+PRJNA476679	Triticum dicoccoides	cereal	1	0	0
+PRJNA544386	Zea mays	cereal	1	0	0
+PRJNA937310	Triticum aestivum	cereal	1	0	0
+PRJNA476551	Oryza sativa	cereal	1	0	0
+PRJNA309643	Oryza sativa Japonica Group	cereal	1	0	0
+PRJEB86173	Zea mays	cereal	1	0	0
+PRJNA1211198	Triticum aestivum	cereal	1	0	0
+PRJNA1077452	Zea mays	cereal	1	0	0
+PRJNA371984	Zea mays	cereal	1	0	0
+PRJNA1240083	Oryza sativa	cereal	1	0	0
+PRJNA707066	Zea mays	cereal	1	0	0
+PRJNA1266229	Oryza sativa	cereal	1	0	0
+PRJNA1221773	Triticum turgidum	cereal	1	0	0
+PRJNA667164	Zea mays	cereal	1	0	0
+PRJNA1262333	Zea mays	cereal	1	0	0
+PRJNA1462132	Triticum dicoccoides	cereal	1	0	0
+PRJNA438132	Zea mays	cereal	1	0	0
+PRJNA1207602	Zea mays	cereal	1	0	0
+PRJNA980182	Oryza sativa Indica Group	cereal	1	0	0
+PRJNA576276	Triticum aestivum	cereal	1	0	0
+PRJDB5677	Oryza sativa Japonica Group	cereal	1	0	0
+PRJNA1031710	Triticum aestivum	cereal	1	0	0
+PRJNA347320		cereal?	31	0	0
+PRJNA588102	Gossypium hirsutum	cereal?	30	0	7
+PRJEB68334	Triticinae	cereal?	18	0	2
+PRJNA326901	Poaceae	cereal?	11	0	0
+PRJNA643593	Populus alba	cereal?	6	0	5
+PRJNA1315207	Triticinae	cereal?	6	0	2
+PRJNA803733	Quercus suber	cereal?	6	0	0
+PRJNA721009	Triticodae	cereal?	6	0	0
+PRJNA721132	Triticodae	cereal?	6	0	0
+PRJNA743515	Triticinae	cereal?	5	0	0
+PRJNA778051		cereal?	5	0	0
+PRJNA293594	Pooideae	cereal?	3	0	3
+PRJNA36323	Nicotiana attenuata	cereal?	3	0	1
+PRJNA393407		cereal?	3	0	2
+PRJNA643423	Cucumis sativus	cereal?	3	0	0
+PRJNA379426		cereal?	3	0	0
+PRJNA18535	Gunneridae	cereal?	2	0	0
+PRJNA613154		cereal?	2	0	0
+PRJEB13072	Arabidopsis lyrata	cereal?	1	0	1
+PRJNA971132	Malus domestica	cereal?	1	0	0
+PRJNA956133	Populus alba	cereal?	1	0	0
+PRJNA1389356	Asparagus officinalis	cereal?	1	0	0
+PRJNA441168		cereal?	1	0	0
+PRJNA906097	Heliantheae alliance	cereal?	1	0	0
+PRJNA320364		cereal?	1	0	0
+PRJNA1289099		cereal?	1	0	0
+PRJNA350867	Arabidopsis thaliana	cereal?	1	0	0
+PRJEB20582	Brachypodium distachyon	grass	30	0	4
+PRJEB45236	Aegilops tauschii subsp. tauschii	grass	28	0	12
+PRJDB8014	Brachypodium distachyon	grass	12	0	0
+PRJNA447872	Aegilops tauschii	grass	12	0	0
+PRJNA664705	Brachypodium distachyon	grass	10	0	0
+PRJNA768796	Aegilops tauschii subsp. tauschii	grass	9	0	5
+PRJNA605036	Aegilops tauschii subsp. tauschii	grass	9	0	6
+PRJNA694214	Aegilops tauschii subsp. tauschii	grass	9	0	0
+PRJNA609405	Aegilops tauschii subsp. tauschii	grass	8	0	7
+PRJNA1122550	Panicum virgatum	grass	7	0	0
+PRJNA542165	Aegilops tauschii subsp. tauschii	grass	6	0	3
+PRJNA237967	Brachypodium distachyon	grass	6	0	0
+PRJEB42393	Brachypodium distachyon	grass	6	0	0
+PRJNA700696	Brachypodium distachyon	grass	6	0	0
+PRJNA631873	Brachypodium distachyon	grass	3	0	0
+PRJNA698760	Aegilops tauschii subsp. tauschii	grass	3	0	0
+PRJNA299335	Lolium perenne	grass	3	0	0
+PRJEB44745	Eragrostis curvula	grass	3	0	0
+PRJNA1247987	Lolium perenne	grass	2	0	0
+PRJNA408463	Brachypodium distachyon	grass	1	0	0
+PRJNA441161	Brachypodium distachyon	grass	1	0	0
+PRJNA441165	Brachypodium distachyon	grass	1	0	0
+PRJNA441163	Brachypodium distachyon	grass	1	0	0
+PRJNA441175	Aegilops tauschii	grass	1	0	0
+PRJNA441170	Brachypodium distachyon	grass	1	0	0
+PRJNA441164	Brachypodium distachyon	grass	1	0	0
+PRJNA441157	Brachypodium distachyon	grass	1	0	0
+PRJNA441158	Brachypodium distachyon	grass	1	0	0
+PRJNA408465	Brachypodium distachyon	grass	1	0	0
+PRJNA441173	Aegilops tauschii subsp. tauschii	grass	1	0	0
+PRJNA441166	Brachypodium distachyon	grass	1	0	0
+PRJNA441169	Brachypodium distachyon	grass	1	0	0
+PRJNA408460	Brachypodium distachyon	grass	1	0	0
+PRJNA441176	Aegilops tauschii	grass	1	0	0
+PRJNA564465	Brachypodium distachyon	grass	1	0	0
+PRJNA441162	Brachypodium distachyon	grass	1	0	0
+PRJNA408470	Brachypodium distachyon	grass	1	0	0
+PRJNA408469	Brachypodium distachyon	grass	1	0	0
+PRJNA408459	Brachypodium distachyon	grass	1	0	0
+PRJNA408464	Brachypodium distachyon	grass	1	0	0
+PRJNA408471	Brachypodium distachyon	grass	1	0	0
+PRJNA408462	Brachypodium distachyon	grass	1	0	0
+PRJNA408461	Brachypodium distachyon	grass	1	0	0
+PRJNA441159	Brachypodium distachyon	grass	1	0	0
+PRJNA441174	Brachypodium distachyon	grass	1	0	0
+PRJNA441160	Brachypodium distachyon	grass	1	0	0
+PRJNA408529	Brachypodium distachyon	grass	1	0	0
+PRJNA441156	Brachypodium distachyon	grass	1	0	0
+PRJNA595343	Brachypodium distachyon	grass	1	0	0
+PRJNA408458	Brachypodium distachyon	grass	1	0	0
+PRJNA473829	Arabidopsis thaliana	other	559	0	0
+PRJNA1228670	Lactuca sativa	other	201	0	2
+PRJNA813432	Glycine max	other	144	0	0
+PRJNA804213	Lactuca sativa	other	99	0	0
+PRJNA926806		other	91	0	0
+PRJEB14966	Solanum tuberosum	other	70	0	0
+PRJNA1041741	Arabidopsis thaliana	other	65	0	0
+PRJNA1256908	Capsicum annuum	other	54	0	0
+PRJEB32362	eudicotyledons	other	54	0	0
+PRJNA1244880	Phaseolus vulgaris	other	48	0	9
+PRJNA687280	Cicer arietinum	other	46	0	20
+PRJNA1118412	Solanum lycopersicum	other	42	0	0
+PRJEB14623	Lactuca sativa	other	40	0	0
+PRJNA1063333	Ipomoea triloba	other	36	0	0
+PRJNA1338360	Daucus carota	other	34	0	0
+PRJEB88178	Arabidopsis thaliana	other	34	0	0
+PRJEB55600	Arabidopsis thaliana	other	33	0	0
+PRJNA670487	Heliantheae alliance	other	32	0	1
+PRJNA565800	Glycine max	other	32	0	0
+PRJNA670341		other	32	0	0
+PRJNA1203667	Solanum tuberosum	other	31	0	0
+PRJNA291119	Glycine max	other	30	0	0
+PRJNA1429803	Solanum tuberosum	other	30	0	0
+PRJNA662936	Solanum lycopersicum	other	30	0	0
+PRJNA944941	Phaseolus vulgaris	other	28	0	0
+PRJNA640476	Arabidopsis thaliana	other	28	0	0
+PRJNA1137604	Juglans regia	other	27	0	1
+PRJNA523226	Heliantheae alliance	other	26	0	0
+PRJNA315516	Arabidopsis thaliana	other	26	0	0
+PRJNA516028	Solanum lycopersicum	other	25	0	0
+PRJNA1092066	Lactuca sativa	other	24	0	20
+PRJNA591157	Euphyllophyta	other	24	0	0
+PRJNA874673	Arabidopsis thaliana	other	24	0	0
+PRJNA1247000	Cicer arietinum	other	24	0	0
+PRJNA1148379	Glycine max	other	24	0	0
+PRJNA1465640	Arabidopsis thaliana	other	24	0	0
+PRJNA1135933	Arabidopsis thaliana	other	24	0	0
+PRJNA357960	Gunneridae	other	23	0	0
+PRJEB20188	Malus domestica	other	22	0	0
+PRJNA1148437	Castanea mollissima	other	22	0	0
+PRJDB15139	Cucumis sativus	other	21	0	0
+PRJNA850943	Capsicum annuum	other	19	0	10
+PRJNA1195373	Gossypium hirsutum	other	19	0	0
+PRJNA148307	Arabidopsis thaliana	other	18	0	18
+PRJDB39409	Malus domestica	other	18	0	6
+PRJNA1107791	Arabidopsis thaliana	other	18	0	3
+PRJNA886106	Nicotiana tabacum	other	18	0	0
+PRJNA1158549	Arabidopsis thaliana	other	18	0	0
+PRJNA496584	Solanum lycopersicum	other	18	0	0
+PRJNA501892	Glycine max	other	18	0	0
+PRJNA630379	Malus domestica	other	18	0	0
+PRJNA1479505	Glycine max	other	18	0	0
+PRJNA1085399	Gossypium hirsutum	other	18	0	0
+PRJNA327437	Brassica napus	other	18	0	0
+PRJNA471709	Glycine max	other	18	0	0
+PRJNA1426910	Malus domestica	other	17	0	0
+PRJNA1089140	Nicotiana attenuata	other	17	0	0
+PRJNA1458989	Arabidopsis thaliana	other	17	0	13
+PRJNA761393	Cicer arietinum	other	17	0	15
+PRJNA1007488	Mangifera indica	other	16	0	0
+PRJNA1220327	Arabidopsis thaliana	other	16	0	0
+PRJNA1424250	Gossypium hirsutum	other	16	0	0
+PRJNA628162	Solanum lycopersicum	other	15	0	0
+PRJNA831271		other	15	0	0
+PRJNA705878	Arabidopsis thaliana	other	15	0	15
+PRJNA832802	Glycine max	other	15	0	0
+PRJNA1148435	Castanea mollissima	other	15	0	0
+PRJNA1272045	Solanum lycopersicum	other	14	0	0
+PRJEB30662	Solanum tuberosum	other	14	0	0
+PRJNA757692	Cicer arietinum	other	14	0	13
+PRJEB39308	Brassica napus	other	14	0	0
+PRJNA448328	Solanum lycopersicum	other	13	0	2
+PRJNA601749	Solanum lycopersicum	other	13	0	0
+PRJNA791897	Solanum lycopersicum	other	13	0	0
+PRJNA775969	Solanum lycopersicum	other	13	0	12
+PRJNA344473	Arabidopsis thaliana	other	13	0	6
+PRJEB107075	Arabidopsis thaliana	other	13	0	0
+PRJNA1017476	Solanum lycopersicum	other	12	0	1
+PRJNA435897	Cucumis sativus	other	12	0	3
+PRJNA383548	Fragaria vesca	other	12	0	3
+PRJEB46468	Solanum lycopersicum	other	12	0	0
+PRJNA832871	Glycine max	other	12	0	0
+PRJNA1044756	Glycine max	other	12	0	0
+PRJNA601001	Brassica napus	other	12	0	0
+PRJNA556310	Pooideae	other	12	0	0
+PRJNA1011491	Prunus persica	other	12	0	0
+PRJNA1173795	Nicotiana tabacum	other	12	0	0
+PRJNA336478	Vitis vinifera	other	12	0	0
+PRJNA556551	Euphyllophyta	other	12	0	0
+PRJNA636958	Arabidopsis thaliana	other	12	0	7
+PRJNA412801	Linum usitatissimum	other	12	0	5
+PRJNA477359	Arabidopsis thaliana	other	12	0	0
+PRJNA1148431	Castanea dentata	other	12	0	0
+PRJNA1108053	Gossypium hirsutum	other	12	0	0
+PRJNA1015113	Lactuca sativa	other	12	0	0
+PRJNA336471	Arabidopsis thaliana	other	12	0	0
+PRJNA261444	Lathyrus oleraceus	other	12	0	0
+PRJNA1143533	Tagetes erecta	other	12	0	0
+PRJNA1452953	Vitis vinifera	other	12	0	0
+PRJEB107162	Arabidopsis thaliana	other	12	0	0
+PRJNA956871	Glycine	other	11	0	0
+PRJNA1043184	Euphyllophyta	other	11	0	0
+PRJNA707596	Nicotiana tabacum	other	11	0	4
+PRJNA870250	Cicer arietinum	other	11	0	5
+PRJDB38984	Glycine max	other	11	0	0
+PRJNA396467	Glycine max	other	10	0	0
+PRJNA899438	Arabidopsis thaliana	other	10	0	0
+PRJNA1322505	Arabidopsis thaliana	other	10	0	0
+PRJNA896583	Arabidopsis thaliana	other	10	0	0
+PRJNA1426942	Chrysanthemum x morifolium	other	10	0	0
+PRJNA997093	Solanum lycopersicum	other	10	0	0
+PRJNA1245285	Arabidopsis thaliana	other	10	0	0
+PRJNA686475	Brassica rapa	other	9	0	4
+PRJNA574904	Prunus persica	other	9	0	9
+PRJNA808992	Physcomitrium patens	other	9	0	1
+PRJNA1248058	Capsicum annuum	other	9	0	7
+PRJNA797683	Malus domestica	other	9	0	5
+PRJNA171217	Nicotiana attenuata	other	9	0	1
+PRJNA841073	Solanum lycopersicum	other	9	0	0
+PRJNA407960	Solanum tuberosum	other	9	0	0
+PRJNA786373	Solanum tuberosum	other	9	0	0
+PRJNA1469971	Nicotiana tabacum	other	9	0	0
+PRJNA1101711	Malus domestica	other	9	0	0
+PRJNA713956	Capsicum annuum	other	9	0	0
+PRJNA938293	Salicaceae	other	9	0	0
+PRJNA1108353	Carya illinoinensis	other	9	0	0
+PRJNA473305	Brassica napus	other	9	0	0
+PRJNA380230	Solanum lycopersicum	other	9	0	0
+PRJNA1433507	Beta vulgaris	other	9	0	2
+PRJDB9515	Arabidopsis thaliana	other	9	0	4
+PRJNA819185	Gossypium hirsutum	other	9	0	4
+PRJNA762492	Pyrus pyrifolia	other	9	0	5
+PRJNA830457	Brassica napus	other	9	0	0
+PRJNA495475	Arabidopsis thaliana	other	9	0	0
+PRJNA679433	Nicotiana tabacum	other	9	0	0
+PRJNA717217	Arabidopsis thaliana	other	9	0	0
+PRJNA1018845	Brassica napus	other	9	0	0
+PRJNA338256	Asparagus officinalis	other	8	0	1
+PRJNA932210	Arabidopsis thaliana	other	8	0	0
+PRJNA844585	Glycine max	other	8	0	0
+PRJNA1328233	Solanum lycopersicum	other	8	0	0
+PRJNA387508	Vitis vinifera	other	8	0	0
+PRJNA604447	Solanum tuberosum	other	8	0	0
+PRJNA811762	Beta vulgaris	other	8	0	0
+PRJNA662919	Arabidopsis thaliana	other	8	0	5
+PRJNA1443087	Citrus trifoliata	other	8	0	1
+PRJNA1270936	Arabidopsis thaliana	other	8	0	0
+PRJNA907083	Glycine max	other	8	0	0
+PRJNA1101972	Brassica napus	other	8	0	0
+PRJNA987996	Arabidopsis thaliana	other	8	0	0
+PRJNA1400237	Glycine max	other	8	0	0
+PRJEB34899	Brassica napus	other	8	0	0
+PRJNA558612	Quercus suber	other	7	0	2
+PRJNA692809	Capsicum annuum	other	7	0	0
+PRJNA1465229	Chenopodium quinoa	other	7	0	0
+PRJNA1054045	Solanum lycopersicum	other	7	0	0
+PRJNA1332781	Gossypium barbadense	other	7	0	5
+PRJNA946259	Chrysanthemum x morifolium	other	7	0	4
+PRJNA1191549	Medicago sativa	other	7	0	3
+PRJNA302556	Panax ginseng	other	7	0	3
+PRJNA644406	Medicago sativa	other	7	0	0
+PRJNA1122595	Solanum lycopersicum	other	7	0	0
+PRJNA477556	Brassica napus	other	7	0	0
+PRJNA1139942	Camellia oleifera	other	7	0	0
+PRJNA853137	eudicotyledons	other	6	0	1
+PRJNA1207595	Capsicum annuum	other	6	0	6
+PRJNA811707	Rutaceae	other	6	0	5
+PRJNA1173477	Mangifera indica	other	6	0	3
+PRJNA747857	Hevea brasiliensis	other	6	0	6
+PRJNA254725	Brassica napus	other	6	0	6
+PRJNA1064071	Solanum lycopersicum	other	6	0	0
+PRJNA516496	Brassica napus	other	6	0	0
+PRJNA906117	Brassica napus	other	6	0	0
+PRJNA641217	Brassica napus	other	6	0	0
+PRJNA622764	rosids	other	6	0	0
+PRJNA935094	Rosa chinensis	other	6	0	0
+PRJNA1088402	Morus notabilis	other	6	0	0
+PRJNA473896	Glycine max	other	6	0	0
+PRJNA1029805	Citrus sinensis	other	6	0	0
+PRJNA383862	Solanum lycopersicum	other	6	0	0
+PRJNA307612	Populus trichocarpa	other	6	0	0
+PRJNA1082681	Camellia sinensis	other	6	0	0
+PRJNA358831	Solanum verrucosum	other	6	0	0
+PRJNA325493	Phaseolus vulgaris	other	6	0	0
+PRJNA296349	Solanum lycopersicum	other	6	0	0
+PRJNA892893	Nicotiana attenuata	other	6	0	0
+PRJNA1183799	Magnoliopsida	other	6	0	0
+PRJNA816480	Citrus sinensis	other	6	0	0
+PRJNA287818	Solanum tuberosum	other	6	0	0
+PRJNA1474261	Nicotiana tabacum	other	6	0	6
+PRJNA1366440	Trifolium pratense	other	6	0	4
+PRJNA791339	Solanum lycopersicum	other	6	0	6
+PRJNA1400105	Arabidopsis thaliana	other	6	0	6
+PRJNA901343	Nicotiana tabacum	other	6	0	3
+PRJNA870262	Solanum lycopersicum	other	6	0	5
+PRJNA1173312	Mangifera indica	other	6	0	3
+PRJNA896484	Chrysanthemum x morifolium	other	6	0	3
+PRJNA552611	Linum usitatissimum	other	6	0	2
+PRJNA795871	Musa acuminata AAA Group	other	6	0	0
+PRJNA755600	Solanum lycopersicum	other	6	0	0
+PRJNA1194215	Solanum lycopersicum	other	6	0	0
+PRJNA414570	Rosa hybrid cultivar	other	6	0	0
+PRJNA1177658	Arabidopsis thaliana	other	6	0	0
+PRJNA1069975	Solanum lycopersicum	other	6	0	0
+PRJEB37046	Arabidopsis thaliana	other	6	0	0
+PRJDB38457	Solanum tuberosum	other	6	0	0
+PRJNA1475870	Helianthus annuus	other	6	0	0
+PRJNA1390436	Arabidopsis thaliana	other	6	0	0
+PRJNA1434284	Olea europaea subsp. europaea	other	6	0	0
+PRJNA256033	Olea europaea	other	6	0	0
+PRJNA607858	Arabidopsis thaliana	other	6	0	0
+PRJNA524268	Musa acuminata	other	6	0	0
+PRJNA1464005	Camellia oleifera	other	6	0	0
+PRJEB47779	Brassica napus	other	6	0	0
+PRJDB9318	Nicotiana benthamiana	other	6	0	0
+PRJNA1108929	Solanum lycopersicum	other	6	0	0
+PRJNA1036172	Arabidopsis thaliana	other	6	0	0
+PRJNA276444	Arabidopsis thaliana	other	6	0	0
+PRJNA757130	Arabidopsis thaliana	other	6	0	0
+PRJNA1182403	Malus domestica	other	6	0	0
+PRJNA418121	Arabidopsis thaliana	other	6	0	0
+PRJNA1177454	Solanum lycopersicum	other	6	0	0
+PRJNA1193267	Solanum lycopersicum	other	6	0	0
+PRJNA1110392	Malus domestica	other	5	0	1
+PRJNA532644	Citrus sinensis	other	5	0	0
+PRJNA565562	Solaneae	other	5	0	0
+PRJNA985902		other	5	0	0
+PRJNA1108966	Castanea sativa	other	5	0	1
+PRJDB33989	Mangifera indica	other	5	0	4
+PRJNA1354640	Fragaria x ananassa	other	5	0	2
+PRJNA681878	Cunninghamia lanceolata	other	5	0	2
+PRJNA714375	Nicotiana tabacum	other	5	0	5
+PRJNA1309984	Arachis hypogaea	other	5	0	3
+PRJNA509606	Solanum lycopersicum	other	5	0	1
+PRJNA789389	Glycine max	other	5	0	0
+PRJNA505650	Solanum lycopersicum	other	5	0	0
+PRJNA766564	Brassica napus	other	5	0	0
+PRJNA1414443	Arabidopsis thaliana	other	5	0	0
+PRJNA808232	Lactuca sativa	other	5	0	0
+PRJNA360515	Cicer arietinum	other	5	0	0
+PRJEB21223	Solanum lycopersicum	other	5	0	0
+PRJNA641462	Brassica napus	other	5	0	0
+PRJNA550997	Vitis riparia	other	5	0	0
+PRJNA1160431	Glycine max	other	5	0	0
+PRJNA253086	Malus domestica	other	4	0	2
+PRJNA382499	Arabidopsis thaliana	other	4	0	1
+PRJNA1083222	Glycine max	other	4	0	0
+PRJNA1123478		other	4	0	0
+PRJNA1367782	Raphanus sativus	other	4	0	0
+PRJNA177586	Citrus sinensis	other	4	0	0
+PRJNA371695	Medicago truncatula	other	4	0	0
+PRJDB13303		other	4	0	0
+PRJNA419480	Medicago truncatula	other	4	0	0
+PRJNA169154	Nicotiana sylvestris	other	4	0	0
+PRJNA1435232	Lactuca sativa	other	4	0	0
+PRJNA1499897	Nicotiana tabacum	other	4	0	0
+PRJNA1140405	Vitis vinifera	other	4	0	0
+PRJNA1244272	Gossypium hirsutum	other	4	0	4
+PRJDB5533	Brassica rapa subsp. pekinensis	other	4	0	0
+PRJNA1120176	Gossypium hirsutum	other	4	0	0
+PRJNA869950	Glycine max	other	4	0	0
+PRJNA759653	Brassica napus	other	4	0	0
+PRJNA938603	Malus domestica	other	4	0	0
+PRJNA1216614	Solanum pimpinellifolium	other	4	0	0
+PRJDB34659	Solanum tuberosum	other	4	0	0
+PRJNA1079030	Brassica napus	other	4	0	0
+PRJNA1294153	Arabidopsis thaliana	other	4	0	0
+PRJNA841031	Lactuca sativa	other	4	0	0
+PRJNA740181	Arabidopsis thaliana	other	4	0	0
+PRJNA1215988	Solanum lycopersicum	other	4	0	0
+PRJNA782344	Medicago sativa	other	4	0	0
+PRJNA739851	Arabidopsis thaliana	other	4	0	0
+PRJNA960915	Medicago sativa subsp. falcata	other	4	0	0
+PRJNA329199	Solanum lycopersicum	other	4	0	0
+PRJNA490074	Arabidopsis thaliana	other	4	0	0
+PRJNA168272	Solanum pennellii	other	3	0	2
+PRJNA716464	Daucus carota subsp. sativus	other	3	0	2
+PRJNA323552	Musa acuminata	other	3	0	0
+PRJNA1454804	Populus trichocarpa	other	3	0	0
+PRJNA787799	Vitis vinifera	other	3	0	0
+PRJNA1467209	Camellia sinensis	other	3	0	0
+PRJNA706547	Panicum hallii	other	3	0	0
+PRJNA1003258		other	3	0	0
+PRJNA1495917	Camellia sinensis	other	3	0	0
+PRJNA245071		other	3	0	0
+PRJNA1246341	Morus notabilis	other	3	0	0
+PRJNA1216589	Juglans regia	other	3	0	0
+PRJEB11304	Brassica napus	other	3	0	0
+PRJNA1452279	Camellia sinensis	other	3	0	0
+PRJNA739093	asterids	other	3	0	0
+PRJNA392846	eudicotyledons	other	3	0	0
+PRJNA1111437	Nicotiana attenuata	other	3	0	0
+PRJNA391093	Solanum tuberosum	other	3	0	0
+PRJNA637660	Camellia sinensis	other	3	0	0
+PRJNA839570	eudicotyledons	other	3	0	0
+PRJNA660623	Solanum tuberosum	other	3	0	0
+PRJNA1011022	Euphyllophyta	other	3	0	0
+PRJDB38620	Gossypium barbadense	other	3	0	3
+PRJNA1402133	Nicotiana tabacum	other	3	0	2
+PRJNA1431145	Citrus x paradisi	other	3	0	3
+PRJNA589754	Phaseolus vulgaris	other	3	0	3
+PRJNA1475220	Cucumis sativus	other	3	0	3
+PRJNA1397330	Camellia sinensis	other	3	0	1
+PRJNA706136	Brassica oleracea	other	3	0	3
+PRJNA1193783	Cucumis sativus	other	3	0	2
+PRJNA863072	Vitis vinifera	other	3	0	3
+PRJNA926886	Chrysanthemum x morifolium	other	3	0	1
+PRJNA834642	Malus domestica	other	3	0	3
+PRJDB39569	Citrullus lanatus	other	3	0	2
+PRJNA986958	Arabidopsis thaliana	other	3	0	1
+PRJNA755474	Arabidopsis thaliana	other	3	0	0
+PRJNA733070	Cucumis melo	other	3	0	0
+PRJNA265955	Gossypium hirsutum	other	3	0	0
+PRJNA1203349	Fragaria x ananassa	other	3	0	0
+PRJNA1015548	Arabidopsis thaliana	other	3	0	0
+PRJNA1417095	Fragaria x ananassa	other	3	0	0
+PRJNA824616	Glycine max	other	3	0	0
+PRJNA331148	Brassica napus	other	3	0	0
+PRJNA471157	Brassica napus	other	3	0	0
+PRJNA339424	Solanum lycopersicum	other	3	0	0
+PRJNA689677	Camellia sinensis	other	3	0	0
+PRJNA893261	Prunus avium	other	3	0	0
+PRJNA578698	Chenopodium quinoa	other	3	0	0
+PRJNA1152285	Glycine max	other	3	0	0
+PRJNA1475882	Nicotiana tabacum	other	3	0	0
+PRJNA1462868	Malus domestica	other	3	0	0
+PRJEB64683	Solanum tuberosum	other	3	0	0
+PRJNA432224	Linum usitatissimum	other	3	0	0
+PRJNA1460992	Pyrus pyrifolia	other	3	0	0
+PRJNA841838	Olea europaea	other	3	0	0
+PRJNA1137117	Camellia oleifera	other	3	0	0
+PRJNA1274172	Citrus reticulata	other	3	0	0
+PRJNA916485	Gossypium hirsutum	other	3	0	0
+PRJNA850847	Nicotiana tabacum	other	3	0	0
+PRJNA378698	Vitis vinifera	other	3	0	0
+PRJNA1029904	Citrus sinensis	other	3	0	0
+PRJNA757744	Glycine max	other	3	0	0
+PRJNA787080	Beta vulgaris subsp. vulgaris	other	3	0	0
+PRJDB38806	Gossypium hirsutum	other	3	0	0
+PRJNA932159		other	2	0	1
+PRJNA477716	Arabidopsis thaliana	other	2	0	0
+PRJNA1100184	Phaseolus vulgaris	other	2	0	0
+PRJDB19364	Oryzoideae	other	2	0	0
+PRJNA637940	Brassica	other	2	0	0
+PRJNA896582	Arabidopsis thaliana	other	2	0	0
+PRJNA490563		other	2	0	0
+PRJNA854212	Capsicum annuum	other	2	0	0
+PRJNA938757		other	2	0	0
+PRJNA296778	Brassica napus	other	2	0	0
+PRJNA552738	Phaseolus vulgaris	other	2	0	0
+PRJNA669466		other	2	0	0
+PRJEB19257	Malus domestica	other	2	0	0
+PRJNA1018533	Cucumis melo	other	2	0	0
+PRJNA979975	Musa acuminata	other	2	0	0
+PRJNA516233	eudicotyledons	other	2	0	0
+PRJNA951524	Chenopodium quinoa	other	2	0	0
+PRJDB18332	Musa acuminata	other	2	0	0
+PRJEB75479		other	2	0	0
+PRJNA607790		other	2	0	0
+PRJEB9490	Nicotiana tabacum	other	2	0	0
+PRJNA606340	rosids	other	2	0	0
+PRJNA605966	Rosa chinensis	other	2	0	0
+PRJNA977635	Gossypium barbadense	other	2	0	2
+PRJNA641525	Citrullus lanatus	other	2	0	1
+PRJNA574559	Solanum tuberosum	other	2	0	2
+PRJNA384934	Arabidopsis thaliana	other	2	0	2
+PRJNA593073	Arabidopsis thaliana	other	2	0	2
+PRJNA1092346	Arachis hypogaea	other	2	0	2
+PRJNA1471993	Gerbera hybrid cultivar	other	2	0	1
+PRJNA1306308	Capsicum annuum	other	2	0	1
+PRJNA842515	Cucumis melo	other	2	0	1
+PRJNA515188	Solanum lycopersicum	other	2	0	2
+PRJNA1054220	Glycine max	other	2	0	1
+PRJNA986524	Brassica napus	other	2	0	1
+PRJNA1058883	Stylosanthes guianensis	other	2	0	1
+PRJNA695871	Solanum lycopersicum	other	2	0	0
+PRJNA1265690	Arabidopsis thaliana	other	2	0	0
+PRJNA893349	Solanum microdontum	other	2	0	0
+PRJDB13419	Arabidopsis thaliana	other	2	0	0
+PRJNA808784	Arabidopsis thaliana	other	2	0	0
+PRJNA847036	Brassica napus	other	2	0	0
+PRJNA833784	Medicago sativa	other	2	0	0
+PRJNA151401	Arabidopsis thaliana	other	2	0	0
+PRJNA791784	Brassica napus	other	2	0	0
+PRJNA407898	Solanum lycopersicum	other	2	0	0
+PRJDB36401	Gossypium hirsutum	other	2	0	0
+PRJNA322439	Musa acuminata	other	2	0	0
+PRJNA700112	Lilium hybrid cultivar	other	2	0	0
+PRJNA1197544	Brassica napus	other	2	0	0
+PRJNA641330	Glycine max	other	2	0	0
+PRJNA1158526	Arachis hypogaea	other	2	0	0
+PRJNA419281	Lilium pumilum	other	2	0	0
+PRJDB12449	Arabidopsis thaliana	other	2	0	0
+PRJNA231064	Arabidopsis thaliana	other	2	0	0
+PRJNA477791	Ziziphus jujuba	other	2	0	0
+PRJNA646588	Solanum tuberosum	other	2	0	0
+PRJNA868504	Brassica rapa	other	2	0	0
+PRJNA744887	Solanum tuberosum	other	2	0	0
+PRJDB36112	Arachis hypogaea	other	2	0	0
+PRJNA574764	Glycine max	other	2	0	0
+PRJNA859548	Medicago sativa	other	2	0	0
+PRJNA384626	Medicago truncatula	other	2	0	0
+PRJNA589748	Solanum tuberosum	other	2	0	0
+PRJNA307634	Litchi chinensis	other	2	0	0
+PRJNA692674	Glycine max	other	2	0	0
+PRJNA391024	Solanum lycopersicum	other	2	0	0
+PRJNA629966	Citrus sinensis	other	2	0	0
+PRJNA745147	Panax ginseng	other	2	0	0
+PRJNA533801	Vitis	other	2	0	0
+PRJNA531386	Cucurbiteae	other	1	0	1
+PRJNA1196143		other	1	0	1
+PRJNA283526	Arabidopsis thaliana	other	1	0	1
+PRJNA1491631		other	1	0	1
+PRJNA389503	Cucumis sativus	other	1	0	0
+PRJNA764665	Solaneae	other	1	0	0
+PRJNA1255445		other	1	0	0
+PRJNA1381266	Vitis vinifera	other	1	0	0
+PRJNA1139047		other	1	0	0
+PRJDB42575	Solanum lycopersicum	other	1	0	0
+PRJNA916092	Brassica napus	other	1	0	0
+PRJNA1498604	Malus domestica	other	1	0	0
+PRJNA833778	Gossypium hirsutum	other	1	0	0
+PRJNA492254	Citrus sinensis	other	1	0	0
+PRJNA809650	rosids	other	1	0	0
+PRJNA610657		other	1	0	0
+PRJNA975738		other	1	0	0
+PRJNA789725	Solanum lycopersicum	other	1	0	0
+PRJEB46991		other	1	0	0
+PRJNA774504	eudicotyledons	other	1	0	0
+PRJNA819263	Solanum tuberosum	other	1	0	0
+PRJNA278013	Gossypium hirsutum	other	1	0	0
+PRJNA230463	Vitis vinifera	other	1	0	0
+PRJNA1110723	environmental samples	other	1	0	0
+PRJNA764088	Solanum tuberosum	other	1	0	0
+PRJNA810452		other	1	0	0
+PRJNA1205778		other	1	0	0
+PRJNA877037	Solanum lycopersicum	other	1	0	0
+PRJNA202292	Solanum lycopersicum	other	1	0	0
+PRJNA1121488	Cucumis melo	other	1	0	0
+PRJNA234029	Vitis vinifera	other	1	0	0
+PRJNA929181		other	1	0	0
+PRJNA552379	Rosa chinensis	other	1	0	0
+PRJNA731618	Jatropha curcas	other	1	0	0
+PRJNA304618	Citrus sinensis	other	1	0	0
+PRJNA279922	Solanales	other	1	0	0
+PRJNA318835	Citrus sinensis	other	1	0	0
+PRJNA381081		other	1	0	0
+PRJNA748207	Capsicum annuum	other	1	0	0
+PRJNA1422174		other	1	0	0
+PRJNA398030	Gunneridae	other	1	0	0
+PRJNA576432	Helianthus annuus	other	1	0	0
+PRJNA1475403	fabids	other	1	0	0
+PRJNA1331714	Solanum lycopersicum	other	1	0	0
+PRJNA861798	Capsicum annuum	other	1	0	0
+PRJNA911975	Physcomitrium patens	other	1	0	0
+PRJNA807078	Solanum lycopersicum	other	1	0	0
+PRJNA1158682	Brassica napus	other	1	0	0
+PRJNA1170257	eudicotyledons	other	1	0	0
+PRJNA910466	Ipomoea triloba	other	1	0	0
+PRJNA487146	Solanum lycopersicum	other	1	0	0
+PRJDB10741	Euphyllophyta	other	1	0	0
+PRJNA1290658	Lactuca sativa	other	1	0	0
+PRJNA802714	Euphyllophyta	other	1	0	0
+PRJNA271201		other	1	0	0
+PRJNA530979		other	1	0	0
+PRJNA1174433	Phaseolus vulgaris	other	1	0	0
+PRJNA996293		other	1	0	0
+PRJDB16961	Vigna unguiculata	other	1	0	0
+PRJNA977407	Cunninghamia lanceolata	other	1	0	1
+PRJNA692305	Linum usitatissimum	other	1	0	1
+PRJNA1305415	Linum usitatissimum	other	1	0	1
+PRJNA763773	Lilium brownii	other	1	0	1
+PRJNA911587	Manihot esculenta	other	1	0	1
+PRJNA514200	Glycine max	other	1	0	1
+PRJNA707414	Solanum lycopersicum	other	1	0	1
+PRJNA1056156	Lilium brownii var. viridulum	other	1	0	1
+PRJNA720576	Malus domestica	other	1	0	1
+PRJNA548392	Brassica oleracea var. capitata	other	1	0	1
+PRJNA598331	Arabidopsis thaliana	other	1	0	1
+PRJDB11138	Glycine max	other	1	0	1
+PRJNA246444	Cicer arietinum	other	1	0	1
+PRJNA531296	Medicago sativa	other	1	0	0
+PRJNA1290040	Brassica rapa	other	1	0	0
+PRJNA293283	Cucumis sativus	other	1	0	0
+PRJNA714266	Malus domestica	other	1	0	0
+PRJNA471653	Populus x canadensis	other	1	0	0
+PRJNA884711	Musa acuminata	other	1	0	0
+PRJNA998000	Brassica napus	other	1	0	0
+PRJNA1094674	Nicotiana tabacum	other	1	0	0
+PRJNA1219206	Arachis hypogaea	other	1	0	0
+PRJNA509070	Arabidopsis thaliana	other	1	0	0
+PRJNA836253	Solanum tuberosum	other	1	0	0
+PRJNA432638	Arabidopsis thaliana	other	1	0	0
+PRJNA688902	Helianthus annuus	other	1	0	0
+PRJEB23306	Solanum tuberosum	other	1	0	0
+PRJNA1478021	Solanum tuberosum	other	1	0	0
+PRJNA549565	Malus domestica	other	1	0	0
+PRJNA1264741	Nicotiana tabacum	other	1	0	0
+PRJNA1416783	Prunus avium	other	1	0	0
+PRJNA376551	Glycine max	other	1	0	0
+PRJDB39205	Solanum melongena	other	1	0	0
+PRJNA1006160	Glycine max	other	1	0	0
+PRJDB39299	Panax notoginseng	other	1	0	0
+PRJNA1222764	Prunus domestica	other	1	0	0
+PRJNA892450	Ipomoea batatas	other	1	0	0
+PRJNA701852	Medicago truncatula	other	1	0	0
+PRJNA1143388	Lilium brownii var. viridulum	other	1	0	0
+PRJNA665613	Acer truncatum	other	1	0	0
+PRJNA976954	Prunus persica	other	1	0	0
+PRJNA730711	Arabidopsis thaliana	other	1	0	0
+PRJNA1039520	Arabidopsis thaliana	other	1	0	0
+PRJNA649944	Camellia sinensis	other	1	0	0
+PRJNA176022	Lactuca sativa	other	1	0	0
+PRJNA539945	Linum usitatissimum	other	1	0	0
+PRJNA279009	Phaseolus vulgaris	other	1	0	0
+PRJNA1006415	Glycine max	other	1	0	0
+PRJEB88172	Arabidopsis thaliana	other	1	0	0
+PRJNA1374450	Nicotiana benthamiana	other	1	0	0
+PRJNA716122	Pyrus communis	other	1	0	0
+PRJNA391797	Pyrus communis	other	1	0	0
+PRJNA858969	Nicotiana benthamiana	other	1	0	0
+PRJNA1010139	Gerbera jamesonii	other	1	0	0
+PRJNA998097	Brassica rapa subsp. chinensis	other	1	0	0
+PRJNA1128586	Solanum lycopersicum	other	1	0	0
+PRJNA695320	Solanum lycopersicum	other	1	0	0
+PRJNA477951	Vitis vinifera	other	1	0	0
+PRJNA839539	Gossypium barbadense	other	1	0	0
+PRJNA1018253	Lactuca sativa	other	1	0	0
+PRJNA625627	Lens culinaris	other	1	0	0
+PRJEB34944	Solanum tuberosum	other	1	0	0
+PRJNA1088419	Vitis vinifera	other	1	0	0
+PRJNA563868	Arabidopsis thaliana	other	1	0	0
+PRJNA715088	Fragaria x ananassa	other	1	0	0
+PRJNA776278	Arabidopsis thaliana	other	1	0	0
+PRJNA294128	Cunninghamia lanceolata	other	1	0	0
+PRJNA349155	Musa acuminata AAA Group	other	1	0	0
+PRJNA887919	Glycine max	other	1	0	0
+PRJNA778182	Nicotiana benthamiana	other	1	0	0
+PRJNA504749	Linum usitatissimum	other	1	0	0
+PRJNA971242	Theobroma cacao	other	1	0	0
+PRJNA378602	Olea europaea	other	1	0	0
+PRJNA450305	Medicago sativa	other	1	0	0
+PRJNA1008994	Arachis hypogaea	other	1	0	0
+PRJNA1218812	Nicotiana benthamiana	other	1	0	0

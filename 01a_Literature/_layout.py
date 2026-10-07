@@ -48,6 +48,12 @@ SILVER = DATA / "silver"
 GOLD = DATA / "gold"
 STUDIES = MODULE / "studies"
 
+# 02_literature already downloaded and cached the full text of 711 papers (40 MB, keyed by
+# DOI) while mining supplements for the Kraken cohort. It covers 80 of the 81 STAT-frame
+# cereal projects, so for that frame it is the FIRST place to look, ahead of Europe PMC.
+TEXT_CACHE = ROOT / "02_literature/02_text/data/text_cache.jsonl"
+MANUAL_PDFS = ROOT / "02_literature/02_text/data/manual_pdfs"
+
 # --- bronze: external captures, one file per accession ----------------------------
 RUNINFO = BRONZE / "runinfo"
 BIOSAMPLE = BRONZE / "biosample_attrs"

@@ -11,6 +11,8 @@ as a step somebody remembers.
 
 Subcommands, in the order a project usually needs them:
 
+    cached   DOI                    file the full text 02_literature already downloaded
+    grep     DOI|path  PATTERN      contexts around a regex in a filed paper
     bioproject PRJNAxxxxxx [...]      the submitters' own description, GEO id and PMIDs
     papers   PRJNAxxxxxx            which papers name this accession
     fulltext PMCID                  fetch the full text, file it, list its sections
@@ -53,7 +55,7 @@ from pathlib import Path
 _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
-from _layout import BIOPROJECT_XML, ENA, GEO, MODULE, STUDIES
+from _layout import BIOPROJECT_XML, ENA, GEO, MODULE, STUDIES, TEXT_CACHE
 
 EPMC = "https://www.ebi.ac.uk/europepmc/webservices/rest"
 
@@ -179,6 +181,70 @@ def cmd_geo(gse: str) -> None:
             print(f"  {k:<22} {len(c)} distinct, top: {top}")
 
 
+def _cache_index() -> dict:
+    """{doi -> record} from 02_literature's text cache. Lines are `doi<TAB>json`."""
+    out = {}
+    if not TEXT_CACHE.exists():
+        return out
+    with TEXT_CACHE.open(encoding="utf-8", errors="replace") as fh:
+        for line in fh:
+            if "\t" not in line:
+                continue
+            doi, js = line.split("\t", 1)
+            try:
+                out[doi.strip().lower()] = json.loads(js)
+            except ValueError:
+                continue
+    return out
+
+
+def cmd_cached(doi: str) -> None:
+    """File a paper's full text from 02_literature's cache instead of refetching it.
+
+    `02_literature/02_text/data/text_cache.jsonl` holds 711 full texts keyed by DOI, built
+    while mining supplements for the Kraken cohort. It covers 80 of the 81 STAT-frame cereal
+    projects, so for anything that came in through that frame this is the first thing to try:
+    no network, no rate limit, and the paper is already on disk.
+
+    The cached text is PLAIN TEXT extracted from a PDF or from Europe PMC, not JATS XML, so
+    `sections` cannot split it on <title>. Use `grep` on the filed file instead.
+    """
+    rec = _cache_index().get(doi.strip().lower())
+    if rec is None:
+        sys.exit(f"REFUSED: {doi} is not in the cache. Try `sources.py papers` / `fulltext`.")
+    txt = (rec.get("full_text") or "").strip()
+    if not txt:
+        sys.exit(f"REFUSED: {doi} is cached but empty "
+                 f"(oa_status={rec.get('oa_status')}, error={rec.get('error')})")
+    out = STUDIES / ("doi_" + doi.replace("/", "_"))
+    out.mkdir(parents=True, exist_ok=True)
+    f = out / f"{doi.split('/')[-1]}_cachedtext.txt"
+    f.write_text(txt)
+    print(f"{doi}  {len(txt):,} chars  oa={rec.get('oa_status')}  "
+          f"src={rec.get('pdf_url') or '?'}  -> {f.relative_to(MODULE)}")
+    cmd_scan(str(f))
+
+
+def cmd_grep(arg: str, pattern: str, width: str = "260", hits: str = "3") -> None:
+    """Contexts around a regex in a filed paper. Works on cached plain text and on JATS XML.
+
+    The replacement for `sections` when the text has no markup, and the honest tool for
+    checking a single claim: it shows the sentence a curated value will rest on.
+    """
+    width, hits = int(width), int(hits)
+    text, _ = resolve(arg)
+    t = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", text))
+    rx = re.compile(pattern, re.I)
+    n = 0
+    for m in rx.finditer(t):
+        print(f"  ...{t[max(0, m.start() - width):m.start() + width].strip()}\n")
+        n += 1
+        if n >= hits:
+            break
+    if not n:
+        print(f"  (no match for {pattern!r})")
+
+
 def cmd_bioproject(*accs: str) -> None:
     """The NCBI BioProject records for one or more accessions, as title/GEO/PMIDs/description.
 
@@ -256,7 +322,7 @@ def cmd_ena(acc: str) -> None:
 
 CMDS = {"papers": (cmd_papers, 1), "fulltext": (cmd_fulltext, 1), "sections": (cmd_sections, 2),
         "scan": (cmd_scan, 1), "geo": (cmd_geo, 1), "ena": (cmd_ena, 1),
-        "bioproject": (cmd_bioproject, 1)}
+        "bioproject": (cmd_bioproject, 1), "cached": (cmd_cached, 1), "grep": (cmd_grep, 2)}
 
 if __name__ == "__main__":
     if len(sys.argv) < 2 or sys.argv[1] not in CMDS:

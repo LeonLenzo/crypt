@@ -103,6 +103,25 @@ DNA_ASSAY_WORDS = [
 ]
 
 
+# Library types that ARE RNA but are size-selected away from mRNA, so they cannot carry
+# fungal mRNA at useful depth. PRJNA767817 is why this exists alongside the DNA guard: its
+# paper says "Altogether, 36 miRNA libraries were made with kernel samples", and all 54 runs
+# are registered library_strategy RNA-Seq. The SMALL_RNA strategy set below never saw them.
+SMALL_RNA_WORDS = [
+    "mirna", "micro rna", "microrna", "small rna", "srna-seq", "small-rna",
+    "degradome", "pare-seq", "ribosome profiling", "ribo-seq",
+]
+
+
+def small_rna_hint(*texts: str) -> str:
+    """Return the first small-RNA word found in any of these strings, or ''."""
+    blob = " ".join((t or "").lower() for t in texts)
+    for w in SMALL_RNA_WORDS:
+        if w in blob:
+            return w.strip()
+    return ""
+
+
 def dna_assay_hint(*texts: str) -> str:
     """Return the first DNA-assay word found in any of these strings, or ''."""
     blob = " ".join((t or "").lower() for t in texts)
@@ -160,8 +179,13 @@ def main() -> None:
 
         # Before trusting library_strategy at all, see whether the paper title says the
         # project is a DNA assay. The strategy field can be flatly wrong (PRJNA1314945).
+        srna = small_rna_hint(*titles.get(bp, []))
         hint = dna_assay_hint(*titles.get(bp, []))
-        if hint and n_rna == n:
+        if srna and n_rna == n:
+            rec, why = "review", (f"library_strategy says RNA-Seq on all {n} runs, but the paper title "
+                                  f"contains {srna!r}. Small RNA is size-selected away from mRNA, so these "
+                                  f"libraries cannot carry fungal mRNA at useful depth. Check the methods")
+        elif hint and n_rna == n:
             rec, why = "review", (f"library_strategy says RNA-Seq on all {n} runs, but the paper title "
                                   f"contains {hint!r}, which is a GENOMIC DNA assay. Check the methods "
                                   f"before spending time on this: the submitter's assay metadata may be wrong")

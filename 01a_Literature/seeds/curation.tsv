@@ -199,3 +199,26 @@ zur21-site	PRJNA718488		location	Switzerland: Zurich	ev-zur21-field		the archive
 zur21-tissue	PRJNA718488		tissue	flag leaf	ev-zur21-field		flag leaves of adult plants at a late infection stage, ~2.5 months after the spreader rows were infected
 zur21-sel-infected	PRJNA718488	SampleName~_Lr_	sampling_selection	inoculated	ev-zur21-field		the 15 rust-infected samples. Inoculation was indirect, via spreader rows rather than by spraying these plants, but the epidemic was deliberately established, so the primary pathogen is known present. SampleName carries the arm: _Lr_ infected, _Ct_ control. ENA sample_title agrees 15/15
 zur21-sel-control	PRJNA718488	SampleName~_Ct_	sampling_selection	unselected	ev-zur21-field		the 15 control samples, grown in the same field 400 m from the infection plots and not deliberately infected. Field-grown, uninoculated, flag leaf: discovery-set material, and rare in the cereal queue
+fhbdr23-setting	PRJNA926628		setting	greenhouse	ev-fhbdr23-greenhouse		pots on flooding tables with supplemental lighting for 16 h and set day/night temperature and humidity. Read as greenhouse rather than chamber because the light is described as ADDITIONAL, implying ambient daylight beneath it; the sibling project PRJNA1366519 from the same group and cultivar set says greenhouse outright. Either way it is not field, which is what the cohort turns on
+fhbdr23-tissue	PRJNA926628		tissue	spike	ev-fhbdr23-greenhouse		GEO source_name on all 144 samples
+fhbdr23-selection	PRJNA926628		sampling_selection	inoculated	ev-fhbdr23-greenhouse		Fusarium culmorum with mock controls, crossed with a drought treatment. 3'-RNAseq: polyA-primed but 3'-biased, which is worth knowing before anyone quantifies fungal transcripts in it
+fhbdr26-setting	PRJNA1366519		setting	greenhouse	ev-fhbdr26-greenhouse		the BioProject Description says 'a greenhouse experiment' and 'grown under controlled conditions' in the submitters' own words
+fhbdr26-tissue	PRJNA1366519		tissue	spike	ev-fhbdr26-greenhouse		collected at 4 and 7 dpi from spikes
+fhbdr26-selection	PRJNA1366519		sampling_selection	inoculated	ev-fhbdr26-greenhouse		F. culmorum crossed with drought: watered+mock, watered+Fusarium, drought+mock, drought+Fusarium
+wn19-setting	PRJNA509214		setting	growth chamber	ev-wn19-cabinets		'controlled-environment cabinets', 16h/20C and 8h/16C, to mid-anthesis
+wn19-tissue	PRJNA509214		tissue	head (whole)	ev-wn19-cabinets		GEO source_name: whole head
+wn19-selection	PRJNA509214		sampling_selection	inoculated	ev-wn19-cabinets		F. graminearum, sampled 2 dpi, in a DH mapping population
+sum18-setting	PRJNA484520		setting	growth chamber	ev-sum18-chamber		'controlled-environment growth chambers', peat pots, 16h/21C and 8h/19C
+sum18-tissue	PRJNA484520		tissue	spikelet (lemma and rachis)	ev-sum18-chamber		GEO source_name is Lemma or Rachis per sample; the paper's point is that the rachis blocks Fg spread within the spike
+sum18-selection	PRJNA484520		sampling_selection	inoculated	ev-sum18-chamber		F. graminearum or 10 microL ddH2O mock, 1-3 dpi
+ken21-setting	PRJNA728113		setting	growth chamber	ev-ken21-chamber		pots in growth chamber conditions at 28C with a 16:8 photoperiod, Brandon RDC, Manitoba
+ken21-tissue	PRJNA728113		tissue	grain	ev-ken21-chamber		seed/grain tissue at 72 and 96 h after spraying
+ken21-selection	PRJNA728113		sampling_selection	inoculated	ev-ken21-chamber		sprayed with F. graminearum macroconidia at 5e4 spores/mL across three chemotypes (3ADON, 15ADON, NIV) plus mock. Confirms the second-hand reading from the bbrep meta-analysis, which had this project as Fusarium graminearum with 48 samples
+gsr21-setting	PRJNA721468		setting	growth chamber	ev-gsr21-chamber		seedlings at 26+/-2C, 14/10 h photoperiod, 600 LUX, ~75% humidity
+gsr21-tissue	PRJNA721468		tissue	stalk (seedling)	ev-gsr21-chamber		GEO source_name: seedling stalk
+gsr21-selection	PRJNA721468		sampling_selection	inoculated	ev-gsr21-chamber		F. graminearum, Gibberella stalk rot, 6-72 h after infection
+tvir19-setting	PRJNA573599		setting	hydroponic	ev-tvir19-hydroponic		germinated on LB plates then transferred to half-strength MS liquid media with roots-only access
+tvir19-tissue	PRJNA573599		tissue	root	ev-tvir19-hydroponic		GEO source_name: maize roots
+tvir19-selection	PRJNA573599		sampling_selection	inoculated	ev-tvir19-hydroponic		Trichoderma virens applied as a BENEFICIAL fungus. Same caution as the Golubevia biocontrol case: a deliberately applied non-pathogen is in the tube, so a T. virens hit is not a cryptic detection
+sveb-tissue	PRJNA492913		tissue	root	ev-sveb-splitroot		a split-root experiment in barley roots with Sebacina vermifera and Bipolaris sorokiniana. Tissue alone removes it from the aerial cohort, which is why `setting` is left UNASSESSED: a split-root setup is necessarily controlled but the archive never says so and no paper was found, and an inferred setting would be a guess dressed as evidence
+hordsalt-tissue	PRJNA1189193		tissue	root	ev-hordsalt-root		'Root RNA-seq of H. vulgare, H. marinum and H. brevisubulatum under saline and alkali treatments for 3, 12 and 24 hours'. Same treatment as PRJNA492913: tissue excludes it and `setting` stays unassessed rather than inferred from the 3-hour treatment window

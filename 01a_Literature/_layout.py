@@ -52,6 +52,7 @@ STUDIES = MODULE / "studies"
 RUNINFO = BRONZE / "runinfo"
 BIOSAMPLE = BRONZE / "biosample_attrs"
 GEO = BRONZE / "geo"
+BIOPROJECT_XML = BRONZE / "bioproject"
 ENA = BRONZE / "ena"
 
 # --- silver: generated, rebuildable ------------------------------------------------

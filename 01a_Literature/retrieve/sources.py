@@ -11,6 +11,7 @@ as a step somebody remembers.
 
 Subcommands, in the order a project usually needs them:
 
+    bioproject PRJNAxxxxxx [...]      the submitters' own description, GEO id and PMIDs
     papers   PRJNAxxxxxx            which papers name this accession
     fulltext PMCID                  fetch the full text, file it, list its sections
     sections PMCID|path  PATTERN    print only the sections whose title matches
@@ -43,7 +44,7 @@ Paywalled          Leon can get them. Ask, naming the specific missing fact.
 
 from __future__ import annotations
 
-import collections, json, re, sys, urllib.parse, urllib.request
+import collections, csv, json, os, re, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
 # Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
@@ -52,7 +53,7 @@ from pathlib import Path
 _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
-from _layout import ENA, GEO, MODULE, STUDIES
+from _layout import BIOPROJECT_XML, ENA, GEO, MODULE, STUDIES
 
 EPMC = "https://www.ebi.ac.uk/europepmc/webservices/rest"
 
@@ -178,6 +179,56 @@ def cmd_geo(gse: str) -> None:
             print(f"  {k:<22} {len(c)} distinct, top: {top}")
 
 
+def cmd_bioproject(*accs: str) -> None:
+    """The NCBI BioProject records for one or more accessions, as title/GEO/PMIDs/description.
+
+    The most under-used source in this project. A BioProject `Description` is free text the
+    SUBMITTERS wrote about their own experiment, and it routinely contains the methods
+    outright - "This dataset comprises 3'RNAseq data from a greenhouse experiment... Plants
+    were grown under controlled conditions". Thirty records cost two requests, which makes it
+    the cheapest setting evidence available anywhere.
+
+    It also yields the GEO series id and any linked PMIDs, so it resolves papers for projects
+    the Europe PMC accession sweep cannot reach.
+
+    Remember the asymmetry: archive metadata may rule a project OUT of the cohort but not IN,
+    because a deposit still needs an available manuscript to enter (leon 2026-10-06).
+    """
+    accs = [a.strip() for a in accs if a.strip()]
+    BIOPROJECT_XML.mkdir(parents=True, exist_ok=True)
+    key = os.environ.get("NCBI_API_KEY", "")
+    kq = f"&api_key={key}" if key else ""
+    for i in range(0, len(accs), 30):
+        chunk = accs[i:i + 30]
+        term = " OR ".join(f"{a}[Project Accession]" for a in chunk)
+        u = ("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=bioproject"
+             f"&retmax=200&retmode=json&term={urllib.parse.quote(term)}{kq}")
+        ids = json.loads(get(u, 90))["esearchresult"]["idlist"]
+        if not ids:
+            print(f"  (no UIDs for {chunk[0]}..{chunk[-1]})", file=sys.stderr)
+            continue
+        x = get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=bioproject"
+                f"&id={','.join(ids)}&retmode=xml{kq}", 180)
+        for blk in re.split(r"(?=<Project>)", x)[1:]:
+            m = re.search(r'accession="(PRJ[A-Z]{2}\d+)"', blk)
+            if not m:
+                continue
+            acc = m.group(1)
+            (BIOPROJECT_XML / f"{acc}.xml").write_text(blk)
+
+            def g(tag: str) -> str:
+                mm = re.search(rf"<{tag}>(.*?)</{tag}>", blk, re.S)
+                return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", mm.group(1))).strip() if mm else ""
+
+            geo = re.search(r'<CenterID center="GEO"[^>]*>(GSE\d+)</CenterID>', blk)
+            pubs = re.findall(r'<Publication[^>]*id="([^"]+)"', blk)
+            print(f"=== {acc}   GEO {geo.group(1) if geo else '-'}   PMID {','.join(pubs) or '-'}")
+            print(f"    TITLE: {g('Title')[:150]}")
+            d = g("Description")
+            print(f"    DESC : {d[:520] if d else '(none)'}")
+        time.sleep(0.4)
+
+
 def cmd_ena(acc: str) -> None:
     fields = ("run_accession,sample_accession,scientific_name,collection_date,country,"
               "location,sample_title,library_strategy,library_selection")
@@ -204,7 +255,8 @@ def cmd_ena(acc: str) -> None:
 
 
 CMDS = {"papers": (cmd_papers, 1), "fulltext": (cmd_fulltext, 1), "sections": (cmd_sections, 2),
-        "scan": (cmd_scan, 1), "geo": (cmd_geo, 1), "ena": (cmd_ena, 1)}
+        "scan": (cmd_scan, 1), "geo": (cmd_geo, 1), "ena": (cmd_ena, 1),
+        "bioproject": (cmd_bioproject, 1)}
 
 if __name__ == "__main__":
     if len(sys.argv) < 2 or sys.argv[1] not in CMDS:

@@ -186,8 +186,13 @@ docs/*
 
 # 01a_Literature: search returns and resolved accession lists. Data, per the code-not-data
 # policy; the prompts that produced them are tracked and are the reproducible part.
-01a_Literature/data/*
-!01a_Literature/data/.gitkeep
+# Everything DERIVED lives under data/, one directory per medallion layer. The exception is
+# gold/: generated, but a few kilobytes of summary numbers worth having in history. git does
+# not descend into an excluded directory, so re-including it needs the directory itself
+# re-included first.
+01a_Literature/data/**
+!01a_Literature/data/gold/
+!01a_Literature/data/gold/*.tsv
 
 # The hand-built records used to live here as exceptions to the rule above, which meant
 # tracking depended on whether somebody remembered `git add -f`: joins.tsv was never added to
@@ -195,11 +200,12 @@ docs/*
 # 01a_Literature/seeds/, which is OUTSIDE this rule and therefore tracked by default, and
 # 01a_Literature/gold/ holds the small human-readable outputs. See 01a_Literature/_paths.py.
 #
-#   seeds/  HAND-WRITTEN, irreplaceable, tracked. Losing it costs re-reading every paper.
-#   gold/   generated but tiny and worth having in history: summary numbers over time.
-#   data/   generated tables, ignored. Losing it costs a refetch and nothing else.
-#   bronze/ immutable external captures (runinfo, BioSample attrs, GEO, ENA), ignored.
-01a_Literature/bronze/**
+#   seeds/        AUTHORED, irreplaceable, tracked. Losing it costs re-reading every paper.
+#                 It stays OUT of data/ deliberately: data/ means "delete it and it rebuilds",
+#                 and these are the only files in the module for which that is false.
+#   data/bronze/  immutable external captures (runinfo, BioSample attrs, GEO, ENA), ignored.
+#   data/silver/  generated tables, ignored. Losing it costs a refetch and nothing else.
+#   data/gold/    generated but tiny and tracked: summary numbers over the project's life.
 
 # 01a_Literature working files. studies/ is the manual drop zone and holds publisher PDFs and
 # supplementary spreadsheets, which are not ours to redistribute (same grounds as

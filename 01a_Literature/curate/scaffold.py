@@ -48,7 +48,7 @@ _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
 from _paths import ROOT
-from _layout import DATA, MODULE, STUDIES
+from _layout import BIOSAMPLE, MODULE, SILVER, STUDIES, WORKLIST
 
 
 # Triage states that a supplement could fix, and the ones it cannot.
@@ -131,7 +131,7 @@ def dir_name(paper: dict) -> str:
 
 
 def read(name: str) -> list[dict]:
-    path = DATA / name
+    path = SILVER / name
     if not path.exists():
         sys.exit(f"{path} missing; run triage.py first")
     with open(path) as fh:
@@ -247,7 +247,7 @@ def main() -> None:
     for r in runs:
         runs_by_bp[r["BioProject"]].append(r)
     attrs_by_bp = {}
-    for f in (DATA / "biosample_attrs").glob("*.json") if (DATA / "biosample_attrs").is_dir() else []:
+    for f in BIOSAMPLE.glob("*.json") if BIOSAMPLE.is_dir() else []:
         try:
             obj = json.loads(f.read_text())
         except Exception:
@@ -366,7 +366,7 @@ def main() -> None:
         for f in loose[:10]:
             print(f"    {f.name[:70]}")
 
-    out = DATA / "worklist.tsv"
+    out = WORKLIST
     with open(out, "w", newline="") as fh:
         w8 = csv.DictWriter(fh, fieldnames=list(work[0]), delimiter="\t")
         w8.writeheader()

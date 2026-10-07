@@ -47,12 +47,11 @@ _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
 from _paths import ROOT          # repo-wide
-from _layout import CURATION, DATA, JOINS, PROVENANCE, STUDIES
+from _layout import CURATION, JOINS, PAPERS, PROVENANCE, RUNS, STUDIES
 # One definition of the join key, the BioSample loader and the refusal bar, shared with the
 # resolvers so a resolver's predicted rate IS the rate this module achieves. See _resolver.
 from _resolver import MIN_JOIN_RATE, attrs_for, sra_key as _sra_key
 
-RUNS       = DATA / "runs.tsv"
 
 # A join must match most of the project's samples or it is not describing them. PRJNA1217477's
 # supplement matched 0 of 450 because it tabulated inoculum isolates rather than the sequenced
@@ -264,7 +263,7 @@ def check_sources(prov: list[dict]) -> list[str]:
     paper_key rather than the short ref.
     """
     refs = {}
-    for r in read(DATA / "papers.tsv"):
+    for r in read(PAPERS):
         d, ref = (r.get("doi") or "").strip(), (r.get("paper_ref") or "").strip()
         if d and ref:
             refs[d] = ref

@@ -7,16 +7,16 @@ was hand-annotated and the next `triage.py` run discarded it; an imported access
 survived only as a shell argument; and the file written to fix that was gitignored, because
 tracking depended on `git add -f` habits rather than on what kind of file it was.
 
-    SEEDS   HAND-WRITTEN and irreplaceable. The module's whole intellectual asset: every
+    seeds/            HAND-WRITTEN and irreplaceable. The module's whole intellectual asset: every
             curated value traces to a rule, a join and a quote in here. TRACKED by default.
             Never written by a script except by appending a reviewed row.
-    BRONZE  immutable captures of somebody else's data: runinfo, BioSample attributes, GEO
+    data/bronze/      immutable captures of somebody else's data: runinfo, BioSample attributes, GEO
             brief records, ENA reports, and the papers under STUDIES. Deleting one costs a
             refetch and nothing else. Ignored.
-    DATA    generated tables (silver): runs, bioprojects, papers, paper_bioproject, registry,
+    data/silver/      generated tables: runs, bioprojects, papers, paper_bioproject, registry,
             worklist. Rebuildable from BRONZE + SEEDS, so ignored. Hand-editing one is always
             a mistake.
-    GOLD    small human-readable outputs. Generated, but tracked anyway: these are the summary
+    data/gold/        small human-readable outputs. Generated, but tracked anyway: these are the summary
             numbers a reader wants to see change over the life of the project.
 
 The rule in one line: **if losing a file costs a refetch it is BRONZE or DATA; if it costs
@@ -37,10 +37,15 @@ from pathlib import Path
 MODULE = Path(__file__).resolve().parent      # 01a_Literature/
 ROOT = MODULE.parent                          # phd/01-review/
 
+# Two top-level ideas: seeds/ is AUTHORED, data/ is DERIVED. Everything derived is a
+# medallion layer under data/, each named for its layer, so the middle one is no longer the
+# only directory named after nothing. studies/ stays outside both: it is a per-study human
+# drop zone for papers and supplements, not a pipeline layer.
 SEEDS = MODULE / "seeds"
-BRONZE = MODULE / "bronze"
 DATA = MODULE / "data"
-GOLD = MODULE / "gold"
+BRONZE = DATA / "bronze"
+SILVER = DATA / "silver"
+GOLD = DATA / "gold"
 STUDIES = MODULE / "studies"
 
 # --- bronze: external captures, one file per accession ----------------------------
@@ -49,18 +54,18 @@ BIOSAMPLE = BRONZE / "biosample_attrs"
 GEO = BRONZE / "geo"
 ENA = BRONZE / "ena"
 
-# --- data: generated, rebuildable ------------------------------------------------
-RUNS = DATA / "runs.tsv"
-BIOPROJECTS = DATA / "bioprojects.tsv"
-PAPERS = DATA / "papers.tsv"
-PAPER_BIOPROJECT = DATA / "paper_bioproject.tsv"
-REGISTRY = DATA / "registry.tsv"
-WORKLIST = DATA / "worklist.tsv"
-ACCESSION_PAPERS = DATA / "accession_papers.tsv"
-RESOLVED_ACCESSIONS = DATA / "resolved_accessions.tsv"
-COHORT_STUDIES = DATA / "kraken_cohort_studies.tsv"
-RUN_SPECIES = DATA / "run_species.tsv"
-TRUNCATION = DATA / "truncation.tsv"
+# --- silver: generated, rebuildable ------------------------------------------------
+RUNS = SILVER / "runs.tsv"
+BIOPROJECTS = SILVER / "bioprojects.tsv"
+PAPERS = SILVER / "papers.tsv"
+PAPER_BIOPROJECT = SILVER / "paper_bioproject.tsv"
+REGISTRY = SILVER / "registry.tsv"
+WORKLIST = SILVER / "worklist.tsv"
+ACCESSION_PAPERS = SILVER / "accession_papers.tsv"
+RESOLVED_ACCESSIONS = SILVER / "resolved_accessions.tsv"
+COHORT_STUDIES = SILVER / "kraken_cohort_studies.tsv"
+RUN_SPECIES = SILVER / "run_species.tsv"
+TRUNCATION = SILVER / "truncation.tsv"
 
 # --- seeds: hand-written, irreplaceable ------------------------------------------
 CURATION = SEEDS / "curation.tsv"

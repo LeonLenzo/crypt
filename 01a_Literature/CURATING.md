@@ -149,15 +149,25 @@ be rebuilt. `papers.tsv` was hand-annotated and the next `triage.py` run discard
 imported accession list survived only as a shell argument; and the file written to fix that
 was gitignored, because tracking depended on `git add -f` habits rather than on file kind.
 
-    seeds/   HAND-WRITTEN, irreplaceable, TRACKED by default.
-             curation.tsv  joins.tsv  provenance.tsv  decisions.tsv  found.tsv
-             run_scope.tsv  backfill_accessions.tsv      (+ _exclusions.py, repo root, code)
-    bronze/  immutable external captures, IGNORED. runinfo/ (422), biosample_attrs/ (367),
-             geo/, ena/. Deleting one costs a refetch and nothing else.
-    data/    generated tables, IGNORED. runs.tsv, bioprojects.tsv, papers.tsv,
-             paper_bioproject.tsv, registry.tsv, worklist.tsv.
-    gold/    generated but small and tracked, so summary numbers have a history.
-             cohort.tsv  host_summary.tsv  offtarget.tsv  barley_gap.tsv  frame_gap.tsv
+Two top-level ideas: **seeds/ is authored, data/ is derived.**
+
+    seeds/         AUTHORED, irreplaceable, TRACKED by default.
+                   curation joins provenance decisions found run_scope
+                   backfill_accessions        (+ _exclusions.py, repo root, because it is code)
+    data/bronze/   immutable external captures, IGNORED. runinfo/ (422),
+                   biosample_attrs/ (367), geo/, ena/.
+    data/silver/   generated tables, IGNORED. runs bioprojects papers
+                   paper_bioproject registry worklist accession_papers.
+    data/gold/     generated but small and TRACKED, so summary numbers have a history.
+                   cohort host_summary offtarget barley_gap frame_gap
+    studies/       per-study human drop zone: papers, supplements, and the resolver join
+                   tables. Not a pipeline layer, so it sits outside both.
+
+**seeds/ is deliberately NOT under data/.** `data/` now means "delete it and it rebuilds",
+which is true of all three layers inside it and false of nothing else in the module. Merging
+seeds back in would re-create exactly the confusion that caused the three incidents above,
+and would put the irreplaceable files inside the one directory every backup rule and
+`.gitignore` in this repo treats as disposable.
 
 **The rule: if losing a file costs a refetch it is data/; if it costs re-reading papers it is
 seeds/.** Paths come from `_layout.py` - never hardcode `HERE / "data" / ...`. The repo root

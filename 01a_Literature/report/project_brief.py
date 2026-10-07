@@ -25,9 +25,9 @@ from pathlib import Path
 _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
-from _layout import DATA, GOLD, SEEDS, STUDIES
+from _layout import GOLD, SEEDS, SILVER, STUDIES
 
-D = DATA
+D = SILVER
 CAP = 6          # distinct values printed before collapsing to a count plus examples
 
 

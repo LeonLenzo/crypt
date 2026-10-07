@@ -47,7 +47,7 @@ _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
 from _paths import ROOT          # repo-wide
-from _layout import DATA, DECISIONS, FOUND, STUDIES
+from _layout import DECISIONS, FOUND, SILVER, STUDIES
 from _exclusions import EXCLUDED
 
 
@@ -81,7 +81,7 @@ CHOICES = {
 
 
 def read(name: str) -> list[dict]:
-    p = DATA / name
+    p = SILVER / name
     if not p.exists():
         sys.exit(f"{p} missing; run triage.py and scaffold.py first")
     with open(p) as fh:

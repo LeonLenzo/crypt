@@ -44,9 +44,8 @@ _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
 from _paths import ROOT          # repo-wide
-from _layout import DATA, PROVENANCE
+from _layout import PROVENANCE, RUNS
 
-RUNS       = DATA / "runs.tsv"
 COHORT_PROV = ROOT / "02_literature/03_classify/data/cohort_provenance.tsv"
 SUPP_PROV   = ROOT / "02_literature/02_text/data/supp_provenance.tsv"
 

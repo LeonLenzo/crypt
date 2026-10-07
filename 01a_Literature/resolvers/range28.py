@@ -51,7 +51,7 @@ is why location is written as a project-wide curation rule from the paper's coor
 flag leaf appearance, ~47 days after planting, and sampling ran from there to maturity. Not
 curated here because the cohort does not use dev_stage, but noted so nobody leans on it.
 
-Run:  python 01a_Literature/range28_runs.py
+Run:  python 01a_Literature/resolvers/range28.py
 """
 
 from __future__ import annotations
@@ -59,10 +59,15 @@ from __future__ import annotations
 import collections, csv, datetime, json, re, sys
 from pathlib import Path
 
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _layout import BIOSAMPLE, RUNS, STUDIES
 
 ROOT = Path(__file__).resolve().parents[2]
-HERE = Path(__file__).resolve().parent
 ATTRS = BIOSAMPLE / "PRJNA1119650.json"
 OUT = STUDIES / "doi_10.1111_pce.70649" / "range28_runs.csv"
 

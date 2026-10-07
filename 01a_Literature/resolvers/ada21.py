@@ -32,8 +32,8 @@ Two things this script deliberately does NOT do:
     The mapping from `SampleType` to those values is SAMPLE_TYPE_MAP below, and the quote
     justifying it is the `evidence_id` on each join rule in `joins.tsv`.
 
-Run:  python 01a_Literature/ada21_runs.py            (uses the cached ENA map if present)
-      python 01a_Literature/ada21_runs.py --refetch   (re-queries the ENA portal)
+Run:  python 01a_Literature/resolvers/ada21.py            (uses the cached ENA map if present)
+      python 01a_Literature/resolvers/ada21.py --refetch   (re-queries the ENA portal)
 """
 
 from __future__ import annotations
@@ -41,10 +41,15 @@ from __future__ import annotations
 import argparse, csv, re, sys, urllib.request
 from pathlib import Path
 
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _layout import STUDIES
 
 ROOT = Path(__file__).resolve().parents[2]
-HERE = Path(__file__).resolve().parent
 STUDY = STUDIES / "doi_10.1186_s12864-021-07488-3"
 S1 = STUDY / "12864_2021_7488_MOESM1_ESM.xlsx"
 ENA_CACHE = STUDY / "ena_run_sample_map.tsv"

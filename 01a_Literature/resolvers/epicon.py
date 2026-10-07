@@ -46,7 +46,7 @@ Deliberately NOT taken from the author affiliations, which also list Kearney: an
 is where an author works, not where a plant grew, and that inference has already been wrong
 once in this project.
 
-Run:  python 01a_Literature/epicon_runs.py
+Run:  python 01a_Literature/resolvers/epicon.py
 """
 
 from __future__ import annotations
@@ -54,10 +54,15 @@ from __future__ import annotations
 import collections, csv, re, sys, urllib.request
 from pathlib import Path
 
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _layout import RUNS, STUDIES
 
 ROOT = Path(__file__).resolve().parents[2]
-HERE = Path(__file__).resolve().parent
 STUDY = STUDIES / "doi_10.1073_pnas.1907500116"
 CACHE = STUDY / "GSE128441_samples.txt"
 OUT = STUDY / "epicon_runs.csv"

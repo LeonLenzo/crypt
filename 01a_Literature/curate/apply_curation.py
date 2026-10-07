@@ -33,15 +33,19 @@ is where the CULTIVARS came from, and the paper says the plants were in Shanghai
 
 Usage:
 
-    python 01a_Literature/apply_curation.py --dry-run
-    python 01a_Literature/apply_curation.py
-    python 01a_Literature/apply_curation.py --explain SRR9129858
+    python 01a_Literature/curate/apply_curation.py --dry-run
+    python 01a_Literature/curate/apply_curation.py
+    python 01a_Literature/curate/apply_curation.py --explain SRR9129858
 """
 import argparse, collections, csv, json, re, sys
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parent))
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _paths import ROOT          # repo-wide
 from _layout import CURATION, DATA, JOINS, PROVENANCE, STUDIES
 
@@ -423,7 +427,7 @@ def main() -> None:
         w.writeheader()
         w.writerows(runs)
     print(f"\nwrote {RUNS.relative_to(ROOT)}")
-    print("trace any value with:  python 01a_Literature/apply_curation.py --explain <RUN>")
+    print("trace any value with:  python 01a_Literature/curate/apply_curation.py --explain <RUN>")
 
 
 if __name__ == "__main__":

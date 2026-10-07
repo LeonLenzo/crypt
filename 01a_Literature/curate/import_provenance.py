@@ -31,14 +31,18 @@ not do is masquerade as a collection site, so the import records which it is.
 
 Usage:
 
-    python 01a_Literature/import_provenance.py --dry-run
-    python 01a_Literature/import_provenance.py
+    python 01a_Literature/curate/import_provenance.py --dry-run
+    python 01a_Literature/curate/import_provenance.py
 """
 import argparse, collections, csv, datetime, re, sys
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parent))
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _paths import ROOT          # repo-wide
 from _layout import DATA, PROVENANCE
 

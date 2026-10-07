@@ -18,8 +18,8 @@ The cohort is defined exactly as it is elsewhere:
 
 Prints a readable summary and writes `data/host_summary.tsv`.
 
-Run:  python 01a_Literature/host_summary.py
-      python 01a_Literature/host_summary.py --refetch
+Run:  python 01a_Literature/report/host_summary.py
+      python 01a_Literature/report/host_summary.py --refetch
 """
 
 from __future__ import annotations
@@ -27,13 +27,18 @@ from __future__ import annotations
 import argparse, collections, csv, re, sys, urllib.request
 from pathlib import Path
 
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _layout import HOST_SUMMARY, RUNS, RUN_SPECIES, STUDIES
 
 from _hostgroup import host_group
-from cohort import all_runs, cohort
+from _cohort import all_runs, cohort
 
 ROOT = Path(__file__).resolve().parents[2]
-HERE = Path(__file__).resolve().parent
 CACHE = RUN_SPECIES
 OUT = HOST_SUMMARY
 

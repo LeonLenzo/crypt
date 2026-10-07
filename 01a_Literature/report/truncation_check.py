@@ -22,10 +22,10 @@ BioProject, so pass a short list.
 
 Usage:
 
-    python 01a_Literature/truncation_check.py                      # local, all cohort projects
-    python 01a_Literature/truncation_check.py --min-screened 100   # only the big ones
-    python 01a_Literature/truncation_check.py --verify PRJNA383416 PRJNA306542
-    python 01a_Literature/truncation_check.py --verify-worst 12    # verify the worst offenders
+    python 01a_Literature/report/truncation_check.py                      # local, all cohort projects
+    python 01a_Literature/report/truncation_check.py --min-screened 100   # only the big ones
+    python 01a_Literature/report/truncation_check.py --verify PRJNA383416 PRJNA306542
+    python 01a_Literature/report/truncation_check.py --verify-worst 12    # verify the worst offenders
 
 Reads `stat_cache.jsonl` (2.4 GB) by regex over the first bytes of each line. Do NOT
 json.loads the whole line: the `_stat` payload is ~4 KB per run and parsing all 607,197 of
@@ -35,6 +35,12 @@ import argparse, collections, csv, json, os, re, sys, time, urllib.parse, urllib
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _paths import ROOT
 
 STAT_CACHE = ROOT / "01_stat/02_fetch/data/stat_cache.jsonl"

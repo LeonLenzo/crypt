@@ -23,13 +23,13 @@ shifts the hour away from its solar meaning and can move a sample to the wrong c
 This script emits the local time with an explicit +09:00 offset, which keeps the solar hour
 readable and stays convertible.
 
-Output is keyed on `Run` so `joins.tsv` needs no regex, the same shape as `ada21_runs.py`.
+Output is keyed on `Run` so `joins.tsv` needs no regex, the same shape as `resolvers/ada21.py`.
 The supplement is keyed on `sampleID`, a 5-digit integer that appears at the end of the
 BioSample description, so the sampleID -> Run mapping comes from the ENA portal's
 `sample_title`.
 
-Run:  python 01a_Literature/kashima_runs.py
-      python 01a_Literature/kashima_runs.py --refetch
+Run:  python 01a_Literature/resolvers/kashima.py
+      python 01a_Literature/resolvers/kashima.py --refetch
 """
 
 from __future__ import annotations
@@ -37,10 +37,15 @@ from __future__ import annotations
 import argparse, csv, re, sys, urllib.request
 from pathlib import Path
 
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _layout import STUDIES
 
 ROOT = Path(__file__).resolve().parents[2]
-HERE = Path(__file__).resolve().parent
 STUDY = STUDIES / "doi_10.1093_pcp_pcab088"
 SUPP = STUDY / "Copy of pcp-2021-e-00065-File009.xlsx"
 SHEET, HEADER_ROW = "TableS2", 7          # zero-based: the header sits on sheet row 8

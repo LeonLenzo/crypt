@@ -29,15 +29,19 @@ EBI shares a 2 request/second limiter across its services, hence the sleep.
 
 Usage:
 
-    python 01a_Literature/accession_papers.py --accessions PRJNA306542
-    python 01a_Literature/accession_papers.py --umbrella-candidates
-    python 01a_Literature/accession_papers.py --umbrella-candidates --min-runs 100
+    python 01a_Literature/retrieve/accession_papers.py --accessions PRJNA306542
+    python 01a_Literature/retrieve/accession_papers.py --umbrella-candidates
+    python 01a_Literature/retrieve/accession_papers.py --umbrella-candidates --min-runs 100
 """
 import argparse, collections, csv, json, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parent))
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _paths import ROOT
 from _layout import ACCESSION_PAPERS, BIOPROJECTS, PAPERS, PAPER_BIOPROJECT
 

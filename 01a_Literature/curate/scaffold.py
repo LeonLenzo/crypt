@@ -35,14 +35,18 @@ because a question like "how many field runs across all studies" must not become
 
 Usage:
 
-    python 01a_Literature/scaffold.py              # create or refresh every paper directory
-    python 01a_Literature/scaffold.py --needs-only # only papers that need something
+    python 01a_Literature/curate/scaffold.py              # create or refresh every paper directory
+    python 01a_Literature/curate/scaffold.py --needs-only # only papers that need something
 """
 import argparse, collections, csv, json, re, sys
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parent))
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _paths import ROOT
 from _layout import DATA, MODULE, STUDIES
 

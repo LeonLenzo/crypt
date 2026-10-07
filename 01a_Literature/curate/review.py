@@ -32,16 +32,20 @@ drift.
 
 Usage:
 
-    python 01a_Literature/review.py --show            # the next card, no prompt
-    python 01a_Literature/review.py --need none       # work the quick queue
-    python 01a_Literature/review.py --key Ada21       # jump to one study
-    python 01a_Literature/review.py --status          # what is decided, what is left
+    python 01a_Literature/curate/review.py --show            # the next card, no prompt
+    python 01a_Literature/curate/review.py --need none       # work the quick queue
+    python 01a_Literature/curate/review.py --key Ada21       # jump to one study
+    python 01a_Literature/curate/review.py --status          # what is decided, what is left
 """
 import argparse, collections, csv, datetime, json, re, sys, textwrap
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parent))
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _paths import ROOT          # repo-wide
 from _layout import DATA, DECISIONS, FOUND, STUDIES
 from _exclusions import EXCLUDED

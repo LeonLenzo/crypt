@@ -11,7 +11,7 @@ This prints the same information as value-counts, capped. The rule it exists to 
 populated by an earlier accession sweep and already held two open-access papers for
 PRJNA1119650 while its primary_paper sat blank.
 
-Run:  python 01a_Literature/project_brief.py PRJNA1119650
+Run:  python 01a_Literature/report/project_brief.py PRJNA1119650
 """
 
 from __future__ import annotations
@@ -19,9 +19,14 @@ from __future__ import annotations
 import collections, csv, json, sys
 from pathlib import Path
 
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _layout import DATA, GOLD, SEEDS, STUDIES
 
-HERE = Path(__file__).resolve().parent
 D = DATA
 CAP = 6          # distinct values printed before collapsing to a count plus examples
 

@@ -34,8 +34,8 @@ So fungal, bacterial, viral and metagenome organisms are reported with
 `recommend = review`, never `reject`, except for the two classes where the organism alone
 settles it: a human sample, and a built-environment metagenome.
 
-Run:  python 01a_Literature/offtarget_screen.py
-      python 01a_Literature/offtarget_screen.py --all   (include already-assessed projects)
+Run:  python 01a_Literature/report/offtarget_screen.py
+      python 01a_Literature/report/offtarget_screen.py --all   (include already-assessed projects)
 """
 
 from __future__ import annotations
@@ -43,12 +43,17 @@ from __future__ import annotations
 import argparse, collections, csv, re, sys
 from pathlib import Path
 
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _layout import BIOPROJECTS, OFFTARGET, PAPERS, RUNS
 
 from _hostgroup import ORDER, project_group
 
 ROOT = Path(__file__).resolve().parents[2]
-HERE = Path(__file__).resolve().parent
 BPS = BIOPROJECTS
 OUT = OFFTARGET
 

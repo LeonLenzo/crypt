@@ -48,16 +48,20 @@ expensive pass happens once.
 
 Usage:
 
-    python 01a_Literature/triage.py --from-undermind       # scrape accessions from the .md files
-    python 01a_Literature/triage.py --accessions PRJNA383416 PRJEB39201
-    python 01a_Literature/triage.py --from-undermind --refresh    # ignore the cache
+    python 01a_Literature/retrieve/triage.py --from-undermind       # scrape accessions from the .md files
+    python 01a_Literature/retrieve/triage.py --accessions PRJNA383416 PRJEB39201
+    python 01a_Literature/retrieve/triage.py --from-undermind --refresh    # ignore the cache
 """
 import argparse, collections, csv, io, json, os, re, sys, time, urllib.parse, urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parent))
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _paths import ROOT          # repo-wide
 from _layout import ACCESSION_PAPERS, BACKFILL, BIOPROJECTS, BIOSAMPLE, COHORT_STUDIES, FOUND, MODULE, PAPERS, PAPER_BIOPROJECT, RESOLVED_ACCESSIONS, RUNINFO, RUNS, RUN_SCOPE
 

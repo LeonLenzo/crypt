@@ -23,18 +23,15 @@ What is deliberately NOT a criterion: `sampling_selection`. Every stratum is in 
 the flag decides what counts as a finding, not whether the sample counts at all. See
 triage.py's sampling_selection comment and crypt-two-evidence-standards.
 
-Run:  python 01a_Literature/cohort.py            # the counts
-      python 01a_Literature/cohort.py --write     # also materialise gold/cohort.tsv
+The counts and `gold/cohort.tsv` come from `report/cohort.py`, which is the CLI over this.
 """
 
 from __future__ import annotations
 
-import argparse, collections, csv, re, sys
+import csv, re
 from pathlib import Path
 
-from _layout import COHORT_TSV, GOLD, RUNS
-
-OUT = COHORT_TSV
+from _layout import RUNS
 
 NON_AERIAL = re.compile(r"root|rhizo|tuber|nodule|whole.?(plant|seedling)|insect", re.I)
 
@@ -52,37 +49,3 @@ def all_runs(path: Path = RUNS) -> list[dict]:
 
 def cohort(runs: list[dict] | None = None) -> list[dict]:
     return [r for r in (runs if runs is not None else all_runs()) if is_cohort(r)]
-
-
-def main() -> None:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--write", action="store_true", help="materialise gold/cohort.tsv")
-    args = ap.parse_args()
-
-    runs = all_runs()
-    coh = cohort(runs)
-    locs = {r["location"] for r in coh if r["location"]}
-    dated = sum(1 for r in coh if r["collection_date"])
-    print(f"runs.tsv          {len(runs):,}")
-    print(f"cohort            {len(coh):,}")
-    print(f"  projects        {len({r['BioProject'] for r in coh})}")
-    print(f"  localities      {len(locs)}")
-    print(f"  dated           {dated:,} ({dated / len(coh):.1%})")
-    print(f"  unassessed      {sum(1 for r in runs if not r['setting']):,}")
-    print("  setting         " + "  ".join(
-        f"{k}:{v}" for k, v in collections.Counter(r["setting"] for r in coh).most_common()))
-    print("  selection       " + "  ".join(
-        f"{k or '(none)'}:{v}" for k, v in
-        collections.Counter(r["sampling_selection"] for r in coh).most_common()))
-    if args.write:
-        GOLD.mkdir(parents=True, exist_ok=True)
-        with OUT.open("w", newline="") as fh:
-            w = csv.DictWriter(fh, fieldnames=list(coh[0]), delimiter="\t")
-            w.writeheader()
-            w.writerows(coh)
-        print(f"\nwrote {OUT}  ({len(coh):,} rows)", file=sys.stderr)
-
-
-if __name__ == "__main__":
-    main()

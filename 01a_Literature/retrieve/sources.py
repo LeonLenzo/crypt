@@ -46,9 +46,14 @@ from __future__ import annotations
 import collections, json, re, sys, urllib.parse, urllib.request
 from pathlib import Path
 
+# Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
+# a digit) so `python -m` is unavailable; this puts the module root and the repo root on the
+# path before any local import, which must therefore come after it.
+_HERE = Path(__file__).resolve()
+sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
+
 from _layout import ENA, GEO, MODULE, STUDIES
 
-HERE = Path(__file__).resolve().parent          # 01a_Literature/
 EPMC = "https://www.ebi.ac.uk/europepmc/webservices/rest"
 
 # Words whose ABSENCE is what licenses `sampling_selection = unselected`, and whose presence

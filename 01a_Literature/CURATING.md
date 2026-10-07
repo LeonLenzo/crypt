@@ -6,7 +6,7 @@ them rediscovering the plumbing below. Target is 8-12. Read this file instead of
 
 ## Order of operations
 
-1. `python 01a_Literature/project_brief.py PRJNAxxxxxx` - everything known locally, one call.
+1. `python 01a_Literature/report/project_brief.py PRJNAxxxxxx` - everything known locally, one call.
    It already lists candidate papers from `accession_papers.tsv`. **An empty `primary_paper`
    does NOT mean no paper is known.** Check the brief before planning any search.
 2. If no candidate: Europe PMC accession search
@@ -119,7 +119,30 @@ polyA mRNA whatever the organism, but the strategy field itself can lie: PRJNA13
 SLAF-seq genotyping runs all registered as RNA-Seq/cDNA/TRANSCRIPTOMIC, caught only by a
 DNA-assay word in the paper title. Organism is never decisive on its own.
 
-## The layout: seeds, data, gold
+## Where the scripts live
+
+Flat was 20 files in one directory with no indication of what ran when. Grouped by role:
+
+    _layout.py _hostgroup.py _cohort.py   shared, importable, NOT entry points (the
+                                          underscore marks that, matching the repo's
+                                          _util/_paths convention)
+    retrieve/   triage sources accession_papers resolve_accessions
+                talk to NCBI/ENA/EuropePMC/GEO. Write bronze/ and data/.
+    resolvers/  ada21 kashima sato24 epicon range28
+                one per awkward study. Read a supplement or a cache, apply that study's
+                refusal guards, write a join table into studies/doi_*/. The growth item:
+                one more appears every time a study hides its per-sample metadata.
+    curate/     apply_curation review scaffold import_provenance
+                the engine and the human interface. apply_curation is the ONLY thing that
+                writes a curated value into runs.tsv.
+    report/     cohort host_summary offtarget_screen project_brief truncation_check
+                read-only views. Write gold/ or stdout only.
+
+Entry points in a subdirectory carry a two-line bootstrap putting the module root and the
+repo root on `sys.path` before any local import. `python -m` is unavailable because
+`01a_Literature` starts with a digit and so is not a valid package name.
+
+## The layout: seeds, bronze, data, gold
 
 Three incidents on 2026-10-06 all had one cause - nothing in the layout said which files may
 be rebuilt. `papers.tsv` was hand-annotated and the next `triage.py` run discarded it; an
@@ -129,9 +152,10 @@ was gitignored, because tracking depended on `git add -f` habits rather than on 
     seeds/   HAND-WRITTEN, irreplaceable, TRACKED by default.
              curation.tsv  joins.tsv  provenance.tsv  decisions.tsv  found.tsv
              run_scope.tsv  backfill_accessions.tsv      (+ _exclusions.py, repo root, code)
-    data/    generated or cached, IGNORED. runs.tsv, bioprojects.tsv, papers.tsv,
-             paper_bioproject.tsv, registry.tsv, worklist.tsv, and the bronze caches
-             runinfo/, biosample_attrs/, geo/, ena/.
+    bronze/  immutable external captures, IGNORED. runinfo/ (422), biosample_attrs/ (367),
+             geo/, ena/. Deleting one costs a refetch and nothing else.
+    data/    generated tables, IGNORED. runs.tsv, bioprojects.tsv, papers.tsv,
+             paper_bioproject.tsv, registry.tsv, worklist.tsv.
     gold/    generated but small and tracked, so summary numbers have a history.
              cohort.tsv  host_summary.tsv  offtarget.tsv  barley_gap.tsv  frame_gap.tsv
 
@@ -148,7 +172,7 @@ Anything worth keeping goes in a seed table. A fact about a paper goes in `prove
 `cohort.py` holds the predicate (field* setting, representative, aerial tissue) and nothing
 else may restate it. `from cohort import cohort, all_runs`. It was being retyped into every
 ad-hoc query - four times on 2026-10-06 - and one copy drifted, giving 425 localities in one
-script and 424 in another. `python 01a_Literature/cohort.py` prints the counts;
+script and 424 in another. `python 01a_Literature/report/cohort.py` prints the counts;
 `--write` materialises `gold/cohort.tsv`.
 
 `sampling_selection` is deliberately NOT part of the predicate. Every stratum is in the
@@ -164,9 +188,9 @@ data-availability quote as evidence and leave the attribution to him.
 
 ## Rebuilding after adding accessions
 
-    python 01a_Literature/triage.py --from-undermind --accessions PRJ... # NEVER --accessions alone
-    python 01a_Literature/import_provenance.py                          # restores import-* tier
-    python 01a_Literature/apply_curation.py                             # restores rule/join tiers
+    python 01a_Literature/retrieve/triage.py --from-undermind --accessions PRJ... # NEVER --accessions alone
+    python 01a_Literature/curate/import_provenance.py                          # restores import-* tier
+    python 01a_Literature/curate/apply_curation.py                             # restores rule/join tiers
 
 `--accessions` without `--from-undermind` rebuilds the universe from that list plus the Kraken
 cohort only, dropping every literature-first candidate. Back up `runs.tsv` and

@@ -43,6 +43,8 @@ from __future__ import annotations
 import argparse, collections, csv, re, sys
 from pathlib import Path
 
+from _hostgroup import ORDER, project_group
+
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 RUNS = HERE / "data" / "runs.tsv"
@@ -177,12 +179,17 @@ def main() -> None:
         else:
             rec, why = "keep", "plant organism, all RNA-Seq"
 
+        grp, why = project_group(org, *titles.get(bp, []))
         rows.append(dict(BioProject=bp, runs=n, rna_seq=n_rna, organism=org,
+                         host_group=grp, host_group_why=why,
                          organism_class=oc, assays="; ".join(f"{k}:{v}" for k, v in strat.most_common()),
                          recommend=rec, reason=why,
                          primary_paper=bps.get(bp, {}).get("primary_paper", "")))
 
-    rows.sort(key=lambda r: (r["recommend"] != "reject", -r["runs"]))
+    # Worklist order, not report order: the actionable pile first, cereals ahead of
+    # everything else inside it (Leon 2026-10-06, funded scope), then by size.
+    REC = {"keep": 0, "review": 1, "reject": 2}
+    rows.sort(key=lambda r: (REC[r["recommend"]], ORDER[r["host_group"]], -r["runs"]))
     with OUT.open("w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(rows[0]), delimiter="\t")
         w.writeheader()
@@ -196,9 +203,18 @@ def main() -> None:
     for rec in ("reject", "review", "keep"):
         print(f"  {rec:<8} {tot[rec]:>4} projects  {tot[rec + '_runs']:>6} runs", file=sys.stderr)
     print(f"\nwrote {OUT.relative_to(ROOT)}", file=sys.stderr)
-    print("\nlargest rejects:", file=sys.stderr)
-    for r in [x for x in rows if x["recommend"] == "reject"][:8]:
-        print(f"  {r['runs']:>5}  {r['BioProject']:<14} {r['reason'][:70]}", file=sys.stderr)
+    cg = collections.Counter()
+    for r in rows:
+        if r["recommend"] == "keep":
+            cg[r["host_group"]] += r["runs"]
+    print("\nkeep pile by host group:  "
+          + "  ".join(f"{k}:{cg[k]:,}" for k in ("cereal", "cereal?", "grass", "other")),
+          file=sys.stderr)
+    print("\nnext up, cereals first:", file=sys.stderr)
+    for r in [x for x in rows if x["recommend"] == "keep"][:12]:
+        print(f"  {r['runs']:>5}  {r['BioProject']:<14} {r['host_group']:<8} "
+              f"{(r['organism'] or '?')[:26]:<28} {r['primary_paper'] or '(no paper)'}",
+              file=sys.stderr)
 
 
 if __name__ == "__main__":

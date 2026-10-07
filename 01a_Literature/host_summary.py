@@ -27,6 +27,8 @@ from __future__ import annotations
 import argparse, collections, csv, re, sys, urllib.request
 from pathlib import Path
 
+from _hostgroup import host_group
+
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 RUNS = HERE / "data" / "runs.tsv"
@@ -201,10 +203,12 @@ def main() -> None:
     COINFECTION = {"disease-selected", "inoculated"}
     DISCOVERY = {"unselected", "symptom-avoided"}
     out = []
-    for host, a in sorted(agg.items(), key=lambda kv: -kv[1]["n"]):
+    from _hostgroup import ORDER
+    for host, a in sorted(agg.items(),
+                          key=lambda kv: (ORDER[host_group(kv[0])], -kv[1]["n"])):
         yrs = sorted(a["years"])
         out.append(dict(
-            host=host, samples=a["n"], projects=len(a["projects"]),
+            host=host, host_group=host_group(host), samples=a["n"], projects=len(a["projects"]),
             localities=len(a["locs"]),
             years=f"{yrs[0]}-{yrs[-1]}" if len(yrs) > 1 else (yrs[0] if yrs else ""),
             n_years=len(yrs),

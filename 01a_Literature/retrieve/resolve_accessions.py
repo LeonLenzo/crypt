@@ -42,7 +42,7 @@ _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
 from _paths import ROOT
-from _layout import MODULE, RESOLVED_ACCESSIONS, WORKLIST
+from _layout import RESOLVED_ACCESSIONS, UNDERMIND, WORKLIST
 import triage
 
 OUT    = RESOLVED_ACCESSIONS
@@ -90,7 +90,7 @@ def to_bioprojects(acc: str) -> list[str]:
 
 def candidates() -> dict:
     """paper_ref -> {kind: {accessions}} for papers with no BioProject of their own."""
-    mds = [m for m in sorted(MODULE.glob("*.md")) if m.name != "README.md"]
+    mds = sorted(UNDERMIND.glob("*.md"))      # see triage.py: allowlist by location
     work = {r["paper_key"]: r for r in
             csv.DictReader(open(WORKLIST), delimiter="\t")}
     noacc = {w["paper_ref"] for w in work.values()

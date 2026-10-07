@@ -68,6 +68,11 @@ RUN_SPECIES = SILVER / "run_species.tsv"
 TRUNCATION = SILVER / "truncation.tsv"
 
 # --- seeds: hand-written, irreplaceable ------------------------------------------
+# The Undermind search returns. Authored elsewhere and NOT reproducible - re-running a
+# search months later returns a different set - so they are seeds, not bronze. They are also
+# the provenance for 171 candidate accessions.
+UNDERMIND = SEEDS / "undermind"
+
 CURATION = SEEDS / "curation.tsv"
 JOINS = SEEDS / "joins.tsv"
 PROVENANCE = SEEDS / "provenance.tsv"

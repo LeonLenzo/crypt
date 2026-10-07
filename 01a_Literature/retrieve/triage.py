@@ -63,7 +63,7 @@ _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
 from _paths import ROOT          # repo-wide
-from _layout import ACCESSION_PAPERS, BACKFILL, BIOPROJECTS, BIOSAMPLE, COHORT_STUDIES, FOUND, MODULE, PAPERS, PAPER_BIOPROJECT, RESOLVED_ACCESSIONS, RUNINFO, RUNS, RUN_SCOPE
+from _layout import UNDERMIND, ACCESSION_PAPERS, BACKFILL, BIOPROJECTS, BIOSAMPLE, COHORT_STUDIES, FOUND, MODULE, PAPERS, PAPER_BIOPROJECT, RESOLVED_ACCESSIONS, RUNINFO, RUNS, RUN_SCOPE
 
 STAT_CACHE = ROOT / "01_stat/02_fetch/data/stat_cache.jsonl"
 RUNS       = ROOT / "01_stat/03_filter/data/runs.tsv"
@@ -791,11 +791,12 @@ def main() -> None:
                     help="skip the BioSample fetch, so no sra-complete/sra-partial split")
     args = ap.parse_args()
 
-    # Only Undermind exports. Any other .md living here is documentation, and scraping it
-    # injects whatever accessions its prose happens to mention: CURATING.md was added on
-    # 2026-10-06 and cites PRJNA1314945 as a worked example of a mislabelled assay.
-    DOCS = {"README.md", "CURATING.md", "NAMING.md", "NOTES.md"}
-    mds = [m for m in sorted(MODULE.glob("*.md")) if m.name not in DOCS]
+    # Undermind exports only, and they now live in their own directory, so this is an
+    # allowlist by LOCATION. It used to glob the module root and exclude documentation by
+    # name, which was a liability: CURATING.md was added to that directory on 2026-10-06 and
+    # its worked examples cite real accessions, which the scraper would have taken as
+    # candidates. A denylist has to be maintained; a directory does not.
+    mds = sorted(UNDERMIND.glob("*.md"))
     prov, refs, links = {}, {}, []
     accs = list(dict.fromkeys(args.accessions))
     # Unconditional: the backfill list is part of the universe, not an option.

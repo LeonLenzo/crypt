@@ -59,7 +59,7 @@ already had a detection.
 ### A deposit with no manuscript is rejected
 
 **Inclusion criterion, Leon's call 2026-10-06: an archive deposit with no available manuscript
-does not enter the cohort, however good its metadata.** Recorded in `data/decisions.tsv` at
+does not enter the cohort, however good its metadata.** Recorded in `seeds/decisions.tsv` at
 `level = policy`.
 
 This follows from the paragraph above rather than adding to it. If cryptic is defined against
@@ -167,8 +167,24 @@ to the approach.
 
 ## Layout
 
+Two top-level ideas: **seeds/ is authored, data/ is derived.** `curate/CURATING.md` is the
+runbook; read it before curating a project.
+
 ```
 01a_Literature/
-  prompts/   search prompts, versioned, with the reasoning for each clause
-  data/      search returns and the resolved accession lists (gitignored)
+  _layout.py _hostgroup.py _cohort.py _resolver.py   shared, importable, not entry points
+  retrieve/   triage sources accession_papers resolve_accessions   external fetching
+  resolvers/  ada21 kashima sato24 epicon range28    one per awkward study
+  curate/     apply_curation review scaffold import_provenance + CURATING.md
+  report/     cohort host_summary offtarget_screen project_brief truncation_check
+  seeds/      AUTHORED and irreplaceable, tracked: curation joins provenance decisions
+              found run_scope backfill_accessions, and undermind/ (the search returns)
+  data/bronze/  immutable external captures: runinfo, biosample_attrs, geo, ena (ignored)
+  data/silver/  generated tables: runs bioprojects papers paper_bioproject ... (ignored)
+  data/gold/    small tracked outputs: cohort host_summary offtarget, the gap analyses
+  studies/    per-study drop zone: papers, supplements, resolver join tables (ignored)
+  prompts/    search prompts, versioned, with the reasoning for each clause
 ```
+
+The rule: if losing a file costs a refetch it belongs under `data/`; if it costs re-reading
+papers it belongs in `seeds/`.

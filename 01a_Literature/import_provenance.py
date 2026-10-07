@@ -39,11 +39,12 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
-from _paths import ROOT
+from _paths import ROOT          # repo-wide
+from _layout import SEEDS      # this module's layer dirs
 
 DATA       = HERE / "data"
 RUNS       = DATA / "runs.tsv"
-PROVENANCE = DATA / "provenance.tsv"
+PROVENANCE = SEEDS / "provenance.tsv"
 COHORT_PROV = ROOT / "02_literature/03_classify/data/cohort_provenance.tsv"
 SUPP_PROV   = ROOT / "02_literature/02_text/data/supp_provenance.tsv"
 

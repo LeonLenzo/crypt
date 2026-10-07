@@ -119,18 +119,40 @@ polyA mRNA whatever the organism, but the strategy field itself can lie: PRJNA13
 SLAF-seq genotyping runs all registered as RNA-Seq/cDNA/TRANSCRIPTOMIC, caught only by a
 DNA-assay word in the paper title. Organism is never decisive on its own.
 
-## Generated vs hand-written tables
+## The layout: seeds, data, gold
 
-This cost real work on 2026-10-06: `papers.tsv` was hand-annotated with paper_refs, a status
-and a library_prep note, and a later `triage.py` run silently discarded all of it.
+Three incidents on 2026-10-06 all had one cause - nothing in the layout said which files may
+be rebuilt. `papers.tsv` was hand-annotated and the next `triage.py` run discarded it; an
+imported accession list survived only as a shell argument; and the file written to fix that
+was gitignored, because tracking depended on `git add -f` habits rather than on file kind.
 
-    GENERATED, never hand-edit   runs.tsv  bioprojects.tsv  papers.tsv
-                                 paper_bioproject.tsv  offtarget.tsv  host_summary.tsv
-    HAND-WRITTEN, tracked in git curation.tsv  joins.tsv  provenance.tsv  found.tsv
-                                 decisions.tsv  _exclusions.py
+    seeds/   HAND-WRITTEN, irreplaceable, TRACKED by default.
+             curation.tsv  joins.tsv  provenance.tsv  decisions.tsv  found.tsv
+             run_scope.tsv  backfill_accessions.tsv      (+ _exclusions.py, repo root, code)
+    data/    generated or cached, IGNORED. runs.tsv, bioprojects.tsv, papers.tsv,
+             paper_bioproject.tsv, registry.tsv, worklist.tsv, and the bronze caches
+             runinfo/, biosample_attrs/, geo/, ena/.
+    gold/    generated but small and tracked, so summary numbers have a history.
+             cohort.tsv  host_summary.tsv  offtarget.tsv  barley_gap.tsv  frame_gap.tsv
 
-Anything worth keeping goes in a hand-written table. A fact about a paper goes in
-`provenance.tsv` or `found.tsv`, never in `papers.tsv`.
+**The rule: if losing a file costs a refetch it is data/; if it costs re-reading papers it is
+seeds/.** Paths come from `_layout.py` - never hardcode `HERE / "data" / ...`. The repo root
+has its own `_paths.py` for cross-module paths; the two must not be confused, which is why
+this one is `_layout`.
+
+Anything worth keeping goes in a seed table. A fact about a paper goes in `provenance.tsv` or
+`found.tsv`, never in `papers.tsv`.
+
+## The cohort is defined once
+
+`cohort.py` holds the predicate (field* setting, representative, aerial tissue) and nothing
+else may restate it. `from cohort import cohort, all_runs`. It was being retyped into every
+ad-hoc query - four times on 2026-10-06 - and one copy drifted, giving 425 localities in one
+script and 424 in another. `python 01a_Literature/cohort.py` prints the counts;
+`--write` materialises `gold/cohort.tsv`.
+
+`sampling_selection` is deliberately NOT part of the predicate. Every stratum is in the
+cohort; the flag decides what counts as a finding, not whether a sample counts.
 
 `found.tsv` is also an INPUT: a row with `kind = bioproject` feeds `found_accessions()` and
 becomes a `cited` claim on the next rebuild. That is the designed way to tell the pipeline

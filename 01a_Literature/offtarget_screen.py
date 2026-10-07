@@ -43,13 +43,15 @@ from __future__ import annotations
 import argparse, collections, csv, re, sys
 from pathlib import Path
 
+from _layout import DATA, GOLD, SEEDS
+
 from _hostgroup import ORDER, project_group
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 RUNS = HERE / "data" / "runs.tsv"
 BPS = HERE / "data" / "bioprojects.tsv"
-OUT = HERE / "data" / "offtarget.tsv"
+OUT = GOLD / "offtarget.tsv"
 
 # Assays that cannot be bulk polyA mRNA of plant tissue.
 WRONG_ASSAY = {"WGS", "WGA", "WXS", "AMPLICON", "Hi-C", "POOLCLONE", "CLONE", "ChIP-Seq",

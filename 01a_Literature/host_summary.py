@@ -27,18 +27,22 @@ from __future__ import annotations
 import argparse, collections, csv, re, sys, urllib.request
 from pathlib import Path
 
+from _layout import DATA, GOLD, SEEDS
+
 from _hostgroup import host_group
+from cohort import all_runs, cohort
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 RUNS = HERE / "data" / "runs.tsv"
 CACHE = HERE / "data" / "run_species.tsv"
-OUT = HERE / "data" / "host_summary.tsv"
+OUT = GOLD / "host_summary.tsv"
 
 PORTAL = ("https://www.ebi.ac.uk/ena/portal/api/filereport"
           "?accession={}&result=read_run&format=tsv&fields=run_accession,scientific_name")
 
-NON_AERIAL = re.compile(r"root|rhizo|tuber|nodule|whole.?(plant|seedling)|insect", re.I)
+# NON_AERIAL and the rest of the cohort predicate moved to cohort.py (2026-10-06):
+# it was duplicated here and in every ad-hoc query, and the copies drifted.
 
 # Tidy the long tail of synonyms and infraspecific names into one label per host, so the table
 # groups by the plant a reader would name. Subspecies are kept where they matter biologically:
@@ -158,10 +162,8 @@ def main() -> None:
     ap.add_argument("--refetch", action="store_true")
     args = ap.parse_args()
 
-    runs = [r for r in csv.DictReader(RUNS.open(), delimiter="\t")
-            if r["setting"].startswith("field")
-            and r["library_representative"] != "no"
-            and not NON_AERIAL.search(r["tissue"])]
+    # The cohort predicate lives in cohort.py and nowhere else; see its docstring for why.
+    runs = cohort(all_runs(RUNS))
     bps = sorted({r["BioProject"] for r in runs})
     print(f"cohort: {len(runs):,} samples across {len(bps)} projects", file=sys.stderr)
 

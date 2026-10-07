@@ -19,13 +19,16 @@ from __future__ import annotations
 import collections, csv, json, sys
 from pathlib import Path
 
+from _layout import GOLD, SEEDS
+
 HERE = Path(__file__).resolve().parent
 D = HERE / "data"
 CAP = 6          # distinct values printed before collapsing to a count plus examples
 
 
 def read(name: str) -> list[dict]:
-    p = D / name
+    """Read a table by bare filename, from whichever layer holds it (see _paths)."""
+    p = next((d / name for d in (D, SEEDS, GOLD) if (d / name).exists()), D / name)
     if not p.exists():
         return []
     with p.open() as fh:

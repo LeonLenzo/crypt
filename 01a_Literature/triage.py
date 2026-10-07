@@ -58,7 +58,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
-from _paths import ROOT
+from _paths import ROOT          # repo-wide
+from _layout import SEEDS      # this module's layer dirs
 
 STAT_CACHE = ROOT / "01_stat/02_fetch/data/stat_cache.jsonl"
 RUNS       = ROOT / "01_stat/03_filter/data/runs.tsv"
@@ -479,9 +480,29 @@ def triage_state(rows: list[dict], attrs: dict | None = None) -> tuple[str, str,
 
 COHORT   = HERE / "data/kraken_cohort_studies.tsv"
 RESOLVED  = HERE / "data/resolved_accessions.tsv"
-RUN_SCOPE = HERE / "data/run_scope.tsv"
+BACKFILL  = SEEDS / "backfill_accessions.tsv"
+ACCESSION = re.compile(r"PRJ(?:NA|EB|DB)\d+")
+RUN_SCOPE = SEEDS / "run_scope.tsv"
 MENTIONS  = HERE / "data/accession_papers.tsv"
-FOUND     = HERE / "data/found.tsv"
+FOUND     = SEEDS / "found.tsv"
+
+
+def backfill_accessions() -> list[str]:
+    """Accessions imported by hand, which no other source re-supplies.
+
+    The 26 barley projects imported on 2026-10-06 came from the STAT frame, are named by no
+    Undermind report, and are absent from `kraken_cohort_studies.tsv`. They survived only
+    because they were passed on the command line, so the NEXT rebuild would have dropped all
+    26 and their 1,368 runs without a word. A hand-maintained, git-tracked list is read on
+    every run so the backfill is reproducible rather than a property of one shell command.
+
+    `reason` and `found_via` are for humans; only `BioProject` is read.
+    """
+    if not BACKFILL.exists():
+        return []
+    with open(BACKFILL) as fh:
+        return [r["BioProject"].strip() for r in csv.DictReader(fh, delimiter="\t")
+                if ACCESSION.fullmatch((r.get("BioProject") or "").strip())]
 
 
 def found_accessions() -> list[dict]:
@@ -502,11 +523,18 @@ def found_accessions() -> list[dict]:
         for r in csv.DictReader(fh, delimiter="\t"):
             if r.get("kind") != "bioproject" or not r.get("value"):
                 continue
-            key = (r["paper_key"], r["value"])
+            if not ACCESSION.fullmatch(r["value"].strip()):
+                # A `bioproject` row whose value is prose, not an accession. This created a
+                # BioProject literally named "PRJNA1119650 is the deposit of record for TWO
+                # papers, not a reuse" on 2026-10-06. Skip it loudly rather than registering it.
+                print(f"found.tsv: kind=bioproject with a non-accession value, skipped: "
+                      f"{r['value'][:60]!r}", file=sys.stderr)
+                continue
+            key = (r["paper_key"], r["value"].strip())
             if key in seen:
                 continue
             seen.add(key)
-            out.append(dict(paper_ref=r["paper_key"], BioProject=r["value"],
+            out.append(dict(paper_ref=r["paper_key"], BioProject=r["value"].strip(),
                             relation="cited", section="found_during_review",
                             evidence=f"recorded in found.tsv by {r.get('found_by','')}: "
                                      f"{r.get('note','')[:200]}"))
@@ -762,9 +790,18 @@ def main() -> None:
                     help="skip the BioSample fetch, so no sra-complete/sra-partial split")
     args = ap.parse_args()
 
-    mds = [m for m in sorted(HERE.glob("*.md")) if m.name != "README.md"]
+    # Only Undermind exports. Any other .md living here is documentation, and scraping it
+    # injects whatever accessions its prose happens to mention: CURATING.md was added on
+    # 2026-10-06 and cites PRJNA1314945 as a worked example of a mislabelled assay.
+    DOCS = {"README.md", "CURATING.md", "NAMING.md", "NOTES.md"}
+    mds = [m for m in sorted(HERE.glob("*.md")) if m.name not in DOCS]
     prov, refs, links = {}, {}, []
     accs = list(dict.fromkeys(args.accessions))
+    # Unconditional: the backfill list is part of the universe, not an option.
+    bf = backfill_accessions()
+    if bf:
+        print(f"backfill list: {len(bf)} accessions", file=sys.stderr)
+        accs = list(dict.fromkeys(accs + bf))
     if args.from_undermind:
         prov = undermind_provenance(mds)
         refs = undermind_references(mds)

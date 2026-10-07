@@ -42,13 +42,14 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
-from _paths import ROOT
+from _paths import ROOT          # repo-wide
+from _layout import SEEDS      # this module's layer dirs
 from _exclusions import EXCLUDED
 
 DATA      = HERE / "data"
 STUDIES   = HERE / "studies"
-DECISIONS = DATA / "decisions.tsv"
-FOUND     = DATA / "found.tsv"
+DECISIONS = SEEDS / "decisions.tsv"
+FOUND     = SEEDS / "found.tsv"
 
 DECISION_FIELDS = ["ts", "level", "key", "decision", "reason", "evidence", "decided_by"]
 FOUND_FIELDS    = ["ts", "paper_key", "kind", "value", "note", "found_by"]

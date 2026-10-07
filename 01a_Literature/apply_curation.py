@@ -42,13 +42,14 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
-from _paths import ROOT
+from _paths import ROOT          # repo-wide
+from _layout import SEEDS      # this module's layer dirs
 
 DATA       = HERE / "data"
 RUNS       = DATA / "runs.tsv"
-CURATION   = DATA / "curation.tsv"
-PROVENANCE = DATA / "provenance.tsv"
-JOINS      = DATA / "joins.tsv"
+CURATION   = SEEDS / "curation.tsv"
+PROVENANCE = SEEDS / "provenance.tsv"
+JOINS      = SEEDS / "joins.tsv"
 STUDIES    = HERE / "studies"
 
 # A join must match most of the project's samples or it is not describing them. PRJNA1217477's

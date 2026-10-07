@@ -189,15 +189,15 @@ docs/*
 01a_Literature/data/*
 !01a_Literature/data/.gitkeep
 
-# ...except the hand-built records, which are NOT regenerable and are the only irreplaceable
-# artefacts in this module. Same grounds as _exclusions.py: a curated judgment with its
-# evidence is closer to code than to data. Losing runs.tsv costs a few hours of refetching;
-# losing these costs every paper anyone has read.
-!01a_Literature/data/decisions.tsv
-!01a_Literature/data/found.tsv
-!01a_Literature/data/curation.tsv
-!01a_Literature/data/provenance.tsv
-!01a_Literature/data/run_scope.tsv
+# The hand-built records used to live here as exceptions to the rule above, which meant
+# tracking depended on whether somebody remembered `git add -f`: joins.tsv was never added to
+# the list and three generated tables were force-added by mistake. They now live in
+# 01a_Literature/seeds/, which is OUTSIDE this rule and therefore tracked by default, and
+# 01a_Literature/gold/ holds the small human-readable outputs. See 01a_Literature/_paths.py.
+#
+#   seeds/  HAND-WRITTEN, irreplaceable, tracked. Losing it costs re-reading every paper.
+#   gold/   generated but tiny and worth having in history: summary numbers over time.
+#   data/   generated or cached, ignored. Losing it costs a refetch and nothing else.
 
 # 01a_Literature working files. studies/ is the manual drop zone and holds publisher PDFs and
 # supplementary spreadsheets, which are not ours to redistribute (same grounds as

@@ -1,8 +1,6 @@
 BioProject	runs	rna_seq	organism	host_group	host_group_why	organism_class	assays	recommend	reason	primary_paper
 PRJNA825139	185	185	Oryza sativa	cereal	host name 'Oryza sativa'	plant	RNA-Seq:185	keep	host name 'Oryza sativa'	
-PRJNA1123450	144	144	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:144	keep	host name 'Zea mays'	
 PRJNA306542	134	134	Oryza sativa	cereal	host name 'Oryza sativa'	plant	RNA-Seq:134	keep	host name 'Oryza sativa'	10.1038/srep37302
-PRJNA918399	114	114	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:114	keep	host name 'Triticum aestivum'	
 PRJNA492913	88	88	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:88	keep	host name 'Hordeum vulgare'	
 PRJEB10574	87	87	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:87	keep	host name 'Zea mays'	10.1111/tpj.14184
 PRJNA315041	87	87	Hordeum vulgare subsp. vulgare	cereal	host name 'Hordeum vulgare subsp. vulgare'	plant	RNA-Seq:87	keep	host name 'Hordeum vulgare subsp. vulgare'	

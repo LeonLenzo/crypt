@@ -27,16 +27,15 @@ from __future__ import annotations
 import argparse, collections, csv, re, sys, urllib.request
 from pathlib import Path
 
-from _layout import DATA, GOLD, SEEDS
+from _layout import HOST_SUMMARY, RUNS, RUN_SPECIES, STUDIES
 
 from _hostgroup import host_group
 from cohort import all_runs, cohort
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
-RUNS = HERE / "data" / "runs.tsv"
-CACHE = HERE / "data" / "run_species.tsv"
-OUT = GOLD / "host_summary.tsv"
+CACHE = RUN_SPECIES
+OUT = HOST_SUMMARY
 
 PORTAL = ("https://www.ebi.ac.uk/ena/portal/api/filereport"
           "?accession={}&result=read_run&format=tsv&fields=run_accession,scientific_name")
@@ -147,7 +146,7 @@ def curated_species() -> dict:
     out = {}
     for rel, col in (("doi_10.1186_s12864-022-09001-w/lappe_runs.csv", "Species"),
                      ("doi_10.1186_s12864-021-07488-3/ada21_runs.csv", "HostSpecies")):
-        p = HERE / "studies" / rel
+        p = STUDIES / rel
         if not p.exists():
             continue
         for r in csv.DictReader(p.open()):

@@ -43,15 +43,14 @@ from __future__ import annotations
 import argparse, collections, csv, re, sys
 from pathlib import Path
 
-from _layout import DATA, GOLD, SEEDS
+from _layout import BIOPROJECTS, OFFTARGET, PAPERS, RUNS
 
 from _hostgroup import ORDER, project_group
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
-RUNS = HERE / "data" / "runs.tsv"
-BPS = HERE / "data" / "bioprojects.tsv"
-OUT = GOLD / "offtarget.tsv"
+BPS = BIOPROJECTS
+OUT = OFFTARGET
 
 # Assays that cannot be bulk polyA mRNA of plant tissue.
 WRONG_ASSAY = {"WGS", "WGA", "WXS", "AMPLICON", "Hi-C", "POOLCLONE", "CLONE", "ChIP-Seq",
@@ -131,7 +130,7 @@ def main() -> None:
     # Paper titles, for the independent assay check. Keyed by BioProject through papers.tsv's
     # semicolon-separated bioprojects column.
     titles = {}
-    papers = HERE / "data" / "papers.tsv"
+    papers = PAPERS
     if papers.exists():
         for r in csv.DictReader(papers.open(), delimiter="\t"):
             for bp in (r.get("bioprojects") or "").split(";"):

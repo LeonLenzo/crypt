@@ -45,10 +45,11 @@ from __future__ import annotations
 import collections, csv, sys
 from pathlib import Path
 
+from _layout import RUNS, STUDIES
+
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
-RUNS = HERE / "data" / "runs.tsv"
-STUDY = HERE / "studies" / "doi_10.1038_s41467-024-52374-7"
+STUDY = STUDIES / "doi_10.1038_s41467-024-52374-7"
 OUT = STUDY / "sato24_runs.csv"
 
 PROJECTS = {

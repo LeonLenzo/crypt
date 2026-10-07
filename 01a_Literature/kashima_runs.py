@@ -37,9 +37,11 @@ from __future__ import annotations
 import argparse, csv, re, sys, urllib.request
 from pathlib import Path
 
+from _layout import STUDIES
+
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
-STUDY = HERE / "studies" / "doi_10.1093_pcp_pcab088"
+STUDY = STUDIES / "doi_10.1093_pcp_pcab088"
 SUPP = STUDY / "Copy of pcp-2021-e-00065-File009.xlsx"
 SHEET, HEADER_ROW = "TableS2", 7          # zero-based: the header sits on sheet row 8
 ENA_CACHE = STUDY / "ena_run_sample_map.tsv"

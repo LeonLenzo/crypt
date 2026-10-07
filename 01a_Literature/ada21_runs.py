@@ -41,9 +41,11 @@ from __future__ import annotations
 import argparse, csv, re, sys, urllib.request
 from pathlib import Path
 
+from _layout import STUDIES
+
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
-STUDY = HERE / "studies" / "doi_10.1186_s12864-021-07488-3"
+STUDY = STUDIES / "doi_10.1186_s12864-021-07488-3"
 S1 = STUDY / "12864_2021_7488_MOESM1_ESM.xlsx"
 ENA_CACHE = STUDY / "ena_run_sample_map.tsv"
 OUT = STUDY / "ada21_runs.csv"

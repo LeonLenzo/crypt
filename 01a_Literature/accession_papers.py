@@ -39,8 +39,9 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 from _paths import ROOT
+from _layout import ACCESSION_PAPERS, BIOPROJECTS, PAPERS, PAPER_BIOPROJECT
 
-OUT  = HERE / "data/accession_papers.tsv"
+OUT  = ACCESSION_PAPERS
 EPMC = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 UA   = {"User-Agent": "crypt/accession_papers (leon.lenzo@curtin.edu.au)"}
 
@@ -78,10 +79,10 @@ def umbrella_candidates(min_runs: int) -> list[str]:
     lookup costs one request.
     """
     reg = {r["BioProject"]: r for r in
-           csv.DictReader(open(HERE / "data/bioprojects.tsv"), delimiter="\t")}
+           csv.DictReader(open(BIOPROJECTS), delimiter="\t")}
     claims = collections.Counter()
     conflicts = set()
-    with open(HERE / "data/paper_bioproject.tsv") as fh:
+    with open(PAPER_BIOPROJECT) as fh:
         for l in csv.DictReader(fh, delimiter="\t"):
             claims[l["BioProject"]] += 1
     for bp, r in reg.items():
@@ -107,7 +108,7 @@ def main() -> None:
         sys.exit("no accessions; pass --accessions or --umbrella-candidates")
 
     known = {r["doi"].lower() for r in
-             csv.DictReader(open(HERE / "data/papers.tsv"), delimiter="\t") if r.get("doi")}
+             csv.DictReader(open(PAPERS), delimiter="\t") if r.get("doi")}
     print(f"{len(accs)} accessions to look up; {len(known)} DOIs already in papers.tsv\n")
 
     recs = []

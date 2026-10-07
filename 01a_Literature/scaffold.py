@@ -44,9 +44,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 from _paths import ROOT
+from _layout import DATA, MODULE, STUDIES
 
-DATA    = HERE / "data"
-STUDIES = HERE / "studies"
 
 # Triage states that a supplement could fix, and the ones it cannot.
 _NEEDS_SUPP = {"sra-partial", "few-biosamples", "one-biosample", "per-run-biosamples"}
@@ -345,7 +344,7 @@ def main() -> None:
                 ref=w["paper_key"], doi=w["doi"],
                 bps=", ".join(w["bioprojects"].split(";")) if w["bioprojects"] else "",
                 candidates="\n".join(cand) or "#   (none; no BioProject needs a supplement)"))
-        w["adapter"] = str(ad.relative_to(HERE))
+        w["adapter"] = str(ad.relative_to(MODULE))
         w["supplement_present"] = "yes" if any(
             f.suffix.lower() in (".xls", ".xlsx", ".csv", ".tsv", ".txt")
             for f in d.iterdir() if f.is_file()) else ""

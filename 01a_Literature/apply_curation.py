@@ -43,14 +43,9 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 from _paths import ROOT          # repo-wide
-from _layout import SEEDS      # this module's layer dirs
+from _layout import CURATION, DATA, JOINS, PROVENANCE, STUDIES
 
-DATA       = HERE / "data"
 RUNS       = DATA / "runs.tsv"
-CURATION   = SEEDS / "curation.tsv"
-PROVENANCE = SEEDS / "provenance.tsv"
-JOINS      = SEEDS / "joins.tsv"
-STUDIES    = HERE / "studies"
 
 # A join must match most of the project's samples or it is not describing them. PRJNA1217477's
 # supplement matched 0 of 450 because it tabulated inoculum isolates rather than the sequenced

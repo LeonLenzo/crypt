@@ -38,10 +38,11 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 from _paths import ROOT
+from _layout import MODULE, RESOLVED_ACCESSIONS, WORKLIST
 sys.path.insert(0, str(HERE))
 import triage
 
-OUT    = HERE / "data/resolved_accessions.tsv"
+OUT    = RESOLVED_ACCESSIONS
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
 UA     = {"User-Agent": "crypt/resolve_accessions (leon.lenzo@curtin.edu.au)"}
 
@@ -86,9 +87,9 @@ def to_bioprojects(acc: str) -> list[str]:
 
 def candidates() -> dict:
     """paper_ref -> {kind: {accessions}} for papers with no BioProject of their own."""
-    mds = [m for m in sorted(HERE.glob("*.md")) if m.name != "README.md"]
+    mds = [m for m in sorted(MODULE.glob("*.md")) if m.name != "README.md"]
     work = {r["paper_key"]: r for r in
-            csv.DictReader(open(HERE / "data/worklist.tsv"), delimiter="\t")}
+            csv.DictReader(open(WORKLIST), delimiter="\t")}
     noacc = {w["paper_ref"] for w in work.values()
              if w["need"] == "no-accession" and w.get("paper_ref")}
     out = collections.defaultdict(lambda: collections.defaultdict(set))

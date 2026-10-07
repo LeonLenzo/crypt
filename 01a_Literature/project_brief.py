@@ -19,10 +19,10 @@ from __future__ import annotations
 import collections, csv, json, sys
 from pathlib import Path
 
-from _layout import GOLD, SEEDS
+from _layout import DATA, GOLD, SEEDS, STUDIES
 
 HERE = Path(__file__).resolve().parent
-D = HERE / "data"
+D = DATA
 CAP = 6          # distinct values printed before collapsing to a count plus examples
 
 
@@ -69,7 +69,7 @@ def main() -> None:
     print(f"\n--- candidate papers from the accession sweep: {len(cands)}")
     for r in cands:
         slug = "doi_" + (r["doi"] or "").replace("/", "_")
-        d = HERE / "studies" / slug
+        d = STUDIES / slug
         filed = "filed" if d.is_dir() and any(d.rglob("*")) else "NOT FILED"
         print(f"    {r['doi']}  PMID {r.get('pmid','')}  OA={r.get('is_oa','')}  {filed}")
         print(f"      {(r.get('title') or '')[:150]}")

@@ -197,7 +197,9 @@ docs/*
 #
 #   seeds/  HAND-WRITTEN, irreplaceable, tracked. Losing it costs re-reading every paper.
 #   gold/   generated but tiny and worth having in history: summary numbers over time.
-#   data/   generated or cached, ignored. Losing it costs a refetch and nothing else.
+#   data/   generated tables, ignored. Losing it costs a refetch and nothing else.
+#   bronze/ immutable external captures (runinfo, BioSample attrs, GEO, ENA), ignored.
+01a_Literature/bronze/**
 
 # 01a_Literature working files. studies/ is the manual drop zone and holds publisher PDFs and
 # supplementary spreadsheets, which are not ours to redistribute (same grounds as

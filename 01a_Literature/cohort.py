@@ -32,10 +32,9 @@ from __future__ import annotations
 import argparse, collections, csv, re, sys
 from pathlib import Path
 
-from _layout import DATA, GOLD
+from _layout import COHORT_TSV, GOLD, RUNS
 
-RUNS = DATA / "runs.tsv"
-OUT = GOLD / "cohort.tsv"
+OUT = COHORT_TSV
 
 NON_AERIAL = re.compile(r"root|rhizo|tuber|nodule|whole.?(plant|seedling)|insect", re.I)
 

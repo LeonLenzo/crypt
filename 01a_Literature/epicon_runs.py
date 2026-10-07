@@ -54,10 +54,11 @@ from __future__ import annotations
 import collections, csv, re, sys, urllib.request
 from pathlib import Path
 
+from _layout import RUNS, STUDIES
+
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
-RUNS = HERE / "data" / "runs.tsv"
-STUDY = HERE / "studies" / "doi_10.1073_pnas.1907500116"
+STUDY = STUDIES / "doi_10.1073_pnas.1907500116"
 CACHE = STUDY / "GSE128441_samples.txt"
 OUT = STUDY / "epicon_runs.csv"
 

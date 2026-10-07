@@ -46,8 +46,9 @@ from __future__ import annotations
 import collections, json, re, sys, urllib.parse, urllib.request
 from pathlib import Path
 
+from _layout import ENA, GEO, MODULE, STUDIES
+
 HERE = Path(__file__).resolve().parent          # 01a_Literature/
-STUDIES = HERE / "studies"
 EPMC = "https://www.ebi.ac.uk/europepmc/webservices/rest"
 
 # Words whose ABSENCE is what licenses `sampling_selection = unselected`, and whose presence
@@ -100,7 +101,7 @@ def cmd_fulltext(pmcid: str) -> None:
     out.mkdir(parents=True, exist_ok=True)
     f = out / f"{doi.split('/')[-1]}_fulltext.xml"
     f.write_text(xml)
-    print(f"{doi}  {pmcid}  {len(xml):,} bytes -> {f.relative_to(HERE)}")
+    print(f"{doi}  {pmcid}  {len(xml):,} bytes -> {f.relative_to(MODULE)}")
     for t in re.findall(r"<title>(.*?)</title>", xml, re.S):
         t = re.sub(r"<[^>]+>", "", t).strip()
         if t:
@@ -132,7 +133,7 @@ def cmd_scan(arg: str) -> None:
 
 
 def cmd_geo(gse: str) -> None:
-    cache = HERE / "data" / "geo" / f"{gse}_brief.txt"
+    cache = GEO / f"{gse}_brief.txt"
     if cache.exists():
         txt = cache.read_text(encoding="utf-8", errors="replace")
         print(f"(cached {cache.name})")
@@ -143,7 +144,7 @@ def cmd_geo(gse: str) -> None:
             sys.exit("REFUSED: GEO served a reCAPTCHA; wait, then retry")
         cache.parent.mkdir(parents=True, exist_ok=True)
         cache.write_text(txt)
-        print(f"cached -> {cache.relative_to(HERE)}")
+        print(f"cached -> {cache.relative_to(MODULE)}")
     recs = []
     for blk in txt.split("^SAMPLE = ")[1:]:
         d = {"GSM": blk.split("\n", 1)[0].strip()}
@@ -184,10 +185,10 @@ def cmd_ena(acc: str) -> None:
         return
     hdr = lines[0].split("\t")
     rows = [dict(zip(hdr, l.split("\t"))) for l in lines[1:]]
-    cache = HERE / "data" / "ena" / f"{acc}.tsv"
+    cache = ENA / f"{acc}.tsv"
     cache.parent.mkdir(parents=True, exist_ok=True)
     cache.write_text(txt)
-    print(f"{acc}: {len(rows)} runs -> {cache.relative_to(HERE)}")
+    print(f"{acc}: {len(rows)} runs -> {cache.relative_to(MODULE)}")
     for k in hdr[1:]:
         c = collections.Counter(r.get(k, "") for r in rows)
         if len(c) <= 6:

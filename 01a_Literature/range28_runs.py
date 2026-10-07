@@ -59,11 +59,12 @@ from __future__ import annotations
 import collections, csv, datetime, json, re, sys
 from pathlib import Path
 
+from _layout import BIOSAMPLE, RUNS, STUDIES
+
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
-RUNS = HERE / "data" / "runs.tsv"
-ATTRS = HERE / "data" / "biosample_attrs" / "PRJNA1119650.json"
-OUT = HERE / "studies" / "doi_10.1111_pce.70649" / "range28_runs.csv"
+ATTRS = BIOSAMPLE / "PRJNA1119650.json"
+OUT = STUDIES / "doi_10.1111_pce.70649" / "range28_runs.csv"
 
 BIOPROJECT = "PRJNA1119650"
 

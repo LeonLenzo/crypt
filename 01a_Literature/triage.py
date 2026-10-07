@@ -43,7 +43,7 @@ The triage state says what resolving per-run metadata will cost:
     few-biosamples  fewer BioSamples than runs, so some pooling or the same pattern partially.
     no-runs         the accession resolves to nothing, or to something that is not plant reads.
 
-Runinfo is cached per accession under `data/runinfo/`, so reruns cost nothing and the
+Runinfo is cached per accession under `bronze/runinfo/`, so reruns cost nothing and the
 expensive pass happens once.
 
 Usage:
@@ -59,12 +59,12 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 from _paths import ROOT          # repo-wide
-from _layout import SEEDS      # this module's layer dirs
+from _layout import ACCESSION_PAPERS, BACKFILL, BIOPROJECTS, BIOSAMPLE, COHORT_STUDIES, FOUND, MODULE, PAPERS, PAPER_BIOPROJECT, RESOLVED_ACCESSIONS, RUNINFO, RUNS, RUN_SCOPE
 
 STAT_CACHE = ROOT / "01_stat/02_fetch/data/stat_cache.jsonl"
 RUNS       = ROOT / "01_stat/03_filter/data/runs.tsv"
-CACHE      = HERE / "data/runinfo"
-BS_CACHE   = HERE / "data/biosample_attrs"
+CACHE      = RUNINFO
+BS_CACHE   = BIOSAMPLE
 BS_BATCH   = 300    # efetch accepts far more, but a failed batch is cheaper to retry small
 BS_SAMPLE  = 20     # BioSamples sampled per project to estimate field coverage.
                     # Coverage is near-bimodal per project (measured 2026-10-05: projects sit
@@ -478,13 +478,10 @@ def triage_state(rows: list[dict], attrs: dict | None = None) -> tuple[str, str,
     return state, g, t
 
 
-COHORT   = HERE / "data/kraken_cohort_studies.tsv"
-RESOLVED  = HERE / "data/resolved_accessions.tsv"
-BACKFILL  = SEEDS / "backfill_accessions.tsv"
+COHORT   = COHORT_STUDIES
+RESOLVED  = RESOLVED_ACCESSIONS
 ACCESSION = re.compile(r"PRJ(?:NA|EB|DB)\d+")
-RUN_SCOPE = SEEDS / "run_scope.tsv"
-MENTIONS  = HERE / "data/accession_papers.tsv"
-FOUND     = SEEDS / "found.tsv"
+MENTIONS  = ACCESSION_PAPERS
 
 
 def backfill_accessions() -> list[str]:
@@ -794,7 +791,7 @@ def main() -> None:
     # injects whatever accessions its prose happens to mention: CURATING.md was added on
     # 2026-10-06 and cites PRJNA1314945 as a worked example of a mislabelled assay.
     DOCS = {"README.md", "CURATING.md", "NAMING.md", "NOTES.md"}
-    mds = [m for m in sorted(HERE.glob("*.md")) if m.name not in DOCS]
+    mds = [m for m in sorted(MODULE.glob("*.md")) if m.name not in DOCS]
     prov, refs, links = {}, {}, []
     accs = list(dict.fromkeys(args.accessions))
     # Unconditional: the backfill list is part of the universe, not an option.
@@ -1036,19 +1033,19 @@ def main() -> None:
         b["primary_conflict"] = "yes" if len(cands) > 1 else ""
 
     print()
-    _write(HERE / "data/bioprojects.tsv", bioprojects, list(bioprojects[0]), key="BioProject")
+    _write(BIOPROJECTS, bioprojects, list(bioprojects[0]), key="BioProject")
     if not args.from_undermind:
         print("  scoped run: papers.tsv and paper_bioproject.tsv left untouched "
               "(they are derived from the full corpus, not from one accession)")
         return
-    _write(HERE / "data/papers.tsv", papers,
+    _write(PAPERS, papers,
            ["paper_key", "doi", "paper_ref", "sources", "n_bioprojects", "bioprojects",
             "undermind_decision", "title", "pdf", "supplement", "library_prep",
             "sampling_design", "status"])
-    _write(HERE / "data/paper_bioproject.tsv", links,
+    _write(PAPER_BIOPROJECT, links,
            ["paper_ref", "BioProject", "relation", "run_scope", "run_spec", "n_runs_claimed",
             "section", "evidence", "scope_evidence"])
-    _write(HERE / "data/runs.tsv", runs, list(runs[0]) if runs else ["Run"], key="Run")
+    _write(RUNS, runs, list(runs[0]) if runs else ["Run"], key="Run")
 
     print(f"\n{len(bioprojects)} BioProjects, {len(papers)} papers, {len(links)} claims, "
           f"{len(runs):,} runs")

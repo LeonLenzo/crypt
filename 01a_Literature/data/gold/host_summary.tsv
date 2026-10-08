@@ -2,14 +2,22 @@ host	host_group	samples	projects	localities	years	n_years	wild	coinfection_set	d
 Oryza sativa (rice)	cereal	2784	6	6	2013-2017	5	0	0	2784	0	0	leaf	field:2680; field (chamber-raised, transferred outdoors):104	unselected:2784
 Zea mays (maize)	cereal	2511	16	40	2012-2024	7	0	200	2308	0	3	leaf	field:2445; field (inoculated in situ):66	unselected:2287; inoculated:194; symptom-avoided:21; disease-selected:6; (none):3
 Sorghum bicolor	cereal	1120	4	4	2016-2021	3	0	0	1120	0	0	leaf	field:1120	unselected:1119; symptom-avoided:1
-Triticum aestivum (bread wheat)	cereal	959	7	358	2013-2018	6	0	944	15	0	0	leaf	field:959	disease-selected:929; unselected:15; inoculated:15
+Triticum aestivum (bread wheat)	cereal	997	9	362	2013-2020	8	0	982	15	0	0	leaf	field:997	disease-selected:967; unselected:15; inoculated:15
 Zea mays teosinte subspp.	cereal	42	1	4	2017	1	21	0	42	0	0	leaf	field (natural population):21; field:21	unselected:42
 Setaria italica	cereal	36	1	1		0	0	0	36	0	0		field:36	unselected:36
 Triticale	cereal	11	3	7	2013-2017	4	0	11	0	0	0	leaf	field:11	disease-selected:11
 Triticum durum/turgidum	cereal	9	3	6	2014-2017	4	0	9	0	0	0	leaf	field:9	disease-selected:9
+Soft red winter wheat: IL11-28222	cereal	4	1	4	2016	1	0	4	0	0	0	wheat spikelet	field:4	disease-selected:4
+Triticum	cereal	4	1	1	2012-2013	2	0	4	0	0	0		field:4	disease-selected:4
 Secale cereale (rye)	cereal	3	2	2	2014-2018	2	0	3	0	0	0	leaf	field:3	disease-selected:3
 Triticum dicoccon	cereal	2	1	1	2017	1	0	2	0	0	0	leaf	field:2	disease-selected:2
+Soft red winter wheat: IL10-19464	cereal	2	1	2	2016	1	0	2	0	0	0	wheat spikelet	field:2	disease-selected:2
+Soft red winter wheat; Pioneer 25R47	cereal	2	1	2	2016	1	0	2	0	0	0	wheat spikelet	field:2	disease-selected:2
+Soft read winter wheat: IL10-19464	cereal	2	1	2	2016	1	0	2	0	0	0	wheat spikelet	field:2	disease-selected:2
+Hordeum jubatum	cereal	2	1	1	2019	1	0	2	0	0	0		field:2	disease-selected:2
 Hordeum vulgare	cereal	1	1	1	2023	1	0	1	0	0	0	LEAVES	field:1	disease-selected:1
+Soft red winter wheat: Pioneer 25R47	cereal	1	1	1	2016	1	0	1	0	0	0	wheat spikelet	field:1	disease-selected:1
+Soft read winter wheat; Pioneer 25R47	cereal	1	1	1	2016	1	0	1	0	0	0	wheat spikelet	field:1	disease-selected:1
 Panicum virgatum (switchgrass)	grass	3	1	1		0	0	0	3	0	0	leaf	field:3	symptom-avoided:3
 Arabidopsis thaliana	other	2580	5	2	2016-2018	3	0	0	2580	0	0	leaf	field (potted, outdoor common garden):2580	unselected:2580
 Vitis vinifera (grapevine)	other	1706	4	3	2015-2019	4	0	384	1322	0	0	Leaf	field:1602; field (excised, forced indoors):104	unselected:1322; inoculated:384
@@ -22,12 +30,10 @@ Solanum lycopersicum	other	126	1	1		0	0	126	0	0	0	fruit pericarp and epidermal t
 Vitis vinifera subsp. sylvestris (wild grape)	other	108	1	1	2017	1	0	0	108	0	0	berry (skin or pulp)	field:108	symptom-avoided:108
 Puccinia triticina	other	100	1	11	2017-2019	3	0	100	0	0	0	leaf (rust-infected)	field:100	disease-selected:100
 Vitis spp. (wild grapevine)	other	79	1	1	2015	1	0	0	79	0	0	bud (forced, deacclimating)	field (excised, forced indoors):68; field:11	unselected:79
-Puccinia graminis f. sp. tritici	other	74	2	6	1981-2022	12	0	74	0	0	0	leaf or stem	field:74	disease-selected:74
 Puccinia striiformis f. sp. tritici	other	73	2	11	1974-2021	14	0	73	0	0	0	leaf	field:73	disease-selected:73
-Fusarium graminearum	other	33	2	6	2016-2020	2	0	33	0	0	0		field:33	inoculated:21; disease-selected:12
-Puccinia striiformis	other	18	1	3	2019	1	0	18	0	0	0		field:18	disease-selected:18
+Puccinia graminis f. sp. tritici	other	52	2	5	1981-2022	12	0	52	0	0	0	leaf or stem	field:52	disease-selected:52
+Fusarium graminearum	other	21	1	1	2020	1	0	21	0	0	0		field:21	inoculated:21
 Zea spp. (wild teosinte)	other	12	1	2	2017	1	0	0	12	0	0	leaf	field:12	unselected:12
-Riboviria	other	4	1	1	2012-2013	2	0	4	0	0	0		field:4	disease-selected:4
 Puccinia graminis f. sp. secalis	other	2	1	1	2021	1	0	2	0	0	0	leaf or stem	field:2	disease-selected:2
 Perenial Grass	other	1	1	1	2014	1	0	1	0	0	0	leaf	field:1	disease-selected:1
-Fusarium sp. Fsp_R.2	other	1	1	1	2016	1	0	1	0	0	0	wheat spikelet	field:1	disease-selected:1
+PDA	other	1	1	1	2016	1	0	1	0	0	0	PDA	field:1	disease-selected:1

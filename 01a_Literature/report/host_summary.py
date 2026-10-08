@@ -24,7 +24,7 @@ Run:  python 01a_Literature/report/host_summary.py
 
 from __future__ import annotations
 
-import argparse, collections, csv, re, sys, urllib.request
+import argparse, collections, csv, json, re, sys, urllib.request
 from pathlib import Path
 
 # Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
@@ -33,7 +33,7 @@ from pathlib import Path
 _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
-from _layout import HOST_SUMMARY, RUNS, RUN_SPECIES, STUDIES
+from _layout import BIOSAMPLE, HOST_SUMMARY, RUNS, RUN_SPECIES, STUDIES
 
 from _hostgroup import host_group
 from _cohort import all_runs, cohort
@@ -131,6 +131,13 @@ WHOLE_PROJECT_HOST = {
     "PRJNA1055104": "Arabidopsis thaliana", "PRJNA1056126": "Arabidopsis thaliana",
     "PRJNA1055317": "Arabidopsis thaliana", "PRJNA1055736": "Arabidopsis thaliana",
     "PRJNA1055424": "Arabidopsis thaliana", "PRJNA1055939": "Arabidopsis thaliana",
+    # Rust surveys whose archive name is the pathogen and whose host is stated elsewhere.
+    # PRJEB65589 from Lewis et al. 2024 Notes S1 ("Pgt-infected bread wheat (Triticum
+    # aestivum) plants collected in the UK..."); PRJNA486288 from its BioSample host field
+    # ("Soft red winter wheat: IL11-28222"); PRJNA1231252 from its cultivar field (Morocco,
+    # Amboise, Benchmark, Kalmar are all wheat lines).
+    "PRJEB65589": "Triticum aestivum", "PRJNA486288": "Triticum aestivum",
+    "PRJNA1231252": "Triticum aestivum",
 }
 
 
@@ -160,10 +167,55 @@ def curated_species() -> dict:
     return out
 
 
+def biosample_host() -> dict:
+    """Per-run host from the BioSample `host` attribute, via its BioSample accession.
+
+    Added 2026-10-08. `scientific_name` names the PATHOGEN for every rust and FHB survey in
+    this cohort, which put 301 cohort runs under a fungus. For four of those eight projects
+    the submitters recorded the real host as a BioSample attribute and nobody was reading it:
+    PRJEB47693 gives Triticum aestivum 28 / Secale cereale 4 / Hordeum vulgare 1 per sample,
+    and PRJNA950118 gives Triticum aestivum 54 / Hordeum jubatum 4. Those two carry the only
+    field BARLEY in the cohort, so skipping this attribute reported barley as absent.
+
+    Ranks below curated_species(), which comes from a paper's own table, and above the
+    archive's scientific_name.
+    """
+    out = {}
+    for r in all_runs(RUNS):
+        bs = r.get("BioSample")
+        if not bs:
+            continue
+        a = _attrs_cache.setdefault(r["BioProject"], _load_attrs(r["BioProject"]))
+        h = (a.get(bs) or {}).get("host") if isinstance(a, dict) else None
+        if h and not re.match(r"Puccinia|Blumeria|Zymoseptoria|Fusarium|Pyrenophora|Rhizoctonia",
+                              str(h), re.I):
+            out[r["Run"]] = str(h)
+    return out
+
+
+_attrs_cache: dict = {}
+
+
+def _load_attrs(bp: str) -> dict:
+    p = BIOSAMPLE / f"{bp}.json"
+    if not p.exists():
+        return {}
+    try:
+        d = json.loads(p.read_text())
+    except Exception:
+        return {}
+    return d.get("attrs") if isinstance(d.get("attrs"), dict) else d
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--refetch", action="store_true")
+    ap.add_argument("--per-run", metavar="TSV",
+                    help="also write one row per cohort run with its resolved host, for "
+                         "figures that need the host but must not re-derive it: the archive "
+                         "name is the PATHOGEN for the rust surveys, so any script reading "
+                         "run_species.tsv directly reports 56 wheat runs instead of 959")
     args = ap.parse_args()
 
     # The cohort predicate lives in cohort.py and nowhere else; see its docstring for why.
@@ -179,13 +231,24 @@ def main() -> None:
     if missing:
         print(f"fetching species for {len(missing)} project(s)", file=sys.stderr)
         have = fetch_species(missing, refetch=False) | have if have else fetch_species(missing, False)
-    have.update(curated_species())
+    have.update(biosample_host())
+    have.update(curated_species())      # a paper's own table outranks the archive attribute
 
     rows = []
     for r in runs:
         sp = have.get(r["Run"]) or WHOLE_PROJECT_HOST.get(r["BioProject"], "")
         rows.append(dict(r, host=tidy(sp)))
     unknown = sum(1 for r in rows if r["host"] == "(unknown)")
+
+    if args.per_run:
+        cols = ["Run", "BioProject", "host", "location", "collection_date", "setting",
+                "sampling_selection", "tissue"]
+        with open(args.per_run, "w", newline="") as fh:
+            w = csv.DictWriter(fh, fieldnames=cols, delimiter="\t", lineterminator="\n",
+                               extrasaction="ignore", quoting=csv.QUOTE_NONE, escapechar=None)
+            w.writeheader()
+            w.writerows(rows)
+        print(f"wrote {args.per_run}  ({len(rows):,} rows)", file=sys.stderr)
 
     agg = collections.defaultdict(lambda: dict(
         n=0, projects=set(), locs=set(), years=set(), settings=collections.Counter(),

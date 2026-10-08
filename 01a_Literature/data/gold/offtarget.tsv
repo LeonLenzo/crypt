@@ -9,12 +9,10 @@ PRJNA1156920	77	77	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:77	keep	ho
 PRJNA542779	72	72	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:72	keep	host name 'Triticum aestivum'	
 PRJNA445615	48	48	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:48	keep	host name 'Zea mays'	
 PRJNA982974	45	45	Setaria italica	cereal	host name 'Setaria italica'	plant	RNA-Seq:45	keep	host name 'Setaria italica'	10.1186/s12870-026-08540-8
-PRJNA505891	42	42	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:42	keep	host name 'Zea mays'	10.1105/tpc.18.00930
 PRJNA861273	42	42	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:42	keep	host name 'Triticum aestivum'	
 PRJNA722004	36	36	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:36	keep	host name 'Triticum aestivum'	Red21b
 PRJEB10406	36	36	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:36	keep	host name 'Zea mays'	10.3390/genes16050539
 PRJNA541021	36	36	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:36	keep	host name 'Hordeum vulgare'	
-PRJNA1006331	33	33	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:33	keep	host name 'Triticum aestivum'	10.1111/tpj.70182
 PRJNA1240218	27	27	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:27	keep	host name 'Zea mays'	
 PRJEB13048	24	24	Zea mays subsp. mays	cereal	host name 'Zea mays subsp. mays'	plant	RNA-Seq:24	keep	host name 'Zea mays subsp. mays'	10.3389/fpls.2022.985396
 PRJNA1080069	24	24	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:24	keep	host name 'Hordeum vulgare'	10.1007/s12298-024-01455-4
@@ -26,13 +24,10 @@ PRJNA308408	18	18	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:18	keep	hos
 PRJNA379712	16	16	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:16	keep	host name 'Zea mays'	Zha17e
 PRJEB13569	16	16	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:16	keep	host name 'Triticum aestivum'	10.3390/jof4010039
 PRJNA690691	16	16	Oryza sativa	cereal	host name 'Oryza sativa'	plant	RNA-Seq:16	keep	host name 'Oryza sativa'	10.1038/s41467-021-22660-9
-PRJNA818435	15	15	Oryza sativa Indica Group	cereal	host name 'Oryza sativa Indica Group'	plant	RNA-Seq:15	keep	host name 'Oryza sativa Indica Group'	10.1094/mpmi-07-22-0153-r
 PRJNA1307747	15	15	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:15	keep	host name 'Zea mays'	10.1111/jac.70189
 PRJNA307989	15	15	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:15	keep	host name 'Triticum aestivum'	10.1111/pce.14579
-PRJNA1161467	12	12	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:12	keep	host name 'Zea mays'	10.1016/j.molp.2024.09.006
 PRJNA862687	12	12	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:12	keep	host name 'Triticum aestivum'	10.3390/plants11212807
 PRJNA906029	12	12	Setaria italica	cereal	host name 'Setaria italica'	plant	RNA-Seq:12	keep	host name 'Setaria italica'	10.3389/fpls.2022.1110910
-PRJNA725619	12	12	Oryza sativa	cereal	host name 'Oryza sativa'	plant	RNA-Seq:12	keep	host name 'Oryza sativa'	10.1101/2021.05.05.442799
 PRJNA715112	12	12	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:12	keep	host name 'Hordeum vulgare'	10.1038/s41396-021-01138-y
 PRJNA1328502	12	12	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:12	keep	host name 'Hordeum vulgare'	
 PRJNA1170567	12	12	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:12	keep	host name 'Hordeum vulgare'	10.3390/ijms252413244
@@ -42,15 +37,12 @@ PRJNA842823	12	12	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	R
 PRJDB19723	12	12	Oryza sativa Japonica Group	cereal	host name 'Oryza sativa Japonica Group'	plant	RNA-Seq:12	keep	host name 'Oryza sativa Japonica Group'	10.3390/plants14020241
 PRJNA1226203	10	10	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:10	keep	host name 'Triticum aestivum'	10.1016/j.xplc.2025.101542
 PRJNA1272129	9	9	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:9	keep	host name 'Hordeum vulgare'	10.1186/s12870-026-08414-z
-PRJNA1100217	9	9	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:9	keep	host name 'Zea mays'	10.1080/17429145.2024.2393803
 PRJNA1113399	9	9	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:9	keep	host name 'Hordeum vulgare'	
 PRJNA590671	8	8	Oryza sativa Indica Group	cereal	host name 'Oryza sativa Indica Group'	plant	RNA-Seq:8	keep	host name 'Oryza sativa Indica Group'	10.3390/ijms26104618
-PRJNA1416819	6	6	Oryza sativa	cereal	host name 'Oryza sativa'	plant	RNA-Seq:6	keep	host name 'Oryza sativa'	10.1021/acs.jafc.6c00147
 PRJNA799471	5	5	Oryza sativa	cereal	host name 'Oryza sativa'	plant	RNA-Seq:5	keep	host name 'Oryza sativa'	Ren22g
 PRJNA1344827	4	4	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:4	keep	host name 'Hordeum vulgare'	10.1186/s12864-026-12947-w
 PRJNA753546	3	3	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:3	keep	host name 'Zea mays'	10.1186/s12864-022-09001-w
 PRJNA750086	3	3	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:3	keep	host name 'Zea mays'	10.1093/plphys/kiac038
-PRJNA516527	3	3	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:3	keep	host name 'Zea mays'	10.1111/pce.13803
 PRJDB16420	2	2	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:2	keep	host name 'Hordeum vulgare'	
 PRJNA670260	31	31	Sagittaria pygmaea	cereal?	'Rice' appears in the title, not the organism; confirm	plant	RNA-Seq:31	keep	'Rice' appears in the title, not the organism; confirm	Cha22c
 PRJNA250530	27	27	Exserohilum turcicum	cereal?	cereal-restricted pathogen 'Exserohilum turcicum'; host inferred, confirm from the paper	plant	RNA-Seq:27	keep	cereal-restricted pathogen 'Exserohilum turcicum'; host inferred, confirm from the paper	10.1371/journal.pone.0219207

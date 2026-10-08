@@ -1,6 +1,6 @@
 host	host_group	samples	projects	localities	years	n_years	wild	coinfection_set	discovery_set	positives_only	unflagged	main_tissue	settings	selection
 Oryza sativa (rice)	cereal	2784	6	6	2013-2017	5	0	0	2784	0	0	leaf	field:2680; field (chamber-raised, transferred outdoors):104	unselected:2784
-Zea mays (maize)	cereal	2400	11	37	2012-2020	5	0	134	2266	0	0	leaf	field:2400	unselected:2245; inoculated:128; symptom-avoided:21; disease-selected:6
+Zea mays (maize)	cereal	2445	12	37	2012-2020	5	0	179	2266	0	0	leaf	field:2400; field (inoculated in situ):45	unselected:2245; inoculated:173; symptom-avoided:21; disease-selected:6
 Sorghum bicolor	cereal	1120	4	4	2016-2021	3	0	0	1120	0	0	leaf	field:1120	unselected:1119; symptom-avoided:1
 Triticum aestivum (bread wheat)	cereal	959	7	358	2013-2018	6	0	944	15	0	0	leaf	field:959	disease-selected:929; unselected:15; inoculated:15
 Zea mays teosinte subspp.	cereal	42	1	4	2017	1	21	0	42	0	0	leaf	field (natural population):21; field:21	unselected:42
@@ -9,6 +9,7 @@ Triticale	cereal	11	3	7	2013-2017	4	0	11	0	0	0	leaf	field:11	disease-selected:11
 Triticum durum/turgidum	cereal	9	3	6	2014-2017	4	0	9	0	0	0	leaf	field:9	disease-selected:9
 Secale cereale (rye)	cereal	3	2	2	2014-2018	2	0	3	0	0	0	leaf	field:3	disease-selected:3
 Triticum dicoccon	cereal	2	1	1	2017	1	0	2	0	0	0	leaf	field:2	disease-selected:2
+Hordeum vulgare	cereal	1	1	1	2023	1	0	1	0	0	0	LEAVES	field:1	disease-selected:1
 Panicum virgatum (switchgrass)	grass	3	1	1		0	0	0	3	0	0	leaf	field:3	symptom-avoided:3
 Arabidopsis thaliana	other	2580	5	2	2016-2018	3	0	0	2580	0	0	leaf	field (potted, outdoor common garden):2580	unselected:2580
 Vitis vinifera (grapevine)	other	1706	4	3	2015-2019	4	0	384	1322	0	0	Leaf	field:1602; field (excised, forced indoors):104	unselected:1322; inoculated:384

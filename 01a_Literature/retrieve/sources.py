@@ -77,11 +77,54 @@ def flatten(xml: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", xml))
 
 
+def cache_text(doi: str) -> str | None:
+    """Full text for a DOI from 02_literature's own cache, or None.
+
+    The cache holds 711 full texts already. Before 2026-10-08 `resolve()` went straight to
+    Europe PMC and passed a DOI where the endpoint expects a PMCID, so every DOI lookup
+    raised an HTTPError and the cache was never consulted. Reading a paper cost a network
+    round trip for a file that was on disk.
+    """
+    if not TEXT_CACHE.exists():
+        return None
+    want = doi.strip().lower()
+    with TEXT_CACHE.open(encoding="utf-8", errors="replace") as fh:
+        for line in fh:
+            key, _, blob = line.partition("\t")
+            if key.strip().lower() != want:
+                continue
+            try:
+                d = json.loads(blob)
+            except Exception:
+                return None
+            if isinstance(d, str):
+                return d
+            for k in ("fulltext", "full_text", "text", "body", "xml"):
+                if isinstance(d.get(k), str) and d[k].strip():
+                    return d[k]
+            return json.dumps(d)
+    return None
+
+
 def resolve(arg: str) -> tuple[str, Path | None]:
-    """Accept a PMCID or a path. Returns (text, path)."""
+    """Accept a DOI, a PMCID or a path. Returns (text, path).
+
+    Order matters: local first, network last. A DOI goes to the 02_literature text cache,
+    which is where the papers for this project actually live.
+    """
     p = Path(arg)
     if p.exists():
         return p.read_text(encoding="utf-8", errors="replace"), p
+    if arg.startswith("10."):
+        t = cache_text(arg)
+        if t:
+            return t, None
+        hits = sorted(STUDIES.rglob(f"*{arg.replace('/', '_')}*"))
+        hits = [h for h in hits if h.is_file()]
+        if hits:
+            return hits[0].read_text(encoding="utf-8", errors="replace"), hits[0]
+        sys.exit(f"REFUSED: {arg} is not in the text cache and not under studies/. "
+                 f"Fetch it with `sources.py fulltext <PMCID>` first.")
     hits = sorted(STUDIES.rglob(f"*{arg}*")) if arg.startswith("PMC") else []
     if hits:
         return hits[0].read_text(encoding="utf-8", errors="replace"), hits[0]
@@ -320,9 +363,32 @@ def cmd_ena(acc: str) -> None:
                   + "  ".join(f"{a}:{n}" for a, n in c.most_common(3)))
 
 
+def cmd_find(query: str, rows: str = "8") -> None:
+    """Europe PMC topic search, for the deposit whose paper nothing links to.
+
+    `papers` searches on the accession STRING and is the right instrument when the paper
+    cites its data. It returns nothing for a deposit the authors never cited, or cited only
+    in a supplement EPMC did not index - 4 of 8 field candidates on 2026-10-08. This is the
+    fallback: search the distinctive nouns from the BioProject title (a gene symbol, a
+    cultivar, an institute) and check the hits against the deposit by hand.
+
+    A hit is a CANDIDATE, never a resolution. The paper has to state the accession, or
+    describe the same samples, before anything is curated from it.
+    """
+    q = urllib.parse.quote(query)
+    d = json.loads(get(f"{EPMC}/search?query={q}&format=json&pageSize={int(rows)}"
+                       f"&resultType=core"))
+    print(f"{d['hitCount']} hit(s) for {query!r}\n")
+    for r in d["resultList"]["result"]:
+        cached = "cached" if TEXT_CACHE.exists() and cache_text(r.get("doi") or "~") else ""
+        print(f"  {r.get('doi') or '(no doi)':<36} {r.get('pmcid') or '-':<12} "
+              f"OA={r.get('isOpenAccess')} {r.get('pubYear')} {cached}")
+        print(f"    {(r.get('title') or '')[:140]}")
+
+
 CMDS = {"papers": (cmd_papers, 1), "fulltext": (cmd_fulltext, 1), "sections": (cmd_sections, 2),
         "scan": (cmd_scan, 1), "geo": (cmd_geo, 1), "ena": (cmd_ena, 1),
-        "bioproject": (cmd_bioproject, 1), "cached": (cmd_cached, 1), "grep": (cmd_grep, 2)}
+        "bioproject": (cmd_bioproject, 1), "cached": (cmd_cached, 1), "grep": (cmd_grep, 2), "find": (cmd_find, 1)}
 
 if __name__ == "__main__":
     if len(sys.argv) < 2 or sys.argv[1] not in CMDS:

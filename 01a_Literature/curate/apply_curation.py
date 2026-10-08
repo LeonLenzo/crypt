@@ -47,7 +47,7 @@ _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
 from _paths import ROOT          # repo-wide
-from _layout import CURATION, JOINS, PAPERS, PROVENANCE, RUNS, STUDIES
+from _layout import CURATION, JOINS, PAPERS, PROVENANCE, RUNS, STUDIES, TEXT_CACHE
 # One definition of the join key, the BioSample loader and the refusal bar, shared with the
 # resolvers so a resolver's predicted rate IS the rate this module achieves. See _resolver.
 from _resolver import MIN_JOIN_RATE, attrs_for, sra_key as _sra_key
@@ -262,6 +262,18 @@ def check_sources(prov: list[dict]) -> list[str]:
     paper_ref is resolved through papers.tsv because some provenance rows carry the DOI in
     paper_key rather than the short ref.
     """
+    # 02_literature's own cache counts as a copy on disk. It holds 711 full texts, and
+    # four papers curated on 2026-10-08 were read straight out of it; warning that they
+    # were unverifiable while their text sat in the cache made the check cry wolf, which
+    # is how a real warning gets ignored.
+    cached = set()
+    if TEXT_CACHE.exists():
+        with TEXT_CACHE.open(encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                k, sep, rest = line.partition("\t")
+                if sep and rest.strip():
+                    cached.add(k.strip().lower())
+
     refs = {}
     for r in read(PAPERS):
         d, ref = (r.get("doi") or "").strip(), (r.get("paper_ref") or "").strip()
@@ -278,8 +290,9 @@ def check_sources(prov: list[dict]) -> list[str]:
         for alt in (key, refs.get(doi)):
             if alt and alt != doi:
                 cands.append(STUDIES / alt)
-        ok = any(d.is_dir() and any(f.is_file() and f.name != "adapter.yaml"
-                                    for f in d.rglob("*")) for d in cands)
+        ok = (doi.lower() in cached
+              or any(d.is_dir() and any(f.is_file() and f.name != "adapter.yaml"
+                                        for f in d.rglob("*")) for d in cands))
         seen[doi] = ok
         if not ok:
             warn.append(f"{doi}  ({key or 'no paper_key'}), {sum(1 for x in prov if x.get('doi') == doi)} evidence rows")

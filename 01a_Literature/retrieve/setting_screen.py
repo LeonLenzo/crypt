@@ -40,7 +40,7 @@ from pathlib import Path
 _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
-from _layout import BIOPROJECT_XML, BIOSAMPLE, RUNINFO, SILVER, TEXT_CACHE
+from _layout import BIOPROJECT_XML, BIOSAMPLE, RUNINFO, SILVER, STUDIES, TEXT_CACHE
 
 # --- vocabulary -------------------------------------------------------------------------
 
@@ -173,7 +173,7 @@ def paper_text(bp: str) -> list[tuple[str, str]]:
                 dois.append(r["doi"].strip().lower())
     if not dois:
         return []
-    want, out = set(dois), []
+    want, out, got = set(dois), [], {}
     with TEXT_CACHE.open(encoding="utf-8", errors="replace") as fh:
         for line in fh:
             key, sep, blob = line.partition("\t")
@@ -188,7 +188,19 @@ def paper_text(bp: str) -> list[tuple[str, str]]:
                 (d[x] for x in ("fulltext", "full_text", "text", "body", "xml")
                  if isinstance(d.get(x), str) and d[x].strip()), "")
             if t:
-                out.append((f"paper/{k}", re.sub(r"<[^>]+>", " ", t)))
+                got[k] = t
+    # The cache stores at most 60,000 characters and 72% of its texts sit at that cap, which
+    # in a Wiley or Nature article removes the Methods outright. Prefer a full copy fetched
+    # into studies/ wherever one exists, and fall back to the capped text otherwise.
+    for k in dois:
+        t = got.get(k, "")
+        if not t or len(t) >= 59_980:
+            hits = sorted(f for f in (STUDIES / ("doi_" + k.replace("/", "_"))).glob("*")
+                          if f.is_file() and f.name != "adapter.yaml")
+            if hits:
+                t = hits[0].read_text(encoding="utf-8", errors="replace")
+        if t:
+            out.append((f"paper/{k}", re.sub(r"<[^>]+>", " ", t)))
     return out
 
 

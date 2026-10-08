@@ -77,6 +77,18 @@ def flatten(xml: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", xml))
 
 
+# 02_literature's cache stores at most 60,000 characters per paper. Measured 2026-10-08:
+# 514 of its 711 texts (72%) sit exactly at that cap, and the median text length IS the cap.
+# In Wiley, Nature and Elsevier articles the Methods come last, so the cap removes precisely
+# the section a setting verdict depends on. A capped entry must therefore be treated as a
+# partial read, not as a paper that says nothing.
+CACHE_CAP = 60_000
+
+
+def is_capped(text: str | None) -> bool:
+    return bool(text) and len(text) >= CACHE_CAP - 20
+
+
 def cache_text(doi: str) -> str | None:
     """Full text for a DOI from 02_literature's own cache, or None.
 
@@ -117,12 +129,17 @@ def resolve(arg: str) -> tuple[str, Path | None]:
         return p.read_text(encoding="utf-8", errors="replace"), p
     if arg.startswith("10."):
         t = cache_text(arg)
+        # cmd_fulltext files a paper as STUDIES/doi_<slug>/<tail>_fulltext.xml, so the DOI
+        # lives in the DIRECTORY name and not in the filename. Globbing files for the slug
+        # found nothing and made 17 freshly fetched papers look unfetched.
+        hits = sorted(f for f in (STUDIES / ("doi_" + arg.replace("/", "_"))).glob("*")
+                      if f.is_file() and f.name != "adapter.yaml")
+        # A full copy under studies/ beats a capped cache entry; the cache still wins over
+        # the network when it holds the whole paper.
+        if hits and (not t or is_capped(t)):
+            return hits[0].read_text(encoding="utf-8", errors="replace"), hits[0]
         if t:
             return t, None
-        hits = sorted(STUDIES.rglob(f"*{arg.replace('/', '_')}*"))
-        hits = [h for h in hits if h.is_file()]
-        if hits:
-            return hits[0].read_text(encoding="utf-8", errors="replace"), hits[0]
         sys.exit(f"REFUSED: {arg} is not in the text cache and not under studies/. "
                  f"Fetch it with `sources.py fulltext <PMCID>` first.")
     hits = sorted(STUDIES.rglob(f"*{arg}*")) if arg.startswith("PMC") else []

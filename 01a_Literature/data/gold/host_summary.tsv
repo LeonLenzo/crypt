@@ -1,9 +1,10 @@
 host	host_group	samples	projects	localities	years	n_years	wild	coinfection_set	discovery_set	positives_only	unflagged	main_tissue	settings	selection
 Oryza sativa (rice)	cereal	2784	6	6	2013-2017	5	0	0	2784	0	0	leaf	field:2680; field (chamber-raised, transferred outdoors):104	unselected:2784
-Zea mays (maize)	cereal	2256	7	36	2012-2020	5	0	0	2256	0	0	leaf	field:2256	unselected:2235; symptom-avoided:21
+Zea mays (maize)	cereal	2400	11	37	2012-2020	5	0	134	2266	0	0	leaf	field:2400	unselected:2245; inoculated:128; symptom-avoided:21; disease-selected:6
 Sorghum bicolor	cereal	1120	4	4	2016-2021	3	0	0	1120	0	0	leaf	field:1120	unselected:1119; symptom-avoided:1
-Triticum aestivum (bread wheat)	cereal	903	5	356	2013-2018	6	0	903	0	0	0	leaf	field:903	disease-selected:903
+Triticum aestivum (bread wheat)	cereal	959	7	358	2013-2018	6	0	944	15	0	0	leaf	field:959	disease-selected:929; unselected:15; inoculated:15
 Zea mays teosinte subspp.	cereal	42	1	4	2017	1	21	0	42	0	0	leaf	field (natural population):21; field:21	unselected:42
+Setaria italica	cereal	36	1	1		0	0	0	36	0	0		field:36	unselected:36
 Triticale	cereal	11	3	7	2013-2017	4	0	11	0	0	0	leaf	field:11	disease-selected:11
 Triticum durum/turgidum	cereal	9	3	6	2014-2017	4	0	9	0	0	0	leaf	field:9	disease-selected:9
 Secale cereale (rye)	cereal	3	2	2	2014-2018	2	0	3	0	0	0	leaf	field:3	disease-selected:3
@@ -18,6 +19,11 @@ Brassica napus (oilseed rape)	other	229	1	1		0	0	0	229	0	0	silique	field:229	uns
 Fagus grandifolia (American beech)	other	217	1	2	2017-2018	2	217	0	217	0	0	leaf	field (natural population):217	unselected:217
 Solanum lycopersicum	other	126	1	1		0	0	126	0	0	0	fruit pericarp and epidermal tissue of the blossom end halves	field (excised, lab-inoculated):126	inoculated:126
 Vitis vinifera subsp. sylvestris (wild grape)	other	108	1	1	2017	1	0	0	108	0	0	berry (skin or pulp)	field:108	symptom-avoided:108
+Puccinia triticina	other	100	1	11	2017-2019	3	0	100	0	0	0	leaf (rust-infected)	field:100	disease-selected:100
 Vitis spp. (wild grapevine)	other	79	1	1	2015	1	0	0	79	0	0	bud (forced, deacclimating)	field (excised, forced indoors):68; field:11	unselected:79
+Puccinia striiformis f. sp. tritici	other	73	2	11	1974-2021	14	0	73	0	0	0	leaf	field:73	disease-selected:73
+Fusarium graminearum	other	33	2	6	2016-2020	2	0	33	0	0	0		field:33	inoculated:21; disease-selected:12
+Puccinia graminis f. sp. tritici	other	23	1	3	2019-2020	2	0	23	0	0	0	stem/leaf (rust lesion)	field:23	disease-selected:23
 Zea spp. (wild teosinte)	other	12	1	2	2017	1	0	0	12	0	0	leaf	field:12	unselected:12
 Perenial Grass	other	1	1	1	2014	1	0	1	0	0	0	leaf	field:1	disease-selected:1
+Fusarium sp. Fsp_R.2	other	1	1	1	2016	1	0	1	0	0	0	wheat spikelet	field:1	disease-selected:1

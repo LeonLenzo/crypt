@@ -16,25 +16,20 @@ PRJNA861273	42	42	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	R
 PRJNA415853	39	39	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:39	keep	host name 'Triticum aestivum'	10.1126/science.aao7294
 PRJNA722004	36	36	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:36	keep	host name 'Triticum aestivum'	Red21b
 PRJEB10406	36	36	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:36	keep	host name 'Zea mays'	10.3390/genes16050539
-PRJNA721299	36	36	Setaria italica	cereal	host name 'Setaria italica'	plant	RNA-Seq:36	keep	host name 'Setaria italica'	10.7717/peerj.12968
 PRJNA541021	36	36	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:36	keep	host name 'Hordeum vulgare'	
 PRJNA1006331	33	33	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:33	keep	host name 'Triticum aestivum'	10.1111/tpj.70182
 PRJNA273659	30	30	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:30	keep	host name 'Triticum aestivum'	10.3390/cimb43020069
 PRJNA540228	27	27	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:27	keep	host name 'Hordeum vulgare'	10.1186/s12864-019-6369-7
 PRJNA1240218	27	27	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:27	keep	host name 'Zea mays'	
-PRJEB36444	26	26	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:26	keep	host name 'Triticum aestivum'	10.1093/plcell/koab049
 PRJEB13048	24	24	Zea mays subsp. mays	cereal	host name 'Zea mays subsp. mays'	plant	RNA-Seq:24	keep	host name 'Zea mays subsp. mays'	10.3389/fpls.2022.985396
-PRJNA1080069	24	24	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:24	keep	host name 'Hordeum vulgare'	
+PRJNA1080069	24	24	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:24	keep	host name 'Hordeum vulgare'	10.1007/s12298-024-01455-4
 PRJNA1455163	24	24	Oryza sativa	cereal	host name 'Oryza sativa'	plant	RNA-Seq:24	keep	host name 'Oryza sativa'	
-PRJNA415716	24	24	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:24	keep	host name 'Triticum aestivum'	
+PRJNA415716	24	24	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:24	keep	host name 'Triticum aestivum'	10.1099/mgen.0.001136
 PRJNA531693	24	24	Triticum turgidum	cereal	host name 'Triticum turgidum'	plant	RNA-Seq:24	keep	host name 'Triticum turgidum'	
-PRJNA423161	22	22	Oryza sativa Indica Group	cereal	host name 'Oryza sativa Indica Group'	plant	RNA-Seq:22	keep	host name 'Oryza sativa Indica Group'	10.1038/s41467-025-61827-6
 PRJNA339565	22	22	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:22	keep	host name 'Zea mays'	10.3389/fgene.2016.00206
-PRJNA674985	18	18	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:18	keep	host name 'Triticum aestivum'	Kol21
 PRJNA886841	18	18	Oryza sativa Indica Group	cereal	host name 'Oryza sativa Indica Group'	plant	RNA-Seq:18	keep	host name 'Oryza sativa Indica Group'	10.3389/fpls.2022.1055277
 PRJNA976214	18	18	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:18	keep	host name 'Triticum aestivum'	10.3389/fpls.2023.1299461
 PRJNA1203070	18	18	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:18	keep	host name 'Triticum aestivum'	10.3390/ijms26020640
-PRJNA853857	18	18	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:18	keep	host name 'Zea mays'	10.3390/ijms231810236
 PRJNA953858	18	18	Oryza sativa	cereal	host name 'Oryza sativa'	plant	RNA-Seq:18	keep	host name 'Oryza sativa'	10.1038/s41588-025-02281-4
 PRJNA595999	18	18	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:18	keep	host name 'Triticum aestivum'	10.1038/s41598-020-73521-2
 PRJNA480999	18	18	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:18	keep	host name 'Hordeum vulgare'	
@@ -42,7 +37,6 @@ PRJNA308408	18	18	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:18	keep	hos
 PRJNA379712	16	16	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:16	keep	host name 'Zea mays'	Zha17e
 PRJEB13569	16	16	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:16	keep	host name 'Triticum aestivum'	10.3390/jof4010039
 PRJNA690691	16	16	Oryza sativa	cereal	host name 'Oryza sativa'	plant	RNA-Seq:16	keep	host name 'Oryza sativa'	10.1038/s41467-021-22660-9
-PRJNA357594	16	16	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:16	keep	host name 'Zea mays'	10.1186/s12864-018-4513-4
 PRJNA818435	15	15	Oryza sativa Indica Group	cereal	host name 'Oryza sativa Indica Group'	plant	RNA-Seq:15	keep	host name 'Oryza sativa Indica Group'	10.1094/mpmi-07-22-0153-r
 PRJNA1307747	15	15	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:15	keep	host name 'Zea mays'	10.1111/jac.70189
 PRJNA307989	15	15	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:15	keep	host name 'Triticum aestivum'	10.1111/pce.14579
@@ -52,26 +46,21 @@ PRJNA1161467	12	12	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:12	keep	ho
 PRJNA862687	12	12	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:12	keep	host name 'Triticum aestivum'	10.3390/plants11212807
 PRJNA983310	12	12	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:12	keep	host name 'Zea mays'	10.1371/journal.pgen.1011052
 PRJNA906029	12	12	Setaria italica	cereal	host name 'Setaria italica'	plant	RNA-Seq:12	keep	host name 'Setaria italica'	10.3389/fpls.2022.1110910
-PRJNA738667	12	12	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:12	keep	host name 'Zea mays'	10.1016/j.molp.2021.07.008
 PRJNA725619	12	12	Oryza sativa	cereal	host name 'Oryza sativa'	plant	RNA-Seq:12	keep	host name 'Oryza sativa'	10.1101/2021.05.05.442799
-PRJNA715112	12	12	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:12	keep	host name 'Hordeum vulgare'	
+PRJNA715112	12	12	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:12	keep	host name 'Hordeum vulgare'	10.1038/s41396-021-01138-y
 PRJNA1328502	12	12	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:12	keep	host name 'Hordeum vulgare'	
-PRJNA1170567	12	12	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:12	keep	host name 'Hordeum vulgare'	
+PRJNA1170567	12	12	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:12	keep	host name 'Hordeum vulgare'	10.3390/ijms252413244
 PRJNA1277021	12	12	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:12	keep	host name 'Hordeum vulgare'	
 PRJNA852375	12	12	Hordeum vulgare subsp. vulgare	cereal	host name 'Hordeum vulgare subsp. vulgare'	plant	RNA-Seq:12	keep	host name 'Hordeum vulgare subsp. vulgare'	
 PRJNA842823	12	12	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:12	keep	host name 'Triticum aestivum'	
-PRJDB19723	12	12	Oryza sativa Japonica Group	cereal	host name 'Oryza sativa Japonica Group'	plant	RNA-Seq:12	keep	host name 'Oryza sativa Japonica Group'	
+PRJDB19723	12	12	Oryza sativa Japonica Group	cereal	host name 'Oryza sativa Japonica Group'	plant	RNA-Seq:12	keep	host name 'Oryza sativa Japonica Group'	10.3390/plants14020241
 PRJNA1226203	10	10	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:10	keep	host name 'Triticum aestivum'	10.1016/j.xplc.2025.101542
-PRJNA564795	10	10	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:10	keep	host name 'Zea mays'	10.3389/fpls.2020.00191
 PRJNA1272129	9	9	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:9	keep	host name 'Hordeum vulgare'	10.1186/s12870-026-08414-z
 PRJNA1181513	9	9	Oryza sativa Japonica Group	cereal	host name 'Oryza sativa Japonica Group'	plant	RNA-Seq:9	keep	host name 'Oryza sativa Japonica Group'	10.1126/science.adl5764
 PRJNA1100217	9	9	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:9	keep	host name 'Zea mays'	10.1080/17429145.2024.2393803
 PRJNA1113399	9	9	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:9	keep	host name 'Hordeum vulgare'	
 PRJNA1072674	8	8	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:8	keep	host name 'Triticum aestivum'	10.3390/plants13070982
 PRJNA590671	8	8	Oryza sativa Indica Group	cereal	host name 'Oryza sativa Indica Group'	plant	RNA-Seq:8	keep	host name 'Oryza sativa Indica Group'	10.3390/ijms26104618
-PRJDB12891	7	7	Oryza rufipogon	cereal	host name 'Oryza rufipogon'	plant	RNA-Seq:7	keep	host name 'Oryza rufipogon'	10.1073/pnas.2116896119
-PRJNA321325	6	6	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:6	keep	host name 'Zea mays'	10.1111/tpj.13419
-PRJNA369690	6	6	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:6	keep	host name 'Zea mays'	10.1094/mpmi-03-17-0054-r
 PRJNA1416819	6	6	Oryza sativa	cereal	host name 'Oryza sativa'	plant	RNA-Seq:6	keep	host name 'Oryza sativa'	10.1021/acs.jafc.6c00147
 PRJNA799471	5	5	Oryza sativa	cereal	host name 'Oryza sativa'	plant	RNA-Seq:5	keep	host name 'Oryza sativa'	Ren22g
 PRJNA1344827	4	4	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:4	keep	host name 'Hordeum vulgare'	10.1186/s12864-026-12947-w
@@ -79,13 +68,12 @@ PRJNA753546	3	3	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:3	keep	host n
 PRJNA750086	3	3	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:3	keep	host name 'Zea mays'	10.1093/plphys/kiac038
 PRJNA516527	3	3	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:3	keep	host name 'Zea mays'	10.1111/pce.13803
 PRJNA209313	3	3	Zea mays	cereal	host name 'Zea mays'	plant	RNA-Seq:3	keep	host name 'Zea mays'	10.1105/tpc.112.103499
-PRJDB12902	2	2	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:2	keep	host name 'Hordeum vulgare'	10.1073/pnas.2116896119
 PRJDB16420	2	2	Hordeum vulgare	cereal	host name 'Hordeum vulgare'	plant	RNA-Seq:2	keep	host name 'Hordeum vulgare'	
 PRJNA670260	31	31	Sagittaria pygmaea	cereal?	'Rice' appears in the title, not the organism; confirm	plant	RNA-Seq:31	keep	'Rice' appears in the title, not the organism; confirm	Cha22c
-PRJNA250530	27	27	Exserohilum turcicum	cereal?	cereal-restricted pathogen 'Exserohilum turcicum'; host inferred, confirm from the paper	plant	RNA-Seq:27	keep	cereal-restricted pathogen 'Exserohilum turcicum'; host inferred, confirm from the paper	
+PRJNA250530	27	27	Exserohilum turcicum	cereal?	cereal-restricted pathogen 'Exserohilum turcicum'; host inferred, confirm from the paper	plant	RNA-Seq:27	keep	cereal-restricted pathogen 'Exserohilum turcicum'; host inferred, confirm from the paper	10.1371/journal.pone.0219207
 PRJNA674747	18	18	Sporisorium reilianum	cereal?	cereal-restricted pathogen 'Sporisorium'; host inferred, confirm from the paper	plant	RNA-Seq:18	keep	cereal-restricted pathogen 'Sporisorium'; host inferred, confirm from the paper	
-PRJNA560644	12	12	Exserohilum turcicum	cereal?	cereal-restricted pathogen 'Exserohilum turcicum'; host inferred, confirm from the paper	plant	RNA-Seq:12	keep	cereal-restricted pathogen 'Exserohilum turcicum'; host inferred, confirm from the paper	
-PRJNA804666	8	8	Rhynchosporium graminicola	cereal?	cereal-restricted pathogen 'Rhynchosporium'; host inferred, confirm from the paper	plant	RNA-Seq:8	keep	cereal-restricted pathogen 'Rhynchosporium'; host inferred, confirm from the paper	
+PRJNA560644	12	12	Exserohilum turcicum	cereal?	cereal-restricted pathogen 'Exserohilum turcicum'; host inferred, confirm from the paper	plant	RNA-Seq:12	keep	cereal-restricted pathogen 'Exserohilum turcicum'; host inferred, confirm from the paper	10.3389/fmicb.2020.00360
+PRJNA804666	8	8	Rhynchosporium graminicola	cereal?	cereal-restricted pathogen 'Rhynchosporium'; host inferred, confirm from the paper	plant	RNA-Seq:8	keep	cereal-restricted pathogen 'Rhynchosporium'; host inferred, confirm from the paper	10.1038/s41598-025-02572-0
 PRJEB51973	36	36	Brachypodium distachyon	grass	host name 'Brachypodium distachyon'	plant	RNA-Seq:36	keep	host name 'Brachypodium distachyon'	10.1101/2022.04.05.487121
 PRJNA630305	162	162	Fagus grandifolia	other	host name 'Fagus grandifolia'	plant	RNA-Seq:162	keep	host name 'Fagus grandifolia'	
 PRJNA1013336	85	85	Lactuca sativa	other	host name 'Lactuca sativa'	plant	RNA-Seq:85	keep	host name 'Lactuca sativa'	10.1016/j.xplc.2024.101011
@@ -186,7 +174,6 @@ PRJNA515571	2	2	Pyrus pyrifolia	other	host name 'Pyrus pyrifolia'	plant	RNA-Seq:
 PRJNA1399677	1	1	Solanum	other	host name 'Solanum'	plant	RNA-Seq:1	keep	host name 'Solanum'	Amo26
 PRJNA869207	1	1	Solanum virginianum	other	host name 'Solanum virginianum'	plant	RNA-Seq:1	keep	host name 'Solanum virginianum'	Zag26
 PRJNA1314945	306	306	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	RNA-Seq:306	review	host name 'Triticum aestivum'	10.1186/s12864-026-12921-6
-PRJNA1279063	268	24	Pyricularia oryzae	cereal	host name 'Pyricularia oryzae'	fungus	WGS:244; RNA-Seq:24	review	host name 'Pyricularia oryzae'	10.1101/2025.10.14.682320
 PRJEB53625	257	4	Pyricularia oryzae	cereal	host name 'Pyricularia oryzae'	fungus	WGS:253; RNA-Seq:4	review	host name 'Pyricularia oryzae'	
 PRJNA727473	150	44	Avena sativa	cereal	host name 'Avena sativa'	plant	WGS:95; RNA-Seq:44; Hi-C:11	review	host name 'Avena sativa'	10.1038/s41588-022-01127-7
 PRJNA646251	144	48	Pyricularia oryzae	cereal	host name 'Pyricularia oryzae'	fungus	ChIP-Seq:96; RNA-Seq:48	review	host name 'Pyricularia oryzae'	
@@ -203,24 +190,19 @@ PRJNA609211	9	9	Oryza sativa	cereal	host name 'Oryza sativa'	plant	RNA-Seq:9	rev
 PRJNA1232637	3	3	Wheat streak mosaic virus	cereal	host name 'Wheat streak mosaic virus'	virus	RNA-Seq:3	review	host name 'Wheat streak mosaic virus'	10.3390/pathogens14111087
 PRJNA575278	2	2	Barley virus G	cereal	host name 'Barley virus G'	virus	RNA-Seq:2	review	host name 'Barley virus G'	10.1128/mra.01292-19
 PRJNA259589	1	1	Pyricularia oryzae	cereal	host name 'Pyricularia oryzae'	fungus	RNA-Seq:1	review	host name 'Pyricularia oryzae'	10.1371/journal.ppat.1004801
-PRJEB84390	171	100	Puccinia triticina	cereal?	cereal-restricted pathogen 'Puccinia triticina'; host inferred, confirm from the paper	fungus	RNA-Seq:100; WGS:71	review	cereal-restricted pathogen 'Puccinia triticina'; host inferred, confirm from the paper	Tsu25
 PRJNA609706	107	107	Fusarium verticillioides	cereal?	cereal-restricted pathogen 'Fusarium verticillioides'; host inferred, confirm from the paper	fungus	RNA-Seq:107	review	cereal-restricted pathogen 'Fusarium verticillioides'; host inferred, confirm from the paper	
 PRJNA540081	85	69	Thinopyrum elongatum	cereal?	'wheat' appears in the title, not the organism; confirm	plant	RNA-Seq:69; WGS:9; Hi-C:5; POOLCLONE:2	review	'wheat' appears in the title, not the organism; confirm	10.1126/science.aba5435
 PRJEB50522	81	81	Puccinia striiformis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	RNA-Seq:81	review	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	
 PRJNA1292970	78	69	Puccinia graminis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	fungus	RNA-Seq:69; WGS:9	review	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	
 PRJNA950118	58	35	Puccinia striiformis	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	RNA-Seq:35; WGA:23	review	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	10.1101/2023.03.30.534825
-PRJEB34186	56	56	Pyrenophora teres f. teres	cereal?	cereal-restricted pathogen 'Pyrenophora teres'; host inferred, confirm from the paper	fungus	RNA-Seq:56	review	cereal-restricted pathogen 'Pyrenophora teres'; host inferred, confirm from the paper	10.1094/mpmi-10-20-0297-r
 PRJEB65589	53	53	Puccinia graminis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	fungus	RNA-Seq:53	review	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	10.1111/nph.19864
-PRJEB36485	49	39	Puccinia striiformis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	RNA-Seq:39; WGS:10	review	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	10.1111/ppa.13468
 PRJNA588102	48	30	Puccinia striiformis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	RNA-Seq:30; WGS:18	review	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	
 PRJEB75530	47	47	Fusarium graminearum PH-1	cereal?	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	fungus	RNA-Seq:47	review	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	10.1371/journal.ppat.1007666
-PRJEB22223	43	12	Puccinia graminis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	fungus	WGA:31; RNA-Seq:12	review	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	10.1038/s42003-018-0013-y
 PRJNA1237996	42	42	Blumeria graminis f. sp. tritici	cereal?	cereal-restricted pathogen 'Blumeria graminis'; host inferred, confirm from the paper	fungus	RNA-Seq:42	review	cereal-restricted pathogen 'Blumeria graminis'; host inferred, confirm from the paper	
 PRJNA415866	37	33	Puccinia graminis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	fungus	RNA-Seq:33; WGS:4	review	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	10.1186/s12915-021-01123-z
 PRJNA347320	37	33	Puccinia graminis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	fungus	RNA-Seq:33; WGS:4	review	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	
 PRJNA909570	36	36	Fusarium graminearum	cereal?	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	fungus	RNA-Seq:36	review	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	
 PRJNA1162778	36	18	Zymoseptoria tritici	cereal?	cereal-restricted pathogen 'Zymoseptoria'; host inferred, confirm from the paper	fungus	RNA-Seq:18; ChIP-Seq:18	review	cereal-restricted pathogen 'Zymoseptoria'; host inferred, confirm from the paper	
-PRJEB47693	34	27	Puccinia graminis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	fungus	RNA-Seq:27; WGS:7	review	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	Tsu22
 PRJEB68334	34	34	Blumeria graminis f. sp. tritici	cereal?	cereal-restricted pathogen 'Blumeria graminis'; host inferred, confirm from the paper	fungus	RNA-Seq:34	review	cereal-restricted pathogen 'Blumeria graminis'; host inferred, confirm from the paper	
 PRJNA396589	31	15	Puccinia striiformis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	WGS:16; RNA-Seq:15	review	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	Ada21
 PRJNA1164193	30	30	Fusarium graminearum	cereal?	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	fungus	RNA-Seq:30	review	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	
@@ -230,24 +212,20 @@ PRJEB77002	26	26	Puccinia striiformis f. sp. tritici	cereal?	cereal-restricted p
 PRJNA1457771	26	24	Puccinia striiformis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	RNA-Seq:24; WGS:2	review	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	
 PRJNA1267768	25	18	Puccinia graminis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	fungus	RNA-Seq:18; WGS:4; Hi-C:3	review	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	10.1038/s41467-026-69508-8
 PRJEB51980	25	25	Fusarium graminearum PH-1	cereal?	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	fungus	RNA-Seq:25	review	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	
-PRJNA1231252	24	21	Puccinia striiformis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	RNA-Seq:21; WGS:3	review	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	10.1038/s42003-026-10018-0
 PRJNA849030	24	24	Fusarium graminearum	cereal?	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	fungus	RNA-Seq:24	review	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	
 PRJNA151285	22	22	Colletotrichum graminicola	cereal?	cereal-restricted pathogen 'Colletotrichum graminicola'; host inferred, confirm from the paper	fungus	RNA-Seq:22	review	cereal-restricted pathogen 'Colletotrichum graminicola'; host inferred, confirm from the paper	10.1038/ng.2372
-PRJNA1181034	21	21	Fusarium graminearum	cereal?	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	fungus	RNA-Seq:21	review	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	10.1186/s12864-026-12964-9
 PRJNA313195	21	21	Puccinia graminis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	fungus	RNA-Seq:21	review	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	
 PRJNA725323	20	12	Puccinia triticina	cereal?	cereal-restricted pathogen 'Puccinia triticina'; host inferred, confirm from the paper	fungus	RNA-Seq:12; WGS:6; Hi-C:1; WGA:1	review	cereal-restricted pathogen 'Puccinia triticina'; host inferred, confirm from the paper	10.1371/journal.pone.0280004
 PRJNA392275	20	20	Pyrenophora teres f. teres	cereal?	cereal-restricted pathogen 'Pyrenophora teres'; host inferred, confirm from the paper	fungus	RNA-Seq:20	review	cereal-restricted pathogen 'Pyrenophora teres'; host inferred, confirm from the paper	
 PRJNA529541	16	16	Fusarium graminearum	cereal?	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	fungus	RNA-Seq:16	review	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	
 PRJNA1273519	15	15	Ustilaginoidea virens	cereal?	cereal-restricted pathogen 'Ustilaginoidea virens'; host inferred, confirm from the paper	fungus	RNA-Seq:15	review	cereal-restricted pathogen 'Ustilaginoidea virens'; host inferred, confirm from the paper	
 PRJNA293991	14	14	Colletotrichum graminicola	cereal?	cereal-restricted pathogen 'Colletotrichum graminicola'; host inferred, confirm from the paper	fungus	RNA-Seq:14	review	cereal-restricted pathogen 'Colletotrichum graminicola'; host inferred, confirm from the paper	10.1186/s12864-016-2546-0
-PRJNA486288	13	13	Fusarium graminearum	cereal?	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	fungus	RNA-Seq:13	review	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	10.1080/00275514.2019.1607135
 PRJEB39201	12	12	Puccinia striiformis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	RNA-Seq:12	review	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	Ada21
 PRJNA296894	12	12	Blumeria graminis	cereal?	cereal-restricted pathogen 'Blumeria graminis'; host inferred, confirm from the paper	fungus	RNA-Seq:12	review	cereal-restricted pathogen 'Blumeria graminis'; host inferred, confirm from the paper	10.1038/ng.3485
 PRJNA799676	12	12	Fusarium graminearum	cereal?	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	fungus	RNA-Seq:12	review	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	
 PRJNA914331	12	12	Blumeria graminis	cereal?	cereal-restricted pathogen 'Blumeria graminis'; host inferred, confirm from the paper	fungus	RNA-Seq:12	review	cereal-restricted pathogen 'Blumeria graminis'; host inferred, confirm from the paper	
+PRJEB47693	11	4	Puccinia graminis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	fungus	WGS:7; RNA-Seq:4	review	cereal-restricted pathogen 'Puccinia graminis'; host inferred, confirm from the paper	Tsu22
 PRJNA749614	10	4	Puccinia striiformis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	WGS:5; RNA-Seq:4; Hi-C:1	review	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	10.1371/journal.pone.0280004
-PRJEB39756	8	8	Puccinia striiformis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	RNA-Seq:8	review	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	10.1002/ps.6380
-PRJNA527147	8	8	Ustilaginoidea virens	cereal?	cereal-restricted pathogen 'Ustilaginoidea virens'; host inferred, confirm from the paper	fungus	RNA-Seq:8	review	cereal-restricted pathogen 'Ustilaginoidea virens'; host inferred, confirm from the paper	10.1111/1462-2920.15432
 PRJNA796936	8	8	Riboviria	cereal?	'wheat' appears in the title, not the organism; confirm	virus	RNA-Seq:8	review	'wheat' appears in the title, not the organism; confirm	10.3390/v15020401
 PRJNA293109	8	8	Fusarium graminearum PH-1	cereal?	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	fungus	RNA-Seq:8	review	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	10.3389/fmicb.2016.01113
 PRJNA344467	7	7	Ustilaginoidea virens	cereal?	cereal-restricted pathogen 'Ustilaginoidea virens'; host inferred, confirm from the paper	fungus	RNA-Seq:7	review	cereal-restricted pathogen 'Ustilaginoidea virens'; host inferred, confirm from the paper	10.1186/s12864-015-2193-x
@@ -259,7 +237,6 @@ PRJEB3069	6	6	Blumeria graminis	cereal?	cereal-restricted pathogen 'Blumeria gra
 PRJNA1202856	4	4	Fusarium graminearum	cereal?	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	fungus	RNA-Seq:4	review	cereal-restricted pathogen 'Fusarium graminearum'; host inferred, confirm from the paper	10.1111/jipb.70241
 PRJEB15280	2	1	Puccinia striiformis	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	RNA-Seq:1; WGA:1	review	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	10.1186/s12864-021-07488-3
 PRJNA176472	2	2	Puccinia striiformis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	RNA-Seq:2	review	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	10.1186/s12864-021-07488-3
-PRJNA545454	2	2	Puccinia striiformis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	RNA-Seq:2	review	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	10.1101/2020.01.11.897884
 PRJNA322529	281	0	Panicum virgatum	grass	host name 'Panicum virgatum'	virus	OTHER:281	review	host name 'Panicum virgatum'	Lov16
 PRJNA1217477	740	740	mixed sample	other	host name 'mixed sample'	metagenome	RNA-Seq:740	review	host name 'mixed sample'	Sin26b
 PRJNA1428298	340	340	mixed sample	other	host name 'mixed sample'	metagenome	RNA-Seq:340	review	host name 'mixed sample'	10.1073/pnas.2601719123
@@ -346,6 +323,7 @@ PRJNA1237933	1	1	Tomato mosaic virus	other	host name 'Tomato mosaic virus'	virus
 PRJNA525575	1	1	Iris severe mosaic virus	other	host name 'Iris severe mosaic virus'	virus	RNA-Seq:1	review	host name 'Iris severe mosaic virus'	10.1128/mra.00093-19
 PRJNA524449	1	1	Carrot torradovirus 1	other	host name 'Carrot torradovirus 1'	virus	RNA-Seq:1	review	host name 'Carrot torradovirus 1'	10.1128/mra.00110-19
 PRJNA915982	47	0	Triticum aestivum	cereal	host name 'Triticum aestivum'	plant	WGS:47	reject	host name 'Triticum aestivum'	
+PRJEB84390	71	0	Puccinia triticina	cereal?	cereal-restricted pathogen 'Puccinia triticina'; host inferred, confirm from the paper	fungus	WGS:71	reject	cereal-restricted pathogen 'Puccinia triticina'; host inferred, confirm from the paper	Tsu25
 PRJNA257181	20	0	Puccinia striiformis f. sp. tritici	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	WGS:20	reject	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	Hub15
 PRJEB31334	19	0	Puccinia striiformis	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	AMPLICON:19	reject	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	Rad19
 PRJNA181960	2	0	Puccinia striiformis f. sp. tritici 08/21	cereal?	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	fungus	WGS:2	reject	cereal-restricted pathogen 'Puccinia striiformis'; host inferred, confirm from the paper	Ada21

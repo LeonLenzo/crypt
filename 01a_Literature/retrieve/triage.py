@@ -66,7 +66,11 @@ from _paths import ROOT          # repo-wide
 from _layout import UNDERMIND, ACCESSION_PAPERS, BACKFILL, BIOPROJECTS, BIOSAMPLE, COHORT_STUDIES, FOUND, MODULE, PAPERS, PAPER_BIOPROJECT, RESOLVED_ACCESSIONS, RUNINFO, RUNS, RUN_SCOPE
 
 STAT_CACHE = ROOT / "01_stat/02_fetch/data/stat_cache.jsonl"
-RUNS       = ROOT / "01_stat/03_filter/data/runs.tsv"
+# The STAT frame's screened table, READ ONLY, for local_counts(). Named STAT_RUNS and not
+# RUNS because `RUNS` is imported from _layout as the literature frame's own runs table: on
+# 2026-10-07 this local assignment shadowed that import and _write() put 40,093 literature
+# rows over the 10,995-row STAT table, destroying it and skipping the literature write.
+STAT_RUNS  = ROOT / "01_stat/03_filter/data/runs.tsv"
 CACHE      = RUNINFO
 BS_CACHE   = BIOSAMPLE
 BS_BATCH   = 300    # efetch accepts far more, but a failed batch is cheaper to retry small
@@ -281,7 +285,7 @@ def local_counts() -> tuple[collections.Counter, collections.Counter]:
     else:
         print(f"warning: {STAT_CACHE} missing; screened counts will be 0", file=sys.stderr)
     passed = collections.Counter()
-    with open(RUNS) as fh:
+    with open(STAT_RUNS) as fh:
         for r in csv.DictReader(fh, delimiter="\t"):
             passed[r["BioProject"]] += 1
     return screened, passed

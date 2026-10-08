@@ -40,7 +40,7 @@ from pathlib import Path
 _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
-from _layout import BIOPROJECT_XML, BIOSAMPLE, RUNINFO
+from _layout import BIOPROJECT_XML, BIOSAMPLE, RUNINFO, SILVER, TEXT_CACHE
 
 # --- vocabulary -------------------------------------------------------------------------
 
@@ -70,6 +70,19 @@ SAMPLING = re.compile(r"""
     sampl | collect | harvest | \bRNA\b | sequenc | librar | transcriptom
   | tissue | \bleaf\b | \bleaves\b | flash.?frozen | snap.?frozen
   | liquid\s+nitrogen | extract
+""", re.I | re.X)
+
+# For a PAPER body the link term has to be sequencing-grade. `tissue` and `leaf` are
+# everywhere in a results section and in every figure legend, so the loose SAMPLING rule
+# scored "rice leaf sheath tissue inoculated with conidia (Scale bar, 10 um.)" as evidence
+# about the sequenced material. Requiring RNA extraction or sequencing in the sentence
+# keeps the screen on the methods, where the answer actually is.
+SEQUENCING = re.compile(r"""
+    RNA.?seq | RNA\s+sequenc | transcriptome\s+sequenc | total\s+RNA
+  | RNA\s+was\s+(extracted|isolated|prepared) | RNA\s+extraction | RNA\s+isolation
+  | librar(y|ies)\s+(was|were|prepar|construct) | cDNA\s+librar
+  | sequenc(ed|ing)\s+(on|using|was|at|by) | Illumina | NovaSeq | HiSeq | BGI
+  | (deposit|submitt)ed | accession\s+(number|code)
 """, re.I | re.X)
 
 SENT = re.compile(r"(?<=[.;!?])\s+|\n+")
@@ -136,13 +149,63 @@ def project_text(bp: str) -> list[tuple[str, str]]:
     return out
 
 
-def classify(bp: str) -> dict:
+def paper_text(bp: str) -> list[tuple[str, str]]:
+    """(locus, text) for every cached full text linked to this BioProject.
+
+    Added 2026-10-08. The archive text settles the controlled projects and leaves the rest
+    silent, and 30 of the 42 silent ones turned out to have a paper once Europe PMC was
+    searched on the accession. Reading 30 papers by hand is the whole cost of the tail, so
+    the same linked-sentence rule is applied to the paper body.
+
+    A hit here is actionable in BOTH directions, unlike the archive: a paper IS the
+    available manuscript that no-manuscript-no-entry asks for. It is still a screen and
+    not a verdict - the matched sentence has to be read before anything is curated, because
+    a Methods section describing a companion greenhouse experiment reads identically to one
+    describing the sequenced material.
+    """
+    ap = SILVER / "accession_papers.tsv"
+    if not ap.exists() or not TEXT_CACHE.exists():
+        return []
+    dois = []
+    with ap.open() as fh:
+        for r in csv.DictReader(fh, delimiter="\t"):
+            if r.get("accession") == bp and (r.get("doi") or "").strip():
+                dois.append(r["doi"].strip().lower())
+    if not dois:
+        return []
+    want, out = set(dois), []
+    with TEXT_CACHE.open(encoding="utf-8", errors="replace") as fh:
+        for line in fh:
+            key, sep, blob = line.partition("\t")
+            k = key.strip().lower()
+            if k not in want or not blob.strip():
+                continue
+            try:
+                d = json.loads(blob)
+            except Exception:
+                continue
+            t = d if isinstance(d, str) else next(
+                (d[x] for x in ("fulltext", "full_text", "text", "body", "xml")
+                 if isinstance(d.get(x), str) and d[x].strip()), "")
+            if t:
+                out.append((f"paper/{k}", re.sub(r"<[^>]+>", " ", t)))
+    return out
+
+
+def classify(bp: str, papers: bool = False) -> dict:
     ctrl, fld, mixed = [], [], []
-    for locus, text in project_text(bp):
+    srcs = project_text(bp) + (paper_text(bp) if papers else [])
+    for locus, text in srcs:
         for s in sentences(text):
             # A BioSample attribute is a value, not prose: the field IS the statement,
             # so the link requirement cannot apply to it.
-            linked = locus.startswith("biosample/") or bool(SAMPLING.search(s))
+            if locus.startswith("biosample/"):
+                # An attribute is a value, not prose: the field IS the statement.
+                linked = True
+            elif locus.startswith("paper/"):
+                linked = bool(SEQUENCING.search(s))
+            else:
+                linked = bool(SAMPLING.search(s))
             if not linked:
                 continue
             c, f = bool(CONTROLLED.search(s)), bool(FIELD.search(s))
@@ -161,7 +224,8 @@ def classify(bp: str) -> dict:
     else:
         call = "none"
     return dict(bp=bp, call=call, controlled=ctrl, field=fld, mixed=mixed,
-                n_sources=len(project_text(bp)))
+                n_sources=len(srcs), n_papers=sum(1 for l, _ in srcs
+                                                  if l.startswith("paper/")))
 
 
 def main() -> None:
@@ -170,6 +234,8 @@ def main() -> None:
     ap.add_argument("--file", help="one accession per line")
     ap.add_argument("--quotes", action="store_true", help="print the matched sentences")
     ap.add_argument("--only", help="print only this call (controlled/field/mixed/none)")
+    ap.add_argument("--papers", action="store_true",
+                    help="also screen the cached full text of linked papers")
     a = ap.parse_args()
 
     accs = list(a.accessions)
@@ -178,14 +244,15 @@ def main() -> None:
     if not accs:
         sys.exit("usage: setting_screen.py <BioProject>... | --file list.txt")
 
-    results = [classify(bp) for bp in accs]
+    results = [classify(bp, papers=a.papers) for bp in accs]
     tally = collections.Counter(r["call"] for r in results)
     print("  ".join(f"{k}:{tally[k]}" for k in ("controlled", "field", "mixed", "none")))
     print()
     for r in results:
         if a.only and r["call"] != a.only:
             continue
-        print(f"{r['bp']:<14}{r['call']:<11}{r['n_sources']:>4} sources")
+        print(f"{r['bp']:<14}{r['call']:<11}{r['n_sources']:>4} sources"
+              f"{'  ' + str(r['n_papers']) + ' paper(s)' if r.get('n_papers') else ''}")
         if a.quotes:
             for tag, hits in (("CTRL", r["controlled"]), ("FIELD", r["field"]),
                               ("MIXED", r["mixed"])):

@@ -90,11 +90,12 @@ map_layers <- function(xlim, ylim, ratio, srange) {
     # the crop colours stop reading — Europe went black. Use stroke = 0, NOT colour = NA:
     # on ggplot2 4.0.3 a shape-21 point with colour = NA does not lose its border, it
     # disappears entirely, and the first attempt rendered an empty map. The bars keep theirs.
-    # alpha 0.92 (leon, 2026-10-09): near-opaque so overlapping localities read as stacked
-    # discs rather than blending into one muddy patch, which is where the sense of depth in
-    # the dense European cluster comes from. Fully opaque loses it; 0.8 muddied it.
+    # alpha 0.6 (leon, 2026-10-09): transparent enough that overlapping localities compound
+    # into visibly darker patches, which is what gives the dense European and Ethiopian
+    # clusters their depth. Near-opaque points just occlude each other and the cluster reads
+    # flat.
     geom_point(data = pts, aes(lon, lat, fill = crop, size = n), shape = 21,
-               stroke = 0, alpha = 0.92),
+               stroke = 0, alpha = 0.6),
     scale_size(transform = "log10", range = srange, breaks = SIZE_BREAKS,
                labels = comma, name = "Samples"),
     scale_fill_manual(values = fills, name = "Crop", drop = FALSE),
@@ -125,7 +126,7 @@ p_eur <- ggplot() +
   geom_polygon(data = world, aes(long, lat, group = group),
                fill = "grey94", colour = "grey80", linewidth = 0.3) +
   geom_point(data = eur, aes(lon, lat, fill = crop, size = n), shape = 21,
-             stroke = 0, alpha = 0.92) +
+             stroke = 0, alpha = 0.6) +
   scale_size(transform = "log10", range = SIZE_RANGE, breaks = SIZE_BREAKS, guide = "none") +
   scale_fill_manual(values = fills, drop = FALSE) +
   coord_fixed(1.6, xlim = c(-12, 42), ylim = c(34, 62), expand = FALSE) +

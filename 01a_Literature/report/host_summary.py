@@ -180,7 +180,10 @@ def curated_species() -> dict:
     """
     out = {}
     for rel, col in (("doi_10.1186_s12864-022-09001-w/lappe_runs.csv", "Species"),
-                     ("doi_10.1186_s12864-021-07488-3/ada21_runs.csv", "HostSpecies")):
+                     ("doi_10.1186_s12864-021-07488-3/ada21_runs.csv", "HostSpecies"),
+                     # Lewis 2024 Dataset S2: Wheat 50, Rye 2. WHOLE_PROJECT_HOST had folded
+                     # the whole of PRJEB65589 into wheat, which was right for 50 of 52.
+                     ("doi_10.1111_nph.19864/lewis24_runs.csv", "HostSpecies")):
         p = STUDIES / rel
         if not p.exists():
             continue

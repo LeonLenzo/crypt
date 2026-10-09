@@ -10,7 +10,7 @@ Run:  python 01a_Literature/report/cohort.py
 
 from __future__ import annotations
 
-import argparse, collections, csv, sys
+import argparse, collections, csv, re, sys
 from pathlib import Path
 
 # Entry point in a subdirectory. 01a_Literature is not a valid package name (it starts with
@@ -44,6 +44,38 @@ def main() -> None:
     print("  selection       " + "  ".join(
         f"{k or '(none)'}:{v}" for k, v in
         collections.Counter(r["sampling_selection"] for r in coh).most_common()))
+    # Crop x selection, because it is the structural fact the chapter turns on and no other
+    # report shows it. Measured 2026-10-09: wheat is 96% disease-selected, rice and sorghum
+    # are 100% unselected. The strata do not overlap, so a crop comparison is not estimable
+    # and the two evidence standards are the only honest framing. Printed as a cross-tab
+    # rather than two separate distributions precisely so the empty cells are visible.
+    hosts = GOLD / "cohort_hosts.tsv"
+    if hosts.exists():
+        crop_of = {}
+        for r in csv.DictReader(hosts.open(), delimiter="\t"):
+            for pat, name in ((r"^Triticum", "Wheat"), (r"^Zea mays($| subsp\.? mays| \()", "Maize"),
+                              (r"^Oryza sativa", "Rice"), (r"^Sorghum bicolor", "Sorghum")):
+                if re.match(pat, r["host"] or ""):
+                    crop_of[r["Run"]] = name
+                    break
+        tab = collections.defaultdict(collections.Counter)
+        for r in coh:
+            c = crop_of.get(r["Run"])
+            if c:
+                tab[c][r["sampling_selection"] or "(none)"] += 1
+        sels = [s for s in ("unselected", "disease-selected", "inoculated", "symptom-avoided",
+                            "fungicide-treated", "(none)")
+                if any(t[s] for t in tab.values())]
+        if tab:
+            print("\n  crop x sampling_selection   (cereal field cohort; empty cells are the point)")
+            print("    " + f"{'':<9}" + "".join(f"{s[:17]:>19}" for s in sels))
+            for c in ("Wheat", "Maize", "Rice", "Sorghum"):
+                if not tab[c]:
+                    continue
+                tot = sum(tab[c].values())
+                print("    " + f"{c:<9}" + "".join(
+                    f"{tab[c][s]:>12} ({100*tab[c][s]/tot:>3.0f}%)" for s in sels))
+
     if args.write:
         GOLD.mkdir(parents=True, exist_ok=True)
         with COHORT_TSV.open("w", newline="") as fh:

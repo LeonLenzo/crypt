@@ -3066,11 +3066,11 @@ ERR6847894	PRJEB47693	Triticum aestivum (bread wheat)	Ireland	2020-07-29	field	d
 ERR6847895	PRJEB47693	Triticum aestivum (bread wheat)	Ireland	2020-07-29	field	disease-selected	stem/leaf (rust lesion)
 ERR6847896	PRJEB47693	Triticum aestivum (bread wheat)	Ireland	2020-07-29	field	disease-selected	stem/leaf (rust lesion)
 ERR6847897	PRJEB47693	Triticum aestivum (bread wheat)	Ireland	2020-07-29	field	disease-selected	stem/leaf (rust lesion)
-ERR12013027	PRJEB65589	Triticum aestivum (bread wheat)	South Africa	2017	field	disease-selected	leaf or stem
-ERR12013028	PRJEB65589	Triticum aestivum (bread wheat)	South Africa	2017	field	disease-selected	leaf or stem
-ERR12013029	PRJEB65589	Triticum aestivum (bread wheat)	South Africa	2017	field	disease-selected	leaf or stem
-ERR12013030	PRJEB65589	Triticum aestivum (bread wheat)	South Africa	2020	field	disease-selected	leaf or stem
-ERR12013031	PRJEB65589	Triticum aestivum (bread wheat)	South Africa	2017	field	disease-selected	leaf or stem
+ERR12013027	PRJEB65589	Triticum aestivum (bread wheat)	South Africa: Suurbraak	2017	field	disease-selected	leaf or stem
+ERR12013028	PRJEB65589	Triticum aestivum (bread wheat)	South Africa: Tygerhoek	2017	field	disease-selected	leaf or stem
+ERR12013029	PRJEB65589	Triticum aestivum (bread wheat)	South Africa: Bethlehem	2017	field	disease-selected	leaf or stem
+ERR12013030	PRJEB65589	Triticum aestivum (bread wheat)	South Africa: Bloemfontein	2020	field	disease-selected	leaf or stem
+ERR12013031	PRJEB65589	Triticum aestivum (bread wheat)	South Africa: Suurbraak	2017	field	disease-selected	leaf or stem
 ERR12013032	PRJEB65589	Triticum aestivum (bread wheat)	South Africa	2009	field	disease-selected	leaf or stem
 ERR12013033	PRJEB65589	Triticum aestivum (bread wheat)	South Africa	2007	field	disease-selected	leaf or stem
 ERR12013034	PRJEB65589	Triticum aestivum (bread wheat)	South Africa	2000	field	disease-selected	leaf or stem
@@ -3078,47 +3078,47 @@ ERR12013035	PRJEB65589	Triticum aestivum (bread wheat)	South Africa	2010	field	d
 ERR12013036	PRJEB65589	Triticum aestivum (bread wheat)	South Africa	1998	field	disease-selected	leaf or stem
 ERR12013037	PRJEB65589	Triticum aestivum (bread wheat)	South Africa	1981	field	disease-selected	leaf or stem
 ERR12013038	PRJEB65589	Triticum aestivum (bread wheat)	South Africa	2005	field	disease-selected	leaf or stem
-ERR12013039	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2021	field	disease-selected	leaf or stem
-ERR12013040	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2021	field	disease-selected	leaf or stem
-ERR12013041	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2021	field	disease-selected	leaf or stem
-ERR12013042	PRJEB65589	Triticum aestivum (bread wheat)	France	2021	field	disease-selected	leaf or stem
-ERR12013043	PRJEB65589	Triticum aestivum (bread wheat)	France	2021	field	disease-selected	leaf or stem
-ERR12013044	PRJEB65589	Triticum aestivum (bread wheat)	France	2021	field	disease-selected	leaf or stem
-ERR12013045	PRJEB65589	Triticum aestivum (bread wheat)	France	2021	field	disease-selected	leaf or stem
-ERR12013046	PRJEB65589	Triticum aestivum (bread wheat)	France	2021	field	disease-selected	leaf or stem
-ERR12013047	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2021	field	disease-selected	leaf or stem
-ERR12013048	PRJEB65589	Triticum aestivum (bread wheat)	France	2021	field	disease-selected	leaf or stem
-ERR12013049	PRJEB65589	Triticum aestivum (bread wheat)	Germany	2021	field	disease-selected	leaf or stem
-ERR12013050	PRJEB65589	Triticum aestivum (bread wheat)	Germany	2021	field	disease-selected	leaf or stem
-ERR12013051	PRJEB65589	Triticum aestivum (bread wheat)	Germany	2021	field	disease-selected	leaf or stem
-ERR12013052	PRJEB65589	Triticum aestivum (bread wheat)	Germany	2021	field	disease-selected	leaf or stem
-ERR12013053	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2021	field	disease-selected	leaf or stem
-ERR12013054	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2021	field	disease-selected	leaf or stem
-ERR12013055	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013056	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013057	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013058	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013059	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013060	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013079	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013061	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013062	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013063	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013064	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013065	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
+ERR12013039	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Woolpit, Suffolk	2021	field	disease-selected	leaf or stem
+ERR12013040	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Woolpit, Suffolk	2021	field	disease-selected	leaf or stem
+ERR12013041	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Newton, Cambs	2021	field	disease-selected	leaf or stem
+ERR12013042	PRJEB65589	Triticum aestivum (bread wheat)	France: Valenciennes	2021	field	disease-selected	leaf or stem
+ERR12013043	PRJEB65589	Triticum aestivum (bread wheat)	France: Allonnes, Chartres	2021	field	disease-selected	leaf or stem
+ERR12013044	PRJEB65589	Triticum aestivum (bread wheat)	France: Allonnes, Chartres	2021	field	disease-selected	leaf or stem
+ERR12013045	PRJEB65589	Triticum aestivum (bread wheat)	France: Allonnes, Chartres	2021	field	disease-selected	leaf or stem
+ERR12013046	PRJEB65589	Triticum aestivum (bread wheat)	France: Allonnes, Chartres	2021	field	disease-selected	leaf or stem
+ERR12013047	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Duxford, Cambridge	2021	field	disease-selected	leaf or stem
+ERR12013048	PRJEB65589	Triticum aestivum (bread wheat)	France: Louville la Chenard	2021	field	disease-selected	leaf or stem
+ERR12013049	PRJEB65589	Triticum aestivum (bread wheat)	Germany: Weke, Northeim	2021	field	disease-selected	leaf or stem
+ERR12013050	PRJEB65589	Triticum aestivum (bread wheat)	Germany: Weke, Northeim	2021	field	disease-selected	leaf or stem
+ERR12013051	PRJEB65589	Triticum aestivum (bread wheat)	Germany: Wohlde	2021	field	disease-selected	leaf or stem
+ERR12013052	PRJEB65589	Triticum aestivum (bread wheat)	Germany: Wohlde	2021	field	disease-selected	leaf or stem
+ERR12013053	PRJEB65589	Secale cereale (rye)	United Kingdom: Ellon, Aberdeen	2021	field	disease-selected	leaf or stem
+ERR12013054	PRJEB65589	Secale cereale (rye)	United Kingdom: Ellon, Aberdeen	2021	field	disease-selected	leaf or stem
+ERR12013055	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Banbury, Oxfordshire	2022	field	disease-selected	leaf or stem
+ERR12013056	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Market Rasen, Lincolnshire	2022	field	disease-selected	leaf or stem
+ERR12013057	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Market Rasen, Lincolnshire	2022	field	disease-selected	leaf or stem
+ERR12013058	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Spalding, Lincolnshire	2022	field	disease-selected	leaf or stem
+ERR12013059	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Oxfordshire	2022	field	disease-selected	leaf or stem
+ERR12013060	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Bridgend, Vale of Glamorgan	2022	field	disease-selected	leaf or stem
+ERR12013079	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Dorothea de Winton Field Station, Church Farm, Bawburgh, Norfolk	2022	field	disease-selected	leaf or stem
+ERR12013061	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Banbury, Oxfordshire	2022	field	disease-selected	leaf or stem
+ERR12013062	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Lincolnshire	2022	field	disease-selected	leaf or stem
+ERR12013063	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Impington, Cambridgeshire	2022	field	disease-selected	leaf or stem
+ERR12013064	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Bury St Edmunds, Suffolk	2022	field	disease-selected	leaf or stem
+ERR12013065	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Ickleton, Essex	2022	field	disease-selected	leaf or stem
 ERR12013066	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013067	PRJEB65589	Triticum aestivum (bread wheat)	Germany	2022	field	disease-selected	leaf or stem
-ERR12013068	PRJEB65589	Triticum aestivum (bread wheat)	Germany	2022	field	disease-selected	leaf or stem
-ERR12013069	PRJEB65589	Triticum aestivum (bread wheat)	France	2022	field	disease-selected	leaf or stem
-ERR12013070	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013071	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013072	PRJEB65589	Triticum aestivum (bread wheat)	France	2022	field	disease-selected	leaf or stem
-ERR12013073	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013074	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013075	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013076	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013077	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
-ERR12013078	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom	2022	field	disease-selected	leaf or stem
+ERR12013067	PRJEB65589	Triticum aestivum (bread wheat)	Germany: Northeim, Lower Saxony	2022	field	disease-selected	leaf or stem
+ERR12013068	PRJEB65589	Triticum aestivum (bread wheat)	Germany: Northeim, Lower Saxony	2022	field	disease-selected	leaf or stem
+ERR12013069	PRJEB65589	Triticum aestivum (bread wheat)	France: Mons-en-Pévèle	2022	field	disease-selected	leaf or stem
+ERR12013070	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Edgmond, Shropshire	2022	field	disease-selected	leaf or stem
+ERR12013071	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Swindon	2022	field	disease-selected	leaf or stem
+ERR12013072	PRJEB65589	Triticum aestivum (bread wheat)	France: Allonnes, Chartres	2022	field	disease-selected	leaf or stem
+ERR12013073	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Tadcaster, North Yorkshire	2022	field	disease-selected	leaf or stem
+ERR12013074	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Haddenham, Cambridgeshire	2022	field	disease-selected	leaf or stem
+ERR12013075	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Peopleton, Warwickshire.	2022	field	disease-selected	leaf or stem
+ERR12013076	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: Cornwall	2022	field	disease-selected	leaf or stem
+ERR12013077	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: North Yorkshire	2022	field	disease-selected	leaf or stem
+ERR12013078	PRJEB65589	Triticum aestivum (bread wheat)	United Kingdom: North Yorkshire	2022	field	disease-selected	leaf or stem
 ERR12177387	PRJEB67964	Zea mays (maize)	USA: Nebraska, Lincoln (UNL Havelock Research Farm)	2020-07-08	field	unselected	leaf
 ERR12177396	PRJEB67964	Zea mays (maize)	USA: Nebraska, Lincoln (UNL Havelock Research Farm)	2020-07-08	field	unselected	leaf
 ERR12177384	PRJEB67964	Zea mays (maize)	USA: Nebraska, Lincoln (UNL Havelock Research Farm)	2020-07-08	field	unselected	leaf

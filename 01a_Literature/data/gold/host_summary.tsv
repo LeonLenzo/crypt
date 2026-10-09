@@ -1,14 +1,14 @@
 host	host_group	samples	projects	localities	years	n_years	wild	coinfection_set	discovery_set	positives_only	unflagged	main_tissue	settings	selection
 Oryza sativa (rice)	cereal	2784	6	6	2013-2017	5	0	0	2784	0	0	leaf	field:2680; field (chamber-raised, transferred outdoors):104	unselected:2784
 Zea mays (maize)	cereal	2511	16	44	2012-2024	7	0	200	2308	0	3	leaf	field:2445; field (inoculated in situ):66	unselected:2287; inoculated:194; symptom-avoided:21; disease-selected:6; (none):3
-Triticum aestivum (bread wheat)	cereal	1240	16	376	1981-2022	18	0	1225	15	0	0	leaf	field:1240	disease-selected:1189; inoculated:36; unselected:15
+Triticum aestivum (bread wheat)	cereal	1238	16	405	1981-2022	18	0	1223	15	0	0	leaf	field:1238	disease-selected:1187; inoculated:36; unselected:15
 Sorghum bicolor	cereal	1120	4	4	2016-2021	3	0	0	1120	0	0	leaf	field:1120	unselected:1119; symptom-avoided:1
 Zea mays teosinte subspp.	cereal	42	1	4	2017	1	21	0	42	0	0	leaf	field (natural population):21; field:21	unselected:42
 Setaria italica	cereal	36	1	1		0	0	0	36	0	0		field:36	unselected:36
 Triticale	cereal	11	3	7	2013-2017	4	0	11	0	0	0	leaf	field:11	disease-selected:11
 Triticum durum/turgidum	cereal	9	3	6	2014-2017	4	0	9	0	0	0	leaf	field:9	disease-selected:9
+Secale cereale (rye)	cereal	5	3	3	2014-2021	3	0	5	0	0	0	leaf	field:5	disease-selected:5
 Soft red winter wheat: IL11-28222	cereal	4	1	4	2016	1	0	4	0	0	0	wheat spikelet	field:4	disease-selected:4
-Secale cereale (rye)	cereal	3	2	2	2014-2018	2	0	3	0	0	0	leaf	field:3	disease-selected:3
 Triticum dicoccon	cereal	2	1	1	2017	1	0	2	0	0	0	leaf	field:2	disease-selected:2
 Soft red winter wheat: IL10-19464	cereal	2	1	2	2016	1	0	2	0	0	0	wheat spikelet	field:2	disease-selected:2
 Soft red winter wheat; Pioneer 25R47	cereal	2	1	2	2016	1	0	2	0	0	0	wheat spikelet	field:2	disease-selected:2

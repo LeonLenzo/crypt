@@ -94,6 +94,7 @@ Czechia: Branisovice	Czechia	5	48.9628106	16.431847	locality	Branisovice, Czechi
 Czechia: Hrubčice	Czechia	5	49.443721	17.2046309	locality	Hrubčice, Czechia	Hrubčice, okres Prostějov, Olomouc Region, Czechia
 Spain: Córdoba	Spain	5	37.8845813	-4.7760138	locality	Córdoba, Spain	Córdoba, Andalusia, Spain
 Morocco: Merchouch	Morocco	5	33.6121613	-6.7099455	locality	Merchouch, Morocco	ICARDA Research Station - Merchouch, Marchouch, caïdat de Marchouch, Cercle de Rommani دائ
+France: Allonnes, Chartres	France	5	47.969283	0.1578819	locality-nofacility	Allonnes, France	Allonnes, Le Mans, Sarthe, Pays de la Loire, Metropolitan France, 72700, France
 France: Castanet	France	4	43.9743	2.02887	locality	Castanet, France	Castanet, Albi, Tarn, Occitania, Metropolitan France, 81150, France
 USA: Walla Walla, Washington	USA	4	46.0668883	-118.3516528	locality	Washington, Walla Walla, USA	Washington Park, Walla Walla, Walla Walla County, Washington, United States
 USA: Wichita, Kansas	USA	4	37.6922361	-97.3375448	locality-nofacility	Wichita, USA	Wichita, Sedgwick County, Kansas, United States
@@ -102,6 +103,7 @@ China: Nanhu Zhuanglang Pingliang	China	4	35.3378321	105.9620113	locality	Nanhu 
 Germany: Hemmingen	Germany	4	52.3212183	9.7454815	locality	Hemmingen, Germany	Hemmingen, Region Hannover, Lower Saxony, 30966, Germany
 Czechia: Hněvčeves	Czechia	4	50.3142312	15.7113973	locality	Hněvčeves, Czechia	Hněvčeves, okres Hradec Králové, Hradec Králové Region, Czechia
 UK: Osgodby	UK	4	54.2482625	-0.3736042	locality	Osgodby, UK	Osgodby, North Yorkshire, York and North Yorkshire, England, United Kingdom
+Germany: Wohlde	Germany	4	54.4061159	9.2978428	locality	Wohlde, Germany	Wohlde, Kropp-Stapelholm, Kreis Schleswig-Flensburg, Schleswig-Holstein, 24899, Germany
 Spain: Lebrija	Spain	4	36.9193102	-6.0764057	locality	Lebrija, Spain	Lebrija, Sevilla, Andalusia, 41740, Spain
 Spain: Almacelles	Spain	4	41.7294989	0.4404763	locality	Almacelles, Spain	Almacelles, Segrià, Lleida, Catalonia, Spain
 Germany: Lippetal	Germany	4	51.6516157	8.0787633	locality	Lippetal, Germany	Lippetal, Kreis Soest, North Rhine-Westphalia, 59510, Germany
@@ -185,6 +187,7 @@ Ethiopia: Selka	Ethiopia	2	10.2116702	38.6521203	locality-nofacility	Ethiopia	Et
 Canada: Lacombe	Canada	2	52.4727515	-113.733215	locality	Lacombe, Canada	City of Lacombe, Alberta, Canada
 South Africa: Napier	South Africa	2	-34.474722	19.898056	locality	Napier, South Africa	Napier, Cape Agulhas Local Municipality, Overberg District Municipality, Western Cape, 727
 Sweden: Sandby	Sweden	2	55.7101291	13.3703269	locality	Sandby, Sweden	Sandby, Södra Sandby, Lund Municipality, Skåne County, 247 33, Sweden
+South Africa: Bloemfontein	South Africa	2	-29.116395	26.215496	locality	Bloemfontein, South Africa	Bloemfontein, Mangaung Metropolitan Municipality, Free State, 9310, South Africa
 South Africa: Free State	South Africa	2	-28.7853618	26.4978933	locality	Free State, South Africa	Free State, South Africa
 South Africa: Ouplaas	South Africa	2	-34.3738653	20.4343888	locality	Ouplaas, South Africa	Ouplaas, Swellendam Local Municipality, Overberg District Municipality, Western Cape, Sout
 UK: Ledbury	UK	2	52.0357457	-2.4287821	locality	Ledbury, UK	Ledbury, Herefordshire, England, United Kingdom
@@ -202,7 +205,6 @@ Argentina: La Dulce	Argentina	2	-38.2836575	-59.2033388	locality	La Dulce, Argen
 Kenya: MauNarok	Kenya	2	0.2793165	37.5164935	locality-nofacility	Kenya	Kenya
 Germany: Wetze	Germany	2	51.7412372	9.9104695	locality	Wetze, Germany	Wetze, Stöckheim, Northeim, Landkreis Northeim, Lower Saxony, 37154, Germany
 France: Proviseux	France	2	49.4652046	4.0099262	locality	Proviseux, France	Proviseux, Proviseux-et-Plesnoy, Laon, Aisne, Hauts-de-France, Metropolitan France, 02190,
-Germany: Wohlde	Germany	2	54.4061159	9.2978428	locality	Wohlde, Germany	Wohlde, Kropp-Stapelholm, Kreis Schleswig-Flensburg, Schleswig-Holstein, 24899, Germany
 Germany: Selingenstadt	Germany	2	51.1638175	10.4478313	locality-nofacility	Germany	Germany
 France: Momont	France	2	48.6074504	-0.0605445	locality	Momont, France	Momont, Goult, La Lande-de-Goult, Alençon, Orne, Normandy, Metropolitan France, 61320, Fra
 Australia: Scadden	Australia	2	-24.7761086	134.755	locality-nofacility	Australia	Australia
@@ -219,6 +221,14 @@ France: Neant sur Yvel	France	2	48.0128166	-2.327677	locality	Neant sur Yvel, Fr
 France: Frévin-Capelle	France	2	50.3502384	2.6388295	locality	Frévin-Capelle, France	Frévin-Capelle, Arras, Pas-de-Calais, Hauts-de-France, Metropolitan France, 62690, France
 UK: Lenham	UK	2	51.2344619	0.7072408	locality	Lenham, UK	Lenham, Arrow Way, Leadingcross Green, Lenham, Maidstone, Kent, England, ME17 2FU, United 
 UK: Brackley	UK	2	52.0278975	-1.1484657	locality	Brackley, UK	Brackley, West Northamptonshire, England, United Kingdom
+South Africa: Suurbraak	South Africa	2	-34.0076267	20.6558178	locality	Suurbraak, South Africa	Suurbraak, Swellendam Ward 3, Swellendam Local Municipality, Overberg District Municipalit
+United Kingdom: Woolpit, Suffolk	United Kingdom	2	52.2256931	0.8777956	locality	Suffolk, Woolpit, United Kingdom	Suffolk Accident Rescue Service, Windmill Avenue, Woolpit, Mid Suffolk, Suffolk, England, 
+Germany: Weke, Northeim	Germany	2	51.1638175	10.4478313	region	Germany	Germany
+United Kingdom: Ellon, Aberdeen	United Kingdom	2	57.365049	-2.0710305	locality-nofacility	Ellon, United Kingdom	Ellon, Aberdeenshire, Scotland, AB41 9JB, United Kingdom
+United Kingdom: Banbury, Oxfordshire	United Kingdom	2	52.0601807	-1.3402795	locality-nofacility	Banbury, United Kingdom	Banbury, Oxfordshire, England, United Kingdom
+United Kingdom: Market Rasen, Lincolnshire	United Kingdom	2	53.3879115	-0.3376729	locality-nofacility	Market Rasen, United Kingdom	Market Rasen, West Lindsey, Lincolnshire, Greater Lincolnshire, England, United Kingdom
+Germany: Northeim, Lower Saxony	Germany	2	51.7648548	9.858883	locality-nofacility	Northeim, Germany	Landkreis Northeim, Lower Saxony, Germany
+United Kingdom: North Yorkshire	United Kingdom	2	54.1345328	-1.4986285	locality	North Yorkshire, United Kingdom	North Yorkshire, England, United Kingdom
 USA: Iowa (41.573, -95.061)	USA	2	30.2368772	-93.0137569	locality	-95.061), Iowa (41.573, USA	Iowa, Calcasieu Parish, Louisiana, 70647, United States
 USA: Russell Ranch California	USA	2	38.6360488	-121.0959543	locality	Russell Ranch California, USA	Russell Ranch, White Rock, Folsom, Sacramento County, California, United States
 USA: Student Farm California	USA	2	38.5405293	-121.7657848	locality	Student Farm California, USA	Student Farm, Yolo County, California, United States
@@ -282,7 +292,6 @@ USA: Lansing/Mason, Michigan	USA	1	39.7837304	-100.445882	region	USA	United Stat
 USA: Chickasha, Oklahoma	USA	1	35.0512159	-97.9370036	locality-nofacility	Chickasha, USA	Chickasha, Grady County, Oklahoma, United States
 USA: Altus, Oklahoma	USA	1	34.6381255	-99.3339754	locality-nofacility	Altus, USA	Altus, Jackson County, Oklahoma, 73521, United States
 South Africa: Hopetown	South Africa	1	-29.623959	24.0830094	locality	Hopetown, South Africa	Hopetown, Thembelihle Local Municipality, Pixley ka Seme District Municipality, Northern C
-South Africa: Bloemfontein	South Africa	1	-29.116395	26.215496	locality	Bloemfontein, South Africa	Bloemfontein, Mangaung Metropolitan Municipality, Free State, 9310, South Africa
 South Africa: Western Cape	South Africa	1	-33.546977	20.72753	locality	Western Cape, South Africa	Western Cape, South Africa
 South Africa: Sutherland	South Africa	1	-32.393889	20.661111	locality	Sutherland, South Africa	Sutherland, Karoo Hoogland Local Municipality, Namakwa District Municipality, Northern Cap
 South Africa: Northern Cape	South Africa	1	-29.573402	21.2051361	locality	Northern Cape, South Africa	Northern Cape, South Africa
@@ -416,6 +425,26 @@ UK: Nauhton	UK	1	54.7023545	-3.2765753	locality-nofacility	UK	United Kingdom
 UK: Layer de la Haye	UK	1	51.8467947	0.8623408	locality	Layer de la Haye, UK	Layer-de-la-Haye, Colchester, Essex, England, CO2 0JD, United Kingdom
 UK: Hemingstone	UK	1	52.1404883	1.1417359	locality	Hemingstone, UK	Hemingstone, Mid Suffolk, Suffolk, England, United Kingdom
 UK: Tuddenham	UK	1	52.3143082	0.5472061	locality	Tuddenham, UK	Tuddenham, West Suffolk, Suffolk, England, United Kingdom
+South Africa: Tygerhoek	South Africa	1	-28.8166236	24.991639	locality-nofacility	South Africa	South Africa
+South Africa: Bethlehem	South Africa	1	-28.2308333	28.3088889	locality	Bethlehem, South Africa	Bethlehem, Dihlabeng Local Municipality, Thabo Mofutsanyana District Municipality, Free St
+United Kingdom: Newton, Cambs	United Kingdom	1	54.3140934	-0.7594421	locality-nofacility	Newton, United Kingdom	Newton, North Yorkshire, York and North Yorkshire, England, United Kingdom
+France: Valenciennes	France	1	50.3579317	3.5234846	locality	Valenciennes, France	Valenciennes, Nord, Hauts-de-France, Metropolitan France, 59300, France
+United Kingdom: Duxford, Cambridge	United Kingdom	1	52.0823869	0.1667122	locality	Cambridge, Duxford, United Kingdom	National Grid Cambridge Compressor Station, Duxford, South Cambridgeshire, Cambridgeshire,
+France: Louville la Chenard	France	1	48.3241503	1.7867391	locality	Louville la Chenard, France	Louville-la-Chenard, Chartres, Eure-et-Loir, Centre-Val de Loire, Metropolitan France, 281
+United Kingdom: Spalding, Lincolnshire	United Kingdom	1	52.7876264	-0.1526099	locality-nofacility	Spalding, United Kingdom	Spalding, South Holland, Lincolnshire, Greater Lincolnshire, England, PE11 1SR, United Kin
+United Kingdom: Oxfordshire	United Kingdom	1	51.833333	-1.25	locality	Oxfordshire, United Kingdom	Oxfordshire, England, United Kingdom
+United Kingdom: Bridgend, Vale of Glamorgan	United Kingdom	1	51.4853259	-3.5553224	locality	Vale of Glamorgan, Bridgend, United Kingdom	Vale United, Corntown Road, Tair Croes, Ewenny, Bridgend, Vale of Glamorgan, Wales, CF35 5
+United Kingdom: Lincolnshire	United Kingdom	1	53.1823034	-0.2031209	locality	Lincolnshire, United Kingdom	Lincolnshire, England, United Kingdom
+United Kingdom: Impington, Cambridgeshire	United Kingdom	1	52.2493091	0.1138256	locality-nofacility	Impington, United Kingdom	Impington, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England,
+United Kingdom: Bury St Edmunds, Suffolk	United Kingdom	1	52.2460367	0.7125173	locality-nofacility	Bury St Edmunds, United Kingdom	Bury St Edmunds, West Suffolk, Suffolk, England, United Kingdom
+United Kingdom: Ickleton, Essex	United Kingdom	1	52.0703602	0.1760421	locality-nofacility	Ickleton, United Kingdom	Ickleton, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, 
+France: Mons-en-Pévèle	France	1	50.4803416	3.0991346	locality	Mons-en-Pévèle, France	Mons-en-Pévèle, Lille, Nord, Hauts-de-France, Metropolitan France, 59246, France
+United Kingdom: Edgmond, Shropshire	United Kingdom	1	52.777856	-2.418433	locality-nofacility	Edgmond, United Kingdom	Edgmond, Telford and Wrekin, England, United Kingdom
+United Kingdom: Swindon	United Kingdom	1	51.5615327	-1.7854322	locality	Swindon, United Kingdom	Swindon, England, SN1 1JZ, United Kingdom
+United Kingdom: Tadcaster, North Yorkshire	United Kingdom	1	53.8852975	-1.2595975	locality-nofacility	Tadcaster, United Kingdom	Tadcaster, North Yorkshire, York and North Yorkshire, England, United Kingdom
+United Kingdom: Haddenham, Cambridgeshire	United Kingdom	1	52.3587178	0.1501133	locality-nofacility	Haddenham, United Kingdom	Haddenham, East Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, 
+United Kingdom: Peopleton, Warwickshire.	United Kingdom	1	52.1531199	-2.0921112	locality-nofacility	Peopleton, United Kingdom	Peopleton, Wychavon, Worcestershire, England, United Kingdom
+United Kingdom: Cornwall	United Kingdom	1	50.4433489	-4.6246566	locality	Cornwall, United Kingdom	Cornwall, England, United Kingdom
 UK: Terrington St Clement	UK	1	52.8088521	0.3090975	locality	Terrington St Clement, UK	Terrington St. Clement, King's Lynn and West Norfolk, Norfolk, England, United Kingdom
 UK: Oxford	UK	1	51.7520131	-1.2578499	locality	Oxford, UK	Oxford, Oxfordshire, England, United Kingdom
 UK: Wareham	UK	1	50.6868972	-2.1098377	locality	Wareham, UK	Wareham, Dorset, England, BH20 4AW, United Kingdom

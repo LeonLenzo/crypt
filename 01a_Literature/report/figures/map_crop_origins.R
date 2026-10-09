@@ -173,20 +173,25 @@ p_map <- ggplot() +
   # Chile and New Zealand, which reads as a rendering fault. Whitespace above and below is
   # the acceptable cost. Antarctica is dropped from the basemap, not clipped by the window.
   map_layers(c(-180, 180), c(-57, 84), 1.32, SIZE_RANGE) +
-  guides(fill  = guide_legend(override.aes = list(size = 5, shape = 21), order = 1, ncol = 1),
-         shape = guide_legend(override.aes = list(size = 5, fill = "grey35"), order = 2),
-         size  = guide_legend(override.aes = list(fill = "grey35", shape = 21), order = 3)) +
+  # One row per key, all three keys side by side under the map (leon, 2026-10-09). A legend
+  # in the margin costs width, and width is what the map is short of; height is free.
+  guides(fill  = guide_legend(override.aes = list(size = 5, shape = 21), order = 1, nrow = 1,
+                              title.position = "top"),
+         shape = guide_legend(override.aes = list(size = 5, fill = "grey35"), order = 2,
+                              nrow = 1, title.position = "top"),
+         size  = guide_legend(override.aes = list(fill = "grey35", shape = 21), order = 3,
+                              nrow = 1, title.position = "top")) +
   base +
   theme(axis.title = element_blank(), axis.text = element_blank(),
         panel.grid = element_blank(),
-        # Inside the map, over the empty South Pacific: the right margin now belongs to the
-        # chart column, and a legend there would push the map into a strip.
-        legend.position = "inside", legend.position.inside = c(0.012, 0.30),
-        legend.justification = c(0, 0.5), legend.box = "vertical",
+        legend.position = "bottom", legend.box = "horizontal",
+        legend.box.just = "top", legend.justification = "center",
         legend.background = element_rect(fill = "white", colour = NA),
         legend.key = element_blank(),
-        legend.title = element_text(size = 14), legend.text = element_text(size = 12),
-        legend.spacing.y = unit(2, "pt"))
+        legend.title = element_text(size = 14, colour = "black"),
+        legend.text = element_text(size = 12, colour = "black"),
+        legend.box.spacing = unit(6, "pt"), legend.spacing.x = unit(22, "pt"),
+        plot.margin = margin(4, 6, 4, 6))
 
 # No bar outlines (leon, 2026-10-09): the fills are muted enough to hold their own shape and
 # the black keylines were the last of the primary-school look.
@@ -248,7 +253,9 @@ one <- function(g, stem, w, h) {
 }
 
 dir.create(file.path(here, "report/figures/panels"), showWarnings = FALSE, recursive = TRUE)
-one(p_map,  "a_map",        12, 6.2)
+# 12 x 7.3: the map itself is 12 wide by ~6.2 tall at this window and aspect, and the legend
+# strip takes the rest. Height is the cheap dimension here.
+one(p_map,  "a_map",        12, 7.3)
 one(p_runs, "b_samples",     5, 5)
 one(p_locs, "c_localities",  5, 5)
 one(p_year, "d_year",        5, 5)

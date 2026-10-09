@@ -45,6 +45,7 @@ HOSTS = GOLD / "cohort_hosts.tsv"
 LOCS  = GOLD / "cereal_localities.tsv"
 OUT   = GOLD / "crop_map.tsv"
 OUTC  = GOLD / "crop_totals.tsv"
+OUTY  = GOLD / "crop_year.tsv"
 
 MIN_RUNS = 100          # below this a crop cannot support a co-infection rate
 
@@ -135,6 +136,36 @@ def main() -> None:
             if tot[crop]:
                 w.writerow([crop, tot[crop], len(tot_proj[crop]), len(tot_loc[crop]),
                             noloc_by_crop[crop], "yes" if crop in keep else "no"])
+
+    # Year x crop, as a COMPLETE grid. A stacked area chart draws a straight line across a
+    # missing year, so a crop absent in 2018 would appear to taper through it rather than
+    # stop. Zero-filling every year in the range makes the gaps honest. The range is
+    # trimmed to where the data actually are: 6 samples predate 2010 and would otherwise
+    # stretch the axis back to 1981 for a line of zeros.
+    years = sorted({int(r["collection_date"][:4]) for r in runs
+                    if crop_of(r["host"]) in keep and r["collection_date"][:4].isdigit()})
+    lo = min(y for y in years if sum(1 for r in runs
+                                     if r["collection_date"][:4] == str(y)) >= 10)
+    span = [y for y in range(lo, max(years) + 1)]
+    ycount = collections.Counter()
+    undated = collections.Counter()
+    for r in runs:
+        c = crop_of(r["host"])
+        if c not in keep:
+            continue
+        d = r["collection_date"][:4]
+        if d.isdigit() and int(d) in span:
+            ycount[(int(d), c)] += 1
+        else:
+            undated[c] += 1
+    with OUTY.open("w", newline="") as fh:
+        w = csv.writer(fh, delimiter="\t", lineterminator="\n")
+        w.writerow(["year", "crop", "n"])
+        for y in span:
+            for c in [x for x in ORDER if x in keep]:
+                w.writerow([y, c, ycount[(y, c)]])
+    print(f"wrote {OUTY}  ({span[0]}-{span[-1]}, "
+          f"{sum(ycount.values()):,} dated, {sum(undated.values()):,} outside the range or undated)")
 
     print(f"wrote {OUT}  ({sum(1 for (l, c) in cell if c in keep)} locality x crop cells)")
     print(f"wrote {OUTC}")

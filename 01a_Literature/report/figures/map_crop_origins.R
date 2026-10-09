@@ -76,8 +76,13 @@ map_layers <- function(xlim, ylim, ratio, psize) {
   list(
     geom_polygon(data = world, aes(long, lat, group = group),
                  fill = "grey94", colour = "grey80", linewidth = 0.3),
+    # No border on the points (leon, 2026-10-09). The house look is a filled shape with a
+    # black border, but at 402 overlapping localities the borders merge into a dark mass and
+    # the crop colours stop reading — Europe went black. Use stroke = 0, NOT colour = NA:
+    # on ggplot2 4.0.3 a shape-21 point with colour = NA does not lose its border, it
+    # disappears entirely, and the first attempt rendered an empty map. The bars keep theirs.
     geom_point(data = pts, aes(lon, lat, fill = crop), shape = 21, size = psize,
-               colour = "black", stroke = 0.8, alpha = 0.85),
+               stroke = 0, alpha = 0.85),
     scale_fill_manual(values = fills, name = "Crop", drop = FALSE),
     coord_fixed(ratio, xlim = xlim, ylim = ylim, expand = FALSE)
   )
@@ -103,7 +108,7 @@ p_eur <- ggplot() +
   geom_polygon(data = world, aes(long, lat, group = group),
                fill = "grey94", colour = "grey80", linewidth = 0.3) +
   geom_point(data = eur, aes(lon, lat, fill = crop), shape = 21, size = 2.6,
-             colour = "black", stroke = 0.7, alpha = 0.85) +
+             stroke = 0, alpha = 0.85) +
   scale_fill_manual(values = fills, drop = FALSE) +
   coord_fixed(1.6, xlim = c(-12, 42), ylim = c(34, 62), expand = FALSE) +
   guides(fill = "none") +

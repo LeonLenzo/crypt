@@ -94,7 +94,7 @@ Czechia: Branisovice	Czechia	5	48.9628106	16.431847	locality	Branisovice, Czechi
 Czechia: Hrubčice	Czechia	5	49.443721	17.2046309	locality	Hrubčice, Czechia	Hrubčice, okres Prostějov, Olomouc Region, Czechia
 Spain: Córdoba	Spain	5	37.8845813	-4.7760138	locality	Córdoba, Spain	Córdoba, Andalusia, Spain
 Morocco: Merchouch	Morocco	5	33.6121613	-6.7099455	locality	Merchouch, Morocco	ICARDA Research Station - Merchouch, Marchouch, caïdat de Marchouch, Cercle de Rommani دائ
-France: Allonnes, Chartres	France	5	47.969283	0.1578819	locality-nofacility	Allonnes, France	Allonnes, Le Mans, Sarthe, Pays de la Loire, Metropolitan France, 72700, France
+France: Chartres, Allonnes	France	5	48.3304943	1.6561556	locality	Allonnes, Chartres, France	Allonnes, Chartres, Eure-et-Loir, Centre-Val de Loire, Metropolitan France, 28150, France
 France: Castanet	France	4	43.9743	2.02887	locality	Castanet, France	Castanet, Albi, Tarn, Occitania, Metropolitan France, 81150, France
 USA: Walla Walla, Washington	USA	4	46.0668883	-118.3516528	locality	Washington, Walla Walla, USA	Washington Park, Walla Walla, Walla Walla County, Washington, United States
 USA: Wichita, Kansas	USA	4	37.6922361	-97.3375448	locality-nofacility	Wichita, USA	Wichita, Sedgwick County, Kansas, United States
@@ -222,12 +222,12 @@ France: Frévin-Capelle	France	2	50.3502384	2.6388295	locality	Frévin-Capelle, 
 UK: Lenham	UK	2	51.2344619	0.7072408	locality	Lenham, UK	Lenham, Arrow Way, Leadingcross Green, Lenham, Maidstone, Kent, England, ME17 2FU, United 
 UK: Brackley	UK	2	52.0278975	-1.1484657	locality	Brackley, UK	Brackley, West Northamptonshire, England, United Kingdom
 South Africa: Suurbraak	South Africa	2	-34.0076267	20.6558178	locality	Suurbraak, South Africa	Suurbraak, Swellendam Ward 3, Swellendam Local Municipality, Overberg District Municipalit
-United Kingdom: Woolpit, Suffolk	United Kingdom	2	52.2256931	0.8777956	locality	Suffolk, Woolpit, United Kingdom	Suffolk Accident Rescue Service, Windmill Avenue, Woolpit, Mid Suffolk, Suffolk, England, 
-Germany: Weke, Northeim	Germany	2	51.1638175	10.4478313	region	Germany	Germany
-United Kingdom: Ellon, Aberdeen	United Kingdom	2	57.365049	-2.0710305	locality-nofacility	Ellon, United Kingdom	Ellon, Aberdeenshire, Scotland, AB41 9JB, United Kingdom
-United Kingdom: Banbury, Oxfordshire	United Kingdom	2	52.0601807	-1.3402795	locality-nofacility	Banbury, United Kingdom	Banbury, Oxfordshire, England, United Kingdom
-United Kingdom: Market Rasen, Lincolnshire	United Kingdom	2	53.3879115	-0.3376729	locality-nofacility	Market Rasen, United Kingdom	Market Rasen, West Lindsey, Lincolnshire, Greater Lincolnshire, England, United Kingdom
-Germany: Northeim, Lower Saxony	Germany	2	51.7648548	9.858883	locality-nofacility	Northeim, Germany	Landkreis Northeim, Lower Saxony, Germany
+United Kingdom: Suffolk, Woolpit	United Kingdom	2	52.2247689	0.8880944	locality	Woolpit, Suffolk, United Kingdom	Woolpit, Mid Suffolk, Suffolk, England, United Kingdom
+Germany: Northeim, Weke	Germany	2	51.7648548	9.858883	locality-nofacility	Northeim, Germany	Landkreis Northeim, Lower Saxony, Germany
+United Kingdom: Aberdeen, Ellon	United Kingdom	2	57.365049	-2.0710305	locality	Ellon, Aberdeen, United Kingdom	Ellon, Aberdeenshire, Scotland, AB41 9JB, United Kingdom
+United Kingdom: Oxfordshire, Banbury	United Kingdom	2	52.0601807	-1.3402795	locality	Banbury, Oxfordshire, United Kingdom	Banbury, Oxfordshire, England, United Kingdom
+United Kingdom: Lincolnshire, Market Rasen	United Kingdom	2	53.3879115	-0.3376729	locality	Market Rasen, Lincolnshire, United Kingdom	Market Rasen, West Lindsey, Lincolnshire, Greater Lincolnshire, England, United Kingdom
+Germany: Lower Saxony, Northeim	Germany	2	51.7648548	9.858883	locality	Northeim, Lower Saxony, Germany	Landkreis Northeim, Lower Saxony, Germany
 United Kingdom: North Yorkshire	United Kingdom	2	54.1345328	-1.4986285	locality	North Yorkshire, United Kingdom	North Yorkshire, England, United Kingdom
 USA: Iowa (41.573, -95.061)	USA	2	30.2368772	-93.0137569	locality	-95.061), Iowa (41.573, USA	Iowa, Calcasieu Parish, Louisiana, 70647, United States
 USA: Russell Ranch California	USA	2	38.6360488	-121.0959543	locality	Russell Ranch California, USA	Russell Ranch, White Rock, Folsom, Sacramento County, California, United States
@@ -427,23 +427,24 @@ UK: Hemingstone	UK	1	52.1404883	1.1417359	locality	Hemingstone, UK	Hemingstone, 
 UK: Tuddenham	UK	1	52.3143082	0.5472061	locality	Tuddenham, UK	Tuddenham, West Suffolk, Suffolk, England, United Kingdom
 South Africa: Tygerhoek	South Africa	1	-28.8166236	24.991639	locality-nofacility	South Africa	South Africa
 South Africa: Bethlehem	South Africa	1	-28.2308333	28.3088889	locality	Bethlehem, South Africa	Bethlehem, Dihlabeng Local Municipality, Thabo Mofutsanyana District Municipality, Free St
-United Kingdom: Newton, Cambs	United Kingdom	1	54.3140934	-0.7594421	locality-nofacility	Newton, United Kingdom	Newton, North Yorkshire, York and North Yorkshire, England, United Kingdom
+United Kingdom: Cambs, Newton	United Kingdom	1	52.1250903	0.0995354	locality	Newton, Cambs, United Kingdom	Newton, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, Un
 France: Valenciennes	France	1	50.3579317	3.5234846	locality	Valenciennes, France	Valenciennes, Nord, Hauts-de-France, Metropolitan France, 59300, France
-United Kingdom: Duxford, Cambridge	United Kingdom	1	52.0823869	0.1667122	locality	Cambridge, Duxford, United Kingdom	National Grid Cambridge Compressor Station, Duxford, South Cambridgeshire, Cambridgeshire,
+United Kingdom: Cambridge, Duxford	United Kingdom	1	52.0938185	0.1311651	locality	Duxford, Cambridge, United Kingdom	Duxford, Royston Road, Duxford, Heathfield, Cambridge, Cambridgeshire, Cambridgeshire and 
 France: Louville la Chenard	France	1	48.3241503	1.7867391	locality	Louville la Chenard, France	Louville-la-Chenard, Chartres, Eure-et-Loir, Centre-Val de Loire, Metropolitan France, 281
-United Kingdom: Spalding, Lincolnshire	United Kingdom	1	52.7876264	-0.1526099	locality-nofacility	Spalding, United Kingdom	Spalding, South Holland, Lincolnshire, Greater Lincolnshire, England, PE11 1SR, United Kin
+United Kingdom: Lincolnshire, Spalding	United Kingdom	1	52.7876264	-0.1526099	locality	Spalding, Lincolnshire, United Kingdom	Spalding, South Holland, Lincolnshire, Greater Lincolnshire, England, PE11 1SR, United Kin
 United Kingdom: Oxfordshire	United Kingdom	1	51.833333	-1.25	locality	Oxfordshire, United Kingdom	Oxfordshire, England, United Kingdom
-United Kingdom: Bridgend, Vale of Glamorgan	United Kingdom	1	51.4853259	-3.5553224	locality	Vale of Glamorgan, Bridgend, United Kingdom	Vale United, Corntown Road, Tair Croes, Ewenny, Bridgend, Vale of Glamorgan, Wales, CF35 5
+United Kingdom: Vale of Glamorgan, Bridgend	United Kingdom	1	51.4470646	-3.3988831	locality-nofacility	Vale of Glamorgan, United Kingdom	Vale of Glamorgan, Wales, United Kingdom
+United Kingdom: Norfolk, Bawburgh, Church Farm, Dorothea de Winton Field Station	United Kingdom	1	52.6322939	1.1842339	region	Bawburgh, Norfolk, United Kingdom	Bawburgh, South Norfolk, Norfolk, England, United Kingdom
 United Kingdom: Lincolnshire	United Kingdom	1	53.1823034	-0.2031209	locality	Lincolnshire, United Kingdom	Lincolnshire, England, United Kingdom
-United Kingdom: Impington, Cambridgeshire	United Kingdom	1	52.2493091	0.1138256	locality-nofacility	Impington, United Kingdom	Impington, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England,
-United Kingdom: Bury St Edmunds, Suffolk	United Kingdom	1	52.2460367	0.7125173	locality-nofacility	Bury St Edmunds, United Kingdom	Bury St Edmunds, West Suffolk, Suffolk, England, United Kingdom
-United Kingdom: Ickleton, Essex	United Kingdom	1	52.0703602	0.1760421	locality-nofacility	Ickleton, United Kingdom	Ickleton, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, 
+United Kingdom: Cambridgeshire, Impington	United Kingdom	1	52.2493091	0.1138256	locality	Impington, Cambridgeshire, United Kingdom	Impington, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England,
+United Kingdom: Suffolk, Bury St Edmunds	United Kingdom	1	52.2460367	0.7125173	locality	Bury St Edmunds, Suffolk, United Kingdom	Bury St Edmunds, West Suffolk, Suffolk, England, United Kingdom
+United Kingdom: Essex, Ickleton	United Kingdom	1	51.7704679	0.4646698	locality-nofacility	Essex, United Kingdom	Essex, England, United Kingdom
 France: Mons-en-Pévèle	France	1	50.4803416	3.0991346	locality	Mons-en-Pévèle, France	Mons-en-Pévèle, Lille, Nord, Hauts-de-France, Metropolitan France, 59246, France
-United Kingdom: Edgmond, Shropshire	United Kingdom	1	52.777856	-2.418433	locality-nofacility	Edgmond, United Kingdom	Edgmond, Telford and Wrekin, England, United Kingdom
+United Kingdom: Shropshire, Edgmond	United Kingdom	1	52.6523394	-2.6435641	locality-nofacility	Shropshire, United Kingdom	Shropshire (Ceremonial), England, United Kingdom
 United Kingdom: Swindon	United Kingdom	1	51.5615327	-1.7854322	locality	Swindon, United Kingdom	Swindon, England, SN1 1JZ, United Kingdom
-United Kingdom: Tadcaster, North Yorkshire	United Kingdom	1	53.8852975	-1.2595975	locality-nofacility	Tadcaster, United Kingdom	Tadcaster, North Yorkshire, York and North Yorkshire, England, United Kingdom
-United Kingdom: Haddenham, Cambridgeshire	United Kingdom	1	52.3587178	0.1501133	locality-nofacility	Haddenham, United Kingdom	Haddenham, East Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, 
-United Kingdom: Peopleton, Warwickshire.	United Kingdom	1	52.1531199	-2.0921112	locality-nofacility	Peopleton, United Kingdom	Peopleton, Wychavon, Worcestershire, England, United Kingdom
+United Kingdom: North Yorkshire, Tadcaster	United Kingdom	1	53.8852975	-1.2595975	locality	Tadcaster, North Yorkshire, United Kingdom	Tadcaster, North Yorkshire, York and North Yorkshire, England, United Kingdom
+United Kingdom: Cambridgeshire, Haddenham	United Kingdom	1	52.3587178	0.1501133	locality	Haddenham, Cambridgeshire, United Kingdom	Haddenham, East Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, 
+United Kingdom: Warwickshire., Peopleton	United Kingdom	1	52.3213064	-1.5536906	locality-nofacility	Warwickshire., United Kingdom	Warwickshire, England, United Kingdom
 United Kingdom: Cornwall	United Kingdom	1	50.4433489	-4.6246566	locality	Cornwall, United Kingdom	Cornwall, England, United Kingdom
 UK: Terrington St Clement	UK	1	52.8088521	0.3090975	locality	Terrington St Clement, UK	Terrington St. Clement, King's Lynn and West Norfolk, Norfolk, England, United Kingdom
 UK: Oxford	UK	1	51.7520131	-1.2578499	locality	Oxford, UK	Oxford, Oxfordshire, England, United Kingdom

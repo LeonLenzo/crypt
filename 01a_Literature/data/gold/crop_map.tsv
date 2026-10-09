@@ -75,7 +75,7 @@ Czechia: Branisovice	Czechia	Wheat	5	48.9628106	16.431847	locality	1	2015	2015
 Czechia: Hrubčice	Czechia	Wheat	5	49.443721	17.2046309	locality	1	2015	2016
 Spain: Córdoba	Spain	Wheat	5	37.8845813	-4.7760138	locality	1	2016	2017
 Morocco: Merchouch	Morocco	Wheat	5	33.6121613	-6.7099455	locality	1	2015	2015
-France: Allonnes, Chartres	France	Wheat	5	47.969283	0.1578819	locality-nofacility	1	2021	2022
+France: Chartres, Allonnes	France	Wheat	5	48.3304943	1.6561556	locality	1	2021	2022
 UK: Headley Hall	UK	Wheat	4	53.8681102	-1.3247947	locality	3	2013	2015
 USA: Walla Walla, Washington	USA	Wheat	4	46.0668883	-118.3516528	locality	1	2015	2017
 USA: Wichita, Kansas	USA	Wheat	4	37.6922361	-97.3375448	locality-nofacility	1	2015	2017
@@ -197,11 +197,11 @@ France: Frévin-Capelle	France	Wheat	2	50.3502384	2.6388295	locality	1	2016	2016
 UK: Lenham	UK	Wheat	2	51.2344619	0.7072408	locality	1	2016	2016
 UK: Brackley	UK	Wheat	2	52.0278975	-1.1484657	locality	1	2016	2016
 South Africa: Suurbraak	South Africa	Wheat	2	-34.0076267	20.6558178	locality	1	2017	2017
-United Kingdom: Woolpit, Suffolk	United Kingdom	Wheat	2	52.2256931	0.8777956	locality	1	2021	2021
-Germany: Weke, Northeim	Germany	Wheat	2	51.1638175	10.4478313	region	1	2021	2021
-United Kingdom: Banbury, Oxfordshire	United Kingdom	Wheat	2	52.0601807	-1.3402795	locality-nofacility	1	2022	2022
-United Kingdom: Market Rasen, Lincolnshire	United Kingdom	Wheat	2	53.3879115	-0.3376729	locality-nofacility	1	2022	2022
-Germany: Northeim, Lower Saxony	Germany	Wheat	2	51.7648548	9.858883	locality-nofacility	1	2022	2022
+United Kingdom: Suffolk, Woolpit	United Kingdom	Wheat	2	52.2247689	0.8880944	locality	1	2021	2021
+Germany: Northeim, Weke	Germany	Wheat	2	51.7648548	9.858883	locality-nofacility	1	2021	2021
+United Kingdom: Oxfordshire, Banbury	United Kingdom	Wheat	2	52.0601807	-1.3402795	locality	1	2022	2022
+United Kingdom: Lincolnshire, Market Rasen	United Kingdom	Wheat	2	53.3879115	-0.3376729	locality	1	2022	2022
+Germany: Lower Saxony, Northeim	Germany	Wheat	2	51.7648548	9.858883	locality	1	2022	2022
 United Kingdom: North Yorkshire	United Kingdom	Wheat	2	54.1345328	-1.4986285	locality	1	2022	2022
 USA: Iowa (41.573, -95.061)	USA	Maize	2	30.2368772	-93.0137569	locality	1		
 USA: Russell Ranch California	USA	Maize	2	38.6360488	-121.0959543	locality	1		
@@ -399,23 +399,24 @@ UK: Hemingstone	UK	Wheat	1	52.1404883	1.1417359	locality	1	2015	2015
 UK: Tuddenham	UK	Wheat	1	52.3143082	0.5472061	locality	1	2015	2015
 South Africa: Tygerhoek	South Africa	Wheat	1	-28.8166236	24.991639	locality-nofacility	1	2017	2017
 South Africa: Bethlehem	South Africa	Wheat	1	-28.2308333	28.3088889	locality	1	2017	2017
-United Kingdom: Newton, Cambs	United Kingdom	Wheat	1	54.3140934	-0.7594421	locality-nofacility	1	2021	2021
+United Kingdom: Cambs, Newton	United Kingdom	Wheat	1	52.1250903	0.0995354	locality	1	2021	2021
 France: Valenciennes	France	Wheat	1	50.3579317	3.5234846	locality	1	2021	2021
-United Kingdom: Duxford, Cambridge	United Kingdom	Wheat	1	52.0823869	0.1667122	locality	1	2021	2021
+United Kingdom: Cambridge, Duxford	United Kingdom	Wheat	1	52.0938185	0.1311651	locality	1	2021	2021
 France: Louville la Chenard	France	Wheat	1	48.3241503	1.7867391	locality	1	2021	2021
-United Kingdom: Spalding, Lincolnshire	United Kingdom	Wheat	1	52.7876264	-0.1526099	locality-nofacility	1	2022	2022
+United Kingdom: Lincolnshire, Spalding	United Kingdom	Wheat	1	52.7876264	-0.1526099	locality	1	2022	2022
 United Kingdom: Oxfordshire	United Kingdom	Wheat	1	51.833333	-1.25	locality	1	2022	2022
-United Kingdom: Bridgend, Vale of Glamorgan	United Kingdom	Wheat	1	51.4853259	-3.5553224	locality	1	2022	2022
+United Kingdom: Vale of Glamorgan, Bridgend	United Kingdom	Wheat	1	51.4470646	-3.3988831	locality-nofacility	1	2022	2022
+United Kingdom: Norfolk, Bawburgh, Church Farm, Dorothea de Winton Field Station	United Kingdom	Wheat	1	52.6322939	1.1842339	region	1	2022	2022
 United Kingdom: Lincolnshire	United Kingdom	Wheat	1	53.1823034	-0.2031209	locality	1	2022	2022
-United Kingdom: Impington, Cambridgeshire	United Kingdom	Wheat	1	52.2493091	0.1138256	locality-nofacility	1	2022	2022
-United Kingdom: Bury St Edmunds, Suffolk	United Kingdom	Wheat	1	52.2460367	0.7125173	locality-nofacility	1	2022	2022
-United Kingdom: Ickleton, Essex	United Kingdom	Wheat	1	52.0703602	0.1760421	locality-nofacility	1	2022	2022
+United Kingdom: Cambridgeshire, Impington	United Kingdom	Wheat	1	52.2493091	0.1138256	locality	1	2022	2022
+United Kingdom: Suffolk, Bury St Edmunds	United Kingdom	Wheat	1	52.2460367	0.7125173	locality	1	2022	2022
+United Kingdom: Essex, Ickleton	United Kingdom	Wheat	1	51.7704679	0.4646698	locality-nofacility	1	2022	2022
 France: Mons-en-Pévèle	France	Wheat	1	50.4803416	3.0991346	locality	1	2022	2022
-United Kingdom: Edgmond, Shropshire	United Kingdom	Wheat	1	52.777856	-2.418433	locality-nofacility	1	2022	2022
+United Kingdom: Shropshire, Edgmond	United Kingdom	Wheat	1	52.6523394	-2.6435641	locality-nofacility	1	2022	2022
 United Kingdom: Swindon	United Kingdom	Wheat	1	51.5615327	-1.7854322	locality	1	2022	2022
-United Kingdom: Tadcaster, North Yorkshire	United Kingdom	Wheat	1	53.8852975	-1.2595975	locality-nofacility	1	2022	2022
-United Kingdom: Haddenham, Cambridgeshire	United Kingdom	Wheat	1	52.3587178	0.1501133	locality-nofacility	1	2022	2022
-United Kingdom: Peopleton, Warwickshire.	United Kingdom	Wheat	1	52.1531199	-2.0921112	locality-nofacility	1	2022	2022
+United Kingdom: North Yorkshire, Tadcaster	United Kingdom	Wheat	1	53.8852975	-1.2595975	locality	1	2022	2022
+United Kingdom: Cambridgeshire, Haddenham	United Kingdom	Wheat	1	52.3587178	0.1501133	locality	1	2022	2022
+United Kingdom: Warwickshire., Peopleton	United Kingdom	Wheat	1	52.3213064	-1.5536906	locality-nofacility	1	2022	2022
 United Kingdom: Cornwall	United Kingdom	Wheat	1	50.4433489	-4.6246566	locality	1	2022	2022
 UK: Terrington St Clement	UK	Wheat	1	52.8088521	0.3090975	locality	1	2013	2013
 UK: Oxford	UK	Wheat	1	51.7520131	-1.2578499	locality	1	2013	2013

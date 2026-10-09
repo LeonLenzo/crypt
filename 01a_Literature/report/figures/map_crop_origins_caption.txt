@@ -1,6 +1,6 @@
 Distribution of Field Cereal RNA-seq Studies
 Caption for report/figures/panels/{a_map, b_samples, c_localities,
-d_year}.{png,pdf}                             generated 2026-10-09
+d_year}.{png,pdf}                             regenerated 2026-10-09
 
 The four panels are rendered as separate files and are not assembled here. The
 letters a-d below are the order they are meant to be read in, not a layout.
@@ -9,21 +9,21 @@ letters a-d below are the order they are meant to be read in, not a layout.
 FULL CAPTION
 
 Geographic, compositional and temporal distribution of the field cereal RNA-seq
-cohort: 7,666 publicly archived samples from 41 BioProjects, each curated to a
+cohort: 7,664 publicly archived samples from 41 BioProjects, each curated to a
 field setting against a quoted sentence in an available manuscript. Colour marks
 the crop throughout.
 
 (a) Map. One point per locality and crop. Point area is proportional to the
 LOGARITHM of the number of samples there, so a larger point means more samples
-but area is not proportional to count; exact counts are in the bars below.
-Points are semi-transparent, so overlapping localities compound into darker
-patches. Country outlines are drawn in the background colour.
+but area is not proportional to count. Points are semi-transparent, so
+overlapping localities compound into darker patches. Country outlines are drawn
+in the background colour.
 
-  Circles, marked "Locality" in the Resolution key (7,342 samples at 406
+  Circles, marked "Locality" in the Resolution key (7,385 samples at 435
   localities), sit at coordinates geocoded from the locality string recorded for
   the sample.
 
-  Diamonds, marked "Country" (311 samples across 24 countries), sit at the
+  Diamonds, marked "Country" (266 samples across 24 countries), sit at the
   centroid of the largest landmass polygon of their country. These samples name
   a country and nothing finer, so the diamond states WHICH COUNTRY and is drawn
   at a place nobody sampled. It is not a collection site and should not be read
@@ -32,59 +32,77 @@ patches. Country outlines are drawn in the background colour.
 (b) Samples per crop and (c) distinct localities per crop. The same cohort
 counted two ways. Axis values are scaled by the factor given in the axis title,
 so a label of 3 in (b) is 3,000 samples and a label of 3 in (c) is 300
-localities. Localities are distinct locality strings finer than a country,
-so bare-country samples add to (b) and not to (c), and repeated sampling of one
-site across seasons counts once.
+localities. Localities are distinct locality strings finer than a country, so
+the 266 bare-country samples add to (b) and not to (c), and repeated sampling of
+one site across seasons counts once.
 
 (d) Year. Samples per year of collection, stacked by crop, over 2012 to 2024.
 Only the first and last year are labelled, to give the range; every year in
-between has its own bar. Based on the 7,417 of 7,666 samples carrying a
+between has its own bar. Based on the 7,408 of 7,664 samples carrying a
 collection date. Bars rather than a continuous series, because year here is a
 discrete count: an area or line would draw a slope between 2015 and 2016
 asserting collection at every instant in between, and none occurred. Every year
 in the range has a position on the axis, so a year with no collection reads as
 an absent bar rather than being skipped.
 
+                samples   projects   localities   country-only
+  Wheat           1,249         16          382            266
+  Maize           2,511         16           44              0
+  Rice            2,784          6            6              0
+  Sorghum         1,120          4            4              0
+
+The crops are not comparable in shape and the two bar panels exist to show it:
+rice is 2,784 samples at 6 localities because the rice data are large GWAS
+panels grown at one farm, while wheat is 1,249 at 382 because the wheat data are
+rust surveys that sample broadly. (a) alone reads as a wheat map and (b) alone
+reads as a rice cohort; both are true.
+
 
 WHAT IS NOT SHOWN
 
-13 of the 7,666 samples carry no location at all and are absent from the map
-while remaining in the other three panels: 12 from PRJNA1161467, whose paper
-gives only author affiliations, and 1 orphan run in PRJEB39201.
+13 of the 7,664 samples carry no location at all and are absent from the map
+while remaining in (b), (c) and (d): 12 from PRJNA1161467, whose paper gives
+only author affiliations, and 1 orphan run in PRJEB39201.
 
-The 311 samples drawn at country centroids are not a geocoding failure. They are
+The 266 samples drawn at country centroids are not a geocoding failure. They are
 rust surveys, where the submitter recorded the country an isolate came from and
 no collection site, and ENA holds no latitude, longitude or locality field for
-them. Where a finer value existed in a supplement it was already imported: the
-Ada21 projects (PRJEB31334, PRJEB39201, PRJEB15280, PRJEB33109, PRJNA256347) and
-PRJEB36485 take their location from supplementary tables that themselves give
-only a country for these samples. One lead remains open: Lewis et al. 2024
-(10.1111/nph.19864) cites "Dataset S2, All Puccinia graminis isolates used in
-this study" as a separate .xlsx that has not been obtained, and it may carry
-collection sites for PRJEB65589's 53 country-only samples.
+them. Where a finer value exists in a supplement it has been imported: the Ada21
+projects and PRJEB36485 take their location from supplementary tables that
+themselves give only a country for these samples, and Lewis et al. 2024 Dataset
+S2 was joined on 2026-10-09 and moved 45 of PRJEB65589's 53 samples from a
+country to a named site.
 
 Three crops below a 100-sample floor are excluded from every panel: barley (3
-samples), and rye, triticale, oat and the millets together (53). Barley's
+samples), and rye, triticale, oat and the millets together (55). Barley's
 absence is a property of the archive, not of this figure - there is no field
 barley study in the cohort, only incidental barley samples inside wheat rust
-surveys.
+surveys. Note that the kraken read-based host call reports far more barley than
+this; it is wrong, and systematically so, in exactly these rust surveys. See
+seeds/found.tsv, 2026-10-09.
 
 Geocoded localities are placed at three precisions, recorded per locality in
-data/gold/cereal_localities.tsv: 296 localities resolved as given, 108 only
+data/gold/cereal_localities.tsv: 318 localities resolved as given, 114 only
 after a research-facility name was dropped (for example "USA: Nebraska, Lincoln
-(UNL Havelock Research Farm)" placed as Lincoln, Nebraska), and 3 at province
+(UNL Havelock Research Farm)" placed as Lincoln, Nebraska), and 4 at province
 level.
+
+A caution that belongs with any use of these panels: crop is almost perfectly
+confounded with sampling design. Wheat is 96% disease-selected while rice and
+sorghum are 100% unselected, so differences between crops in this cohort cannot
+be separated from differences between study types. Run cohort.py for the
+cross-tab.
 
 
 SHORT CAPTION
 
-Distribution of 7,666 field cereal RNA-seq samples from 41 BioProjects, coloured
+Distribution of 7,664 field cereal RNA-seq samples from 41 BioProjects, coloured
 by crop. (a) One point per locality and crop, point area proportional to log
-sample count. Circles are 7,342 samples at 406 geocoded localities; diamonds are
-311 samples that name only a country, drawn at its centroid and not at a
-collection site; 13 samples carry no location and are absent. (b, c) The same cohort as
-samples, and as distinct localities finer than a country. (d) Samples
-per year of collection, stacked by crop, for the 7,417 samples carrying a date.
+sample count. Circles are 7,385 samples at 435 geocoded localities; diamonds are
+266 samples that name only a country, drawn at its centroid and not at a
+collection site; 13 samples carry no location and are absent. (b, c) The same
+cohort as samples, and as distinct localities finer than a country. (d) Samples
+per year of collection, stacked by crop, for the 7,408 samples carrying a date.
 
 
 SOURCES

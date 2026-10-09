@@ -76,9 +76,16 @@ def main() -> None:
             continue
         loc = str(d.get("Location") or "").strip()
         country = (r.get("country") or "").strip()
-        # "-" means Dataset S2 has no site for this isolate. Keep the country rather than
-        # writing an empty Location back over it.
-        place = f"{country}: {loc}" if loc and loc != "-" else country
+        # Dataset S2 writes places SPECIFIC FIRST - "Dorothea de Winton Field Station, Church
+        # Farm, Bawburgh, Norfolk" - while the "Country: a, b, c" form signals the NCBI
+        # convention, which is general first. Prefixing the country without reversing told
+        # the geocoder the wrong thing: its fallback peels comma-parts off the TAIL, so it
+        # discarded "Norfolk" and kept the farm name, and that one locality never resolved.
+        if loc and loc != "-":
+            parts = [x.strip() for x in loc.split(",") if x.strip()]
+            place = f"{country}: " + ", ".join(reversed(parts))
+        else:
+            place = country
         host = str(d.get("Host") or "").strip()
         out.append(dict(Run=r["run_accession"], IsolateID=title, Location=place,
                         HostSpecies={"Wheat": "Triticum aestivum", "Rye": "Secale cereale"}.get(host, host),

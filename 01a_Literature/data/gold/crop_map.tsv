@@ -14,6 +14,7 @@ USA: Arizona, Maricopa (Univ. Arizona Maricopa Agricultural Center)	USA	Sorghum	
 USA: California, Woodland	USA	Maize	94	38.6786109	-121.7733285	locality	1	2012	2012
 USA: South Carolina, Pendleton (Clemson Simpson Research Farm)	USA	Maize	72	34.6508092	-82.7820663	locality-nofacility	1	2017	2017
 Belgium: Zwijnaarde (Ghent)	Belgium	Maize	60	51.016287	3.7245719	locality	1	2015	2015
+USA: North Carolina, Clayton (Central Crops Research Station)	USA	Maize	45	35.650711	-78.4563914	locality-nofacility	1		
 USA: South Carolina, Clemson University Farm Pendleton	USA	Maize	42	33.6874388	-80.4363743	locality-nofacility	1	2017	2017
 Switzerland: Zurich	Switzerland	Wheat	30	47.3744489	8.5410422	locality	1		
 Japan:Osaka, Takatsuki	Japan	Rice	26	34.8464785	135.6172204	locality	1	2015	2015
@@ -23,6 +24,7 @@ Mexico: Guanajuato, Area 1 (20.719, -101.328)	Mexico	Maize	21	21.0158848	-101.25
 China: China:nanjing	China	Wheat	21	31.7331769	118.8712637	locality	1	2020	2020
 Ethiopia: Sinana	Ethiopia	Wheat	18	7.08333	40.2	locality	2	2015	2017
 Ethiopia: Meraro	Ethiopia	Wheat	16	7.4079469	39.2417452	locality	1	2017	2017
+Canada: Ontario, Ottawa (Ottawa RDC experimental field station)	Canada	Maize	16	45.4208777	-75.6901106	locality-nofacility	1		
 UK: Wardington	UK	Wheat	14	52.1114668	-1.2826587	locality	1	2017	2017
 UK: Wolferton	UK	Wheat	13	52.8293207	0.4625821	locality	2	2014	2017
 UK: Rothwell (Lincolnshire)	UK	Wheat	13	53.4806768	-0.2668947	locality	1	2015	2016
@@ -34,6 +36,7 @@ UK: Morley (Norfolk)	UK	Wheat	10	52.5517051	1.0475185	locality	2	2014	2018
 UK: Cambridge	UK	Wheat	10	52.1975846	0.1391537	locality	2	2013	2016
 Germany: Silstedt	Germany	Wheat	10	51.8457275	10.8530987	locality	1	2014	2017
 Argentina: Chillar	Argentina	Wheat	10	-37.3128702	-59.985229	locality	1	2018	2018
+South Africa: KwaZulu-Natal, Greytown	South Africa	Maize	10	-29.060556	30.588889	locality	1		
 China: Jinshan Gangu Tianshui	China	Wheat	9	34.8171906	105.4440092	locality	1	2016	2016
 France: Louville	France	Wheat	9	45.596232	3.78034	locality	1	2014	2015
 China:Changchun	China	Maize	9	43.8844844	125.3181675	locality	1	2023	2023
@@ -57,6 +60,7 @@ Germany: Harzhof	Germany	Wheat	6	54.416465	9.8479481	locality	1	2015	2015
 Serbia: Rimski Šančevi	Serbia	Wheat	6	44.0243229	21.0765743	locality-nofacility	1	2015	2017
 Argentina: Paraná	Argentina	Wheat	6	-27.4210173	-56.6011693	locality	1	2016	2016
 UK: Lincolnshire	UK	Wheat	6	53.1823034	-0.2031209	locality	1	2017	2017
+South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)	South Africa	Maize	6	-29.060556	30.588889	locality-nofacility	1		
 Ethiopia: Kulumsa	Ethiopia	Wheat	5	10.2116702	38.6521203	locality-nofacility	3	2014	2017
 UK: Bishop Burton	UK	Wheat	5	53.8414315	-0.5135522	locality	2	2014	2016
 UK: Sturminster Newton	UK	Wheat	5	50.9290016	-2.3263949	locality	2	2014	2015

@@ -132,12 +132,23 @@ def resolve(arg: str) -> tuple[str, Path | None]:
         # cmd_fulltext files a paper as STUDIES/doi_<slug>/<tail>_fulltext.xml, so the DOI
         # lives in the DIRECTORY name and not in the filename. Globbing files for the slug
         # found nothing and made 17 freshly fetched papers look unfetched.
-        hits = sorted(f for f in (STUDIES / ("doi_" + arg.replace("/", "_"))).glob("*")
-                      if f.is_file() and f.name != "adapter.yaml")
-        # A full copy under studies/ beats a capped cache entry; the cache still wins over
-        # the network when it holds the whole paper.
-        if hits and (not t or is_capped(t)):
-            return hits[0].read_text(encoding="utf-8", errors="replace"), hits[0]
+        # Largest file wins, not the alphabetically first. A study directory also holds
+        # SOURCE.txt (a three-line provenance note) and often the original PDF; sorting by
+        # name picked SOURCE.txt and handed back 170 characters in place of a 90,000-
+        # character extraction.
+        hits = sorted((f for f in (STUDIES / ("doi_" + arg.replace("/", "_"))).glob("*")
+                       if f.is_file() and f.suffix not in {".pdf", ".yaml"}
+                       and f.name not in {"SOURCE.txt", "NAMING.txt", "adapter.yaml"}),
+                      key=lambda f: -f.stat().st_size)
+        # A copy under studies/ beats the cache whenever it holds MORE text. Testing only
+        # is_capped() was not enough: for a paywalled paper the cache holds an abstract, a
+        # couple of hundred characters that is neither capped nor useful, and that short
+        # entry then beat a 90,000-character PDF sitting in studies/. Two papers read as
+        # "no growth sentence" on 2026-10-09 for exactly this reason.
+        if hits:
+            disk = hits[0].read_text(encoding="utf-8", errors="replace")
+            if not t or is_capped(t) or len(disk) > len(t):
+                return disk, hits[0]
         if t:
             return t, None
         sys.exit(f"REFUSED: {arg} is not in the text cache and not under studies/. "

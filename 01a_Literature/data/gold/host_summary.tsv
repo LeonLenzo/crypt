@@ -1,6 +1,6 @@
 host	host_group	samples	projects	localities	years	n_years	wild	coinfection_set	discovery_set	positives_only	unflagged	main_tissue	settings	selection
 Oryza sativa (rice)	cereal	2784	6	6	2013-2017	5	0	0	2784	0	0	leaf	field:2680; field (chamber-raised, transferred outdoors):104	unselected:2784
-Zea mays (maize)	cereal	2511	16	40	2012-2024	7	0	200	2308	0	3	leaf	field:2445; field (inoculated in situ):66	unselected:2287; inoculated:194; symptom-avoided:21; disease-selected:6; (none):3
+Zea mays (maize)	cereal	2511	16	44	2012-2024	7	0	200	2308	0	3	leaf	field:2445; field (inoculated in situ):66	unselected:2287; inoculated:194; symptom-avoided:21; disease-selected:6; (none):3
 Triticum aestivum (bread wheat)	cereal	1240	16	376	1981-2022	18	0	1225	15	0	0	leaf	field:1240	disease-selected:1189; inoculated:36; unselected:15
 Sorghum bicolor	cereal	1120	4	4	2016-2021	3	0	0	1120	0	0	leaf	field:1120	unselected:1119; symptom-avoided:1
 Zea mays teosinte subspp.	cereal	42	1	4	2017	1	21	0	42	0	0	leaf	field (natural population):21; field:21	unselected:42

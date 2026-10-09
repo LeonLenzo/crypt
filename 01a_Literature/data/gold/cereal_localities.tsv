@@ -28,6 +28,7 @@ USA: New York, Geneva (USDA cold-hardy grapevine germplasm repository)	USA	79	42
 USA: South Carolina, Pendleton (Clemson Simpson Research Farm)	USA	72	34.6508092	-82.7820663	locality-nofacility	Pendleton, South Carolina, USA	Pendleton, Anderson County, South Carolina, United States
 Belgium: Zwijnaarde (Ghent)	Belgium	60	51.016287	3.7245719	locality	Zwijnaarde (Ghent), Belgium	Coca-Cola Enterprises Belgium, Zwijnaarde, Ghent, Gent, East Flanders, Flanders, Belgium
 Mexico: Guanajuato, Area 1 (20.719, -101.328)	Mexico	50	21.0158848	-101.25284	locality-nofacility	Area 1, Guanajuato, Mexico	Guanajuato City, Municipio de Guanajuato, Guanajuato, 36003, Mexico
+USA: North Carolina, Clayton (Central Crops Research Station)	USA	45	35.650711	-78.4563914	locality-nofacility	Clayton, North Carolina, USA	Clayton, Johnston County, North Carolina, United States
 USA: South Carolina, Clemson University Farm Pendleton	USA	42	33.6874388	-80.4363743	locality-nofacility	South Carolina, USA	South Carolina, United States
 China: China:Anyang	China	36	34.5412252	108.9237067	locality-nofacility	China	China
 Switzerland: Zurich	Switzerland	30	47.3744489	8.5410422	locality	Zurich, Switzerland	Zurich, District Zurich, Zurich, Switzerland
@@ -37,6 +38,7 @@ UK: Ickleton	UK	23	52.0703602	0.1760421	locality	Ickleton, UK	Ickleton, South Ca
 China: China:nanjing	China	21	31.7331769	118.8712637	locality	China:nanjing, China	China Eastern Airlines, 翔鹰四路, Lukou, Jiangning District, Nanjing City, Jiangsu, China
 Ethiopia: Sinana	Ethiopia	18	7.08333	40.2	locality	Sinana, Ethiopia	Sinana, Bale, Oromia Region, Ethiopia
 Ethiopia: Meraro	Ethiopia	16	7.4079469	39.2417452	locality	Meraro, Ethiopia	Meraro, Limu Bilbilo, Arsi, Oromia Region, Ethiopia
+Canada: Ontario, Ottawa (Ottawa RDC experimental field station)	Canada	16	45.4208777	-75.6901106	locality-nofacility	Ottawa, Ontario, Canada	Ottawa, Eastern Ontario, Ontario, Canada
 UK: Wardington	UK	14	52.1114668	-1.2826587	locality	Wardington, UK	Wardington, Oxfordshire, England, United Kingdom
 UK: Wolferton	UK	13	52.8293207	0.4625821	locality	Wolferton, UK	Wolferton, King's Lynn and West Norfolk, Norfolk, England, PE31 6HA, United Kingdom
 UK: Rothwell (Lincolnshire)	UK	13	53.4806768	-0.2668947	locality	Rothwell (Lincolnshire), UK	Rothwell CP, West Lindsey, Lincolnshire, Greater Lincolnshire, England, United Kingdom
@@ -49,6 +51,7 @@ UK: Cambridge	UK	10	52.1975846	0.1391537	locality	Cambridge, UK	Cambridge, Cambr
 Germany: Silstedt	Germany	10	51.8457275	10.8530987	locality	Silstedt, Germany	Silstedt, Wernigerode, Landkreis Harz, Saxony-Anhalt, Germany
 Argentina: Chillar	Argentina	10	-37.3128702	-59.985229	locality	Chillar, Argentina	Chillar, Partido de Azul, Buenos Aires, 7311, Argentina
 Mexico: Guanajuato, Area 3 (20.083, -101.137)	Mexico	10	21.0158848	-101.25284	locality-nofacility	Area 3, Guanajuato, Mexico	Guanajuato City, Municipio de Guanajuato, Guanajuato, 36003, Mexico
+South Africa: KwaZulu-Natal, Greytown	South Africa	10	-29.060556	30.588889	locality	Greytown, KwaZulu-Natal, South Africa	Greytown, Umvoti Local Municipality, Umzinyathi District Municipality, KwaZulu-Natal, Sout
 China: Jinshan Gangu Tianshui	China	9	34.8171906	105.4440092	locality	Jinshan Gangu Tianshui, China	Jinshang, Gangu County, Tianshui Prefecture, Gansu, China
 France: Louville	France	9	45.596232	3.78034	locality	Louville, France	Louville, Valcivières, Ambert, Puy-de-Dôme, Auvergne-Rhône-Alpes, Metropolitan France, 636
 Mexico: Guanajuato, Area 3 (20.051, -101.087)	Mexico	9	21.0158848	-101.25284	locality-nofacility	Area 3, Guanajuato, Mexico	Guanajuato City, Municipio de Guanajuato, Guanajuato, 36003, Mexico
@@ -76,6 +79,7 @@ Argentina: Paraná	Argentina	6	-27.4210173	-56.6011693	locality	Paraná, Argenti
 UK: Lincolnshire	UK	6	53.1823034	-0.2031209	locality	Lincolnshire, UK	Lincolnshire, England, United Kingdom
 Mexico: Guanajuato, Area 3 (20.075, -101.126)	Mexico	6	21.0158848	-101.25284	locality-nofacility	Area 3, Guanajuato, Mexico	Guanajuato City, Municipio de Guanajuato, Guanajuato, 36003, Mexico
 Canada: Saskatchewan	Canada	6	55.5321257	-106.141224	locality	Saskatchewan, Canada	Saskatchewan, Canada
+South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)	South Africa	6	-29.060556	30.588889	locality-nofacility	Greytown, KwaZulu-Natal, South Africa	Greytown, Umvoti Local Municipality, Umzinyathi District Municipality, KwaZulu-Natal, Sout
 Ethiopia: Kulumsa	Ethiopia	5	10.2116702	38.6521203	locality-nofacility	Ethiopia	Ethiopia
 UK: Bishop Burton	UK	5	53.8414315	-0.5135522	locality	Bishop Burton, UK	Bishop Burton, East Riding of Yorkshire, Hull and East Yorkshire, England, United Kingdom
 UK: Sturminster Newton	UK	5	50.9290016	-2.3263949	locality	Sturminster Newton, UK	Sturminster Newton, Dorset, England, United Kingdom

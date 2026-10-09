@@ -42,6 +42,10 @@
 # crop labels sit once, between them, and the two quantities read as one comparison instead
 # of two charts that happen to share categories.
 
+# --panels writes each panel to its own file as well as the composite, so the figure can be
+# laid out by hand instead of by patchwork.
+PANELS <- "--panels" %in% commandArgs(TRUE)
+
 suppressMessages({
   library(ggplot2); library(maps); library(dplyr); library(scales)
   library(patchwork); library(ragg)
@@ -143,7 +147,11 @@ map_layers <- function(xlim, ylim, ratio, srange) {
 }
 
 p_map <- ggplot() +
-  map_layers(c(-165, 180), c(-48, 72), 1.35, SIZE_RANGE) +
+  # Full extent, not a crop to where the points are (leon, 2026-10-09). The old
+  # c(-165, 180) x c(-48, 72) window cut the top off Greenland and the bottom off southern
+  # Chile and New Zealand, which reads as a rendering fault. Whitespace above and below is
+  # the acceptable cost. Antarctica is dropped from the basemap, not clipped by the window.
+  map_layers(c(-180, 180), c(-57, 84), 1.32, SIZE_RANGE) +
   guides(fill  = guide_legend(override.aes = list(size = 5, shape = 21), order = 1, ncol = 1),
          shape = guide_legend(override.aes = list(size = 5, fill = "grey35"), order = 2),
          size  = guide_legend(override.aes = list(fill = "grey35", shape = 21), order = 3)) +
@@ -169,14 +177,29 @@ p_map <- ggplot() +
 bar <- function(df, xvar, xlab) {
   ggplot(df, aes(.data[[xvar]], crop, fill = crop)) +
     geom_col(width = 0.72) +
-    geom_text(aes(label = comma(.data[[xvar]])), hjust = -0.25, size = 4.3,
-              colour = "grey25") +
+    # Label INSIDE the bar when the bar is long enough to hold it, outside when it is not.
+    # Placing every label outside and buying room with scale expansion cannot be tuned
+    # reliably: expansion is in data units, the text is a fixed point size, and in a square
+    # panel "2,784" overran the panel edge and clipped to "2,78" at every expansion tried.
+    geom_text(aes(label = comma(.data[[xvar]]),
+                  hjust = ifelse(.data[[xvar]] > 0.45 * max(.data[[xvar]]), 1.18, -0.22),
+                  colour = .data[[xvar]] > 0.45 * max(.data[[xvar]])),
+              size = 4.0, show.legend = FALSE) +
+    scale_colour_manual(values = c("FALSE" = "grey25", "TRUE" = "white"), guide = "none") +
     scale_fill_manual(values = fills, guide = "none") +
-    scale_x_continuous(expand = expansion(c(0, 0.26)), labels = comma) +
+    # No x axis on b and c. Every bar carries its exact count, so the axis was repeating
+    # the labels; in a square panel the two together collided into "01,00020003000" and
+    # truncated the values to "2,". The axis TITLE stays, because it is what names the
+    # quantity.
+    # 0.34 was not enough headroom: the label sits outside the bar, and in a square panel
+    # "2,784" is wider than the space left past the longest bar, so it clipped to "2,".
+    scale_x_continuous(expand = expansion(c(0, 0.08)), labels = comma) +
     scale_y_discrete(limits = rev(ORDER)) +
     labs(x = xlab, y = NULL) +
     base +
-    theme(panel.grid.major.y = element_blank(), panel.grid.minor = element_blank())
+    theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+          axis.text.x = element_blank(), axis.ticks.x = element_blank(),
+          aspect.ratio = 1)
 }
 
 p_runs <- bar(tot, "runs", "Samples")
@@ -193,11 +216,14 @@ p_locs <- bar(tot, "localities", "Distinct localities")
 p_year <- ggplot(yr, aes(n, factor(year), fill = crop)) +
   geom_col(width = 0.76) +
   scale_fill_manual(values = fills, guide = "none") +
-  scale_x_continuous(labels = comma, expand = expansion(c(0, 0.06))) +
-  scale_y_discrete(limits = rev(sort(unique(as.character(yr$year))))) +
+  scale_x_continuous(labels = comma, expand = expansion(c(0, 0.06)), n.breaks = 4) +
+  # Every second year is labelled; all 13 bars are still drawn. Thirteen labels in a square
+  # panel collide, and the gap between pulses is legible from the bars themselves.
+  scale_y_discrete(limits = rev(sort(unique(as.character(yr$year)))),
+                   breaks = function(x) x[seq(length(x), 1, by = -2)]) +
   labs(x = "Samples", y = "Collection year") +
   base + theme(panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(),
-               axis.text.y = element_text(size = 12))
+               axis.text.y = element_text(size = 12), aspect.ratio = 1)
 
 # The right column is assembled FIRST and given its own heights. Written as
 # `p_map | (a / b / c) + plot_layout(...)` the layout applied to the top-level row, which has
@@ -205,7 +231,7 @@ p_year <- ggplot(yr, aes(n, factor(year), fill = crop)) +
 right <- p_runs / p_locs / p_year + plot_layout(heights = c(1, 1, 2.6))
 
 out <- (p_map | right) +
-  plot_layout(widths = c(2.8, 1)) +
+  plot_layout(widths = c(3.4, 1)) +
   # The title belongs to the FIGURE, not to panel (a): set on the map it collided with the
   # panel tag and rendered as "aDistribution of...".
   plot_annotation(title = "Distribution of Field Cereal RNA-seq Studies",
@@ -216,11 +242,28 @@ out <- (p_map | right) +
   theme(plot.tag = element_text(face = "bold", size = 19),
         plot.tag.position = c(0, 1))
 
-agg_png(file.path(here, "report/figures/map_crop_origins.png"), width = 17, height = 6.9,
+agg_png(file.path(here, "report/figures/map_crop_origins.png"), width = 17, height = 7.4,
         units = "in", res = 300, background = "white")
 print(out); invisible(dev.off())
-cairo_pdf(file.path(here, "report/figures/map_crop_origins.pdf"), width = 17, height = 6.9)
+cairo_pdf(file.path(here, "report/figures/map_crop_origins.pdf"), width = 17, height = 7.4)
 print(out); invisible(dev.off())
 cat("wrote report/figures/map_crop_origins.{png,pdf}\n")
+
+if (PANELS) {
+  one <- function(g, stem, w, h) {
+    agg_png(file.path(here, sprintf("report/figures/panels/%s.png", stem)), width = w,
+            height = h, units = "in", res = 300, background = "white")
+    print(g); invisible(dev.off())
+    cairo_pdf(file.path(here, sprintf("report/figures/panels/%s.pdf", stem)),
+              width = w, height = h)
+    print(g); invisible(dev.off())
+    cat(sprintf("  panels/%s.{png,pdf}  %gx%g in\n", stem, w, h))
+  }
+  dir.create(file.path(here, "report/figures/panels"), showWarnings = FALSE)
+  one(p_map  + theme(legend.position = "right"), "a_map",        12, 6.2)
+  one(p_runs, "b_samples",    5, 5)
+  one(p_locs, "c_localities", 5, 5)
+  one(p_year, "d_year",       5, 5)
+}
 cat(sprintf("  %d points, %s of %s samples placed, %d localities\n",
             nrow(pts), comma(n_pl), comma(n_cer), n_loc))

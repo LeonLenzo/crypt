@@ -106,13 +106,13 @@ pts$region <- ifelse(pts$country %in% names(TO_MAPS), TO_MAPS[pts$country], pts$
 pts <- pts %>% left_join(cent, by = "region") %>%
   mutate(lat = ifelse(precision == "country", clat, lat),
          lon = ifelse(precision == "country", clon, lon),
-         placement = ifelse(precision == "country", "Country centroid", "Geocoded locality"))
+         placement = ifelse(precision == "country", "Country", "Locality"))
 
 unplaced_ctry <- pts %>% filter(precision == "country", is.na(lat))
 if (nrow(unplaced_ctry)) message("country not on the basemap: ",
                                  paste(unique(unplaced_ctry$country), collapse = ", "))
 pts <- pts %>% filter(!is.na(lat))
-pts$placement <- factor(pts$placement, levels = c("Geocoded locality", "Country centroid"))
+pts$placement <- factor(pts$placement, levels = c("Locality", "Country"))
 
 pts <- pts %>% arrange(desc(n))
 
@@ -133,8 +133,8 @@ map_layers <- function(xlim, ylim, ratio, srange) {
     # mistake the diamond in the middle of France for a field site.
     geom_point(data = pts, aes(lon, lat, fill = crop, size = n, shape = placement),
                stroke = 0, alpha = 0.6),
-    scale_shape_manual(values = c("Geocoded locality" = 21, "Country centroid" = 23),
-                       name = "Placement", drop = FALSE),
+    scale_shape_manual(values = c("Locality" = 21, "Country" = 23),
+                       name = "Resolution", drop = FALSE),
     scale_size(transform = "log10", range = srange, breaks = SIZE_BREAKS,
                labels = comma, name = "Samples"),
     scale_fill_manual(values = fills, name = "Crop", drop = FALSE),
@@ -147,12 +147,10 @@ p_map <- ggplot() +
   guides(fill  = guide_legend(override.aes = list(size = 5, shape = 21), order = 1, ncol = 1),
          shape = guide_legend(override.aes = list(size = 5, fill = "grey35"), order = 2),
          size  = guide_legend(override.aes = list(fill = "grey35", shape = 21), order = 3)) +
-  labs(title = "Distribution of Field Cereal RNA-seq Studies") +
   base +
   theme(axis.title = element_blank(), axis.text = element_blank(),
         panel.grid = element_blank(), legend.position = "right",
-        legend.box = "vertical",
-        plot.title = element_text(face = "bold", size = 22, margin = margin(b = 10)))
+        legend.box = "vertical")
 
 # No bar outlines (leon, 2026-10-09): the fills are muted enough to hold their own shape and
 # the black keylines were the last of the primary-school look.
@@ -178,19 +176,30 @@ bar <- function(df, xvar, xlab, reverse = FALSE) {
 p_runs <- bar(tot, "runs", "Samples", reverse = TRUE)
 p_locs <- bar(tot, "localities", "Distinct localities")
 
-# Stacked area, not stacked bars: the question is when collection happened, and an area
-# reads as a continuous record where bars read as eleven separate counts. The year grid is
-# zero-filled upstream so a crop that stops appears to stop.
-p_year <- ggplot(yr, aes(year, n, fill = crop)) +
-  geom_area(colour = "white", linewidth = 0.4) +
+# Stacked BARS, not an area (leon, 2026-10-09). Collection year is a discrete count, and an
+# area chart draws a slope between 2015 and 2016 that asserts samples were collected at every
+# instant in between. Nothing was. Bars also let a year with no collection simply be absent
+# instead of a V-shaped notch, which is what the zero-filled grid produced as an area.
+p_year <- ggplot(yr, aes(factor(year), n, fill = crop)) +
+  geom_col(width = 0.78) +
   scale_fill_manual(values = fills, guide = "none") +
-  scale_x_continuous(breaks = pretty(yr$year, 5), expand = c(0, 0)) +
-  scale_y_continuous(labels = comma, expand = expansion(c(0, 0.05))) +
+  scale_y_continuous(labels = comma, expand = expansion(c(0, 0.06))) +
   labs(x = "Collection year", y = "Samples") +
-  base + theme(panel.grid.minor = element_blank())
+  base + theme(panel.grid.minor = element_blank(),
+               panel.grid.major.x = element_blank(),
+               axis.text.x = element_text(angle = 45, hjust = 1, size = 13))
 
 out <- p_map / (p_runs | p_locs | p_year) +
-  plot_layout(heights = c(2.0, 1.15), widths = c(1, 1, 1.25))
+  plot_layout(heights = c(2.0, 1.15), widths = c(1, 1, 1.25)) +
+  # The title belongs to the FIGURE, not to panel (a): set on the map it collided with the
+  # panel tag and rendered as "aDistribution of...".
+  plot_annotation(title = "Distribution of Field Cereal RNA-seq Studies",
+                  tag_levels = "a",
+                  theme = theme(plot.title = element_text(
+                    face = "bold", size = 23, family = "",
+                    margin = margin(b = 14)))) &
+  theme(plot.tag = element_text(face = "bold", size = 19),
+        plot.tag.position = c(0, 1))
 
 agg_png(file.path(here, "report/figures/map_crop_origins.png"), width = 17, height = 11.5,
         units = "in", res = 300, background = "white")

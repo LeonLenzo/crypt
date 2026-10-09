@@ -9,31 +9,36 @@ cohort: 7,666 publicly archived samples from 41 BioProjects, each curated to a
 field setting against a quoted sentence in an available manuscript. Colour marks
 the crop throughout.
 
-Map. One point per locality and crop. Point area is proportional to the
+(a) Map. One point per locality and crop. Point area is proportional to the
 LOGARITHM of the number of samples there, so a larger point means more samples
 but area is not proportional to count; exact counts are in the bars below.
 Points are semi-transparent, so overlapping localities compound into darker
 patches. Country outlines are drawn in the background colour.
 
-  Circles (7,342 samples at 406 localities) sit at coordinates geocoded from the
-  locality string recorded for the sample.
+  Circles, marked "Locality" in the Resolution key (7,342 samples at 406
+  localities), sit at coordinates geocoded from the locality string recorded for
+  the sample.
 
-  Diamonds (311 samples across 24 countries) sit at the centroid of the largest
-  landmass polygon of their country. These samples name a country and nothing
-  finer, so the diamond states WHICH COUNTRY and is drawn at a place nobody
-  sampled. It is not a collection site and should not be read as one.
+  Diamonds, marked "Country" (311 samples across 24 countries), sit at the
+  centroid of the largest landmass polygon of their country. These samples name
+  a country and nothing finer, so the diamond states WHICH COUNTRY and is drawn
+  at a place nobody sampled. It is not a collection site and should not be read
+  as one.
 
-Samples per crop (left) and distinct localities per crop (centre). The same
+(b) Samples per crop and (c) distinct localities per crop. The same
 cohort counted two ways, sharing a category axis; the samples axis is reversed
 so the two run outward from the crop labels. Localities are distinct locality
 strings finer than a country, so bare-country samples add to the left panel and
 not the centre one, and repeated sampling of one site across seasons counts
 once.
 
-Collection year (right). Samples per year of collection, stacked by crop, over
-2012 to 2024, based on the 7,417 of 7,666 samples carrying a collection date.
-Years with no samples are plotted as zero rather than omitted, so a gap in
-collection appears as a gap.
+(d) Collection year. Samples per year of collection, stacked by crop, over 2012
+to 2024, based on the 7,417 of 7,666 samples carrying a collection date. Bars
+rather than a continuous series, because year here is a discrete count: an area
+or line would draw a slope between 2015 and 2016 asserting collection at every
+instant in between, and none occurred. Every year in the range has a position on
+the axis, so a year with no collection reads as an absent bar rather than being
+skipped.
 
 
 WHAT IS NOT SHOWN
@@ -69,13 +74,12 @@ level.
 SHORT CAPTION
 
 Distribution of 7,666 field cereal RNA-seq samples from 41 BioProjects, coloured
-by crop. Map: one point per locality and crop, point area proportional to log
+by crop. (a) One point per locality and crop, point area proportional to log
 sample count. Circles are 7,342 samples at 406 geocoded localities; diamonds are
 311 samples that name only a country, drawn at its centroid and not at a
-collection site; 13 samples carry no location and are absent. Left and centre:
-the same cohort as samples, and as distinct localities finer than a country.
-Right: samples per year of collection, stacked by crop, for the 7,417 samples
-carrying a date.
+collection site; 13 samples carry no location and are absent. (b, c) The same
+cohort as samples, and as distinct localities finer than a country. (d) Samples
+per year of collection, stacked by crop, for the 7,417 samples carrying a date.
 
 
 SOURCES

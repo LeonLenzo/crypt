@@ -34,21 +34,17 @@
 # `included` flag; as of 2026-10-08 that is barley (3) and the small cereals (53).
 #
 #   Rscript 01a_Literature/report/figures/map_crop_origins.R
-# Inputs : data/gold/crop_map.tsv, data/gold/crop_totals.tsv  (prep_crop_map.py)
-# Output : report/figures/map_crop_origins.{png,pdf}
+# Inputs : data/gold/crop_map.tsv, crop_totals.tsv, crop_year.tsv  (prep_crop_map.py)
+# Output : report/figures/panels/{a_map,b_samples,c_localities,d_year}.{png,pdf}
 #
-# Panels, left to right under the map: samples per crop with a REVERSED x axis, localities
-# per crop, then collection year as a stacked area. The first two are back to back so the
-# crop labels sit once, between them, and the two quantities read as one comparison instead
-# of two charts that happen to share categories.
-
-# --panels writes each panel to its own file as well as the composite, so the figure can be
-# laid out by hand instead of by patchwork.
-PANELS <- "--panels" %in% commandArgs(TRUE)
+# FOUR SEPARATE FILES, deliberately. There was a composite and it was not worth keeping:
+# assembling these in patchwork meant fighting the map's fixed aspect ratio, the width of a
+# square panel and the size of an axis label all at once, and every fix for one broke
+# another. This renders four correct panels at a known size and leaves the arrangement to
+# whoever is laying out the figure.
 
 suppressMessages({
-  library(ggplot2); library(maps); library(dplyr); library(scales)
-  library(patchwork); library(ragg)
+  library(ggplot2); library(maps); library(dplyr); library(scales); library(ragg)
 })
 
 here <- "01a_Literature"
@@ -238,45 +234,24 @@ p_year <- ggplot(yr, aes(n, factor(year), fill = crop)) +
   labs(x = "Samples", y = "Collection year") +
   base + axes + theme(axis.text.y = element_text(size = 12), aspect.ratio = 1)
 
-# The right column is assembled FIRST and given its own heights. Written as
-# `p_map | (a / b / c) + plot_layout(...)` the layout applied to the top-level row, which has
-# one row, so the heights were silently ignored and the three charts collapsed into a strip.
-right <- p_runs / p_locs / p_year + plot_layout(heights = c(1, 1, 2.6))
-
-out <- (p_map | right) +
-  plot_layout(widths = c(3.4, 1)) +
-  # The title belongs to the FIGURE, not to panel (a): set on the map it collided with the
-  # panel tag and rendered as "aDistribution of...".
-  plot_annotation(title = "Distribution of Field Cereal RNA-seq Studies",
-                  tag_levels = "a",
-                  theme = theme(plot.title = element_text(
-                    face = "bold", size = 23, margin = margin(b = 12)),
-                    plot.background = element_rect(fill = "white", colour = NA))) &
-  theme(plot.tag = element_text(face = "bold", size = 19),
-        plot.tag.position = c(0, 1))
-
-agg_png(file.path(here, "report/figures/map_crop_origins.png"), width = 17, height = 7.4,
-        units = "in", res = 300, background = "white")
-print(out); invisible(dev.off())
-cairo_pdf(file.path(here, "report/figures/map_crop_origins.pdf"), width = 17, height = 7.4)
-print(out); invisible(dev.off())
-cat("wrote report/figures/map_crop_origins.{png,pdf}\n")
-
-if (PANELS) {
-  one <- function(g, stem, w, h) {
-    agg_png(file.path(here, sprintf("report/figures/panels/%s.png", stem)), width = w,
-            height = h, units = "in", res = 300, background = "white")
-    print(g); invisible(dev.off())
-    cairo_pdf(file.path(here, sprintf("report/figures/panels/%s.pdf", stem)),
-              width = w, height = h)
-    print(g); invisible(dev.off())
-    cat(sprintf("  panels/%s.{png,pdf}  %gx%g in\n", stem, w, h))
-  }
-  dir.create(file.path(here, "report/figures/panels"), showWarnings = FALSE)
-  one(p_map  + theme(legend.position = "right"), "a_map",        12, 6.2)
-  one(p_runs, "b_samples",    5, 5)
-  one(p_locs, "c_localities", 5, 5)
-  one(p_year, "d_year",       5, 5)
+# Four separate files, no composite (leon, 2026-10-09). Assembling the panels here was
+# fighting patchwork over the map's fixed aspect, the width of a square panel and the size
+# of an axis label, and the result was worse than laying them out by hand. The script's job
+# is to render four correct panels at a known size; the arrangement is not its business.
+one <- function(g, stem, w, h) {
+  agg_png(file.path(here, sprintf("report/figures/panels/%s.png", stem)), width = w,
+          height = h, units = "in", res = 300, background = "white")
+  print(g); invisible(dev.off())
+  cairo_pdf(file.path(here, sprintf("report/figures/panels/%s.pdf", stem)), width = w, height = h)
+  print(g); invisible(dev.off())
+  cat(sprintf("  panels/%s.{png,pdf}  %g x %g in\n", stem, w, h))
 }
+
+dir.create(file.path(here, "report/figures/panels"), showWarnings = FALSE, recursive = TRUE)
+one(p_map,  "a_map",        12, 6.2)
+one(p_runs, "b_samples",     5, 5)
+one(p_locs, "c_localities",  5, 5)
+one(p_year, "d_year",        5, 5)
+
 cat(sprintf("  %d points, %s of %s samples placed, %d localities\n",
             nrow(pts), comma(n_pl), comma(n_cer), n_loc))

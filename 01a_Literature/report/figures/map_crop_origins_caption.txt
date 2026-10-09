@@ -1,5 +1,9 @@
 Distribution of Field Cereal RNA-seq Studies
-Caption for map_crop_origins.{png,pdf}        generated 2026-10-09
+Caption for report/figures/panels/{a_map, b_samples, c_localities,
+d_year}.{png,pdf}                             generated 2026-10-09
+
+The four panels are rendered as separate files and are not assembled here. The
+letters a-d below are the order they are meant to be read in, not a layout.
 
 
 FULL CAPTION
@@ -82,7 +86,7 @@ per year of collection, stacked by crop, for the 7,417 samples carrying a date.
 
 SOURCES
 
-  figure   01a_Literature/report/figures/map_crop_origins.R
+  figure   01a_Literature/report/figures/map_crop_origins.R  (writes panels/)
   data     01a_Literature/data/gold/crop_map.tsv, crop_totals.tsv, crop_year.tsv
   prep     01a_Literature/report/figures/prep_crop_map.py
   hosts    01a_Literature/report/host_summary.py --per-run

@@ -213,7 +213,7 @@ bar <- function(df, xvar, xlab) {
     scale_x_continuous(expand = expansion(c(0, 0.08)), labels = comma) +
     scale_y_discrete(limits = rev(ORDER)) +
     labs(x = xlab, y = NULL) +
-    base + axes + theme(aspect.ratio = 1)
+    base + axes
 }
 
 p_runs <- bar(tot, "runs", "Samples")
@@ -237,7 +237,7 @@ p_year <- ggplot(yr, aes(n, factor(year), fill = crop)) +
   scale_y_discrete(limits = rev(sort(unique(as.character(yr$year)))),
                    breaks = function(x) x[seq(length(x), 1, by = -2)]) +
   labs(x = "Samples", y = "Collection year") +
-  base + axes + theme(axis.text.y = element_text(size = 12), aspect.ratio = 1)
+  base + axes + theme(axis.text.y = element_text(size = 12))
 
 # Four separate files, no composite (leon, 2026-10-09). Assembling the panels here was
 # fighting patchwork over the map's fixed aspect, the width of a square panel and the size
@@ -256,9 +256,12 @@ dir.create(file.path(here, "report/figures/panels"), showWarnings = FALSE, recur
 # 12 x 7.3: the map itself is 12 wide by ~6.2 tall at this window and aspect, and the legend
 # strip takes the rest. Height is the cheap dimension here.
 one(p_map,  "a_map",        12, 7.3)
-one(p_runs, "b_samples",     5, 5)
-one(p_locs, "c_localities",  5, 5)
-one(p_year, "d_year",        5, 5)
+# 5 x 3, and aspect.ratio is deliberately NOT set. The panels were square while they had to
+# fit a narrow column in the old composite; held square inside a 5 x 3 canvas they would be
+# three inches tall, three inches wide and leave two inches of whitespace either side.
+one(p_runs, "b_samples",     5, 3)
+one(p_locs, "c_localities",  5, 3)
+one(p_year, "d_year",        5, 3)
 
 cat(sprintf("  %d points, %s of %s samples placed, %d localities\n",
             nrow(pts), comma(n_pl), comma(n_cer), n_loc))

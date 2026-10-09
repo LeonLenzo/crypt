@@ -1,0 +1,61 @@
+location	corrected	confidence	kind	note
+Australia: Scadden	Scaddan	high	typo	Locality in the Shire of Esperance, WA. Verified: resolves to -33.4412, 121.7243.
+Denmark: Helsignør	Helsingør	high	typo	Transposed letters; the city on the Øresund.
+Germany: Selingenstadt	Seligenstadt	high	typo	Town in Landkreis Offenbach, Hesse.
+Germany: Welsch Billig	Welschbillig	high	spacing	One word; municipality in Trier-Saarburg, Rhineland-Palatinate.
+Italy: Orzzano dell'Emilia	Ozzano dell'Emilia	high	typo	Doubled r. Comune in the Metropolitan City of Bologna.
+Italy: Ozzano	Ozzano dell'Emilia	high	incomplete	Same place as the row above, given without its qualifier. Ozzano alone is ambiguous in Italy.
+Kenya: MauNarok	Mau Narok	high	spacing	Settlement in Nakuru County, a wheat-growing area of the Mau escarpment.
+Spain: Medigorría	Mendigorría	high	typo	Dropped n. Municipality in Navarre.
+UK: Mendelsham	Mendlesham	high	typo	Transposed el/le. Village in Suffolk. A transposition is two plain edits, which is why the automated single-edit search could not reach it.
+UK: Nauhton	Naughton	high	typo	Transposed/dropped g. Village in Suffolk, near the other Suffolk sites in this survey.
+UK: Dunmow	Great Dunmow	high	incomplete	Dunmow alone is not the settlement name; Great Dunmow is the town in Essex. Little Dunmow also exists, so this is the less certain of the two only if the survey sampled the hamlet.
+USA: Edicott, Washington	Endicott, Whitman County, Washington	high	typo	Dropped n. Village in Whitman County, WA. The county and state are REQUIRED in the correction: 'Endicott' alone resolved to Endicott, New York, because the guard checks country and not state. Should land near 46.9257, -117.6830.
+USA: Raerden, Washington	Reardan, Lincoln County, Washington	high	typo	Transposed. Town in Lincoln County, WA, in the Palouse wheat belt like Endicott. Qualified for the same reason.
+France: Allouange	Allouagne	medium	typo	Transposed ng/gn. Commune in Pas-de-Calais.
+Turkey: Murath	Muratlı	medium	typo	Dropped final i with dotless I. District in Tekirdağ, a wheat area in Thrace.
+Chile: StaRosa Chillán	Santa Rosa, Chillán	medium	abbreviation	Sta is Santa. INIA's Santa Rosa experimental station sits just outside Chillán, Ñuble.
+Chile: Cajón Temuco	Cajón, Temuco	medium	punctuation	Cajón is a locality near Temuco, La Araucanía; the comma is missing so it reads as one name.
+Chile: Los Tilos Santiago	Los Tilos, Santiago	medium	punctuation	Same pattern as the row above.
+USA: Lansing/Mason, Michigan	Mason, Ingham County, Michigan	medium	punctuation	A slash is not a separator the geocoder handles. Mason is the more specific of the two and is where the MSU research land sits; Lansing is the adjacent city. 'Mason, Michigan' alone resolved to Mason COUNTY on the west coast, 200 km away, so the county has to be named.
+USA: NE Research Farm Iowa	Nashua, Iowa	medium	facility	Iowa State's Northeast Research and Demonstration Farm is at Nashua, Floyd County. The facility name is not in OSM but the town is.
+USA: 312 NE Research Farm Iowa	Nashua, Iowa	medium	facility	Same facility as the row above with a plot number prefixed.
+USA: Harvard Forest, MA	Petersham, Worcester County, Massachusetts	high	facility	Not a typo. Harvard Forest is a real OSM feature at 42.5367, -72.1811 but it is tagged as a nature reserve, which the wrong-type guard rejects, so the town it sits in is the placeable answer. 103 samples, the largest single locality in the cohort.
+Serbia: Rimski Šančevi	Rimski Šančevi, Novi Sad	medium	too-fine	Correctly spelled. A suburb of Novi Sad and the site of the Institute of Field and Vegetable Crops; qualifying it with Novi Sad should place it.
+South Africa: Tygerhoek	Riviersonderend	medium	facility	Correctly spelled. Tygerhoek is a Western Cape research farm near Riviersonderend; the farm is not an OSM place but the town is.
+Ethiopia: Kulumsa	Asella	medium	facility	Kulumsa Agricultural Research Centre, in Arsi. The centre sits a few km from Asella, which is mappable.
+Ethiopia: Sinana RS	Robe, Bale	medium	facility	Sinana Agricultural Research Centre, Bale zone. RS is Research Station. The centre is near Robe in Bale, which is a different Robe from the Arsi one below.
+Ethiopia: Arsi Robe	Robe, Arsi	medium	ambiguous	Robe in Arsi zone, distinct from Robe in Bale. The zone qualifier is the whole point of the string and has to be kept.
+Ethiopia: Sinana Kabira	Sinana	low	too-fine	Kabira is a kebele within Sinana woreda, Bale. Woreda level is the most that will place.
+Ethiopia: Sinana Kabira Shaya	Sinana	low	too-fine	As above with a further sub-locality.
+Ethiopia: Gurage Zone	Gurage	medium	admin-unit	A zone, not a settlement. Zone-level placement is the honest resolution.
+Ethiopia: Silti Wereda Danicho Azoro	Silti	low	too-fine	Wereda is woreda. Danicho Azoro is a kebele within Silti woreda, Gurage.
+Ethiopia: Lay Gayint Kebele 07	Lay Gayint	low	too-fine	Numbered kebele within Lay Gayint woreda, South Gondar.
+Ethiopia: Lay Gayint 08 Wuha Midir	Lay Gayint	low	too-fine	As above.
+Ethiopia: Hadya Lemo Dicho Demala	Lemo	low	too-fine	Lemo woreda, Hadiya zone. Dicho Demala is a kebele.
+Ethiopia: Limo Lereba Roma	Lemo	low	too-fine	Limo is a variant of Lemo, same woreda in Hadiya.
+Ethiopia: Aleltu Fiche Gelila	Aleltu	low	too-fine	Aleltu woreda, North Shewa. Fiche is a separate town, so this string may name a route rather than one site.
+Ethiopia: Aleltu Chole Shenkole	Aleltu	low	too-fine	As above.
+Ethiopia: Kuyu Liben Kura	Kuyu	low	too-fine	Kuyu woreda, North Shewa.
+Ethiopia: Dinsho Abakera Zalo	Dinsho	low	too-fine	Dinsho woreda, Bale.
+Ethiopia: Weliso Kora	Woliso	low	typo	Weliso is a transliteration of Woliso, a town in South West Shewa. Kora is a kebele.
+Ethiopia: Ilu kobo		low	unresolved	Withdrawn. 'Ilu' resolved to a place near Addis Ababa, but Ilu Aba Bora is a zone 500 km west and the string may mean either. Too ambiguous to place.
+Ethiopia: Shinshihco	Shinshicho	low	typo	Town in Kembata Tembaro, Southern Ethiopia. Transliteration variant.
+Ethiopia: Bilalo	Bilalo	low	too-fine	Correctly spelled kebele in Arsi; probably below OSM coverage.
+Ethiopia: Absila			unresolved	Not identified. No confident match in Ethiopia.
+Ethiopia: Selka			unresolved	Not identified; too short and too common a fragment to guess.
+Ethiopia: Danbora Amancho Boganeos			unresolved	Three concatenated sub-locality names; no confident parse.
+Ethiopia: Wilting Woreda			unresolved	Wilting is not an Ethiopian woreda name and may be a data-entry error for a symptom note.
+Ethiopia: Kasowera			unresolved	Not identified.
+Ethiopia: Mekana			unresolved	Not identified; possibly Mekane Selam or Mekelle but neither is close enough to assert.
+Ethiopia: Adigulo AS			unresolved	AS is probably a station suffix; Adigulo not identified.
+Germany: Gommershoven			unresolved	Not found as a German place name. Possibly Gommersdorf or Gommerscheid, neither close enough to assert.
+Germany: Böhl Bauch 10			unresolved	Reads as a field or plot identifier rather than a settlement.
+Pakistan: Atter Shisha			unresolved	Not identified.
+Kenya: Kikapu			unresolved	Kikapu is Swahili for basket; may be a farm name rather than a settlement.
+The Netherlands: Skenhuis			unresolved	Reads as a farm name.
+The Netherlands: Schulten beld			unresolved	Reads as a farm name, probably Schultenbeld.
+The Netherlands: De Vries			not-a-place	A Dutch surname that leaked into a Location field. Already documented in geocode_localities as the reason the wrong-type guard exists; must never be placed.
+USA: Taco Corn California			not-a-place	Reads as a sample or variety descriptor, not a location.
+UK: Sutton Bridge	Sutton Bridge, Lincolnshire	medium	too-fine	Correctly spelled village in Lincolnshire; qualifying it should place it.
+UK: Crabbs Green	Crabbs Green, Essex	low	too-fine	A hamlet in Essex; may be below OSM place coverage.

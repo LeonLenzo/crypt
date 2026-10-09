@@ -12,7 +12,7 @@ and is the only place the host is resolved correctly. Do NOT read `run_species.t
 leaves under Puccinia and reported 56 wheat runs instead of 1,012.
 
 Coordinates come from `gold/cereal_localities.tsv`, written by
-`02_literature/03_classify/geocode_localities.py --input gold/cohort_hosts.tsv`, which owns the
+`01a_Literature/retrieve/geocode_localities.py --input gold/cohort_hosts.tsv`, which owns the
 string-convention handling and the wrong-type / wrong-country rejections.
 
 Its `precision` column is carried through and matters. The largest sites all name a research

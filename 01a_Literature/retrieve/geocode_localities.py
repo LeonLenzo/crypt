@@ -26,8 +26,8 @@ Two rejections, both found by eyeballing a test batch rather than assumed:
   WRONG COUNTRY  a bare locality can resolve into the wrong country entirely. The returned
                  address country must match the country we already hold.
 
-    python 02_literature/03_classify/geocode_localities.py
-    python 02_literature/03_classify/geocode_localities.py --limit 20   # try a few first
+    python 01a_Literature/retrieve/geocode_localities.py --input <tsv> --out <tsv>
+    python 01a_Literature/retrieve/geocode_localities.py --limit 20   # try a few first
 """
 import argparse
 import collections
@@ -40,10 +40,16 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+# Moved here from 02_literature/03_classify on 2026-10-09. It was written for the 02_
+# frame, but every caller is now 01a_Literature and all the logic added since - the query
+# ladder, the country canonicaliser, LOCALITY_FIX, the doubled-prefix cleaner - exists for
+# this cohort. 02_literature's own figures read the localities table it already wrote and do
+# not invoke this script.
 HERE = Path(__file__).resolve().parent
-PROV = HERE / "data/cohort_provenance.tsv"
-CACHE = HERE / "data/geocode_cache.json"
-OUT = HERE / "data/localities.tsv"
+MODULE = HERE.parent
+PROV = MODULE.parent / "02_literature/03_classify/data/cohort_provenance.tsv"
+CACHE = MODULE / "data/bronze/geocode_cache.json"
+OUT = MODULE / "data/gold/localities.tsv"
 # accept-language=en matters: without it Nominatim returns the country in the local language
 # (Slovenija, Deutschland, Србија) and every country check fails
 URL = ("https://nominatim.openstreetmap.org/search?q={}&format=json&limit=1"
@@ -80,16 +86,64 @@ UA = "crypt-research/1.0 (plant pathogen SRA mining; leon.lenzo@curtin.edu.au)"
 # Verified corrections to the SOURCE string. Each entry was checked against the gazetteer
 # individually and is recorded with what it resolved to; this is not fuzzy matching, which
 # is exactly how a plausible wrong point gets planted. Add only what has been looked up.
-LOCALITY_FIX = {
-    # Ada21 Table S1 spells it Scadden; the WA wheatbelt locality is Scaddan, and
-    # "Scaddan, Australia" resolves to -33.4412, 121.7243, Western Australia 6447.
-    # "Scadden, Australia" returns only two unrelated roads, which the class filter rejects.
-    "scadden": "Scaddan",
-}
+# seeds/missing_localities.tsv: a hand-reviewed correction table, keyed on the location
+# location string exactly as curated. Leon's call on 2026-10-09, after every locality he
+# looked up by
+# hand turned out to be a typo and three rounds of automated matching had failed to find
+# them. Photon will not bridge an inserted letter (Edicott -> Endicott) and an edit-1 regex
+# cannot reach a transposition (Mendelsham -> Mendlesham, which is two plain edits), so the
+# machinery was the wrong instrument for a 59-row problem a reader can just read.
+#
+# The table holds a proposed SPELLING, never coordinates. The query still goes through
+# Nominatim and still faces the wrong-type and wrong-country guards, so a bad correction
+# fails to place rather than planting a point from memory. Each row carries a confidence and
+# a note saying what the place is; rows marked unresolved or not-a-place are deliberately
+# left empty and stay at country level.
+FIXES = {}
+
+
+def load_fixes(path):
+    """location string -> (corrected, confidence). Rows with no correction are skipped.
+
+    seeds/missing_localities.tsv columns:
+        location    the location string exactly as curated, which is the join key
+        corrected   proposed spelling to query instead. EMPTY means open work.
+        confidence  high / medium / low
+        kind        typo | spacing | punctuation | ordering | abbreviation | incomplete |
+                    facility | admin-unit | too-fine | ambiguous | unresolved | not-a-place
+        note        what the place is and why this correction. A correction with no note is
+                    not reviewable, so every one carries one.
+
+    The table holds a SPELLING, never coordinates. The query still goes through Nominatim and
+    still faces the wrong-type and wrong-country guards, so a bad correction fails to place
+    rather than planting a point from memory. That guard is COUNTRY level only: "Endicott"
+    alone resolved to Endicott, New York for a Washington sample, so a correction inside a
+    large country has to name the state or county.
+
+    This documentation lives here and not as a comment block in the TSV: comment lines have
+    no tabs, and a viewer auto-detecting columns then renders the whole file as one column.
+    """
+    import csv as _csv
+    if not path.exists():
+        return {}
+    out = {}
+    with path.open() as fh:
+        # The file carries a leading comment block documenting its columns; DictReader would
+        # take the first "#" line as the header and silently return nothing useful.
+        lines = [l for l in fh if not l.startswith("#")]
+    if True:
+        for r in _csv.DictReader(lines, delimiter="\t"):
+            if (r.get("corrected") or "").strip():
+                out[r["location"].strip()] = (r["corrected"].strip(),
+                                              (r.get("confidence") or "").strip())
+    return out
+
+
+FIXES = load_fixes(MODULE / "seeds/missing_localities.tsv")
 
 
 def clean_location(loc, country):
-    """Strip a doubled country prefix and apply any verified spelling correction.
+    """Strip a doubled country prefix. Spelling corrections are applied in ladder_for().
 
     158 runs across 12 strings arrived as "China: China:Anyang", "France: France: Blanquefort",
     "Australia: Australia: Canberra" - a country prefixed onto a string that already carried
@@ -107,11 +161,6 @@ def clean_location(loc, country):
             if s2 and canon(h2) == canon(c):
                 inner = t2.strip()
             t = f"{c}: {inner}" if inner else c
-    parts = t.split(":", 1)
-    tail = parts[1].strip() if len(parts) > 1 else parts[0].strip()
-    fix = LOCALITY_FIX.get(tail.lower())
-    if fix:
-        t = f"{parts[0]}: {fix}" if len(parts) > 1 else fix
     return t
 
 
@@ -257,7 +306,17 @@ def main():
     # clean_location() is applied to the QUERY only. The row is still keyed on the location
     # string exactly as curated, because prep_crop_map.py joins on that; rewriting the key
     # silently unjoined every corrected locality and sent it back to a country centroid.
-    ladders = {(l, c): query_ladder(clean_location(l, c), c) for l, c in want}
+    def ladder_for(l, c):
+        fix = FIXES.get(l.strip())
+        if fix:
+            # The corrected spelling is written specific-first, the way a person writes an
+            # address, so it is handed to the geocoder as-is with the country appended rather
+            # than through query_ladder's "Country: general, specific" reversal.
+            return [(f"{fix[0]}, {c}", f"corrected-{fix[1]}"),
+                    (query_for(c, c), "country")]
+        return query_ladder(clean_location(l, c), c)
+
+    ladders = {(l, c): ladder_for(l, c) for l, c in want}
     q_country = {}
     for (l, c), rungs in ladders.items():
         for q, _ in rungs:

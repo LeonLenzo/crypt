@@ -58,6 +58,8 @@ TIDY = [
     (r"^Zea mays (ssp|subsp)\.? (mexicana|parviglumis)", "Zea mays teosinte subspp."),
     (r"^Zea (nicaraguensis|diploperennis|luxurians|perennis)", "Zea spp. (wild teosinte)"),
     (r"^Triticum aestivum",                  "Triticum aestivum (bread wheat)"),
+    # A bare "Triticum" comes from BioSample host fields that record only the genus.
+    (r"^Triticum$|^Triticum sp",             "Triticum aestivum (bread wheat)"),
     (r"^Triticum turgidum|^Triticum durum",  "Triticum durum/turgidum"),
     (r"^Vitis vinifera subsp\.? sylvestris", "Vitis vinifera subsp. sylvestris (wild grape)"),
     (r"^Vitis vinifera",                     "Vitis vinifera (grapevine)"),
@@ -138,7 +140,28 @@ WHOLE_PROJECT_HOST = {
     # Amboise, Benchmark, Kalmar are all wheat lines).
     "PRJEB65589": "Triticum aestivum", "PRJNA486288": "Triticum aestivum",
     "PRJNA1231252": "Triticum aestivum",
+    # Resolved from the papers on 2026-10-08, after leon asked the obvious question: if we
+    # hold the paper, how can the crop be unknown? It could not. Each of these states the
+    # host outright and the count matches the deposit.
+    #   PRJEB84390  "A total of 100 Pt-infected wheat field samples were subjected to RNA
+    #               extraction"                                (100 runs) 10.1186/s12864-025-12230-4
+    #   PRJEB36485  "RNA-seq analysis of Pst-infected wheat tissue ... across wheat-growing
+    #               regions within South Africa"                (49 runs) 10.1111/ppa.13468
+    #   PRJEB47693  "bread wheat (Triticum aestivum), durum wheat (T. durum) or barley
+    #               (Hordeum vulgare) stem or leaf samples"     10.1111/ppa.13532 — per-sample
+    #               hosts already come from its BioSample attributes; this covers the one run
+    #               whose attribute names the fungus instead.
+    "PRJEB84390": "Triticum aestivum", "PRJEB36485": "Triticum aestivum",
+    "PRJEB47693": "Triticum aestivum",
+    #   PRJNA1181034  no readable paper, but its own BioProject Description says it twice:
+    #                 "Reduces Fusarium Head Blight by activating wheat resistance ... its
+    #                 impact on the wheat transcriptome."
+    "PRJNA1181034": "Triticum aestivum",
 }
+
+# A name matching this is the PATHOGEN, not the host, so WHOLE_PROJECT_HOST must outrank it.
+PATHOGEN_NAME = re.compile(r"Puccinia|Blumeria|Zymoseptoria|Fusarium|Pyrenophora|Rhizoctonia"
+                           r"|Magnaporthe|Pyricularia|Ustilaginoidea|Colletotrichum|^PDA$", re.I)
 
 
 def curated_species() -> dict:
@@ -236,7 +259,13 @@ def main() -> None:
 
     rows = []
     for r in runs:
-        sp = have.get(r["Run"]) or WHOLE_PROJECT_HOST.get(r["BioProject"], "")
+        sp = have.get(r["Run"]) or ""
+        # WHOLE_PROJECT_HOST was written as a fallback for a MISSING name, so it never fired
+        # for the rust surveys: those runs do have a name, it is just the fungus's. Adding
+        # PRJEB65589 to the table on 2026-10-08 therefore changed nothing until this check
+        # existed. A stated host beats a pathogen name.
+        if not sp or PATHOGEN_NAME.search(sp):
+            sp = WHOLE_PROJECT_HOST.get(r["BioProject"], "") or sp
         rows.append(dict(r, host=tidy(sp)))
     unknown = sum(1 for r in rows if r["host"] == "(unknown)")
 

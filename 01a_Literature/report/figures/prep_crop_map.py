@@ -21,9 +21,12 @@ facility no geocoder knows, so they are placed by dropping that name: "USA: Nebr
 as good as a province centroid, so the figure reports how many samples sit at each precision
 rather than implying every dot is a field.
 
-Barley keeps its own category at three runs rather than being folded into "other cereal".
-That is deliberate: the near-empty legend key is the finding. Rye, triticale, oat and the
-millets are grouped, because none of them is a question anyone asked of this dataset.
+MIN_RUNS drops crops too small to carry a co-infection rate. Leon's call on 2026-10-08: a
+handful of samples has no power here, and plotting them implies a coverage the dataset does
+not have. Barley is the one that hurts - 3 samples, both incidental pickups inside rust
+surveys - and dropping it is the honest move precisely BECAUSE it is a real gap rather than a
+thin measurement. What is dropped is printed and written to crop_totals.tsv with an
+`included` flag, so the figure never silently loses a crop.
 
     python 01a_Literature/report/figures/prep_crop_map.py
 """
@@ -42,6 +45,8 @@ HOSTS = GOLD / "cohort_hosts.tsv"
 LOCS  = GOLD / "cereal_localities.tsv"
 OUT   = GOLD / "crop_map.tsv"
 OUTC  = GOLD / "crop_totals.tsv"
+
+MIN_RUNS = 100          # below this a crop cannot support a co-infection rate
 
 # Order is plot order and legend order: by runs, except that Barley is held out of the
 # grouped tail so its scarcity is visible.
@@ -107,12 +112,17 @@ def main() -> None:
         c["lat"], c["lon"], c["country"] = g["lat"], g["lon"], g["country"]
         c["precision"] = g.get("precision", "")
 
+    keep = {c for c in ORDER if tot[c] >= MIN_RUNS}
+    dropped = {c: tot[c] for c in ORDER if 0 < tot[c] < MIN_RUNS}
+
     cols = ["location", "country", "crop", "n", "lat", "lon", "precision", "projects",
             "year_min", "year_max"]
     with OUT.open("w", newline="") as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
         w.writerow(cols)
         for (loc, crop), c in sorted(cell.items(), key=lambda kv: -kv[1]["n"]):
+            if crop not in keep:
+                continue
             yrs = sorted(c["years"])
             w.writerow([loc, c["country"], crop, c["n"], c["lat"], c["lon"],
                         c.get("precision", ""), len(c["projects"]),
@@ -120,13 +130,13 @@ def main() -> None:
 
     with OUTC.open("w", newline="") as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
-        w.writerow(["crop", "runs", "projects", "localities", "runs_unplaced"])
+        w.writerow(["crop", "runs", "projects", "localities", "runs_unplaced", "included"])
         for crop in ORDER:
             if tot[crop]:
                 w.writerow([crop, tot[crop], len(tot_proj[crop]), len(tot_loc[crop]),
-                            noloc_by_crop[crop]])
+                            noloc_by_crop[crop], "yes" if crop in keep else "no"])
 
-    print(f"wrote {OUT}  ({len(cell)} locality x crop cells)")
+    print(f"wrote {OUT}  ({sum(1 for (l, c) in cell if c in keep)} locality x crop cells)")
     print(f"wrote {OUTC}")
     print(f"  cereal runs: {sum(tot.values()):,} in {len({r['BioProject'] for r in runs if crop_of(r['host'])})} projects")
     print(f"  plotted {placed:,}   no locality string {noloc:,}   locality not geocoded {unplaced:,}")
@@ -136,7 +146,11 @@ def main() -> None:
     print("  placement precision: " + "  ".join(f"{k}:{v:,}" for k, v in prec.most_common()))
     for crop in ORDER:
         if tot[crop]:
-            print(f"    {crop:<26}{tot[crop]:>6} runs  {len(tot_loc[crop]):>4} localities")
+            flag = "" if crop in keep else f"   DROPPED (< {MIN_RUNS} runs)"
+            print(f"    {crop:<26}{tot[crop]:>6} runs  {len(tot_loc[crop]):>4} localities{flag}")
+    if dropped:
+        print(f"  dropped {sum(dropped.values())} runs across {len(dropped)} crops: "
+              + ", ".join(f"{k} ({v})" for k, v in dropped.items()))
 
 
 if __name__ == "__main__":

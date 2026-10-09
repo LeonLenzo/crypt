@@ -8,18 +8,23 @@
 # charts, and pies at this size are unreadable.
 #
 # The structure this figure has to survive: the crops are not comparable in shape. Rice is
-# 2,784 runs across 6 localities and wheat is ~1,000 across 364, because the rice data are
+# 2,784 samples across 6 localities and wheat is 1,251 across 378, because the rice data are
 # large GWAS panels grown at one farm while the wheat data are rust surveys that sample
 # broadly. A map alone therefore reads as "mostly wheat" and a bar chart alone reads as
 # "mostly rice". Both panels are present for that reason, and the localities panel exists
 # because it is the only one that shows the difference.
 #
-# Points are drawn smallest-last so a 1,572-run circle cannot hide the single-run localities
-# sitting under it. Europe is inset because 2 of every 3 wheat localities fall inside it and
-# would otherwise be one blob.
+# Points are NOT scaled by sample count (leon, 2026-10-08: "the bars already do that"). One
+# dot is one locality, so the map answers WHERE and the bars answer HOW MANY, and neither
+# tries to do both. Scaling also made three 500-to-1,400-sample circles swamp the 378
+# single-digit wheat localities that are the point of the panel.
 #
-# Barley keeps its own colour at three runs. The near-empty key is the finding: there is no
-# barley study in the field cereal cohort, only incidental samples inside rust surveys.
+# Europe is inset because 2 of every 3 wheat localities fall inside it and would otherwise be
+# one blob.
+#
+# Crops under 100 samples are dropped by prep_crop_map.py, not here, so the bar panels and the
+# map always agree about what exists. What was dropped is in crop_totals.tsv with an
+# `included` flag; as of 2026-10-08 that is barley (3) and the small cereals (53).
 #
 #   Rscript 01a_Literature/report/figures/map_crop_origins.R
 # Inputs : data/gold/crop_map.tsv, data/gold/crop_totals.tsv  (prep_crop_map.py)
@@ -34,6 +39,7 @@ here <- "01a_Literature"
 pts  <- read.delim(file.path(here, "data/gold/crop_map.tsv"), stringsAsFactors = FALSE)
 tot  <- read.delim(file.path(here, "data/gold/crop_totals.tsv"), stringsAsFactors = FALSE)
 
+tot <- tot[tot$included == "yes", ]
 ORDER <- c("Wheat", "Maize", "Rice", "Sorghum", "Barley", "Other cereal",
            "Cereal, host unresolved")
 ORDER <- ORDER[ORDER %in% unique(c(pts$crop, tot$crop))]
@@ -66,39 +72,32 @@ pts <- pts %>% arrange(desc(n))
 # on the map with nothing in the legend to measure it against.
 n_cer <- sum(tot$runs); n_loc <- length(unique(pts$location)); n_pl <- sum(pts$n)
 
-brks <- c(1, 10, 100, 500)
-brks <- brks[brks <= max(pts$n)]
-top <- floor(max(pts$n) / 100) * 100
-if (top > max(brks)) brks <- c(brks, top)
-map_layers <- function(xlim, ylim, ratio, max_size) {
+map_layers <- function(xlim, ylim, ratio, psize) {
   list(
     geom_polygon(data = world, aes(long, lat, group = group),
                  fill = "grey94", colour = "grey80", linewidth = 0.3),
-    geom_point(data = pts, aes(lon, lat, size = n, fill = crop),
-               shape = 21, colour = "black", stroke = 1, alpha = 0.8),
-    scale_size_area(max_size = max_size, breaks = brks, labels = comma, name = "Samples"),
+    geom_point(data = pts, aes(lon, lat, fill = crop), shape = 21, size = psize,
+               colour = "black", stroke = 0.8, alpha = 0.85),
     scale_fill_manual(values = fills, name = "Crop", drop = FALSE),
     coord_fixed(ratio, xlim = xlim, ylim = ylim, expand = FALSE)
   )
 }
 
 p_map <- ggplot() +
-  map_layers(c(-165, 180), c(-48, 72), 1.35, 20) +
-  guides(fill = guide_legend(override.aes = list(size = 6), order = 1, ncol = 1),
-         size = guide_legend(order = 2)) +
+  map_layers(c(-165, 180), c(-48, 72), 1.35, 3.1) +
+  guides(fill = guide_legend(override.aes = list(size = 6), ncol = 1)) +
   labs(title = "Field cereal RNA-seq: where the cohort was collected",
        subtitle = sprintf(
-         "%s of %s field cereal samples, at %d localities in %d countries. Point area is samples; the remaining %d carry no locality finer than a country.",
-         comma(n_pl), comma(n_cer), n_loc, length(unique(pts$country)), n_cer - n_pl)) +
+         "%s of %s field cereal samples, at %d localities in %d countries. One dot is one locality; sample counts are in the bars below.",
+         comma(n_pl), comma(n_cer), n_loc, length(unique(pts$country)))) +
   base +
   theme(axis.title = element_blank(), axis.text = element_blank(),
         panel.grid = element_blank(), legend.position = "right",
         legend.box = "vertical", plot.title = element_text(face = "bold"))
 
-# Europe holds most of the wheat localities and is one blob at world scale. The inset shows
-# WHERE they are, at a fixed point size: reusing scale_size_area with a smaller max_size would
-# draw the same sample count at two different areas inside one figure, which is a worse lie
-# than dropping the encoding.
+# Europe holds most of the wheat localities and is one blob at world scale, so it gets an
+# inset at the same fixed point size as the main map. Nothing in this figure encodes sample
+# count as area any more; the bars do that.
 eur <- pts %>% filter(lon > -12, lon < 42, lat > 34, lat < 62)
 p_eur <- ggplot() +
   geom_polygon(data = world, aes(long, lat, group = group),
@@ -108,7 +107,7 @@ p_eur <- ggplot() +
   scale_fill_manual(values = fills, drop = FALSE) +
   coord_fixed(1.6, xlim = c(-12, 42), ylim = c(34, 62), expand = FALSE) +
   guides(fill = "none") +
-  labs(subtitle = sprintf("Europe: %d of %d localities (points not scaled)",
+  labs(subtitle = sprintf("Europe: %d of the %d localities",
                           length(unique(eur$location)), n_loc)) +
   base +
   theme(axis.title = element_blank(), axis.text = element_blank(),

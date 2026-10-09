@@ -21,16 +21,14 @@ Japan:Osaka, Takatsuki	Japan	Rice	26	34.8464785	135.6172204	locality	1	2015	2015
 UK: Caythorpe	UK	Wheat	23	53.0063818	-0.9814686	locality	3	2013	2015
 UK: Ickleton	UK	Wheat	23	52.0703602	0.1760421	locality	1	2016	2017
 Mexico: Guanajuato, Area 1 (20.719, -101.328)	Mexico	Maize	21	21.0158848	-101.25284	locality-nofacility	1	2017	2017
-China: China:nanjing	China	Wheat	21	31.7331769	118.8712637	locality	1	2020	2020
+China: China:nanjing	China	Wheat	21	32.0438284	118.7788631	locality	1	2020	2020
 Ethiopia: Sinana	Ethiopia	Wheat	18	7.08333	40.2	locality	2	2015	2017
 Ethiopia: Meraro	Ethiopia	Wheat	16	7.4079469	39.2417452	locality	1	2017	2017
 Canada: Ontario, Ottawa (Ottawa RDC experimental field station)	Canada	Maize	16	45.4208777	-75.6901106	locality-nofacility	1		
 UK: Wardington	UK	Wheat	14	52.1114668	-1.2826587	locality	1	2017	2017
 UK: Wolferton	UK	Wheat	13	52.8293207	0.4625821	locality	2	2014	2017
 UK: Rothwell (Lincolnshire)	UK	Wheat	13	53.4806768	-0.2668947	locality	1	2015	2016
-Ethiopia: Arsi Robe	Ethiopia	Wheat	12	10.2116702	38.6521203	locality-nofacility	2	2016	2017
 UK: Langley (Essex)	UK	Wheat	12	51.9924009	0.0959355	locality	1	2016	2016
-Ethiopia: Sinana RS	Ethiopia	Wheat	11	10.2116702	38.6521203	locality-nofacility	3	2014	2017
 Sweden: Svalöv	Sweden	Wheat	11	55.9129297	13.1197518	locality	2	2015	2017
 UK: Morley (Norfolk)	UK	Wheat	10	52.5517051	1.0475185	locality	2	2014	2018
 UK: Cambridge	UK	Wheat	10	52.1975846	0.1391537	locality	2	2013	2016
@@ -49,7 +47,6 @@ France: Marchélepot	France	Wheat	7	49.8318053	2.8683805	locality	2	2014	2017
 Poland: Jarosławiec	Poland	Wheat	7	50.7168844	23.3619855	locality	3	2014	2017
 Ethiopia: Assasa	Ethiopia	Wheat	7	7.1025538	39.195672	locality	2	2016	2017
 UK: Cambridgeshire	UK	Wheat	6	52.3729017	-0.044936	locality	3	2014	2017
-Ethiopia: Sinana Kabira	Ethiopia	Wheat	6	10.2116702	38.6521203	locality-nofacility	1	2017	2017
 China: Pingnan Qinzhou Tianshui	China	Wheat	6	34.3529748	105.6786962	locality	1	2016	2016
 UK: Whittlesford	UK	Wheat	6	52.1096821	0.1548583	locality	1	2015	2015
 UK: Boston	UK	Wheat	6	52.9776561	-0.0237985	locality	2	2013	2017
@@ -57,11 +54,9 @@ UK: Rougham (Suffolk)	UK	Wheat	6	52.7507434	0.7118298	locality-nofacility	1	2015
 Argentina: Balcarce	Argentina	Wheat	6	-37.846399	-58.2554648	locality	1	2016	2018
 Germany: Melle	Germany	Wheat	6	52.1950352	8.3474835	locality	1	2015	2015
 Germany: Harzhof	Germany	Wheat	6	54.416465	9.8479481	locality	1	2015	2015
-Serbia: Rimski Šančevi	Serbia	Wheat	6	44.0243229	21.0765743	locality-nofacility	1	2015	2017
 Argentina: Paraná	Argentina	Wheat	6	-27.4210173	-56.6011693	locality	1	2016	2016
 UK: Lincolnshire	UK	Wheat	6	53.1823034	-0.2031209	locality	1	2017	2017
 South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)	South Africa	Maize	6	-29.060556	30.588889	locality-nofacility	1		
-Ethiopia: Kulumsa	Ethiopia	Wheat	5	10.2116702	38.6521203	locality-nofacility	3	2014	2017
 UK: Bishop Burton	UK	Wheat	5	53.8414315	-0.5135522	locality	2	2014	2016
 UK: Sturminster Newton	UK	Wheat	5	50.9290016	-2.3263949	locality	2	2014	2015
 UK: Sutton Scotney	UK	Wheat	5	51.1531722	-1.3381253	locality	3	2013	2015
@@ -107,16 +102,10 @@ UK: Humbie	UK	Wheat	3	55.854253	-2.8678662	locality	1	2014	2014
 UK: Cascob	UK	Wheat	3	52.2909852	-3.1159462	locality	1	2014	2014
 France: Loyat	France	Wheat	3	47.9901494	-2.3829611	locality	2	2014	2016
 Germany: Etzdorf	Germany	Wheat	3	51.0506277	13.1847189	locality	2	2014	2014
-Italy: Ozzano	Italy	Wheat	3	42.6384261	12.674297	locality-nofacility	2	2014	2015
 Italy: Conselice	Italy	Wheat	3	44.5127578	11.8291743	locality	2	2014	2017
-Germany: Gommershoven	Germany	Wheat	3	51.1638175	10.4478313	locality-nofacility	2	2014	2015
 Germany: Groitzsch	Germany	Wheat	3	51.15	12.2833	locality	2	2014	2015
 Germany: Weißensee	Germany	Wheat	3	52.5546193	13.4630018	locality	1	2014	2014
 Pakistan: Abbottabad	Pakistan	Wheat	3	34.1436136	73.2132747	locality	1	2014	2014
-Pakistan: Atter Shisha	Pakistan	Wheat	3	30.3308401	71.247499	locality-nofacility	1	2014	2014
-Ethiopia: Ilu kobo	Ethiopia	Wheat	3	10.2116702	38.6521203	locality-nofacility	1	2017	2017
-Ethiopia: Gurage Zone	Ethiopia	Wheat	3	10.2116702	38.6521203	locality-nofacility	1	2017	2017
-Ethiopia: Limo Lereba Roma	Ethiopia	Wheat	3	10.2116702	38.6521203	locality-nofacility	1	2017	2017
 Sweden: Österlen	Sweden	Wheat	3	55.5993312	14.1141071	locality	2	2015	2015
 Canada: Lethbridge	Canada	Wheat	3	49.6945782	-112.8331033	locality	1	2015	2015
 France: Montbartier	France	Wheat	3	43.9136111	1.2733333	locality	1	2016	2017
@@ -128,7 +117,6 @@ The Netherlands: Westmaas	The Netherlands	Wheat	3	51.7877888	4.4737754	locality	
 Germany: Seelze	Germany	Wheat	3	52.3964639	9.594287	locality	1	2015	2017
 UK: Carnoustie	UK	Wheat	3	56.5010506	-2.711403	locality	1	2016	2017
 UK: Chirnside	UK	Wheat	3	55.8021522	-2.2091846	locality	1	2017	2017
-UK: Mendelsham	UK	Wheat	3	54.7023545	-3.2765753	locality-nofacility	1	2013	2013
 UK: Cirencester	UK	Wheat	3	51.7171029	-1.9661616	locality	1	2013	2013
 China: Shanghai	China	Maize	3	31.2312707	121.4700152	locality	1		
 Belgium: Mignault	Belgium	Wheat	2	50.5288629	4.1523542	locality	2	2014	2015
@@ -140,25 +128,9 @@ Germany: Moselsürsch	Germany	Wheat	2	50.2602892	7.4247598	locality	2	2014	2015
 France: La Corbillière	France	Wheat	2	47.9432888	1.4801944	locality	1	2014	2014
 Germany: Hüttendorf	Germany	Wheat	2	49.5416561	10.9609243	locality	1	2014	2014
 Slovakia: Vígľaš-Pstruša	Slovakia	Wheat	2	48.5463519	19.3181238	locality	1	2014	2014
-Chile: StaRosa Chillán	Chile	Wheat	2	-31.7613365	-71.3187697	locality-nofacility	1	2014	2014
-Ethiopia: Hadya Lemo Dicho Demala	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
 Ethiopia: Silt'e	Ethiopia	Wheat	2	7.7465759	38.1553903	locality	1	2017	2017
-Ethiopia: Weliso Kora	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
-Ethiopia: Shinshihco	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
-Ethiopia: Danbora Amancho Boganeos	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
-Ethiopia: Silti Wereda Danicho Azoro	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
 Ethiopia: Tiya	Ethiopia	Wheat	2	8.437331	38.609296	locality	1	2017	2017
-Ethiopia: Wilting Woreda	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
-Ethiopia: Bilalo	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
-Ethiopia: Aleltu Fiche Gelila	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
-Ethiopia: Aleltu Chole Shenkole	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
 Ethiopia: Ch'aso	Ethiopia	Wheat	2	9.95	39.21667	locality	1	2017	2017
-Ethiopia: Lay Gayint 08 Wuha Midir	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
-Ethiopia: Absila	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
-Ethiopia: Kuyu Liben Kura	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
-Ethiopia: Dinsho Abakera Zalo	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
-Ethiopia: Sinana Kabira Shaya	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
-Ethiopia: Selka	Ethiopia	Wheat	2	10.2116702	38.6521203	locality-nofacility	1	2017	2017
 Canada: Lacombe	Canada	Wheat	2	52.4727515	-113.733215	locality	1	2015	2015
 South Africa: Napier	South Africa	Wheat	2	-34.474722	19.898056	locality	1	2016	2016
 Sweden: Sandby	Sweden	Wheat	2	55.7101291	13.3703269	locality	1	2017	2017
@@ -177,12 +149,10 @@ Spain: Burgos	Spain	Wheat	2	42.3448498	-3.6812477	locality	1	2016	2016
 France: Bouglainval	France	Wheat	2	48.5640587	1.5070165	locality	1	2016	2016
 UK: Honingham	UK	Wheat	2	52.6624819	1.1226731	locality	1	2016	2017
 Argentina: La Dulce	Argentina	Wheat	2	-38.2836575	-59.2033388	locality	1	2016	2017
-Kenya: MauNarok	Kenya	Wheat	2	0.2793165	37.5164935	locality-nofacility	1	2014	2014
 Germany: Wetze	Germany	Wheat	2	51.7412372	9.9104695	locality	1	2015	2015
 France: Proviseux	France	Wheat	2	49.4652046	4.0099262	locality	1	2015	2015
-Germany: Selingenstadt	Germany	Wheat	2	51.1638175	10.4478313	locality-nofacility	1	2015	2015
 France: Momont	France	Wheat	2	48.6074504	-0.0605445	locality	1	2015	2015
-Australia: Scadden	Australia	Wheat	2	-24.7761086	134.755	locality-nofacility	1	2015	2015
+Australia: Scadden	Australia	Wheat	2	-33.4412046	121.7243116	locality	1	2015	2015
 France: Grézillé	France	Wheat	2	47.3211888	-0.3326952	locality	1	2015	2016
 Germany: Limburgerhof	Germany	Wheat	2	49.4226572	8.3933508	locality	1	2016	2016
 Germany: Mörsch Frankenthal	Germany	Wheat	2	49.5595837	8.3870986	locality	1	2016	2016
@@ -214,7 +184,6 @@ UK: Broughton	UK	Wheat	1	53.565614	-0.5539235	locality	1	2014	2014
 UK: Titchmarsh	UK	Wheat	1	52.3999709	-0.4893233	locality	1	2014	2014
 UK: Wallingford	UK	Wheat	1	51.5982886	-1.1251402	locality	1	2013	2013
 UK: Streatley	UK	Wheat	1	51.9463121	-0.4454221	locality	1	2013	2013
-UK: Dunmow	UK	Wheat	1	54.7023545	-3.2765753	locality-nofacility	1	2014	2014
 UK: Keisby	UK	Wheat	1	52.8445622	-0.4609085	locality	1	2014	2014
 UK: Royston	UK	Wheat	1	52.0472741	-0.0246467	locality	1	2014	2014
 UK: Fulbourn	UK	Wheat	1	52.1828971	0.2198896	locality	1	2014	2014
@@ -229,12 +198,9 @@ Germany: Grucking	Germany	Wheat	1	48.3418035	11.9717074	locality	1	2014	2014
 Germany: Kirchmatting	Germany	Wheat	1	48.8130193	12.6118933	locality	1	2014	2014
 Bulgaria: Novi Han	Bulgaria	Wheat	1	42.6057156	23.5960002	locality	1	2014	2014
 Spain: Garínoain	Spain	Wheat	1	42.6005691	-1.6453061	locality	1	2014	2014
-Germany: Böhl Bauch 10	Germany	Wheat	1	51.1638175	10.4478313	locality-nofacility	1	2014	2014
 Germany: Tachenhausen	Germany	Wheat	1	48.6496533	9.3849028	locality	1	2014	2014
 France: Nangis	France	Wheat	1	48.5549416	3.0136837	locality	1	2014	2014
 Chile: Carillanca Vilcun	Chile	Wheat	1	-38.6979788	-72.4149871	locality	1	2014	2014
-Chile: Cajón Temuco	Chile	Wheat	1	-31.7613365	-71.3187697	locality-nofacility	1	2014	2014
-Chile: Los Tilos Santiago	Chile	Wheat	1	-31.7613365	-71.3187697	locality-nofacility	1	2014	2014
 Ethiopia: Sembo	Ethiopia	Wheat	1	9.41667	39.35	locality	1	2014	2014
 USA: Hutchinson, Kansas	USA	Wheat	1	35.8148236	-101.34844	locality-nofacility	1	2016	2016
 USA: Hitchcock, Nebraska	USA	Wheat	1	40.1659573	-101.0387468	locality-nofacility	1	2015	2015
@@ -245,7 +211,6 @@ USA: Corvallis, Oregon	USA	Wheat	1	44.5645659	-123.2620435	locality-nofacility	1
 USA: Siskiyou, California	USA	Wheat	1	41.3201402	-122.3046849	locality	1	2015	2015
 USA: Montana	USA	Wheat	1	47.3752671	-109.638757	locality	1	2015	2015
 USA: Cimarron, Oklahoma	USA	Wheat	1	36.7245861	-102.4792992	locality	1	2015	2015
-USA: Edicott, Washington	USA	Wheat	1	39.7837304	-100.445882	region	1	2015	2015
 USA: St John, Washington	USA	Wheat	1	18.3356013	-64.7550406	locality-nofacility	1	2015	2015
 USA: Gregory, South Dakota	USA	Wheat	1	43.1713788	-99.1674843	locality-nofacility	1	2015	2015
 USA: Ririe, Indiana	USA	Wheat	1	43.63131	-111.773593	locality-nofacility	1	2015	2015
@@ -257,11 +222,9 @@ USA: Cash, Arkansas	USA	Wheat	1	35.7990389	-90.9336124	locality-nofacility	1	201
 USA: Othello, Washington	USA	Wheat	1	47.5422746	-122.2843054	locality	1	2016	2016
 USA: Kalispell, Montana	USA	Wheat	1	48.202158	-114.315321	locality-nofacility	1	2016	2016
 USA: Rockland, Indiana	USA	Wheat	1	41.1519319	-74.0357266	locality-nofacility	1	2016	2016
-USA: Raerden, Washington	USA	Wheat	1	39.7837304	-100.445882	region	1	2016	2016
 USA: Warsaw, Virginia	USA	Wheat	1	41.2381017	-85.8530544	locality-nofacility	1	2016	2016
 USA: Woodland, California	USA	Wheat	1	38.6786109	-121.7733285	locality-nofacility	1	2016	2016
 USA: Weedsport, New York	USA	Wheat	1	43.048677	-76.5627197	locality-nofacility	1	2016	2016
-USA: Lansing/Mason, Michigan	USA	Wheat	1	39.7837304	-100.445882	region	1	2016	2016
 USA: Chickasha, Oklahoma	USA	Wheat	1	35.0512159	-97.9370036	locality-nofacility	1	2017	2017
 USA: Altus, Oklahoma	USA	Wheat	1	34.6381255	-99.3339754	locality-nofacility	1	2017	2017
 South Africa: Hopetown	South Africa	Wheat	1	-29.623959	24.0830094	locality	1	2018	2018
@@ -269,7 +232,6 @@ South Africa: Western Cape	South Africa	Wheat	1	-33.546977	20.72753	locality	1	2
 South Africa: Northern Cape	South Africa	Wheat	1	-29.573402	21.2051361	locality	1	2018	2018
 South Africa: Bredasdorp	South Africa	Wheat	1	-34.533055	20.042778	locality	1	2014	2014
 UK: Duns	UK	Wheat	1	55.777842	-2.3438476	locality	1	2016	2016
-UK: Sutton Bridge	UK	Wheat	1	54.7023545	-3.2765753	locality-nofacility	1	2015	2015
 France: Saultain	France	Wheat	1	50.3351	3.58255	locality	1	2015	2015
 UK: Glenrothes	UK	Wheat	1	56.1961905	-3.1716324	locality	1	2015	2015
 UK: Holbeach Marsh	UK	Wheat	1	52.8550419	0.0018992	locality	1	2016	2016
@@ -281,14 +243,12 @@ UK: North Yorkshire	UK	Wheat	1	54.1345328	-1.4986285	locality	1	2015	2015
 UK: Lincoln	UK	Wheat	1	53.2293545	-0.5404819	locality	1	2015	2015
 UK: Leicestershire	UK	Wheat	1	52.666667	-1.0	locality	1	2015	2015
 UK: Chillingham	UK	Wheat	1	55.5276287	-1.9039592	locality	1	2017	2017
-Denmark: Helsignør	Denmark	Wheat	1	55.670249	10.3333283	locality-nofacility	1	2015	2015
 UK: Berwickshire	UK	Wheat	1	55.75	-2.5	locality	1	2016	2016
 UK: Woodsford	UK	Wheat	1	50.7125269	-2.3395867	locality	1	2016	2016
 UK: Watlington (Oxfordshire)	UK	Wheat	1	51.6451586	-1.0043458	locality	1	2016	2016
 Germany: Motterwitz	Germany	Wheat	1	51.1964076	12.8805887	locality	1	2015	2015
 UK: Telford	UK	Wheat	1	52.6780532	-2.4514219	locality	1	2014	2014
 UK: Bury St Edmunds	UK	Wheat	1	52.2460367	0.7125173	locality	1	2015	2015
-UK: Crabbs Green	UK	Wheat	1	54.7023545	-3.2765753	locality-nofacility	1	2016	2016
 UK: Coates (Peterborough)	UK	Wheat	1	52.5622566	-0.0744766	locality	1	2016	2016
 UK: Tye Green	UK	Wheat	1	51.856955	0.5844024	locality	1	2016	2016
 UK: Herne Bay	UK	Wheat	1	51.3719507	1.1306951	locality	1	2017	2017
@@ -300,7 +260,6 @@ UK: Fowlmere	UK	Wheat	1	52.089645	0.0756448	locality	1	2016	2016
 Germany: Northeim	Germany	Wheat	1	51.7648548	9.858883	locality	1	2016	2016
 Sweden: Borrby	Sweden	Wheat	1	55.4580331	14.1808853	locality	1	2016	2016
 Spain: Jerez	Spain	Wheat	1	36.6816936	-6.1377402	locality	1	2015	2015
-Spain: Medigorría	Spain	Wheat	1	39.3260685	-4.8379791	locality-nofacility	1	2015	2015
 Spain: Las Cabezas de San Juan	Spain	Wheat	1	36.9806706	-5.9406692	locality	1	2016	2016
 Ukraine: Odessa	Ukraine	Wheat	1	46.4843023	30.7322878	locality	1	2016	2016
 Canada: Saskatoon	Canada	Wheat	1	52.131802	-106.660767	locality	1	2017	2017
@@ -321,13 +280,11 @@ Kenya: Mau Summit	Kenya	Wheat	1	-0.1613113	35.6936632	locality	1	2014	2014
 Kenya: Judea	Kenya	Wheat	1	-0.2856457	36.1252437	locality	1	2014	2014
 Kenya: Narok	Kenya	Wheat	1	-1.2779366	35.4774228	locality	1	2017	2017
 Kenya: Ngenia	Kenya	Wheat	1	-0.2844227	35.7065527	locality	1	2017	2017
-Kenya: Kikapu	Kenya	Wheat	1	0.2793165	37.5164935	locality-nofacility	1	2017	2017
 Kenya: Ngecha	Kenya	Wheat	1	-0.2829491	35.7424114	locality	1	2017	2017
 Kenya: Cheptiret	Kenya	Wheat	1	0.3764766	35.370191	locality	1	2017	2017
 Kenya: Moiben	Kenya	Wheat	1	0.7216322	35.3990047	locality	1	2017	2017
 Kenya: Siwot Keringet	Kenya	Wheat	1	-0.4137561	35.6726104	locality	1	2017	2017
 France: Meurchin	France	Wheat	1	50.49539	2.8900936	locality	1	2015	2015
-Ethiopia: Kasowera	Ethiopia	Wheat	1	10.2116702	38.6521203	locality-nofacility	1	2015	2015
 Rwanda: Rwerere	Rwanda	Wheat	1	-1.5117428	29.877416	locality	1	2018	2018
 Bhutan: Punakha	Bhutan	Wheat	1	27.6363463	89.8363689	locality	1	2018	2018
 UK: Cropredy	UK	Wheat	1	52.122826	-1.3280951	locality	1	2016	2016
@@ -350,15 +307,8 @@ Poland: Widawa	Poland	Wheat	1	51.4375	18.94412	locality	1	2017	2017
 France: Les Andelys	France	Wheat	1	49.2469193	1.4215534	locality	1	2017	2017
 UK: Foscot	UK	Wheat	1	51.8951375	-1.6389691	locality	1	2017	2017
 Spain: Puerto de Santa Maria	Spain	Wheat	1	38.0420693	-6.1835772	locality	1	2017	2017
-Italy: Orzzano dell'Emilia	Italy	Wheat	1	42.6384261	12.674297	locality-nofacility	1	2017	2017
 The Netherlands: Hank	The Netherlands	Wheat	1	51.7360352	4.8986026	locality	1	2017	2017
-The Netherlands: Skenhuis	The Netherlands	Wheat	1	52.2434979	5.6343227	locality-nofacility	1	2017	2017
-The Netherlands: De Vries	The Netherlands	Wheat	1	52.2434979	5.6343227	locality-nofacility	1	2017	2017
-The Netherlands: Schulten beld	The Netherlands	Wheat	1	52.2434979	5.6343227	locality-nofacility	1	2017	2017
-Ethiopia: Adigulo AS	Ethiopia	Wheat	1	10.2116702	38.6521203	locality-nofacility	1	2015	2015
-Ethiopia: Mekana	Ethiopia	Wheat	1	10.2116702	38.6521203	locality-nofacility	1	2015	2015
 Belgium: Doel	Belgium	Wheat	1	51.3111156	4.2643189	locality	1	2015	2015
-Germany: Welsch Billig	Germany	Wheat	1	51.1638175	10.4478313	locality-nofacility	1	2015	2015
 Germany: Oberboihingen	Germany	Wheat	1	48.6475985	9.3668947	locality	1	2015	2015
 Germany: Buchbach	Germany	Wheat	1	48.3126655	12.2730641	locality	1	2015	2015
 Germany: Bühren	Germany	Wheat	1	51.4846797	9.6801458	locality	1	2015	2015
@@ -369,11 +319,9 @@ Hungary: Szekszárd	Hungary	Wheat	1	46.3484884	18.701663	locality	1	2015	2015
 France: Luglon	France	Wheat	1	44.0818985	-0.7189995	locality	1	2015	2015
 France: Touffreville-sur-Eu	France	Wheat	1	49.9995778	1.3342558	locality	1	2015	2015
 Croatia: Gotalovo	Croatia	Wheat	1	46.2184846	16.9841295	locality	1	2015	2015
-France: Allouange	France	Wheat	1	46.603354	1.8883335	locality-nofacility	1	2015	2015
 France: Mœuvres	France	Wheat	1	50.1638431	3.0648285	locality	1	2015	2015
 France: La Capelle	France	Wheat	1	49.9780556	3.9172222	locality	1	2015	2015
 Germany: Bothkamp	Germany	Wheat	1	54.2032589	10.1336639	locality	1	2015	2015
-Turkey: Murath	Turkey	Wheat	1	39.294076	35.2316631	locality-nofacility	1	2015	2015
 Turkey: Babaeski	Turkey	Wheat	1	41.4302616	27.0917789	locality	1	2015	2015
 France: Saint-Germain-en-Laye	France	Wheat	1	48.9312511	2.0912611	locality	1	2015	2015
 France: Bourgogne	France	Wheat	1	47.2780873	4.2224863	locality	1	2015	2015
@@ -393,11 +341,9 @@ Spain: Suzana	Spain	Wheat	1	42.7097178	-2.9898484	locality	1	2014	2014
 The Netherlands: Kamperland	The Netherlands	Wheat	1	51.5680028	3.7017099	locality	1	2015	2015
 Germany: Gronau	Germany	Wheat	1	52.0841729	9.7751956	locality	1	2015	2015
 UK: Clacton	UK	Wheat	1	51.7883997	1.1527865	locality	1	2015	2015
-UK: Nauhton	UK	Wheat	1	54.7023545	-3.2765753	locality-nofacility	1	2015	2015
 UK: Layer de la Haye	UK	Wheat	1	51.8467947	0.8623408	locality	1	2015	2015
 UK: Hemingstone	UK	Wheat	1	52.1404883	1.1417359	locality	1	2015	2015
 UK: Tuddenham	UK	Wheat	1	52.3143082	0.5472061	locality	1	2015	2015
-South Africa: Tygerhoek	South Africa	Wheat	1	-28.8166236	24.991639	locality-nofacility	1	2017	2017
 South Africa: Bethlehem	South Africa	Wheat	1	-28.2308333	28.3088889	locality	1	2017	2017
 United Kingdom: Cambs, Newton	United Kingdom	Wheat	1	52.1250903	0.0995354	locality	1	2021	2021
 France: Valenciennes	France	Wheat	1	50.3579317	3.5234846	locality	1	2021	2021
@@ -423,39 +369,41 @@ UK: Oxford	UK	Wheat	1	51.7520131	-1.2578499	locality	1	2013	2013
 USA: Urbana, IL	USA	Wheat	1	40.1117174	-88.207301	locality-nofacility	1	2016	2016
 USA: North Carolina (35.864, -76.659)	USA	Sorghum	1	35.6729639	-79.0392919	locality-nofacility	1		
 USA: Brookings, South Dakota	USA	Maize	1	44.3208961	-96.7511843	locality	1		
-USA: Taco Corn California	USA	Maize	1	39.7837304	-100.445882	locality-nofacility	1		
 USA: Indiana	USA	Maize	1	40.3270127	-86.1746933	locality	1		
-USA: NE Research Farm Iowa	USA	Maize	1	39.7837304	-100.445882	locality-nofacility	1		
 USA: Kanawha, Iowa	USA	Maize	1	38.3428208	-81.5089835	locality-nofacility	1		
 USA: Armstrong, Iowa	USA	Maize	1	34.9295608	-101.3449139	locality-nofacility	1		
-USA: 312 NE Research Farm Iowa	USA	Maize	1	39.7837304	-100.445882	locality-nofacility	1		
 USA: Woodbury, County Iowa	USA	Maize	1	42.3775361	-96.0607187	locality-nofacility	1		
 USA: Shelby county, Iowa	USA	Maize	1	31.7716364	-94.1301652	locality-nofacility	1		
 USA: Iowa (42.925, -95.539)	USA	Maize	1	41.5878406	-93.5858691	locality	1		
 USA: Sutherland, Iowa	USA	Maize	1	42.9742849	-95.4975638	locality-nofacility	1		
 USA: Iowa (43.256, -92.105)	USA	Maize	1	30.2368772	-93.0137569	locality	1		
 USA: Iowa (42.921, -91.920)	USA	Maize	1	42.0560012	-92.8970154	locality	1		
-United Kingdom	United Kingdom	Wheat	67			country	7	2013	2022
-France	France	Wheat	32			country	6	2014	2020
-South Africa	South Africa	Wheat	30			country	2	1981	2015
-Denmark	Denmark	Wheat	20			country	2	2017	2021
-Kenya	Kenya	Wheat	16			country	2	2014	2017
+Ethiopia	Ethiopia	Wheat	77			country	4	2014	2017
+United Kingdom	United Kingdom	Wheat	74			country	7	2013	2022
+France	France	Wheat	33			country	6	2014	2020
+South Africa	South Africa	Wheat	31			country	2	1981	2017
+Denmark	Denmark	Wheat	21			country	3	2015	2021
+Kenya	Kenya	Wheat	19			country	2	2014	2017
+Germany	Germany	Wheat	18			country	4	2014	2017
 China	China	Wheat	14			country	1	2015	2017
 Ireland	Ireland	Wheat	12			country	1	2020	2020
+Turkey	Turkey	Wheat	11			country	3	2014	2018
 Poland	Poland	Wheat	11			country	2	2014	2018
-Germany	Germany	Wheat	11			country	3	2014	2017
-Turkey	Turkey	Wheat	10			country	2	2014	2018
 Belgium	Belgium	Wheat	9			country	2	2017	2021
+Serbia	Serbia	Wheat	8			country	3	2014	2017
+Italy	Italy	Wheat	7			country	4	2014	2021
 Argentina	Argentina	Wheat	7			country	1	2018	2019
 Australia	Australia	Wheat	5			country	2	2012	2015
+Netherlands	Netherlands	Wheat	5			country	2	2017	2018
+Chile	Chile	Wheat	4			country	1	2014	2014
 New Zealand	New Zealand	Wheat	4			country	1	2018	2018
+Pakistan	Pakistan	Wheat	3			country	1	2014	2014
+USA	USA	Wheat	3			country	1	2015	2016
 Zimbabwe	Zimbabwe	Wheat	3			country	1	2018	2018
-Italy	Italy	Wheat	3			country	2	2019	2021
-Serbia	Serbia	Wheat	2			country	2	2014	2014
-Netherlands	Netherlands	Wheat	2			country	1	2018	2018
+USA	USA	Maize	3			country	1		
 Switzerland	Switzerland	Wheat	2			country	1	2018	2018
 Sweden	Sweden	Wheat	2			country	1	2021	2021
 Romania	Romania	Wheat	1			country	1	2014	2014
 Croatia	Croatia	Wheat	1			country	1	2014	2014
 Lesotho	Lesotho	Wheat	1			country	1	2018	2018
-Ethiopia	Ethiopia	Wheat	1			country	1		
+Spain	Spain	Wheat	1			country	1	2015	2015

@@ -134,6 +134,11 @@ def main() -> None:
         if not loc:
             noloc += 1; noloc_by_crop[crop] += 1; continue
         g = coords.get(loc)
+        # A geocoded row whose precision is "country" was placed at a country centroid even
+        # though the string named something finer. Route it to the centroid branch so it is
+        # drawn as a diamond, not as a locality circle sitting where nobody sampled.
+        if g is not None and g.get("precision") == "country":
+            g = None
         if not g:
             # No geocoded point, but the string still names a country. Placing these at the
             # country centroid (leon, 2026-10-09) rather than dropping them: 311 samples,
@@ -142,7 +147,8 @@ def main() -> None:
             # the figure must say so, which is why they carry precision 'country' and are
             # drawn with a different shape rather than silently joining the real points.
             unplaced += 1
-            c = country_of(loc)
+            c = country_of(loc) or (loc.split(":", 1)[0].strip() if ":" in loc else "")
+            c = COUNTRY_CANON.get(c.lower(), c) if c else ""
             if c:
                 k = (c, crop)
                 cc = ccell[k]

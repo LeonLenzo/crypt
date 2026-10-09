@@ -77,6 +77,44 @@ def canon(name):
 UA = "crypt-research/1.0 (plant pathogen SRA mining; leon.lenzo@curtin.edu.au)"
 
 
+# Verified corrections to the SOURCE string. Each entry was checked against the gazetteer
+# individually and is recorded with what it resolved to; this is not fuzzy matching, which
+# is exactly how a plausible wrong point gets planted. Add only what has been looked up.
+LOCALITY_FIX = {
+    # Ada21 Table S1 spells it Scadden; the WA wheatbelt locality is Scaddan, and
+    # "Scaddan, Australia" resolves to -33.4412, 121.7243, Western Australia 6447.
+    # "Scadden, Australia" returns only two unrelated roads, which the class filter rejects.
+    "scadden": "Scaddan",
+}
+
+
+def clean_location(loc, country):
+    """Strip a doubled country prefix and apply any verified spelling correction.
+
+    158 runs across 12 strings arrived as "China: China:Anyang", "France: France: Blanquefort",
+    "Australia: Australia: Canberra" - a country prefixed onto a string that already carried
+    one, by the 2026-10-02 BioSample import. Nominatim returns nothing for the doubled form,
+    so every one of them silently fell back to a country centroid.
+    """
+    t = (loc or "").strip()
+    c = (country or "").strip()
+    if c:
+        # "C: C: x" and "C: C:x" both collapse to "C: x"
+        head, sep, tail = t.partition(":")
+        if sep and canon(head) == canon(c):
+            inner = tail.strip()
+            h2, s2, t2 = inner.partition(":")
+            if s2 and canon(h2) == canon(c):
+                inner = t2.strip()
+            t = f"{c}: {inner}" if inner else c
+    parts = t.split(":", 1)
+    tail = parts[1].strip() if len(parts) > 1 else parts[0].strip()
+    fix = LOCALITY_FIX.get(tail.lower())
+    if fix:
+        t = f"{parts[0]}: {fix}" if len(parts) > 1 else fix
+    return t
+
+
 def query_for(location, country):
     """Build a 'most specific first' query string from whichever convention was used."""
     loc = location.strip()
@@ -216,7 +254,10 @@ def main():
     print(f"{len(cache)} cached, {len(todo)} to geocode "
           f"(~{len(todo) * 1.1 / 60:.0f} min at Nominatim's 1 req/s)", flush=True)
 
-    ladders = {(l, c): query_ladder(l, c) for l, c in want}
+    # clean_location() is applied to the QUERY only. The row is still keyed on the location
+    # string exactly as curated, because prep_crop_map.py joins on that; rewriting the key
+    # silently unjoined every corrected locality and sent it back to a country centroid.
+    ladders = {(l, c): query_ladder(clean_location(l, c), c) for l, c in want}
     q_country = {}
     for (l, c), rungs in ladders.items():
         for q, _ in rungs:
@@ -252,6 +293,15 @@ def main():
                 g, prec, used = cache[q], name, q
                 break
         if g:
+            # The last rung of the ladder IS the bare country, so a locality that resolves
+            # only there has been placed at a country centroid no matter which rung index
+            # answered. Label it by WHAT IT IS, not by where it sat in the ladder: before
+            # this, "Australia: Scadden" came back at -24.78, 134.76 - the dead centre of
+            # the continent, a thousand km from the WA wheatbelt - still labelled
+            # locality-nofacility, and was drawn as a locality circle. 61 localities and
+            # 267 samples were affected and none of them were visible as such.
+            if canon(used) == canon(ctry):
+                prec = "country"
             hit += n
             prec_n[prec] += n
             out.append({"location": loc, "country": ctry, "n": n, "precision": prec,

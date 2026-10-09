@@ -87,6 +87,33 @@ base <- theme_minimal(base_size = 16) +
 world <- map_data("world")
 world <- world[world$region != "Antarctica", ]
 
+# Rows with precision == "country" carry no coordinates: they name a country and nothing
+# finer, so prep_crop_map.py leaves the placement to the figure. Join the centroid of each
+# country's LARGEST polygon, not the midpoint of its bounding box, which would put the USA
+# in the Pacific and France in the Atlantic.
+cent <- world %>%
+  group_by(region, group) %>%
+  summarise(long = mean(long), lat = mean(lat), npts = n(), .groups = "drop") %>%
+  group_by(region) %>% slice_max(npts, n = 1, with_ties = FALSE) %>% ungroup() %>%
+  select(region, clon = long, clat = lat)
+
+# "Zimbabwae" is not a variant spelling, it is a typo in the submitted BioSample metadata,
+# and it is mapped here rather than corrected upstream because the archive string is what
+# the curation records. Three samples.
+TO_MAPS <- c("United Kingdom" = "UK", "USA" = "USA", "Czechia" = "Czech Republic",
+             "Zimbabwae" = "Zimbabwe", "The Netherlands" = "Netherlands")
+pts$region <- ifelse(pts$country %in% names(TO_MAPS), TO_MAPS[pts$country], pts$country)
+pts <- pts %>% left_join(cent, by = "region") %>%
+  mutate(lat = ifelse(precision == "country", clat, lat),
+         lon = ifelse(precision == "country", clon, lon),
+         placement = ifelse(precision == "country", "Country centroid", "Geocoded locality"))
+
+unplaced_ctry <- pts %>% filter(precision == "country", is.na(lat))
+if (nrow(unplaced_ctry)) message("country not on the basemap: ",
+                                 paste(unique(unplaced_ctry$country), collapse = ", "))
+pts <- pts %>% filter(!is.na(lat))
+pts$placement <- factor(pts$placement, levels = c("Geocoded locality", "Country centroid"))
+
 pts <- pts %>% arrange(desc(n))
 
 n_cer <- sum(tot$runs); n_loc <- length(unique(pts$location)); n_pl <- sum(pts$n)
@@ -101,8 +128,13 @@ map_layers <- function(xlim, ylim, ratio, srange) {
   list(
     geom_polygon(data = world, aes(long, lat, group = group),
                  fill = "grey92", colour = OCEAN, linewidth = 0.35),
-    geom_point(data = pts, aes(lon, lat, fill = crop, size = n), shape = 21,
+    # Shape, not colour, separates a real locality from a country centroid: a centroid is a
+    # statement about which COUNTRY, drawn at a place nobody sampled, and a reader must not
+    # mistake the diamond in the middle of France for a field site.
+    geom_point(data = pts, aes(lon, lat, fill = crop, size = n, shape = placement),
                stroke = 0, alpha = 0.6),
+    scale_shape_manual(values = c("Geocoded locality" = 21, "Country centroid" = 23),
+                       name = "Placement", drop = FALSE),
     scale_size(transform = "log10", range = srange, breaks = SIZE_BREAKS,
                labels = comma, name = "Samples"),
     scale_fill_manual(values = fills, name = "Crop", drop = FALSE),
@@ -112,8 +144,9 @@ map_layers <- function(xlim, ylim, ratio, srange) {
 
 p_map <- ggplot() +
   map_layers(c(-165, 180), c(-48, 72), 1.35, SIZE_RANGE) +
-  guides(fill = guide_legend(override.aes = list(size = 5), order = 1, ncol = 1),
-         size = guide_legend(override.aes = list(fill = "grey35"), order = 2)) +
+  guides(fill  = guide_legend(override.aes = list(size = 5, shape = 21), order = 1, ncol = 1),
+         shape = guide_legend(override.aes = list(size = 5, fill = "grey35"), order = 2),
+         size  = guide_legend(override.aes = list(fill = "grey35", shape = 21), order = 3)) +
   labs(title = "Distribution of Field Cereal RNA-seq Studies") +
   base +
   theme(axis.title = element_blank(), axis.text = element_blank(),

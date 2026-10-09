@@ -9,38 +9,49 @@ cohort: 7,666 publicly archived samples from 41 BioProjects, each curated to a
 field setting against a quoted sentence in an available manuscript. Colour marks
 the crop throughout.
 
-Map. One point per locality and crop, at coordinates geocoded from the locality
-string; 7,342 samples at 406 localities in 39 countries are shown. Point area is
-proportional to the LOGARITHM of the number of samples at that locality, so a
-larger point indicates more samples but area is not proportional to count; exact
-counts are given in the bars below. Points are semi-transparent, so overlapping
-localities compound into darker patches. Country outlines are drawn in the
-background colour.
+Map. One point per locality and crop. Point area is proportional to the
+LOGARITHM of the number of samples there, so a larger point means more samples
+but area is not proportional to count; exact counts are in the bars below.
+Points are semi-transparent, so overlapping localities compound into darker
+patches. Country outlines are drawn in the background colour.
+
+  Circles (7,342 samples at 406 localities) sit at coordinates geocoded from the
+  locality string recorded for the sample.
+
+  Diamonds (311 samples across 24 countries) sit at the centroid of the largest
+  landmass polygon of their country. These samples name a country and nothing
+  finer, so the diamond states WHICH COUNTRY and is drawn at a place nobody
+  sampled. It is not a collection site and should not be read as one.
 
 Samples per crop (left) and distinct localities per crop (centre). The same
-cohort counted two ways, sharing a category axis; the samples axis is reversed so
-the two run outward from the crop labels. Localities are distinct locality
-strings after geocoding, not sampling points, so repeated sampling of one site
-across seasons counts once.
+cohort counted two ways, sharing a category axis; the samples axis is reversed
+so the two run outward from the crop labels. Localities are distinct locality
+strings finer than a country, so bare-country samples add to the left panel and
+not the centre one, and repeated sampling of one site across seasons counts
+once.
 
 Collection year (right). Samples per year of collection, stacked by crop, over
-2012 to 2024. Based on the 7,417 of 7,666 samples carrying a collection date.
+2012 to 2024, based on the 7,417 of 7,666 samples carrying a collection date.
 Years with no samples are plotted as zero rather than omitted, so a gap in
 collection appears as a gap.
 
 
 WHAT IS NOT SHOWN
 
-324 of the 7,666 samples (4.2%) are absent from the map but present in all three
-lower panels. They are not a geocoding failure:
+13 of the 7,666 samples carry no location at all and are absent from the map
+while remaining in the other three panels: 12 from PRJNA1161467, whose paper
+gives only author affiliations, and 1 orphan run in PRJEB39201.
 
-  311  carry a country and nothing finer, so there is no point to place them at.
-       Mostly United Kingdom (82), France (40), South Africa (35), Denmark (20),
-       Germany (17), Kenya (16), China (14) and Ireland (12). These are the rust
-       surveys, where the submitter recorded the country of origin of an isolate
-       and no collection site.
-   13  have no location recorded at all: 12 from PRJNA1161467, whose paper gives
-       only author affiliations, and 1 orphan run in PRJEB39201.
+The 311 samples drawn at country centroids are not a geocoding failure. They are
+rust surveys, where the submitter recorded the country an isolate came from and
+no collection site, and ENA holds no latitude, longitude or locality field for
+them. Where a finer value existed in a supplement it was already imported: the
+Ada21 projects (PRJEB31334, PRJEB39201, PRJEB15280, PRJEB33109, PRJNA256347) and
+PRJEB36485 take their location from supplementary tables that themselves give
+only a country for these samples. One lead remains open: Lewis et al. 2024
+(10.1111/nph.19864) cites "Dataset S2, All Puccinia graminis isolates used in
+this study" as a separate .xlsx that has not been obtained, and it may carry
+collection sites for PRJEB65589's 53 country-only samples.
 
 Three crops below a 100-sample floor are excluded from every panel: barley (3
 samples), and rye, triticale, oat and the millets together (53). Barley's
@@ -48,21 +59,23 @@ absence is a property of the archive, not of this figure - there is no field
 barley study in the cohort, only incidental barley samples inside wheat rust
 surveys.
 
-Localities are placed at three precisions, recorded per locality in
-data/gold/cereal_localities.tsv: 3,486 samples at a named locality, 3,907 at a
-locality whose research-facility name had to be dropped before it would resolve
-(for example "USA: Nebraska, Lincoln (UNL Havelock Research Farm)" placed as
-Lincoln, Nebraska), and 3 at province level.
+Geocoded localities are placed at three precisions, recorded per locality in
+data/gold/cereal_localities.tsv: 296 localities resolved as given, 108 only
+after a research-facility name was dropped (for example "USA: Nebraska, Lincoln
+(UNL Havelock Research Farm)" placed as Lincoln, Nebraska), and 3 at province
+level.
 
 
 SHORT CAPTION
 
 Distribution of 7,666 field cereal RNA-seq samples from 41 BioProjects, coloured
 by crop. Map: one point per locality and crop, point area proportional to log
-sample count; 7,342 samples at 406 localities in 39 countries, the remaining 324
-carrying no locality finer than a country. Left and centre: the same cohort as
-samples and as distinct localities per crop. Right: samples per year of
-collection, stacked by crop, for the 7,417 samples carrying a date.
+sample count. Circles are 7,342 samples at 406 geocoded localities; diamonds are
+311 samples that name only a country, drawn at its centroid and not at a
+collection site; 13 samples carry no location and are absent. Left and centre:
+the same cohort as samples, and as distinct localities finer than a country.
+Right: samples per year of collection, stacked by crop, for the 7,417 samples
+carrying a date.
 
 
 SOURCES

@@ -76,6 +76,33 @@ def crop_of(host: str) -> str | None:
     return None                      # non-cereal: not plotted, but counted in the subtitle
 
 
+# The same country arrives under several strings, because each came from a different
+# submitter. Left unnormalised these draw two diamonds in the same place: "UK" and "United
+# Kingdom" both appeared in the country-centroid set. "Zimbabwae" is a typo in the submitted
+# BioSample metadata, mapped rather than corrected upstream because the archive string is
+# what the curation records.
+COUNTRY_CANON = {
+    "uk": "United Kingdom", "u.k.": "United Kingdom", "great britain": "United Kingdom",
+    "england": "United Kingdom", "scotland": "United Kingdom", "wales": "United Kingdom",
+    "usa": "USA", "united states": "USA", "united states of america": "USA",
+    "the netherlands": "Netherlands", "czech republic": "Czechia",
+    "zimbabwae": "Zimbabwe", "turkiye": "Turkey",
+}
+
+
+def country_of(loc: str) -> str:
+    """The country named by a location string, or "" if it names something finer.
+
+    Only the bare-country case is wanted here. "USA: Nebraska, Lincoln" is a locality that
+    failed to geocode for some other reason and must not be quietly demoted to a centroid;
+    "United Kingdom" is a country and nothing more, and a centroid is the honest placement.
+    """
+    t = (loc or "").strip().rstrip(".")
+    if not t or ":" in t or "," in t:
+        return ""
+    return COUNTRY_CANON.get(t.lower(), t)
+
+
 def main() -> None:
     for p in (HOSTS, LOCS):
         if not p.exists():
@@ -85,6 +112,8 @@ def main() -> None:
     coords = {r["location"]: r for r in csv.DictReader(LOCS.open(), delimiter="\t")}
 
     cell = collections.defaultdict(lambda: dict(n=0, projects=set(), years=set()))
+    ccell = collections.defaultdict(lambda: dict(n=0, projects=set(), years=set()))
+    nocountry = 0
     tot = collections.Counter(); tot_loc = collections.defaultdict(set)
     tot_proj = collections.defaultdict(set)
     placed = unplaced = noloc = 0
@@ -97,13 +126,34 @@ def main() -> None:
         tot[crop] += 1
         tot_proj[crop].add(r["BioProject"])
         loc = (r["location"] or "").strip()
-        if loc:
+        # A bare country is not a locality. Counting it as one inflated the localities panel
+        # by roughly ten per crop and made "distinct localities" mean two different things
+        # in the same figure.
+        if loc and not country_of(loc):
             tot_loc[crop].add(loc)
         if not loc:
             noloc += 1; noloc_by_crop[crop] += 1; continue
         g = coords.get(loc)
         if not g:
-            unplaced += 1; noloc_by_crop[crop] += 0; continue
+            # No geocoded point, but the string still names a country. Placing these at the
+            # country centroid (leon, 2026-10-09) rather than dropping them: 311 samples,
+            # almost all rust surveys where the submitter recorded the country an isolate
+            # came from and no collection site. The centroid is a fiction about WHERE and
+            # the figure must say so, which is why they carry precision 'country' and are
+            # drawn with a different shape rather than silently joining the real points.
+            unplaced += 1
+            c = country_of(loc)
+            if c:
+                k = (c, crop)
+                cc = ccell[k]
+                cc["n"] += 1
+                cc["projects"].add(r["BioProject"])
+                if r["collection_date"][:4].isdigit():
+                    cc["years"].add(r["collection_date"][:4])
+                cc["country"] = c
+            else:
+                nocountry += 1
+            continue
         placed += 1
         c = cell[(loc, crop)]
         c["n"] += 1
@@ -128,14 +178,27 @@ def main() -> None:
             w.writerow([loc, c["country"], crop, c["n"], c["lat"], c["lon"],
                         c.get("precision", ""), len(c["projects"]),
                         yrs[0] if yrs else "", yrs[-1] if yrs else ""])
+        # Country-centroid rows carry no coordinates; the figure joins them from the map
+        # data so there is one definition of a country's centre.
+        for (ctry, crop), c in sorted(ccell.items(), key=lambda kv: -kv[1]["n"]):
+            if crop not in keep:
+                continue
+            yrs = sorted(c["years"])
+            w.writerow([ctry, ctry, crop, c["n"], "", "", "country", len(c["projects"]),
+                        yrs[0] if yrs else "", yrs[-1] if yrs else ""])
 
     with OUTC.open("w", newline="") as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
-        w.writerow(["crop", "runs", "projects", "localities", "runs_unplaced", "included"])
+        w.writerow(["crop", "runs", "projects", "localities", "runs_country_only",
+                    "runs_unplaced", "included"])
+        country_n = collections.Counter()
+        for (ctry, crop), c in ccell.items():
+            country_n[crop] += c["n"]
         for crop in ORDER:
             if tot[crop]:
                 w.writerow([crop, tot[crop], len(tot_proj[crop]), len(tot_loc[crop]),
-                            noloc_by_crop[crop], "yes" if crop in keep else "no"])
+                            country_n[crop], noloc_by_crop[crop],
+                            "yes" if crop in keep else "no"])
 
     # Year x crop, as a COMPLETE grid. A stacked area chart draws a straight line across a
     # missing year, so a crop absent in 2018 would appear to taper through it rather than
@@ -170,7 +233,9 @@ def main() -> None:
     print(f"wrote {OUT}  ({sum(1 for (l, c) in cell if c in keep)} locality x crop cells)")
     print(f"wrote {OUTC}")
     print(f"  cereal runs: {sum(tot.values()):,} in {len({r['BioProject'] for r in runs if crop_of(r['host'])})} projects")
-    print(f"  plotted {placed:,}   no locality string {noloc:,}   locality not geocoded {unplaced:,}")
+    print(f"  plotted {placed:,} at a geocoded locality   "
+          f"{sum(c['n'] for c in ccell.values()):,} at a country centroid   "
+          f"no locality string {noloc:,}   neither {nocountry:,}")
     prec = collections.Counter()
     for c in cell.values():
         prec[c.get("precision", "?")] += c["n"]

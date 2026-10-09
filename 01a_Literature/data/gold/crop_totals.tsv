@@ -1,7 +1,7 @@
-crop	runs	projects	localities	runs_unplaced	included
-Wheat	1251	16	378	1	yes
-Maize	2511	16	44	12	yes
-Rice	2784	6	6	0	yes
-Sorghum	1120	4	4	0	yes
-Barley	3	2	2	0	no
-Other cereal	53	6	11	0	no
+crop	runs	projects	localities	runs_country_only	runs_unplaced	included
+Wheat	1251	16	353	311	1	yes
+Maize	2511	16	44	0	12	yes
+Rice	2784	6	6	0	0	yes
+Sorghum	1120	4	4	0	0	yes
+Barley	3	2	1	1	0	no
+Other cereal	53	6	10	1	0	no

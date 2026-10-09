@@ -14,10 +14,16 @@
 # "mostly rice". Both panels are present for that reason, and the localities panel exists
 # because it is the only one that shows the difference.
 #
-# Points are NOT scaled by sample count (leon, 2026-10-08: "the bars already do that"). One
-# dot is one locality, so the map answers WHERE and the bars answer HOW MANY, and neither
-# tries to do both. Scaling also made three 500-to-1,400-sample circles swamp the 378
-# single-digit wheat localities that are the point of the panel.
+# Point size is on a LOG scale, not an area scale (leon, 2026-10-09: "much less severe,
+# larger at the bottom smaller at the top"). Sample counts span 1 to 1,396, so area scaling
+# gives a 37-fold radius ratio and three big circles swamp the 378 single-digit wheat
+# localities that are the point of the panel. log10 across a radius range of 1.8 to 7 puts
+# that ratio at under 4: a one-sample locality is still a visible dot and a 1,396-sample one
+# is merely the biggest.
+#
+# The cost, and it belongs in any caption: a log size scale is NOT area-proportional, so a
+# circle twice the area does not mean twice the samples. It is a magnitude cue, not a
+# quantity. The bar panels carry the actual numbers.
 #
 # Europe is inset because 2 of every 3 wheat localities fall inside it and would otherwise be
 # one blob.
@@ -72,7 +78,10 @@ pts <- pts %>% arrange(desc(n))
 # on the map with nothing in the legend to measure it against.
 n_cer <- sum(tot$runs); n_loc <- length(unique(pts$location)); n_pl <- sum(pts$n)
 
-map_layers <- function(xlim, ylim, ratio, psize) {
+SIZE_RANGE <- c(1.8, 7)
+SIZE_BREAKS <- c(1, 10, 100, 1000)
+
+map_layers <- function(xlim, ylim, ratio, srange) {
   list(
     geom_polygon(data = world, aes(long, lat, group = group),
                  fill = "grey94", colour = "grey80", linewidth = 0.3),
@@ -81,19 +90,24 @@ map_layers <- function(xlim, ylim, ratio, psize) {
     # the crop colours stop reading — Europe went black. Use stroke = 0, NOT colour = NA:
     # on ggplot2 4.0.3 a shape-21 point with colour = NA does not lose its border, it
     # disappears entirely, and the first attempt rendered an empty map. The bars keep theirs.
-    geom_point(data = pts, aes(lon, lat, fill = crop), shape = 21, size = psize,
-               stroke = 0, alpha = 0.85),
+    geom_point(data = pts, aes(lon, lat, fill = crop, size = n), shape = 21,
+               stroke = 0, alpha = 0.8),
+    scale_size(transform = "log10", range = srange, breaks = SIZE_BREAKS,
+               labels = comma, name = "Samples"),
     scale_fill_manual(values = fills, name = "Crop", drop = FALSE),
     coord_fixed(ratio, xlim = xlim, ylim = ylim, expand = FALSE)
   )
 }
 
 p_map <- ggplot() +
-  map_layers(c(-165, 180), c(-48, 72), 1.35, 3.1) +
-  guides(fill = guide_legend(override.aes = list(size = 6), ncol = 1)) +
+  map_layers(c(-165, 180), c(-48, 72), 1.35, SIZE_RANGE) +
+  # The size keys need an explicit fill: the points are shape 21 with stroke = 0, so a key
+  # that inherits no fill draws nothing at all and the legend rendered as four bare numbers.
+  guides(fill = guide_legend(override.aes = list(size = 5), order = 1, ncol = 1),
+         size = guide_legend(override.aes = list(fill = "grey35"), order = 2)) +
   labs(title = "Field cereal RNA-seq: where the cohort was collected",
        subtitle = sprintf(
-         "%s of %s field cereal samples, at %d localities in %d countries. One dot is one locality; sample counts are in the bars below.",
+         "%s of %s field cereal samples, at %d localities in %d countries.\nPoint size is LOG sample count: it ranks localities rather than measuring them, and the bars carry the numbers.",
          comma(n_pl), comma(n_cer), n_loc, length(unique(pts$country)))) +
   base +
   theme(axis.title = element_blank(), axis.text = element_blank(),
@@ -107,8 +121,9 @@ eur <- pts %>% filter(lon > -12, lon < 42, lat > 34, lat < 62)
 p_eur <- ggplot() +
   geom_polygon(data = world, aes(long, lat, group = group),
                fill = "grey94", colour = "grey80", linewidth = 0.3) +
-  geom_point(data = eur, aes(lon, lat, fill = crop), shape = 21, size = 2.6,
-             stroke = 0, alpha = 0.85) +
+  geom_point(data = eur, aes(lon, lat, fill = crop, size = n), shape = 21,
+             stroke = 0, alpha = 0.8) +
+  scale_size(transform = "log10", range = SIZE_RANGE, breaks = SIZE_BREAKS, guide = "none") +
   scale_fill_manual(values = fills, drop = FALSE) +
   coord_fixed(1.6, xlim = c(-12, 42), ylim = c(34, 62), expand = FALSE) +
   guides(fill = "none") +

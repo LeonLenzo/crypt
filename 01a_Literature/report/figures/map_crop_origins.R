@@ -149,62 +149,77 @@ p_map <- ggplot() +
          size  = guide_legend(override.aes = list(fill = "grey35", shape = 21), order = 3)) +
   base +
   theme(axis.title = element_blank(), axis.text = element_blank(),
-        panel.grid = element_blank(), legend.position = "right",
-        legend.box = "vertical")
+        panel.grid = element_blank(),
+        # Inside the map, over the empty South Pacific: the right margin now belongs to the
+        # chart column, and a legend there would push the map into a strip.
+        legend.position = "inside", legend.position.inside = c(0.012, 0.30),
+        legend.justification = c(0, 0.5), legend.box = "vertical",
+        legend.background = element_rect(fill = "white", colour = NA),
+        legend.key = element_blank(),
+        legend.title = element_text(size = 14), legend.text = element_text(size = 12),
+        legend.spacing.y = unit(2, "pt"))
 
 # No bar outlines (leon, 2026-10-09): the fills are muted enough to hold their own shape and
 # the black keylines were the last of the primary-school look.
-bar <- function(df, xvar, xlab, reverse = FALSE) {
-  g <- ggplot(df, aes(.data[[xvar]], crop, fill = crop)) +
+#
+# All three panels are horizontal bars reading left to right. The samples axis was reversed
+# while b and c sat side by side back-to-back; stacked down the right-hand column there is
+# nothing to mirror against, so a reversed axis would just be a second direction for a reader
+# to track.
+bar <- function(df, xvar, xlab) {
+  ggplot(df, aes(.data[[xvar]], crop, fill = crop)) +
     geom_col(width = 0.72) +
-    geom_text(aes(label = comma(.data[[xvar]])),
-              hjust = if (reverse) 1.25 else -0.25, size = 4.6, colour = "grey25") +
+    geom_text(aes(label = comma(.data[[xvar]])), hjust = -0.25, size = 4.3,
+              colour = "grey25") +
     scale_fill_manual(values = fills, guide = "none") +
+    scale_x_continuous(expand = expansion(c(0, 0.26)), labels = comma) +
+    scale_y_discrete(limits = rev(ORDER)) +
     labs(x = xlab, y = NULL) +
     base +
     theme(panel.grid.major.y = element_blank(), panel.grid.minor = element_blank())
-  if (reverse) {
-    g + scale_x_reverse(expand = expansion(c(0.24, 0)), labels = comma) +
-        scale_y_discrete(limits = rev(ORDER), position = "right")
-  } else {
-    g + scale_x_continuous(expand = expansion(c(0, 0.24)), labels = comma) +
-        scale_y_discrete(limits = rev(ORDER)) +
-        theme(axis.text.y = element_blank())
-  }
 }
 
-p_runs <- bar(tot, "runs", "Samples", reverse = TRUE)
+p_runs <- bar(tot, "runs", "Samples")
 p_locs <- bar(tot, "localities", "Distinct localities")
 
 # Stacked BARS, not an area (leon, 2026-10-09). Collection year is a discrete count, and an
 # area chart draws a slope between 2015 and 2016 that asserts samples were collected at every
 # instant in between. Nothing was. Bars also let a year with no collection simply be absent
-# instead of a V-shaped notch, which is what the zero-filled grid produced as an area.
-p_year <- ggplot(yr, aes(factor(year), n, fill = crop)) +
-  geom_col(width = 0.78) +
+# instead of a V-shaped notch.
+#
+# Horizontal, like b and c, so all three panels in the column share an orientation and the
+# reader changes axis once rather than three times. Earliest year at the top, so the column
+# reads downward as time moves forward.
+p_year <- ggplot(yr, aes(n, factor(year), fill = crop)) +
+  geom_col(width = 0.76) +
   scale_fill_manual(values = fills, guide = "none") +
-  scale_y_continuous(labels = comma, expand = expansion(c(0, 0.06))) +
-  labs(x = "Collection year", y = "Samples") +
-  base + theme(panel.grid.minor = element_blank(),
-               panel.grid.major.x = element_blank(),
-               axis.text.x = element_text(angle = 45, hjust = 1, size = 13))
+  scale_x_continuous(labels = comma, expand = expansion(c(0, 0.06))) +
+  scale_y_discrete(limits = rev(sort(unique(as.character(yr$year))))) +
+  labs(x = "Samples", y = "Collection year") +
+  base + theme(panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(),
+               axis.text.y = element_text(size = 12))
 
-out <- p_map / (p_runs | p_locs | p_year) +
-  plot_layout(heights = c(2.0, 1.15), widths = c(1, 1, 1.25)) +
+# The right column is assembled FIRST and given its own heights. Written as
+# `p_map | (a / b / c) + plot_layout(...)` the layout applied to the top-level row, which has
+# one row, so the heights were silently ignored and the three charts collapsed into a strip.
+right <- p_runs / p_locs / p_year + plot_layout(heights = c(1, 1, 2.6))
+
+out <- (p_map | right) +
+  plot_layout(widths = c(2.05, 1)) +
   # The title belongs to the FIGURE, not to panel (a): set on the map it collided with the
   # panel tag and rendered as "aDistribution of...".
   plot_annotation(title = "Distribution of Field Cereal RNA-seq Studies",
                   tag_levels = "a",
                   theme = theme(plot.title = element_text(
-                    face = "bold", size = 23, family = "",
-                    margin = margin(b = 14)))) &
+                    face = "bold", size = 23, margin = margin(b = 12)),
+                    plot.background = element_rect(fill = "white", colour = NA))) &
   theme(plot.tag = element_text(face = "bold", size = 19),
         plot.tag.position = c(0, 1))
 
-agg_png(file.path(here, "report/figures/map_crop_origins.png"), width = 17, height = 11.5,
+agg_png(file.path(here, "report/figures/map_crop_origins.png"), width = 18, height = 7.6,
         units = "in", res = 300, background = "white")
 print(out); invisible(dev.off())
-cairo_pdf(file.path(here, "report/figures/map_crop_origins.pdf"), width = 17, height = 11.5)
+cairo_pdf(file.path(here, "report/figures/map_crop_origins.pdf"), width = 18, height = 7.6)
 print(out); invisible(dev.off())
 cat("wrote report/figures/map_crop_origins.{png,pdf}\n")
 cat(sprintf("  %d points, %s of %s samples placed, %d localities\n",

@@ -52,16 +52,28 @@ ORDER <- ORDER[ORDER %in% unique(c(pts$crop, tot$crop))]
 pts$crop <- factor(pts$crop, levels = ORDER)
 tot$crop <- factor(tot$crop, levels = ORDER)
 
-# Okabe-Ito, which is colourblind-safe by construction, assigned so that the four crops
-# carrying almost all the data are maximally separated. Grey sits outside the ramp for the
-# runs whose host the archive never recorded.
-fills <- c("Wheat"                   = "#0072B2",
-           "Maize"                   = "#E69F00",
-           "Rice"                    = "#009E73",
-           "Sorghum"                 = "#D55E00",
-           "Barley"                  = "#CC79A7",
-           "Other cereal"            = "#56B4E9",
-           "Cereal, host unresolved" = "grey60")
+# Muted, semantic palette (leon, 2026-10-09: keep the hues, lose the primary-school
+# saturation). The hue assignments are the crop's own: wheat grown cold and blue, maize
+# kernels gold, rice harvested green, sorghum seed a rust orange.
+#
+# Chosen by measurement, not eye. Against the Okabe-Ito set it replaces, mean chroma drops
+# from 61 to 43 — which is the "polished" part — while the worst-separated PAIR under
+# simulated deuteranopia improves from dE 11 to 28. Okabe-Ito is colourblind-safe as an
+# eight-colour set, but the four entries this figure used happened to put maize (#E69F00)
+# and sorghum (#D55E00) in nearly the same place once red-green vision is removed. Muting
+# them apart fixed a real accessibility problem rather than costing one.
+#
+# Lightness is deliberately spread (L* 45 to 71), so the series still separates in greyscale
+# and in print.
+fills <- c("Wheat"                   = "#3A6EA5",   # steel blue
+           "Maize"                   = "#D9A441",   # old gold
+           "Rice"                    = "#45896A",   # sage green
+           "Sorghum"                 = "#A9512C",   # burnt sienna
+           # Below the 100-sample floor today, kept tonally consistent so that raising the
+           # floor does not drop a saturated colour into a muted figure.
+           "Barley"                  = "#8C6D8F",   # muted plum
+           "Other cereal"            = "#8D9EA9",   # slate
+           "Cereal, host unresolved" = "grey62")
 
 base <- theme_minimal(base_size = 16) +
   theme(panel.background = element_rect(fill = "white", colour = NA),

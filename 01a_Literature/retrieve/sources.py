@@ -136,9 +136,14 @@ def resolve(arg: str) -> tuple[str, Path | None]:
         # SOURCE.txt (a three-line provenance note) and often the original PDF; sorting by
         # name picked SOURCE.txt and handed back 170 characters in place of a 90,000-
         # character extraction.
+        # Whitelist the readable extensions, do not blacklist the unreadable ones. Excluding
+        # .pdf and .yaml was not enough: a study directory also holds the supplementary
+        # spreadsheets, and a 2 MB Data_Sheet_2.XLSX beat the real full text on size and
+        # returned two megabytes of zip binary as the paper.
+        TEXTY = {".txt", ".xml", ".html", ".htm", ".json", ".md", ""}
         hits = sorted((f for f in (STUDIES / ("doi_" + arg.replace("/", "_"))).glob("*")
-                       if f.is_file() and f.suffix not in {".pdf", ".yaml"}
-                       and f.name not in {"SOURCE.txt", "NAMING.txt", "adapter.yaml"}),
+                       if f.is_file() and f.suffix.lower() in TEXTY
+                       and f.name not in {"SOURCE.txt", "NAMING.txt"}),
                       key=lambda f: -f.stat().st_size)
         # A copy under studies/ beats the cache whenever it holds MORE text. Testing only
         # is_capped() was not enough: for a paywalled paper the cache holds an abstract, a

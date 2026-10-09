@@ -85,14 +85,28 @@ OCEAN <- "white"      # also the internal border colour; see map_layers
 # Lines, ticks and text are all black so the axis reads as one object (leon, 2026-10-09).
 # theme_minimal sets axis text to grey30, so the text is set here too rather than leaving
 # black rules against grey numerals.
-# Two breaks, zero and the next round number down from the maximum. pretty() still returned
-# four in a square panel, which collided into "01,00020003000" in the composite even though
-# it read fine in the 5x5 standalone panel.
-two_breaks <- function(x) {
-  m <- max(x, na.rm = TRUE)
-  u <- 10 ^ floor(log10(m))
-  c(0, floor(m / u) * u)
+# Axis values carried in the TITLE rather than the labels (leon, 2026-10-09). Writing
+# "Samples (x1,000)" and labelling 0 1 2 3 does two things at once: the last label stops
+# clipping at the panel edge, which "3,000" did at every margin tried, and single digits are
+# narrow enough to afford four breaks where full numbers only afforded two.
+#
+# The upper limit is rounded UP to a whole unit so the top break always exists; left to the
+# data, 2,784 gives an upper bound of 2,896 and ggplot silently drops the 3,000 break.
+scaled_lim <- function(unit) {
+  # The LIMIT has to be rounded up too, not just the breaks. Rounding only the breaks puts
+  # the top one outside the data-driven range and ggplot drops it silently: b showed 0 1 2
+  # with the axis line running on past 2 and no 3.
+  # Strictly ABOVE the largest bar, never equal to it (leon, 2026-10-09: otherwise the
+  # charts look funny). ceiling() alone returns the max itself when the data land exactly
+  # on a unit boundary, which puts the final tick under the end of the longest bar and
+  # leaves the axis looking truncated.
+  function(l) {
+    m <- max(l, na.rm = TRUE)
+    c(0, (floor(m / unit) + 1) * unit)
+  }
 }
+scaled_x <- function(unit) function(x) seq(0, max(x, na.rm = TRUE), by = unit)
+scaled_lab <- function(unit) function(b) format(b / unit, trim = TRUE)
 
 axes <- theme(panel.grid = element_blank(),
               axis.line = element_line(colour = "black", linewidth = 0.6),
@@ -200,24 +214,20 @@ p_map <- ggplot() +
 # while b and c sat side by side back-to-back; stacked down the right-hand column there is
 # nothing to mirror against, so a reversed axis would just be a second direction for a reader
 # to track.
-bar <- function(df, xvar, xlab) {
+bar <- function(df, xvar, xlab, unit) {
   ggplot(df, aes(.data[[xvar]], crop, fill = crop)) +
     geom_col(width = 0.72) +
     scale_fill_manual(values = fills, guide = "none") +
-    # No x axis on b and c. Every bar carries its exact count, so the axis was repeating
-    # the labels; in a square panel the two together collided into "01,00020003000" and
-    # truncated the values to "2,". The axis TITLE stays, because it is what names the
-    # quantity.
-    # 0.34 was not enough headroom: the label sits outside the bar, and in a square panel
-    # "2,784" is wider than the space left past the longest bar, so it clipped to "2,".
-    scale_x_continuous(expand = expansion(c(0, 0.08)), labels = comma) +
+    # Magnitude lives in the axis title, not the labels. See scaled_x above.
+    scale_x_continuous(limits = scaled_lim(unit), expand = expansion(c(0, 0.01)),
+                       breaks = scaled_x(unit), labels = scaled_lab(unit)) +
     scale_y_discrete(limits = rev(ORDER)) +
     labs(x = xlab, y = NULL) +
     base + axes
 }
 
-p_runs <- bar(tot, "runs", "Samples")
-p_locs <- bar(tot, "localities", "Distinct localities")
+p_runs <- bar(tot, "runs",       "Samples (\u00d71,000)",    1000)
+p_locs <- bar(tot, "localities", "Localities (\u00d7100)",    100)
 
 # Stacked BARS, not an area (leon, 2026-10-09). Collection year is a discrete count, and an
 # area chart draws a slope between 2015 and 2016 that asserts samples were collected at every
@@ -230,13 +240,13 @@ p_locs <- bar(tot, "localities", "Distinct localities")
 p_year <- ggplot(yr, aes(n, factor(year), fill = crop)) +
   geom_col(width = 0.76) +
   scale_fill_manual(values = fills, guide = "none") +
-  scale_x_continuous(labels = comma, expand = expansion(c(0, 0.04)),
-                     breaks = function(x) pretty(x, 3)) +
-  # Every second year is labelled; all 13 bars are still drawn. Thirteen labels in a square
-  # panel collide, and the gap between pulses is legible from the bars themselves.
+  scale_x_continuous(limits = scaled_lim(1000), expand = expansion(c(0, 0.01)),
+                     breaks = scaled_x(1000), labels = scaled_lab(1000)) +
+  # First and last year only (leon, 2026-10-09). The axis exists to give the RANGE; the
+  # shape of the distribution is in the bars, and 13 labels in a 3-inch panel crowd it.
   scale_y_discrete(limits = rev(sort(unique(as.character(yr$year)))),
-                   breaks = function(x) x[seq(length(x), 1, by = -2)]) +
-  labs(x = "Samples", y = "Collection year") +
+                   breaks = function(x) x[c(1, length(x))]) +
+  labs(x = "Samples (\u00d71,000)", y = "Year") +
   base + axes + theme(axis.text.y = element_text(size = 12))
 
 # Four separate files, no composite (leon, 2026-10-09). Assembling the panels here was

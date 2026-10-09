@@ -30,12 +30,16 @@ patches. Country outlines are drawn in the background colour.
   as one.
 
 (b) Samples per crop and (c) distinct localities per crop. The same cohort
-counted two ways. Localities are distinct locality strings finer than a country,
+counted two ways. Axis values are scaled by the factor given in the axis title,
+so a label of 3 in (b) is 3,000 samples and a label of 3 in (c) is 300
+localities. Localities are distinct locality strings finer than a country,
 so bare-country samples add to (b) and not to (c), and repeated sampling of one
 site across seasons counts once.
 
-(d) Collection year. Samples per year of collection, stacked by crop, over 2012
-to 2024, based on the 7,417 of 7,666 samples carrying a collection date. Bars
+(d) Year. Samples per year of collection, stacked by crop, over 2012 to 2024.
+Only the first and last year are labelled, to give the range; every year in
+between has its own bar. Based on the 7,417 of 7,666 samples carrying a
+collection date. Bars
 rather than a continuous series, because year here is a discrete count: an area
 or line would draw a slope between 2015 and 2016 asserting collection at every
 instant in between, and none occurred. Every year in the range has a position on

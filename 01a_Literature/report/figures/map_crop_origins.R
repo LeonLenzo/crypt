@@ -205,7 +205,7 @@ p_year <- ggplot(yr, aes(n, factor(year), fill = crop)) +
 right <- p_runs / p_locs / p_year + plot_layout(heights = c(1, 1, 2.6))
 
 out <- (p_map | right) +
-  plot_layout(widths = c(2.05, 1)) +
+  plot_layout(widths = c(2.8, 1)) +
   # The title belongs to the FIGURE, not to panel (a): set on the map it collided with the
   # panel tag and rendered as "aDistribution of...".
   plot_annotation(title = "Distribution of Field Cereal RNA-seq Studies",
@@ -216,10 +216,10 @@ out <- (p_map | right) +
   theme(plot.tag = element_text(face = "bold", size = 19),
         plot.tag.position = c(0, 1))
 
-agg_png(file.path(here, "report/figures/map_crop_origins.png"), width = 18, height = 7.6,
+agg_png(file.path(here, "report/figures/map_crop_origins.png"), width = 17, height = 6.9,
         units = "in", res = 300, background = "white")
 print(out); invisible(dev.off())
-cairo_pdf(file.path(here, "report/figures/map_crop_origins.pdf"), width = 18, height = 7.6)
+cairo_pdf(file.path(here, "report/figures/map_crop_origins.pdf"), width = 17, height = 6.9)
 print(out); invisible(dev.off())
 cat("wrote report/figures/map_crop_origins.{png,pdf}\n")
 cat(sprintf("  %d points, %s of %s samples placed, %d localities\n",

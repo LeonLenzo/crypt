@@ -83,6 +83,31 @@ fills <- c("Wheat"                   = "#3A6EA5",   # steel blue
 
 OCEAN <- "white"      # also the internal border colour; see map_layers
 
+# Chart panels carry drawn axes rather than gridlines (leon, 2026-10-09). theme_minimal has
+# no axis lines at all, so they have to be added back explicitly; the grid is removed in the
+# same block so the two can never both be on.
+# Lines, ticks and text are all black so the axis reads as one object (leon, 2026-10-09).
+# theme_minimal sets axis text to grey30, so the text is set here too rather than leaving
+# black rules against grey numerals.
+# Two breaks, zero and the next round number down from the maximum. pretty() still returned
+# four in a square panel, which collided into "01,00020003000" in the composite even though
+# it read fine in the 5x5 standalone panel.
+two_breaks <- function(x) {
+  m <- max(x, na.rm = TRUE)
+  u <- 10 ^ floor(log10(m))
+  c(0, floor(m / u) * u)
+}
+
+axes <- theme(panel.grid = element_blank(),
+              axis.line = element_line(colour = "black", linewidth = 0.6),
+              axis.ticks = element_line(colour = "black", linewidth = 0.6),
+              axis.text = element_text(colour = "black"),
+              axis.title = element_text(colour = "black"),
+              axis.ticks.length = unit(4, "pt"),
+              # The last x-axis label sits at the panel edge and is half a label wide, so
+              # without a right margin "3,000" renders as "3,00".
+              plot.margin = margin(6, 16, 6, 6))
+
 base <- theme_minimal(base_size = 16) +
   theme(panel.background = element_rect(fill = "white", colour = NA),
         plot.background  = element_rect(fill = "white", colour = NA),
@@ -177,15 +202,6 @@ p_map <- ggplot() +
 bar <- function(df, xvar, xlab) {
   ggplot(df, aes(.data[[xvar]], crop, fill = crop)) +
     geom_col(width = 0.72) +
-    # Label INSIDE the bar when the bar is long enough to hold it, outside when it is not.
-    # Placing every label outside and buying room with scale expansion cannot be tuned
-    # reliably: expansion is in data units, the text is a fixed point size, and in a square
-    # panel "2,784" overran the panel edge and clipped to "2,78" at every expansion tried.
-    geom_text(aes(label = comma(.data[[xvar]]),
-                  hjust = ifelse(.data[[xvar]] > 0.45 * max(.data[[xvar]]), 1.18, -0.22),
-                  colour = .data[[xvar]] > 0.45 * max(.data[[xvar]])),
-              size = 4.0, show.legend = FALSE) +
-    scale_colour_manual(values = c("FALSE" = "grey25", "TRUE" = "white"), guide = "none") +
     scale_fill_manual(values = fills, guide = "none") +
     # No x axis on b and c. Every bar carries its exact count, so the axis was repeating
     # the labels; in a square panel the two together collided into "01,00020003000" and
@@ -196,10 +212,7 @@ bar <- function(df, xvar, xlab) {
     scale_x_continuous(expand = expansion(c(0, 0.08)), labels = comma) +
     scale_y_discrete(limits = rev(ORDER)) +
     labs(x = xlab, y = NULL) +
-    base +
-    theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-          axis.text.x = element_blank(), axis.ticks.x = element_blank(),
-          aspect.ratio = 1)
+    base + axes + theme(aspect.ratio = 1)
 }
 
 p_runs <- bar(tot, "runs", "Samples")
@@ -216,14 +229,14 @@ p_locs <- bar(tot, "localities", "Distinct localities")
 p_year <- ggplot(yr, aes(n, factor(year), fill = crop)) +
   geom_col(width = 0.76) +
   scale_fill_manual(values = fills, guide = "none") +
-  scale_x_continuous(labels = comma, expand = expansion(c(0, 0.06)), n.breaks = 4) +
+  scale_x_continuous(labels = comma, expand = expansion(c(0, 0.04)),
+                     breaks = function(x) pretty(x, 3)) +
   # Every second year is labelled; all 13 bars are still drawn. Thirteen labels in a square
   # panel collide, and the gap between pulses is legible from the bars themselves.
   scale_y_discrete(limits = rev(sort(unique(as.character(yr$year)))),
                    breaks = function(x) x[seq(length(x), 1, by = -2)]) +
   labs(x = "Samples", y = "Collection year") +
-  base + theme(panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(),
-               axis.text.y = element_text(size = 12), aspect.ratio = 1)
+  base + axes + theme(axis.text.y = element_text(size = 12), aspect.ratio = 1)
 
 # The right column is assembled FIRST and given its own heights. Written as
 # `p_map | (a / b / c) + plot_layout(...)` the layout applied to the top-level row, which has

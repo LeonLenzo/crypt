@@ -39,12 +39,11 @@ site across seasons counts once.
 (d) Year. Samples per year of collection, stacked by crop, over 2012 to 2024.
 Only the first and last year are labelled, to give the range; every year in
 between has its own bar. Based on the 7,417 of 7,666 samples carrying a
-collection date. Bars
-rather than a continuous series, because year here is a discrete count: an area
-or line would draw a slope between 2015 and 2016 asserting collection at every
-instant in between, and none occurred. Every year in the range has a position on
-the axis, so a year with no collection reads as an absent bar rather than being
-skipped.
+collection date. Bars rather than a continuous series, because year here is a
+discrete count: an area or line would draw a slope between 2015 and 2016
+asserting collection at every instant in between, and none occurred. Every year
+in the range has a position on the axis, so a year with no collection reads as
+an absent bar rather than being skipped.
 
 
 WHAT IS NOT SHOWN

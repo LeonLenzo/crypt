@@ -140,15 +140,22 @@ Slovakia: Vígľaš-Pstruša	Slovakia	Wheat	2	48.5463519	19.3181238	locality	1	2
 Chile: StaRosa Chillán	Chile	Wheat	2	-36.5270956	-71.9099573	corrected-medium	1	2014	2014
 Ethiopia: Hadya Lemo Dicho Demala	Ethiopia	Wheat	2	7.68333	37.96667	corrected-low	1	2017	2017
 Ethiopia: Silt'e	Ethiopia	Wheat	2	7.7465759	38.1553903	locality	1	2017	2017
+Ethiopia: Weliso Kora	Ethiopia	Wheat	2	8.5388595	37.9761854	corrected-high	1	2017	2017
 Ethiopia: Shinshihco	Ethiopia	Wheat	2	7.2061627	37.7768912	corrected-low	1	2017	2017
+Ethiopia: Danbora Amancho Boganeos	Ethiopia	Wheat	2	7.3140072	37.8585966	corrected-low	1	2017	2017
 Ethiopia: Silti Wereda Danicho Azoro	Ethiopia	Wheat	2	7.96667	38.28333	corrected-low	1	2017	2017
 Ethiopia: Tiya	Ethiopia	Wheat	2	8.437331	38.609296	locality	1	2017	2017
-Ethiopia: Aleltu Fiche Gelila	Ethiopia	Wheat	2	8.465268	38.2538756	corrected-low	1	2017	2017
-Ethiopia: Aleltu Chole Shenkole	Ethiopia	Wheat	2	8.465268	38.2538756	corrected-low	1	2017	2017
+Ethiopia: Wilting Woreda	Ethiopia	Wheat	2	7.7465759	38.1553903	corrected-low	1	2017	2017
+Ethiopia: Bilalo	Ethiopia	Wheat	2	7.3955578	39.2319712	corrected-low	1	2017	2017
+Ethiopia: Aleltu Fiche Gelila	Ethiopia	Wheat	2	9.1975556	39.1522681	corrected-medium	1	2017	2017
+Ethiopia: Aleltu Chole Shenkole	Ethiopia	Wheat	2	9.1975556	39.1522681	corrected-medium	1	2017	2017
 Ethiopia: Ch'aso	Ethiopia	Wheat	2	9.95	39.21667	locality	1	2017	2017
+Ethiopia: Lay Gayint 08 Wuha Midir	Ethiopia	Wheat	2	11.7386293	38.4727454	corrected-low	1	2017	2017
+Ethiopia: Absila	Ethiopia	Wheat	2	11.2519242	36.7044862	corrected-low	1	2017	2017
 Ethiopia: Kuyu Liben Kura	Ethiopia	Wheat	2	9.86667	38.35	corrected-low	1	2017	2017
 Ethiopia: Dinsho Abakera Zalo	Ethiopia	Wheat	2	7.108213	39.780153	corrected-low	1	2017	2017
 Ethiopia: Sinana Kabira Shaya	Ethiopia	Wheat	2	7.08333	40.2	corrected-low	1	2017	2017
+Ethiopia: Selka	Ethiopia	Wheat	2	7.08333	40.2	corrected-low	1	2017	2017
 Canada: Lacombe	Canada	Wheat	2	52.4727515	-113.733215	locality	1	2015	2015
 South Africa: Napier	South Africa	Wheat	2	-34.474722	19.898056	locality	1	2016	2016
 Sweden: Sandby	Sweden	Wheat	2	55.7101291	13.3703269	locality	1	2017	2017
@@ -416,7 +423,6 @@ USA: Iowa (42.921, -91.920)	USA	Maize	1	42.0560012	-92.8970154	locality	1
 United Kingdom	United Kingdom	Wheat	68			country	7	2013	2022
 France	France	Wheat	32			country	6	2014	2020
 South Africa	South Africa	Wheat	30			country	2	1981	2015
-Ethiopia	Ethiopia	Wheat	21			country	3	2015	2017
 Denmark	Denmark	Wheat	20			country	2	2017	2021
 Kenya	Kenya	Wheat	17			country	2	2014	2017
 Germany	Germany	Wheat	15			country	4	2014	2017
@@ -425,6 +431,7 @@ Ireland	Ireland	Wheat	12			country	1	2020	2020
 Poland	Poland	Wheat	11			country	2	2014	2018
 Turkey	Turkey	Wheat	10			country	2	2014	2018
 Belgium	Belgium	Wheat	9			country	2	2017	2021
+Ethiopia	Ethiopia	Wheat	7			country	3	2015	2017
 Argentina	Argentina	Wheat	7			country	1	2018	2019
 Australia	Australia	Wheat	5			country	2	2012	2015
 Netherlands	Netherlands	Wheat	5			country	2	2017	2018

@@ -167,23 +167,23 @@ Slovakia: Vígľaš-Pstruša	Slovakia	2	48.5463519	19.3181238	locality	Vígľaš
 Chile: StaRosa Chillán	Chile	2	-36.5270956	-71.9099573	corrected-medium	Santa Rosa, Chillán, Chile	Santa Rosa, Chillán, Provincia de Diguillín, Nuble Region, Chile
 Ethiopia: Hadya Lemo Dicho Demala	Ethiopia	2	7.68333	37.96667	corrected-low	Lemo, Ethiopia	Lemo Bota, Hadiya, Central Ethiopia Regional State, Ethiopia
 Ethiopia: Silt'e	Ethiopia	2	7.7465759	38.1553903	locality	Silt'e, Ethiopia	Silt'e, Central Ethiopia Regional State, Ethiopia
-Ethiopia: Weliso Kora	Ethiopia	2	10.2116702	38.6521203	country	Ethiopia	Ethiopia
+Ethiopia: Weliso Kora	Ethiopia	2	8.5388595	37.9761854	corrected-high	Waliso, Ethiopia	Waliso, South West Shewa, Oromia Region, Ethiopia
 Ethiopia: Shinshihco	Ethiopia	2	7.2061627	37.7768912	corrected-low	Shinshicho, Ethiopia	Shinshicho, Kembata, Central Ethiopia Regional State, Ethiopia
-Ethiopia: Danbora Amancho Boganeos	Ethiopia	2	10.2116702	38.6521203	country	Ethiopia	Ethiopia
+Ethiopia: Danbora Amancho Boganeos	Ethiopia	2	7.3140072	37.8585966	corrected-low	Kembata, Ethiopia	Kembata, Central Ethiopia Regional State, Ethiopia
 Ethiopia: Silti Wereda Danicho Azoro	Ethiopia	2	7.96667	38.28333	corrected-low	Silti, Ethiopia	Silti, Silt'e, Central Ethiopia Regional State, Ethiopia
 Ethiopia: Tiya	Ethiopia	2	8.437331	38.609296	locality	Tiya, Ethiopia	Tiya, South West Shewa, Oromia Region, Ethiopia
-Ethiopia: Wilting Woreda	Ethiopia	2	10.2116702	38.6521203	country	Ethiopia	Ethiopia
-Ethiopia: Bilalo	Ethiopia	2	10.2116702	38.6521203	country	Ethiopia	Ethiopia
-Ethiopia: Aleltu Fiche Gelila	Ethiopia	2	8.465268	38.2538756	corrected-low	Aleltu, Ethiopia	Aleltu, South West Shewa, Oromia Region, Ethiopia
-Ethiopia: Aleltu Chole Shenkole	Ethiopia	2	8.465268	38.2538756	corrected-low	Aleltu, Ethiopia	Aleltu, South West Shewa, Oromia Region, Ethiopia
+Ethiopia: Wilting Woreda	Ethiopia	2	7.7465759	38.1553903	corrected-low	Silt'e, Ethiopia	Silt'e, Central Ethiopia Regional State, Ethiopia
+Ethiopia: Bilalo	Ethiopia	2	7.3955578	39.2319712	corrected-low	Bilbilo, Arsi, Ethiopia	Limu Bilbilo, Arsi, Oromia Region, Ethiopia
+Ethiopia: Aleltu Fiche Gelila	Ethiopia	2	9.1975556	39.1522681	corrected-medium	Aleltu, North Shewa, Ethiopia	Aleltu, North Shewa (Oromia Region), Oromia Region, Ethiopia
+Ethiopia: Aleltu Chole Shenkole	Ethiopia	2	9.1975556	39.1522681	corrected-medium	Aleltu, North Shewa, Ethiopia	Aleltu, North Shewa (Oromia Region), Oromia Region, Ethiopia
 Ethiopia: Ch'aso	Ethiopia	2	9.95	39.21667	locality	Ch'aso, Ethiopia	Ch'Aso, North Shewa (Amhara Region), Amhara Region, Ethiopia
-Ethiopia: Lay Gayint 08 Wuha Midir	Ethiopia	2	10.2116702	38.6521203	country	Ethiopia	Ethiopia
-Ethiopia: Lay Gayint Kebele 07	Ethiopia	2	10.2116702	38.6521203	country	Ethiopia	Ethiopia
-Ethiopia: Absila	Ethiopia	2	10.2116702	38.6521203	country	Ethiopia	Ethiopia
+Ethiopia: Lay Gayint 08 Wuha Midir	Ethiopia	2	11.7386293	38.4727454	corrected-low	Nefas Mewcha, Ethiopia	Nefas Meewcha, South Gonder, Amhara Region, Ethiopia
+Ethiopia: Lay Gayint Kebele 07	Ethiopia	2	11.7386293	38.4727454	corrected-low	Nefas Mewcha, Ethiopia	Nefas Meewcha, South Gonder, Amhara Region, Ethiopia
+Ethiopia: Absila	Ethiopia	2	11.2519242	36.7044862	corrected-low	Awi, Amhara, Ethiopia	Awi Agew, Amhara Region, Ethiopia
 Ethiopia: Kuyu Liben Kura	Ethiopia	2	9.86667	38.35	corrected-low	Kuyu, Ethiopia	Kuyu, North Shewa (Oromia Region), Oromia Region, Ethiopia
 Ethiopia: Dinsho Abakera Zalo	Ethiopia	2	7.108213	39.780153	corrected-low	Dinsho, Ethiopia	Dinsho, Bale, Oromia Region, Ethiopia
 Ethiopia: Sinana Kabira Shaya	Ethiopia	2	7.08333	40.2	corrected-low	Sinana, Ethiopia	Sinana, Bale, Oromia Region, Ethiopia
-Ethiopia: Selka	Ethiopia	2	10.2116702	38.6521203	country	Ethiopia	Ethiopia
+Ethiopia: Selka	Ethiopia	2	7.08333	40.2	corrected-low	Sinana, Ethiopia	Sinana, Bale, Oromia Region, Ethiopia
 Canada: Lacombe	Canada	2	52.4727515	-113.733215	locality	Lacombe, Canada	City of Lacombe, Alberta, Canada
 South Africa: Napier	South Africa	2	-34.474722	19.898056	locality	Napier, South Africa	Napier, Cape Agulhas Local Municipality, Overberg District Municipality, Western Cape, 727
 Sweden: Sandby	Sweden	2	55.7101291	13.3703269	locality	Sandby, Sweden	Sandby, Södra Sandby, Lund Municipality, Skåne County, 247 33, Sweden

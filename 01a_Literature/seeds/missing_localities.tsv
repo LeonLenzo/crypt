@@ -30,25 +30,25 @@ Ethiopia: Sinana Kabira	Sinana	low	too-fine	Kabira is a kebele within Sinana wor
 Ethiopia: Sinana Kabira Shaya	Sinana	low	too-fine	As above with a further sub-locality.
 Ethiopia: Gurage Zone	Gurage	medium	admin-unit	A zone, not a settlement. Zone-level placement is the honest resolution.
 Ethiopia: Silti Wereda Danicho Azoro	Silti	low	too-fine	Wereda is woreda. Danicho Azoro is a kebele within Silti woreda, Gurage.
-Ethiopia: Lay Gayint Kebele 07	Lay Gayint	low	too-fine	Numbered kebele within Lay Gayint woreda, South Gondar.
-Ethiopia: Lay Gayint 08 Wuha Midir	Lay Gayint	low	too-fine	As above.
+Ethiopia: Lay Gayint Kebele 07	Nefas Mewcha	low	too-fine	Numbered kebele within Lay Gayint woreda, South Gondar. OSM has no Lay Gayint, so the query is Nefas Mewcha, the woreda town. Was silently sitting on the country centroid.
+Ethiopia: Lay Gayint 08 Wuha Midir	Nefas Mewcha	low	too-fine	As above.
 Ethiopia: Hadya Lemo Dicho Demala	Lemo	low	too-fine	Lemo woreda, Hadiya zone. Dicho Demala is a kebele.
 Ethiopia: Limo Lereba Roma	Lemo	low	too-fine	Limo is a variant of Lemo, same woreda in Hadiya.
-Ethiopia: Aleltu Fiche Gelila	Aleltu	low	too-fine	Aleltu woreda, North Shewa. Fiche is a separate town, so this string may name a route rather than one site.
-Ethiopia: Aleltu Chole Shenkole	Aleltu	low	too-fine	As above.
+Ethiopia: Aleltu Fiche Gelila	Aleltu, North Shewa	medium	too-fine	CORRECTED 2026-10-12. Bare 'Aleltu' matched a South West Shewa Aleltu at 8.47 N 38.25 E, but Fiche is the North Shewa (Oromia) zone capital and the next day's stop, Ch'aso, is 9.95 N 39.22 E. North Shewa Aleltu at 9.20 N 39.15 E is ~100 km from the point we were using.
+Ethiopia: Aleltu Chole Shenkole	Aleltu, North Shewa	medium	too-fine	As above.
 Ethiopia: Kuyu Liben Kura	Kuyu	low	too-fine	Kuyu woreda, North Shewa.
 Ethiopia: Dinsho Abakera Zalo	Dinsho	low	too-fine	Dinsho woreda, Bale.
-Ethiopia: Weliso Kora	Woliso	low	typo	Weliso is a transliteration of Woliso, a town in South West Shewa. Kora is a kebele.
-Ethiopia: Ilu kobo		low	unresolved	Withdrawn. 'Ilu' resolved to a place near Addis Ababa, but Ilu Aba Bora is a zone 500 km west and the string may mean either. Too ambiguous to place.
+Ethiopia: Weliso Kora	Waliso	high	typo	Woliso in South West Shewa; Kora is a kebele. 'Woliso' returns an OSM amenity and is correctly rejected by the class guard, so the query is the OSM spelling Waliso. Itinerary: the Ada21 table's collection dates reconstruct the survey route, and a day's stops are always within one drive of each other. 11 Oct also has Gurage, Lemo and Silt'e, and Waliso is on that same road out of Addis.
+Ethiopia: Ilu kobo			unresolved	REVERTED 2026-10-12. Kobo in North Wollo is wrong. All four other samples dated 2017-10-11 (Gurage Zone, Hadya Lemo, Silt'e, Weliso Kora) sit at 7.7-8.2 N; Kobo is 12.15 N, 450 km north, unreachable on one survey day. The table also names places general to specific (Silti Wereda Danicho Azoro, Kuyu Liben Kura), so this is woreda 'Ilu' plus kebele 'kobo', not a qualifier on Kobo. Ilu woreda in the Oromia Special Zone fits the 11 Oct cluster but is not in OSM under any query tried.
 Ethiopia: Shinshihco	Shinshicho	low	typo	Town in Kembata Tembaro, Southern Ethiopia. Transliteration variant.
-Ethiopia: Bilalo	Bilalo	low	too-fine	Correctly spelled kebele in Arsi; probably below OSM coverage.
-Ethiopia: Absila			unresolved	Not identified. No confident match in Ethiopia.
-Ethiopia: Selka			unresolved	Not identified; too short and too common a fragment to guess.
-Ethiopia: Danbora Amancho Boganeos			unresolved	Three concatenated sub-locality names; no confident parse.
-Ethiopia: Wilting Woreda			unresolved	Wilting is not an Ethiopian woreda name and may be a data-entry error for a symptom note.
-Ethiopia: Kasowera			unresolved	Not identified.
-Ethiopia: Mekana			unresolved	Not identified; possibly Mekane Selam or Mekelle but neither is close enough to assert.
-Ethiopia: Adigulo AS			unresolved	AS is probably a station suffix; Adigulo not identified.
+Ethiopia: Bilalo	Bilbilo, Arsi	low	too-fine	Arsi is confirmed by itinerary: same day, 15 Oct, as Arsi Robe (7.69 N 39.76 E). No OSM Bilalo at any qualification. Limu Bilbilo is the only Arsi administrative unit of that name (7.40 N 39.23 E, and Bekoji, already in this cohort, is its town). PROPOSAL: Bilalo may be a kebele that merely sounds like Bilbilo. Drop to the zone if that reading is wrong.
+Ethiopia: Absila	Awi, Amhara	low	admin-unit	Awi Zone, north west Amhara, per a Google AI Overview citing ResearchGate; no search of mine corroborated it and OSM has no Absila anywhere in Ethiopia. Itinerary: the Ada21 table's collection dates reconstruct the survey route, and a day's stops are always within one drive of each other. 23 Oct Lay Gayint (South Gondar), 25 Oct Kuyu (North Shewa), and Awi sits on the Bahir Dar to Debre Markos highway between them. Consistency is not selection, so treat this as the zone.
+Ethiopia: Selka	Sinana	low	itinerary	Itinerary: the Ada21 table's collection dates reconstruct the survey route, and a day's stops are always within one drive of each other. Same day, 9 Nov, as Sinana Kabira (7.08 N 40.20 E) and Sinana RS (7.12 N 40.01 E), 21 km apart, and 8 and 10 Nov are the same Bale cluster. Tightest bracket in the table. No OSM match for Selka at any qualification, so the point is Sinana woreda, not the name.
+Ethiopia: Danbora Amancho Boganeos	Kembata	low	itinerary	Itinerary: the Ada21 table's collection dates reconstruct the survey route, and a day's stops are always within one drive of each other. Same day, 12 Oct, as Lemo (Hadiya, 7.68 N 37.97 E) and Shinshicho (Kembata, 7.21 N 37.78 E), 55 km apart, and the Kembata zone centroid falls between them. Name candidate is Damboya woreda in Kembata, which is not in OSM; the placement does not depend on that reading.
+Ethiopia: Wilting Woreda	Silt'e	low	itinerary	Itinerary: the Ada21 table's collection dates reconstruct the survey route, and a day's stops are always within one drive of each other. Same day, 13 Oct, as Silti Wereda Danicho Azoro (7.97 N 38.28 E) and Tiya (8.44 N 38.61 E), 60 km apart. Loosest of the three itinerary placements. No woreda in Silt'e, Gurage or South West Shewa is a convincing match for 'Wilting', so this is the day's envelope only.
+Ethiopia: Kasowera			unresolved	Itinerary: the Ada21 table's collection dates reconstruct the survey route, and a day's stops are always within one drive of each other. No same-day anchor; the previous day, 23 Nov 2015, is Sinana and Sinana RS, so Bale Zone is likely but not bracketed. Candidate: Gasera, a Bale woreda 32 km north of Sinana at 7.37 N 40.19 E, which would need K/G and a dropped syllable. Not placed on a previous-day anchor alone.
+Ethiopia: Mekana			unresolved	Itinerary gives nothing. Same day, 7 Oct 2015, as Adigulo AS and nothing else; nearest other stop is 10 months earlier and the next is 6 weeks later, so there is no travel envelope.
+Ethiopia: Adigulo AS			unresolved	Itinerary gives nothing, as for Mekana, its only same-day companion. The Adi- prefix is Tigrinya and 'AS' may be a station suffix in the manner of Sinana RS, but name morphology alone is what planted the Endicott and Kobo errors. Needs the submitters.
 Germany: Gommershoven			unresolved	Not found as a German place name. Possibly Gommersdorf or Gommerscheid, neither close enough to assert.
 Germany: Böhl Bauch 10			unresolved	Reads as a field or plot identifier rather than a settlement.
 Pakistan: Atter Shisha			unresolved	Not identified.

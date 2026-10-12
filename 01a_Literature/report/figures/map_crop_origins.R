@@ -80,14 +80,22 @@ fills <- c("Wheat"                   = "#3A6EA5",   # steel blue
            "Other cereal"            = "#8D9EA9",
            "Cereal, host unresolved" = "grey62")
 
-# Design palette: TONAL, not a fifth and sixth hue (2026-10-12). Panel e answers a different
-# question from a to d - not which crop, but how the crop was sampled - and giving it two new
-# colours would read as two more categories competing with the four crops. Two weights of one
-# cool grey say "two states of one variable", which is what they are. Pathology takes the dark
-# end because it is the selected, deliberate state and should carry the ink.
-design_fills <- c("Pathology"    = "#4F585F",
-                  "Physiology"   = "#C3C9CE",
-                  "Not recorded" = "#EDEFF1")
+# Design palette: TONAL, and tonal WITHIN THE EXISTING PALETTE (leon, 2026-10-12). Panel e
+# answers a different question from a to d - not which crop, but how the crop was sampled -
+# so two new hues would read as two more categories competing with the four crops. Two
+# weights of one hue say "two states of one variable", which is what they are.
+#
+# The base is the palette's OWN neutral, "Other cereal" #8D9EA9, rather than a grey from
+# outside it or one of the four crop hues. That choice is semantic as well as aesthetic: any
+# hue belonging to a plotted crop would be read as that crop, and #8D9EA9 is the entry the
+# palette already reserves for "not one of these". Tones are its CIELUV hue held fixed with
+# luminance moved to 36 and 84 and chroma scaled to suit, so they are the same colour at two
+# weights rather than two colours that happen to look related. Contrast between them is
+# 4.9:1. Pathology takes the dark end because it is the selected, deliberate state and should
+# carry the ink.
+design_fills <- c("Pathology"    = "#455762",
+                  "Physiology"   = "#C7D3DB",
+                  "Not recorded" = "#E8EEF2")
 
 OCEAN <- "white"      # also the internal border colour; see map_layers
 

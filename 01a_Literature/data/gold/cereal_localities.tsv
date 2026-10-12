@@ -30,12 +30,11 @@ Belgium: Zwijnaarde (Ghent)	Belgium	60	51.016287	3.7245719	locality	Zwijnaarde (
 Mexico: Guanajuato, Area 1 (20.719, -101.328)	Mexico	50	21.0158848	-101.25284	locality-nofacility	Area 1, Guanajuato, Mexico	Guanajuato City, Municipio de Guanajuato, Guanajuato, 36003, Mexico
 USA: North Carolina, Clayton (Central Crops Research Station)	USA	45	35.650711	-78.4563914	locality-nofacility	Clayton, North Carolina, USA	Clayton, Johnston County, North Carolina, United States
 USA: South Carolina, Clemson University Farm Pendleton	USA	42	33.6874388	-80.4363743	locality-nofacility	South Carolina, USA	South Carolina, United States
-China: China:Anyang	China	36	35.9901282	114.5096506	locality	Anyang, China	Anyang, Henan, China
+China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)	China	36	35.9901282	114.5096506	locality-nofacility	Anyang, Henan, China	Anyang, Henan, China
 Switzerland: Zurich	Switzerland	30	47.3744489	8.5410422	locality	Zurich, Switzerland	Zurich, District Zurich, Zurich, Switzerland
 Japan:Osaka, Takatsuki	Japan	26	34.8464785	135.6172204	locality	Takatsuki, Osaka, Japan	Takatsuki, Osaka Prefecture, Japan
 UK: Ickleton	UK	24	52.0703602	0.1760421	locality	Ickleton, UK	Ickleton, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, 
 UK: Caythorpe	UK	23	53.0063818	-0.9814686	locality	Caythorpe, UK	Caythorpe, Newark and Sherwood, Nottinghamshire, East Midlands, England, United Kingdom
-China: China:nanjing	China	21	32.0438284	118.7788631	locality	nanjing, China	Nanjing City, Jiangsu, China
 Ethiopia: Sinana	Ethiopia	18	7.08333	40.2	locality	Sinana, Ethiopia	Sinana, Bale, Oromia Region, Ethiopia
 UK: Cambridgeshire	UK	17	52.3729017	-0.044936	locality	Cambridgeshire, UK	Cambridgeshire, England, United Kingdom
 Ethiopia: Meraro	Ethiopia	16	7.4079469	39.2417452	locality	Meraro, Ethiopia	Meraro, Limu Bilbilo, Arsi, Oromia Region, Ethiopia
@@ -46,6 +45,7 @@ UK: Wolferton	UK	13	52.8293207	0.4625821	locality	Wolferton, UK	Wolferton, King'
 UK: Rothwell (Lincolnshire)	UK	13	53.4806768	-0.2668947	locality	Rothwell (Lincolnshire), UK	Rothwell CP, West Lindsey, Lincolnshire, Greater Lincolnshire, England, United Kingdom
 Ethiopia: Arsi Robe	Ethiopia	12	7.694565	39.7600416	corrected-medium	Robe, Arsi, Ethiopia	Robe, Arsi, Oromia Region, Ethiopia
 UK: Langley (Essex)	UK	12	51.9924009	0.0959355	locality	Langley (Essex), UK	Langley, Langley Upper Green, Uttlesford, Essex, England, United Kingdom
+China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	China	12	32.0438284	118.7788631	locality-nofacility	Nanjing, Jiangsu, China	Nanjing City, Jiangsu, China
 Ethiopia: Sinana RS	Ethiopia	11	7.1242676	40.0080973	corrected-medium	Robe, Bale, Ethiopia	Robe, Bale, Oromia Region, Ethiopia
 Sweden: Svalöv	Sweden	11	55.9129297	13.1197518	locality	Svalöv, Sweden	Svalövs kommun, Skåne County, Sweden
 UK: Morley (Norfolk)	UK	10	52.5517051	1.0475185	locality	Morley (Norfolk), UK	Morley, South Norfolk, Norfolk, England, United Kingdom
@@ -477,7 +477,6 @@ UK: Terrington St Clement	UK	1	52.8088521	0.3090975	locality	Terrington St Cleme
 UK: Oxford	UK	1	51.7520131	-1.2578499	locality	Oxford, UK	Oxford, Oxfordshire, England, United Kingdom
 UK: Wareham	UK	1	50.6868972	-2.1098377	locality	Wareham, UK	Wareham, Dorset, England, BH20 4AW, United Kingdom
 UK: Wool	UK	1	50.6899851	-2.2473119	locality	Wool, UK	Wool, Dorset, England, United Kingdom
-USA: Urbana, IL	USA	1	40.1117174	-88.207301	locality-nofacility	Urbana, USA	Urbana, Champaign County, Illinois, United States
 USA: North Carolina (35.864, -76.659)	USA	1	35.6729639	-79.0392919	locality-nofacility	North Carolina, USA	North Carolina, United States
 USA: Brookings, South Dakota	USA	1	44.3208961	-96.7511843	locality	South Dakota, Brookings, USA	Bel Brands USA, Brookings, Aurora Township, Brookings County, South Dakota, United States
 USA: Taco Corn California	USA	1	39.7837304	-100.445882	country	USA	United States

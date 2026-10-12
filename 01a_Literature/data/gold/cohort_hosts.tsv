@@ -8052,7 +8052,6 @@ SRR7797544	PRJNA486288	Soft red winter wheat; Pioneer 25R47	USA: Savoy, IL	2016	
 SRR7797543	PRJNA486288	Soft red winter wheat: IL11-28222	USA: Brownstown, IL	2016	field	disease-selected	wheat spikelet
 SRR7797542	PRJNA486288	Soft red winter wheat: IL10-19464	USA: Brownstown, IL	2016	field	disease-selected	wheat spikelet
 SRR7797541	PRJNA486288	Soft red winter wheat: Pioneer 25R47	USA: Brownstown, IL	2016	field	disease-selected	wheat spikelet
-SRR7797540	PRJNA486288	Triticum aestivum (bread wheat)	USA: Urbana, IL	2016	field	disease-selected	PDA
 SRR7797539	PRJNA486288	Soft red winter wheat; Pioneer 25R47	USA: St. Jacob, IL	2016	field	disease-selected	wheat spikelet
 SRR7797538	PRJNA486288	Soft red winter wheat: IL11-28222	USA: Carmi, IL	2016	field	disease-selected	wheat spikelet
 SRR7797537	PRJNA486288	Soft read winter wheat: IL10-19464	USA: Carmi, IL	2016	field	disease-selected	wheat spikelet
@@ -12372,63 +12371,54 @@ SRR24956521	PRJNA976033	Helianthus annuus (sunflower)	France: Toulouse, Heliaphe
 SRR24956520	PRJNA976033	Helianthus annuus (sunflower)	France: Toulouse, Heliaphen	2018	field (potted, outdoor common garden)	fungicide-treated	leaf
 SRR24956519	PRJNA976033	Helianthus annuus (sunflower)	France: Toulouse, Heliaphen	2018	field (potted, outdoor common garden)	fungicide-treated	leaf
 SRR24956675	PRJNA976033	Helianthus annuus (sunflower)	France: Toulouse, Heliaphen	2018	field (potted, outdoor common garden)	fungicide-treated	leaf
-SRR31200152	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200153	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200154	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200155	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200156	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200157	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200158	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200159	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200160	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200161	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200162	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200163	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200164	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200165	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200166	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200167	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200168	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200169	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200170	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200171	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR31200172	PRJNA1181034	Triticum aestivum (bread wheat)	China: China:nanjing	2020	field	inoculated	
-SRR14212072	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212073	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212074	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212075	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212076	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212077	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212078	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212079	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212080	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212081	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212082	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212083	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212084	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212085	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212086	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212087	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212088	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14212089	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227037	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227038	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227039	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227040	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227041	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227042	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227043	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227044	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227045	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227046	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227047	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227048	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227049	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227050	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227051	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227052	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227053	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
-SRR14227054	PRJNA721299	Setaria italica	China: China:Anyang		field	unselected	
+SRR31200152	PRJNA1181034	Triticum aestivum (bread wheat)	China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	2023	field	inoculated	spike
+SRR31200153	PRJNA1181034	Triticum aestivum (bread wheat)	China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	2023	field	inoculated	spike
+SRR31200154	PRJNA1181034	Triticum aestivum (bread wheat)	China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	2023	field	inoculated	spike
+SRR31200155	PRJNA1181034	Triticum aestivum (bread wheat)	China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	2023	field	inoculated	spike
+SRR31200163	PRJNA1181034	Triticum aestivum (bread wheat)	China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	2023	field	unselected	spike
+SRR31200164	PRJNA1181034	Triticum aestivum (bread wheat)	China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	2023	field	unselected	spike
+SRR31200165	PRJNA1181034	Triticum aestivum (bread wheat)	China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	2023	field	unselected	spike
+SRR31200166	PRJNA1181034	Triticum aestivum (bread wheat)	China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	2023	field	unselected	spike
+SRR31200167	PRJNA1181034	Triticum aestivum (bread wheat)	China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	2023	field	unselected	spike
+SRR31200168	PRJNA1181034	Triticum aestivum (bread wheat)	China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	2023	field	unselected	spike
+SRR31200169	PRJNA1181034	Triticum aestivum (bread wheat)	China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	2023	field	inoculated	spike
+SRR31200170	PRJNA1181034	Triticum aestivum (bread wheat)	China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	2023	field	inoculated	spike
+SRR14212072	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212073	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212074	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212075	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212076	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212077	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212078	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212079	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212080	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212081	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212082	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212083	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212084	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212085	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212086	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212087	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212088	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14212089	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227037	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227038	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227039	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227040	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227041	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227042	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227043	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227044	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227045	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227046	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227047	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227048	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227049	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227050	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227051	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227052	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227053	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
+SRR14227054	PRJNA721299	Setaria italica	China: Henan, Anyang (Anyang Academy of Agriculture Sciences experimental station)		field	unselected	kernel
 SRR8475378	PRJNA516527	Zea mays (maize)	China: Shanghai		field		ear leaf
 SRR8475379	PRJNA516527	Zea mays (maize)	China: Shanghai		field		ear leaf
 SRR8475377	PRJNA516527	Zea mays (maize)	China: Shanghai		field		ear leaf

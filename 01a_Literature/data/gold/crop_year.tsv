@@ -15,7 +15,7 @@ year	crop	n
 2015	Maize	510
 2015	Rice	1422
 2015	Sorghum	0
-2016	Wheat	256
+2016	Wheat	255
 2016	Maize	0
 2016	Rice	611
 2016	Sorghum	197
@@ -31,7 +31,7 @@ year	crop	n
 2019	Maize	0
 2019	Rice	0
 2019	Sorghum	0
-2020	Wheat	43
+2020	Wheat	22
 2020	Maize	750
 2020	Rice	0
 2020	Sorghum	100
@@ -43,7 +43,7 @@ year	crop	n
 2022	Maize	0
 2022	Rice	0
 2022	Sorghum	0
-2023	Wheat	0
+2023	Wheat	12
 2023	Maize	9
 2023	Rice	0
 2023	Sorghum	0

@@ -21,7 +21,6 @@ Japan:Osaka, Takatsuki	Japan	Rice	26	34.8464785	135.6172204	locality	1	2015	2015
 UK: Ickleton	UK	Wheat	24	52.0703602	0.1760421	locality	2	2016	2017
 UK: Caythorpe	UK	Wheat	23	53.0063818	-0.9814686	locality	3	2013	2015
 Mexico: Guanajuato, Area 1 (20.719, -101.328)	Mexico	Maize	21	21.0158848	-101.25284	locality-nofacility	1	2017	2017
-China: China:nanjing	China	Wheat	21	32.0438284	118.7788631	locality	1	2020	2020
 Ethiopia: Sinana	Ethiopia	Wheat	18	7.08333	40.2	locality	2	2015	2017
 UK: Cambridgeshire	UK	Wheat	17	52.3729017	-0.044936	locality	4	2014	2017
 Ethiopia: Meraro	Ethiopia	Wheat	16	7.4079469	39.2417452	locality	1	2017	2017
@@ -32,6 +31,7 @@ UK: Wolferton	UK	Wheat	13	52.8293207	0.4625821	locality	2	2014	2017
 UK: Rothwell (Lincolnshire)	UK	Wheat	13	53.4806768	-0.2668947	locality	1	2015	2016
 Ethiopia: Arsi Robe	Ethiopia	Wheat	12	7.694565	39.7600416	corrected-medium	2	2016	2017
 UK: Langley (Essex)	UK	Wheat	12	51.9924009	0.0959355	locality	1	2016	2016
+China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	China	Wheat	12	32.0438284	118.7788631	locality-nofacility	1	2023	2023
 Ethiopia: Sinana RS	Ethiopia	Wheat	11	7.1242676	40.0080973	corrected-medium	3	2014	2017
 Sweden: Svalöv	Sweden	Wheat	11	55.9129297	13.1197518	locality	2	2015	2017
 UK: Morley (Norfolk)	UK	Wheat	10	52.5517051	1.0475185	locality	2	2014	2018
@@ -438,7 +438,6 @@ Poland: Chrzelive	Poland	Wheat	1	50.4709455	17.7365468	corrected-medium	1	2017	2
 Germany: Altenberge	Germany	Wheat	1	52.0468367	7.4669887	locality	1	2017	2017
 UK: Terrington St Clement	UK	Wheat	1	52.8088521	0.3090975	locality	1	2013	2013
 UK: Oxford	UK	Wheat	1	51.7520131	-1.2578499	locality	1	2013	2013
-USA: Urbana, IL	USA	Wheat	1	40.1117174	-88.207301	locality-nofacility	1	2016	2016
 USA: North Carolina (35.864, -76.659)	USA	Sorghum	1	35.6729639	-79.0392919	locality-nofacility	1		
 USA: Brookings, South Dakota	USA	Maize	1	44.3208961	-96.7511843	locality	1		
 USA: Indiana	USA	Maize	1	40.3270127	-86.1746933	locality	1		

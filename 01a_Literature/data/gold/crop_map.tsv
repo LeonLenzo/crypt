@@ -113,6 +113,7 @@ Germany: Gommershoven	Germany	Wheat	3	51.01969	6.6284997	corrected-high	2	2014	2
 Germany: Groitzsch	Germany	Wheat	3	51.15	12.2833	locality	2	2014	2015
 Germany: Weißensee	Germany	Wheat	3	52.5546193	13.4630018	locality	1	2014	2014
 Pakistan: Abbottabad	Pakistan	Wheat	3	34.1436136	73.2132747	locality	1	2014	2014
+Pakistan: Atter Shisha	Pakistan	Wheat	3	34.4006901	73.378452	corrected-high	1	2014	2014
 Ethiopia: Gurage Zone	Ethiopia	Wheat	3	8.217346	38.4271659	corrected-medium	1	2017	2017
 Ethiopia: Limo Lereba Roma	Ethiopia	Wheat	3	7.68333	37.96667	corrected-low	1	2017	2017
 Sweden: Österlen	Sweden	Wheat	3	55.5993312	14.1141071	locality	2	2015	2015
@@ -441,7 +442,6 @@ Argentina	Argentina	Wheat	7			country	1	2018	2019
 Australia	Australia	Wheat	5			country	2	2012	2015
 Netherlands	Netherlands	Wheat	5			country	2	2017	2018
 New Zealand	New Zealand	Wheat	4			country	1	2018	2018
-Pakistan	Pakistan	Wheat	3			country	1	2014	2014
 Zimbabwe	Zimbabwe	Wheat	3			country	1	2018	2018
 Italy	Italy	Wheat	3			country	2	2019	2021
 Serbia	Serbia	Wheat	2			country	2	2014	2014

@@ -24,7 +24,7 @@ Mexico: Guanajuato, Area 1 (20.719, -101.328)	Mexico	Maize	21	21.0158848	-101.25
 Ethiopia: Sinana	Ethiopia	Wheat	18	7.08333	40.2	locality	2	2015	2017
 UK: Cambridgeshire	UK	Wheat	17	52.3729017	-0.044936	locality	4	2014	2017
 Ethiopia: Meraro	Ethiopia	Wheat	16	7.4079469	39.2417452	locality	1	2017	2017
-Canada: Ontario, Ottawa (Ottawa RDC experimental field station)	Canada	Maize	16	45.4208777	-75.6901106	locality-nofacility	1		
+Canada: Ontario, Ottawa (Ottawa RDC experimental field station)	Canada	Maize	16	45.4208777	-75.6901106	locality-nofacility	1	2004	2006
 South Africa: Bethlehem	South Africa	Wheat	14	-28.2308333	28.3088889	locality	2	2014	2017
 UK: Wardington	UK	Wheat	14	52.1114668	-1.2826587	locality	1	2017	2017
 UK: Wolferton	UK	Wheat	13	52.8293207	0.4625821	locality	2	2014	2017

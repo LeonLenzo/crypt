@@ -109,6 +109,7 @@ France: Loyat	France	Wheat	3	47.9901494	-2.3829611	locality	2	2014	2016
 Germany: Etzdorf	Germany	Wheat	3	51.0506277	13.1847189	locality	2	2014	2014
 Italy: Ozzano	Italy	Wheat	3	44.4449797	11.4760503	corrected-high	2	2014	2015
 Italy: Conselice	Italy	Wheat	3	44.5127578	11.8291743	locality	2	2014	2017
+Germany: Gommershoven	Germany	Wheat	3	51.01969	6.6284997	corrected-high	2	2014	2015
 Germany: Groitzsch	Germany	Wheat	3	51.15	12.2833	locality	2	2014	2015
 Germany: Weißensee	Germany	Wheat	3	52.5546193	13.4630018	locality	1	2014	2014
 Pakistan: Abbottabad	Pakistan	Wheat	3	34.1436136	73.2132747	locality	1	2014	2014
@@ -226,6 +227,7 @@ Germany: Grucking	Germany	Wheat	1	48.3418035	11.9717074	locality	1	2014	2014
 Germany: Kirchmatting	Germany	Wheat	1	48.8130193	12.6118933	locality	1	2014	2014
 Bulgaria: Novi Han	Bulgaria	Wheat	1	42.6057156	23.5960002	locality	1	2014	2014
 Spain: Garínoain	Spain	Wheat	1	42.6005691	-1.6453061	locality	1	2014	2014
+Germany: Böhl Bauch 10	Germany	Wheat	1	49.3753066	8.3041363	corrected-medium	1	2014	2014
 Germany: Tachenhausen	Germany	Wheat	1	48.6496533	9.3849028	locality	1	2014	2014
 France: Nangis	France	Wheat	1	48.5549416	3.0136837	locality	1	2014	2014
 Chile: Carillanca Vilcun	Chile	Wheat	1	-38.6979788	-72.4149871	locality	1	2014	2014
@@ -428,10 +430,10 @@ France	France	Wheat	32			country	6	2014	2020
 South Africa	South Africa	Wheat	30			country	2	1981	2015
 Denmark	Denmark	Wheat	20			country	2	2017	2021
 Kenya	Kenya	Wheat	17			country	2	2014	2017
-Germany	Germany	Wheat	15			country	4	2014	2017
 China	China	Wheat	14			country	1	2015	2017
 Ireland	Ireland	Wheat	12			country	1	2020	2020
 Poland	Poland	Wheat	11			country	2	2014	2018
+Germany	Germany	Wheat	11			country	3	2014	2017
 Turkey	Turkey	Wheat	10			country	2	2014	2018
 Belgium	Belgium	Wheat	9			country	2	2017	2021
 Ethiopia	Ethiopia	Wheat	7			country	3	2015	2017

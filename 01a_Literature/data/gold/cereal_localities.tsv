@@ -127,7 +127,7 @@ France: Loyat	France	3	47.9901494	-2.3829611	locality	Loyat, France	Loyat, Ponti
 Germany: Etzdorf	Germany	3	51.0506277	13.1847189	locality	Etzdorf, Germany	Etzdorf, Striegistal, Mittelsachsen, Saxony, 09661, Germany
 Italy: Ozzano	Italy	3	44.4449797	11.4760503	corrected-high	Ozzano dell'Emilia, Italy	Ozzano dell'Emilia, Unione dei comuni Savena-Idice, Bologna, Emilia-Romagna, 40064, Italy
 Italy: Conselice	Italy	3	44.5127578	11.8291743	locality	Conselice, Italy	Conselice, Unione dei comuni della Bassa Romagna, Ravenna, Emilia-Romagna, 48017, Italy
-Germany: Gommershoven	Germany	3	51.1638175	10.4478313	country	Germany	Germany
+Germany: Gommershoven	Germany	3	51.01969	6.6284997	corrected-high	Gut Gommershoven, Germany	Gut Gommershoven, Rath, Bedburg, Rhein-Erft-Kreis, North Rhine-Westphalia, 50181, Germany
 Germany: Groitzsch	Germany	3	51.15	12.2833	locality	Groitzsch, Germany	Groitzsch, Landkreis Leipzig, Saxony, 04539, Germany
 Germany: Weißensee	Germany	3	52.5546193	13.4630018	locality	Weißensee, Germany	Weißensee, Pankow, Berlin, Germany
 Pakistan: Abbottabad	Pakistan	3	34.1436136	73.2132747	locality	Abbottabad, Pakistan	Abbottabad, Abbottabad Tehsil, Abbottabad District, Hazara Division, Khyber Pakhtunkhwa, 2
@@ -256,7 +256,7 @@ Germany: Kirchmatting	Germany	1	48.8130193	12.6118933	locality	Kirchmatting, Ger
 France: Druelle	France	1	44.3606219	2.5053408	locality	Druelle, France	Druelle, Druelle Balsac, Rodez, Aveyron, Occitania, Metropolitan France, 12510, France
 Bulgaria: Novi Han	Bulgaria	1	42.6057156	23.5960002	locality	Novi Han, Bulgaria	Novi han, Elin Pelin, Sofia, 2110, Bulgaria
 Spain: Garínoain	Spain	1	42.6005691	-1.6453061	locality	Garínoain, Spain	Garínoain, Erdialdea, Navarre, Spain
-Germany: Böhl Bauch 10	Germany	1	51.1638175	10.4478313	country	Germany	Germany
+Germany: Böhl Bauch 10	Germany	1	49.3753066	8.3041363	corrected-medium	Böhl-Iggelheim, Germany	Böhl-Iggelheim, Rhein-Pfalz-Kreis, Rhineland-Palatinate, 67459, Germany
 Germany: Tachenhausen	Germany	1	48.6496533	9.3849028	locality	Tachenhausen, Germany	Hofgut Tachenhausen, Oberboihingen, VVG der Stadt Nürtingen, Landkreis Esslingen, Baden-Wü
 France: Nangis	France	1	48.5549416	3.0136837	locality	Nangis, France	Nangis, Provins, Seine-et-Marne, Ile-de-France, Metropolitan France, 77370, France
 Chile: Carillanca Vilcun	Chile	1	-38.6979788	-72.4149871	locality	Carillanca Vilcun, Chile	Condominio Carillanca, Vilcún, Provincia de Cautín, Araucania Region, Chile

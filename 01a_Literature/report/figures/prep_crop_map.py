@@ -136,14 +136,16 @@ def main() -> None:
             noloc += 1; noloc_by_crop[crop] += 1; continue
         g = coords.get(loc)
         # A geocoded row whose precision is "country" named something FINER that no gazetteer
-        # could place. Leon's call 2026-10-12: drop these rather than demote them to a
-        # centroid. They are a failed lookup, not a submitter who only recorded a country,
-        # and 11 samples across 9 strings is not worth a point we cannot defend. The bare-
-        # country rows below are a different case and are kept.
+        # could place. Routed to the centroid branch so it is drawn as a diamond rather than
+        # as a locality circle sitting where nobody sampled. Leon reversed an earlier call to
+        # drop these (2026-10-12): the country-only samples are disproportionately the
+        # GEOGRAPHIC TAIL, and dropping them loses New Zealand, Zimbabwe, Lesotho and Romania
+        # from the map outright while thinning Turkey, Denmark, Australia and Kenya by 60 to
+        # 83%. 146 samples against 7,698 is not the cost; four countries is.
         if g is not None and g.get("precision") == "country":
             unfindable += 1
             unfindable_by_crop[crop] += 1
-            continue
+            g = None
         if not g:
             # No geocoded point, but the string still names a country. Placing these at the
             # country centroid (leon, 2026-10-09) rather than dropping them: 311 samples,
@@ -247,7 +249,8 @@ def main() -> None:
     print(f"  plotted {placed:,} at a geocoded locality   "
           f"{sum(c['n'] for c in ccell.values()):,} at a country centroid   "
           f"no locality string {noloc:,}   neither {nocountry:,}")
-    print(f"  dropped {unfindable:,} whose locality string named a place no gazetteer could find")
+    print(f"  of those centroids, {unfindable:,} name a place no gazetteer could find "
+          f"(the rest are submitters who recorded only a country)")
     prec = collections.Counter()
     for c in cell.values():
         prec[c.get("precision", "?")] += c["n"]

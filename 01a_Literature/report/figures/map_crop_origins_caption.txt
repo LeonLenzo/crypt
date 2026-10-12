@@ -25,7 +25,7 @@ in the background colour.
   463 localities), sit at coordinates geocoded from the locality string
   recorded for the sample.
 
-  Diamonds, marked "Country" (134 samples across 21 countries), sit at the
+  Diamonds, marked "Country" (147 samples across 23 countries), sit at the
   centroid of the largest landmass polygon of their country. These samples name
   a country and nothing finer, so the diamond states WHICH COUNTRY and is drawn
   at a place nobody sampled. It is not a collection site and should not be read
@@ -50,8 +50,8 @@ in the range has a position on the axis, so a year with no collection reads as
 an absent bar rather than being skipped.
 
                 samples   projects   localities   country-only
-  Wheat           1,225         15          421            134
-  Maize           2,511         16           44              0
+  Wheat           1,225         15          421            146
+  Maize           2,511         16           44              1
   Rice            2,784          6            6              0
   Sorghum         1,120          4            4              0
 
@@ -67,7 +67,7 @@ WHAT IS NOT SHOWN
 13 of the 7,640 samples carry no location at all and are absent from the map
 while remaining in (b), (c) and (d).
 
-The 134 samples drawn at country centroids are not a geocoding failure. Most are
+The 147 samples drawn at country centroids are not a geocoding failure. Most are
 rust surveys where the submitter recorded the country an isolate came from and
 no collection site, and ENA holds no latitude, longitude or locality field for
 them. Where a finer value exists it has been pursued: supplementary tables were
@@ -102,7 +102,7 @@ SHORT CAPTION
 Distribution of 7,640 field cereal RNA-seq samples from 40 BioProjects, coloured
 by crop. (a) One point per locality and crop, point area proportional to log
 sample count. Circles are 7,480 samples at 463 geocoded localities;
-diamonds are 134 samples that name only a country, drawn at its centroid and
+diamonds are 147 samples that name only a country, drawn at its centroid and
 not at a collection site; 13 samples carry no location and are absent.
 (b, c) The same cohort as samples, and as distinct localities finer than a
 country. (d) Samples per year of collection, stacked by crop, for the 7,389

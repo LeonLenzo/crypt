@@ -51,6 +51,7 @@ here <- "01a_Literature"
 pts  <- read.delim(file.path(here, "data/gold/crop_map.tsv"), stringsAsFactors = FALSE)
 tot  <- read.delim(file.path(here, "data/gold/crop_totals.tsv"), stringsAsFactors = FALSE)
 yr   <- read.delim(file.path(here, "data/gold/crop_year.tsv"), stringsAsFactors = FALSE)
+dsn  <- read.delim(file.path(here, "data/gold/crop_design.tsv"), stringsAsFactors = FALSE)
 
 tot <- tot[tot$included == "yes", ]
 ORDER <- c("Wheat", "Maize", "Rice", "Sorghum", "Barley", "Other cereal",
@@ -59,6 +60,8 @@ ORDER <- ORDER[ORDER %in% unique(c(pts$crop, tot$crop))]
 pts$crop <- factor(pts$crop, levels = ORDER)
 tot$crop <- factor(tot$crop, levels = ORDER)
 yr$crop  <- factor(yr$crop,  levels = ORDER)
+dsn$crop <- factor(dsn$crop, levels = ORDER)
+dsn$design <- factor(dsn$design, levels = c("Pathology", "Physiology", "Not recorded"))
 
 # Muted, semantic palette (leon, 2026-10-09: keep the hues, lose the primary-school
 # saturation). The hue assignments are the crop's own: wheat grown cold and blue, maize
@@ -76,6 +79,15 @@ fills <- c("Wheat"                   = "#3A6EA5",   # steel blue
            "Barley"                  = "#8C6D8F",
            "Other cereal"            = "#8D9EA9",
            "Cereal, host unresolved" = "grey62")
+
+# Design palette: TONAL, not a fifth and sixth hue (2026-10-12). Panel e answers a different
+# question from a to d - not which crop, but how the crop was sampled - and giving it two new
+# colours would read as two more categories competing with the four crops. Two weights of one
+# cool grey say "two states of one variable", which is what they are. Pathology takes the dark
+# end because it is the selected, deliberate state and should carry the ink.
+design_fills <- c("Pathology"    = "#4F585F",
+                  "Physiology"   = "#C3C9CE",
+                  "Not recorded" = "#EDEFF1")
 
 OCEAN <- "white"      # also the internal border colour; see map_layers
 
@@ -249,6 +261,36 @@ p_year <- ggplot(yr, aes(n, factor(year), fill = crop)) +
   labs(x = "Samples (\u00d71,000)", y = "Year") +
   base + axes + theme(axis.text.y = element_text(size = 12))
 
+# Panel e: the design confound, as PROPORTION not count (2026-10-12).
+#
+# The claim is not how many samples each crop has - panel b already carries that - but that
+# wheat was sampled on a different criterion from every other crop. That is a statement about
+# composition, so the bars run to 100% and the eye compares colour position, not bar length.
+# Plotted as counts the point is invisible: wheat's 1,194 pathology samples make a SHORTER bar
+# than rice's 2,784 physiology ones, so the crop with the most extreme design would read as
+# the least of anything.
+#
+# This is the chapter's first result rather than a caveat. Crop is not confounded with design
+# in the estimable sense; the two are SEPARATED, and no amount of modelling recovers a
+# comparison that was never sampled. It is also why there are two evidence standards and not
+# one: wheat's samples arrive with a pathogen already declared.
+dsn$pct <- 100 * dsn$n / ave(dsn$n, dsn$crop, FUN = sum)
+p_design <- ggplot(dsn, aes(pct, crop, fill = design)) +
+  # Pathology anchored at zero (reverse = TRUE). Stacked the default way round, maize's
+  # pathology share runs from 91 to 100 and has to be read as a difference; against the
+  # origin it is just "9". The quantity of interest should start where the axis does.
+  geom_col(width = 0.72, position = position_stack(reverse = TRUE)) +
+  scale_fill_manual(values = design_fills, breaks = c("Pathology", "Physiology"),
+                    name = NULL) +
+  scale_x_continuous(limits = c(0, 100), expand = expansion(c(0, 0.01)),
+                     breaks = seq(0, 100, 25)) +
+  scale_y_discrete(limits = rev(ORDER)) +
+  labs(x = "Samples (%)", y = NULL) +
+  base + axes +
+  theme(legend.position = "bottom", legend.key = element_blank(),
+        legend.text = element_text(size = 12, colour = "black"),
+        legend.box.spacing = unit(4, "pt"), legend.key.size = unit(11, "pt"))
+
 # Four separate files, no composite (leon, 2026-10-09). Assembling the panels here was
 # fighting patchwork over the map's fixed aspect, the width of a square panel and the size
 # of an axis label, and the result was worse than laying them out by hand. The script's job
@@ -272,6 +314,9 @@ one(p_map,  "a_map",        12, 7.3)
 one(p_runs, "b_samples",     5, 3)
 one(p_locs, "c_localities",  5, 3)
 one(p_year, "d_year",        5, 3)
+# e is 5 x 3.4: the same panel body as b to d plus a bottom legend strip. At 3.0 the legend
+# eats the plot rather than sitting under it.
+one(p_design, "e_design",    5, 3.4)
 
 cat(sprintf("  %d points, %s of %s samples placed, %d localities\n",
             nrow(pts), comma(n_pl), comma(n_cer), n_loc))

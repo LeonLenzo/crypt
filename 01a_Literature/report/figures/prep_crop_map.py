@@ -46,6 +46,28 @@ LOCS  = GOLD / "cereal_localities.tsv"
 OUT   = GOLD / "crop_map.tsv"
 OUTC  = GOLD / "crop_totals.tsv"
 OUTY  = GOLD / "crop_year.tsv"
+OUTD  = GOLD / "crop_design.tsv"
+
+# Study design, from the curated `sampling_selection` and nothing else.
+#
+# PATHOLOGY means the sample was chosen, or manipulated, WITH REFERENCE TO DISEASE:
+# picked because it was diseased, deliberately infected, sprayed to suppress disease, or
+# picked because it was NOT diseased. PHYSIOLOGY means the sampling criterion was
+# something else entirely - genotype, treatment, growth stage, clock time.
+#
+# This is the axis that sets the evidence standard (crypt-two-evidence-standards): a
+# pathology sample already has a declared pathogen, so a finding has to be a SECOND one;
+# a physiology sample has none, so a single unreported pathogen is itself the finding.
+#
+# The label is the SAMPLING criterion, not the study's purpose, and the two diverge in
+# one place: PRJNA564795 is a gray leaf spot trial at a GLS hotspot whose 10 runs were
+# sampled without regard to individual symptom, so they count as physiology here while
+# the study is pathology. 10 runs of 7,688. Everything else agrees, several of the
+# physiology projects verifiably so - PRJNA505891's curation note records a full-text
+# scan in which fungicide, pesticide, insecticide, inoculation, infection and lesion all
+# score zero.
+PATHOLOGY = {"disease-selected", "inoculated", "fungicide-treated", "symptom-avoided"}
+PHYSIOLOGY = {"unselected"}
 
 MIN_RUNS = 100          # below this a crop cannot support a co-infection rate
 
@@ -117,6 +139,8 @@ def main() -> None:
     tot = collections.Counter(); tot_loc = collections.defaultdict(set)
     tot_proj = collections.defaultdict(set)
     placed = unplaced = noloc = unfindable = 0
+    design = collections.Counter()
+    DESIGNS = ("Pathology", "Physiology", "Not recorded")
     noloc_by_crop = collections.Counter()
     unfindable_by_crop = collections.Counter()
 
@@ -125,6 +149,9 @@ def main() -> None:
         if crop is None:
             continue
         tot[crop] += 1
+        sel = (r.get("sampling_selection") or "").strip()
+        design[(crop, "Pathology" if sel in PATHOLOGY else
+                      "Physiology" if sel in PHYSIOLOGY else "Not recorded")] += 1
         tot_proj[crop].add(r["BioProject"])
         loc = (r["location"] or "").strip()
         # A bare country is not a locality. Counting it as one inflated the localities panel
@@ -234,6 +261,16 @@ def main() -> None:
             ycount[(int(d), c)] += 1
         else:
             undated[c] += 1
+    with OUTD.open("w", newline="") as fh:
+        w = csv.writer(fh, delimiter="\t", lineterminator="\n")
+        w.writerow(["crop", "design", "n"])
+        for c in [x for x in ORDER if x in keep]:
+            for d in ("Pathology", "Physiology", "Not recorded"):
+                w.writerow([c, d, design[(c, d)]])
+    print(f"wrote {OUTD}  (" + ", ".join(
+        f"{c} {design[(c,'Pathology')]/max(1,sum(design[(c,d)] for d in DESIGNS)):.0%} pathology"
+        for c in [x for x in ORDER if x in keep]) + ")")
+
     with OUTY.open("w", newline="") as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
         w.writerow(["year", "crop", "n"])

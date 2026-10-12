@@ -51,6 +51,7 @@ UK: Morley (Norfolk)	UK	10	52.5517051	1.0475185	locality	Morley (Norfolk), UK	Mo
 UK: Cambridge	UK	10	52.1975846	0.1391537	locality	Cambridge, UK	Cambridge, Cambridgeshire, Cambridgeshire and Peterborough, England, United Kingdom
 Germany: Silstedt	Germany	10	51.8457275	10.8530987	locality	Silstedt, Germany	Silstedt, Wernigerode, Landkreis Harz, Saxony-Anhalt, Germany
 Argentina: Chillar	Argentina	10	-37.3128702	-59.985229	locality	Chillar, Argentina	Chillar, Partido de Azul, Buenos Aires, 7311, Argentina
+France: Louville la Chenard	France	10	48.3241503	1.7867391	locality	Louville la Chenard, France	Louville-la-Chenard, Chartres, Eure-et-Loir, Centre-Val de Loire, Metropolitan France, 281
 Mexico: Guanajuato, Area 3 (20.083, -101.137)	Mexico	10	21.0158848	-101.25284	locality-nofacility	Area 3, Guanajuato, Mexico	Guanajuato City, Municipio de Guanajuato, Guanajuato, 36003, Mexico
 South Africa: KwaZulu-Natal, Greytown	South Africa	10	-29.060556	30.588889	locality	Greytown, KwaZulu-Natal, South Africa	Greytown, Umvoti Local Municipality, Umzinyathi District Municipality, KwaZulu-Natal, Sout
 China: Jinshan Gangu Tianshui	China	9	34.8171906	105.4440092	locality	Jinshan Gangu Tianshui, China	Jinshang, Gangu County, Tianshui Prefecture, Gansu, China
@@ -103,12 +104,14 @@ USA: Wichita, Kansas	USA	4	37.6922361	-97.3375448	locality-nofacility	Wichita, U
 USA: Lafayette, Indiana	USA	4	30.2262187	-92.0178202	locality-nofacility	Lafayette, USA	Lafayette, Lafayette Parish, Louisiana, United States
 China: Nanhu Zhuanglang Pingliang	China	4	35.3378321	105.9620113	locality	Nanhu Zhuanglang Pingliang, China	Nanhu, Zhuanglang County, Pingliang Prefecture, Gansu, China
 Germany: Hemmingen	Germany	4	52.3212183	9.7454815	locality	Hemmingen, Germany	Hemmingen, Region Hannover, Lower Saxony, 30966, Germany
+Ireland: Carlow	Ireland	4	52.8408344	-6.9261131	locality	Carlow, Ireland	Carlow, County Carlow, Leinster, Ireland
 Czechia: Hněvčeves	Czechia	4	50.3142312	15.7113973	locality	Hněvčeves, Czechia	Hněvčeves, okres Hradec Králové, Hradec Králové Region, Czechia
 UK: Osgodby	UK	4	54.2482625	-0.3736042	locality	Osgodby, UK	Osgodby, North Yorkshire, York and North Yorkshire, England, United Kingdom
 Germany: Wohlde	Germany	4	54.4061159	9.2978428	locality	Wohlde, Germany	Wohlde, Kropp-Stapelholm, Kreis Schleswig-Flensburg, Schleswig-Holstein, 24899, Germany
 Spain: Lebrija	Spain	4	36.9193102	-6.0764057	locality	Lebrija, Spain	Lebrija, Sevilla, Andalusia, 41740, Spain
 Spain: Almacelles	Spain	4	41.7294989	0.4404763	locality	Almacelles, Spain	Almacelles, Segrià, Lleida, Catalonia, Spain
 Germany: Lippetal	Germany	4	51.6516157	8.0787633	locality	Lippetal, Germany	Lippetal, Kreis Soest, North Rhine-Westphalia, 59510, Germany
+Ireland: Waterford	Ireland	4	52.2609997	-7.1119081	locality	Waterford, Ireland	Waterford, County Waterford, Munster, Ireland
 UK: Boothby Graffoe	UK	4	53.1232843	-0.5182775	locality	Boothby Graffoe, UK	Boothby Graffoe, North Kesteven, Lincolnshire, Greater Lincolnshire, England, United Kingd
 Mexico: Guanajuato, Area 1 (20.722, -101.329)	Mexico	4	21.0158848	-101.25284	locality-nofacility	Area 1, Guanajuato, Mexico	Guanajuato City, Municipio de Guanajuato, Guanajuato, 36003, Mexico
 Mexico: Guanajuato, Area 1 (20.724, -101.333)	Mexico	4	21.0158848	-101.25284	locality-nofacility	Area 1, Guanajuato, Mexico	Guanajuato City, Municipio de Guanajuato, Guanajuato, 36003, Mexico
@@ -147,6 +150,7 @@ The Netherlands: Westmaas	The Netherlands	3	51.7877888	4.4737754	locality	Westma
 Germany: Seelze	Germany	3	52.3964639	9.594287	locality	Seelze, Germany	Seelze, Region Hannover, Lower Saxony, 30926, Germany
 UK: Carnoustie	UK	3	56.5010506	-2.711403	locality	Carnoustie, UK	Carnoustie, Angus, Scotland, DD7 6AE, United Kingdom
 UK: Chirnside	UK	3	55.8021522	-2.2091846	locality	Chirnside, UK	Chirnside, Scottish Borders, Scotland, TD11 3UF, United Kingdom
+Ireland: Kilkenny	Ireland	3	52.6506255	-7.2514438	locality	Kilkenny, Ireland	Kilkenny, County Kilkenny, Leinster, Ireland
 France: 80200 Marchelepot	France	3	49.8318053	2.8683805	locality	80200 Marchelepot, France	Marchélepot, Marchélepot-Misery, Péronne, Somme, Hauts-de-France, Metropolitan France, 802
 UK: Mendelsham	UK	3	52.2510164	1.0795174	corrected-high	Mendlesham, UK	Mendlesham, Mid Suffolk, Suffolk, England, United Kingdom
 UK: Cirencester	UK	3	51.7171029	-1.9661616	locality	Cirencester, UK	Cirencester, Stratton, Cotswold District, Gloucestershire, England, United Kingdom
@@ -195,7 +199,6 @@ UK: Ledbury	UK	2	52.0357457	-2.4287821	locality	Ledbury, UK	Ledbury, Herefordshi
 UK: Hampshire	UK	2	51.0449814	-1.2433102	locality	Hampshire, UK	Hampshire, England, United Kingdom
 UK: Newark	UK	2	53.0736266	-0.8005422	locality	Newark, UK	Newark, Newark on Trent, Newark and Sherwood, Nottinghamshire, East Midlands, England, Uni
 UK: Stockbridge	UK	2	55.9579716	-3.2093404	locality	Stockbridge, UK	Stockbridge, City of Edinburgh, Scotland, United Kingdom
-Ireland: Carlow	Ireland	2	52.8408344	-6.9261131	locality	Carlow, Ireland	Carlow, County Carlow, Leinster, Ireland
 France: Allonnes	France	2	47.969283	0.1578819	locality	Allonnes, France	Allonnes, Le Mans, Sarthe, Pays de la Loire, Metropolitan France, 72700, France
 Spain: Santa Cruz de Tenerife	Spain	2	28.467178	-16.2507843	locality	Santa Cruz de Tenerife, Spain	Santa Cruz de Tenerife, Canary Islands, Spain
 Spain: Elorz	Spain	2	42.7332422	-1.5613933	locality	Elorz, Spain	Elorz, Valle de Elorz / Elortzibar, Iruñerria, Navarre, Spain
@@ -222,6 +225,7 @@ France: Neant sur Yvel	France	2	48.0128166	-2.327677	locality	Neant sur Yvel, Fr
 France: Frévin-Capelle	France	2	50.3502384	2.6388295	locality	Frévin-Capelle, France	Frévin-Capelle, Arras, Pas-de-Calais, Hauts-de-France, Metropolitan France, 62690, France
 UK: Lenham	UK	2	51.2344619	0.7072408	locality	Lenham, UK	Lenham, Arrow Way, Leadingcross Green, Lenham, Maidstone, Kent, England, ME17 2FU, United 
 UK: Brackley	UK	2	52.0278975	-1.1484657	locality	Brackley, UK	Brackley, West Northamptonshire, England, United Kingdom
+Ireland: Laois	Ireland	2	52.9984575	-7.3980338	locality	Laois, Ireland	County Laois, Leinster, Ireland
 South Africa: Suurbraak	South Africa	2	-34.0076267	20.6558178	locality	Suurbraak, South Africa	Suurbraak, Swellendam Ward 3, Swellendam Local Municipality, Overberg District Municipalit
 United Kingdom: Suffolk, Woolpit	United Kingdom	2	52.2247689	0.8880944	locality	Woolpit, Suffolk, United Kingdom	Woolpit, Mid Suffolk, Suffolk, England, United Kingdom
 Germany: Northeim, Weke	Germany	2	51.7648548	9.858883	locality-nofacility	Northeim, Germany	Landkreis Northeim, Lower Saxony, Germany
@@ -427,12 +431,12 @@ UK: Nauhton	UK	1	52.1023678	0.9575691	corrected-high	Naughton, UK	Naughton, Nedg
 UK: Layer de la Haye	UK	1	51.8467947	0.8623408	locality	Layer de la Haye, UK	Layer-de-la-Haye, Colchester, Essex, England, CO2 0JD, United Kingdom
 UK: Hemingstone	UK	1	52.1404883	1.1417359	locality	Hemingstone, UK	Hemingstone, Mid Suffolk, Suffolk, England, United Kingdom
 UK: Tuddenham	UK	1	52.3143082	0.5472061	locality	Tuddenham, UK	Tuddenham, West Suffolk, Suffolk, England, United Kingdom
+Ireland: Cork	Ireland	1	51.8985136	-8.4726423	locality	Cork, Ireland	Cork, County Cork, Munster, Ireland
 South Africa: Tygerhoek	South Africa	1	-34.150278	19.914444	corrected-medium	Riviersonderend, South Africa	Riviersonderend, Theewaterskloof Local Municipality, Overberg District Municipality, Weste
 South Africa: Bethlehem	South Africa	1	-28.2308333	28.3088889	locality	Bethlehem, South Africa	Bethlehem, Dihlabeng Local Municipality, Thabo Mofutsanyana District Municipality, Free St
 United Kingdom: Cambs, Newton	United Kingdom	1	52.1250903	0.0995354	locality	Newton, Cambs, United Kingdom	Newton, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, Un
 France: Valenciennes	France	1	50.3579317	3.5234846	locality	Valenciennes, France	Valenciennes, Nord, Hauts-de-France, Metropolitan France, 59300, France
 United Kingdom: Cambridge, Duxford	United Kingdom	1	52.0938185	0.1311651	locality	Duxford, Cambridge, United Kingdom	Duxford, Royston Road, Duxford, Heathfield, Cambridge, Cambridgeshire, Cambridgeshire and 
-France: Louville la Chenard	France	1	48.3241503	1.7867391	locality	Louville la Chenard, France	Louville-la-Chenard, Chartres, Eure-et-Loir, Centre-Val de Loire, Metropolitan France, 281
 United Kingdom: Lincolnshire, Spalding	United Kingdom	1	52.7876264	-0.1526099	locality	Spalding, Lincolnshire, United Kingdom	Spalding, South Holland, Lincolnshire, Greater Lincolnshire, England, PE11 1SR, United Kin
 United Kingdom: Oxfordshire	United Kingdom	1	51.833333	-1.25	locality	Oxfordshire, United Kingdom	Oxfordshire, England, United Kingdom
 United Kingdom: Vale of Glamorgan, Bridgend	United Kingdom	1	51.4470646	-3.3988831	locality-nofacility	Vale of Glamorgan, United Kingdom	Vale of Glamorgan, Wales, United Kingdom

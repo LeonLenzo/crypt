@@ -37,6 +37,7 @@ UK: Morley (Norfolk)	UK	Wheat	10	52.5517051	1.0475185	locality	2	2014	2018
 UK: Cambridge	UK	Wheat	10	52.1975846	0.1391537	locality	2	2013	2016
 Germany: Silstedt	Germany	Wheat	10	51.8457275	10.8530987	locality	1	2014	2017
 Argentina: Chillar	Argentina	Wheat	10	-37.3128702	-59.985229	locality	1	2018	2018
+France: Louville la Chenard	France	Wheat	10	48.3241503	1.7867391	locality	2	2020	2021
 South Africa: KwaZulu-Natal, Greytown	South Africa	Maize	10	-29.060556	30.588889	locality	1		
 China: Jinshan Gangu Tianshui	China	Wheat	9	34.8171906	105.4440092	locality	1	2016	2016
 France: Louville	France	Wheat	9	45.596232	3.78034	locality	1	2014	2015
@@ -84,12 +85,14 @@ USA: Wichita, Kansas	USA	Wheat	4	37.6922361	-97.3375448	locality-nofacility	1	20
 USA: Lafayette, Indiana	USA	Wheat	4	30.2262187	-92.0178202	locality-nofacility	1	2016	2017
 China: Nanhu Zhuanglang Pingliang	China	Wheat	4	35.3378321	105.9620113	locality	1	2016	2016
 Germany: Hemmingen	Germany	Wheat	4	52.3212183	9.7454815	locality	1	2015	2015
+Ireland: Carlow	Ireland	Wheat	4	52.8408344	-6.9261131	locality	2	2017	2020
 Czechia: Hněvčeves	Czechia	Wheat	4	50.3142312	15.7113973	locality	1	2017	2017
 UK: Osgodby	UK	Wheat	4	54.2482625	-0.3736042	locality	1	2015	2015
 Germany: Wohlde	Germany	Wheat	4	54.4061159	9.2978428	locality	2	2015	2021
 Spain: Lebrija	Spain	Wheat	4	36.9193102	-6.0764057	locality	1	2015	2017
 Spain: Almacelles	Spain	Wheat	4	41.7294989	0.4404763	locality	1	2016	2016
 Germany: Lippetal	Germany	Wheat	4	51.6516157	8.0787633	locality	1	2015	2015
+Ireland: Waterford	Ireland	Wheat	4	52.2609997	-7.1119081	locality	1	2020	2020
 UK: Boothby Graffoe	UK	Wheat	4	53.1232843	-0.5182775	locality	1	2013	2013
 Mexico: Guanajuato, Area 1 (20.722, -101.329)	Mexico	Maize	4	21.0158848	-101.25284	locality-nofacility	1	2017	2017
 Mexico: Guanajuato, Area 1 (20.724, -101.333)	Mexico	Maize	4	21.0158848	-101.25284	locality-nofacility	1	2017	2017
@@ -128,6 +131,7 @@ The Netherlands: Westmaas	The Netherlands	Wheat	3	51.7877888	4.4737754	locality	
 Germany: Seelze	Germany	Wheat	3	52.3964639	9.594287	locality	1	2015	2017
 UK: Carnoustie	UK	Wheat	3	56.5010506	-2.711403	locality	1	2016	2017
 UK: Chirnside	UK	Wheat	3	55.8021522	-2.2091846	locality	1	2017	2017
+Ireland: Kilkenny	Ireland	Wheat	3	52.6506255	-7.2514438	locality	1	2020	2020
 France: 80200 Marchelepot	France	Wheat	3	49.8318053	2.8683805	locality	1	2017	2017
 UK: Mendelsham	UK	Wheat	3	52.2510164	1.0795174	corrected-high	1	2013	2013
 UK: Cirencester	UK	Wheat	3	51.7171029	-1.9661616	locality	1	2013	2013
@@ -169,7 +173,6 @@ UK: Ledbury	UK	Wheat	2	52.0357457	-2.4287821	locality	1	2015	2017
 UK: Hampshire	UK	Wheat	2	51.0449814	-1.2433102	locality	1	2016	2016
 UK: Newark	UK	Wheat	2	53.0736266	-0.8005422	locality	1	2016	2016
 UK: Stockbridge	UK	Wheat	2	55.9579716	-3.2093404	locality	1	2016	2016
-Ireland: Carlow	Ireland	Wheat	2	52.8408344	-6.9261131	locality	1	2017	2017
 France: Allonnes	France	Wheat	2	47.969283	0.1578819	locality	1	2016	2016
 Spain: Santa Cruz de Tenerife	Spain	Wheat	2	28.467178	-16.2507843	locality	1	2015	2015
 Spain: Elorz	Spain	Wheat	2	42.7332422	-1.5613933	locality	1	2015	2015
@@ -196,6 +199,7 @@ France: Neant sur Yvel	France	Wheat	2	48.0128166	-2.327677	locality	1	2016	2016
 France: Frévin-Capelle	France	Wheat	2	50.3502384	2.6388295	locality	1	2016	2016
 UK: Lenham	UK	Wheat	2	51.2344619	0.7072408	locality	1	2016	2016
 UK: Brackley	UK	Wheat	2	52.0278975	-1.1484657	locality	1	2016	2016
+Ireland: Laois	Ireland	Wheat	2	52.9984575	-7.3980338	locality	1	2020	2020
 South Africa: Suurbraak	South Africa	Wheat	2	-34.0076267	20.6558178	locality	1	2017	2017
 United Kingdom: Suffolk, Woolpit	United Kingdom	Wheat	2	52.2247689	0.8880944	locality	1	2021	2021
 Germany: Northeim, Weke	Germany	Wheat	2	51.7648548	9.858883	locality-nofacility	1	2021	2021
@@ -391,12 +395,12 @@ UK: Nauhton	UK	Wheat	1	52.1023678	0.9575691	corrected-high	1	2015	2015
 UK: Layer de la Haye	UK	Wheat	1	51.8467947	0.8623408	locality	1	2015	2015
 UK: Hemingstone	UK	Wheat	1	52.1404883	1.1417359	locality	1	2015	2015
 UK: Tuddenham	UK	Wheat	1	52.3143082	0.5472061	locality	1	2015	2015
+Ireland: Cork	Ireland	Wheat	1	51.8985136	-8.4726423	locality	1	2020	2020
 South Africa: Tygerhoek	South Africa	Wheat	1	-34.150278	19.914444	corrected-medium	1	2017	2017
 South Africa: Bethlehem	South Africa	Wheat	1	-28.2308333	28.3088889	locality	1	2017	2017
 United Kingdom: Cambs, Newton	United Kingdom	Wheat	1	52.1250903	0.0995354	locality	1	2021	2021
 France: Valenciennes	France	Wheat	1	50.3579317	3.5234846	locality	1	2021	2021
 United Kingdom: Cambridge, Duxford	United Kingdom	Wheat	1	52.0938185	0.1311651	locality	1	2021	2021
-France: Louville la Chenard	France	Wheat	1	48.3241503	1.7867391	locality	1	2021	2021
 United Kingdom: Lincolnshire, Spalding	United Kingdom	Wheat	1	52.7876264	-0.1526099	locality	1	2022	2022
 United Kingdom: Oxfordshire	United Kingdom	Wheat	1	51.833333	-1.25	locality	1	2022	2022
 United Kingdom: Vale of Glamorgan, Bridgend	United Kingdom	Wheat	1	51.4470646	-3.3988831	locality-nofacility	1	2022	2022
@@ -444,11 +448,10 @@ USA: Iowa (43.256, -92.105)	USA	Maize	1	30.2368772	-93.0137569	locality	1
 USA: Iowa (42.921, -91.920)	USA	Maize	1	42.0560012	-92.8970154	locality	1		
 United Kingdom	United Kingdom	Wheat	49			country	7	2013	2022
 South Africa	South Africa	Wheat	30			country	2	1981	2015
-France	France	Wheat	25			country	6	2014	2020
 Denmark	Denmark	Wheat	20			country	2	2017	2021
+France	France	Wheat	16			country	6	2014	2020
 Kenya	Kenya	Wheat	16			country	2	2014	2017
 China	China	Wheat	14			country	1	2015	2017
-Ireland	Ireland	Wheat	12			country	1	2020	2020
 Turkey	Turkey	Wheat	10			country	2	2014	2018
 Argentina	Argentina	Wheat	7			country	1	2018	2019
 Germany	Germany	Wheat	6			country	2	2014	2015

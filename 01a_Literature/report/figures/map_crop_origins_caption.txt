@@ -21,11 +21,11 @@ but area is not proportional to count. Points are semi-transparent, so
 overlapping localities compound into darker patches. Country outlines are drawn
 in the background colour.
 
-  Circles, marked "Locality" in the Resolution key (7,364 samples at
-  420 localities), sit at coordinates geocoded from the locality string
+  Circles, marked "Locality" in the Resolution key (7,367 samples at
+  423 localities), sit at coordinates geocoded from the locality string
   recorded for the sample.
 
-  Diamonds, marked "Country" (287 samples across 27 countries), sit at the
+  Diamonds, marked "Country" (284 samples across 26 countries), sit at the
   centroid of the largest landmass polygon of their country. These samples name
   a country and nothing finer, so the diamond states WHICH COUNTRY and is drawn
   at a place nobody sampled. It is not a collection site and should not be read
@@ -37,7 +37,7 @@ so a label of 3 in (b) is 3,000 samples and a label of 3 in (c) is 300
 localities. Localities are distinct locality strings finer than a country, so
 the bare-country samples add to (b) and not to (c), and repeated sampling of one
 site across seasons counts once. (c) therefore counts localities the studies
-NAMED, which is slightly more than the map can draw: 15 of those names resolve
+NAMED, which is slightly more than the map can draw: 12 of those names resolve
 no better than their own country and appear in (a) as diamonds.
 
 (d) Year. Samples per year of collection, stacked by crop, over 2012 to 2024.
@@ -50,7 +50,7 @@ in the range has a position on the axis, so a year with no collection reads as
 an absent bar rather than being skipped.
 
                 samples   projects   localities   country-only
-  Wheat           1,249         16          382            286
+  Wheat           1,249         16          382            283
   Maize           2,511         16           44              1
   Rice            2,784          6            6              0
   Sorghum         1,120          4            4              0
@@ -67,7 +67,7 @@ WHAT IS NOT SHOWN
 13 of the 7,664 samples carry no location at all and are absent from the map
 while remaining in (b), (c) and (d).
 
-The 287 samples drawn at country centroids are not a geocoding failure. Most are
+The 284 samples drawn at country centroids are not a geocoding failure. Most are
 rust surveys where the submitter recorded the country an isolate came from and
 no collection site, and ENA holds no latitude, longitude or locality field for
 them. Where a finer value exists it has been pursued: supplementary tables were
@@ -87,7 +87,7 @@ See seeds/found.tsv, 2026-10-09.
 Localities are placed at four precisions, recorded per locality in
 data/gold/cereal_localities.tsv: 318 samples at a name that resolved as given,
 59 after a research-facility name was dropped (for example "USA: Nebraska,
-Lincoln (UNL Havelock Research Farm)" placed as Lincoln, Nebraska), 43
+Lincoln (UNL Havelock Research Farm)" placed as Lincoln, Nebraska), 46
 through a reviewed spelling correction, and 1 at province level.
 
 A caution that belongs with any use of these panels: crop is almost perfectly
@@ -101,8 +101,8 @@ SHORT CAPTION
 
 Distribution of 7,664 field cereal RNA-seq samples from 41 BioProjects, coloured
 by crop. (a) One point per locality and crop, point area proportional to log
-sample count. Circles are 7,364 samples at 420 geocoded localities;
-diamonds are 287 samples that name only a country, drawn at its centroid and
+sample count. Circles are 7,367 samples at 423 geocoded localities;
+diamonds are 284 samples that name only a country, drawn at its centroid and
 not at a collection site; 13 samples carry no location and are absent.
 (b, c) The same cohort as samples, and as distinct localities finer than a
 country. (d) Samples per year of collection, stacked by crop, for the 7,408

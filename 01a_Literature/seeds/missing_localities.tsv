@@ -15,8 +15,8 @@ USA: Raerden, Washington	Reardan, Lincoln County, Washington	high	typo	Transpose
 France: Allouange	Allouagne	medium	typo	Transposed ng/gn. Commune in Pas-de-Calais.
 Turkey: Murath	Muratlı	medium	typo	Dropped final i with dotless I. District in Tekirdağ, a wheat area in Thrace.
 Chile: StaRosa Chillán	Santa Rosa, Chillán	medium	abbreviation	Sta is Santa. INIA's Santa Rosa experimental station sits just outside Chillán, Ñuble.
-Chile: Cajón Temuco	Cajón, Temuco	medium	punctuation	Cajón is a locality near Temuco, La Araucanía; the comma is missing so it reads as one name.
-Chile: Los Tilos Santiago	Los Tilos, Santiago	medium	punctuation	Same pattern as the row above.
+Chile: Cajón Temuco	Cajón, Vilcún	high	punctuation	Cajón is a town in Vilcún commune, 9 km north east of Temuco, so the string pairs it with the nearest city rather than its commune. 'Cajón, Temuco' returns a HIGHWAY of that name and is correctly rejected by the class guard; 'Cajón, Vilcún' returns the place. The project's other Araucania sample, Carillanca Vilcun, is 8 km away.
+Chile: Los Tilos Santiago	Los Tilos, Buin	medium	punctuation	Los Tilos is in Alto Jahuel, Buin commune, Maipo Province, 40 km south of Santiago city but inside the Santiago Metropolitan Region, which is what the string's second token means. 'Los Tilos, Santiago' finds nothing. Los Tilos is a common Chilean name, so this rests on the returned match being in the named region.
 USA: Lansing/Mason, Michigan	Mason, Ingham County, Michigan	medium	punctuation	A slash is not a separator the geocoder handles. Mason is the more specific of the two and is where the MSU research land sits; Lansing is the adjacent city. 'Mason, Michigan' alone resolved to Mason COUNTY on the west coast, 200 km away, so the county has to be named.
 USA: NE Research Farm Iowa	Nashua, Iowa	medium	facility	Iowa State's Northeast Research and Demonstration Farm is at Nashua, Floyd County. The facility name is not in OSM but the town is.
 USA: 312 NE Research Farm Iowa	Nashua, Iowa	medium	facility	Same facility as the row above with a plot number prefixed.
@@ -58,4 +58,4 @@ The Netherlands: Schulten beld			unresolved	Reads as a farm name, probably Schul
 The Netherlands: De Vries			not-a-place	A Dutch surname that leaked into a Location field. Already documented in geocode_localities as the reason the wrong-type guard exists; must never be placed.
 USA: Taco Corn California			not-a-place	Reads as a sample or variety descriptor, not a location.
 UK: Sutton Bridge	Sutton Bridge, Lincolnshire	medium	too-fine	Correctly spelled village in Lincolnshire; qualifying it should place it.
-UK: Crabbs Green	Crabbs Green, Essex	low	too-fine	A hamlet in Essex; may be below OSM place coverage.
+UK: Crabbs Green	Hatfield Broad Oak, Essex	high	too-fine	Crabbs Green is a road and hamlet in Hatfield Broad Oak parish, Essex, postcode district CM22 7. OSM carries it only as a highway, which the class guard correctly rejects, so the query is the parish; it returns CM22 7FH, the same postcode district.

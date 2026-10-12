@@ -229,6 +229,8 @@ Spain: Garínoain	Spain	Wheat	1	42.6005691	-1.6453061	locality	1	2014	2014
 Germany: Tachenhausen	Germany	Wheat	1	48.6496533	9.3849028	locality	1	2014	2014
 France: Nangis	France	Wheat	1	48.5549416	3.0136837	locality	1	2014	2014
 Chile: Carillanca Vilcun	Chile	Wheat	1	-38.6979788	-72.4149871	locality	1	2014	2014
+Chile: Cajón Temuco	Chile	Wheat	1	-38.6775553	-72.5031812	corrected-high	1	2014	2014
+Chile: Los Tilos Santiago	Chile	Wheat	1	-33.7132383	-70.6885028	corrected-medium	1	2014	2014
 Ethiopia: Sembo	Ethiopia	Wheat	1	9.41667	39.35	locality	1	2014	2014
 USA: Hutchinson, Kansas	USA	Wheat	1	35.8148236	-101.34844	locality-nofacility	1	2016	2016
 USA: Hitchcock, Nebraska	USA	Wheat	1	40.1659573	-101.0387468	locality-nofacility	1	2015	2015
@@ -282,6 +284,7 @@ UK: Watlington (Oxfordshire)	UK	Wheat	1	51.6451586	-1.0043458	locality	1	2016	20
 Germany: Motterwitz	Germany	Wheat	1	51.1964076	12.8805887	locality	1	2015	2015
 UK: Telford	UK	Wheat	1	52.6780532	-2.4514219	locality	1	2014	2014
 UK: Bury St Edmunds	UK	Wheat	1	52.2460367	0.7125173	locality	1	2015	2015
+UK: Crabbs Green	UK	Wheat	1	51.8253597	0.24403	corrected-high	1	2016	2016
 UK: Coates (Peterborough)	UK	Wheat	1	52.5622566	-0.0744766	locality	1	2016	2016
 UK: Tye Green	UK	Wheat	1	51.856955	0.5844024	locality	1	2016	2016
 UK: Herne Bay	UK	Wheat	1	51.3719507	1.1306951	locality	1	2017	2017
@@ -420,7 +423,7 @@ USA: Iowa (42.925, -95.539)	USA	Maize	1	41.5878406	-93.5858691	locality	1
 USA: Sutherland, Iowa	USA	Maize	1	42.9742849	-95.4975638	locality-nofacility	1		
 USA: Iowa (43.256, -92.105)	USA	Maize	1	30.2368772	-93.0137569	locality	1		
 USA: Iowa (42.921, -91.920)	USA	Maize	1	42.0560012	-92.8970154	locality	1		
-United Kingdom	United Kingdom	Wheat	68			country	7	2013	2022
+United Kingdom	United Kingdom	Wheat	67			country	7	2013	2022
 France	France	Wheat	32			country	6	2014	2020
 South Africa	South Africa	Wheat	30			country	2	1981	2015
 Denmark	Denmark	Wheat	20			country	2	2017	2021
@@ -440,7 +443,6 @@ Pakistan	Pakistan	Wheat	3			country	1	2014	2014
 Zimbabwe	Zimbabwe	Wheat	3			country	1	2018	2018
 Italy	Italy	Wheat	3			country	2	2019	2021
 Serbia	Serbia	Wheat	2			country	2	2014	2014
-Chile	Chile	Wheat	2			country	1	2014	2014
 Switzerland	Switzerland	Wheat	2			country	1	2018	2018
 Sweden	Sweden	Wheat	2			country	1	2021	2021
 Romania	Romania	Wheat	1			country	1	2014	2014

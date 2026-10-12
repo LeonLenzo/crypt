@@ -260,8 +260,8 @@ Germany: Böhl Bauch 10	Germany	1	51.1638175	10.4478313	country	Germany	Germany
 Germany: Tachenhausen	Germany	1	48.6496533	9.3849028	locality	Tachenhausen, Germany	Hofgut Tachenhausen, Oberboihingen, VVG der Stadt Nürtingen, Landkreis Esslingen, Baden-Wü
 France: Nangis	France	1	48.5549416	3.0136837	locality	Nangis, France	Nangis, Provins, Seine-et-Marne, Ile-de-France, Metropolitan France, 77370, France
 Chile: Carillanca Vilcun	Chile	1	-38.6979788	-72.4149871	locality	Carillanca Vilcun, Chile	Condominio Carillanca, Vilcún, Provincia de Cautín, Araucania Region, Chile
-Chile: Cajón Temuco	Chile	1	-31.7613365	-71.3187697	country	Chile	Chile
-Chile: Los Tilos Santiago	Chile	1	-31.7613365	-71.3187697	country	Chile	Chile
+Chile: Cajón Temuco	Chile	1	-38.6775553	-72.5031812	corrected-high	Cajón, Vilcún, Chile	Cajón, Vilcún, Provincia de Cautín, Araucania Region, Chile
+Chile: Los Tilos Santiago	Chile	1	-33.7132383	-70.6885028	corrected-medium	Los Tilos, Buin, Chile	Los Tilos, Alto Jahuel, Buin, Provincia de Maipo, Santiago Metropolitan Region, Chile
 Ethiopia: Sembo	Ethiopia	1	9.41667	39.35	locality	Sembo, Ethiopia	Sembo, North Shewa (Oromia Region), Oromia Region, Ethiopia
 USA: Hutchinson, Kansas	USA	1	35.8148236	-101.34844	locality-nofacility	Hutchinson, USA	Hutchinson County, Texas, United States
 USA: Hitchcock, Nebraska	USA	1	40.1659573	-101.0387468	locality-nofacility	Hitchcock, USA	Hitchcock County, Nebraska, United States
@@ -316,7 +316,7 @@ UK: Watlington (Oxfordshire)	UK	1	51.6451586	-1.0043458	locality	Watlington (Oxf
 Germany: Motterwitz	Germany	1	51.1964076	12.8805887	locality	Motterwitz, Germany	Motterwitz, Dürrweitzschen, Grimma, Landkreis Leipzig, Saxony, Germany
 UK: Telford	UK	1	52.6780532	-2.4514219	locality	Telford, UK	Telford, Telford and Wrekin, England, TF3 4HB, United Kingdom
 UK: Bury St Edmunds	UK	1	52.2460367	0.7125173	locality	Bury St Edmunds, UK	Bury St Edmunds, West Suffolk, Suffolk, England, United Kingdom
-UK: Crabbs Green	UK	1	54.7023545	-3.2765753	country	UK	United Kingdom
+UK: Crabbs Green	UK	1	51.8253597	0.24403	corrected-high	Hatfield Broad Oak, Essex, UK	Hatfield Broad Oak, Uttlesford, Essex, England, CM22 7FH, United Kingdom
 UK: Coates (Peterborough)	UK	1	52.5622566	-0.0744766	locality	Coates (Peterborough), UK	Coates, Fenland District, Cambridgeshire, Cambridgeshire and Peterborough, England, PE7 2B
 UK: Tye Green	UK	1	51.856955	0.5844024	locality	Tye Green, UK	Tye Green, Cressing, Braintree, Essex, England, CM77 8HF, United Kingdom
 UK: Herne Bay	UK	1	51.3719507	1.1306951	locality	Herne Bay, UK	Herne Bay, Kent, England, United Kingdom

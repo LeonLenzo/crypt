@@ -80,22 +80,32 @@ fills <- c("Wheat"                   = "#3A6EA5",   # steel blue
            "Other cereal"            = "#8D9EA9",
            "Cereal, host unresolved" = "grey62")
 
-# Design palette: TONAL, and tonal WITHIN THE EXISTING PALETTE (leon, 2026-10-12). Panel e
-# answers a different question from a to d - not which crop, but how the crop was sampled -
-# so two new hues would read as two more categories competing with the four crops. Two
-# weights of one hue say "two states of one variable", which is what they are.
+# Design palette: each crop KEEPS ITS OWN HUE, at two weights (leon, 2026-10-12). Panel e
+# asks how a crop was sampled, not which crop it is, so a separate pair of colours would
+# compete with the four already in use; two shades of the crop's own hue say "two states of
+# this crop" and keep the panel keyed to a to d.
 #
-# The base is the palette's OWN neutral, "Other cereal" #8D9EA9, rather than a grey from
-# outside it or one of the four crop hues. That choice is semantic as well as aesthetic: any
-# hue belonging to a plotted crop would be read as that crop, and #8D9EA9 is the entry the
-# palette already reserves for "not one of these". Tones are its CIELUV hue held fixed with
-# luminance moved to 36 and 84 and chroma scaled to suit, so they are the same colour at two
-# weights rather than two colours that happen to look related. Contrast between them is
-# 4.9:1. Pathology takes the dark end because it is the selected, deliberate state and should
-# carry the ink.
-design_fills <- c("Pathology"    = "#455762",
-                  "Physiology"   = "#C7D3DB",
-                  "Not recorded" = "#E8EEF2")
+# Derived, not picked. Each pair holds the crop's CIELUV hue and moves luminance to 48 and
+# 86, with chroma scaled to suit, so every bar has the SAME internal contrast of 3.3:1
+# regardless of hue. That uniformity is the whole reason for fixing the luminance rather than
+# using each crop's own colour as the dark end: wheat's blue is dark and maize's gold is
+# light, so taking the base colours as given would have made the split 3.8:1 on the wheat bar
+# and 1.6:1 on the maize one, legible on some bars and not others.
+#
+# A darker yellow is a brown; that is colour physics, not a choice. L=48 is as low as maize
+# goes while still reading as gold, which is what set the luminance for all four.
+design_fills <- c(
+  "Wheat.Pathology"    = "#4375AC", "Wheat.Physiology"    = "#CCD8ED",
+  "Maize.Pathology"    = "#9A6900", "Maize.Physiology"    = "#EAD4B9",
+  "Rice.Pathology"     = "#387F60", "Rice.Physiology"     = "#C7DCD1",
+  "Sorghum.Pathology"  = "#B25936", "Sorghum.Physiology"  = "#F6CEC6",
+  "Wheat.Not recorded" = "#F0F2F3", "Maize.Not recorded"  = "#F0F2F3",
+  "Rice.Not recorded"  = "#F0F2F3", "Sorghum.Not recorded" = "#F0F2F3")
+
+# The legend cannot show eight swatches for a two-state variable, so it shows the two weights
+# in the palette's own neutral ("Other cereal" #8D9EA9) at the same two luminances. It is
+# saying "dark means this, light means that"; which hue carries it is on the y axis.
+design_legend <- c("Pathology" = "#536671", "Physiology" = "#CCD3D7")
 
 OCEAN <- "white"      # also the internal border colour; see map_layers
 
@@ -283,13 +293,19 @@ p_year <- ggplot(yr, aes(n, factor(year), fill = crop)) +
 # comparison that was never sampled. It is also why there are two evidence standards and not
 # one: wheat's samples arrive with a pathogen already declared.
 dsn$pct <- 100 * dsn$n / ave(dsn$n, dsn$crop, FUN = sum)
-p_design <- ggplot(dsn, aes(pct, crop, fill = design)) +
+dsn$key <- paste(dsn$crop, dsn$design, sep = ".")
+p_design <- ggplot(dsn, aes(pct, crop, fill = key, group = design)) +
   # Pathology anchored at zero (reverse = TRUE). Stacked the default way round, maize's
   # pathology share runs from 91 to 100 and has to be read as a difference; against the
   # origin it is just "9". The quantity of interest should start where the axis does.
   geom_col(width = 0.72, position = position_stack(reverse = TRUE)) +
-  scale_fill_manual(values = design_fills, breaks = c("Pathology", "Physiology"),
-                    name = NULL) +
+  scale_fill_manual(values = design_fills, guide = "none") +
+  # An invisible layer carrying the only two-level aesthetic in the panel, purely so there is
+  # something for a two-entry legend to hang off; the bars themselves need all eight fills.
+  geom_point(aes(x = 0, colour = design), alpha = 0, show.legend = TRUE) +
+  scale_colour_manual(values = design_legend, name = NULL, breaks = names(design_legend),
+                      guide = guide_legend(override.aes =
+                                             list(alpha = 1, shape = 15, size = 4.5))) +
   scale_x_continuous(limits = c(0, 100), expand = expansion(c(0, 0.01)),
                      breaks = seq(0, 100, 25)) +
   scale_y_discrete(limits = rev(ORDER)) +

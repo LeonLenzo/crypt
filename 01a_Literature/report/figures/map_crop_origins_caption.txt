@@ -94,7 +94,10 @@ through a reviewed spelling correction, and 1 at province level.
 REFERENCE TO DISEASE - chosen because diseased, deliberately infected, sprayed
 to suppress disease, or chosen because NOT diseased - against those sampled on
 some other criterion entirely: genotype, treatment, growth stage, clock time.
-Pathology share by crop: wheat 98%, maize 9%, rice 0%, sorghum 0%.
+Pathology share by crop: wheat 98%, maize 9%, rice 0%, sorghum 0%. Each crop keeps its own hue from
+(a) to (d) and carries the split as two weights of it, dark for pathology;
+the legend shows those two weights in the palette's neutral, because a
+two-state variable cannot sensibly be given eight swatches.
 
 This is a result, not a caveat. Crop and design are not confounded in the
 estimable sense; they are SEPARATED, and no model recovers a comparison that

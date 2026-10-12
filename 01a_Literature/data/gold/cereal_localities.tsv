@@ -33,8 +33,8 @@ USA: South Carolina, Clemson University Farm Pendleton	USA	42	33.6874388	-80.436
 China: China:Anyang	China	36	35.9901282	114.5096506	locality	Anyang, China	Anyang, Henan, China
 Switzerland: Zurich	Switzerland	30	47.3744489	8.5410422	locality	Zurich, Switzerland	Zurich, District Zurich, Zurich, Switzerland
 Japan:Osaka, Takatsuki	Japan	26	34.8464785	135.6172204	locality	Takatsuki, Osaka, Japan	Takatsuki, Osaka Prefecture, Japan
+UK: Ickleton	UK	24	52.0703602	0.1760421	locality	Ickleton, UK	Ickleton, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, 
 UK: Caythorpe	UK	23	53.0063818	-0.9814686	locality	Caythorpe, UK	Caythorpe, Newark and Sherwood, Nottinghamshire, East Midlands, England, United Kingdom
-UK: Ickleton	UK	23	52.0703602	0.1760421	locality	Ickleton, UK	Ickleton, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, 
 China: China:nanjing	China	21	32.0438284	118.7788631	locality	nanjing, China	Nanjing City, Jiangsu, China
 Ethiopia: Sinana	Ethiopia	18	7.08333	40.2	locality	Sinana, Ethiopia	Sinana, Bale, Oromia Region, Ethiopia
 UK: Cambridgeshire	UK	17	52.3729017	-0.044936	locality	Cambridgeshire, UK	Cambridgeshire, England, United Kingdom
@@ -68,6 +68,7 @@ Poland: Jarosławiec	Poland	7	50.7168844	23.3619855	locality	Jarosławiec, Polan
 Ethiopia: Assasa	Ethiopia	7	7.1025538	39.195672	locality	Assasa, Ethiopia	Assasa, Asassa, Gedeb Asasa, West Arsi, Oromia Region, Ethiopia
 UK: Lincolnshire	UK	7	53.1823034	-0.2031209	locality	Lincolnshire, UK	Lincolnshire, England, United Kingdom
 Belgium: Mignault	Belgium	6	50.5288629	4.1523542	locality	Mignault, Belgium	Mignault, Le Rœulx, Soignies, Hainaut, Wallonia, 7070, Belgium
+UK: Headley Hall	UK	6	53.8681102	-1.3247947	locality	Headley Hall, UK	Headley Hall, Bramham cum Oglethorpe, Bramham, Leeds, West Yorkshire, England, United King
 Czechia: Olomouc	Czechia	6	49.5940567	17.251143	locality	Olomouc, Czechia	Olomouc, okres Olomouc, Olomouc Region, Czechia
 Germany: Gommershoven	Germany	6	51.01969	6.6284997	corrected-high	Gut Gommershoven, Germany	Gut Gommershoven, Rath, Bedburg, Rhein-Erft-Kreis, North Rhine-Westphalia, 50181, Germany
 Ethiopia: Sinana Kabira	Ethiopia	6	7.08333	40.2	corrected-low	Sinana, Ethiopia	Sinana, Bale, Oromia Region, Ethiopia
@@ -86,7 +87,6 @@ South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)	South Africa
 Ethiopia: Kulumsa	Ethiopia	5	7.95	39.13333	corrected-medium	Asella, Ethiopia	Asela, Tiyo, Arsi, Oromia Region, Ethiopia
 UK: Bishop Burton	UK	5	53.8414315	-0.5135522	locality	Bishop Burton, UK	Bishop Burton, East Riding of Yorkshire, Hull and East Yorkshire, England, United Kingdom
 UK: Sturminster Newton	UK	5	50.9290016	-2.3263949	locality	Sturminster Newton, UK	Sturminster Newton, Dorset, England, United Kingdom
-UK: Headley Hall	UK	5	53.8681102	-1.3247947	locality	Headley Hall, UK	Headley Hall, Bramham cum Oglethorpe, Bramham, Leeds, West Yorkshire, England, United King
 UK: Sutton Scotney	UK	5	51.1531722	-1.3381253	locality	Sutton Scotney, UK	Sutton Scotney, Winchester, Hampshire, England, SO21 3SF, United Kingdom
 Croatia: Osijek	Croatia	5	45.5548793	18.6953685	locality	Osijek, Croatia	Osijek, Grad Osijek, Osijek-Baranja County, Croatia
 Germany: Hingste	Germany	5	52.8228962	9.187366	locality	Hingste, Germany	Hingste, Wienbergen, Hilgermissen, Samtgemeinde Grafschaft Hoya, Landkreis Nienburg/Weser,
@@ -94,6 +94,7 @@ Germany: Ruchheim	Germany	5	49.473372	8.3294813	locality	Ruchheim, Germany	Ludwi
 Ethiopia: Bekoji	Ethiopia	5	7.53333	39.25	locality	Bekoji, Ethiopia	Bekoji, Limu Bilbilo, Arsi, Oromia Region, Ethiopia
 UK: Thornton	UK	5	52.0154955	-0.9053801	locality	Thornton, UK	Thornton, Buckinghamshire, England, United Kingdom
 Czechia: Branisovice	Czechia	5	48.9628106	16.431847	locality	Branisovice, Czechia	Branišovice, okres Brno-venkov, South Moravian Region, 671 77, Czechia
+UK: Melton Mowbray	UK	5	52.7645663	-0.8868896	locality	Melton Mowbray, UK	Melton Mowbray, Melton, Leicestershire, England, LE13 0PU, United Kingdom
 Czechia: Hrubčice	Czechia	5	49.443721	17.2046309	locality	Hrubčice, Czechia	Hrubčice, okres Prostějov, Olomouc Region, Czechia
 Spain: Córdoba	Spain	5	37.8845813	-4.7760138	locality	Córdoba, Spain	Córdoba, Andalusia, Spain
 Morocco: Merchouch	Morocco	5	33.6121613	-6.7099455	locality	Merchouch, Morocco	ICARDA Research Station - Merchouch, Marchouch, caïdat de Marchouch, Cercle de Rommani دائ
@@ -106,6 +107,7 @@ China: Nanhu Zhuanglang Pingliang	China	4	35.3378321	105.9620113	locality	Nanhu 
 Germany: Hemmingen	Germany	4	52.3212183	9.7454815	locality	Hemmingen, Germany	Hemmingen, Region Hannover, Lower Saxony, 30966, Germany
 Ireland: Carlow	Ireland	4	52.8408344	-6.9261131	locality	Carlow, Ireland	Carlow, County Carlow, Leinster, Ireland
 Czechia: Hněvčeves	Czechia	4	50.3142312	15.7113973	locality	Hněvčeves, Czechia	Hněvčeves, okres Hradec Králové, Hradec Králové Region, Czechia
+France: Allonnes	France	4	47.969283	0.1578819	locality	Allonnes, France	Allonnes, Le Mans, Sarthe, Pays de la Loire, Metropolitan France, 72700, France
 UK: Osgodby	UK	4	54.2482625	-0.3736042	locality	Osgodby, UK	Osgodby, North Yorkshire, York and North Yorkshire, England, United Kingdom
 Germany: Wohlde	Germany	4	54.4061159	9.2978428	locality	Wohlde, Germany	Wohlde, Kropp-Stapelholm, Kreis Schleswig-Flensburg, Schleswig-Holstein, 24899, Germany
 Spain: Lebrija	Spain	4	36.9193102	-6.0764057	locality	Lebrija, Spain	Lebrija, Sevilla, Andalusia, 41740, Spain
@@ -141,9 +143,10 @@ Ethiopia: Gurage Zone	Ethiopia	3	8.217346	38.4271659	corrected-medium	Gurage, Et
 Ethiopia: Limo Lereba Roma	Ethiopia	3	7.68333	37.96667	corrected-low	Lemo, Ethiopia	Lemo Bota, Hadiya, Central Ethiopia Regional State, Ethiopia
 Sweden: Österlen	Sweden	3	55.5993312	14.1141071	locality	Österlen, Sweden	Österlen, Sweden
 Canada: Lethbridge	Canada	3	49.6945782	-112.8331033	locality	Lethbridge, Canada	Lethbridge, Alberta, Canada
+UK: Newark	UK	3	53.0736266	-0.8005422	locality	Newark, UK	Newark, Newark on Trent, Newark and Sherwood, Nottinghamshire, East Midlands, England, Uni
 France: Montbartier	France	3	43.9136111	1.2733333	locality	Montbartier, France	Montbartier, Montauban, Tarn-et-Garonne, Occitania, Metropolitan France, 82700, France
-UK: Melton Mowbray	UK	3	52.7645663	-0.8868896	locality	Melton Mowbray, UK	Melton Mowbray, Melton, Leicestershire, England, LE13 0PU, United Kingdom
 UK: Newton	UK	3	52.0322303	0.7943311	locality	Newton, UK	Newton, Babergh, Suffolk, England, United Kingdom
+UK: Fowlmere	UK	3	52.089645	0.0756448	locality	Fowlmere, UK	Fowlmere, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, 
 Argentina: Bordenave	Argentina	3	-37.8046981	-63.0410532	locality	Bordenave, Argentina	Bordenave, Cuartel IV, Partido de Puan, Buenos Aires, Argentina
 Ethiopia: Kora	Ethiopia	3	8.81667	38.95	locality	Kora, Ethiopia	Kora, East Shewa, Oromia Region, Ethiopia
 The Netherlands: Westmaas	The Netherlands	3	51.7877888	4.4737754	locality	Westmaas, The Netherlands	Westmaas, Hoeksche Waard, South Holland, Netherlands
@@ -195,11 +198,10 @@ Sweden: Sandby	Sweden	2	55.7101291	13.3703269	locality	Sandby, Sweden	Sandby, S�
 South Africa: Bloemfontein	South Africa	2	-29.116395	26.215496	locality	Bloemfontein, South Africa	Bloemfontein, Mangaung Metropolitan Municipality, Free State, 9310, South Africa
 South Africa: Free State	South Africa	2	-28.7853618	26.4978933	locality	Free State, South Africa	Free State, South Africa
 South Africa: Ouplaas	South Africa	2	-34.3738653	20.4343888	locality	Ouplaas, South Africa	Ouplaas, Swellendam Local Municipality, Overberg District Municipality, Western Cape, Sout
+France: Saultain	France	2	50.3351	3.58255	locality	Saultain, France	Saultain, Valenciennes, Nord, Hauts-de-France, Metropolitan France, 59990, France
 UK: Ledbury	UK	2	52.0357457	-2.4287821	locality	Ledbury, UK	Ledbury, Herefordshire, England, United Kingdom
 UK: Hampshire	UK	2	51.0449814	-1.2433102	locality	Hampshire, UK	Hampshire, England, United Kingdom
-UK: Newark	UK	2	53.0736266	-0.8005422	locality	Newark, UK	Newark, Newark on Trent, Newark and Sherwood, Nottinghamshire, East Midlands, England, Uni
 UK: Stockbridge	UK	2	55.9579716	-3.2093404	locality	Stockbridge, UK	Stockbridge, City of Edinburgh, Scotland, United Kingdom
-France: Allonnes	France	2	47.969283	0.1578819	locality	Allonnes, France	Allonnes, Le Mans, Sarthe, Pays de la Loire, Metropolitan France, 72700, France
 Spain: Santa Cruz de Tenerife	Spain	2	28.467178	-16.2507843	locality	Santa Cruz de Tenerife, Spain	Santa Cruz de Tenerife, Canary Islands, Spain
 Spain: Elorz	Spain	2	42.7332422	-1.5613933	locality	Elorz, Spain	Elorz, Valle de Elorz / Elortzibar, Iruñerria, Navarre, Spain
 Spain: Burgos	Spain	2	42.3448498	-3.6812477	locality	Burgos, Spain	Burgos, Castile and León, Spain
@@ -221,6 +223,7 @@ Poland: Sroda Wielkopolska	Poland	2	52.2284266	17.277827	locality	Sroda Wielkopo
 Germany: Ludwigshafen	Germany	2	49.4704113	8.4381568	locality	Ludwigshafen, Germany	Ludwigshafen am Rhein, Rhineland-Palatinate, Germany
 Bulgaria: Lyuben	Bulgaria	2	43.94276	27.04398	locality	Lyuben, Bulgaria	Lyuben, Sitovo, Silistra, Bulgaria
 Germany: Quellendorf	Germany	2	51.7540518	12.1567854	locality	Quellendorf, Germany	Quellendorf, Diesdorf, Südliches Anhalt, Anhalt-Bitterfeld, Saxony-Anhalt, 06386, Germany
+UK: Mersea	UK	2	51.7769754	0.917361	locality	Mersea, UK	West Mersea, Colchester, Essex, England, United Kingdom
 France: Neant sur Yvel	France	2	48.0128166	-2.327677	locality	Neant sur Yvel, France	Néant-sur-Yvel, Pontivy, Morbihan, Brittany, Metropolitan France, 56430, France
 France: Frévin-Capelle	France	2	50.3502384	2.6388295	locality	Frévin-Capelle, France	Frévin-Capelle, Arras, Pas-de-Calais, Hauts-de-France, Metropolitan France, 62690, France
 UK: Lenham	UK	2	51.2344619	0.7072408	locality	Lenham, UK	Lenham, Arrow Way, Leadingcross Green, Lenham, Maidstone, Kent, England, ME17 2FU, United 
@@ -239,6 +242,7 @@ USA: Iowa (41.573, -95.061)	USA	2	30.2368772	-93.0137569	locality	-95.061), Iowa
 USA: Russell Ranch California	USA	2	38.6360488	-121.0959543	locality	Russell Ranch California, USA	Russell Ranch, White Rock, Folsom, Sacramento County, California, United States
 USA: Student Farm California	USA	2	38.5405293	-121.7657848	locality	Student Farm California, USA	Student Farm, Yolo County, California, United States
 USA: Iowa	USA	2	41.9216734	-93.3122705	locality	Iowa, USA	Iowa, United States
+UK: Newton, Cambs	UK	2	52.0322303	0.7943311	locality-nofacility	Newton, UK	Newton, Babergh, Suffolk, England, United Kingdom
 Belgium: Koksijde	Belgium	1	51.1187723	2.6349277	locality	Koksijde, Belgium	Koksijde, Veurne, West Flanders, Flanders, 8670, Belgium
 Belgium: Zwevegem	Belgium	1	50.7828566	3.3755864	locality	Zwevegem, Belgium	Zwevegem, Kortrijk, West Flanders, Flanders, Belgium
 Belgium: Avelgem	Belgium	1	50.7775063	3.4496662	locality	Avelgem, Belgium	Avelgem, Kortrijk, West Flanders, Flanders, Belgium
@@ -304,7 +308,6 @@ South Africa: Northern Cape	South Africa	1	-29.573402	21.2051361	locality	Northe
 South Africa: Bredasdorp	South Africa	1	-34.533055	20.042778	locality	Bredasdorp, South Africa	Bredasdorp, Cape Agulhas Local Municipality, Overberg District Municipality, Western Cape,
 UK: Duns	UK	1	55.777842	-2.3438476	locality	Duns, UK	Duns, Berwickshire, Scotland, TD11 3BY, United Kingdom
 UK: Sutton Bridge	UK	1	52.768304	0.1915749	corrected-medium	Sutton Bridge, Lincolnshire, UK	Sutton Bridge, South Holland, Lincolnshire, Greater Lincolnshire, England, PE12 9UG, Unite
-France: Saultain	France	1	50.3351	3.58255	locality	Saultain, France	Saultain, Valenciennes, Nord, Hauts-de-France, Metropolitan France, 59990, France
 UK: Glenrothes	UK	1	56.1961905	-3.1716324	locality	Glenrothes, UK	Glenrothes, Fife, Scotland, KY7 5NN, United Kingdom
 UK: Holbeach Marsh	UK	1	52.8550419	0.0018992	locality	Holbeach Marsh, UK	Holbeach Marsh, Holbeach CP, South Holland, Lincolnshire, Greater Lincolnshire, England, P
 UK: Coldstream	UK	1	55.6511811	-2.252957	locality	Coldstream, UK	Coldstream, Scottish Borders, Scotland, TD12 4AS, United Kingdom
@@ -330,7 +333,6 @@ UK: High Legh	UK	1	53.3479674	-2.4747512	locality	High Legh, UK	High Legh, Chesh
 Argentina: Marcos Juárez	Argentina	1	-32.6946933	-62.104385	locality	Marcos Juárez, Argentina	Municipio de Marcos Juárez, Pedanía Espinillos, Departamento Marcos Juárez, Córdoba, X2580
 Argentina: Placita	Argentina	1	-33.0338188	-68.8970002	locality	Placita, Argentina	Placita, Distrito Ciudad de Luján de Cuyo, Departamento Luján de Cuyo, Mendoza, Argentina
 Argentina: Trenque Lauquen	Argentina	1	-35.9731074	-62.7328794	locality	Trenque Lauquen, Argentina	Trenque Lauquen, Partido de Trenque Lauquen, Buenos Aires, Argentina
-UK: Fowlmere	UK	1	52.089645	0.0756448	locality	Fowlmere, UK	Fowlmere, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, 
 Germany: Northeim	Germany	1	51.7648548	9.858883	locality	Northeim, Germany	Landkreis Northeim, Lower Saxony, Germany
 Sweden: Borrby	Sweden	1	55.4580331	14.1808853	locality	Borrby, Sweden	Borrby, Simrishamns kommun, Skåne County, 276 35, Sweden
 Spain: Jerez	Spain	1	36.6816936	-6.1377402	locality	Jerez, Spain	Jerez, Campiña de Jerez, Cádiz, Andalusia, Spain
@@ -413,7 +415,6 @@ France: Saint-Germain-en-Laye	France	1	48.9312511	2.0912611	locality	Saint-Germa
 France: Bourgogne	France	1	47.2780873	4.2224863	locality	Bourgogne, France	Burgundy, Metropolitan France, France
 France: Pontfaverger	France	1	49.2973636	4.3174486	locality	Pontfaverger, France	Pontfaverger-Moronvilliers, Reims, Marne, Grand Est, Metropolitan France, 51490, France
 Germany: Walkendorf	Germany	1	53.9537784	12.5501308	locality	Walkendorf, Germany	Walkendorf, Gnoien, Landkreis Rostock, Mecklenburg-Vorpommern, Germany
-UK: Mersea	UK	1	51.7769754	0.917361	locality	Mersea, UK	West Mersea, Colchester, Essex, England, United Kingdom
 UK: Hundon	UK	1	52.1130766	0.538142	locality	Hundon, UK	Hundon, West Suffolk, Suffolk, England, United Kingdom
 UK: Lindsey	UK	1	52.0676811	0.8846821	locality	Lindsey, UK	Lindsey, Babergh, Suffolk, England, United Kingdom
 UK: Ixworth	UK	1	52.2996238	0.8379129	locality	Ixworth, UK	Ixworth, West Suffolk, Suffolk, England, United Kingdom
@@ -487,3 +488,14 @@ USA: Iowa (42.925, -95.539)	USA	1	41.5878406	-93.5858691	locality	-95.539), Iowa
 USA: Sutherland, Iowa	USA	1	42.9742849	-95.4975638	locality-nofacility	Sutherland, USA	Sutherland, O'Brien County, Iowa, United States
 USA: Iowa (43.256, -92.105)	USA	1	30.2368772	-93.0137569	locality	-92.105), Iowa (43.256, USA	Iowa, Calcasieu Parish, Louisiana, 70647, United States
 USA: Iowa (42.921, -91.920)	USA	1	42.0560012	-92.8970154	locality	-91.920), Iowa (42.921, USA	Alliant SBD 9107 JBS USA, Marshalltown, Marshall Township, Marshall County, Iowa, United S
+Germany: Bohl-Iggelheim	Germany	1	49.3753066	8.3041363	locality	Bohl-Iggelheim, Germany	Böhl-Iggelheim, Rhein-Pfalz-Kreis, Rhineland-Palatinate, 67459, Germany
+France: Louville-la-Chenard	France	1	48.3241503	1.7867391	locality	Louville-la-Chenard, France	Louville-la-Chenard, Chartres, Eure-et-Loir, Centre-Val de Loire, Metropolitan France, 281
+UK: Adisham, Kent	UK	1	51.2413296	1.1895941	locality-nofacility	Adisham, UK	Adisham, Canterbury, Kent, England, United Kingdom
+UK: Dereham	UK	1	52.6802052	0.9386329	locality	Dereham, UK	Dereham, Breckland District, Norfolk, England, United Kingdom
+UK: Otley	UK	1	53.9055083	-1.6938874	locality	Otley, UK	Otley, Leeds, West Yorkshire, England, United Kingdom
+UK: Whittlesford, Cambs	UK	1	52.1096821	0.1548583	locality-nofacility	Whittlesford, UK	Whittlesford, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, Engla
+UK: Glenrothes, Fife	UK	1	56.1834744	-3.2194122	locality	Fife, Glenrothes, UK	Fife Airport, Whitecraigs Road, Whitehill Industrial Estate, Caskieberran, Glenrothes, Fif
+Germany: Hemmingen, 30966	Germany	1	52.2976305	9.7277454	locality	30966, Hemmingen, Germany	30966, Arnum, Wilkenburg, Hemmingen, Region Hannover, Lower Saxony, Germany
+UK: Layerdelahaye, Essex	UK	1	51.8467947	0.8623408	corrected-high	Layer-de-la-Haye, Essex, UK	Layer-de-la-Haye, Colchester, Essex, England, CO2 0JD, United Kingdom
+UK: West Wickham, Cambridgeshire	UK	1	52.1173523	0.3553891	locality-nofacility	West Wickham, UK	West Wickham, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, Engla
+UK: Chelsworth	UK	1	52.0954891	0.8902146	locality	Chelsworth, UK	Chelsworth, Babergh, Suffolk, England, United Kingdom

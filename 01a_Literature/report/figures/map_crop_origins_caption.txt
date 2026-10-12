@@ -11,7 +11,7 @@ letters a-d below are the order they are meant to be read in, not a layout.
 FULL CAPTION
 
 Geographic, compositional and temporal distribution of the field cereal RNA-seq
-cohort: 7,664 publicly archived samples from 41 BioProjects, each curated to a
+cohort: 7,640 publicly archived samples from 40 BioProjects, each curated to a
 field setting against a quoted sentence in an available manuscript. Colour marks
 the crop throughout.
 
@@ -25,7 +25,7 @@ in the background colour.
   446 localities), sit at coordinates geocoded from the locality string
   recorded for the sample.
 
-  Diamonds, marked "Country" (205 samples across 23 countries), sit at the
+  Diamonds, marked "Country" (181 samples across 21 countries), sit at the
   centroid of the largest landmass polygon of their country. These samples name
   a country and nothing finer, so the diamond states WHICH COUNTRY and is drawn
   at a place nobody sampled. It is not a collection site and should not be read
@@ -42,7 +42,7 @@ no better than their own country and appear in (a) as diamonds.
 
 (d) Year. Samples per year of collection, stacked by crop, over 2012 to 2024.
 Only the first and last year are labelled, to give the range; every year in
-between has its own bar. Based on the 7,408 of 7,664 samples carrying a
+between has its own bar. Based on the 7,389 of 7,640 samples carrying a
 collection date. Bars rather than a continuous series, because year here is a
 discrete count: an area or line would draw a slope between 2015 and 2016
 asserting collection at every instant in between, and none occurred. Every year
@@ -50,24 +50,24 @@ in the range has a position on the axis, so a year with no collection reads as
 an absent bar rather than being skipped.
 
                 samples   projects   localities   country-only
-  Wheat           1,249         16          404            205
+  Wheat           1,225         15          404            181
   Maize           2,511         16           44              0
   Rice            2,784          6            6              0
   Sorghum         1,120          4            4              0
 
 The crops are not comparable in shape and the two bar panels exist to show it:
 rice is 2,784 samples at 6 localities because the rice data are large
-GWAS panels grown at one farm, while wheat is 1,249 at 404 because the
+GWAS panels grown at one farm, while wheat is 1,225 at 404 because the
 wheat data are rust surveys that sample broadly. (a) alone reads as a wheat map
 and (b) alone reads as a rice cohort; both are true.
 
 
 WHAT IS NOT SHOWN
 
-13 of the 7,664 samples carry no location at all and are absent from the map
+13 of the 7,640 samples carry no location at all and are absent from the map
 while remaining in (b), (c) and (d).
 
-The 205 samples drawn at country centroids are not a geocoding failure. Most are
+The 181 samples drawn at country centroids are not a geocoding failure. Most are
 rust surveys where the submitter recorded the country an isolate came from and
 no collection site, and ENA holds no latitude, longitude or locality field for
 them. Where a finer value exists it has been pursued: supplementary tables were
@@ -99,13 +99,13 @@ cross-tab.
 
 SHORT CAPTION
 
-Distribution of 7,664 field cereal RNA-seq samples from 41 BioProjects, coloured
+Distribution of 7,640 field cereal RNA-seq samples from 40 BioProjects, coloured
 by crop. (a) One point per locality and crop, point area proportional to log
 sample count. Circles are 7,433 samples at 446 geocoded localities;
-diamonds are 205 samples that name only a country, drawn at its centroid and
+diamonds are 181 samples that name only a country, drawn at its centroid and
 not at a collection site; 13 samples carry no location and are absent.
 (b, c) The same cohort as samples, and as distinct localities finer than a
-country. (d) Samples per year of collection, stacked by crop, for the 7,408
+country. (d) Samples per year of collection, stacked by crop, for the 7,389
 samples carrying a date.
 
 

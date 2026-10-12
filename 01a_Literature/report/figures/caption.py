@@ -166,10 +166,12 @@ through a reviewed spelling correction, and {pr['region']} at province level.
 REFERENCE TO DISEASE - chosen because diseased, deliberately infected, sprayed
 to suppress disease, or chosen because NOT diseased - against those sampled on
 some other criterion entirely: genotype, treatment, growth stage, clock time.
-Pathology share by crop: {design_line}. Each crop keeps its own hue from
-(a) to (d) and carries the split as two weights of it, dark for pathology;
-the legend shows those two weights in the palette's neutral, because a
-two-state variable cannot sensibly be given eight swatches.
+Pathology share by crop: {design_line}.
+
+THE PANEL CARRIES NO LEGEND. Each crop keeps its own hue from (a) to (d) and
+shows the split as two weights of that hue, the DARKER weight being pathology
+in every bar. Eight fills cannot be reduced to two swatches honestly, so the
+encoding is stated here instead.
 
 This is a result, not a caveat. Crop and design are not confounded in the
 estimable sense; they are SEPARATED, and no model recovers a comparison that

@@ -102,10 +102,8 @@ design_fills <- c(
   "Wheat.Not recorded" = "#F0F2F3", "Maize.Not recorded"  = "#F0F2F3",
   "Rice.Not recorded"  = "#F0F2F3", "Sorghum.Not recorded" = "#F0F2F3")
 
-# The legend cannot show eight swatches for a two-state variable, so it shows the two weights
-# in the palette's own neutral ("Other cereal" #8D9EA9) at the same two luminances. It is
-# saying "dark means this, light means that"; which hue carries it is on the y axis.
-design_legend <- c("Pathology" = "#536671", "Physiology" = "#CCD3D7")
+# No legend on this panel (leon, 2026-10-12): eight fills cannot sensibly be reduced to two
+# swatches, and the caption carries the encoding instead. Dark is pathology.
 
 OCEAN <- "white"      # also the internal border colour; see map_layers
 
@@ -300,20 +298,11 @@ p_design <- ggplot(dsn, aes(pct, crop, fill = key, group = design)) +
   # origin it is just "9". The quantity of interest should start where the axis does.
   geom_col(width = 0.72, position = position_stack(reverse = TRUE)) +
   scale_fill_manual(values = design_fills, guide = "none") +
-  # An invisible layer carrying the only two-level aesthetic in the panel, purely so there is
-  # something for a two-entry legend to hang off; the bars themselves need all eight fills.
-  geom_point(aes(x = 0, colour = design), alpha = 0, show.legend = TRUE) +
-  scale_colour_manual(values = design_legend, name = NULL, breaks = names(design_legend),
-                      guide = guide_legend(override.aes =
-                                             list(alpha = 1, shape = 15, size = 4.5))) +
   scale_x_continuous(limits = c(0, 100), expand = expansion(c(0, 0.01)),
                      breaks = seq(0, 100, 25)) +
   scale_y_discrete(limits = rev(ORDER)) +
   labs(x = "Samples (%)", y = NULL) +
-  base + axes +
-  theme(legend.position = "bottom", legend.key = element_blank(),
-        legend.text = element_text(size = 12, colour = "black"),
-        legend.box.spacing = unit(4, "pt"), legend.key.size = unit(11, "pt"))
+  base + axes
 
 # Four separate files, no composite (leon, 2026-10-09). Assembling the panels here was
 # fighting patchwork over the map's fixed aspect, the width of a square panel and the size
@@ -338,9 +327,7 @@ one(p_map,  "a_map",        12, 7.3)
 one(p_runs, "b_samples",     5, 3)
 one(p_locs, "c_localities",  5, 3)
 one(p_year, "d_year",        5, 3)
-# e is 5 x 3.4: the same panel body as b to d plus a bottom legend strip. At 3.0 the legend
-# eats the plot rather than sitting under it.
-one(p_design, "e_design",    5, 3.4)
+one(p_design, "e_design",    5, 3)
 
 cat(sprintf("  %d points, %s of %s samples placed, %d localities\n",
             nrow(pts), comma(n_pl), comma(n_cer), n_loc))

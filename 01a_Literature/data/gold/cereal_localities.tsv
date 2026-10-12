@@ -40,6 +40,7 @@ Ethiopia: Sinana	Ethiopia	18	7.08333	40.2	locality	Sinana, Ethiopia	Sinana, Bale
 UK: Cambridgeshire	UK	17	52.3729017	-0.044936	locality	Cambridgeshire, UK	Cambridgeshire, England, United Kingdom
 Ethiopia: Meraro	Ethiopia	16	7.4079469	39.2417452	locality	Meraro, Ethiopia	Meraro, Limu Bilbilo, Arsi, Oromia Region, Ethiopia
 Canada: Ontario, Ottawa (Ottawa RDC experimental field station)	Canada	16	45.4208777	-75.6901106	locality-nofacility	Ottawa, Ontario, Canada	Ottawa, Eastern Ontario, Ontario, Canada
+South Africa: Bethlehem	South Africa	14	-28.2308333	28.3088889	locality	Bethlehem, South Africa	Bethlehem, Dihlabeng Local Municipality, Thabo Mofutsanyana District Municipality, Free St
 UK: Wardington	UK	14	52.1114668	-1.2826587	locality	Wardington, UK	Wardington, Oxfordshire, England, United Kingdom
 UK: Wolferton	UK	13	52.8293207	0.4625821	locality	Wolferton, UK	Wolferton, King's Lynn and West Norfolk, Norfolk, England, PE31 6HA, United Kingdom
 UK: Rothwell (Lincolnshire)	UK	13	53.4806768	-0.2668947	locality	Rothwell (Lincolnshire), UK	Rothwell CP, West Lindsey, Lincolnshire, Greater Lincolnshire, England, United Kingdom
@@ -104,6 +105,7 @@ USA: Walla Walla, Washington	USA	4	46.0668883	-118.3516528	locality	Washington, 
 USA: Wichita, Kansas	USA	4	37.6922361	-97.3375448	locality-nofacility	Wichita, USA	Wichita, Sedgwick County, Kansas, United States
 USA: Lafayette, Indiana	USA	4	30.2262187	-92.0178202	locality-nofacility	Lafayette, USA	Lafayette, Lafayette Parish, Louisiana, United States
 China: Nanhu Zhuanglang Pingliang	China	4	35.3378321	105.9620113	locality	Nanhu Zhuanglang Pingliang, China	Nanhu, Zhuanglang County, Pingliang Prefecture, Gansu, China
+South Africa: Greytown	South Africa	4	-29.060556	30.588889	locality	Greytown, South Africa	Greytown, Umvoti Local Municipality, Umzinyathi District Municipality, KwaZulu-Natal, Sout
 Germany: Hemmingen	Germany	4	52.3212183	9.7454815	locality	Hemmingen, Germany	Hemmingen, Region Hannover, Lower Saxony, 30966, Germany
 Ireland: Carlow	Ireland	4	52.8408344	-6.9261131	locality	Carlow, Ireland	Carlow, County Carlow, Leinster, Ireland
 Czechia: Hněvčeves	Czechia	4	50.3142312	15.7113973	locality	Hněvčeves, Czechia	Hněvčeves, okres Hradec Králové, Hradec Králové Region, Czechia
@@ -143,6 +145,7 @@ Ethiopia: Gurage Zone	Ethiopia	3	8.217346	38.4271659	corrected-medium	Gurage, Et
 Ethiopia: Limo Lereba Roma	Ethiopia	3	7.68333	37.96667	corrected-low	Lemo, Ethiopia	Lemo Bota, Hadiya, Central Ethiopia Regional State, Ethiopia
 Sweden: Österlen	Sweden	3	55.5993312	14.1141071	locality	Österlen, Sweden	Österlen, Sweden
 Canada: Lethbridge	Canada	3	49.6945782	-112.8331033	locality	Lethbridge, Canada	Lethbridge, Alberta, Canada
+South Africa: Napier	South Africa	3	-34.474722	19.898056	locality	Napier, South Africa	Napier, Cape Agulhas Local Municipality, Overberg District Municipality, Western Cape, 727
 UK: Newark	UK	3	53.0736266	-0.8005422	locality	Newark, UK	Newark, Newark on Trent, Newark and Sherwood, Nottinghamshire, East Midlands, England, Uni
 France: Montbartier	France	3	43.9136111	1.2733333	locality	Montbartier, France	Montbartier, Montauban, Tarn-et-Garonne, Occitania, Metropolitan France, 82700, France
 UK: Newton	UK	3	52.0322303	0.7943311	locality	Newton, UK	Newton, Babergh, Suffolk, England, United Kingdom
@@ -193,11 +196,12 @@ Ethiopia: Dinsho Abakera Zalo	Ethiopia	2	7.108213	39.780153	corrected-low	Dinsho
 Ethiopia: Sinana Kabira Shaya	Ethiopia	2	7.08333	40.2	corrected-low	Sinana, Ethiopia	Sinana, Bale, Oromia Region, Ethiopia
 Ethiopia: Selka	Ethiopia	2	7.08333	40.2	corrected-low	Sinana, Ethiopia	Sinana, Bale, Oromia Region, Ethiopia
 Canada: Lacombe	Canada	2	52.4727515	-113.733215	locality	Lacombe, Canada	City of Lacombe, Alberta, Canada
-South Africa: Napier	South Africa	2	-34.474722	19.898056	locality	Napier, South Africa	Napier, Cape Agulhas Local Municipality, Overberg District Municipality, Western Cape, 727
 Sweden: Sandby	Sweden	2	55.7101291	13.3703269	locality	Sandby, Sweden	Sandby, Södra Sandby, Lund Municipality, Skåne County, 247 33, Sweden
 South Africa: Bloemfontein	South Africa	2	-29.116395	26.215496	locality	Bloemfontein, South Africa	Bloemfontein, Mangaung Metropolitan Municipality, Free State, 9310, South Africa
+South Africa: Sutherland	South Africa	2	-32.393889	20.661111	locality	Sutherland, South Africa	Sutherland, Karoo Hoogland Local Municipality, Namakwa District Municipality, Northern Cap
 South Africa: Free State	South Africa	2	-28.7853618	26.4978933	locality	Free State, South Africa	Free State, South Africa
 South Africa: Ouplaas	South Africa	2	-34.3738653	20.4343888	locality	Ouplaas, South Africa	Ouplaas, Swellendam Local Municipality, Overberg District Municipality, Western Cape, Sout
+South Africa: Bredasdorp	South Africa	2	-34.533055	20.042778	locality	Bredasdorp, South Africa	Bredasdorp, Cape Agulhas Local Municipality, Overberg District Municipality, Western Cape,
 France: Saultain	France	2	50.3351	3.58255	locality	Saultain, France	Saultain, Valenciennes, Nord, Hauts-de-France, Metropolitan France, 59990, France
 UK: Ledbury	UK	2	52.0357457	-2.4287821	locality	Ledbury, UK	Ledbury, Herefordshire, England, United Kingdom
 UK: Hampshire	UK	2	51.0449814	-1.2433102	locality	Hampshire, UK	Hampshire, England, United Kingdom
@@ -303,9 +307,10 @@ USA: Chickasha, Oklahoma	USA	1	35.0512159	-97.9370036	locality-nofacility	Chicka
 USA: Altus, Oklahoma	USA	1	34.6381255	-99.3339754	locality-nofacility	Altus, USA	Altus, Jackson County, Oklahoma, 73521, United States
 South Africa: Hopetown	South Africa	1	-29.623959	24.0830094	locality	Hopetown, South Africa	Hopetown, Thembelihle Local Municipality, Pixley ka Seme District Municipality, Northern C
 South Africa: Western Cape	South Africa	1	-33.546977	20.72753	locality	Western Cape, South Africa	Western Cape, South Africa
-South Africa: Sutherland	South Africa	1	-32.393889	20.661111	locality	Sutherland, South Africa	Sutherland, Karoo Hoogland Local Municipality, Namakwa District Municipality, Northern Cap
 South Africa: Northern Cape	South Africa	1	-29.573402	21.2051361	locality	Northern Cape, South Africa	Northern Cape, South Africa
-South Africa: Bredasdorp	South Africa	1	-34.533055	20.042778	locality	Bredasdorp, South Africa	Bredasdorp, Cape Agulhas Local Municipality, Overberg District Municipality, Western Cape,
+South Africa: Riversdal	South Africa	1	-34.094907	21.261473	locality	Riversdal, South Africa	Riversdale, Western Cape, South Africa
+South Africa: Jozini	South Africa	1	-27.4308303	32.0663861	locality	Jozini, South Africa	Jozini, Jozini Local Municipality, Umkhanyakude District Municipality, KwaZulu-Natal, 3987
+South Africa: Luckhoff	South Africa	1	-29.750041	24.786848	locality	Luckhoff, South Africa	Luckhoff, Letsemeng Local Municipality, Xhariep District Municipality, Free State, South A
 UK: Duns	UK	1	55.777842	-2.3438476	locality	Duns, UK	Duns, Berwickshire, Scotland, TD11 3BY, United Kingdom
 UK: Sutton Bridge	UK	1	52.768304	0.1915749	corrected-medium	Sutton Bridge, Lincolnshire, UK	Sutton Bridge, South Holland, Lincolnshire, Greater Lincolnshire, England, PE12 9UG, Unite
 UK: Glenrothes	UK	1	56.1961905	-3.1716324	locality	Glenrothes, UK	Glenrothes, Fife, Scotland, KY7 5NN, United Kingdom
@@ -434,7 +439,6 @@ UK: Hemingstone	UK	1	52.1404883	1.1417359	locality	Hemingstone, UK	Hemingstone, 
 UK: Tuddenham	UK	1	52.3143082	0.5472061	locality	Tuddenham, UK	Tuddenham, West Suffolk, Suffolk, England, United Kingdom
 Ireland: Cork	Ireland	1	51.8985136	-8.4726423	locality	Cork, Ireland	Cork, County Cork, Munster, Ireland
 South Africa: Tygerhoek	South Africa	1	-34.150278	19.914444	corrected-medium	Riviersonderend, South Africa	Riviersonderend, Theewaterskloof Local Municipality, Overberg District Municipality, Weste
-South Africa: Bethlehem	South Africa	1	-28.2308333	28.3088889	locality	Bethlehem, South Africa	Bethlehem, Dihlabeng Local Municipality, Thabo Mofutsanyana District Municipality, Free St
 United Kingdom: Cambs, Newton	United Kingdom	1	52.1250903	0.0995354	locality	Newton, Cambs, United Kingdom	Newton, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, Un
 France: Valenciennes	France	1	50.3579317	3.5234846	locality	Valenciennes, France	Valenciennes, Nord, Hauts-de-France, Metropolitan France, 59300, France
 United Kingdom: Cambridge, Duxford	United Kingdom	1	52.0938185	0.1311651	locality	Duxford, Cambridge, United Kingdom	Duxford, Royston Road, Duxford, Heathfield, Cambridge, Cambridgeshire, Cambridgeshire and 

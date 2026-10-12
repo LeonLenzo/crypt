@@ -170,7 +170,18 @@ def apply_joins(runs: list[dict], attr_cache: dict, prov: dict, dry: bool,
             problems.append((rule["rule_id"], "table unreadable or key column missing"))
             continue
         a_all = attr_cache.get(rule["BioProject"], {})
-        mine = [r for r in runs if r["BioProject"] == rule["BioProject"]]
+        # `predicate` narrows the DENOMINATOR as well as the targets, which matters whenever a
+        # project mixes library types. PRJEB84390 holds 71 Puccinia DNA isolate libraries
+        # beside the 100 plant RNA-seq runs; only the latter can carry a plant collection site,
+        # so measuring Table S13 against all 171 reported 58% and the rule was refused for
+        # being correct. Same grammar and same evaluator as curation.tsv, so there is one
+        # definition of what a rule is about.
+        mine = [r for r in runs if matches(rule, r, a_all.get(r["BioSample"], {}))]
+        if not mine:
+            problems.append((rule["rule_id"],
+                             f"predicate {rule.get('predicate')!r} matches no run in "
+                             f"{rule['BioProject']}"))
+            continue
         hits = 0
         for r in mine:
             k = _sra_key(rule["sra_key"], r, a_all.get(r["BioSample"], {}))

@@ -372,7 +372,12 @@ def cmd_bioproject(*accs: str) -> None:
 
 
 def cmd_ena(acc: str) -> None:
-    fields = ("run_accession,sample_accession,scientific_name,collection_date,country,"
+    # secondary_sample_accession added 2026-10-12: supplementary tables key on the ERS
+    # form as often as the SAMEA one (Tsushima 2025 Table S13 does), and without it a
+    # resolver has to fetch its own mapping. Files cached before this date lack the
+    # column; refetch the project if a resolver needs it.
+    fields = ("run_accession,sample_accession,secondary_sample_accession,"
+              "scientific_name,collection_date,country,"
               "location,sample_title,library_strategy,library_selection")
     txt = get("https://www.ebi.ac.uk/ena/portal/api/filereport"
               f"?accession={acc}&result=read_run&format=tsv&fields={fields}")

@@ -116,8 +116,9 @@ def main() -> None:
     nocountry = 0
     tot = collections.Counter(); tot_loc = collections.defaultdict(set)
     tot_proj = collections.defaultdict(set)
-    placed = unplaced = noloc = 0
+    placed = unplaced = noloc = unfindable = 0
     noloc_by_crop = collections.Counter()
+    unfindable_by_crop = collections.Counter()
 
     for r in runs:
         crop = crop_of(r["host"])
@@ -134,11 +135,15 @@ def main() -> None:
         if not loc:
             noloc += 1; noloc_by_crop[crop] += 1; continue
         g = coords.get(loc)
-        # A geocoded row whose precision is "country" was placed at a country centroid even
-        # though the string named something finer. Route it to the centroid branch so it is
-        # drawn as a diamond, not as a locality circle sitting where nobody sampled.
+        # A geocoded row whose precision is "country" named something FINER that no gazetteer
+        # could place. Leon's call 2026-10-12: drop these rather than demote them to a
+        # centroid. They are a failed lookup, not a submitter who only recorded a country,
+        # and 11 samples across 9 strings is not worth a point we cannot defend. The bare-
+        # country rows below are a different case and are kept.
         if g is not None and g.get("precision") == "country":
-            g = None
+            unfindable += 1
+            unfindable_by_crop[crop] += 1
+            continue
         if not g:
             # No geocoded point, but the string still names a country. Placing these at the
             # country centroid (leon, 2026-10-09) rather than dropping them: 311 samples,
@@ -242,6 +247,7 @@ def main() -> None:
     print(f"  plotted {placed:,} at a geocoded locality   "
           f"{sum(c['n'] for c in ccell.values()):,} at a country centroid   "
           f"no locality string {noloc:,}   neither {nocountry:,}")
+    print(f"  dropped {unfindable:,} whose locality string named a place no gazetteer could find")
     prec = collections.Counter()
     for c in cell.values():
         prec[c.get("precision", "?")] += c["n"]

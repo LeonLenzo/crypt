@@ -37,6 +37,7 @@ UK: Caythorpe	UK	23	53.0063818	-0.9814686	locality	Caythorpe, UK	Caythorpe, Newa
 UK: Ickleton	UK	23	52.0703602	0.1760421	locality	Ickleton, UK	Ickleton, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, 
 China: China:nanjing	China	21	32.0438284	118.7788631	locality	nanjing, China	Nanjing City, Jiangsu, China
 Ethiopia: Sinana	Ethiopia	18	7.08333	40.2	locality	Sinana, Ethiopia	Sinana, Bale, Oromia Region, Ethiopia
+UK: Cambridgeshire	UK	17	52.3729017	-0.044936	locality	Cambridgeshire, UK	Cambridgeshire, England, United Kingdom
 Ethiopia: Meraro	Ethiopia	16	7.4079469	39.2417452	locality	Meraro, Ethiopia	Meraro, Limu Bilbilo, Arsi, Oromia Region, Ethiopia
 Canada: Ontario, Ottawa (Ottawa RDC experimental field station)	Canada	16	45.4208777	-75.6901106	locality-nofacility	Ottawa, Ontario, Canada	Ottawa, Eastern Ontario, Ontario, Canada
 UK: Wardington	UK	14	52.1114668	-1.2826587	locality	Wardington, UK	Wardington, Oxfordshire, England, United Kingdom
@@ -64,8 +65,10 @@ Canada: Alberta	Canada	8	55.001251	-115.002136	locality	Alberta, Canada	Alberta,
 France: Marchélepot	France	7	49.8318053	2.8683805	locality	Marchélepot, France	Marchélepot, Marchélepot-Misery, Péronne, Somme, Hauts-de-France, Metropolitan France, 802
 Poland: Jarosławiec	Poland	7	50.7168844	23.3619855	locality	Jarosławiec, Poland	Jarosławiec, gmina Sitno, Zamość County, Lublin Voivodeship, Poland
 Ethiopia: Assasa	Ethiopia	7	7.1025538	39.195672	locality	Assasa, Ethiopia	Assasa, Asassa, Gedeb Asasa, West Arsi, Oromia Region, Ethiopia
-UK: Cambridgeshire	UK	6	52.3729017	-0.044936	locality	Cambridgeshire, UK	Cambridgeshire, England, United Kingdom
+UK: Lincolnshire	UK	7	53.1823034	-0.2031209	locality	Lincolnshire, UK	Lincolnshire, England, United Kingdom
+Belgium: Mignault	Belgium	6	50.5288629	4.1523542	locality	Mignault, Belgium	Mignault, Le Rœulx, Soignies, Hainaut, Wallonia, 7070, Belgium
 Czechia: Olomouc	Czechia	6	49.5940567	17.251143	locality	Olomouc, Czechia	Olomouc, okres Olomouc, Olomouc Region, Czechia
+Germany: Gommershoven	Germany	6	51.01969	6.6284997	corrected-high	Gut Gommershoven, Germany	Gut Gommershoven, Rath, Bedburg, Rhein-Erft-Kreis, North Rhine-Westphalia, 50181, Germany
 Ethiopia: Sinana Kabira	Ethiopia	6	7.08333	40.2	corrected-low	Sinana, Ethiopia	Sinana, Bale, Oromia Region, Ethiopia
 China: Pingnan Qinzhou Tianshui	China	6	34.3529748	105.6786962	locality	Pingnan Qinzhou Tianshui, China	Pingnan, Qinzhou District, Tianshui Prefecture, Gansu, China
 UK: Whittlesford	UK	6	52.1096821	0.1548583	locality	Whittlesford, UK	Whittlesford, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, Engla
@@ -76,7 +79,6 @@ Germany: Melle	Germany	6	52.1950352	8.3474835	locality	Melle, Germany	Melle, Lan
 Germany: Harzhof	Germany	6	54.416465	9.8479481	locality	Harzhof, Germany	Harzhof, Holtsee, Hüttener Berge, Kreis Rendsburg-Eckernförde, Schleswig-Holstein, 24363, 
 Serbia: Rimski Šančevi	Serbia	6	45.319176	19.832877	corrected-medium	Rimski Šančevi, Novi Sad, Serbia	Rimski Sancevi, Темерински пут, МЗ Клиса, Novi Sad, City of Novi Sad, South Backa Administ
 Argentina: Paraná	Argentina	6	-27.4210173	-56.6011693	locality	Paraná, Argentina	Paraná River, Argentina
-UK: Lincolnshire	UK	6	53.1823034	-0.2031209	locality	Lincolnshire, UK	Lincolnshire, England, United Kingdom
 Mexico: Guanajuato, Area 3 (20.075, -101.126)	Mexico	6	21.0158848	-101.25284	locality-nofacility	Area 3, Guanajuato, Mexico	Guanajuato City, Municipio de Guanajuato, Guanajuato, 36003, Mexico
 Canada: Saskatchewan	Canada	6	55.5321257	-106.141224	locality	Saskatchewan, Canada	Saskatchewan, Canada
 South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)	South Africa	6	-29.060556	30.588889	locality-nofacility	Greytown, KwaZulu-Natal, South Africa	Greytown, Umvoti Local Municipality, Umzinyathi District Municipality, KwaZulu-Natal, Sout
@@ -127,7 +129,6 @@ France: Loyat	France	3	47.9901494	-2.3829611	locality	Loyat, France	Loyat, Ponti
 Germany: Etzdorf	Germany	3	51.0506277	13.1847189	locality	Etzdorf, Germany	Etzdorf, Striegistal, Mittelsachsen, Saxony, 09661, Germany
 Italy: Ozzano	Italy	3	44.4449797	11.4760503	corrected-high	Ozzano dell'Emilia, Italy	Ozzano dell'Emilia, Unione dei comuni Savena-Idice, Bologna, Emilia-Romagna, 40064, Italy
 Italy: Conselice	Italy	3	44.5127578	11.8291743	locality	Conselice, Italy	Conselice, Unione dei comuni della Bassa Romagna, Ravenna, Emilia-Romagna, 48017, Italy
-Germany: Gommershoven	Germany	3	51.01969	6.6284997	corrected-high	Gut Gommershoven, Germany	Gut Gommershoven, Rath, Bedburg, Rhein-Erft-Kreis, North Rhine-Westphalia, 50181, Germany
 Germany: Groitzsch	Germany	3	51.15	12.2833	locality	Groitzsch, Germany	Groitzsch, Landkreis Leipzig, Saxony, 04539, Germany
 Germany: Weißensee	Germany	3	52.5546193	13.4630018	locality	Weißensee, Germany	Weißensee, Pankow, Berlin, Germany
 Pakistan: Abbottabad	Pakistan	3	34.1436136	73.2132747	locality	Abbottabad, Pakistan	Abbottabad, Abbottabad Tehsil, Abbottabad District, Hazara Division, Khyber Pakhtunkhwa, 2
@@ -146,6 +147,7 @@ The Netherlands: Westmaas	The Netherlands	3	51.7877888	4.4737754	locality	Westma
 Germany: Seelze	Germany	3	52.3964639	9.594287	locality	Seelze, Germany	Seelze, Region Hannover, Lower Saxony, 30926, Germany
 UK: Carnoustie	UK	3	56.5010506	-2.711403	locality	Carnoustie, UK	Carnoustie, Angus, Scotland, DD7 6AE, United Kingdom
 UK: Chirnside	UK	3	55.8021522	-2.2091846	locality	Chirnside, UK	Chirnside, Scottish Borders, Scotland, TD11 3UF, United Kingdom
+France: 80200 Marchelepot	France	3	49.8318053	2.8683805	locality	80200 Marchelepot, France	Marchélepot, Marchélepot-Misery, Péronne, Somme, Hauts-de-France, Metropolitan France, 802
 UK: Mendelsham	UK	3	52.2510164	1.0795174	corrected-high	Mendlesham, UK	Mendlesham, Mid Suffolk, Suffolk, England, United Kingdom
 UK: Cirencester	UK	3	51.7171029	-1.9661616	locality	Cirencester, UK	Cirencester, Stratton, Cotswold District, Gloucestershire, England, United Kingdom
 USA: Savoy, IL	USA	3	40.054753	-88.2517165	locality-nofacility	Savoy, USA	Savoy, Champaign County, Illinois, 61874, United States
@@ -154,7 +156,6 @@ USA: St. Jacob, IL	USA	3	38.7201135	-89.7689957	locality-nofacility	St. Jacob, U
 USA: Carmi, IL	USA	3	38.0908796	-88.1586488	locality-nofacility	Carmi, USA	Carmi, White County, Illinois, 62821, United States
 USA: Illinois	USA	3	40.0796606	-89.4337288	locality	Illinois, USA	Illinois, United States
 China: Shanghai	China	3	31.2312707	121.4700152	locality	Shanghai, China	Shanghai, China
-Belgium: Mignault	Belgium	2	50.5288629	4.1523542	locality	Mignault, Belgium	Mignault, Le Rœulx, Soignies, Hainaut, Wallonia, 7070, Belgium
 Germany: Werbig	Germany	2	51.9301121	13.1938285	locality	Werbig, Germany	Werbig, Niederer Fläming, Dahme/Mark, Teltow-Fläming, Brandenburg, Germany
 UK: Bridgend	UK	2	51.5049859	-3.5756674	locality	Bridgend, UK	Bridgend, Bridgend County Borough, Wales, CF31 1DB, United Kingdom
 UK: York	UK	2	53.9656579	-1.0743052	locality	York, UK	York, York and North Yorkshire, England, United Kingdom
@@ -229,6 +230,7 @@ United Kingdom: Oxfordshire, Banbury	United Kingdom	2	52.0601807	-1.3402795	loca
 United Kingdom: Lincolnshire, Market Rasen	United Kingdom	2	53.3879115	-0.3376729	locality	Market Rasen, Lincolnshire, United Kingdom	Market Rasen, West Lindsey, Lincolnshire, Greater Lincolnshire, England, United Kingdom
 Germany: Lower Saxony, Northeim	Germany	2	51.7648548	9.858883	locality	Northeim, Lower Saxony, Germany	Landkreis Northeim, Lower Saxony, Germany
 United Kingdom: North Yorkshire	United Kingdom	2	54.1345328	-1.4986285	locality	North Yorkshire, United Kingdom	North Yorkshire, England, United Kingdom
+UK: Hereford	UK	2	52.0553813	-2.7151735	locality	Hereford, UK	Hereford, Herefordshire, England, United Kingdom
 USA: Iowa (41.573, -95.061)	USA	2	30.2368772	-93.0137569	locality	-95.061), Iowa (41.573, USA	Iowa, Calcasieu Parish, Louisiana, 70647, United States
 USA: Russell Ranch California	USA	2	38.6360488	-121.0959543	locality	Russell Ranch California, USA	Russell Ranch, White Rock, Folsom, Sacramento County, California, United States
 USA: Student Farm California	USA	2	38.5405293	-121.7657848	locality	Student Farm California, USA	Student Farm, Yolo County, California, United States
@@ -446,6 +448,22 @@ United Kingdom: North Yorkshire, Tadcaster	United Kingdom	1	53.8852975	-1.259597
 United Kingdom: Cambridgeshire, Haddenham	United Kingdom	1	52.3587178	0.1501133	locality	Haddenham, Cambridgeshire, United Kingdom	Haddenham, East Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, 
 United Kingdom: Warwickshire., Peopleton	United Kingdom	1	52.3213064	-1.5536906	locality-nofacility	Warwickshire., United Kingdom	Warwickshire, England, United Kingdom
 United Kingdom: Cornwall	United Kingdom	1	50.4433489	-4.6246566	locality	Cornwall, United Kingdom	Cornwall, England, United Kingdom
+UK: West Sussex	UK	1	50.9445845	-0.5278477	locality	West Sussex, UK	West Sussex, England, United Kingdom
+UK: Dorset	UK	1	50.7968369	-2.3447323	locality	Dorset, UK	Dorset, England, United Kingdom
+Poland: Pagow	Poland	1	51.7726183	20.426549	locality	Pagow, Poland	Pągów, gmina Biała Rawska, Rawa County, Łódź Voivodeship, 96-230, Poland
+Poland: Guvcz	Poland	1	53.8193657	18.9046363	corrected-high	Gurcz, Poland	Gurcz, gmina Kwidzyn, Kwidzyn County, Pomeranian Voivodeship, 82-500, Poland
+Germany: Iserlohn	Germany	1	51.3746778	7.6999713	locality	Iserlohn, Germany	Iserlohn, Märkischer Kreis, North Rhine-Westphalia, Germany
+Poland: Janvszeno	Poland	1	52.215933	19.134422	country	Poland	Poland
+France: Ecouis	France	1	49.3103598	1.4318396	locality	Ecouis, France	Écouis, Les Andelys, Eure, Normandy, Metropolitan France, 27440, France
+UK: Kent	UK	1	51.2070749	0.7210362	locality	Kent, UK	Kent, England, United Kingdom
+UK: Berkshire	UK	1	51.4534889	-1.031873	locality	Berkshire, UK	Berkshire, West Berkshire, England, United Kingdom
+Poland: Gova-Jciow	Poland	1	52.215933	19.134422	country	Poland	Poland
+Poland: Jaroseawiec	Poland	1	50.7168844	23.3619855	corrected-high	Jarosławiec, Poland	Jarosławiec, gmina Sitno, Zamość County, Lublin Voivodeship, Poland
+France: Fresne L'Archeveque	France	1	49.2866656	1.4109987	locality	Fresne L'Archeveque, France	Fresne-l'Archevêque, Frenelles-en-Vexin, Les Andelys, Eure, Normandy, Metropolitan France,
+France: Beauval Encaux	France	1	49.7439519	1.0191066	corrected-high	Beauval-en-Caux, France	Beauval-en-Caux, Dieppe, Seine-Maritime, Normandy, Metropolitan France, 76890, France
+France: Le Gios Thiel	France	1	49.2308101	0.8459873	corrected-high	Le Gros-Theil, France	Le Gros-Theil, Le Bosc-du-Theil, Bernay, Eure, Normandy, Metropolitan France, 27370, Franc
+Poland: Chrzelive	Poland	1	50.4709455	17.7365468	corrected-medium	Chrzelice, Poland	Chrzelice, gmina Biała, Prudnik County, Opole Voivodeship, Poland
+Germany: Altenberge	Germany	1	52.0468367	7.4669887	locality	Altenberge, Germany	Altenberge, Kreis Steinfurt, North Rhine-Westphalia, 48341, Germany
 UK: Terrington St Clement	UK	1	52.8088521	0.3090975	locality	Terrington St Clement, UK	Terrington St. Clement, King's Lynn and West Norfolk, Norfolk, England, United Kingdom
 UK: Oxford	UK	1	51.7520131	-1.2578499	locality	Oxford, UK	Oxford, Oxfordshire, England, United Kingdom
 UK: Wareham	UK	1	50.6868972	-2.1098377	locality	Wareham, UK	Wareham, Dorset, England, BH20 4AW, United Kingdom

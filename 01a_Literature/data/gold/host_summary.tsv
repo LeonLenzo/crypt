@@ -13,7 +13,7 @@ Triticum dicoccon	cereal	2	1	1	2017	1	0	2	0	0	0	leaf	field:2	disease-selected:2
 Soft red winter wheat: IL10-19464	cereal	2	1	2	2016	1	0	2	0	0	0	wheat spikelet	field:2	disease-selected:2
 Soft red winter wheat; Pioneer 25R47	cereal	2	1	2	2016	1	0	2	0	0	0	wheat spikelet	field:2	disease-selected:2
 Soft read winter wheat: IL10-19464	cereal	2	1	2	2016	1	0	2	0	0	0	wheat spikelet	field:2	disease-selected:2
-Hordeum jubatum	cereal	2	1	1	2019	1	0	2	0	0	0		field:2	disease-selected:2
+Hordeum jubatum	cereal	2	1	1	2019	1	0	2	0	0	0	leaf	field:2	disease-selected:2
 Hordeum vulgare	cereal	1	1	1	2023	1	0	1	0	0	0	LEAVES	field:1	disease-selected:1
 Soft red winter wheat: Pioneer 25R47	cereal	1	1	1	2016	1	0	1	0	0	0	wheat spikelet	field:1	disease-selected:1
 Soft read winter wheat; Pioneer 25R47	cereal	1	1	1	2016	1	0	1	0	0	0	wheat spikelet	field:1	disease-selected:1

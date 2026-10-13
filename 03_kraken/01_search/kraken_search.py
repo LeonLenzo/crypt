@@ -155,6 +155,14 @@ def datasets_query(taxon) -> list:
         capture_output=True, text=True, timeout=300,
     )
     if r.returncode != 0:
+        # Do NOT swallow this. A genus that is a taxonomic HOMONYM makes the CLI exit
+        # non-zero ("exact match for more than one taxid") and the clade then selects zero
+        # assemblies with no sign anything went wrong. Found 2026-10-13: Cryptococcus is
+        # both a fungus (5206) and a scale insect (79213); Rhizophagus is both a fungus
+        # (1129544) and a beetle (295919). Pass the taxid instead of the name for those.
+        err = (r.stderr or "").strip().splitlines()
+        print(f"\n  WARNING datasets_query({taxon}) failed: "
+              f"{err[0] if err else 'exit ' + str(r.returncode)}", flush=True)
         return []
     rows = []
     for line in r.stdout.splitlines():
@@ -725,7 +733,8 @@ def run_scope(seeds: dict, t2n: dict, workers: int) -> None:
 
 def run_select(seeds: dict, t2n: dict, workers: int, floor: int = DEFAULT_FLOOR,
                sweep_rank: str = DEFAULT_SWEEP_RANK,
-               exclude_broad: bool = False, retain: Path = None) -> list:
+               exclude_broad: bool = False, retain: Path = None,
+               extra_clades: dict = None, skip_seeds: bool = False) -> list:
     global SPECIES_NAME, PHYLUM_OF
     detected_genera = load_detected_genera()
     print(f"STAT-detected genera: {len(detected_genera)}")
@@ -744,22 +753,30 @@ def run_select(seeds: dict, t2n: dict, workers: int, floor: int = DEFAULT_FLOOR,
         print(f"Species-normalised {len(to_species):,} taxids; "
               f"seed coverage expanded {len(seeds)} -> {len(covered)} taxa")
 
-    print(f"\n[1/2] Querying {len(seeds)} seed taxids (all assemblies for detected genera) …")
     all_rows = []
+    if skip_seeds:
+        # Residents-only run. PHI-base is the ONLY seed source this script has, which is
+        # structurally why non-pathogens cannot be in db_v3: an epiphytic yeast has no
+        # PHI-base entry, so no seed, so the sweep never reaches it. Skipping the seed
+        # query and injecting clades by name is how a resident set gets selected at all.
+        print("\n[1/2] SKIPPED (--skip-seeds): no PHI-base seeds in this run")
+    else:
+        print(f"\n[1/2] Querying {len(seeds)} seed taxids "
+              f"(all assemblies for detected genera) …")
 
-    def work_seed(taxid, kingdom):
-        name = t2n.get(str(taxid), str(taxid))
-        detected = name.split()[0] in detected_genera
-        return select_seed(taxid, name, kingdom, detected, datasets_query(taxid), floor)
+        def work_seed(taxid, kingdom):
+            name = t2n.get(str(taxid), str(taxid))
+            detected = name.split()[0] in detected_genera
+            return select_seed(taxid, name, kingdom, detected, datasets_query(taxid), floor)
 
-    with ThreadPoolExecutor(max_workers=workers) as pool:
-        futs = {pool.submit(work_seed, tid, kgd): tid for tid, kgd in seeds.items()}
-        for done, fut in enumerate(as_completed(futs), 1):
-            all_rows.extend(fut.result())
-            if done % 10 == 0 or done == len(futs):
-                print(f"  {done}/{len(futs)} seeds … ({len(all_rows)} assemblies so far)",
-                      end="\r", flush=True)
-    print()
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futs = {pool.submit(work_seed, tid, kgd): tid for tid, kgd in seeds.items()}
+            for done, fut in enumerate(as_completed(futs), 1):
+                all_rows.extend(fut.result())
+                if done % 10 == 0 or done == len(futs):
+                    print(f"  {done}/{len(futs)} seeds … "
+                          f"({len(all_rows)} assemblies so far)", end="\r", flush=True)
+        print()
     seed_count = len(all_rows)
     print(f"  Seed assemblies selected: {seed_count}")
 
@@ -767,7 +784,13 @@ def run_select(seeds: dict, t2n: dict, workers: int, floor: int = DEFAULT_FLOOR,
     # Above genus that needs a taxonomy tree, which holobase has and NCBI's assembly
     # records do not (they carry no rank above species). A genus sweep needs no tree,
     # so it stays available and reproduces db_v2 with --floor 0 --exclude-broad.
-    if sweep_rank == "genus":
+    if skip_seeds:
+        # --skip-seeds means STANDALONE: suppress the seed-derived sweep targets too, not just
+        # the seed assembly query. Leaving them in made a "residents-only" run sweep 65 clades
+        # instead of 30, because a genus sweep derives its targets from seeds n detected_genera.
+        sweep_targets = {}
+        print("  seed-derived sweep targets suppressed (--skip-seeds)")
+    elif sweep_rank == "genus":
         sweep_targets = {}
         for tid, kingdom in seeds.items():
             parts = t2n.get(str(tid), "").split()
@@ -797,6 +820,16 @@ def run_select(seeds: dict, t2n: dict, workers: int, floor: int = DEFAULT_FLOOR,
 
     if exclude_broad and sweep_rank == "genus":
         sweep_targets = {g: k for g, k in sweep_targets.items() if g not in BROAD_GENERA}
+
+    # Clades named on the command line rather than reached from a seed. Injected AFTER the
+    # exclude_broad filter on purpose: a resident list is curated from abundance data, so it
+    # is not the broad-genus problem that filter exists for, and dropping an entry silently
+    # would be worse than including a large genus deliberately.
+    if extra_clades:
+        before = len(sweep_targets)
+        sweep_targets.update(extra_clades)
+        print(f"  +{len(sweep_targets) - before} clades injected from --extra-clades "
+              f"({len(extra_clades)} given)")
 
     label = "all qualifying assemblies" if not floor else f"up to {floor} per species"
     print(f"\n[2/2] Sweeping {len(sweep_targets)} {sweep_rank} clades ({label}) …")
@@ -838,7 +871,7 @@ def run_select(seeds: dict, t2n: dict, workers: int, floor: int = DEFAULT_FLOOR,
 
 
 def write_candidates(rows: list, version: str = DEFAULT_VERSION,
-                     floor: int = DEFAULT_FLOOR) -> None:
+                     floor: int = DEFAULT_FLOOR, symlink: bool = True) -> None:
     """Write data/ref_candidates_<version>.tsv and point ref_candidates.tsv at it.
 
     The version-stamped name is what keeps the previous build's selection on disk:
@@ -857,6 +890,14 @@ def write_candidates(rows: list, version: str = DEFAULT_VERSION,
     # selection, and that selection is the only record of what the current database
     # was built from. Replacing it with a symlink would destroy it, so preserve it
     # first and never overwrite an existing preserved copy.
+    if not symlink:
+        # A side run (e.g. --extra-clades residents) must NOT redefine the current
+        # selection: kraken_db_busco.py and the build read the plain ref_candidates.tsv
+        # name through this symlink, so repointing it at a partial table would silently
+        # make that partial table "the database".
+        print(f"  wrote {versioned.name}; left {CANDIDATES_TSV.name} pointing at "
+              f"{CANDIDATES_TSV.resolve().name if CANDIDATES_TSV.exists() else 'nothing'}")
+        return
     if CANDIDATES_TSV.is_file() and not CANDIDATES_TSV.is_symlink():
         legacy = DATA_DIR / "ref_candidates_legacy.tsv"
         if legacy.exists():
@@ -1058,6 +1099,20 @@ def main():
                          "symlink). Use after changing busco_lineage_for(); avoids "
                          "re-selecting, which would re-query NCBI and could change the "
                          "assembly set the CDS were downloaded against")
+    ap.add_argument("--extra-clades",
+                    help="TSV/txt of clade names to sweep that no PHI-base seed reaches "
+                         "(one per line; optional 2nd column = fungal|oomycete). PHI-base is "
+                         "this script's only seed source, so resident non-pathogens are "
+                         "otherwise unreachable. Use with --sweep-rank genus.")
+    ap.add_argument("--skip-seeds", action="store_true",
+                    help="Skip the PHI-base seed query AND the seed-derived sweep targets, and "
+                         "force --retain off. With --extra-clades this makes a standalone "
+                         "selection over only the named clades. Without the retain override a "
+                         "side run inherits the previous selection (785 assemblies, incl. 156 "
+                         "P. nodorum) and is not standalone at all.")
+    ap.add_argument("--no-symlink", action="store_true",
+                    help="Write ref_candidates_<version>.tsv but do NOT repoint "
+                         "ref_candidates.tsv at it. Required for any side run.")
     ap.add_argument("--workers", type=int, default=8)
     args = ap.parse_args()
 
@@ -1132,10 +1187,23 @@ def main():
             run_scope(seeds, t2n, args.workers)
             return
 
+        extra = {}
+        if args.extra_clades:
+            for line in open(args.extra_clades):
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                parts = line.split("\t")
+                extra[parts[0].strip()] = (parts[1].strip() if len(parts) > 1
+                                           and parts[1].strip() else "fungal")
+            print(f"Loaded {len(extra)} extra clades from {args.extra_clades}")
+
         rows = run_select(seeds, t2n, args.workers, args.floor,
                           args.sweep_rank, args.exclude_broad,
-                          Path(args.retain) if args.retain else None)
-        write_candidates(rows, args.version, args.floor)
+                          None if args.skip_seeds
+                          else (Path(args.retain) if args.retain else None),
+                          extra, args.skip_seeds)
+        write_candidates(rows, args.version, args.floor, symlink=not args.no_symlink)
 
         if args.download:
             run_download(rows, Path(args.genomes_dir), args.workers)

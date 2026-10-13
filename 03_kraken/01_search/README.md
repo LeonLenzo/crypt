@@ -190,49 +190,91 @@ gives only random-forest discriminators, not abundances.
   is NOT the same as covering what those surveys called *Cryptococcus*. Resolve against current
   NCBI taxonomy, not the paper's name.
 
-## Annotation is the binding constraint, and the cost is 508 assemblies
+## Annotation is the binding constraint, and the cost is 161 assemblies
 
 CDS-only means an assembly is not enough. Of the 50 genera named across the four papers plus
-Colvin, 15 are already in db_v3 and the other 35 split three ways
-(`data/resident_annotation.tsv`):
+Colvin, 15 are already in db_v3 and the other 35 split by NCBI availability
+(`data/resident_annotation.tsv`): 22 have annotated assemblies, 8 have assemblies with no gene
+models, 5 have no assembly anywhere.
 
-| route | genera | assemblies | named species |
-|---|---:|---:|---:|
-| **add now** (annotation exists) | 22 | **465** | 107 |
-| **miniprot** (assemblies, no gene models) | 8 | **43** | 25 |
-| no assembly anywhere | 5 | 0 | 0 |
-| **db_v4 addition** | **30** | **508** | **132** |
+But **NCBI availability is not what the selector takes.** A real `--select-only` run is the only
+way to size a build, and it gives a much smaller number:
 
-Against db_v3's 2,063 candidate assemblies and 877 fungal species that is **+25% assemblies and
-+15% fungal species**. Expect ~95% to survive selection, by the db_v3 precedent (of 2,063
-candidates, 1,986 passed BUSCO and 70 had no CDS).
+```
+python 03_kraken/01_search/kraken_search.py --skip-seeds \
+    --extra-clades 03_kraken/01_search/seeds/resident_clades.tsv \
+    --sweep-rank genus --select-only --version residents --no-symlink
+```
 
-**Why the count is assemblies and not a per-species quota:** db_v3's policy is a FLOOR WITH NO
-CAP (`kraken_search.py`, `DEFAULT_FLOOR = 4`). Capping a deep species was measured to discard
-real k-mer content, up to 62% of a species complex's observed content, so every annotated
-assembly of a selected species is taken. That is safe for bias, because Kraken2 stores each
-distinct minimizer once and redundant assemblies add no weight, but it is not free in build
-time, disk or RAM. **If the total is too large, the lever is the genus list, never a cap.**
+**161 assemblies across 80 species, all 161 with CDS** (`data/ref_candidates_residents.tsv`).
+Against db_v3's 2,063 candidates and 877 fungal species that is **+8% assemblies and +9% fungal
+species**, not the +25% a naive count of annotated assemblies suggests.
 
-The weight is lopsided: five genera supply 354 of the 465 add-now assemblies.
+| genus | asm | spp | | genus | asm | spp |
+|---|---:|---:|---|---|---:|---:|
+| *Cryptococcus* | 36 | 14 | | *Cladosporium* | 4 | 3 |
+| *Malassezia* | 32 | 17 | | *Coniochaeta* | 4 | 4 |
+| *Kwoniella* | 30 | 14 | | *Mrakia* | 2 | 1 |
+| *Rhodotorula* | 15 | 8 | | *Tilletiopsis* | 2 | 1 |
+| *Aureobasidium* | 11 | 5 | | *Filobasidium* | 1 | 1 |
+| *Candida* | 11 | 4 | | *Glomus* | 1 | 1 |
+| *Rhizophagus* | 6 | 3 | | *Sporobolomyces* | 1 | 1 |
+| *Chaetomium* | 4 | 2 | | *Taphrina* | 1 | 1 |
 
-| genus | assemblies | species | why it is big |
-|---|---:|---:|---|
-| *Aureobasidium* | 135 | 8 | pullulan production |
-| *Cryptococcus* | 96 | 15 | clinical |
-| *Candida* | 44 | 6 | clinical |
-| *Rhodotorula* | 42 | 13 | lipid biotech |
-| *Malassezia* | 37 | 16 | clinical (and a useful contamination marker: Colvin's maize 0.78%) |
+### Why the selector takes so much less than NCBI holds
 
-Dropping the three clinical genera would save 177 assemblies, but *Candida* is a wheat core genus
-and *Cryptococcus* a top-20 wheat yeast, so that trade has a real cost. The 8 miniprot genera
-cost only 43 assemblies, so round 2 is cheap in build terms and expensive only in gene-prediction
-time.
+**The floor acts as a cap for anything STAT never detected.** `select_rank_sweep` takes
+`min(floor, available)` per species unless the genus is in `detected_genera`, and no resident
+genus is, by definition. So *Aureobasidium* comes in at 11 rather than 135 and *Candida* at 11
+rather than 44. The no-cap policy in the docstring applies to STAT-detected genera only. This is
+the single biggest reason an availability count overestimates the build.
 
-Round 2 is not optional: *Cystofilobasidium* and *Vishniacozyma* are wheat core and *Nigrospora*
-is core in both wheat and rice. The 5 dead ends need a stated limitation, though only
-*Erratomyces* and *Selenophoma* are genuine wheat-leaf losses; *Tomentella* and *Tylospora* are
-ectomycorrhizal and probably soil carryover, like Colvin's uncultured *Glomus* at 5.4% of maize.
+### Three failure modes a real run exposed and a count could not
+
+1. **`--skip-seeds` was not standalone.** It suppressed the seed assembly query but not the
+   seed-DERIVED sweep targets, so a "residents-only" run swept 65 clades instead of 30. Fixed.
+2. **`--retain` contaminated the side run.** The retain policy, which preserves the previous
+   selection so a rebuild cannot silently trim it, pulled in 785 assemblies including 156
+   *Parastagonospora nodorum* and 55 *Fusarium oxysporum*. `--skip-seeds` now forces it off.
+3. **Taxonomic HOMONYMS selected zero, silently.** `datasets_query` returned `[]` on a non-zero
+   exit, and the `datasets` CLI refuses an ambiguous name. ***Cryptococcus* is both a fungus
+   (5206) and a scale insect (79213); *Rhizophagus* is both a fungus (1129544) and a beetle
+   (295919).** Both selected nothing with no warning, losing 42 assemblies and 17 species.
+   `datasets_query` now warns, and `resident_clades.tsv` carries taxids for those two. Column 1
+   of that file may be a taxid for exactly this reason.
+
+### One decision still open: the assembly-quality gate
+
+`select_rank_sweep` requires `scaffold_plus(a) and has_annotation(a)`. For six genera those two
+never co-occur: the only annotated assembly is **contig-level**, so the quality gate excludes it.
+
+| genus | annotated assemblies | all at |
+|---|---:|---|
+| *Boeremia* | 3 | Contig |
+| *Dioszegia* | 2 | Contig |
+| *Papiliotrema* | 1 | Contig |
+| *Clohesyomyces* | 1 | Contig |
+| *Leucosporidium* | 1 | Contig |
+| *Phaeosphaeria* | 1 | Contig |
+
+That list includes ***Papiliotrema*, rice's single most abundant genus at 14.5%**, and
+*Dioszegia*, a wheat core yeast. Relaxing the gate for residents would recover **9 assemblies
+across 6 species**.
+
+The case for relaxing it: a resident exists to be a COMPETITOR, somewhere for a read to park, and
+that needs real k-mers rather than a good assembly. The module already reasons this way twice over
+— reference incompleteness largely cancels in the coverage ratio because a fragmented assembly
+shrinks numerator and denominator together, which is why BUSCO is a QC record and not a gate, and
+species-level counts for shallow swept taxa are already declared unreliable and meant to be
+aggregated to genus. The case against: contig-level drafts are likelier to carry contamination,
+and a fragmented assembly is a weak competitor anyway.
+
+**Not changed.** It is a gate on the whole database, so it is Leon's call, and the 9 assemblies
+are not worth a unilateral change to a policy db_v3 was built under.
+
+The 8 miniprot genera add nothing to this table because they have no gene models at all; they
+are a separate round and remain not optional, since *Cystofilobasidium* and *Vishniacozyma* are
+wheat core and *Nigrospora* is core in both wheat and rice.
 
 **Partial coverage is still protective.** A *Vishniacozyma* read does not need *Vishniacozyma*
 in the database; it needs something close enough to promote to Filobasidiales rather than be

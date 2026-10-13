@@ -1,0 +1,45 @@
+# Resident genera absent from db_v3, for --extra-clades. AUTHORED: every entry is named by a
+# cereal leaf study with its abundance evidence. Generated from data/resident_annotation.tsv but
+# reviewed by hand, so it is a seed, not a derived table. Regenerate the EVIDENCE with
+#   python 03_kraken/01_search/scope_residents.py --annotation
+# but do not let a script overwrite a curated decision here.
+#
+# PHI-base is kraken_search.py's only seed source, so none of these is reachable from a seed:
+# an epiphytic yeast has no PHI-base entry. That is structurally why db_v3 lacks them.
+#
+# genus<TAB>kingdom<TAB>route<TAB>evidence
+#
+# Column 1 may be a TAXID instead of a name, and must be for a taxonomic HOMONYM: the
+# datasets CLI refuses an ambiguous name and the clade then selects nothing. Cryptococcus
+# -> 5206 (the fungus; 79213 is a scale insect). Rhizophagus -> 1129544 (the fungus;
+# 295919 is a beetle).
+Aureobasidium	fungal	add	wheat top20
+Boeremia	fungal	add	maize 0.69%, sorghum 1.55%
+Candida	fungal	add	wheat core rank 9.6; Das22 rice discriminator
+Chaetomium	fungal	add	wheat core rank 8.9
+Cladosporium	fungal	add	wheat core rank 4.75; All26 dominant at one site; Col26
+Clohesyomyces	fungal	add	rice, declines in symptomatic leaves
+Coniochaeta	fungal	add	rice, enriched in non-symptomatic leaves
+5206	fungal	add	wheat top-20 yeast (CAUTION: legacy genus, see below)
+Dioszegia	fungal	add	wheat top-20 yeast; All26 top20; Col26 sorghum 0.76%
+Filobasidium	fungal	add	wheat top-20 yeast; All26 top20; Col26 1.3-1.6%
+Glomus	fungal	add	maize 5.40% uncultured Glomus (likely soil)
+Kwoniella	fungal	add	maize 0.95%
+Leucosporidium	fungal	add	wheat top20
+Malassezia	fungal	add	maize 0.78% (human skin yeast: a CONTAMINATION marker)
+Mrakia	fungal	add	wheat top20
+Papiliotrema	fungal	add	rice MOST ABUNDANT genus 14.5%; core 12.5%; All26 top20
+Phaeosphaeria	fungal	add	rice core 4.5% (CAUTION: P. nodorum is a synonym, see below)
+1129544	fungal	add	maize, Glomeraceae (arbuscular mycorrhizal: likely soil)
+Rhodotorula	fungal	add	wheat top-20 yeast
+Sporobolomyces	fungal	add	wheat top-20 yeast; All26 top20
+Taphrina	fungal	add	wheat, differentially responsive pathogen
+Tilletiopsis	fungal	add	sorghum 1.86% at 100% prevalence
+Bullera	fungal	miniprot	wheat top20
+Cystofilobasidium	fungal	miniprot	wheat top20; similar abundance at both sites
+Neoascochyta	fungal	miniprot	wheat, differentially responsive pathogen
+Nigrospora	fungal	miniprot	wheat core rank 9.06; Yin23c rice core 13.2%
+Ophiognomonia	fungal	miniprot	wheat, differentially responsive pathogen
+Symmetrospora	fungal	miniprot	rice 5.7%
+Udeniomyces	fungal	miniprot	wheat top-20 yeast; All26 top20
+Vishniacozyma	fungal	miniprot	wheat top-20 yeast

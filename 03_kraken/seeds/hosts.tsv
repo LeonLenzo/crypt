@@ -1,0 +1,22 @@
+# AUTHORED. The plant species in the CDS database, and why each one is in.
+#
+# Hosts are in the database as a SINK: without them a plant read is absorbed by the nearest
+# fungal CDS and reported as a fungal hit (02_build/README.md). They are NOT there to be
+# detected.
+#
+# db_v3 held 38 plant species / 568 M minimizers / 11.8% of the database, from an era when the
+# cohort spanned 36 hosts. The literature-first cohort is four cereals, so 32 species are
+# dropped: 413 M minimizers, 8.6% of db_v3. See exclusions.tsv.
+#
+# WHY NOT JUST THE FOUR: 04_assign/host RANKS reads across hosts rather than thresholding, so
+# with only cohort hosts in the database every library is called as one of them and a
+# mislabelled or contaminated non-cereal library becomes undetectable. That ranking is how
+# Fragaria's absence was found (30 strawberry runs landing on Populus, Arachis and Glycine) and
+# what the 228 low_coverage calls flag. Two outgroups keep that signal for ~20 M minimizers.
+ncbi_taxid	species	role	db_v3_minimizers	reason
+4565	Triticum aestivum	cohort	35250750	cohort crop; 1,215 runs, 98% pathology-selected
+4530	Oryza sativa	cohort	19635144	cohort crop; 2,784 runs
+4577	Zea mays	cohort	9511898	cohort crop; 2,511 runs
+4558	Sorghum bicolor	cohort	9092725	cohort crop; 1,120 runs, never yet classified
+4513	Hordeum vulgare	outgroup_monocot	17905911	dropped from the cohort under the 100-run figure floor but still a cereal with real detections, and the nearest monocot outgroup. Note the barley in the kraken charts is mostly wheat (host calls are one-directionally biased in rust surveys), so it also serves as the control on that bias.
+3702	Arabidopsis thaliana	outgroup_dicot	9753676	dicot outgroup for mislabel QC. Phylogenetically distant from the cereals, so a library that ranks here is almost certainly not a cereal.

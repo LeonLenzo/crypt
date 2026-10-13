@@ -1,0 +1,131 @@
+# seeds/ — the single source of truth for what is in the CDS database
+
+Before this directory existed, membership was implicit: it was whatever `kraken_search.py`
+happened to select from PHI-base, and `01_search/data/` held eleven tables with no statement of
+which one was authoritative. A taxon could be absent for three unrelated reasons — nobody
+decided to include it, the selector dropped it on a quality gate, or no assembly exists — and
+nothing distinguished them. That is how the resident-community gap went unnoticed through two
+database builds.
+
+This directory makes membership explicit. Nothing may be dropped from the build without a row
+in `exclusions.tsv` saying why.
+
+## The scope rule
+
+> **Plant-associated, ANY host. Never scope by the cohort's own hosts.**
+
+USDA Fungus-Host Distributions is host-**association** data. It is used here to ask *is this
+fungus ever recorded on any plant*, which is a scope gate. It must **never** be used to ask *is
+it recorded on wheat, maize, rice or sorghum*, which is a plausibility filter.
+
+CLAUDE.md already rejects host-plausibility filtering of calls, because the observed
+fungus-host edges record only what has already been seen and the study exists to find
+unreported associations. Moving that same filter earlier, into reference selection, is **worse
+than filtering calls**: a filter on calls can be relaxed afterwards, but a missing reference is
+invisible and unrecoverable without a rebuild, because the reads go silently to the nearest
+taxon that *is* present and the detection looks genuine on every axis. See
+`../01_search/README.md`.
+
+It is a one-line change away from being wrong. `build_seeds.py` filters hosts on
+`kingdom = 'Viridiplantae'` and nothing narrower.
+
+## Authored versus generated
+
+| file | status | holds |
+|---|---|---|
+| `sources.tsv` | **authored** | each seed source, its role, and why it is here |
+| `hosts.tsv` | **authored** | the 6 plant species, and why each one is in |
+| `exclusions.tsv` | **authored** | explicitly OUT, with a reason per row |
+| `residents.tsv` | **authored** | the abundance-driven genus list, with evidence per row |
+| `fungi_usda.tsv` | *generated* | `build_seeds.py`, from holobase |
+
+Authored files are irreplaceable: losing one costs re-reading papers and re-making decisions.
+A script may never overwrite them. `build_seeds.py` writes only `fungi_usda.tsv`. This split is
+the same rule `01_literature/_layout.py` states, for the same reason.
+
+## What is in scope
+
+**Fungi, primary — USDA, 1,488 taxa** with a scaffold-plus assembly, of which 432 are already
+in db_v3, so **1,056 are new**, holding 3,025 assemblies before the depth floor and before
+annotation is checked.
+
+PHI-base was db_v3's basis, via `01_stat`, and is dropped as the scope source: `01_stat` is out
+of the pipeline, and `pathogenic` resolves to only **340 fungi** against USDA's 20,204 on
+plants. `recorded_on` is the right relation precisely because it reaches the saprotrophs,
+endophytes and epiphytes that `pathogenic` structurally cannot. PHI-base remains *reference
+data* — `phibase_db.json` still labels which taxa are declared pathogens, which `05_filter`
+uses — just not the scope.
+
+**Fungi, secondary — `residents.tsv`, 30 genera.** USDA is a herbarium records database, so a
+leaf yeast is barely recorded as "fungus on host X": *Papiliotrema*, *Dioszegia*,
+*Cystofilobasidium* and *Udeniomyces* appear at 1-2 records each, and *Candida* and *Mrakia* not
+at all. But the abundance literature says **seven of the top 20 wheat genera are yeasts**, and
+*Papiliotrema* is rice's single most abundant genus at 14.5%. USDA alone would reach
+*Cladosporium* and *Nigrospora* and miss that whole layer. Two sources, because neither is
+sufficient.
+
+**Hosts — 6 species.** The four cohort crops plus *Hordeum vulgare* (monocot outgroup) and
+*Arabidopsis thaliana* (dicot outgroup). db_v3 held 38 plant species from an era when the
+cohort spanned 36 hosts; 32 are dropped, which is 413 M minimizers or 8.6% of db_v3. The
+outgroups are kept because `04_assign/host` *ranks* reads rather than thresholding, so with
+only cohort hosts present every library is called as one of them and a mislabelled non-cereal
+library becomes undetectable. That ranking is how *Fragaria*'s absence was found.
+
+## Sizing: availability is not the build
+
+Two things in holobase cannot answer the size question, and both have already produced
+confidently wrong numbers:
+
+- **`assembly.is_annotated` is 1 on all 36,709 rows.** It cannot filter for annotation. The
+  database is CDS-only (`kraken_build.py` skips any assembly without a gene model), so
+  annotation is the binding constraint and holobase cannot see it.
+- **`taxon.taxon_id` is an internal surrogate, not an NCBI taxid** — the schema says so, and
+  the real key is `ncbi_taxid`. Joining db_v3's taxids against `taxon_id` returns a confident
+  **0% overlap** rather than an error.
+
+So the only way to size a build is a real `--select-only` run. On the resident set, NCBI
+availability said 508 assemblies and the selector took **161**, because the depth floor acts as
+a cap for any genus STAT never detected. Expect the same direction here: **1,056 taxa is an
+upper bound.**
+
+Projection for db_v4, with the host cut applied: **6.9 to 8.9 B minimizers, a ~37 to 48 GB
+index**, against db_v3's 4.8 B and ~25 GB. That loads comfortably on a Setonix standard node's
+230 GB. Size is not the constraint; the CDS download (~3,000 assemblies at `--workers 8`) and
+the build are.
+
+## Regenerating, and the order to work in
+
+```
+python 03_kraken/seeds/build_seeds.py --check     # report, write nothing
+python 03_kraken/seeds/build_seeds.py             # -> fungi_usda.tsv
+```
+
+Then size the build before downloading anything:
+
+```
+python 03_kraken/01_search/kraken_search.py --skip-seeds \
+    --extra-clades 03_kraken/seeds/residents.tsv \
+    --sweep-rank genus --select-only --version residents --no-symlink
+```
+
+`--skip-seeds` makes a standalone run: no PHI-base seed query, no seed-derived sweep targets,
+and `--retain` forced off. `--no-symlink` is **required** for any side run, because
+`ref_candidates.tsv` is a symlink that `utilities/busco.py` and the build read through, so
+repointing it at a partial table silently makes that partial table "the database".
+
+Column 1 of `residents.tsv` may be a **taxid** rather than a name, and must be for a taxonomic
+homonym: the `datasets` CLI refuses an ambiguous name, and `datasets_query()` used to return
+`[]` on the non-zero exit, so the clade selected nothing with no warning. *Cryptococcus* is both
+a fungus (5206) and a scale insect (79213); *Rhizophagus* is both a fungus (1129544) and a
+beetle (295919). Between them that cost 42 assemblies and 17 species. `datasets_query()` now
+warns.
+
+## Open decision
+
+`select_rank_sweep` requires `scaffold_plus(a) and has_annotation(a)`. For six genera those
+never co-occur, because the only annotated assembly is **contig-level**: *Boeremia* (3),
+*Dioszegia* (2), *Papiliotrema* (1), *Clohesyomyces* (1), *Leucosporidium* (1), *Phaeosphaeria*
+(1). That excludes *Papiliotrema*, rice's most abundant genus, and *Dioszegia*, a wheat core
+yeast. Relaxing the gate for residents recovers 9 assemblies across 6 species. Arguments both
+ways are in `../01_search/README.md`. `SCAFFOLD_PLUS` in `build_seeds.py` would have to move in
+step. Not taken: it gates the whole database and db_v3 was built under it.

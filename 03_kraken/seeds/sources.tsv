@@ -1,0 +1,14 @@
+# AUTHORED. The seed sources for the CDS database, their role, and why each is here.
+# Never generated. holobase source_ids are from _refdata/holobase.db `source`.
+#
+# role=primary    defines the fungal scope
+# role=secondary  corrects a known blind spot in the primary
+# role=host       the plant sink, so host reads have a correct home instead of being
+#                 absorbed by the nearest fungal CDS and reported as fungal
+# role=dropped    was the scope basis for db_v3 and is no longer
+source	role	holobase_source_id	version	relation	n_taxa	note
+usda_fungus_host	primary	usda_fungus_host	frozen Nov 2021	recorded_on	20204 on plants; 1488 with a scaffold+ assembly	827,645 records. recorded_on, NOT pathogenicity, which is exactly why it reaches the saprotrophs, endophytes and epiphytes that PHI-base structurally cannot. CC0.
+literature_residents	secondary	-	2026-10-13	abundance	30 genera absent from db_v3	USDA is a herbarium records database, so leaf yeasts are barely recorded as "fungus on host X": Papiliotrema, Dioszegia, Cystofilobasidium and Udeniomyces appear at 1-2 records each, and Candida and Mrakia not at all. But abundance data says 7 of the top 20 wheat genera ARE yeasts. USDA alone would miss that layer. See residents.tsv.
+ncbi_assembly	assembly	ncbi_assembly_genbank_fungi	2026-09-17	-	26145 assemblies	What exists to build from. holobase's is_annotated is 1 on EVERY row, so it cannot filter for annotation; annotation comes from NCBI at selection time.
+host_cohort	host	-	2026-10-13	-	6 species	The 4 cohort crops plus 2 outgroups. See hosts.tsv.
+phibase	dropped	phibase	2026-09-17	pathogenic	340 fungi	db_v3's seed basis, via 01_stat. DROPPED 2026-10-13: 01_stat is out of the pipeline, and PHI-base resolves to only 340 fungi because `pathogenic` excludes every non-pathogen. Keeping it as the scope basis would reproduce the gap this redesign exists to close. It remains REFERENCE DATA (phibase_db.json still labels which taxa are declared pathogens, used by 05_filter), just not the scope.

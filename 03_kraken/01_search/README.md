@@ -202,7 +202,7 @@ way to size a build, and it gives a much smaller number:
 
 ```
 python 03_kraken/01_search/kraken_search.py --skip-seeds \
-    --extra-clades 03_kraken/01_search/seeds/resident_clades.tsv \
+    --extra-clades 03_kraken/seeds/residents.tsv \
     --sweep-rank genus --select-only --version residents --no-symlink
 ```
 
@@ -240,7 +240,7 @@ the single biggest reason an availability count overestimates the build.
    exit, and the `datasets` CLI refuses an ambiguous name. ***Cryptococcus* is both a fungus
    (5206) and a scale insect (79213); *Rhizophagus* is both a fungus (1129544) and a beetle
    (295919).** Both selected nothing with no warning, losing 42 assemblies and 17 species.
-   `datasets_query` now warns, and `resident_clades.tsv` carries taxids for those two. Column 1
+   `datasets_query` now warns, and `seeds/residents.tsv` carries taxids for those two. Column 1
    of that file may be a taxid for exactly this reason.
 
 ### One decision still open: the assembly-quality gate

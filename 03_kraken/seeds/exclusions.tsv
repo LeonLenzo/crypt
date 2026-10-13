@@ -1,0 +1,49 @@
+# AUTHORED. Explicitly OUT, with a reason. A thing that is merely absent is an accident; a
+# thing listed here is a decision. Nothing may be dropped from the build without a row here.
+#
+# kind=host_not_in_cohort   db_v3 plant species the four-cereal cohort no longer needs
+# kind=ploidy_redundant     held purely as a second ploidy, costing k-mers to the genus node
+# kind=homonym_wrong_taxid  a genus name that matches two taxids; the WRONG one
+# kind=no_assembly          named by a cereal leaf survey but nothing exists to build from
+# kind=synonym_already_held the taxon is in the database under its current name
+ncbi_taxid	name	kind	reason
+4498	Avena sativa	host_not_in_cohort	27,204,581 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+3708	Brassica napus	host_not_in_cohort	22,561,936 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4120	Ipomoea batatas	host_not_in_cohort	21,415,638 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+3635	Gossypium hirsutum	host_not_in_cohort	17,963,433 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4232	Helianthus annuus	host_not_in_cohort	17,216,666 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4097	Nicotiana tabacum	host_not_in_cohort	16,893,672 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+3847	Glycine max	host_not_in_cohort	16,468,321 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+3818	Arachis hypogaea	host_not_in_cohort	16,269,450 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+3690	Populus x canadensis	host_not_in_cohort	16,142,889 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+37657	Silene latifolia	host_not_in_cohort	15,711,325 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4146	Olea europaea	host_not_in_cohort	15,704,627 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4442	Camellia sinensis	host_not_in_cohort	14,825,254 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4045	Apium graveolens	host_not_in_cohort	13,888,007 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4236	Lactuca sativa	host_not_in_cohort	13,441,971 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4511	Eleusine coracana	host_not_in_cohort	13,400,120 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4641	Musa acuminata	host_not_in_cohort	12,508,496 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+2711	Citrus sinensis	host_not_in_cohort	11,838,176 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+29780	Mangifera indica	host_not_in_cohort	11,699,738 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+3983	Manihot esculenta	host_not_in_cohort	11,488,348 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+29760	Vitis vinifera	host_not_in_cohort	11,481,026 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4039	Daucus carota	host_not_in_cohort	10,523,977 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+3663	Cucurbita pepo	host_not_in_cohort	10,433,876 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+15368	Brachypodium distachyon	host_not_in_cohort	10,322,059 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4555	Setaria italica	host_not_in_cohort	9,919,416 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+3888	Lathyrus oleraceus	host_not_in_cohort	9,863,235 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+3641	Theobroma cacao	host_not_in_cohort	9,800,892 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+3906	Vicia faba	host_not_in_cohort	7,872,789 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+3659	Cucumis sativus	host_not_in_cohort	7,343,344 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4113	Solanum tuberosum	host_not_in_cohort	7,296,136 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4081	Solanum lycopersicum	host_not_in_cohort	6,892,955 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+4571	Triticum turgidum	ploidy_redundant	durum. 27.7% of the Triticum clade's 51.8M minimizers sit at the GENUS node because db_v3 holds both hexaploid aestivum and tetraploid turgidum, so a correct wheat call can score low coverage. Dropping it moves those k-mers to the species node. Nothing in the chapter distinguishes durum from bread wheat, so it costs nothing.
+3750	Malus domestica	host_not_in_cohort	2,084,086 minimizers. Host of the 02_literature cohort, not the four-cereal one.
+79213	Cryptococcus (scale insect)	homonym_wrong_taxid	Hemiptera. The FUNGUS is 5206. The datasets CLI refuses the bare name 'Cryptococcus' and datasets_query() returned [] on the non-zero exit, so the clade silently selected nothing: cost 36 assemblies / 14 species before it was caught. Always seed this genus by taxid.
+295919	Rhizophagus (beetle)	homonym_wrong_taxid	Coleoptera, Monotomidae. The FUNGUS (arbuscular mycorrhizal) is 1129544. Same silent-zero failure as Cryptococcus: cost 6 assemblies / 3 species.
+-	Magnaporthe	synonym_already_held	Old name for Pyricularia, which the database holds (P. oryzae, 109 cereal detections). Zero assemblies exist under the old name, so Dastogeer 2022 naming it as a rice leaf genus is a nomenclature artefact, not a gap. Do NOT add.
+-	Phaeosphaeria	synonym_already_held	P. nodorum is a synonym of Parastagonospora nodorum, which the database holds. Yin 2023's rice core 'Phaeosphaeria 4.5%' may therefore be an organism already present. CHECK WHICH SPECIES before adding; this row is a caution, not a settled exclusion.
+-	Erratomyces	no_assembly	Named in Allen 2026's top-20 wheat flag-leaf taxa. Zero assemblies at NCBI at any level. A genuine dead end: state it as a limitation.
+-	Selenophoma	no_assembly	Named in Allen 2026's top-20 wheat flag-leaf taxa. Zero assemblies at NCBI at any level. A genuine dead end: state it as a limitation.
+-	Tomentella	no_assembly	Dastogeer 2022 rice. Zero assemblies, and ectomycorrhizal, so probably soil carryover in a leaf sample rather than a phyllosphere resident. Low priority even if assemblies appear.
+-	Tylospora	no_assembly	Dastogeer 2022 rice, declines in symptomatic leaves. Zero assemblies, and ectomycorrhizal: same soil-carryover reading as Tomentella and as Colvin's uncultured Glomus at 5.4% of maize.

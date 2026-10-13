@@ -19,7 +19,7 @@ Outputs, all under release/:
                           by which search surfaced it.
   cohort_bioprojects.tsv  one row per retained BioProject (the cereal cohort)
   cohort_samples.tsv      one row per retained run, each curated value beside the rule that set
-                          it, so a value traces to evidence/<project>.yaml without a join
+                          it, so a value traces to evidence.tsv (and evidence/<project>.md) without a join
   evidence.tsv            the canonical evidence: one row per curated claim (bioproject,
                           field, n_runs, rule, evidence_id, doi, locus, quote). Joins to
                           cohort_samples.tsv by `rule` and to cohort_bioprojects.tsv by

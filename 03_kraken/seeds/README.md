@@ -45,9 +45,21 @@ the same rule `01_literature/_layout.py` states, for the same reason.
 
 ## What is in scope
 
-**Fungi, primary — USDA, 1,488 taxa** with a scaffold-plus assembly, of which 432 are already
-in db_v3, so **1,056 are new**, holding 3,025 assemblies before the depth floor and before
-annotation is checked.
+**FUNGI ONLY** as of 2026-10-13, Leon's call. Oomycetes are out of scope: db_v3's 29 oomycete
+species (185 M minimizers, 3.8% of the database) come out, and zero of them pass both
+`05_filter` floors on any cereal host, so nothing measurable is lost. It also avoids inheriting
+a holobase gap — holobase holds no oomycete assemblies at all, so USDA's 738 plant-associated
+oomycete taxa would each have needed separate NCBI resolution. CLAUDE.md's Scope section still
+says "fungi and oomycetes" and must be updated.
+
+**Fungi, primary — USDA, 1,486 taxa** with a scaffold-plus assembly, of which 432 are already
+in db_v3, so **1,054 are new**.
+
+**But only 179 of those 1,054 can be added today**, holding **369 unique annotated assemblies**
+(`fungi_annotated.tsv`, from `--annotate`). **849 — 80% — have a scaffold-plus assembly but no
+gene model at all**, and 26 have nothing. Since the database is CDS-only, annotation is not a
+detail: it is the gate, and it closes on four fifths of what USDA otherwise offers. Miniprot is
+therefore not a side quest but the main lever on breadth.
 
 PHI-base was db_v3's basis, via `01_stat`, and is dropped as the scope source: `01_stat` is out
 of the pipeline, and `pathogenic` resolves to only **340 fungi** against USDA's 20,204 on
@@ -88,10 +100,26 @@ availability said 508 assemblies and the selector took **161**, because the dept
 a cap for any genus STAT never detected. Expect the same direction here: **1,056 taxa is an
 upper bound.**
 
-Projection for db_v4, with the host cut applied: **6.9 to 8.9 B minimizers, a ~37 to 48 GB
-index**, against db_v3's 4.8 B and ~25 GB. That loads comfortably on a Setonix standard node's
-230 GB. Size is not the constraint; the CDS download (~3,000 assemblies at `--workers 8`) and
-the build are.
+### The build is close to size-neutral
+
+Once annotation is measured rather than assumed, db_v4 barely grows:
+
+| | assemblies | fungal species | minimizers |
+|---|---:|---:|---:|
+| db_v3 | 2,063 | 877 | 4.80 B |
+| − 32 hosts | | | −413 M |
+| − 29 oomycete species | | −29 | −185 M |
+| + USDA addable | +369 | +179 | |
+| + residents | +161 | +80 | |
+| **db_v4** | **~2,590** | **~1,107** | **~5.2 B** |
+
+About +26% assemblies and +26% fungal species, for roughly +8% minimizers after the cuts. The
+earlier 6.9-8.9 B projection assumed all 1,054 new taxa were addable; 80% are not. A ~5.2 B
+index is ~28 GB, comfortably inside a Setonix standard node's 230 GB, and the CDS download is
+~530 assemblies rather than ~3,000.
+
+**So size was never the constraint, and nor is download. Annotation is.** The 849 miniprot taxa
+are where the remaining breadth lives.
 
 ## Regenerating, and the order to work in
 

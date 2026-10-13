@@ -231,3 +231,7 @@ docs/*
 # Pure noise, never ours, and they appear beside every PDF and spreadsheet dropped into
 # 01_literature/studies/.
 *:Zone.Identifier
+
+# seeds/ annotation cache: one line per genus from the datasets CLI, purely a speed-up
+# for re-running build_seeds.py --annotate. Regenerated, never the record.
+03_kraken/seeds/.annotation_cache.jsonl

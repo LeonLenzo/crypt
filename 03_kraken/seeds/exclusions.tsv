@@ -6,7 +6,11 @@
 # kind=homonym_wrong_taxid  a genus name that matches two taxids; the WRONG one
 # kind=no_assembly          named by a cereal leaf survey but nothing exists to build from
 # kind=synonym_already_held the taxon is in the database under its current name
+# kind=out_of_scope         excluded by a scope decision, not by availability
 ncbi_taxid	name	kind	reason
+4762	Oomycota	out_of_scope	FUNGI-ONLY PAPER, Leon's call 2026-10-13. db_v3 holds 29 oomycete species / 185 M minimizers (3.8% of the database); all come out. Costs nothing measurable: ZERO of those 29 pass both 05_filter floors on any cereal host, so no cereal detection depends on them. It also removes a holobase problem rather than inheriting it, since holobase holds no oomycete assemblies at all and the 738 plant-associated oomycete taxa USDA records would each have needed resolving against NCBI (CLAUDE.md active task 5). CLAUDE.md's Scope section still says "fungi and oomycetes" and must be updated.
+4072	Capsicum annuum	out_of_scope	A PLANT in the fungal seed list. USDA's fungus column is not strictly fungi: it legitimately records plant parasites as "recorded on" a host. Caught because Capsicum was being selected as an addable reference with 6 annotated assemblies. build_seeds.py now filters tf.kingdom='Fungi'.
+78542	Orobanche cernua var. cumana	out_of_scope	Broomrape, a parasitic plant. Same cause as Capsicum annuum above.
 4498	Avena sativa	host_not_in_cohort	27,204,581 minimizers. Host of the 02_literature cohort, not the four-cereal one.
 3708	Brassica napus	host_not_in_cohort	22,561,936 minimizers. Host of the 02_literature cohort, not the four-cereal one.
 4120	Ipomoea batatas	host_not_in_cohort	21,415,638 minimizers. Host of the 02_literature cohort, not the four-cereal one.

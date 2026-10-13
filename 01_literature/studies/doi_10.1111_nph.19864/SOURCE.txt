@@ -1,0 +1,7 @@
+10.1111/nph.19864
+PRJEB65589
+PDF supplied by leon 2026-10-08, filed from studies/New Phytologist - 2024 - Lewis - Resurgence of wheat stem rust infections in western Europe  causes and how to curtail them.pdf
+Text extracted with pypdf; the original PDF is kept alongside it.
+Supporting Information (Notes S1, Materials and Methods) supplied by leon
+2026-10-08 as studies/downloadSupplement.pdf; it carries the RNA-seq methods the
+Viewpoints article itself omits. Text extracted with pypdf alongside it.

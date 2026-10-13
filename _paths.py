@@ -60,6 +60,16 @@ HOST_CANDIDATES = ROOT / "03_kraken/01_search/data/host_candidates.tsv"
 # ── 03_kraken/02_build: the Kraken2 database ────────────────────────────────────────────────
 DB_INSPECT     = ROOT / "03_kraken/02_build/data/db_v3_inspect.tsv"
 
+# External reference data, outside the repository. See _refdata/README.md and the per-database
+# PROVENANCE.md. Only core_nt's inspect table is held locally; the 316 GB index is not.
+REFDATA        = ROOT.parents[1] / "_refdata"
+CORENT_INSPECT = REFDATA / "databases/kraken2_core_nt_20251015/inspect.txt"
+
+# 01_literature's studies/ drop zone holds published supplements. Colvin & Chopra 2026's
+# per-sample fungal abundance tables (doi:10.64898/2026.05.21.727028) are the empirical
+# resident-community seed for reference scope, so they cross from 01_literature into 03_kraken.
+COLVIN_DATA    = ROOT / "01_literature/studies/doi_10.64898_2026.05.21.727028"
+
 # ── 03_kraken/03_select: the reads ──────────────────────────────────────────────────────────
 READS_DIR      = ROOT / "03_kraken/03_select/data/reads"
 READS_MANIFEST = ROOT / "03_kraken/03_select/data/manifest.tsv"

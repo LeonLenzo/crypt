@@ -1,0 +1,31 @@
+# Colvin & Chopra 2026 — supplements
+
+    Colvin C & Chopra S. 2026. Population-scale transcriptomics reveals host genetic control
+    of phyllosphere fungal communities. bioRxiv. doi:10.64898/2026.05.21.727028
+
+Downloaded 2026-10-13. Not ours to redistribute, so gitignored like the rest of studies/.
+
+    col26.pdf                  the preprint
+    dataset_S1_maize.csv       per-sample fungal relative abundance, maize   (164 taxa)
+    dataset_S2_sorghum.csv     per-sample fungal relative abundance, sorghum (704 taxa)
+    dataset_S3_soybean.csv     per-sample fungal relative abundance, soybean (246 taxa)
+    tables_S1-S10.xlsx         Supplementary Tables S1-S10
+
+URLs (bioRxiv rewrites these per version; v1 2026-05-26):
+
+    base=https://www.biorxiv.org/content/biorxiv/early/2026/05/26/2026.05.21.727028
+    $base/DC3/embed/media-3.xlsx    tables S1-S10
+    $base/DC5/embed/media-5.csv     dataset S1 (maize)
+    $base/DC6/embed/media-6.csv     dataset S2 (sorghum)
+    $base/DC7/embed/media-7.csv     dataset S3 (soybean)
+
+Values are relative abundance WITHIN each taxonomic level, summing to ~1 at class rank and
+0.62-0.97 at species rank (the remainder is reads not resolved to a retained species). Their
+retention filter was >=25 reads in >=1/3 of a dataset's samples.
+
+Why these are here rather than in 03_kraken: studies/ is the module's drop zone for published
+papers and supplements. They are consumed by `03_kraken/01_search/scope_residents.py`, which
+reaches them through `_paths.COLVIN_DATA`. Soybean is not used (not a cohort host).
+
+**Their abundances are a Kraken2 + Bracken + core_nt output, not ground truth.** See the
+"not ground truth" section of `03_kraken/01_search/README.md` before quoting any number.

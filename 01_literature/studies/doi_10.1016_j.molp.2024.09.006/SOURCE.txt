@@ -1,0 +1,4 @@
+10.1016/j.molp.2024.09.006
+PRJNA1161467
+PDF supplied by leon 2026-10-08, filed from studies/showPdf.pdf
+Text extracted with pypdf; the original PDF is kept alongside it.

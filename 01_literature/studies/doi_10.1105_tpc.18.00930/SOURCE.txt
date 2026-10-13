@@ -1,0 +1,4 @@
+10.1105/tpc.18.00930
+PRJNA505891
+PDF supplied by leon 2026-10-08, filed from studies/TPC_201800930R2.pdf
+Text extracted with pypdf; the original PDF is kept alongside it.

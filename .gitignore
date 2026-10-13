@@ -218,6 +218,11 @@ docs/*
 01_literature/studies/**
 !01_literature/studies/*/
 !01_literature/studies/*/adapter.yaml
+# SOURCE.txt is the per-study provenance note: the citation, where the text came from, which
+# accessions it sources and any warning about the study. Re-included BY RULE because tracking
+# it by `git add -f` habit had already lost 10 of 33 of them, which is the same failure the
+# seeds/ split was made to end (see 01_literature/_layout.py).
+!01_literature/studies/*/SOURCE*.txt
 01_literature/*.pdf
 01_literature/*.xls
 01_literature/*.xlsx

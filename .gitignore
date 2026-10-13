@@ -184,21 +184,23 @@ docs/*
 02_literature/03_classify/data/localities_plot.tsv
 02_literature/03_classify/data/geocode_cache.json
 
-# 01a_Literature: search returns and resolved accession lists. Data, per the code-not-data
+# 01_literature: search returns and resolved accession lists. Data, per the code-not-data
 # policy; the prompts that produced them are tracked and are the reproducible part.
 # Everything DERIVED lives under data/, one directory per medallion layer. The exception is
 # gold/: generated, but a few kilobytes of summary numbers worth having in history. git does
 # not descend into an excluded directory, so re-including it needs the directory itself
 # re-included first.
-01a_Literature/data/**
-!01a_Literature/data/gold/
-!01a_Literature/data/gold/*.tsv
+01_literature/data/**
+!01_literature/data/gold/
+!01_literature/data/gold/*.tsv
 
 # The hand-built records used to live here as exceptions to the rule above, which meant
 # tracking depended on whether somebody remembered `git add -f`: joins.tsv was never added to
 # the list and three generated tables were force-added by mistake. They now live in
-# 01a_Literature/seeds/, which is OUTSIDE this rule and therefore tracked by default, and
-# 01a_Literature/gold/ holds the small human-readable outputs. See 01a_Literature/_paths.py.
+# 01_literature/seeds/, which is OUTSIDE this rule and therefore tracked by default, and
+# 01_literature/data/gold/ holds the small human-readable outputs. See
+# 01_literature/_layout.py (named _layout, not _paths: the repo root owns _paths.py and a
+# second module of that name shadows it).
 #
 #   seeds/        AUTHORED, irreplaceable, tracked. Losing it costs re-reading every paper.
 #                 It stays OUT of data/ deliberately: data/ means "delete it and it rebuilds",
@@ -207,20 +209,20 @@ docs/*
 #   data/silver/  generated tables, ignored. Losing it costs a refetch and nothing else.
 #   data/gold/    generated but tiny and tracked: summary numbers over the project's life.
 
-# 01a_Literature working files. studies/ is the manual drop zone and holds publisher PDFs and
+# 01_literature working files. studies/ is the manual drop zone and holds publisher PDFs and
 # supplementary spreadsheets, which are not ours to redistribute (same grounds as
 # 02_literature/02_text/data/manual_pdfs/). The adapters ARE the reproducible part and are
 # tracked; so are the Undermind reports and the prompts.
 # git does not descend into an excluded directory, so re-including a file inside one needs the
 # directories re-included at every level first. `studies/*` alone would hide the adapters.
-01a_Literature/studies/**
-!01a_Literature/studies/*/
-!01a_Literature/studies/*/adapter.yaml
-01a_Literature/*.pdf
-01a_Literature/*.xls
-01a_Literature/*.xlsx
+01_literature/studies/**
+!01_literature/studies/*/
+!01_literature/studies/*/adapter.yaml
+01_literature/*.pdf
+01_literature/*.xls
+01_literature/*.xlsx
 
 # WSL writes an alternate-data-stream sidecar next to anything downloaded through Windows.
 # Pure noise, never ours, and they appear beside every PDF and spreadsheet dropped into
-# 01a_Literature/studies/.
+# 01_literature/studies/.
 *:Zone.Identifier

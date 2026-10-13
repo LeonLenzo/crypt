@@ -118,7 +118,7 @@ def main():
         # Record WHERE the year came from, not just the year. `location_source` below
         # describes the LOCATION only, and the year is resolved independently, so a consumer
         # that reuses location_source for the year mislabels it. Measured 2026-10-05 while
-        # importing this table into 01a_Literature: 52 of 1,843 rows disagreed, including 9
+        # importing this table into 01_literature: 52 of 1,843 rows disagreed, including 9
         # where the location is LLM-derived but the year is a sound BioSample value.
         sp_year = year(clean(sp.get("date")))
         bs_year = year(clean(r.get("collection_date")))

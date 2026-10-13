@@ -37,7 +37,8 @@ It is a one-line change away from being wrong. `build_seeds.py` filters hosts on
 | `hosts.tsv` | **authored** | the 6 plant species, and why each one is in |
 | `exclusions.tsv` | **authored** | explicitly OUT, with a reason per row |
 | `residents.tsv` | **authored** | the abundance-driven genus list, with evidence per row |
-| `fungi_usda.tsv` | *generated* | `build_seeds.py`, from holobase |
+| `fungi_usda.tsv` | *generated* | `build_seeds.py`, from holobase: WHICH fungi are plant-associated |
+| `fungi_annotated.tsv` | *generated* | `build_seeds.py --annotate`, from NCBI: which have a GENE MODEL |
 
 Authored files are irreplaceable: losing one costs re-reading papers and re-making decisions.
 A script may never overwrite them. `build_seeds.py` writes only `fungi_usda.tsv`. This split is
@@ -95,10 +96,14 @@ confidently wrong numbers:
   the real key is `ncbi_taxid`. Joining db_v3's taxids against `taxon_id` returns a confident
   **0% overlap** rather than an error.
 
-So the only way to size a build is a real `--select-only` run. On the resident set, NCBI
-availability said 508 assemblies and the selector took **161**, because the depth floor acts as
-a cap for any genus STAT never detected. Expect the same direction here: **1,056 taxa is an
-upper bound.**
+So the only way to size a build is to measure it. Two measurements, both of which cut the
+estimate hard:
+
+- `--annotate` against NCBI: of 1,054 new taxa, **179 are addable**, not 1,054.
+- `--select-only` on the resident set: availability said 508 assemblies, the selector took
+  **161**, because the depth floor acts as a cap for any genus STAT never detected.
+
+Every estimate made from availability counts alone has been too high by roughly 3x.
 
 ### The build is close to size-neutral
 

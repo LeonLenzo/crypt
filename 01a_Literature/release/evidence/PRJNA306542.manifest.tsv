@@ -1,0 +1,8 @@
+doi	filename	bytes	sha256	studies_path
+10.1111/eva.13054	Evolutionary Applications - 2020 - Luo - Transcriptomic divergence between upland and lowland ecotypes contributes to rice.pdf	11383522	a489916bd698f585e3c8b2eb7db2260c1e0a7cc0d6fecabd1e4e598001148bf9	studies/doi_10.1111_eva.13054/Evolutionary Applications - 2020 - Luo - Transcriptomic divergence between upland and lowland ecotypes contributes to rice.pdf
+10.1111/eva.13054	NEEDED.md	895	12ccf5da35ed8be0dfdc533fad768bfd3f79a5d2c4591063f1bfa704098b56cb	studies/doi_10.1111_eva.13054/NEEDED.md
+10.1111/eva.13054	adapter.yaml	2262	be58c382edbbce9871df3667b3925040348116501eae0e1c48df324fbb7e9dfb	studies/doi_10.1111_eva.13054/adapter.yaml
+10.1111/eva.13054	eva13054-sup-0002-tables1-s14.xlsx	297308	05d380666fc9ddee50b993c8a41765c6071f7aa9e55b467f2f990c004cdc3bf0	studies/doi_10.1111_eva.13054/eva13054-sup-0002-tables1-s14.xlsx
+10.3389/fpls.2016.01886	NEEDED.md	913	953d73d0ac2190a727619aae0e90aad5c3fc51440dc6554ec41a0353d66ee15e	studies/doi_10.3389_fpls.2016.01886/NEEDED.md
+10.3389/fpls.2016.01886	adapter.yaml	2280	dcf91c07093e97dcbd38cb956c08ab55acba81e8199d7ca64a41c57ed66d35ef	studies/doi_10.3389_fpls.2016.01886/adapter.yaml
+10.3389/fpls.2016.01886	fpls-07-01886.pdf	6002421	22488e5dea6a6825be78a6dde01a09e6b9cbc793b08d8d6d9794af56885856bc	studies/doi_10.3389_fpls.2016.01886/fpls-07-01886.pdf

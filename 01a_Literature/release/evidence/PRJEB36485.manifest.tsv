@@ -1,0 +1,4 @@
+doi	filename	bytes	sha256	studies_path
+10.1111/ppa.13468	ppa.13468_cachedtext.txt	53390	a2abbbfc40237e258ab20ef51af891e491253f13dba233c272bfa85098c22cd5	studies/doi_10.1111_ppa.13468/ppa.13468_cachedtext.txt
+10.1111/ppa.13468	ppa13468-sup-0004-tables2.xlsx	18732	b128d144434e4c69e315935f6b61c74c98608f24b4b1ead4690594dbe52d6192	studies/doi_10.1111_ppa.13468/ppa13468-sup-0004-tables2.xlsx
+10.1111/ppa.13468	visser21_runs.csv	1417	afa3822f46a3a955928eaf1a3eb7b7ea96ebedefa4b0c703bf729e9f1415bca7	studies/doi_10.1111_ppa.13468/visser21_runs.csv

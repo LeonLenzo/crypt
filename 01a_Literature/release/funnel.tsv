@@ -1,0 +1,11 @@
+stage	value	note
+papers_screened	491	publications assessed for field-grown plant RNA-seq (literature search + accession-list + prior detector screen); cereals are the curated subset
+bioprojects_triaged	421	distinct BioProjects assembled from all discovery routes and triaged; cereal and non-cereal
+cohort_bioprojects	41	pass the field + aerial + representative screen with manuscript-level evidence
+candidate_runs	10312	all runs in those projects, before the field + aerial + representative test
+cohort_runs	7688	retained: field-grown aerial cereal tissue, one library per biological sample
+cohort_biosamples	6222	distinct BioSamples behind the retained runs
+host_coverage	7688/7688 = 100.0%	sample-level host, all paper-sourced
+tissue_coverage	7688/7688 = 100.0%	sample-level tissue
+location_coverage	7675/7688 = 99.8%	any location string
+year_coverage	7473/7688 = 97.2%	collection year

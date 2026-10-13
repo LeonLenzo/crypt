@@ -1,0 +1,5 @@
+doi	filename	bytes	sha256	studies_path
+10.1093/pcp/pcab088	Copy of pcp-2021-e-00065-File009.xlsx	2291861	6aa001b5ed6a3c0f47546856833c59546f5b1400d876529ac9a1de60fc74bacc	studies/doi_10.1093_pcp_pcab088/Copy of pcp-2021-e-00065-File009.xlsx
+10.1093/pcp/pcab088	ena_run_sample_map.tsv	165491	b8b8c724d0488c750caacebb6db33ec5d1fe7c2f84cd97d9d155ecef3f15fcb1	studies/doi_10.1093_pcp_pcab088/ena_run_sample_map.tsv
+10.1093/pcp/pcab088	kashima_runs.csv	134515	8518c1cb26c797020e248d8912fdf52795223bf0df8234153773ddc4ae487060	studies/doi_10.1093_pcp_pcab088/kashima_runs.csv
+10.1093/pcp/pcab088	pcab088.pdf	3686370	c7d223ccc78f58e7667a59f074484f6b83d6e82af23a23cb81366f5cf4cb1d2a	studies/doi_10.1093_pcp_pcab088/pcab088.pdf

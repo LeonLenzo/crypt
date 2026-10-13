@@ -1,0 +1,42 @@
+BioProject	organism	discovery_route	runs	crops	papers	dois	evidence_file
+PRJDB7234	Oryza sativa Japonica Group	undermind_search	1557	Rice:1557	3	(multiple); 10.1093/pcp/pcab088	evidence/PRJDB7234.md
+PRJEB83049	Sorghum bicolor	undermind_search	822	Sorghum:822	1	10.1111/tpj.70250	evidence/PRJEB83049.md
+PRJEB67964	Zea mays subsp. mays	undermind_search	750	Maize:750	1	10.1111/tpj.16801	evidence/PRJEB67964.md
+PRJNA383416	Zea mays	kraken_cohort	740	Maize:740	3	(multiple); 10.1038/nature25966	evidence/PRJNA383416.md
+PRJEB39201	Puccinia striiformis f. sp. tritici	accession_list	538	Wheat:538	1	10.1186/s12864-021-07488-3	evidence/PRJEB39201.md
+PRJNA746402	Zea mays	accession_list	450	Maize:450	2	(multiple); 10.3389/fgene.2021.716821	evidence/PRJNA746402.md
+PRJNA609211	Oryza sativa	kraken_cohort	334	Rice:334	3	(multiple); 10.1186/s12864-020-07193-7; 10.1186/s12864-020-6646-5	evidence/PRJNA609211.md
+PRJNA306542	Oryza sativa	kraken_cohort	299	Rice:299	3	(multiple); 10.1111/eva.13054; 10.3389/fpls.2016.01886	evidence/PRJNA306542.md
+PRJNA510920	Oryza sativa	kraken_cohort	251	Rice:251	2	(multiple); 10.1038/s41467-019-09287-7	evidence/PRJNA510920.md
+PRJNA297424	Oryza sativa	undermind_report	239	Rice:239	1	10.7554/elife.08411	evidence/PRJNA297424.md
+PRJEB31334	Puccinia striiformis	accession_list	208	Wheat:202; Other cereal:6	1	10.1186/s12864-021-07488-3	evidence/PRJEB31334.md
+PRJNA527782	Sorghum bicolor	undermind_search	197	Sorghum:197	1	10.1073/pnas.1907500116	evidence/PRJNA527782.md
+PRJEB15280	Puccinia striiformis	accession_list	132	Wheat:129; Other cereal:3	1	10.1186/s12864-021-07488-3	evidence/PRJEB15280.md
+PRJNA395908	Zea mays	kraken_cohort	112	Maize:112	1	10.3389/fmicb.2020.00853	evidence/PRJNA395908.md
+PRJNA726716	Oryza sativa Japonica Group	undermind_search	104	Rice:104	2	(multiple); 10.1111/pce.14367	evidence/PRJNA726716.md
+PRJEB84390	Puccinia triticina	accession_list	100	Wheat:100	2	10.1186/s12864-025-12230-4	evidence/PRJEB84390.md
+PRJNA1119650	Sorghum bicolor	undermind_search	100	Sorghum:100	1	10.1111/pce.70649	evidence/PRJNA1119650.md
+PRJNA291919	Zea mays	undermind_search	94	Maize:94	1	10.1002/pld3.129	evidence/PRJNA291919.md
+PRJNA753546	Zea mays	undermind_search	94	Maize:90; Other cereal:3; Sorghum:1	1	10.1186/s12864-022-09001-w	evidence/PRJNA753546.md
+PRJNA896566	Zea mays	accession_list	72	Maize:72	1	10.1093/plphys/kiad460	evidence/PRJNA896566.md
+PRJEB37824	Zea mays	kraken_cohort	60	Maize:60	1	10.15252/msb.20209667	evidence/PRJEB37824.md
+PRJEB65589	Puccinia graminis f. sp. tritici	accession_list	53	Wheat:51; Other cereal:2	1	10.1111/nph.19864	evidence/PRJEB65589.md
+PRJNA418364	Zea mays	kraken_cohort	45	Maize:45	1	10.3389/fpls.2017.02075	evidence/PRJNA418364.md
+PRJNA505891	Zea mays	accession_list	42	Maize:42	1	10.1105/tpc.18.00930	evidence/PRJNA505891.md
+PRJEB36485	Puccinia striiformis f. sp. tritici	accession_list	39	Wheat:39	2	10.1111/ppa.13468	evidence/PRJEB36485.md
+PRJNA256347	Puccinia striiformis f. sp. tritici	accession_list	39	Wheat:35; Other cereal:4	1	10.1186/s12864-021-07488-3	evidence/PRJNA256347.md
+PRJNA721299	Setaria italica	kraken_cohort	36	Other cereal:36	1	10.7717/peerj.12968	evidence/PRJNA721299.md
+PRJNA718488	Triticum aestivum	undermind_search	30	Wheat:30	1	10.3389/fpls.2021.720462	evidence/PRJNA718488.md
+PRJEB36444	Triticum aestivum	kraken_cohort	26	Wheat:26	2	10.1093/plcell/koab049	evidence/PRJEB36444.md
+PRJEB47693	Puccinia graminis f. sp. tritici	accession_list	23	Wheat:23	2	10.1111/ppa.13532	evidence/PRJEB47693.md
+PRJNA950118	Puccinia striiformis	accession_list	18	Wheat:16; Barley:2	1	10.1186/s12915-023-01717-9	evidence/PRJNA950118.md
+PRJNA357594	Zea mays	kraken_cohort	16	Maize:16	2	10.1186/s12864-018-4513-4	evidence/PRJNA357594.md
+PRJNA1161467	Zea mays	kraken_cohort	12	Maize:12	1	10.1016/j.molp.2024.09.006	evidence/PRJNA1161467.md
+PRJNA1181034	Fusarium graminearum	kraken_cohort	12	Wheat:12	1	10.1186/s12864-026-12964-9	evidence/PRJNA1181034.md
+PRJEB33109	Puccinia striiformis	accession_list	11	Wheat:10; Other cereal:1	1	10.1186/s12864-021-07488-3	evidence/PRJEB33109.md
+PRJNA564795	Zea mays	kraken_cohort	10	Maize:10	3	10.1111/tpj.13419; 10.3389/fpls.2020.00191	evidence/PRJNA564795.md
+PRJNA1100217	Zea mays	kraken_cohort	9	Maize:9	1	10.1080/17429145.2024.2393803	evidence/PRJNA1100217.md
+PRJNA369690	Zea mays	kraken_cohort	6	Maize:6	3	10.1094/MPMI-03-17-0054-R; 10.1111/tpj.13419	evidence/PRJNA369690.md
+PRJNA796936	Riboviria	kraken_cohort	4	Wheat:4	1	10.3390/v15020401	evidence/PRJNA796936.md
+PRJNA516527	Zea mays	kraken_cohort	3	Maize:3	1	10.1111/pce.13803	evidence/PRJNA516527.md
+PRJNA1232637	Wheat streak mosaic virus	undermind_report	1	Barley:1	1	10.3390/pathogens14111087	evidence/PRJNA1232637.md

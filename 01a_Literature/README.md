@@ -161,9 +161,47 @@ version of the provenance problem those scripts were written to patch.
 
 ## Status
 
-Not started. The only artefact is the prompt, which has not been run. Next step is to run it
-and size the result, then measure paper-to-accession yield on a sample of 20 before committing
-to the approach.
+Built. The cereal cohort is 7,688 field RNA-seq runs (6,222 BioSamples) across 41
+BioProjects. Every run's setting and sampling design is paper-sourced; host and tissue are at
+100% sample-level coverage, location 99.8%, collection year 97.2%, with the remaining gaps
+each traced to the primary source and recorded in `seeds/decisions.tsv`.
+
+## Release — the reviewer-facing deliverable
+
+`release/` is what goes to reviewers. It is a projection of the cohort into the minimal set
+needed to check it, without the 310 MB of PDFs or the 364 curation rules behind them, and it
+is **generated, never hand-edited**. `report/build_release.py` reads the seeds and writes
+`release/`; it curates nothing. If the two ever disagree the seeds win and the release is
+stale — regenerate it:
+
+```
+python 01a_Literature/report/build_release.py
+```
+
+Every number is computed live from the tables, so a figure in the release cannot drift from a
+figure in the data. That is the reason this is a generator and not a hand-curated copy.
+
+```
+release/
+  funnel.tsv              papers screened -> projects triaged -> cohort projects -> runs.
+                          Discovery-agnostic: the cohort is defined by evidence, so how a
+                          project was found is a column in cohort_bioprojects.tsv, not a stage.
+  cohort_bioprojects.tsv  one row per project
+  cohort_samples.tsv      one row per run; each curated value beside the rule that set it. The
+                          rule column is a real rule id, or "archive", or blank — never a sentinel.
+  evidence.tsv            the canonical evidence: one row per claim (bioproject, field, n_runs,
+                          rule, evidence_id, doi, locus, quote). Joins to cohort_samples by
+                          rule and to cohort_bioprojects by bioproject.
+  evidence/<PRJ>.md       the same claims as a per-project dossier, rendering on GitHub
+  evidence/<PRJ>.manifest.tsv   every source file with its SHA-256, so a reviewer re-fetches
+                          by DOI from the publisher and compares the hash
+  README.md               generated; what each file is and how to rebuild
+```
+
+The source files the manifests hash live in `studies/<doi>/` and are deliberately not shipped:
+the repository holds code and small tables, never the papers. The manifest plus the verbatim
+quote in `evidence.tsv` is the substitute — a reviewer can verify a claim against the
+publisher's own copy without a byte of research data entering the repo.
 
 ## Layout
 
@@ -177,12 +215,14 @@ runbook; read it before curating a project.
   resolvers/  ada21 kashima sato24 epicon range28    one per awkward study
   curate/     apply_curation review scaffold import_provenance + CURATING.md
   report/     cohort host_summary offtarget_screen project_brief truncation_check
+              figures/ (the map + design panels) and build_release.py (writes release/)
   seeds/      AUTHORED and irreplaceable, tracked: curation joins provenance decisions
               found run_scope backfill_accessions, and undermind/ (the search returns)
   data/bronze/  immutable external captures: runinfo, biosample_attrs, geo, ena (ignored)
   data/silver/  generated tables: runs bioprojects papers paper_bioproject ... (ignored)
   data/gold/    small tracked outputs: cohort host_summary offtarget, the gap analyses
   studies/    per-study drop zone: papers, supplements, resolver join tables (ignored)
+  release/    GENERATED reviewer deliverable, tracked: funnel, cohort tables, evidence + manifests
   prompts/    search prompts, versioned, with the reasoning for each clause
 ```
 

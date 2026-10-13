@@ -11525,12 +11525,12 @@ SRR28718303	PRJNA1100217	Zea mays (maize)	China:Changchun	2023-08	field (inocula
 SRR28718297	PRJNA1100217	Zea mays (maize)	China:Changchun	2023-08	field (inoculated in situ)	inoculated	seed
 SRR28718304	PRJNA1100217	Zea mays (maize)	China:Changchun	2023-08	field (inoculated in situ)	inoculated	seed
 SRR28718301	PRJNA1100217	Zea mays (maize)	China:Changchun	2023-08	field (inoculated in situ)	inoculated	seed
-SRR5225793	PRJNA369690	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)		field	disease-selected	leaf
-SRR5225794	PRJNA369690	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)		field	disease-selected	leaf
-SRR5225795	PRJNA369690	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)		field	disease-selected	leaf
-SRR5225796	PRJNA369690	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)		field	disease-selected	leaf
-SRR5225797	PRJNA369690	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)		field	disease-selected	leaf
-SRR5225798	PRJNA369690	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)		field	disease-selected	leaf
+SRR5225793	PRJNA369690	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)	2013	field	disease-selected	leaf
+SRR5225794	PRJNA369690	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)	2013	field	disease-selected	leaf
+SRR5225795	PRJNA369690	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)	2013	field	disease-selected	leaf
+SRR5225796	PRJNA369690	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)	2013	field	disease-selected	leaf
+SRR5225797	PRJNA369690	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)	2013	field	disease-selected	leaf
+SRR5225798	PRJNA369690	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)	2013	field	disease-selected	leaf
 SRR6292051	PRJNA418364	Zea mays (maize)	USA: North Carolina, Clayton (Central Crops Research Station)		field (inoculated in situ)	inoculated	seeds
 SRR6292079	PRJNA418364	Zea mays (maize)	USA: North Carolina, Clayton (Central Crops Research Station)		field (inoculated in situ)	inoculated	seeds
 SRR6292047	PRJNA418364	Zea mays (maize)	USA: North Carolina, Clayton (Central Crops Research Station)		field (inoculated in situ)	inoculated	seeds
@@ -11576,16 +11576,16 @@ SRR6292088	PRJNA418364	Zea mays (maize)	USA: North Carolina, Clayton (Central Cr
 SRR6292070	PRJNA418364	Zea mays (maize)	USA: North Carolina, Clayton (Central Crops Research Station)		field (inoculated in situ)	inoculated	seeds
 SRR6292077	PRJNA418364	Zea mays (maize)	USA: North Carolina, Clayton (Central Crops Research Station)		field (inoculated in situ)	inoculated	seeds
 SRR6292083	PRJNA418364	Zea mays (maize)	USA: North Carolina, Clayton (Central Crops Research Station)		field (inoculated in situ)	inoculated	seeds
-SRR10095069	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown		field	unselected	leaf
-SRR10095070	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown		field	unselected	leaf
-SRR10095068	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown		field	unselected	leaf
-SRR10095071	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown		field	unselected	leaf
-SRR10095072	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown		field	unselected	leaf
-SRR10095073	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown		field	unselected	leaf
-SRR10095074	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown		field	unselected	leaf
-SRR10095075	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown		field	unselected	leaf
-SRR10095076	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown		field	unselected	leaf
-SRR10095077	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown		field	unselected	leaf
+SRR10095069	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown	2013	field	unselected	leaf
+SRR10095070	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown	2013	field	unselected	leaf
+SRR10095068	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown	2013	field	unselected	leaf
+SRR10095071	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown	2013	field	unselected	leaf
+SRR10095072	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown	2013	field	unselected	leaf
+SRR10095073	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown	2013	field	unselected	leaf
+SRR10095074	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown	2013	field	unselected	leaf
+SRR10095075	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown	2013	field	unselected	leaf
+SRR10095076	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown	2013	field	unselected	leaf
+SRR10095077	PRJNA564795	Zea mays (maize)	South Africa: KwaZulu-Natal, Greytown	2013	field	unselected	leaf
 ERR3850338	PRJEB36444	Triticum aestivum (bread wheat)	Germany: Bohl-Iggelheim	2014-05-28	field	disease-selected	leaf
 ERR3850339	PRJEB36444	Triticum aestivum (bread wheat)	France: Louville-la-Chenard	2015-05-18	field	disease-selected	leaf
 ERR3850340	PRJEB36444	Triticum aestivum (bread wheat)	UK: Adisham, Kent	2015-05-11	field	disease-selected	leaf

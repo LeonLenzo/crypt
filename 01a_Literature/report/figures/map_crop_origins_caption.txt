@@ -42,7 +42,7 @@ no better than their own country and appear in (a) as diamonds.
 
 (d) Year. Samples per year of collection, stacked by crop, over 2012 to 2024.
 Only the first and last year are labelled, to give the range; every year in
-between has its own bar. Based on the 7,379 of 7,630 samples carrying a
+between has its own bar. Based on the 7,395 of 7,630 samples carrying a
 collection date. Bars rather than a continuous series, because year here is a
 discrete count: an area or line would draw a slope between 2015 and 2016
 asserting collection at every instant in between, and none occurred. Every year
@@ -126,7 +126,7 @@ sample count. Circles are 7,470 samples at 462 geocoded localities;
 diamonds are 147 samples that name only a country, drawn at its centroid and
 not at a collection site; 13 samples carry no location and are absent.
 (b, c) The same cohort as samples, and as distinct localities finer than a
-country. (d) Samples per year of collection, stacked by crop, for the 7,379
+country. (d) Samples per year of collection, stacked by crop, for the 7,395
 samples carrying a date. (e) Share of each crop sampled with reference to
 disease: wheat 98%, maize 9%, rice 0%, sorghum 0%.
 

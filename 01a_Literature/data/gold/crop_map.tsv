@@ -39,7 +39,7 @@ UK: Cambridge	UK	Wheat	10	52.1975846	0.1391537	locality	2	2013	2016
 Germany: Silstedt	Germany	Wheat	10	51.8457275	10.8530987	locality	1	2014	2017
 Argentina: Chillar	Argentina	Wheat	10	-37.3128702	-59.985229	locality	1	2018	2018
 France: Louville la Chenard	France	Wheat	10	48.3241503	1.7867391	locality	2	2020	2021
-South Africa: KwaZulu-Natal, Greytown	South Africa	Maize	10	-29.060556	30.588889	locality	1		
+South Africa: KwaZulu-Natal, Greytown	South Africa	Maize	10	-29.060556	30.588889	locality	1	2013	2013
 China: Jinshan Gangu Tianshui	China	Wheat	9	34.8171906	105.4440092	locality	1	2016	2016
 France: Louville	France	Wheat	9	45.596232	3.78034	locality	1	2014	2015
 China:Changchun	China	Maize	9	43.8844844	125.3181675	locality	1	2023	2023
@@ -64,7 +64,7 @@ Germany: Melle	Germany	Wheat	6	52.1950352	8.3474835	locality	1	2015	2015
 Germany: Harzhof	Germany	Wheat	6	54.416465	9.8479481	locality	1	2015	2015
 Serbia: Rimski Šančevi	Serbia	Wheat	6	45.319176	19.832877	corrected-medium	1	2015	2017
 Argentina: Paraná	Argentina	Wheat	6	-27.4210173	-56.6011693	locality	1	2016	2016
-South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)	South Africa	Maize	6	-29.060556	30.588889	locality-nofacility	1		
+South Africa: KwaZulu-Natal, Greytown (Hildesheim Research Station)	South Africa	Maize	6	-29.060556	30.588889	locality-nofacility	1	2013	2013
 Ethiopia: Kulumsa	Ethiopia	Wheat	5	7.95	39.13333	corrected-medium	3	2014	2017
 UK: Bishop Burton	UK	Wheat	5	53.8414315	-0.5135522	locality	2	2014	2016
 UK: Sturminster Newton	UK	Wheat	5	50.9290016	-2.3263949	locality	2	2014	2015

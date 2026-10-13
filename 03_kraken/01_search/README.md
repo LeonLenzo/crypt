@@ -129,45 +129,110 @@ db_v3, Pleosporales pathogen calls should be inflated, because sorghum's dominan
 the ones we are missing. Sorghum currently has **zero** detections only because the kraken pass
 ran on the 02_literature cohort.
 
-## Wheat and rice
+## Wheat and rice, from the papers rather than from a guess
 
-Colvin covers sorghum, maize and soybean. Wheat and rice come from two literature searches
-(Undermind, 2026-10-13, 71 and 68 papers), and wheat matters most because essentially every
-wheat sample in the cohort is disease-selected.
+My first resident list was a guess from general phyllosphere literature, and it was wrong in
+both directions: it missed the dominant taxa and padded with genera no cereal survey names.
+Replaced 2026-10-13 by reading four papers in full. `RESIDENT_GENERA` in `scope_residents.py`
+carries every entry with its source and evidence.
 
-- **Wheat.** The recurring field core across four independent surveys is *Dioszegia*,
-  *Cryptococcus*, *Cladosporium*, *Sporobolomyces* and Cystofilobasidiaceae. Karlsson 2017
-  (doi:10.1111/mec.14132) names *Dioszegia fristingensis* and *D. hungarica* alongside
-  *Cladosporium* and *Zymoseptoria*; Sapkota 2017 (doi:10.3389/fpls.2017.01357) reports negative
-  co-occurrence between some of those yeasts and *Z. tritici*; Karlsson 2014 recovered 235
-  species-level OTUs dominated by basidiomycete yeasts and saprotrophic ascomycetes rather than
-  pathogens. Fischer 2025 (doi:10.3389/fpls.2025.1597807) is a global meta-analysis and the best
-  single consensus list. Barroso-Bergadà 2022 (doi:10.1094/pbiomes-02-22-0008-fi) is the best
-  design for our purpose, over 450 samples across symptomatic and healthy leaves, but has no
-  open PDF.
-- **Rice.** Core taxa are *Nigrospora* and *Papiliotrema* (doi:10.1128/spectrum.04371-22).
-  Culture surveys recover *Nigrospora oryzae* and *Curvularia lunata*; Thai phylloplane yeast
-  surveys put *Rhodotorula taiwanensis* at 23% occurrence, *Candida tropicalis* at 16% and
-  *Cryptococcus fabianii* at 12%. *C. tropicalis* is Debaryomycetaceae, reaching the same gap
-  Colvin's families identified by a second route.
+**Fischer 2025** (doi:10.3389/fpls.2025.1597807) is the authority for wheat: a meta-analysis of
+33 studies, 190 locations, 924 species in 464 genera. Of its **13 core genera** (present across
+all five wheat-growing regions, ranked by average abundance, lower is more abundant), **four are
+absent from db_v3**:
 
-Every one of those genera is absent from db_v3.
+| rank | genus | db_v3 |
+|---:|---|---|
+| 2.4 | *Alternaria* | 32 nodes |
+| **4.75** | ***Cladosporium*** | **absent** |
+| 5.65 | *Fusarium* | 113 |
+| 7.52 | *Penicillium* | 48 |
+| 7.55 | *Epicoccum* | 2 |
+| 8.26 | *Aspergillus* | 154 |
+| 8.36 | *Bipolaris* | 13 |
+| **8.9** | ***Chaetomium*** | **absent** |
+| **9.06** | ***Nigrospora*** | **absent** |
+| 9.23 | *Stemphylium* | 2 |
+| 9.33 | *Trichoderma* | 48 |
+| **9.6** | ***Candida*** | **absent** |
+| 9.66 | *Pyrenophora* | 9 |
 
-## Annotation is the binding constraint, and it splits the work in two
+*Cladosporium* is second only to *Alternaria* across the global wheat literature. And decisively:
+**seven of the top 20 genera by average abundance rank are yeasts, and all seven are absent**
+(*Sporobolomyces*, *Cryptococcus*, *Dioszegia*, *Filobasidium*, *Udeniomyces*, *Rhodotorula*,
+*Vishniacozyma*).
 
-CDS-only means an assembly is not enough. `scope_residents.py --annotation` queries NCBI per
-genus (`data/resident_annotation.tsv`). The split is economic rather than ecological: genera
-with industrial or clinical value are well sequenced, genera of purely ecological interest are
-not.
+**Allen 2026** (doi:10.1111/mec.70485, wheat flag leaves, ITS, 68 samples, two North Carolina
+sites) corroborates independently: 13 of the 22 genera in its top-20 taxa figure are absent,
+including *Cladosporium* (dominant at one site), *Cystofilobasidium*, *Aureobasidium*, *Mrakia*,
+*Leucosporidium*, *Bullera*, *Selenophoma*, *Erratomyces*.
 
-| | genera | examples |
-|---|---|---|
-| **route=add** (annotation exists) | *Cladosporium* (5 spp), *Aureobasidium* (8), *Rhodotorula* (13), *Sporobolomyces* / *Sporidiobolus* / *Rhodosporidiobolus* (17), *Chaetomium* (6), *Filobasidium*, *Papiliotrema*, *Boeremia*, *Tilletiopsis*, *Dioszegia hungarica* | ~59 species addable with no new tooling |
-| **route=miniprot** (assemblies, no gene models) | *Cystofilobasidium* (8/0), *Vishniacozyma* (6/0), *Nigrospora* (18/0), *Leptosphaerulina* (2/0), *Phoma* (6/0) | ~106 species; homology projection, as already done for the 23 blind-spot congeners |
+**Yin 2023** (doi:10.1128/spectrum.04371-22, rice leaves, ITS, 30 composite samples, Hainan):
+**rice's single most abundant genus is *Papiliotrema* at 14.5%, and it is absent.** Then
+unclassified Pleosporales 14.4% and *Symmetrospora* 5.7%. Among the 29 core fungal ASVs:
+*Nigrospora* 13.2% (absent), *Pyrenophora* 13.1% (present), *Papiliotrema* 12.5%,
+*Phaeosphaeria* 4.5%. Rice is thinner than wheat: it has no meta-analysis, and Dastogeer 2022
+gives only random-forest discriminators, not abundances.
+
+***Nigrospora* is the single highest-value target**: core in wheat (rank 9.06) AND rice (13.2%),
+18 assemblies, zero gene models.
+
+### Two naming artefacts and one taxonomic trap
+
+- ***Magnaporthe* is not a gap.** It is the old name for *Pyricularia*, which db_v3 holds
+  (*P. oryzae*, 109 cereal detections), and has zero assemblies under the old name.
+- ***Phaeosphaeria* needs checking.** *P. nodorum* is a synonym of *Parastagonospora nodorum*,
+  which db_v3 holds, so Yin's 4.5% may be the same organism under an old name.
+- ***Cryptococcus*, *Candida* and *Rhodotorula* are wastebasket genera that were SPLIT.**
+  *Vishniacozyma*, *Papiliotrema* and *Filobasidium* were all carved out of *Cryptococcus*, so
+  "*Cryptococcus*" in an older ITS survey of the kind Fischer pools may mean exactly the genera
+  listed separately above. Adding modern *Cryptococcus* sensu stricto, which is largely clinical,
+  is NOT the same as covering what those surveys called *Cryptococcus*. Resolve against current
+  NCBI taxonomy, not the paper's name.
+
+## Annotation is the binding constraint, and the cost is 508 assemblies
+
+CDS-only means an assembly is not enough. Of the 50 genera named across the four papers plus
+Colvin, 15 are already in db_v3 and the other 35 split three ways
+(`data/resident_annotation.tsv`):
+
+| route | genera | assemblies | named species |
+|---|---:|---:|---:|
+| **add now** (annotation exists) | 22 | **465** | 107 |
+| **miniprot** (assemblies, no gene models) | 8 | **43** | 25 |
+| no assembly anywhere | 5 | 0 | 0 |
+| **db_v4 addition** | **30** | **508** | **132** |
+
+Against db_v3's 2,063 candidate assemblies and 877 fungal species that is **+25% assemblies and
++15% fungal species**. Expect ~95% to survive selection, by the db_v3 precedent (of 2,063
+candidates, 1,986 passed BUSCO and 70 had no CDS).
+
+**Why the count is assemblies and not a per-species quota:** db_v3's policy is a FLOOR WITH NO
+CAP (`kraken_search.py`, `DEFAULT_FLOOR = 4`). Capping a deep species was measured to discard
+real k-mer content, up to 62% of a species complex's observed content, so every annotated
+assembly of a selected species is taken. That is safe for bias, because Kraken2 stores each
+distinct minimizer once and redundant assemblies add no weight, but it is not free in build
+time, disk or RAM. **If the total is too large, the lever is the genus list, never a cap.**
+
+The weight is lopsided: five genera supply 354 of the 465 add-now assemblies.
+
+| genus | assemblies | species | why it is big |
+|---|---:|---:|---|
+| *Aureobasidium* | 135 | 8 | pullulan production |
+| *Cryptococcus* | 96 | 15 | clinical |
+| *Candida* | 44 | 6 | clinical |
+| *Rhodotorula* | 42 | 13 | lipid biotech |
+| *Malassezia* | 37 | 16 | clinical (and a useful contamination marker: Colvin's maize 0.78%) |
+
+Dropping the three clinical genera would save 177 assemblies, but *Candida* is a wheat core genus
+and *Cryptococcus* a top-20 wheat yeast, so that trade has a real cost. The 8 miniprot genera
+cost only 43 assemblies, so round 2 is cheap in build terms and expensive only in gene-prediction
+time.
 
 Round 2 is not optional: *Cystofilobasidium* and *Vishniacozyma* are wheat core and *Nigrospora*
-is rice core. But round 1 is ~59 species against db_v3's 877, a 7% expansion, so the premise can
-be tested cheaply before committing to gene prediction.
+is core in both wheat and rice. The 5 dead ends need a stated limitation, though only
+*Erratomyces* and *Selenophoma* are genuine wheat-leaf losses; *Tomentella* and *Tylospora* are
+ectomycorrhizal and probably soil carryover, like Colvin's uncultured *Glomus* at 5.4% of maize.
 
 **Partial coverage is still protective.** A *Vishniacozyma* read does not need *Vishniacozyma*
 in the database; it needs something close enough to promote to Filobasidiales rather than be

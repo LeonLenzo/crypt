@@ -51,6 +51,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import statistics as st
 import sys
 import time
@@ -84,27 +85,94 @@ CEREALS = {"Triticum aestivum", "Zea mays", "Oryza sativa", "Sorghum bicolor", "
 FUNGI, OOMYCOTA, VIRIDIPLANTAE = 4751, 4762, 33090
 GENOME_SCALE = 1_000_000  # minimizers; below this a taxon is a barcode, not a genome
 
-# Genera named as resident or core by the cereal phyllosphere literature. Colvin covers
-# sorghum, maize and soybean only, so wheat and rice come from deep searches recorded in
-# README.md: wheat core is Dioszegia, Cryptococcus, Cladosporium, Sporobolomyces and
-# Cystofilobasidiaceae; rice core is Nigrospora and Papiliotrema.
+# Resident genera, EVIDENCE-BACKED. This list replaced a guessed one on 2026-10-13 after the
+# guess proved wrong in both directions: it missed the dominant taxa (Chaetomium, Candida,
+# Papiliotrema) and padded with genera no cereal survey names. Every entry below is named by a
+# cereal leaf study, with its abundance evidence, and `absent` records whether db_v3 holds it.
+#
+#   Fis25  Fischer 2025, doi:10.3389/fpls.2025.1597807. Meta-analysis of the GLOBAL wheat
+#          phyllosphere mycobiome: 33 studies, 190 locations, 924 species in 464 genera. The
+#          authority for wheat. Numbers are average RANK values for the 13 "core" genera
+#          (present across all five wheat regions); LOWER is more abundant. It also reports
+#          that seven YEAST genera sit in the top 20 by average abundance rank.
+#   All26  Allen 2026, doi:10.1111/mec.70485. Wheat flag leaves, ITS, 68 samples, two North
+#          Carolina sites. Independent corroboration; "top20" = named in its top-20 taxa figure.
+#   Yin23c Yin 2023, doi:10.1128/spectrum.04371-22. Rice leaves, ITS, 30 composite samples,
+#          Hainan. Percentages are relative abundance.
+#   Col26  Colvin & Chopra 2026. Field maize and sorghum, from RNA-seq. See residents_colvin.tsv.
+#
+# (source, genus, evidence)
 RESIDENT_GENERA = [
-    ("basidio_yeast", "Sporobolomyces"), ("basidio_yeast", "Sporidiobolus"),
-    ("basidio_yeast", "Rhodotorula"), ("basidio_yeast", "Rhodosporidiobolus"),
-    ("basidio_yeast", "Dioszegia"), ("basidio_yeast", "Filobasidium"),
-    ("basidio_yeast", "Vishniacozyma"), ("basidio_yeast", "Papiliotrema"),
-    ("basidio_yeast", "Holtermanniella"), ("basidio_yeast", "Cystofilobasidium"),
-    ("basidio_yeast", "Bullera"), ("basidio_yeast", "Udeniomyces"),
-    ("basidio_yeast", "Tilletiopsis"), ("basidio_yeast", "Cryptococcus"),
-    ("asco_epiphyte", "Aureobasidium"), ("asco_epiphyte", "Cladosporium"),
-    ("asco_epiphyte", "Epicoccum"), ("asco_epiphyte", "Boeremia"),
-    ("asco_epiphyte", "Phoma"), ("asco_epiphyte", "Leptosphaerulina"),
-    ("asco_epiphyte", "Phaeosphaeria"), ("asco_epiphyte", "Nigrospora"),
-    ("asco_epiphyte", "Curvularia"), ("asco_epiphyte", "Chaetomium"),
-    ("asco_epiphyte", "Periconia"), ("asco_epiphyte", "Acremonium"),
-    ("asco_epiphyte", "Microdochium"), ("asco_epiphyte", "Ramularia"),
-    ("asco_epiphyte", "Sarocladium"),
+    # --- wheat core, Fis25 Table 1, in rank order -----------------------------------
+    ("Fis25", "Alternaria",        "wheat core rank 2.4"),
+    ("Fis25", "Cladosporium",      "wheat core rank 4.75; All26 dominant at one site; Col26"),
+    ("Fis25", "Fusarium",          "wheat core rank 5.65"),
+    ("Fis25", "Penicillium",       "wheat core rank 7.52; Das22 rice"),
+    ("Fis25", "Epicoccum",         "wheat core rank 7.55"),
+    ("Fis25", "Aspergillus",       "wheat core rank 8.26"),
+    ("Fis25", "Bipolaris",         "wheat core rank 8.36"),
+    ("Fis25", "Chaetomium",        "wheat core rank 8.9"),
+    ("Fis25", "Nigrospora",        "wheat core rank 9.06; Yin23c rice core 13.2%"),
+    ("Fis25", "Stemphylium",       "wheat core rank 9.23"),
+    ("Fis25", "Trichoderma",       "wheat core rank 9.33"),
+    ("Fis25", "Candida",           "wheat core rank 9.6; Das22 rice discriminator"),
+    ("Fis25", "Pyrenophora",       "wheat core rank 9.66; Yin23c rice core 13.1%"),
+    # --- the seven yeasts in Fis25's top 20 by abundance rank -----------------------
+    ("Fis25", "Sporobolomyces",    "wheat top-20 yeast; All26 top20"),
+    ("Fis25", "Cryptococcus",      "wheat top-20 yeast (CAUTION: legacy genus, see below)"),
+    ("Fis25", "Dioszegia",         "wheat top-20 yeast; All26 top20; Col26 sorghum 0.76%"),
+    ("Fis25", "Filobasidium",      "wheat top-20 yeast; All26 top20; Col26 1.3-1.6%"),
+    ("Fis25", "Udeniomyces",       "wheat top-20 yeast; All26 top20"),
+    ("Fis25", "Rhodotorula",       "wheat top-20 yeast"),
+    ("Fis25", "Vishniacozyma",     "wheat top-20 yeast"),
+    # --- wheat, All26 top-20 only ---------------------------------------------------
+    ("All26", "Cystofilobasidium", "wheat top20; similar abundance at both sites"),
+    ("All26", "Aureobasidium",     "wheat top20"),
+    ("All26", "Mrakia",            "wheat top20"),
+    ("All26", "Leucosporidium",    "wheat top20"),
+    ("All26", "Bullera",           "wheat top20"),
+    ("All26", "Selenophoma",       "wheat top20"),
+    ("All26", "Erratomyces",       "wheat top20"),
+    ("All26", "Neoascochyta",      "wheat, differentially responsive pathogen"),
+    ("All26", "Ophiognomonia",     "wheat, differentially responsive pathogen"),
+    ("All26", "Taphrina",          "wheat, differentially responsive pathogen"),
+    ("All26", "Curvularia",        "wheat; Suh19 rice culture (C. lunata)"),
+    ("All26", "Ramularia",         "wheat top20"),
+    # --- rice -----------------------------------------------------------------------
+    ("Yin23c", "Papiliotrema",     "rice MOST ABUNDANT genus 14.5%; core 12.5%; All26 top20"),
+    ("Yin23c", "Symmetrospora",    "rice 5.7%"),
+    ("Yin23c", "Phaeosphaeria",    "rice core 4.5% (CAUTION: P. nodorum is a synonym, see below)"),
+    ("Das22",  "Coniochaeta",      "rice, enriched in non-symptomatic leaves"),
+    ("Das22",  "Clohesyomyces",    "rice, declines in symptomatic leaves"),
+    ("Das22",  "Tylospora",        "rice, declines in symptomatic (ectomycorrhizal: likely soil)"),
+    ("Das22",  "Tomentella",       "rice (ectomycorrhizal: likely soil)"),
+    ("Das22",  "Magnaporthe",      "rice (NOT A GAP: synonym of Pyricularia, which db_v3 holds)"),
+    # --- maize and sorghum, Col26 ---------------------------------------------------
+    ("Col26", "Plenodomus",        "sorghum 6.47% at 100% prevalence (P. biglobosus absent)"),
+    ("Col26", "Rhizophagus",       "maize, Glomeraceae (arbuscular mycorrhizal: likely soil)"),
+    ("Col26", "Glomus",            "maize 5.40% uncultured Glomus (likely soil)"),
+    ("Col26", "Tilletiopsis",      "sorghum 1.86% at 100% prevalence"),
+    ("Col26", "Boeremia",          "maize 0.69%, sorghum 1.55%"),
+    ("Col26", "Kwoniella",         "maize 0.95%"),
+    ("Col26", "Malassezia",        "maize 0.78% (human skin yeast: a CONTAMINATION marker)"),
+    ("Col26", "Microdochium",      "maize/sorghum"),
+    ("Col26", "Sarocladium",       "maize/sorghum"),
+    ("Col26", "Periconia",         "maize/sorghum"),
 ]
+
+# Two genera in that list are naming artefacts rather than gaps, and must not be added blindly:
+#
+#   Magnaporthe   is the old name for Pyricularia, which db_v3 already holds (P. oryzae, 109
+#                 cereal detections). It has zero assemblies under the old name. Not a gap.
+#   Phaeosphaeria P. nodorum is a synonym of Parastagonospora nodorum, which db_v3 holds. Check
+#                 which species Yin23c's 4.5% actually is before adding.
+#
+# And one is a taxonomic trap in the other direction: Cryptococcus, Candida and (historically)
+# Rhodotorula are wastebasket genera that have been SPLIT. Vishniacozyma, Papiliotrema and
+# Filobasidium were all carved out of Cryptococcus, so "Cryptococcus" in an older ITS survey
+# such as those Fis25 pools may mean exactly the genera listed separately here. Adding modern
+# Cryptococcus sensu stricto (largely clinical) is therefore NOT the same as covering what those
+# surveys called Cryptococcus. Resolve against current NCBI taxonomy, not the paper's name.
 
 # Families Colvin names as consistently abundant in crop phyllosphere, across ITS and
 # metagenomic surveys as well as their own data. The check is whether db_v3 holds each.
@@ -326,36 +394,93 @@ def residents():
 
 
 # ── question 3: can the gap be filled ────────────────────────────────────────
-def _ncbi_total(taxon, annotated):
-    q = {"page_size": 1, "filters.assembly_version": "current"}
-    if annotated:
-        q["filters.has_annotation"] = "true"
-    url = NCBI + urllib.parse.quote(taxon) + "/dataset_report?" + urllib.parse.urlencode(q)
-    for _ in range(3):
+def _ncbi_species(taxon, annotated):
+    """(n_assemblies, n_named_species) for a taxon, optionally annotation-filtered.
+
+    Species are collapsed to the binomial, because NCBI's organism_name carries the strain and
+    db_v3 keys on the species node. `sp.` and `uncultured` names are counted as assemblies but
+    not as named species: they cannot be resolved to a taxon the database can hold.
+    """
+    sp, n, token = set(), 0, None
+    while True:
+        q = {"page_size": 500, "filters.assembly_version": "current"}
+        if annotated:
+            q["filters.has_annotation"] = "true"
+        if token:
+            q["page_token"] = token
+        url = NCBI + urllib.parse.quote(taxon) + "/dataset_report?" + urllib.parse.urlencode(q)
         try:
-            with urllib.request.urlopen(url, timeout=120) as fh:
-                return json.load(fh).get("total_count", 0)
+            with urllib.request.urlopen(url, timeout=180) as fh:
+                d = json.load(fh)
         except Exception:
             time.sleep(4)
-    return None
+            continue
+        for r in d.get("reports", []):
+            n += 1
+            name = r.get("organism", {}).get("organism_name", "")
+            if " sp." in name or "uncultured" in name:
+                continue
+            m = re.match(r"^([A-Z][a-z]+ [a-z][a-z-]+)", name)
+            if m:
+                sp.add(m.group(1))
+        token = d.get("next_page_token")
+        if not token:
+            return n, len(sp)
 
 
 def annotation():
-    """db_v3 is CDS-only, so an assembly without a gene model cannot be added as-is."""
+    """db_v3 is CDS-only, so an assembly without a gene model cannot be added as-is.
+
+    db_v3's selection policy is a FLOOR WITH NO CAP (`kraken_search.py`, DEFAULT_FLOOR = 4):
+    capping a deep species discards real k-mer content, up to 62% of a species complex's
+    observed content, so every annotated assembly of a selected species is taken. The build
+    cost of this list is therefore the ANNOTATED ASSEMBLY count, not a per-species quota. That
+    is safe for bias (Kraken2 stores each distinct minimizer once, so redundant assemblies add
+    no weight) but not for build time, disk or RAM. If the total is too large, the lever is the
+    GENUS LIST, never a cap.
+    """
+    v3 = set()
+    for _, _, _, name, _ in walk_inspect(DB_INSPECT):
+        v3.add(name.split()[0] if name else "")
+
     rows = []
-    for group, genus in RESIDENT_GENERA:
-        total, ann = _ncbi_total(genus, False), _ncbi_total(genus, True)
+    for source, genus, evidence in RESIDENT_GENERA:
+        present = genus in v3
+        # For an absent genus the build cost is what we would take: annotated assemblies if any
+        # exist, otherwise the unannotated ones that miniprot would need gene models for.
+        total, total_sp = _ncbi_species(genus, False)
+        ann, ann_sp = _ncbi_species(genus, True)
+        route = ("present" if present
+                 else "add" if ann > 0
+                 else "miniprot" if total > 0
+                 else "none")
         rows.append({
-            "group": group, "genus": genus, "assemblies": total, "annotated": ann,
-            "pct_annotated": f"{ann / total * 100:.0f}" if total and ann is not None else "",
-            "route": "add" if (ann or 0) > 0 else "miniprot" if (total or 0) > 0 else "none",
+            "source": source, "genus": genus, "in_db_v3": "yes" if present else "no",
+            "assemblies": total, "named_species": total_sp,
+            "annotated": ann, "annotated_species": ann_sp,
+            "route": route, "evidence": evidence,
         })
-        time.sleep(0.4)
+        time.sleep(0.3)
     _write(DATA / "resident_annotation.tsv",
-           ["group", "genus", "assemblies", "annotated", "pct_annotated", "route"], rows)
-    for route in ("add", "miniprot", "none"):
-        n = sum(1 for r in rows if r["route"] == route)
-        print(f"  route={route:9s} {n:2d} genera")
+           ["source", "genus", "in_db_v3", "assemblies", "named_species", "annotated",
+            "annotated_species", "route", "evidence"], rows)
+
+    print(f"  {'route':10s} {'genera':>6s} {'assemblies':>11s} {'species':>8s}")
+    for route in ("present", "add", "miniprot", "none"):
+        sel = [r for r in rows if r["route"] == route]
+        if not sel:
+            continue
+        # 'add' costs annotated assemblies; 'miniprot' costs the unannotated ones it must predict
+        key, spkey = (("annotated", "annotated_species") if route == "add"
+                      else ("assemblies", "named_species"))
+        a = sum(r[key] for r in sel) if route in ("add", "miniprot") else 0
+        s = sum(r[spkey] for r in sel) if route in ("add", "miniprot") else 0
+        print(f"  {route:10s} {len(sel):6d} {a:11d} {s:8d}")
+    cost = sum(r["annotated"] for r in rows if r["route"] == "add") + \
+        sum(r["assemblies"] for r in rows if r["route"] == "miniprot")
+    spp = sum(r["annotated_species"] for r in rows if r["route"] == "add") + \
+        sum(r["named_species"] for r in rows if r["route"] == "miniprot")
+    print(f"  TOTAL db_v4 addition: {cost} assemblies, {spp} named species")
     print(f"  resident_annotation.tsv        {len(rows)} genera")
 
 

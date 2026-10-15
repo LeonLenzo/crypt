@@ -47,6 +47,7 @@ across several nodes: that happened to 87 species in db_v3, worst *Zymoseptoria 
 
 import argparse
 import csv
+import json
 import sys
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -54,8 +55,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
-from _layout import SILVER, LOGS                                 # noqa: E402
-from _util import _Tee, make_log_dir, link_latest                # noqa: E402
+from _layout import SILVER, LOGS, NCBI_SUMMARY                   # noqa: E402
+from _util import _Tee, atomic_write, make_log_dir, link_latest  # noqa: E402
 import _assembly as A                                            # noqa: E402
 import _taxonomy                                                 # noqa: E402
 import routes as R                                               # noqa: E402
@@ -63,6 +64,9 @@ import routes as R                                               # noqa: E402
 SURVEY_TSV = SILVER / "assembly_survey.tsv"
 MINIPROT_TSV = SILVER / "miniprot_worklist.tsv"
 ASSEMBLIES_TSV = SILVER / "assemblies.tsv"
+# One file per query unit, named by taxid. BRONZE, because it is an immutable capture of
+# somebody else's data: deleting it costs a refetch and nothing else.
+NCBI_CACHE = NCBI_SUMMARY / "datasets_summary"
 
 SURVEY_COLS = [
     "ncbi_taxid", "name", "rank", "routes",
@@ -71,7 +75,50 @@ SURVEY_COLS = [
 ]
 
 
-def survey(queries: dict, route_of: dict, tax, workers: int) -> tuple:
+def cached_query(ncbi: int, refresh: bool = False) -> tuple:
+    """(assembly records, was_cached) for one taxon, caching NCBI's answer in BRONZE.
+
+    The survey is the module's one expensive discovery step (~14 min over 1,321 clades) and it
+    gets re-run whenever `seeds/` changes or a labelling bug is found. Without a cache, fixing
+    a one-line aggregation bug costs another full pass against NCBI, which is both slow and
+    rude. With it, the second run is seconds.
+
+    It also makes the run RESUMABLE: a crash or a kill leaves every completed unit on disk.
+
+    Written through `atomic_write`, so a crash mid-write cannot leave a truncated cache file
+    that the next run reads as a complete answer. That failure mode is not hypothetical here:
+    it took runs.tsv from 33,958 rows to 451 on 2026-10-15.
+    """
+    path = NCBI_CACHE / f"{ncbi}.jsonl"
+    if path.exists() and not refresh:
+        with open(path) as fh:
+            return [json.loads(line) for line in fh if line.strip()], True
+    rows = A.datasets_query(ncbi)
+    NCBI_CACHE.mkdir(parents=True, exist_ok=True)
+    with atomic_write(path) as fh:
+        for r in rows:
+            fh.write(json.dumps(r) + "\n")
+    return rows, False
+
+
+def routes_for(rec: dict, internal, route_of: dict) -> str:
+    """The membership routes for one species.
+
+    Its OWN routes if it is a member in its own right; otherwise the routes of the clade it was
+    found under. Routes 2 and 5 are expressed as GENERA, so almost no species is a member by
+    those routes directly -- without this the whole congener and host_associate population
+    lands in the table as `via_clade`, which says a taxon is present without saying why. That
+    is the db_v3 failure this column exists to end, and `05_detect` depends on the answer: a
+    taxon present only as a `congener` is there to absorb reads, not to be reported as a find.
+    """
+    own = route_of.get(internal) if internal else None
+    if own:
+        return own
+    inherited = rec.get("unit_routes") or set()
+    return ";".join(sorted(inherited)) if inherited else "via_clade"
+
+
+def survey(queries: dict, route_of: dict, tax, workers: int, refresh: bool = False) -> tuple:
     """Query every unit, fold to species, and keep every assembly RECORD.
 
     Returns (per-species rows, per-assembly rows, stats). The per-assembly table is the
@@ -80,7 +127,7 @@ def survey(queries: dict, route_of: dict, tax, workers: int) -> tuple:
     change between the two steps cannot make them disagree.
     """
     per_species = defaultdict(lambda: {
-        "assemblies": [], "found_under": set()})
+        "assemblies": [], "found_under": set(), "unit_routes": set()})
     stats = defaultdict(int)
 
     units = [(tax.ncbi_of(tid), tax.label(tid), tid) for tid in queries]
@@ -89,14 +136,18 @@ def survey(queries: dict, route_of: dict, tax, workers: int) -> tuple:
 
     def work(unit):
         ncbi, name, tid = unit
-        return unit, A.datasets_query(ncbi)
+        return unit, cached_query(ncbi, refresh=refresh)
 
     with ThreadPoolExecutor(max_workers=workers) as pool:
         futs = [pool.submit(work, u) for u in units]
         for done, fut in enumerate(as_completed(futs), 1):
-            (ncbi, name, tid), rows = fut.result()
+            (ncbi, name, tid), (rows, was_cached) = fut.result()
+            stats["units_from_cache" if was_cached else "units_queried"] += 1
             if not rows:
                 stats["units_returning_nothing"] += 1
+            # The routes that made THIS query unit a member. A species found under it inherits
+            # them when it is not itself a member, which is the whole point of the column.
+            unit_routes = route_of.get(tid, "")
             for a in rows:
                 organism = a.get("organism") or {}
                 raw = organism.get("tax_id")
@@ -119,6 +170,7 @@ def survey(queries: dict, route_of: dict, tax, workers: int) -> tuple:
                 rec = per_species[(sid_ncbi, sid_name)]
                 rec["assemblies"].append(a)
                 rec["found_under"].add(name)
+                rec["unit_routes"].update(r for r in unit_routes.split(";") if r)
             if done % 25 == 0 or done == len(futs):
                 print(f"  {done}/{len(futs)} queries … "
                       f"({len(per_species):,} species, "
@@ -145,7 +197,7 @@ def survey(queries: dict, route_of: dict, tax, workers: int) -> tuple:
             "ncbi_taxid": ncbi,
             "name": name,
             "rank": tax.rank.get(internal, "") if internal else "not_in_holobase",
-            "routes": route_of.get(internal, "via_clade") if internal else "via_clade",
+            "routes": routes_for(rec, internal, route_of),
             "n_assemblies": len(asms),
             "n_annotated": len(annotated),
             "n_scaffold_plus": len(scaffold),
@@ -163,7 +215,7 @@ def survey(queries: dict, route_of: dict, tax, workers: int) -> tuple:
     asm_rows = []
     for (ncbi, name), rec in per_species.items():
         internal = tax.by_ncbi.get(ncbi)
-        route = route_of.get(internal, "via_clade") if internal else "via_clade"
+        route = routes_for(rec, internal, route_of)
         seen = set()
         for a in rec["assemblies"]:
             acc = a.get("accession", "")
@@ -209,7 +261,8 @@ def report(rows: list, stats: dict) -> None:
     for r in with_ann[:10]:
         print(f"    {r['name'][:44]:<44} {r['n_annotated']:>5,} of {r['n_assemblies']:>5,}")
 
-    for k in ("units_returning_nothing", "units_without_ncbi_taxid",
+    for k in ("units_queried", "units_from_cache",
+              "units_returning_nothing", "units_without_ncbi_taxid",
               "assemblies_taxid_not_in_holobase", "assemblies_above_species_rank",
               "assemblies_without_taxid"):
         if stats.get(k):
@@ -223,6 +276,9 @@ def main():
                     help="NCBI query concurrency. 8, not 16: 16 measured worse")
     ap.add_argument("--limit", type=int, default=0,
                     help="smoke test over the first N query units; writes nothing")
+    ap.add_argument("--refresh", action="store_true",
+                    help="re-query NCBI even where the bronze cache has an answer. The "
+                         "catalogue moves, so use this to resurvey deliberately")
     args = ap.parse_args()
 
     log_dir = make_log_dir(LOGS)
@@ -244,7 +300,7 @@ def main():
                           for t, rk in tax.rank.items() if rk == "species" and t in tax.ncbi}
 
         print(f"\nQuerying NCBI for {len(queries):,} clades ({args.workers} workers) …")
-        rows, asm_rows, stats = survey(queries, route_of, tax, args.workers)
+        rows, asm_rows, stats = survey(queries, route_of, tax, args.workers, args.refresh)
         report(rows, stats)
 
         if args.limit:

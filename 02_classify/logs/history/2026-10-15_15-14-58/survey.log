@@ -1,0 +1,105 @@
+Building the routes list …
+
+holobase: 3,013,817 taxa, 3,013,817 with an NCBI taxid, 5,185,267 names incl. synonyms
+
+  route 1 target:          2,849 FUNGuild + 59 PHI-base-only = 2,908 taxa
+  route 2 congener:        1,715 genus clades hold them (78 route-1 taxa have no genus)
+  route 3 host:            6 plant species
+  route 4 plant_associate: 1,486 USDA taxa
+  route 5 host_associate:  30 phytobiome clades (22 annotated, 8 awaiting gene prediction)
+
+  kingdom guard dropped 213 taxa (fungi only, hosts Viridiplantae)
+    Oomycota (wanted Fungi)              127  e.g. Achlya, Albugo, Aphanomyces, Baobabopsis
+    Metazoa (wanted Fungi)                66  e.g. Acanthorhynchus, Achlya, Alina, Antennaria
+    (null) (wanted Fungi)                  9  e.g. Acantharea, Patellina, Physarum, Physarum cinereum
+    Viridiplantae (wanted Fungi)           7  e.g. Antennaria, Bryomyces, Cephaleuros, Cephaleuros virescens
+    Bacteria (wanted Fungi)                2  e.g. Ancylobacter, Nakamurella
+    Stramenopiles (wanted Fungi)           2  e.g. Labyrinthula, Labyrinthuloides
+
+  exclusions.tsv: 37 enforceable rules blocked 0 taxa (subtrees included)
+    6 rows carry no taxid and cannot be enforced by id: Magnaporthe (synonym_already_held), Phaeosphaeria (synonym_already_held), Erratomyces (no_assembly), Selenophoma (no_assembly), Tomentella (no_assembly), Tylospora (no_assembly)
+
+── Union ────────────────────────────────────────────────────────
+  4,012 distinct taxa across the five routes
+    in 1 route :  2,215 taxa
+    in 2 routes:  1,786 taxa
+    in 3 routes:     11 taxa
+  by rank:
+    species           2,278
+    genus             1,617
+    family               74
+    forma specialis      37
+    forma                 3
+    varietas              2
+    strain                1
+
+── Query units ──────────────────────────────────────────────────
+  1,321 taxa to ask NCBI about
+  2,691 dropped: an ancestor in the list already returns them
+  every one is queried BY TAXID, so a homonym cannot return zero silently
+
+  filling the BUSCO phylum map from the taxonomy already loaded …
+
+Querying NCBI for 1,321 clades (8 workers) …
+
+  WARNING datasets_query(4919) failed: New version of client (18.39.0) available at https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets.
+  25/1321 queries … (494 species, 2,111 assemblies)  50/1321 queries … (812 species, 3,235 assemblies)
+  WARNING datasets_query(34359) failed: New version of client (18.39.0) available at https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets.
+  75/1321 queries … (1,167 species, 4,348 assemblies)
+  WARNING datasets_query(43987) failed: New version of client (18.39.0) available at https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets.
+  100/1321 queries … (1,239 species, 4,509 assemblies)  125/1321 queries … (1,292 species, 5,291 assemblies)  150/1321 queries … (1,337 species, 6,087 assemblies)  175/1321 queries … (1,343 species, 6,097 assemblies)  200/1321 queries … (1,379 species, 6,147 assemblies)  225/1321 queries … (1,505 species, 6,491 assemblies)  250/1321 queries … (1,584 species, 6,641 assemblies)  275/1321 queries … (1,999 species, 9,217 assemblies)  300/1321 queries … (2,012 species, 9,293 assemblies)  325/1321 queries … (2,018 species, 9,299 assemblies)  350/1321 queries … (2,051 species, 9,349 assemblies)  375/1321 queries … (2,083 species, 9,406 assemblies)  400/1321 queries … (2,105 species, 9,445 assemblies)  425/1321 queries … (2,107 species, 9,450 assemblies)  450/1321 queries … (2,136 species, 9,601 assemblies)  475/1321 queries … (2,203 species, 9,900 assemblies)  500/1321 queries … (2,210 species, 9,910 assemblies)  525/1321 queries … (2,431 species, 10,702 assemblies)  550/1321 queries … (2,474 species, 10,786 assemblies)  575/1321 queries … (2,559 species, 11,056 assemblies)  600/1321 queries … (2,564 species, 11,061 assemblies)  625/1321 queries … (2,567 species, 11,064 assemblies)  650/1321 queries … (2,582 species, 11,135 assemblies)  675/1321 queries … (2,608 species, 11,171 assemblies)  700/1321 queries … (2,611 species, 11,174 assemblies)  725/1321 queries … (2,623 species, 11,203 assemblies)  750/1321 queries … (2,632 species, 11,214 assemblies)  775/1321 queries … (2,635 species, 11,217 assemblies)  800/1321 queries … (2,636 species, 11,224 assemblies)  825/1321 queries … (2,647 species, 11,254 assemblies)  850/1321 queries … (2,649 species, 11,256 assemblies)
+  WARNING datasets_query(2835221) failed: Error: [gateway] synonym is not a valid V2reportsANITypeCategory
+  875/1321 queries … (2,655 species, 11,303 assemblies)  900/1321 queries … (3,078 species, 13,512 assemblies)  925/1321 queries … (3,121 species, 13,595 assemblies)  950/1321 queries … (3,232 species, 14,552 assemblies)
+  WARNING datasets_query(4930) failed: New version of client (18.39.0) available at https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets.
+
+  WARNING datasets_query(36910) failed: New version of client (18.39.0) available at https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets.
+
+  WARNING datasets_query(28985) failed: New version of client (18.39.0) available at https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets.
+
+  WARNING datasets_query(27326) failed: New version of client (18.39.0) available at https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets.
+  975/1321 queries … (3,336 species, 17,961 assemblies)  1000/1321 queries … (3,361 species, 18,230 assemblies)
+  WARNING datasets_query(4920) failed: New version of client (18.39.0) available at https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets.
+  1025/1321 queries … (3,385 species, 18,333 assemblies)  1050/1321 queries … (3,410 species, 18,397 assemblies)  1075/1321 queries … (3,435 species, 18,458 assemblies)  1100/1321 queries … (3,460 species, 18,501 assemblies)  1125/1321 queries … (3,485 species, 18,540 assemblies)  1150/1321 queries … (3,510 species, 18,576 assemblies)  1175/1321 queries … (3,535 species, 18,610 assemblies)  1200/1321 queries … (3,560 species, 18,649 assemblies)  1225/1321 queries … (3,585 species, 18,681 assemblies)  1250/1321 queries … (3,610 species, 18,712 assemblies)  1275/1321 queries … (3,635 species, 18,745 assemblies)  1300/1321 queries … (3,660 species, 18,771 assemblies)  1321/1321 queries … (3,774 species, 19,068 assemblies)
+
+── What exists, measured ────────────────────────────────────────
+  species with >=1 assembly           3,774
+  species with >=1 GENE MODEL         1,602   <- these can enter db_v4
+  species with assemblies, NO model   2,172   <- the miniprot worklist
+
+  assemblies total                   19,068
+  ... annotated                       4,572   (24%)
+  ... annotated AND scaffold-plus     2,991   (16%)
+
+  db_v3 for scale: 2,063 assemblies / 877 fungal species / 4.80 B minimizers
+
+  depth distribution over species that can enter:
+         1 annotated assemblies:    889 species
+       2-3 annotated assemblies:    527 species
+       4-9 annotated assemblies:    128 species
+     10-49 annotated assemblies:     50 species
+       50+ annotated assemblies:      8 species
+  the median is the reason a floor was never the binding constraint on breadth
+
+  deepest species (annotated assemblies):
+    Aspergillus fumigatus                          294 of   423
+    Parastagonospora nodorum                       156 of   180
+    Fusarium oxysporum                              72 of   889
+    Hortaea werneckii                               71 of    80
+    Pyricularia oryzae                              63 of   610
+    Aureobasidium pullulans                         61 of    95
+    Cryptococcus neoformans                         51 of   208
+    Aureobasidium melanogenum                       50 of    68
+    Aspergillus niger                               47 of   129
+    Nakaseomyces glabratus                          42 of   103
+
+  NOTE units_queried: 1,321
+
+  NOTE units_returning_nothing: 658
+
+  NOTE assemblies_taxid_not_in_holobase: 30
+
+  -> /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/assembly_survey.tsv        (3,774 species)
+  -> /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/assemblies.tsv        (19,068 assembly records)
+  -> /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/miniprot_worklist.tsv  (2,172 species with assemblies but no model)
+
+Next: python 02_classify/01_refs/select_refs.py --select-only   (filters the table above; no further NCBI queries)

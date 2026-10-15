@@ -47,6 +47,7 @@ _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
 from _paths import ROOT          # repo-wide
+from _util import atomic_write
 from _layout import CURATION, JOINS, PAPERS, PROVENANCE, RUNS, STUDIES, TEXT_CACHE
 # One definition of the join key, the BioSample loader and the refusal bar, shared with the
 # resolvers so a resolver's predicted rate IS the rate this module achieves. See _resolver.
@@ -443,7 +444,7 @@ def main() -> None:
             if k not in header:
                 header.append(k)
 
-    with open(RUNS, "w", newline="") as fh:
+    with atomic_write(RUNS) as fh:
         w = csv.DictWriter(fh, fieldnames=header, delimiter="\t")
         w.writeheader()
         w.writerows(runs)

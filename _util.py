@@ -87,6 +87,50 @@ def load_json(path: Path) -> dict:
     return json.loads(text) if text else {}
 
 
+def atomic_write(path, newline=""):
+    """Write a file via a temp sibling and an atomic rename. Use for ANY file read and rewritten
+    in place.
+
+    `open(path, "w")` truncates immediately, so a crash between the open and the last row leaves
+    a partial file. That is destructive rather than merely annoying when the script reads and
+    writes the SAME path: the truncated output becomes the next run's input, and the real damage
+    is done on the second run, not the first.
+
+    Observed 2026-10-15. apply_curation.py added a column that some rows lacked, DictWriter
+    raised after the open, and runs.tsv went from 33,958 rows to 451. It was recoverable only
+    because silver rebuilds from bronze. os.replace() is atomic within a filesystem, so either
+    the whole new file lands or the old one is untouched.
+
+        with atomic_write(path) as fh:
+            csv.writer(fh, delimiter="\t").writerows(rows)
+    """
+    import os
+    import tempfile
+    from contextlib import contextmanager
+
+    @contextmanager
+    def _ctx():
+        path_ = Path(path)
+        path_.parent.mkdir(parents=True, exist_ok=True)
+        fd, tmp = tempfile.mkstemp(dir=str(path_.parent), prefix=f".{path_.name}.", suffix=".tmp")
+        os.close(fd)
+        try:
+            with open(tmp, "w", newline=newline) as fh:
+                yield fh
+                fh.flush()
+                os.fsync(fh.fileno())
+            os.replace(tmp, path_)
+        except BaseException:
+            # Leave the original in place; drop the partial temp.
+            try:
+                os.unlink(tmp)
+            except OSError:
+                pass
+            raise
+
+    return _ctx()
+
+
 def save_json(data: dict, path: Path) -> None:
     """Write JSON to path atomically (temp file + rename) to avoid corruption on kill."""
     path.parent.mkdir(parents=True, exist_ok=True)

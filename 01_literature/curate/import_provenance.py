@@ -44,6 +44,7 @@ _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
 from _paths import ROOT          # repo-wide
+from _util import atomic_write
 from _layout import PROVENANCE, RUNS
 
 COHORT_PROV = ROOT / "02_literature/03_classify/data/cohort_provenance.tsv"
@@ -208,7 +209,7 @@ def main() -> None:
             w.writerows(new)
         print(f"\nregistered {len(new)} import batch(es) in provenance.tsv")
 
-    with open(RUNS, "w", newline="") as fh:
+    with atomic_write(RUNS) as fh:
         w = csv.DictWriter(fh, fieldnames=list(runs[0]), delimiter="\t")
         w.writeheader()
         w.writerows(runs)

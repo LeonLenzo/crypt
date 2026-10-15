@@ -61,8 +61,17 @@ SOURCE_COL = {"setting": "setting_source", "sampling_selection": "sampling_selec
 
 
 def read(p):
+    """Read a TSV, skipping `#` comment lines.
+
+    Comments matter for the AUTHORED seeds: a frozen denominator is only meaningful with the
+    reason and the date written beside it, and the reason belongs in the file rather than in a
+    commit message nobody will find. Without the skip, csv.DictReader takes the first comment
+    line as the header and every row comes back keyed on nonsense, silently — which is how
+    seeds/search_freeze.tsv appeared to be ignored on its first run.
+    """
     with open(p) as fh:
-        return list(csv.DictReader(fh, delimiter="\t"))
+        rows = [ln for ln in fh if not ln.lstrip().startswith("#")]
+    return list(csv.DictReader(rows, delimiter="\t"))
 
 
 def main() -> None:
@@ -245,7 +254,25 @@ def main() -> None:
         w.writerows(sorted(bp_rows, key=lambda r: -r["runs"]))
 
     # ---- funnel.tsv : discovery-agnostic, evidence-defined -------------------
-    papers_screened = len(read(SILVER / "papers.tsv"))
+    # papers_screened is FROZEN, not recounted. triage.py's paper set includes a live
+    # EuropePMC accession-mention sweep, so a live count drifts upward on every rebuild with
+    # no change to our inputs (491 -> 505 on 2026-10-15, Undermind seeds untouched since
+    # 10-05). The frozen value and the date the search ran live in seeds/search_freeze.tsv.
+    # The live count is still computed, and any difference is REPORTED rather than hidden.
+    frozen = {}
+    freeze_path = SEEDS / "search_freeze.tsv"
+    if freeze_path.exists():
+        for row in read(freeze_path):
+            if row.get("stage"):
+                frozen[row["stage"]] = row
+    papers_live = len(read(SILVER / "papers.tsv"))
+    fz = frozen.get("papers_screened")
+    papers_screened = int(fz["frozen_value"]) if fz else papers_live
+    search_date = fz["search_date"] if fz else ""
+    if fz and papers_live != papers_screened:
+        print(f"  NOTE papers_screened frozen at {papers_screened} "
+              f"(search {search_date}); a live recount gives {papers_live}. "
+              f"To adopt it, re-run the search and update seeds/search_freeze.tsv.")
     triaged = len(read(SILVER / "bioprojects.tsv"))
     # candidate pool: every run sitting in a cohort project, before the field+aerial test
     cand_runs = [r for r in runs if r["BioProject"] in set(CBP)]
@@ -266,8 +293,9 @@ def main() -> None:
 
     fn = [["stage", "value", "note"]]
     fn.append(["papers_screened", papers_screened,
-               "publications assessed for field-grown plant RNA-seq (literature search + "
-               "accession-list + prior detector screen); cereals are the curated subset"])
+               f"publications assessed for field-grown plant RNA-seq (literature search + "
+               f"accession-list + prior detector screen), as at {search_date}; cereals are "
+               f"the curated subset"])
     fn.append(["bioprojects_triaged", triaged,
                "distinct BioProjects assembled from all discovery routes and triaged; "
                "cereal and non-cereal"])

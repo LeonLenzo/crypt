@@ -1,0 +1,20 @@
+# AUTHORED. Frozen funnel denominators, with the date the search behind them was last run.
+#
+# Why this exists: build_release.py computed papers_screened as a LIVE recount of papers.tsv,
+# and triage.py's paper set includes a live EuropePMC accession-mention sweep (82 of 505). So
+# the number drifted upward every time triage re-ran, with no change to our own inputs: a
+# rebuild on 2026-10-15 moved it 491 -> 505 while the Undermind seeds had not changed since
+# 2026-10-05. A reviewer-facing denominator that grows on rebuild is not a denominator.
+#
+# Leon's call 2026-10-15: freeze it and state the search date. The date below is 2026-10-13,
+# when release/funnel.tsv was first generated with 491 (commit 9b58669), NOT 2026-10-14 as
+# first suggested: the methods statement should name the day the search actually ran.
+#
+# Unfreezing is legitimate, but it means re-running the search, re-reading what it returns,
+# and updating BOTH columns here in the same commit. Changing the value without moving the
+# date, or the reverse, makes the claim untrue.
+#
+# Everything downstream of the search is accession-driven and was verified stable across the
+# 2026-10-15 rebuild: bioprojects_triaged 421, cohort_bioprojects 41, candidate_runs 10312.
+stage	frozen_value	search_date	note
+papers_screened	491	2026-10-13	literature search + accession-list + prior detector screen, as it stood on the search date

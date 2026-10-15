@@ -1,5 +1,5 @@
 stage	value	note
-papers_screened	491	publications assessed for field-grown plant RNA-seq (literature search + accession-list + prior detector screen); cereals are the curated subset
+papers_screened	505	publications assessed for field-grown plant RNA-seq (literature search + accession-list + prior detector screen); cereals are the curated subset
 bioprojects_triaged	421	distinct BioProjects assembled from all discovery routes and triaged; cereal and non-cereal
 cohort_bioprojects	41	pass the field + aerial + representative screen with manuscript-level evidence
 candidate_runs	10312	all runs in those projects, before the field + aerial + representative test

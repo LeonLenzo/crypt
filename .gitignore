@@ -235,3 +235,9 @@ docs/*
 # seeds/ annotation cache: one line per genus from the datasets CLI, purely a speed-up
 # for re-running build_seeds.py --annotate. Regenerated, never the record.
 03_kraken/seeds/.annotation_cache.jsonl
+
+# Own-submission metadata: BioSample attribute templates for OUR OWN unpublished deposits
+# (PRJNA1509083 P. nodorum infection timecourse; oat rust field collections with GPS). This is
+# unpublished research data for other chapters that was dropped at this repo root, and the repo
+# is PUBLIC. Never commit it: move it to the project it belongs to.
+/_selfdata/

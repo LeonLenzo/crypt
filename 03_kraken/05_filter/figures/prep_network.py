@@ -54,7 +54,10 @@ for host, N in ((h, len(universe[h])) for h in present):
     for sps in bsmap.values():
         for a, b in itertools.combinations(sorted(sps), 2):
             obs[(a, b)] += 1
-    for sp, n in prev.items():
+    # sorted(): prev is built by iterating sets, whose order follows string hash
+    # randomisation, so without this the row order of network_nodes.tsv changed every run and
+    # the committed file could not be reproduced. Content was always identical as a set.
+    for sp, n in sorted(prev.items()):
         nodes.append([host, sp, n, klass.get(sp, "other")])
     rows, ps = [], []
     for (a, b), o in obs.items():

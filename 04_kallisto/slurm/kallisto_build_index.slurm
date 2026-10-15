@@ -3,8 +3,8 @@
 #SBATCH --account=pawsey1168
 #SBATCH --partition=work
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=32
-#SBATCH --mem=58G
+#SBATCH --cpus-per-task=64
+#SBATCH --mem=115G
 #SBATCH --time=06:00:00
 #SBATCH --array=0-18
 #SBATCH --output=04_kallisto/slurm/logs/kallisto_idx_%A_%a.out
@@ -17,10 +17,14 @@
 # that host at ANY level, and the measured >=1% k-mer containment partners of the flagged ones.
 # Rationale in 04_kallisto/README.md and the kallisto_build.py docstring.
 #
-# Sizes from --dry-run: 0.26 GB (Eleusine coracana) to 3.38 GB (Triticum aestivum) of CDS.
-# Measured peak RSS is ~10x the CDS size (13.7 GB for a 1.3 GB host, 2.9 GB for Eleusine), so
-# wheat needs ~34 GB. 58G is the 32-core quantum on a 230G node and fits 4 tasks per node;
-# an earlier 115G request was 3x oversized and halved throughput for nothing.
+# Memory scales with the number of SPECIES (distinct k-mers in the graph), not with CDS bytes,
+# and the relationship is steeper than it looks from small hosts. Measured peak RSS:
+#   Eleusine coracana     9 species, 0.26 GB CDS ->  2.9 GB
+#   small hosts          ~40 species, 1.3 GB CDS -> 13.7 GB
+#   Triticum aestivum   125 species, 3.38 GB CDS -> 52.4 GB  (44.3M unitigs)
+#   Zea mays            153 species               -> >60.8 GB, OOM-killed at 58G (56.6M unitigs)
+# So 115G (the 64-core quantum on a 230G node) is required for the largest hosts. An earlier
+# 58G setting was extrapolated from the small hosts at ~10x CDS size and killed Zea mays.
 #
 # `spack load` prepends its own python to PATH, so cray-python is loaded FIRST and the scripts
 # are stdlib-only by design. If a step here ever needs numpy, load spack first or use srun.

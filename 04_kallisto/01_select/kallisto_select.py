@@ -10,7 +10,14 @@ Six strata, each a class the three read-level facts should separate:
   strong      high score and coverage, no measured competitor in the same run -> confirm
   borderline  coverage within 2x of the floor -> what the floor gets calibrated on
   congeneric  >=2 species of one genus flagged in the same run -> collapse if cross-mapping
-  off_host    the species' flagged runs sit overwhelmingly on other hosts -> reject
+  off_host    the species' flagged runs sit overwhelmingly on other hosts. NOT a negative
+              control: the project's own null (obligate rusts on hosts they cannot infect)
+              reaches 13% coverage at the 75th percentile and up to 74%, because off-host
+              signal is usually REAL organism DNA from spore drift, surface inoculum or a
+              mis-called host, not a k-mer artefact. The Phakopsora-on-wheat case has 94% of
+              248,504 reads mapping to Phakopsora and 18 to P. striiformis. So expect these to
+              CONFIRM as genuine sequence; what they test is provenance (active infection vs
+              deposited spores), which gene identity speaks to and unique-read count does not.
   discordant  coverage high but score below the strong bar: the genome looks largely present
               while the accumulation shape looks marginal. The two filter criteria disagree
               here, which makes it the most informative class for calibrating them. 1,630 of
@@ -52,7 +59,8 @@ OFFHOST_SHARE = 0.10   # this host holds <10% of the species' flagged runs
 OFFHOST_MIN_N = 20     # ...and it has enough runs for a dominant host to be real
 STRATA_ORDER  = ("strong", "borderline", "congeneric", "off_host", "discordant", "mid")
 EXPECT = {"strong": "confirm", "congeneric": "collapse-if-cross-map",
-          "off_host": "reject", "borderline": "unknown-calibrates-floor",
+          "off_host": "real-dna-expected-tests-provenance",
+          "borderline": "unknown-calibrates-floor",
           "discordant": "unknown-criteria-conflict", "mid": "unknown-mid-range"}
 
 

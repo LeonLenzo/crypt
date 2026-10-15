@@ -140,8 +140,9 @@ def index_is_valid(idx):
     return r.returncode == 0
 
 
-def build_index(host, threads=8, dry_run=False, force=False):
-    idx_existing = IDX_DIR / f"{slug(host)}.idx"
+def build_index(host, threads=8, dry_run=False, force=False, add=None, name=None):
+    base = name or slug(host)
+    idx_existing = IDX_DIR / f"{base}.idx"
     if not force and not dry_run and index_is_valid(idx_existing):
         print(f"{host}: index already built and valid "
               f"({idx_existing.stat().st_size / 1e9:.2f} GB), skipping")
@@ -151,9 +152,21 @@ def build_index(host, threads=8, dry_run=False, force=False):
     if hcds is None:
         print(f"  !! no host CDS for {host}; its reads cannot be absorbed", file=sys.stderr)
 
+    # --add injects accessions not in the detection data (e.g. a gene-predicted congener that
+    # is absent from the database), tagged with a given species, so a blind-spot species can be
+    # tested as a competitor. See 03_kraken/utilities/annotate.
+    for spec in (add or []):
+        acc, _, sp = spec.partition(":")
+        cp = cds_path(acc.strip())
+        if cp.exists():
+            refs.setdefault(sp.strip() or acc.strip(), []).append(cp)
+            print(f"  + added {acc.strip()} as {sp.strip() or acc.strip()}")
+        else:
+            print(f"  !! --add {acc}: no CDS at {cp}", file=sys.stderr)
+
     IDX_DIR.mkdir(parents=True, exist_ok=True)
-    fa  = IDX_DIR / f"{slug(host)}.cds.fna"
-    idx = IDX_DIR / f"{slug(host)}.idx"
+    fa  = IDX_DIR / f"{base}.cds.fna"
+    idx = IDX_DIR / f"{base}.idx"
 
     nbytes = sum(p.stat().st_size for ps in refs.values() for p in ps) + \
              (hcds.stat().st_size if hcds else 0)
@@ -197,6 +210,10 @@ def main():
                     help="report index composition without writing or indexing")
     ap.add_argument("--force", action="store_true",
                     help="rebuild even if a valid index is already present")
+    ap.add_argument("--add", action="append", default=[], metavar="ACC:SPECIES",
+                    help="inject an accession's CDS tagged as SPECIES (repeatable); for testing "
+                         "a blind-spot congener absent from the detection data")
+    ap.add_argument("--name", help="override the index basename (default: host slug)")
     args = ap.parse_args()
 
     hosts = [args.host] if args.host else hosts_to_build() if args.all else None
@@ -205,7 +222,8 @@ def main():
     log = step_log(__file__, "kallisto_build")
     try:
         bad = sum(1 for h in hosts
-                  if build_index(h, args.threads, args.dry_run, args.force) is None
+                  if build_index(h, args.threads, args.dry_run, args.force,
+                                 args.add, args.name) is None
                   and not args.dry_run)
     finally:
         log.close()

@@ -1,22 +1,14 @@
 import csv, sys, math, collections
-import numpy as np
-sys.path.insert(0,'03_kraken/04_assign')
-from kraken_report_analysis import load_reference, load_inspect, parse_report
 from pathlib import Path
-csv.field_size_limit(10**7)
-pathogens,hosts=load_reference()
-db=load_inspect(Path('03_kraken/02_build/data/db_v3_inspect.tsv'))
+import numpy as np
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from _common import detections, load_inspect   # shared predicate + db ceilings; 03_kraken/_common.py
+from _paths import FILTER_DATA
+db=load_inspect()
 name2tid={}
-hostcall={}
-for r in csv.DictReader(open('03_kraken/04_assign/host/data/host_calls.tsv'),delimiter='\t'):
-    hostcall[r['run'].strip()]=r['host'].strip()
 pts=collections.defaultdict(list)
-for p in Path('03_kraken/04_assign/data/reports').glob('*.txt'):
-    h=hostcall.get(p.stem)
-    if not h: continue
-    for rec in parse_report(p):
-        if rec['rank']=='S' and rec['distinct'] and str(rec['taxid']) in pathogens and str(rec['taxid']) not in hosts and rec['reads_clade']>=100:
-            pts[(rec['name'],h)].append((rec['reads_clade'],rec['distinct'],rec['taxid']))
+for run, h, rec in detections(require_host=True):
+    pts[(rec['name'],h)].append((rec['reads_clade'],rec['distinct'],rec['taxid']))
 
 def ols(x,y):
     b=np.polyfit(x,y,1); return b[1],b[0]  # intercept, slope
@@ -81,7 +73,7 @@ for sp,h in show:
     for i in range(len(ps)):
         for m,cls in (('A line',A[i]),('B cluster',B[i]),('C rarefaction',C[i])):
             rows.append([f'{sp} / {h.split()[0]}',m,ps[i][0],ps[i][1],'real' if cls else 'crash-out'])
-with open('03_kraken/05_filter/data/three.tsv','w',newline='') as fh:
+with open(str(FILTER_DATA / 'three.tsv'),'w',newline='') as fh:
     w=csv.writer(fh,delimiter='\t'); w.writerow(['species','method','reads','distinct','cls']); w.writerows(rows)
 # summary
 import collections as C2

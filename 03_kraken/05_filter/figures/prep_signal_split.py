@@ -1,19 +1,11 @@
 import csv, sys, math, statistics, collections
-sys.path.insert(0,'03_kraken/04_assign')
-from kraken_report_analysis import load_reference, parse_report
 from pathlib import Path
-csv.field_size_limit(10**7)
-pathogens,hosts=load_reference()
-hostcall={}
-for r in csv.DictReader(open('03_kraken/04_assign/host/data/host_calls.tsv'),delimiter='\t'):
-    hostcall[r['run'].strip()]=r['host'].strip()
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from _common import detections          # the shared detection predicate; see 03_kraken/_common.py
+from _paths import FILTER_DATA
 pts=collections.defaultdict(list)
-for p in Path('03_kraken/04_assign/data/reports').glob('*.txt'):
-    h=hostcall.get(p.stem)
-    if not h: continue
-    for rec in parse_report(p):
-        if rec['rank']=='S' and rec['distinct'] and str(rec['taxid']) in pathogens and str(rec['taxid']) not in hosts and rec['reads_clade']>=100:
-            pts[(rec['name'],h)].append((rec['reads_clade'],rec['distinct']))
+for run, h, rec in detections(require_host=True):
+    pts[(rec['name'],h)].append((rec['reads_clade'],rec['distinct']))
 def ols(ps):
     xs=[math.log10(a) for a,_ in ps]; ys=[math.log10(b) for _,b in ps]
     mx=statistics.mean(xs); my=statistics.mean(ys); sxx=sum((x-mx)**2 for x in xs)
@@ -34,7 +26,7 @@ def classify(ps,band=0.4):
     return out,a,b,rising
 show=[('Bipolaris sorokiniana','Triticum aestivum'),('Puccinia graminis','Triticum aestivum'),
       ('Puccinia striiformis','Triticum aestivum'),('Phakopsora pachyrhizi','Triticum aestivum')]
-with open('03_kraken/05_filter/data/splitfig.tsv','w',newline='') as fh:
+with open(str(FILTER_DATA / 'splitfig.tsv'),'w',newline='') as fh:
     w=csv.writer(fh,delimiter='\t'); w.writerow(['panel','reads','distinct','cls','a','b'])
     for sp,h in show:
         ps=pts[(sp,h)]; out,a,b,rising=classify(ps)

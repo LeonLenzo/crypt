@@ -36,6 +36,7 @@ import collections
 import csv
 import struct
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -56,12 +57,13 @@ def species_of(target):
     return target.split("|", 1)[0]
 
 
-def read_ec_species(ec_path, transcripts):
-    """ec id -> frozenset of species tags it is compatible with.
+def read_ec_species_from(ec_path, sp_by_target):
+    """ec id -> frozenset of species it is compatible with, given a target->species list.
 
     Storing species sets rather than transcript lists collapses the big ECs early: the wheat
     index has ECs of up to 326 transcripts, but most resolve to a handful of species.
     """
+    n = len(sp_by_target)
     out = {}
     with open(ec_path) as fh:
         for line in fh:
@@ -70,8 +72,7 @@ def read_ec_species(ec_path, transcripts):
                 continue
             ec = int(parts[0])
             idxs = (int(i) for i in parts[1].split(",") if i)
-            out[ec] = frozenset(species_of(transcripts[i]) for i in idxs
-                                if 0 <= i < len(transcripts))
+            out[ec] = frozenset(sp_by_target[i] for i in idxs if 0 <= i < n)
     return out
 
 
@@ -99,11 +100,26 @@ def read_bus_counts(bus_path):
     return counts
 
 
+# transcripts.txt is identical across all runs of a host (it is the index's target list), and
+# it is the million-line file, so its species-per-target parse is cached per host. matrix.ec is
+# NOT cacheable: kallisto bus writes the equivalence classes actually observed in each run, so
+# an ec id means different things in different runs and must be re-read per run (verified on
+# disk 2026-10-02: matrix.ec differs across runs, transcripts.txt is identical).
+_SPECIES_BY_TARGET = {}
+
+
+def species_by_target(bus):
+    key = str((bus / "transcripts.txt").resolve())
+    if key not in _SPECIES_BY_TARGET:
+        _SPECIES_BY_TARGET[key] = [species_of(t) for t in read_transcripts(bus / "transcripts.txt")]
+    return _SPECIES_BY_TARGET[key]
+
+
 def unique_and_shared(quant_dir):
     """species -> (unique_reads, shared_reads) from the equivalence classes."""
     bus = quant_dir / "bus"
-    transcripts = read_transcripts(bus / "transcripts.txt")
-    ec_species = read_ec_species(bus / "matrix.ec", transcripts)
+    sp_by_target = species_by_target(bus)
+    ec_species = read_ec_species_from(bus / "matrix.ec", sp_by_target)
     counts = read_bus_counts(bus / "output.bus")
 
     unique = collections.Counter()
@@ -204,12 +220,35 @@ def main():
     nb = neighbour_count()
     log = step_log(__file__, "kallisto_confirm")
     try:
-        cache, out_rows, skipped = {}, [], 0
+        runs = []
+        seen = set()
         for r in want:
-            key = (r["host"], r["run"])
-            if key not in cache:
-                cache[key] = facts_for(*key)
-            f = cache[key]
+            k = (r["host"], r["run"])
+            if k not in seen:
+                seen.add(k)
+                runs.append(k)
+        print(f"{len(want)} detections over {len(runs)} runs, {len({h for h, _ in runs})} hosts",
+              flush=True)
+
+        cache, out_rows, skipped, missing = {}, [], 0, 0
+        for i, (host, run) in enumerate(runs, 1):
+            t0 = time.time()
+            facts = facts_for(host, run)
+            cache[(host, run)] = facts
+            if facts is None:
+                missing += 1
+                print(f"  [{i}/{len(runs)}] {run:12s} {host:22s} no quant output yet, skipped",
+                      flush=True)
+            else:
+                top = max(facts.items(), key=lambda kv: kv[1]["unique_reads"], default=None)
+                note = (f"{len(facts)} species, top {top[0]} "
+                        f"{top[1]['unique_reads']:,} uniq" if top else "no species")
+                print(f"  [{i}/{len(runs)}] {run:12s} {host:22s} {note}  ({time.time()-t0:.0f}s)",
+                      flush=True)
+        print(flush=True)
+
+        for r in want:
+            f = cache.get((r["host"], r["run"]))
             if f is None:
                 skipped += 1
                 continue

@@ -234,10 +234,38 @@ docs/*
 
 # seeds/ annotation cache: one line per genus from the datasets CLI, purely a speed-up
 # for re-running build_seeds.py --annotate. Regenerated, never the record.
-03_kraken/seeds/.annotation_cache.jsonl
+02_classify/seeds/.annotation_cache.jsonl
 
 # Own-submission metadata: BioSample attribute templates for OUR OWN unpublished deposits
 # (PRJNA1509083 P. nodorum infection timecourse; oat rust field collections with GPS). This is
 # unpublished research data for other chapters that was dropped at this repo root, and the repo
 # is PUBLIC. Never commit it: move it to the project it belongs to.
 /_selfdata/
+
+# 02_classify (2026-10-15), which replaces 03_kraken. Same rule as 01_literature, and for the
+# same reason: 03_kraken gave each numbered step its own data/, logs/ and figures/, so tracking
+# depended on a per-file negation list that had already failed in both directions (three
+# generated tables force-added, ensembl_species.json tracked by accident, and five Setonix-only
+# outputs with no rule at all until the renumbering surfaced them).
+#
+# The step directories here hold .py and nothing else. Everything derived is a medallion layer
+# under data/ and is ignored by directory, not by name:
+#
+#   seeds/        AUTHORED, irreplaceable, tracked by default because it is OUTSIDE data/.
+#                 Losing it costs re-deciding what belongs in the database. Its hidden
+#                 .annotation_cache.jsonl is a datasets-CLI speed-up and is ignored above.
+#   data/bronze/  immutable external captures: the CDS tree, downloaded reads, raw Kraken2
+#                 reports, NCBI assembly summaries, BUSCO lineages. ~200 GB, lives on Setonix
+#                 scratch; a refetch is the only cost.
+#   data/silver/  generated tables: ref_candidates, db_inspect, run_list, host_calls,
+#                 _classified. Rebuildable from bronze + seeds.
+#   data/gold/    generated but a few kilobytes of summary numbers, TRACKED so the headline
+#                 rates keep a history. git does not descend into an excluded directory, so
+#                 re-including a file inside one needs the directory itself re-included first.
+#
+# See 02_classify/_layout.py (named _layout, not _paths: the repo root owns _paths.py and a
+# second module of that name shadows it).
+02_classify/data/**
+!02_classify/data/gold/
+!02_classify/data/gold/*.tsv
+!02_classify/data/gold/.gitkeep

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""build_seeds.py — regenerate the GENERATED half of 03_kraken/seeds/ from holobase.
+"""build_seeds.py — regenerate the GENERATED half of 02_classify/seeds/ from holobase.
 
 seeds/ is the single source of truth for what is in and what is out of the CDS database.
 Half of it is AUTHORED and must never be overwritten by a script (sources.tsv, hosts.tsv,
@@ -46,9 +46,9 @@ its answer in its own file so re-running one pass does not invalidate the other.
 
 Run from the repository root:
 
-    python 03_kraken/seeds/build_seeds.py            # -> fungi_usda.tsv  (holobase)
-    python 03_kraken/seeds/build_seeds.py --check    # verify, write nothing
-    python 03_kraken/seeds/build_seeds.py --annotate # -> fungi_annotated.tsv  (NCBI, ~10 min)
+    python 02_classify/seeds/build_seeds.py            # -> fungi_usda.tsv  (holobase)
+    python 02_classify/seeds/build_seeds.py --check    # verify, write nothing
+    python 02_classify/seeds/build_seeds.py --annotate # -> fungi_annotated.tsv  (NCBI, ~10 min)
 """
 from __future__ import annotations
 

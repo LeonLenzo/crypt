@@ -1,7 +1,8 @@
 # 02_classify — DESIGNED, NOT BUILT
 
-This README is the design, written before the code. Nothing here exists yet except
-`seeds/`, which is already built and moves across unchanged.
+This README is the design, written before the code. What exists so far is the skeleton laid
+down on 2026-10-15: `seeds/`, moved across unchanged from `03_kraken` and already built, plus
+`_layout.py` and the empty step and data directories. No step is implemented.
 
 It replaces `03_kraken`. Not a rename and not a port: **every input to that module has
 changed**, and two of its dependencies on the superseded frames turned out to be live gates
@@ -58,12 +59,26 @@ this confidence, and this many of them were never reported by the study that gen
 
 ## Layout
 
+Laid down 2026-10-15. **The code layout and the data layout are separate decisions, and
+03_kraken got the second one wrong.**
+
 ```
 02_classify/
   README.md     this file
-  seeds/        MOVED from 03_kraken/seeds, unchanged. The membership authority: what is in
+  _layout.py    every path, and which layer may be regenerated. NOT _paths.py: the repo root
+                owns that name and a second module of it shadows the root for whichever
+                script imports first, which has already cost a lost constant once.
+  seeds/        MOVED from 03_kraken/seeds, unchanged. AUTHORED and irreplaceable, so it sits
+                OUTSIDE data/ and is tracked by default. The membership authority: what is in
                 and out of the CDS database, authored vs generated, and THE SCOPE RULE
                 (plant-associated, ANY host; never scope by the cohort's own hosts).
+  data/         everything DERIVED, one medallion layer per directory. Ignored except gold/.
+    bronze/     immutable external captures: the CDS tree, the reads, raw kraken reports,
+                NCBI assembly summaries, BUSCO lineages. ~200 GB, on Setonix scratch.
+    silver/     generated tables: ref_candidates, db_inspect, run_list, host_calls,
+                _classified. Rebuildable from bronze + seeds; hand-editing one is a mistake.
+    gold/       small, generated, TRACKED: detections, coinfection, host_summary. The numbers
+                a reader wants to see change over the life of the project.
   01_refs/      NEW.      select assemblies from seeds/ and download their CDS
   02_build/     moved.    kraken2-build over the CDS, + the inspect table
   03_cohort/    REWRITTEN. resolve the cohort to a run list and fetch reads. NO STAT.
@@ -71,7 +86,24 @@ this confidence, and this many of them were never reported by the study that gen
   05_detect/    moved.    the detection filter: real signal vs classifier artefact
   utilities/    moved.    busco, saturation, annotate (miniprot), split
   slurm/        adapted.  the Setonix job chain
+  logs/         one place, not six
 ```
+
+**The step directories hold `.py` and nothing else.** That is the change from 03_kraken, where
+every numbered step carried its own `data/`, `logs/` and `figures/`: twenty-odd directories for
+eight scripts, with the tables split across five sibling `data/` dirs so nothing said which was
+authoritative or which could be rebuilt. That is the soil the seven hardcoded paths grew in, and
+it is how a live gate came to hide in a string literal.
+
+**The numbering stays, because here the order is real.** Refs before build, build before
+classify, classify before detect, and the SLURM chain enforces exactly that with
+`--dependency=afterok`. When a job dies overnight the first question is which step. 01_literature
+dropped its numbering for the opposite reason: nothing there runs in a fixed order, the same
+entry point is re-run dozens of times, and its growth item is one resolver per awkward study, so
+grouping by role localised the growth. Numbering it would have been a lie about the order. What
+IS carried across from that reorganisation is the data discipline, which is the half that
+applies: *if losing a file costs a refetch or a rerun it is bronze or silver; if it costs
+re-deciding what belongs in the database it is seeds.*
 
 Step names say the job rather than the tool, like the module name. Renamed from
 search/build/select/assign/filter on the same principle (`04_kallisto` becomes `03_align`).
@@ -82,15 +114,20 @@ Everything comes from three places and nothing else:
 
     01_literature/release/cohort_samples.tsv    Run, BioProject, crop, host, setting,
                                                 sampling_selection, tissue, location, date
-    01_literature/data/silver/runs.tsv          Run -> BioSample for all 33,958 runs. The
-                                                ungated replacement for the STAT run table:
-                                                it covers 7,688/7,688 cohort runs over 6,222
-                                                BioSamples
-    01_literature/.../declared_pathogens        what the STUDY declared. COMPLETE as of
-                                                2026-10-15: 41/41 projects, 7,688/7,688 runs
+    01_literature/data/silver/runs.tsv          Run -> BioSample for all 33,958 runs, AND
+                                                `declared_pathogens` + its _source in the same
+                                                table (columns 22-23): what the STUDY declared,
+                                                COMPLETE 2026-10-15, 41/41 projects. The ungated
+                                                replacement for the STAT run table: it covers
+                                                7,688/7,688 cohort runs over 6,222 BioSamples
     02_classify/seeds/                          what the database contains
     _refdata/holobase.db                        pathogen / host / guild LABELS
     Setonix                                     CDS tree + reads, keyed by ACCESSION
+
+Two files, not three: the declared set is a pair of columns in `runs.tsv` rather than a table of
+its own, so the run resolution and the declaration arrive together and cannot disagree about
+which runs exist. `_layout.py` names both, and `LIT_CURATION` / `LIT_PROVENANCE` alongside them,
+because a declared value is an evidence claim traceable to a quote and not a lookup.
 
 **No data moves on Setonix.** Both the CDS tree (`cds/pathogen/GCA_000002495.2/…`) and the
 reads are keyed by accession, so the new module points at the same directories. That removes the

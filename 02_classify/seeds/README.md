@@ -129,17 +129,22 @@ are where the remaining breadth lives.
 ## Regenerating, and the order to work in
 
 ```
-python 03_kraken/seeds/build_seeds.py --check     # report, write nothing
-python 03_kraken/seeds/build_seeds.py             # -> fungi_usda.tsv
+python 02_classify/seeds/build_seeds.py --check     # report, write nothing
+python 02_classify/seeds/build_seeds.py             # -> fungi_usda.tsv
 ```
 
 Then size the build before downloading anything:
 
 ```
 python 03_kraken/01_search/kraken_search.py --skip-seeds \
-    --extra-clades 03_kraken/seeds/residents.tsv \
+    --extra-clades 02_classify/seeds/residents.tsv \
     --sweep-rank genus --select-only --version residents --no-symlink
 ```
+
+The selector still lives in `03_kraken/01_search` as of 2026-10-15, and the command above is the
+one that produced the sizing. `02_classify/01_refs` replaces it; when it lands, these flags and
+the two cautions below carry across unchanged, because they are properties of the selection
+rather than of the script.
 
 `--skip-seeds` makes a standalone run: no PHI-base seed query, no seed-derived sweep targets,
 and `--retain` forced off. `--no-symlink` is **required** for any side run, because

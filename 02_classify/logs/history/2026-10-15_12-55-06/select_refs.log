@@ -1,0 +1,36 @@
+Floor: 4 per species, applied UNIFORMLY (no STAT no-cap set)
+Annotation gate: relaxed, contig-level as a fallback
+Exclusions: 37 taxids blocked
+
+seeds/fungi_annotated.tsv routes:
+  present     432   selected
+  add         179   selected
+  miniprot    849   SKIPPED, no gene model
+  none         26   SKIPPED, no gene model
+
+*** --limit 8: SMOKE TEST over 8 taxa and 2 clades. Do not treat the output as a selection. ***
+
+Reading holobase (species map + phylum map) …
+  normalised 2,778,093 taxids to species rank; coverage 8 -> 8 taxa
+
+[1/2] Querying 8 USDA taxa (8 workers) …
+  8/8 taxa … (32 assemblies)
+  USDA assemblies selected: 32 across 8 species
+
+[2/2] Sweeping 2 resident clades …
+  2/2 clades … (21 swept)
+  Resident assemblies selected: 21
+
+--limit given: writing to /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/ref_candidates_smoke.tsv, NOT /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/ref_candidates.tsv
+
+── Selection ────────────────────────────────────────────────────
+  assemblies      53
+  species         24
+    resident_sweep   21
+    usda             32
+  with CDS        53
+  contig fallback 14   (0 under --strict-gate)
+  -> /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/ref_candidates_smoke.tsv
+
+Next: compare against the previous selection before downloading anything:
+  python 02_classify/01_refs/compare_refs.py --against 03_kraken/01_search/data/ref_candidates_v3.tsv

@@ -1,0 +1,44 @@
+Floor: 4 per species, applied UNIFORMLY (no STAT no-cap set)
+Annotation gate: relaxed, contig-level as a fallback
+Exclusions: 37 taxids blocked
+
+seeds/fungi_annotated.tsv routes:
+  present     432   selected
+  add         179   selected
+  miniprot    849   SKIPPED, no gene model
+  none         26   SKIPPED, no gene model
+
+*** --limit 40: SMOKE TEST over 40 taxa and 2 clades. Do not treat the output as a selection. ***
+
+Reading holobase (species map + phylum map) …
+  normalised 2,778,093 taxids to species rank
+  collapsed 4 sub-species seed taxa into their species node, so the floor applies per SPECIES:
+          5507  Fusarium oxysporum                   <- 4 seed taxa
+         27350  Puccinia striiformis                 <- 1 seed taxa
+         34373  Blumeria graminis                    <- 1 seed taxa
+          5297  Puccinia graminis                    <- 1 seed taxa
+  querying 37 species nodes; sweep coverage 37 taxa
+
+[1/2] Querying 37 USDA taxa (8 workers) …
+  25/37 taxa … (87 assemblies)  37/37 taxa … (115 assemblies)
+  USDA assemblies selected: 115 across 36 species
+  1 taxa marked addable returned no annotated assembly:
+       1715222  Chaetothyriales sp.
+
+[2/2] Sweeping 2 resident clades …
+  2/2 clades … (21 swept)
+  Resident assemblies selected: 21
+
+--limit given: writing to /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/ref_candidates_smoke.tsv, NOT /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/ref_candidates.tsv
+
+── Selection ────────────────────────────────────────────────────
+  assemblies      136
+  species         52
+    resident_sweep   21
+    usda             115
+  with CDS        136
+  contig fallback 14   (0 under --strict-gate)
+  -> /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/ref_candidates_smoke.tsv
+
+Next: compare against the previous selection before downloading anything:
+  python 02_classify/01_refs/compare_refs.py --against 03_kraken/01_search/data/ref_candidates_v3.tsv

@@ -1,0 +1,24 @@
+  new  02_classify/data/silver/ref_candidates_smoke.tsv
+       53 assemblies / 24 species
+  old  /home/leonl/data_analysis/phd/01-review/03_kraken/01_search/data/ref_candidates_v3.tsv
+       2,063 assemblies / 937 species
+  shared accessions: 0
+
+  430 taxa have drops this diff CANNOT explain from the tables alone.
+  Re-run with --probe-ncbi to separate a suppressed accession from a trimmed one.
+  Until then they are NOT counted as retain candidates.
+
+── Diff ─────────────────────────────────────────────────────────
+  dropped  unresolved_needs_probe    1,066
+  dropped  taxon_out_of_scope          972
+  added    usda                         32
+  dropped  route_no_cds                 25
+  added    resident_sweep               21
+  -> /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/refs_diff.tsv
+
+── Retain candidates: depth our rules trimmed ───────────────────
+  0 assemblies across 0 species
+  -> /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/retain_candidates.tsv
+
+Review it, then promote what is worth keeping into /home/leonl/data_analysis/phd/01-review/02_classify/seeds/retain.tsv
+(authored and tracked: accession, species, reason per row). The CDS for these is already on Acacia under db/search, so retaining costs no download.

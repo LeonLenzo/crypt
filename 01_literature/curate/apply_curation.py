@@ -95,7 +95,13 @@ def may_write(new_src: str, held_src: str, rule: dict,
 SETTABLE = {"tissue": "tissue_source", "location": "location_source",
             "collection_date": "date_source", "setting": "setting_source",
             "sampling_selection": "sampling_selection_source",
-            "library_representative": "library_representative_source"}
+            "library_representative": "library_representative_source",
+            # Which pathogen(s) the STUDY declared, curated from the paper. 03_kraken needs it
+            # to tell a reported detection from an unreported one, which is the chapter's whole
+            # claim. Stored as NAMES and resolved to taxids in Python: an LLM recalling a taxid
+            # produces confident wrong numbers. Read relative to our scope, so a virus-targeted
+            # study declares nothing and its fungal detections are all unreported.
+            "declared_pathogens": "declared_pathogens_source"}
 
 
 def read(p: Path) -> list[dict]:

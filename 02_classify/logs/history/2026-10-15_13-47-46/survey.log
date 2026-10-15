@@ -1,0 +1,77 @@
+Building the routes list …
+
+holobase: 3,013,817 taxa, 3,013,817 with an NCBI taxid, 5,185,267 names incl. synonyms
+
+  route 1 target:          2,849 FUNGuild + 59 PHI-base-only = 2,908 taxa
+  route 2 congener:        1,715 genus clades hold them (78 route-1 taxa have no genus)
+  route 3 host:            6 plant species
+  route 4 plant_associate: 1,486 USDA taxa
+  route 5 host_associate:  30 phytobiome clades (22 annotated, 8 awaiting gene prediction)
+
+  exclusions.tsv: 37 enforceable rules blocked 127 taxa (subtrees included)
+    out_of_scope                127
+    6 rows carry no taxid and cannot be enforced by id: Magnaporthe (synonym_already_held), Phaeosphaeria (synonym_already_held), Erratomyces (no_assembly), Selenophoma (no_assembly), Tomentella (no_assembly), Tylospora (no_assembly)
+
+── Union ────────────────────────────────────────────────────────
+  4,098 distinct taxa across the five routes
+    in 1 route :  2,224 taxa
+    in 2 routes:  1,863 taxa
+    in 3 routes:     11 taxa
+  by rank:
+    species           2,282
+    genus             1,696
+    family               74
+    forma specialis      37
+    forma                 3
+    varietas              2
+    superfamily           1
+    class                 1
+
+── Query units ──────────────────────────────────────────────────
+  1,403 taxa to ask NCBI about
+  2,695 dropped: an ancestor in the list already returns them
+  every one is queried BY TAXID, so a homonym cannot return zero silently
+
+*** --limit 20: SMOKE TEST. Writes nothing. ***
+
+Querying NCBI for 20 clades (8 workers) …
+
+  WARNING datasets_query(4919) failed: New version of client (18.39.0) available at https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets.
+  20/20 queries … (480 species, 2,023 assemblies)
+
+── What exists, measured ────────────────────────────────────────
+  species with >=1 assembly             480
+  species with >=1 GENE MODEL           221   <- these can enter db_v4
+  species with assemblies, NO model     259   <- the miniprot worklist
+
+  assemblies total                    2,023
+  ... annotated                         784   (39%)
+  ... annotated AND scaffold-plus       469   (23%)
+
+  db_v3 for scale: 2,063 assemblies / 877 fungal species / 4.80 B minimizers
+
+  depth distribution over species that can enter:
+         1 annotated assemblies:     95 species
+       2-3 annotated assemblies:     90 species
+       4-9 annotated assemblies:     26 species
+     10-49 annotated assemblies:      9 species
+       50+ annotated assemblies:      1 species
+  the median is the reason a floor was never the binding constraint on breadth
+
+  deepest species (annotated assemblies):
+    Parastagonospora nodorum                       156 of   180
+    Rhizopus arrhizus                               39 of    56
+    Penicillium roqueforti                          36 of    51
+    Penicillium nalgiovense                         30 of    31
+    Claviceps purpurea                              24 of    58
+    Penicillium salamii                             22 of    23
+    Rhizopus delemar                                15 of    21
+    Ancylobacter sp.                                15 of    18
+    Rhizopus microsporus                            13 of    29
+    Penicillium discolor                            11 of    11
+
+  NOTE units_returning_nothing: 1
+
+  NOTE assemblies_taxid_not_in_holobase: 5
+
+(--limit given: nothing written)

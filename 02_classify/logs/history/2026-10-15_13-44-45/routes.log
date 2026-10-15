@@ -1,0 +1,31 @@
+holobase: 3,013,817 taxa, 3,013,817 with an NCBI taxid, 5,185,267 names incl. synonyms
+
+  route 1 target:          2,849 FUNGuild + 59 PHI-base-only = 2,908 taxa
+  route 2 congener:        1,715 genus clades hold them (78 route-1 taxa have no genus)
+  route 3 host:            6 plant species
+  route 4 plant_associate: 1,486 USDA taxa
+  route 5 host_associate:  22 phytobiome clades
+
+  exclusions.tsv blocked 0 of them (37 rules total)
+
+── Union ────────────────────────────────────────────────────────
+  4,220 distinct taxa across the five routes
+    in 1 route :  2,312 taxa
+    in 2 routes:  1,899 taxa
+    in 3 routes:      9 taxa
+  by rank:
+    species           2,374
+    genus             1,726
+    family               74
+    forma specialis      37
+    forma                 3
+    varietas              2
+    superfamily           1
+    class                 1
+
+── Query units ──────────────────────────────────────────────────
+  1,436 taxa to ask NCBI about
+  2,784 dropped: an ancestor in the list already returns them
+  every one is queried BY TAXID, so a homonym cannot return zero silently
+
+(--write not given: nothing written)

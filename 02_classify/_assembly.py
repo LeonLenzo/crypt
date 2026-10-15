@@ -75,6 +75,11 @@ def _ts() -> str:
 
 # ── NCBI datasets query ───────────────────────────────────────────────────────
 
+# Filled by datasets_query when a clade returns nothing, so a caller can report "resolved but
+# NCBI holds no genome" separately from "the query itself failed". Two different facts: the
+# first is data, the second is a bug waiting to be noticed.
+NO_DATA = {}
+
 def datasets_query(taxon) -> list:
     r = subprocess.run(
         ["datasets", "summary", "genome", "taxon", str(taxon),
@@ -88,8 +93,17 @@ def datasets_query(taxon) -> list:
         # both a fungus (5206) and a scale insect (79213); Rhizophagus is both a fungus
         # (1129544) and a beetle (295919). Pass the taxid instead of the name for those.
         err = (r.stderr or "").strip().splitlines()
-        print(f"\n  WARNING datasets_query({taxon}) failed: "
-              f"{err[0] if err else 'exit ' + str(r.returncode)}", flush=True)
+        msg = err[0] if err else "exit " + str(r.returncode)
+        # "valid for X, but no genome data is currently available" is an ANSWER, not a
+        # failure: the taxon resolved and NCBI holds nothing for it. Surveying thousands of
+        # clades turns that into hundreds of WARNING lines, which trains the reader to skim
+        # past the one line that means a homonym just silently returned zero. Counted
+        # instead, by the caller, from the empty return.
+        if "no genome data is currently available" not in msg:
+            print(f"\n  WARNING datasets_query({taxon}) failed: {msg}", flush=True)
+            NO_DATA.setdefault("_failures", []).append((str(taxon), msg))
+        else:
+            NO_DATA.setdefault("_no_genome_data", []).append(str(taxon))
         return []
     rows = []
     for line in r.stdout.splitlines():

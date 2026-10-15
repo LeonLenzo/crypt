@@ -39,3 +39,361 @@ holobase: 3,013,817 taxa, 3,013,817 with an NCBI taxid, 5,185,267 names incl. sy
   every one is queried BY TAXID, so a homonym cannot return zero silently
 
   filling the BUSCO phylum map from the taxonomy already loaded …
+
+Querying NCBI for 1,321 clades (8 workers) …
+
+  WARNING datasets_query(4919) failed: New version of client (18.39.0) available at https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets.
+
+  WARNING datasets_query(5265) failed: Error: The taxonomy ID '5265' is valid for 'Gymnosporangium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(5275) failed: Error: The taxonomy ID '5275' is valid for 'Graphiola', but no genome data is currently available for this taxon.
+  25/1321 queries … (540 species, 2,246 assemblies)
+  WARNING datasets_query(5328) failed: Error: The taxonomy ID '5328' is valid for 'Spongipellis', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(5422) failed: Error: The taxonomy ID '5422' is valid for 'Kabatiella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(29876) failed: Error: The taxonomy ID '29876' is valid for 'Tubercularia', but no genome data is currently available for this taxon.
+  50/1321 queries … (804 species, 3,227 assemblies)
+  WARNING datasets_query(34359) failed: New version of client (18.39.0) available at https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets.
+
+  WARNING datasets_query(38462) failed: Error: The taxonomy ID '38462' is valid for 'Lambertella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(40290) failed: Error: The taxonomy ID '40290' is valid for 'Urnula', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(40439) failed: Error: The taxonomy ID '40439' is valid for 'Echinodontium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(38077) failed: Error: The taxonomy ID '38077' is valid for 'Pseudofusarium', but no genome data is currently available for this taxon.
+  75/1321 queries … (1,164 species, 4,330 assemblies)
+  WARNING datasets_query(40470) failed: Error: The taxonomy ID '40470' is valid for 'Phellinus', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(40653) failed: Error: The taxonomy ID '40653' is valid for 'Wallrothiella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(42311) failed: Error: The taxonomy ID '42311' is valid for 'Halosphaeriopsis', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(40615) failed: Error: The taxonomy ID '40615' is valid for 'Melanospora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(40475) failed: Error: The taxonomy ID '40475' is valid for 'Phaeolus', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(45265) failed: Error: The taxonomy ID '45265' is valid for 'Aniptodera', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(43987) failed: New version of client (18.39.0) available at https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets.
+  100/1321 queries … (1,240 species, 4,510 assemblies)
+  WARNING datasets_query(45813) failed: Error: The taxonomy ID '45813' is valid for 'Lignincola', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(45215) failed: Error: The taxonomy ID '45215' is valid for 'Gymnoconia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(45282) failed: Error: The taxonomy ID '45282' is valid for 'Myriogenospora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(45819) failed: Error: The taxonomy ID '45819' is valid for 'Nimbospora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(45811) failed: Error: The taxonomy ID '45811' is valid for 'Halosphaeria', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(45823) failed: Error: The taxonomy ID '45823' is valid for 'Ophiodeira', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(45955) failed: Error: The taxonomy ID '45955' is valid for 'Ceriosporopsis', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(45826) failed: Error: The taxonomy ID '45826' is valid for 'Arenariomyces', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(45846) failed: Error: The taxonomy ID '45846' is valid for 'Halosarpheia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(45821) failed: Error: The taxonomy ID '45821' is valid for 'Nohea', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(47186) failed: Error: The taxonomy ID '47186' is valid for 'Caloscypha', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(47056) failed: Error: The taxonomy ID '47056' is valid for 'Vuilleminia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(47274) failed: Error: The taxonomy ID '47274' is valid for 'Dactylaria', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(48853) failed: Error: The taxonomy ID '48853' is valid for 'Eocronartium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(47163) failed: Error: The taxonomy ID '47163' is valid for 'Cyttariaceae', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(51148) failed: Error: The taxonomy ID '51148' is valid for 'Pithya', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(50375) failed: Error: The taxonomy ID '50375' is valid for 'Fusicladium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(52285) failed: Error: The taxonomy ID '52285' is valid for 'Gremmeniella', but no genome data is currently available for this taxon.
+  125/1321 queries … (1,306 species, 5,932 assemblies)
+  WARNING datasets_query(54527) failed: Error: The taxonomy ID '54527' is valid for 'Coccodiniaceae', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(54205) failed: Error: The taxonomy ID '54205' is valid for 'Nyssopsora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(54038) failed: Error: The taxonomy ID '54038' is valid for 'Sphaerodothis', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(50961) failed: Error: The taxonomy ID '50961' is valid for 'Arrhenia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(54963) failed: Error: The taxonomy ID '54963' is valid for 'Coccodiella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(54922) failed: Error: The taxonomy ID '54922' is valid for 'Kriegeria', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(54959) failed: Error: The taxonomy ID '54959' is valid for 'Pestalosphaeria', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(54896) failed: Error: The taxonomy ID '54896' is valid for 'Ophiodothella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(54696) failed: Error: The taxonomy ID '54696' is valid for 'Gloeotinia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(60186) failed: Error: The taxonomy ID '60186' is valid for 'Rhizophydium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(60204) failed: Error: The taxonomy ID '60204' is valid for 'Pucciniastrum', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(62631) failed: Error: The taxonomy ID '62631' is valid for 'Doassansia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(60494) failed: Error: The taxonomy ID '60494' is valid for 'Mycoleptodiscus', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(62134) failed: Error: The taxonomy ID '62134' is valid for 'Capnodium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(62129) failed: Error: The taxonomy ID '62129' is valid for 'Antennariella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(62634) failed: Error: The taxonomy ID '62634' is valid for 'Rhamphospora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(62636) failed: Error: The taxonomy ID '62636' is valid for 'Entyloma', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(62632) failed: Error: The taxonomy ID '62632' is valid for 'Doassinga', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63192) failed: Error: The taxonomy ID '63192' is valid for 'Amphisphaeria', but no genome data is currently available for this taxon.
+  150/1321 queries … (1,337 species, 6,087 assemblies)
+  WARNING datasets_query(63196) failed: Error: The taxonomy ID '63196' is valid for 'Lepteutypa', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63198) failed: Error: The taxonomy ID '63198' is valid for 'Discostroma', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63205) failed: Error: The taxonomy ID '63205' is valid for 'Pestalotia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63201) failed: Error: The taxonomy ID '63201' is valid for 'Capsulospora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63254) failed: Error: The taxonomy ID '63254' is valid for 'Doassansiopsis', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63257) failed: Error: The taxonomy ID '63257' is valid for 'Georgefischeria', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(62637) failed: Error: The taxonomy ID '62637' is valid for 'Nannfeldtiomyces', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63260) failed: Error: The taxonomy ID '63260' is valid for 'Melanotaenium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63283) failed: Error: The taxonomy ID '63283' is valid for 'Aurantiosporium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63270) failed: Error: The taxonomy ID '63270' is valid for 'Ustacystis', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63255) failed: Error: The taxonomy ID '63255' is valid for 'Entorrhiza', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63289) failed: Error: The taxonomy ID '63289' is valid for 'Fulvisporium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63262) failed: Error: The taxonomy ID '63262' is valid for 'Mundkurella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63291) failed: Error: The taxonomy ID '63291' is valid for 'Tolyposporella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(64497) failed: Error: The taxonomy ID '64497' is valid for 'Sydowia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(64361) failed: Error: The taxonomy ID '64361' is valid for 'Kabatina', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63269) failed: Error: The taxonomy ID '63269' is valid for 'Urocystis', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(63292) failed: Error: The taxonomy ID '63292' is valid for 'Ustilentyloma', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(66498) failed: Error: The taxonomy ID '66498' is valid for 'Fabrella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(66503) failed: Error: The taxonomy ID '66503' is valid for 'Rhabdocline', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(66277) failed: Error: The taxonomy ID '66277' is valid for 'Meliola', but no genome data is currently available for this taxon.
+  175/1321 queries … (1,343 species, 6,097 assemblies)
+  WARNING datasets_query(64359) failed: Error: The taxonomy ID '64359' is valid for 'Phaeocryptopus', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(66273) failed: Error: The taxonomy ID '66273' is valid for 'Meliolina', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(66514) failed: Error: The taxonomy ID '66514' is valid for 'Mitrula', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(66822) failed: Error: The taxonomy ID '66822' is valid for 'Rhizopycnis', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(68809) failed: Error: The taxonomy ID '68809' is valid for 'Typhula', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(71919) failed: Error: The taxonomy ID '71919' is valid for 'Rhodotus', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(71924) failed: Error: The taxonomy ID '71924' is valid for 'Xerula', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(67626) failed: Error: The taxonomy ID '67626' is valid for '[Graphium] rubrum', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(73169) failed: Error: The taxonomy ID '73169' is valid for 'Physopella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(73250) failed: Error: The taxonomy ID '73250' is valid for 'Hyalopsora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(73252) failed: Error: The taxonomy ID '73252' is valid for 'Uredinopsis', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(73163) failed: Error: The taxonomy ID '73163' is valid for 'Aecidium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(75748) failed: Error: The taxonomy ID '75748' is valid for 'Glomerobolus', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(80382) failed: Error: The taxonomy ID '80382' is valid for 'Memnoniella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(71892) failed: Error: The taxonomy ID '71892' is valid for 'Leucopaxillus', but no genome data is currently available for this taxon.
+  200/1321 queries … (1,388 species, 6,165 assemblies)
+  WARNING datasets_query(84741) failed: Error: The taxonomy ID '84741' is valid for 'Itersonilia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(85919) failed: Error: The taxonomy ID '85919' is valid for 'Nais', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(85916) failed: Error: The taxonomy ID '85916' is valid for 'Kirschsteiniothelia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(81097) failed: Error: The taxonomy ID '81097' is valid for 'Cephalosporium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(92987) failed: Error: The taxonomy ID '92987' is valid for 'Phaeotheca', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(93055) failed: Error: The taxonomy ID '93055' is valid for 'Melaniella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(87837) failed: Error: The taxonomy ID '87837' is valid for 'Hyponectriaceae', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(83884) failed: Error: The taxonomy ID '83884' is valid for 'Sirococcus', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(87630) failed: Error: The taxonomy ID '87630' is valid for 'Phytocordyceps', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(91040) failed: Error: The taxonomy ID '91040' is valid for 'Melampsoridium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(105991) failed: Error: The taxonomy ID '105991' is valid for 'Platygloea', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(103849) failed: Error: The taxonomy ID '103849' is valid for 'Phaeonectriella', but no genome data is currently available for this taxon.
+  225/1321 queries … (1,509 species, 6,494 assemblies)
+  WARNING datasets_query(109384) failed: Error: The taxonomy ID '109384' is valid for 'Sclerotium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(109874) failed: Error: The taxonomy ID '109874' is valid for 'Physoderma', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(109930) failed: Error: The taxonomy ID '109930' is valid for 'Phlyctorhiza', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(110069) failed: Error: The taxonomy ID '110069' is valid for 'Lacustromyces', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(110074) failed: Error: The taxonomy ID '110074' is valid for 'Karlingiomyces', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(109918) failed: Error: The taxonomy ID '109918' is valid for 'Septochytrium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(116608) failed: Error: The taxonomy ID '116608' is valid for 'Ephelis', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(115799) failed: Error: The taxonomy ID '115799' is valid for 'Medeolaria', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(127115) failed: Error: The taxonomy ID '127115' is valid for 'Jamesdicksonia', but no genome data is currently available for this taxon.
+  250/1321 queries … (1,595 species, 6,734 assemblies)
+  WARNING datasets_query(132178) failed: Error: The taxonomy ID '132178' is valid for 'Sarcotrochila', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(131321) failed: Error: The taxonomy ID '131321' is valid for 'Phaeoramularia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(139081) failed: Error: The taxonomy ID '139081' is valid for 'Calyptella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(127517) failed: Error: The taxonomy ID '127517' is valid for 'Ascocalyx', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(131345) failed: Error: The taxonomy ID '131345' is valid for 'Stigmina', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(150382) failed: Error: The taxonomy ID '150382' is valid for 'Stilbella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(152318) failed: Error: The taxonomy ID '152318' is valid for 'Monochaetia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(147575) failed: Error: The taxonomy ID '147575' is valid for 'Raciborskiomyces', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(148311) failed: Error: The taxonomy ID '148311' is valid for 'Melanconidaceae', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(152321) failed: Error: The taxonomy ID '152321' is valid for 'Seimatoantlerium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(157255) failed: Error: The taxonomy ID '157255' is valid for 'Volvocisporium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(149035) failed: Error: The taxonomy ID '149035' is valid for 'Sporendocladia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(162396) failed: Error: The taxonomy ID '162396' is valid for 'Discosia', but no genome data is currently available for this taxon.
+  275/1321 queries … (1,991 species, 9,208 assemblies)
+  WARNING datasets_query(165797) failed: Error: The taxonomy ID '165797' is valid for 'Eballistra', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(162418) failed: Error: The taxonomy ID '162418' is valid for 'Seimatosporium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(156292) failed: Error: The taxonomy ID '156292' is valid for 'Dendryphiella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(157252) failed: Error: The taxonomy ID '157252' is valid for 'Muribasidiospora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(172186) failed: Error: The taxonomy ID '172186' is valid for 'Schizoparme', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(167359) failed: Error: The taxonomy ID '167359' is valid for 'Onnia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(169883) failed: Error: The taxonomy ID '169883' is valid for 'Phragmotaenium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(179658) failed: Error: The taxonomy ID '179658' is valid for 'Phaeotrichoconis', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(181969) failed: Error: The taxonomy ID '181969' is valid for 'Cantharellopsis', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(184471) failed: Error: The taxonomy ID '184471' is valid for 'Sporotrichum', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(182023) failed: Error: The taxonomy ID '182023' is valid for 'Rimbachia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(186527) failed: Error: The taxonomy ID '186527' is valid for 'Acanthorhynchus', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(172197) failed: Error: The taxonomy ID '172197' is valid for 'Greeneria', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(187256) failed: Error: The taxonomy ID '187256' is valid for 'Hercospora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(189352) failed: Error: The taxonomy ID '189352' is valid for 'Linocarpon', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(181679) failed: Error: The taxonomy ID '181679' is valid for 'Porodisculus', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(189360) failed: Error: The taxonomy ID '189360' is valid for 'Arecophila', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(190596) failed: Error: The taxonomy ID '190596' is valid for 'Milesia', but no genome data is currently available for this taxon.
+  300/1321 queries … (2,010 species, 9,290 assemblies)
+  WARNING datasets_query(187248) failed: Error: The taxonomy ID '187248' is valid for 'Harknessia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(190598) failed: Error: The taxonomy ID '190598' is valid for 'Uredo', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(186648) failed: Error: The taxonomy ID '186648' is valid for 'Pezoloma', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(190608) failed: Error: The taxonomy ID '190608' is valid for 'Kuehneola', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(190616) failed: Error: The taxonomy ID '190616' is valid for 'Trachyspora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(190633) failed: Error: The taxonomy ID '190633' is valid for 'Melampsorella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(190933) failed: Error: The taxonomy ID '190933' is valid for 'Graphostroma', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(190635) failed: Error: The taxonomy ID '190635' is valid for 'Naohidemyces', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(191439) failed: Error: The taxonomy ID '191439' is valid for 'Antennospora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(190083) failed: Error: The taxonomy ID '190083' is valid for 'Arcticomyces', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(190620) failed: Error: The taxonomy ID '190620' is valid for 'Herpobasidium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(190610) failed: Error: The taxonomy ID '190610' is valid for 'Phragmidium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(190618) failed: Error: The taxonomy ID '190618' is valid for 'Triphragmium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(197784) failed: Error: The taxonomy ID '197784' is valid for 'Heteroepichloe', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(194176) failed: Error: The taxonomy ID '194176' is valid for 'Haligena', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(198660) failed: Error: The taxonomy ID '198660' is valid for 'Insolibasidium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(198653) failed: Error: The taxonomy ID '198653' is valid for 'Dasturella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(194551) failed: Error: The taxonomy ID '194551' is valid for 'Pseudocercosporidium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(193038) failed: Error: The taxonomy ID '193038' is valid for 'Patescospora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(198673) failed: Error: The taxonomy ID '198673' is valid for 'Pileolaria', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(198666) failed: Error: The taxonomy ID '198666' is valid for 'Milesina', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(198651) failed: Error: The taxonomy ID '198651' is valid for 'Caeoma', but no genome data is currently available for this taxon.
+  325/1321 queries … (2,018 species, 9,299 assemblies)
+  WARNING datasets_query(193034) failed: Error: The taxonomy ID '193034' is valid for 'Jahnula', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(201940) failed: Error: The taxonomy ID '201940' is valid for 'Nereiospora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(201880) failed: Error: The taxonomy ID '201880' is valid for 'Strumella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(203915) failed: Error: The taxonomy ID '203915' is valid for 'Atelocauda', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(201922) failed: Error: The taxonomy ID '201922' is valid for 'Marinospora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(213315) failed: Error: The taxonomy ID '213315' is valid for 'Colispora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(215673) failed: Error: The taxonomy ID '215673' is valid for 'Cucullosporella', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(203911) failed: Error: The taxonomy ID '203911' is valid for 'Gerwasia', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(203918) failed: Error: The taxonomy ID '203918' is valid for 'Uromycladium', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(218108) failed: Error: The taxonomy ID '218108' is valid for 'Pseudoinonotus', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(218114) failed: Error: The taxonomy ID '218114' is valid for 'Inonotopsis', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(215677) failed: Error: The taxonomy ID '215677' is valid for 'Tirispora', but no genome data is currently available for this taxon.
+
+  WARNING datasets_query(227326) failed: Error: The taxonomy ID '227326' is valid for 'Loreleia', but no genome data is currently available for this taxon.

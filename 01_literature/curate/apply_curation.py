@@ -429,8 +429,22 @@ def main() -> None:
         print("\ndry run; runs.tsv not written")
         return
 
+    # Every settable field and its _source twin must exist on EVERY row before writing.
+    # The writer takes its header from the first row, so a field that only some rows carry
+    # (a newly added one whose rules do not touch row 0) raises "dict contains fields not in
+    # fieldnames" and writes nothing. Found 2026-10-15 when declared_pathogens was added.
+    for field, srccol in SETTABLE.items():
+        for r in runs:
+            r.setdefault(field, "")
+            r.setdefault(srccol, "")
+    header = list(runs[0])
+    for r in runs:                       # union, in first-seen order, for any other stragglers
+        for k in r:
+            if k not in header:
+                header.append(k)
+
     with open(RUNS, "w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(runs[0]), delimiter="\t")
+        w = csv.DictWriter(fh, fieldnames=header, delimiter="\t")
         w.writeheader()
         w.writerows(runs)
     print(f"\nwrote {RUNS.relative_to(ROOT)}")

@@ -84,9 +84,11 @@ def route_targets(tax) -> dict:
     most of route 2 arriving already done: expanding FUNGuild to genus adds only 212 species
     with assemblies over FUNGuild as given.
 
-    PHI-base (`host_association` where `association_type='pathogenic'`) is narrow by
-    comparison, 142 fungal species with assemblies, and it is unioned in because it is free and
-    because it is curated per species. It is NOT the scope source any more: `pathogenic`
+    PHI-base (`host_association` where `association_type='pathogenic'` AND the host is
+    Viridiplantae) is narrow by comparison and is unioned in because it is free and curated per
+    species. **The plant-host condition is load-bearing**: PHI-base scores pathogenicity
+    against whatever host the experiment used, and 147 of its fungi are pathogens of Metazoa
+    against 201 of plants. It is NOT the scope source any more: `pathogenic`
     reaches only the taxa somebody did a pathogenicity experiment on, which structurally cannot
     include the saprotrophs, endophytes and epiphytes routes 4 and 5 exist to reach.
     """
@@ -97,11 +99,23 @@ def route_targets(tax) -> dict:
         if tid in tax.rank:
             out[tid] = f"funguild:{(guild or '').strip()[:40]}"
     n_funguild = len(out)
+    # The host must be a PLANT. PHI-base records pathogenicity against whatever host the
+    # experiment used, and 147 of its fungi are pathogens of METAZOA -- mice, nematodes,
+    # Galleria larvae, Drosophila -- against 201 with a plant host. Filtering only on the
+    # FUNGUS being a fungus labelled every one of them "known plant pathogen", which put
+    # *Aspergillus fumigatus*, *Candidozyma auris*, *Cryptococcus neoformans* and *Beauveria
+    # bassiana* in route 1. That is not a cosmetic mislabel: the route IS the detection label,
+    # so 05_detect would have reported a human clinical yeast as a plant pathogen finding.
+    # Found 2026-10-16 from the contents figure, which is what the figure was for.
+    # A null host kingdom is excluded too: fungi-only and plant-host-only both need a positive
+    # answer, not the absence of a negative one.
     for (tid,) in con.execute(
-            "SELECT DISTINCT fungus_id FROM host_association "
-            "WHERE association_type='pathogenic' AND fungus_id IS NOT NULL"):
+            "SELECT DISTINCT a.fungus_id FROM host_association a "
+            "JOIN taxon h ON h.taxon_id = a.host_id "
+            "WHERE a.association_type='pathogenic' AND a.fungus_id IS NOT NULL "
+            "AND h.kingdom = 'Viridiplantae'"):
         if tid in tax.rank and tax.kingdom.get(tid) == "Fungi":
-            out[tid] = (out[tid] + "; phibase:pathogenic") if tid in out else "phibase:pathogenic"
+            out[tid] = (out[tid] + "; phibase:plant_host") if tid in out else "phibase:plant_host"
     con.close()
     print(f"  route 1 target:          {n_funguild:,} FUNGuild + "
           f"{len(out) - n_funguild:,} PHI-base-only = {len(out):,} taxa")

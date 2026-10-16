@@ -48,6 +48,7 @@ and `geom_fruit` would fight that, and because the rest of the module is Python.
 
 import csv
 import math
+import sqlite3
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -55,12 +56,12 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.collections import LineCollection
-from matplotlib.lines import Line2D
+from matplotlib.collections import LineCollection, PolyCollection
 from matplotlib.patches import Patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from _layout import SILVER, FIGURES   # noqa: E402
+from _layout import SILVER, FIGURES, HOLOBASE, HOSTS   # noqa: E402
+from _seeds import read_seed_tsv      # noqa: E402
 import _taxonomy                      # noqa: E402
 
 SURVEY = SILVER / "assembly_survey.tsv"
@@ -75,6 +76,7 @@ ROUTE_COLOUR = {
     "congener":        "#8c8c8c",
 }
 PRECEDENCE = ("host", "target", "host_associate", "plant_associate", "congener")
+CEREAL_COLOUR = "#1a1a1a"
 ROUTE_LABEL = {
     "host":            "host (plant)",
     "target":          "target: known plant pathogen",
@@ -84,7 +86,8 @@ ROUTE_LABEL = {
 }
 
 R_TREE = 1.00      # tips of the cladogram sit here
-R_BAR0 = 1.045     # bars start just outside
+R_RING0, R_RING1 = 1.012, 1.042   # the cohort-cereal ring sits between tree and bars
+R_BAR0 = 1.052     # bars start just outside
 BAR_SCALE = 0.30   # radial length of one log10 decade
 GAP_DEG = 14.0     # wedge left open at the top: the ring needs a start, and the scale sits in it
 LABEL_MIN = 40     # a class needs this many species to earn a label
@@ -97,10 +100,43 @@ RANKS = ("kingdom", "phylum", "class", "order", "family", "genus", "species")
 RANK_LEVEL = {r: i + 1 for i, r in enumerate(RANKS)}
 
 
-def pale(hex_colour: str, amount: float = 0.74) -> tuple:
-    """Blend toward white. The pale/solid pair must stay the same hue to read as one bar."""
-    r, g, b = (int(hex_colour[i:i + 2], 16) / 255 for i in (1, 3, 5))
-    return tuple(c + (1.0 - c) * amount for c in (r, g, b))
+def cereal_recorded(tax) -> set:
+    """Internal taxids with ANY recorded host association to one of the four cohort cereals.
+
+    This is a LABEL, not a filter, and the distinction is the whole reason it is allowed here.
+    `seeds/README.md` forbids scoping the database by the cohort's own hosts, because the study
+    exists to find UNREPORTED host associations and a filter on known ones makes them
+    undetectable by construction. Colouring after selection removes nothing: every species is
+    still in the index and still classifiable. Same discipline as pathogen status in
+    `05_detect`, which is a column rather than a gate.
+
+    **Absence of a record is not evidence that a fungus cannot infect a cereal.** USDA records
+    what has been observed and written down, so the unmarked 86% is precisely the population in
+    which an unreported association could be found. The caption says so.
+
+    A record against any descendant of a cereal genus counts (cultivars, subspecies), and so
+    does a record held against a sub-taxon of the fungus.
+    """
+    crops = {}
+    for row in read_seed_tsv(HOSTS, require=("ncbi_taxid", "species", "role")):
+        if (row.get("role") or "").strip() != "cohort":
+            continue          # the two outgroups are not cohort crops
+        tid = tax.resolve(row["ncbi_taxid"])
+        genus = tax.ancestor_at(tid, "genus") if tid else 0
+        for d in tax.descendants(genus or tid):
+            crops[d] = row["species"]
+    con = sqlite3.connect(HOLOBASE)
+    direct = {f for f, h in con.execute(
+        "SELECT fungus_id, host_id FROM host_association WHERE host_id IS NOT NULL")
+        if h in crops}
+    con.close()
+    # roll a record held against a strain or forma specialis up to the species node
+    out = set(direct)
+    for f in direct:
+        sp = tax.species_of(f)
+        if sp:
+            out.add(sp)
+    return out
 
 
 def primary_route(routes: str) -> str:
@@ -110,10 +146,21 @@ def primary_route(routes: str) -> str:
     return "congener"
 
 
-def load_species(tax) -> list:
-    """Survey rows joined to the taxonomy, dropping anything the tree cannot place."""
-    out, unplaced = [], 0
+def load_species(tax) -> tuple:
+    """Survey rows joined to the taxonomy. Only species that can ENTER db_v4 become tips.
+
+    The first version drew all 3,774 species with an assembly, so the 2,172 with no gene model
+    appeared as all-pale tips and the miniprot gap was a visible feature of the ring. Leon's
+    call after seeing it: too many tips to be informative. At 3,744 tips the angular pitch is
+    0.09 degrees, which is NARROWER THAN THE BARS THEMSELVES near the origin, so the figure
+    was not merely crowded, it was wrong -- see draw() for the arithmetic. The excluded count
+    stays in the subtitle and the caption, where it is still a number a reader needs.
+    """
+    out, unplaced, no_model = [], 0, 0
     for r in csv.DictReader(open(SURVEY), delimiter="\t"):
+        if not int(r["n_annotated"] or 0):
+            no_model += 1
+            continue
         tid = tax.by_ncbi.get(int(r["ncbi_taxid"]))
         if tid is None:
             unplaced += 1
@@ -126,9 +173,11 @@ def load_species(tax) -> list:
             "route": primary_route(r["routes"] or "congener"),
         })
     if unplaced:
-        print(f"  {unplaced} surveyed species are not in holobase's tree and cannot be drawn "
+        print(f"  {unplaced} species are not in holobase's tree and cannot be drawn "
               f"(newer than the snapshot); they stay in the table")
-    return out
+    print(f"  {no_model:,} species have assemblies but no gene model and are NOT tips; "
+          f"they are the miniprot worklist")
+    return out, no_model
 
 
 def build_tree(tax, species: list) -> tuple:
@@ -245,12 +294,12 @@ def polar(a, r):
     return r * math.cos(a), r * math.sin(a)
 
 
-def draw(tax, species, children, root, angle, radius, order):
+def draw(tax, species, children, root, angle, radius, order, no_model):
     tip_of = {s["tid"]: s for s in species}
     fig, ax = plt.subplots(figsize=(13.5, 14.1))
     # The circle fills its axes, so the legend can only be kept off the class labels by
     # reserving a band for it. Overlaying it collided with Pichiomycetes and Saccharomycetes.
-    fig.subplots_adjust(left=0.02, right=0.98, bottom=0.10, top=0.945)
+    fig.subplots_adjust(left=0.02, right=0.98, bottom=0.10, top=0.930)
 
     # ── the cladogram: a radial segment per edge, an arc per internal node ────────────────
     # Internal edges and TERMINAL edges are drawn separately. There are 3,744 terminal edges at
@@ -272,27 +321,50 @@ def draw(tax, species, children, root, angle, radius, order):
     ax.add_collection(LineCollection(segs, colors="#8a8a8a", linewidths=0.3, zorder=2))
 
     # ── the bars ──────────────────────────────────────────────────────────────────────────
-    half = math.radians(360.0 - GAP_DEG) / len(order) * 0.46
-    pale_segs, pale_cols, solid_segs, solid_cols = [], [], [], []
+    # WEDGES, not line segments. A line has a width in POINTS, fixed in screen space, while
+    # the slot available to a tip has a width in DATA space that grows with radius. At 3,744
+    # tips the pitch at the bar origin was 0.30 pt against a 0.45 pt line, so every bar was 34%
+    # wider than its slot; because the pale layer is drawn before the solid layer, solid
+    # systematically overdrew its neighbours' pale and inflated the one ratio this figure
+    # exists to show. A wedge is defined in data space and tiles its slot exactly, so the
+    # encoding stays faithful at any tip count.
+    half = math.radians(360.0 - GAP_DEG) / len(order) / 2.0
+    verts, cols = [], []
     for tid in order:
         s = tip_of[tid]
         a = angle[tid]
         col = ROUTE_COLOUR[s["route"]]
-        r_tot = R_BAR0 + math.log10(s["total"] + 1) * BAR_SCALE
-        pale_segs.append([polar(a, R_BAR0), polar(a, r_tot)])
-        pale_cols.append(pale(col))
-        if s["annotated"]:
-            r_ann = R_BAR0 + math.log10(s["annotated"] + 1) * BAR_SCALE
-            solid_segs.append([polar(a, R_BAR0), polar(a, r_ann)])
-            solid_cols.append(col)
-    lw = max(0.45, 1800.0 / len(order) * 0.55)
-    ax.add_collection(LineCollection(pale_segs, colors=pale_cols, linewidths=lw,
-                                     zorder=3, capstyle="butt"))
-    ax.add_collection(LineCollection(solid_segs, colors=solid_cols, linewidths=lw,
-                                     zorder=4, capstyle="butt"))
+        # The bar is the USABLE assemblies and nothing else. An earlier version drew a pale
+        # bar for every assembly that exists with the annotated subset solid over it, but once
+        # the tips were restricted to species that carry a gene model, the pale layer stopped
+        # answering the figure's question ("what can db_v4 see") and started answering a
+        # different one ("how much of NCBI do we use"). That second number is real and is kept
+        # in assembly_survey.tsv; it does not belong on this ring. Leon's call 2026-10-16.
+        r1 = R_BAR0 + math.log10(s["annotated"] + 1) * BAR_SCALE
+        verts.append([polar(a - half, R_BAR0), polar(a + half, R_BAR0),
+                      polar(a + half, r1), polar(a - half, r1)])
+        cols.append(col)
+    ax.add_collection(PolyCollection(verts, facecolors=cols, edgecolors="none",
+                                     linewidths=0, zorder=3))
+
+    # ── the cohort-cereal ring ────────────────────────────────────────────────────────────
+    on_cereal = cereal_recorded(tax)
+    ring, n_cereal = [], 0
+    for tid in order:
+        if tid not in on_cereal:
+            continue
+        n_cereal += 1
+        a = angle[tid]
+        ring.append([polar(a - half, R_RING0), polar(a + half, R_RING0),
+                     polar(a + half, R_RING1), polar(a - half, R_RING1)])
+    ax.add_collection(PolyCollection(ring, facecolors=CEREAL_COLOUR, edgecolors="none",
+                                     linewidths=0, zorder=3))
+    print(f"  {n_cereal:,} of {len(order):,} drawn species are recorded on a cohort cereal")
+    draw.n_cereal = n_cereal
 
     # ── log gridlines behind the bars, at 1 / 10 / 100 / 1000 assemblies ──────────────────
-    for n in (1, 10, 100, 1000):   # labelled up the GAP, so no tick sits over a bar
+    top = max(s["annotated"] for s in species)
+    for n in [n for n in (1, 10, 100, 1000) if n <= top * 1.5]:   # labelled up the GAP
         r = R_BAR0 + math.log10(n + 1) * BAR_SCALE
         circle = plt.Circle((0, 0), r, fill=False, ec="#b0b0b0", lw=0.5,
                             ls=(0, (2, 3)), zorder=5)
@@ -306,7 +378,10 @@ def draw(tax, species, children, root, angle, radius, order):
     for tid in order:
         cls = tax.ancestor_at(tid, "class")
         by_class[tax.label(cls) if cls else None].append(angle[tid])
-    r_label = R_BAR0 + math.log10(1000 + 1) * BAR_SCALE + 0.06
+    # Sit the class ring just outside the LONGEST BAR, not at a hardcoded decade. Pinning it
+    # to 1,000 when the deepest species holds 294 annotated assemblies left a dead annulus
+    # across a third of the radius.
+    r_label = R_BAR0 + math.log10(top + 1) * BAR_SCALE + 0.05
     for name, angs in by_class.items():
         if name is None or len(angs) < LABEL_MIN:
             continue
@@ -324,21 +399,21 @@ def draw(tax, species, children, root, angle, radius, order):
             colors="#333333", linewidths=1.6, zorder=6))
 
     n_ann = sum(1 for s in species if s["annotated"])
-    fig.suptitle("What db_v4 can see", fontsize=20, y=0.988)
-    fig.text(0.5, 0.962,
-             f"{len(species):,} fungal species with an assembly; "
-             f"{n_ann:,} carry a gene model and can enter the database",
+    fig.suptitle("What db_v4 can see", fontsize=20, y=0.995)
+    fig.text(0.5, 0.967,
+             f"{len(species):,} fungal species carrying a gene model, so usable in a "
+             f"CDS-only index.  Bar: annotated assemblies, log scale",
              fontsize=13, ha="center", color="#333333")
+    fig.text(0.5, 0.950,
+             f"a further {no_model:,} have assemblies but no gene model and are not shown: "
+             f"they are the gene-prediction worklist",
+             fontsize=11.5, ha="center", color="#666666")
 
     handles = [Patch(facecolor=ROUTE_COLOUR[r], edgecolor="none", label=ROUTE_LABEL[r])
                for r in PRECEDENCE]
-    handles += [
-        Line2D([], [], color="none", label=""),
-        Patch(facecolor="#555555", edgecolor="none", label="solid: has a gene model (usable)"),
-        Patch(facecolor=pale("#555555"), edgecolor="none",
-              label="pale: assembly exists, no gene model"),
-    ]
-    fig.legend(handles=handles, loc="lower center", bbox_to_anchor=(0.5, 0.005), ncol=2,
+    handles.append(Patch(facecolor=CEREAL_COLOUR, edgecolor="none",
+                         label="inner ring: recorded on wheat, rice, maize or sorghum"))
+    fig.legend(handles=handles, loc="lower center", bbox_to_anchor=(0.5, 0.012), ncol=3,
                frameon=False, fontsize=12, handlelength=1.5, labelspacing=0.5,
                columnspacing=2.5)
 
@@ -358,10 +433,13 @@ def draw(tax, species, children, root, angle, radius, order):
     return fig
 
 
-def caption(species: list) -> str:
-    """Generated from the data. A hand-written caption goes stale silently; this cannot."""
+def caption(species: list, no_model: int, n_cereal: int) -> str:
+    """Generated from the data. A hand-written caption goes stale silently; this cannot.
+
+    It has already proved the point: an earlier edit dropped the pale half of the bars from the
+    figure and the hand-edited sentence describing them survived three renders.
+    """
     n = len(species)
-    n_ann = sum(1 for s in species if s["annotated"])
     asm = sum(s["total"] for s in species)
     ann = sum(s["annotated"] for s in species)
     by_route = defaultdict(int)
@@ -370,41 +448,51 @@ def caption(species: list) -> str:
     routes = ", ".join(f"{ROUTE_LABEL[r].split(':')[0]} {by_route[r]:,}"
                        for r in PRECEDENCE if by_route[r])
     return (
-        f"Reference scope of db_v4. Circular cladogram of the {n:,} fungal species for which "
-        f"NCBI holds at least one assembly, drawn on the NCBI taxonomy held in holobase: "
-        f"topology is taxonomic, branch lengths are not evolutionary distance, and radius "
-        f"encodes taxonomic RANK (kingdom, phylum, class, order, family, genus, species) "
-        f"rather than any measure of divergence. Tip colour gives the route that brought the "
-        f"species "
-        f"into scope, taking the strongest evidence where several apply ({routes}); congeners "
-        f"are grey because they are present to give the classifier a competitor and are not "
-        f"reportable as detections. Each tip carries a radial bar on a log10 scale, pale for "
-        f"all {asm:,} assemblies that exist and solid for the {ann:,} that carry a gene model. "
-        f"Both bars start at the same origin, so the pale remainder is the log-fold gap "
-        f"between what exists and what a CDS-only database can use; the bars are not an "
-        f"additive stack. {n_ann:,} species ({n_ann / n:.0%}) have at least one annotated "
-        f"assembly and can enter db_v4; the {n - n_ann:,} entirely pale tips have assemblies "
-        f"but no gene model and are the gene-prediction worklist. Classes with at least "
-        f"{LABEL_MIN} species are labelled."
+        f"Reference scope of db_v4. Circular cladogram of the {n:,} fungal species that carry "
+        f"a gene model and can therefore enter a CDS-only index, drawn on the NCBI taxonomy "
+        f"held in holobase: topology is taxonomic, branch lengths are not evolutionary "
+        f"distance, and radius encodes taxonomic RANK (kingdom, phylum, class, order, family, "
+        f"genus, species) rather than any measure of divergence. "
+        f"Tip colour gives the route that brought the species into scope, taking the strongest "
+        f"evidence where several apply ({routes}); congeners are grey because they are present "
+        f"to give the classifier a competitor and are not reportable as detections. "
+        f"The radial bar is the number of ANNOTATED assemblies the species holds on a log10 "
+        f"scale, {ann:,} in total; the {asm - ann:,} further assemblies these species hold "
+        f"without a gene model are not drawn, because a CDS-only index cannot use them. Bars "
+        f"are wedges that tile their angular slot exactly rather than fixed-width lines, so no "
+        f"tip overdraws its neighbour at any radius. "
+        f"The black inner ring marks the {n_cereal:,} species ({n_cereal / n:.0%}) with a "
+        f"recorded host association to wheat, rice, maize or sorghum. It is a LABEL and not a "
+        f"filter: scoping the database by the cohort's own hosts is forbidden, because the "
+        f"study exists to find UNREPORTED associations and such a filter would make them "
+        f"undetectable by construction. Absence of a mark is NOT evidence that a fungus cannot "
+        f"infect a cereal, because the source records only what has been observed and written "
+        f"down; the unmarked {n - n_cereal:,} are precisely the population in which an "
+        f"unreported association could be found. "
+        f"A further {no_model:,} species have at least one assembly but no gene model anywhere "
+        f"and are not shown, because a CDS-only index cannot hold them until gene prediction "
+        f"has run; they are the worklist, not a rejection. Classes with at least {LABEL_MIN} "
+        f"species are labelled."
     )
 
 
 def main():
     tax = _taxonomy.load()
-    species = load_species(tax)
+    species, no_model = load_species(tax)
     print(f"  {len(species):,} species to draw")
     children, root, parent = build_tree(tax, species)
     tips = {s["tid"] for s in species}
     angle, radius, order = layout(tax, children, root, tips)
     print(f"  cladogram: {len(order):,} tips, {len(children):,} internal nodes, "
           f"root {tax.label(root)}")
-    fig = draw(tax, species, children, root, angle, radius, order)
+    fig = draw(tax, species, children, root, angle, radius, order, no_model)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     for ext in ("png", "pdf"):
         # No bbox_inches="tight": the reserved legend band is deliberate and tight cropping
         # would undo it.
         fig.savefig(f"{OUT}.{ext}", dpi=300, facecolor="white")
-    Path(f"{OUT}_caption.txt").write_text(caption(species) + "\n")
+    Path(f"{OUT}_caption.txt").write_text(
+        caption(species, no_model, getattr(draw, "n_cereal", 0)) + "\n")
     print(f"  -> {OUT}.png / .pdf / _caption.txt")
 
 

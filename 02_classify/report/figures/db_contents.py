@@ -75,12 +75,12 @@ OUT = FIGURES / "db_contents"
 # finding, while a known pathogen detected on a crop it has never been recorded from is a
 # potential new host association, which is what the chapter is looking for.
 ROUTE_COLOUR = {
-    "host":            "#cc79a7",
-    "target_cereal":   "#8c2d04",
-    "target_other":    "#d55e00",
-    "host_associate":  "#009e73",
-    "plant_associate": "#0072b2",
-    "congener":        "#8c8c8c",
+    "host":            "#21531f",
+    "target_cereal":   "#8c0404",
+    "target_other":    "#be5656",
+    "host_associate":  "#22127e",
+    "plant_associate": "#545CC5",
+    "congener":        "#c0bbbb",
 }
 PRECEDENCE = ("host", "target_cereal", "target_other", "host_associate",
               "plant_associate", "congener")
@@ -197,7 +197,7 @@ def load_species(tax, on_cereal: set) -> tuple:
               f"(newer than the snapshot); they stay in the table")
     print(f"  {no_model:,} species have assemblies but no gene model and are NOT tips; "
           f"they are the miniprot worklist")
-    return out, no_model
+    return out, no_model, unplaced
 
 
 def build_tree(tax, species: list) -> tuple:
@@ -483,11 +483,14 @@ def clade_table(tax, species, angle, order, path: Path) -> list:
     return rows
 
 
-def caption(species: list, no_model: int, n_cereal: int, clades: list) -> str:
-    """Generated from the data. A hand-written caption goes stale silently; this cannot.
+def caption(species: list, no_model: int, n_cereal: int, n_cereal_other: int,
+            unplaced: int, clades: list, assembly: bool) -> str:
+    """The full record of the figure, generated from the data it was drawn from.
 
-    It has already proved the point: an earlier edit dropped the pale half of the bars from the
-    figure and the hand-edited sentence describing them survived three renders.
+    Structured like `01_literature/report/figures/map_crop_origins_caption.txt`: a full
+    caption, an explicit WHAT IS NOT SHOWN section, a short caption, and the sources. Nothing
+    here is hand-written, because a hand-written caption goes stale silently -- this one
+    already caught itself describing pale bars three renders after they were removed.
     """
     n = len(species)
     asm = sum(s["total"] for s in species)
@@ -495,48 +498,151 @@ def caption(species: list, no_model: int, n_cereal: int, clades: list) -> str:
     by_route = defaultdict(int)
     for s in species:
         by_route[s["route"]] += 1
-    routes = ", ".join(f"{ROUTE_LABEL[r].split(':')[0]} {by_route[r]:,}"
-                       for r in PRECEDENCE if by_route[r])
-    return (
-        f"Reference scope of db_v4. Circular cladogram of the {n:,} fungal species that carry "
-        f"a gene model and can therefore enter a CDS-only index, drawn on the NCBI taxonomy "
-        f"held in holobase: topology is taxonomic, branch lengths are not evolutionary "
-        f"distance, and radius encodes taxonomic RANK (kingdom, phylum, class, order, family, "
-        f"genus, species) rather than any measure of divergence. "
-        f"Tip colour gives the route that brought the species into scope, taking the strongest "
-        f"evidence where several apply ({routes}); congeners are grey because they are present "
-        f"to give the classifier a competitor and are not reportable as detections. "
-        f"The radial bar is the number of ANNOTATED assemblies the species holds on a log10 "
-        f"scale, {ann:,} in total; the {asm - ann:,} further assemblies these species hold "
-        f"without a gene model are not drawn, because a CDS-only index cannot use them. Bars "
-        f"are wedges that tile their angular slot exactly rather than fixed-width lines, so no "
-        f"tip overdraws its neighbour at any radius. "
-        f"Known plant pathogens are split by whether they are recorded on one of the four "
-        f"cohort cereals ({n_cereal:,} of them, {n_cereal / n:.0%} of all tips): a pathogen "
-        f"detected on a crop it is already recorded from is an expected finding, while one "
-        f"detected on a crop it has never been recorded from is a potential new host "
-        f"association. The split is a LABEL and not a filter: scoping the database by the cohort's own hosts is forbidden, because the "
-        f"study exists to find UNREPORTED associations and such a filter would make them "
-        f"undetectable by construction. Absence of a record is NOT evidence that a fungus "
-        f"cannot infect a cereal, because the source holds only what has been observed and "
-        f"written down; the species without one are precisely the population in which an "
-        f"unreported association could be found. "
-        f"A further {no_model:,} species have at least one assembly but no gene model anywhere "
-        f"and are not shown, because a CDS-only index cannot hold them until gene prediction "
-        f"has run; they are the worklist, not a rejection. Classes with at least {LABEL_MIN} "
-        f"species are labelled.\n\n"
-        f"ASSEMBLY MODE: all text is stripped from the image. Counts to set in Illustrator, "
-        f"by route: "
-        + ", ".join(f"{ROUTE_LABEL[r]} {by_route[r]:,}" for r in PRECEDENCE if by_route[r])
-        + ".\n\nClades in ring order (degrees anticlockwise from east; the ring starts and "
-        f"ends at the gap near 90 deg). Full table with class rank as well in "
-        f"db_contents_clades.tsv:\n"
-        + "\n".join(
-            f"  {c['clade']:<26} {c['n_species']:>5} species   "
-            f"{c['start_deg']:>6.1f} to {c['end_deg']:>6.1f} deg  (mid {c['mid_deg']:>6.1f}, "
-            f"span {c['span_deg']:>5.1f}{', wraps 0' if c['wraps_zero'] else ''})"
-            for c in clades if c["rank"] == "order" and c["n_species"] >= 20)
-    )
+    deepest = max(species, key=lambda s: s["annotated"])
+    classes = [c for c in clades if c["rank"] == "class"]
+    # TRUE ring order: distance travelled from the ring's start, not raw degrees. Sorting on
+    # start_deg put Agaricomycetes first because it begins at 350 and wraps through 0, when it
+    # actually sits at the END of the ring. The ring starts at 90 + GAP/2.
+    ring_start = 90.0 + GAP_DEG / 2.0
+    classes.sort(key=lambda c: (c["start_deg"] - ring_start) % 360)
+    named = [c for c in classes if c["n_species"] >= LABEL_MIN]
+    rest = [c for c in classes if c["n_species"] < LABEL_MIN]
+
+    def row(c):
+        return (f"  {c['clade']:<22} {c['n_species']:>5}   "
+                f"{c['start_deg']:>6.1f} to {c['end_deg']:>6.1f}   {c['mid_deg']:>6.1f}   "
+                f"{c['span_deg']:>6.1f}" + ("   wraps 0" if c["wraps_zero"] else ""))
+
+    return f"""Reference scope of db_v4
+Caption for report/figures/db_contents.{{png,pdf}}
+
+GENERATED by report/figures/db_contents.py -- do not hand-edit, the numbers will drift.
+
+Rendered in {'ASSEMBLY' if assembly else 'SELF-CONTAINED'} mode.{
+' All text except the log-axis numerals is stripped from the image; the class'
+' names, counts and angular positions below are what you place in Illustrator.'
+if assembly else ' Title, legend, class labels and scale are drawn on the image.'}
+
+
+FULL CAPTION
+
+Reference scope of db_v4, the Kraken2 database this chapter classifies against. Circular
+cladogram of the {n:,} fungal species that carry a gene model and can therefore enter a
+CDS-only index.
+
+TOPOLOGY IS TAXONOMIC, NOT PHYLOGENETIC. The tree is the NCBI taxonomy held in holobase:
+parent/child links only, with polytomies wherever NCBI did not resolve a rank. Branch lengths
+are not evolutionary distance, and RADIUS ENCODES TAXONOMIC RANK -- kingdom, phylum, class,
+order, family, genus, species, as seven concentric rings -- rather than any measure of
+divergence. A real phylogeny over {n:,} species would need marker-gene alignment and tree
+inference; it is a separate exercise and would not change what this figure is for.
+
+THE BAR is the number of ANNOTATED assemblies the species holds, on a log10 scale, {ann:,}
+across the ring. The deepest is {deepest['name']} at {deepest['annotated']:,}. Bars are drawn
+as WEDGES that tile their angular slot exactly rather than as fixed-width lines, so no tip
+overdraws its neighbour at any radius; with a line of fixed point-width the bars were 34%
+wider than their slot near the origin and systematically overdrew each other.
+
+TIP COLOUR is the route by which the species entered scope, taking the strongest evidence
+where several apply. Five routes, unioned, with no floors or ceilings:
+
+  {ROUTE_LABEL['target_cereal']:<52} {by_route['target_cereal']:>5}
+  {ROUTE_LABEL['target_other']:<52} {by_route['target_other']:>5}
+  {ROUTE_LABEL['host_associate']:<52} {by_route['host_associate']:>5}
+  {ROUTE_LABEL['plant_associate']:<52} {by_route['plant_associate']:>5}
+  {ROUTE_LABEL['congener']:<52} {by_route['congener']:>5}
+  {ROUTE_LABEL['host']:<52} {by_route['host']:>5}
+
+Sources per route: targets are FUNGuild's Plant Pathogen guild plus PHI-base pathogenic
+associations WHOSE HOST IS A PLANT; congeners are every genus holding a target; plant
+associates are USDA Fungus-Host `recorded_on`; host associates come from the phytobiome
+abundance literature for the four crops; hosts are the four cohort cereals plus two
+outgroups.
+
+CONGENERS ARE GREY BECAUSE THEY ARE NOT REPORTABLE. They are in the index to give Kraken2's
+LCA somewhere to park a read, and a detection on a congener-only taxon must not be reported
+the way a detection on a target is. The deepest species in the whole database is a congener.
+
+KNOWN PLANT PATHOGENS ARE SPLIT by whether they are recorded on one of the four cohort
+cereals ({n_cereal:,}, {n_cereal / n:.0%} of tips) or not ({by_route['target_other']:,}). A
+pathogen detected on a crop it is already recorded from is an EXPECTED finding; the same
+pathogen on a crop it has never been recorded from is a potential new host association, which
+is what this chapter looks for. The split is a LABEL AND NOT A FILTER: scoping the database
+by the cohort's own hosts is forbidden, because the study exists to find UNREPORTED
+associations and such a filter would make them undetectable by construction. ABSENCE OF A
+RECORD IS NOT EVIDENCE that a fungus cannot infect a cereal -- the source holds only what has
+been observed and written down -- so the species without one are precisely the population in
+which an unreported association could be found.
+
+
+CLASSES, IN RING ORDER
+
+Degrees anticlockwise from east, matching the drawing. The ring starts and ends at the gap
+centred on 90 degrees, so it runs 97 -> 360 -> 83. {len(named)} classes hold at least
+{LABEL_MIN} species and are the ones worth labelling.
+
+  class                species        start to end      mid     span
+{chr(10).join(row(c) for c in named)}
+
+  below {LABEL_MIN} species: {len(rest)} classes, {sum(c['n_species'] for c in rest):,} species
+{chr(10).join(row(c) for c in rest)}
+
+Order-rank spans are in db_contents_clades.tsv alongside these.
+
+
+WHAT IS NOT SHOWN
+
+{no_model:,} fungal species have at least one assembly but NO GENE MODEL anywhere, and are
+absent from the figure entirely. They are not a rejection: a CDS-only index cannot hold them
+until gene prediction has run, and they are the worklist in data/silver/miniprot_worklist.tsv.
+Including them was the first version of this figure; at {n + no_model:,} tips the angular
+pitch fell below the width of the bars themselves and the encoding stopped being faithful.
+
+{asm - ann:,} further assemblies belonging to the species that ARE shown carry no gene model
+and are not drawn. The figure therefore answers "what can db_v4 see", not "how much of NCBI
+do we use"; the second number is in data/silver/assembly_survey.tsv.
+
+{n_cereal_other:,} species are recorded on a cohort cereal but entered by a route other than
+`target`, so they are fungi recorded on our crops WITHOUT being known pathogens of anything.
+They keep their own route colour and are not counted in the {n_cereal:,} above.
+
+{unplaced:,} surveyed species are newer than holobase's taxonomy snapshot, cannot be placed
+on the tree, and are absent from the figure while remaining in the survey table.
+
+Oomycetes, bacteria, viruses and mammals are all absent by decision rather than oversight.
+Fungi-only was settled 2026-10-13; off-target sinks were measured and rejected 2026-10-15,
+because bacterial reads go UNCLASSIFIED rather than into fungi (at >20% bacterial load the
+unclassified fraction rises to 52% while the fungal call falls), human signal is negligible
+in these libraries (16 of 7,486 cohort runs above 1%), and viral genomes hold too few
+minimizers for a fractional coverage floor to behave.
+
+Only six plant hosts are present: the four cohort cereals plus Hordeum and Arabidopsis as
+monocot and dicot outgroups. db_v3 held 38, and the outgroups are kept because the host call
+RANKS rather than thresholds, so a mislabelled non-cereal library stays detectable.
+
+
+SHORT CAPTION
+
+Reference scope of db_v4: {n:,} fungal species carrying a gene model, on a circular NCBI
+taxonomic cladogram where radius is taxonomic rank, not divergence. Bar length is the
+species' annotated assembly count on a log10 scale ({ann:,} total). Colour is the route into
+scope: known plant pathogens recorded on the four cohort cereals ({by_route['target_cereal']:,})
+or not ({by_route['target_other']:,}), host associates ({by_route['host_associate']:,}), plant
+associates ({by_route['plant_associate']:,}), congeners present only as classifier competitors
+and not reportable ({by_route['congener']:,}), and plant hosts ({by_route['host']:,}). A
+further {no_model:,} species have assemblies but no gene model and are not shown.
+
+
+SOURCES
+
+  figure   02_classify/report/figures/db_contents.py
+  clades   02_classify/report/figures/db_contents_clades.tsv
+  data     02_classify/data/silver/assembly_survey.tsv
+  routes   02_classify/01_refs/routes.py   (membership, five routes)
+  survey   02_classify/01_refs/survey.py   (NCBI assembly + annotation counts)
+  seeds    02_classify/seeds/  (hosts.tsv, residents.tsv, fungi_usda.tsv, exclusions.tsv)
+  taxonomy _refdata/holobase.db via 02_classify/_taxonomy.py
+"""
 
 
 def main():
@@ -550,7 +656,10 @@ def main():
 
     tax = _taxonomy.load()
     on_cereal = cereal_recorded(tax)
-    species, no_model = load_species(tax, on_cereal)
+    species, no_model, unplaced = load_species(tax, on_cereal)
+    # Recorded on a cohort cereal but NOT a known pathogen, so not in the target_cereal count.
+    n_cereal_other = sum(1 for s in species
+                         if s["tid"] in on_cereal and s["route"] != "target_cereal")
     print(f"  {len(species):,} species to draw")
     children, root, parent = build_tree(tax, species)
     tips = {s["tid"] for s in species}
@@ -569,7 +678,8 @@ def main():
         # would undo it.
         fig.savefig(f"{OUT}.{ext}", dpi=300, facecolor="white")
     Path(f"{OUT}_caption.txt").write_text(
-        caption(species, no_model, n_cereal, clades) + "\n")
+        caption(species, no_model, n_cereal, n_cereal_other, unplaced, clades,
+                assembly))
     print(f"  -> {OUT}.png / .pdf / _caption.txt / _clades.tsv   (mode: {args.mode})")
 
 

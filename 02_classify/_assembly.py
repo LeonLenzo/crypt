@@ -191,6 +191,12 @@ def busco_lineage_for(kingdom: str, organism_name: str, taxid=None) -> str:
     """
     if kingdom == "oomycete":
         return "stramenopiles_odb10"
+    # Plant hosts are deliberately NOT BUSCO-screened, so they get no lineage rather than a
+    # wrong one. Without this a host falls through the phylum lookup (PHYLUM_LINEAGE holds only
+    # fungal and oomycete phyla) and lands on the ascomycota_odb10 default, i.e. wheat scored
+    # as an ascomycete. holobase spells plants `Viridiplantae`.
+    if kingdom == "Viridiplantae":
+        return ""
     if taxid is not None:
         lineage = PHYLUM_LINEAGE.get(PHYLUM_OF.get(int(taxid)))
         if lineage:

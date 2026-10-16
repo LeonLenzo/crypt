@@ -222,7 +222,13 @@ def survey(queries: dict, route_of: dict, tax, workers: int, refresh: bool = Fal
             if not acc or acc in seen:
                 continue
             seen.add(acc)
-            row = A.to_row(a, ncbi, name, "fungal", route, 0, "surveyed")
+            # kingdom comes from holobase, never a literal. Hardcoding "fungal" here labelled
+            # all six plant HOSTS fungal (route 3 puts Triticum, Oryza, Zea, Sorghum, Hordeum
+            # and Arabidopsis in the same table), which then sent them down the fungal branch
+            # of busco_lineage_for and scored wheat against ascomycota_odb10. holobase spells
+            # plants `Viridiplantae`, not 'Plants'.
+            kingdom = (tax.kingdom.get(internal) or "") if internal else ""
+            row = A.to_row(a, ncbi, name, kingdom, route, 0, "surveyed")
             row["routes"] = route
             asm_rows.append(row)
     asm_rows.sort(key=lambda r: (r["organism_name"].lower(), r["accession"]))

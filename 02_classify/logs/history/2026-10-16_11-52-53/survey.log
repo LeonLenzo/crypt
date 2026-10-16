@@ -1,0 +1,87 @@
+Building the routes list …
+
+holobase: 3,013,817 taxa, 3,013,817 with an NCBI taxid, 5,185,267 names incl. synonyms
+
+  route 1 target:          2,849 FUNGuild + 33 PHI-base-only = 2,882 taxa
+  route 2 congener:        1,699 genus clades hold them (78 route-1 taxa have no genus)
+  route 3 host:            6 plant species
+  route 4 plant_associate: 1,486 USDA taxa
+  route 5 host_associate:  30 phytobiome clades (22 annotated, 8 awaiting gene prediction)
+
+  kingdom guard dropped 213 taxa (fungi only, hosts Viridiplantae)
+    Oomycota (wanted Fungi)              127  e.g. Achlya, Albugo, Aphanomyces, Baobabopsis
+    Metazoa (wanted Fungi)                66  e.g. Acanthorhynchus, Achlya, Alina, Antennaria
+    (null) (wanted Fungi)                  9  e.g. Acantharea, Patellina, Physarum, Physarum cinereum
+    Viridiplantae (wanted Fungi)           7  e.g. Antennaria, Bryomyces, Cephaleuros, Cephaleuros virescens
+    Bacteria (wanted Fungi)                2  e.g. Ancylobacter, Nakamurella
+    Stramenopiles (wanted Fungi)           2  e.g. Labyrinthula, Labyrinthuloides
+
+  exclusions.tsv: 37 enforceable rules blocked 0 taxa (subtrees included)
+    6 rows carry no taxid and cannot be enforced by id: Magnaporthe (synonym_already_held), Phaeosphaeria (synonym_already_held), Erratomyces (no_assembly), Selenophoma (no_assembly), Tomentella (no_assembly), Tylospora (no_assembly)
+
+── Union ────────────────────────────────────────────────────────
+  3,975 distinct taxa across the five routes
+    in 1 route :  2,183 taxa
+    in 2 routes:  1,781 taxa
+    in 3 routes:     11 taxa
+  by rank:
+    species           2,255
+    genus             1,603
+    family               74
+    forma specialis      37
+    forma                 3
+    varietas              2
+    strain                1
+
+── Query units ──────────────────────────────────────────────────
+  1,314 taxa to ask NCBI about
+  2,661 dropped: an ancestor in the list already returns them
+  every one is queried BY TAXID, so a homonym cannot return zero silently
+
+  filling the BUSCO phylum map from the taxonomy already loaded …
+
+Querying NCBI for 1,314 clades (8 workers) …
+  25/1314 queries … (304 species, 847 assemblies)  50/1314 queries … (557 species, 1,775 assemblies)  75/1314 queries … (784 species, 2,906 assemblies)  100/1314 queries … (933 species, 3,174 assemblies)  125/1314 queries … (1,070 species, 3,775 assemblies)  150/1314 queries … (1,283 species, 4,682 assemblies)  175/1314 queries … (1,289 species, 4,692 assemblies)  200/1314 queries … (1,332 species, 4,750 assemblies)  225/1314 queries … (1,389 species, 4,832 assemblies)  250/1314 queries … (1,499 species, 5,742 assemblies)  275/1314 queries … (1,540 species, 5,886 assemblies)  300/1314 queries … (1,629 species, 6,180 assemblies)  325/1314 queries … (1,644 species, 6,873 assemblies)  350/1314 queries … (1,679 species, 6,925 assemblies)  375/1314 queries … (1,709 species, 6,983 assemblies)  400/1314 queries … (1,731 species, 7,019 assemblies)  425/1314 queries … (1,733 species, 7,021 assemblies)  450/1314 queries … (1,740 species, 7,032 assemblies)  475/1314 queries … (1,767 species, 7,188 assemblies)  500/1314 queries … (1,837 species, 7,485 assemblies)  525/1314 queries … (1,878 species, 7,672 assemblies)  550/1314 queries … (1,934 species, 7,814 assemblies)  575/1314 queries … (1,975 species, 7,895 assemblies)  600/1314 queries … (2,127 species, 8,513 assemblies)  625/1314 queries … (2,193 species, 8,638 assemblies)  650/1314 queries … (2,202 species, 8,655 assemblies)  675/1314 queries … (2,234 species, 8,745 assemblies)  700/1314 queries … (2,237 species, 8,748 assemblies)  725/1314 queries … (2,249 species, 8,777 assemblies)  750/1314 queries … (2,257 species, 8,787 assemblies)  775/1314 queries … (2,261 species, 8,791 assemblies)  800/1314 queries … (2,263 species, 8,799 assemblies)  825/1314 queries … (2,648 species, 11,255 assemblies)  850/1314 queries … (2,649 species, 11,256 assemblies)  875/1314 queries … (2,654 species, 11,301 assemblies)  900/1314 queries … (2,675 species, 11,384 assemblies)  925/1314 queries … (2,849 species, 11,843 assemblies)  950/1314 queries … (2,888 species, 12,384 assemblies)  975/1314 queries … (2,912 species, 13,079 assemblies)  1000/1314 queries … (2,953 species, 13,565 assemblies)  1025/1314 queries … (2,978 species, 13,641 assemblies)  1050/1314 queries … (3,003 species, 13,706 assemblies)  1075/1314 queries … (3,028 species, 14,129 assemblies)  1100/1314 queries … (3,053 species, 14,169 assemblies)  1125/1314 queries … (3,078 species, 14,205 assemblies)  1150/1314 queries … (3,103 species, 14,243 assemblies)  1175/1314 queries … (3,128 species, 14,277 assemblies)  1200/1314 queries … (3,153 species, 14,314 assemblies)  1225/1314 queries … (3,178 species, 14,343 assemblies)  1250/1314 queries … (3,203 species, 14,376 assemblies)  1275/1314 queries … (3,228 species, 14,405 assemblies)  1300/1314 queries … (3,537 species, 16,206 assemblies)  1314/1314 queries … (3,685 species, 17,077 assemblies)
+
+── What exists, measured ────────────────────────────────────────
+  species with >=1 assembly           3,685
+  species with >=1 GENE MODEL         1,547   <- these can enter db_v4
+  species with assemblies, NO model   2,138   <- the miniprot worklist
+
+  assemblies total                   17,077
+  ... annotated                       4,286   (25%)
+  ... annotated AND scaffold-plus     2,756   (16%)
+
+  db_v3 for scale: 2,063 assemblies / 877 fungal species / 4.80 B minimizers
+
+  depth distribution over species that can enter:
+         1 annotated assemblies:    878 species
+       2-3 annotated assemblies:    500 species
+       4-9 annotated assemblies:    117 species
+     10-49 annotated assemblies:     44 species
+       50+ annotated assemblies:      8 species
+  the median is the reason a floor was never the binding constraint on breadth
+
+  deepest species (annotated assemblies):
+    Aspergillus fumigatus                          294 of   423
+    Parastagonospora nodorum                       156 of   180
+    Fusarium oxysporum                              72 of   889
+    Hortaea werneckii                               71 of    80
+    Pyricularia oryzae                              63 of   610
+    Aureobasidium pullulans                         61 of    95
+    Cryptococcus neoformans                         51 of   208
+    Aureobasidium melanogenum                       50 of    68
+    Aspergillus niger                               47 of   129
+    Rhizopus arrhizus                               39 of    56
+
+  NOTE units_from_cache: 1,314
+
+  NOTE units_returning_nothing: 656
+
+  NOTE assemblies_taxid_not_in_holobase: 28
+
+  -> /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/assembly_survey.tsv        (3,685 species)
+  -> /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/assemblies.tsv        (17,077 assembly records)
+  -> /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/miniprot_worklist.tsv  (2,138 species with assemblies but no model)
+
+Next: python 02_classify/01_refs/select_refs.py --select-only   (filters the table above; no further NCBI queries)

@@ -151,7 +151,10 @@ further 2,138 species have assemblies but no gene model and are not shown.
 
 SOURCES
 
-  figure   02_classify/report/figures/db_contents.py
+  figure   02_classify/report/figures/db_contents.R        (drawing and styling)
+  prep     02_classify/report/figures/prep_db_contents.py  (membership, tree, this caption)
+  tree     02_classify/report/figures/db_contents_tree.nwk
+  tips     02_classify/report/figures/db_contents_tips.tsv
   clades   02_classify/report/figures/db_contents_clades.tsv
   data     02_classify/data/silver/assembly_survey.tsv
   routes   02_classify/01_refs/routes.py   (membership, five routes)

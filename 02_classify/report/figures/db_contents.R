@@ -41,7 +41,6 @@ BRANCH_WIDTH      <- 0.12
 TIP_BRANCH_COLOUR <- "#8a8a8a"   # terminal edges; see the note below
 TIP_BRANCH_WIDTH  <- 0.06
 
-OPEN_ANGLE <- 14     # degrees of ring left open at the top, for the scale
 HOLE       <- 5    # tree depth units of empty centre. BIGGER = bigger hole AND shorter
                      # branches, because the 7 rank rings are squeezed into what is left.
 BAR_GAP    <- 0.35   # gap between the tip ring and the start of the bars
@@ -61,6 +60,14 @@ here  <- dirname(sub("^--file=", "", grep("^--file=", commandArgs(FALSE), value 
 if (is.na(here) || !nzchar(here)) here <- "02_classify/report/figures"
 stem  <- file.path(here, "db_contents")
 self_contained <- "--self-contained" %in% commandArgs(TRUE)
+
+# The gap angle is NOT set here. prep_db_contents.py owns it, because the clade angles it
+# reports for Illustrator are computed from it; declaring it in both places meant a change on
+# this side would silently leave the caption describing a different figure. To widen the gap,
+# change GAP_DEG in prep_db_contents.py and re-run it.
+params     <- read.delim(paste0(stem, "_params.tsv"), stringsAsFactors = FALSE)
+OPEN_ANGLE <- params$value[params$param == "open_angle_deg"]
+stopifnot(length(OPEN_ANGLE) == 1, is.finite(OPEN_ANGLE))
 
 tr   <- read.tree(paste0(stem, "_tree.nwk"))
 tips <- read.delim(paste0(stem, "_tips.tsv"), stringsAsFactors = FALSE)

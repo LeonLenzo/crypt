@@ -269,3 +269,10 @@ docs/*
 !02_classify/data/gold/
 !02_classify/data/gold/*.tsv
 !02_classify/data/gold/.gitkeep
+
+# 02_classify figures: the PDF is tracked and the PNG is not. The PDF is 132 KB of vector
+# paths, is what goes into Illustrator, and regenerates the PNG at any resolution; the PNG is
+# 3 MB and had already been re-committed nine times during one afternoon of tuning. The repo
+# policy is code, small figures and manifests, and a 3 MB raster rewritten on every parameter
+# tweak is not a small figure. Regenerate with db_contents.R.
+02_classify/report/figures/*.png

@@ -61,7 +61,12 @@ ROUTE_LABEL = {
     "congener":        "congener: shares a genus with a pathogen",
 }
 
-GAP_DEG = 14.0     # ring left open at the top; must match OPEN_ANGLE in db_contents.R
+# Degrees of ring left open at the top. OWNED HERE, not in db_contents.R, and written to
+# db_contents_params.tsv for R to read. It was briefly declared in both, with a comment asking
+# the two to be kept equal; that is not a mechanism, and the clade angles this file reports
+# for Illustrator are computed from it, so a change on the R side alone would have left the
+# caption quietly describing a different figure.
+GAP_DEG = 14.0
 LABEL_MIN = 40     # a class needs this many species to earn a label
 
 RANKS = ("kingdom", "phylum", "class", "order", "family", "genus", "species")
@@ -453,7 +458,10 @@ further {no_model:,} species have assemblies but no gene model and are not shown
 
 SOURCES
 
-  figure   02_classify/report/figures/db_contents.py
+  figure   02_classify/report/figures/db_contents.R        (drawing and styling)
+  prep     02_classify/report/figures/prep_db_contents.py  (membership, tree, this caption)
+  tree     02_classify/report/figures/db_contents_tree.nwk
+  tips     02_classify/report/figures/db_contents_tips.tsv
   clades   02_classify/report/figures/db_contents_clades.tsv
   data     02_classify/data/silver/assembly_survey.tsv
   routes   02_classify/01_refs/routes.py   (membership, five routes)
@@ -556,6 +564,11 @@ def main():
                 "on_cohort_cereal": "yes" if tid in on_cereal else "",
             })
 
+    Path(f"{OUT}_params.tsv").write_text(
+        "param\tvalue\n"
+        f"open_angle_deg\t{GAP_DEG}\n"
+        f"n_ranks\t{len(RANKS)}\n"
+        f"label_min\t{LABEL_MIN}\n")
     clades = clade_table(tax, species, angle, order, Path(f"{OUT}_clades.tsv"))
     n_cereal = sum(1 for s in species if s["route"] == "target_cereal")
     n_cereal_other = sum(1 for s in species
@@ -564,7 +577,7 @@ def main():
         caption(species, no_model, n_cereal, n_cereal_other, unplaced, clades))
     print(f"  {n_cereal:,} drawn species are pathogens recorded on a cohort cereal; "
           f"{n_cereal_other:,} more are recorded there by another route")
-    print(f"  -> {OUT}_tree.nwk / _tips.tsv / _clades.tsv / _caption.txt")
+    print(f"  -> {OUT}_tree.nwk / _tips.tsv / _clades.tsv / _params.tsv / _caption.txt")
     print(f"\nNext: Rscript 02_classify/report/figures/db_contents.R")
 
 

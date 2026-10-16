@@ -47,6 +47,11 @@ HOLE       <- 7.0    # tree depth units of empty centre. BIGGER = bigger hole AN
 BAR_GAP    <- 0.35   # gap between the tip ring and the start of the bars
 BAR_SCALE  <- 1.30   # radial length of one log10 decade, in tree depth units
 ARC_GAP    <- 0.45   # gap between the longest bar and the clade arcs
+ARC_WIDTH  <- 1.1    # weight of the clade arcs
+ARC_PAD    <- 5      # tips trimmed from EACH END of a clade arc, so neighbours separate.
+                     # Without it the arcs run tip to tip and consecutive classes sit one tip
+                     # apart -- 0.22 degrees at this tip count, which reads as one continuous
+                     # ring. Capped at 15% of the clade so a small one keeps a visible arc.
 LABEL_MIN  <- 40     # a class needs this many species to get an arc
 
 # ── inputs ────────────────────────────────────────────────────────────────────
@@ -113,11 +118,16 @@ p <- p + annotate("text", x = tickx, y = ylab, label = format(ticks, big.mark = 
 # ── clade arcs: marks only, never text. Positions are in db_contents_clades.tsv ──
 arcs <- bars |> filter(class != "") |> group_by(class) |>
   summarise(n = n(), ymin = min(y), ymax = max(y), .groups = "drop") |>
-  filter(n >= LABEL_MIN)
+  filter(n >= LABEL_MIN) |>
+  mutate(pad  = pmin(ARC_PAD, 0.15 * n),
+         ymin = ymin + pad, ymax = ymax - pad)
 arcx <- bars$x0[1] + log10(top + 1) * BAR_SCALE + ARC_GAP
 p <- p + geom_segment(data = arcs,
                       aes(x = arcx, xend = arcx, y = ymin, yend = ymax),
-                      colour = "#333333", linewidth = 0.7, inherit.aes = FALSE)
+                      colour = "#333333", linewidth = ARC_WIDTH, lineend = "butt",
+                      inherit.aes = FALSE)
+cat(sprintf("  %d class arcs, smallest gap between neighbours %.1f deg\n",
+            nrow(arcs), 2 * min(arcs$pad) * (360 - OPEN_ANGLE) / Ntip(tr)))
 
 # ── the hole, the theme, and out ──────────────────────────────────────────────
 # A NEGATIVE lower xlim pushes the root off the centre, which is how a fan layout gets its

@@ -1,0 +1,106 @@
+#!/bin/bash
+#SBATCH --job-name=predict_probe
+#SBATCH --account=pawsey1168
+#SBATCH --partition=work
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=64G
+#SBATCH --time=04:00:00
+#SBATCH --output=/scratch/pawsey1168/llenzo/crypt/02_classify/slurm/logs/predict_probe_%j.out
+#SBATCH --error=/scratch/pawsey1168/llenzo/crypt/02_classify/slurm/logs/predict_probe_%j.err
+
+# STEP 0 of the predict evaluation: can vipsania even run here, and how fast on CPU?
+# Everything downstream is moot if this fails, so it runs before the 7 GB genomic fetch.
+#
+# THE RISK, stated so the failure is recognisable: vipsania documents "TensorFlow with CUDA
+# support", and Setonix has no CUDA. The GPU partition is AMD MI250X behind a ROCm 6.3.3
+# TensorFlow container (quay.io/pawsey/tensorflow:2.17-rocm6.3.3). A CUDA-pinned wheel will
+# not run on that hardware at all.
+#
+# WHY CPU AND WHY `work`: the gpu partition had 374 jobs PENDING against 8 idle nodes, while
+# work had 44 idle. vipsania's docs say CPU annotation is "possible but slow". For 119 fungal
+# genomes of ~35-60 Mbp, a tolerable CPU time beats queueing behind 374 jobs, and it removes
+# the ROCm question entirely. So measure CPU first; only fight for a GPU if CPU is hopeless.
+# That is what this job answers, and the number it prints is the one that decides.
+#
+#   sbatch 02_classify/slurm/predict_probe.slurm
+
+set -uo pipefail          # NOT -e: a probe must report a failure, not vanish on it
+
+SCRATCH="/scratch/pawsey1168/llenzo"
+REPO="$SCRATCH/crypt"
+mkdir -p "$REPO/02_classify/slurm/logs"
+cd "$REPO"
+
+VENV="$SCRATCH/venv/vipsania"
+GDIR="$SCRATCH/crypt/02_classify/data/bronze/genomes"
+OUT="$SCRATCH/crypt/02_classify/data/bronze/predicted/probe"
+mkdir -p "$OUT"
+
+say () { echo; echo "──── $* ────"; }
+
+say "environment"
+module load cray-python/3.12.12
+echo "python: $(python3 --version 2>&1)"
+echo "host:   $(hostname)   cpus=${SLURM_CPUS_PER_TASK:-?}"
+
+say "venv + install"
+if [ ! -x "$VENV/bin/python" ]; then
+    python3 -m venv "$VENV" || { echo "PROBE FAIL: venv creation"; exit 1; }
+fi
+# shellcheck disable=SC1091
+source "$VENV/bin/activate"
+python -m pip install --quiet --upgrade pip
+echo "installing vipsania (this is the step that can fail on a CUDA pin)"
+python -m pip install vipsania 2>&1 | tail -15
+echo "pip exit: $?"
+
+say "what actually got installed"
+python - <<'PY'
+import importlib, sys
+for mod in ("vipsania", "tensorflow", "keras"):
+    try:
+        m = importlib.import_module(mod)
+        print(f"  {mod:12s} {getattr(m, '__version__', '?')}")
+    except Exception as exc:
+        print(f"  {mod:12s} IMPORT FAILED: {type(exc).__name__}: {exc}")
+try:
+    import tensorflow as tf
+    print("  TF devices:", [d.device_type for d in tf.config.list_physical_devices()])
+    print("  built with cuda:", getattr(tf.test, "is_built_with_cuda", lambda: "?")())
+except Exception as exc:
+    print("  TF probe failed:", type(exc).__name__, exc)
+PY
+
+say "cli surface"
+vipsania --help 2>&1 | head -25
+echo "(--help exit: $?)"
+
+say "fetch ONE genome to predict on"
+python 02_classify/01_refs/predict/fetch_genomes.py \
+    --genomes-dir "$GDIR" --arm annotated --limit 1 --workers 1 2>&1 | tail -8
+
+FASTA=$(find "$GDIR" -name '*.fna' -size +1M | head -1)
+if [ -z "$FASTA" ]; then echo "PROBE FAIL: no genome on disk to test"; exit 1; fi
+echo "target: $FASTA  ($(du -h "$FASTA" | cut -f1))"
+
+say "TIMED CPU run on one fungal genome"
+# The decisive number. If this is minutes, 119 genomes on `work` is trivial and the GPU queue
+# is irrelevant. If it is many hours, the benchmark needs the GPU and the ROCm question becomes
+# unavoidable.
+/usr/bin/time -v vipsania \
+    --coding "$OUT/coding.fa" \
+    --protein "$OUT/proteins.fa" \
+    "$FASTA" "$OUT/genes.gff3" 2>&1 | tail -30
+echo "(vipsania exit: $?)"
+
+say "result"
+for f in "$OUT/coding.fa" "$OUT/genes.gff3"; do
+    if [ -s "$f" ]; then
+        echo "  $(basename "$f"): $(du -h "$f" | cut -f1)"
+        [ "${f##*.}" = "fa" ] && echo "    sequences: $(grep -c '^>' "$f")"
+    else
+        echo "  $(basename "$f"): ABSENT OR EMPTY"
+    fi
+done
+echo "END $(date)"

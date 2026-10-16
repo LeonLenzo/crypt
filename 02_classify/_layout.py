@@ -67,6 +67,10 @@ BRONZE = DATA / "bronze"
 SILVER = DATA / "silver"
 GOLD = DATA / "gold"
 LOGS = MODULE / "logs"
+# Figures are CODE-adjacent, not data: the repo policy is code, small figures and manifests,
+# so report/ sits outside data/ and is tracked by default.
+REPORT = MODULE / "report"
+FIGURES = REPORT / "figures"
 
 # ── the input contract: three places and nothing else ───────────────────────────────────────
 # Stated in README.md and enforced here. Everything this module consumes from outside itself is

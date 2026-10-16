@@ -3,7 +3,6 @@
 #SBATCH --account=fl3-gpu
 #SBATCH --partition=gpu-dev
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
 #SBATCH --gpus-per-node=1
 #SBATCH --time=02:00:00
 #SBATCH --output=/scratch/pawsey1168/llenzo/crypt/02_classify/slurm/logs/vipsania_gpu_%j.out
@@ -27,6 +26,11 @@
 # Residual risk is hidten's custom HMM and parallel scan: if those lower to ops ROCm TF does
 # not implement, this fails regardless of versions. The existence of a --nojit flag upstream
 # suggests JIT trouble was already anticipated, so that is the first fallback to try.
+#
+# NO --cpus-per-task. Setonix refuses it on a GPU allocation:
+#   lua: cli_filter: cannot explicitly request CPU resources for GPU allocation;
+#        each allocated GPU allocates 8 cores
+# so the core count follows the GPU count and must not be stated.
 #
 # gpu-dev, not gpu: gpu had 351 jobs PENDING while gpu-dev had 3 running and none queued, and
 # 4 h is ample for one genome.

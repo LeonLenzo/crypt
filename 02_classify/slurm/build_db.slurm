@@ -3,7 +3,7 @@
 #SBATCH --account=pawsey1168
 #SBATCH --partition=work
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=32
+#SBATCH --cpus-per-task=128
 #SBATCH --mem=230G
 #SBATCH --time=1-00:00:00
 #SBATCH --output=/scratch/pawsey1168/llenzo/crypt/02_classify/slurm/logs/build_db_%j.out
@@ -60,8 +60,16 @@ mkdir -p "$DB_DIR"
 
 echo "START $(date)"
 echo "node: $(hostname)   mem: $(free -g | awk '/^Mem:/{print $2"G total"}')"
+# --threads 128, not 32. The 2026-10-16 first attempt asked for --cpus-per-task=32 and used
+# --threads 32, but requesting 230G of a 245G node reserves the WHOLE node, so SLURM allocated
+# cpu=256 and billed for 256 while kraken2-build used 32. The node is 128 physical cores
+# (64 per socket, 2 sockets, SMT 2); 128 matches physical cores, and going to 256 would only
+# add SMT siblings, which do not help a compute-bound minimizer pass.
+#
+# Extra flags pass straight through, so a build can be resumed without redoing the library:
+#   sbatch 02_classify/slurm/build_db.slurm --build-only
 python 02_classify/02_build/build_db.py \
     --cds-dir "$CDS_DIR" \
     --db-dir "$DB_DIR" \
-    --threads 32
+    --threads 128 "$@"
 echo "END $(date)"

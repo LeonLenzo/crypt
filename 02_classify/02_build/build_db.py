@@ -94,6 +94,25 @@ def load_manifest(path: Path) -> list:
     return rows
 
 
+MIN_FASTA_BYTES = 100_000
+DERIVED_SUFFIXES = ("_clean.fna", "_combined.fna", ".tagged.fna")
+
+
+def find_cds(acc_dir: Path):
+    """Fallback locator, using the same rule as fetch_cds.have_cds().
+
+    The manifest path is authoritative; this only covers a relocated tree or a manifest
+    written by an earlier version. Largest non-derived `.fna` at or above the size floor, so
+    an empty purge skeleton resolves to None rather than to a zero-byte file.
+    """
+    if not acc_dir.is_dir():
+        return None
+    cands = [f for f in acc_dir.glob("**/*.fna")
+             if f.is_file() and not f.name.endswith(DERIVED_SUFFIXES)
+             and f.stat().st_size >= MIN_FASTA_BYTES]
+    return max(cands, key=lambda f: f.stat().st_size) if cands else None
+
+
 def existing_tag(fasta: Path) -> int | None:
     """The taxid already in this FASTA's first header, or None if it is untagged.
 
@@ -231,9 +250,15 @@ def main() -> None:
             failures, added = [], 0
             for i, r in enumerate(rows, 1):
                 acc, taxid = r["accession"], int(r["taxid"])
-                src = cds_dir / acc / r["path"]
+                # The manifest's `path` is relative to CDS_DIR and already contains the
+                # accession directory, because fetch_cds.py writes
+                # `f.relative_to(cds_dir)`. Joining cds_dir / acc / path doubles it.
+                src = cds_dir / r["path"]
                 if not src.is_file():
-                    failures.append((acc, f"manifest path absent: {src}"))
+                    src = find_cds(cds_dir / acc)      # tree moved, or an older manifest
+                if src is None or not src.is_file():
+                    failures.append((acc, f"no CDS at {cds_dir / r['path']} "
+                                          f"and none found under {cds_dir / acc}"))
                     continue
                 old = existing_tag(src)
                 tags["untagged" if old is None

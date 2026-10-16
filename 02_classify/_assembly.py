@@ -129,7 +129,39 @@ def _stats(a): return a.get("assembly_stats") or {}
 
 def assembly_level(a): return _ai(a).get("assembly_level", "")
 def release_date(a): return _ai(a).get("release_date", "") or ""
-def has_annotation(a): return bool(_ann(a))
+
+
+def n_protein_coding(a) -> int:
+    """Protein-coding gene count, or 0 if the annotation declares none."""
+    g = (_ann(a).get("stats") or {}).get("gene_counts") or {}
+    try:
+        return int(g.get("protein_coding") or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def has_annotation(a) -> bool:
+    """Does this assembly carry a gene model we can get CDS from?
+
+    **Not `bool(annotation_info)`, which is what this used to be, and the difference is 15
+    assemblies that could never have worked.** NCBI populates `annotation_info` whenever an
+    annotation of ANY kind was submitted, including ones that describe features but declare no
+    protein-coding genes at all — their `gene_counts` is `{'other': N, 'total': N}` with no
+    `protein_coding` key. `datasets download --include cds` then has nothing to emit.
+
+    Measured 2026-10-16, and the correlation is total, not partial: of the 4,286 accessions
+    db_v4 selected, exactly 15 had annotation_info but no protein_coding count, and **all 15
+    failed to download while zero of the rest did.** Seven were *Triticum aestivum* (NIAB
+    submissions, 263,543 features, none protein-coding) and one was *Zymoseptoria tritici*.
+
+    So for a CDS-only database "annotated" has to mean "has protein-coding genes". The old
+    definition marked these CDS-downloadable, and the only reason it surfaced is that
+    `fetch_cds.py` fails loudly where the 03_kraken build warned and carried on.
+
+    No species is lost by tightening it: all 1,547 survive, every affected species keeps at
+    least one assembly, and wheat keeps five.
+    """
+    return bool(_ann(a)) and n_protein_coding(a) > 0
 
 def get_country(a) -> str:
     for attr in (_ai(a).get("biosample") or {}).get("attributes", []) or []:
@@ -271,7 +303,10 @@ def to_row(a: dict, taxid: int, organism_name: str, kingdom: str,
         "protein_coding_genes": str(genes) if genes else "",
         "scaffold_n50_kb":     f"{int(n50)/1000:.0f}" if n50 else "",
         "total_length_mb":     f"{int(total)/1e6:.1f}" if total else "",
-        "fasta_type":          "cds" if ann else "genome",
+        # "cds" requires PROTEIN-CODING genes, not merely an annotation record. See
+        # has_annotation(): 15 assemblies had annotation_info with no protein_coding count and
+        # all 15 failed to download. `genes` is "" in exactly that case, so it gates correctly.
+        "fasta_type":          "cds" if (ann and genes) else "genome",
         "busco_lineage":       busco_lineage_for(kingdom, organism_name, taxid),
         "selection_rank":      rank,
         "selection_reason":    reason,

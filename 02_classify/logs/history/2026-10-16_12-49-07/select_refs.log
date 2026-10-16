@@ -1,0 +1,34 @@
+  read 17,077 surveyed assemblies from /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/assemblies.tsv
+
+-- db_v4 reference set -----------------------------------------
+  assemblies taken       4,271   of 17,077 surveyed
+  species                1,547
+
+  not taken:
+    no_gene_model                  12,806
+
+  by assembly level:
+    Scaffold                        2,242
+    Contig                          1,526
+    Chromosome                        279
+    Complete Genome                   224
+
+  by membership route (a species may be in by several):
+    target                          2,337
+    plant_associate                 2,028
+    congener                        1,102
+    host_associate                    366
+    host                               36
+
+  depth per species (no floor, no cap):
+         1 assemblies:    881 species
+       2-3 assemblies:    497 species
+       4-9 assemblies:    118 species
+     10-49 assemblies:     43 species
+       50+ assemblies:      8 species
+
+  db_v3 for scale: 2,063 assemblies / 877 fungal species / 4.80 B minimizers
+  Depth tracks research attention, not biology. Aggregate shallow species to
+  genus when reporting; taking everything does not change that caveat.
+
+  -> /home/leonl/data_analysis/phd/01-review/02_classify/data/silver/ref_candidates.tsv

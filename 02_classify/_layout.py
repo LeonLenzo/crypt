@@ -119,6 +119,11 @@ BUSCO_CACHE = BRONZE / "busco"          # lineage downloads + the scan cache
 
 # ── silver: generated tables ────────────────────────────────────────────────────────────────
 REF_CANDIDATES = SILVER / "ref_candidates.tsv"   # 01_refs: the assemblies chosen, and why
+# 02_build: one row per WANTED accession with where its CDS actually came from (disk, acacia
+# or ncbi) and how many bytes arrived. This is the table that makes the build auditable: the
+# 2026-09 tree had 1,997 accession DIRECTORIES on scratch but only 1,162 non-empty FASTAs, and
+# a directory-existence check counted all 1,997 as held. Presence is a non-empty file, always.
+CDS_MANIFEST = SILVER / "cds_manifest.tsv"
 HOST_CANDIDATES = SILVER / "host_candidates.tsv"
 DB = SILVER / "db"                               # the Kraken2 index itself (db_v4)
 # taxid -> minimizers: the denominator every coverage figure is measured against. The root
@@ -144,3 +149,23 @@ HOST_SUMMARY = GOLD / "host_summary.tsv"         # per-host rates, the headline 
 #   without erroring. taxon.kingdom spells plants `Viridiplantae`, not `Plants`.
 #   assembly.is_annotated is 1 on all 36,709 rows and cannot be used to ask about annotation.
 HOLOBASE = REFDATA / "holobase.db"
+
+# Acacia (Pawsey S3). The CDS downloaded for db_v3 are backed up here, and pulling from Acacia
+# is free and internal where re-pulling from NCBI is neither, so 02_build always reconciles
+# against this prefix BEFORE it calls `datasets`.
+#   * **Two buckets exist and only one is right.** `pawsey1168-llenzo-kraken-db` sits on the
+#     personal 100 GiB allocation, was filled on 2026-09-01 and holds 1,019 accessions;
+#     `pawsey1168-kraken-db` sits on the project allocation and holds 1,994, a superset of
+#     both the personal bucket and live scratch. Use the PROJECT bucket.
+#   * **The profile name differs by machine**, which is why it is an argument and not a
+#     constant: Setonix authenticates as `pawsey1168`, and the local `acacia` profile cannot
+#     read the project bucket at all. It fails as `argument of type 'NoneType' is not a
+#     container` — aws-cli 2.13 crashing while formatting a Ceph denial whose <Message> is
+#     empty, not a network or SSL fault.
+#   * **The --endpoint-url is mandatory.** Omitting it gives a misleading InvalidAccessKeyId.
+#   * On Setonix the CLI is a Singularity wrapper that overrides --home, so it reads
+#     $MYSOFTWARE/setonix/<ver>/.shpc_home/.aws, NOT ~/.aws. Credentials in the real home are
+#     invisible to it and the symptom is "Unable to locate credentials".
+ACACIA_ENDPOINT = "https://projects.pawsey.org.au"
+ACACIA_BUCKET = "pawsey1168-kraken-db"
+ACACIA_CDS_PREFIX = "db/search/cds/pathogen"

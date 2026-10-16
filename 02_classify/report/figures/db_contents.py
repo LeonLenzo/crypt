@@ -110,8 +110,26 @@ ROUTE_LABEL = {
 # ceiling rather than a free parameter. draw() prints the width it achieved, so the next
 # adjustment is made against a number instead of an impression.
 R_TREE = 1.80      # tips of the cladogram sit here
+R_INNER = 1.00     # ...and the ROOT sits here, not at the centre. See below.
 R_BAR0 = R_TREE + 0.045    # bars start just outside
 BAR_SCALE = 0.16   # radial length of one log10 decade
+
+# BRANCH LENGTH is (R_TREE - R_INNER) / 7, because the seven ranks are spread evenly across
+# that band. RAISING R_INNER SHORTENS EVERY BRANCH and opens the hole in the middle; dropping
+# it to 0 puts the root at the centre and gives the longest branches. The structure worth
+# seeing is all in the outer ranks -- family, genus, species -- while the inner ones are a
+# handful of long spokes carrying no information, so compressing the band costs nothing and
+# buys a tidier tree. At R_TREE 1.80 / R_INNER 1.00 a branch is 0.114 units, against 0.257
+# when the tree ran from the centre.
+
+# BRANCH APPEARANCE. Terminal and internal edges are drawn separately and deliberately differ:
+# there are as many terminal edges as there are species, 0.22 degrees apart, so at the weight
+# of the internal edges they merge into a solid ring and bury the structure. Edit these here
+# rather than hunting through draw().
+BRANCH_COLOUR = "#8a8a8a"      # internal edges: rank-to-rank, and the arcs joining siblings
+BRANCH_WIDTH = 0.30
+TIP_BRANCH_COLOUR = "#dcdcdc"  # terminal edges: the genus ring out to the species ring
+TIP_BRANCH_WIDTH = 0.12
 GAP_DEG = 14.0     # wedge left open at the top: the ring needs a start, and the scale sits in it
 LABEL_MIN = 40     # a class needs this many species to earn a label
 
@@ -314,13 +332,15 @@ def layout(tax, children, root, tips: set) -> tuple:
         return angle[node]
 
     set_angle(root)
-    # Radius by RANK. A node at an unlisted rank (only the root can be, after the prune) sits at
-    # the centre; a tip always sits on the rim even if NCBI ranks it below species.
+    # Radius by RANK, spread over the band [R_INNER, R_TREE] rather than from the centre, so
+    # branch length is set by R_INNER. A node at an unlisted rank (only the root can be, after
+    # the prune) sits at R_INNER; a tip always sits on the rim even if NCBI ranks it below
+    # species.
     top = len(RANKS)
     radius = {}
     for node in depths:
         lvl = RANK_LEVEL.get(tax.rank.get(node), 0)
-        radius[node] = R_TREE * lvl / top
+        radius[node] = R_INNER + (R_TREE - R_INNER) * lvl / top
     for t in order:
         radius[t] = R_TREE
     return angle, radius, order
@@ -357,8 +377,10 @@ def draw(tax, species, children, root, angle, radius, order, no_model, assembly:
         for k in kids:
             (tip_segs if k in tip_of else segs).append(
                 [polar(angle[k], r), polar(angle[k], radius[k])])
-    ax.add_collection(LineCollection(tip_segs, colors="#dcdcdc", linewidths=0.12, zorder=1))
-    ax.add_collection(LineCollection(segs, colors="#8a8a8a", linewidths=0.3, zorder=2))
+    ax.add_collection(LineCollection(tip_segs, colors=TIP_BRANCH_COLOUR,
+                                     linewidths=TIP_BRANCH_WIDTH, zorder=1))
+    ax.add_collection(LineCollection(segs, colors=BRANCH_COLOUR,
+                                     linewidths=BRANCH_WIDTH, zorder=2))
 
     # ── the bars ──────────────────────────────────────────────────────────────────────────
     # WEDGES, not line segments. A line has a width in POINTS, fixed in screen space, while

@@ -1,0 +1,1545 @@
+label	ncbi_taxid	species	route	n_annotated	n_assemblies	class	order	on_cohort_cereal
+t399387	470096	Pseudovirgaria hyperparasitica	plant_associate	2	2	Dothideomycetes	Acrospermales	
+t1254302	1504668	Rhizodiscina lignyota	plant_associate	1	1	Dothideomycetes	Aulographales	
+t392493	462254	Aplosporella prunicola	plant_associate	2	3	Dothideomycetes	Botryosphaeriales	
+t34376	55169	Botryosphaeria dothidea	target_other	2	141	Dothideomycetes	Botryosphaeriales	
+t193547	236234	Diplodia corticola	plant_associate	2	2	Dothideomycetes	Botryosphaeriales	
+t686463	856260	Diplodia intermedia	plant_associate	1	1	Dothideomycetes	Botryosphaeriales	
+t44475	66738	Diplodia sapinea	target_other	2	19	Dothideomycetes	Botryosphaeriales	
+t354830	420778	Diplodia seriata	target_other	5	6	Dothideomycetes	Botryosphaeriales	
+t697736	869390	Lasiodiplodia hormozganensis	plant_associate	1	1	Dothideomycetes	Botryosphaeriales	
+t898190	1108764	Lasiodiplodia mahajangana	target_other	1	1	Dothideomycetes	Botryosphaeriales	
+t25653	45133	Lasiodiplodia theobromae	target_cereal	4	19	Dothideomycetes	Botryosphaeriales	yes
+t17489	35725	Macrophomina phaseolina	target_cereal	2	469	Dothideomycetes	Botryosphaeriales	yes
+t256123	310453	Neofusicoccum parvum	plant_associate	5	29	Dothideomycetes	Botryosphaeriales	
+t25654	45134	Neofusicoccum ribis	target_other	1	3	Dothideomycetes	Botryosphaeriales	
+t91955	121624	Phyllosticta capitalensis	target_other	7	10	Dothideomycetes	Botryosphaeriales	
+t509753	595635	Phyllosticta citriasiana	plant_associate	3	7	Dothideomycetes	Botryosphaeriales	
+t795156	989973	Phyllosticta citribraziliensis	target_other	3	3	Dothideomycetes	Botryosphaeriales	
+t34384	55181	Phyllosticta citricarpa	target_cereal	7	29	Dothideomycetes	Botryosphaeriales	yes
+t916151	1130410	Phyllosticta citrichinensis	target_other	2	2	Dothideomycetes	Botryosphaeriales	
+t1713219	2016321	Phyllosticta paracitricarpa	plant_associate	2	4	Dothideomycetes	Botryosphaeriales	
+t100436	131308	Saccharata proteae	target_other	1	1	Dothideomycetes	Botryosphaeriales	
+t605026	705562	Polychaeton citri	target_other	1	1	Dothideomycetes	Capnodiales	
+t1103356	1338630	Cladosporium allicinum	target_other	1	1	Dothideomycetes	Cladosporiales	
+t13357	29917	Cladosporium cladosporioides	target_cereal	1	11	Dothideomycetes	Cladosporiales	yes
+t849640	1052093	Cladosporium fusiforme	target_other	1	1	Dothideomycetes	Cladosporiales	
+t849643	1052096	Cladosporium halotolerans	plant_associate	2	4	Dothideomycetes	Cladosporiales	
+t713370	887095	Cladosporium inversicolor	target_cereal	1	1	Dothideomycetes	Cladosporiales	yes
+t2804010	3468514	Cladosporium sp. NU13	target_other	1	1	Dothideomycetes	Cladosporiales	
+t1257144	1507870	Cryoendolithus antarcticus	target_other	1	1	Dothideomycetes	Cladosporiales	
+t1257147	1507873	Rachicladosporium monterosium	target_other	1	1	Dothideomycetes	Cladosporiales	
+t39916	61459	Coniosporium apollinis	target_other	3	3	Dothideomycetes		
+t2746690	3383036	Coniosporium tulheliwenetii	target_other	1	1	Dothideomycetes		
+t67508	93489	Coniosporium uncinatum	target_other	1	1	Dothideomycetes		
+t114686	147560	Delphinella strobiligena	target_other	1	1	Dothideomycetes	Dothideales	
+t2776732	3424008	Aureobasidium aubasidani	target_other	1	1	Dothideomycetes	Dothideales	
+t26965	46634	Aureobasidium melanogenum	target_other	50	68	Dothideomycetes	Dothideales	
+t2380993	2773714	Aureobasidium mustum	target_other	1	1	Dothideomycetes	Dothideales	
+t477740	559561	Aureobasidium namibiae	target_other	2	2	Dothideomycetes	Dothideales	
+t4508	5580	Aureobasidium pullulans	target_cereal	61	95	Dothideomycetes	Dothideales	yes
+t2492386	2894284	Aureobasidium sp. EXF-10727	target_other	1	1	Dothideomycetes	Dothideales	
+t2492387	2894285	Aureobasidium sp. EXF-10728	target_other	1	1	Dothideomycetes	Dothideales	
+t2492383	2894281	Aureobasidium sp. EXF-12298	target_other	1	1	Dothideomycetes	Dothideales	
+t2492384	2894282	Aureobasidium sp. EXF-12344	target_other	1	1	Dothideomycetes	Dothideales	
+t2434049	2831173	Aureobasidium sp. EXF-3399	target_other	1	1	Dothideomycetes	Dothideales	
+t2492385	2894283	Aureobasidium sp. EXF-3400	target_other	1	1	Dothideomycetes	Dothideales	
+t2492381	2894279	Aureobasidium sp. EXF-8845	target_other	1	1	Dothideomycetes	Dothideales	
+t2492382	2894280	Aureobasidium sp. EXF-8846	target_other	1	1	Dothideomycetes	Dothideales	
+t840962	1042127	Aureobasidium subglaciale	target_other	10	10	Dothideomycetes	Dothideales	
+t2380995	2773716	Aureobasidium uvarum	target_other	1	1	Dothideomycetes	Dothideales	
+t2380994	2773715	Aureobasidium vineae	target_other	1	1	Dothideomycetes	Dothideales	
+t4504	5570	Cenococcum geophilum	plant_associate	3	3	Dothideomycetes	Gloniales	
+t491263	574774	Glonium stellatum	plant_associate	1	1	Dothideomycetes	Gloniales	
+t494153	578093	Lineolata rhizophorae	plant_associate	1	1	Dothideomycetes	Lineolatales	
+t603041	703497	Microthyrium microscopicum	plant_associate	1	1	Dothideomycetes	Microthyriales	
+t84170	112489	Dissoconium aciculare	target_other	2	2	Dothideomycetes	Mycosphaerellales	
+t298045	357750	Cercospora berteroae	plant_associate	1	1	Dothideomycetes	Mycosphaerellales	
+t92571	122368	Cercospora beticola	target_other	5	8	Dothideomycetes	Mycosphaerellales	
+t59408	84275	Cercospora kikuchii	target_other	2	4	Dothideomycetes	Mycosphaerellales	
+t104342	135779	Cercospora zeae-maydis	target_cereal	1	2	Dothideomycetes	Mycosphaerellales	yes
+t290744	348901	Cercospora zeina	target_cereal	1	2	Dothideomycetes	Mycosphaerellales	yes
+t42393	64363	Dothistroma septosporum	target_other	1	19	Dothideomycetes	Mycosphaerellales	
+t4467	5499	Fulvia fulva	target_other	6	32	Dothideomycetes	Mycosphaerellales	
+t82849	111012	Lecanosticta acicola	plant_associate	1	3	Dothideomycetes	Mycosphaerellales	
+t265765	321146	Pseudocercospora eumusae	plant_associate	1	1	Dothideomycetes	Mycosphaerellales	
+t1583814	1873960	Pseudocercospora fijiensis	target_other	2	3	Dothideomycetes	Mycosphaerellales	
+t587413	685502	Pseudocercospora fuligena	target_other	1	1	Dothideomycetes	Mycosphaerellales	
+t84769	113226	Pseudocercospora musae	target_other	1	1	Dothideomycetes	Mycosphaerellales	
+t84174	112498	Ramularia collo-cygni	plant_associate	3	3	Dothideomycetes	Mycosphaerellales	
+t175395	215465	Septoria linicola	target_other	2	2	Dothideomycetes	Mycosphaerellales	
+t60875	85929	Sphaerulina musiva	plant_associate	19	26	Dothideomycetes	Mycosphaerellales	
+t331659	395010	Zasmidium cellare	target_other	3	4	Dothideomycetes	Mycosphaerellales	
+t845483	1047168	Zymoseptoria brevis	plant_associate	1	2	Dothideomycetes	Mycosphaerellales	
+t845486	1047171	Zymoseptoria tritici	target_cereal	7	65	Dothideomycetes	Mycosphaerellales	yes
+t201512	245562	Acidomyces sp. 'richmondensis'	target_other	2	3	Dothideomycetes	Mycosphaerellales	
+t116962	150365	Acrodontium crateriforme	plant_associate	1	1	Dothideomycetes	Mycosphaerellales	yes
+t1437324	1709381	Baudoinia panamericana	target_other	2	4	Dothideomycetes	Mycosphaerellales	
+t491155	574655	Elasticomyces elasticus	target_other	15	15	Dothideomycetes	Mycosphaerellales	
+t273644	329885	Friedmanniomyces endolithicus	target_other	25	25	Dothideomycetes	Mycosphaerellales	
+t273643	329884	Friedmanniomyces simplex	target_other	1	1	Dothideomycetes	Mycosphaerellales	
+t66165	91943	Hortaea werneckii	target_other	71	80	Dothideomycetes	Mycosphaerellales	
+t1257448	1508187	Meristemomyces frigidus	target_other	4	4	Dothideomycetes	Mycosphaerellales	
+t201733	245834	Neohortaea acidophila	target_other	2	2	Dothideomycetes	Mycosphaerellales	
+t1257141	1507867	Oleoguttula mirabilis	target_other	1	1	Dothideomycetes	Mycosphaerellales	
+t2498724	2901242	Oleoguttula sp. CCFEE 5521	target_other	1	1	Dothideomycetes	Mycosphaerellales	
+t2498731	2901249	Oleoguttula sp. CCFEE 6159	target_other	1	1	Dothideomycetes	Mycosphaerellales	
+t491156	574656	Recurvomyces mirabilis	target_other	4	4	Dothideomycetes	Mycosphaerellales	
+t605977	706561	Salinomyces thailandicus	target_other	1	1	Dothideomycetes	Mycosphaerellales	
+t352994	418781	Teratosphaeria destructans	plant_associate	1	3	Dothideomycetes	Mycosphaerellales	
+t127088	161662	Teratosphaeria nubilosa	plant_associate	1	1	Dothideomycetes	Mycosphaerellales	
+t2498735	2901253	Teratosphaeriaceae sp. CCFEE 6253	target_other	1	1	Dothideomycetes	Mycosphaerellales	
+t249493	302913	Elsinoe ampelina	target_other	1	2	Dothideomycetes	Myriangiales	
+t22009	40998	Elsinoe australis	target_other	2	11	Dothideomycetes	Myriangiales	
+t2229249	2601811	Elsinoe batatas	target_other	1	1	Dothideomycetes	Myriangiales	
+t22008	40997	Elsinoe fawcettii	target_other	1	6	Dothideomycetes	Myriangiales	
+t1769803	2082308	Sphaceloma murrayae	plant_associate	1	1	Dothideomycetes	Myriangiales	
+t619648	741139	Lepidopterella palustris	target_other	1	1	Dothideomycetes	Mytilinidiales	
+t327885	390894	Lophium mytilinum	plant_associate	1	1	Dothideomycetes	Mytilinidiales	
+t491274	574789	Mytilinidion resinicola	target_other	2	2	Dothideomycetes	Mytilinidiales	
+t235057	286661	Peltaster fructicola	target_other	1	1	Dothideomycetes		
+t1330188	1589764	Acrocalymma vagum	target_other	1	2	Dothideomycetes	Pleosporales	
+t872652	1077358	Coniothyrium glycines	target_other	1	6	Dothideomycetes	Pleosporales	
+t38284	59586	Corynespora cassiicola	target_cereal	1	57	Dothideomycetes	Pleosporales	yes
+t25661	45142	Cucurbitaria berberidis	target_other	2	2	Dothideomycetes	Pleosporales	
+t646926	798079	Neocucurbitaria cava	target_other	1	1	Dothideomycetes	Pleosporales	
+t2803024	3465991	Neocucurbitaria sp. VM-36	target_other	1	1	Dothideomycetes	Pleosporales	
+t641246	765867	Pyrenochaeta sp. DS3sAY3a	target_other	1	1	Dothideomycetes	Pleosporales	
+t2432612	2829485	Pyrenochaeta sp. MPI-SDFR-AT-0127	target_other	1	1	Dothideomycetes	Pleosporales	
+t606370	706981	Clathrospora elynae	plant_associate	1	1	Dothideomycetes	Pleosporales	
+t1904986	2249482	Ascochyta clinopodiicola	target_other	1	1	Dothideomycetes	Pleosporales	
+t166555	205686	Ascochyta lentis	target_other	3	15	Dothideomycetes	Pleosporales	
+t4435	5454	Ascochyta rabiei	target_other	15	24	Dothideomycetes	Pleosporales	
+t627042	749465	Boeremia exigua	target_cereal	3	5	Dothideomycetes	Pleosporales	yes
+t73194	100019	Didymella exigua	plant_associate	2	3	Dothideomycetes	Pleosporales	
+t627190	749621	Didymella glomerata	target_cereal	1	3	Dothideomycetes	Pleosporales	yes
+t1491862	1769908	Didymella heteroderae	plant_associate	1	1	Dothideomycetes	Pleosporales	
+t1950360	2301244	Didymella keratinophila	target_other	1	1	Dothideomycetes	Pleosporales	
+t627203	749634	Didymella pomorum	plant_associate	2	2	Dothideomycetes	Pleosporales	yes
+t2565987	2978356	Didymella sp. IMI 355093	target_other	1	1	Dothideomycetes	Pleosporales	
+t78244	105696	Epicoccum nigrum	target_cereal	2	4	Dothideomycetes	Pleosporales	yes
+t247891	301207	Macroventuria anomochaeta	plant_associate	2	3	Dothideomycetes	Pleosporales	
+t2565989	2978358	Neodidymelliopsis sp. IMI 364377	target_other	1	1	Dothideomycetes	Pleosporales	
+t627333	749835	Nothophoma quercina	plant_associate	1	1	Dothideomycetes	Pleosporales	
+t2234052	2606854	Stagonosporopsis vannaccii	plant_associate	1	1	Dothideomycetes	Pleosporales	
+t114627	147497	Bimuria novae-zelandiae	target_other	1	1	Dothideomycetes	Pleosporales	
+t1637196	1932322	Didymosphaeria variabile	target_other	2	2	Dothideomycetes	Pleosporales	
+t2565991	2978360	Kalmusia sp. IMI 367209	target_other	1	1	Dothideomycetes	Pleosporales	
+t247888	301204	Karstenula rhodostoma	target_other	1	1	Dothideomycetes	Pleosporales	
+t247013	300254	Paraconiothyrium brasiliense	plant_associate	1	2	Dothideomycetes	Pleosporales	
+t482909	565426	Paraphaeosphaeria minitans	plant_associate	7	8	Dothideomycetes	Pleosporales	
+t1214379	1460663	Paraphaeosphaeria sporulosa	plant_associate	4	4	Dothideomycetes	Pleosporales	
+t1601418	1892770	Pseudopithomyces chartarum	target_cereal	1	3	Dothideomycetes	Pleosporales	yes
+t468330	548649	Dothidotthia symphoricarpi	target_other	2	2	Dothideomycetes	Pleosporales	
+t180157	220672	Plenodomus biglobosus	target_other	1	2	Dothideomycetes	Pleosporales	
+t248363	301713	Plenodomus lindquistii	target_other	1	2	Dothideomycetes	Pleosporales	
+t4117	5022	Plenodomus lingam	target_other	4	9	Dothideomycetes	Pleosporales	
+t872665	1077377	Plenodomus tracheiphilus	target_other	1	2	Dothideomycetes	Pleosporales	
+t1005209	1231657	Clohesyomyces aquaticus	host_associate	1	1	Dothideomycetes	Pleosporales	
+t577009	673940	Lindgomyces ingoldianus	plant_associate	2	2	Dothideomycetes	Pleosporales	
+t114691	147567	Lojkania enalia	plant_associate	1	1	Dothideomycetes	Pleosporales	
+t310972	372055	Lophiostoma macrostomum	target_other	1	1	Dothideomycetes	Pleosporales	
+t592063	690887	Lophiotrema nucula	plant_associate	1	1	Dothideomycetes	Pleosporales	
+t114684	147558	Byssothecium circinans	plant_associate	1	1	Dothideomycetes	Pleosporales	
+t25782	45293	Massarina eburnea	target_other	1	1	Dothideomycetes	Pleosporales	
+t1070972	1303443	Periconia digitata	target_cereal	1	1	Dothideomycetes	Pleosporales	yes
+t71417	97972	Periconia macrospinosa	plant_associate	1	1	Dothideomycetes	Pleosporales	yes
+t30539	50730	Ampelomyces quisqualis	plant_associate	1	2	Dothideomycetes	Pleosporales	
+t1223143	1469910	Ophiobolus disseminans	plant_associate	1	1	Dothideomycetes	Pleosporales	
+t646920	798071	Paraphoma chrysanthemicola	target_cereal	2	3	Dothideomycetes	Pleosporales	yes
+t10472	13684	Parastagonospora nodorum	target_cereal	156	180	Dothideomycetes	Pleosporales	yes
+t2425204	2821754	Phaeosphaeria sp. MPI-PUGE-AT-0046c	target_other	1	1	Dothideomycetes	Pleosporales	
+t1492521	1770614	Phaeosphaeriaceae sp. PMI808	target_other	1	1	Dothideomycetes	Pleosporales	
+t641247	765868	Phaeosphaeriaceae sp. SRC1lsM3a	target_other	1	1	Dothideomycetes	Pleosporales	
+t170783	210430	Setomelanomma holmii	plant_associate	1	1	Dothideomycetes	Pleosporales	
+t73218	100044	Pleomassaria siparia	target_other	1	1	Dothideomycetes	Pleosporales	
+t4524	5599	Alternaria alternata	target_cereal	35	171	Dothideomycetes	Pleosporales	yes
+t122608	156630	Alternaria arborescens	plant_associate	4	24	Dothideomycetes	Pleosporales	yes
+t190144	232088	Alternaria arbusti	plant_associate	2	3	Dothideomycetes	Pleosporales	
+t90495	119953	Alternaria atra	target_cereal	4	6	Dothideomycetes	Pleosporales	yes
+t12613	29001	Alternaria brassicicola	target_other	1	11	Dothideomycetes	Pleosporales	
+t965142	1187904	Alternaria burnsii	plant_associate	3	4	Dothideomycetes	Pleosporales	yes
+t144328	181017	Alternaria conjuncta	plant_associate	2	3	Dothideomycetes	Pleosporales	
+t28267	48095	Alternaria dauci	target_other	2	3	Dothideomycetes	Pleosporales	
+t144326	181014	Alternaria ethzedia	plant_associate	2	3	Dothideomycetes	Pleosporales	
+t132412	167740	Alternaria gaisen	plant_associate	1	18	Dothideomycetes	Pleosporales	yes
+t965161	1187925	Alternaria hordeiaustralica	plant_associate	2	2	Dothideomycetes	Pleosporales	
+t965164	1187928	Alternaria incomplexa	target_other	2	2	Dothideomycetes	Pleosporales	
+t25791	45303	Alternaria infectoria	plant_associate	2	2	Dothideomycetes	Pleosporales	yes
+t232208	283354	Alternaria metachromatica	plant_associate	2	3	Dothideomycetes	Pleosporales	yes
+t363869	430562	Alternaria novae-zelandiae	plant_associate	2	2	Dothideomycetes	Pleosporales	
+t28269	48097	Alternaria panax	target_other	1	1	Dothideomycetes	Pleosporales	
+t965173	1187938	Alternaria postmessia	target_other	2	7	Dothideomycetes	Pleosporales	
+t965176	1187941	Alternaria rosae	plant_associate	3	3	Dothideomycetes	Pleosporales	
+t2420697	2817039	Alternaria sp. Ai002NY15	target_other	1	1	Dothideomycetes	Pleosporales	
+t2420699	2817042	Alternaria sp. BMP 0032	target_other	1	1	Dothideomycetes	Pleosporales	
+t2420698	2817041	Alternaria sp. BMP 2799	target_other	1	1	Dothideomycetes	Pleosporales	
+t1410006	1678846	Alternaria sp. MG1	target_other	1	1	Dothideomycetes	Pleosporales	
+t2792886	3450158	Alternaria sp. RS040	target_other	1	1	Dothideomycetes	Pleosporales	
+t90470	119927	Alternaria tenuissima	target_cereal	7	9	Dothideomycetes	Pleosporales	yes
+t244780	297637	Alternaria triticimaculans	plant_associate	2	3	Dothideomycetes	Pleosporales	yes
+t965185	1187951	Alternaria ventricosa	plant_associate	2	2	Dothideomycetes	Pleosporales	yes
+t483861	566460	Alternaria viburni	plant_associate	2	2	Dothideomycetes	Pleosporales	
+t4113	5016	Bipolaris maydis	target_cereal	11	13	Dothideomycetes	Pleosporales	yes
+t74202	101162	Bipolaris oryzae	target_cereal	2	11	Dothideomycetes	Pleosporales	yes
+t1624696	1918533	Bipolaris sivanesaniana	plant_associate	1	1	Dothideomycetes	Pleosporales	
+t25650	45130	Bipolaris sorokiniana	target_cereal	3	20	Dothideomycetes	Pleosporales	yes
+t21245	40125	Bipolaris victoriae	target_cereal	2	3	Dothideomycetes	Pleosporales	yes
+t4114	5017	Bipolaris zeicola	target_cereal	2	5	Dothideomycetes	Pleosporales	yes
+t2349965	2739213	Curvularia cactivora	target_cereal	1	1	Dothideomycetes	Pleosporales	yes
+t69548	95742	Curvularia clavata	target_cereal	1	1	Dothideomycetes	Pleosporales	yes
+t65296	90978	Curvularia kusanoi	plant_associate	1	1	Dothideomycetes	Pleosporales	yes
+t147934	184978	Decorospora gaudefroyi	plant_associate	1	1	Dothideomycetes	Pleosporales	
+t67627	93612	Exserohilum turcicum	target_cereal	4	6	Dothideomycetes	Pleosporales	yes
+t65661	91370	Pyrenophora seminiperda	target_other	1	1	Dothideomycetes	Pleosporales	
+t32909	53485	Pyrenophora teres	target_other	12	26	Dothideomycetes	Pleosporales	
+t25669	45151	Pyrenophora tritici-repentis	target_cereal	26	67	Dothideomycetes	Pleosporales	yes
+t146554	183478	Stemphylium lycopersici	target_other	3	4	Dothideomycetes	Pleosporales	
+t584346	682080	Polyplosphaeria fusca	plant_associate	1	1	Dothideomycetes	Pleosporales	
+t211413	256645	Dendryphion nanum	target_cereal	1	1	Dothideomycetes	Pleosporales	yes
+t327887	390896	Trematosphaeria pertusa	plant_associate	2	2	Dothideomycetes	Pleosporales	
+t1246714	1496277	Lizonia empirigonia	target_other	1	1	Dothideomycetes		
+t846416	1048519	Viridothelium virens	plant_associate	1	2	Dothideomycetes	Trypetheliales	
+t846813	1048955	Tothia fuscella	plant_associate	1	1	Dothideomycetes	Venturiales	
+t30211	50376	Venturia effusa	target_other	1	2	Dothideomycetes	Venturiales	
+t4120	5025	Venturia inaequalis	target_other	4	90	Dothideomycetes	Venturiales	
+t61151	86259	Venturia nashicola	plant_associate	2	3	Dothideomycetes	Venturiales	
+t125616	160035	Zopfia rhizophila	target_other	1	1	Dothideomycetes		
+t240915	293227	Cyphellophora europaea	plant_associate	2	6	Eurotiomycetes	Chaetothyriales	
+t982183	1206335	Epibryon bryophilum	target_other	1	1	Eurotiomycetes	Chaetothyriales	
+t982188	1206340	Epibryon interlamellare	plant_associate	1	1	Eurotiomycetes	Chaetothyriales	
+t982192	1206344	Epibryon turfosorum	target_other	1	1	Eurotiomycetes	Chaetothyriales	
+t60969	86049	Cladophialophora carrionii	plant_associate	3	3	Eurotiomycetes	Chaetothyriales	
+t324075	386627	Cladophialophora chaetospira	plant_associate	1	1	Eurotiomycetes	Chaetothyriales	
+t343993	408822	Cladophialophora minutissima	plant_associate	1	1	Eurotiomycetes	Chaetothyriales	
+t1347487	1608269	Cladophialophora sylvestris	plant_associate	1	1	Eurotiomycetes	Chaetothyriales	
+t4816	5970	Exophiala dermatitidis	plant_associate	30	38	Eurotiomycetes	Chaetothyriales	
+t1563721	1851006	Phialophora macrospora	target_other	1	6	Eurotiomycetes	Chaetothyriales	
+t2746689	3383035	Neophaeococcomyces mojaviensis	target_other	1	1	Eurotiomycetes	Chaetothyriales	
+t153393	191047	Knufia fluminis	plant_associate	1	1	Eurotiomycetes	Chaetothyriales	
+t1372412	1635080	Knufia obscura	target_other	2	2	Eurotiomycetes	Chaetothyriales	
+t806374	1002370	Knufia peltigerae	target_other	1	1	Eurotiomycetes	Chaetothyriales	
+t415345	487661	Aspergillus aculeatinus	congener	2	3	Eurotiomycetes	Eurotiales	
+t4137	5053	Aspergillus aculeatus	target_cereal	2	4	Eurotiomycetes	Eurotiales	yes
+t866864	1070780	Aspergillus affinis	congener	2	2	Eurotiomycetes	Eurotiales	
+t169994	209559	Aspergillus alliaceus	plant_associate	4	5	Eurotiomycetes	Eurotiales	yes
+t139976	176160	Aspergillus ambiguus	congener	2	2	Eurotiomycetes	Eurotiales	
+t562751	656916	Aspergillus arachidicola	plant_associate	2	2	Eurotiomycetes	Eurotiales	
+t22642	41725	Aspergillus aurantiobrunneus	congener	1	1	Eurotiomycetes	Eurotiales	
+t18252	36643	Aspergillus avenaceus	congener	1	1	Eurotiomycetes	Eurotiales	
+t77947	105351	Aspergillus awamori	congener	1	2	Eurotiomycetes	Eurotiales	
+t999987	1226010	Aspergillus bertholletiae	congener	1	1	Eurotiomycetes	Eurotiales	
+t81365	109264	Aspergillus bombycis	congener	2	2	Eurotiomycetes	Eurotiales	
+t264396	319629	Aspergillus brasiliensis	plant_associate	5	6	Eurotiomycetes	Eurotiales	
+t968717	1191711	Aspergillus brunneoviolaceus	congener	2	2	Eurotiomycetes	Eurotiales	
+t39881	61420	Aspergillus caelatus	plant_associate	2	2	Eurotiomycetes	Eurotiales	
+t384990	454130	Aspergillus calidoustus	congener	1	8	Eurotiomycetes	Eurotiales	
+t1526947	1810905	Aspergillus californicus	congener	1	1	Eurotiomycetes	Eurotiales	
+t22072	41068	Aspergillus campestris	congener	2	3	Eurotiomycetes	Eurotiales	
+t22071	41067	Aspergillus candidus	plant_associate	3	3	Eurotiomycetes	Eurotiales	yes
+t22004	40993	Aspergillus carbonarius	target_other	1	1	Eurotiomycetes	Eurotiales	
+t1526948	1810906	Aspergillus carlsbadensis	congener	1	2	Eurotiomycetes	Eurotiales	
+t139980	176166	Aspergillus cavernicola	congener	1	2	Eurotiomycetes	Eurotiales	
+t145280	182096	Aspergillus chevalieri	plant_associate	2	12	Eurotiomycetes	Eurotiales	yes
+t4139	5057	Aspergillus clavatus	plant_associate	2	3	Eurotiomycetes	Eurotiales	yes
+t106526	138285	Aspergillus coremiiformis	congener	1	1	Eurotiomycetes	Eurotiales	
+t264398	319631	Aspergillus costaricensis	congener	2	4	Eurotiomycetes	Eurotiales	
+t490214	573508	Aspergillus cristatus	congener	1	14	Eurotiomycetes	Eurotiales	
+t22665	41757	Aspergillus crustosus	congener	1	1	Eurotiomycetes	Eurotiales	
+t1526951	1810909	Aspergillus desertorum	congener	1	1	Eurotiomycetes	Eurotiales	
+t1621809	1915368	Aspergillus destruens	congener	2	2	Eurotiomycetes	Eurotiales	
+t22651	41743	Aspergillus egyptiacus	congener	1	2	Eurotiomycetes	Eurotiales	
+t22070	41066	Aspergillus ellipticus	congener	1	1	Eurotiomycetes	Eurotiales	
+t1104679	1340029	Aspergillus eucalypticola	congener	2	2	Eurotiomycetes	Eurotiales	
+t1526952	1810910	Aspergillus falconensis	congener	1	1	Eurotiomycetes	Eurotiales	
+t1056637	1287682	Aspergillus felis	congener	3	4	Eurotiomycetes	Eurotiales	
+t968708	1191702	Aspergillus fijiensis	congener	2	3	Eurotiomycetes	Eurotiales	
+t378784	447248	Aspergillus filifer	congener	1	1	Eurotiomycetes	Eurotiales	
+t18243	36630	Aspergillus fischeri	target_other	3	6	Eurotiomycetes	Eurotiales	
+t4141	5059	Aspergillus flavus	target_cereal	14	343	Eurotiomycetes	Eurotiales	yes
+t564065	658358	Aspergillus floccosus	congener	1	1	Eurotiomycetes	Eurotiales	
+t170595	210207	Aspergillus foveolatus	congener	2	2	Eurotiomycetes	Eurotiales	
+t1022194	1250369	Aspergillus fruticulosus	congener	1	1	Eurotiomycetes	Eurotiales	
+t283131	340414	Aspergillus fumigatiaffinis	congener	4	5	Eurotiomycetes	Eurotiales	
+t624108	746128	Aspergillus fumigatus	congener	294	423	Eurotiomycetes	Eurotiales	
+t1255717	1506149	Aspergillus germanicus	congener	1	1	Eurotiomycetes	Eurotiales	
+t22374	41413	Aspergillus glaucus	target_cereal	2	2	Eurotiomycetes	Eurotiales	yes
+t139983	176169	Aspergillus granulosus	plant_associate	1	1	Eurotiomycetes	Eurotiales	
+t1583249	1873369	Aspergillus hancockii	congener	1	1	Eurotiomycetes	Eurotiales	
+t30790	51019	Aspergillus heteromorphus	congener	2	2	Eurotiomycetes	Eurotiales	
+t22650	41742	Aspergillus heterothallicus	congener	1	1	Eurotiomycetes	Eurotiales	
+t971415	1194566	Aspergillus hiratsukae	congener	2	2	Eurotiomycetes	Eurotiales	
+t264394	319626	Aspergillus homomorphus	congener	2	2	Eurotiomycetes	Eurotiales	
+t248501	301854	Aspergillus ibericus	congener	2	2	Eurotiomycetes	Eurotiales	
+t1006088	1232676	Aspergillus indologenus	congener	1	1	Eurotiomycetes	Eurotiales	
+t398667	469274	Aspergillus insuetus	plant_associate	1	1	Eurotiomycetes	Eurotiales	
+t16444	34381	Aspergillus japonicus	plant_associate	2	5	Eurotiomycetes	Eurotiales	
+t1526958	1810916	Aspergillus karnatakaensis	congener	2	2	Eurotiomycetes	Eurotiales	
+t613329	714993	Aspergillus keveii	congener	1	1	Eurotiomycetes	Eurotiales	
+t241542	293939	Aspergillus lentulus	congener	13	14	Eurotiomycetes	Eurotiales	
+t22066	41062	Aspergillus leporis	congener	1	1	Eurotiomycetes	Eurotiales	
+t865461	1069201	Aspergillus luchuensis	plant_associate	6	15	Eurotiomycetes	Eurotiales	
+t139987	176173	Aspergillus lucknowensis	plant_associate	2	2	Eurotiomycetes	Eurotiales	
+t1621814	1915373	Aspergillus magnivesiculatus	congener	1	2	Eurotiomycetes	Eurotiales	
+t106518	138277	Aspergillus melleus	plant_associate	3	3	Eurotiomycetes	Eurotiales	
+t562752	656917	Aspergillus minisclerotigenes	plant_associate	1	3	Eurotiomycetes	Eurotiales	
+t22667	41759	Aspergillus multicolor	congener	2	2	Eurotiomycetes	Eurotiales	
+t1526960	1810919	Aspergillus mulundensis	congener	2	2	Eurotiomycetes	Eurotiales	
+t2211982	2582783	Aspergillus nanangensis	congener	1	1	Eurotiomycetes	Eurotiales	
+t65766	91484	Aspergillus navahoensis	congener	1	1	Eurotiomycetes	Eurotiales	
+t973149	1196635	Aspergillus neoniger	congener	2	3	Eurotiomycetes	Eurotiales	
+t127772	162425	Aspergillus nidulans	plant_associate	6	47	Eurotiomycetes	Eurotiales	
+t4143	5061	Aspergillus niger	target_other	47	129	Eurotiomycetes	Eurotiales	
+t22065	41061	Aspergillus nomiae	congener	2	4	Eurotiomycetes	Eurotiales	
+t283129	340412	Aspergillus novofumigatus	congener	2	2	Eurotiomycetes	Eurotiales	
+t793429	986946	Aspergillus novoparasiticus	congener	1	1	Eurotiomycetes	Eurotiales	
+t106519	138278	Aspergillus ochraceoroseus	congener	3	3	Eurotiomycetes	Eurotiales	
+t1022197	1250372	Aspergillus oleicola	congener	1	1	Eurotiomycetes	Eurotiales	
+t4144	5062	Aspergillus oryzae	plant_associate	17	138	Eurotiomycetes	Eurotiales	yes
+t4149	5067	Aspergillus parasiticus	target_cereal	3	50	Eurotiomycetes	Eurotiales	yes
+t4145	5063	Aspergillus phoenicis	congener	1	1	Eurotiomycetes	Eurotiales	
+t264397	319630	Aspergillus piperis	congener	2	2	Eurotiomycetes	Eurotiales	
+t22375	41414	Aspergillus proliferans	plant_associate	1	2	Eurotiomycetes	Eurotiales	
+t1540488	1825620	Aspergillus pseudocaelatus	congener	1	1	Eurotiomycetes	Eurotiales	
+t139992	176178	Aspergillus pseudodeflectus	plant_associate	2	2	Eurotiomycetes	Eurotiales	
+t1255719	1506151	Aspergillus pseudonomiae	congener	5	5	Eurotiomycetes	Eurotiales	
+t101051	132259	Aspergillus pseudotamarii	congener	2	3	Eurotiomycetes	Eurotiales	
+t1526964	1810923	Aspergillus pseudoustus	congener	1	1	Eurotiomycetes	Eurotiales	
+t1266149	1517512	Aspergillus pseudoviridinutans	congener	2	2	Eurotiomycetes	Eurotiales	
+t994691	1220207	Aspergillus puulaauensis	plant_associate	3	5	Eurotiomycetes	Eurotiales	
+t254610	308745	Aspergillus rambellii	congener	1	1	Eurotiomycetes	Eurotiales	
+t22669	41761	Aspergillus recurvatus	congener	1	1	Eurotiomycetes	Eurotiales	
+t332442	396024	Aspergillus ruber	plant_associate	2	5	Eurotiomycetes	Eurotiales	yes
+t786909	979771	Aspergillus saccharolyticus	congener	2	2	Eurotiomycetes	Eurotiales	
+t1760946	2070753	Aspergillus sclerotialis	congener	1	1	Eurotiomycetes	Eurotiales	
+t415344	487660	Aspergillus sclerotiicarbonarius	congener	1	1	Eurotiomycetes	Eurotiales	
+t264395	319627	Aspergillus sclerotioniger	congener	2	2	Eurotiomycetes	Eurotiales	
+t833678	1034303	Aspergillus sergii	congener	1	1	Eurotiomycetes	Eurotiales	
+t1526966	1810925	Aspergillus similis	congener	1	1	Eurotiomycetes	Eurotiales	
+t1662249	1960876	Aspergillus sp. HF37	congener	1	1	Eurotiomycetes	Eurotiales	
+t22644	41731	Aspergillus spectabilis	congener	1	1	Eurotiomycetes	Eurotiales	
+t1526950	1810908	Aspergillus spinulosporus	congener	1	12	Eurotiomycetes	Eurotiales	
+t1526967	1810926	Aspergillus stella-maris	congener	2	2	Eurotiomycetes	Eurotiales	
+t252373	306088	Aspergillus steynii	congener	2	2	Eurotiomycetes	Eurotiales	
+t51907	75750	Aspergillus sydowii	plant_associate	2	17	Eurotiomycetes	Eurotiales	yes
+t410364	482145	Aspergillus taichungensis	congener	1	1	Eurotiomycetes	Eurotiales	
+t22866	41984	Aspergillus tamarii	plant_associate	1	9	Eurotiomycetes	Eurotiales	yes
+t994672	1220188	Aspergillus tanneri	congener	3	4	Eurotiomycetes	Eurotiales	
+t15509	33178	Aspergillus terreus	plant_associate	6	29	Eurotiomycetes	Eurotiales	yes
+t18251	36642	Aspergillus terricola	congener	1	1	Eurotiomycetes	Eurotiales	
+t1592607	1883080	Aspergillus tetrazonus	congener	1	1	Eurotiomycetes	Eurotiales	
+t22053	41047	Aspergillus thermomutatus	congener	2	2	Eurotiomycetes	Eurotiales	
+t833679	1034304	Aspergillus transmontanensis	congener	1	1	Eurotiomycetes	Eurotiales	
+t4150	5068	Aspergillus tubingensis	plant_associate	10	26	Eurotiomycetes	Eurotiales	
+t1017959	1245748	Aspergillus turcosus	congener	2	2	Eurotiomycetes	Eurotiales	
+t65771	91492	Aspergillus udagawae	congener	7	7	Eurotiomycetes	Eurotiales	
+t1526969	1810928	Aspergillus undulatus	congener	2	2	Eurotiomycetes	Eurotiales	
+t21459	40381	Aspergillus unguis	plant_associate	1	9	Eurotiomycetes	Eurotiales	yes
+t21460	40382	Aspergillus ustus	plant_associate	1	2	Eurotiomycetes	Eurotiales	yes
+t378486	446911	Aspergillus uvarum	plant_associate	2	5	Eurotiomycetes	Eurotiales	
+t236902	288669	Aspergillus vadensis	congener	2	2	Eurotiomycetes	Eurotiales	
+t139995	176181	Aspergillus varians	congener	1	1	Eurotiomycetes	Eurotiales	
+t1526970	1810929	Aspergillus venezuelensis	congener	1	1	Eurotiomycetes	Eurotiales	
+t26826	46472	Aspergillus versicolor	plant_associate	2	7	Eurotiomycetes	Eurotiales	yes
+t563234	657443	Aspergillus violaceofuscus	congener	1	1	Eurotiomycetes	Eurotiales	
+t51727	75553	Aspergillus viridinutans	congener	2	3	Eurotiomycetes	Eurotiales	
+t398672	469283	Aspergillus vitricola	congener	2	2	Eurotiomycetes	Eurotiales	
+t1105716	1341132	Aspergillus welwitschiae	plant_associate	2	9	Eurotiomycetes	Eurotiales	
+t4148	5066	Aspergillus wentii	plant_associate	4	4	Eurotiomycetes	Eurotiales	yes
+t4168	5098	Monascus purpureus	target_cereal	3	15	Eurotiomycetes	Eurotiales	yes
+t1255742	1506179	Penicillium alfredii	target_other	2	2	Eurotiomycetes	Eurotiales	
+t87834	116970	Penicillium angulare	target_other	3	3	Eurotiomycetes	Eurotiales	
+t350951	416450	Penicillium antarcticum	target_other	4	4	Eurotiomycetes	Eurotiales	
+t917159	1131581	Penicillium argentinense	target_other	2	2	Eurotiomycetes	Eurotiales	
+t1549666	1835702	Penicillium arizonense	target_other	2	4	Eurotiomycetes	Eurotiales	
+t918135	1132637	Penicillium atrosanguineum	target_cereal	6	6	Eurotiomycetes	Eurotiales	yes
+t241036	293381	Penicillium bialowiezense	target_other	1	2	Eurotiomycetes	Eurotiales	
+t607250	707954	Penicillium biforme	target_other	1	3	Eurotiomycetes	Eurotiales	
+t96593	126998	Penicillium bovifimosum	target_other	2	2	Eurotiomycetes	Eurotiales	
+t76990	104259	Penicillium brasilianum	target_other	2	3	Eurotiomycetes	Eurotiales	
+t4152	5074	Penicillium brevicompactum	plant_associate	5	12	Eurotiomycetes	Eurotiales	yes
+t4153	5075	Penicillium camemberti	plant_associate	2	15	Eurotiomycetes	Eurotiales	
+t151553	189055	Penicillium canariense	target_other	2	2	Eurotiomycetes	Eurotiales	
+t4160	5083	Penicillium canescens	target_cereal	8	8	Eurotiomycetes	Eurotiales	yes
+t46633	69766	Penicillium capsulatum	target_other	2	4	Eurotiomycetes	Eurotiales	
+t1786882	2100454	Penicillium cataractarum	target_other	2	2	Eurotiomycetes	Eurotiales	
+t2560255	2972120	Penicillium cf. griseofulvum	target_other	3	3	Eurotiomycetes	Eurotiales	
+t2560254	2972119	Penicillium cf. viridicatum	target_other	1	1	Eurotiomycetes	Eurotiales	
+t41927	63820	Penicillium chermesinum	target_other	3	3	Eurotiomycetes	Eurotiales	
+t4154	5076	Penicillium chrysogenum	target_cereal	7	93	Eurotiomycetes	Eurotiales	yes
+t46925	70096	Penicillium cinerascens	target_other	2	2	Eurotiomycetes	Eurotiales	
+t4155	5077	Penicillium citrinum	target_cereal	3	31	Eurotiomycetes	Eurotiales	yes
+t241196	293559	Penicillium concentricum	target_other	2	2	Eurotiomycetes	Eurotiales	
+t18255	36646	Penicillium coprophilum	target_other	3	4	Eurotiomycetes	Eurotiales	
+t47535	70792	Penicillium corylophilum	plant_associate	1	3	Eurotiomycetes	Eurotiales	
+t917142	1131564	Penicillium cosmopolitanum	target_other	2	2	Eurotiomycetes	Eurotiales	
+t18265	36656	Penicillium crustosum	plant_associate	5	8	Eurotiomycetes	Eurotiales	yes
+t41928	63821	Penicillium daleae	target_other	2	2	Eurotiomycetes	Eurotiales	
+t46637	69771	Penicillium decumbens	plant_associate	1	4	Eurotiomycetes	Eurotiales	yes
+t1071221	1303715	Penicillium desertorum	target_other	1	1	Eurotiomycetes	Eurotiales	
+t2423454	2819901	Penicillium diatomitis	target_other	2	2	Eurotiomycetes	Eurotiales	
+t18260	36651	Penicillium digitatum	target_other	6	9	Eurotiomycetes	Eurotiales	
+t51076	74830	Penicillium discolor	plant_associate	11	11	Eurotiomycetes	Eurotiales	
+t1071222	1303716	Penicillium egyptiacum	target_other	1	1	Eurotiomycetes	Eurotiales	
+t11296	27334	Penicillium expansum	target_other	6	15	Eurotiomycetes	Eurotiales	
+t1591878	1882269	Penicillium fimorum	target_other	1	1	Eurotiomycetes	Eurotiales	
+t209886	254877	Penicillium flavigenum	plant_associate	1	1	Eurotiomycetes	Eurotiales	
+t28820	48697	Penicillium freii	plant_associate	2	4	Eurotiomycetes	Eurotiales	yes
+t2695476	3151616	Penicillium frequentans	target_cereal	2	2	Eurotiomycetes	Eurotiales	yes
+t159193	197659	Penicillium glandicola	target_other	1	1	Eurotiomycetes	Eurotiales	
+t4156	5078	Penicillium griseofulvum	target_cereal	2	5	Eurotiomycetes	Eurotiales	yes
+t46640	69774	Penicillium herquei	plant_associate	2	4	Eurotiomycetes	Eurotiales	yes
+t1856156	2184411	Penicillium hesseltinei	target_other	1	1	Eurotiomycetes	Eurotiales	
+t734904	911720	Penicillium hetheringtonii	target_other	1	1	Eurotiomycetes	Eurotiales	
+t875288	1080232	Penicillium hispanicum	target_other	2	2	Eurotiomycetes	Eurotiales	
+t22005	40994	Penicillium hordei	target_other	2	2	Eurotiomycetes	Eurotiales	
+t21390	40296	Penicillium italicum	target_other	1	4	Eurotiomycetes	Eurotiales	
+t68180	94218	Penicillium lagena	target_other	2	2	Eurotiomycetes	Eurotiales	
+t46928	70099	Penicillium lividum	target_cereal	1	1	Eurotiomycetes	Eurotiales	yes
+t1305432	1561947	Penicillium longicatenatum	target_other	3	3	Eurotiomycetes	Eurotiales	
+t1107570	1343394	Penicillium maclennaniae	target_other	2	2	Eurotiomycetes	Eurotiales	
+t250193	303699	Penicillium macrosclerotiorum	target_other	2	2	Eurotiomycetes	Eurotiales	
+t2560256	2972122	Penicillium majusculum	target_other	1	1	Eurotiomycetes	Eurotiales	
+t1090621	1324776	Penicillium malachiteum	target_other	4	4	Eurotiomycetes	Eurotiales	
+t164152	203109	Penicillium manginii	target_other	3	3	Eurotiomycetes	Eurotiales	
+t221973	268346	Penicillium mononematosum	target_other	2	2	Eurotiomycetes	Eurotiales	
+t38780	60175	Penicillium nalgiovense	plant_associate	30	31	Eurotiomycetes	Eurotiales	yes
+t187815	229535	Penicillium nordicum	target_other	1	3	Eurotiomycetes	Eurotiales	
+t1563691	1850975	Penicillium nucicola	target_other	2	2	Eurotiomycetes	Eurotiales	
+t238253	290292	Penicillium occitanis (nom. inval.)	target_other	2	2	Eurotiomycetes	Eurotiales	
+t46646	69780	Penicillium ochrochloron	plant_associate	1	2	Eurotiomycetes	Eurotiales	
+t947558	1167516	Penicillium odoratum	target_other	2	2	Eurotiomycetes	Eurotiales	
+t72461	99116	Penicillium olsonii	plant_associate	5	6	Eurotiomycetes	Eurotiales	
+t46647	69781	Penicillium oxalicum	target_cereal	4	17	Eurotiomycetes	Eurotiales	yes
+t241028	293373	Penicillium palitans	plant_associate	1	14	Eurotiomycetes	Eurotiales	yes
+t917140	1131562	Penicillium pancosmium	target_other	1	2	Eurotiomycetes	Eurotiales	
+t139990	176176	Penicillium paradoxum	target_other	2	2	Eurotiomycetes	Eurotiales	
+t38775	60169	Penicillium polonicum	plant_associate	1	13	Eurotiomycetes	Eurotiales	
+t2701642	3158075	Penicillium psychrofluorescens	target_other	2	2	Eurotiomycetes	Eurotiales	
+t806126	1002107	Penicillium psychrosexuale	target_other	2	2	Eurotiomycetes	Eurotiales	
+t1305536	1562058	Penicillium pulvis	target_other	2	2	Eurotiomycetes	Eurotiales	
+t1611372	1903569	Penicillium riverlandense	target_other	2	2	Eurotiomycetes	Eurotiales	
+t1510076	1792511	Penicillium robsamsonii	target_other	2	3	Eurotiomycetes	Eurotiales	
+t46651	69785	Penicillium rolfsii	plant_associate	1	1	Eurotiomycetes	Eurotiales	
+t4159	5082	Penicillium roqueforti	plant_associate	36	51	Eurotiomycetes	Eurotiales	
+t898272	1108849	Penicillium rubens	target_other	7	17	Eurotiomycetes	Eurotiales	
+t1351159	1612424	Penicillium salamii	target_other	22	23	Eurotiomycetes	Eurotiales	
+t1591881	1882272	Penicillium samsonianum	target_other	2	2	Eurotiomycetes	Eurotiales	
+t38778	60172	Penicillium solitum	plant_associate	4	16	Eurotiomycetes	Eurotiales	yes
+t46655	69789	Penicillium soppii	target_other	2	2	Eurotiomycetes	Eurotiales	
+t1773517	2086405	Penicillium sp. DV-2018c	target_other	2	2	Eurotiomycetes	Eurotiales	
+t2584393	3003415	Penicillium sp. IBT 16267x	target_other	1	1	Eurotiomycetes	Eurotiales	
+t2584395	3003417	Penicillium sp. IBT 18751x	target_other	1	1	Eurotiomycetes	Eurotiales	
+t2584392	3003414	Penicillium sp. IBT 31633x	target_other	1	1	Eurotiomycetes	Eurotiales	
+t2584394	3003416	Penicillium sp. IBT 35674x	target_other	1	1	Eurotiomycetes	Eurotiales	
+t2332362	2720512	Penicillium sp. str. #12	target_other	1	1	Eurotiomycetes	Eurotiales	
+t250192	303698	Penicillium steckii	plant_associate	1	2	Eurotiomycetes	Eurotiales	yes
+t1082695	1316194	Penicillium subrubescens	target_other	3	3	Eurotiomycetes	Eurotiales	
+t2560257	2972123	Penicillium tannophilum	target_other	1	1	Eurotiomycetes	Eurotiales	
+t1731338	2036924	Penicillium taurinense	target_other	1	1	Eurotiomycetes	Eurotiales	
+t133020	168475	Penicillium taxi	target_other	2	2	Eurotiomycetes	Eurotiales	
+t2235794	2608786	Penicillium terrarumae	target_other	1	1	Eurotiomycetes	Eurotiales	
+t241037	293382	Penicillium thymicola	target_other	1	1	Eurotiomycetes	Eurotiales	
+t2441991	2839758	Penicillium ucsense	target_other	2	2	Eurotiomycetes	Eurotiales	
+t1305538	1562060	Penicillium verhagenii	target_other	3	3	Eurotiomycetes	Eurotiales	
+t38777	60171	Penicillium verrucosum	plant_associate	2	5	Eurotiomycetes	Eurotiales	yes
+t38746	60134	Penicillium viridicatum	plant_associate	2	2	Eurotiomycetes	Eurotiales	yes
+t13307	29845	Penicillium vulpinum	plant_associate	3	4	Eurotiomycetes	Eurotiales	yes
+t46657	69791	Penicillium waksmanii	target_cereal	2	2	Eurotiomycetes	Eurotiales	yes
+t443663	519963	Elaphomyces granulatus	plant_associate	2	2	Eurotiomycetes	Eurotiales	
+t2585148	3004212	Paecilomyces lecythidis	target_other	2	8	Eurotiomycetes	Eurotiales	
+t218848	264951	Paecilomyces variotii	plant_associate	27	35	Eurotiomycetes	Eurotiales	yes
+t4162	5087	Thermoascus aurantiacus	plant_associate	1	2	Eurotiomycetes	Eurotiales	
+t4163	5088	Thermoascus crustaceus	plant_associate	2	3	Eurotiomycetes	Eurotiales	
+t45888	68825	Rasamsonia emersonii	plant_associate	3	3	Eurotiomycetes	Eurotiales	
+t972651	1196081	Talaromyces amestolkiae	plant_associate	2	6	Eurotiomycetes	Eurotiales	
+t1196326	1441469	Talaromyces atroroseus	congener	2	4	Eurotiomycetes	Eurotiales	
+t12249	28573	Talaromyces islandicus	plant_associate	1	1	Eurotiomycetes	Eurotiales	yes
+t19220	37727	Talaromyces marneffei	plant_associate	7	15	Eurotiomycetes	Eurotiales	
+t97890	128442	Talaromyces pinophilus	plant_associate	3	12	Eurotiomycetes	Eurotiales	
+t917225	1131652	Talaromyces proteolyticus	congener	2	4	Eurotiomycetes	Eurotiales	
+t91958	121627	Talaromyces rugulosus	plant_associate	2	2	Eurotiomycetes	Eurotiales	yes
+t2787433	3438237	Talaromyces sp. ASM 115	congener	1	1	Eurotiomycetes	Eurotiales	
+t12241	28564	Talaromyces stipitatus	congener	2	2	Eurotiomycetes	Eurotiales	yes
+t160191	198730	Talaromyces verruculosus	plant_associate	1	2	Eurotiomycetes	Eurotiales	
+t12242	28565	Thermomyces dupontii	plant_associate	2	2	Eurotiomycetes	Eurotiales	
+t4491	5541	Thermomyces lanuginosus	target_other	2	3	Eurotiomycetes	Eurotiales	
+t49714	73230	[Emmonsia] crescens	plant_associate	2	3	Eurotiomycetes	Onygenales	
+t16450	34391	Epidermophyton floccosum	plant_associate	2	4	Eurotiomycetes	Onygenales	
+t4129	5041	Malbranchea cinnamomea	plant_associate	2	2	Eurotiomycetes	Onygenales	
+t123871	158046	Phaeomoniella chlamydospora	plant_associate	1	2	Eurotiomycetes	Phaeomoniellales	
+t218987	265104	Trichoglossum hirsutum	plant_associate	2	3	Geoglossomycetes	Geoglossales	
+t87666	116794	Heterodermia speciosa	plant_associate	1	3	Lecanoromycetes	Caliciales	
+t87693	116821	Physcia stellaris	plant_associate	1	2	Lecanoromycetes	Caliciales	
+t83377	111620	Usnea florida	plant_associate	1	1	Lecanoromycetes	Lecanorales	
+t133631	169141	Pseudocyphellaria aurata	plant_associate	1	1	Lecanoromycetes	Peltigerales	
+t375650	443868	Agyrium rufum	plant_associate	1	1	Lecanoromycetes	Pertusariales	
+t1207887	1453789	Toensbergia leucococca	plant_associate	1	2	Lecanoromycetes	Rhizocarpales	
+t1199676	1445009	Teloschistes chrysophthalmus	plant_associate	2	2	Lecanoromycetes	Teloschistales	
+t79790	107463	Xanthoria parietina	plant_associate	1	3	Lecanoromycetes	Teloschistales	
+t4170	5101	Amorphotheca resinae	plant_associate	2	4	Leotiomycetes	Helotiales	
+t25898	45428	Amylocarpus encephaloides	plant_associate	1	1	Leotiomycetes	Helotiales	
+t243994	296797	Chlorociboria aeruginascens	plant_associate	1	2	Leotiomycetes	Helotiales	
+t482904	565419	Coleophoma crateriformis	plant_associate	1	1	Leotiomycetes	Helotiales	
+t1561854	1849047	Coleophoma cylindrospora	plant_associate	1	1	Leotiomycetes	Helotiales	
+t80775	108571	Phlyctema vagabunda	plant_associate	1	2	Leotiomycetes	Helotiales	
+t2401651	2795749	Diplocarpon coronariae	target_other	3	5	Leotiomycetes	Helotiales	
+t766415	946123	Diplocarpon mali	target_other	1	1	Leotiomycetes	Helotiales	
+t766417	946125	Diplocarpon rosae	target_other	2	5	Leotiomycetes	Helotiales	
+t598793	698440	Drepanopeziza brunnea	target_other	5	7	Leotiomycetes	Helotiales	
+t16440	34373	Blumeria graminis	target_cereal	3	9	Leotiomycetes	Helotiales	yes
+t2467094	2867405	Blumeria hordei	target_other	2	7	Leotiomycetes	Helotiales	
+t32124	52586	Erysiphe necator	target_other	2	7	Leotiomycetes	Helotiales	
+t172785	212602	Erysiphe neolycopersici	target_other	1	1	Leotiomycetes	Helotiales	
+t184077	225359	Erysiphe pulchra	plant_associate	1	1	Leotiomycetes	Helotiales	
+t41001	62708	Golovinomyces cichoracearum	plant_associate	3	4	Leotiomycetes	Helotiales	
+t41005	62714	Golovinomyces magnicellulatus	plant_associate	1	1	Leotiomycetes	Helotiales	
+t55042	79252	Podosphaera aphanis	plant_associate	2	3	Leotiomycetes	Helotiales	
+t55039	79249	Podosphaera leucotricha	target_other	3	4	Leotiomycetes	Helotiales	
+t1657635	1954211	Bisporella sp. PMI_857	target_other	1	1	Leotiomycetes	Helotiales	
+t294989	354080	Cudoniella acicularis	plant_associate	1	1	Leotiomycetes	Helotiales	
+t74820	101852	Glarea lozoyensis	target_other	3	3	Leotiomycetes	Helotiales	
+t509649	595503	Hymenoscyphus albidus	plant_associate	1	1	Leotiomycetes	Helotiales	
+t624730	746836	Hymenoscyphus fraxineus	target_other	1	3	Leotiomycetes	Helotiales	
+t2117043	2482752	Hyaloscypha bicolor	target_other	2	2	Leotiomycetes	Helotiales	
+t2117044	2482753	Hyaloscypha finlandica	target_other	1	1	Leotiomycetes	Helotiales	
+t1769792	2082293	Hyaloscypha hepaticicola	plant_associate	1	1	Leotiomycetes	Helotiales	
+t2241427	2614599	Hyaloscypha sp. PMI_1271	target_other	1	1	Leotiomycetes	Helotiales	
+t2117048	2482757	Hyaloscypha variabilis	target_other	2	2	Leotiomycetes	Helotiales	
+t712964	886606	Acephala macrosclerotiorum	plant_associate	1	1	Leotiomycetes	Helotiales	
+t116026	149040	Mollisia scopiformis	plant_associate	2	2	Leotiomycetes	Helotiales	
+t492322	576137	Phialocephala subalpina	plant_associate	1	1	Leotiomycetes	Helotiales	
+t30895	51156	Cadophora gregata	target_other	3	3	Leotiomycetes	Helotiales	
+t80271	108018	Cadophora malorum	target_other	1	2	Leotiomycetes	Helotiales	
+t1237002	1485229	Cadophora sp. DSE1049	target_other	1	3	Leotiomycetes	Helotiales	
+t2381511	2774352	Cadophora sp. M221	target_other	1	1	Leotiomycetes	Helotiales	
+t1820594	2138324	Cadophora sp. MPI-SDFR-AT-0126	target_other	1	1	Leotiomycetes	Helotiales	
+t60954	86028	Oculimacula yallundae	target_cereal	1	1	Leotiomycetes	Helotiales	yes
+t737197	914238	Rhynchosporium agropyri	plant_associate	1	1	Leotiomycetes	Helotiales	
+t2398715	2792576	Rhynchosporium graminicola	target_other	2	2	Leotiomycetes	Helotiales	
+t19457	38038	Rhynchosporium secalis	target_other	1	1	Leotiomycetes	Helotiales	
+t1820272	2137868	Polyphilus sieberi	target_other	1	1	Leotiomycetes	Helotiales	
+t1736535	2042821	Rhexocercosporidium sp. MPI-PUGE-AT-0058	target_other	1	1	Leotiomycetes	Helotiales	
+t1731324	2036908	Clarireedia jacksonii	target_other	2	9	Leotiomycetes	Helotiales	
+t19848	38488	Botryotinia calthae	plant_associate	1	1	Leotiomycetes	Helotiales	
+t33935	54673	Botryotinia convoluta	plant_associate	1	1	Leotiomycetes	Helotiales	
+t228599	278942	Botryotinia globosa	target_other	1	1	Leotiomycetes	Helotiales	
+t228601	278944	Botryotinia narcissicola	plant_associate	1	1	Leotiomycetes	Helotiales	
+t107681	139639	Botrytis aclada	target_other	1	1	Leotiomycetes	Helotiales	
+t107683	139641	Botrytis byssoidea	target_other	2	2	Leotiomycetes	Helotiales	
+t21613	40559	Botrytis cinerea	target_other	15	66	Leotiomycetes	Helotiales	
+t2113918	2478750	Botrytis deweyae	target_other	2	2	Leotiomycetes	Helotiales	
+t228595	278938	Botrytis elliptica	target_other	2	3	Leotiomycetes	Helotiales	
+t1665386	1964551	Botrytis fragariae	target_other	2	2	Leotiomycetes	Helotiales	
+t228597	278940	Botrytis galanthina	plant_associate	1	1	Leotiomycetes	Helotiales	
+t228600	278943	Botrytis hyacinthi	plant_associate	1	1	Leotiomycetes	Helotiales	
+t228605	278948	Botrytis paeoniae	plant_associate	1	2	Leotiomycetes	Helotiales	
+t61968	87229	Botrytis porri	target_other	3	3	Leotiomycetes	Helotiales	
+t1217469	1463999	Botrytis sinoallii	target_other	2	2	Leotiomycetes	Helotiales	
+t61969	87230	Botrytis tulipae	plant_associate	1	1	Leotiomycetes	Helotiales	
+t554288	647257	Ciborinia camelliae	plant_associate	1	2	Leotiomycetes	Helotiales	
+t19819	38448	Monilinia fructicola	target_other	2	6	Leotiomycetes	Helotiales	
+t19824	38457	Monilinia fructigena	target_other	1	5	Leotiomycetes	Helotiales	
+t39699	61186	Monilinia laxa	target_other	1	3	Leotiomycetes	Helotiales	
+t39717	61207	Monilinia vaccinii-corymbosi	plant_associate	1	2	Leotiomycetes	Helotiales	
+t2327156	2714548	Myriosclerotinia sulcatula	target_other	1	1	Leotiomycetes	Helotiales	
+t53125	77105	Sclerotinia borealis	target_cereal	1	1	Leotiomycetes	Helotiales	yes
+t293861	352851	Sclerotinia nivalis	target_other	1	2	Leotiomycetes	Helotiales	
+t4229	5180	Sclerotinia sclerotiorum	target_other	3	38	Leotiomycetes	Helotiales	
+t12228	28548	Sclerotinia trifoliorum	target_other	1	1	Leotiomycetes	Helotiales	
+t19851	38492	Stromatinia cepivora	target_other	1	2	Leotiomycetes	Helotiales	
+t4489	5539	Scytalidium lignicola	target_cereal	1	1	Leotiomycetes		yes
+t2120897	2487125	Scytalidium sp. 3C	target_other	1	1	Leotiomycetes		
+t28814	48691	Neolecta irregularis	target_other	1	1	Neolectomycetes	Neolectales	
+t50770	74498	Arthrobotrys conoides	plant_associate	1	3	Orbiliomycetes	Orbiliales	
+t27502	47236	Arthrobotrys musiformis	plant_associate	1	4	Orbiliomycetes	Orbiliales	
+t50771	74499	Drechslerella dactyloides	plant_associate	1	3	Orbiliomycetes	Orbiliales	
+t2689580	3140254	Orbilia brochopaga	plant_associate	2	3	Orbiliomycetes	Orbiliales	
+t25204	44645	Rhizina undulata	target_other	1	1	Pezizomycetes	Pezizales	
+t38269	59557	Tuber aestivum	plant_associate	1	1	Pezizomycetes	Pezizales	
+t39026	60458	Tuber brumale	plant_associate	1	1	Pezizomycetes	Pezizales	
+t20643	39416	Tuber melanosporum	plant_associate	2	2	Pezizomycetes	Pezizales	
+t24650	43982	Ambrosiozyma monospora	plant_associate	2	4	Pichiomycetes	Pichiales	
+t1106701	1342318	Komagataella kurtzmanii	target_other	1	6	Pichiomycetes	Pichiales	
+t4050	4922	Komagataella pastoris	target_other	1	41	Pichiomycetes	Pichiales	
+t390866	460519	Komagataella phaffii	target_other	7	139	Pichiomycetes	Pichiales	
+t262147	317047	Kuraishia capsulata	plant_associate	2	3	Pichiomycetes	Pichiales	
+t698824	870730	Ogataea angusta	plant_associate	11	12	Pichiomycetes	Pichiales	
+t198069	241526	Candida africana	host_associate	1	1	Pichiomycetes	Serinales	
+t4450	5476	Candida albicans	host_associate	30	149	Pichiomycetes	Serinales	
+t23212	42374	Candida dubliniensis	host_associate	2	11	Pichiomycetes	Serinales	
+t4453	5479	Candida maltosa	host_associate	2	3	Pichiomycetes	Serinales	
+t4456	5482	Candida tropicalis	host_associate	7	119	Pichiomycetes	Serinales	
+t4458	5486	Candida viswanathii	host_associate	2	14	Pichiomycetes	Serinales	
+t615745	717740	Hyphopichia burtonii	plant_associate	2	8	Pichiomycetes	Serinales	yes
+t1963619	2315449	Yamadazyma tenuis	plant_associate	4	5	Pichiomycetes	Serinales	
+t25833	45354	Sungouiella intermedia	plant_associate	2	5	Pichiomycetes	Serinales	yes
+t33500	54195	Ascoidea rubescens	plant_associate	2	3	Saccharomycetes	Ascoideales	
+t4040	4903	Williopsis jadinii	plant_associate	3	13	Saccharomycetes	Phaffomycetales	
+t25776	45285	Eremothecium cymbalariae	target_other	2	2	Saccharomycetes	Saccharomycetales	
+t15502	33169	Eremothecium gossypii	target_other	3	3	Saccharomycetes	Saccharomycetales	
+t25777	45286	Eremothecium sinecaudum	target_other	2	2	Saccharomycetes	Saccharomycetales	
+t483473	566037	[Ashbya] aceris (nom. inval.)	target_other	1	1	Saccharomycetes	Saccharomycetales	
+t4043	4911	Kluyveromyces marxianus	plant_associate	9	57	Saccharomycetes	Saccharomycetales	yes
+t4070	4954	Zygosaccharomyces bailii	target_other	3	38	Saccharomycetes	Saccharomycetales	
+t4073	4957	Zygosaccharomyces bisporus	target_other	1	4	Saccharomycetes	Saccharomycetales	
+t23117	42258	Zygosaccharomyces mellis	target_other	1	17	Saccharomycetes	Saccharomycetales	
+t1127872	1365886	Zygosaccharomyces parabailii	target_other	1	88	Saccharomycetes	Saccharomycetales	
+t4072	4956	Zygosaccharomyces rouxii	target_other	4	49	Saccharomycetes	Saccharomycetales	
+t23118	42260	Zygotorulaspora mrakii	congener	2	6	Saccharomycetes	Saccharomycetales	
+t33082	53685	Hanseniaspora valbyensis	plant_associate	2	3	Saccharomycetes	Saccharomycodales	
+t17774	36035	Saccharomycodes ludwigii	plant_associate	3	7	Saccharomycetes	Saccharomycodales	
+t226355	273283	Sarea resinae	target_other	1	1	Sareomycetes	Sareales	
+t279050	335852	Apiospora arundinis	target_other	5	5	Sordariomycetes	Amphisphaeriales	
+t279046	335848	Apiospora aurea	target_other	2	2	Sordariomycetes	Amphisphaeriales	
+t1102541	1337664	Apiospora hydei	target_other	2	2	Sordariomycetes	Amphisphaeriales	
+t2059390	2421359	Apiospora hysterina	target_other	1	1	Sordariomycetes	Amphisphaeriales	
+t1102542	1337665	Apiospora kogelbergensis	target_other	3	3	Sordariomycetes	Amphisphaeriales	
+t279047	335849	Apiospora marii	target_other	3	3	Sordariomycetes	Amphisphaeriales	
+t2502865	2905665	Apiospora phragmitis	target_other	2	2	Sordariomycetes	Amphisphaeriales	
+t795816	990691	Apiospora rasikravindrae	target_other	1	2	Sordariomycetes	Amphisphaeriales	
+t279040	335842	Apiospora saccharicola	target_other	2	3	Sordariomycetes	Amphisphaeriales	
+t2591597	3021424	Apiospora sp. TS-2023a	target_other	1	1	Sordariomycetes	Amphisphaeriales	
+t1392203	1658444	Neoarthrinium moseri	target_other	4	4	Sordariomycetes	Amphisphaeriales	
+t237401	289240	Neopestalotiopsis clavispora	plant_associate	1	1	Sordariomycetes	Amphisphaeriales	
+t2202300	2572875	Neopestalotiopsis sp. 37M	target_other	1	1	Sordariomycetes	Amphisphaeriales	
+t330101	393283	Pestalotiopsis fici	target_other	2	2	Sordariomycetes	Amphisphaeriales	
+t2442166	2839952	Pestalotiopsis sp. 9143b	target_other	1	1	Sordariomycetes	Amphisphaeriales	
+t2496052	2898425	Pestalotiopsis sp. IQ-011	target_other	1	1	Sordariomycetes	Amphisphaeriales	
+t1614578	1907218	Pestalotiopsis sp. NC0098	target_other	1	1	Sordariomycetes	Amphisphaeriales	
+t106348	138064	Seiridium cardinale	plant_associate	3	5	Sordariomycetes	Amphisphaeriales	
+t106349	138065	Seiridium cupressi	target_other	2	2	Sordariomycetes	Amphisphaeriales	
+t106352	138068	Seiridium unicorne	target_other	1	1	Sordariomycetes	Amphisphaeriales	
+t118783	152316	Truncatella angustata	target_other	3	3	Sordariomycetes	Amphisphaeriales	
+t22871	41990	Pleurostoma richardsiae	plant_associate	1	1	Sordariomycetes	Calosphaeriales	
+t886436	1093897	Phialemonium atrogriseum	plant_associate	2	2	Sordariomycetes	Cephalothecales	yes
+t66156	91930	Coniochaeta hoffmannii	plant_associate	2	4	Sordariomycetes	Coniochaetales	
+t140880	177197	Coniochaeta ligniaria	target_other	1	1	Sordariomycetes	Coniochaetales	
+t140882	177199	Coniochaeta pulveracea	plant_associate	1	1	Sordariomycetes	Coniochaetales	
+t1313338	1571157	Coniochaeta sp. 2T2.1	target_other	1	1	Sordariomycetes	Coniochaetales	
+t1204750	1450552	Coniochaeta sp. PMI_546	target_other	1	1	Sordariomycetes	Coniochaetales	
+t4180	5116	Cryphonectria parasitica	target_other	2	99	Sordariomycetes	Diaporthales	
+t208016	252740	Cytospora chrysosperma	target_other	1	2	Sordariomycetes	Diaporthales	
+t1003742	1230097	Cytospora leucostoma	target_other	1	1	Sordariomycetes	Diaporthales	
+t494169	578113	Cytospora mali	target_other	2	4	Sordariomycetes	Diaporthales	
+t2496078	2898453	Cytospora paraplurivora	target_other	1	1	Sordariomycetes	Diaporthales	
+t379514	448051	Cytospora schulzeri	plant_associate	1	1	Sordariomycetes	Diaporthales	
+t989568	1214573	Diaporthe ampelina	target_other	1	3	Sordariomycetes	Diaporthales	
+t989564	1214568	Diaporthe amygdali	target_other	3	6	Sordariomycetes	Diaporthales	
+t97110	127596	Diaporthe australafricana	plant_associate	1	3	Sordariomycetes	Diaporthales	
+t625799	748121	Diaporthe batatas	target_other	2	2	Sordariomycetes	Diaporthales	
+t58436	83186	Diaporthe citri	target_other	2	5	Sordariomycetes	Diaporthales	
+t58435	83184	Diaporthe eres	target_other	3	6	Sordariomycetes	Diaporthales	
+t124343	158607	Diaporthe helianthi	target_other	1	4	Sordariomycetes	Diaporthales	
+t2058086	2419934	Diaporthe ilicicola	plant_associate	1	1	Sordariomycetes	Diaporthales	
+t2241428	2614600	Diaporthe sp. PMI_573	target_other	1	1	Sordariomycetes	Diaporthales	
+t78048	105482	Diaporthe vaccinii	target_other	1	2	Sordariomycetes	Diaporthales	
+t115328	148313	Discula destructiva	plant_associate	1	1	Sordariomycetes	Diaporthales	
+t968200	1191159	Gnomoniopsis smithogilvyi	plant_associate	1	1	Sordariomycetes	Diaporthales	
+t2565986	2978355	Gnomoniopsis sp. IMI 355080	target_other	1	1	Sordariomycetes	Diaporthales	
+t1721534	2025994	Coniella lustricola	target_other	1	1	Sordariomycetes	Diaporthales	
+t1403260	1671311	Colletotrichum abscissum	plant_associate	4	4	Sordariomycetes	Glomerellales	
+t11315	27357	Colletotrichum acutatum	target_other	4	33	Sordariomycetes	Glomerellales	
+t990667	1215731	Colletotrichum aenigma	target_other	2	3	Sordariomycetes	Glomerellales	
+t602205	702518	Colletotrichum asianum	target_other	2	4	Sordariomycetes	Glomerellales	
+t459242	538528	Colletotrichum camelliae	target_other	1	3	Sordariomycetes	Glomerellales	
+t4437	5460	Colletotrichum caudatum	plant_associate	1	1	Sordariomycetes	Glomerellales	
+t286385	343994	Colletotrichum cereale	plant_associate	1	8	Sordariomycetes	Glomerellales	yes
+t607473	708187	Colletotrichum chlorophyti	plant_associate	1	1	Sordariomycetes	Glomerellales	
+t1550667	1836956	Colletotrichum chrysophilum	plant_associate	5	5	Sordariomycetes	Glomerellales	
+t985261	1209916	Colletotrichum costaricense	plant_associate	2	2	Sordariomycetes	Glomerellales	
+t985262	1209917	Colletotrichum cuscutae	plant_associate	1	1	Sordariomycetes	Glomerellales	
+t16457	34406	Colletotrichum destructivum	target_other	2	3	Sordariomycetes	Glomerellales	
+t953066	1173702	Colletotrichum eremochloae	plant_associate	1	1	Sordariomycetes	Glomerellales	
+t98647	129314	Colletotrichum falcatum	target_cereal	1	3	Sordariomycetes	Glomerellales	yes
+t2534523	2940390	Colletotrichum filicis	target_other	1	8	Sordariomycetes	Glomerellales	
+t609239	710243	Colletotrichum fioriniae	plant_associate	7	30	Sordariomycetes	Glomerellales	
+t591487	690256	Colletotrichum fructicola	target_other	9	28	Sordariomycetes	Glomerellales	
+t403792	474922	Colletotrichum gloeosporioides	target_cereal	4	22	Sordariomycetes	Glomerellales	yes
+t985263	1209918	Colletotrichum godetiae	plant_associate	2	9	Sordariomycetes	Glomerellales	
+t14730	31870	Colletotrichum graminicola	target_cereal	3	24	Sordariomycetes	Glomerellales	yes
+t56512	80884	Colletotrichum higginsianum	target_other	5	5	Sordariomycetes	Glomerellales	
+t1315252	1573173	Colletotrichum incanum	plant_associate	2	2	Sordariomycetes	Glomerellales	
+t1933080	2283408	Colletotrichum jinshuiense	plant_associate	2	2	Sordariomycetes	Glomerellales	
+t16458	34407	Colletotrichum kahawae	target_other	1	1	Sordariomycetes	Glomerellales	
+t887582	1095194	Colletotrichum karsti	plant_associate	2	3	Sordariomycetes	Glomerellales	
+t985269	1209924	Colletotrichum limetticola	plant_associate	1	2	Sordariomycetes	Glomerellales	
+t607478	708192	Colletotrichum liriopes	plant_associate	1	5	Sordariomycetes	Glomerellales	
+t113321	145971	Colletotrichum lupini	plant_associate	3	33	Sordariomycetes	Glomerellales	
+t985270	1209925	Colletotrichum melonis	plant_associate	1	1	Sordariomycetes	Glomerellales	
+t1851054	2175873	Colletotrichum musicola	plant_associate	1	1	Sordariomycetes	Glomerellales	
+t584226	681940	Colletotrichum navitas	target_other	2	2	Sordariomycetes	Glomerellales	
+t1067841	1300063	Colletotrichum nigrum	target_other	1	1	Sordariomycetes	Glomerellales	
+t2288315	2664923	Colletotrichum noveboracense	target_other	3	3	Sordariomycetes	Glomerellales	
+t990321	1215361	Colletotrichum nupharicola	target_other	2	2	Sordariomycetes	Glomerellales	
+t252774	306554	Colletotrichum nymphaeae	plant_associate	1	30	Sordariomycetes	Glomerellales	
+t4442	5465	Colletotrichum orbiculare	target_other	1	1	Sordariomycetes	Glomerellales	
+t985271	1209926	Colletotrichum orchidophilum	plant_associate	2	2	Sordariomycetes	Glomerellales	
+t1620795	1914294	Colletotrichum paranaense	target_other	2	2	Sordariomycetes	Glomerellales	
+t299543	359342	Colletotrichum phormii	target_other	2	2	Sordariomycetes	Glomerellales	
+t1851085	2175906	Colletotrichum plurivorum	plant_associate	1	1	Sordariomycetes	Glomerellales	
+t985276	1209931	Colletotrichum salicis	plant_associate	1	1	Sordariomycetes	Glomerellales	
+t985277	1209932	Colletotrichum scovillei	target_other	5	9	Sordariomycetes	Glomerellales	
+t1766808	2078593	Colletotrichum shisoi	target_other	1	2	Sordariomycetes	Glomerellales	
+t591489	690259	Colletotrichum siamense	target_cereal	6	28	Sordariomycetes	Glomerellales	yes
+t1111207	1347389	Colletotrichum sidae	plant_associate	1	1	Sordariomycetes	Glomerellales	
+t603282	703756	Colletotrichum simmondsii	plant_associate	1	4	Sordariomycetes	Glomerellales	
+t1851086	2175907	Colletotrichum sojae	plant_associate	1	2	Sordariomycetes	Glomerellales	
+t1250600	1500509	Colletotrichum somersetense	plant_associate	1	1	Sordariomycetes	Glomerellales	
+t2715013	3239297	Colletotrichum sp. CLE4	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441076	2838794	Colletotrichum sp. SAR 10_65	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441077	2838795	Colletotrichum sp. SAR 10_66	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441078	2838796	Colletotrichum sp. SAR 10_70	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441079	2838797	Colletotrichum sp. SAR 10_71	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441080	2838798	Colletotrichum sp. SAR 10_75	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441081	2838799	Colletotrichum sp. SAR 10_76	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441082	2838800	Colletotrichum sp. SAR 10_77	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441083	2838801	Colletotrichum sp. SAR 10_86	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441084	2838802	Colletotrichum sp. SAR 10_96	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441085	2838803	Colletotrichum sp. SAR 10_98	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441086	2838804	Colletotrichum sp. SAR 10_99	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441092	2838810	Colletotrichum sp. SAR11_239	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441093	2838811	Colletotrichum sp. SAR11_240	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441094	2838812	Colletotrichum sp. SAR11_57	target_other	1	1	Sordariomycetes	Glomerellales	
+t2441095	2838813	Colletotrichum sp. SAR11_59	target_other	1	1	Sordariomycetes	Glomerellales	
+t600410	700344	Colletotrichum spaethianum	target_other	2	2	Sordariomycetes	Glomerellales	
+t1111208	1347390	Colletotrichum spinosum	plant_associate	1	1	Sordariomycetes	Glomerellales	
+t953065	1173701	Colletotrichum sublineola	plant_associate	2	4	Sordariomycetes	Glomerellales	yes
+t984438	1209068	Colletotrichum tabaci	target_other	1	1	Sordariomycetes	Glomerellales	
+t985279	1209934	Colletotrichum tamarilloi	plant_associate	2	3	Sordariomycetes	Glomerellales	
+t1074108	1306861	Colletotrichum tanaceti	plant_associate	2	2	Sordariomycetes	Glomerellales	
+t607483	708197	Colletotrichum tofieldiae	plant_associate	4	8	Sordariomycetes	Glomerellales	
+t4443	5466	Colletotrichum trifolii	target_other	1	1	Sordariomycetes	Glomerellales	
+t735279	912113	Colletotrichum tropicale	plant_associate	2	4	Sordariomycetes	Glomerellales	
+t4444	5467	Colletotrichum truncatum	target_cereal	2	6	Sordariomycetes	Glomerellales	yes
+t917451	1131913	Colletotrichum viniferum	plant_associate	1	2	Sordariomycetes	Glomerellales	
+t991231	1216348	Colletotrichum zoysiae	plant_associate	1	1	Sordariomycetes	Glomerellales	
+t21693	40658	Plectosphaerella cucumerina	target_cereal	1	4	Sordariomycetes	Glomerellales	yes
+t757329	936078	Plectosphaerella plurivora	target_other	1	1	Sordariomycetes	Glomerellales	
+t334586	398408	Sodiomyces alcalophilus	target_other	2	2	Sordariomycetes	Glomerellales	
+t1070453	1302862	Sodiomyces alkalinus	target_other	2	2	Sordariomycetes	Glomerellales	
+t11297	27335	Verticillium albo-atrum	target_other	2	6	Sordariomycetes	Glomerellales	
+t849207	1051613	Verticillium alfalfae	plant_associate	2	4	Sordariomycetes	Glomerellales	
+t11298	27337	Verticillium dahliae	target_other	13	63	Sordariomycetes	Glomerellales	
+t73870	100787	Verticillium longisporum	target_other	5	21	Sordariomycetes	Glomerellales	
+t849210	1051616	Verticillium nonalfalfae	target_other	17	24	Sordariomycetes	Glomerellales	
+t9930	12942	Aphanocladium album	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t125851	160290	Clonostachys byssicola	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t1631673	1926264	Clonostachys chloroleuca	target_other	2	5	Sordariomycetes	Hypocreales	
+t125868	160324	Clonostachys rhizophaga	plant_associate	1	2	Sordariomycetes	Hypocreales	
+t13314	29856	Clonostachys rosea	target_cereal	2	78	Sordariomycetes	Hypocreales	yes
+t125843	160281	Clonostachys solani	plant_associate	1	2	Sordariomycetes	Hypocreales	
+t886818	1094350	Geosmithia morbida	plant_associate	2	3	Sordariomycetes	Hypocreales	
+t4131	5044	Hapsidospora chrysogena	target_cereal	1	4	Sordariomycetes	Hypocreales	yes
+t2189425	2559226	Claviceps aff. humidiphila group G2b	target_other	1	1	Sordariomycetes	Hypocreales	
+t1667979	1967640	Claviceps aff. purpurea	target_other	1	2	Sordariomycetes	Hypocreales	
+t58459	83212	Claviceps africana	target_cereal	1	1	Sordariomycetes	Hypocreales	yes
+t1361582	1623583	Claviceps arundinis	target_other	2	4	Sordariomycetes	Hypocreales	
+t1385015	1649128	Claviceps capensis	target_other	1	2	Sordariomycetes	Hypocreales	
+t40428	62069	Claviceps citrina	target_other	1	1	Sordariomycetes	Hypocreales	
+t203231	247652	Claviceps cyperi	target_other	1	2	Sordariomycetes	Hypocreales	
+t209909	254901	Claviceps digitariae	target_other	1	1	Sordariomycetes	Hypocreales	
+t1063067	1294629	Claviceps humidiphila	target_other	1	1	Sordariomycetes	Hypocreales	
+t1523017	1806559	Claviceps lovelessii	target_other	1	1	Sordariomycetes	Hypocreales	
+t63688	89174	Claviceps maximensis	target_other	1	1	Sordariomycetes	Hypocreales	
+t1385016	1649129	Claviceps monticola	target_other	1	2	Sordariomycetes	Hypocreales	
+t1385014	1649127	Claviceps pazoutovae	target_other	1	2	Sordariomycetes	Hypocreales	
+t4175	5111	Claviceps purpurea	target_cereal	24	58	Sordariomycetes	Hypocreales	yes
+t93648	123648	Claviceps pusilla	target_cereal	1	1	Sordariomycetes	Hypocreales	yes
+t70459	96774	Claviceps sorghi	target_cereal	1	1	Sordariomycetes	Hypocreales	yes
+t2189429	2559230	Claviceps sp. Clav32 group G5	target_other	1	2	Sordariomycetes	Hypocreales	
+t2189428	2559229	Claviceps sp. Clav50 group G5	target_other	1	2	Sordariomycetes	Hypocreales	
+t2189423	2559224	Claviceps sp. LM218 group G6	target_other	1	1	Sordariomycetes	Hypocreales	
+t2189422	2559223	Claviceps sp. LM219 group G6	target_other	1	2	Sordariomycetes	Hypocreales	
+t2189421	2559222	Claviceps sp. LM220 group G6	target_other	1	2	Sordariomycetes	Hypocreales	
+t2189420	2559221	Claviceps sp. LM454 group G7	target_other	1	1	Sordariomycetes	Hypocreales	
+t2189430	2559231	Claviceps sp. LM458 group G5	target_other	1	1	Sordariomycetes	Hypocreales	
+t2189427	2559228	Claviceps sp. LM77 group G4	target_other	1	2	Sordariomycetes	Hypocreales	
+t2189426	2559227	Claviceps sp. LM78 group G4	target_other	1	1	Sordariomycetes	Hypocreales	
+t2189424	2559225	Claviceps sp. LM84 group G4	target_other	1	2	Sordariomycetes	Hypocreales	
+t1063068	1294630	Claviceps spartinae	target_other	1	2	Sordariomycetes	Hypocreales	
+t894856	1105319	Conoideocrella luteorostrata	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t55358	79588	Epichloe bromicola	plant_associate	2	11	Sordariomycetes	Hypocreales	
+t17483	35717	Epichloe festucae	target_other	1	18	Sordariomycetes	Hypocreales	
+t66801	92637	Metarhizium acridum	target_cereal	5	11	Sordariomycetes	Hypocreales	yes
+t66796	92629	Metarhizium album	congener	2	2	Sordariomycetes	Hypocreales	
+t4483	5530	Metarhizium anisopliae	congener	6	14	Sordariomycetes	Hypocreales	
+t426641	500148	Metarhizium brunneum	congener	5	7	Sordariomycetes	Hypocreales	
+t133539	169041	Metarhizium guizhouense	congener	1	1	Sordariomycetes	Hypocreales	
+t2225019	2596975	Metarhizium humberi	congener	1	1	Sordariomycetes	Hypocreales	
+t2695650	3151832	Metarhizium hybridum	congener	1	1	Sordariomycetes	Hypocreales	
+t1386137	1650735	Metarhizium majus	congener	2	2	Sordariomycetes	Hypocreales	
+t1385112	1649241	Metarhizium rileyi	plant_associate	2	7	Sordariomycetes	Hypocreales	
+t485443	568076	Metarhizium robertsii	target_other	4	9	Sordariomycetes	Hypocreales	
+t230185	280754	Pochonia chlamydosporia	plant_associate	3	7	Sordariomycetes	Hypocreales	
+t940366	1159556	Ustilaginoidea virens	target_cereal	3	8	Sordariomycetes	Hypocreales	yes
+t2327366	2714763	Akanthomyces lecanii	target_cereal	2	14	Sordariomycetes	Hypocreales	yes
+t1893194	2231603	Akanthomyces muscarius	congener	2	5	Sordariomycetes	Hypocreales	
+t865341	1069075	Beauveria asiatica	congener	3	15	Sordariomycetes	Hypocreales	
+t140079	176275	Beauveria bassiana	target_other	12	229	Sordariomycetes	Hypocreales	
+t89019	118266	Beauveria brongniartii	plant_associate	1	18	Sordariomycetes	Hypocreales	
+t2302979	2684613	Beauveria gryllotalpidicola	congener	1	1	Sordariomycetes	Hypocreales	
+t2458080	2857482	Beauveria mimosiformis	congener	1	1	Sordariomycetes	Hypocreales	
+t2458081	2857483	Beauveria namnaoensis	congener	2	2	Sordariomycetes	Hypocreales	
+t2458082	2857484	Beauveria neobassiana	congener	3	3	Sordariomycetes	Hypocreales	
+t2458083	2857485	Beauveria thailandica	congener	3	3	Sordariomycetes	Hypocreales	
+t24005	43265	Cordyceps javanica	plant_associate	4	40	Sordariomycetes	Hypocreales	
+t398250	468837	Lecanicillium saksenae	plant_associate	1	3	Sordariomycetes	Hypocreales	
+t67611	93593	Simplicillium lamellicola	plant_associate	1	8	Sordariomycetes	Hypocreales	
+t67609	93591	Zarea fungicola	plant_associate	1	3	Sordariomycetes	Hypocreales	
+t418633	491253	Cladobotryum mycophilum	plant_associate	1	2	Sordariomycetes	Hypocreales	
+t971869	1195187	Trichoderma aethiopicum	target_other	1	1	Sordariomycetes	Hypocreales	
+t1313798	1571655	Trichoderma afarasin	target_other	1	1	Sordariomycetes	Hypocreales	
+t1310313	1567482	Trichoderma afroharzianum	target_other	1	10	Sordariomycetes	Hypocreales	
+t137286	173216	Trichoderma aggressivum	target_other	2	2	Sordariomycetes	Hypocreales	
+t418052	490622	Trichoderma arundinaceum	target_other	1	5	Sordariomycetes	Hypocreales	
+t602081	702382	Trichoderma asperelloides	target_other	2	4	Sordariomycetes	Hypocreales	
+t74241	101201	Trichoderma asperellum	plant_associate	6	27	Sordariomycetes	Hypocreales	
+t41738	63577	Trichoderma atroviride	plant_associate	10	23	Sordariomycetes	Hypocreales	yes
+t302008	362043	Trichoderma austrokoningii	target_other	1	1	Sordariomycetes	Hypocreales	
+t734451	911154	Trichoderma barbatum	target_other	1	1	Sordariomycetes	Hypocreales	
+t1728776	2034170	Trichoderma breve	target_other	2	2	Sordariomycetes	Hypocreales	
+t1463404	1738374	Trichoderma camerunense	target_other	2	2	Sordariomycetes	Hypocreales	
+t1242433	1491460	Trichoderma ceciliae	target_other	1	1	Sordariomycetes	Hypocreales	
+t2625274	3060474	Trichoderma cf. simile WF8	target_other	1	1	Sordariomycetes	Hypocreales	
+t212485	257799	Trichoderma chlorosporum	target_other	1	1	Sordariomycetes	Hypocreales	
+t37649	58853	Trichoderma citrinoviride	plant_associate	2	9	Sordariomycetes	Hypocreales	
+t1242034	1490983	Trichoderma compactum	target_other	1	1	Sordariomycetes	Hypocreales	
+t560536	654480	Trichoderma cornu-damae	target_other	1	1	Sordariomycetes	Hypocreales	
+t469185	549676	Trichoderma evansii	plant_associate	2	2	Sordariomycetes	Hypocreales	
+t334807	398673	Trichoderma gamsii	target_other	4	8	Sordariomycetes	Hypocreales	
+t43336	65468	Trichoderma ghanense	plant_associate	2	2	Sordariomycetes	Hypocreales	
+t971871	1195189	Trichoderma gracile	target_other	2	2	Sordariomycetes	Hypocreales	
+t1242439	1491466	Trichoderma guizhouense	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t4493	5544	Trichoderma harzianum	target_cereal	7	31	Sordariomycetes	Hypocreales	yes
+t1310372	1567552	Trichoderma lentiforme	target_other	1	1	Sordariomycetes	Hypocreales	
+t4495	5548	Trichoderma longibrachiatum	target_cereal	2	12	Sordariomycetes	Hypocreales	yes
+t137933	173947	Trichoderma novae-zelandiae	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t688166	858221	Trichoderma parareesei	target_other	1	2	Sordariomycetes	Hypocreales	
+t430442	504485	Trichoderma pleuroticola	target_other	1	1	Sordariomycetes	Hypocreales	
+t31127	51453	Trichoderma reesei	plant_associate	3	33	Sordariomycetes	Hypocreales	
+t1242057	1491008	Trichoderma semiorbis	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t1242451	1491479	Trichoderma simmonsii	target_other	1	1	Sordariomycetes	Hypocreales	
+t2495745	2898082	Trichoderma sp. CBMAI-0020	target_other	1	1	Sordariomycetes	Hypocreales	
+t2495746	2898083	Trichoderma sp. CBMAI-0711	target_other	1	1	Sordariomycetes	Hypocreales	
+t2335955	2724209	Trichoderma sp. SZMC 28011	target_other	1	1	Sordariomycetes	Hypocreales	
+t2422068	2818457	Trichoderma sp. SZMC 28012	target_other	1	1	Sordariomycetes	Hypocreales	
+t2301115	2682604	Trichoderma sp. SZMC 28013	target_other	1	1	Sordariomycetes	Hypocreales	
+t2335958	2724212	Trichoderma sp. SZMC 28014	target_other	1	1	Sordariomycetes	Hypocreales	
+t2422065	2818454	Trichoderma sp. SZMC 28015	target_other	1	1	Sordariomycetes	Hypocreales	
+t2335952	2724206	Trichoderma sp. TUCIM 5745	target_other	1	1	Sordariomycetes	Hypocreales	
+t163978	202918	Trichoderma velutinum	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t13326	29875	Trichoderma virens	target_cereal	4	12	Sordariomycetes	Hypocreales	yes
+t4494	5547	Trichoderma viride	target_cereal	5	8	Sordariomycetes	Hypocreales	yes
+t2746907	3383321	Cosmosporella sp. VM-42	target_other	1	1	Sordariomycetes	Hypocreales	
+t509417	595255	Cylindrodendrum hubeiense	plant_associate	1	2	Sordariomycetes	Hypocreales	
+t874411	1079267	Dactylonectria estremocensis	target_other	1	1	Sordariomycetes	Hypocreales	
+t253880	307937	Dactylonectria macrodidyma	plant_associate	1	2	Sordariomycetes	Hypocreales	
+t4476	5515	Fusarium acuminatum	target_cereal	1	3	Sordariomycetes	Hypocreales	yes
+t54756	78861	Fusarium acutatum	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t1520538	1803897	Fusarium agapanthi	plant_associate	1	2	Sordariomycetes	Hypocreales	
+t2315857	2698982	Fusarium akasia	target_other	2	2	Sordariomycetes	Hypocreales	
+t1009918	1237068	Fusarium albosuccineum	target_other	1	1	Sordariomycetes	Hypocreales	
+t100464	131363	Fusarium ambrosium	plant_associate	5	5	Sordariomycetes	Hypocreales	
+t28628	48484	Fusarium annulatum	plant_associate	1	9	Sordariomycetes	Hypocreales	yes
+t28629	48485	Fusarium anthophilum	target_cereal	1	1	Sordariomycetes	Hypocreales	yes
+t2004364	2364996	Fusarium austroafricanum	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t231492	282268	Fusarium austroamericanum	plant_associate	1	5	Sordariomycetes	Hypocreales	
+t21308	40199	Fusarium avenaceum	target_cereal	4	16	Sordariomycetes	Hypocreales	yes
+t2315858	2698983	Fusarium awan	target_other	2	2	Sordariomycetes	Hypocreales	
+t25005	44412	Fusarium beomiforme	plant_associate	1	1	Sordariomycetes	Hypocreales	yes
+t54892	79018	Fusarium bulbicola	target_other	1	2	Sordariomycetes	Hypocreales	
+t1442603	1715230	Fusarium cf. solani	plant_associate	14	24	Sordariomycetes	Hypocreales	
+t61357	86545	Fusarium chlamydosporum	target_cereal	1	2	Sordariomycetes	Hypocreales	yes
+t2484285	2885761	Fusarium chuoi	target_other	2	2	Sordariomycetes	Hypocreales	
+t28633	48490	Fusarium circinatum	target_other	1	19	Sordariomycetes	Hypocreales	
+t189407	231269	Fusarium coffeatum	target_other	2	4	Sordariomycetes	Hypocreales	
+t1310361	1567539	Fusarium coicis	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t204802	249398	Fusarium commune	plant_associate	1	12	Sordariomycetes	Hypocreales	yes
+t4477	5516	Fusarium culmorum	target_cereal	9	14	Sordariomycetes	Hypocreales	yes
+t36168	57161	Fusarium decemcellulare	target_cereal	2	3	Sordariomycetes	Hypocreales	yes
+t28649	48507	Fusarium denticulatum	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t2544203	2951361	Fusarium drepaniforme	target_other	1	2	Sordariomycetes	Hypocreales	
+t1091524	1325734	Fusarium duplospermum	target_other	3	3	Sordariomycetes	Hypocreales	
+t39732	61235	Fusarium equiseti	target_cereal	2	26	Sordariomycetes	Hypocreales	yes
+t931290	1147111	Fusarium euwallaceae	plant_associate	5	7	Sordariomycetes	Hypocreales	
+t156865	195108	Fusarium falciforme	plant_associate	7	12	Sordariomycetes	Hypocreales	yes
+t2294968	2675880	Fusarium flagelliforme	plant_associate	3	4	Sordariomycetes	Hypocreales	yes
+t1091523	1325733	Fusarium floridanum	plant_associate	5	5	Sordariomycetes	Hypocreales	
+t4185	5127	Fusarium fujikuroi	target_cereal	19	32	Sordariomycetes	Hypocreales	yes
+t231735	282569	Fusarium gaditjirri	target_other	1	1	Sordariomycetes	Hypocreales	
+t54758	78864	Fusarium globosum	plant_associate	1	1	Sordariomycetes	Hypocreales	yes
+t4478	5518	Fusarium graminearum	target_cereal	34	153	Sordariomycetes	Hypocreales	yes
+t61358	86546	Fusarium graminum	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t23542	42747	Fusarium heterosporum	target_cereal	1	1	Sordariomycetes	Hypocreales	yes
+t2127898	2494466	Fusarium irregulare	target_other	2	3	Sordariomycetes	Hypocreales	
+t1094027	1328300	Fusarium keratoplasticum	plant_associate	3	4	Sordariomycetes	Hypocreales	
+t1708695	2010991	Fusarium kuroshium	plant_associate	2	2	Sordariomycetes	Hypocreales	
+t143383	179993	Fusarium langsethiae	plant_associate	3	4	Sordariomycetes	Hypocreales	yes
+t4480	5523	Fusarium lateritium	target_cereal	15	16	Sordariomycetes	Hypocreales	yes
+t595006	694270	Fusarium longipes	plant_associate	1	4	Sordariomycetes	Hypocreales	yes
+t154282	192010	Fusarium mangiferae	plant_associate	2	3	Sordariomycetes	Hypocreales	
+t2544074	2951228	Fusarium mekan	target_other	2	2	Sordariomycetes	Hypocreales	
+t629108	751941	Fusarium mexicanum	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t1310363	1567541	Fusarium mundagurra	target_other	1	1	Sordariomycetes	Hypocreales	
+t840968	1042133	Fusarium musae	plant_associate	2	3	Sordariomycetes	Hypocreales	
+t23476	42672	Fusarium napiforme	plant_associate	1	1	Sordariomycetes	Hypocreales	yes
+t850766	1053271	Fusarium nematophilum	plant_associate	2	4	Sordariomycetes	Hypocreales	
+t23477	42673	Fusarium nygamai	plant_associate	1	4	Sordariomycetes	Hypocreales	yes
+t1091527	1325738	Fusarium obliquiseptatum	plant_associate	2	3	Sordariomycetes	Hypocreales	
+t2135620	2502994	Fusarium odoratissimum	target_other	4	9	Sordariomycetes	Hypocreales	
+t2231662	2604345	Fusarium oligoseptatum	plant_associate	2	2	Sordariomycetes	Hypocreales	
+t4473	5507	Fusarium oxysporum	target_cereal	72	889	Sordariomycetes	Hypocreales	yes
+t2544204	2951362	Fusarium papillatum	target_other	2	3	Sordariomycetes	Hypocreales	
+t2772320	3417454	Fusarium phalaenopsidis	target_other	2	2	Sordariomycetes	Hypocreales	
+t28013	47803	Fusarium phyllophilum	plant_associate	1	1	Sordariomycetes	Hypocreales	yes
+t1191073	1435070	Fusarium piperis	plant_associate	1	2	Sordariomycetes	Hypocreales	
+t17784	36050	Fusarium poae	target_cereal	4	89	Sordariomycetes	Hypocreales	yes
+t768391	948311	Fusarium proliferatum	target_cereal	9	46	Sordariomycetes	Hypocreales	yes
+t792692	986114	Fusarium pseudensiforme	plant_associate	2	2	Sordariomycetes	Hypocreales	
+t28637	48495	Fusarium pseudoanthophilum	plant_associate	1	1	Sordariomycetes	Hypocreales	yes
+t35751	56676	Fusarium pseudocircinatum	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t74079	101028	Fusarium pseudograminearum	target_cereal	5	7	Sordariomycetes	Hypocreales	yes
+t28976	48865	Fusarium redolens	target_cereal	2	6	Sordariomycetes	Hypocreales	yes
+t2315859	2698985	Fusarium rekanum	plant_associate	2	2	Sordariomycetes	Hypocreales	
+t4186	5128	Fusarium sambucinum	target_cereal	3	6	Sordariomycetes	Hypocreales	yes
+t983820	1208366	Fusarium sarcochroum	plant_associate	1	1	Sordariomycetes	Hypocreales	yes
+t133813	169388	Fusarium solani	target_other	7	30	Sordariomycetes	Hypocreales	
+t2357925	2747967	Fusarium solani-melongenae	plant_associate	1	3	Sordariomycetes	Hypocreales	yes
+t1091526	1325737	Fusarium sp. AF-6	target_other	1	1	Sordariomycetes	Hypocreales	
+t2380762	2773459	Fusarium sp. DS 682	target_other	1	1	Sordariomycetes	Hypocreales	
+t2473927	2874508	Fusarium sp. FIESC RH6	target_other	1	1	Sordariomycetes	Hypocreales	
+t2750500	3387622	Fusarium sp. IMII-1	target_other	1	1	Sordariomycetes	Hypocreales	
+t2496169	2898545	Fusarium sp. LHS14.1	target_other	1	1	Sordariomycetes	Hypocreales	
+t2429335	2826082	Fusarium sp. MPI-SDFR-AT-0072	target_other	1	1	Sordariomycetes	Hypocreales	
+t92581	122381	Fusarium sp. NRRL 25303	target_other	1	1	Sordariomycetes	Hypocreales	
+t892484	1101274	Fusarium sp. NRRL 52700	target_other	1	1	Sordariomycetes	Hypocreales	
+t2309624	2692428	Fusarium sp. NRRL 66182	target_other	1	1	Sordariomycetes	Hypocreales	
+t2496168	2898544	Fusarium sp. Ph1	target_other	1	1	Sordariomycetes	Hypocreales	
+t2616093	3049762	Fusarium sp. VM40	target_other	1	1	Sordariomycetes	Hypocreales	
+t4475	5514	Fusarium sporotrichioides	target_cereal	1	5	Sordariomycetes	Hypocreales	yes
+t23479	42677	Fusarium subglutinans	target_cereal	2	6	Sordariomycetes	Hypocreales	yes
+t1310365	1567544	Fusarium tjaetaba	plant_associate	2	4	Sordariomycetes	Hypocreales	yes
+t1009924	1237075	Fusarium torreyae	plant_associate	1	2	Sordariomycetes	Hypocreales	
+t15528	33205	Fusarium torulosum	plant_associate	1	3	Sordariomycetes	Hypocreales	yes
+t39767	61284	Fusarium tricinctum	target_cereal	1	7	Sordariomycetes	Hypocreales	yes
+t1091525	1325736	Fusarium tuaranense	plant_associate	2	3	Sordariomycetes	Hypocreales	
+t2357926	2747968	Fusarium vanettenii	plant_associate	2	5	Sordariomycetes	Hypocreales	
+t2315860	2698986	Fusarium variasi	target_other	2	2	Sordariomycetes	Hypocreales	
+t35724	56646	Fusarium venenatum	plant_associate	5	6	Sordariomycetes	Hypocreales	yes
+t88028	117187	Fusarium verticillioides	target_cereal	7	67	Sordariomycetes	Hypocreales	yes
+t2315861	2698987	Fusarium warna	target_other	1	1	Sordariomycetes	Hypocreales	
+t180579	221167	Fusarium xylarioides	target_other	6	9	Sordariomycetes	Hypocreales	
+t850636	1053134	Fusarium zealandicum	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t2547321	2954835	[Neocosmospora] mangrovei	target_other	1	1	Sordariomycetes	Hypocreales	
+t2804252	3469074	[Neocosmospora] sp. B6999-1	target_other	7	7	Sordariomycetes	Hypocreales	
+t2804253	3469075	[Neocosmospora] sp. B6999-2	target_other	2	2	Sordariomycetes	Hypocreales	
+t2804254	3469076	[Neocosmospora] sp. B6999-3	target_other	1	1	Sordariomycetes	Hypocreales	
+t2804255	3469077	[Neocosmospora] sp. B6999-4	target_other	7	7	Sordariomycetes	Hypocreales	
+t2804256	3469078	[Neocosmospora] sp. B6999-5	target_other	1	1	Sordariomycetes	Hypocreales	
+t42603	64609	Ilyonectria destructans	target_cereal	1	3	Sordariomycetes	Hypocreales	yes
+t874402	1079257	Ilyonectria robusta	plant_associate	3	7	Sordariomycetes	Hypocreales	
+t2427945	2824670	Ilyonectria sp. MPI-CAGE-AT-0026	target_other	1	1	Sordariomycetes	Hypocreales	
+t1604621	1896173	Mariannaea sp. PMI_226	target_other	1	1	Sordariomycetes	Hypocreales	
+t54328	78410	Neonectria ditissima	target_other	1	6	Sordariomycetes	Hypocreales	
+t2343835	2732573	Neonectria magnoliae	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t786416	979145	Neonectria punicea	plant_associate	1	2	Sordariomycetes	Hypocreales	
+t1461878	1736662	Stylonectria norvegica	target_other	1	1	Sordariomycetes	Hypocreales	
+t1318112	1576542	Thelonectria olida	target_other	1	1	Sordariomycetes	Hypocreales	
+t48807	72228	Ophiocordyceps sinensis	plant_associate	2	6	Sordariomycetes	Hypocreales	
+t15527	33203	Purpureocillium lilacinum	plant_associate	9	18	Sordariomycetes	Hypocreales	yes
+t1349700	1610689	Sarocladium implicatum	plant_associate	1	1	Sordariomycetes	Hypocreales	
+t4132	5046	Sarocladium strictum	target_cereal	2	3	Sordariomycetes	Hypocreales	yes
+t1571913	1859967	Paramyrothecium foliicola	congener	1	1	Sordariomycetes	Hypocreales	
+t50975	74722	Stachybotrys chartarum	plant_associate	3	4	Sordariomycetes	Hypocreales	
+t326111	388913	Stachybotrys chlorohalonatus	target_other	1	2	Sordariomycetes	Hypocreales	
+t56077	80388	Stachybotrys elegans	target_other	1	1	Sordariomycetes	Hypocreales	
+t27529	47278	Trichothecium roseum	target_cereal	1	5	Sordariomycetes	Hypocreales	yes
+t282207	339359	Zalerion maritima	plant_associate	1	1	Sordariomycetes	Lulworthiales	
+t18384	36778	Gaeumannomyces avenae	plant_associate	2	2	Sordariomycetes	Magnaporthales	yes
+t1644550	1940676	Gaeumannomyces hyphopodioides	plant_associate	2	2	Sordariomycetes	Magnaporthales	yes
+t18385	36779	Gaeumannomyces tritici	plant_associate	7	8	Sordariomycetes	Magnaporthales	yes
+t115319	148304	Magnaporthiopsis poae	target_cereal	1	1	Sordariomycetes	Magnaporthales	yes
+t115320	148305	Pyricularia grisea	target_cereal	4	16	Sordariomycetes	Magnaporthales	yes
+t263712	318829	Pyricularia oryzae	target_cereal	63	610	Sordariomycetes	Magnaporthales	yes
+t1320362	1578925	Pyricularia pennisetigena	plant_associate	2	4	Sordariomycetes	Magnaporthales	
+t338846	403063	Pyricularia sp. CBS 133598	target_other	1	1	Sordariomycetes	Magnaporthales	
+t1730295	2035830	Berkeleyomyces rouxiae	plant_associate	3	6	Sordariomycetes	Microascales	
+t4211	5158	Ceratocystis fimbriata	target_other	1	8	Sordariomycetes	Microascales	
+t1715786	2019549	Ceratocystis huliohia	target_other	1	5	Sordariomycetes	Microascales	
+t1715787	2019550	Ceratocystis lukuohia	target_other	2	10	Sordariomycetes	Microascales	
+t214530	259994	Ceratocystis pirilliformis	plant_associate	1	2	Sordariomycetes	Microascales	
+t63327	88771	Ceratocystis platani	target_other	1	4	Sordariomycetes	Microascales	
+t48633	72032	Thielaviopsis punctulata	plant_associate	1	3	Sordariomycetes	Microascales	
+t1734979	2041049	Cephalotrichum gorgonifer	plant_associate	1	1	Sordariomycetes	Microascales	
+t22618	41688	Lomentospora prolificans	target_other	4	7	Sordariomycetes	Microascales	
+t1763678	2075419	Microascus stellatus	plant_associate	1	1	Sordariomycetes	Microascales	
+t1197162	1442378	Parascedosporium putredinis	target_other	2	2	Sordariomycetes	Microascales	
+t481067	563466	Scedosporium apiospermum	target_other	5	12	Sordariomycetes	Microascales	
+t4522	5597	Scedosporium boydii	target_other	3	4	Sordariomycetes	Microascales	
+t185395	226899	Leptographium clavigerum	target_other	2	3	Sordariomycetes	Ophiostomatales	
+t39759	61273	Ophiostoma piceae	plant_associate	1	2	Sordariomycetes	Ophiostomatales	
+t574437	671064	Sporothrix bragantina	target_other	1	1	Sordariomycetes	Ophiostomatales	
+t465696	545650	Sporothrix brasiliensis	target_other	2	2	Sordariomycetes	Ophiostomatales	
+t1031172	1260050	Sporothrix curviconia	target_other	1	2	Sordariomycetes	Ophiostomatales	
+t1601148	1892477	Sporothrix epigloea	target_other	3	3	Sordariomycetes	Ophiostomatales	
+t1528276	1812306	Sporothrix eucalyptigena	target_other	2	2	Sordariomycetes	Ophiostomatales	
+t13351	29908	Sporothrix schenckii	target_other	3	8	Sordariomycetes	Ophiostomatales	
+t4223	5173	Sporothrix stenoceras	plant_associate	2	3	Sordariomycetes	Ophiostomatales	
+t1522513	1805982	Sporothrix thermara	target_other	1	1	Sordariomycetes	Ophiostomatales	
+t1540531	1825666	Phyllachora maydis	target_cereal	1	2	Sordariomycetes	Phyllachorales	yes
+t1045675	1276059	Polystigma amygdalinum	target_other	1	1	Sordariomycetes	Phyllachorales	
+t1763132	2074819	Canariomyces notabilis	target_other	2	2	Sordariomycetes	Sordariales	
+t572576	669021	Chaetomidium leptoderma	plant_associate	1	1	Sordariomycetes	Sordariales	
+t1566844	1854472	Chaetomium fimeti	target_other	2	2	Sordariomycetes	Sordariales	
+t19454	38033	Chaetomium globosum	plant_associate	3	13	Sordariomycetes	Sordariales	yes
+t1237686	1485946	Chaetomium olivicolor	target_other	1	1	Sordariomycetes	Sordariales	
+t2425203	2821753	Chaetomium sp. MPI-CAGE-AT-0009	target_other	1	1	Sordariomycetes	Sordariales	
+t2426549	2823209	Chaetomium sp. MPI-SDFR-AT-0129	target_other	1	1	Sordariomycetes	Sordariales	
+t950571	1170767	Chaetomium strumarium	target_other	2	2	Sordariomycetes	Sordariales	
+t835432	1036253	Chaetomium subaffine	target_other	1	1	Sordariomycetes	Sordariales	
+t1566850	1854479	Chaetomium tenue	target_other	2	2	Sordariomycetes	Sordariales	
+t152478	190048	Corynascus sepedonium	plant_associate	1	1	Sordariomycetes	Sordariales	yes
+t1638990	1934379	Dichotomopilus funicola	plant_associate	2	2	Sordariomycetes	Sordariales	yes
+t1238033	1486343	Humicola hyalothermophila	target_other	1	1	Sordariomycetes	Sordariales	
+t60923	85995	Mycothermus thermophilus	plant_associate	3	4	Sordariomycetes	Sordariales	
+t2216187	2587402	Parathielavia appendiculata	plant_associate	2	2	Sordariomycetes	Sordariales	
+t85112	113614	Parathielavia hyrcaniae	plant_associate	1	1	Sordariomycetes	Sordariales	
+t2217382	2588717	Thermothelomyces myriococcoides	plant_associate	1	1	Sordariomycetes	Sordariales	
+t490498	573856	Pseudorhypophila marina	plant_associate	1	1	Sordariomycetes	Sordariales	
+t215949	261697	Rhypophila decipiens	plant_associate	2	2	Sordariomycetes	Sordariales	
+t500990	585594	Cladorrhinum samala	target_other	1	1	Sordariomycetes	Sordariales	
+t2607546	3039814	Cladorrhinum sp. PSN259	target_other	1	1	Sordariomycetes	Sordariales	
+t2607547	3039815	Cladorrhinum sp. PSN332	target_other	1	1	Sordariomycetes	Sordariales	
+t2216202	2587418	Triangularia verruculosa	plant_associate	1	1	Sordariomycetes	Sordariales	
+t4196	5141	Neurospora crassa	target_cereal	4	10	Sordariomycetes	Sordariales	yes
+t13329	29879	Neurospora discreta	congener	1	44	Sordariomycetes	Sordariales	
+t503766	588809	Neurospora hispaniola	congener	2	2	Sordariomycetes	Sordariales	
+t4197	5142	Neurospora intermedia	congener	1	12	Sordariomycetes	Sordariales	
+t2771887	3416937	Neurospora sp. E-DF1	congener	1	1	Sordariomycetes	Sordariales	
+t2565988	2978357	Neurospora sp. IMI 360204	congener	1	1	Sordariomycetes	Sordariales	
+t21247	40127	Neurospora tetrasperma	congener	3	3	Sordariomycetes	Sordariales	
+t68551	94610	Neurospora tetraspora	plant_associate	2	37	Sordariomycetes	Sordariales	
+t58865	83679	Sordaria brevicollis	target_other	1	1	Sordariomycetes	Sordariales	
+t4201	5147	Sordaria macrospora	plant_associate	5	5	Sordariomycetes	Sordariales	
+t2433549	2830617	Sordaria sp. MPI-SDFR-AT-0083	target_other	1	1	Sordariomycetes	Sordariales	
+t182120	223192	Phaeoacremonium minimum	target_other	2	2	Sordariomycetes	Togniniales	
+t88376	117547	Diatrype stigma	plant_associate	1	1	Sordariomycetes	Xylariales	
+t70757	97096	Eutypa lata	target_other	3	42	Sordariomycetes	Xylariales	
+t270744	326616	Annulohypoxylon bovei	congener	1	1	Sordariomycetes	Xylariales	
+t1633080	1927788	Annulohypoxylon maeteangense	congener	2	2	Sordariomycetes	Xylariales	
+t270748	326622	Annulohypoxylon moriforme	plant_associate	1	1	Sordariomycetes	Xylariales	
+t270749	326626	Annulohypoxylon nitens	plant_associate	1	1	Sordariomycetes	Xylariales	
+t2458084	2857486	Annulohypoxylon sp. FPYF3050	congener	1	1	Sordariomycetes	Xylariales	
+t2743965	3379932	Annulohypoxylon sp. HMH-2024a	congener	1	1	Sordariomycetes	Xylariales	
+t270751	326628	Annulohypoxylon stygium	target_other	1	7	Sordariomycetes	Xylariales	
+t271160	327061	Annulohypoxylon truncatum	plant_associate	2	3	Sordariomycetes	Xylariales	
+t270766	326644	Daldinia caldariorum	plant_associate	2	3	Sordariomycetes	Xylariales	
+t270767	326645	Daldinia childiae	plant_associate	2	2	Sordariomycetes	Xylariales	
+t270769	326647	Daldinia decipiens	plant_associate	2	2	Sordariomycetes	Xylariales	
+t240447	292717	Daldinia eschscholtzii	plant_associate	2	5	Sordariomycetes	Xylariales	
+t76269	103429	Daldinia loculata	plant_associate	3	3	Sordariomycetes	Xylariales	
+t85831	114800	Daldinia vernicosa	plant_associate	2	2	Sordariomycetes	Xylariales	
+t2120781	2487000	Hypomontagnella monticulosa	plant_associate	1	3	Sordariomycetes	Xylariales	
+t1515778	1799007	Hypoxylon argillaceum	plant_associate	1	1	Sordariomycetes	Xylariales	
+t270778	326656	Hypoxylon cercidicola	plant_associate	1	1	Sordariomycetes	Xylariales	
+t270779	326657	Hypoxylon crocopeplum	plant_associate	1	1	Sordariomycetes	Xylariales	
+t41448	63214	Hypoxylon fragiforme	target_other	2	3	Sordariomycetes	Xylariales	
+t81461	109372	Hypoxylon fuscum	target_other	1	1	Sordariomycetes	Xylariales	
+t82422	110542	Hypoxylon rubiginosum	plant_associate	2	4	Sordariomycetes	Xylariales	
+t805880	1001833	Hypoxylon sp. CI-4A	congener	1	1	Sordariomycetes	Xylariales	
+t805965	1001938	Hypoxylon sp. CO27-5	congener	1	1	Sordariomycetes	Xylariales	
+t805964	1001937	Hypoxylon sp. EC38	congener	1	1	Sordariomycetes	Xylariales	
+t2241415	2614586	Hypoxylon sp. FL0543	congener	1	1	Sordariomycetes	Xylariales	
+t2241414	2614585	Hypoxylon sp. FL0890	congener	1	1	Sordariomycetes	Xylariales	
+t2286819	2663364	Hypoxylon sp. FL1150	congener	1	1	Sordariomycetes	Xylariales	
+t2286820	2663365	Hypoxylon sp. FL1284	congener	1	1	Sordariomycetes	Xylariales	
+t2241411	2614582	Hypoxylon sp. FL1857	congener	1	1	Sordariomycetes	Xylariales	
+t2241435	2614607	Hypoxylon sp. NC0597	congener	1	1	Sordariomycetes	Xylariales	
+t2286821	2663366	Hypoxylon sp. NC1633	congener	1	1	Sordariomycetes	Xylariales	
+t2222690	2594544	Hypoxylon texense	congener	1	1	Sordariomycetes	Xylariales	
+t270802	326681	Hypoxylon trugodes	congener	2	2	Sordariomycetes	Xylariales	
+t1658603	1955266	Jackrogersella minutella	plant_associate	1	1	Sordariomycetes	Xylariales	
+t157783	196109	Microdochium bolleyi	target_cereal	1	1	Sordariomycetes	Xylariales	yes
+t554658	647655	Microdochium majus	target_cereal	1	1	Sordariomycetes	Xylariales	yes
+t4479	5520	Microdochium nivale	target_cereal	2	3	Sordariomycetes	Xylariales	yes
+t1413301	1682393	Microdochium trichocladiopsis	target_other	2	2	Sordariomycetes	Xylariales	
+t121549	155416	Monosporascus cannonballus	target_other	2	2	Sordariomycetes	Xylariales	
+t121550	155417	Monosporascus ibericus	plant_associate	1	1	Sordariomycetes	Xylariales	
+t1875203	2211642	Monosporascus sp. 5C6A	target_other	1	1	Sordariomycetes	Xylariales	
+t1875205	2211644	Monosporascus sp. CRB-8-3	target_other	1	1	Sordariomycetes	Xylariales	
+t1875204	2211643	Monosporascus sp. CRB-9-2	target_other	1	1	Sordariomycetes	Xylariales	
+t1875208	2211647	Monosporascus sp. GIB2	target_other	1	1	Sordariomycetes	Xylariales	
+t1875207	2211646	Monosporascus sp. MC13-8B	target_other	1	1	Sordariomycetes	Xylariales	
+t1875206	2211645	Monosporascus sp. MG133	target_other	1	1	Sordariomycetes	Xylariales	
+t876774	1081914	Monosporascus sp. mg162	target_other	1	1	Sordariomycetes	Xylariales	
+t754784	933095	Anthostomella pinea	target_other	1	1	Sordariomycetes	Xylariales	
+t621478	743114	Astrocystis sublimbata	target_other	1	1	Sordariomycetes	Xylariales	
+t82416	110534	Biscogniauxia marginata	target_other	1	2	Sordariomycetes	Xylariales	
+t71011	97377	Biscogniauxia mediterranea	plant_associate	2	3	Sordariomycetes	Xylariales	
+t2241434	2614606	Biscogniauxia sp. FL1348	target_other	1	1	Sordariomycetes	Xylariales	
+t82428	110548	Camillea tinctor	plant_associate	1	1	Sordariomycetes	Xylariales	
+t353902	419775	Durotheca rogersii	target_other	2	2	Sordariomycetes	Xylariales	
+t479830	561989	Nemania abortiva	target_other	1	1	Sordariomycetes	Xylariales	
+t82418	110536	Nemania bipapillata	target_other	1	1	Sordariomycetes	Xylariales	
+t326736	389665	Nemania diffusa	plant_associate	1	2	Sordariomycetes	Xylariales	
+t81469	109381	Nemania serpens	plant_associate	3	3	Sordariomycetes	Xylariales	
+t2286825	2663370	Nemania sp. FL0031	target_other	1	1	Sordariomycetes	Xylariales	
+t2241436	2614608	Nemania sp. FL0916	target_other	1	1	Sordariomycetes	Xylariales	
+t2241409	2614580	Nemania sp. NC0429	target_other	1	1	Sordariomycetes	Xylariales	
+t74473	101475	Poronia punctata	plant_associate	1	1	Sordariomycetes	Xylariales	
+t53074	77044	Rosellinia necatrix	target_other	1	7	Sordariomycetes	Xylariales	
+t82411	110526	Ustulina deusta	target_other	2	3	Sordariomycetes	Xylariales	
+t82427	110547	Whalleya microplaca	plant_associate	1	1	Sordariomycetes	Xylariales	
+t85838	114808	Xylaria acuta	plant_associate	1	1	Sordariomycetes	Xylariales	
+t85840	114810	Xylaria arbuscula	plant_associate	3	3	Sordariomycetes	Xylariales	
+t270805	326684	Xylaria bambusicola	plant_associate	3	3	Sordariomycetes	Xylariales	
+t85842	114812	Xylaria castorea	plant_associate	1	1	Sordariomycetes	Xylariales	
+t1519755	1803070	Xylaria cf. heliscus	target_other	1	1	Sordariomycetes	Xylariales	
+t85844	114814	Xylaria cubensis	plant_associate	1	1	Sordariomycetes	Xylariales	
+t23213	42375	Xylaria curta	plant_associate	2	3	Sordariomycetes	Xylariales	
+t267961	323540	Xylaria digitata	plant_associate	1	2	Sordariomycetes	Xylariales	
+t2144377	2512241	Xylaria flabelliformis	target_other	2	2	Sordariomycetes	Xylariales	
+t303832	363999	Xylaria grammica	target_other	2	4	Sordariomycetes	Xylariales	
+t19427	37992	Xylaria hypoxylon	plant_associate	1	3	Sordariomycetes	Xylariales	yes
+t419408	492091	Xylaria intraflava	target_other	1	1	Sordariomycetes	Xylariales	
+t85848	114818	Xylaria longipes	plant_associate	2	3	Sordariomycetes	Xylariales	
+t267966	323545	Xylaria multiplex	target_other	1	1	Sordariomycetes	Xylariales	
+t417616	490159	Xylaria nigripes	target_other	1	1	Sordariomycetes	Xylariales	
+t570211	665665	Xylaria palmicola	plant_associate	1	1	Sordariomycetes	Xylariales	
+t53076	77046	Xylaria polymorpha	plant_associate	1	2	Sordariomycetes	Xylariales	
+t621648	743287	Xylaria scruposa	plant_associate	1	1	Sordariomycetes	Xylariales	
+t2286828	2663373	Xylaria sp. CBS 124048	target_other	1	1	Sordariomycetes	Xylariales	
+t2241416	2614587	Xylaria sp. FL0043	target_other	1	1	Sordariomycetes	Xylariales	
+t2286829	2663374	Xylaria sp. FL0064	target_other	1	1	Sordariomycetes	Xylariales	
+t2241413	2614584	Xylaria sp. FL0933	target_other	1	1	Sordariomycetes	Xylariales	
+t2241412	2614583	Xylaria sp. FL1042	target_other	1	1	Sordariomycetes	Xylariales	
+t2241402	2614573	Xylaria sp. FL1777	target_other	1	1	Sordariomycetes	Xylariales	
+t406174	477509	Xylaria telfairii	target_other	1	1	Sordariomycetes	Xylariales	
+t621663	743302	Xylaria venustula	target_other	1	1	Sordariomycetes	Xylariales	
+t2335174	2723393	Xylariaceae sp. AK1471	target_other	1	1	Sordariomycetes	Xylariales	
+t2241417	2614588	Xylariaceae sp. FL0016	target_other	1	1	Sordariomycetes	Xylariales	
+t2241418	2614589	Xylariaceae sp. FL0255	target_other	1	1	Sordariomycetes	Xylariales	
+t2241419	2614590	Xylariaceae sp. FL0594	target_other	1	1	Sordariomycetes	Xylariales	
+t2241438	2614610	Xylariaceae sp. FL0662B	target_other	1	1	Sordariomycetes	Xylariales	
+t2286830	2663375	Xylariaceae sp. FL0804	target_other	1	1	Sordariomycetes	Xylariales	
+t2241420	2614591	Xylariaceae sp. FL1019	target_other	1	1	Sordariomycetes	Xylariales	
+t2286831	2663376	Xylariaceae sp. FL1272	target_other	1	1	Sordariomycetes	Xylariales	
+t2241421	2614592	Xylariaceae sp. FL1651	target_other	1	1	Sordariomycetes	Xylariales	
+t2364175	2754530	Protomyces lactucae-debilis	target_other	2	3	Taphrinomycetes	Taphrinales	
+t4110	5011	Taphrina deformans	target_other	1	4	Taphrinomycetes	Taphrinales	
+t31535	51930	Tortispora caseinolytica	target_other	1	2	Trigonopsidomycetes	Trigonopsidales	
+t22843	41956	Amanita muscaria	plant_associate	2	3	Agaricomycetes	Agaricales	
+t45082	67723	Amanita phalloides	plant_associate	1	4	Agaricomycetes	Agaricales	
+t48547	71933	Amanita rubescens	plant_associate	1	3	Agaricomycetes	Agaricales	
+t42644	64659	Collybia nuda	plant_associate	1	1	Agaricomycetes	Agaricales	
+t143256	179855	Crepidotus variabilis	plant_associate	1	1	Agaricomycetes	Agaricales	
+t21523	40457	Fistulina hepatica	target_other	1	1	Agaricomycetes	Agaricales	
+t81634	109633	Galerina marginata	target_other	1	3	Agaricomycetes	Agaricales	
+t189995	231916	Gymnopilus dilepis	congener	1	1	Agaricomycetes	Agaricales	
+t81635	109634	Gymnopilus junonius	plant_associate	1	3	Agaricomycetes	Agaricales	
+t1672963	1973307	Cyclocybe aegerita	plant_associate	2	2	Agaricomycetes	Agaricales	
+t21111	39966	Hypsizygus marmoreus	plant_associate	1	6	Agaricomycetes	Agaricales	
+t87915	117069	Sphagnurus paluster	target_other	1	1	Agaricomycetes	Agaricales	
+t2827137	3706012	Marasmius cohortalis	target_other	1	1	Agaricomycetes	Agaricales	
+t500456	585013	Marasmius crinis-equi	plant_associate	1	1	Agaricomycetes	Agaricales	
+t1094430	1328755	Marasmius fiardii	target_other	1	1	Agaricomycetes	Agaricales	
+t144427	181124	Marasmius oreades	plant_associate	2	3	Agaricomycetes	Agaricales	
+t2629706	3065222	Marasmius sp. AFHP31	target_other	1	1	Agaricomycetes	Agaricales	
+t500473	585030	Marasmius tenuissimus	target_other	3	7	Agaricomycetes	Agaricales	
+t119976	153609	Moniliophthora perniciosa	target_other	1	2	Agaricomycetes	Agaricales	
+t180520	221103	Moniliophthora roreri	target_other	3	3	Agaricomycetes	Agaricales	
+t244833	297713	Paramarasmius palmivorus	target_other	1	1	Agaricomycetes	Agaricales	
+t832457	1033008	Mycena albidolilacea	target_other	1	1	Agaricomycetes	Agaricales	
+t1470408	1745969	Mycena alexandri	target_other	1	1	Agaricomycetes	Agaricales	
+t318115	380012	Mycena amicta	target_other	1	1	Agaricomycetes	Agaricales	
+t832463	1033014	Mycena belliarum	target_other	1	1	Agaricomycetes	Agaricales	
+t188977	230804	Mycena capillaripes	target_other	1	1	Agaricomycetes	Agaricales	
+t564169	658473	Mycena chlorophos	target_other	1	2	Agaricomycetes	Agaricales	
+t1715369	2018698	Mycena citricolor	target_other	1	2	Agaricomycetes	Agaricales	
+t180270	220801	Mycena crocata	target_other	1	1	Agaricomycetes	Agaricales	
+t188979	230806	Mycena epipterygia	target_other	1	1	Agaricomycetes	Agaricales	
+t688771	858877	Mycena filopes	target_other	1	1	Agaricomycetes	Agaricales	
+t832679	1033242	Mycena floridula	target_other	1	1	Agaricomycetes	Agaricales	
+t48524	71905	Mycena galericulata	plant_associate	1	3	Agaricomycetes	Agaricales	
+t22235	41248	Mycena galopus	target_other	1	1	Agaricomycetes	Agaricales	
+t188980	230807	Mycena haematopus	target_other	1	1	Agaricomycetes	Agaricales	
+t1809364	2126181	Mycena indigotica	target_other	2	2	Agaricomycetes	Agaricales	
+t1091113	1325293	Mycena kentingensis (nom. inval.)	target_other	1	1	Agaricomycetes	Agaricales	
+t832683	1033247	Mycena latifolia	target_other	1	1	Agaricomycetes	Agaricales	
+t188981	230808	Mycena leptocephala	target_other	1	1	Agaricomycetes	Agaricales	
+t188982	230809	Mycena maculata	target_other	1	1	Agaricomycetes	Agaricales	
+t832688	1033252	Mycena metata	target_other	1	1	Agaricomycetes	Agaricales	
+t188983	230810	Mycena olivaceomarginata	target_other	1	1	Agaricomycetes	Agaricales	
+t188974	230801	Mycena polygramma	target_other	1	1	Agaricomycetes	Agaricales	
+t119879	153505	Mycena pura	target_other	1	1	Agaricomycetes	Agaricales	
+t843893	1045383	Mycena rebaudengoi	target_other	1	1	Agaricomycetes	Agaricales	
+t832699	1033263	Mycena rosella	target_other	1	1	Agaricomycetes	Agaricales	
+t188985	230812	Mycena sanguinolenta	target_other	2	2	Agaricomycetes	Agaricales	
+t1644179	1940295	Mycena sp. CBHHK59/15	target_other	1	1	Agaricomycetes	Agaricales	
+t2344898	2733690	Mycena venus	target_other	1	1	Agaricomycetes	Agaricales	
+t832715	1033281	Mycena vitilis	target_other	1	1	Agaricomycetes	Agaricales	
+t832716	1033282	Mycena vulgaris	target_other	1	1	Agaricomycetes	Agaricales	
+t45852	68775	Crucibulum laeve	plant_associate	1	1	Agaricomycetes	Agaricales	
+t2426601	2823264	Collybiopsis confluens	congener	1	1	Agaricomycetes	Agaricales	
+t2380658	2773346	Collybiopsis luxurians	congener	1	1	Agaricomycetes	Agaricales	
+t1202352	1447940	Gymnopus androsaceus	congener	1	1	Agaricomycetes	Agaricales	
+t193530	236213	Gymnopus earleae	congener	1	1	Agaricomycetes	Agaricales	
+t4359	5353	Lentinula edodes	plant_associate	9	22	Agaricomycetes	Agaricales	
+t27665	47425	Armillaria borealis	plant_associate	1	2	Agaricomycetes	Agaricales	
+t120229	153910	Armillaria fumosa	target_other	1	1	Agaricomycetes	Agaricales	
+t27667	47427	Armillaria gallica	target_other	1	5	Agaricomycetes	Agaricales	
+t120232	153913	Armillaria luteobubalina	target_other	1	1	Agaricomycetes	Agaricales	
+t27669	47429	Armillaria mellea	target_other	1	1	Agaricomycetes	Agaricales	
+t42395	64368	Armillaria nabsnona	target_other	1	1	Agaricomycetes	Agaricales	
+t120233	153914	Armillaria novae-zelandiae	target_other	1	1	Agaricomycetes	Agaricales	
+t27668	47428	Armillaria ostoyae	target_other	1	4	Agaricomycetes	Agaricales	
+t871680	1076256	Armillaria solidipes	target_other	1	3	Agaricomycetes	Agaricales	
+t331162	394432	Cylindrobasidium torrendii	plant_associate	1	2	Agaricomycetes	Agaricales	
+t27670	47430	Desarmillaria ectypa	target_other	1	1	Agaricomycetes	Agaricales	
+t1634846	1929756	Desarmillaria tabescens	target_other	2	2	Agaricomycetes	Agaricales	
+t686989	856835	Guyanagaster necrorhizus	target_other	2	2	Agaricomycetes	Agaricales	
+t758689	937743	Hymenopellis radicata	plant_associate	1	2	Agaricomycetes	Agaricales	
+t107200	139077	Mucidula mucida	target_other	1	1	Agaricomycetes	Agaricales	
+t77069	104357	Hohenbuehelia grisea	target_other	1	1	Agaricomycetes	Agaricales	
+t4330	5321	Pleurotus cornucopiae	plant_associate	1	1	Agaricomycetes	Agaricales	
+t16505	34470	Pleurotus djamor	plant_associate	2	3	Agaricomycetes	Agaricales	
+t4332	5323	Pleurotus eryngii	plant_associate	1	10	Agaricomycetes	Agaricales	
+t1740518	2048520	Pleurotus ostreatoroseus	target_other	1	1	Agaricomycetes	Agaricales	
+t4331	5322	Pleurotus ostreatus	target_other	6	12	Agaricomycetes	Agaricales	
+t12609	28995	Pleurotus pulmonarius	plant_associate	4	7	Agaricomycetes	Agaricales	
+t144786	181527	Pluteus cervinus	plant_associate	1	1	Agaricomycetes	Agaricales	
+t48356	71717	Coprinellus micaceus	plant_associate	1	3	Agaricomycetes	Agaricales	
+t4354	5346	Coprinopsis cinerea	congener	3	4	Agaricomycetes	Agaricales	
+t188992	230819	Coprinopsis marcescibilis	congener	1	1	Agaricomycetes	Agaricales	
+t2429334	2826081	Coprinopsis sp. MPI-PUGE-AT-0042	congener	1	1	Agaricomycetes	Agaricales	
+t4343	5334	Schizophyllum commune	plant_associate	11	54	Agaricomycetes	Agaricales	yes
+t81637	109636	Pholiota conissans	target_other	1	1	Agaricomycetes	Agaricales	
+t1757407	2066989	Pholiota molesta	target_other	1	1	Agaricomycetes	Agaricales	
+t1482747	1759441	Athelia psychrophila	target_other	1	1	Agaricomycetes	Atheliales	
+t2358670	2748771	Athelia sp. TMB	target_other	1	1	Agaricomycetes	Atheliales	
+t56317	80663	Piloderma croceum	target_other	1	1	Agaricomycetes	Atheliales	
+t17788	36056	Boletus edulis	plant_associate	2	7	Agaricomycetes	Boletales	
+t17790	36058	Imleria badia	plant_associate	1	2	Agaricomycetes	Boletales	
+t60906	85971	Gyrodon lividus	plant_associate	1	1	Agaricomycetes	Boletales	
+t48716	72124	Hygrophoropsis aurantiaca	plant_associate	1	1	Agaricomycetes	Boletales	
+t60913	85980	Leucogyrophana mollusca	plant_associate	1	1	Agaricomycetes	Boletales	
+t2278909	2655010	Melanogaster broomeanus	plant_associate	1	1	Agaricomycetes	Boletales	
+t142332	178870	Pisolithus albus	plant_associate	1	3	Agaricomycetes	Boletales	
+t56267	80600	Rhizopogon vinicolor	plant_associate	1	7	Agaricomycetes	Boletales	
+t28695	48561	Suillus americanus	plant_associate	1	1	Agaricomycetes	Boletales	
+t28697	48563	Suillus bovinus	plant_associate	2	3	Agaricomycetes	Boletales	
+t28712	48579	Suillus placidus	plant_associate	1	2	Agaricomycetes	Boletales	
+t4382	5383	Suillus spraguei	plant_associate	1	2	Agaricomycetes	Boletales	
+t2228063	2600201	Ceratobasidium sp. 370	target_other	1	1	Agaricomycetes	Cantharellales	
+t2228064	2600202	Ceratobasidium sp. 392	target_other	1	1	Agaricomycetes	Cantharellales	
+t2228065	2600203	Ceratobasidium sp. 394	target_other	1	1	Agaricomycetes	Cantharellales	
+t2228066	2600204	Ceratobasidium sp. 395	target_other	1	1	Agaricomycetes	Cantharellales	
+t2228067	2600205	Ceratobasidium sp. 414	target_other	1	1	Agaricomycetes	Cantharellales	
+t2228068	2600206	Ceratobasidium sp. 423	target_other	1	1	Agaricomycetes	Cantharellales	
+t2228069	2600207	Ceratobasidium sp. 428	target_other	1	1	Agaricomycetes	Cantharellales	
+t134773	170446	Ceratobasidium sp. AG-Ba	target_other	2	2	Agaricomycetes	Cantharellales	
+t252153	305860	Ceratobasidium sp. AG-I	target_other	1	1	Agaricomycetes	Cantharellales	
+t2228947	2601501	Ceratobasidium sp. UAMH 11750	target_other	1	1	Agaricomycetes	Cantharellales	
+t1324107	1582974	Ceratobasidium theobromae	target_other	1	6	Agaricomycetes	Cantharellales	
+t387601	456999	Rhizoctonia solani	target_other	29	52	Agaricomycetes	Cantharellales	
+t163774	202698	Punctularia strigosozonata	target_other	2	2	Agaricomycetes	Corticiales	
+t4367	5364	Heliocybe sulcata	plant_associate	1	1	Agaricomycetes	Gloeophyllales	
+t104168	135589	Coniferiporia weirii	plant_associate	1	1	Agaricomycetes	Hymenochaetales	
+t169457	208960	Fomitiporia mediterranea	target_other	2	4	Agaricomycetes	Hymenochaetales	
+t132068	167371	Phellinidium pouzarii	target_other	1	2	Agaricomycetes	Hymenochaetales	
+t1931982	2282107	Pyrrhoderma noxium	plant_associate	1	7	Agaricomycetes	Hymenochaetales	
+t81028	108892	Sanghuangporus baumii	plant_associate	2	2	Agaricomycetes	Hymenochaetales	
+t139547	175686	Sanghuangporus vaninii	plant_associate	1	4	Agaricomycetes	Hymenochaetales	
+t30765	50990	Rickenella mellea	target_other	1	1	Agaricomycetes	Hymenochaetales	
+t11301	27342	Schizopora paradoxa	plant_associate	1	1	Agaricomycetes	Hymenochaetales	
+t64686	90312	Cerrena unicolor	target_other	1	4	Agaricomycetes	Polyporales	
+t2114057	2478898	Cerrena zonata	congener	1	1	Agaricomycetes	Polyporales	
+t21518	40450	Fomitopsis betulina	target_other	1	1	Agaricomycetes	Polyporales	
+t21507	40437	Fomitopsis quercina	target_other	1	1	Agaricomycetes	Polyporales	
+t1809918	2126942	Fomitopsis schrenkii	target_other	1	1	Agaricomycetes	Polyporales	
+t107475	139415	Fomitopsis serialis	target_other	2	2	Agaricomycetes	Polyporales	
+t16510	34475	Rhodofomes roseus	plant_associate	3	3	Agaricomycetes	Polyporales	
+t4544	5627	Grifola frondosa	target_other	1	10	Agaricomycetes	Polyporales	
+t4328	5319	Irpex lacteus	plant_associate	1	5	Agaricomycetes	Polyporales	
+t316565	378272	Irpex rosettiformis	plant_associate	1	1	Agaricomycetes	Polyporales	
+t901260	1111950	Trametopsis cervina	plant_associate	1	1	Agaricomycetes	Polyporales	
+t4546	5630	Laetiporus sulphureus	target_other	2	7	Agaricomycetes	Polyporales	
+t223728	270279	Laricifomes officinalis	target_other	1	2	Agaricomycetes	Polyporales	
+t1747475	2056292	Meripilus lineatus	plant_associate	1	1	Agaricomycetes	Polyporales	
+t72134	98765	Hermanssonia centrifuga	plant_associate	3	3	Agaricomycetes	Polyporales	
+t156469	194682	Phlebicolorata brevispora	target_other	1	1	Agaricomycetes	Polyporales	
+t56659	81056	Wolfiporia cocos	plant_associate	1	6	Agaricomycetes	Polyporales	yes
+t106087	137743	Abortiporus biennis	target_other	2	2	Agaricomycetes	Polyporales	
+t2432545	2829415	Cerioporus squamosus	target_other	1	1	Agaricomycetes	Polyporales	
+t1151163	1391043	Cubamyces lactineus	target_other	1	1	Agaricomycetes	Polyporales	
+t1818697	2136021	Cubamyces menziesii	target_other	1	1	Agaricomycetes	Polyporales	
+t1262208	1513325	Cubamyces sp. BRFM 1775	target_other	1	1	Agaricomycetes	Polyporales	
+t925116	1140402	Daedaleopsis nitida	target_other	1	1	Agaricomycetes	Polyporales	
+t85250	114155	Dichomitus squalens	plant_associate	5	5	Agaricomycetes	Polyporales	
+t2114059	2478900	Earliella scabrosa	target_other	1	1	Agaricomycetes	Polyporales	
+t21512	40442	Fomes fomentarius	plant_associate	1	2	Agaricomycetes	Polyporales	
+t16493	34456	Ganoderma adspersum	target_other	1	1	Agaricomycetes	Polyporales	
+t1309697	1566825	Ganoderma leucocontextum	target_other	1	2	Agaricomycetes	Polyporales	
+t17807	36075	Ganoderma sinense	target_other	1	1	Agaricomycetes	Polyporales	
+t2131779	2498619	Lentinus brumalis	plant_associate	1	4	Agaricomycetes	Polyporales	
+t4368	5365	Lentinus tigrinus	target_other	3	3	Agaricomycetes	Polyporales	
+t4548	5632	Lenzites betulinus	target_other	1	1	Agaricomycetes	Polyporales	
+t2346529	2735509	Pilatotrama ljubarskyi	target_other	1	1	Agaricomycetes	Polyporales	
+t4554	5639	Polyporus arcularius	target_other	1	2	Agaricomycetes	Polyporales	
+t492208	575983	Trametes cingulata	plant_associate	1	1	Agaricomycetes	Polyporales	
+t4557	5643	Trametes cinnabarina	plant_associate	1	2	Agaricomycetes	Polyporales	
+t124341	158605	Trametes coccinea	target_other	1	1	Agaricomycetes	Polyporales	
+t901257	1111947	Trametes cubensis	plant_associate	1	1	Agaricomycetes	Polyporales	
+t448633	526244	Trametes elegans	target_other	1	1	Agaricomycetes	Polyporales	
+t126359	160864	Trametes gibbosa	target_other	1	2	Agaricomycetes	Polyporales	
+t213941	259368	Trametes maxima	target_other	1	1	Agaricomycetes	Polyporales	
+t448632	526243	Trametes meyenii	target_other	1	1	Agaricomycetes	Polyporales	
+t195967	239206	Trametes polyzona	plant_associate	1	2	Agaricomycetes	Polyporales	
+t120759	154538	Trametes pubescens	plant_associate	1	1	Agaricomycetes	Polyporales	
+t488021	571087	Trametes punicea	target_other	1	1	Agaricomycetes	Polyporales	
+t124342	158606	Trametes sanguinea	plant_associate	3	4	Agaricomycetes	Polyporales	
+t4334	5325	Trametes versicolor	plant_associate	3	4	Agaricomycetes	Polyporales	
+t107842	139825	Sparassis crispa	target_other	2	2	Agaricomycetes	Polyporales	
+t979080	1202976	Sparassis latifolia	plant_associate	1	4	Agaricomycetes	Polyporales	
+t66854	92696	Steccherinum ochraceum	target_other	1	1	Agaricomycetes	Polyporales	
+t2313658	2696576	Taiwanofungus camphoratus	plant_associate	4	8	Agaricomycetes	Polyporales	
+t28202	48021	Artomyces pyxidatus	plant_associate	1	1	Agaricomycetes	Russulales	
+t21492	40419	Auriscalpium vulgare	plant_associate	1	2	Agaricomycetes	Russulales	
+t887768	1095465	Bondarzewia mesenterica	plant_associate	1	1	Agaricomycetes	Russulales	
+t791648	984962	Heterobasidion irregulare	plant_associate	2	14	Agaricomycetes	Russulales	
+t166626	205761	Gloeopeniophorella convolvens	congener	1	1	Agaricomycetes	Russulales	
+t166764	205917	Dentipellis fragilis	plant_associate	1	1	Agaricomycetes	Russulales	
+t103824	135208	Hericium alpestre	plant_associate	1	1	Agaricomycetes	Russulales	
+t66003	91752	Hericium erinaceus	plant_associate	1	5	Agaricomycetes	Russulales	
+t616316	718367	Peniophora sp. CBMAI 1063	target_other	1	1	Agaricomycetes	Russulales	
+t1081248	1314672	Peniophora sp. CONT	target_other	1	1	Agaricomycetes	Russulales	
+t34683	55514	Lactarius deliciosus	plant_associate	1	3	Agaricomycetes	Russulales	
+t350945	416442	Lactarius hatsudake	plant_associate	1	3	Agaricomycetes	Russulales	
+t119372	152947	Lactarius tabidus	plant_associate	1	3	Agaricomycetes	Russulales	
+t34526	55340	Amylostereum chailletii	plant_associate	1	1	Agaricomycetes	Russulales	
+t81873	109899	Serendipita vermifera	plant_associate	2	2	Agaricomycetes	Sebacinales	
+t1642973	1938712	Atractiella rhizophila	plant_associate	1	1	Atractiellomycetes	Atractiellales	
+t164552	203533	Classicula fluitans	plant_associate	1	1	Classiculomycetes	Classiculales	
+t337531	401625	Ceraceosorus bombacis	target_other	1	1	Exobasidiomycetes	Ceraceosorales	
+t1270385	1522189	Ceraceosorus guamensis	target_other	2	2	Exobasidiomycetes	Ceraceosorales	
+t37700	58919	Tilletiopsis washingtonensis	plant_associate	2	2	Exobasidiomycetes	Entylomatales	
+t1050207	1280837	Meira miltonrushii	target_other	2	2	Exobasidiomycetes	Exobasidiales	
+t175196	215250	Acaromyces ingoldii	plant_associate	2	2	Exobasidiomycetes	Exobasidiales	
+t41558	63378	Exobasidium rhododendri	plant_associate	1	1	Exobasidiomycetes	Exobasidiales	
+t4308	5281	Tilletiaria anomala	target_other	2	2	Exobasidiomycetes	Georgefischeriales	
+t463083	542766	Jaminaea angkorensis	target_other	1	1	Exobasidiomycetes	Microstromatales	
+t2477617	2878321	Jaminaea pallidilutea	target_other	1	1	Exobasidiomycetes	Microstromatales	
+t1311915	1569628	Jaminaea rosea	target_other	2	2	Exobasidiomycetes	Microstromatales	
+t1414803	1684307	Microstroma glucosiphilum	target_other	2	2	Exobasidiomycetes	Microstromatales	
+t1217054	1463510	Parajaminaea phylloscopi	target_other	1	1	Exobasidiomycetes	Microstromatales	
+t491177	574677	Sympodiomycopsis kandeliae	target_other	1	1	Exobasidiomycetes	Microstromatales	
+t10148	13290	Tilletia caries	target_cereal	5	17	Exobasidiomycetes	Tilletiales	yes
+t10149	13291	Tilletia controversa	target_cereal	7	12	Exobasidiomycetes	Tilletiales	yes
+t121286	155126	Tilletia horrida	target_cereal	7	10	Exobasidiomycetes	Tilletiales	yes
+t23824	43049	Tilletia indica	target_cereal	3	9	Exobasidiomycetes	Tilletiales	yes
+t123128	157183	Tilletia laevis	target_cereal	4	8	Exobasidiomycetes	Tilletiales	yes
+t831267	1031713	Tilletia maclaganii	target_other	1	1	Exobasidiomycetes	Tilletiales	
+t88020	117179	Tilletia walkeri	plant_associate	2	2	Exobasidiomycetes	Tilletiales	
+t1263684	1514897	Malassezia arunalokei	host_associate	1	2	Malasseziomycetes	Malasseziales	
+t1536918	1821822	Malassezia brasiliensis	host_associate	1	1	Malasseziomycetes	Malasseziales	
+t1142846	1381934	Malassezia caprae	host_associate	1	2	Malasseziomycetes	Malasseziales	
+t768393	948313	Malassezia cuniculi	host_associate	1	2	Malasseziomycetes	Malasseziales	
+t1142847	1381935	Malassezia equina	host_associate	1	2	Malasseziomycetes	Malasseziales	
+t34396	55194	Malassezia furfur	host_associate	6	23	Malasseziomycetes	Malasseziales	
+t52840	76773	Malassezia globosa	host_associate	5	17	Malasseziomycetes	Malasseziales	
+t182701	223818	Malassezia japonica	host_associate	2	4	Malasseziomycetes	Malasseziales	
+t143868	180528	Malassezia nana	host_associate	1	3	Malasseziomycetes	Malasseziales	
+t52841	76774	Malassezia obtusa	host_associate	1	2	Malasseziomycetes	Malasseziales	
+t53053	77020	Malassezia pachydermatis	host_associate	3	16	Malasseziomycetes	Malasseziales	
+t1536919	1821823	Malassezia psittaci	host_associate	1	1	Malasseziomycetes	Malasseziales	
+t52842	76775	Malassezia restricta	host_associate	5	12	Malasseziomycetes	Malasseziales	
+t2600969	3031751	Malassezia sp. CBS 17886	host_associate	1	1	Malasseziomycetes	Malasseziales	
+t52844	76777	Malassezia sympodialis	host_associate	3	12	Malasseziomycetes	Malasseziales	
+t1717039	2020962	Malassezia vespertilionis	host_associate	3	3	Malasseziomycetes	Malasseziales	
+t208526	253288	Malassezia yamatoensis	host_associate	1	2	Malasseziomycetes	Malasseziales	
+t78524	106004	Leucosporidium creatinivorum	host_associate	1	4	Microbotryomycetes	Leucosporidiales	
+t223115	269621	Microbotryum intermedium	target_other	1	2	Microbotryomycetes	Microbotryales	
+t236986	288795	Microbotryum lychnidis-dioicae	plant_associate	1	23	Microbotryomycetes	Microbotryales	
+t237250	289078	Microbotryum saponariae	target_other	2	4	Microbotryomycetes	Microbotryales	
+t645752	796604	Microbotryum silenes-dioicae	target_other	1	2	Microbotryomycetes	Microbotryales	
+t61607	86829	Rhodotorula araucariae	target_other	1	1	Microbotryomycetes	Sporidiobolales	
+t61613	86837	Rhodotorula babjevae	target_other	3	3	Microbotryomycetes	Sporidiobolales	
+t61610	86832	Rhodotorula dairenensis	target_other	1	1	Microbotryomycetes	Sporidiobolales	
+t4310	5288	Rhodotorula diobovata	target_other	1	2	Microbotryomycetes	Sporidiobolales	
+t4486	5535	Rhodotorula glutinis	plant_associate	2	4	Microbotryomycetes	Sporidiobolales	yes
+t13346	29898	Rhodotorula graminis	target_other	3	6	Microbotryomycetes	Sporidiobolales	
+t61612	86836	Rhodotorula kratochvilovae	target_other	2	11	Microbotryomycetes	Sporidiobolales	
+t4487	5537	Rhodotorula mucilaginosa	plant_associate	3	125	Microbotryomycetes	Sporidiobolales	
+t1245935	1495444	Rhodotorula pacifica	target_other	2	5	Microbotryomycetes	Sporidiobolales	
+t61614	86838	Rhodotorula paludigena	target_other	3	8	Microbotryomycetes	Sporidiobolales	
+t1666073	1965284	Rhodotorula sp. CCFEE 5036	target_other	1	2	Microbotryomycetes	Sporidiobolales	
+t1073083	1305733	Rhodotorula sp. JG-1b	target_other	1	2	Microbotryomycetes	Sporidiobolales	
+t61615	86839	Rhodotorula sphaerocarpa	target_other	3	5	Microbotryomycetes	Sporidiobolales	
+t619756	741276	Rhodotorula taiwanensis	target_other	1	1	Microbotryomycetes	Sporidiobolales	
+t4309	5286	Rhodotorula toruloides	target_other	19	41	Microbotryomycetes	Sporidiobolales	
+t73974	100912	Sporobolomyces blumeae	host_associate	1	1	Microbotryomycetes	Sporidiobolales	
+t147002	183959	Sporobolomyces carnicolor	host_associate	1	2	Microbotryomycetes	Sporidiobolales	
+t4102	5002	Sporobolomyces johnsonii	host_associate	2	2	Microbotryomycetes	Sporidiobolales	
+t427150	500713	Sporobolomyces koalae	host_associate	2	2	Microbotryomycetes	Sporidiobolales	
+t4103	5003	Sporobolomyces pararoseus	plant_associate	2	6	Microbotryomycetes	Sporidiobolales	yes
+t147004	183961	Sporobolomyces phaffii	host_associate	1	2	Microbotryomycetes	Sporidiobolales	yes
+t21617	40563	Sporobolomyces roseus	host_associate	1	3	Microbotryomycetes	Sporidiobolales	yes
+t61606	86828	Sporobolomyces ruberrimus	host_associate	1	1	Microbotryomycetes	Sporidiobolales	
+t147005	183962	Sporobolomyces salmoneus	host_associate	2	2	Microbotryomycetes	Sporidiobolales	
+t4105	5005	Sporobolomyces salmonicolor	plant_associate	3	3	Microbotryomycetes	Sporidiobolales	
+t16426	34349	Mixia osmundae	target_other	3	4	Mixiomycetes	Mixiales	
+t38796	60197	Cronartium quercuum	target_other	2	3	Pucciniomycetes	Pucciniales	
+t1854937	2182807	Melampsora americana	target_other	1	1	Pucciniomycetes	Pucciniales	
+t164884	203908	Melampsora laricis-populina	target_other	2	2	Pucciniomycetes	Pucciniales	
+t134361	170000	Phakopsora pachyrhizi	target_other	2	52	Pucciniomycetes	Pucciniales	
+t11303	27344	Puccinia coronata	target_other	2	2	Pucciniomycetes	Pucciniales	
+t4312	5297	Puccinia graminis	target_cereal	4	6	Pucciniomycetes	Pucciniales	yes
+t11308	27349	Puccinia sorghi	target_cereal	1	1	Pucciniomycetes	Pucciniales	yes
+t11309	27350	Puccinia striiformis	target_cereal	10	39	Pucciniomycetes	Pucciniales	yes
+t168883	208348	Puccinia triticina	target_cereal	7	28	Pucciniomycetes	Pucciniales	yes
+t144426	181123	Austropuccinia psidii	plant_associate	1	6	Pucciniomycetes	Pucciniales	
+t13349	29902	Mrakia frigida	host_associate	2	4	Tremellomycetes	Cystofilobasidiales	
+t4253	5210	Filobasidium floriforme	plant_associate	3	3	Tremellomycetes	Filobasidiales	
+t67079	92952	Naganishia adeliensis	plant_associate	1	2	Tremellomycetes	Filobasidiales	
+t4080	4972	Dioszegia hungarica	host_associate	2	6	Tremellomycetes	Tremellales	
+t77350	104669	Cryptococcus amylolentus	host_associate	3	3	Tremellomycetes	Tremellales	
+t471553	552467	Cryptococcus bacillisporus	host_associate	3	3	Tremellomycetes	Tremellales	
+t1571184	1859122	Cryptococcus decagattii	host_associate	2	2	Tremellomycetes	Tremellales	
+t21484	40410	Cryptococcus deneoformans	host_associate	8	11	Tremellomycetes	Tremellales	
+t4251	5208	Cryptococcus depauperatus	host_associate	3	3	Tremellomycetes	Tremellales	
+t1571158	1859096	Cryptococcus deuterogattii	host_associate	10	14	Tremellomycetes	Tremellales	
+t2220157	2591691	Cryptococcus floricola	host_associate	1	2	Tremellomycetes	Tremellales	
+t19251	37769	Cryptococcus gattii	host_associate	7	9	Tremellomycetes	Tremellales	
+t1923314	2268382	Cryptococcus gattii VGV	host_associate	1	1	Tremellomycetes	Tremellales	
+t4250	5207	Cryptococcus neoformans	host_associate	51	208	Tremellomycetes	Tremellales	
+t1571183	1859121	Cryptococcus tetragattii	host_associate	2	2	Tremellomycetes	Tremellales	
+t4539	5619	Cryptococcus wingfieldii	host_associate	2	3	Tremellomycetes	Tremellales	
+t269081	324769	Kwoniella bestiolae	host_associate	2	2	Tremellomycetes	Tremellales	
+t1039230	1268659	Kwoniella botswanensis	host_associate	2	3	Tremellomycetes	Tremellales	
+t269082	324770	Kwoniella dejecticola	host_associate	2	2	Tremellomycetes	Tremellales	
+t4083	4975	Kwoniella dendrophila	host_associate	2	2	Tremellomycetes	Tremellales	
+t1019776	1247712	Kwoniella europaea	host_associate	2	3	Tremellomycetes	Tremellales	
+t2477603	2878307	Kwoniella fici	host_associate	1	1	Tremellomycetes	Tremellales	
+t64329	89924	Kwoniella heveanensis	host_associate	2	2	Tremellomycetes	Tremellales	
+t393938	463800	Kwoniella mangrovensis	host_associate	4	4	Tremellomycetes	Tremellales	
+t1387025	1651941	Kwoniella newhampshirensis	host_associate	2	2	Tremellomycetes	Tremellales	
+t2477047	2877729	Kwoniella ovata	host_associate	1	1	Tremellomycetes	Tremellales	
+t384395	453459	Kwoniella pini	host_associate	2	2	Tremellomycetes	Tremellales	
+t1459492	1734106	Kwoniella shandongensis	host_associate	2	2	Tremellomycetes	Tremellales	
+t481857	564305	Kwoniella shivajii	host_associate	2	2	Tremellomycetes	Tremellales	
+t1180918	1423914	Kwoniella sp. B9012	host_associate	1	1	Tremellomycetes	Tremellales	
+t2377484	2770021	Kwoniella sp. CBS 6097	host_associate	1	1	Tremellomycetes	Tremellales	
+t2377485	2770022	Kwoniella sp. CBS 9459	host_associate	1	1	Tremellomycetes	Tremellales	
+t2377487	2770024	Kwoniella sp. DSM 27419	host_associate	1	1	Tremellomycetes	Tremellales	
+t4410	5418	Papiliotrema laurentii	plant_associate	1	4	Tremellomycetes	Tremellales	yes
+t4257	5217	Tremella mesenterica	plant_associate	3	3	Tremellomycetes	Tremellales	
+t1599561	1890679	Cryptotrichosporon argae	target_other	1	1	Tremellomycetes	Trichosporonales	
+t1040060	1269715	Thecaphora frezii	plant_associate	1	2	Ustilaginomycetes	Urocystidales	
+t1592067	1882483	Testicularia cyperi	plant_associate	1	1	Ustilaginomycetes	Ustilaginales	
+t41563	63383	Melanopsichium pennsylvanicum	target_other	1	1	Ustilaginomycetes	Ustilaginales	
+t4298	5270	Mycosarcoma maydis	target_cereal	2	39	Ustilaginomycetes	Ustilaginales	yes
+t59841	84753	Moesziomyces antarcticus	plant_associate	4	8	Ustilaginomycetes	Ustilaginales	yes
+t59842	84754	Moesziomyces aphidis	plant_associate	1	2	Ustilaginomycetes	Ustilaginales	
+t59839	84751	Pseudozyma flocculosa	plant_associate	3	4	Ustilaginomycetes	Ustilaginales	yes
+t271177	327079	Pseudozyma hubeiensis	target_other	3	4	Ustilaginomycetes	Ustilaginales	
+t229532	280036	Sporisorium graminicola	target_other	2	3	Ustilaginomycetes	Ustilaginales	
+t49104	72558	Sporisorium reilianum	target_cereal	2	2	Ustilaginomycetes	Ustilaginales	yes
+t29105	49012	Sporisorium scitamineum	target_other	2	9	Ustilaginomycetes	Ustilaginales	
+t253712	307758	Ustilago bromivora	plant_associate	2	3	Ustilaginomycetes	Ustilaginales	
+t90551	120017	Ustilago hordei	target_cereal	9	13	Ustilaginomycetes	Ustilaginales	yes
+t1726307	2031085	Ustilago loliicola	target_other	1	1	Ustilaginomycetes	Ustilaginales	
+t61583	86802	Ustilago nuda	target_cereal	1	1	Ustilaginomycetes	Ustilaginales	yes
+t1737293	2043610	Ustilago sp. UG-2017a	target_other	1	1	Ustilaginomycetes	Ustilaginales	
+t1737294	2043611	Ustilago sp. UG-2017b	target_other	1	1	Ustilaginomycetes	Ustilaginales	
+t61584	86804	Ustilago trichophora	plant_associate	1	3	Ustilaginomycetes	Ustilaginales	
+t88015	117174	Ustilago tritici	target_cereal	1	3	Ustilaginomycetes	Ustilaginales	yes
+t1405647	1673888	Violaceomyces palustris	plant_associate	1	1	Ustilaginomycetes	Violaceomycetales	
+t42514	64504	Allomyces arbusculus	plant_associate	1	1	Blastocladiomycetes	Blastocladiales	
+t1250119	1500003	Paraphysoderma sedebokerense	target_other	1	4	Physodermatomycetes	Physodermatales	
+t326023	388810	Blyttiomyces helicus	plant_associate	1	1	Chytridiomycetes		
+t2335960	2724214	Blyttiomyces sp. JEL0837	target_other	1	1	Chytridiomycetes		
+t42519	64509	Chytridium lagenaria	target_other	1	1	Chytridiomycetes	Chytridiales	
+t906004	1117335	Phlyctochytrium arcticum	target_other	1	1	Chytridiomycetes	Chytridiales	
+t1116286	1352834	Phlyctochytrium bullatum	target_other	1	1	Chytridiomycetes	Chytridiales	
+t215453	261098	Phlyctochytrium planicorne	target_other	1	1	Chytridiomycetes	Chytridiales	
+t202146	246404	Chytriomyces confervae	plant_associate	1	1	Chytridiomycetes	Chytridiales	
+t82032	110081	Obelidium mucronatum	target_other	1	1	Chytridiomycetes	Chytridiales	
+t81922	109957	Physocladia obscura	target_other	1	1	Chytridiomycetes	Chytridiales	
+t2335946	2724200	Podochytrium sp. JEL0797	target_other	1	1	Chytridiomycetes	Chytridiales	
+t272893	329046	Rhizoclosmatium globosum	target_other	1	1	Chytridiomycetes	Chytridiales	
+t2335942	2724196	Rhizoclosmatium hyalinum	target_other	1	1	Chytridiomycetes	Chytridiales	
+t2390863	2784343	Rhizoclosmatium sp. JEL0117	target_other	1	1	Chytridiomycetes	Chytridiales	
+t2335017	2723227	Siphonaria sp. JEL0065	target_other	1	1	Chytridiomycetes	Chytridiales	
+t81905	109936	Cladochytrium replicatum	target_other	1	1	Chytridiomycetes	Cladochytriales	
+t1343821	1604274	Cladochytrium tenue	plant_associate	1	1	Chytridiomycetes	Cladochytriales	
+t2343693	2732417	Nowakowskiella sp. JEL0078	target_other	1	1	Chytridiomycetes	Cladochytriales	
+t2343694	2732418	Nowakowskiella sp. JEL0407	target_other	1	1	Chytridiomycetes	Cladochytriales	
+t82035	110093	Polychytrium aggregatum	target_other	2	2	Chytridiomycetes	Polychytriales	
+t42524	64517	Rhizophlyctis rosea	plant_associate	2	3	Chytridiomycetes	Rhizophlyctidales	
+t320356	382532	Globomyces pollinis-pini	plant_associate	1	1	Chytridiomycetes	Rhizophydiales	
+t1155968	1396493	Fimicolochytrium jonesii	target_other	2	2	Chytridiomycetes	Spizellomycetales	
+t81869	109895	Powellomyces hirtus	target_other	2	2	Chytridiomycetes	Spizellomycetales	
+t1155971	1396496	Thoreauomyces humboldtii	target_other	1	1	Chytridiomycetes	Spizellomycetales	
+t81871	109897	Gaertneriomyces semiglobifer	target_other	1	1	Chytridiomycetes	Spizellomycetales	
+t2335944	2724198	Gaertneriomyces sp. JEL0708	target_other	1	1	Chytridiomycetes	Spizellomycetales	
+t81745	109760	Spizellomyces punctatus	target_other	2	2	Chytridiomycetes	Spizellomycetales	
+t88628	117820	Spizellomyces sp. 'palustris'	target_other	1	1	Chytridiomycetes	Spizellomycetales	
+t234590	286115	Synchytrium endobioticum	target_other	2	3	Chytridiomycetes	Synchytriales	
+t1523426	1806994	Synchytrium microbalum	target_other	2	2	Chytridiomycetes	Synchytriales	
+t4020	4874	Gigaspora margarita	plant_associate	2	2	Glomeromycetes	Diversisporales	
+t563913	658196	Glomus cerebriforme	host_associate	1	2	Glomeromycetes	Glomerales	
+t68096	94130	Rhizophagus clarus	plant_associate	2	2	Glomeromycetes	Glomerales	yes
+t503599	588596	Rhizophagus irregularis	host_associate	18	36	Glomeromycetes	Glomerales	
+t1520051	1803374	Rhizophagus sp. MUCL 43196	host_associate	1	1	Glomeromycetes	Glomerales	
+t112142	144539	Paraglomus occultum	plant_associate	1	2	Glomeromycetes	Paraglomerales	yes
+t1107780	1343610	Actinomortierella ambigua	plant_associate	3	3	Mortierellomycetes	Mortierellales	
+t74142	101097	Entomortierella chlamydospora	plant_associate	2	2	Mortierellomycetes	Mortierellales	
+t786867	979712	Entomortierella lignicola	plant_associate	1	1	Mortierellomycetes	Mortierellales	
+t166770	205924	Entomortierella parvispora	plant_associate	1	2	Mortierellomycetes	Mortierellales	
+t1605796	1897645	Haplosporangium bisporale	plant_associate	1	1	Mortierellomycetes	Mortierellales	
+t256536	310910	Linnemannia elongata	plant_associate	9	10	Mortierellomycetes	Mortierellales	
+t517754	604196	Linnemannia exigua	plant_associate	1	1	Mortierellomycetes	Mortierellales	yes
+t42528	64522	Linnemannia gamsii	plant_associate	3	3	Mortierellomycetes	Mortierellales	
+t786904	979765	Linnemannia zychae	plant_associate	2	2	Mortierellomycetes	Mortierellales	
+t42525	64518	Mortierella alpina	plant_associate	7	14	Mortierellomycetes	Mortierellales	
+t22703	41804	Mortierella polycephala	plant_associate	1	1	Mortierellomycetes	Mortierellales	
+t256834	311239	Podila horticola	plant_associate	2	2	Mortierellomycetes	Mortierellales	
+t42529	64523	Podila humilis	plant_associate	2	2	Mortierellomycetes	Mortierellales	
+t42531	64525	Podila minutissima	plant_associate	2	2	Mortierellomycetes	Mortierellales	
+t54776	78898	Podila verticillata	plant_associate	4	5	Mortierellomycetes	Mortierellales	
+t3996	4850	Blakeslea trispora	target_cereal	1	1	Mucoromycetes	Mucorales	yes
+t74136	101091	Choanephora cucurbitarum	target_cereal	2	2	Mucoromycetes	Mucorales	yes
+t74141	101096	Gilbertella persicaria	target_other	2	4	Mucoromycetes	Mucorales	
+t3982	4829	Absidia glauca	plant_associate	1	1	Mucoromycetes	Mucorales	yes
+t52491	76405	Cunninghamella echinulata	plant_associate	2	2	Mucoromycetes	Mucorales	
+t23288	42458	Lichtheimia corymbifera	plant_associate	1	5	Mucoromycetes	Mucorales	yes
+t590002	688394	Lichtheimia ramosa	plant_associate	1	10	Mucoromycetes	Mucorales	yes
+t3988	4840	Rhizomucor pusillus	plant_associate	3	4	Mucoromycetes	Mucorales	yes
+t65892	91626	Mucor ambiguus	plant_associate	1	1	Mucoromycetes	Mucorales	yes
+t1717229	2021224	Mucor atramentarius	congener	1	1	Mucoromycetes	Mucorales	
+t887693	1095379	Mucor bainieri	congener	1	1	Mucoromycetes	Mucorales	
+t17812	36080	Mucor circinelloides	target_cereal	4	24	Mucoromycetes	Mucorales	yes
+t371744	439312	Mucor flavus	congener	1	1	Mucoromycetes	Mucorales	
+t42503	64491	Mucor fragilis	congener	1	1	Mucoromycetes	Mucorales	yes
+t42505	64493	Mucor hiemalis	target_cereal	1	1	Mucoromycetes	Mucorales	yes
+t13363	29924	Mucor lusitanicus	plant_associate	3	3	Mucoromycetes	Mucorales	
+t13361	29922	Mucor mucedo	target_cereal	2	2	Mucoromycetes	Mucorales	yes
+t70759	97098	Mucor plumbeus	plant_associate	1	1	Mucoromycetes	Mucorales	yes
+t42635	64648	Mucor saturninus	congener	1	1	Mucoromycetes	Mucorales	
+t607358	708070	Mucor velutinosus	congener	2	3	Mucoromycetes	Mucorales	
+t74185	101142	Thamnidium elegans	plant_associate	2	3	Mucoromycetes	Mucorales	yes
+t42507	64495	Rhizopus arrhizus	target_cereal	39	56	Mucoromycetes	Mucorales	yes
+t61432	86630	Rhizopus azygosporus	target_other	1	1	Mucoromycetes	Mucorales	
+t757306	936053	Rhizopus delemar	target_other	15	21	Mucoromycetes	Mucorales	
+t37150	58291	Rhizopus microsporus	target_cereal	13	29	Mucoromycetes	Mucorales	yes
+t3993	4846	Rhizopus stolonifer	target_cereal	2	6	Mucoromycetes	Mucorales	yes
+t65891	91625	Umbelopsis isabellina	plant_associate	2	4	Umbelopsidomycetes	Umbelopsidales	
+t25030	44442	Umbelopsis vinacea	plant_associate	2	2	Umbelopsidomycetes	Umbelopsidales	
+t228353	278681	Olpidium bornovanus	target_other	1	1	Olpidiomycetes	Olpidiales	
+t3005	3702	Arabidopsis thaliana	host	10	374	Magnoliopsida	Brassicales	
+t3708	4513	Hordeum vulgare	host	3	222	Magnoliopsida	Poales	
+t3722	4530	Oryza sativa	host	10	209	Magnoliopsida	Poales	
+t3747	4558	Sorghum bicolor	host	3	28	Magnoliopsida	Poales	
+t3752	4565	Triticum aestivum	host	12	82	Magnoliopsida	Poales	
+t3763	4577	Zea mays	host	5	193	Magnoliopsida	Poales	

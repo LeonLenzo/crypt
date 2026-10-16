@@ -116,6 +116,9 @@ READS = BRONZE / "reads"
 REPORTS = BRONZE / "reports"
 NCBI_SUMMARY = BRONZE / "ncbi"          # assembly summaries, as fetched
 BUSCO_CACHE = BRONZE / "busco"          # lineage downloads + the scan cache
+# FracMinHash sketches, one .npy per accession. A cache: expensive to compute (one pass over
+# every CDS FASTA), worthless to keep if the sketch parameters change, so BRONZE and ignored.
+SKETCHES = BRONZE / "sketches"
 
 # ── silver: generated tables ────────────────────────────────────────────────────────────────
 REF_CANDIDATES = SILVER / "ref_candidates.tsv"   # 01_refs: the assemblies chosen, and why
@@ -139,6 +142,14 @@ CLASSIFIED = SILVER / "_classified.tsv"          # 05_detect: one row per candid
 DETECTIONS = GOLD / "detections.tsv"             # the presence calls this pipeline turns on
 COINFECTION = GOLD / "coinfection.tsv"           # per-sample: declared, undeclared, cryptic
 HOST_SUMMARY = GOLD / "host_summary.tsv"         # per-host rates, the headline numbers
+# The saturation QC record: how much k-mer space each species' assemblies actually add, and
+# what depth costs in congener misassignment. TRACKED because it is the EVIDENCE for the
+# no-per-species-cap decision, which a reviewer may reasonably challenge, and because a
+# decision defended by a number nobody can see is a decision defended by assertion.
+SATURATION_CURVE = GOLD / "saturation_curve.tsv"
+SATURATION_SUMMARY = GOLD / "saturation_summary.tsv"
+SATURATION_BIAS = GOLD / "saturation_depth_bias.tsv"
+SKETCH_INDEX = GOLD / "saturation_sketch_index.tsv"
 
 # ── outside the repo ────────────────────────────────────────────────────────────────────────
 # holobase supplies the LABELS (pathogen | resident | host) that 05_detect applies AFTER

@@ -93,9 +93,25 @@ ROUTE_LABEL = {
     "congener":        "congener: shares a genus with a pathogen",
 }
 
-R_TREE = 1.00      # tips of the cladogram sit here
-R_BAR0 = 1.045     # bars start just outside
-BAR_SCALE = 0.30   # radial length of one log10 decade
+# GEOMETRY, and the one relation that matters.
+#
+# The angular pitch per tip is fixed by the tip count: 360 - GAP degrees over however many
+# species are drawn, and nothing here can change it. What CAN change is how much of the page
+# that pitch is worth, because the figure is scaled to fit its canvas. A tip's bar is
+#
+#     width_on_page  =  pitch_radians * (canvas_inches / 2) * (R_BAR0 / lim)
+#
+# so the bars widen only as R_BAR0 approaches `lim`, the outer extent of the drawing. Two
+# levers push the same way: a LARGER tree radius moves the bar origin out, and a SHORTER bar
+# brings the outer extent in. Both were turned up on 2026-10-16 because the bars still crowded
+# at R_TREE 1.0 / BAR_SCALE 0.30, where the ratio was 0.56.
+#
+# The ratio cannot exceed 1 (that would be bars of zero length), so this is a tradeoff with a
+# ceiling rather than a free parameter. draw() prints the width it achieved, so the next
+# adjustment is made against a number instead of an impression.
+R_TREE = 1.80      # tips of the cladogram sit here
+R_BAR0 = R_TREE + 0.045    # bars start just outside
+BAR_SCALE = 0.16   # radial length of one log10 decade
 GAP_DEG = 14.0     # wedge left open at the top: the ring needs a start, and the scale sits in it
 LABEL_MIN = 40     # a class needs this many species to earn a label
 
@@ -319,7 +335,7 @@ def draw(tax, species, children, root, angle, radius, order, no_model, assembly:
     # Self-contained mode reserves a band at the bottom for the legend, because the circle
     # fills its axes and an overlaid legend collided with the class labels. Assembly mode has
     # no text at all, so the marks can use the whole square canvas.
-    fig, ax = plt.subplots(figsize=(13.5, 13.5) if assembly else (13.5, 14.1))
+    fig, ax = plt.subplots(figsize=(15.0, 15.0) if assembly else (15.0, 15.6))
     if assembly:
         fig.subplots_adjust(left=0.01, right=0.99, bottom=0.01, top=0.99)
     else:
@@ -440,6 +456,14 @@ def draw(tax, species, children, root, angle, radius, order, no_model, assembly:
     # draw, and a renderer round-trip is not worth it for one padding constant.
     longest = max((len(f"{n}  ({c})") for n, c in label_widths), default=20)
     lim = r_label + (0.02 if assembly else 0.030 * longest)
+
+    # What the geometry actually bought, in the units a printer cares about.
+    pitch = math.radians(360.0 - GAP_DEG) / len(order)
+    axes_in = fig.get_size_inches()[0] * (0.98 if assembly else 0.96)
+    width_in = pitch * (axes_in / 2.0) * (R_BAR0 / lim)
+    print(f"  bar width at the origin: {width_in * 72:.2f} pt "
+          f"({width_in * 300:.1f} px at 300 dpi), "
+          f"R_BAR0/lim = {R_BAR0 / lim:.2f}, pitch = {math.degrees(pitch):.3f} deg")
     ax.set_xlim(-lim, lim)
     ax.set_ylim(-lim, lim)
     ax.set_aspect("equal")

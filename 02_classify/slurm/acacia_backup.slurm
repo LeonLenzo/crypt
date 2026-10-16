@@ -20,10 +20,17 @@
 # aws-cli 2.13 crashing while formatting a Ceph QuotaExceeded whose <Message> is empty. It is
 # never SSL and never the key.
 #
-# NOTE: the FASTAs in this tree are UNTAGGED (pristine NCBI headers). build_db.py writes its
-# kraken:taxid| tags to a staging copy and deletes it, deliberately leaving bronze immutable.
-# The 2026-09-25 backup did not do this, so the older objects in this prefix ARE tagged with
-# db_v3 taxids — see the build_db.py docstring.
+# NOTE: this tree is MIXED, and that is fine but must not be misread. Verified 2026-10-16:
+#   * the ~2,519 accessions downloaded fresh from NCBI are PRISTINE, untagged, because
+#     build_db.py writes its kraken:taxid| tags to a staging copy and deletes it rather than
+#     rewriting the download the way 03_kraken's tagger did.
+#   * the ~1,752 reused accessions still carry DB_V3 TAXIDS in their headers, inherited from
+#     the 2026-09-25 backup, e.g. GCA_000219625.1 opens `>kraken:taxid|336722|...` where
+#     336722 is the Z. tritici IPO323 STRAIN, not the species node 1047171.
+# Nothing downstream is harmed: build_db.py parses each header's tag, compares it to the
+# manifest and re-tags on any difference (275 of 4,271 on the db_v4 dry-run). Normalising the
+# tree would mean rewriting ~40 GB for no functional gain, so it is deliberately not done.
+# Do NOT assume a FASTA from this prefix is pristine; check the header.
 #
 #   sbatch 02_classify/slurm/acacia_backup.slurm
 

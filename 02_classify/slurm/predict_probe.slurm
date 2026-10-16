@@ -32,7 +32,13 @@ REPO="$SCRATCH/crypt"
 mkdir -p "$REPO/02_classify/slurm/logs"
 cd "$REPO"
 
-VENV="$SCRATCH/venv/vipsania"
+# Venv and model cache live on /software, NOT /scratch. Scratch purges after 21 days, and a
+# purged venv means reinstalling TensorFlow; /software is where environments belong and is
+# where kraken2 and the Acacia credentials already sit. Checked before moving: the venv is
+# 28,844 files against a per-user /software file limit sitting at 45.7% used, so this lands
+# near 57% — space is irrelevant (15 GiB of a project allowance at 7.6%), the inode count is
+# the real constraint on that filesystem.
+VENV="$MYSOFTWARE/venv/vipsania"
 GDIR="$SCRATCH/crypt/02_classify/data/bronze/genomes"
 OUT="$SCRATCH/crypt/02_classify/data/bronze/predicted/probe"
 mkdir -p "$OUT"
@@ -50,10 +56,15 @@ echo "host:   $(hostname)   cpus=${SLURM_CPUS_PER_TASK:-?}"
 # so all of them are redirected to scratch. wandb comes in as a vipsania dependency and will
 # block on a login prompt if it is left enabled, which on a batch node means a silent hang
 # until the walltime expires rather than an error.
-export VIPSANIA_CACHE="$SCRATCH/cache/vipsania"
-export KERAS_HOME="$SCRATCH/cache/keras"
-export XDG_CACHE_HOME="$SCRATCH/cache/xdg"
-export HF_HOME="$SCRATCH/cache/hf"
+# $HOME is at 100% of its 1 GiB quota, which is why the first attempt failed with
+# "Cannot create the model directory /home/llenzo/.cache/vipsania/models". It was a FULL
+# filesystem, not a read-only one — worth knowing, because any tool that defaults a cache to
+# $HOME on this account fails the same way and the message never says "quota".
+# Model weights are reference data, so they go on /software and survive the scratch purge.
+export VIPSANIA_CACHE="$MYSOFTWARE/cache/vipsania"
+export KERAS_HOME="$MYSOFTWARE/cache/keras"
+export XDG_CACHE_HOME="$MYSOFTWARE/cache/xdg"
+export HF_HOME="$MYSOFTWARE/cache/hf"
 export WANDB_MODE=offline
 export WANDB_DIR="$SCRATCH/cache/wandb"
 export TF_CPP_MIN_LOG_LEVEL=2
@@ -96,6 +107,15 @@ say "pre-download the Fungi model, so it is not inside the timing"
 # Fungi model id fh1kg88z, from the README clade table. `Fungi` also resolves, but the id is
 # pinned here so a README edit cannot silently change which model we benchmarked.
 MODEL=fh1kg88z
+# -B is MANDATORY on CPU. vipsania auto-sizes the batch from GPU memory via nvidia-smi and
+# dies without it:
+#   RuntimeError: Unable to determine available GPU memory using nvidia-smi.
+#                 Specify the batch size manually using '-B' or '--finetune_B'
+# Overridable from the environment so tuning needs no code change. --finetune_B only caps
+# memory; vipsania sets the effective finetuning batch to 64 regardless.
+BATCH="${BATCH:-8}"
+PAR="${PAR:-${SLURM_CPUS_PER_TASK:-8}}"     # -p sets the HMM's degree of parallelisation
+echo "batch=$BATCH  hmm_parallel=$PAR"
 vipsania download "$MODEL" 2>&1 | tail -5
 echo "(download exit: $?)"
 
@@ -120,7 +140,8 @@ t0=$SECONDS
 vipsania annotate "$MODEL" "$FASTA" \
     -o "$OUT/pretrained.gff3" \
     --coding "$OUT/pretrained_coding.fa" \
-    --protein "$OUT/pretrained_proteins.fa" 2>&1 | tail -25
+    --protein "$OUT/pretrained_proteins.fa" \
+    -B "$BATCH" -p "$PAR" 2>&1 | tail -25
 rc=${PIPESTATUS[0]}
 echo "WALL_PRETRAINED $((SECONDS - t0)) s   (exit: $rc)"
 
@@ -129,7 +150,8 @@ t1=$SECONDS
 vipsania annotate "$MODEL" "$FASTA" \
     -o "$OUT/finetuned.gff3" \
     --coding "$OUT/finetuned_coding.fa" \
-    --protein "$OUT/finetuned_proteins.fa" --finetune 2>&1 | tail -25
+    --protein "$OUT/finetuned_proteins.fa" \
+    -B "$BATCH" -p "$PAR" --finetune --finetune_B "$BATCH" 2>&1 | tail -25
 rc=${PIPESTATUS[0]}
 echo "WALL_FINETUNED $((SECONDS - t1)) s   (exit: $rc)"
 

@@ -119,6 +119,14 @@ BUSCO_CACHE = BRONZE / "busco"          # lineage downloads + the scan cache
 # FracMinHash sketches, one .npy per accession. A cache: expensive to compute (one pass over
 # every CDS FASTA), worthless to keep if the sketch parameters change, so BRONZE and ignored.
 SKETCHES = BRONZE / "sketches"
+# GENOMIC assemblies, downloaded only for gene prediction. db_v4 holds CDS and nothing else,
+# because these are RNA-seq libraries, so a predictor needs a separate fetch: you cannot
+# predict genes from the CDS you are trying to produce.
+GENOMES = BRONZE / "genomes"
+# Predicted CDS, one subtree per tool, kept apart from the downloaded CDS in BRONZE/cds so
+# nothing can mistake a prediction for an NCBI gene model. Predicted references are
+# COMPETITOR-ONLY and never reportable; see 01_refs/predict/README.md.
+PREDICTED = BRONZE / "predicted"
 
 # ── silver: generated tables ────────────────────────────────────────────────────────────────
 REF_CANDIDATES = SILVER / "ref_candidates.tsv"   # 01_refs: the assemblies chosen, and why
@@ -146,6 +154,11 @@ HOST_SUMMARY = GOLD / "host_summary.tsv"         # per-host rates, the headline 
 # what depth costs in congener misassignment. TRACKED because it is the EVIDENCE for the
 # no-per-species-cap decision, which a reviewer may reasonably challenge, and because a
 # decision defended by a number nobody can see is a decision defended by assertion.
+# The gene-prediction benchmark: which assemblies were sampled, and how each predictor scored
+# against the ground truth we already hold. SILVER for the sample (regenerable from a seed),
+# GOLD for the metrics, because the metrics are the evidence for or against a db_v5.
+PREDICT_SAMPLE = SILVER / "predict_sample.tsv"
+PREDICT_METRICS = GOLD / "predict_benchmark.tsv"
 SATURATION_CURVE = GOLD / "saturation_curve.tsv"
 SATURATION_SUMMARY = GOLD / "saturation_summary.tsv"
 SATURATION_BIAS = GOLD / "saturation_depth_bias.tsv"

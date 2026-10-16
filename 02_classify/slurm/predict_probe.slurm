@@ -76,6 +76,13 @@ say "cli surface"
 vipsania --help 2>&1 | head -25
 echo "(--help exit: $?)"
 
+say "pre-download the Fungi model, so it is not inside the timing"
+# Fungi model id fh1kg88z, from the README clade table. `Fungi` also resolves, but the id is
+# pinned here so a README edit cannot silently change which model we benchmarked.
+MODEL=fh1kg88z
+vipsania download "$MODEL" 2>&1 | tail -5
+echo "(download exit: $?)"
+
 say "fetch ONE genome to predict on"
 python 02_classify/01_refs/predict/fetch_genomes.py \
     --genomes-dir "$GDIR" --arm annotated --limit 1 --workers 1 2>&1 | tail -8
@@ -83,24 +90,39 @@ python 02_classify/01_refs/predict/fetch_genomes.py \
 FASTA=$(find "$GDIR" -name '*.fna' -size +1M | head -1)
 if [ -z "$FASTA" ]; then echo "PROBE FAIL: no genome on disk to test"; exit 1; fi
 echo "target: $FASTA  ($(du -h "$FASTA" | cut -f1))"
+echo "contigs: $(grep -c '^>' "$FASTA")   bases: $(grep -v '^>' "$FASTA" | tr -d '\n' | wc -c)"
 
-say "TIMED CPU run on one fungal genome"
-# The decisive number. If this is minutes, 119 genomes on `work` is trivial and the GPU queue
-# is irrelevant. If it is many hours, the benchmark needs the GPU and the ROCm question becomes
-# unavoidable.
-/usr/bin/time -v vipsania \
-    --coding "$OUT/coding.fa" \
-    --protein "$OUT/proteins.fa" \
-    "$FASTA" "$OUT/genes.gff3" 2>&1 | tail -30
-echo "(vipsania exit: $?)"
+# TWO timed runs, because --finetune buys very little and may cost a great deal.
+# The README reports Fungi locus F1 0.645 pretrained against 0.660 finetuned: +0.015 for a
+# training pass over the target genome. On CPU that trade could easily be hours for nothing,
+# so the pretrained run is timed FIRST and is the one that decides feasibility.
+say "TIMED run 1 of 2: PRETRAINED only (no --finetune)"
+/usr/bin/time -f "WALL_PRETRAINED %e s  MAXRSS %M kB" \
+  vipsania annotate "$MODEL" "$FASTA" \
+    -o "$OUT/pretrained.gff3" \
+    --coding "$OUT/pretrained_coding.fa" \
+    --protein "$OUT/pretrained_proteins.fa" 2>&1 | tail -25
+echo "(exit: $?)"
+
+say "TIMED run 2 of 2: WITH --finetune"
+/usr/bin/time -f "WALL_FINETUNED %e s  MAXRSS %M kB" \
+  vipsania annotate "$MODEL" "$FASTA" \
+    -o "$OUT/finetuned.gff3" \
+    --coding "$OUT/finetuned_coding.fa" \
+    --protein "$OUT/finetuned_proteins.fa" --finetune 2>&1 | tail -25
+echo "(exit: $?)"
 
 say "result"
-for f in "$OUT/coding.fa" "$OUT/genes.gff3"; do
+for f in "$OUT"/*_coding.fa "$OUT"/*.gff3; do
     if [ -s "$f" ]; then
-        echo "  $(basename "$f"): $(du -h "$f" | cut -f1)"
-        [ "${f##*.}" = "fa" ] && echo "    sequences: $(grep -c '^>' "$f")"
+        n=""; case "$f" in *.fa) n=", sequences: $(grep -c '^>' "$f")";; esac
+        echo "  $(basename "$f"): $(du -h "$f" | cut -f1)$n"
     else
         echo "  $(basename "$f"): ABSENT OR EMPTY"
     fi
 done
+echo
+echo "Compare against the TRUTH we already hold for this accession:"
+echo "  real CDS lives under data/bronze/cds/pathogen/<accession>/ and its gene count is in"
+echo "  ref_candidates.tsv (protein_coding_genes). compare.py does this properly."
 echo "END $(date)"

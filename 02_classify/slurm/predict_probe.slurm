@@ -114,8 +114,19 @@ MODEL=fh1kg88z
 # Overridable from the environment so tuning needs no code change. --finetune_B only caps
 # memory; vipsania sets the effective finetuning batch to 64 regardless.
 BATCH="${BATCH:-8}"
-PAR="${PAR:-${SLURM_CPUS_PER_TASK:-8}}"     # -p sets the HMM's degree of parallelisation
-echo "batch=$BATCH  hmm_parallel=$PAR"
+# -p is deliberately NOT passed. vipsania's HMM parallel factor must DIVIDE the context length
+# (T=200000) exactly, and the library already picks the largest valid divisor itself:
+#   if parallel is None:
+#       parallel = math.isqrt(T)
+#       for k in range(parallel, 0, -1):
+#           if T % k == 0 and T_re % k == 0: parallel = k; break
+# Passing -p overrides that check rather than informing it. An earlier probe set
+# -p $SLURM_CPUS_PER_TASK, which SLURM had rounded to 36 (not the 32 requested), and 200000/36
+# is not an integer, so the parallel scan died on
+#   Cannot reshape a tensor with 57600000 elements to shape [576,5555,1,18]
+# 36 would also have been WORSE than the automatic choice, which for T=200000 is ~400. More
+# threads is not the knob here.
+echo "batch=$BATCH  hmm_parallel=auto (library picks a divisor of T)"
 vipsania download "$MODEL" 2>&1 | tail -5
 echo "(download exit: $?)"
 
@@ -141,7 +152,7 @@ vipsania annotate "$MODEL" "$FASTA" \
     -o "$OUT/pretrained.gff3" \
     --coding "$OUT/pretrained_coding.fa" \
     --protein "$OUT/pretrained_proteins.fa" \
-    -B "$BATCH" -p "$PAR" 2>&1 | tail -25
+    -B "$BATCH" 2>&1 | tail -25
 rc=${PIPESTATUS[0]}
 echo "WALL_PRETRAINED $((SECONDS - t0)) s   (exit: $rc)"
 
@@ -151,7 +162,7 @@ vipsania annotate "$MODEL" "$FASTA" \
     -o "$OUT/finetuned.gff3" \
     --coding "$OUT/finetuned_coding.fa" \
     --protein "$OUT/finetuned_proteins.fa" \
-    -B "$BATCH" -p "$PAR" --finetune --finetune_B "$BATCH" 2>&1 | tail -25
+    -B "$BATCH" --finetune --finetune_B "$BATCH" 2>&1 | tail -25
 rc=${PIPESTATUS[0]}
 echo "WALL_FINETUNED $((SECONDS - t1)) s   (exit: $rc)"
 

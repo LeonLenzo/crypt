@@ -44,6 +44,22 @@ module load cray-python/3.12.12
 echo "python: $(python3 --version 2>&1)"
 echo "host:   $(hostname)   cpus=${SLURM_CPUS_PER_TASK:-?}"
 
+# Every cache these libraries use defaults somewhere under $HOME, which a Setonix compute node
+# cannot write. The first probe died on exactly that:
+#   OSError: Cannot create the model directory /home/llenzo/.cache/vipsania/models
+# so all of them are redirected to scratch. wandb comes in as a vipsania dependency and will
+# block on a login prompt if it is left enabled, which on a batch node means a silent hang
+# until the walltime expires rather than an error.
+export VIPSANIA_CACHE="$SCRATCH/cache/vipsania"
+export KERAS_HOME="$SCRATCH/cache/keras"
+export XDG_CACHE_HOME="$SCRATCH/cache/xdg"
+export HF_HOME="$SCRATCH/cache/hf"
+export WANDB_MODE=offline
+export WANDB_DIR="$SCRATCH/cache/wandb"
+export TF_CPP_MIN_LOG_LEVEL=2
+mkdir -p "$VIPSANIA_CACHE" "$KERAS_HOME" "$XDG_CACHE_HOME" "$HF_HOME" "$WANDB_DIR"
+echo "VIPSANIA_CACHE=$VIPSANIA_CACHE"
+
 say "venv + install"
 if [ ! -x "$VENV/bin/python" ]; then
     python3 -m venv "$VENV" || { echo "PROBE FAIL: venv creation"; exit 1; }
@@ -97,20 +113,25 @@ echo "contigs: $(grep -c '^>' "$FASTA")   bases: $(grep -v '^>' "$FASTA" | tr -d
 # training pass over the target genome. On CPU that trade could easily be hours for nothing,
 # so the pretrained run is timed FIRST and is the one that decides feasibility.
 say "TIMED run 1 of 2: PRETRAINED only (no --finetune)"
-/usr/bin/time -f "WALL_PRETRAINED %e s  MAXRSS %M kB" \
-  vipsania annotate "$MODEL" "$FASTA" \
+# /usr/bin/time does not exist on a Setonix compute node (the first probe exited 127 on it).
+# $SECONDS is a shell built-in and needs nothing installed. Peak memory comes from
+# `sacct -j <id> --format=MaxRSS` afterwards.
+t0=$SECONDS
+vipsania annotate "$MODEL" "$FASTA" \
     -o "$OUT/pretrained.gff3" \
     --coding "$OUT/pretrained_coding.fa" \
     --protein "$OUT/pretrained_proteins.fa" 2>&1 | tail -25
-echo "(exit: $?)"
+rc=${PIPESTATUS[0]}
+echo "WALL_PRETRAINED $((SECONDS - t0)) s   (exit: $rc)"
 
 say "TIMED run 2 of 2: WITH --finetune"
-/usr/bin/time -f "WALL_FINETUNED %e s  MAXRSS %M kB" \
-  vipsania annotate "$MODEL" "$FASTA" \
+t1=$SECONDS
+vipsania annotate "$MODEL" "$FASTA" \
     -o "$OUT/finetuned.gff3" \
     --coding "$OUT/finetuned_coding.fa" \
     --protein "$OUT/finetuned_proteins.fa" --finetune 2>&1 | tail -25
-echo "(exit: $?)"
+rc=${PIPESTATUS[0]}
+echo "WALL_FINETUNED $((SECONDS - t1)) s   (exit: $rc)"
 
 say "result"
 for f in "$OUT"/*_coding.fa "$OUT"/*.gff3; do

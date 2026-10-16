@@ -49,9 +49,17 @@ say () { echo; echo "──── $* ────"; }
 module load tensorflow/2.17-rocm6.3.3
 V="$MYSOFTWARE/venv/vipsania-rocm"
 
-# Singularity needs the ROCm devices bound in or the container sees no GPU. The wrapper passes
-# $SINGULARITY_COMMAND_OPTS through to `singularity exec`.
-export SINGULARITY_COMMAND_OPTS="--rocm"
+# DO NOT pass --rocm. It injects the HOST's ROCm libraries into /.singularity.d/libs, which
+# shadow the ROCm 6.3.3 the Pawsey container already bundles, and the injected rocBLAS then
+# cannot find its Tensile kernel library:
+#   rocBLAS error: Cannot read /.singularity.d/libs/rocblas/library/TensileLibrary.dat
+#                  for GPU arch : gfx90a
+#   filesystem error: directory iterator cannot open directory [.../rocblas/library]
+# That aborted even a plain tf.matmul, so it was never a vipsania or hidten problem. gfx90a
+# IS the MI250X, so TensorFlow had already found and targeted the GPU — the container's own
+# ROCm stack is complete and needs no injection, only device access, which singularity
+# provides by default when /dev/kfd and /dev/dri exist on the host.
+export SINGULARITY_COMMAND_OPTS="${SINGULARITY_COMMAND_OPTS:-}"
 
 # $HOME is at 100% quota, so every cache must live elsewhere; weights go on /software.
 export VIPSANIA_CACHE="$MYSOFTWARE/cache/vipsania"

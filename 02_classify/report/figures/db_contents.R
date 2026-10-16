@@ -22,12 +22,12 @@ suppressPackageStartupMessages({
 
 # ── everything tunable ────────────────────────────────────────────────────────
 ROUTE_COLOUR <- c(
-  host            = "#21531f",
+  host            = "#3e9e3b",
   target_cereal   = "#8c0404",
-  target_other    = "#be5656",
+  target_other    = "#e77e7e",
   host_associate  = "#22127e",
-  plant_associate = "#545CC5",
-  congener        = "#c0bbbb")
+  plant_associate = "#add0e4",
+  congener        = "#dfd8d8")
 ROUTE_LABEL <- c(
   target_cereal   = "pathogen recorded on wheat, rice, maize or sorghum",
   target_other    = "plant pathogen, not recorded on those crops",
@@ -38,14 +38,14 @@ ROUTE_LABEL <- c(
 
 BRANCH_COLOUR     <- "#8a8a8a"   # internal edges
 BRANCH_WIDTH      <- 0.12
-TIP_BRANCH_COLOUR <- "#dcdcdc"   # terminal edges; see the note below
+TIP_BRANCH_COLOUR <- "#8a8a8a"   # terminal edges; see the note below
 TIP_BRANCH_WIDTH  <- 0.06
 
 OPEN_ANGLE <- 14     # degrees of ring left open at the top, for the scale
-HOLE       <- 7.0    # tree depth units of empty centre. BIGGER = bigger hole AND shorter
+HOLE       <- 5    # tree depth units of empty centre. BIGGER = bigger hole AND shorter
                      # branches, because the 7 rank rings are squeezed into what is left.
 BAR_GAP    <- 0.35   # gap between the tip ring and the start of the bars
-BAR_SCALE  <- 1.30   # radial length of one log10 decade, in tree depth units
+BAR_SCALE  <- 2   # radial length of one log10 decade, in tree depth units
 ARC_GAP    <- 0.45   # gap between the longest bar and the clade arcs
 ARC_WIDTH  <- 1.1    # weight of the clade arcs
 ARC_PAD    <- 5      # tips trimmed from EACH END of a clade arc, so neighbours separate.

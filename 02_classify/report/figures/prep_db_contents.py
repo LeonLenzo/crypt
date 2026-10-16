@@ -17,11 +17,15 @@ Writes four files:
     db_contents_clades.tsv    class and order spans, for labelling in Illustrator
     db_contents_caption.txt   the full generated caption
 
-**Every branch length is 1 because the tree is a RANK LADDER.** NCBI's uneven nesting is
-collapsed to exactly seven ranks -- kingdom, phylum, class, order, family, genus, species --
-so every edge is one rank step, unit lengths give evenly spaced concentric rings with no
-further work, and radius means taxonomic RANK rather than divergence. That is also why this
-is a taxonomic cladogram and must never be captioned as a phylogeny.
+**Branch length is the RANK GAP a branch spans, because the tree is a RANK LADDER.** NCBI's
+uneven nesting is collapsed to exactly seven ranks -- kingdom, phylum, class, order, family,
+genus, species -- and each branch is then given the number of rank levels it crosses. Usually
+that is 1. It is more where NCBI assigns no family or no class to a lineage, which is true of
+49 of the species here; a flat length of 1 left those tips one or two rings short of the rim,
+which read as a drawing fault and quietly falsified the claim below for every node under
+them. With rank gaps, every node lands on the ring for its own rank, the tips align at the
+species ring for free, and radius means taxonomic RANK rather than divergence. That is also
+why this is a taxonomic cladogram and must never be captioned as a phylogeny.
 
 The colours are NOT here. They live in `db_contents.R` beside the rest of the styling, so
 there is one place to edit them; this file only needs the route NAMES.
@@ -461,8 +465,30 @@ SOURCES
 
 
 
-def newick(children: dict, root: int, tax) -> str:
-    """Newick with unit branch lengths, iteratively.
+def rank_level(node, tips: set, tax) -> int:
+    """Where a node belongs on the rank ladder: kingdom 1 ... species 7, root 0.
+
+    A TIP is always level 7 even when NCBI ranks it below species, because a tip is a species
+    in this figure by construction -- survey.py normalised every assembly to its species node
+    before counting.
+    """
+    if node in tips:
+        return len(RANKS)
+    return RANK_LEVEL.get(tax.rank.get(node), 0)
+
+
+def newick(children: dict, root: int, tips: set, tax) -> str:
+    """Newick where each branch length is the RANK GAP it spans, iteratively.
+
+    Not unit lengths, and the difference matters. NCBI does not assign all seven standard
+    ranks in every lineage: 49 of 1,544 species here are missing a family or a class, so with
+    a flat length of 1 their tips came out one or two rings short of the rim. That looked like
+    a drawing fault, and worse, it quietly falsified the thing the caption claims -- that
+    radius encodes taxonomic rank -- for those lineages and every node under them.
+
+    Setting each branch to `level(child) - level(parent)` puts EVERY node on the ring for its
+    own rank, so the claim holds exactly, the tips align at the species ring for free, and a
+    lineage with a rank missing shows it honestly as one longer branch.
 
     Iterative rather than recursive on purpose: the tree is ~2,400 nodes and a recursive
     writer needs the interpreter's limit raised, which is a trap waiting for a deeper
@@ -470,19 +496,28 @@ def newick(children: dict, root: int, tax) -> str:
     the tip table; a scientific name is not safe in Newick, which gives parentheses, commas
     and colons their own meaning.
     """
+    level = {}
     out, stack = {}, [(root, False)]
     while stack:
         node, done = stack.pop()
+        level.setdefault(node, rank_level(node, tips, tax))
         kids = sorted(children.get(node, ()), key=lambda k: tax.label(k))
         if not kids:
-            out[node] = f"t{node}:1"
             continue
         if done:
-            out[node] = "(" + ",".join(out[k] for k in kids) + f")t{node}:1"
+            parts = []
+            for k in kids:
+                # max(1, ...) guards a child NCBI ranks at or above its parent, which would
+                # otherwise emit a zero or negative branch and make read.tree fail obscurely.
+                blen = max(1, level[k] - level[node])
+                parts.append(f"{out.get(k, f't{k}')}:{blen}")
+            out[node] = "(" + ",".join(parts) + f")t{node}"
         else:
             stack.append((node, True))
             stack.extend((k, False) for k in kids)
-    return out[root].rsplit(":", 1)[0] + ";"
+    for node in level:
+        out.setdefault(node, f"t{node}")
+    return out[root] + ";"
 
 
 def main():
@@ -496,7 +531,12 @@ def main():
     internal = sum(1 for n in children if n not in tips)
     print(f"  {len(order):,} tips, {internal:,} internal nodes, root {tax.label(root)}")
 
-    Path(f"{OUT}_tree.nwk").write_text(newick(children, root, tax) + "\n")
+    Path(f"{OUT}_tree.nwk").write_text(newick(children, root, tips, tax) + "\n")
+    gaps = sum(1 for n, kids in children.items() for k in kids
+               if rank_level(k, tips, tax) - rank_level(n, tips, tax) > 1)
+    print(f"  {gaps:,} branches span more than one rank, because NCBI assigns no family or "
+          f"no class there; every node still lands on its own rank ring and every tip "
+          f"reaches the species ring")
 
     by_tid = {s["tid"]: s for s in species}
     cols = ["label", "ncbi_taxid", "species", "route", "n_annotated", "n_assemblies",

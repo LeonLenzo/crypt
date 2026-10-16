@@ -190,16 +190,29 @@ def main() -> None:
     for r in cands:
         ann_by_name[r["organism_name"]].append(r)
 
+    # FUNGI ONLY. ref_candidates deliberately contains the 43 plant HOST assemblies (route 3),
+    # and an unfiltered draw pulled Triticum aestivum GCA_040256815.2 into Arm A: 14.69 GB
+    # against a 38 MB median, which is ~270 h of inference, and scored against the Fungi model
+    # it would be meaningless anyway since vipsania ships a separate Streptophyta model
+    # (j9m0cdmk). The kingdom column is trustworthy as of 2026-10-16; before that it read
+    # "fungal" for every row including the hosts.
     pool_a = defaultdict(list)
+    skipped_nonfungal = 0
     for name, rs in ann_by_name.items():
         best = best_assembly(rs, "cds")
-        if best:
-            pool_a[(best.get("assembly_level") or "").strip() or "unknown"].append(best)
+        if not best:
+            continue
+        if (best.get("kingdom") or "").strip() != "Fungi":
+            skipped_nonfungal += 1
+            continue
+        pool_a[(best.get("assembly_level") or "").strip() or "unknown"].append(best)
+    if skipped_nonfungal:
+        print(f"  Arm A: excluded {skipped_nonfungal} non-fungal species (plant hosts)")
 
     chosen_a = {}
     for name in FOCAL:                                  # forced first, before any quota
         best = best_assembly(ann_by_name.get(name, []), "cds")
-        if best:
+        if best and (best.get("kingdom") or "").strip() == "Fungi":
             chosen_a[best["accession"]] = best
     for r in stratified(pool_a, max(0, args.per_arm - len(chosen_a)), rng):
         chosen_a.setdefault(r["accession"], r)

@@ -5,8 +5,8 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=120G
-#SBATCH --time=04:00:00
-#SBATCH --array=1-119%40
+#SBATCH --time=10:00:00
+#SBATCH --array=1-120%40
 #SBATCH --output=/scratch/pawsey1168/llenzo/crypt/02_classify/slurm/logs/vipsania_%A_%a.out
 #SBATCH --error=/scratch/pawsey1168/llenzo/crypt/02_classify/slurm/logs/vipsania_%A_%a.err
 
@@ -14,6 +14,17 @@
 # fungal genome took 2,447 s (40.8 min) and peaked at 67 GB RSS, so --mem=120G is headroom
 # over the measured figure rather than a guess — the probe itself was OOM-killed at 64G when
 # it went on to the finetuning arm.
+#
+# WALLTIME 10 h, not 4. Runtime scales with genome SIZE and the sample is not uniform: median
+# 38 MB but the rusts and ectomycorrhizal fungi are genuinely large — Cenococcum geophilum
+# 180 MB, Puccinia hordei 163 MB, P. triticina 122 MB. At the probe's rate a 180 MB genome is
+# ~3.3 h, which a 4 h limit would clear only barely. MEMORY does not need the same treatment:
+# vipsania works in windows of the context length, so peak RSS tracks batch x T, not total
+# genome size.
+#
+# Plant hosts are excluded at the SAMPLE stage, not here. An unfiltered Arm A draw had pulled
+# Triticum aestivum GCA_040256815.2 — 14.69 GB, ~270 h of inference, and scored against the
+# Fungi model it would have been meaningless anyway.
 #
 # NO --finetune, deliberately. It costs a training pass per genome and more memory than the
 # annotation, for Fungi locus F1 0.660 against 0.645 pretrained. On our actual metric the

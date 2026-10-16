@@ -1,8 +1,21 @@
-# 02_classify — DESIGNED, NOT BUILT
+# 02_classify — 01_refs DONE, 02_build RUNNING
 
-This README is the design, written before the code. What exists so far is the skeleton laid
-down on 2026-10-15: `seeds/`, moved across unchanged from `03_kraken` and already built, plus
-`_layout.py` and the empty step and data directories. No step is implemented.
+This README began as the design, written before the code, and the design sections below still
+read that way. Status as of 2026-10-16:
+
+| step | state |
+|---|---|
+| `seeds/` | moved across unchanged from `03_kraken`, already built |
+| `01_refs` | **DONE.** 4,286 annotated assemblies / 1,547 species, measured against NCBI, not estimated |
+| `02_build` | `fetch_cds.py` + `build_db.py` written; the fetch is running on Setonix |
+| `utilities/saturation` | carried across, repointed, demoted to a QC record |
+| `03_cohort`, `04_classify`, `05_detect` | not started |
+
+Not started also means not designed past the sections below. Two pieces of `01_refs` are
+deliberately unfinished: the **miniprot** pass over the 2,138 species that have assemblies but
+no gene model, and **host genomic** references (`seeds/hosts.tsv`; `kraken_hosts.py` has not
+moved). Host CDS *is* in the candidate set — 43 assemblies across the six species — which is
+what db_v4 actually needs, because these are RNA-seq libraries.
 
 It replaces `03_kraken`. Not a rename and not a port: **every input to that module has
 changed**, and two of its dependencies on the superseded frames turned out to be live gates
@@ -46,8 +59,9 @@ to escape.
 
     if str(tid) in hosts or str(tid) not in pathogens or ...: continue
 
-`pathogens` is PHI-base's 632 fungal taxa. db_v3 holds 877 fungal species and db_v4 will hold
-~1,100, **including every resident taxon the 2026-10-13 scope work added**. None of
+`pathogens` is PHI-base's 632 fungal taxa. db_v3 holds 877 fungal species and db_v4 holds
+**1,547** (measured, not the ~1,100 first guessed here), **including every resident taxon the
+2026-10-13 scope work added**. So the gate would now skip rather more than it did. None of
 *Cladosporium*, *Aureobasidium*, *Papiliotrema* or the phyllosphere yeasts is a PHI-base
 pathogen, so `detect.py` would silently skip all of them. That is not a stale path; it is a
 definition of "pathogen" narrower than the database and narrower than the question.
@@ -230,8 +244,30 @@ with no collisions and one Setonix migration.
 ## Build order
 
 1. `seeds/` moves across (already built; it is the only finished piece).
-2. `01_refs` + `02_build` — db_v4. Sized: ~530 assemblies, ~5.2 B minimizers, ~28 GB index,
-   comfortable on a Setonix standard node. Annotation is the constraint, not size.
+2. `01_refs` + `02_build` — db_v4. **DONE and RUNNING respectively.** The sizing originally
+   written here (~530 assemblies, ~5.2 B minimizers, ~28 GB index) was an estimate from
+   holobase availability counts and was wrong by roughly 8x on assemblies, which is the third
+   time an estimate from availability has missed: see CLAUDE.md, "size the next build from a
+   `--select-only` run, not from holobase counts". Measured instead:
+
+   | | db_v3 | db_v4 |
+   |---|---:|---:|
+   | annotated assemblies | 2,063 candidates / 2,081 built | **4,286** |
+   | fungal species | 877 | **1,547** |
+   | CDS sequence | ~25.5 GB | ~90 GB |
+   | distinct minimizers | 4,800,752,701 | **not estimated** |
+   | `hash.k2d` | 27.4 GB | **not estimated** |
+
+   The two blanks are deliberate. Every projection this project has made from availability
+   counts has been high, so the minimizer count comes from `kraken2-inspect` after the build
+   and from nowhere else. The linear upper bound is ~17 B minimizers and ~97 GB of hash, which
+   still fits one 250 GB `work` node, and `highmem` offers 1 TB if it does not. What is NOT
+   acceptable is `--max-db-size`: it makes Kraken2 subsample the minimizer set to fit, silently
+   discarding k-mer space and invalidating every coverage denominator in `05_detect`.
+
+   Of the 4,286, **1,753 were already downloaded for db_v3** and sit in Acacia's project
+   bucket, so the NCBI gap is 2,533. Annotation remains the constraint rather than size: 2,138
+   further species have assemblies with no gene model and are miniprot candidates.
 3. `03_cohort` — resolve 7,688 runs, fetch the ~4,500 reads not already on scratch.
 4. `04_classify` — run it, including the **1,120 sorghum runs that have never been classified**.
 5. `05_detect` — carried over, pathogen filter becomes a label, recalibrate nothing yet.

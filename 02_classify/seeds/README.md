@@ -18,6 +18,30 @@ USDA Fungus-Host Distributions is host-**association** data. It is used here to 
 fungus ever recorded on any plant*, which is a scope gate. It must **never** be used to ask *is
 it recorded on wheat, maize, rice or sorghum*, which is a plausibility filter.
 
+### The rule governs ROUTE 4. Two other routes are deliberately wider
+
+Read as the whole membership rule it is now incomplete, and the gap is a design choice rather
+than an oversight. Membership is the five routes in `01_refs/routes.py`, and **two of them
+admit taxa with no plant association at all**: route 2 (congeners, same genus as a known plant
+pathogen) and route 5 (observed in a phytobiome study). *Aspergillus fumigatus*, *Cryptococcus
+neoformans* and *Hortaea werneckii* are all in db_v4 and none is a plant associate.
+
+They are there as **competitors, not as candidate findings.** Kraken2's LCA can only decline to
+resolve a read when two or more database taxa share its k-mers, so a genus represented by one
+species gives every read in that genus a confident species call whether or not the species is
+present — which is exactly how soybean rust was "detected" in every wheat sample under db_v2.
+A congener's job is to take those k-mers back.
+
+So **database scope is deliberately wider than reporting scope**, and the route column carries
+both facts: it is the provenance of a taxon AND its reportability label in `05_detect`. A taxon
+whose only route is `congener` is a competitor and is **not reportable** as a detection. That
+separation is what makes the wider scope safe; collapsing it — treating presence in the
+database as licence to report — would reintroduce the plausibility problem from the other
+direction.
+
+The anti-plausibility rule above is unaffected by any of this. It forbids narrowing scope by
+the cohort's own hosts, and none of the five routes does that.
+
 CLAUDE.md already rejects host-plausibility filtering of calls, because the observed
 fungus-host edges record only what has already been seen and the study exists to find
 unreported associations. Moving that same filter earlier, into reference selection, is **worse

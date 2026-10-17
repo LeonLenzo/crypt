@@ -86,6 +86,22 @@ far a predictor can be trusted. Whether prediction is WORTH running on the speci
 lack a model is a separate measurement, of how much of the predicted k-mer space is new
 to db_v4, and is not in this figure.
 
+
+SHORT CAPTION
+
+Ab-initio gene prediction compared with NCBI annotation for 60 fungal assemblies that
+already carry a gene model. Each point is one assembly; fill is genome size on a log
+scale. (a) Number of CDS called by prediction against the number annotated; dashed line
+is 1:1, median ratio 1.01. (b) The same for total CDS sequence, median ratio
+1.03. (c) k-mer containment against the annotated CDS: recall is the fraction of
+true CDS k-mer space recovered (median 0.96) and precision the fraction of
+predicted space that is real CDS (median 0.94); dotted guides mark 0.90.
+Agreement in (a) and (b) is consistent with entirely different sequence, so only (c)
+tests identity. Deviation tracks genome size (r = -0.53 against both metrics): ab-initio
+prediction calls genes within transposons, so large repeat-rich genomes over-call while
+recall stays intact -- Blumeria graminis predicts 3.9x its annotated CDS at
+precision 0.51. Containment from FracMinHash sketches, k=31, scaled=200.
+
 SOURCES
   data      predict_counts.tsv, from predict_benchmark.tsv
   axes      predict_counts_params.tsv

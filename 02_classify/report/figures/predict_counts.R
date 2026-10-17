@@ -39,7 +39,9 @@ assembly_theme <- theme_classic(base_size = 16) +
         axis.line        = element_line(colour = "black", linewidth = 1),
         axis.ticks       = element_line(colour = "black", linewidth = 1),
         axis.ticks.length = unit(4, "pt"),
-        axis.text        = element_text(colour = "black"),
+        # Tick numerals a little above base_size: they are the only text surviving into the
+        # assembled figure, so they carry the reading on their own.
+        axis.text        = element_text(colour = "black", size = 18),
         legend.position  = "none",
         plot.margin      = margin(8, 12, 8, 8))
 

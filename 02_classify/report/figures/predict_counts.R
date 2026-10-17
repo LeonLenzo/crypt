@@ -1,124 +1,91 @@
 #!/usr/bin/env Rscript
-# predict_counts.R — does ab-initio prediction reproduce NCBI's annotation?
+# predict_counts.R — draws the prediction-vs-annotation figure. Owns styling only.
 #
-# Three panels asking three increasingly strict questions of the same 60 assemblies:
+# Every number comes from prep_predict_counts.py, including the axis limits, which are read
+# from predict_counts_params.tsv rather than derived here. Deriving them in both places is how
+# a caption ends up describing a figure that no longer exists.
 #
-#   a  Does it call the same NUMBER of CDS?
-#   b  Does it call the same AMOUNT of sequence?
-#   c  Is it the SAME sequence?
+# ASSEMBLY MODE. No panel titles, no legend, no in-panel species labels, no caption. The
+# panels are printed separately and annotated in Illustrator, and predict_counts_caption.txt
+# carries everything stripped from the image -- including outlier coordinates in data units.
 #
-# a and b can both agree while c fails completely — identical totals say nothing about
-# identity, which is the whole reason the benchmark measures k-mer containment rather than
-# stopping at counts. Panels a and b carry a dashed 1:1 line, so deviation is read directly
-# off the diagonal rather than inferred from a fitted slope.
-#
-# Counts are fair to compare: NCBI's cds_from_genomic.fna holds one entry per CDS INCLUDING
-# isoforms, while vipsania writes one per predicted gene. Checked rather than assumed — the
-# ratio of NCBI CDS entries to its own protein-coding gene count has median 1.000 across the
-# 60, and only 4 exceed 1.10. Fungal isoform inflation is negligible at this scale.
-#
-# Colour is genome size throughout, because that is what the earlier analysis showed drives
-# the deviation (r = -0.53 against both recall and precision): ab-initio prediction calls
-# genes inside transposons, and large fungal genomes are large mostly because of transposons.
+# BOTH AXES OF PANELS a AND b SHARE ONE RANGE AND BREAK SET, and coord_fixed makes the panel
+# square in log space. Without that the dashed 1:1 line is not at 45 degrees and the eye reads
+# deviation that is not in the data, which defeats the point of a 1:1 plot.
 #
 #   Rscript 02_classify/report/figures/predict_counts.R
 
 suppressPackageStartupMessages({
-  library(ggplot2); library(patchwork); library(ggrepel); library(scales)
+  library(ggplot2); library(patchwork); library(scales)
 })
 
 HERE <- "02_classify/report/figures"
 d <- read.delim(file.path(HERE, "predict_counts.tsv"), stringsAsFactors = FALSE)
+pr <- read.delim(file.path(HERE, "predict_counts_params.tsv"), stringsAsFactors = FALSE)
+getp <- function(panel) {
+  r <- pr[pr$panel == panel, ]
+  list(lo = r$lo, hi = r$hi, breaks = as.numeric(strsplit(r$breaks, ";")[[1]]))
+}
+pa <- getp("a"); pb <- getp("b"); psz <- getp("size")
 
-d$ratio_seqs  <- d$pred_seqs / d$true_seqs
-d$ratio_bases <- d$pred_mb   / d$true_mb
-italicise <- function(x) sprintf('italic("%s")', x)   # plotmath; ggtext dies under theme_minimal
-
-base_theme <- theme_minimal(base_size = 16) +
+assembly_theme <- theme_minimal(base_size = 16) +
   theme(panel.background = element_rect(fill = "white", colour = NA),
         plot.background  = element_rect(fill = "white", colour = NA),
-        plot.subtitle    = element_text(size = 13),
-        legend.position  = "top",
-        plot.margin      = margin(6, 14, 6, 6))
+        legend.position  = "none",
+        plot.margin      = margin(8, 12, 8, 8))
 
-# Continuous fill for genome size. Marks stay house-style: shape 21, black border, size 4,
-# stroke 1, alpha 0.7.
-fill_scale <- scale_fill_viridis_c(
-  name = "Genome size (Mb)", option = "viridis", direction = -1,
-  trans = "log10", breaks = c(10, 20, 40, 80, 160),
-  guide = guide_colourbar(barwidth = 9, barheight = 0.7, title.vjust = 0.9))
+fill_scale <- scale_fill_viridis_c(option = "viridis", direction = -1, trans = "log10",
+                                   limits = c(psz$lo, psz$hi), breaks = psz$breaks,
+                                   oob = scales::squish)
 
 pt <- function() geom_point(shape = 21, size = 4, stroke = 1, alpha = 0.8, colour = "black")
-diag_line <- function() geom_abline(slope = 1, intercept = 0, linetype = "dashed",
-                                    linewidth = 1, colour = "grey40")
 
-# ── a: number of CDS called ─────────────────────────────────────────────────────────────────
-lab_a <- d[d$ratio_seqs > 1.6 | d$ratio_seqs < 0.6, ]
-pA <- ggplot(d, aes(true_seqs, pred_seqs, fill = genome_mb)) +
-  diag_line() + pt() +
-  geom_text_repel(data = lab_a, aes(label = italicise(organism_name)), parse = TRUE,
-                  size = 3.4, colour = "grey25", min.segment.length = 0,
-                  segment.colour = "grey60", box.padding = 0.9, point.padding = 0.4, force = 4,
-                  max.overlaps = 20, seed = 1) +
-  scale_x_log10(labels = comma) + scale_y_log10(labels = comma) +
-  fill_scale +
-  labs(x = "CDS called by NCBI annotation", y = "CDS called by prediction",
-       subtitle = "a  Number of CDS: median ratio 1.01") +
-  base_theme
+# One-to-one panel: shared scale on both axes, square aspect, dashed diagonal.
+one_to_one <- function(p, lim, brk, labfun) {
+  p + geom_abline(slope = 1, intercept = 0, linetype = "dashed",
+                  linewidth = 1, colour = "grey40") +
+    pt() + fill_scale +
+    scale_x_log10(limits = lim, breaks = brk, labels = labfun) +
+    scale_y_log10(limits = lim, breaks = brk, labels = labfun) +
+    coord_fixed(ratio = 1) +
+    assembly_theme
+}
 
-# ── b: amount of sequence ───────────────────────────────────────────────────────────────────
-lab_b <- d[d$ratio_bases > 1.45 | d$ratio_bases < 0.75, ]
-pB <- ggplot(d, aes(true_mb, pred_mb, fill = genome_mb)) +
-  diag_line() + pt() +
-  geom_text_repel(data = lab_b, aes(label = italicise(organism_name)), parse = TRUE,
-                  size = 3.4, colour = "grey25", min.segment.length = 0,
-                  segment.colour = "grey60", box.padding = 0.9, point.padding = 0.4, force = 4,
-                  max.overlaps = 20, seed = 1) +
-  scale_x_log10() + scale_y_log10() +
-  fill_scale +
-  labs(x = "CDS Mb from NCBI annotation", y = "CDS Mb from prediction",
-       subtitle = "b  Amount of sequence: median ratio 1.03") +
-  base_theme
+pA <- one_to_one(ggplot(d, aes(true_seqs, pred_seqs, fill = genome_mb)),
+                 c(pa$lo, pa$hi), pa$breaks, comma) +
+  labs(x = "Annotated Count", y = "Predicted Count")
 
-# ── c: is it the SAME sequence? ─────────────────────────────────────────────────────────────
-# The strict question. Equal totals in a and b are consistent with completely different
-# sequence; only containment distinguishes them. Top-right is agreement.
-d$recall <- as.numeric(d$recall); d$precision <- as.numeric(d$precision)
-lab_c <- d[d$precision < 0.80 | d$recall < 0.87, ]
+pB <- one_to_one(ggplot(d, aes(true_mb, pred_mb, fill = genome_mb)),
+                 c(pb$lo, pb$hi), pb$breaks, waiver()) +
+  labs(x = "Annotated Mb", y = "Predicted Mb")
+
+# Panel c is NOT 1:1 -- the two axes are different quantities -- so it keeps its own ranges
+# and is left unsquared. Dotted guides at 0.90 give the eye a reference without asserting a
+# threshold; 0.90 is a reading aid, not a decision rule.
 pC <- ggplot(d, aes(recall, precision, fill = genome_mb)) +
   geom_hline(yintercept = 0.9, linetype = "dotted", linewidth = 0.8, colour = "grey60") +
   geom_vline(xintercept = 0.9, linetype = "dotted", linewidth = 0.8, colour = "grey60") +
-  pt() +
-  geom_text_repel(data = lab_c, aes(label = italicise(organism_name)), parse = TRUE,
-                  size = 3.4, colour = "grey25", min.segment.length = 0,
-                  segment.colour = "grey60", box.padding = 0.9, point.padding = 0.4, force = 4,
-                  max.overlaps = 20, seed = 1) +
-  scale_x_continuous(limits = c(0.7, 1), breaks = seq(0.7, 1, 0.1)) +
-  scale_y_continuous(limits = c(0.4, 1), breaks = seq(0.4, 1, 0.1)) +
-  fill_scale +
-  # Short axis titles: the full definitions are longer than the panel is tall and get clipped
-  # when rotated. They live in the caption instead.
-  labs(x = "Recall", y = "Precision",
-       subtitle = "c  Same sequence? median 0.96 / 0.94") +
-  base_theme
+  pt() + fill_scale +
+  scale_x_continuous(limits = c(0.70, 1), breaks = seq(0.70, 1, 0.10)) +
+  scale_y_continuous(limits = c(0.40, 1), breaks = seq(0.40, 1, 0.20)) +
+  labs(x = "Recall", y = "Precision") +
+  assembly_theme
 
-p <- (pA | pB | pC) +
-  plot_layout(guides = "collect") +
-  plot_annotation(
-    caption = paste(
-      "60 annotated fungal assemblies; NCBI CDS is ground truth. Dashed line in a and b is 1:1.",
-      "c: recall = fraction of true CDS k-mer space recovered; precision = fraction of predicted k-mer space that is real CDS.",
-      "Containment from FracMinHash sketches, k=31, scaled=200.",
-      "Equal totals in a and b would be consistent with entirely different sequence; only c tests identity.",
-      sep = "\n"),
-    theme = theme(plot.caption = element_text(size = 11, hjust = 0, colour = "grey30"))) &
-  # bottom, not top: collected at "top" the colourbar centres over panel b and crowds its
-  # plot area, while the outer panels start higher and look unbalanced.
-  theme(legend.position = "bottom", legend.box.margin = margin(t = -2))
+p <- pA | pB | pC
 
-ragg::agg_png(file.path(HERE, "predict_counts.png"), width = 5100, height = 1750,
+ragg::agg_png(file.path(HERE, "predict_counts.png"), width = 4800, height = 1700,
               res = 300, background = "white")
 print(p); invisible(dev.off())
-cairo_pdf(file.path(HERE, "predict_counts.pdf"), width = 17, height = 5.83)
+cairo_pdf(file.path(HERE, "predict_counts.pdf"), width = 16, height = 5.67)
 print(p); invisible(dev.off())
-cat("wrote predict_counts.png and .pdf\n")
+
+# Panels also written singly, since they are printed and placed separately.
+for (nm in c("a", "b", "c")) {
+  obj <- switch(nm, a = pA, b = pB, c = pC)
+  ragg::agg_png(file.path(HERE, sprintf("predict_counts_%s.png", nm)),
+                width = 1650, height = 1650, res = 300, background = "white")
+  print(obj); invisible(dev.off())
+  cairo_pdf(file.path(HERE, sprintf("predict_counts_%s.pdf", nm)), width = 5.5, height = 5.5)
+  print(obj); invisible(dev.off())
+}
+cat("wrote predict_counts.{png,pdf} and predict_counts_{a,b,c}.{png,pdf}\n")

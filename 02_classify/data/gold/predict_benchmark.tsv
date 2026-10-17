@@ -1,0 +1,120 @@
+tool	arm	accession	organism_name	assembly_level	focal	pred_seqs	pred_bases	pred_kmers_est	true_seqs	true_bases	true_kmers_est	recall	precision	jaccard	novelty
+vipsania_pretrained	annotated	GCA_016801405.1	Parastagonospora nodorum	Chromosome	yes	13634	19288437	18905000	17764	20554066	19659400	0.9361	0.9734	0.9128	
+vipsania_pretrained	annotated	GCA_900091695.1	Zymoseptoria tritici	Chromosome	yes	12309	16927704	16468800	11726	16118925	15717400	0.9734	0.9290	0.9060	
+vipsania_pretrained	annotated	GCF_003171515.1	Pyrenophora tritici-repentis	Chromosome	yes	13668	21285216	16937000	15455	20763636	15762800	0.9614	0.8948	0.8637	
+vipsania_pretrained	annotated	GCA_900232045.3	Pyrenophora teres	Chromosome	yes	12191	18617967	16564400	11561	17947173	16214800	0.9734	0.9529	0.9287	
+vipsania_pretrained	annotated	GCA_025169535.1	Puccinia striiformis	Chromosome	yes	16972	25409154	20544200	17090	21470851	19081400	0.8710	0.8090	0.7224	
+vipsania_pretrained	annotated	GCA_026914245.1	Puccinia triticina	Complete Genome	yes	20326	32911749	25191600	12690	15055481	13938800	0.8806	0.4872	0.4571	
+vipsania_pretrained	annotated	GCA_061311145.1	Fusarium graminearum	Complete Genome	yes	12643	18704280	18224000	15030	19342956	18305600	0.9590	0.9633	0.9252	
+vipsania_pretrained	annotated	GCA_030719095.1	Fusarium oxysporum	Complete Genome	yes	16789	24103605	23273600	16307	23002273	22400000	0.9686	0.9322	0.9048	
+vipsania_pretrained	annotated	GCA_049245135.1	Rhizoctonia solani	Complete Genome	yes	12933	19366050	17882000	10698	15000667	10854600	0.9767	0.5929	0.5846	
+vipsania_pretrained	annotated	GCA_004346965.1	Pyricularia oryzae	Complete Genome	yes	11988	17887812	16588800	13521	17665086	16965200	0.9321	0.9532	0.8913	
+vipsania_pretrained	annotated	GCA_028858655.1	Bipolaris maydis	Scaffold	yes	12026	18187965	16693800	11144	17050451	16569000	0.9611	0.9539	0.9184	
+vipsania_pretrained	annotated	GCF_033473495.1	Cercospora beticola	Complete Genome	yes	13541	18970242	18630200	13144	18484164	18171200	0.9837	0.9594	0.9444	
+vipsania_pretrained	annotated	GCF_019915245.1	Fusarium musae	Chromosome	no	14878	21435474	21081600	13672	19128596	18810800	0.9793	0.8738	0.8580	
+vipsania_pretrained	annotated	GCA_003316995.2	Fusarium verticillioides	Chromosome	no	14748	21281109	20888200	13508	19759779	19421800	0.9823	0.9133	0.8986	
+vipsania_pretrained	annotated	GCF_001672515.1	Colletotrichum higginsianum	Chromosome	no	13948	21354507	19907000	14651	20612127	19980600	0.9498	0.9533	0.9076	
+vipsania_pretrained	annotated	GCA_009663115.1	Fusarium fujikuroi	Chromosome	no	14870	21534282	20503000	13690	20541093	19630000	0.9617	0.9208	0.8883	
+vipsania_pretrained	annotated	GCA_900519115.1	Blumeria graminis	Chromosome	no	17598	36764940	16191200	8469	9400132	8757200	0.9478	0.5126	0.4986	
+vipsania_pretrained	annotated	GCA_045999785.1	Phlyctema vagabunda	Chromosome	no	11642	17936976	17527600	11476	16919397	16544400	0.9836	0.9284	0.9142	
+vipsania_pretrained	annotated	GCF_000182925.2	Neurospora crassa	Chromosome	no	9135	14708679	14457800	10812	16929975	14662800	0.9645	0.9781	0.9441	
+vipsania_pretrained	annotated	GCF_004355905.1	Pyricularia grisea	Chromosome	no	11757	17421771	16543400	12452	17130390	16491400	0.9558	0.9528	0.9126	
+vipsania_pretrained	annotated	GCF_020623625.1	Saccharomycodes ludwigii	Chromosome	no	5059	8440383	8019000	5026	8302455	7934000	0.9978	0.9872	0.9851	
+vipsania_pretrained	annotated	GCF_018924745.1	Marasmius oreades	Chromosome	no	14165	20955381	18227200	15044	19536860	16868200	0.9528	0.8817	0.8448	
+vipsania_pretrained	annotated	GCA_051938815.1	Gaeumannomyces hyphopodioides	Chromosome	no	12970	20805765	18511000	15925	26412924	17204800	0.9790	0.9099	0.8925	
+vipsania_pretrained	annotated	GCF_964197705.1	Penicillium psychrofluorescens	Chromosome	no	10837	15914847	15576800	9519	13955777	13658000	0.9916	0.8694	0.8631	
+vipsania_pretrained	annotated	GCA_056632935.1	Cryptococcus deuterogattii	Complete Genome	no	6412	10373193	10193400	6260	10103817	9959600	0.9865	0.9639	0.9513	
+vipsania_pretrained	annotated	GCA_029542965.1	Malassezia yamatoensis	Complete Genome	no	4257	6896829	6745600	4047	6736700	6592600	0.9675	0.9456	0.9165	
+vipsania_pretrained	annotated	GCF_020647795.1	Trichoderma atroviride	Complete Genome	no	11163	17082975	16841800	13568	17385203	16374800	0.9582	0.9316	0.8952	
+vipsania_pretrained	annotated	GCF_023278565.1	Colletotrichum lupini	Complete Genome	no	14000	20454648	19859400	18280	25418094	24745200	0.7766	0.9677	0.7569	
+vipsania_pretrained	annotated	GCA_007735645.1	Venturia effusa	Complete Genome	no	11977	16511265	16113400	10820	15939394	15573400	0.9748	0.9421	0.9197	
+vipsania_pretrained	annotated	GCA_001984395.2	Zygosaccharomyces parabailii	Complete Genome	no	10071	14882058	12826400	10099	14904381	12852200	0.9917	0.9937	0.9855	
+vipsania_pretrained	annotated	GCA_014784225.2	Aspergillus flavus	Complete Genome	no	13125	18894318	18520400	13866	19409826	17983000	0.9774	0.9490	0.9287	
+vipsania_pretrained	annotated	GCA_046000195.1	Aspergillus wentii	Complete Genome	no	12003	17500191	17127000	13585	18437727	16788400	0.9759	0.9566	0.9345	
+vipsania_pretrained	annotated	GCA_047368035.1	Malassezia pachydermatis	Complete Genome	no	4605	7190913	6920800	4441	6483660	6370200	0.9868	0.9083	0.8974	
+vipsania_pretrained	annotated	GCA_056582465.1	Diplodia sapinea	Complete Genome	no	12357	18390594	18002600	11770	17147985	16751800	0.9765	0.9087	0.8892	
+vipsania_pretrained	annotated	GCF_000836335.1	Cryptococcus bacillisporus	Complete Genome	no	6492	10457340	10119400	6694	10318254	10068000	0.9759	0.9709	0.9481	
+vipsania_pretrained	annotated	GCA_976943335.1	Parajaminaea phylloscopi	Complete Genome	no	6565	11864889	11587200	6613	11772057	11504600	0.9818	0.9748	0.9575	
+vipsania_pretrained	annotated	GCA_977970205.2	Microdochium nivale	Contig	no	11169	17350980	16878000	11904	17231159	16798600	0.9570	0.9525	0.9134	
+vipsania_pretrained	annotated	GCA_027946375.1	Neodidymelliopsis sp. IMI 364377	Contig	no	11091	16200858	15812000	9614	14163536	13826000	0.9578	0.8375	0.8077	
+vipsania_pretrained	annotated	GCA_040367835.1	Mucor flavus	Contig	no	12305	16843443	15804600	11295	15901386	15238200	0.9612	0.9268	0.8933	
+vipsania_pretrained	annotated	GCA_014898425.1	Botryotinia globosa	Contig	no	11407	16761723	16385000	12073	17121855	16724000	0.9620	0.9819	0.9453	
+vipsania_pretrained	annotated	GCF_001792695.1	Aspergillus bombycis	Contig	no	12995	18821811	18470000	12262	18283742	17935400	0.9726	0.9445	0.9200	
+vipsania_pretrained	annotated	GCA_900157425.1	Armillaria ostoyae	Contig	no	18430	24747210	22666400	22299	27302049	24755600	0.8626	0.9421	0.8192	
+vipsania_pretrained	annotated	GCA_018360355.1	Claviceps sp. Clav32 group G5	Contig	no	7884	11963754	11688200	8112	11821184	11525800	0.9627	0.9493	0.9157	
+vipsania_pretrained	annotated	GCA_004369175.1	Coprinellus micaceus	Contig	no	23906	34606818	24084200	23412	27022204	23124000	0.8443	0.8107	0.7052	
+vipsania_pretrained	annotated	GCA_022432375.1	Nemania sp. FL0031	Contig	no	13463	20223564	19751800	13572	19820466	19370400	0.9747	0.9558	0.9326	
+vipsania_pretrained	annotated	GCA_000986645.1	Aspergillus rambellii	Contig	no	8173	12384159	12162800	7761	12268470	12027000	0.9578	0.9471	0.9092	
+vipsania_pretrained	annotated	GCA_029282135.1	Mycena belliarum	Contig	no	16638	24736299	21289000	18071	22800284	20684800	0.8801	0.8551	0.7659	
+vipsania_pretrained	annotated	GCA_052576325.1	Cladosporium allicinum	Contig	no	11981	17466696	16990800	11515	18127443	17700400	0.9417	0.9810	0.9249	
+vipsania_pretrained	annotated	GCA_021432655.1	Atractiella rhizophila	Scaffold	no	16496	22284135	17680000	17598	18559314	15759400	0.8770	0.7817	0.7045	
+vipsania_pretrained	annotated	GCF_001500285.1	Mollisia scopiformis	Scaffold	no	17922	24892653	24398000	18556	23863865	23342000	0.9557	0.9143	0.8772	
+vipsania_pretrained	annotated	GCA_053539345.1	Beauveria neobassiana	Scaffold	no	10177	15018852	14688600	10248	14943506	14331000	0.9733	0.9496	0.9254	
+vipsania_pretrained	annotated	GCA_013266165.1	Fusarium graminum	Scaffold	no	11870	17590437	17263800	11163	17275489	16981400	0.9693	0.9535	0.9256	
+vipsania_pretrained	annotated	GCA_013266185.1	Fusarium sarcochroum	Scaffold	no	15579	22615182	22091800	14827	22284886	21792600	0.9557	0.9428	0.9033	
+vipsania_pretrained	annotated	GCA_011392495.1	Talaromyces pinophilus	Scaffold	no	13138	19334190	18867200	12488	19082445	18670200	0.9557	0.9457	0.9061	
+vipsania_pretrained	annotated	GCA_025327135.1	Colletotrichum sp. SAR 10_71	Scaffold	no	16794	24745056	24151200	12879	18462473	18031600	0.9776	0.7299	0.7178	
+vipsania_pretrained	annotated	GCA_964263705.1	Xanthoria parietina	Scaffold	no	9932	14577726	14101800	11138	15039824	13895000	0.9586	0.9446	0.9076	
+vipsania_pretrained	annotated	GCA_001908125.1	Penicillium subrubescens	Scaffold	no	13179	18484758	17921200	14177	17703739	17102600	0.9482	0.9049	0.8623	
+vipsania_pretrained	annotated	GCF_000271605.1	Fomitiporia mediterranea	Scaffold	no	10892	15642996	15266000	11330	14546515	14153600	0.9272	0.8596	0.8053	
+vipsania_pretrained	annotated	GCA_013396295.1	Fusarium heterosporum	Scaffold	no	12057	17805309	17510200	11332	17471979	17185600	0.9681	0.9502	0.9213	
+vipsania_pretrained	annotated	GCF_000281105.1	Coniosporium apollinis	Scaffold	no	9567	14239842	13953400	9308	13487287	13169600	0.9796	0.9246	0.9072	
+vipsania_pretrained	unannotated	GCA_025258505.1	Fusarium asiaticum	Complete Genome	absent_target	12680	18755130	18324200							
+vipsania_pretrained	unannotated	GCA_022559985.1	Parastagonospora avenae	Scaffold	absent_target	13993	19181991	18710600							
+vipsania_pretrained	unannotated	GCA_062009444.1	Puccinia hordei	Chromosome	absent_target	21223	38764905	20357400							
+vipsania_pretrained	unannotated	GCA_026119265.1	Didymella pinodes	Scaffold	absent_target	12273	17181438	16715800							
+vipsania_pretrained	unannotated	GCA_030558545.1	Bipolaris gigantea	Scaffold	absent_target	9749	14384385	14130200							
+vipsania_pretrained	unannotated	GCA_053572805.1	Penicillium commune	Contig	absent_target	12145	17699796	17263800							
+vipsania_pretrained	unannotated	GCA_030389615.1	Epichloe typhina	Complete Genome	absent_target	7835	11926869	11663000							
+vipsania_pretrained	unannotated	GCA_022506055.1	Microbotryum violaceum	Contig	absent_target	8002	13466361	12075800							
+vipsania_pretrained	unannotated	GCA_048934005.1	Dioszegia catarinoi	Contig	resident	8853	12963552	12482200							
+vipsania_pretrained	unannotated	GCA_059628725.1	Cladosporium sp. MA8_LABAP	Scaffold	resident	10050	14927238	14593000							
+vipsania_pretrained	unannotated	GCA_052324205.1	Cladosporium cf. tenuissimum	Scaffold	resident	12405	18061158	17677400							
+vipsania_pretrained	unannotated	GCA_026538325.1	Cryptococcus sp. GC_Crypt_8	Contig	resident	7272	11091648	10809000							
+vipsania_pretrained	unannotated	GCA_000442785.1	Papiliotrema flavescens	Scaffold	resident	9359	13633086	13322000							
+vipsania_pretrained	unannotated	GCA_060229725.1	Bullera sp. CLIB4446	Contig	resident	7874	10435548	10207600							
+vipsania_pretrained	unannotated	GCA_054490815.1	Acremonium polychromum	Scaffold	resident	13693	20973360	20515000							
+vipsania_pretrained	unannotated	GCA_030463185.1	Cladosporium sp. BF-F	Contig	resident	11543	16847754	16535200							
+vipsania_pretrained	unannotated	GCA_018703675.1	Cladosporium sp. SW67	Scaffold	resident	10280	15349986	14991200							
+vipsania_pretrained	unannotated	GCA_026538705.1	Aureobasidium sp. GC_Fusr_1	Contig	resident	10133	14391576	14104600							
+vipsania_pretrained	unannotated	GCA_001600655.1	Dioszegia aurantiaca	Scaffold	resident	7895	12182085	11963800							
+vipsania_pretrained	unannotated	GCA_019775635.1	Cladosporium sp. VS III D KN 1	Scaffold	resident	12970	18798741	18494800							
+vipsania_pretrained	unannotated	GCA_004335185.1	Phoma sp. RAV-16-625	Contig	resident	12127	17611668	17194200							
+vipsania_pretrained	unannotated	GCA_062004744.1	Cladosporium sp. 121G	Scaffold	resident	10987	16149513	15896800							
+vipsania_pretrained	unannotated	GCA_021014315.1	Aureobasidium mangrovei	Scaffold	resident	9597	14088756	13866400							
+vipsania_pretrained	unannotated	GCA_060229605.1	Vishniacozyma sp. CLIB4441	Contig	resident	7685	11395752	11263200							
+vipsania_pretrained	unannotated	GCA_061604035.1	Aureobasidium sp. LC112	Contig	resident	10270	15058830	14752200							
+vipsania_pretrained	unannotated	GCA_048773585.1	Nigrospora camelliae-sinensis	Contig	resident	13606	20000757	19372600							
+vipsania_pretrained	unannotated	GCA_024271845.1	Cryptococcus sp. VH57_BW	Scaffold	resident	6716	11155203	10838200							
+vipsania_pretrained	unannotated	GCA_023621355.1	Cladosporium sphaerospermum	Scaffold	resident	10825	15959535	15553400							
+vipsania_pretrained	unannotated	GCA_986694515.1	Marasmius cohaerens	Chromosome	no	18592	27593772	20024800							
+vipsania_pretrained	unannotated	GCA_978897505.1	Tricholoma terreum	Chromosome	no	20270	31148820	21536400							
+vipsania_pretrained	unannotated	GCA_000633125.1	Flammulina velutipes	Chromosome	no	15097	20536848	18561600							
+vipsania_pretrained	unannotated	GCA_009192285.1	Morchella semilibera	Chromosome	no	12433	18721773	15819000							
+vipsania_pretrained	unannotated	GCA_054553065.1	Fusarium cerealis	Chromosome	no	12577	18632418	18247200							
+vipsania_pretrained	unannotated	GCA_054134705.1	Peroneutypa diatrypoides	Chromosome	no	11987	18389214	18024600							
+vipsania_pretrained	unannotated	GCA_040893085.1	Epicoccum sorghinum	Chromosome	no	12413	18059736	17616600							
+vipsania_pretrained	unannotated	GCA_036768465.1	Alternaria brassicae	Complete Genome	no	13222	19191234	18763200							
+vipsania_pretrained	unannotated	GCA_040250155.1	Penicillium fuscoglaucum	Complete Genome	no	11917	17497542	17036800							
+vipsania_pretrained	unannotated	GCA_051247085.1	Arachnopeziza aurata	Complete Genome	no	14650	21089379	20605400							
+vipsania_pretrained	unannotated	GCA_055944425.1	Diaporthe caulivora	Complete Genome	no	16712	24112587	22888200							
+vipsania_pretrained	unannotated	GCA_041412015.1	Pestalotiopsis microspora	Complete Genome	no	16043	24033891	23570000							
+vipsania_pretrained	unannotated	GCA_023658475.1	Epichloe elymi	Complete Genome	no	7766	11932842	11609800							
+vipsania_pretrained	unannotated	GCA_046630685.1	Calonectria ilicicola	Complete Genome	no	21245	32233788	31300000							
+vipsania_pretrained	unannotated	GCA_060595785.1	Pseudozyma tsukubaensis	Complete Genome	no	6891	12356778	12289600							
+vipsania_pretrained	unannotated	GCA_037356495.1	Penicillium sp. F51	Contig	no	10911	16360938	15774000							
+vipsania_pretrained	unannotated	GCA_008122225.1	Ciboria shiraiana	Contig	no	10591	16189104	15191600							
+vipsania_pretrained	unannotated	GCA_019059545.1	Rhodotorula sp. VS67	Contig	no	7544	12379155	12215600							
+vipsania_pretrained	unannotated	GCA_059475355.1	Elsinoe perseae	Contig	no	10141	15041502	14238800							
+vipsania_pretrained	unannotated	GCA_027569235.1	Aspergillus sparsus	Contig	no	11948	18192105	17761000							
+vipsania_pretrained	unannotated	GCA_055797535.1	Trichoderma sp. 5c.a.2	Contig	no	12229	18951285	18613600							
+vipsania_pretrained	unannotated	GCA_003717165.1	Protomyces inundatus	Contig	no	7070	9502002	9273600							
+vipsania_pretrained	unannotated	GCA_030779245.1	Fusarium sp. MBC 438	Contig	no	16256	23960382	23359400							
+vipsania_pretrained	unannotated	GCA_023625975.1	Talaromyces sp. PYS2103	Scaffold	no	10368	15615579	15324000							
+vipsania_pretrained	unannotated	GCA_038503075.1	Gyromitra esculenta	Scaffold	no	10966	16945287	15812800							
+vipsania_pretrained	unannotated	GCA_022560085.1	Helminthosporium solani	Scaffold	no	11357	16529688	16187400							
+vipsania_pretrained	unannotated	GCA_054123095.1	Scopulariopsis sp.	Scaffold	no	5027	6363189	6165400							
+vipsania_pretrained	unannotated	GCA_009804945.1	Neurospora sp. FGSC 26633	Scaffold	no	10151	15765174	15530000							
+vipsania_pretrained	unannotated	GCA_051820765.1	Phaeoisaria parallela	Scaffold	no	11491	17499369	17166000							
+vipsania_pretrained	unannotated	GCA_002368545.1	Ramichloridium luteum	Scaffold	no	10041	15199872	14838200							
+vipsania_pretrained	unannotated	GCA_001640655.1	Endoconidiophora laricicola	Scaffold	no	7002	11427639	11237600							

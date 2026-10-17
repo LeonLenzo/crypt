@@ -42,16 +42,20 @@ CAPTION = HERE / "predict_counts_caption.txt"
 SIZE_BREAKS = [10, 20, 40, 80, 160]
 
 
-def nice_log_axis(lo: float, hi: float, candidates) -> tuple:
-    """Shared limits and breaks for a 1:1 panel.
+def linear_axis(hi: float, step: float) -> tuple:
+    """Shared 0-based limits and regular breaks for a 1:1 panel.
 
-    Both axes of a 1:1 plot MUST share a range, or the dashed diagonal is not 45 degrees and
-    the eye reads deviation that is not there. So the limits come from the union of x and y,
-    not from either alone.
+    LINEAR AND FROM ZERO, not log. Leon's call, and the data agrees: counts span 3.4k to 22k
+    and Mb 6.4 to 36.8, both under one order of magnitude, so log buys nothing and cannot
+    include zero anyway. On a ratio plot a zero origin is worth having — it makes the 1:1 line
+    a true identity line through the origin rather than an arbitrary offset.
+
+    Both axes MUST share the range, or the dashed diagonal is not at 45 degrees and the eye
+    reads deviation that is not in the data.
     """
-    lo, hi = lo / 1.12, hi * 1.12
-    breaks = [b for b in candidates if lo <= b <= hi]
-    return lo, hi, breaks
+    top = math.ceil(hi / step) * step
+    breaks = [i * step for i in range(int(top / step) + 1)]
+    return 0.0, top, breaks
 
 
 def main() -> None:
@@ -88,21 +92,23 @@ def main() -> None:
         w.writerows(sorted(out, key=lambda r: -r["true_seqs"]))
 
     # ── shared axis parameters, one row per panel ───────────────────────────────────────────
-    sa_lo, sa_hi, sa_br = nice_log_axis(
-        min(min(r["true_seqs"], r["pred_seqs"]) for r in out),
-        max(max(r["true_seqs"], r["pred_seqs"]) for r in out),
-        # Sparse on purpose: 15,000 and 20,000 collide at this panel width once the labels
-        # carry thousands separators.
-        [2000, 5000, 10000, 20000])
-    mb_lo, mb_hi, mb_br = nice_log_axis(
-        min(min(r["true_mb"], r["pred_mb"]) for r in out),
-        max(max(r["true_mb"], r["pred_mb"]) for r in out),
-        [5, 7, 10, 15, 20, 30, 40])
+    # Panel a is drawn in units of 10,000 with breaks every 10,000, so the numerals are whole:
+    # 0, 1, 2, 3. Leon's call, and it reads more cleanly than 0, 0.5, 1.0 ...
+    sa_lo, sa_hi, sa_br = linear_axis(
+        max(max(r["true_seqs"], r["pred_seqs"]) for r in out), 10000)
+    mb_lo, mb_hi, mb_br = linear_axis(
+        max(max(r["true_mb"], r["pred_mb"]) for r in out), 10)
     with atomic_write(PARAMS) as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
         w.writerow(["panel", "lo", "hi", "breaks"])
-        w.writerow(["a", f"{sa_lo:.1f}", f"{sa_hi:.1f}", ";".join(str(b) for b in sa_br)])
-        w.writerow(["b", f"{mb_lo:.3f}", f"{mb_hi:.3f}", ";".join(str(b) for b in mb_br)])
+        w.writerow(["a", f"{sa_lo:.0f}", f"{sa_hi:.0f}",
+                    ";".join(f"{b:.0f}" for b in sa_br)])
+        w.writerow(["b", f"{mb_lo:.0f}", f"{mb_hi:.0f}",
+                    ";".join(f"{b:.0f}" for b in mb_br)])
+        # Panel c: ONE range shared by both axes, so the two containments are read on the same
+        # scale. It must reach down to the minimum precision, which is well below any recall.
+        w.writerow(["c", "0.4", "1.0", "0.4;0.6;0.8;1.0"])
+        w.writerow(["a_unit", "10000", "10000", "10000"])
         w.writerow(["size", str(min(SIZE_BREAKS)), str(max(SIZE_BREAKS)),
                     ";".join(str(b) for b in SIZE_BREAKS)])
 
@@ -177,9 +183,12 @@ def main() -> None:
     A("point that sits above the diagonal in a and b and bottom-right in c.")
     A("")
     A("AXIS RANGES, shared within each panel:")
-    A(f"  a   {sa_lo:,.0f} to {sa_hi:,.0f} CDS, breaks {', '.join(f'{b:,}' for b in sa_br)}")
-    A(f"  b   {mb_lo:.1f} to {mb_hi:.1f} Mb, breaks {', '.join(str(b) for b in mb_br)}")
-    A("  c   recall 0.70 to 1.00, precision 0.40 to 1.00; dotted guides at 0.90 on both")
+    A(f"  a   0 to {sa_hi:,.0f} CDS, LINEAR, drawn in units of 10,000 so the numerals read")
+    A(f"      {', '.join(f'{b/10000:g}' for b in sa_br)}; axis titles carry the x 10,000.")
+    A(f"  b   0 to {mb_hi:.0f} Mb, LINEAR, breaks every 10")
+    A("  c   0.40 to 1.00 on BOTH axes, breaks every 0.2; dotted guides at 0.90 on both")
+    A("      Linear and zero-based throughout: the ranges span under one order of magnitude,")
+    A("      so log buys nothing, and a zero origin makes the 1:1 line a true identity line.")
     A("")
     A("LABELS TO PLACE BY HAND. Species names are italic; coordinates are in data units.")
     A("")

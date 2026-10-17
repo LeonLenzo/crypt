@@ -50,9 +50,12 @@ failure therefore shows up as OVER-prediction with intact recall -- the signatur
 point that sits above the diagonal in a and b and bottom-right in c.
 
 AXIS RANGES, shared within each panel:
-  a   3,613 to 26,775 CDS, breaks 5,000, 10,000, 20,000
-  b   5.8 to 41.2 Mb, breaks 7, 10, 15, 20, 30, 40
-  c   recall 0.70 to 1.00, precision 0.40 to 1.00; dotted guides at 0.90 on both
+  a   0 to 30,000 CDS, LINEAR, drawn in units of 10,000 so the numerals read
+      0, 1, 2, 3; axis titles carry the x 10,000.
+  b   0 to 40 Mb, LINEAR, breaks every 10
+  c   0.40 to 1.00 on BOTH axes, breaks every 0.2; dotted guides at 0.90 on both
+      Linear and zero-based throughout: the ranges span under one order of magnitude,
+      so log buys nothing, and a zero origin makes the 1:1 line a true identity line.
 
 LABELS TO PLACE BY HAND. Species names are italic; coordinates are in data units.
 

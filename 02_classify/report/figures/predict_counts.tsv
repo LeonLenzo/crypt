@@ -1,0 +1,61 @@
+accession	organism_name	assembly_level	focal	genome_mb	true_seqs	pred_seqs	true_genes	true_mb	pred_mb	recall	precision
+GCA_004369175.1	Coprinellus micaceus	Contig	no	78.4	23412	23906	23412	27.022	34.607	0.8443	0.8107
+GCA_900157425.1	Armillaria ostoyae	Contig	no	60.9	22299	18430	22299	27.302	24.747	0.8626	0.9421
+GCF_001500285.1	Mollisia scopiformis	Scaffold	no	49.5	18556	17922	18556	23.864	24.893	0.9557	0.9143
+GCF_023278565.1	Colletotrichum lupini	Complete Genome	no	64.2	18280	14000	18280	25.418	20.455	0.7766	0.9677
+GCA_029282135.1	Mycena belliarum	Contig	no	57.2	18071	16638	18071	22.8	24.736	0.8801	0.8551
+GCA_016801405.1	Parastagonospora nodorum	Chromosome	yes	37.5	17764	13634	17448	20.554	19.288	0.9361	0.9734
+GCA_021432655.1	Atractiella rhizophila	Scaffold	no	52.4	17598	16496	17590	18.559	22.284	0.8770	0.7817
+GCA_025169535.1	Puccinia striiformis	Chromosome	yes	83.7	17090	16972	17090	21.471	25.409	0.8710	0.8090
+GCA_030719095.1	Fusarium oxysporum	Complete Genome	yes	50.5	16307	16789	16305	23.002	24.104	0.9686	0.9322
+GCA_051938815.1	Gaeumannomyces hyphopodioides	Chromosome	no	49.5	15925	12970	11311	26.413	20.806	0.9790	0.9099
+GCF_003171515.1	Pyrenophora tritici-repentis	Chromosome	yes	41.4	15455	13668	15455	20.764	21.285	0.9614	0.8948
+GCF_018924745.1	Marasmius oreades	Chromosome	no	44.9	15044	14165	13700	19.537	20.955	0.9528	0.8817
+GCA_061311145.1	Fusarium graminearum	Complete Genome	yes	37.4	15030	12643	14802	19.343	18.704	0.9590	0.9633
+GCA_013266185.1	Fusarium sarcochroum	Scaffold	no	47.2	14827	15579	14827	22.285	22.615	0.9557	0.9428
+GCF_001672515.1	Colletotrichum higginsianum	Chromosome	no	51.4	14651	13948	14651	20.612	21.355	0.9498	0.9533
+GCA_001908125.1	Penicillium subrubescens	Scaffold	no	40.4	14177	13179	14177	17.704	18.485	0.9482	0.9049
+GCA_014784225.2	Aspergillus flavus	Complete Genome	no	38.3	13866	13125	13068	19.41	18.894	0.9774	0.9490
+GCA_009663115.1	Fusarium fujikuroi	Chromosome	no	46.2	13690	14870	13690	20.541	21.534	0.9617	0.9208
+GCF_019915245.1	Fusarium musae	Chromosome	no	44.6	13672	14878	13672	19.129	21.435	0.9793	0.8738
+GCA_046000195.1	Aspergillus wentii	Complete Genome	no	31.6	13585	12003	12738	18.438	17.5	0.9759	0.9566
+GCA_022432375.1	Nemania sp. FL0031	Contig	no	55.4	13572	13463	13572	19.82	20.224	0.9747	0.9558
+GCF_020647795.1	Trichoderma atroviride	Complete Genome	no	37.8	13568	11163	13127	17.385	17.083	0.9582	0.9316
+GCA_004346965.1	Pyricularia oryzae	Complete Genome	yes	43.2	13521	11988	13521	17.665	17.888	0.9321	0.9532
+GCA_003316995.2	Fusarium verticillioides	Chromosome	no	42.9	13508	14748	13508	19.76	21.281	0.9823	0.9133
+GCF_033473495.1	Cercospora beticola	Complete Genome	yes	36.5	13144	13541	13144	18.484	18.97	0.9837	0.9594
+GCA_025327135.1	Colletotrichum sp. SAR 10_71	Scaffold	no	60.7	12879	16794	12879	18.462	24.745	0.9776	0.7299
+GCA_026914245.1	Puccinia triticina	Complete Genome	yes	122.6	12690	20326	12690	15.055	32.912	0.8806	0.4872
+GCA_011392495.1	Talaromyces pinophilus	Scaffold	no	36.8	12488	13138	12488	19.082	19.334	0.9557	0.9457
+GCF_004355905.1	Pyricularia grisea	Chromosome	no	45.1	12452	11757	12441	17.13	17.422	0.9558	0.9528
+GCF_001792695.1	Aspergillus bombycis	Contig	no	38.0	12262	12995	12262	18.284	18.822	0.9726	0.9445
+GCA_014898425.1	Botryotinia globosa	Contig	no	46.3	12073	11407	12067	17.122	16.762	0.9620	0.9819
+GCA_977970205.2	Microdochium nivale	Contig	no	37.7	11904	11169	6101	17.231	17.351	0.9570	0.9525
+GCA_056582465.1	Diplodia sapinea	Complete Genome	no	38.5	11770	12357	11770	17.148	18.391	0.9765	0.9087
+GCA_900091695.1	Zymoseptoria tritici	Chromosome	yes	38.3	11726	12309	11726	16.119	16.928	0.9734	0.9290
+GCA_900232045.3	Pyrenophora teres	Chromosome	yes	53.8	11561	12191	11561	17.947	18.618	0.9734	0.9529
+GCA_052576325.1	Cladosporium allicinum	Contig	no	31.1	11515	11981	11465	18.127	17.467	0.9417	0.9810
+GCA_045999785.1	Phlyctema vagabunda	Chromosome	no	38.7	11476	11642	11476	16.919	17.937	0.9836	0.9284
+GCA_013396295.1	Fusarium heterosporum	Scaffold	no	36.2	11332	12057	11332	17.472	17.805	0.9681	0.9502
+GCF_000271605.1	Fomitiporia mediterranea	Scaffold	no	64.3	11330	10892	11330	14.547	15.643	0.9272	0.8596
+GCA_040367835.1	Mucor flavus	Contig	no	34.2	11295	12305	11295	15.901	16.843	0.9612	0.9268
+GCA_013266165.1	Fusarium graminum	Scaffold	no	35.5	11163	11870	11163	17.275	17.59	0.9693	0.9535
+GCA_028858655.1	Bipolaris maydis	Scaffold	yes	38.9	11144	12026	11144	17.05	18.188	0.9611	0.9539
+GCA_964263705.1	Xanthoria parietina	Scaffold	no	30.3	11138	9932	10680	15.04	14.578	0.9586	0.9446
+GCA_007735645.1	Venturia effusa	Complete Genome	no	45.9	10820	11977	10820	15.939	16.511	0.9748	0.9421
+GCF_000182925.2	Neurospora crassa	Chromosome	no	41.6	10812	9135	9757	16.93	14.709	0.9645	0.9781
+GCA_049245135.1	Rhizoctonia solani	Complete Genome	yes	40.6	10698	12933	7698	15.001	19.366	0.9767	0.5929
+GCA_053539345.1	Beauveria neobassiana	Scaffold	no	32.4	10248	10177	10248	14.944	15.019	0.9733	0.9496
+GCA_001984395.2	Zygosaccharomyces parabailii	Complete Genome	no	21.1	10099	10071	10086	14.904	14.882	0.9917	0.9937
+GCA_027946375.1	Neodidymelliopsis sp. IMI 364377	Contig	no	30.5	9614	11091	9614	14.164	16.201	0.9578	0.8375
+GCF_964197705.1	Penicillium psychrofluorescens	Chromosome	no	26.6	9519	10837	9519	13.956	15.915	0.9916	0.8694
+GCF_000281105.1	Coniosporium apollinis	Scaffold	no	29.0	9308	9567	9308	13.487	14.24	0.9796	0.9246
+GCA_900519115.1	Blumeria graminis	Chromosome	no	142.6	8469	17598	8347	9.4	36.765	0.9478	0.5126
+GCA_018360355.1	Claviceps sp. Clav32 group G5	Contig	no	29.1	8112	7884	8112	11.821	11.964	0.9627	0.9493
+GCA_000986645.1	Aspergillus rambellii	Contig	no	27.2	7761	8173	7761	12.268	12.384	0.9578	0.9471
+GCF_000836335.1	Cryptococcus bacillisporus	Complete Genome	no	18.0	6694	6492	6694	10.318	10.457	0.9759	0.9709
+GCA_976943335.1	Parajaminaea phylloscopi	Complete Genome	no	18.6	6613	6565	6613	11.772	11.865	0.9818	0.9748
+GCA_056632935.1	Cryptococcus deuterogattii	Complete Genome	no	17.7	6260	6412	6260	10.104	10.373	0.9865	0.9639
+GCF_020623625.1	Saccharomycodes ludwigii	Chromosome	no	12.7	5026	5059	5026	8.302	8.44	0.9978	0.9872
+GCA_047368035.1	Malassezia pachydermatis	Complete Genome	no	8.5	4441	4605	4441	6.484	7.191	0.9868	0.9083
+GCA_029542965.1	Malassezia yamatoensis	Complete Genome	no	8.4	4047	4257	4047	6.737	6.897	0.9675	0.9456

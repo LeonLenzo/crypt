@@ -58,12 +58,13 @@ def main() -> None:
 
     counts = {r: {"in_db": 0, "addable": 0} for r in pdc.PRECEDENCE}
     # The bar height. "CDS annotations" counts ASSEMBLIES carrying a gene model, actual
-    # against potential, which is apples to apples:
-    #   in_db    assemblies that HAVE an NCBI annotation           (n_annotated)
-    #   addable  assemblies belonging to species with NONE at all  (n_assemblies)
-    # Species that already have some annotated assemblies also have unannotated ones, and
-    # those could be predicted too — but they add no new SPECIES, so they are excluded. The
-    # pale bar is what prediction makes REACHABLE, not every prediction that could be run.
+    # against potential:
+    #   in_db    assemblies that HAVE an NCBI annotation      (n_annotated)
+    #   addable  EVERY assembly that does not                 (n_assemblies - n_annotated)
+    # Leon's call: show TOTAL PREDICTABLE. An earlier version counted only assemblies of
+    # species with no annotation at all, which answered "how many species become reachable"
+    # (2,138) rather than "how many gene models could we make" (12,806). Both are real; this
+    # is the one the figure now shows, and the species figure stays in the caption.
     cds = {r: {"in_db": 0, "addable": 0} for r in pdc.PRECEDENCE}
     for r in csv.DictReader(open(SURVEY), delimiter="\t"):
         tid = tax.by_ncbi.get(int(r["ncbi_taxid"]))
@@ -75,17 +76,18 @@ def main() -> None:
                                   tid in on_cereal if tid is not None else False)
         if n_ann:
             counts[route]["in_db"] += 1
-            cds[route]["in_db"] += n_ann
         else:
             counts[route]["addable"] += 1
-            cds[route]["addable"] += n_total
+        cds[route]["in_db"] += n_ann
+        cds[route]["addable"] += n_total - n_ann
 
-    # `host` is dropped from the CHART, not from the counts: it is 6 plant hosts with ZERO
-    # addable species, so it contributes nothing to an argument about additions while forcing
-    # a 180x axis range that would otherwise push the figure onto a log scale. A bar chart on
-    # a log axis is the wrong trade — bar LENGTH stops being proportional to value, which is
-    # the one thing a bar chart promises. Without host the range is 70 to 1,076 and linear is
-    # comfortable. The host row is kept in the TSV and stated in the caption.
+    # `host` is dropped from the CHART, not from the counts, and the reason CHANGED when the
+    # pale bar moved to total predictable assemblies. It is no longer "zero addable" — the six
+    # plant hosts carry 1,072 unannotated assemblies. It is that we would never predict them:
+    # db_v4 already holds 43 host CDS assemblies across those six species, which is ample for
+    # host competition, and a plant needs the Streptophyta model rather than the Fungi one. A
+    # 1,072 bar for work nobody intends to do would be the largest pale bar in the figure and
+    # would misrepresent the argument. The host row stays in the TSV and the caption.
     order = [r for r in pdc.PRECEDENCE if sum(counts[r].values()) and r != "host"]
     with atomic_write(TSV) as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
@@ -127,13 +129,16 @@ def main() -> None:
     A("")
     A(f"CDS annotations available to db_v4 by route into scope. The SOLID bar is the {cds_in:,}")
     A("assemblies that carry an NCBI gene model and are therefore already in the database. The")
-    A(f"PALE bar is the {cds_add:,} assemblies belonging to species with NO gene model anywhere, which")
-    A("are invisible to a CDS-only index today and are what ab-initio prediction would reach.")
-    A(f"In species terms that is {tot_in:,} species now and {tot_add:,} more reachable.")
+    A(f"PALE bar is the {cds_add:,} assemblies that carry NO gene model and could therefore receive a")
+    A("predicted one — every unannotated assembly, whether or not its species already has an")
+    A("annotated one elsewhere.")
     A("")
-    A("Assemblies of species that ALREADY have an annotation are excluded from the pale bar.")
-    A("They could be predicted too, but they add no new species, and the claim here is about")
-    A("what becomes reachable rather than how many predictions could be run.")
+    A("TWO DIFFERENT QUESTIONS, and this figure answers the second:")
+    A(f"  how many SPECIES become reachable?        {tot_add:,} (species with no annotation at all)")
+    A(f"  how many gene models could we MAKE?       {cds_add:,} (every unannotated assembly)")
+    A(f"The first is the breadth argument -- {tot_in:,} species now, {tot_in + tot_add:,} possible. The second is the")
+    A("depth argument, and it is larger because well-sampled species carry many unannotated")
+    A("assemblies: more assemblies per species widens pangenome coverage without adding taxa.")
     A("Routes, colours and the precedence rule are shared with the db_v4 ring figure; each")
     A("species is counted once, under the strongest evidence that applies.")
     A("")
@@ -152,11 +157,12 @@ def main() -> None:
         A("space is absent from db_v4 — so the pale bars are close to their full face value and")
         A("not largely redundant with what the database already holds.")
     A("")
-    A(f"THE host ROUTE IS NOT DRAWN. It is {counts['host']['in_db']} plant host species ({cds['host']['in_db']} annotations) with ZERO")
-    A("addable, so it")
-    A("says nothing about additions while forcing a 180x axis range. Omitting it keeps the")
-    A("chart linear, where a bar's LENGTH is its value; a log axis would break that for the")
-    A("sake of one bar carrying no argument. The row stays in predict_gain.tsv.")
+    A(f"THE host ROUTE IS NOT DRAWN: {counts['host']['in_db']} plant host species, {cds['host']['in_db']} annotations and {cds['host']['addable']:,} technically")
+    A("predictable assemblies. Those 1,072 are excluded because we would never predict them --")
+    A("db_v4 already holds 43 host CDS assemblies across the six species, which is ample for")
+    A("host competition, and a plant needs the Streptophyta model rather than the Fungi one.")
+    A("Drawn, it would be the largest pale bar in the figure and would represent work nobody")
+    A("intends to do. The row stays in predict_gain.tsv.")
     A("")
     A("WHAT THE BAR DOES NOT SAY. Annotations, not sequence: a pale bar counts assemblies that")
     A("would gain a gene model, not the k-mer space they contribute, and the two are not")
@@ -169,9 +175,10 @@ def main() -> None:
     A("SHORT CAPTION")
     A("")
     A(f"CDS annotations reachable by db_v4, by route into scope. Solid bars are the {cds_in:,}")
-    A(f"assemblies carrying an NCBI gene model; pale bars are the {cds_add:,} assemblies whose species")
-    A(f"has no gene model at all, which ab-initio prediction would make available — {tot_add:,} further")
-    A(f"species on top of the {tot_in:,} already present. Routes and colours are shared with the db_v4")
+    A(f"assemblies carrying an NCBI gene model; pale bars are the {cds_add:,} unannotated assemblies that")
+    A("ab-initio prediction could annotate. Of those, the subset belonging to species with no")
+    A(f"annotation at all would add {tot_add:,} new species to the {tot_in:,} already present; the remainder")
+    A("deepen species the database already holds. Routes and colours are shared with the db_v4")
     A("ring, each species counted once under the strongest evidence that applies.")
     if recalls and novelties:
         A(f"Prediction recovers a median {med(recalls):.0%} of true CDS k-mer space at {med(precisions):.0%} precision on")

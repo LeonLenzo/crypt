@@ -8,23 +8,26 @@ FULL CAPTION
 
 CDS annotations available to db_v4 by route into scope. The SOLID bar is the 4,271
 assemblies that carry an NCBI gene model and are therefore already in the database. The
-PALE bar is the 3,930 assemblies belonging to species with NO gene model anywhere, which
-are invisible to a CDS-only index today and are what ab-initio prediction would reach.
-In species terms that is 1,547 species now and 2,138 more reachable.
+PALE bar is the 12,806 assemblies that carry NO gene model and could therefore receive a
+predicted one — every unannotated assembly, whether or not its species already has an
+annotated one elsewhere.
 
-Assemblies of species that ALREADY have an annotation are excluded from the pale bar.
-They could be predicted too, but they add no new species, and the claim here is about
-what becomes reachable rather than how many predictions could be run.
+TWO DIFFERENT QUESTIONS, and this figure answers the second:
+  how many SPECIES become reachable?        2,138 (species with no annotation at all)
+  how many gene models could we MAKE?       12,806 (every unannotated assembly)
+The first is the breadth argument -- 1,547 species now, 3,685 possible. The second is the
+depth argument, and it is larger because well-sampled species carry many unannotated
+assemblies: more assemblies per species widens pangenome coverage without adding taxa.
 Routes, colours and the precedence rule are shared with the db_v4 ring figure; each
 species is counted once, under the strongest evidence that applies.
 
   route                                           CDS now   addable     total
-  pathogen recorded on wheat, rice, maize or sorghum     893       545     1,438
-  plant pathogen, not recorded on those crops      1,444     1,548     2,992
-  host associate: seen in a phytobiome study         244       106       350
-  plant associate: recorded on a plant             1,117     1,256     2,373
-  congener: shares a genus with a pathogen           537       475     1,012
-  TOTAL                                            4,271     3,930     8,201
+  pathogen recorded on wheat, rice, maize or sorghum     893     4,191     5,084
+  plant pathogen, not recorded on those crops      1,444     3,488     4,932
+  host associate: seen in a phytobiome study         244       629       873
+  plant associate: recorded on a plant             1,117     2,683     3,800
+  congener: shares a genus with a pathogen           537       743     1,280
+  TOTAL                                            4,271    12,806    17,077
 
 THE ADDITION IS NOT HYPOTHETICAL. Measured on 60 fungal assemblies that already carry
 an NCBI gene model, so the annotation serves as ground truth, ab-initio prediction
@@ -33,11 +36,12 @@ On 59 assemblies WITHOUT a gene model, a median 96% of the predicted k-mer
 space is absent from db_v4 — so the pale bars are close to their full face value and
 not largely redundant with what the database already holds.
 
-THE host ROUTE IS NOT DRAWN. It is 6 plant host species (36 annotations) with ZERO
-addable, so it
-says nothing about additions while forcing a 180x axis range. Omitting it keeps the
-chart linear, where a bar's LENGTH is its value; a log axis would break that for the
-sake of one bar carrying no argument. The row stays in predict_gain.tsv.
+THE host ROUTE IS NOT DRAWN: 6 plant host species, 36 annotations and 1,072 technically
+predictable assemblies. Those 1,072 are excluded because we would never predict them --
+db_v4 already holds 43 host CDS assemblies across the six species, which is ample for
+host competition, and a plant needs the Streptophyta model rather than the Fungi one.
+Drawn, it would be the largest pale bar in the figure and would represent work nobody
+intends to do. The row stays in predict_gain.tsv.
 
 WHAT THE BAR DOES NOT SAY. Annotations, not sequence: a pale bar counts assemblies that
 would gain a gene model, not the k-mer space they contribute, and the two are not
@@ -50,9 +54,10 @@ ab-initio calls genes inside transposons.
 SHORT CAPTION
 
 CDS annotations reachable by db_v4, by route into scope. Solid bars are the 4,271
-assemblies carrying an NCBI gene model; pale bars are the 3,930 assemblies whose species
-has no gene model at all, which ab-initio prediction would make available — 2,138 further
-species on top of the 1,547 already present. Routes and colours are shared with the db_v4
+assemblies carrying an NCBI gene model; pale bars are the 12,806 unannotated assemblies that
+ab-initio prediction could annotate. Of those, the subset belonging to species with no
+annotation at all would add 2,138 new species to the 1,547 already present; the remainder
+deepen species the database already holds. Routes and colours are shared with the db_v4
 ring, each species counted once under the strongest evidence that applies.
 Prediction recovers a median 96% of true CDS k-mer space at 94% precision on
 species with a known annotation, and a median 96% of what it predicts for unannotated

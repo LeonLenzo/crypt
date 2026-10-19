@@ -77,18 +77,18 @@ p <- ggplot(d, aes(route, cds_annotations, fill = fillkey, group = status)) +
   # labels with EMPTY glyphs, and guide_legend(override.aes = ...) did not paint them either
   # under ggplot2 4.0.3. Two annotate() rects are exact, need no guide machinery, and put the
   # key where it belongs on a slide.
-  annotate("rect", xmin = 3.42, xmax = 3.60, ymin = 1640, ymax = 1730,
+  annotate("rect", xmin = 3.05, xmax = 3.25, ymin = 4390, ymax = 4620,
            fill = "#4d4d4d", colour = "black", linewidth = 1) +
-  annotate("text", x = 3.68, y = 1685, label = "in db_v4 now",
+  annotate("text", x = 3.34, y = 4505, label = "annotated by NCBI",
            hjust = 0, size = 5.4, colour = "black") +
-  annotate("rect", xmin = 3.42, xmax = 3.60, ymin = 1510, ymax = 1600,
+  annotate("rect", xmin = 3.05, xmax = 3.25, ymin = 4080, ymax = 4310,
            fill = lighten("#4d4d4d"), colour = "black", linewidth = 1) +
-  annotate("text", x = 3.68, y = 1555, label = "reachable by gene prediction",
+  annotate("text", x = 3.34, y = 4195, label = "could be predicted",
            hjust = 0, size = 5.4, colour = "black") +
   scale_x_discrete(labels = ROUTE_WRAP) +
-  scale_y_continuous(labels = comma, breaks = seq(0, 1600, 200),
+  scale_y_continuous(labels = comma, breaks = seq(0, 4000, 1000),
                      expand = expansion(mult = c(0, 0.10))) +
-  coord_cartesian(ylim = c(0, 1750)) +
+  coord_cartesian(ylim = c(0, 4700)) +
   labs(x = NULL, y = "CDS annotations") +
   theme_classic(base_size = 17) +
   theme(panel.background = element_rect(fill = "white", colour = NA),
@@ -98,7 +98,11 @@ p <- ggplot(d, aes(route, cds_annotations, fill = fillkey, group = status)) +
         axis.ticks       = element_line(colour = "black", linewidth = 1),
         axis.ticks.length = unit(4, "pt"),
         axis.text        = element_text(colour = "black"),
-        axis.text.x      = element_text(size = 13, lineheight = 0.95),
+        # x tick labels OFF: the slide already carries the route legend from the ring
+        # figure, so repeating five wrapped route names here is noise. The names stay in
+        # ROUTE_WRAP and in the caption, in left-to-right order.
+        axis.text.x      = element_blank(),
+        axis.ticks.x     = element_blank(),
         legend.position  = "none",
         plot.margin      = margin(10, 14, 8, 8))
 

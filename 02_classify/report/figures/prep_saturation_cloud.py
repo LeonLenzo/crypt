@@ -76,6 +76,7 @@ def main() -> None:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--run", action="append", default=[], help="run accession; repeatable")
     ap.add_argument("--project", help="every run with a report in this BioProject")
+    ap.add_argument("--all", action="store_true", help="every run with a report, all projects")
     ap.add_argument("--reports", default=str(REPORTS), help="reports tree")
     ap.add_argument("--inspect", default=str(DB_INSPECT))
     ap.add_argument("--min-reads", type=int, default=1,
@@ -89,6 +90,10 @@ def main() -> None:
     reports_root = Path(args.reports)
 
     wanted = []
+    if args.all:
+        for pdir in sorted(d for d in reports_root.iterdir() if d.is_dir()):
+            for f in sorted(pdir.glob("*.report.tsv")):
+                wanted.append((f.name.split(".")[0], pdir.name, f))
     if args.project:
         for p in sorted((reports_root / args.project).glob("*.report.tsv")):
             wanted.append((p.name.split(".")[0], args.project, p))
@@ -98,7 +103,7 @@ def main() -> None:
             sys.exit(f"no report for {run} under {reports_root}")
         wanted.append((run, hits[0].parent.name, hits[0]))
     if not wanted:
-        sys.exit("give --run or --project")
+        sys.exit("give --run, --project or --all")
 
     rows = []
     for run, proj, path in wanted:

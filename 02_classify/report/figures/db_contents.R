@@ -3,6 +3,8 @@
 #
 #   Rscript 02_classify/report/figures/db_contents.R                     # assembly mode
 #   Rscript 02_classify/report/figures/db_contents.R --self-contained    # + title, legend
+#   Rscript 02_classify/report/figures/db_contents.R --label-classes     # + class names
+#   ... --label-classes --label-min=20                                   # more classes
 #
 # Reads only what prep_db_contents.py wrote. Run that first; it owns the membership logic,
 # the taxonomy walk and the rank ladder, so this file is layout and style and nothing else.
@@ -52,6 +54,13 @@ ARC_PAD    <- 5      # tips trimmed from EACH END of a clade arc, so neighbours 
                      # apart -- 0.22 degrees at this tip count, which reads as one continuous
                      # ring. Capped at 15% of the clade so a small one keeps a visible arc.
 LABEL_MIN  <- 40     # a class needs this many species to get an arc
+# Overridable: --label-min=20 adds Tremellomycetes, Microbotryomycetes, Chytridiomycetes,
+# Mucoromycetes, Ustilaginomycetes and Exobasidiomycetes to the five majors. Note that
+# Pucciniomycetes -- the rusts, and central to this chapter -- holds only 10 species in db_v4
+# and needs --label-min=10 to appear at all. That is a fact about the database, not about the
+# threshold: the rusts are a small part of it by species count.
+.lm <- grep("^--label-min=", commandArgs(TRUE), value = TRUE)
+if (length(.lm)) LABEL_MIN <- as.numeric(sub("^--label-min=", "", .lm[1]))
 
 # ── inputs ────────────────────────────────────────────────────────────────────
 # base read.delim, NOT readr: vroom fails to load on this machine with
@@ -60,17 +69,25 @@ here  <- dirname(sub("^--file=", "", grep("^--file=", commandArgs(FALSE), value 
 if (is.na(here) || !nzchar(here)) here <- "02_classify/report/figures"
 stem  <- file.path(here, "db_contents")
 self_contained <- "--self-contained" %in% commandArgs(TRUE)
+# --label-classes draws the class names ON the ring, next to their arcs, and writes to a
+# SEPARATE stem. Assembly mode stays textless: this is an additional image for a talk, where
+# there is no Illustrator pass to place the names from the caption.
+label_classes  <- "--label-classes" %in% commandArgs(TRUE)
+# in_stem READS, out_stem WRITES. They differ only for --label-classes, which consumes the
+# same prep output as the plain figure and must not look for its own copy of it.
+in_stem  <- stem
+out_stem <- if (label_classes) paste0(stem, "_labelled") else stem
 
 # The gap angle is NOT set here. prep_db_contents.py owns it, because the clade angles it
 # reports for Illustrator are computed from it; declaring it in both places meant a change on
 # this side would silently leave the caption describing a different figure. To widen the gap,
 # change GAP_DEG in prep_db_contents.py and re-run it.
-params     <- read.delim(paste0(stem, "_params.tsv"), stringsAsFactors = FALSE)
+params     <- read.delim(paste0(in_stem, "_params.tsv"), stringsAsFactors = FALSE)
 OPEN_ANGLE <- params$value[params$param == "open_angle_deg"]
 stopifnot(length(OPEN_ANGLE) == 1, is.finite(OPEN_ANGLE))
 
-tr   <- read.tree(paste0(stem, "_tree.nwk"))
-tips <- read.delim(paste0(stem, "_tips.tsv"), stringsAsFactors = FALSE)
+tr   <- read.tree(paste0(in_stem, "_tree.nwk"))
+tips <- read.delim(paste0(in_stem, "_tips.tsv"), stringsAsFactors = FALSE)
 tips$route <- factor(tips$route, levels = names(ROUTE_COLOUR))
 
 cat(sprintf("  %d tips, %d internal nodes\n", Ntip(tr), Nnode(tr)))
@@ -136,10 +153,34 @@ p <- p + geom_segment(data = arcs,
 cat(sprintf("  %d class arcs, smallest gap between neighbours %.1f deg\n",
             nrow(arcs), 2 * min(arcs$pad) * (360 - OPEN_ANGLE) / Ntip(tr)))
 
+if (label_classes) {
+  # POSITION comes from the same y values as the arcs, so it is exact by construction.
+  # Only the text ROTATION needs the angle formula, and an error there is cosmetic.
+  #
+  # ggtree's fan is coord_polar(theta = "y"), so y maps linearly to angle, and
+  # rotate_tree(90 + OPEN_ANGLE/2) is applied at the very end to the whole coord. A tip at y
+  # therefore lands at 90 + OPEN_ANGLE/2 + (y - 1) * (360 - OPEN_ANGLE) / Ntip degrees
+  # anticlockwise from east.
+  lab <- arcs |>
+    mutate(ymid = (ymin + ymax) / 2,
+           theta = 90 + OPEN_ANGLE / 2 + (ymid - 1) * (360 - OPEN_ANGLE) / Ntip(tr),
+           theta = ((theta %% 360) + 360) %% 360,
+           # Radial text reads outward, but on the left half it would be upside down, so
+           # flip it and anchor from the other end.
+           flip  = theta > 90 & theta < 270,
+           angle = ifelse(flip, theta - 180, theta),
+           hj    = ifelse(flip, 1, 0))
+  p <- p + geom_text(data = lab,
+                     aes(x = arcx + 0.18, y = ymid, label = class,
+                         angle = angle, hjust = hj),
+                     size = 3.3, colour = "#222222", inherit.aes = FALSE)
+  cat(sprintf("  labelled %d classes on the ring\n", nrow(lab)))
+}
+
 # ── the hole, the theme, and out ──────────────────────────────────────────────
 # A NEGATIVE lower xlim pushes the root off the centre, which is how a fan layout gets its
 # hole. Bigger HOLE also shortens every branch, since the rank rings share what is left.
-p <- p + xlim(c(-HOLE, arcx + 0.1)) +
+p <- p + xlim(c(-HOLE, arcx + if (label_classes) 1.5 else 0.1)) +
   theme(panel.background = element_rect(fill = "white", colour = NA),
         plot.background  = element_rect(fill = "white", colour = NA),
         plot.margin      = margin(6, 6, 6, 6))
@@ -166,7 +207,7 @@ if (self_contained) {
 # afterwards would not follow it.
 p <- rotate_tree(p, 90 + OPEN_ANGLE / 2)
 
-png_path <- paste0(stem, ".png"); pdf_path <- paste0(stem, ".pdf")
+png_path <- paste0(out_stem, ".png"); pdf_path <- paste0(out_stem, ".pdf")
 ragg::agg_png(png_path, width = 15, height = if (self_contained) 16.2 else 15,
               units = "in", res = 300, background = "white")
 print(p); invisible(dev.off())

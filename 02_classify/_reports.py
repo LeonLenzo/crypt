@@ -44,6 +44,7 @@ ratios were clade figures and remain comparable.
 """
 
 import csv
+import math
 from pathlib import Path
 
 # Kraken2 report lines carry very long taxon names; every consumer of parse_report hit this and
@@ -115,6 +116,60 @@ def coverage(distinct: int | None, taxid: int, inspect: dict) -> float | None:
     if not e or not e["clade"]:
         return None
     return distinct / e["clade"]
+
+
+def saturation(distinct: int | None, reads: int, taxid: int, inspect: dict,
+               kmers_per_read: float) -> float | None:
+    """How much of a taxon's k-mer space the reads assigned to it actually reached.
+
+        saturation = distinct observed / distinct EXPECTED if those reads were spread
+                     uniformly over the taxon's k-mer space
+        expected   = M * (1 - exp(-N * kmers_per_read / M))      M = the taxon's clade total
+
+    THIS IS THE ANSWER TO "HOW DO I KNOW THE CALL IS REAL", and it is the cheap form of what
+    `detect.py` fits as its accumulation-curve `score`. Leon asked it on 2026-10-19 about
+    99,509 reads assigned to *Oryza sativa* in a wheat sample: if that were real rice, those
+    reads should have produced ~6.6 M distinct minimizers. They produced 24,388 -- 270x fewer.
+    Real rice cannot look like that; only a few hammered loci can.
+
+    The cause is wheat's reference being INCOMPLETE, not the classifier being unreliable. A
+    read from a wheat transcript absent from db_v4's wheat CDS, whose rice ortholog is present,
+    has only rice k-mers to match and gets the best home that exists. Were both present the LCA
+    would resolve it up to Poaceae.
+
+    Measured over 4 runs of PRJEB33109 (63 taxa):
+
+        clears 1% coverage          n= 9   median 0.2795   range 0.0700 - 0.5595
+        leakage (>=1k reads, <1%)   n=54   median 0.0017   range 0.0001 - 0.0457
+
+    No overlap, and the separation is stable per run (241x, 359x, 230x, 162x) BECAUSE the
+    expectation scales with read count. Do not substitute reads/distinct, which is the same
+    intuition without the correction and is useless: across those same four runs its
+    separation decayed 20.8x -> 7.5x -> 3.1x -> 1.0x as depth rose, because a deeply sequenced
+    REAL organism also accumulates redundant reads. A 3.0 cut-off on it flagged 56% of leakage
+    and 22% of genuine calls.
+
+    Real calls land at 0.07-0.56 rather than near 1.0, and that is expected: RNA-seq expression
+    is wildly non-uniform, so reads pile onto highly expressed genes. The discriminating fact is
+    that artefacts sit two further orders of magnitude below.
+
+    `kmers_per_read` is (L-K+1) summed over the mates of one spot, so 2*(150-34) for a 2x150
+    library. It must come from the LIBRARY, not a constant: at k=35 a 51 nt read yields 17
+    k-mers and a 150 nt read 116, which moves the expectation by a factor of 7.
+
+    CAVEAT, unresolved as of 2026-10-19: this was measured on four wheat runs of ONE project,
+    all Puccinia-dominated. Re-test across the full cohort before any threshold is set on it.
+    """
+    if distinct is None or not reads:
+        return None
+    e = inspect.get(taxid)
+    if not e or not e["clade"]:
+        return None
+    m = e["clade"]
+    # Clamped because exp(-x) underflows for a deeply sequenced taxon and the expectation is
+    # simply M there: every minimizer should have been seen.
+    expected = m * (1.0 - math.exp(-min(700.0, reads * kmers_per_read / m)))
+    return distinct / expected if expected else None
 
 
 def absolute_floor_ok(distinct: int | None, floor: int) -> bool:

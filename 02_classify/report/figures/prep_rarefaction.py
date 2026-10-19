@@ -58,6 +58,9 @@ DEPTH = SILVER / "run_depth.tsv"
 
 PLOT = HERE / "rarefaction_curve_plot.tsv"
 RETAINED = HERE / "rarefaction_retained.tsv"
+# What a Gkmer threshold would COST, per crop. The third panel, and the one that makes the
+# decision visible: a depth threshold is a rice filter and the figure has to say so.
+THRESHOLD = HERE / "rarefaction_threshold_cost.tsv"
 CAPTION = HERE / "rarefaction_caption.txt"
 
 COV_FLOOR = 0.01        # the published operating point
@@ -139,6 +142,36 @@ def main() -> None:
         w.writeheader()
         w.writerows(ret)
 
+    # ── what a threshold costs, by crop ─────────────────────────────────────────────────────
+    # Gkmer recomputed here from run_depth.tsv rather than read from a column, because the
+    # threshold is applied to the WHOLE cohort and the curve only covers 5 runs.
+    depth = list(csv.DictReader(open(DEPTH), delimiter="\t"))
+    runlist = {r["Run"]: r for r in csv.DictReader(open(SILVER / "run_list.tsv"),
+                                                   delimiter="\t")}
+    K = 35
+
+    def gkmer(r):
+        b = int(r["bases"] or 0)
+        rlen = float(r["read_len"] or 0)
+        L = rlen / 2 if r["layout"] == "PAIRED" else rlen
+        return b * (max(0.0, L - K + 1) / L) / 1e9 if L > K else 0.0
+
+    cohort = [(gkmer(r), r) for r in depth
+              if r["bases"] and int(r["bases"]) > 0 and r["Run"] in runlist]
+    crops = sorted({runlist[r["Run"]]["crop"] for _, r in cohort})
+    cost = []
+    for rung in rungs:
+        for crop in crops:
+            inc = [(g, r) for g, r in cohort if runlist[r["Run"]]["crop"] == crop]
+            lost = sum(1 for g, _ in inc if g < rung)
+            cost.append({"rung_gkmer": rung, "crop": crop, "runs": len(inc),
+                         "lost": lost, "kept": len(inc) - lost,
+                         "frac_lost": f"{lost / len(inc):.4f}" if inc else ""})
+    with atomic_write(THRESHOLD) as fh:
+        w = csv.DictWriter(fh, fieldnames=list(cost[0]), delimiter="\t", lineterminator="\n")
+        w.writeheader()
+        w.writerows(cost)
+
     # the depth at which each detection is LOST: lowest rung that still clears
     lost = {}
     for run in runs:
@@ -212,6 +245,29 @@ def main() -> None:
     A("0.2 Gb it removes 1,551 rice runs against 18 maize and 0 sorghum. The cut-off has to be")
     A("set on this curve and its cost to rice stated, not chosen by eye.")
     A("")
+    A("  WHAT A THRESHOLD COSTS (runs dropped, whole cohort)")
+    A("")
+    A(f"  {'Gkmer':>8s} {'lost':>6s} {'%':>5s}   " + "  ".join(f"{c[:11]:>11s}" for c in crops))
+    for rung in rungs:
+        sel = [c for c in cost if c["rung_gkmer"] == rung]
+        tl = sum(c["lost"] for c in sel)
+        tn = sum(c["runs"] for c in sel)
+        cells = []
+        for crop in crops:
+            e = next((c for c in sel if c["crop"] == crop), None)
+            cells.append(f"{e['lost']:5d}/{e['runs']:<5d}" if e else "     -     ")
+        A(f"  {rung:8.3f} {tl:6d} {tl/tn:5.0%}   " + "  ".join(f"{x:>11s}" for x in cells))
+    A("")
+    A("Only TWO projects fall entirely below 0.5 Gkmer and both are rice: PRJDB7234 (1,557")
+    A("runs, median 0.019, max 0.214) and PRJNA726716 (104 runs, median 0.044, max 0.141).")
+    A("")
+    A("READ LENGTH COSTS NOTHING BEYOND Gkmer, which was not the expected result. At matched")
+    A("Gkmer the 51 nt single-end arm retains as many detections as the native paired arm")
+    A("(5 vs 5, 8 vs 6, 9 vs 10, 12 vs 12 at the four shared rungs). The reasoning that")
+    A("--minimum-hit-groups 3 would penalise a 17-k-mer read beyond its yield is NOT supported.")
+    A("Gkmer is therefore a sufficient single statistic and a short-read library needs no extra")
+    A("penalty, so one threshold on one number is defensible.")
+    A("")
     A("WHAT THE CURVE DOES NOT SAY. It uses the COVERAGE floor only; `score` needs detect.py's")
     A("whole-cohort accumulation fit, so retention here is an UPPER bound -- a detection failing")
     A("coverage would fail the pair too. Nested subsampling is not used: each rung is an")
@@ -238,6 +294,7 @@ def main() -> None:
 
     print(f"-> {PLOT.name}  ({len(plot)} rows)")
     print(f"-> {RETAINED.name}")
+    print(f"-> {THRESHOLD.name}")
     print(f"-> {CAPTION.name}")
     print(f"\nreference detections: {n_ref} over {len(runs)} runs")
     print(f"\n  {'arm':9s} {'Gkmer':>8s} {'measured':>9s} {'cov>=1%':>9s} {'+abs':>6s}")

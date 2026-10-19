@@ -1,0 +1,14 @@
+arm	rung_gkmer	detections_measured	retained_relative	retained_both	frac_relative	frac_both
+native	0.019	22	5	5	0.2273	0.2273
+native	0.036	22	8	8	0.3636	0.3636
+native	0.1	22	9	9	0.4091	0.4091
+native	0.21	22	12	12	0.5455	0.5455
+native	0.5	22	15	15	0.6818	0.6818
+native	1.0	22	16	16	0.7273	0.7273
+native	2.0	22	17	17	0.7727	0.7727
+native	3.0	14	12	12	0.8571	0.8571
+shallow	0.019	22	5	5	0.2273	0.2273
+shallow	0.036	22	6	6	0.2727	0.2727
+shallow	0.1	22	10	10	0.4545	0.4545
+shallow	0.21	22	12	12	0.5455	0.5455
+shallow	0.5	10	6	6	0.6000	0.6000

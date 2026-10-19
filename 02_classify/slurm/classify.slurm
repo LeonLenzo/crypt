@@ -43,6 +43,10 @@ cd /scratch/pawsey1168/llenzo/crypt || exit 1
 mkdir -p 02_classify/slurm/logs
 
 : "${PROJECT:?set PROJECT, e.g. --export=ALL,PROJECT=PRJEB39201}"
+# PROJECT may be a SPACE-SEPARATED LIST, and for the small projects it should be. Staging the
+# 41 GB hash costs ~200s and is per JOB, not per project, so a 4-run project in its own job
+# spends 200s of staging on ~2 minutes of work. The 21 projects under 50 runs are 290 runs
+# between them and belong in one job behind one stage.
 DB=02_classify/data/silver/db/db_v4
 SHM=/dev/shm/db_v4_$SLURM_JOB_ID
 # 8 x 8 = 64 concurrent threads, matching the 64 PHYSICAL cores that --mem=80G buys (sacct
@@ -66,11 +70,14 @@ cleanup() { rm -rf "$SHM"; }
 trap cleanup EXIT
 
 SECONDS=0
-python3 02_classify/04_classify/classify.py \
-    --project "$PROJECT" --db "$SHM" \
-    --workers "$WORKERS" --threads "$THREADS" --mmap \
-    --tmp-dir "$MYSCRATCH/kraken_tmp"
-rc=$?
+rc=0
+for P in $PROJECT; do
+  echo "--- $P ---"
+  python3 02_classify/04_classify/classify.py \
+      --project "$P" --db "$SHM" \
+      --workers "$WORKERS" --threads "$THREADS" --mmap \
+      --tmp-dir "$MYSCRATCH/kraken_tmp" || rc=$?
+done
 
 echo "exit     $rc after ${SECONDS}s"
 echo "finished $(date -Is)"

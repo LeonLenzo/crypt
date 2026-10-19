@@ -45,8 +45,13 @@ mkdir -p 02_classify/slurm/logs
 : "${PROJECT:?set PROJECT, e.g. --export=ALL,PROJECT=PRJEB39201}"
 DB=02_classify/data/silver/db/db_v4
 SHM=/dev/shm/db_v4_$SLURM_JOB_ID
-WORKERS=${WORKERS:-4}
-THREADS=${THREADS:-14}
+# 8 x 8 = 64 concurrent threads, matching the 64 PHYSICAL cores that --mem=80G buys (sacct
+# reports 128, which is the SMT logical count). The smoke test ran 4 x 14 = 56 threads and
+# billed the same 64 cores, so half the allocation sat idle. Workers are cheap to add because
+# they mmap ONE shared /dev/shm copy of the hash instead of loading their own: measured RSS
+# went 48.4 GB at 4 workers, and each extra worker costs a working set rather than 41 GB.
+WORKERS=${WORKERS:-8}
+THREADS=${THREADS:-8}
 
 echo "host     $(hostname)"
 echo "project  $PROJECT"

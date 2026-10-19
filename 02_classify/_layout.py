@@ -24,8 +24,15 @@ cohort). So here the step directories hold `.py` and nothing else, and all data 
             downloaded CDS tree, the BUSCO lineage caches, the raw per-run Kraken2 reports.
             Deleting one costs a refetch or a recompute and nothing else. Ignored.
     data/silver/      generated tables: the selected assemblies, the inspect table, the resolved
-            run list, the host calls, `_classified.tsv`. Rebuildable from BRONZE + SEEDS, so
-            ignored. Hand-editing one is always a mistake.
+            run list, the host calls, `_classified.tsv`. Rebuildable from BRONZE + SEEDS, and
+            TRACKED since 2026-10-19 -- the tables, not `silver/db/`. Rebuildability was the
+            original reason to ignore them and it was the wrong axis, since gold is just as
+            generated: measured, the twelve tables are 6.6 MB against 139 GB for the index
+            alone, so the cut is tables-versus-artefacts and not layers. It had to change
+            because `run_list.tsv` must exist on both machines and a gitignored silver table
+            had already failed to reach Setonix twice. Two still excluded: `db/` (the index)
+            and `_classified.tsv` (rewritten on every threshold sweep). Hand-editing one is
+            always a mistake, and tracking them makes that visible rather than permitted.
     data/gold/        small human-readable outputs: the detections, the co-infection summaries,
             the per-host rates. Generated, but TRACKED, because these are the numbers a reader
             wants to see change over the life of the project.
@@ -111,8 +118,27 @@ FUNGI_ANNOTATED = SEEDS / "fungi_annotated.tsv"  # NCBI: which of them have a ge
 CDS = BRONZE / "cds"
 CDS_PATHOGEN = CDS / "pathogen"
 CDS_HOST = CDS / "host"
+# Reads, one directory per BioProject: reads/<BioProject>/<Run>_1.fastq.gz. The 03_kraken tree
+# was ONE flat directory of 5,989 files, and the cost of that was not `ls` being slow, it was
+# that "which runs of this project are finished" became a join against two tables, so nobody
+# could safely delete anything. Reads are 99.2% of this module's storage (18.6 TiB for the full
+# cohort against 154 MB of reports), and NOTHING downstream of a report needs them. Per-project
+# makes the unit of work a project, so the loop closes: fetch, classify, keep the report,
+# release the reads.
+#   The move off the flat tree is FREE. Both are on the same Lustre mount, so it is a metadata
+#   rename: no bytes copied, and rename does not touch the file's atime, which is what the
+#   21-day purge clock reads. The README's "No data moves on Setonix" line meant no re-download
+#   and no copy; that is still true, and the line is amended rather than left standing.
 READS = BRONZE / "reads"
+# Downloads land HERE and are renamed into READS/<BioProject>/ only once complete. The flat tree
+# still holds 39 orphaned `_<RUN>_sra` prefetch directories from failed pulls, and in a
+# per-project tree a partial download sitting inside the project directory looks like progress.
+# Same rule fetch_cds.py enforces after the 1,997-directories / 1,162-files incident: presence
+# is a non-empty file in its final location, always.
+READS_TMP = BRONZE / "reads_tmp"
 # Raw Kraken2 output, one report per run. Large and regeneratable.
+# Also one directory per BioProject, for the same reason and one more: it makes "is this
+# project classified" a directory listing, and that check is what licenses deleting its reads.
 REPORTS = BRONZE / "reports"
 NCBI_SUMMARY = BRONZE / "ncbi"          # assembly summaries, as fetched
 BUSCO_CACHE = BRONZE / "busco"          # lineage downloads + the scan cache
@@ -141,7 +167,12 @@ DB = SILVER / "db"                               # the Kraken2 index itself (db_
 # `_paths.DB_INSPECT` is db_v3's and still exists; a script that needs both must alias one,
 # because the names are identical and only the module prefix separates them.
 DB_INSPECT = SILVER / "db_inspect.tsv"
+# 03_cohort. RUN_LIST is the PLAN (what we want and the sampling design); READS_MANIFEST is
+# the FACT (what is on scratch). Kept apart deliberately: the plan is machine-independent and
+# regenerates anywhere, the manifest only means anything on Setonix, and conflating them is how
+# the old tree came to report 1,997 held accessions against 1,162 real files.
 RUN_LIST = SILVER / "run_list.tsv"               # 03_cohort: the 7,688 runs, resolved
+FETCH_PLAN = SILVER / "fetch_plan.tsv"           # 03_cohort: per BioProject, what to pull and why
 READS_MANIFEST = SILVER / "reads_manifest.tsv"   # what is actually on scratch
 HOST_CALLS = SILVER / "host_calls.tsv"           # 04_classify: the host called FROM READS
 CLASSIFIED = SILVER / "_classified.tsv"          # 05_detect: one row per candidate detection

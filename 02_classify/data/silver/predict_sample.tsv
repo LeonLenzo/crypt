@@ -1,0 +1,121 @@
+arm	accession	taxid	organism_name	routes	assembly_level	scaffold_n50_kb	protein_coding_genes	has_truth	stratum	focal
+annotated	GCA_016801405.1	13684	Parastagonospora nodorum	target;plant_associate	Chromosome	1683	17448	yes	Chromosome	yes
+annotated	GCA_900091695.1	1047171	Zymoseptoria tritici	target;plant_associate	Chromosome	2825	11726	yes	Chromosome	yes
+annotated	GCF_003171515.1	45151	Pyrenophora tritici-repentis	target;plant_associate	Chromosome	3658	15455	yes	Chromosome	yes
+annotated	GCA_900232045.3	53485	Pyrenophora teres	target;plant_associate	Chromosome	4721	11561	yes	Chromosome	yes
+annotated	GCA_025169535.1	27350	Puccinia striiformis	target	Chromosome	4795	17090	yes	Chromosome	yes
+annotated	GCA_026914245.1	208348	Puccinia triticina	target;plant_associate	Complete Genome	7575	12690	yes	Complete Genome	yes
+annotated	GCA_061311145.1	5518	Fusarium graminearum	target;plant_associate	Complete Genome	9049	14802	yes	Complete Genome	yes
+annotated	GCA_030719095.1	5507	Fusarium oxysporum	target	Complete Genome	4886	16305	yes	Complete Genome	yes
+annotated	GCA_049245135.1	456999	Rhizoctonia solani	target;plant_associate	Complete Genome	2529	7698	yes	Complete Genome	yes
+annotated	GCA_004346965.1	318829	Pyricularia oryzae	target	Complete Genome	6129	13521	yes	Complete Genome	yes
+annotated	GCA_028858655.1	5016	Bipolaris maydis	target;plant_associate	Scaffold	2273	11144	yes	Scaffold	yes
+annotated	GCF_033473495.1	122368	Cercospora beticola	target	Complete Genome	4240	13144	yes	Complete Genome	yes
+annotated	GCF_019915245.1	1042133	Fusarium musae	plant_associate	Chromosome	4357	13672	yes	Chromosome	no
+annotated	GCA_003316995.2	117187	Fusarium verticillioides	target;plant_associate	Chromosome	4203	13508	yes	Chromosome	no
+annotated	GCF_001672515.1	80884	Colletotrichum higginsianum	target	Chromosome	5202	14651	yes	Chromosome	no
+annotated	GCA_009663115.1	5127	Fusarium fujikuroi	target;plant_associate	Chromosome	4426	13690	yes	Chromosome	no
+annotated	GCA_900519115.1	34373	Blumeria graminis	target	Chromosome	15587	8347	yes	Chromosome	no
+annotated	GCA_045999785.1	108571	Phlyctema vagabunda	plant_associate	Chromosome	3905	11476	yes	Chromosome	no
+annotated	GCF_000182925.2	5141	Neurospora crassa	target;plant_associate	Chromosome	6001	9757	yes	Chromosome	no
+annotated	GCF_004355905.1	148305	Pyricularia grisea	target;plant_associate	Chromosome	5912	12441	yes	Chromosome	no
+annotated	GCF_020623625.1	36035	Saccharomycodes ludwigii	plant_associate	Chromosome	1848	5026	yes	Chromosome	no
+annotated	GCF_018924745.1	181124	Marasmius oreades	plant_associate	Chromosome	4073	13700	yes	Chromosome	no
+annotated	GCA_051938815.1	1940676	Gaeumannomyces hyphopodioides	plant_associate	Chromosome	6998	11311	yes	Chromosome	no
+annotated	GCF_964197705.1	3158075	Penicillium psychrofluorescens	congener;target	Chromosome	4460	9519	yes	Chromosome	no
+annotated	GCA_056632935.1	1859096	Cryptococcus deuterogattii	host_associate	Complete Genome	1316	6260	yes	Complete Genome	no
+annotated	GCA_029542965.1	253288	Malassezia yamatoensis	host_associate	Complete Genome	1449	4047	yes	Complete Genome	no
+annotated	GCF_020647795.1	63577	Trichoderma atroviride	plant_associate	Complete Genome	5658	13127	yes	Complete Genome	no
+annotated	GCF_023278565.1	145971	Colletotrichum lupini	plant_associate	Complete Genome	7872	18280	yes	Complete Genome	no
+annotated	GCA_007735645.1	50376	Venturia effusa	target;plant_associate	Complete Genome	2472	10820	yes	Complete Genome	no
+annotated	GCA_001984395.2	1365886	Zygosaccharomyces parabailii	congener;target	Complete Genome	1284	10086	yes	Complete Genome	no
+annotated	GCA_014784225.2	5059	Aspergillus flavus	target;plant_associate	Complete Genome	6268	13068	yes	Complete Genome	no
+annotated	GCA_046000195.1	5066	Aspergillus wentii	plant_associate	Complete Genome	4418	12738	yes	Complete Genome	no
+annotated	GCA_047368035.1	77020	Malassezia pachydermatis	host_associate	Complete Genome	1456	4441	yes	Complete Genome	no
+annotated	GCA_056582465.1	66738	Diplodia sapinea	target;plant_associate	Complete Genome	2851	11770	yes	Complete Genome	no
+annotated	GCF_000836335.1	552467	Cryptococcus bacillisporus	host_associate	Complete Genome	1576	6694	yes	Complete Genome	no
+annotated	GCA_976943335.1	1463510	Parajaminaea phylloscopi	congener;target	Complete Genome	9859	6613	yes	Complete Genome	no
+annotated	GCA_977970205.2	5520	Microdochium nivale	target	Contig	3509	6101	yes	Contig	no
+annotated	GCA_027946375.1	2978358	Neodidymelliopsis sp. IMI 364377	target	Contig	75	9614	yes	Contig	no
+annotated	GCA_040367835.1	439312	Mucor flavus	congener	Contig	858	11295	yes	Contig	no
+annotated	GCA_014898425.1	278942	Botryotinia globosa	target	Contig	2511	12067	yes	Contig	no
+annotated	GCF_001792695.1	109264	Aspergillus bombycis	congener	Contig	241	12262	yes	Contig	no
+annotated	GCA_900157425.1	47428	Armillaria ostoyae	target;plant_associate	Contig	2284	22299	yes	Contig	no
+annotated	GCA_018360355.1	2559230	Claviceps sp. Clav32 group G5	congener;target	Contig	58	8112	yes	Contig	no
+annotated	GCA_004369175.1	71717	Coprinellus micaceus	plant_associate	Contig	316	23412	yes	Contig	no
+annotated	GCA_022432375.1	2663370	Nemania sp. FL0031	target	Contig	539	13572	yes	Contig	no
+annotated	GCA_000986645.1	308745	Aspergillus rambellii	congener	Contig	38	7761	yes	Contig	no
+annotated	GCA_029282135.1	1033014	Mycena belliarum	congener;target	Contig	554	18071	yes	Contig	no
+annotated	GCA_052576325.1	1338630	Cladosporium allicinum	target	Contig	1818	11465	yes	Contig	no
+annotated	GCA_021432655.1	1938712	Atractiella rhizophila	plant_associate	Scaffold	74	17590	yes	Scaffold	no
+annotated	GCF_001500285.1	149040	Mollisia scopiformis	plant_associate	Scaffold	1332	18556	yes	Scaffold	no
+annotated	GCA_053539345.1	2857484	Beauveria neobassiana	congener	Scaffold	197	10248	yes	Scaffold	no
+annotated	GCA_013266165.1	86546	Fusarium graminum	plant_associate	Scaffold	86	11163	yes	Scaffold	no
+annotated	GCA_013266185.1	1208366	Fusarium sarcochroum	plant_associate	Scaffold	55	14827	yes	Scaffold	no
+annotated	GCA_011392495.1	128442	Talaromyces pinophilus	plant_associate	Scaffold	3337	12488	yes	Scaffold	no
+annotated	GCA_025327135.1	2838797	Colletotrichum sp. SAR 10_71	target	Scaffold	118	12879	yes	Scaffold	no
+annotated	GCA_964263705.1	107463	Xanthoria parietina	plant_associate	Scaffold	1589	10680	yes	Scaffold	no
+annotated	GCA_001908125.1	1316194	Penicillium subrubescens	congener;target	Scaffold	323	14177	yes	Scaffold	no
+annotated	GCF_000271605.1	208960	Fomitiporia mediterranea	target	Scaffold	4291	11330	yes	Scaffold	no
+annotated	GCA_013396295.1	42747	Fusarium heterosporum	target;plant_associate	Scaffold	176	11332	yes	Scaffold	no
+annotated	GCF_000281105.1	61459	Coniosporium apollinis	congener;target	Scaffold	477	9308	yes	Scaffold	no
+unannotated	GCA_025258505.1	282267	Fusarium asiaticum	target	Complete Genome	9351		no	Complete Genome	absent_target
+unannotated	GCA_022559985.1	1351752	Parastagonospora avenae	target	Scaffold	315		no	Scaffold	absent_target
+unannotated	GCA_062009444.1	27345	Puccinia hordei	target	Chromosome	10912		no	Chromosome	absent_target
+unannotated	GCA_026119265.1	749589	Didymella pinodes	target;plant_associate	Scaffold	3798		no	Scaffold	absent_target
+unannotated	GCA_030558545.1	2695822	Bipolaris gigantea	target;plant_associate	Scaffold	53		no	Scaffold	absent_target
+unannotated	GCA_053572805.1	36653	Penicillium commune	congener;target	Contig	533		no	Contig	absent_target
+unannotated	GCA_030389615.1	5113	Epichloe typhina	target;plant_associate	Complete Genome	9405		no	Complete Genome	absent_target
+unannotated	GCA_022506055.1	5272	Microbotryum violaceum	target	Contig	2040		no	Contig	absent_target
+unannotated	GCA_048934005.1	267218	Dioszegia catarinoi	host_associate	Contig	1513		no	Contig	resident
+unannotated	GCA_059628725.1	3751182	Cladosporium sp. MA8_LABAP	target	Scaffold	1364		no	Scaffold	resident
+unannotated	GCA_052324205.1	2144180	Cladosporium cf. tenuissimum	target	Scaffold	1604		no	Scaffold	resident
+unannotated	GCA_026538325.1	2937421	Cryptococcus sp. GC_Crypt_8	host_associate	Contig	252		no	Contig	resident
+unannotated	GCA_000442785.1	214993	Papiliotrema flavescens	host_associate	Scaffold	71		no	Scaffold	resident
+unannotated	GCA_060229725.1	3735580	Bullera sp. CLIB4446	host_associate	Contig	557		no	Contig	resident
+unannotated	GCA_054490815.1	1036751	Acremonium polychromum	plant_associate	Scaffold	5493		no	Scaffold	resident
+unannotated	GCA_030463185.1	2949268	Cladosporium sp. BF-F	target	Contig	1760		no	Contig	resident
+unannotated	GCA_018703675.1	2259629	Cladosporium sp. SW67	target	Scaffold	1090		no	Scaffold	resident
+unannotated	GCA_026538705.1	2937429	Aureobasidium sp. GC_Fusr_1	congener;host_associate;target	Contig	67		no	Contig	resident
+unannotated	GCA_001600655.1	4973	Dioszegia aurantiaca	host_associate	Scaffold	1283		no	Scaffold	resident
+unannotated	GCA_019775635.1	2756247	Cladosporium sp. VS III D KN 1	target	Scaffold	1149		no	Scaffold	resident
+unannotated	GCA_004335185.1	2490640	Phoma sp. RAV-16-625	target	Contig	195		no	Contig	resident
+unannotated	GCA_062004744.1	3735056	Cladosporium sp. 121G	target	Scaffold	939		no	Scaffold	resident
+unannotated	GCA_021014315.1	2895399	Aureobasidium mangrovei	congener;host_associate;target	Scaffold	1438		no	Scaffold	resident
+unannotated	GCA_060229605.1	3735575	Vishniacozyma sp. CLIB4441	host_associate	Contig	1734		no	Contig	resident
+unannotated	GCA_061604035.1	2981857	Aureobasidium sp. LC112	congener;host_associate;target	Contig	777		no	Contig	resident
+unannotated	GCA_048773585.1	2022753	Nigrospora camelliae-sinensis	target	Contig	4381		no	Contig	resident
+unannotated	GCA_024271845.1	2946653	Cryptococcus sp. VH57_BW	host_associate	Scaffold	235		no	Scaffold	resident
+unannotated	GCA_023621355.1	92950	Cladosporium sphaerospermum	plant_associate	Scaffold	997		no	Scaffold	resident
+unannotated	GCA_986694515.1	646506	Marasmius cohaerens	target	Chromosome	7285		no	Chromosome	no
+unannotated	GCA_978897505.1	76328	Tricholoma terreum	plant_associate	Chromosome	6244		no	Chromosome	no
+unannotated	GCA_000633125.1	38945	Flammulina velutipes	target;plant_associate	Chromosome	3897		no	Chromosome	no
+unannotated	GCA_009192285.1	62758	Morchella semilibera	plant_associate	Chromosome	2999		no	Chromosome	no
+unannotated	GCA_054553065.1	56641	Fusarium cerealis	target;plant_associate	Chromosome	8889		no	Chromosome	no
+unannotated	GCA_054948735.1	203904	Hemileia vastatrix	target;plant_associate	Chromosome	35318		no	Chromosome	no
+unannotated	GCA_054134705.1	3421219	Peroneutypa diatrypoides	target	Chromosome	4835		no	Chromosome	no
+unannotated	GCA_040893085.1	749593	Epicoccum sorghinum	target;plant_associate	Chromosome	1662		no	Chromosome	no
+unannotated	GCA_036768465.1	29911	Alternaria brassicae	target;plant_associate	Complete Genome	3538		no	Complete Genome	no
+unannotated	GCA_040250155.1	463681	Penicillium fuscoglaucum	congener;target	Complete Genome	9118		no	Complete Genome	no
+unannotated	GCA_051247085.1	47752	Arachnopeziza aurata	plant_associate	Complete Genome	2695		no	Complete Genome	no
+unannotated	GCA_055944425.1	60444	Diaporthe caulivora	plant_associate	Complete Genome	8036		no	Complete Genome	no
+unannotated	GCA_041412015.1	85828	Pestalotiopsis microspora	plant_associate	Complete Genome	7173		no	Complete Genome	no
+unannotated	GCA_023658475.1	55200	Epichloe elymi	plant_associate	Complete Genome	4992		no	Complete Genome	no
+unannotated	GCA_046630685.1	182845	Calonectria ilicicola	plant_associate	Complete Genome	7028		no	Complete Genome	no
+unannotated	GCA_060595785.1	5483	Pseudozyma tsukubaensis	plant_associate	Complete Genome	894		no	Complete Genome	no
+unannotated	GCA_037356495.1	3115216	Penicillium sp. F51	congener;target	Contig	2762		no	Contig	no
+unannotated	GCA_008122225.1	984309	Ciboria shiraiana	target	Contig	2399		no	Contig	no
+unannotated	GCA_019059545.1	2834069	Rhodotorula sp. VS67	congener;host_associate;target	Contig	350		no	Contig	no
+unannotated	GCA_059475355.1	881653	Elsinoe perseae	target	Contig	1888		no	Contig	no
+unannotated	GCA_027569235.1	37232	Aspergillus sparsus	congener	Contig	356		no	Contig	no
+unannotated	GCA_055797535.1	3686414	Trichoderma sp. 5c.a.2	congener;target	Contig	1673		no	Contig	no
+unannotated	GCA_003717165.1	27333	Protomyces inundatus	congener;target	Contig	133		no	Contig	no
+unannotated	GCA_030779245.1	2993622	Fusarium sp. MBC 438	target	Contig	229		no	Contig	no
+unannotated	GCA_023625975.1	2940373	Talaromyces sp. PYS2103	congener	Scaffold	684		no	Scaffold	no
+unannotated	GCA_038503075.1	33161	Gyromitra esculenta	plant_associate	Scaffold	1971		no	Scaffold	no
+unannotated	GCA_022560085.1	58128	Helminthosporium solani	target;plant_associate	Scaffold	102		no	Scaffold	no
+unannotated	GCA_054123095.1	2006378	Scopulariopsis sp.	plant_associate	Scaffold	6		no	Scaffold	no
+unannotated	GCA_009804945.1	2306345	Neurospora sp. FGSC 26633	congener	Scaffold	155		no	Scaffold	no
+unannotated	GCA_051820765.1	3414288	Phaeoisaria parallela	congener;target	Scaffold	360		no	Scaffold	no
+unannotated	GCA_002368545.1	508918	Ramichloridium luteum	plant_associate	Scaffold	437		no	Scaffold	no
+unannotated	GCA_001640655.1	1580848	Endoconidiophora laricicola	plant_associate	Scaffold	78		no	Scaffold	no

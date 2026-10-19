@@ -1,0 +1,18 @@
+accession	taxid	organism_name	routes
+GCA_041956735.1	5580	Aureobasidium pullulans	target;plant_associate
+GCA_900128795.2	5041	Malbranchea cinnamomea	plant_associate
+GCA_900322835.1	84753	Moesziomyces antarcticus	plant_associate
+GCA_001510955.1	112498	Ramularia collo-cygni	plant_associate
+GCA_900175165.2	4840	Rhizomucor pusillus	plant_associate
+GCA_920103735.2	86837	Rhodotorula babjevae	congener;host_associate;target
+GCA_920104245.2	86837	Rhodotorula babjevae	congener;host_associate;target
+GCA_920103745.3	5535	Rhodotorula glutinis	plant_associate
+GCA_921037615.3	5286	Rhodotorula toruloides	congener;host_associate;target
+GCA_951799155.2	4565	Triticum aestivum	host
+GCA_964488245.2	4565	Triticum aestivum	host
+GCA_964494315.2	4565	Triticum aestivum	host
+GCA_964498365.2	4565	Triticum aestivum	host
+GCA_964499505.2	4565	Triticum aestivum	host
+GCA_964500185.2	4565	Triticum aestivum	host
+GCA_964506145.2	4565	Triticum aestivum	host
+GCA_902712725.1	1047171	Zymoseptoria tritici	target;plant_associate

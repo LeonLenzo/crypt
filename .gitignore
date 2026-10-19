@@ -270,6 +270,33 @@ docs/*
 !02_classify/data/gold/*.tsv
 !02_classify/data/gold/.gitkeep
 
+# SILVER TABLES ARE TRACKED, from 2026-10-19. The layer boundary turned out to be the wrong
+# place to cut, because the stated reason for ignoring silver was REBUILDABILITY and gold is
+# just as generated. Measured, the real axis is size: silver's twelve tables are 6.6 MB in
+# total (largest assemblies.tsv at 2.6 MB) while `silver/db/` alone is 139 GB. Tables and
+# artefacts, not layers.
+#
+# Three things this buys, the first of which is the one that forced it:
+#   * run_list.tsv and fetch_plan.tsv have to exist on BOTH machines, and a gitignored silver
+#     table has now failed to reach Setonix twice (predict_sample.tsv, ref_candidates.tsv),
+#     each time as a job that started and then died on a missing input.
+#   * db_inspect.tsv is the coverage denominator for every 05_detect figure, so tracking it
+#     means a figure can be rebuilt locally against db_v4 without an scp first.
+#   * a diff on ref_candidates.tsv or cds_manifest.tsv is how a database change becomes
+#     reviewable, which is the same argument gold already won.
+#
+# `*.tsv` is deliberately a SINGLE star: it matches tables sitting directly in silver/ and can
+# never descend into silver/db/, so the 139 GB index cannot leak in by accident.
+!02_classify/data/silver/
+!02_classify/data/silver/*.tsv
+
+# ...with one exception, on the same reasoning as the PNG rule below. _classified.tsv is one
+# row per candidate detection: 2.4 MB under db_v3, larger under db_v4, and REWRITTEN on every
+# threshold sweep. The co-infection rate is threshold-dependent and gets swept often, so this
+# is the one silver table that would be re-committed dozens of times in an afternoon. Its
+# summary lands in gold, which is where the history belongs.
+02_classify/data/silver/_classified.tsv
+
 # 02_classify figures: the PDF is tracked and the PNG is not. The PDF is 132 KB of vector
 # paths, is what goes into Illustrator, and regenerates the PNG at any resolution; the PNG is
 # 3 MB and had already been re-committed nine times during one afternoon of tuning. The repo

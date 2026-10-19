@@ -1,0 +1,121 @@
+arm	accession	taxid	organism_name	assembly_level	has_truth	focal	bytes	path
+annotated	GCA_016801405.1	13684	Parastagonospora nodorum	Chromosome	yes	yes	37484850	GCA_016801405.1/ncbi_dataset/data/GCA_016801405.1/GCA_016801405.1_ASM1680140v1_genomic.fna
+annotated	GCA_900091695.1	1047171	Zymoseptoria tritici	Chromosome	yes	yes	38335979	GCA_900091695.1/ncbi_dataset/data/GCA_900091695.1/GCA_900091695.1_Zt_ST99CH_3D7_genomic.fna
+annotated	GCF_003171515.1	45151	Pyrenophora tritici-repentis	Chromosome	yes	yes	41438290	GCF_003171515.1/ncbi_dataset/data/GCF_003171515.1/GCF_003171515.1_CUR_PTRM4_2.2_genomic.fna
+annotated	GCA_900232045.3	53485	Pyrenophora teres	Chromosome	yes	yes	53750770	GCA_900232045.3/ncbi_dataset/data/GCA_900232045.3/GCA_900232045.3_PTTW11_genomic.fna
+annotated	GCA_025169535.1	27350	Puccinia striiformis	Chromosome	yes	yes	83714648	GCA_025169535.1/ncbi_dataset/data/GCA_025169535.1/GCA_025169535.1_ASM2516953v1_genomic.fna
+annotated	GCA_026914245.1	208348	Puccinia triticina	Complete Genome	yes	yes	122629044	GCA_026914245.1/ncbi_dataset/data/GCA_026914245.1/GCA_026914245.1_ASM2691424v1_genomic.fna
+annotated	GCA_061311145.1	5518	Fusarium graminearum	Complete Genome	yes	yes	37368710	GCA_061311145.1/ncbi_dataset/data/GCA_061311145.1/GCA_061311145.1_ASM6131114v1_genomic.fna
+annotated	GCA_030719095.1	5507	Fusarium oxysporum	Complete Genome	yes	yes	50500836	GCA_030719095.1/ncbi_dataset/data/GCA_030719095.1/GCA_030719095.1_ASM3071909v1_genomic.fna
+annotated	GCA_049245135.1	456999	Rhizoctonia solani	Complete Genome	yes	yes	40574333	GCA_049245135.1/ncbi_dataset/data/GCA_049245135.1/GCA_049245135.1_ASM4924513v1_genomic.fna
+annotated	GCA_004346965.1	318829	Pyricularia oryzae	Complete Genome	yes	yes	43237629	GCA_004346965.1/ncbi_dataset/data/GCA_004346965.1/GCA_004346965.1_ASM434696v1_genomic.fna
+annotated	GCA_028858655.1	5016	Bipolaris maydis	Scaffold	yes	yes	38903615	GCA_028858655.1/ncbi_dataset/data/GCA_028858655.1/GCA_028858655.1_ChetPR9b_4_genomic.fna
+annotated	GCF_033473495.1	122368	Cercospora beticola	Complete Genome	yes	yes	36525694	GCF_033473495.1/ncbi_dataset/data/GCF_033473495.1/GCF_033473495.1_ASM3347349v1_genomic.fna
+annotated	GCF_019915245.1	1042133	Fusarium musae	Chromosome	yes	no	44566599	GCF_019915245.1/ncbi_dataset/data/GCF_019915245.1/GCF_019915245.1_ASM1991524v1_genomic.fna
+annotated	GCA_003316995.2	117187	Fusarium verticillioides	Chromosome	yes	no	42851549	GCA_003316995.2/ncbi_dataset/data/GCA_003316995.2/GCA_003316995.2_ASM331699v2_genomic.fna
+annotated	GCF_001672515.1	80884	Colletotrichum higginsianum	Chromosome	yes	no	51352875	GCF_001672515.1/ncbi_dataset/data/GCF_001672515.1/GCF_001672515.1_ASM167251v1_genomic.fna
+annotated	GCA_009663115.1	5127	Fusarium fujikuroi	Chromosome	yes	no	46185826	GCA_009663115.1/ncbi_dataset/data/GCA_009663115.1/GCA_009663115.1_ASM966311v1_genomic.fna
+annotated	GCA_900519115.1	34373	Blumeria graminis	Chromosome	yes	no	142563744	GCA_900519115.1/ncbi_dataset/data/GCA_900519115.1/GCA_900519115.1_Bgt_genome_v3.16_genomic.fna
+annotated	GCA_045999785.1	108571	Phlyctema vagabunda	Chromosome	yes	no	38659676	GCA_045999785.1/ncbi_dataset/data/GCA_045999785.1/GCA_045999785.1_ASM4599978v1_genomic.fna
+annotated	GCF_000182925.2	5141	Neurospora crassa	Chromosome	yes	no	41618285	GCF_000182925.2/ncbi_dataset/data/GCF_000182925.2/GCF_000182925.2_NC12_genomic.fna
+annotated	GCF_004355905.1	148305	Pyricularia grisea	Chromosome	yes	no	45120257	GCF_004355905.1/ncbi_dataset/data/GCF_004355905.1/GCF_004355905.1_PgNI_genomic.fna
+annotated	GCF_020623625.1	36035	Saccharomycodes ludwigii	Chromosome	yes	no	12657512	GCF_020623625.1/ncbi_dataset/data/GCF_020623625.1/GCF_020623625.1_UHD_SCDLUD_16_genomic.fna
+annotated	GCF_018924745.1	181124	Marasmius oreades	Chromosome	yes	no	44930566	GCF_018924745.1/ncbi_dataset/data/GCF_018924745.1/GCF_018924745.1_UU_Maror_2_genomic.fna
+annotated	GCA_051938815.1	1940676	Gaeumannomyces hyphopodioides	Chromosome	yes	no	49479357	GCA_051938815.1/ncbi_dataset/data/GCA_051938815.1/GCA_051938815.1_ASM5193881v1_genomic.fna
+annotated	GCF_964197705.1	3158075	Penicillium psychrofluorescens	Chromosome	yes	no	26586622	GCF_964197705.1/ncbi_dataset/data/GCF_964197705.1/GCF_964197705.1_Pfluo_KMR99_genomic.fna
+annotated	GCA_056632935.1	1859096	Cryptococcus deuterogattii	Complete Genome	yes	no	17748614	GCA_056632935.1/ncbi_dataset/data/GCA_056632935.1/GCA_056632935.1_ASM5663293v1_genomic.fna
+annotated	GCA_029542965.1	253288	Malassezia yamatoensis	Complete Genome	yes	no	8367833	GCA_029542965.1/ncbi_dataset/data/GCA_029542965.1/GCA_029542965.1_ASM2954296v1_genomic.fna
+annotated	GCF_020647795.1	63577	Trichoderma atroviride	Complete Genome	yes	no	37767385	GCF_020647795.1/ncbi_dataset/data/GCF_020647795.1/GCF_020647795.1_ASM2064779v1_genomic.fna
+annotated	GCF_023278565.1	145971	Colletotrichum lupini	Complete Genome	yes	no	64237885	GCF_023278565.1/ncbi_dataset/data/GCF_023278565.1/GCF_023278565.1_ASM2327856v1_genomic.fna
+annotated	GCA_007735645.1	50376	Venturia effusa	Complete Genome	yes	no	45919738	GCA_007735645.1/ncbi_dataset/data/GCA_007735645.1/GCA_007735645.1_ASM773564v1_genomic.fna
+annotated	GCA_001984395.2	1365886	Zygosaccharomyces parabailii	Complete Genome	yes	no	21126850	GCA_001984395.2/ncbi_dataset/data/GCA_001984395.2/GCA_001984395.2_ASM198439v2_genomic.fna
+annotated	GCA_014784225.2	5059	Aspergillus flavus	Complete Genome	yes	no	38265094	GCA_014784225.2/ncbi_dataset/data/GCA_014784225.2/GCA_014784225.2_ASM1478422v2_genomic.fna
+annotated	GCA_046000195.1	5066	Aspergillus wentii	Complete Genome	yes	no	31643222	GCA_046000195.1/ncbi_dataset/data/GCA_046000195.1/GCA_046000195.1_Awentii_warwick_genomic.fna
+annotated	GCA_047368035.1	77020	Malassezia pachydermatis	Complete Genome	yes	no	8509341	GCA_047368035.1/ncbi_dataset/data/GCA_047368035.1/GCA_047368035.1_ASM4736803v1_genomic.fna
+annotated	GCA_056582465.1	66738	Diplodia sapinea	Complete Genome	yes	no	38530156	GCA_056582465.1/ncbi_dataset/data/GCA_056582465.1/GCA_056582465.1_Dsap_CMW190_1_genomic.fna
+annotated	GCF_000836335.1	552467	Cryptococcus bacillisporus	Complete Genome	yes	no	18049462	GCF_000836335.1/ncbi_dataset/data/GCF_000836335.1/GCF_000836335.1_ASM83633v2_genomic.fna
+annotated	GCA_976943335.1	1463510	Parajaminaea phylloscopi	Complete Genome	yes	no	18550294	GCA_976943335.1/ncbi_dataset/data/GCA_976943335.1/GCA_976943335.1_jamPhyA2_genomic.fna
+annotated	GCA_977970205.2	5520	Microdochium nivale	Contig	yes	no	37734468	GCA_977970205.2/ncbi_dataset/data/GCA_977970205.2/GCA_977970205.2_Microdochium_nivale_231047_genome_v2_genomic.fna
+annotated	GCA_027946375.1	2978358	Neodidymelliopsis sp. IMI 364377	Contig	yes	no	30546119	GCA_027946375.1/ncbi_dataset/data/GCA_027946375.1/GCA_027946375.1_ASM2794637v1_genomic.fna
+annotated	GCA_040367835.1	439312	Mucor flavus	Contig	yes	no	34156063	GCA_040367835.1/ncbi_dataset/data/GCA_040367835.1/GCA_040367835.1_Mfluvus_1.0_genomic.fna
+annotated	GCA_014898425.1	278942	Botryotinia globosa	Contig	yes	no	46258413	GCA_014898425.1/ncbi_dataset/data/GCA_014898425.1/GCA_014898425.1_ASM1489842v1_genomic.fna
+annotated	GCF_001792695.1	109264	Aspergillus bombycis	Contig	yes	no	37995461	GCF_001792695.1/ncbi_dataset/data/GCF_001792695.1/GCF_001792695.1_ASM179269v1_genomic.fna
+annotated	GCA_900157425.1	47428	Armillaria ostoyae	Contig	yes	no	60871229	GCA_900157425.1/ncbi_dataset/data/GCA_900157425.1/GCA_900157425.1_version_2_genomic.fna
+annotated	GCA_018360355.1	2559230	Claviceps sp. Clav32 group G5	Contig	yes	no	29126649	GCA_018360355.1/ncbi_dataset/data/GCA_018360355.1/GCA_018360355.1_CSU_Clav32_v1_genomic.fna
+annotated	GCA_004369175.1	71717	Coprinellus micaceus	Contig	yes	no	78424790	GCA_004369175.1/ncbi_dataset/data/GCA_004369175.1/GCA_004369175.1_Copmic2_genomic.fna
+annotated	GCA_022432375.1	2663370	Nemania sp. FL0031	Contig	yes	no	55362702	GCA_022432375.1/ncbi_dataset/data/GCA_022432375.1/GCA_022432375.1_NeFL0031_2_genomic.fna
+annotated	GCA_000986645.1	308745	Aspergillus rambellii	Contig	yes	no	27173255	GCA_000986645.1/ncbi_dataset/data/GCA_000986645.1/GCA_000986645.1_ASM98664v1_genomic.fna
+annotated	GCA_029282135.1	1033014	Mycena belliarum	Contig	yes	no	57177235	GCA_029282135.1/ncbi_dataset/data/GCA_029282135.1/GCA_029282135.1_Mycbel1_genomic.fna
+annotated	GCA_052576325.1	1338630	Cladosporium allicinum	Contig	yes	no	31103272	GCA_052576325.1/ncbi_dataset/data/GCA_052576325.1/GCA_052576325.1_ASM5257632v1_genomic.fna
+annotated	GCA_021432655.1	1938712	Atractiella rhizophila	Scaffold	yes	no	52361480	GCA_021432655.1/ncbi_dataset/data/GCA_021432655.1/GCA_021432655.1_Atrsp2_genomic.fna
+annotated	GCF_001500285.1	149040	Mollisia scopiformis	Scaffold	yes	no	49495047	GCF_001500285.1/ncbi_dataset/data/GCF_001500285.1/GCF_001500285.1_Phisc1_genomic.fna
+annotated	GCA_053539345.1	2857484	Beauveria neobassiana	Scaffold	yes	no	32356154	GCA_053539345.1/ncbi_dataset/data/GCA_053539345.1/GCA_053539345.1_BneoNHJ6243_Illumina_genomic.fna
+annotated	GCA_013266165.1	86546	Fusarium graminum	Scaffold	yes	no	35523938	GCA_013266165.1/ncbi_dataset/data/GCA_013266165.1/GCA_013266165.1_ASM1326616v1_genomic.fna
+annotated	GCA_013266185.1	1208366	Fusarium sarcochroum	Scaffold	yes	no	47231146	GCA_013266185.1/ncbi_dataset/data/GCA_013266185.1/GCA_013266185.1_ASM1326618v1_genomic.fna
+annotated	GCA_011392495.1	128442	Talaromyces pinophilus	Scaffold	yes	no	36822954	GCA_011392495.1/ncbi_dataset/data/GCA_011392495.1/GCA_011392495.1_AR155_1.0_genomic.fna
+annotated	GCA_025327135.1	2838797	Colletotrichum sp. SAR 10_71	Scaffold	yes	no	60712481	GCA_025327135.1/ncbi_dataset/data/GCA_025327135.1/GCA_025327135.1_ASM2532713v1_genomic.fna
+annotated	GCA_964263705.1	107463	Xanthoria parietina	Scaffold	yes	no	30338978	GCA_964263705.1/ncbi_dataset/data/GCA_964263705.1/GCA_964263705.1_GTX0501_assembly_genomic.fna
+annotated	GCA_001908125.1	1316194	Penicillium subrubescens	Scaffold	yes	no	40385565	GCA_001908125.1/ncbi_dataset/data/GCA_001908125.1/GCA_001908125.1_ASM190812v1_genomic.fna
+annotated	GCF_000271605.1	208960	Fomitiporia mediterranea	Scaffold	yes	no	64321049	GCF_000271605.1/ncbi_dataset/data/GCF_000271605.1/GCF_000271605.1_Fomme1_genomic.fna
+annotated	GCA_013396295.1	42747	Fusarium heterosporum	Scaffold	yes	no	36206901	GCA_013396295.1/ncbi_dataset/data/GCA_013396295.1/GCA_013396295.1_ASM1339629v1_genomic.fna
+annotated	GCF_000281105.1	61459	Coniosporium apollinis	Scaffold	yes	no	29022792	GCF_000281105.1/ncbi_dataset/data/GCF_000281105.1/GCF_000281105.1_Coni_apol_CBS100218_V1_genomic.fna
+unannotated	GCA_025258505.1	282267	Fusarium asiaticum	Complete Genome	no	absent_target	38782596	GCA_025258505.1/ncbi_dataset/data/GCA_025258505.1/GCA_025258505.1_ASM2525850v1_genomic.fna
+unannotated	GCA_022559985.1	1351752	Parastagonospora avenae	Scaffold	no	absent_target	37576470	GCA_022559985.1/ncbi_dataset/data/GCA_022559985.1/GCA_022559985.1_ASM2255998v1_genomic.fna
+unannotated	GCA_062009444.1	27345	Puccinia hordei	Chromosome	no	absent_target	163383193	GCA_062009444.1/ncbi_dataset/data/GCA_062009444.1/GCA_062009444.1_ASM62009444v1_genomic.fna
+unannotated	GCA_026119265.1	749589	Didymella pinodes	Scaffold	no	absent_target	34935803	GCA_026119265.1/ncbi_dataset/data/GCA_026119265.1/GCA_026119265.1_ASM2611926v1_genomic.fna
+unannotated	GCA_030558545.1	2695822	Bipolaris gigantea	Scaffold	no	absent_target	30428665	GCA_030558545.1/ncbi_dataset/data/GCA_030558545.1/GCA_030558545.1_ASM3055854v1_genomic.fna
+unannotated	GCA_053572805.1	36653	Penicillium commune	Contig	no	absent_target	36440133	GCA_053572805.1/ncbi_dataset/data/GCA_053572805.1/GCA_053572805.1_ASM5357280v1_genomic.fna
+unannotated	GCA_030389615.1	5113	Epichloe typhina	Complete Genome	no	absent_target	38806891	GCA_030389615.1/ncbi_dataset/data/GCA_030389615.1/GCA_030389615.1_ASM3038961v1_genomic.fna
+unannotated	GCA_022506055.1	5272	Microbotryum violaceum	Contig	no	absent_target	27356575	GCA_022506055.1/ncbi_dataset/data/GCA_022506055.1/GCA_022506055.1_ASM2250605v1_genomic.fna
+unannotated	GCA_048934005.1	267218	Dioszegia catarinoi	Contig	no	resident	21608371	GCA_048934005.1/ncbi_dataset/data/GCA_048934005.1/GCA_048934005.1_ASM4893400v1_genomic.fna
+unannotated	GCA_059628725.1	3751182	Cladosporium sp. MA8_LABAP	Scaffold	no	resident	25705983	GCA_059628725.1/ncbi_dataset/data/GCA_059628725.1/GCA_059628725.1_ASM5962872v1_genomic.fna
+unannotated	GCA_052324205.1	2144180	Cladosporium cf. tenuissimum	Scaffold	no	resident	31852937	GCA_052324205.1/ncbi_dataset/data/GCA_052324205.1/GCA_052324205.1_ASM5232420v1_genomic.fna
+unannotated	GCA_026538325.1	2937421	Cryptococcus sp. GC_Crypt_8	Contig	no	resident	17422582	GCA_026538325.1/ncbi_dataset/data/GCA_026538325.1/GCA_026538325.1_ASM2653832v1_genomic.fna
+unannotated	GCA_000442785.1	214993	Papiliotrema flavescens	Scaffold	no	resident	23188104	GCA_000442785.1/ncbi_dataset/data/GCA_000442785.1/GCA_000442785.1_Cf_30_300r_Split10plusN_genomic.fna
+unannotated	GCA_060229725.1	3735580	Bullera sp. CLIB4446	Contig	no	resident	20065687	GCA_060229725.1/ncbi_dataset/data/GCA_060229725.1/GCA_060229725.1_ASM6022972v1_genomic.fna
+unannotated	GCA_054490815.1	1036751	Acremonium polychromum	Scaffold	no	resident	43705215	GCA_054490815.1/ncbi_dataset/data/GCA_054490815.1/GCA_054490815.1_RUAS_VINSTROM_genomic.fna
+unannotated	GCA_030463185.1	2949268	Cladosporium sp. BF-F	Contig	no	resident	29814257	GCA_030463185.1/ncbi_dataset/data/GCA_030463185.1/GCA_030463185.1_ASM3046318v1_genomic.fna
+unannotated	GCA_018703675.1	2259629	Cladosporium sp. SW67	Scaffold	no	resident	26703158	GCA_018703675.1/ncbi_dataset/data/GCA_018703675.1/GCA_018703675.1_ASM1870367v1_genomic.fna
+unannotated	GCA_026538705.1	2937429	Aureobasidium sp. GC_Fusr_1	Contig	no	resident	26491578	GCA_026538705.1/ncbi_dataset/data/GCA_026538705.1/GCA_026538705.1_ASM2653870v1_genomic.fna
+unannotated	GCA_001600655.1	4973	Dioszegia aurantiaca	Scaffold	no	resident	19591813	GCA_001600655.1/ncbi_dataset/data/GCA_001600655.1/GCA_001600655.1_JCM_2956_assembly_v001_genomic.fna
+unannotated	GCA_019775635.1	2756247	Cladosporium sp. VS III D KN 1	Scaffold	no	resident	33182731	GCA_019775635.1/ncbi_dataset/data/GCA_019775635.1/GCA_019775635.1_ASM1977563v1_genomic.fna
+unannotated	GCA_004335185.1	2490640	Phoma sp. RAV-16-625	Contig	no	resident	33885884	GCA_004335185.1/ncbi_dataset/data/GCA_004335185.1/GCA_004335185.1_ASM433518v1_genomic.fna
+unannotated	GCA_062004744.1	3735056	Cladosporium sp. 121G	Scaffold	no	resident	38789440	GCA_062004744.1/ncbi_dataset/data/GCA_062004744.1/GCA_062004744.1_ASM62004744v1_genomic.fna
+unannotated	GCA_021014315.1	2895399	Aureobasidium mangrovei	Scaffold	no	resident	24117729	GCA_021014315.1/ncbi_dataset/data/GCA_021014315.1/GCA_021014315.1_SQU_Amang_1.1_genomic.fna
+unannotated	GCA_060229605.1	3735575	Vishniacozyma sp. CLIB4441	Contig	no	resident	18070425	GCA_060229605.1/ncbi_dataset/data/GCA_060229605.1/GCA_060229605.1_ASM6022960v1_genomic.fna
+unannotated	GCA_061604035.1	2981857	Aureobasidium sp. LC112	Contig	no	resident	25639896	GCA_061604035.1/ncbi_dataset/data/GCA_061604035.1/GCA_061604035.1_ASM61604035v1_genomic.fna
+unannotated	GCA_048773585.1	2022753	Nigrospora camelliae-sinensis	Contig	no	resident	47037457	GCA_048773585.1/ncbi_dataset/data/GCA_048773585.1/GCA_048773585.1_ASM4877358v1_genomic.fna
+unannotated	GCA_024271845.1	2946653	Cryptococcus sp. VH57_BW	Scaffold	no	resident	19168526	GCA_024271845.1/ncbi_dataset/data/GCA_024271845.1/GCA_024271845.1_ASM2427184v1_genomic.fna
+unannotated	GCA_023621355.1	92950	Cladosporium sphaerospermum	Scaffold	no	resident	28468540	GCA_023621355.1/ncbi_dataset/data/GCA_023621355.1/GCA_023621355.1_ASM2362135v1_genomic.fna
+unannotated	GCA_986694515.1	646506	Marasmius cohaerens	Chromosome	no	no	69028020	GCA_986694515.1/ncbi_dataset/data/GCA_986694515.1/GCA_986694515.1_gfMarCoha1.1_genomic.fna
+unannotated	GCA_978897505.1	76328	Tricholoma terreum	Chromosome	no	no	81701156	GCA_978897505.1/ncbi_dataset/data/GCA_978897505.1/GCA_978897505.1_gfTriTerr1.hap1.1_genomic.fna
+unannotated	GCA_000633125.1	38945	Flammulina velutipes	Chromosome	no	no	36089036	GCA_000633125.1/ncbi_dataset/data/GCA_000633125.1/GCA_000633125.1_Fv1.0_genomic.fna
+unannotated	GCA_009192285.1	62758	Morchella semilibera	Chromosome	no	no	57467698	GCA_009192285.1/ncbi_dataset/data/GCA_009192285.1/GCA_009192285.1_ASM919228v1_genomic.fna
+unannotated	GCA_054553065.1	56641	Fusarium cerealis	Chromosome	no	no	37182762	GCA_054553065.1/ncbi_dataset/data/GCA_054553065.1/GCA_054553065.1_DFRC_Fcer_1.0_genomic.fna
+unannotated	GCA_054948735.1	203904	Hemileia vastatrix	Chromosome	no	no	674391958	GCA_054948735.1/ncbi_dataset/data/GCA_054948735.1/GCA_054948735.1_ASM5494873v1_genomic.fna
+unannotated	GCA_054134705.1	3421219	Peroneutypa diatrypoides	Chromosome	no	no	48625529	GCA_054134705.1/ncbi_dataset/data/GCA_054134705.1/GCA_054134705.1_ASM5413470v1_genomic.fna
+unannotated	GCA_040893085.1	749593	Epicoccum sorghinum	Chromosome	no	no	33167668	GCA_040893085.1/ncbi_dataset/data/GCA_040893085.1/GCA_040893085.1_ASM4089308v1_genomic.fna
+unannotated	GCA_036768465.1	29911	Alternaria brassicae	Complete Genome	no	no	34244858	GCA_036768465.1/ncbi_dataset/data/GCA_036768465.1/GCA_036768465.1_ASM3676846v1_genomic.fna
+unannotated	GCA_040250155.1	463681	Penicillium fuscoglaucum	Complete Genome	no	no	35560456	GCA_040250155.1/ncbi_dataset/data/GCA_040250155.1/GCA_040250155.1_Pf_T2_genomic.fna
+unannotated	GCA_051247085.1	47752	Arachnopeziza aurata	Complete Genome	no	no	43696825	GCA_051247085.1/ncbi_dataset/data/GCA_051247085.1/GCA_051247085.1_RWTH_Aaurat_2.3_genomic.fna
+unannotated	GCA_055944425.1	60444	Diaporthe caulivora	Complete Genome	no	no	57494572	GCA_055944425.1/ncbi_dataset/data/GCA_055944425.1/GCA_055944425.1_NAU_DcSQ_1.1_genomic.fna
+unannotated	GCA_041412015.1	85828	Pestalotiopsis microspora	Complete Genome	no	no	50944754	GCA_041412015.1/ncbi_dataset/data/GCA_041412015.1/GCA_041412015.1_ASM4141201v1_genomic.fna
+unannotated	GCA_023658475.1	55200	Epichloe elymi	Complete Genome	no	no	34633876	GCA_023658475.1/ncbi_dataset/data/GCA_023658475.1/GCA_023658475.1_ASM2365847v1_genomic.fna
+unannotated	GCA_046630685.1	182845	Calonectria ilicicola	Complete Genome	no	no	71788507	GCA_046630685.1/ncbi_dataset/data/GCA_046630685.1/GCA_046630685.1_ASM4663068v1_genomic.fna
+unannotated	GCA_060595785.1	5483	Pseudozyma tsukubaensis	Complete Genome	no	no	20518999	GCA_060595785.1/ncbi_dataset/data/GCA_060595785.1/GCA_060595785.1_ASM6059578v1_genomic.fna
+unannotated	GCA_037356495.1	3115216	Penicillium sp. F51	Contig	no	no	33402907	GCA_037356495.1/ncbi_dataset/data/GCA_037356495.1/GCA_037356495.1_NIH_F51_1.1_genomic.fna
+unannotated	GCA_008122225.1	984309	Ciboria shiraiana	Contig	no	no	39795050	GCA_008122225.1/ncbi_dataset/data/GCA_008122225.1/GCA_008122225.1_ASM812222v1_genomic.fna
+unannotated	GCA_019059545.1	2834069	Rhodotorula sp. VS67	Contig	no	no	20536263	GCA_019059545.1/ncbi_dataset/data/GCA_019059545.1/GCA_019059545.1_ASM1905954v1_genomic.fna
+unannotated	GCA_059475355.1	881653	Elsinoe perseae	Contig	no	no	25468152	GCA_059475355.1/ncbi_dataset/data/GCA_059475355.1/GCA_059475355.1_ASM5947535v1_genomic.fna
+unannotated	GCA_027569235.1	37232	Aspergillus sparsus	Contig	no	no	39378810	GCA_027569235.1/ncbi_dataset/data/GCA_027569235.1/GCA_027569235.1_ASM2756923v1_genomic.fna
+unannotated	GCA_055797535.1	3686414	Trichoderma sp. 5c.a.2	Contig	no	no	41064837	GCA_055797535.1/ncbi_dataset/data/GCA_055797535.1/GCA_055797535.1_ASM5579753v1_genomic.fna
+unannotated	GCA_003717165.1	27333	Protomyces inundatus	Contig	no	no	14325111	GCA_003717165.1/ncbi_dataset/data/GCA_003717165.1/GCA_003717165.1_ASM371716v1_genomic.fna
+unannotated	GCA_030779245.1	2993622	Fusarium sp. MBC 438	Contig	no	no	47385295	GCA_030779245.1/ncbi_dataset/data/GCA_030779245.1/GCA_030779245.1_ASM3077924v1_genomic.fna
+unannotated	GCA_023625975.1	2940373	Talaromyces sp. PYS2103	Scaffold	no	no	29694859	GCA_023625975.1/ncbi_dataset/data/GCA_023625975.1/GCA_023625975.1_ASM2362597v1_genomic.fna
+unannotated	GCA_038503075.1	33161	Gyromitra esculenta	Scaffold	no	no	47691377	GCA_038503075.1/ncbi_dataset/data/GCA_038503075.1/GCA_038503075.1_ASM3850307v1_genomic.fna
+unannotated	GCA_022560085.1	58128	Helminthosporium solani	Scaffold	no	no	36516857	GCA_022560085.1/ncbi_dataset/data/GCA_022560085.1/GCA_022560085.1_ASM2256008v1_genomic.fna
+unannotated	GCA_054123095.1	2006378	Scopulariopsis sp.	Scaffold	no	no	20887250	GCA_054123095.1/ncbi_dataset/data/GCA_054123095.1/GCA_054123095.1_ASM5412309v1_genomic.fna
+unannotated	GCA_009804945.1	2306345	Neurospora sp. FGSC 26633	Scaffold	no	no	38939287	GCA_009804945.1/ncbi_dataset/data/GCA_009804945.1/GCA_009804945.1_ASM980494v1_genomic.fna
+unannotated	GCA_051820765.1	3414288	Phaeoisaria parallela	Scaffold	no	no	37797569	GCA_051820765.1/ncbi_dataset/data/GCA_051820765.1/GCA_051820765.1_ASM5182076v1_genomic.fna
+unannotated	GCA_002368545.1	508918	Ramichloridium luteum	Scaffold	no	no	28508161	GCA_002368545.1/ncbi_dataset/data/GCA_002368545.1/GCA_002368545.1_ASM236854v1_genomic.fna
+unannotated	GCA_001640655.1	1580848	Endoconidiophora laricicola	Scaffold	no	no	33194593	GCA_001640655.1/ncbi_dataset/data/GCA_001640655.1/GCA_001640655.1_ASM164065v1_genomic.fna

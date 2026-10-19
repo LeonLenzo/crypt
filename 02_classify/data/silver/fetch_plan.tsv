@@ -1,0 +1,42 @@
+BioProject	crops	runs	biosamples	eligible	ineligible	pathology	pilot_runs	pilot_biosamples	fetch_mode	sample_unit	est_gib	pilot_gib	note
+PRJDB7234	Rice	1557	1017	1557	0	0	100	66	pilot	biosample	390.5	28.0	
+PRJEB15280	Other cereal,Wheat	132	132	132	0	132	100	100	pilot	biosample	423.2	318.7	
+PRJEB31334	Other cereal,Wheat	208	153	153	55	208	100	100	pilot	biosample	517.1	337.4	
+PRJEB33109	Other cereal,Wheat	11	11	11	0	11	11	11	whole	biosample	44.9	44.9	
+PRJEB36444	Wheat	26	26	26	0	26	26	26	whole	biosample	84.9	84.9	
+PRJEB36485	Wheat	39	39	39	0	39	39	39	whole	biosample	130.6	130.6	
+PRJEB37824	Maize	60	60	60	0	0	60	60	whole	biosample	213.1	213.1	
+PRJEB39201	Wheat	538	538	538	0	538	100	100	pilot	biosample	1762.9	325.3	
+PRJEB47693	Wheat	23	23	23	0	23	23	23	whole	biosample	86.5	86.5	
+PRJEB65589	Other cereal,Wheat	53	53	53	0	53	53	53	whole	biosample	151.1	151.1	
+PRJEB67964	Maize	750	750	750	0	0	100	100	pilot	biosample	3104.6	409.9	
+PRJEB83049	Sorghum	822	822	822	0	0	100	100	pilot	biosample	3274.9	398.6	
+PRJEB84390	Wheat	100	100	100	0	100	100	100	pilot	biosample	349.7	349.7	
+PRJNA1100217	Maize	9	9	9	0	9	9	9	whole	biosample	32.4	32.4	
+PRJNA1119650	Sorghum	100	100	100	0	0	100	100	whole	biosample	232.8	232.8	
+PRJNA1161467	Maize	12	12	12	0	12	12	12	whole	biosample	55.4	55.4	
+PRJNA1181034	Wheat	12	1	12	0	6	12	1	whole	run	109.8	109.8	12 runs registered under ONE BioSample: cannot be sampled or scored per BioSample
+PRJNA1232637	Barley	1	1	1	0	1	1	1	whole	biosample	5.4	5.4	
+PRJNA256347	Other cereal,Wheat	39	39	39	0	39	39	39	whole	biosample	217.5	217.5	
+PRJNA291919	Maize	94	94	94	0	0	94	94	whole	biosample	237.0	237.0	
+PRJNA297424	Rice	239	239	239	0	0	100	100	pilot	biosample	1119.1	449.2	
+PRJNA306542	Rice	299	299	299	0	0	100	100	pilot	biosample	881.9	297.8	
+PRJNA357594	Maize	16	16	16	0	16	16	16	whole	biosample	41.5	41.5	
+PRJNA369690	Maize	6	6	6	0	6	6	6	whole	biosample	12.2	12.2	
+PRJNA383416	Maize	740	1	740	0	0	100	1	pilot	run	697.2	92.4	740 runs registered under ONE BioSample: cannot be sampled or scored per BioSample
+PRJNA395908	Maize	112	112	112	0	112	100	100	pilot	biosample	634.0	568.3	
+PRJNA418364	Maize	45	15	45	0	45	45	15	whole	biosample	204.6	204.6	
+PRJNA505891	Maize	42	42	42	0	0	42	42	whole	biosample	148.0	148.0	
+PRJNA510920	Rice	251	251	251	0	0	100	100	pilot	biosample	609.7	228.9	
+PRJNA516527	Maize	3	3	3	0	0	3	3	whole	biosample	8.5	8.5	
+PRJNA527782	Sorghum	197	197	197	0	0	100	100	pilot	biosample	668.3	343.9	
+PRJNA564795	Maize	10	6	10	0	0	10	6	whole	biosample	13.9	13.9	
+PRJNA609211	Rice	334	334	268	66	0	100	100	pilot	biosample	1023.0	373.6	
+PRJNA718488	Wheat	30	30	30	0	15	30	30	whole	biosample	82.4	82.4	
+PRJNA721299	Other cereal	36	1	36	0	0	36	1	whole	run	142.7	142.7	36 runs registered under ONE BioSample: cannot be sampled or scored per BioSample
+PRJNA726716	Rice	104	52	104	0	0	104	52	whole	biosample	26.0	26.0	
+PRJNA746402	Maize	450	450	450	0	0	100	100	pilot	biosample	352.9	71.7	
+PRJNA753546	Maize,Other cereal,Sorghum	94	94	94	0	25	94	94	whole	biosample	143.4	143.4	
+PRJNA796936	Wheat	4	4	4	0	4	4	4	whole	biosample	13.6	13.6	
+PRJNA896566	Maize	72	72	72	0	0	72	72	pilot	biosample	418.7	418.7	
+PRJNA950118	Barley,Wheat	18	18	18	0	18	18	18	whole	biosample	93.3	93.3	

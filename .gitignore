@@ -276,3 +276,7 @@ docs/*
 # policy is code, small figures and manifests, and a 3 MB raster rewritten on every parameter
 # tweak is not a small figure. Regenerate with db_contents.R.
 02_classify/report/figures/*.png
+
+# R writes this whenever a script plots without opening a device explicitly. It is an
+# artefact, never an output, and it was committed once by accident.
+Rplots.pdf

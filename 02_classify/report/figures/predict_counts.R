@@ -82,7 +82,7 @@ pA <- one_to_one(ggplot(d, aes(true_seqs, pred_seqs, fill = genome_mb)),
                  c(pa$lo, pa$hi), pa$breaks, in_units) +
   # Plain text, not plotmath: expression(...%*%...) renders as a CENTRE DOT here, not a
   # multiplication sign. ragg handles the unicode glyph directly.
-  labs(x = "Annotated Count (\u00d7 10,000)", y = "Predicted Count (\u00d7 10,000)")
+  labs(x = "Annotated Genes (\u00d7 10,000)", y = "Predicted Genes (\u00d7 10,000)")
 
 pB <- one_to_one(ggplot(d, aes(true_mb, pred_mb, fill = genome_mb)),
                  c(pb$lo, pb$hi), pb$breaks, waiver()) +

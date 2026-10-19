@@ -1,0 +1,13 @@
+route	label	status	species	cds_annotations	drawn
+host	host (plant)	in_db	6	36	no
+host	host (plant)	addable	0	0	no
+target_cereal	pathogen recorded on wheat, rice, maize or sorghum	in_db	121	893	yes
+target_cereal	pathogen recorded on wheat, rice, maize or sorghum	addable	83	545	yes
+target_other	plant pathogen, not recorded on those crops	in_db	694	1444	yes
+target_other	plant pathogen, not recorded on those crops	addable	1076	1548	yes
+host_associate	host associate: seen in a phytobiome study	in_db	70	244	yes
+host_associate	host associate: seen in a phytobiome study	addable	84	106	yes
+plant_associate	plant associate: recorded on a plant	in_db	508	1117	yes
+plant_associate	plant associate: recorded on a plant	addable	633	1256	yes
+congener	congener: shares a genus with a pathogen	in_db	148	537	yes
+congener	congener: shares a genus with a pathogen	addable	262	475	yes

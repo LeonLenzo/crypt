@@ -86,6 +86,37 @@ the literature search flagged independently. **Calibrating it needs the axenic c
 give the saturation distribution of a known-present organism in a real RNA-seq library. Until
 then, run --sensitivity and report the range.
 
+## CONGENER INFLATION, and why the genus count is reported alongside the species count
+
+Found 2026-10-20 on the first full run. ERR1607767 calls FOURTEEN *Alternaria* species, every
+one at coverage 5.6-7.3% and saturation 0.070-0.080. Fourteen genuinely co-infecting congeners
+would differ wildly in abundance; one organism's reads distributed across fourteen
+near-identical references looks exactly like this. The uniformity IS the diagnostic.
+
+Saturation cannot catch it, and that is not a failure of the statistic: the reads genuinely do
+spread across each reference, because the references are nearly the same sequence. Nor can any
+per-detection threshold, because each call is individually well-supported. It is a property of
+the database's congener density, and db_v4 deliberately has a lot of that -- breadth was added
+to give the classifier competitors.
+
+Affected genera, by runs carrying >=3 species of one genus: *Alternaria* 260, *Cladosporium*
+61, *Bipolaris* 30, *Cercospora* 27, *Fusarium* 22, *Puccinia* 16, *Didymella* 16,
+*Curvularia* 15.
+
+So `coinfection.tsv` carries BOTH counts and neither is hidden:
+
+    n_pathogens        species-level. An UPPER bound on co-infection.
+    n_pathogen_genera  genus-level. The conservative reading, and the one to quote until
+                       alignment resolves congeners.
+
+Measured here: 701/1,177 runs (60%) co-infected by species, 605/1,177 (51%) by genus.
+
+Resolving it properly is `04_align`'s job -- competitive EM assigns a read to one reference
+instead of counting it against all plausible ones -- and this gives that module a defined
+target set rather than "a stratified sample". Note it may not fully succeed: *Puccinia* species
+are separable by exact k-mers (a 16-point ANI gap) but formae speciales are not, and whether
+*Alternaria* sections separate is unmeasured.
+
 ## Pathogen status is a LABEL, applied after detection. Never a filter before it.
 
 The db_v3 detect.py skipped any taxon outside PHI-base's 632 fungal taxa, which under db_v4
@@ -311,13 +342,22 @@ def main() -> None:
         paths = [r for r in rs if is_path(r)]
         undec = [r for r in paths
                  if " ".join(r["species"].lower().split()[:2]) not in dec]
+        # Genus is the first token of the species name. Crude, but these are NCBI scientific
+        # names from the database's own taxonomy, so the first token IS the genus; parsing it
+        # out of a taxonomy dump would add a dependency for no gain.
+        genera = {r["species"].split()[0] for r in paths}
+        # The congener-cluster signature: >=3 species of one genus in one run.
+        clusters = {g for g in genera
+                    if sum(1 for r in paths if r["species"].split()[0] == g) >= 3}
         summ.append({
             "run": run, "BioProject": meta.get("BioProject", ""),
             "crop": meta.get("crop", ""), "host": meta.get("host", ""),
             "sampling_selection": meta.get("sampling_selection", ""),
             "n_fungi": len(rs), "n_pathogens": len(paths),
-            "n_undeclared": len(undec),
+            "n_pathogen_genera": len(genera), "n_undeclared": len(undec),
             "coinfected": "yes" if len(paths) >= 2 else "no",
+            "coinfected_genus": "yes" if len(genera) >= 2 else "no",
+            "congener_clusters": ";".join(sorted(clusters)),
             "pathogens": ";".join(sorted(r["species"] for r in paths)),
             "undeclared": ";".join(sorted(r["species"] for r in undec)),
         })
@@ -337,7 +377,13 @@ def main() -> None:
     for why, n in sorted(rej.items(), key=lambda kv: -kv[1]):
         print(f"    {why:36s} {n:8,d}")
     co = sum(1 for s in summ if s["coinfected"] == "yes")
-    print(f"\n  >=2 plant pathogens: {co:,} of {len(summ):,} runs ({co/len(summ):.1%})")
+    cog = sum(1 for s in summ if s["coinfected_genus"] == "yes")
+    ncl = sum(1 for s in summ if s["congener_clusters"])
+    print(f"\n  >=2 plant pathogen SPECIES: {co:,} of {len(summ):,} ({co/len(summ):.1%})"
+          f"   <- upper bound")
+    print(f"  >=2 plant pathogen GENERA : {cog:,} of {len(summ):,} ({cog/len(summ):.1%})"
+          f"   <- conservative, quote this one")
+    print(f"  runs with a congener cluster (>=3 species of one genus): {ncl:,}")
     print(f"  >=1 UNDECLARED pathogen: "
           f"{sum(1 for s in summ if s['n_undeclared']):,}")
     print("\n  NOTE: every run classified so far is STAT-retained, so these are NOT "

@@ -1,0 +1,151 @@
+species	guild	n_runs	median_coverage	median_saturation
+Puccinia striiformis	plant pathogen	929	0.45247	0.45247
+Cladosporium allicinum	unlabelled	609	0.06897	0.14467
+Sporobolomyces roseus	unlabelled	462	0.06602	0.13045
+Dioszegia hungarica	unlabelled	447	0.03932	0.17855
+Zymoseptoria tritici	plant pathogen	310	0.14287	0.21081
+Puccinia triticina	plant pathogen	287	0.24144	0.24553
+Alternaria viburni	unlabelled	236	0.03833	0.11747
+Alternaria triticimaculans	unlabelled	232	0.03863	0.12015
+Alternaria ethzedia	unlabelled	221	0.03800	0.11188
+Alternaria conjuncta	unlabelled	218	0.03823	0.11781
+Alternaria infectoria	endophyte	216	0.03923	0.11436
+Alternaria novae-zelandiae	unlabelled	215	0.03818	0.10784
+Alternaria sp. Ai002NY15	unlabelled	214	0.03904	0.11388
+Alternaria sp. BMP 2799	unlabelled	214	0.03673	0.11470
+Alternaria sp. BMP 0032	unlabelled	213	0.03566	0.11833
+Alternaria hordeiaustralica	unlabelled	213	0.03442	0.11915
+Alternaria metachromatica	unlabelled	206	0.03466	0.11882
+Alternaria ventricosa	unlabelled	189	0.03291	0.10897
+Alternaria arbusti	unlabelled	175	0.03406	0.09798
+Alternaria incomplexa	unlabelled	166	0.03632	0.10417
+Cladosporium inversicolor	unlabelled	157	0.02635	0.12071
+Blumeria graminis	plant pathogen	133	0.07490	0.20098
+Epicoccum nigrum	plant pathogen	122	0.03699	0.08834
+Cladosporium cladosporioides	plant pathogen	102	0.02738	0.11128
+Puccinia graminis	plant pathogen	96	0.35372	0.35372
+Microdochium majus	unlabelled	90	0.05821	0.17893
+Sporobolomyces ruberrimus	unlabelled	87	0.02661	0.13392
+Alternaria rosae	unlabelled	76	0.02005	0.08471
+Filobasidium floriforme	unlabelled	74	0.02241	0.10050
+Ramularia collo-cygni	endophyte	74	0.04369	0.19361
+Exserohilum turcicum	plant pathogen	71	0.28680	0.28990
+Parastagonospora nodorum	plant pathogen	70	0.05982	0.11792
+Tilletiopsis washingtonensis	unlabelled	67	0.02064	0.13310
+Bipolaris zeicola	plant pathogen	66	0.07285	0.09931
+Microdochium nivale	plant pathogen	61	0.03279	0.16609
+Alternaria arborescens	unlabelled	59	0.06511	0.09811
+Zymoseptoria brevis	unlabelled	54	0.01465	0.10059
+Puccinia sorghi	plant pathogen	54	0.24524	0.24657
+Alternaria tenuissima	plant pathogen	53	0.03700	0.06890
+Cladosporium sp. NU13	unlabelled	46	0.03657	0.10974
+Pyrenophora tritici-repentis	plant pathogen	43	0.06045	0.14322
+Alternaria alternata	plant pathogen	40	0.03929	0.06618
+Stemphylium lycopersici	plant pathogen	35	0.02085	0.07511
+Alternaria sp. MG1	unlabelled	32	0.09725	0.10899
+Ampelomyces quisqualis	endophyte	31	0.02146	0.08577
+Sarocladium strictum	plant pathogen	31	0.03152	0.10452
+Bipolaris sivanesaniana	unlabelled	30	0.03322	0.08611
+Didymella pomorum	unlabelled	29	0.05907	0.14316
+Curvularia kusanoi	unlabelled	29	0.06685	0.09055
+Bipolaris maydis	plant pathogen	29	0.44045	0.44045
+Pseudopithomyces chartarum	animal pathogen	28	0.12964	0.13409
+Curvularia clavata	plant pathogen	28	0.18062	0.18822
+Cercospora beticola	plant pathogen	27	0.18308	0.18308
+Cercospora kikuchii	plant pathogen	27	0.15647	0.15705
+Cercospora berteroae	unlabelled	27	0.05864	0.07682
+Fusarium irregulare	unlabelled	26	0.04558	0.09956
+Cercospora zeae-maydis	plant pathogen	24	0.41923	0.41929
+Didymella glomerata	plant pathogen	23	0.01556	0.13508
+Fusarium sp. FIESC RH6	unlabelled	23	0.03568	0.08874
+Bipolaris sorokiniana	plant pathogen	21	0.02230	0.10299
+Pyrenophora teres	plant pathogen	20	0.02732	0.16914
+Malassezia restricta	animal pathogen	20	0.03741	0.22977
+Moesziomyces aphidis	other	20	0.03203	0.09975
+Phaeosphaeriaceae sp. SRC1lsM3a	unlabelled	20	0.02235	0.12288
+Alternaria gaisen	unlabelled	19	0.01654	0.08593
+Moesziomyces antarcticus	unlabelled	19	0.03301	0.08940
+Sporobolomyces pararoseus	unlabelled	18	0.04200	0.10930
+Fusarium equiseti	plant pathogen	17	0.02366	0.09938
+Bipolaris oryzae	plant pathogen	17	0.01822	0.13947
+Bipolaris victoriae	plant pathogen	17	0.02559	0.08250
+Fusarium coffeatum	unlabelled	16	0.02603	0.08830
+Didymella keratinophila	unlabelled	15	0.01536	0.20847
+Curvularia cactivora	plant pathogen	15	0.01497	0.32108
+Didymella heteroderae	unlabelled	15	0.01699	0.21703
+Fusarium verticillioides	plant pathogen	14	0.09747	0.12609
+Fusarium graminearum	plant pathogen	13	0.10802	0.10967
+Fusarium flagelliforme	unlabelled	12	0.01807	0.07065
+Alternaria postmessia	unlabelled	12	0.16085	0.16088
+Blakeslea trispora	plant pathogen	12	0.04557	0.15314
+Penicillium oxalicum	plant pathogen	11	0.05902	0.13684
+Rhodotorula taiwanensis	unlabelled	11	0.01605	0.10547
+Fusarium avenaceum	plant pathogen	10	0.02358	0.08102
+Cercospora zeina	unlabelled	10	0.47374	0.47382
+Dissoconium aciculare	unlabelled	9	0.01850	0.23683
+Fusarium sporotrichioides	plant pathogen	9	0.01439	0.09260
+Didymella sp. IMI 355093	unlabelled	8	0.01278	0.15002
+Phaeosphaeria sp. MPI-PUGE-AT-0046c	unlabelled	8	0.01275	0.19681
+Sporobolomyces koalae	unlabelled	7	0.03909	0.13972
+Oculimacula yallundae	plant pathogen	6	0.02703	0.16391
+Akanthomyces muscarius	unlabelled	6	0.14833	0.19623
+Malassezia globosa	animal pathogen	6	0.01368	0.20159
+Penicillium salamii	unlabelled	6	0.01412	0.10606
+Alternaria sp. RS040	unlabelled	6	0.02296	0.08119
+Ustilago trichophora	unlabelled	6	0.05962	0.10865
+Diaporthe australafricana	unlabelled	5	0.01330	0.16457
+Pyricularia oryzae	plant pathogen	5	0.07554	0.07678
+Rhizoctonia solani	plant pathogen	5	0.05966	0.06474
+Choanephora cucurbitarum	plant pathogen	5	0.01631	0.13264
+Akanthomyces lecanii	plant pathogen	4	0.01884	0.08839
+Malassezia arunalokei	unlabelled	4	0.01121	0.15747
+Aspergillus flavus	plant pathogen	4	0.08022	0.08765
+Diaporthe batatas	unlabelled	4	0.01912	0.10297
+Trichothecium roseum	plant pathogen	3	0.14655	0.14690
+Fusarium chlamydosporum	plant pathogen	3	0.01109	0.13516
+Aureobasidium sp. EXF-3399	unlabelled	3	0.03583	0.06849
+Sarocladium implicatum	animal pathogen	3	0.02712	0.10429
+Alternaria dauci	plant pathogen	3	0.01364	0.21451
+Fusarium culmorum	plant pathogen	2	0.17994	0.18039
+Nothophoma quercina	unlabelled	2	0.15940	0.30262
+Penicillium bialowiezense	unlabelled	2	0.01925	0.11390
+Aureobasidium sp. EXF-12298	unlabelled	2	0.02543	0.21205
+Plenodomus lingam	plant pathogen	2	0.06492	0.13542
+Alternaria brassicicola	plant pathogen	2	0.01024	1.00354
+Fusarium acuminatum	plant pathogen	2	0.03042	0.06128
+Mycosarcoma maydis	plant pathogen	2	0.02303	0.20577
+Fusarium fujikuroi	plant pathogen	2	0.01807	0.06774
+Alternaria burnsii	unlabelled	2	0.05859	0.05859
+Didymella exigua	unlabelled	2	0.01050	0.06485
+Colletotrichum incanum	unlabelled	2	0.01115	0.09221
+Diaporthe helianthi	plant pathogen	2	0.02259	0.13908
+Pyricularia grisea	plant pathogen	2	0.02514	0.11637
+Rhodotorula glutinis	endophyte	1	0.01223	0.12618
+Fusarium lateritium	plant pathogen	1	0.01236	0.11296
+Cadophora malorum	plant pathogen	1	0.02775	0.07573
+Rhynchosporium secalis	plant pathogen	1	0.02589	0.09365
+Rhodotorula babjevae	unlabelled	1	0.01458	0.08386
+Cladosporium halotolerans	animal pathogen	1	0.01614	0.11052
+Aspergillus magnivesiculatus	unlabelled	1	0.01346	0.05989
+Aureobasidium sp. EXF-8845	unlabelled	1	0.01949	0.11088
+Aureobasidium pullulans	plant pathogen	1	0.01005	0.07103
+Ascochyta lentis	plant pathogen	1	0.02353	0.07887
+Neodidymelliopsis sp. IMI 364377	unlabelled	1	0.01926	0.09956
+Dactylonectria estremocensis	unlabelled	1	0.03295	0.10665
+Coprinopsis cinerea	saprotroph	1	0.07971	0.09252
+Mucor circinelloides	plant pathogen	1	0.01455	0.06288
+Botrytis cinerea	plant pathogen	1	0.03142	0.29889
+Fusarium poae	plant pathogen	1	0.01840	0.19545
+Fusarium tricinctum	plant pathogen	1	0.02983	0.05642
+Fusarium sp. VM40	unlabelled	1	0.01016	0.12790
+Pseudozyma flocculosa	endophyte	1	0.03077	0.41162
+Blumeria hordei	unlabelled	1	0.01280	0.17190
+Aspergillus versicolor	animal pathogen	1	0.02769	0.10747
+Aspergillus sydowii	animal pathogen	1	0.03758	0.14567
+Beauveria bassiana	animal pathogen	1	0.06448	0.07781
+Beauveria neobassiana	unlabelled	1	0.09628	0.10972
+Hypsizygus marmoreus	unlabelled	1	0.01547	0.12912
+Colletotrichum graminicola	plant pathogen	1	0.01430	0.10148
+Aureobasidium mustum	unlabelled	1	0.01130	0.12346
+Paraphoma chrysanthemicola	plant pathogen	1	0.01009	0.10614
+Colletotrichum karsti	endophyte	1	0.01171	0.11657

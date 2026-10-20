@@ -1,0 +1,68 @@
+species	n_runs	pct_runs	median_coverage	median_saturation	median_distinct	guild	is_declared
+Puccinia striiformis	527	1.0000	0.45178	0.4518	4954383	Plant Pathogen	yes
+Triticum aestivum	504	0.9564	0.18913	0.1893	6214102		no
+Cladosporium allicinum	284	0.5389	0.07379	0.1262	404016		no
+Dioszegia hungarica	229	0.4345	0.04796	0.1700	189521		no
+Sporobolomyces roseus	225	0.4269	0.06773	0.1155	287632		no
+Zymoseptoria tritici	151	0.2865	0.09666	0.1568	603132	Plant Pathogen	no
+Alternaria viburni	130	0.2467	0.04990	0.1103	46104		no
+Alternaria triticimaculans	129	0.2448	0.05900	0.1092	51172		no
+Alternaria conjuncta	122	0.2315	0.05287	0.1082	48801		no
+Alternaria ethzedia	121	0.2296	0.05410	0.1031	47862		no
+Alternaria sp. BMP 0032	120	0.2277	0.05003	0.1089	43160		no
+Alternaria hordeiaustralica	120	0.2277	0.04865	0.1107	44175		no
+Alternaria sp. BMP 2799	119	0.2258	0.05304	0.1066	45238		no
+Alternaria sp. Ai002NY15	119	0.2258	0.05496	0.1085	45995		no
+Alternaria novae-zelandiae	118	0.2239	0.05423	0.1025	47872		no
+Alternaria infectoria	118	0.2239	0.05634	0.1080	47686	Animal Pathogen|Endophyte	no
+Alternaria metachromatica	117	0.2220	0.04666	0.1100	41995		no
+Puccinia triticina	112	0.2125	0.06860	0.1433	590479	Plant Pathogen	no
+Alternaria ventricosa	102	0.1935	0.03939	0.1009	72991		no
+Alternaria arbusti	97	0.1841	0.04400	0.0911	38547		no
+Alternaria incomplexa	93	0.1765	0.04385	0.1000	33376		no
+Cladosporium inversicolor	58	0.1101	0.03285	0.1482	173947		no
+Blumeria graminis	53	0.1006	0.04446	0.1935	117263	Plant Pathogen	no
+Microdochium majus	47	0.0892	0.04063	0.1638	174926		no
+Alternaria rosae	41	0.0778	0.01935	0.0713	96160		no
+Cladosporium cladosporioides	33	0.0626	0.01742	0.1020	74563	Endophyte-Epiphyte-Plant Pathogen|Plant Pathogen	no
+Parastagonospora nodorum	31	0.0588	0.06701	0.1179	615952	Plant Pathogen	no
+Microdochium nivale	30	0.0569	0.06547	0.1602	351103	Plant Pathogen	no
+Sporobolomyces ruberrimus	29	0.0550	0.04342	0.1188	160441		no
+Ramularia collo-cygni	26	0.0493	0.04828	0.1521	234888	Endophyte	no
+Epicoccum nigrum	21	0.0398	0.01775	0.0823	112628	Endophyte-Lichen Parasite-Plant Pathogen|Fungal Parasite-Plant Pathogen-Wood Saprotroph	no
+Stemphylium lycopersici	21	0.0398	0.02307	0.0710	119153	Plant Pathogen	no
+Zymoseptoria brevis	19	0.0361	0.01421	0.0661	45452		no
+Pyrenophora tritici-repentis	19	0.0361	0.06656	0.1121	369486	Plant Pathogen	no
+Puccinia graminis	15	0.0285	0.02969	0.0910	307774	Plant Pathogen	no
+Filobasidium floriforme	11	0.0209	0.02379	0.0619	114747		no
+Cladosporium sp. NU13	7	0.0133	0.01339	0.1097	61030		no
+Pyrenophora teres	7	0.0133	0.02732	0.1475	157214	Plant Pathogen	no
+Diaporthe australafricana	5	0.0095	0.01330	0.1646	74115		no
+Alternaria arborescens	5	0.0095	0.02422	0.0651	39786		no
+Tilletiopsis washingtonensis	5	0.0095	0.01273	0.0832	42045		no
+Dissoconium aciculare	3	0.0057	0.01850	0.1059	77045		no
+Oculimacula yallundae	3	0.0057	0.01522	0.1617	102495	Plant Pathogen	no
+Fusarium avenaceum	3	0.0057	0.05905	0.0796	446200	Endophyte-Plant Pathogen|Plant Pathogen	no
+Alternaria tenuissima	2	0.0038	0.03822	0.0524	32581	Endophyte-Plant Pathogen	no
+Penicillium bialowiezense	2	0.0038	0.01898	0.0988	83256		no
+Curvularia kusanoi	2	0.0038	0.02805	0.0946	136687		no
+Hordeum vulgare	2	0.0038	0.07951	0.0795	1313644		no
+Ampelomyces quisqualis	2	0.0038	0.01629	0.0774	71362	Endophyte	no
+Plenodomus lingam	2	0.0038	0.04568	0.1346	231646	Plant Pathogen	no
+Nothophoma quercina	1	0.0019	0.15940	0.1913	635443		no
+Aureobasidium pullulans	1	0.0019	0.01005	0.0710	210796	Animal Pathogen-Endophyte-Epiphyte-Plant Pathogen	no
+Ascochyta lentis	1	0.0019	0.02353	0.0789	117862	Plant Pathogen	no
+Neodidymelliopsis sp. IMI 364377	1	0.0019	0.01926	0.0996	77731		no
+Aureobasidium sp. EXF-12298	1	0.0019	0.02543	0.0558	35803		no
+Dactylonectria estremocensis	1	0.0019	0.03295	0.1067	217015		no
+Alternaria brassicicola	1	0.0019	0.01024	0.2731	34926	Plant Pathogen	no
+Trichothecium roseum	1	0.0019	0.01669	0.0681	70644	Plant Pathogen	no
+Coprinopsis cinerea	1	0.0019	0.07971	0.0925	546988	Animal Pathogen|Undefined Saprotroph	no
+Fusarium flagelliforme	1	0.0019	0.01506	0.0538	57030		no
+Didymella pomorum	1	0.0019	0.01560	0.0974	65348		no
+Fusarium culmorum	1	0.0019	0.17994	0.1804	369527	Plant Pathogen	no
+Fusarium acuminatum	1	0.0019	0.02328	0.0604	14600	Plant Pathogen	no
+Pyricularia oryzae	1	0.0019	0.01292	0.0764	32357	Plant Pathogen	no
+Alternaria sp. MG1	1	0.0019	0.06292	0.0723	15381		no
+Mucor circinelloides	1	0.0019	0.01455	0.0629	19246	Animal Pathogen|Animal Pathogen-Plant Pathogen	no
+Botrytis cinerea	1	0.0019	0.03142	0.2989	172069	Plant Pathogen	no

@@ -1,0 +1,557 @@
+species	locality	country	lat	lon	n_libraries	n_detected	rate
+Zymoseptoria tritici	UK: Wardington	UK	52.11147	-1.28266	13	10	0.7692
+Zymoseptoria tritici	France: Louville la Chenard	France	48.32415	1.78674	10	9	0.9000
+Zymoseptoria tritici	UK: Cambridgeshire	UK	52.37290	-0.04494	17	9	0.5294
+Zymoseptoria tritici	UK: Wolferton	UK	52.82932	0.46258	12	9	0.7500
+Zymoseptoria tritici	France: Louville	France	45.59623	3.78034	9	6	0.6667
+Zymoseptoria tritici	UK: Ickleton	UK	52.07036	0.17604	23	6	0.2609
+Zymoseptoria tritici	France: Marchélepot	France	49.83181	2.86838	7	5	0.7143
+Zymoseptoria tritici	UK: Canterbury	UK	51.28003	1.08025	8	5	0.6250
+Zymoseptoria tritici	UK: Thornton	UK	52.01550	-0.90538	5	5	1.0000
+Zymoseptoria tritici	UK: Lincolnshire	UK	53.18230	-0.20312	7	4	0.5714
+Zymoseptoria tritici	Ethiopia: Sinana RS	Ethiopia	7.12427	40.00810	8	4	0.5000
+Zymoseptoria tritici	Ireland: Waterford	Ireland	52.26100	-7.11191	4	4	1.0000
+Zymoseptoria tritici	Germany: Wohlde	Germany	54.40612	9.29784	4	3	0.7500
+Zymoseptoria tritici	Belgium: Mignault	Belgium	50.52886	4.15235	6	3	0.5000
+Zymoseptoria tritici	UK: Sutton Scotney	UK	51.15317	-1.33813	4	3	0.7500
+Zymoseptoria tritici	UK: Caythorpe	UK	53.00638	-0.98147	17	3	0.1765
+Zymoseptoria tritici	UK: Rougham (Suffolk)	UK	52.75074	0.71183	6	3	0.5000
+Zymoseptoria tritici	UK: Stonham Aspal	UK	52.19315	1.11958	8	3	0.3750
+Zymoseptoria tritici	UK: Cambridge	UK	52.19758	0.13915	10	3	0.3000
+Zymoseptoria tritici	Czechia: Olomouc	Czechia	49.59406	17.25114	3	3	1.0000
+Zymoseptoria tritici	Ireland: Carlow	Ireland	52.84083	-6.92611	4	3	0.7500
+Zymoseptoria tritici	Argentina: Chillar	Argentina	-37.31287	-59.98523	10	3	0.3000
+Zymoseptoria tritici	Ireland: Kilkenny	Ireland	52.65063	-7.25144	3	3	1.0000
+Zymoseptoria tritici	France: Chartres, Allonnes	France	48.33049	1.65616	2	2	1.0000
+Zymoseptoria tritici	Germany: Northeim, Weke	Germany	51.76485	9.85888	2	2	1.0000
+Zymoseptoria tritici	United Kingdom: Oxfordshire, Banbury	UK	52.06018	-1.34028	2	2	1.0000
+Zymoseptoria tritici	UK: Hereford	UK	52.05538	-2.71517	2	2	1.0000
+Zymoseptoria tritici	France: 80200 Marchelepot	France	49.83181	2.86838	3	2	0.6667
+Zymoseptoria tritici	Germany: Gommershoven	Germany	51.01969	6.62850	6	2	0.3333
+Zymoseptoria tritici	Germany: Etzdorf	Germany	51.05063	13.18472	3	2	0.6667
+Zymoseptoria tritici	Germany: Hingste	Germany	52.82290	9.18737	5	2	0.4000
+Zymoseptoria tritici	France: La Corbillière	France	47.94329	1.48019	2	2	1.0000
+Zymoseptoria tritici	Germany: Groitzsch	Germany	51.15000	12.28330	3	2	0.6667
+Zymoseptoria tritici	Germany: Hüttendorf	Germany	49.54166	10.96092	2	2	1.0000
+Zymoseptoria tritici	UK: Humbie	UK	55.85425	-2.86787	2	2	1.0000
+Zymoseptoria tritici	UK: Sturminster Newton	UK	50.92900	-2.32639	5	2	0.4000
+Zymoseptoria tritici	USA: Lafayette, Indiana	USA	30.22622	-92.01782	4	2	0.5000
+Zymoseptoria tritici	Sweden: Österlen	Sweden	55.59933	14.11411	3	2	0.6667
+Zymoseptoria tritici	UK: Carnoustie	UK	56.50105	-2.71140	3	2	0.6667
+Zymoseptoria tritici	UK: Boston	UK	52.97766	-0.02380	6	2	0.3333
+Zymoseptoria tritici	The Netherlands: Westmaas	Netherlands	51.78779	4.47378	3	2	0.6667
+Zymoseptoria tritici	France: Grézillé	France	47.32119	-0.33270	2	2	1.0000
+Zymoseptoria tritici	France: Écouis	France	49.31036	1.43184	2	2	1.0000
+Zymoseptoria tritici	Germany: Seelze	Germany	52.39646	9.59429	3	2	0.6667
+Zymoseptoria tritici	UK: Ledbury	UK	52.03575	-2.42878	2	2	1.0000
+Zymoseptoria tritici	UK: Osgodby	UK	54.24826	-0.37360	4	2	0.5000
+Zymoseptoria tritici	UK: Rothwell (Lincolnshire)	UK	53.48068	-0.26689	13	2	0.1538
+Zymoseptoria tritici	France: Bouglainval	France	48.56406	1.50702	2	2	1.0000
+Zymoseptoria tritici	Germany: Silstedt	Germany	51.84573	10.85310	10	2	0.2000
+Zymoseptoria tritici	UK: Whittlesford	UK	52.10968	0.15486	6	2	0.3333
+Zymoseptoria tritici	UK: Hampshire	UK	51.04498	-1.24331	2	2	1.0000
+Zymoseptoria tritici	Ireland: Laois	Ireland	52.99846	-7.39803	2	2	1.0000
+Zymoseptoria tritici	UK: Boothby Graffoe	UK	53.12328	-0.51828	4	2	0.5000
+Zymoseptoria tritici	South Africa: Bethlehem	South Africa	-28.23083	28.30889	14	1	0.0714
+Zymoseptoria tritici	United Kingdom: Suffolk, Woolpit	UK	52.22477	0.88809	2	1	0.5000
+Zymoseptoria tritici	France: Valenciennes	France	50.35793	3.52348	1	1	1.0000
+Zymoseptoria tritici	United Kingdom: Cambridge, Duxford	UK	52.09382	0.13117	1	1	1.0000
+Zymoseptoria tritici	Germany: Lower Saxony, Northeim	Germany	51.76485	9.85888	1	1	1.0000
+Zymoseptoria tritici	UK: Kent	UK	51.20707	0.72104	1	1	1.0000
+Zymoseptoria tritici	UK: Berkshire	UK	51.45349	-1.03187	1	1	1.0000
+Zymoseptoria tritici	UK: Dorset	UK	50.79684	-2.34473	1	1	1.0000
+Zymoseptoria tritici	Poland: Chrzelive	Poland	50.47095	17.73655	1	1	1.0000
+Zymoseptoria tritici	Poland: Guvcz	Poland	53.81937	18.90464	1	1	1.0000
+Zymoseptoria tritici	Poland: Jaroseawiec	Poland	50.71688	23.36199	1	1	1.0000
+Zymoseptoria tritici	Germany: Altenberge	Germany	52.04684	7.46699	1	1	1.0000
+Zymoseptoria tritici	France: Fresne L'Archeveque	France	49.28667	1.41100	1	1	1.0000
+Zymoseptoria tritici	France: Ecouis	France	49.31036	1.43184	1	1	1.0000
+Zymoseptoria tritici	France: Beauval Encaux	France	49.74395	1.01911	1	1	1.0000
+Zymoseptoria tritici	France: Le Gios Thiel	France	49.23081	0.84599	1	1	1.0000
+Zymoseptoria tritici	Croatia: Osijek	Croatia	45.55488	18.69537	5	1	0.2000
+Zymoseptoria tritici	Czechia: Rokytnice	Czechia	49.46592	17.39120	2	1	0.5000
+Zymoseptoria tritici	France: Vauroisy	France	49.27998	4.31138	1	1	1.0000
+Zymoseptoria tritici	France: Gourhel	France	47.93693	-2.36114	1	1	1.0000
+Zymoseptoria tritici	France: Guégon	France	47.93759	-2.56485	1	1	1.0000
+Zymoseptoria tritici	Poland: Gurcz	Poland	53.81937	18.90464	2	1	0.5000
+Zymoseptoria tritici	Poland: Jarosławiec	Poland	50.71688	23.36199	7	1	0.1429
+Zymoseptoria tritici	Germany: Moselsürsch	Germany	50.26029	7.42476	2	1	0.5000
+Zymoseptoria tritici	Germany: Grucking	Germany	48.34180	11.97171	1	1	1.0000
+Zymoseptoria tritici	Germany: Kirchmatting	Germany	48.81302	12.61189	1	1	1.0000
+Zymoseptoria tritici	Germany: Böhl Bauch 10	Germany	49.37531	8.30414	1	1	1.0000
+Zymoseptoria tritici	Germany: Tachenhausen	Germany	48.64965	9.38490	1	1	1.0000
+Zymoseptoria tritici	France: Nangis	France	48.55494	3.01368	1	1	1.0000
+Zymoseptoria tritici	UK: Morley (Norfolk)	UK	52.55171	1.04752	9	1	0.1111
+Zymoseptoria tritici	UK: Bridgend	UK	51.50499	-3.57567	1	1	1.0000
+Zymoseptoria tritici	UK: Bishop Burton	UK	53.84143	-0.51355	5	1	0.2000
+Zymoseptoria tritici	UK: Broughton	UK	53.56561	-0.55392	1	1	1.0000
+Zymoseptoria tritici	UK: York	UK	53.96566	-1.07431	2	1	0.5000
+Zymoseptoria tritici	UK: Titchmarsh	UK	52.39997	-0.48932	1	1	1.0000
+Zymoseptoria tritici	UK: Dunmow	UK	51.87335	0.35798	1	1	1.0000
+Zymoseptoria tritici	USA: Woodland, California	USA	38.67861	-121.77333	1	1	1.0000
+Zymoseptoria tritici	Ethiopia: Sinana	Ethiopia	7.08333	40.20000	13	1	0.0769
+Zymoseptoria tritici	Sweden: Svalöv	Sweden	55.91293	13.11975	11	1	0.0909
+Zymoseptoria tritici	Canada: St Albert	Canada	53.63324	-113.62884	1	1	1.0000
+Zymoseptoria tritici	Ethiopia: Silt'e	Ethiopia	7.74658	38.15539	1	1	1.0000
+Zymoseptoria tritici	Ethiopia: Wilting Woreda	Ethiopia	7.74658	38.15539	1	1	1.0000
+Zymoseptoria tritici	Ethiopia: Kuyu Liben Kura	Ethiopia	9.86667	38.35000	1	1	1.0000
+Zymoseptoria tritici	UK: West Wickham, Cambridgeshire	UK	52.11735	0.35539	1	1	1.0000
+Zymoseptoria tritici	UK: Brackley	UK	52.02790	-1.14847	2	1	0.5000
+Zymoseptoria tritici	UK: Chirnside	UK	55.80215	-2.20918	3	1	0.3333
+Zymoseptoria tritici	Czechia: Kujavy	Czechia	49.70331	17.97253	1	1	1.0000
+Zymoseptoria tritici	Czechia: Chrudim	Czechia	49.95115	15.79476	1	1	1.0000
+Zymoseptoria tritici	The Netherlands: Kamperland	Netherlands	51.56800	3.70171	1	1	1.0000
+Zymoseptoria tritici	Germany: Erlangen	Germany	49.58916	10.98121	1	1	1.0000
+Zymoseptoria tritici	France: Luglon	France	44.08190	-0.71900	1	1	1.0000
+Zymoseptoria tritici	France: Allouange	France	50.53250	2.50706	1	1	1.0000
+Zymoseptoria tritici	France: Pontfaverger	France	49.29736	4.31745	1	1	1.0000
+Zymoseptoria tritici	UK: Mersea	UK	51.77698	0.91736	1	1	1.0000
+Zymoseptoria tritici	UK: Hundon	UK	52.11308	0.53814	1	1	1.0000
+Zymoseptoria tritici	UK: Lindsey	UK	52.06768	0.88468	1	1	1.0000
+Zymoseptoria tritici	UK: Ixworth	UK	52.29962	0.83791	1	1	1.0000
+Zymoseptoria tritici	France: Neant sur Yvel	France	48.01282	-2.32768	2	1	0.5000
+Zymoseptoria tritici	France: Frévin-Capelle	France	50.35024	2.63883	2	1	0.5000
+Zymoseptoria tritici	Germany: Mörsch Frankenthal	Germany	49.55958	8.38710	2	1	0.5000
+Zymoseptoria tritici	France: Louvigny	France	49.15654	-0.39373	1	1	1.0000
+Zymoseptoria tritici	The Netherlands: Wirdum	Netherlands	53.32317	6.78614	1	1	1.0000
+Zymoseptoria tritici	Poland: Widawa	Poland	51.43750	18.94412	1	1	1.0000
+Zymoseptoria tritici	Germany: Ludwigshafen	Germany	49.47041	8.43816	2	1	0.5000
+Zymoseptoria tritici	UK: Foscot	UK	51.89514	-1.63897	1	1	1.0000
+Zymoseptoria tritici	The Netherlands: Hank	Netherlands	51.73604	4.89860	1	1	1.0000
+Zymoseptoria tritici	Morocco: Merchouch	Morocco	33.61216	-6.70995	5	1	0.2000
+Zymoseptoria tritici	Argentina: Balcarce	Argentina	-37.84640	-58.25546	6	1	0.1667
+Zymoseptoria tritici	UK: Spalding	UK	52.78763	-0.15261	1	1	1.0000
+Zymoseptoria tritici	UK: East Yorkshire	UK	53.91123	-0.58131	1	1	1.0000
+Zymoseptoria tritici	UK: Wansford	UK	52.58105	-0.41675	1	1	1.0000
+Zymoseptoria tritici	UK: Nassington	UK	52.55727	-0.44301	1	1	1.0000
+Zymoseptoria tritici	Kenya: Moiben	Kenya	0.72163	35.39900	1	1	1.0000
+Zymoseptoria tritici	Germany: Wetze	Germany	51.74124	9.91047	2	1	0.5000
+Zymoseptoria tritici	UK: Newton	UK	52.03223	0.79433	3	1	0.3333
+Zymoseptoria tritici	France: Allonnes	France	47.96928	0.15788	2	1	0.5000
+Zymoseptoria tritici	Spain: Medigorría	Spain	42.62621	-1.83402	1	1	1.0000
+Zymoseptoria tritici	Czechia: Hněvčeves	Czechia	50.31423	15.71140	4	1	0.2500
+Zymoseptoria tritici	UK: Telford	UK	52.67805	-2.45142	1	1	1.0000
+Zymoseptoria tritici	UK: Bury St Edmunds	UK	52.24604	0.71252	1	1	1.0000
+Zymoseptoria tritici	UK: Tye Green	UK	51.85695	0.58440	1	1	1.0000
+Zymoseptoria tritici	UK: Herne Bay	UK	51.37195	1.13070	1	1	1.0000
+Zymoseptoria tritici	UK: High Legh	UK	53.34797	-2.47475	1	1	1.0000
+Zymoseptoria tritici	France: Montbartier	France	43.91361	1.27333	3	1	0.3333
+Zymoseptoria tritici	UK: Stockbridge	UK	55.95797	-3.20934	2	1	0.5000
+Zymoseptoria tritici	Germany: Melle	Germany	52.19504	8.34748	6	1	0.1667
+Zymoseptoria tritici	Germany: Harzhof	Germany	54.41647	9.84795	6	1	0.1667
+Zymoseptoria tritici	Germany: Hemmingen	Germany	52.32122	9.74548	4	1	0.2500
+Zymoseptoria tritici	UK: Coldstream	UK	55.65118	-2.25296	1	1	1.0000
+Zymoseptoria tritici	UK: Headley Hall	UK	53.86811	-1.32479	2	1	0.5000
+Zymoseptoria tritici	UK: Mears Ashby	UK	52.29239	-0.77278	1	1	1.0000
+Zymoseptoria tritici	UK: Lincoln	UK	53.22935	-0.54048	1	1	1.0000
+Zymoseptoria tritici	UK: Leicestershire	UK	52.66667	-1.00000	1	1	1.0000
+Zymoseptoria tritici	UK: Chillingham	UK	55.52763	-1.90396	1	1	1.0000
+Zymoseptoria tritici	UK: Duns	UK	55.77784	-2.34385	1	1	1.0000
+Zymoseptoria tritici	UK: Newark	UK	53.07363	-0.80054	2	1	0.5000
+Zymoseptoria tritici	Ireland: Cork	Ireland	51.89851	-8.47264	1	1	1.0000
+Zymoseptoria tritici	UK: Mendelsham	UK	52.25102	1.07952	3	1	0.3333
+Puccinia triticina	UK: Ickleton	UK	52.07036	0.17604	23	11	0.4783
+Puccinia triticina	Germany: Silstedt	Germany	51.84573	10.85310	10	8	0.8000
+Puccinia triticina	Argentina: Pergamino	Argentina	-33.89749	-60.57505	8	5	0.6250
+Puccinia triticina	Argentina: Chillar	Argentina	-37.31287	-59.98523	10	5	0.5000
+Puccinia triticina	South Africa: Bethlehem	South Africa	-28.23083	28.30889	14	4	0.2857
+Puccinia triticina	France: Marchélepot	France	49.83181	2.86838	7	4	0.5714
+Puccinia triticina	China: Pingnan Qinzhou Tianshui	China	34.35297	105.67870	6	4	0.6667
+Puccinia triticina	Spain: Lebrija	Spain	36.91931	-6.07641	4	4	1.0000
+Puccinia triticina	Argentina: Paraná	Argentina	-27.42102	-56.60117	6	4	0.6667
+Puccinia triticina	Argentina: Balcarce	Argentina	-37.84640	-58.25546	6	4	0.6667
+Puccinia triticina	UK: Lincolnshire	UK	53.18230	-0.20312	6	4	0.6667
+Puccinia triticina	UK: Rothwell (Lincolnshire)	UK	53.48068	-0.26689	13	4	0.3077
+Puccinia triticina	USA: Lafayette, Indiana	USA	30.22622	-92.01782	4	3	0.7500
+Puccinia triticina	Argentina: Bordenave	Argentina	-37.80470	-63.04105	3	3	1.0000
+Puccinia triticina	Czechia: Hrubčice	Czechia	49.44372	17.20463	5	3	0.6000
+Puccinia triticina	UK: Osgodby	UK	54.24826	-0.37360	4	3	0.7500
+Puccinia triticina	United Kingdom: Oxfordshire, Banbury	UK	52.06018	-1.34028	2	2	1.0000
+Puccinia triticina	Ethiopia: Kulumsa	Ethiopia	7.95000	39.13333	4	2	0.5000
+Puccinia triticina	Poland: Jarosławiec	Poland	50.71688	23.36199	7	2	0.2857
+Puccinia triticina	Germany: Etzdorf	Germany	51.05063	13.18472	3	2	0.6667
+Puccinia triticina	Italy: Conselice	Italy	44.51276	11.82917	3	2	0.6667
+Puccinia triticina	South Africa: Napier	South Africa	-34.47472	19.89806	3	2	0.6667
+Puccinia triticina	USA: Wichita, Kansas	USA	37.69224	-97.33754	4	2	0.5000
+Puccinia triticina	Ethiopia: Sinana Kabira	Ethiopia	7.08333	40.20000	3	2	0.6667
+Puccinia triticina	South Africa: Greytown	South Africa	-29.06056	30.58889	4	2	0.5000
+Puccinia triticina	Germany: Seelze	Germany	52.39646	9.59429	3	2	0.6667
+Puccinia triticina	Germany: Ludwigshafen	Germany	49.47041	8.43816	2	2	1.0000
+Puccinia triticina	France: Louville	France	45.59623	3.78034	9	2	0.2222
+Puccinia triticina	Czechia: Olomouc	Czechia	49.59406	17.25114	3	2	0.6667
+Puccinia triticina	UK: Whittlesford	UK	52.10968	0.15486	6	2	0.3333
+Puccinia triticina	Ireland: Waterford	Ireland	52.26100	-7.11191	4	2	0.5000
+Puccinia triticina	United Kingdom: Suffolk, Woolpit	UK	52.22477	0.88809	2	1	0.5000
+Puccinia triticina	France: Valenciennes	France	50.35793	3.52348	1	1	1.0000
+Puccinia triticina	France: Chartres, Allonnes	France	48.33049	1.65616	2	1	0.5000
+Puccinia triticina	United Kingdom: Cambridge, Duxford	UK	52.09382	0.13117	1	1	1.0000
+Puccinia triticina	United Kingdom: Lincolnshire, Market Rasen	UK	53.38791	-0.33767	2	1	0.5000
+Puccinia triticina	United Kingdom: Suffolk, Bury St Edmunds	UK	52.24604	0.71252	1	1	1.0000
+Puccinia triticina	United Kingdom: Essex, Ickleton	UK	51.77047	0.46467	1	1	1.0000
+Puccinia triticina	Croatia: Osijek	Croatia	45.55488	18.69537	5	1	0.2000
+Puccinia triticina	Poland: Choryn	Poland	52.04034	16.76553	1	1	1.0000
+Puccinia triticina	France: La Corbillière	France	47.94329	1.48019	2	1	0.5000
+Puccinia triticina	Italy: Ozzano	Italy	44.44498	11.47605	3	1	0.3333
+Puccinia triticina	Germany: Böhl Bauch 10	Germany	49.37531	8.30414	1	1	1.0000
+Puccinia triticina	France: Nangis	France	48.55494	3.01368	1	1	1.0000
+Puccinia triticina	Belgium: Avelgem	Belgium	50.77751	3.44967	1	1	1.0000
+Puccinia triticina	UK: Morley (Norfolk)	UK	52.55171	1.04752	9	1	0.1111
+Puccinia triticina	USA: Warsaw, Virginia	USA	41.23810	-85.85305	1	1	1.0000
+Puccinia triticina	China: Nanhu Zhuanglang Pingliang	China	35.33783	105.96201	4	1	0.2500
+Puccinia triticina	China: Jinshan Gangu Tianshui	China	34.81719	105.44401	9	1	0.1111
+Puccinia triticina	USA: Chickasha, Oklahoma	USA	35.05122	-97.93700	1	1	1.0000
+Puccinia triticina	USA: Altus, Oklahoma	USA	34.63813	-99.33398	1	1	1.0000
+Puccinia triticina	USA: Hitchcock, Nebraska	USA	40.16596	-101.03875	1	1	1.0000
+Puccinia triticina	USA: Hidalgo, Texas	USA	26.35303	-98.21644	1	1	1.0000
+Puccinia triticina	USA: Cimarron, Oklahoma	USA	36.72459	-102.47930	1	1	1.0000
+Puccinia triticina	USA: Hemingford, Nebraska	USA	42.32158	-103.07287	1	1	1.0000
+Puccinia triticina	USA: Cash, Arkansas	USA	35.79904	-90.93361	1	1	1.0000
+Puccinia triticina	Ethiopia: Wilting Woreda	Ethiopia	7.74658	38.15539	1	1	1.0000
+Puccinia triticina	Ethiopia: Sinana Kabira Shaya	Ethiopia	7.08333	40.20000	1	1	1.0000
+Puccinia triticina	UK: Langley (Essex)	UK	51.99240	0.09594	12	1	0.0833
+Puccinia triticina	UK: Throws	UK	52.75768	-1.24188	8	1	0.1250
+Puccinia triticina	UK: Boston	UK	52.97766	-0.02380	6	1	0.1667
+Puccinia triticina	The Netherlands: Westmaas	Netherlands	51.78779	4.47378	3	1	0.3333
+Puccinia triticina	Germany: Lippetal	Germany	51.65162	8.07876	4	1	0.2500
+Puccinia triticina	Germany: Oberboihingen	Germany	48.64760	9.36689	1	1	1.0000
+Puccinia triticina	Hungary: Győr	Hungary	47.68350	17.63428	1	1	1.0000
+Puccinia triticina	Turkey: Murath	Turkey	41.16991	27.50025	1	1	1.0000
+Puccinia triticina	Turkey: Babaeski	Turkey	41.43026	27.09178	1	1	1.0000
+Puccinia triticina	UK: Ixworth	UK	52.29962	0.83791	1	1	1.0000
+Puccinia triticina	UK: Stonham Aspal	UK	52.19315	1.11958	8	1	0.1250
+Puccinia triticina	Germany: Limburgerhof	Germany	49.42266	8.39335	2	1	0.5000
+Puccinia triticina	Slovenia: Borovnica	Slovenia	45.91136	14.38316	1	1	1.0000
+Puccinia triticina	Hungary: Kocs	Hungary	47.60550	18.21320	1	1	1.0000
+Puccinia triticina	France: Les Andelys	France	49.24692	1.42155	1	1	1.0000
+Puccinia triticina	Spain: Puerto de Santa Maria	Spain	38.04207	-6.18358	1	1	1.0000
+Puccinia triticina	Morocco: Merchouch	Morocco	33.61216	-6.70995	5	1	0.2000
+Puccinia triticina	Australia: Scadden	Australia	-33.44120	121.72431	2	1	0.5000
+Puccinia triticina	Argentina: Victoria	Argentina	-34.45410	-58.54071	1	1	1.0000
+Puccinia triticina	Argentina: La Dulce	Argentina	-38.28366	-59.20334	2	1	0.5000
+Puccinia triticina	UK: Honingham	UK	52.66248	1.12267	2	1	0.5000
+Puccinia triticina	Argentina: Arias	Argentina	-33.64221	-62.40384	1	1	1.0000
+Puccinia triticina	Argentina: Chacabuco	Argentina	-32.74145	-65.20613	1	1	1.0000
+Puccinia triticina	Serbia: Rimski Šančevi	Serbia	45.31918	19.83288	6	1	0.1667
+Puccinia triticina	Serbia: Konak	Serbia	45.31635	20.91383	1	1	1.0000
+Puccinia triticina	Kenya: Cheptiret	Kenya	0.37648	35.37019	1	1	1.0000
+Puccinia triticina	Kenya: Moiben	Kenya	0.72163	35.39900	1	1	1.0000
+Puccinia triticina	France: Allonnes	France	47.96928	0.15788	2	1	0.5000
+Puccinia triticina	Spain: Jerez	Spain	36.68169	-6.13774	1	1	1.0000
+Puccinia triticina	Spain: Córdoba	Spain	37.88458	-4.77601	5	1	0.2000
+Puccinia triticina	Ukraine: Odessa	Ukraine	46.48430	30.73229	1	1	1.0000
+Puccinia triticina	UK: Cambridge	UK	52.19758	0.13915	10	1	0.1000
+Puccinia triticina	UK: Crabbs Green	UK	51.82536	0.24403	1	1	1.0000
+Puccinia triticina	Argentina: Marcos Juárez	Argentina	-32.69469	-62.10439	1	1	1.0000
+Puccinia triticina	Argentina: Placita	Argentina	-33.03382	-68.89700	1	1	1.0000
+Puccinia triticina	Czechia: Branisovice	Czechia	48.96281	16.43185	5	1	0.2000
+Puccinia triticina	Ireland: Carlow	Ireland	52.84083	-6.92611	4	1	0.2500
+Blumeria graminis	China: Jinshan Gangu Tianshui	China	34.81719	105.44401	9	7	0.7778
+Blumeria graminis	China: Nanhu Zhuanglang Pingliang	China	35.33783	105.96201	4	4	1.0000
+Blumeria graminis	Germany: Gommershoven	Germany	51.01969	6.62850	6	3	0.5000
+Blumeria graminis	Poland: Jarosławiec	Poland	50.71688	23.36199	7	3	0.4286
+Blumeria graminis	UK: Sturminster Newton	UK	50.92900	-2.32639	5	3	0.6000
+Blumeria graminis	Sweden: Svalöv	Sweden	55.91293	13.11975	11	3	0.2727
+Blumeria graminis	Ethiopia: Meraro	Ethiopia	7.40795	39.24175	8	3	0.3750
+Blumeria graminis	UK: Carnoustie	UK	56.50105	-2.71140	3	3	1.0000
+Blumeria graminis	UK: Rothwell (Lincolnshire)	UK	53.48068	-0.26689	13	3	0.2308
+Blumeria graminis	UK: Ickleton	UK	52.07036	0.17604	23	3	0.1304
+Blumeria graminis	Germany: Melle	Germany	52.19504	8.34748	6	3	0.5000
+Blumeria graminis	UK: Cambridgeshire	UK	52.37290	-0.04494	17	2	0.1176
+Blumeria graminis	Belgium: Mignault	Belgium	50.52886	4.15235	6	2	0.3333
+Blumeria graminis	Ethiopia: Kulumsa	Ethiopia	7.95000	39.13333	4	2	0.5000
+Blumeria graminis	France: Marchélepot	France	49.83181	2.86838	7	2	0.2857
+Blumeria graminis	Germany: Etzdorf	Germany	51.05063	13.18472	3	2	0.6667
+Blumeria graminis	Germany: Hingste	Germany	52.82290	9.18737	5	2	0.4000
+Blumeria graminis	UK: Caythorpe	UK	53.00638	-0.98147	17	2	0.1176
+Blumeria graminis	UK: Cascob	UK	52.29099	-3.11595	2	2	1.0000
+Blumeria graminis	Ethiopia: Arsi Robe	Ethiopia	7.69456	39.76004	7	2	0.2857
+Blumeria graminis	Spain: Lebrija	Spain	36.91931	-6.07641	4	2	0.5000
+Blumeria graminis	UK: Stonham Aspal	UK	52.19315	1.11958	8	2	0.2500
+Blumeria graminis	Spain: Almacelles	Spain	41.72950	0.44048	4	2	0.5000
+Blumeria graminis	South Africa: Bethlehem	South Africa	-28.23083	28.30889	14	1	0.0714
+Blumeria graminis	Germany: Wohlde	Germany	54.40612	9.29784	4	1	0.2500
+Blumeria graminis	UK: Lincolnshire	UK	53.18230	-0.20312	7	1	0.1429
+Blumeria graminis	France: 80200 Marchelepot	France	49.83181	2.86838	3	1	0.3333
+Blumeria graminis	Poland: Pagow	Poland	51.77262	20.42655	1	1	1.0000
+Blumeria graminis	Germany: Iserlohn	Germany	51.37468	7.69997	1	1	1.0000
+Blumeria graminis	France: Ecouis	France	49.31036	1.43184	1	1	1.0000
+Blumeria graminis	France: Le Gios Thiel	France	49.23081	0.84599	1	1	1.0000
+Blumeria graminis	Poland: Choryn	Poland	52.04034	16.76553	1	1	1.0000
+Blumeria graminis	Poland: Gurcz	Poland	53.81937	18.90464	2	1	0.5000
+Blumeria graminis	Germany: Ruchheim	Germany	49.47337	8.32948	5	1	0.2000
+Blumeria graminis	Germany: Groitzsch	Germany	51.15000	12.28330	3	1	0.3333
+Blumeria graminis	Germany: Weißensee	Germany	52.55462	13.46300	3	1	0.3333
+Blumeria graminis	UK: Bishop Burton	UK	53.84143	-0.51355	5	1	0.2000
+Blumeria graminis	UK: Titchmarsh	UK	52.39997	-0.48932	1	1	1.0000
+Blumeria graminis	UK: Wallingford	UK	51.59829	-1.12514	1	1	1.0000
+Blumeria graminis	China: Pingnan Qinzhou Tianshui	China	34.35297	105.67870	6	1	0.1667
+Blumeria graminis	USA: Chickasha, Oklahoma	USA	35.05122	-97.93700	1	1	1.0000
+Blumeria graminis	USA: Lafayette, Indiana	USA	30.22622	-92.01782	4	1	0.2500
+Blumeria graminis	USA: Walla Walla, Washington	USA	46.06689	-118.35165	4	1	0.2500
+Blumeria graminis	Canada: St Albert	Canada	53.63324	-113.62884	1	1	1.0000
+Blumeria graminis	Canada: Lacombe	Canada	52.47275	-113.73322	2	1	0.5000
+Blumeria graminis	Ethiopia: Bekoji	Ethiopia	7.53333	39.25000	3	1	0.3333
+Blumeria graminis	UK: West Wickham, Cambridgeshire	UK	52.11735	0.35539	1	1	1.0000
+Blumeria graminis	South Africa: Ouplaas	South Africa	-34.37387	20.43439	2	1	0.5000
+Blumeria graminis	UK: Chirnside	UK	55.80215	-2.20918	3	1	0.3333
+Blumeria graminis	Germany: Oberboihingen	Germany	48.64760	9.36689	1	1	1.0000
+Blumeria graminis	UK: Lindsey	UK	52.06768	0.88468	1	1	1.0000
+Blumeria graminis	UK: Ixworth	UK	52.29962	0.83791	1	1	1.0000
+Blumeria graminis	UK: Gipping	UK	52.22925	1.03046	1	1	1.0000
+Blumeria graminis	UK: Foscot	UK	51.89514	-1.63897	1	1	1.0000
+Blumeria graminis	The Netherlands: Hank	Netherlands	51.73604	4.89860	1	1	1.0000
+Blumeria graminis	Czechia: Hrubčice	Czechia	49.44372	17.20463	5	1	0.2000
+Blumeria graminis	Spain: Córdoba	Spain	37.88458	-4.77601	5	1	0.2000
+Blumeria graminis	France: Bouglainval	France	48.56406	1.50702	2	1	0.5000
+Blumeria graminis	Czechia: Hněvčeves	Czechia	50.31423	15.71140	4	1	0.2500
+Blumeria graminis	UK: Bury St Edmunds	UK	52.24604	0.71252	1	1	1.0000
+Blumeria graminis	UK: Tye Green	UK	51.85695	0.58440	1	1	1.0000
+Blumeria graminis	Germany: Silstedt	Germany	51.84573	10.85310	10	1	0.1000
+Blumeria graminis	Czechia: Olomouc	Czechia	49.59406	17.25114	3	1	0.3333
+Blumeria graminis	Ireland: Carlow	Ireland	52.84083	-6.92611	4	1	0.2500
+Blumeria graminis	Germany: Motterwitz	Germany	51.19641	12.88059	1	1	1.0000
+Blumeria graminis	UK: Whittlesford	UK	52.10968	0.15486	6	1	0.1667
+Blumeria graminis	UK: Woodsford	UK	50.71253	-2.33959	1	1	1.0000
+Blumeria graminis	Ireland: Waterford	Ireland	52.26100	-7.11191	4	1	0.2500
+Blumeria graminis	UK: Terrington St Clement	UK	52.80885	0.30910	1	1	1.0000
+Parastagonospora nodorum	Argentina: Chillar	Argentina	-37.31287	-59.98523	10	10	1.0000
+Parastagonospora nodorum	Argentina: Balcarce	Argentina	-37.84640	-58.25546	6	4	0.6667
+Parastagonospora nodorum	Canada: Lethbridge	Canada	49.69458	-112.83310	3	2	0.6667
+Parastagonospora nodorum	Canada: Lacombe	Canada	52.47275	-113.73322	2	2	1.0000
+Parastagonospora nodorum	Germany: Northeim, Weke	Germany	51.76485	9.85888	2	1	0.5000
+Parastagonospora nodorum	Germany: Wohlde	Germany	54.40612	9.29784	4	1	0.2500
+Parastagonospora nodorum	UK: Dorset	UK	50.79684	-2.34473	1	1	1.0000
+Parastagonospora nodorum	UK: Cambridgeshire	UK	52.37290	-0.04494	17	1	0.0588
+Parastagonospora nodorum	France: Fresne L'Archeveque	France	49.28667	1.41100	1	1	1.0000
+Parastagonospora nodorum	Croatia: Osijek	Croatia	45.55488	18.69537	5	1	0.2000
+Parastagonospora nodorum	UK: Canterbury	UK	51.28003	1.08025	8	1	0.1250
+Parastagonospora nodorum	UK: Dunmow	UK	51.87335	0.35798	1	1	1.0000
+Parastagonospora nodorum	USA: Lansing/Mason, Michigan	USA	42.57971	-84.44228	1	1	1.0000
+Parastagonospora nodorum	South Africa: Napier	South Africa	-34.47472	19.89806	3	1	0.3333
+Parastagonospora nodorum	Ethiopia: Sinana	Ethiopia	7.08333	40.20000	13	1	0.0769
+Parastagonospora nodorum	USA: Altus, Oklahoma	USA	34.63813	-99.33398	1	1	1.0000
+Parastagonospora nodorum	USA: Lafayette, Indiana	USA	30.22622	-92.01782	4	1	0.2500
+Parastagonospora nodorum	USA: Hitchcock, Nebraska	USA	40.16596	-101.03875	1	1	1.0000
+Parastagonospora nodorum	USA: Gregory, South Dakota	USA	43.17138	-99.16748	1	1	1.0000
+Parastagonospora nodorum	USA: Tripp, South Dakota	USA	43.37791	-99.83949	1	1	1.0000
+Parastagonospora nodorum	USA: Hemingford, Nebraska	USA	42.32158	-103.07287	1	1	1.0000
+Parastagonospora nodorum	Canada: St Albert	Canada	53.63324	-113.62884	1	1	1.0000
+Parastagonospora nodorum	UK: Langley (Essex)	UK	51.99240	0.09594	12	1	0.0833
+Parastagonospora nodorum	UK: Throws	UK	52.75768	-1.24188	8	1	0.1250
+Parastagonospora nodorum	UK: Rougham (Suffolk)	UK	52.75074	0.71183	6	1	0.1667
+Parastagonospora nodorum	Germany: Ludwigshafen	Germany	49.47041	8.43816	2	1	0.5000
+Parastagonospora nodorum	Argentina: Pergamino	Argentina	-33.89749	-60.57505	8	1	0.1250
+Parastagonospora nodorum	Argentina: La Dulce	Argentina	-38.28366	-59.20334	2	1	0.5000
+Parastagonospora nodorum	UK: East Yorkshire	UK	53.91123	-0.58131	1	1	1.0000
+Parastagonospora nodorum	Argentina: Arias	Argentina	-33.64221	-62.40384	1	1	1.0000
+Parastagonospora nodorum	UK: Newton	UK	52.03223	0.79433	3	1	0.3333
+Parastagonospora nodorum	Czechia: Hrubčice	Czechia	49.44372	17.20463	5	1	0.2000
+Parastagonospora nodorum	Spain: Córdoba	Spain	37.88458	-4.77601	5	1	0.2000
+Parastagonospora nodorum	Canada: Saskatoon	Canada	52.13180	-106.66077	1	1	1.0000
+Parastagonospora nodorum	Germany: Silstedt	Germany	51.84573	10.85310	10	1	0.1000
+Parastagonospora nodorum	UK: Ickleton	UK	52.07036	0.17604	23	1	0.0435
+Parastagonospora nodorum	UK: Stockbridge	UK	55.95797	-3.20934	2	1	0.5000
+Parastagonospora nodorum	UK: Leicestershire	UK	52.66667	-1.00000	1	1	1.0000
+Parastagonospora nodorum	Ireland: Cork	Ireland	51.89851	-8.47264	1	1	1.0000
+Parastagonospora nodorum	Ireland: Kilkenny	Ireland	52.65063	-7.25144	3	1	0.3333
+Parastagonospora nodorum	Ireland: Waterford	Ireland	52.26100	-7.11191	4	1	0.2500
+Parastagonospora nodorum	Canada: British Columbia	Canada	55.00125	-125.00244	4	1	0.2500
+Parastagonospora nodorum	Canada: Alberta	Canada	55.00125	-115.00214	8	1	0.1250
+Microdochium nivale	UK: Wolferton	UK	52.82932	0.46258	12	8	0.6667
+Microdochium nivale	UK: Ickleton	UK	52.07036	0.17604	23	3	0.1304
+Microdochium nivale	UK: Langley (Essex)	UK	51.99240	0.09594	12	2	0.1667
+Microdochium nivale	UK: Boston	UK	52.97766	-0.02380	6	2	0.3333
+Microdochium nivale	France: Valenciennes	France	50.35793	3.52348	1	1	1.0000
+Microdochium nivale	France: Chartres, Allonnes	France	48.33049	1.65616	2	1	0.5000
+Microdochium nivale	France: Louville la Chenard	France	48.32415	1.78674	10	1	0.1000
+Microdochium nivale	Germany: Northeim, Weke	Germany	51.76485	9.85888	2	1	0.5000
+Microdochium nivale	Germany: Wohlde	Germany	54.40612	9.29784	4	1	0.2500
+Microdochium nivale	France: 80200 Marchelepot	France	49.83181	2.86838	3	1	0.3333
+Microdochium nivale	Poland: Chrzelive	Poland	50.47095	17.73655	1	1	1.0000
+Microdochium nivale	Germany: Altenberge	Germany	52.04684	7.46699	1	1	1.0000
+Microdochium nivale	France: Ecouis	France	49.31036	1.43184	1	1	1.0000
+Microdochium nivale	Croatia: Osijek	Croatia	45.55488	18.69537	5	1	0.2000
+Microdochium nivale	Czechia: Rokytnice	Czechia	49.46592	17.39120	2	1	0.5000
+Microdochium nivale	France: Marchélepot	France	49.83181	2.86838	7	1	0.1429
+Microdochium nivale	France: Vauroisy	France	49.27998	4.31138	1	1	1.0000
+Microdochium nivale	UK: Sutton Scotney	UK	51.15317	-1.33813	4	1	0.2500
+Microdochium nivale	Poland: Jarosławiec	Poland	50.71688	23.36199	7	1	0.1429
+Microdochium nivale	France: La Corbillière	France	47.94329	1.48019	2	1	0.5000
+Microdochium nivale	France: Nangis	France	48.55494	3.01368	1	1	1.0000
+Microdochium nivale	UK: Bridgend	UK	51.50499	-3.57567	1	1	1.0000
+Microdochium nivale	UK: Bishop Burton	UK	53.84143	-0.51355	5	1	0.2000
+Microdochium nivale	UK: Broughton	UK	53.56561	-0.55392	1	1	1.0000
+Microdochium nivale	UK: Humbie	UK	55.85425	-2.86787	2	1	0.5000
+Microdochium nivale	UK: Titchmarsh	UK	52.39997	-0.48932	1	1	1.0000
+Microdochium nivale	UK: Dunmow	UK	51.87335	0.35798	1	1	1.0000
+Microdochium nivale	USA: Hemingford, Nebraska	USA	42.32158	-103.07287	1	1	1.0000
+Microdochium nivale	UK: West Wickham, Cambridgeshire	UK	52.11735	0.35539	1	1	1.0000
+Microdochium nivale	UK: Throws	UK	52.75768	-1.24188	8	1	0.1250
+Microdochium nivale	UK: Carnoustie	UK	56.50105	-2.71140	3	1	0.3333
+Microdochium nivale	UK: Brackley	UK	52.02790	-1.14847	2	1	0.5000
+Microdochium nivale	The Netherlands: Westmaas	Netherlands	51.78779	4.47378	3	1	0.3333
+Microdochium nivale	Hungary: Győr	Hungary	47.68350	17.63428	1	1	1.0000
+Microdochium nivale	France: Écouis	France	49.31036	1.43184	2	1	0.5000
+Microdochium nivale	UK: Ixworth	UK	52.29962	0.83791	1	1	1.0000
+Microdochium nivale	UK: Stonham Aspal	UK	52.19315	1.11958	8	1	0.1250
+Microdochium nivale	Croatia: Sigetec	Croatia	46.18699	16.93364	1	1	1.0000
+Microdochium nivale	Spain: Almacelles	Spain	41.72950	0.44048	4	1	0.2500
+Microdochium nivale	UK: Wardington	UK	52.11147	-1.28266	13	1	0.0769
+Microdochium nivale	UK: Rothwell (Lincolnshire)	UK	53.48068	-0.26689	13	1	0.0769
+Microdochium nivale	France: Louville	France	45.59623	3.78034	9	1	0.1111
+Microdochium nivale	Argentina: Chillar	Argentina	-37.31287	-59.98523	10	1	0.1000
+Microdochium nivale	UK: Terrington St Clement	UK	52.80885	0.30910	1	1	1.0000
+Cladosporium cladosporioides	UK: Ickleton	UK	52.07036	0.17604	23	4	0.1739
+Cladosporium cladosporioides	Ethiopia: Sinana RS	Ethiopia	7.12427	40.00810	8	3	0.3750
+Cladosporium cladosporioides	Ethiopia: Sinana	Ethiopia	7.08333	40.20000	13	3	0.2308
+Cladosporium cladosporioides	Spain: Lebrija	Spain	36.91931	-6.07641	4	3	0.7500
+Cladosporium cladosporioides	Morocco: Merchouch	Morocco	33.61216	-6.70995	5	3	0.6000
+Cladosporium cladosporioides	Pakistan: Abbottabad	Pakistan	34.14361	73.21327	3	2	0.6667
+Cladosporium cladosporioides	France: Marchélepot	France	49.83181	2.86838	7	2	0.2857
+Cladosporium cladosporioides	Argentina: Chillar	Argentina	-37.31287	-59.98523	10	2	0.2000
+Cladosporium cladosporioides	France: Louville la Chenard	France	48.32415	1.78674	10	1	0.1000
+Cladosporium cladosporioides	Germany: Ruchheim	Germany	49.47337	8.32948	5	1	0.2000
+Cladosporium cladosporioides	UK: Broughton	UK	53.56561	-0.55392	1	1	1.0000
+Cladosporium cladosporioides	China: Nanhu Zhuanglang Pingliang	China	35.33783	105.96201	4	1	0.2500
+Cladosporium cladosporioides	USA: Hitchcock, Nebraska	USA	40.16596	-101.03875	1	1	1.0000
+Cladosporium cladosporioides	USA: Tripp, South Dakota	USA	43.37791	-99.83949	1	1	1.0000
+Cladosporium cladosporioides	Ethiopia: Arsi Robe	Ethiopia	7.69456	39.76004	7	1	0.1429
+Cladosporium cladosporioides	Ethiopia: Meraro	Ethiopia	7.40795	39.24175	8	1	0.1250
+Cladosporium cladosporioides	Ethiopia: Limo Lereba Roma	Ethiopia	7.68333	37.96667	1	1	1.0000
+Cladosporium cladosporioides	Ethiopia: Tiya	Ethiopia	8.43733	38.60930	1	1	1.0000
+Cladosporium cladosporioides	South Africa: Hopetown	South Africa	-29.62396	24.08301	1	1	1.0000
+Cladosporium cladosporioides	South Africa: Jozini	South Africa	-27.43083	32.06639	1	1	1.0000
+Cladosporium cladosporioides	Turkey: Murath	Turkey	41.16991	27.50025	1	1	1.0000
+Cladosporium cladosporioides	Turkey: Babaeski	Turkey	41.43026	27.09178	1	1	1.0000
+Cladosporium cladosporioides	Spain: Almacelles	Spain	41.72950	0.44048	4	1	0.2500
+Cladosporium cladosporioides	Hungary: Sárbogárdi Járás	Hungary	46.86254	18.61783	1	1	1.0000
+Cladosporium cladosporioides	Hungary: Kocs	Hungary	47.60550	18.21320	1	1	1.0000
+Cladosporium cladosporioides	Spain: Puerto de Santa Maria	Spain	38.04207	-6.18358	1	1	1.0000
+Cladosporium cladosporioides	Rwanda: Rwerere	Rwanda	-1.51174	29.87742	1	1	1.0000
+Cladosporium cladosporioides	Argentina: Pergamino	Argentina	-33.89749	-60.57505	8	1	0.1250
+Cladosporium cladosporioides	Argentina: Victoria	Argentina	-34.45410	-58.54071	1	1	1.0000
+Cladosporium cladosporioides	Argentina: Paraná	Argentina	-27.42102	-56.60117	6	1	0.1667
+Cladosporium cladosporioides	Argentina: Sancti Spiritu	Argentina	-34.00765	-62.24143	1	1	1.0000
+Cladosporium cladosporioides	Argentina: Chacabuco	Argentina	-32.74145	-65.20613	1	1	1.0000
+Cladosporium cladosporioides	Kenya: Narok	Kenya	-1.27794	35.47742	1	1	1.0000
+Cladosporium cladosporioides	Kenya: Ngenia	Kenya	-0.28442	35.70655	1	1	1.0000
+Cladosporium cladosporioides	Kenya: Ngecha	Kenya	-0.28295	35.74241	1	1	1.0000
+Cladosporium cladosporioides	Spain: Córdoba	Spain	37.88458	-4.77601	5	1	0.2000
+Cladosporium cladosporioides	Argentina: Marcos Juárez	Argentina	-32.69469	-62.10439	1	1	1.0000
+Epicoccum nigrum	South Africa: Bethlehem	South Africa	-28.23083	28.30889	14	5	0.3571
+Epicoccum nigrum	Argentina: Chillar	Argentina	-37.31287	-59.98523	10	5	0.5000
+Epicoccum nigrum	Ethiopia: Sinana	Ethiopia	7.08333	40.20000	13	4	0.3077
+Epicoccum nigrum	Ethiopia: Sinana RS	Ethiopia	7.12427	40.00810	8	3	0.3750
+Epicoccum nigrum	UK: Lincolnshire	UK	53.18230	-0.20312	7	1	0.1429
+Epicoccum nigrum	UK: Berkshire	UK	51.45349	-1.03187	1	1	1.0000
+Epicoccum nigrum	UK: Hereford	UK	52.05538	-2.71517	2	1	0.5000
+Epicoccum nigrum	France: Fresne L'Archeveque	France	49.28667	1.41100	1	1	1.0000
+Epicoccum nigrum	France: Le Gios Thiel	France	49.23081	0.84599	1	1	1.0000
+Epicoccum nigrum	Pakistan: Abbottabad	Pakistan	34.14361	73.21327	3	1	0.3333
+Epicoccum nigrum	Czechia: Rokytnice	Czechia	49.46592	17.39120	2	1	0.5000
+Epicoccum nigrum	UK: Bridgend	UK	51.50499	-3.57567	1	1	1.0000
+Epicoccum nigrum	China: Jinshan Gangu Tianshui	China	34.81719	105.44401	9	1	0.1111
+Epicoccum nigrum	USA: Lafayette, Indiana	USA	30.22622	-92.01782	4	1	0.2500
+Epicoccum nigrum	USA: Hitchcock, Nebraska	USA	40.16596	-101.03875	1	1	1.0000
+Epicoccum nigrum	USA: Gregory, South Dakota	USA	43.17138	-99.16748	1	1	1.0000
+Epicoccum nigrum	USA: Hemingford, Nebraska	USA	42.32158	-103.07287	1	1	1.0000
+Epicoccum nigrum	Ethiopia: Limo Lereba Roma	Ethiopia	7.68333	37.96667	1	1	1.0000
+Epicoccum nigrum	Ethiopia: Tiya	Ethiopia	8.43733	38.60930	1	1	1.0000
+Epicoccum nigrum	South Africa: Riversdal	South Africa	-34.09491	21.26147	1	1	1.0000
+Epicoccum nigrum	South Africa: Jozini	South Africa	-27.43083	32.06639	1	1	1.0000
+Epicoccum nigrum	UK: Carnoustie	UK	56.50105	-2.71140	3	1	0.3333
+Epicoccum nigrum	Turkey: Babaeski	Turkey	41.43026	27.09178	1	1	1.0000
+Epicoccum nigrum	Croatia: Sigetec	Croatia	46.18699	16.93364	1	1	1.0000
+Epicoccum nigrum	Hungary: Sárbogárdi Járás	Hungary	46.86254	18.61783	1	1	1.0000
+Epicoccum nigrum	Argentina: Pergamino	Argentina	-33.89749	-60.57505	8	1	0.1250
+Epicoccum nigrum	Argentina: Victoria	Argentina	-34.45410	-58.54071	1	1	1.0000
+Epicoccum nigrum	Argentina: Paraná	Argentina	-27.42102	-56.60117	6	1	0.1667
+Epicoccum nigrum	Argentina: Balcarce	Argentina	-37.84640	-58.25546	6	1	0.1667
+Epicoccum nigrum	Argentina: Chacabuco	Argentina	-32.74145	-65.20613	1	1	1.0000
+Epicoccum nigrum	Kenya: Narok	Kenya	-1.27794	35.47742	1	1	1.0000
+Epicoccum nigrum	Kenya: Ngenia	Kenya	-0.28442	35.70655	1	1	1.0000
+Epicoccum nigrum	Argentina: Marcos Juárez	Argentina	-32.69469	-62.10439	1	1	1.0000
+Epicoccum nigrum	UK: North Yorkshire	UK	54.13453	-1.49863	1	1	1.0000
+Pyrenophora tritici-repentis	Argentina: Chillar	Argentina	-37.31287	-59.98523	10	4	0.4000
+Pyrenophora tritici-repentis	Czechia: Hrubčice	Czechia	49.44372	17.20463	5	3	0.6000
+Pyrenophora tritici-repentis	Germany: Ruchheim	Germany	49.47337	8.32948	5	2	0.4000
+Pyrenophora tritici-repentis	Ethiopia: Sinana	Ethiopia	7.08333	40.20000	13	2	0.1538
+Pyrenophora tritici-repentis	Germany: Silstedt	Germany	51.84573	10.85310	10	2	0.2000
+Pyrenophora tritici-repentis	France: 80200 Marchelepot	France	49.83181	2.86838	3	1	0.3333
+Pyrenophora tritici-repentis	Poland: Pagow	Poland	51.77262	20.42655	1	1	1.0000
+Pyrenophora tritici-repentis	Poland: Guvcz	Poland	53.81937	18.90464	1	1	1.0000
+Pyrenophora tritici-repentis	Poland: Jaroseawiec	Poland	50.71688	23.36199	1	1	1.0000
+Pyrenophora tritici-repentis	Belgium: Mignault	Belgium	50.52886	4.15235	6	1	0.1667
+Pyrenophora tritici-repentis	France: Ecouis	France	49.31036	1.43184	1	1	1.0000
+Pyrenophora tritici-repentis	Germany: Weißensee	Germany	52.55462	13.46300	3	1	0.3333
+Pyrenophora tritici-repentis	USA: Tripp, South Dakota	USA	43.37791	-99.83949	1	1	1.0000
+Pyrenophora tritici-repentis	USA: Hemingford, Nebraska	USA	42.32158	-103.07287	1	1	1.0000
+Pyrenophora tritici-repentis	Canada: St Albert	Canada	53.63324	-113.62884	1	1	1.0000
+Pyrenophora tritici-repentis	Canada: Lethbridge	Canada	49.69458	-112.83310	3	1	0.3333
+Pyrenophora tritici-repentis	Germany: Ludwigshafen	Germany	49.47041	8.43816	2	1	0.5000
+Pyrenophora tritici-repentis	France: Les Andelys	France	49.24692	1.42155	1	1	1.0000
+Pyrenophora tritici-repentis	Ethiopia: Kora	Ethiopia	8.81667	38.95000	3	1	0.3333
+Pyrenophora tritici-repentis	Morocco: Merchouch	Morocco	33.61216	-6.70995	5	1	0.2000
+Pyrenophora tritici-repentis	Argentina: Cañada Rosquin	Argentina	-32.05446	-61.60188	1	1	1.0000
+Pyrenophora tritici-repentis	Argentina: Bordenave	Argentina	-37.80470	-63.04105	3	1	0.3333
+Pyrenophora tritici-repentis	Argentina: Balcarce	Argentina	-37.84640	-58.25546	6	1	0.1667
+Pyrenophora tritici-repentis	Kenya: Moiben	Kenya	0.72163	35.39900	1	1	1.0000
+Pyrenophora tritici-repentis	Canada: Saskatoon	Canada	52.13180	-106.66077	1	1	1.0000
+Pyrenophora tritici-repentis	Argentina: Placita	Argentina	-33.03382	-68.89700	1	1	1.0000
+Stemphylium lycopersici	UK: Wolferton	UK	52.82932	0.46258	12	4	0.3333
+Stemphylium lycopersici	Spain: Lebrija	Spain	36.91931	-6.07641	4	3	0.7500
+Stemphylium lycopersici	UK: Ickleton	UK	52.07036	0.17604	23	3	0.1304
+Stemphylium lycopersici	Morocco: Merchouch	Morocco	33.61216	-6.70995	5	2	0.4000
+Stemphylium lycopersici	Argentina: Chillar	Argentina	-37.31287	-59.98523	10	2	0.2000
+Stemphylium lycopersici	UK: Kent	UK	51.20707	0.72104	1	1	1.0000
+Stemphylium lycopersici	UK: Lincolnshire	UK	53.18230	-0.20312	7	1	0.1429
+Stemphylium lycopersici	UK: Berkshire	UK	51.45349	-1.03187	1	1	1.0000
+Stemphylium lycopersici	UK: Bridgend	UK	51.50499	-3.57567	1	1	1.0000
+Stemphylium lycopersici	UK: Bishop Burton	UK	53.84143	-0.51355	5	1	0.2000
+Stemphylium lycopersici	UK: Broughton	UK	53.56561	-0.55392	1	1	1.0000
+Stemphylium lycopersici	USA: Hemingford, Nebraska	USA	42.32158	-103.07287	1	1	1.0000
+Stemphylium lycopersici	South Africa: Bredasdorp	South Africa	-34.53305	20.04278	2	1	0.5000
+Stemphylium lycopersici	UK: Boston	UK	52.97766	-0.02380	6	1	0.1667
+Stemphylium lycopersici	Turkey: Murath	Turkey	41.16991	27.50025	1	1	1.0000
+Stemphylium lycopersici	Turkey: Babaeski	Turkey	41.43026	27.09178	1	1	1.0000
+Stemphylium lycopersici	Spain: Almacelles	Spain	41.72950	0.44048	4	1	0.2500
+Stemphylium lycopersici	Spain: Puerto de Santa Maria	Spain	38.04207	-6.18358	1	1	1.0000
+Stemphylium lycopersici	Spain: Córdoba	Spain	37.88458	-4.77601	5	1	0.2000
+Stemphylium lycopersici	UK: Stockbridge	UK	55.95797	-3.20934	2	1	0.5000
+Stemphylium lycopersici	UK: Lincoln	UK	53.22935	-0.54048	1	1	1.0000
+Stemphylium lycopersici	UK: Mendelsham	UK	52.25102	1.07952	3	1	0.3333
+Puccinia graminis	Argentina: Balcarce	Argentina	-37.84640	-58.25546	6	3	0.5000
+Puccinia graminis	Argentina: Chillar	Argentina	-37.31287	-59.98523	10	3	0.3000
+Puccinia graminis	Ethiopia: Kulumsa	Ethiopia	7.95000	39.13333	4	2	0.5000
+Puccinia graminis	UK: Langley (Essex)	UK	51.99240	0.09594	12	1	0.0833
+Puccinia graminis	UK: Throws	UK	52.75768	-1.24188	8	1	0.1250
+Puccinia graminis	UK: Carnoustie	UK	56.50105	-2.71140	3	1	0.3333
+Puccinia graminis	UK: Ledbury	UK	52.03575	-2.42878	2	1	0.5000
+Puccinia graminis	Kenya: Narok	Kenya	-1.27794	35.47742	1	1	1.0000
+Puccinia graminis	Argentina: Marcos Juárez	Argentina	-32.69469	-62.10439	1	1	1.0000
+Puccinia graminis	UK: Newark	UK	53.07363	-0.80054	2	1	0.5000
+Puccinia graminis	Canada: Alberta	Canada	55.00125	-115.00214	8	1	0.1250
+Pyrenophora teres	Germany: Hingste	Germany	52.82290	9.18737	5	2	0.4000
+Pyrenophora teres	Spain: Almacelles	Spain	41.72950	0.44048	4	2	0.5000
+Pyrenophora teres	France: Louville la Chenard	France	48.32415	1.78674	10	1	0.1000
+Pyrenophora teres	UK: Cambridgeshire	UK	52.37290	-0.04494	17	1	0.0588
+Pyrenophora teres	France: 80200 Marchelepot	France	49.83181	2.86838	3	1	0.3333
+Pyrenophora teres	Germany: Gommershoven	Germany	51.01969	6.62850	6	1	0.1667
+Pyrenophora teres	Germany: Iserlohn	Germany	51.37468	7.69997	1	1	1.0000
+Pyrenophora teres	France: Marchélepot	France	49.83181	2.86838	7	1	0.1429
+Pyrenophora teres	Ethiopia: Sinana	Ethiopia	7.08333	40.20000	13	1	0.0769
+Pyrenophora teres	Spain: Puerto de Santa Maria	Spain	38.04207	-6.18358	1	1	1.0000
+Pyrenophora teres	Morocco: Merchouch	Morocco	33.61216	-6.70995	5	1	0.2000
+Pyrenophora teres	Spain: Córdoba	Spain	37.88458	-4.77601	5	1	0.2000
+Pyrenophora teres	Canada: Saskatoon	Canada	52.13180	-106.66077	1	1	1.0000
+Puccinia striiformis	Ireland: Kilkenny	Ireland	52.65063	-7.25144	3	2	0.6667
+Puccinia striiformis	Ireland: Waterford	Ireland	52.26100	-7.11191	4	2	0.5000
+Puccinia striiformis	South Africa: Bethlehem	South Africa	-28.23083	28.30889	1	1	1.0000
+Puccinia striiformis	France: Louville la Chenard	France	48.32415	1.78674	10	1	0.1000
+Puccinia striiformis	Germany: Northeim, Weke	Germany	51.76485	9.85888	2	1	0.5000
+Puccinia striiformis	United Kingdom: Oxfordshire, Banbury	UK	52.06018	-1.34028	2	1	0.5000
+Puccinia striiformis	UK: Kent	UK	51.20707	0.72104	1	1	1.0000
+Puccinia striiformis	UK: Lincolnshire	UK	53.18230	-0.20312	1	1	1.0000
+Puccinia striiformis	UK: Cambridgeshire	UK	52.37290	-0.04494	11	1	0.0909
+Puccinia striiformis	France: 80200 Marchelepot	France	49.83181	2.86838	3	1	0.3333
+Puccinia striiformis	France: Le Gios Thiel	France	49.23081	0.84599	1	1	1.0000

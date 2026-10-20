@@ -1,0 +1,385 @@
+locality	country	lat	lon	n_libraries	n_projects
+Argentina: Anguil	Argentina	-36.52696	-64.00796	1	1
+Argentina: Arias	Argentina	-33.64221	-62.40384	1	1
+Argentina: Balcarce	Argentina	-37.84640	-58.25546	6	1
+Argentina: Bordenave	Argentina	-37.80470	-63.04105	3	1
+Argentina: Cañada Rosquin	Argentina	-32.05446	-61.60188	1	1
+Argentina: Chacabuco	Argentina	-32.74145	-65.20613	1	1
+Argentina: Chillar	Argentina	-37.31287	-59.98523	10	1
+Argentina: La Dulce	Argentina	-38.28366	-59.20334	2	1
+Argentina: Marcos Juárez	Argentina	-32.69469	-62.10439	1	1
+Argentina: Paraná	Argentina	-27.42102	-56.60117	6	1
+Argentina: Pergamino	Argentina	-33.89749	-60.57505	8	1
+Argentina: Placita	Argentina	-33.03382	-68.89700	1	1
+Argentina: Sancti Spiritu	Argentina	-34.00765	-62.24143	1	1
+Argentina: Trenque Lauquen	Argentina	-35.97311	-62.73288	1	1
+Argentina: Victoria	Argentina	-34.45410	-58.54071	1	1
+Australia: Scadden	Australia	-33.44120	121.72431	2	1
+Austria: Gießhübl	Austria	48.09700	16.23631	1	1
+Austria: Groß Enzersdorf	Austria	48.20180	16.55196	1	1
+Belgium: Avelgem	Belgium	50.77751	3.44967	1	1
+Belgium: Doel	Belgium	51.31112	4.26432	1	1
+Belgium: Koksijde	Belgium	51.11877	2.63493	1	1
+Belgium: Mignault	Belgium	50.52886	4.15235	6	3
+Belgium: Zwevegem	Belgium	50.78286	3.37559	1	1
+Bhutan: Punakha	Bhutan	27.63635	89.83637	1	1
+Bulgaria: Lyuben	Bulgaria	43.94276	27.04398	2	1
+Bulgaria: Novi Han	Bulgaria	42.60572	23.59600	1	1
+Canada: Alberta	Canada	55.00125	-115.00214	8	1
+Canada: British Columbia	Canada	55.00125	-125.00244	4	1
+Canada: Lacombe	Canada	52.47275	-113.73322	2	1
+Canada: Lethbridge	Canada	49.69458	-112.83310	3	1
+Canada: Saskatchewan	Canada	55.53213	-106.14122	4	1
+Canada: Saskatoon	Canada	52.13180	-106.66077	1	1
+Canada: St Albert	Canada	53.63324	-113.62884	1	1
+Chile: Cajón Temuco	Chile	-38.67756	-72.50318	1	1
+Chile: Carillanca Vilcun	Chile	-38.69798	-72.41499	1	1
+Chile: Los Tilos Santiago	Chile	-33.71324	-70.68850	1	1
+Chile: StaRosa Chillán	Chile	-36.52710	-71.90996	2	1
+China: Jiangsu, Nanjing (Jiangsu Academy of Agricultural Sciences experimental farm)	China	32.04383	118.77886	12	1
+China: Jinshan Gangu Tianshui	China	34.81719	105.44401	9	1
+China: Nanhu Zhuanglang Pingliang	China	35.33783	105.96201	4	1
+China: Pingnan Qinzhou Tianshui	China	34.35297	105.67870	6	1
+Croatia: Gotalovo	Croatia	46.21848	16.98413	1	1
+Croatia: Osijek	Croatia	45.55488	18.69537	5	2
+Croatia: Sigetec	Croatia	46.18699	16.93364	1	1
+Czechia: Branisovice	Czechia	48.96281	16.43185	5	1
+Czechia: Chrudim	Czechia	49.95115	15.79476	1	1
+Czechia: Hněvčeves	Czechia	50.31423	15.71140	4	1
+Czechia: Hrubčice	Czechia	49.44372	17.20463	5	1
+Czechia: Kněževes	Czechia	49.45648	15.98082	2	1
+Czechia: Kujavy	Czechia	49.70331	17.97253	1	1
+Czechia: Olomouc	Czechia	49.59406	17.25114	3	1
+Czechia: Přerov	Czechia	49.45538	17.45086	1	1
+Czechia: Rokytnice	Czechia	49.46592	17.39120	2	2
+Denmark: Helsignør	Denmark	56.03487	12.61301	1	1
+Ethiopia: Absila	Ethiopia	11.25192	36.70449	1	1
+Ethiopia: Aleltu Chole Shenkole	Ethiopia	9.19756	39.15227	1	1
+Ethiopia: Aleltu Fiche Gelila	Ethiopia	9.19756	39.15227	1	1
+Ethiopia: Arsi Robe	Ethiopia	7.69456	39.76004	7	2
+Ethiopia: Assasa	Ethiopia	7.10255	39.19567	4	2
+Ethiopia: Bekoji	Ethiopia	7.53333	39.25000	3	2
+Ethiopia: Bilalo	Ethiopia	7.39556	39.23197	1	1
+Ethiopia: Ch'aso	Ethiopia	9.95000	39.21667	1	1
+Ethiopia: Danbora Amancho Boganeos	Ethiopia	7.31401	37.85860	1	1
+Ethiopia: Dinsho Abakera Zalo	Ethiopia	7.10821	39.78015	1	1
+Ethiopia: Gurage Zone	Ethiopia	8.21735	38.42717	1	1
+Ethiopia: Hadya Lemo Dicho Demala	Ethiopia	7.68333	37.96667	1	1
+Ethiopia: Kora	Ethiopia	8.81667	38.95000	3	1
+Ethiopia: Kulumsa	Ethiopia	7.95000	39.13333	4	3
+Ethiopia: Kuyu Liben Kura	Ethiopia	9.86667	38.35000	1	1
+Ethiopia: Lay Gayint 08 Wuha Midir	Ethiopia	11.73863	38.47275	1	1
+Ethiopia: Limo Lereba Roma	Ethiopia	7.68333	37.96667	1	1
+Ethiopia: Meraro	Ethiopia	7.40795	39.24175	8	1
+Ethiopia: Selka	Ethiopia	7.08333	40.20000	1	1
+Ethiopia: Sembo	Ethiopia	9.41667	39.35000	1	1
+Ethiopia: Shinshihco	Ethiopia	7.20616	37.77689	1	1
+Ethiopia: Silt'e	Ethiopia	7.74658	38.15539	1	1
+Ethiopia: Silti Wereda Danicho Azoro	Ethiopia	7.96667	38.28333	1	1
+Ethiopia: Sinana	Ethiopia	7.08333	40.20000	13	2
+Ethiopia: Sinana Kabira	Ethiopia	7.08333	40.20000	3	1
+Ethiopia: Sinana Kabira Shaya	Ethiopia	7.08333	40.20000	1	1
+Ethiopia: Sinana RS	Ethiopia	7.12427	40.00810	8	3
+Ethiopia: Tiya	Ethiopia	8.43733	38.60930	1	1
+Ethiopia: Weliso Kora	Ethiopia	8.53886	37.97619	1	1
+Ethiopia: Wilting Woreda	Ethiopia	7.74658	38.15539	1	1
+France: 80200 Marchelepot	France	49.83181	2.86838	3	1
+France: Allonnes	France	47.96928	0.15788	2	1
+France: Allouange	France	50.53250	2.50706	1	1
+France: Beauval Encaux	France	49.74395	1.01911	1	1
+France: Bouglainval	France	48.56406	1.50702	2	1
+France: Bourgogne	France	47.27809	4.22249	1	1
+France: Chartres, Allonnes	France	48.33049	1.65616	2	1
+France: Ecouis	France	49.31036	1.43184	1	1
+France: Fresne L'Archeveque	France	49.28667	1.41100	1	1
+France: Frévin-Capelle	France	50.35024	2.63883	2	1
+France: Gourhel	France	47.93693	-2.36114	1	1
+France: Grézillé	France	47.32119	-0.33270	2	1
+France: Guégon	France	47.93759	-2.56485	1	1
+France: La Capelle	France	49.97806	3.91722	1	1
+France: La Corbillière	France	47.94329	1.48019	2	1
+France: Le Gios Thiel	France	49.23081	0.84599	1	1
+France: Les Andelys	France	49.24692	1.42155	1	1
+France: Louvigny	France	49.15654	-0.39373	1	1
+France: Louville	France	45.59623	3.78034	9	1
+France: Louville la Chenard	France	48.32415	1.78674	10	2
+France: Loyat	France	47.99015	-2.38296	3	2
+France: Luglon	France	44.08190	-0.71900	1	1
+France: Marchélepot	France	49.83181	2.86838	7	2
+France: Meurchin	France	50.49539	2.89009	1	1
+France: Momont	France	48.60745	-0.06054	2	1
+France: Mons-en-Pévèle	France	50.48034	3.09913	1	1
+France: Montbartier	France	43.91361	1.27333	3	1
+France: Mœuvres	France	50.16384	3.06483	1	1
+France: Nangis	France	48.55494	3.01368	1	1
+France: Neant sur Yvel	France	48.01282	-2.32768	2	1
+France: Pontfaverger	France	49.29736	4.31745	1	1
+France: Proviseux	France	49.46520	4.00993	2	1
+France: Saint-Germain-en-Laye	France	48.93125	2.09126	1	1
+France: Saultain	France	50.33510	3.58255	1	1
+France: Touffreville-sur-Eu	France	49.99958	1.33426	1	1
+France: Valenciennes	France	50.35793	3.52348	1	1
+France: Vauroisy	France	49.27998	4.31138	1	1
+France: Écouis	France	49.31036	1.43184	2	1
+Germany: Altenberge	Germany	52.04684	7.46699	1	1
+Germany: Bothkamp	Germany	54.20326	10.13366	1	1
+Germany: Buchbach	Germany	48.31267	12.27306	1	1
+Germany: Böhl Bauch 10	Germany	49.37531	8.30414	1	1
+Germany: Bühren	Germany	51.48468	9.68015	1	1
+Germany: Dunau	Germany	52.35440	9.54815	1	1
+Germany: Erlangen	Germany	49.58916	10.98121	1	1
+Germany: Etzdorf	Germany	51.05063	13.18472	3	2
+Germany: Gommershoven	Germany	51.01969	6.62850	6	3
+Germany: Groitzsch	Germany	51.15000	12.28330	3	2
+Germany: Gronau	Germany	52.08417	9.77520	1	1
+Germany: Grucking	Germany	48.34180	11.97171	1	1
+Germany: Harzhof	Germany	54.41647	9.84795	6	1
+Germany: Hemmingen	Germany	52.32122	9.74548	4	1
+Germany: Hingste	Germany	52.82290	9.18737	5	2
+Germany: Hüttendorf	Germany	49.54166	10.96092	2	1
+Germany: Iserlohn	Germany	51.37468	7.69997	1	1
+Germany: Kirchmatting	Germany	48.81302	12.61189	1	1
+Germany: Limburgerhof	Germany	49.42266	8.39335	2	1
+Germany: Lippetal	Germany	51.65162	8.07876	4	1
+Germany: Lower Saxony, Northeim	Germany	51.76485	9.85888	1	1
+Germany: Ludwigshafen	Germany	49.47041	8.43816	2	1
+Germany: Melle	Germany	52.19504	8.34748	6	1
+Germany: Moselsürsch	Germany	50.26029	7.42476	2	2
+Germany: Motterwitz	Germany	51.19641	12.88059	1	1
+Germany: Mörsch Frankenthal	Germany	49.55958	8.38710	2	1
+Germany: Northeim	Germany	51.76485	9.85888	1	1
+Germany: Northeim, Weke	Germany	51.76485	9.85888	2	1
+Germany: Oberboihingen	Germany	48.64760	9.36689	1	1
+Germany: Quellendorf	Germany	51.75405	12.15679	2	1
+Germany: Ruchheim	Germany	49.47337	8.32948	5	3
+Germany: Seelze	Germany	52.39646	9.59429	3	1
+Germany: Selingenstadt	Germany	50.03471	8.95937	2	1
+Germany: Silstedt	Germany	51.84573	10.85310	10	1
+Germany: Tachenhausen	Germany	48.64965	9.38490	1	1
+Germany: Walkendorf	Germany	53.95378	12.55013	1	1
+Germany: Weißensee	Germany	52.55462	13.46300	3	1
+Germany: Welsch Billig	Germany	49.85506	6.56523	1	1
+Germany: Wetze	Germany	51.74124	9.91047	2	1
+Germany: Wohlde	Germany	54.40612	9.29784	4	2
+Hungary: Győr	Hungary	47.68350	17.63428	1	1
+Hungary: Kocs	Hungary	47.60550	18.21320	1	1
+Hungary: Szekszárd	Hungary	46.34849	18.70166	1	1
+Hungary: Sárbogárdi Járás	Hungary	46.86254	18.61783	1	1
+Ireland: Carlow	Ireland	52.84083	-6.92611	4	2
+Ireland: Cork	Ireland	51.89851	-8.47264	1	1
+Ireland: Kilkenny	Ireland	52.65063	-7.25144	3	1
+Ireland: Laois	Ireland	52.99846	-7.39803	2	1
+Ireland: Waterford	Ireland	52.26100	-7.11191	4	1
+Israel: Beeri	Israel	31.42416	34.49112	1	1
+Israel: Nahal Shikma	Israel	31.61144	34.51007	1	1
+Israel: Ramot Menashe	Israel	32.59788	35.05765	1	1
+Israel: Yad Mordechai	Israel	31.58868	34.55900	1	1
+Italy: Conselice	Italy	44.51276	11.82917	3	2
+Italy: Orzzano dell'Emilia	Italy	44.44498	11.47605	1	1
+Italy: Ozzano	Italy	44.44498	11.47605	3	2
+Kenya: Cheptiret	Kenya	0.37648	35.37019	1	1
+Kenya: Judea	Kenya	-0.28565	36.12524	1	1
+Kenya: Mau Summit	Kenya	-0.16131	35.69366	1	1
+Kenya: MauNarok	Kenya	-0.60143	36.01451	2	1
+Kenya: Moiben	Kenya	0.72163	35.39900	1	1
+Kenya: Narok	Kenya	-1.27794	35.47742	1	1
+Kenya: Ngecha	Kenya	-0.28295	35.74241	1	1
+Kenya: Ngenia	Kenya	-0.28442	35.70655	1	1
+Kenya: Siwot Keringet	Kenya	-0.41376	35.67261	1	1
+Morocco: Merchouch	Morocco	33.61216	-6.70995	5	1
+Pakistan: Abbottabad	Pakistan	34.14361	73.21327	3	1
+Pakistan: Atter Shisha	Pakistan	34.40069	73.37845	3	1
+Poland: Choryn	Poland	52.04034	16.76553	1	1
+Poland: Chrzelive	Poland	50.47095	17.73655	1	1
+Poland: Gurcz	Poland	53.81937	18.90464	2	1
+Poland: Guvcz	Poland	53.81937	18.90464	1	1
+Poland: Jaroseawiec	Poland	50.71688	23.36199	1	1
+Poland: Jarosławiec	Poland	50.71688	23.36199	7	3
+Poland: Pagow	Poland	51.77262	20.42655	1	1
+Poland: Sroda Wielkopolska	Poland	52.22843	17.27783	2	1
+Poland: Widawa	Poland	51.43750	18.94412	1	1
+Rwanda: Rwerere	Rwanda	-1.51174	29.87742	1	1
+Serbia: Konak	Serbia	45.31635	20.91383	1	1
+Serbia: Krčedin	Serbia	45.14035	20.13276	1	1
+Serbia: Rimski Šančevi	Serbia	45.31918	19.83288	6	1
+Slovakia: Vígľaš-Pstruša	Slovakia	48.54635	19.31812	2	1
+Slovenia: Borovnica	Slovenia	45.91136	14.38316	1	1
+South Africa: Bethlehem	South Africa	-28.23083	28.30889	14	2
+South Africa: Bloemfontein	South Africa	-29.11640	26.21550	2	2
+South Africa: Bredasdorp	South Africa	-34.53305	20.04278	2	1
+South Africa: Free State	South Africa	-28.78536	26.49789	2	1
+South Africa: Greytown	South Africa	-29.06056	30.58889	4	1
+South Africa: Hopetown	South Africa	-29.62396	24.08301	1	1
+South Africa: Jozini	South Africa	-27.43083	32.06639	1	1
+South Africa: Luckhoff	South Africa	-29.75004	24.78685	1	1
+South Africa: Napier	South Africa	-34.47472	19.89806	3	2
+South Africa: Northern Cape	South Africa	-29.57340	21.20514	1	1
+South Africa: Ouplaas	South Africa	-34.37387	20.43439	2	1
+South Africa: Riversdal	South Africa	-34.09491	21.26147	1	1
+South Africa: Sutherland	South Africa	-32.39389	20.66111	1	1
+South Africa: Suurbraak	South Africa	-34.00763	20.65582	2	1
+South Africa: Tygerhoek	South Africa	-34.15028	19.91444	1	1
+South Africa: Western Cape	South Africa	-33.54698	20.72753	1	1
+Spain: Almacelles	Spain	41.72950	0.44048	4	1
+Spain: Burgos	Spain	42.34485	-3.68125	2	1
+Spain: Córdoba	Spain	37.88458	-4.77601	5	1
+Spain: Elorz	Spain	42.73324	-1.56139	2	1
+Spain: Jerez	Spain	36.68169	-6.13774	1	1
+Spain: Las Cabezas de San Juan	Spain	36.98067	-5.94067	1	1
+Spain: Lebrija	Spain	36.91931	-6.07641	4	1
+Spain: Medigorría	Spain	42.62621	-1.83402	1	1
+Spain: Puerto de Santa Maria	Spain	38.04207	-6.18358	1	1
+Spain: Santa Cruz de Tenerife	Spain	28.46718	-16.25078	2	1
+Spain: Utrera	Spain	37.18246	-5.78175	1	1
+Sweden: Borrby	Sweden	55.45803	14.18089	1	1
+Sweden: Sandby	Sweden	55.71013	13.37033	2	1
+Sweden: Svalöv	Sweden	55.91293	13.11975	11	2
+Sweden: Österlen	Sweden	55.59933	14.11411	3	2
+The Netherlands: Hank	Netherlands	51.73604	4.89860	1	1
+The Netherlands: Kamperland	Netherlands	51.56800	3.70171	1	1
+The Netherlands: Nieuw Beerta	Netherlands	53.18923	7.16325	1	1
+The Netherlands: Oostburg	Netherlands	51.32719	3.48955	1	1
+The Netherlands: Westmaas	Netherlands	51.78779	4.47378	3	1
+The Netherlands: Wirdum	Netherlands	53.32317	6.78614	1	1
+Turkey: Babaeski	Turkey	41.43026	27.09178	1	1
+Turkey: Murath	Turkey	41.16991	27.50025	1	1
+UK: Benniworth	UK	53.31636	-0.18410	1	1
+UK: Berkshire	UK	51.45349	-1.03187	1	1
+UK: Bishop Burton	UK	53.84143	-0.51355	5	2
+UK: Boothby Graffoe	UK	53.12328	-0.51828	4	1
+UK: Boston	UK	52.97766	-0.02380	6	2
+UK: Brackley	UK	52.02790	-1.14847	2	1
+UK: Bridgend	UK	51.50499	-3.57567	1	1
+UK: Broughton	UK	53.56561	-0.55392	1	1
+UK: Bury St Edmunds	UK	52.24604	0.71252	1	1
+UK: Cambridge	UK	52.19758	0.13915	10	2
+UK: Cambridgeshire	UK	52.37290	-0.04494	17	4
+UK: Canterbury	UK	51.28003	1.08025	8	1
+UK: Carnoustie	UK	56.50105	-2.71140	3	1
+UK: Cascob	UK	52.29099	-3.11595	2	1
+UK: Caythorpe	UK	53.00638	-0.98147	17	3
+UK: Chillingham	UK	55.52763	-1.90396	1	1
+UK: Chirnside	UK	55.80215	-2.20918	3	1
+UK: Cirencester	UK	51.71710	-1.96616	3	1
+UK: Clacton	UK	51.78840	1.15279	1	1
+UK: Coates (Peterborough)	UK	52.56226	-0.07448	1	1
+UK: Coldstream	UK	55.65118	-2.25296	1	1
+UK: Crabbs Green	UK	51.82536	0.24403	1	1
+UK: Dorset	UK	50.79684	-2.34473	1	1
+UK: Dunmow	UK	51.87335	0.35798	1	1
+UK: Duns	UK	55.77784	-2.34385	1	1
+UK: East Lothian	UK	55.91580	-2.75120	1	1
+UK: East Yorkshire	UK	53.91123	-0.58131	1	1
+UK: Foscot	UK	51.89514	-1.63897	1	1
+UK: Fowlmere	UK	52.08964	0.07564	1	1
+UK: Gipping	UK	52.22925	1.03046	1	1
+UK: Glastonbury	UK	51.14804	-2.71658	1	1
+UK: Glenrothes	UK	56.19619	-3.17163	1	1
+UK: Great Ayton	UK	54.48806	-1.13293	1	1
+UK: Hampshire	UK	51.04498	-1.24331	2	1
+UK: Headley Hall	UK	53.86811	-1.32479	2	2
+UK: Hemingstone	UK	52.14049	1.14174	1	1
+UK: Hereford	UK	52.05538	-2.71517	2	1
+UK: Herne Bay	UK	51.37195	1.13070	1	1
+UK: High Legh	UK	53.34797	-2.47475	1	1
+UK: Honingham	UK	52.66248	1.12267	2	1
+UK: Humbie	UK	55.85425	-2.86787	2	1
+UK: Hundon	UK	52.11308	0.53814	1	1
+UK: Ickleton	UK	52.07036	0.17604	23	1
+UK: Ixworth	UK	52.29962	0.83791	1	1
+UK: Kent	UK	51.20707	0.72104	1	1
+UK: Langley (Essex)	UK	51.99240	0.09594	12	1
+UK: Layer de la Haye	UK	51.84679	0.86234	1	1
+UK: Ledbury	UK	52.03575	-2.42878	2	1
+UK: Leicestershire	UK	52.66667	-1.00000	1	1
+UK: Lenham	UK	51.23446	0.70724	2	1
+UK: Lincoln	UK	53.22935	-0.54048	1	1
+UK: Lincolnshire	UK	53.18230	-0.20312	7	2
+UK: Lindsey	UK	52.06768	0.88468	1	1
+UK: Ludlow	UK	52.36799	-2.71931	1	1
+UK: Mears Ashby	UK	52.29239	-0.77278	1	1
+UK: Melton Mowbray	UK	52.76457	-0.88689	3	1
+UK: Mendelsham	UK	52.25102	1.07952	3	1
+UK: Mersea	UK	51.77698	0.91736	1	1
+UK: Morley (Norfolk)	UK	52.55171	1.04752	9	2
+UK: Nassington	UK	52.55727	-0.44301	1	1
+UK: Nauhton	UK	52.10237	0.95757	1	1
+UK: Newark	UK	53.07363	-0.80054	2	1
+UK: Newton	UK	52.03223	0.79433	3	1
+UK: North Yorkshire	UK	54.13453	-1.49863	1	1
+UK: Norwich	UK	52.62856	1.29240	1	1
+UK: Osgodby	UK	54.24826	-0.37360	4	1
+UK: Oxford	UK	51.75201	-1.25785	1	1
+UK: Rothwell (Lincolnshire)	UK	53.48068	-0.26689	13	1
+UK: Rougham (Suffolk)	UK	52.75074	0.71183	6	1
+UK: Royston	UK	52.04727	-0.02465	1	1
+UK: Spalding	UK	52.78763	-0.15261	1	1
+UK: Stockbridge	UK	55.95797	-3.20934	2	1
+UK: Stonham Aspal	UK	52.19315	1.11958	8	1
+UK: Sturminster Newton	UK	50.92900	-2.32639	5	2
+UK: Sutton Bridge	UK	52.76830	0.19157	1	1
+UK: Sutton Scotney	UK	51.15317	-1.33813	4	3
+UK: Telford	UK	52.67805	-2.45142	1	1
+UK: Terrington St Clement	UK	52.80885	0.30910	1	1
+UK: Thornton	UK	52.01550	-0.90538	5	1
+UK: Throws	UK	52.75768	-1.24188	8	1
+UK: Titchmarsh	UK	52.39997	-0.48932	1	1
+UK: Tuddenham	UK	52.31431	0.54721	1	1
+UK: Tye Green	UK	51.85695	0.58440	1	1
+UK: Wallingford	UK	51.59829	-1.12514	1	1
+UK: Wansford	UK	52.58105	-0.41675	1	1
+UK: Wardington	UK	52.11147	-1.28266	13	1
+UK: Watlington (Oxfordshire)	UK	51.64516	-1.00435	1	1
+UK: West Sussex	UK	50.94458	-0.52785	1	1
+UK: West Wickham, Cambridgeshire	UK	52.11735	0.35539	1	1
+UK: Whittlesford	UK	52.10968	0.15486	6	1
+UK: Wolferton	UK	52.82932	0.46258	12	2
+UK: Woodsford	UK	50.71253	-2.33959	1	1
+UK: York	UK	53.96566	-1.07431	2	1
+USA: Altus, Oklahoma	USA	34.63813	-99.33398	1	1
+USA: Bozeman, Montana	USA	45.67943	-111.04405	1	1
+USA: Brookings County, South Dakota	USA	44.32090	-96.75118	1	1
+USA: Cash, Arkansas	USA	35.79904	-90.93361	1	1
+USA: Chickasha, Oklahoma	USA	35.05122	-97.93700	1	1
+USA: Cimarron, Oklahoma	USA	36.72459	-102.47930	1	1
+USA: Corvallis, Oregon	USA	44.56457	-123.26204	1	1
+USA: Edicott, Washington	USA	46.92572	-117.68298	1	1
+USA: Gregory, South Dakota	USA	43.17138	-99.16748	1	1
+USA: Hemingford, Nebraska	USA	42.32158	-103.07287	1	1
+USA: Hidalgo, Texas	USA	26.35303	-98.21644	1	1
+USA: Hitchcock, Nebraska	USA	40.16596	-101.03875	1	1
+USA: Hutchinson, Kansas	USA	35.81482	-101.34844	1	1
+USA: Kalispell, Montana	USA	48.20216	-114.31532	1	1
+USA: Lafayette, Indiana	USA	30.22622	-92.01782	4	1
+USA: Lansing/Mason, Michigan	USA	42.57971	-84.44228	1	1
+USA: Montana	USA	47.37527	-109.63876	1	1
+USA: Mt Vernon, Washington	USA	40.91251	-73.83865	1	1
+USA: Othello, Washington	USA	47.54227	-122.28431	1	1
+USA: Raerden, Washington	USA	47.66961	-117.87773	1	1
+USA: Ririe, Indiana	USA	43.63131	-111.77359	1	1
+USA: Rockland, Indiana	USA	41.15193	-74.03573	1	1
+USA: Siskiyou, California	USA	41.32014	-122.30468	1	1
+USA: St John, Washington	USA	18.33560	-64.75504	1	1
+USA: Tripp, South Dakota	USA	43.37791	-99.83949	1	1
+USA: Walla Walla, Washington	USA	46.06689	-118.35165	4	1
+USA: Warsaw, Virginia	USA	41.23810	-85.85305	1	1
+USA: Weedsport, New York	USA	43.04868	-76.56272	1	1
+USA: Wichita, Kansas	USA	37.69224	-97.33754	4	1
+USA: Woodland, California	USA	38.67861	-121.77333	1	1
+Ukraine: Odessa	Ukraine	46.48430	30.73229	1	1
+United Kingdom: Cambridge, Duxford	UK	52.09382	0.13117	1	1
+United Kingdom: Cambridgeshire, Impington	UK	52.24931	0.11383	1	1
+United Kingdom: Cornwall	UK	50.44335	-4.62466	1	1
+United Kingdom: Essex, Ickleton	UK	51.77047	0.46467	1	1
+United Kingdom: Lincolnshire	UK	53.18230	-0.20312	1	1
+United Kingdom: Lincolnshire, Market Rasen	UK	53.38791	-0.33767	2	1
+United Kingdom: North Yorkshire	UK	54.13453	-1.49863	2	1
+United Kingdom: North Yorkshire, Tadcaster	UK	53.88530	-1.25960	1	1
+United Kingdom: Oxfordshire	UK	51.83333	-1.25000	1	1
+United Kingdom: Oxfordshire, Banbury	UK	52.06018	-1.34028	2	1
+United Kingdom: Shropshire, Edgmond	UK	52.65234	-2.64356	1	1
+United Kingdom: Suffolk, Bury St Edmunds	UK	52.24604	0.71252	1	1
+United Kingdom: Suffolk, Woolpit	UK	52.22477	0.88809	2	1
+United Kingdom: Swindon	UK	51.56153	-1.78543	1	1
+United Kingdom: Vale of Glamorgan, Bridgend	UK	51.44706	-3.39888	1	1
+United Kingdom: Warwickshire., Peopleton	UK	52.32131	-1.55369	1	1

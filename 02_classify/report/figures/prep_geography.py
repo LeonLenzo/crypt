@@ -1,49 +1,57 @@
 #!/usr/bin/env python3
-"""prep_geography.py — the Pst surveillance compendium as a preliminary spatial test.
+"""prep_geography.py — all classified wheat: the declared-vs-undeclared control, and geography.
 
-PRJEB39201 is the one project in the cohort that can carry a spatial analysis on its own, and
-the reason is design rather than size. It is a single surveillance programme: 538 yellow-rust
-infected wheat leaves, one protocol, 30 countries, 2014 to 2018, and the authors reported
-*Puccinia striiformis* and only *Puccinia striiformis*. So every other pathogen in those reads
-is unreported by construction, and because the protocol is constant, a difference BETWEEN
-countries is not a difference between studies.
+Covers **every classified wheat run**, 1,068 across 12 BioProjects, rather than the single
+surveillance compendium an earlier version of this script used. Expanding it is what turns two
+observations into tests, because each wheat project declares exactly ONE pathogen and the four
+declared species differ between projects:
 
-That last point is what makes this worth doing before the rest of the cohort lands. Everywhere
-else in this work, geography and study are nearly the same variable.
+    Puccinia striiformis   890 runs over 8 projects
+    Puccinia triticina      99 runs over 1
+    Puccinia graminis       67 runs over 2
+    Fusarium graminearum    12 runs over 1
 
-## THE CONFOUND THAT HAD TO BE CLEARED FIRST, AND IT IS ONLY PARTLY CLEARED
+## TEST 1: the same species, declared and undeclared
 
-Depth is the confound that invalidates the between-crop comparison: G_kmer spans 300x across the
-cohort and covaries with crop. Two correlations matter here and they do NOT agree, so both are
-computed and reported rather than whichever is more convenient:
+A detection pipeline that invents rusts would find them whether or not the study declared one.
+This cohort can measure that directly, because *P. triticina* is the declared pathogen in
+PRJEB84390 and an undeclared bystander in the eight *Pst* projects, and *P. graminis* likewise.
+Same species, same database, same floors; the only thing that changes is whether the study said
+it was there.
 
-  * across ALL classified wheat (18 countries, every project):   r = -0.053
-  * within THIS project alone (9 countries with n >= 10):        r = +0.271
+The asymmetry is the evidence. A per-species recovery near 100% when declared, against a much
+lower rate when not, cannot be produced by cross-mapping, because cross-mapping does not know
+what the paper said.
 
-The first says depth does not explain the spatial pattern in wheat generally. The second is
-weak, positive, and on nine points, where |r| would need to reach about 0.67 to be significant
-at the 5% level, so it neither establishes a depth effect nor excludes one. **It is not
-evidence that the panel is a depth artefact, and it is not evidence that it is not.** What
-carries the spatial reading is therefore the agreement with known disease geography and the
-opposite direction of the two gradients, not the depth correlation, which is underpowered at
-this sample size.
+**It also tests the congener worry for the rusts specifically.** If *Puccinia* calls were
+smearing across congeners, every project would show all three rusts. PRJNA256347 reports 100%
+*striiformis* with 0% *triticina* and 0% *graminis* on 35 runs, so they are not.
 
-The honest fix is more countries with enough libraries, which the remaining 6,504 cohort runs
-will supply.
+## TEST 2: does the geography replicate across independent studies
 
-## THE TIME AXIS IS NOT REPORTED, AND THIS IS WHY
+The spatial pattern is only worth reporting if a country's rate agrees between projects that
+share nothing but the country. This script writes the per-country rate separately per project
+so that agreement can be read directly rather than asserted.
 
-The pooled year trend looks clean and is an artefact of composition. Co-infection by collection
-year across the compendium runs 69% / 39% / 57% / 75% / 94% for 2014 to 2018, which reads as a
-rise. But the countries sampled change with the year: 2015 is Germany-heavy (48 of 173), 2016 is
-UK-heavy (103 of 203), and **2018 is 14 of 17 runs from two Argentinian sites**, Balcarce and
-Chillar. The 2018 spike is Argentina, not a year.
+## THE SEVEN NON-DETECTIONS ARE NOT BORDERLINE
 
-Holding country constant, the UK (211 runs) gives 57% / 60% / 77% for 2015 to 2017 and Germany
-(71 runs) gives 25% / 45% / 100% on n = 48 / 11 / 9. A single year's rise on n = 60 is not a
-trend, so this script writes the year table for inspection and the FIGURE shows space only.
+Of 1,068 wheat runs, 1,061 recover the declared pathogen. Six of the seven are PRJNA1181034,
+which is a field *F. graminearum* spike trial, and its 12 runs split bimodally: six at 14.8 to
+29.3% coverage and six at 0.00 to 0.11%, with 113 to 3,675 distinct minimizers against 491,872
+to 974,167. That is two to four orders of magnitude, not a threshold being brushed. The
+unavoidable reading is uninfected or mock-inoculated controls inside the trial, which means the
+absolute floor separated infected from uninfected cleanly in the one project that contained
+both.
 
-Writes geography.tsv, geography_species.tsv and geography_caption.txt.
+## TIME IS STILL NOT REPORTED
+
+Pooled by collection year the co-infection rate rises monotonically and it is a composition
+artefact: the countries sampled change with the year, and 14 of 17 libraries collected in 2018
+come from two Argentinian sites. Holding country constant it largely dissolves. The year table
+is written for inspection and is not plotted.
+
+Writes geography.tsv, geography_species.tsv, geography_control.tsv, geography_year.tsv and
+geography_caption.txt.
 
     python 02_classify/report/figures/prep_geography.py
 """
@@ -59,20 +67,28 @@ MODULE = HERE.parent.parent
 sys.path.insert(0, str(MODULE))
 sys.path.insert(0, str(MODULE.parent))
 
-from _layout import COHORT_SAMPLES, GOLD, SILVER  # noqa: E402
+from _layout import COHORT_SAMPLES, GOLD, LIT_RUNS, SILVER  # noqa: E402
 from _util import atomic_write  # noqa: E402
 
-PROJECT = "PRJEB39201"
-MIN_RUNS = 8          # a country below this is reported in the table, not drawn
-DECLARED = "Puccinia striiformis"
+CROP = "Wheat"
+MIN_RUNS = 8        # a country below this is written to the table but not drawn
+MIN_CELL = 6        # a project x country cell below this is not drawn in the replication panel
+FOCUS = "Zymoseptoria tritici"
 
 TSV = HERE / "geography.tsv"
 SPECIES_TSV = HERE / "geography_species.tsv"
+CONTROL_TSV = HERE / "geography_control.tsv"
+YEAR_TSV = HERE / "geography_year.tsv"
 CAPTION = HERE / "geography_caption.txt"
 
-# Curation defects found while writing this. They are reported, not silently merged, because the
-# fix belongs in 01_literature's curation and a silent merge here would hide it.
+# Curation defects, reported rather than silently merged: the fix belongs in 01_literature.
 ALIASES = {"United Kingdom": "UK", "The Netherlands": "Netherlands", "Zimbabwae": "Zimbabwe"}
+
+
+def species_of(name: str) -> str:
+    """'Puccinia striiformis f. sp. tritici' -> 'Puccinia striiformis'. db_v4 tags at species."""
+    parts = (name or "").replace("f. sp.", "").split()
+    return " ".join(parts[:2]) if len(parts) >= 2 else (name or "").strip()
 
 
 def year_of(s: str):
@@ -83,8 +99,7 @@ def year_of(s: str):
     return None
 
 
-def gkmer(row) -> float | None:
-    """Sequencing depth as the quantity detection depends on: k-mer positions, not bases."""
+def gkmer(row):
     try:
         bases, L = float(row["bases"]), float(row["read_len"])
     except (TypeError, ValueError, KeyError):
@@ -92,87 +107,145 @@ def gkmer(row) -> float | None:
     return bases * (L - 34) / L / 1e9 if L > 35 else None
 
 
+def pearson(pts):
+    if len(pts) < 3:
+        return float("nan"), len(pts)
+    xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+    mx, my = st.mean(xs), st.mean(ys)
+    num = sum((a - mx) * (b - my) for a, b in zip(xs, ys))
+    den = (sum((a - mx) ** 2 for a in xs) * sum((b - my) ** 2 for b in ys)) ** 0.5
+    return (num / den if den else float("nan")), len(pts)
+
+
 def main() -> None:
     coinf = {r["run"]: r for r in csv.DictReader(open(GOLD / "coinfection.tsv"), delimiter="\t")}
     prov = {r["Run"]: r for r in csv.DictReader(open(COHORT_SAMPLES), delimiter="\t")}
+    lit = {r["Run"]: r for r in csv.DictReader(open(LIT_RUNS), delimiter="\t")}
     depth = {}
     for r in csv.DictReader(open(SILVER / "run_depth.tsv"), delimiter="\t"):
         g = gkmer(r)
         if g:
             depth[r[list(r)[0]]] = g
 
+    hits, guild = defaultdict(set), {}
+    for r in csv.DictReader(open(GOLD / "detections.tsv"), delimiter="\t"):
+        hits[r["run"]].add(r["species"])
+        guild.setdefault(r["species"], r.get("guild", ""))
+
     runs, aliased = [], defaultdict(int)
     for run, c in coinf.items():
-        if c["BioProject"] != PROJECT:
+        if c["crop"] != CROP:
             continue
         p = prov.get(run, {})
-        loc = (p.get("location") or "").strip()
-        raw = loc.split(":")[0].strip()
+        raw = (p.get("location") or "").split(":")[0].strip()
         if raw in ALIASES:
             aliased[raw] += 1
         runs.append({
-            "run": run, "country": ALIASES.get(raw, raw), "locality": loc,
+            "run": run, "proj": c["BioProject"], "country": ALIASES.get(raw, raw),
             "year": year_of(p.get("collection_date")), "g": depth.get(run),
-            "coinf": c["coinfected"] == "yes",
-            "paths": [x.strip() for x in (c["pathogens"] or "").split(";") if x.strip()],
+            "coinf": c["coinfected"] == "yes", "hits": hits.get(run, set()),
+            "declared": species_of((lit.get(run, {}).get("declared_pathogens") or "")),
         })
 
-    # Species to draw: the declared pathogen as a positive control, then the co-pathogens that
-    # appear often enough for a per-country rate to mean anything.
-    freq = defaultdict(int)
+    by_proj = defaultdict(list)
     for r in runs:
-        for sp in r["paths"]:
-            freq[sp] += 1
-    drawn = [DECLARED] + [sp for sp, n in sorted(freq.items(), key=lambda x: -x[1])
-                          if sp != DECLARED and n >= 30]
+        by_proj[r["proj"]].append(r)
 
+    # ── TEST 1 ───────────────────────────────────────────────────────────────────────────────
+    # Per species: recovery where the study declared it, against where it did not.
+    declared_species = sorted({r["declared"] for r in runs if r["declared"]})
+    with atomic_write(CONTROL_TSV) as fh:
+        w = csv.writer(fh, delimiter="\t", lineterminator="\n")
+        w.writerow(["species", "n_declared", "found_declared", "rate_declared",
+                    "n_undeclared", "found_undeclared", "rate_undeclared", "n_projects_declaring"])
+        for sp in declared_species:
+            dec = [r for r in runs if r["declared"] == sp]
+            und = [r for r in runs if r["declared"] != sp]
+            fd = sum(1 for r in dec if sp in r["hits"])
+            fu = sum(1 for r in und if sp in r["hits"])
+            w.writerow([sp, len(dec), fd, f"{fd / len(dec):.4f}" if dec else "",
+                        len(und), fu, f"{fu / len(und):.4f}" if und else "",
+                        len({r["proj"] for r in dec})])
+    control = {r["species"]: r for r in csv.DictReader(open(CONTROL_TSV), delimiter="\t")}
+
+    # ── TEST 2 ───────────────────────────────────────────────────────────────────────────────
     by_country = defaultdict(list)
     for r in runs:
         by_country[r["country"]].append(r)
 
+    freq = defaultdict(int)
+    for r in runs:
+        for sp in r["hits"]:
+            freq[sp] += 1
+    drawn = [sp for sp, n in sorted(freq.items(), key=lambda x: -x[1])
+             if n >= 40 and "Plant Pathogen" in guild.get(sp, "")]
+
     with atomic_write(TSV) as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
-        w.writerow(["country", "n_runs", "coinf_rate", "median_gkmer", "drawn"] +
+        w.writerow(["country", "n_runs", "n_projects", "coinf_rate", "median_gkmer", "drawn"] +
                    [sp.replace(" ", "_") for sp in drawn])
         for cty, v in sorted(by_country.items(), key=lambda x: -len(x[1])):
             gs = [r["g"] for r in v if r["g"]]
-            w.writerow([cty, len(v),
+            w.writerow([cty, len(v), len({r["proj"] for r in v}),
                         f"{sum(r['coinf'] for r in v) / len(v):.4f}",
                         f"{st.median(gs):.3f}" if gs else "",
                         "yes" if len(v) >= MIN_RUNS else "no"] +
-                       [f"{sum(1 for r in v if sp in r['paths']) / len(v):.4f}" for sp in drawn])
+                       [f"{sum(1 for r in v if sp in r['hits']) / len(v):.4f}" for sp in drawn])
 
-    # Per-species summary, including the signal quality that justifies calling them at all.
+    # Per project x country, so replication can be READ rather than asserted.
+    with atomic_write(HERE / "geography_replication.tsv") as fh:
+        w = csv.writer(fh, delimiter="\t", lineterminator="\n")
+        w.writerow(["country", "BioProject", "n_runs", "rate", "drawn"])
+        for cty, v in sorted(by_country.items(), key=lambda x: -len(x[1])):
+            if len(v) < MIN_RUNS:
+                continue
+            cells = defaultdict(list)
+            for r in v:
+                cells[r["proj"]].append(r)
+            for pj, vv in sorted(cells.items(), key=lambda x: -len(x[1])):
+                w.writerow([cty, pj, len(vv),
+                            f"{sum(1 for r in vv if FOCUS in r['hits']) / len(vv):.4f}",
+                            "yes" if len(vv) >= MIN_CELL else "no"])
+
+    # Species summary with the signal quality that justifies the call.
     det = defaultdict(list)
     for r in csv.DictReader(open(GOLD / "detections.tsv"), delimiter="\t"):
-        if r.get("BioProject") != PROJECT:
+        if coinf.get(r["run"], {}).get("crop") != CROP:
             continue
         try:
             det[r["species"]].append((float(r["coverage"]), float(r["saturation"] or 0),
-                                      int(r["distinct"]), r.get("guild", "")))
+                                      int(r["distinct"])))
         except (TypeError, ValueError):
             pass
     with atomic_write(SPECIES_TSV) as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
-        w.writerow(["species", "n_runs", "pct_runs", "median_coverage",
-                    "median_saturation", "median_distinct", "guild", "is_declared"])
+        w.writerow(["species", "n_runs", "pct_runs", "median_coverage", "median_saturation",
+                    "median_distinct", "guild", "ever_declared"])
         for sp, v in sorted(det.items(), key=lambda x: -len(x[1])):
             w.writerow([sp, len(v), f"{len(v) / len(runs):.4f}",
                         f"{st.median(x[0] for x in v):.5f}",
                         f"{st.median(x[1] for x in v):.4f}",
-                        int(st.median(x[2] for x in v)),
-                        v[0][3], "yes" if sp == DECLARED else "no"])
+                        int(st.median(x[2] for x in v)), guild.get(sp, ""),
+                        "yes" if sp in declared_species else "no"])
 
-    # ── the depth check, recomputed here rather than quoted, at BOTH scopes ──────────────────
-    def pearson(pts):
-        if len(pts) < 3:
-            return float("nan"), len(pts)
-        xs, ys = [p[0] for p in pts], [p[1] for p in pts]
-        mx, my = st.mean(xs), st.mean(ys)
-        num = sum((a - mx) * (b - my) for a, b in zip(xs, ys))
-        den = (sum((a - mx) ** 2 for a in xs) * sum((b - my) ** 2 for b in ys)) ** 0.5
-        return (num / den if den else float("nan")), len(pts)
+    # The year table, written for inspection, deliberately not plotted.
+    with atomic_write(YEAR_TSV) as fh:
+        w = csv.writer(fh, delimiter="\t", lineterminator="\n")
+        w.writerow(["BioProject", "year", "n_runs", "coinf_rate", "n_countries", "top_country"])
+        for pj, v in sorted(by_proj.items(), key=lambda x: -len(x[1])):
+            yrs = defaultdict(list)
+            for r in v:
+                if r["year"]:
+                    yrs[r["year"]].append(r)
+            for y, vv in sorted(yrs.items()):
+                cc = defaultdict(int)
+                for r in vv:
+                    cc[r["country"]] += 1
+                top = max(cc.items(), key=lambda x: x[1])
+                w.writerow([pj, y, len(vv), f"{sum(r['coinf'] for r in vv) / len(vv):.4f}",
+                            len(cc), f"{top[0]} {top[1]}"])
 
+    # ── depth, at both scopes ────────────────────────────────────────────────────────────────
     def country_points(rows_):
         g = defaultdict(list)
         for r in rows_:
@@ -181,23 +254,14 @@ def main() -> None:
                  sum(x["coinf"] for x in v) / len(v))
                 for v in g.values() if len([x for x in v if x["g"]]) >= 10]
 
-    r_dg, n_dg = pearson(country_points(runs))
+    r_wheat, n_wheat = pearson(country_points(runs))
 
-    # The same correlation over ALL classified wheat, which is the number that actually clears
-    # depth as an explanation. Within one project there are too few countries to resolve it.
-    wheat = []
-    for run, c in coinf.items():
-        if c["crop"] != "Wheat":
-            continue
-        p = prov.get(run, {})
-        raw = (p.get("location") or "").split(":")[0].strip()
-        wheat.append({"country": ALIASES.get(raw, raw), "g": depth.get(run),
-                      "coinf": c["coinfected"] == "yes"})
-    r_wheat, n_wheat = pearson(country_points(wheat))
+    tot_found = sum(1 for r in runs if r["declared"] and r["declared"] in r["hits"])
+    tot_decl = sum(1 for r in runs if r["declared"])
 
     L = []
     A = L.append
-    A("Unreported co-pathogens in a yellow rust surveillance compendium")
+    A("Declared and undeclared fungal pathogens across all classified wheat")
     A("Caption for report/figures/geography.{png,pdf}")
     A("")
     A("GENERATED by report/figures/prep_geography.py -- do not hand-edit.")
@@ -205,70 +269,53 @@ def main() -> None:
     A("")
     A("FULL CAPTION")
     A("")
-    A(f"Fungal pathogens detected in {len(runs)} wheat leaf libraries from {PROJECT}, a single")
-    A("field surveillance programme that collected yellow-rust-infected leaves across")
-    A(f"{len(by_country)} countries between 2014 and 2018 under one protocol. The study reported")
-    A("Puccinia striiformis and no other pathogen, so every further species here is unreported by")
-    A("construction, and because the protocol is constant a difference between countries is not a")
-    A("difference between studies.")
+    A(f"All {len(runs):,} classified wheat libraries, from {len(by_proj)} BioProjects across {len(by_country)} countries. Each")
+    A("project declared exactly one target pathogen, and the declared species differs between")
+    A("projects, which turns the comparison below into a test rather than an observation.")
     A("")
-    A("PANEL a. Detection rate across all libraries. P. striiformis, the declared pathogen, is")
-    A(f"recovered in {freq.get(DECLARED, 0)} of {len(runs)} libraries ({100 * freq.get(DECLARED, 0) / len(runs):.1f}%), which is the positive control for")
-    A("the reference database and the detection floors. The species below it were not reported by")
-    A("the original study.")
+    A("PANEL a. THE SAME SPECIES, DECLARED AND UNDECLARED. For each species that some project")
+    A("declared, the detection rate in libraries whose study declared it, against libraries whose")
+    A("study did not. Same database, same thresholds; the only difference is what the paper said.")
     A("")
-    A("PANEL b. Per-country detection rate for the two most frequent unreported pathogens, in")
-    A(f"countries with at least {MIN_RUNS} libraries. The two gradients run opposite ways and both")
-    A("reproduce independently known disease geography: Zymoseptoria tritici, the dominant wheat")
-    A("pathogen of maritime northwest Europe, is highest in the Netherlands, France, the UK and")
-    A("Poland and falls away in Mediterranean, continental and African sites, while Puccinia")
-    A("triticina peaks in Argentina and is absent from the Ethiopian highlands, where yellow and")
-    A("stem rust dominate. Neither pattern was supplied to the pipeline, which was given no")
-    A("geographic information of any kind.")
+    A("  species                    declared        undeclared")
+    for sp in declared_species:
+        c = control[sp]
+        A(f"  {sp:<24} {float(c['rate_declared']):>5.0%} (n={int(c['n_declared']):>4})   "
+          f"{float(c['rate_undeclared']):>5.0%} (n={int(c['n_undeclared']):>4})")
     A("")
-    A("DEPTH, which had to be addressed before any of this could be read as spatial. Sequencing")
-    A("depth expressed as G_kmer spans a factor of 300 across the cohort and covaries with crop,")
-    A("which is why this work makes no comparison between crops. Within wheat the correlation")
-    A("between a country's median G_kmer and its co-infection rate is")
-    A(f"r = {r_wheat:+.3f} over {n_wheat} countries across all projects, and the deepest libraries are among the")
-    A(f"lowest-rate ones. Within THIS project alone it is r = {r_dg:+.3f} over {n_dg} countries, which is weak,")
-    A("of the opposite sign, and underpowered: nine points would need |r| near 0.67 to reach")
-    A("significance. That neither establishes a depth effect nor excludes one. What supports the")
-    A("spatial reading is therefore the agreement with independently known disease geography and")
-    A("the opposite direction of the two gradients, not the depth correlation. More countries with")
-    A("enough libraries is the fix, and the remaining cohort supplies them.")
+    A(f"Overall the declared pathogen is recovered in {tot_found:,} of {tot_decl:,} libraries ({tot_found / tot_decl:.1%}). Cross-mapping")
+    A("cannot produce that asymmetry, because cross-mapping does not know what the paper said.")
+    A("The same comparison answers the congener objection for the rusts: if Puccinia calls were")
+    A("smearing across congeners, every project would show all three rusts, and PRJNA256347")
+    A("reports 100% striiformis with 0% triticina and 0% graminis across 35 libraries.")
     A("")
-    A("TIME IS NOT SHOWN, and the reason is a composition artefact worth stating. Pooled by")
-    A("collection year the co-infection rate rises monotonically, but the countries sampled change")
-    A("with the year, and 14 of the 17 libraries collected in 2018 come from two Argentinian")
-    A("sites. Holding country constant the trend largely dissolves. The year table is written to")
-    A("geography.tsv for inspection and is not plotted.")
+    A(f"PANEL b. {FOCUS} detection rate by country, one point per BioProject, for")
+    A(f"countries with at least {MIN_RUNS} libraries and cells with at least {MIN_CELL}. Agreement between points in")
+    A("a row is agreement between independent studies that share nothing but the country. The")
+    A("gradient reproduces the known distribution of septoria tritici blotch, which is the")
+    A("dominant wheat disease of maritime northwest Europe and minor in drier and warmer wheat")
+    A("regions, and the pipeline was given no geographic information of any kind.")
     A("")
-    A("WHAT THIS IS NOT. A rate from this compendium is NOT a prevalence estimate: every library")
-    A("was collected because the plant was visibly rusted, so the denominator is conditioned on")
-    A("disease. The quantity measured here is the rate at which a SECOND pathogen accompanies a")
-    A("known one, which is a different and narrower claim.")
+    A("THE SEVEN NON-DETECTIONS ARE NOT BORDERLINE. Six of the seven are PRJNA1181034, a field")
+    A("Fusarium graminearum spike trial whose 12 libraries split bimodally: six at 14.8 to 29.3%")
+    A("coverage and six at 0.00 to 0.11%, which is 113 to 3,675 distinct minimizers against")
+    A("491,872 to 974,167. Two to four orders of magnitude is not a threshold being brushed, and")
+    A("the reading is uninfected or mock controls inside the trial. The absolute floor separated")
+    A("infected from uninfected cleanly in the one project that contained both.")
     A("")
-    A("  species                              runs    %   med cov   med sat")
-    for sp in drawn:
-        v = det.get(sp, [])
-        if not v:
-            continue
-        A(f"  {sp:<36} {len(v):>5} {100 * len(v) / len(runs):>4.0f}%  {100 * st.median(x[0] for x in v):>7.2f}%   {st.median(x[1] for x in v):>7.3f}")
+    A("DEPTH does not explain the spatial pattern: across the countries with at least 10")
+    A(f"libraries, the correlation between a country's median G_kmer and its co-infection rate is")
+    A(f"r = {r_wheat:+.3f} over {n_wheat} countries. Depth spans a factor of 300 across the wider cohort and")
+    A("covaries with crop, which is why this work makes no comparison between crops.")
     A("")
-    A("CONGENER INFLATION IS PRESENT AND IS NOT IN THESE COUNTS. Around 120 libraries call ten or")
-    A("more Alternaria species simultaneously, every one at 4.9 to 5.9% coverage and 0.10 to 0.11")
-    A("saturation. Genuine co-infection by ten congeners would not produce near-identical values;")
-    A("one organism's reads distributed across near-identical references does. The uniformity is")
-    A("the diagnostic. Those species carry no pathogen guild assignment and so do not enter the")
-    A("counts above, but the pattern is why congeneric clusters are reported as a flag throughout")
-    A("this work and why competitive read assignment is the next step.")
+    A("TIME IS NOT SHOWN. Pooled by collection year the rate rises monotonically and it is a")
+    A("composition artefact: the countries sampled change with the year, and 14 of the 17")
+    A("libraries collected in 2018 come from two Argentinian sites. Holding country constant it")
+    A("largely dissolves. geography_year.tsv carries the table.")
     A("")
-    A("THE PHYLLOSPHERE RESIDENTS ARE DETECTED AS RESIDENTS, which is the reference database")
-    A("working as designed. Cladosporium, Dioszegia and Sporobolomyces appear in 225 to 284")
-    A("libraries at 4.8 to 7.4% coverage. These are the wheat leaf core community, and they were")
-    A("added to the database specifically so that their reads would have somewhere correct to go")
-    A("rather than being assigned to the nearest pathogen present.")
+    A("WHAT THIS IS NOT. Every library here was collected because the plant was diseased, so the")
+    A("denominator is conditioned on disease. The quantity measured is the rate at which a SECOND")
+    A("pathogen accompanies a known one, not prevalence.")
     A("")
     if aliased:
         A("CURATION DEFECTS FOUND, reported rather than silently merged, because the fix belongs")
@@ -278,34 +325,32 @@ def main() -> None:
         A("")
     A("SHORT CAPTION")
     A("")
-    A(f"Unreported fungal pathogens in {len(runs)} yellow-rust-infected wheat leaf libraries from a")
-    A(f"single surveillance programme spanning {len(by_country)} countries. (a) Detection rate across all")
-    A(f"libraries; the declared pathogen P. striiformis is recovered in {100 * freq.get(DECLARED, 0) / len(runs):.0f}% as a positive control")
-    A("and every other species was unreported. (b) Per-country rate for the two most frequent")
-    A("unreported pathogens, which reproduce known disease geography despite the pipeline being")
-    A("given no geographic information. Across all classified wheat, sequencing depth does not")
-    A(f"explain the spatial pattern (r = {r_wheat:+.3f} between a country's median G_kmer and its rate over")
-    A(f"{n_wheat} countries); within this project alone the correlation is r = {r_dg:+.3f} over {n_dg} countries and is")
-    A("underpowered. Rates are conditioned on visible disease and")
-    A("are not prevalence estimates.")
+    A(f"All {len(runs):,} classified wheat libraries from {len(by_proj)} BioProjects and {len(by_country)} countries. (a) Detection")
+    A("rate for each declared pathogen in libraries whose study declared it against libraries")
+    A(f"whose study did not; the declared pathogen is recovered in {tot_found / tot_decl:.1%} of libraries overall,")
+    A("and the asymmetry cannot be produced by cross-mapping. (b) Zymoseptoria tritici rate by")
+    A("country with one point per BioProject, so agreement between points is agreement between")
+    A("independent studies. The gradient reproduces the known distribution of septoria tritici")
+    A(f"blotch although no geographic information was supplied. Depth does not explain it (r = {r_wheat:+.3f}).")
+    A("Rates are conditioned on visible disease and are not prevalence estimates.")
     A("")
     A("SOURCES")
-    A(f"  data    {TSV.name}, {SPECIES_TSV.name}")
-    A(f"  from    {Path(GOLD).name}/coinfection.tsv, {Path(GOLD).name}/detections.tsv,")
-    A(f"          01_literature/release/cohort_samples.tsv, silver/run_depth.tsv")
+    A(f"  data   {TSV.name}, {SPECIES_TSV.name}, {CONTROL_TSV.name},")
+    A(f"         geography_replication.tsv, {YEAR_TSV.name}")
     A("")
 
     with atomic_write(CAPTION) as fh:
         fh.write("\n".join(L))
 
-    print(f"-> {TSV.name}  ({len(by_country)} countries, {len(runs)} runs)")
-    print(f"-> {SPECIES_TSV.name}  ({len(det)} species)")
-    print(f"-> {CAPTION.name}")
-    print(f"\n  declared pathogen recovered: {freq.get(DECLARED, 0)}/{len(runs)} "
-          f"({100 * freq.get(DECLARED, 0) / len(runs):.1f}%)")
-    print(f"  depth-vs-rate, this project: r = {r_dg:+.3f} over {n_dg} countries (underpowered)")
-    print(f"  depth-vs-rate, all wheat:    r = {r_wheat:+.3f} over {n_wheat} countries")
-    print(f"  drawn co-pathogens:          {', '.join(drawn[1:])}")
+    print(f"-> {TSV.name}, {SPECIES_TSV.name}, {CONTROL_TSV.name}, "
+          f"geography_replication.tsv, {YEAR_TSV.name}, {CAPTION.name}")
+    print(f"\n  wheat runs {len(runs):,} over {len(by_proj)} projects, {len(by_country)} countries")
+    print(f"  declared pathogen recovered: {tot_found:,}/{tot_decl:,} ({100 * tot_found / tot_decl:.1f}%)")
+    print(f"  depth-vs-rate: r = {r_wheat:+.3f} over {n_wheat} countries")
+    for sp in declared_species:
+        c = control[sp]
+        print(f"    {sp:<24} declared {float(c['rate_declared']):>6.1%} (n={c['n_declared']:>4})  "
+              f"undeclared {float(c['rate_undeclared']):>6.1%} (n={c['n_undeclared']:>4})")
 
 
 if __name__ == "__main__":

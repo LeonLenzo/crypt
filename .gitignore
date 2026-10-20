@@ -36,8 +36,21 @@ __pycache__/
 *.pyo
 .env
 
-# Stray SLURM .out/.err that older scripts dropped at the repo root on Setonix before every
-# --output path pointed at a module's own slurm/logs/.
+# SLURM .out/.err: TRACKED inside a module's slurm/logs/, ignored at the repo root.
+#
+# Leon's call 2026-10-20, on the same transparency grounds as logs/history/: a job's .out is the
+# only record of what a run actually did, and it is written on a filesystem under a 21-day
+# purge. Measured when the rule was made: of 197 jobs sacct still remembered, 92 had no log on
+# either machine. Most were tests and cancelled attempts, but kraken_build COMPLETED x3 and
+# kraken_annotate COMPLETED x4 were among them, and those are gone for good.
+#
+# They are small. 02_classify/slurm/logs is 402 files in 1.2 MB, largest 40 KB. If one ever is
+# not small, that is a job printing in a loop and the fix is the job (see the 13.8 MB
+# acacia_dbv3 .err, which retried a hard S3 refusal in a tight loop).
+#
+# Do NOT add an exclusion for */slurm/logs/*.out or *.err here. The rule below is scoped to the
+# REPO ROOT with a leading slash, and it exists only because older scripts dropped logs there
+# before every --output path pointed at a module's own slurm/logs/.
 /*.out
 /*.err
 

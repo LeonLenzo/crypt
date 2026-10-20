@@ -1,0 +1,6 @@
+START Fri Oct 16 02:32:14 PM AWST 2026
+source : /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/cds/pathogen
+local  : 4447 fasta, 87G
+remote before: 1994 cds_from_genomic.fna
+remote after : 4513 cds_from_genomic.fna
+END Fri Oct 16 02:40:02 PM AWST 2026

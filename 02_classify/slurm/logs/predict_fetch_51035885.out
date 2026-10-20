@@ -1,0 +1,18 @@
+datasets: datasets version: 18.39.0
+START Fri Oct 16 08:57:16 PM AWST 2026
+sample: 120 assemblies  (/scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/predict_sample.tsv)
+  genomic FASTA already on disk: 54
+  to download:                   66
+
+Downloading 66 genomic assemblies (8 workers)
+  [20/66]  ok=74
+  [40/66]  ok=94
+  [60/66]  ok=114
+  [66/66]  ok=120
+
+manifest → /scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/predict_genomes.tsv
+── summary ──────────────────────────────────────────────
+  annotated      60
+  unannotated    60
+  total         120 of 120  (5.5 GB)
+END Fri Oct 16 08:58:44 PM AWST 2026

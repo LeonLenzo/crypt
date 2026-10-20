@@ -1,0 +1,25 @@
+datasets: datasets version: 18.39.0
+START Fri Oct 16 08:44:01 PM AWST 2026
+sample: 119 assemblies  (/scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/predict_sample.tsv)
+  genomic FASTA already on disk: 1
+  to download:                   118
+
+Downloading 118 genomic assemblies (8 workers)
+  [20/118]  ok=21
+  [40/118]  ok=41
+  [60/118]  ok=61
+  [80/118]  ok=81
+  [20:46:03] GCA_054134715.1  download FAILED (rc=1)
+  [100/118]  ok=100
+  [118/118]  ok=118
+
+manifest → /scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/predict_genomes.tsv
+── summary ──────────────────────────────────────────────
+  annotated      59
+  unannotated    59
+  total         118 of 119  (19.7 GB)
+
+1 assemblies have no genomic FASTA:
+  GCA_054134715.1    Neopestalotiopsis sp. HY66
+  Re-run to retry; the download is resumable. A persistent failure is a real NCBI withdrawal and the sample should be re-drawn without it rather than silently shrinking one stratum.
+END Fri Oct 16 08:53:03 PM AWST 2026

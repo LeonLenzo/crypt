@@ -1,0 +1,143 @@
+fetching NCBI datasets CLI
+datasets version: datasets version: 18.39.0
+START Fri Oct 16 11:45:31 AM AWST 2026
+wanted: 4,286 cds accessions, 1,547 species  (/scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/ref_candidates.tsv)
+on disk already:        987   (/scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/cds/pathogen)
+  of which EMPTY directories (purged, not held): 768
+acacia bucket holds:    1,994   (s3://pawsey1168-kraken-db/db/search/cds/pathogen)
+  pullable from acacia: 766  (17.4 GB)
+  in acacia, no longer wanted: 241  (kept, never deleted here)
+must come from NCBI:    2,533
+
+Pulling 766 from Acacia →  /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/cds/pathogen
+  [200/766]  200 ok
+  [400/766]  400 ok
+  [600/766]  600 ok
+  [766/766]  766 ok
+  acacia: 766 of 766
+
+Downloading 2,533 from NCBI (8 workers)
+
+Downloading CDS for 2,533 candidates → /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/cds/pathogen
+  [12:04:49] [25/2533] ok=25 (cached=0) fail=0  rate=0.7/s
+  [12:05:13] [50/2533] ok=50 (cached=0) fail=0  rate=0.9/s
+  [12:05:35] [75/2533] ok=75 (cached=0) fail=0  rate=0.9/s
+  [12:06:00] [100/2533] ok=100 (cached=0) fail=0  rate=1.0/s
+  [12:06:27] [125/2533] ok=125 (cached=0) fail=0  rate=1.0/s
+  [12:06:50] [150/2533] ok=150 (cached=0) fail=0  rate=1.0/s
+  [12:07:22] [175/2533] ok=175 (cached=0) fail=0  rate=0.9/s
+  [12:07:48] [200/2533] ok=200 (cached=0) fail=0  rate=0.9/s
+  [12:08:08] [225/2533] ok=225 (cached=0) fail=0  rate=1.0/s
+  [12:08:32] [250/2533] ok=250 (cached=0) fail=0  rate=1.0/s
+  [12:08:55] [275/2533] ok=275 (cached=0) fail=0  rate=1.0/s
+  [12:09:18] [300/2533] ok=300 (cached=0) fail=0  rate=1.0/s
+  [12:09:45] [325/2533] ok=325 (cached=0) fail=0  rate=1.0/s
+  [12:10:12] [350/2533] ok=350 (cached=0) fail=0  rate=1.0/s
+  [12:10:36] [375/2533] ok=375 (cached=0) fail=0  rate=1.0/s
+  [12:11:05] [400/2533] ok=400 (cached=0) fail=0  rate=1.0/s
+  [12:11:29] [425/2533] ok=425 (cached=0) fail=0  rate=1.0/s
+  [12:11:51] [450/2533] ok=450 (cached=0) fail=0  rate=1.0/s
+  [12:12:17] [475/2533] ok=475 (cached=0) fail=0  rate=1.0/s
+  [12:12:43] [500/2533] ok=500 (cached=0) fail=0  rate=1.0/s
+  [12:13:06] [525/2533] ok=525 (cached=0) fail=0  rate=1.0/s
+  [12:13:30] [550/2533] ok=550 (cached=0) fail=0  rate=1.0/s
+  [12:13:56] [575/2533] ok=575 (cached=0) fail=0  rate=1.0/s
+  [12:14:20] [600/2533] ok=600 (cached=0) fail=0  rate=1.0/s
+  [12:14:25] GCA_041956735.1  download FAILED (rc=1)
+  [12:14:44] [625/2533] ok=624 (cached=0) fail=1  rate=1.0/s
+  [12:15:05] [650/2533] ok=649 (cached=0) fail=1  rate=1.0/s
+  [12:15:28] [675/2533] ok=674 (cached=0) fail=1  rate=1.0/s
+  [12:15:55] [700/2533] ok=699 (cached=0) fail=1  rate=1.0/s
+  [12:16:15] [725/2533] ok=724 (cached=0) fail=1  rate=1.0/s
+  [12:16:43] [750/2533] ok=749 (cached=0) fail=1  rate=1.0/s
+  [12:17:06] [775/2533] ok=774 (cached=0) fail=1  rate=1.0/s
+  [12:17:29] [800/2533] ok=799 (cached=0) fail=1  rate=1.0/s
+  [12:17:51] [825/2533] ok=824 (cached=0) fail=1  rate=1.0/s
+  [12:18:22] [850/2533] ok=849 (cached=0) fail=1  rate=1.0/s
+  [12:18:48] [875/2533] ok=874 (cached=0) fail=1  rate=1.0/s
+  [12:19:10] [900/2533] ok=899 (cached=0) fail=1  rate=1.0/s
+  [12:19:33] [925/2533] ok=924 (cached=0) fail=1  rate=1.0/s
+  [12:19:58] [950/2533] ok=949 (cached=0) fail=1  rate=1.0/s
+  [12:20:20] [975/2533] ok=974 (cached=0) fail=1  rate=1.0/s
+  [12:20:44] [1000/2533] ok=999 (cached=0) fail=1  rate=1.0/s
+  [12:21:11] [1025/2533] ok=1024 (cached=0) fail=1  rate=1.0/s
+  [12:21:37] [1050/2533] ok=1049 (cached=0) fail=1  rate=1.0/s
+  [12:21:57] [1075/2533] ok=1074 (cached=0) fail=1  rate=1.0/s
+  [12:22:21] [1100/2533] ok=1099 (cached=0) fail=1  rate=1.0/s
+  [12:22:46] [1125/2533] ok=1124 (cached=0) fail=1  rate=1.0/s
+  [12:23:12] [1150/2533] ok=1149 (cached=0) fail=1  rate=1.0/s
+  [12:23:38] [1175/2533] ok=1174 (cached=0) fail=1  rate=1.0/s
+  [12:24:05] [1200/2533] ok=1199 (cached=0) fail=1  rate=1.0/s
+  [12:24:27] [1225/2533] ok=1224 (cached=0) fail=1  rate=1.0/s
+  [12:24:52] [1250/2533] ok=1249 (cached=0) fail=1  rate=1.0/s
+  [12:25:16] [1275/2533] ok=1274 (cached=0) fail=1  rate=1.0/s
+  [12:25:38] [1300/2533] ok=1299 (cached=0) fail=1  rate=1.0/s
+  [12:26:01] [1325/2533] ok=1324 (cached=0) fail=1  rate=1.0/s
+  [12:26:26] [1350/2533] ok=1349 (cached=0) fail=1  rate=1.0/s
+  [12:26:52] [1375/2533] ok=1374 (cached=0) fail=1  rate=1.0/s
+  [12:27:17] [1400/2533] ok=1399 (cached=0) fail=1  rate=1.0/s
+  [12:27:39] [1425/2533] ok=1424 (cached=0) fail=1  rate=1.0/s
+  [12:28:02] [1450/2533] ok=1449 (cached=0) fail=1  rate=1.0/s
+  [12:28:26] [1475/2533] ok=1474 (cached=0) fail=1  rate=1.0/s
+  [12:28:50] [1500/2533] ok=1498 (cached=0) fail=2  rate=1.0/s
+  [12:29:08] GCA_900322835.1  download FAILED (rc=1)
+  [12:29:14] [1525/2533] ok=1522 (cached=0) fail=3  rate=1.0/s
+  [12:29:39] [1550/2533] ok=1547 (cached=0) fail=3  rate=1.0/s
+  [12:30:04] [1575/2533] ok=1572 (cached=0) fail=3  rate=1.0/s
+  [12:30:34] [1600/2533] ok=1597 (cached=0) fail=3  rate=1.0/s
+  [12:30:59] [1625/2533] ok=1622 (cached=0) fail=3  rate=1.0/s
+  [12:31:23] [1650/2533] ok=1647 (cached=0) fail=3  rate=1.0/s
+  [12:31:45] [1675/2533] ok=1672 (cached=0) fail=3  rate=1.0/s
+  [12:32:06] [1700/2533] ok=1697 (cached=0) fail=3  rate=1.0/s
+  [12:32:30] [1725/2533] ok=1722 (cached=0) fail=3  rate=1.0/s
+  [12:32:56] [1750/2533] ok=1747 (cached=0) fail=3  rate=1.0/s
+  [12:33:19] [1775/2533] ok=1772 (cached=0) fail=3  rate=1.0/s
+  [12:33:41] [1800/2533] ok=1797 (cached=0) fail=3  rate=1.0/s
+  [12:34:09] [1825/2533] ok=1822 (cached=0) fail=3  rate=1.0/s
+  [12:34:31] [1850/2533] ok=1847 (cached=0) fail=3  rate=1.0/s
+  [12:35:00] [1875/2533] ok=1872 (cached=0) fail=3  rate=1.0/s
+  [12:35:27] [1900/2533] ok=1897 (cached=0) fail=3  rate=1.0/s
+  [12:35:47] [1925/2533] ok=1922 (cached=0) fail=3  rate=1.0/s
+  [12:36:08] [1950/2533] ok=1947 (cached=0) fail=3  rate=1.0/s
+  [12:36:36] [1975/2533] ok=1972 (cached=0) fail=3  rate=1.0/s
+  [12:37:02] [2000/2533] ok=1997 (cached=0) fail=3  rate=1.0/s
+  [12:37:27] [2025/2533] ok=2022 (cached=0) fail=3  rate=1.0/s
+  [12:37:52] [2050/2533] ok=2047 (cached=0) fail=3  rate=1.0/s
+  [12:38:18] [2075/2533] ok=2071 (cached=0) fail=4  rate=1.0/s
+  [12:38:40] [2100/2533] ok=2095 (cached=0) fail=5  rate=1.0/s
+  [12:39:04] [2125/2533] ok=2120 (cached=0) fail=5  rate=1.0/s
+  [12:39:30] [2150/2533] ok=2145 (cached=0) fail=5  rate=1.0/s
+  [12:40:00] [2175/2533] ok=2170 (cached=0) fail=5  rate=1.0/s
+  [12:40:26] [2200/2533] ok=2192 (cached=0) fail=8  rate=1.0/s
+  [12:40:51] [2225/2533] ok=2217 (cached=0) fail=8  rate=1.0/s
+  [12:41:19] [2250/2533] ok=2241 (cached=0) fail=9  rate=1.0/s
+  [12:41:40] [2275/2533] ok=2266 (cached=0) fail=9  rate=1.0/s
+  [12:42:01] [2300/2533] ok=2291 (cached=0) fail=9  rate=1.0/s
+  [12:42:23] [2325/2533] ok=2316 (cached=0) fail=9  rate=1.0/s
+  [12:42:45] [2350/2533] ok=2341 (cached=0) fail=9  rate=1.0/s
+  [12:43:09] [2375/2533] ok=2366 (cached=0) fail=9  rate=1.0/s
+  [12:43:33] [2400/2533] ok=2391 (cached=0) fail=9  rate=1.0/s
+  [12:43:55] [2425/2533] ok=2416 (cached=0) fail=9  rate=1.0/s
+  [12:44:18] [2450/2533] ok=2436 (cached=0) fail=14  rate=1.0/s
+  [12:44:44] [2475/2533] ok=2459 (cached=0) fail=16  rate=1.0/s
+  [12:45:02] [2500/2533] ok=2484 (cached=0) fail=16  rate=1.0/s
+  [12:45:29] [2525/2533] ok=2509 (cached=0) fail=16  rate=1.0/s
+  [12:45:38] [2533/2533] ok=2516 (cached=0) fail=17  rate=1.0/s
+
+── Download summary ─────────────────────────────────────────────
+  Downloaded/cached OK: 2,516  (already on disk: 0)
+  Failed:               17
+
+Next: python 02_classify/utilities/busco.py
+
+manifest → /scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/cds_manifest.tsv
+
+── summary ──────────────────────────────────────────────
+  disk        987
+  acacia      766
+  ncbi      2,516
+  MISSING      17
+  total     4,269 of 4,286 wanted  (88.7 GB)
+
+17 accessions have NO CDS on disk → /scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/cds_missing.tsv
+  The build must not proceed as if these were present. Re-run to retry; a persistent failure is a real NCBI withdrawal and belongs in seeds/exclusions.tsv with the evidence.

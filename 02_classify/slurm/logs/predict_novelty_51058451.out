@@ -1,0 +1,58 @@
+START Sat Oct 17 02:08:25 PM AWST 2026
+sketches cached before: 1989
+
+──── stage 1: sketch db_v4's CDS ────
+[14:12:04] 2100/2522  GCA_020501075.1  69,069 hashes  2.1s
+[14:12:06] 2125/2522  GCA_020499115.1  69,986 hashes  2.2s
+[14:12:08] 2150/2522  GCA_020502545.1  69,820 hashes  2.2s
+[14:12:10] 2175/2522  GCA_020499185.1  68,441 hashes  2.1s
+[14:12:12] 2200/2522  GCA_020503345.1  69,515 hashes  2.2s
+[14:12:14] 2225/2522  GCA_020501835.1  69,969 hashes  2.2s
+[14:12:16] 2250/2522  GCA_002234985.1  67,650 hashes  2.1s
+[14:12:18] 2275/2522  GCA_020499405.1  68,490 hashes  3.6s
+[14:12:19] 2300/2522  GCA_057706615.1  80,625 hashes  4.3s
+[14:12:22] 2325/2522  GCA_900322835.1  58,463 hashes  2.7s
+[14:12:24] 2350/2522  GCA_019650295.1  92,589 hashes  5.0s
+[14:12:26] 2375/2522  GCA_000978885.1  41,091 hashes  1.3s
+[14:12:28] 2400/2522  GCA_055473455.1  69,833 hashes  2.5s
+[14:12:30] 2425/2522  GCA_024761335.1  69,775 hashes  3.5s
+[14:12:34] 2450/2522  GCA_024761565.1  134,066 hashes  5.8s
+[14:12:38] 2475/2522  GCA_011763755.1  80,948 hashes  2.9s
+[14:12:40] 2500/2522  GCF_000149305.1  73,378 hashes  5.8s
+[14:12:43] 2522/2522  GCA_015501595.1  123,694 hashes  7.0s
+[14:12:44] sketch done: 2522 written, 0 failed
+[14:12:49] wrote /scratch/pawsey1168/llenzo/crypt/02_classify/data/gold/saturation_sketch_index.tsv
+sketches cached after: 4511
+
+──── stage 2: novelty of the predicted CDS against db_v4 ────
+  GCA_023658475.1    Epichloe elymi               pred  7,766 seq / 11.93 Mb   novelty 0.3754
+  GCA_046630685.1    Calonectria ilicicola        pred 21,245 seq / 32.23 Mb   novelty 0.9818
+  GCA_060595785.1    Pseudozyma tsukubaensis      pred  6,891 seq / 12.36 Mb   novelty 0.9802
+  GCA_037356495.1    Penicillium sp. F51          pred 10,911 seq / 16.36 Mb   novelty 0.2323
+  GCA_008122225.1    Ciboria shiraiana            pred 10,591 seq / 16.19 Mb   novelty 0.0559
+  GCA_019059545.1    Rhodotorula sp. VS67         pred  7,544 seq / 12.38 Mb   novelty 0.5538
+  GCA_059475355.1    Elsinoe perseae              pred 10,141 seq / 15.04 Mb   novelty 0.9804
+  GCA_027569235.1    Aspergillus sparsus          pred 11,948 seq / 18.19 Mb   novelty 0.9840
+  GCA_055797535.1    Trichoderma sp. 5c.a.2       pred 12,229 seq / 18.95 Mb   novelty 0.5014
+  GCA_003717165.1    Protomyces inundatus         pred  7,070 seq /  9.50 Mb   novelty 0.9960
+  GCA_030779245.1    Fusarium sp. MBC 438         pred 16,256 seq / 23.96 Mb   novelty 0.4610
+  GCA_023625975.1    Talaromyces sp. PYS2103      pred 10,368 seq / 15.62 Mb   novelty 0.9448
+  GCA_038503075.1    Gyromitra esculenta          pred 10,966 seq / 16.95 Mb   novelty 0.9965
+  GCA_022560085.1    Helminthosporium solani      pred 11,357 seq / 16.53 Mb   novelty 0.9783
+  GCA_054123095.1    Scopulariopsis sp.           pred  5,027 seq /  6.36 Mb   novelty 0.9701
+  GCA_009804945.1    Neurospora sp. FGSC 26633    pred 10,151 seq / 15.77 Mb   novelty 0.3313
+  GCA_051820765.1    Phaeoisaria parallela        pred 11,491 seq / 17.50 Mb   novelty 0.9643
+  GCA_002368545.1    Ramichloridium luteum        pred 10,041 seq / 15.20 Mb   novelty 0.9866
+  GCA_001640655.1    Endoconidiophora laricicola  pred  7,002 seq / 11.43 Mb   novelty 0.9885
+
+metrics → /scratch/pawsey1168/llenzo/crypt/02_classify/data/gold/predict_benchmark.tsv   (119 scored, 1 missing)
+
+── Arm A (ground truth exists) ──────────────────────────
+  assemblies scored : 60
+  median RECALL     : 0.963   (of TRUE CDS k-mer space recovered)
+  median PRECISION  : 0.945   (of PREDICTED k-mer space that is real CDS)
+  median Jaccard    : 0.907
+
+── novelty against db_v4 ────────────────────────────────
+  median NOVELTY    : 0.161   (of predicted k-mer space NOT already in db_v4)
+END Sat Oct 17 02:31:12 PM AWST 2026

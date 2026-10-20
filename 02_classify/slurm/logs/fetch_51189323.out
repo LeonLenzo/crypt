@@ -1,0 +1,29 @@
+host     setonix-dm03
+started  2026-10-20T11:27:54+08:00
+PRJNA510920: 20 runs, 0.010 TiB
+  [done ] SRR8357892   448s   0.38 GB    0.8 MB/s
+  [done ] SRR8357888   465s   0.30 GB    0.6 MB/s
+  [done ] SRR8357940   532s   0.31 GB    0.6 MB/s
+  [done ] SRR8358010   553s   0.35 GB    0.6 MB/s
+  [done ] SRR8357748   586s   0.51 GB    0.9 MB/s
+  [done ] SRR8357934   600s   0.48 GB    0.8 MB/s
+  [done ] SRR8358054   623s   0.64 GB    1.0 MB/s
+  [done ] SRR8357708   640s   0.43 GB    0.7 MB/s
+  [done ] SRR8358069   650s   0.60 GB    0.9 MB/s
+  [done ] SRR8357794   663s   0.43 GB    0.6 MB/s
+  [done ] SRR8357963   693s   0.41 GB    0.6 MB/s
+  [done ] SRR8357750   708s   0.48 GB    0.7 MB/s
+  [done ] SRR8358024   745s   0.56 GB    0.8 MB/s
+  [done ] SRR8357667   866s   0.55 GB    0.6 MB/s
+  [done ] SRR8357690  1682s   0.60 GB    0.4 MB/s
+  [done ] SRR8357891  2497s   0.67 GB    0.3 MB/s
+  [done ] SRR8357948  2562s   0.65 GB    0.3 MB/s
+  [done ] SRR8357924  2610s   0.66 GB    0.3 MB/s
+  [20/20] 8.4 GiB, 45.2 min, eta 0 min
+
+PRJNA510920: 18/20 ok, 2 failed, 8.4 GiB, 45.2 min
+  FAILED SRR8357870: failed SRR8357870.fastq.gz failed 3x
+  FAILED SRR8358012: failed SRR8358012.fastq.gz failed 3x
+  2 runs carry a note, e.g. SRR8357870: SRR8357870.fastq.gz failed 3x
+exit     1 after 2712s
+finished 2026-10-20T12:13:06+08:00

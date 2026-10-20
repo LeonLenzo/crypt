@@ -1,0 +1,16 @@
+task 50  GCF_001500285.1  Mollisia scopiformis
+  genome: /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/genomes/GCF_001500285.1/ncbi_dataset/data/GCF_001500285.1/GCF_001500285.1_Phisc1_genomic.fna (48M)
+!! library failed, and see docs/troubleshooting.md in the Vipsania repository.
+
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792158924.834139 3447881 service.cc:152] XLA service 0x48c3a8b0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1792158924.834188 3447881 service.cc:160]   StreamExecutor device (0): Host, Default Version
+I0000 00:00:1792158931.941159 3447881 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Found model location /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+Using model config /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/config.json
+Model successfully created.
+Model successfully built.
+Using model weights /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/latest_checkpoint.weights.h5
+Model weights successfully loaded.
+  WALL 3345 s  (exit: 0)
+  predicted: 17922 sequences

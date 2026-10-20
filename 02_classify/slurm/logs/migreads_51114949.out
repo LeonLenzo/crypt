@@ -1,0 +1,60 @@
+host      nid002800
+started   2026-10-19T11:38:34+08:00
+source      /scratch/pawsey1168/llenzo/crypt/03_kraken/03_select/data/reads
+destination /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/reads/<BioProject>/
+
+2362 files over 25 BioProjects, 4.05 TiB
+
+  BioProject      files     TiB
+  PRJEB39201       1054   1.717
+  PRJEB31334        306   0.536
+  PRJEB15280        230   0.378
+  PRJEB84390        198   0.356
+  PRJNA256347        78   0.223
+  PRJNA950118        36   0.131
+  PRJEB36485         78   0.130
+  PRJEB65589         92   0.119
+  PRJNA1181034       24   0.097
+  PRJNA505891        42   0.072
+  PRJEB47693         46   0.069
+  PRJNA896566        12   0.060
+  PRJEB33109         22   0.048
+  PRJNA1161467       10   0.031
+  PRJNA746402        86   0.019
+  PRJNA1100217        8   0.013
+  PRJNA721299         8   0.012
+  PRJNA418364         6   0.009
+  PRJNA306542         4   0.006
+  PRJEB36444          4   0.006
+  PRJNA369690         6   0.006
+  PRJNA564795         4   0.005
+  PRJNA753546         4   0.003
+  PRJNA357594         2   0.003
+  PRJNA516527         2   0.003
+
+2040 runs left in the flat tree: not in the cohort
+
+39 orphaned prefetch directories (a download that died midway):
+  _ERR10886910_sra
+  _ERR12013057_sra
+  _ERR12013067_sra
+  _ERR12013070_sra
+  _ERR12013079_sra
+  _ERR15005446_sra
+  ... and 33 more
+  Each is evidence a run failed. Pass --clean-orphans to remove them.
+
+moving 2362 files...
+  500/2362 moved
+  1000/2362 moved
+  1500/2362 moved
+  2000/2362 moved
+  2362/2362 moved
+
+removing 39 orphaned prefetch directories
+
+-> reads_manifest.tsv: 1184 runs present, 4.05 TiB
+   6 runs have ONE file (single-end, or a fasterq-dump dead second mate)
+exit      0
+elapsed   7s
+finished  2026-10-19T11:38:41+08:00

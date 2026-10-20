@@ -1,0 +1,169 @@
+host     nid002009
+project  PRJEB31334
+started  2026-10-19T14:08:02+08:00
+staged 41G into RAM in 308s
+
+PRJEB31334: 153 runs on disk, 153 to classify
+  [done ] ERR3170179   103s   127 species    12,463,882 reads
+  [done ] ERR3170180   106s   233 species    10,903,293 reads
+  [done ] ERR3170181   108s   211 species     9,098,077 reads
+  [done ] ERR3170182   108s   191 species     7,791,207 reads
+  [done ] ERR3170185   118s   226 species    12,739,653 reads
+  [done ] ERR3170183   119s   200 species    12,159,691 reads
+  [done ] ERR3170186   121s   249 species    13,920,007 reads
+  [done ] ERR3170184   155s   276 species     9,479,555 reads
+  [done ] ERR3170187    91s   292 species    10,385,163 reads
+  [done ] ERR3170188    96s   192 species    12,127,061 reads
+  [done ] ERR3170189    96s   255 species     7,141,803 reads
+  [done ] ERR3170191    96s   118 species    12,739,257 reads
+  [done ] ERR3170193    96s   158 species    10,164,848 reads
+  [done ] ERR3170192    99s   164 species    11,464,155 reads
+  [done ] ERR3170190   115s   127 species    13,894,007 reads
+  [done ] ERR3170194   100s   117 species    15,218,125 reads
+  [done ] ERR3170195   103s   148 species    11,093,188 reads
+  [done ] ERR3170197    95s   169 species     8,454,524 reads
+  [done ] ERR3170200    92s   371 species     6,815,192 reads
+  [done ] ERR3170199   101s   215 species    13,085,175 reads
+  [done ] ERR3170201    99s   284 species    11,567,022 reads
+  [done ] ERR3170196   124s   168 species    12,426,029 reads
+  [done ] ERR3170202    83s   197 species     8,552,824 reads
+  [done ] ERR3170198   141s   109 species    15,488,428 reads
+  [done ] ERR3170203    90s   145 species     8,655,013 reads
+  [25/153] 6.5 min, eta 33 min
+  [done ] ERR3170206    89s   170 species     7,758,691 reads
+  [done ] ERR3170204   109s   192 species    11,712,117 reads
+  [done ] ERR3170205   103s   163 species     8,859,175 reads
+  [done ] ERR3170209    84s   128 species    12,657,407 reads
+  [done ] ERR3170208   115s   128 species    13,807,715 reads
+  [done ] ERR3170207   119s   243 species    15,751,525 reads
+  [done ] ERR3170210   106s   105 species    12,807,561 reads
+  [done ] ERR3170211   102s   122 species    14,456,590 reads
+  [done ] ERR3170212    87s   174 species    12,492,152 reads
+  [done ] ERR3170214    93s   303 species    11,218,240 reads
+  [done ] ERR3170213    97s   204 species    12,581,614 reads
+  [done ] ERR3170215    93s    96 species    12,886,581 reads
+  [done ] ERR3170217    93s   142 species    13,344,917 reads
+  [done ] ERR3170216   100s   108 species    13,973,907 reads
+  [done ] ERR3170218    96s   167 species    13,793,455 reads
+  [done ] ERR3170219    78s    91 species    10,859,454 reads
+  [done ] ERR3170220   105s   174 species    13,648,743 reads
+  [done ] ERR3170223    89s   215 species    11,678,222 reads
+  [done ] ERR3170221   109s   244 species    15,626,176 reads
+  [done ] ERR3170222   117s   206 species    17,368,498 reads
+  [done ] ERR3170224    97s   217 species    13,042,096 reads
+  [done ] ERR3170225    93s   173 species    13,330,872 reads
+  [done ] ERR3170226    82s   179 species    11,237,305 reads
+  [done ] ERR3170227    93s   204 species    13,082,479 reads
+  [done ] ERR3170230   101s   243 species    12,859,840 reads
+  [50/153] 11.9 min, eta 25 min
+  [done ] ERR3170231    94s   192 species    12,372,219 reads
+  [done ] ERR3170232    93s   190 species    12,919,096 reads
+  [done ] ERR3170229   124s   312 species    15,718,722 reads
+  [done ] ERR3170233   100s   211 species    13,341,542 reads
+  [done ] ERR3170235    86s   203 species    11,810,837 reads
+  [done ] ERR3170228   150s   239 species    15,523,401 reads
+  [done ] ERR3170234   112s   271 species    10,171,555 reads
+  [done ] ERR3170240    77s   272 species     9,326,042 reads
+  [done ] ERR3170241    65s   461 species     5,875,467 reads
+  [done ] ERR3170236   100s   455 species    14,541,423 reads
+  [done ] ERR3170243    64s   217 species     8,970,248 reads
+  [done ] ERR3170242    69s   228 species     9,752,658 reads
+  [done ] ERR3170238   109s   369 species    17,476,241 reads
+  [done ] ERR3170237   118s   396 species    17,040,259 reads
+  [done ] ERR3170239   108s   527 species    14,372,327 reads
+  [done ] ERR3170246    66s   156 species    10,338,463 reads
+  [done ] ERR3170244    79s   205 species    12,670,781 reads
+  [done ] ERR3170247    84s   182 species    10,872,903 reads
+  [done ] ERR3170249    70s   216 species     9,878,484 reads
+  [done ] ERR3170245    93s   206 species    13,710,949 reads
+  [done ] ERR3170250    71s   212 species     9,674,035 reads
+  [done ] ERR3170248    88s   308 species    11,970,483 reads
+  [done ] ERR3170253    55s   187 species     6,339,508 reads
+  [done ] ERR3170251   109s   493 species    12,201,112 reads
+  [done ] ERR3170252    78s   224 species    11,584,339 reads
+  [75/153] 16.0 min, eta 17 min
+  [done ] ERR3170257    77s   335 species    10,189,471 reads
+  [done ] ERR3170255    83s   455 species     7,131,936 reads
+  [done ] ERR3170254    99s   444 species    10,661,086 reads
+  [done ] ERR3170256   101s   210 species    13,135,739 reads
+  [done ] ERR3170258   107s   355 species    11,693,528 reads
+  [done ] ERR3170260    79s   323 species     9,875,902 reads
+  [done ] ERR3170261    92s   273 species    12,917,163 reads
+  [done ] ERR3170259   122s   361 species     9,843,097 reads
+  [done ] ERR3170262   105s   256 species    11,802,432 reads
+  [done ] ERR3170266    76s   273 species     6,007,126 reads
+  [done ] ERR3170267    69s   213 species     5,928,088 reads
+  [done ] ERR3170263   113s   411 species    12,635,097 reads
+  [done ] ERR3170264   123s   451 species    15,686,442 reads
+  [done ] ERR3170268    79s   318 species     7,608,066 reads
+  [done ] ERR3170269    78s   191 species     8,624,646 reads
+  [done ] ERR3170265   158s   466 species    20,146,518 reads
+  [done ] ERR3170272    85s   123 species    12,717,713 reads
+  [done ] ERR3170273    85s    95 species    12,368,101 reads
+  [done ] ERR3170274    96s   131 species    11,358,926 reads
+  [done ] ERR3170276    71s   191 species     9,755,952 reads
+  [done ] ERR3170275   105s   149 species    18,229,387 reads
+  [done ] ERR3170277    93s   183 species    13,705,970 reads
+  [done ] ERR3170279    82s   285 species    13,122,591 reads
+  [done ] ERR3188431    99s   119 species    13,152,210 reads
+  [done ] ERR3188433   100s   115 species    13,846,027 reads
+  [100/153] 21.5 min, eta 11 min
+  [done ] ERR3188432   123s   193 species    16,989,505 reads
+  [done ] ERR3188434   104s   146 species    14,693,685 reads
+  [done ] ERR3170278   153s   369 species    22,974,833 reads
+  [done ] ERR3188435   107s   130 species    13,129,227 reads
+  [done ] ERR3188436   119s   187 species    15,393,998 reads
+  [done ] ERR3188437   102s   162 species    14,463,932 reads
+  [done ] ERR3188438   120s   127 species    17,386,102 reads
+  [done ] ERR3188440   101s   167 species    13,389,288 reads
+  [done ] ERR3188439   107s   134 species    13,725,416 reads
+  [done ] ERR3188442   112s   135 species    14,903,287 reads
+  [done ] ERR3188441   115s   114 species    14,598,066 reads
+  [done ] ERR3188443   111s   200 species    14,431,043 reads
+  [done ] ERR3188444   120s   191 species    11,401,766 reads
+  [done ] ERR3188445   117s   146 species    13,677,245 reads
+  [done ] ERR3188448   112s   199 species    10,455,310 reads
+  [done ] ERR3188449   106s   225 species    10,578,331 reads
+  [done ] ERR3188446   129s   241 species    11,262,131 reads
+  [done ] ERR3188447   134s   370 species    11,963,477 reads
+  [done ] ERR3188451   119s   293 species    14,137,213 reads
+  [done ] ERR3188450   131s   155 species    14,813,768 reads
+  [done ] ERR3188453    85s   118 species    11,933,116 reads
+  [done ] ERR3188452    95s   208 species    11,889,743 reads
+  [done ] ERR3188454    99s   177 species    14,742,788 reads
+  [done ] ERR3188456   103s   133 species    12,115,410 reads
+  [done ] ERR3188457   109s   139 species    11,440,599 reads
+  [125/153] 27.3 min, eta 6 min
+  [done ] ERR3188455   127s   153 species    13,395,305 reads
+  [done ] ERR3188459   111s   151 species    12,691,930 reads
+  [done ] ERR3188460   104s   182 species    12,461,958 reads
+  [done ] ERR3188458   114s   148 species    12,691,858 reads
+  [done ] ERR3188461   120s   225 species    14,463,747 reads
+  [done ] ERR3188462   105s   173 species    13,567,950 reads
+  [done ] ERR3188464    87s   151 species    10,329,014 reads
+  [done ] ERR3188463   110s   190 species    17,342,928 reads
+  [done ] ERR3188465   109s   193 species    14,887,652 reads
+  [done ] ERR3188467   101s   150 species    13,570,144 reads
+  [done ] ERR3188466   128s   256 species    12,233,144 reads
+  [done ] ERR3188468   135s   236 species    16,702,538 reads
+  [done ] ERR3188469   128s   176 species    14,655,064 reads
+  [done ] ERR3188470   107s   241 species    13,818,882 reads
+  [done ] ERR3188471    98s   160 species    11,154,478 reads
+  [done ] ERR3188475   104s   139 species    11,677,866 reads
+  [done ] ERR3188472   153s   242 species    13,693,576 reads
+  [done ] ERR3188476   103s   152 species    11,918,601 reads
+  [done ] ERR3188474   153s   243 species    16,854,068 reads
+  [done ] ERR3188478    96s   175 species    12,513,433 reads
+  [done ] ERR3188473   169s   150 species    16,850,730 reads
+  [done ] ERR4315679    13s    11 species     2,594,989 reads
+  [done ] ERR3188479   110s   185 species    15,162,896 reads
+  [done ] ERR3188477   131s   130 species    16,314,219 reads
+  [done ] ERR3188482    60s   188 species     7,415,769 reads
+  [150/153] 32.6 min, eta 1 min
+  [done ] ERR3188481    94s   196 species    14,440,644 reads
+  [done ] ERR3188480   103s   153 species    15,987,316 reads
+  [done ] ERR3188483    91s   237 species     9,092,003 reads
+
+PRJEB31334: 153 classified, 0 failed, 33.3 min
+exit     0 after 2000s
+finished 2026-10-19T14:46:30+08:00

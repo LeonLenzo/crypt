@@ -1,0 +1,3 @@
+/var/spool/slurmd/job51038664/slurm_script: line 115: 2849402 Killed                  vipsania annotate "$MODEL" "$FASTA" -o "$OUT/genes.gff3" --coding "$OUT/coding.fa" --protein "$OUT/proteins.fa" -B "$BATCH" 2>&1
+     2849403 Done                    | tail -12
+[2026-10-16T22:54:10.819] error: Detected 1 oom_kill event in StepId=51038664.batch. Some of the step tasks have been OOM Killed.

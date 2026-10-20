@@ -1,0 +1,26 @@
+host     setonix-dm13
+started  2026-10-20T10:23:30+08:00
+PRJNA746402: 20 runs, 0.008 TiB
+  [done ] SRR15141376   299s   0.24 GB    0.8 MB/s
+  [done ] SRR15141032   321s   0.25 GB    0.8 MB/s
+  [done ] SRR15141067   392s   0.24 GB    0.6 MB/s
+  [done ] SRR15141100   440s   0.32 GB    0.7 MB/s
+  [done ] SRR15141142   454s   0.33 GB    0.7 MB/s
+  [done ] SRR15141446   500s   0.35 GB    0.7 MB/s
+  [done ] SRR15141335   540s   0.38 GB    0.7 MB/s
+  [done ] SRR15141103   597s   0.40 GB    0.7 MB/s
+  [done ] SRR15141209   609s   0.45 GB    0.7 MB/s
+  [done ] SRR15141219   616s   0.37 GB    0.6 MB/s
+  [done ] SRR15141419   624s   0.37 GB    0.6 MB/s
+  [done ] SRR15141041   640s   0.41 GB    0.6 MB/s
+  [done ] SRR15141268   760s   0.53 GB    0.7 MB/s
+  [done ] SRR15141202   789s   0.50 GB    0.6 MB/s
+  [done ] SRR15141213   926s   0.66 GB    0.7 MB/s
+  [done ] SRR15141260  1005s   0.60 GB    0.6 MB/s
+  [done ] SRR15141430  1022s   0.66 GB    0.6 MB/s
+  [done ] SRR15141422  1374s   0.98 GB    0.7 MB/s
+  [20/20] 8.1 GiB, 22.9 min, eta 0 min
+
+PRJNA746402: 20/20 ok, 0 failed, 8.1 GiB, 22.9 min
+exit     0 after 1375s
+finished 2026-10-20T10:46:25+08:00

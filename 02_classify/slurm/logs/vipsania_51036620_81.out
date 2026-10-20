@@ -1,0 +1,16 @@
+task 81  GCA_004335185.1  Phoma sp. RAV-16-625
+  genome: /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/genomes/GCA_004335185.1/ncbi_dataset/data/GCA_004335185.1/GCA_004335185.1_ASM433518v1_genomic.fna (33M)
+!! library failed, and see docs/troubleshooting.md in the Vipsania repository.
+
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792161784.825994 2724831 service.cc:152] XLA service 0x550f2d40 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1792161784.826034 2724831 service.cc:160]   StreamExecutor device (0): Host, Default Version
+I0000 00:00:1792161791.784502 2724831 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Found model location /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+Using model config /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/config.json
+Model successfully created.
+Model successfully built.
+Using model weights /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/latest_checkpoint.weights.h5
+Model weights successfully loaded.
+  WALL 3309 s  (exit: 0)
+  predicted: 12127 sequences

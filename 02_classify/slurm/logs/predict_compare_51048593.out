@@ -1,0 +1,129 @@
+START Sat Oct 17 07:10:26 AM AWST 2026
+  GCA_016801405.1    Parastagonospora nodorum     pred 13,634 seq / 19.29 Mb   recall 0.9361 precision 0.9734
+  GCA_900091695.1    Zymoseptoria tritici         pred 12,309 seq / 16.93 Mb   recall 0.9734 precision 0.9290
+  GCF_003171515.1    Pyrenophora tritici-repentis pred 13,668 seq / 21.29 Mb   recall 0.9614 precision 0.8948
+  GCA_900232045.3    Pyrenophora teres            pred 12,191 seq / 18.62 Mb   recall 0.9734 precision 0.9529
+  GCA_025169535.1    Puccinia striiformis         pred 16,972 seq / 25.41 Mb   recall 0.8710 precision 0.8090
+  GCA_026914245.1    Puccinia triticina           pred 20,326 seq / 32.91 Mb   recall 0.8806 precision 0.4872
+  GCA_061311145.1    Fusarium graminearum         pred 12,643 seq / 18.70 Mb   recall 0.9590 precision 0.9633
+  GCA_030719095.1    Fusarium oxysporum           pred 16,789 seq / 24.10 Mb   recall 0.9686 precision 0.9322
+  GCA_049245135.1    Rhizoctonia solani           pred 12,933 seq / 19.37 Mb   recall 0.9767 precision 0.5929
+  GCA_004346965.1    Pyricularia oryzae           pred 11,988 seq / 17.89 Mb   recall 0.9321 precision 0.9532
+  GCA_028858655.1    Bipolaris maydis             pred 12,026 seq / 18.19 Mb   recall 0.9611 precision 0.9539
+  GCF_033473495.1    Cercospora beticola          pred 13,541 seq / 18.97 Mb   recall 0.9837 precision 0.9594
+  GCF_019915245.1    Fusarium musae               pred 14,878 seq / 21.44 Mb   recall 0.9793 precision 0.8738
+  GCA_003316995.2    Fusarium verticillioides     pred 14,748 seq / 21.28 Mb   recall 0.9823 precision 0.9133
+  GCF_001672515.1    Colletotrichum higginsianum  pred 13,948 seq / 21.35 Mb   recall 0.9498 precision 0.9533
+  GCA_009663115.1    Fusarium fujikuroi           pred 14,870 seq / 21.53 Mb   recall 0.9617 precision 0.9208
+  GCA_900519115.1    Blumeria graminis            pred 17,598 seq / 36.76 Mb   recall 0.9478 precision 0.5126
+  GCA_045999785.1    Phlyctema vagabunda          pred 11,642 seq / 17.94 Mb   recall 0.9836 precision 0.9284
+  GCF_000182925.2    Neurospora crassa            pred  9,135 seq / 14.71 Mb   recall 0.9645 precision 0.9781
+  GCF_004355905.1    Pyricularia grisea           pred 11,757 seq / 17.42 Mb   recall 0.9558 precision 0.9528
+  GCF_020623625.1    Saccharomycodes ludwigii     pred  5,059 seq /  8.44 Mb   recall 0.9978 precision 0.9872
+  GCF_018924745.1    Marasmius oreades            pred 14,165 seq / 20.96 Mb   recall 0.9528 precision 0.8817
+  GCA_051938815.1    Gaeumannomyces hyphopodioide pred 12,970 seq / 20.81 Mb   recall 0.9790 precision 0.9099
+  GCF_964197705.1    Penicillium psychrofluoresce pred 10,837 seq / 15.91 Mb   recall 0.9916 precision 0.8694
+  GCA_056632935.1    Cryptococcus deuterogattii   pred  6,412 seq / 10.37 Mb   recall 0.9865 precision 0.9639
+  GCA_029542965.1    Malassezia yamatoensis       pred  4,257 seq /  6.90 Mb   recall 0.9675 precision 0.9456
+  GCF_020647795.1    Trichoderma atroviride       pred 11,163 seq / 17.08 Mb   recall 0.9582 precision 0.9316
+  GCF_023278565.1    Colletotrichum lupini        pred 14,000 seq / 20.45 Mb   recall 0.7766 precision 0.9677
+  GCA_007735645.1    Venturia effusa              pred 11,977 seq / 16.51 Mb   recall 0.9748 precision 0.9421
+  GCA_001984395.2    Zygosaccharomyces parabailii pred 10,071 seq / 14.88 Mb   recall 0.9917 precision 0.9937
+  GCA_014784225.2    Aspergillus flavus           pred 13,125 seq / 18.89 Mb   recall 0.9774 precision 0.9490
+  GCA_046000195.1    Aspergillus wentii           pred 12,003 seq / 17.50 Mb   recall 0.9759 precision 0.9566
+  GCA_047368035.1    Malassezia pachydermatis     pred  4,605 seq /  7.19 Mb   recall 0.9868 precision 0.9083
+  GCA_056582465.1    Diplodia sapinea             pred 12,357 seq / 18.39 Mb   recall 0.9765 precision 0.9087
+  GCF_000836335.1    Cryptococcus bacillisporus   pred  6,492 seq / 10.46 Mb   recall 0.9759 precision 0.9709
+  GCA_976943335.1    Parajaminaea phylloscopi     pred  6,565 seq / 11.86 Mb   recall 0.9818 precision 0.9748
+  GCA_977970205.2    Microdochium nivale          pred 11,169 seq / 17.35 Mb   recall 0.9570 precision 0.9525
+  GCA_027946375.1    Neodidymelliopsis sp. IMI 36 pred 11,091 seq / 16.20 Mb   recall 0.9578 precision 0.8375
+  GCA_040367835.1    Mucor flavus                 pred 12,305 seq / 16.84 Mb   recall 0.9612 precision 0.9268
+  GCA_014898425.1    Botryotinia globosa          pred 11,407 seq / 16.76 Mb   recall 0.9620 precision 0.9819
+  GCF_001792695.1    Aspergillus bombycis         pred 12,995 seq / 18.82 Mb   recall 0.9726 precision 0.9445
+  GCA_900157425.1    Armillaria ostoyae           pred 18,430 seq / 24.75 Mb   recall 0.8626 precision 0.9421
+  GCA_018360355.1    Claviceps sp. Clav32 group G pred  7,884 seq / 11.96 Mb   recall 0.9627 precision 0.9493
+  GCA_004369175.1    Coprinellus micaceus         pred 23,906 seq / 34.61 Mb   recall 0.8443 precision 0.8107
+  GCA_022432375.1    Nemania sp. FL0031           pred 13,463 seq / 20.22 Mb   recall 0.9747 precision 0.9558
+  GCA_000986645.1    Aspergillus rambellii        pred  8,173 seq / 12.38 Mb   recall 0.9578 precision 0.9471
+  GCA_029282135.1    Mycena belliarum             pred 16,638 seq / 24.74 Mb   recall 0.8801 precision 0.8551
+  GCA_052576325.1    Cladosporium allicinum       pred 11,981 seq / 17.47 Mb   recall 0.9417 precision 0.9810
+  GCA_021432655.1    Atractiella rhizophila       pred 16,496 seq / 22.28 Mb   recall 0.8770 precision 0.7817
+  GCF_001500285.1    Mollisia scopiformis         pred 17,922 seq / 24.89 Mb   recall 0.9557 precision 0.9143
+  GCA_053539345.1    Beauveria neobassiana        pred 10,177 seq / 15.02 Mb   recall 0.9733 precision 0.9496
+  GCA_013266165.1    Fusarium graminum            pred 11,870 seq / 17.59 Mb   recall 0.9693 precision 0.9535
+  GCA_013266185.1    Fusarium sarcochroum         pred 15,579 seq / 22.62 Mb   recall 0.9557 precision 0.9428
+  GCA_011392495.1    Talaromyces pinophilus       pred 13,138 seq / 19.33 Mb   recall 0.9557 precision 0.9457
+  GCA_025327135.1    Colletotrichum sp. SAR 10_71 pred 16,794 seq / 24.75 Mb   recall 0.9776 precision 0.7299
+  GCA_964263705.1    Xanthoria parietina          pred  9,932 seq / 14.58 Mb   recall 0.9586 precision 0.9446
+  GCA_001908125.1    Penicillium subrubescens     pred 13,179 seq / 18.48 Mb   recall 0.9482 precision 0.9049
+  GCF_000271605.1    Fomitiporia mediterranea     pred 10,892 seq / 15.64 Mb   recall 0.9272 precision 0.8596
+  GCA_013396295.1    Fusarium heterosporum        pred 12,057 seq / 17.81 Mb   recall 0.9681 precision 0.9502
+  GCF_000281105.1    Coniosporium apollinis       pred  9,567 seq / 14.24 Mb   recall 0.9796 precision 0.9246
+  GCA_025258505.1    Fusarium asiaticum           pred 12,680 seq / 18.76 Mb   novelty -
+  GCA_022559985.1    Parastagonospora avenae      pred 13,993 seq / 19.18 Mb   novelty -
+  GCA_062009444.1    Puccinia hordei              pred 21,223 seq / 38.76 Mb   novelty -
+  GCA_026119265.1    Didymella pinodes            pred 12,273 seq / 17.18 Mb   novelty -
+  GCA_030558545.1    Bipolaris gigantea           pred  9,749 seq / 14.38 Mb   novelty -
+  GCA_053572805.1    Penicillium commune          pred 12,145 seq / 17.70 Mb   novelty -
+  GCA_030389615.1    Epichloe typhina             pred  7,835 seq / 11.93 Mb   novelty -
+  GCA_022506055.1    Microbotryum violaceum       pred  8,002 seq / 13.47 Mb   novelty -
+  GCA_048934005.1    Dioszegia catarinoi          pred  8,853 seq / 12.96 Mb   novelty -
+  GCA_059628725.1    Cladosporium sp. MA8_LABAP   pred 10,050 seq / 14.93 Mb   novelty -
+  GCA_052324205.1    Cladosporium cf. tenuissimum pred 12,405 seq / 18.06 Mb   novelty -
+  GCA_026538325.1    Cryptococcus sp. GC_Crypt_8  pred  7,272 seq / 11.09 Mb   novelty -
+  GCA_000442785.1    Papiliotrema flavescens      pred  9,359 seq / 13.63 Mb   novelty -
+  GCA_060229725.1    Bullera sp. CLIB4446         pred  7,874 seq / 10.44 Mb   novelty -
+  GCA_054490815.1    Acremonium polychromum       pred 13,693 seq / 20.97 Mb   novelty -
+  GCA_030463185.1    Cladosporium sp. BF-F        pred 11,543 seq / 16.85 Mb   novelty -
+  GCA_018703675.1    Cladosporium sp. SW67        pred 10,280 seq / 15.35 Mb   novelty -
+  GCA_026538705.1    Aureobasidium sp. GC_Fusr_1  pred 10,133 seq / 14.39 Mb   novelty -
+  GCA_001600655.1    Dioszegia aurantiaca         pred  7,895 seq / 12.18 Mb   novelty -
+  GCA_019775635.1    Cladosporium sp. VS III D KN pred 12,970 seq / 18.80 Mb   novelty -
+  GCA_004335185.1    Phoma sp. RAV-16-625         pred 12,127 seq / 17.61 Mb   novelty -
+  GCA_062004744.1    Cladosporium sp. 121G        pred 10,987 seq / 16.15 Mb   novelty -
+  GCA_021014315.1    Aureobasidium mangrovei      pred  9,597 seq / 14.09 Mb   novelty -
+  GCA_060229605.1    Vishniacozyma sp. CLIB4441   pred  7,685 seq / 11.40 Mb   novelty -
+  GCA_061604035.1    Aureobasidium sp. LC112      pred 10,270 seq / 15.06 Mb   novelty -
+  GCA_048773585.1    Nigrospora camelliae-sinensi pred 13,606 seq / 20.00 Mb   novelty -
+  GCA_024271845.1    Cryptococcus sp. VH57_BW     pred  6,716 seq / 11.16 Mb   novelty -
+  GCA_023621355.1    Cladosporium sphaerospermum  pred 10,825 seq / 15.96 Mb   novelty -
+  GCA_986694515.1    Marasmius cohaerens          pred 18,592 seq / 27.59 Mb   novelty -
+  GCA_978897505.1    Tricholoma terreum           pred 20,270 seq / 31.15 Mb   novelty -
+  GCA_000633125.1    Flammulina velutipes         pred 15,097 seq / 20.54 Mb   novelty -
+  GCA_009192285.1    Morchella semilibera         pred 12,433 seq / 18.72 Mb   novelty -
+  GCA_054553065.1    Fusarium cerealis            pred 12,577 seq / 18.63 Mb   novelty -
+  GCA_054134705.1    Peroneutypa diatrypoides     pred 11,987 seq / 18.39 Mb   novelty -
+  GCA_040893085.1    Epicoccum sorghinum          pred 12,413 seq / 18.06 Mb   novelty -
+  GCA_036768465.1    Alternaria brassicae         pred 13,222 seq / 19.19 Mb   novelty -
+  GCA_040250155.1    Penicillium fuscoglaucum     pred 11,917 seq / 17.50 Mb   novelty -
+  GCA_051247085.1    Arachnopeziza aurata         pred 14,650 seq / 21.09 Mb   novelty -
+  GCA_055944425.1    Diaporthe caulivora          pred 16,712 seq / 24.11 Mb   novelty -
+  GCA_041412015.1    Pestalotiopsis microspora    pred 16,043 seq / 24.03 Mb   novelty -
+  GCA_023658475.1    Epichloe elymi               pred  7,766 seq / 11.93 Mb   novelty -
+  GCA_046630685.1    Calonectria ilicicola        pred 21,245 seq / 32.23 Mb   novelty -
+  GCA_060595785.1    Pseudozyma tsukubaensis      pred  6,891 seq / 12.36 Mb   novelty -
+  GCA_037356495.1    Penicillium sp. F51          pred 10,911 seq / 16.36 Mb   novelty -
+  GCA_008122225.1    Ciboria shiraiana            pred 10,591 seq / 16.19 Mb   novelty -
+  GCA_019059545.1    Rhodotorula sp. VS67         pred  7,544 seq / 12.38 Mb   novelty -
+  GCA_059475355.1    Elsinoe perseae              pred 10,141 seq / 15.04 Mb   novelty -
+  GCA_027569235.1    Aspergillus sparsus          pred 11,948 seq / 18.19 Mb   novelty -
+  GCA_055797535.1    Trichoderma sp. 5c.a.2       pred 12,229 seq / 18.95 Mb   novelty -
+  GCA_003717165.1    Protomyces inundatus         pred  7,070 seq /  9.50 Mb   novelty -
+  GCA_030779245.1    Fusarium sp. MBC 438         pred 16,256 seq / 23.96 Mb   novelty -
+  GCA_023625975.1    Talaromyces sp. PYS2103      pred 10,368 seq / 15.62 Mb   novelty -
+  GCA_038503075.1    Gyromitra esculenta          pred 10,966 seq / 16.95 Mb   novelty -
+  GCA_022560085.1    Helminthosporium solani      pred 11,357 seq / 16.53 Mb   novelty -
+  GCA_054123095.1    Scopulariopsis sp.           pred  5,027 seq /  6.36 Mb   novelty -
+  GCA_009804945.1    Neurospora sp. FGSC 26633    pred 10,151 seq / 15.77 Mb   novelty -
+  GCA_051820765.1    Phaeoisaria parallela        pred 11,491 seq / 17.50 Mb   novelty -
+  GCA_002368545.1    Ramichloridium luteum        pred 10,041 seq / 15.20 Mb   novelty -
+  GCA_001640655.1    Endoconidiophora laricicola  pred  7,002 seq / 11.43 Mb   novelty -
+
+metrics → /scratch/pawsey1168/llenzo/crypt/02_classify/data/gold/predict_benchmark.tsv   (119 scored, 1 missing)
+
+── Arm A (ground truth exists) ──────────────────────────
+  assemblies scored : 60
+  median RECALL     : 0.963   (of TRUE CDS k-mer space recovered)
+  median PRECISION  : 0.945   (of PREDICTED k-mer space that is real CDS)
+  median Jaccard    : 0.907
+END Sat Oct 17 07:24:12 AM AWST 2026

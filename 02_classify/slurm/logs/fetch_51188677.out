@@ -1,0 +1,10 @@
+host     setonix-dm07
+started  2026-10-20T10:06:15+08:00
+PRJDB7234: 3 runs, 0.000 TiB
+  [done ] DRR145103     5s   0.00 GB    0.1 MB/s
+  [done ] DRR145264    34s   0.02 GB    0.7 MB/s
+  [done ] DRR145104    49s   0.04 GB    0.8 MB/s
+
+PRJDB7234: 3/3 ok, 0 failed, 0.1 GiB, 0.8 min
+exit     0 after 50s
+finished 2026-10-20T10:07:05+08:00

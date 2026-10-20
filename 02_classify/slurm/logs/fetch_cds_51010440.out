@@ -1,0 +1,28 @@
+datasets version: datasets version: 18.39.0
+START Fri Oct 16 12:50:03 PM AWST 2026
+wanted: 4,271 cds accessions, 1,547 species  (/scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/ref_candidates.tsv)
+on disk already:        4,269   (/scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/cds/pathogen)
+  of which EMPTY directories (purged, not held): 2
+acacia bucket holds:    1,994   (s3://pawsey1168-kraken-db/db/search/cds/pathogen)
+  pullable from acacia: 0  (0.0 GB)
+  in acacia, no longer wanted: 241  (kept, never deleted here)
+must come from NCBI:    2
+
+Downloading 2 from NCBI (8 workers)
+
+Downloading CDS for 2 candidates → /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/cds/pathogen
+  [12:50:36] [2/2] ok=2 (cached=0) fail=0  rate=0.4/s
+
+── Download summary ─────────────────────────────────────────────
+  Downloaded/cached OK: 2  (already on disk: 0)
+  Failed:               0
+
+Next: python 02_classify/utilities/busco.py
+
+manifest → /scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/cds_manifest.tsv
+
+── summary ──────────────────────────────────────────────
+  disk      4,269
+  ncbi          2
+  total     4,271 of 4,271 wanted  (88.7 GB)
+END Fri Oct 16 12:50:37 PM AWST 2026

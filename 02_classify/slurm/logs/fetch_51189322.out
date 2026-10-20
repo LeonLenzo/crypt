@@ -1,0 +1,19 @@
+host     setonix-dm13
+started  2026-10-20T10:46:28+08:00
+PRJNA609211: 20 runs, 0.084 TiB
+  [20/20] 0.0 GiB, 76.1 min, eta 0 min
+
+PRJNA609211: 0/20 ok, 20 failed, 0.0 GiB, 76.1 min
+  FAILED SRR11263077: failed SRR11263077_1.fastq.gz failed 3x
+  FAILED SRR11262948: failed SRR11262948_1.fastq.gz failed 3x
+  FAILED SRR11263045: failed SRR11263045_1.fastq.gz failed 3x
+  FAILED SRR11263087: failed SRR11263087_1.fastq.gz failed 3x
+  FAILED SRR11262992: failed SRR11262992_1.fastq.gz failed 3x
+  FAILED SRR11262912: failed SRR11262912_1.fastq.gz failed 3x
+  FAILED SRR11263015: failed SRR11263015_1.fastq.gz failed 3x
+  FAILED SRR11263008: failed SRR11263008_1.fastq.gz failed 3x
+  FAILED SRR11262985: failed SRR11262985_1.fastq.gz failed 3x
+  FAILED SRR11263109: failed SRR11263109_1.fastq.gz failed 3x
+  20 runs carry a note, e.g. SRR11263077: SRR11263077_1.fastq.gz failed 3x
+exit     1 after 4564s
+finished 2026-10-20T12:02:32+08:00

@@ -1,0 +1,16 @@
+task 43  GCA_018360355.1  Claviceps sp. Clav32 group G5
+  genome: /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/genomes/GCA_018360355.1/ncbi_dataset/data/GCA_018360355.1/GCA_018360355.1_CSU_Clav32_v1_genomic.fna (28M)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792157463.634880 2675614 service.cc:152] XLA service 0x20bde730 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1792157463.634921 2675614 service.cc:160]   StreamExecutor device (0): Host, Default Version
+I0000 00:00:1792157471.298270 2675614 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+WARNING:tensorflow:5 out of the last 63 calls to <function model_call at 0x14ce20328f40> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:6 out of the last 64 calls to <function model_call at 0x14ce20328f40> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+Found model location /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+Using model config /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/config.json
+Model successfully created.
+Model successfully built.
+Using model weights /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/latest_checkpoint.weights.h5
+Model weights successfully loaded.
+  WALL 4970 s  (exit: 0)
+  predicted: 7884 sequences

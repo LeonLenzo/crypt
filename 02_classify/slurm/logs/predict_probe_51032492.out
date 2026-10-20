@@ -1,0 +1,136 @@
+
+──── environment ────
+python: Python 3.12.12
+host:   nid002044   cpus=36
+VIPSANIA_CACHE=/scratch/pawsey1168/llenzo/cache/vipsania
+
+──── venv + install ────
+installing vipsania (this is the step that can fail on a CUDA pin)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from rich->keras>=3.5.0->tensorflow<2.20->vipsania) (2.21.0)
+Requirement already satisfied: mdurl~=0.1 in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from markdown-it-py>=2.2.0->rich->keras>=3.5.0->tensorflow<2.20->vipsania) (0.1.2)
+Requirement already satisfied: click>=8.2.0 in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (8.5.0)
+Requirement already satisfied: opentelemetry-api>=1.43.0 in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (1.45.1)
+Requirement already satisfied: opentelemetry-exporter-otlp-proto-http>=1.43.0 in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (1.45.1)
+Requirement already satisfied: opentelemetry-sdk>=1.43.0 in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (1.45.1)
+Requirement already satisfied: platformdirs in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (4.13.3)
+Requirement already satisfied: pyyaml in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (6.0.3)
+Requirement already satisfied: xxhash>=3.0.0 in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (4.0.1)
+Requirement already satisfied: googleapis-common-protos~=1.52 in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (1.75.0)
+Requirement already satisfied: opentelemetry-exporter-http-transport==0.66b1 in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-http-transport[requests]==0.66b1->opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (0.66b1)
+Requirement already satisfied: opentelemetry-exporter-otlp-common==0.66b1 in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (0.66b1)
+Requirement already satisfied: opentelemetry-exporter-otlp-proto-common==1.45.1 in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (1.45.1)
+Requirement already satisfied: opentelemetry-proto==1.45.1 in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (1.45.1)
+Requirement already satisfied: opentelemetry-semantic-conventions==0.66b1 in /scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-sdk>=1.43.0->wandb->vipsania) (0.66b1)
+pip exit: 0
+
+──── what actually got installed ────
+  vipsania     ?
+  tensorflow   2.19.1
+  keras        3.15.1
+  TF devices: ['CPU']
+  built with cuda: True
+
+──── cli surface ────
+usage: vipsania [-h] {annotate,train,download} ...
+
+Vipsania - an unsupervised deep learning ab-initio gene finder.
+
+positional arguments:
+  {annotate,train,download}
+    annotate            Generate a genome annotation of a fasta file with a
+                        given trained Vipsania model.
+    train               Train a Vipsania model. Supply either a path to a json
+                        model configuration file or the ID for an existing
+                        training run.
+    download            Download a pretrained Vipsania model ahead of time.
+                        Annotation downloads the model it needs on its own, so
+                        this is only useful to prepare a machine that has no
+                        internet access when it annotates.
+
+options:
+  -h, --help            show this help message and exit
+(--help exit: 0)
+
+──── pre-download the Fungi model, so it is not inside the timing ────
+Downloading Vipsania model fh1kg88z from https://bioinf.uni-greifswald.de/bioinf/vipsania/models/fh1kg88z
+  config.json: 0.0 MB
+  latest_checkpoint.weights.h5: 100.8 MB
+Model fh1kg88z is now in /scratch/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+(download exit: 0)
+
+──── fetch ONE genome to predict on ────
+sample: 1 assemblies  (/scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/predict_sample.tsv)
+  genomic FASTA already on disk: 1
+  to download:                   0
+
+manifest → /scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/predict_genomes.tsv
+── summary ──────────────────────────────────────────────
+  annotated       1
+  total           1 of 1  (0.0 GB)
+target: /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/genomes/GCA_016801405.1/ncbi_dataset/data/GCA_016801405.1/GCA_016801405.1_ASM1680140v1_genomic.fna  (36M)
+contigs: 23   bases: 37020537
+
+──── TIMED run 1 of 2: PRETRAINED only (no --finetune) ────
+
+Found model location /scratch/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+Using model config /scratch/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/config.json
+Model successfully created.
+Model successfully built.
+Using model weights /scratch/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/latest_checkpoint.weights.h5
+Model weights successfully loaded.
+Traceback (most recent call last):
+  File "/scratch/pawsey1168/llenzo/venv/vipsania/bin/vipsania", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/vipsania/cli/main.py", line 32, in main
+    args.run(args)
+  File "/scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/vipsania/cli/annotate.py", line 516, in run
+    annotate_model(
+  File "/scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/vipsania/cli/annotate.py", line 238, in annotate_model
+    if B == -1: B = _estimate_max_batch_size(T, V.count_params())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/vipsania/cli/annotate.py", line 63, in _estimate_max_batch_size
+    available_memory_gb = _get_available_memory(gpu_index=gpu_index)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/vipsania/cli/annotate.py", line 17, in _get_available_memory
+    if shutil.which("nvidia-smi") is None: raise RuntimeError(error)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Unable to determine available GPU memory using nvidia-smi. Specify the batch size manually using '-B' or '--finetune_B'
+WALL_PRETRAINED 11 s   (exit: 1)
+
+──── TIMED run 2 of 2: WITH --finetune ────
+
+Found model location /scratch/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+Using model config /scratch/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/config.json
+Model successfully created.
+Model successfully built.
+Using model weights /scratch/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/latest_checkpoint.weights.h5
+Model weights successfully loaded.
+Traceback (most recent call last):
+  File "/scratch/pawsey1168/llenzo/venv/vipsania/bin/vipsania", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/vipsania/cli/main.py", line 32, in main
+    args.run(args)
+  File "/scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/vipsania/cli/annotate.py", line 516, in run
+    annotate_model(
+  File "/scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/vipsania/cli/annotate.py", line 153, in annotate_model
+    finetune_B = _estimate_max_batch_size(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/vipsania/cli/annotate.py", line 63, in _estimate_max_batch_size
+    available_memory_gb = _get_available_memory(gpu_index=gpu_index)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/vipsania/cli/annotate.py", line 17, in _get_available_memory
+    if shutil.which("nvidia-smi") is None: raise RuntimeError(error)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Unable to determine available GPU memory using nvidia-smi. Specify the batch size manually using '-B' or '--finetune_B'
+WALL_FINETUNED 8 s   (exit: 1)
+
+──── result ────
+  *_coding.fa: ABSENT OR EMPTY
+  *.gff3: ABSENT OR EMPTY
+
+Compare against the TRUTH we already hold for this accession:
+  real CDS lives under data/bronze/cds/pathogen/<accession>/ and its gene count is in
+  ref_candidates.tsv (protein_coding_genes). compare.py does this properly.
+END Fri Oct 16 07:40:39 PM AWST 2026

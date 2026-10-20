@@ -1,0 +1,16 @@
+host     setonix-dm07
+started  2026-10-20T10:08:24+08:00
+PRJDB7234: 20 runs, 0.002 TiB
+  [done ] DRR145821     5s   0.00 GB    0.0 MB/s
+  [done ] DRR145265    23s   0.02 GB    0.7 MB/s
+  [done ] DRR145594    30s   0.02 GB    0.7 MB/s
+  [done ] DRR146318    35s   0.02 GB    0.7 MB/s
+  [done ] DRR146493    11s   0.01 GB    0.6 MB/s
+  [done ] DRR146364    60s   0.03 GB    0.5 MB/s
+  [done ] DRR146469    84s   0.05 GB    0.6 MB/s
+  [done ] DRR145595   118s   0.08 GB    0.7 MB/s
+  [done ] DRR146336   149s   0.10 GB    0.6 MB/s
+  [done ] DRR146349   153s   0.07 GB    0.4 MB/s
+  [done ] DRR145820   207s   0.14 GB    0.7 MB/s
+  [done ] DRR146666   102s   0.07 GB    0.7 MB/s
+  [done ] DRR146637   216s   0.15 GB    0.7 MB/s

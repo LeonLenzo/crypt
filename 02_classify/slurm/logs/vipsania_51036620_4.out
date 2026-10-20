@@ -1,0 +1,16 @@
+task 4  GCA_900232045.3  Pyrenophora teres
+  genome: /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/genomes/GCA_900232045.3/ncbi_dataset/data/GCA_900232045.3/GCA_900232045.3_PTTW11_genomic.fna (52M)
+!! library failed, and see docs/troubleshooting.md in the Vipsania repository.
+
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792156328.001795  149176 service.cc:152] XLA service 0x50e31c30 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1792156328.001827  149176 service.cc:160]   StreamExecutor device (0): Host, Default Version
+I0000 00:00:1792156334.210688  149176 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Found model location /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+Using model config /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/config.json
+Model successfully created.
+Model successfully built.
+Using model weights /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/latest_checkpoint.weights.h5
+Model weights successfully loaded.
+  WALL 3652 s  (exit: 0)
+  predicted: 12191 sequences

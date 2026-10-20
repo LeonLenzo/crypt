@@ -1,0 +1,23 @@
+kraken2-build: /software/projects/pawsey1168/llenzo/setonix/2025.08/software/linux-sles15-zen3/gcc-14.2.0/kraken2-2.1.2-qk2lek64msmwg57n2fowuf5b7etidqaj/bin/kraken2-build  Kraken version 2.1.2
+START Fri Oct 16 05:15:10 PM AWST 2026
+node: nid001026   mem: 250G total
+taxonomy already installed
+
+kraken2-build --build  (k=35, l=31, threads=128)
+Creating sequence ID to taxonomy ID map (step 1)...
+Sequence ID to taxonomy ID map already present, skipping map creation.
+Estimating required capacity (step 2)...
+Estimated hash table requirement: 43001573668 bytes
+Capacity estimation complete. [6m29.551s]
+Building database files (step 3)...
+Database files completed. [5h33m21.921s]
+Database construction complete. [Total: 5h40m6.845s]
+
+kraken2-inspect → /scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/db_inspect.tsv
+  root minimizers: 7,539,317,601   (db_v3 held 4,800,752,701)
+
+db ready: /scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/db/db_v4
+  hash.k2d 43.0 GB  (db_v3 was 27.4 GB; this is the RAM a classify job must hold)
+
+classify with: kraken2 --db /scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/db/db_v4 --confidence 0.15 --minimum-hit-groups 3 --threads N ...
+END Fri Oct 16 10:55:45 PM AWST 2026

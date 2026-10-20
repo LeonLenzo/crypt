@@ -1,0 +1,310 @@
+host     nid002818
+started  2026-10-19T12:20:42+08:00
+staging db_v4 into /dev/shm/db_v4_51121013 ...
+staged 41G in 84s
+tmpfs           126G   41G   86G  32% /dev/shm
+tasks    100
+=== task 1 ===
+=== task 2 ===
+=== task 3 ===
+=== task 4 ===
+=== task 5 ===
+=== task 6 ===
+  subsampled 2 file(s), frac=0.01107, 200.8 MB in 86s
+  subsampled 2 file(s), frac=0.01107, 201.5 MB in 91s
+  subsampled 2 file(s), frac=0.00584, 105.9 MB in 91s
+-> task_0005.tsv: 100 species rows, total 93s
+=== task 7 ===
+  subsampled 2 file(s), frac=0.00584, 106.2 MB in 95s
+  subsampled 2 file(s), frac=0.00584, 106.5 MB in 95s
+-> task_0006.tsv: 91 species rows, total 95s
+=== task 8 ===
+  subsampled 2 file(s), frac=0.01107, 201.7 MB in 96s
+-> task_0004.tsv: 90 species rows, total 100s
+=== task 9 ===
+-> task_0002.tsv: 88 species rows, total 120s
+=== task 10 ===
+-> task_0001.tsv: 80 species rows, total 124s
+=== task 11 ===
+-> task_0003.tsv: 76 species rows, total 125s
+=== task 12 ===
+  subsampled 2 file(s), frac=0.03075, 558.8 MB in 90s
+-> task_0007.tsv: 117 species rows, total 98s
+=== task 13 ===
+  subsampled 2 file(s), frac=0.06458, 1172.9 MB in 99s
+  subsampled 2 file(s), frac=0.15375, 2793.5 MB in 99s
+-> task_0008.tsv: 140 species rows, total 111s
+=== task 14 ===
+  subsampled 2 file(s), frac=0.30751, 5584.2 MB in 90s
+-> task_0009.tsv: 163 species rows, total 121s
+=== task 15 ===
+  subsampled 2 file(s), frac=0.61501, 11173.5 MB in 106s
+  subsampled 1 file(s), frac=0.02818, 145.3 MB in 46s
+-> task_0013.tsv: 508 species rows, total 49s
+=== task 16 ===
+  subsampled 2 file(s), frac=0.92252, 16759.9 MB in 116s
+  subsampled 1 file(s), frac=0.02818, 145.3 MB in 45s
+-> task_0014.tsv: 524 species rows, total 49s
+=== task 17 ===
+-> task_0010.tsv: 191 species rows, total 143s
+=== task 18 ===
+  subsampled 1 file(s), frac=0.02818, 145.5 MB in 45s
+-> task_0015.tsv: 512 species rows, total 48s
+=== task 19 ===
+  subsampled 1 file(s), frac=0.05340, 275.4 MB in 45s
+-> task_0016.tsv: 707 species rows, total 49s
+=== task 20 ===
+  subsampled 1 file(s), frac=0.05340, 274.9 MB in 46s
+-> task_0017.tsv: 706 species rows, total 50s
+=== task 21 ===
+-> task_0011.tsv: 218 species rows, total 184s
+=== task 22 ===
+  subsampled 1 file(s), frac=0.05340, 275.6 MB in 48s
+  subsampled 1 file(s), frac=0.14833, 765.0 MB in 44s
+-> task_0018.tsv: 705 species rows, total 53s
+=== task 23 ===
+-> task_0019.tsv: 1037 species rows, total 51s
+=== task 24 ===
+  subsampled 1 file(s), frac=0.31149, 1605.9 MB in 44s
+-> task_0020.tsv: 1268 species rows, total 60s
+=== task 25 ===
+  subsampled 1 file(s), frac=0.74163, 3824.6 MB in 49s
+-> task_0012.tsv: 233 species rows, total 256s
+=== task 26 ===
+-> task_0021.tsv: 1419 species rows, total 78s
+=== task 27 ===
+  subsampled 2 file(s), frac=0.00645, 106.1 MB in 82s
+  subsampled 2 file(s), frac=0.00645, 106.2 MB in 81s
+-> task_0023.tsv: 61 species rows, total 86s
+=== task 28 ===
+  subsampled 2 file(s), frac=0.00645, 106.4 MB in 82s
+-> task_0022.tsv: 57 species rows, total 102s
+=== task 29 ===
+-> task_0024.tsv: 56 species rows, total 106s
+=== task 30 ===
+  subsampled 2 file(s), frac=0.01222, 201.6 MB in 81s
+-> task_0025.tsv: 69 species rows, total 85s
+=== task 31 ===
+  subsampled 2 file(s), frac=0.01222, 201.0 MB in 80s
+-> task_0026.tsv: 68 species rows, total 84s
+=== task 32 ===
+  subsampled 2 file(s), frac=0.01222, 201.3 MB in 83s
+-> task_0027.tsv: 65 species rows, total 87s
+=== task 33 ===
+  subsampled 2 file(s), frac=0.03395, 558.4 MB in 81s
+  subsampled 2 file(s), frac=0.07130, 1172.2 MB in 81s
+-> task_0028.tsv: 90 species rows, total 90s
+=== task 34 ===
+-> task_0029.tsv: 109 species rows, total 94s
+=== task 35 ===
+  subsampled 2 file(s), frac=0.16975, 2791.7 MB in 82s
+  subsampled 1 file(s), frac=0.03111, 145.3 MB in 40s
+-> task_0033.tsv: 569 species rows, total 43s
+=== task 36 ===
+  subsampled 2 file(s), frac=0.33950, 5583.0 MB in 83s
+  subsampled 1 file(s), frac=0.03111, 145.3 MB in 40s
+-> task_0034.tsv: 566 species rows, total 42s
+=== task 37 ===
+-> task_0030.tsv: 141 species rows, total 107s
+=== task 38 ===
+  subsampled 1 file(s), frac=0.03111, 145.3 MB in 42s
+-> task_0035.tsv: 547 species rows, total 44s
+=== task 39 ===
+  subsampled 2 file(s), frac=0.67901, 11170.1 MB in 90s
+  subsampled 1 file(s), frac=0.05895, 275.2 MB in 41s
+-> task_0036.tsv: 776 species rows, total 44s
+=== task 40 ===
+-> task_0031.tsv: 175 species rows, total 132s
+=== task 41 ===
+  subsampled 1 file(s), frac=0.05895, 275.0 MB in 39s
+  subsampled 1 file(s), frac=0.05895, 275.6 MB in 39s
+-> task_0037.tsv: 795 species rows, total 43s
+=== task 42 ===
+-> task_0038.tsv: 775 species rows, total 43s
+=== task 43 ===
+  subsampled 1 file(s), frac=0.16376, 764.4 MB in 40s
+-> task_0039.tsv: 1110 species rows, total 45s
+=== task 44 ===
+  subsampled 1 file(s), frac=0.34390, 1605.1 MB in 40s
+-> task_0040.tsv: 1304 species rows, total 49s
+=== task 45 ===
+  subsampled 1 file(s), frac=0.81880, 3823.2 MB in 49s
+-> task_0041.tsv: 1439 species rows, total 67s
+=== task 46 ===
+-> task_0032.tsv: 206 species rows, total 181s
+=== task 47 ===
+  subsampled 2 file(s), frac=0.00677, 99.7 MB in 84s
+  subsampled 2 file(s), frac=0.00677, 100.0 MB in 85s
+  subsampled 2 file(s), frac=0.00677, 100.1 MB in 83s
+-> task_0043.tsv: 115 species rows, total 98s
+=== task 48 ===
+-> task_0042.tsv: 113 species rows, total 100s
+=== task 49 ===
+-> task_0044.tsv: 114 species rows, total 86s
+=== task 50 ===
+  subsampled 2 file(s), frac=0.01282, 189.6 MB in 85s
+-> task_0045.tsv: 139 species rows, total 89s
+=== task 51 ===
+  subsampled 2 file(s), frac=0.01282, 188.8 MB in 83s
+-> task_0046.tsv: 135 species rows, total 87s
+=== task 52 ===
+  subsampled 2 file(s), frac=0.01282, 189.6 MB in 84s
+-> task_0047.tsv: 139 species rows, total 88s
+=== task 53 ===
+  subsampled 2 file(s), frac=0.03563, 525.3 MB in 84s
+  subsampled 2 file(s), frac=0.07481, 1102.1 MB in 83s
+-> task_0048.tsv: 201 species rows, total 90s
+=== task 54 ===
+  subsampled 2 file(s), frac=0.17813, 2625.8 MB in 88s
+-> task_0049.tsv: 240 species rows, total 94s
+=== task 55 ===
+  subsampled 1 file(s), frac=0.05335, 281.5 MB in 40s
+-> task_0053.tsv: 823 species rows, total 44s
+=== task 56 ===
+  subsampled 2 file(s), frac=0.35626, 5251.7 MB in 87s
+-> task_0050.tsv: 307 species rows, total 110s
+=== task 57 ===
+  subsampled 2 file(s), frac=0.71251, 10504.1 MB in 84s
+  subsampled 1 file(s), frac=0.05335, 281.2 MB in 40s
+-> task_0054.tsv: 799 species rows, total 44s
+=== task 58 ===
+  subsampled 1 file(s), frac=0.05335, 281.7 MB in 42s
+-> task_0055.tsv: 772 species rows, total 46s
+=== task 59 ===
+-> task_0051.tsv: 371 species rows, total 121s
+=== task 60 ===
+  subsampled 1 file(s), frac=0.10109, 533.2 MB in 41s
+-> task_0056.tsv: 990 species rows, total 46s
+=== task 61 ===
+  subsampled 1 file(s), frac=0.10109, 533.0 MB in 40s
+-> task_0057.tsv: 1007 species rows, total 44s
+=== task 62 ===
+  subsampled 1 file(s), frac=0.10109, 533.7 MB in 40s
+-> task_0058.tsv: 985 species rows, total 45s
+=== task 63 ===
+  subsampled 1 file(s), frac=0.28081, 1481.5 MB in 44s
+  subsampled 1 file(s), frac=0.58971, 3111.9 MB in 47s
+-> task_0059.tsv: 1249 species rows, total 53s
+=== task 64 ===
+-> task_0060.tsv: 1370 species rows, total 62s
+=== task 65 ===
+-> task_0052.tsv: 449 species rows, total 166s
+=== task 66 ===
+  subsampled 2 file(s), frac=0.00549, 100.1 MB in 106s
+  subsampled 2 file(s), frac=0.00549, 99.6 MB in 103s
+-> task_0061.tsv: 63 species rows, total 121s
+=== task 67 ===
+-> task_0062.tsv: 69 species rows, total 117s
+=== task 68 ===
+  subsampled 2 file(s), frac=0.00549, 100.0 MB in 103s
+-> task_0063.tsv: 71 species rows, total 107s
+=== task 69 ===
+  subsampled 2 file(s), frac=0.01041, 189.7 MB in 104s
+-> task_0064.tsv: 81 species rows, total 108s
+=== task 70 ===
+  subsampled 2 file(s), frac=0.01041, 188.7 MB in 103s
+-> task_0065.tsv: 92 species rows, total 107s
+=== task 71 ===
+  subsampled 2 file(s), frac=0.01041, 189.4 MB in 106s
+-> task_0066.tsv: 89 species rows, total 109s
+=== task 72 ===
+  subsampled 2 file(s), frac=0.02891, 525.3 MB in 104s
+  subsampled 2 file(s), frac=0.06071, 1103.7 MB in 104s
+-> task_0067.tsv: 118 species rows, total 111s
+=== task 73 ===
+-> task_0068.tsv: 163 species rows, total 116s
+=== task 74 ===
+  subsampled 2 file(s), frac=0.14454, 2627.5 MB in 105s
+  subsampled 2 file(s), frac=0.28908, 5254.0 MB in 105s
+-> task_0069.tsv: 236 species rows, total 128s
+=== task 75 ===
+  subsampled 2 file(s), frac=0.57817, 10511.9 MB in 106s
+  subsampled 1 file(s), frac=0.04330, 281.7 MB in 52s
+  subsampled 2 file(s), frac=0.86725, 15767.7 MB in 114s
+-> task_0073.tsv: 542 species rows, total 56s
+=== task 76 ===
+  subsampled 1 file(s), frac=0.04330, 281.5 MB in 54s
+-> task_0070.tsv: 296 species rows, total 144s
+=== task 77 ===
+-> task_0074.tsv: 542 species rows, total 57s
+=== task 78 ===
+  subsampled 1 file(s), frac=0.04330, 281.6 MB in 51s
+-> task_0075.tsv: 560 species rows, total 54s
+=== task 79 ===
+  subsampled 1 file(s), frac=0.08203, 533.7 MB in 52s
+-> task_0076.tsv: 734 species rows, total 56s
+=== task 80 ===
+  subsampled 1 file(s), frac=0.08203, 534.0 MB in 51s
+  subsampled 1 file(s), frac=0.08203, 533.4 MB in 57s
+-> task_0078.tsv: 755 species rows, total 55s
+=== task 81 ===
+-> task_0077.tsv: 730 species rows, total 61s
+=== task 82 ===
+-> task_0071.tsv: 357 species rows, total 203s
+=== task 83 ===
+  subsampled 1 file(s), frac=0.22787, 1482.9 MB in 58s
+-> task_0079.tsv: 1033 species rows, total 68s
+=== task 84 ===
+  subsampled 1 file(s), frac=0.47852, 3114.7 MB in 50s
+-> task_0072.tsv: 405 species rows, total 223s
+=== task 85 ===
+-> task_0080.tsv: 1213 species rows, total 71s
+=== task 86 ===
+  subsampled 2 file(s), frac=0.00485, 97.2 MB in 94s
+-> task_0081.tsv: 66 species rows, total 97s
+=== task 87 ===
+  subsampled 2 file(s), frac=0.00485, 96.8 MB in 98s
+-> task_0082.tsv: 71 species rows, total 102s
+=== task 88 ===
+  subsampled 2 file(s), frac=0.00485, 97.3 MB in 96s
+-> task_0083.tsv: 64 species rows, total 100s
+=== task 89 ===
+  subsampled 2 file(s), frac=0.00919, 184.4 MB in 101s
+  subsampled 2 file(s), frac=0.00919, 183.7 MB in 95s
+-> task_0084.tsv: 89 species rows, total 104s
+=== task 90 ===
+-> task_0085.tsv: 86 species rows, total 99s
+=== task 91 ===
+  subsampled 2 file(s), frac=0.00919, 184.2 MB in 102s
+-> task_0086.tsv: 83 species rows, total 106s
+=== task 92 ===
+  subsampled 2 file(s), frac=0.02553, 510.0 MB in 100s
+-> task_0087.tsv: 124 species rows, total 107s
+=== task 93 ===
+  subsampled 2 file(s), frac=0.12768, 2553.1 MB in 101s
+  subsampled 2 file(s), frac=0.05362, 1072.0 MB in 108s
+-> task_0088.tsv: 160 species rows, total 118s
+=== task 94 ===
+-> task_0089.tsv: 220 species rows, total 123s
+=== task 95 ===
+  subsampled 2 file(s), frac=0.25535, 5106.8 MB in 101s
+  subsampled 1 file(s), frac=0.03824, 270.5 MB in 47s
+  subsampled 2 file(s), frac=0.51070, 10215.6 MB in 113s
+-> task_0093.tsv: 533 species rows, total 50s
+=== task 96 ===
+  subsampled 1 file(s), frac=0.03824, 270.4 MB in 51s
+-> task_0094.tsv: 524 species rows, total 55s
+=== task 97 ===
+-> task_0090.tsv: 287 species rows, total 143s
+=== task 98 ===
+  subsampled 1 file(s), frac=0.03824, 270.5 MB in 49s
+-> task_0095.tsv: 523 species rows, total 52s
+=== task 99 ===
+  subsampled 2 file(s), frac=0.76605, 15322.9 MB in 130s
+  subsampled 1 file(s), frac=0.07246, 512.6 MB in 47s
+-> task_0096.tsv: 691 species rows, total 53s
+=== task 100 ===
+  subsampled 1 file(s), frac=0.07246, 512.3 MB in 51s
+-> task_0097.tsv: 705 species rows, total 56s
+  subsampled 1 file(s), frac=0.07246, 513.0 MB in 54s
+-> task_0091.tsv: 350 species rows, total 196s
+-> task_0098.tsv: 694 species rows, total 58s
+  subsampled 1 file(s), frac=0.20128, 1424.9 MB in 56s
+-> task_0099.tsv: 994 species rows, total 64s
+  subsampled 1 file(s), frac=0.42268, 2992.3 MB in 72s
+-> task_0092.tsv: 398 species rows, total 227s
+-> task_0100.tsv: 1205 species rows, total 88s
+classification exit 0 after 1576s
+-> rarefaction_curve.tsv: 44285 rows from 100 tasks
+finished 2026-10-19T12:48:22+08:00
+clearing /dev/shm/db_v4_51121013

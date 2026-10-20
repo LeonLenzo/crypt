@@ -1,0 +1,21 @@
+START Mon Oct 19 08:39:47 AM AWST 2026
+── before ──
+3225 runs, 5990 files
+
+  atime age (days)   runs   days until purge
+              13       25          8
+              16     3200          5  <-- within a week
+
+3200 runs expire within 7 days:
+  DRR125458       16 days old,  5 left
+
+── freshening every run on disk ──
+
+freshened 5990 files over 3225 runs (24.5 MB read, 0 already fresh, 0 failed)
+
+── after ──
+3225 runs, 5990 files
+
+  atime age (days)   runs   days until purge
+               0     3225         21
+END Mon Oct 19 08:42:10 AM AWST 2026

@@ -1,0 +1,6 @@
+host     setonix-dm04
+started  2026-10-20T10:08:24+08:00
+PRJNA383416: 20 runs, 0.005 TiB
+  [done ] SRR5910072   193s   0.15 GB    0.8 MB/s
+  [done ] SRR5910122   236s   0.17 GB    0.7 MB/s
+  [done ] SRR5910095   293s   0.23 GB    0.8 MB/s

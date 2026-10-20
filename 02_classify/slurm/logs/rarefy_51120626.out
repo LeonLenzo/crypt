@@ -1,0 +1,19 @@
+host     nid002805
+started  2026-10-19T12:14:34+08:00
+staging db_v4 into /dev/shm/db_v4_51120626 ...
+staged 41G in 94s
+tmpfs           126G   41G   86G  32% /dev/shm
+tasks    3
+=== task 1 ===
+=== task 2 ===
+=== task 11 ===
+  subsampled 2 file(s), frac=0.00584, 106.2 MB in 91s
+  subsampled 2 file(s), frac=0.61501, 11173.5 MB in 91s
+  subsampled 2 file(s), frac=0.00584, 105.9 MB in 91s
+-> task_0001.tsv: 80 species rows, total 118s
+-> task_0002.tsv: 88 species rows, total 118s
+-> task_0011.tsv: 218 species rows, total 164s
+classification exit 0 after 164s
+-> rarefaction_curve.tsv: 386 rows from 3 tasks
+finished 2026-10-19T12:18:52+08:00
+clearing /dev/shm/db_v4_51120626

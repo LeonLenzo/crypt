@@ -1,0 +1,19 @@
+host     setonix-dm14
+started  2026-10-20T10:25:05+08:00
+PRJNA306542: 20 runs, 0.063 TiB
+  [20/20] 3.2 GiB, 98.0 min, eta 0 min
+
+PRJNA306542: 1/20 ok, 19 failed, 3.2 GiB, 98.0 min
+  FAILED SRR9129887: failed SRR9129887_1.fastq.gz failed 3x
+  FAILED SRR9129884: failed SRR9129884_1.fastq.gz failed 3x
+  FAILED SRR9129816: failed SRR9129816_1.fastq.gz failed 3x
+  FAILED SRR9129976: failed SRR9129976_1.fastq.gz failed 3x
+  FAILED SRR9129853: failed SRR9129853_1.fastq.gz failed 3x
+  FAILED SRR3090738: failed SRR3090738_1.fastq.gz failed 3x
+  FAILED SRR9129782: failed SRR9129782_1.fastq.gz failed 3x
+  FAILED SRR9129973: failed SRR9129973_1.fastq.gz failed 3x
+  FAILED SRR3051741: failed SRR3051741_1.fastq.gz failed 3x
+  FAILED SRR9129876: failed SRR9129876_1.fastq.gz failed 3x
+  19 runs carry a note, e.g. SRR9129887: SRR9129887_1.fastq.gz failed 3x
+exit     1 after 5879s
+finished 2026-10-20T12:03:04+08:00

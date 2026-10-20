@@ -1,0 +1,12 @@
+2026-10-16 19:51:21.322310: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1792151481.356907 3272193 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1792151481.376034 3272193 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1792151481.434307 3272193 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792151481.434350 3272193 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792151481.434367 3272193 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792151481.434381 3272193 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2026-10-16 19:51:24.954409: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+/var/spool/slurmd/job51033066/slurm_script: line 165: 3287823 Killed                  vipsania annotate "$MODEL" "$FASTA" -o "$OUT/finetuned.gff3" --coding "$OUT/finetuned_coding.fa" --protein "$OUT/finetuned_proteins.fa" -B "$BATCH" --finetune --finetune_B "$BATCH" 2>&1
+     3287824 Done                    | tail -25
+[2026-10-16T20:36:33.866] error: Detected 1 oom_kill event in StepId=51033066.batch. Some of the step tasks have been OOM Killed.

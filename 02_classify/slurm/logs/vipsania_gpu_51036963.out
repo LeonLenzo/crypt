@@ -1,0 +1,46 @@
+
+──── node and GPU ────
+host: nid002184  cpus=?  gpus=1
+
+
+============================ ROCm System Management Interface ============================
+====================================== Product Info ======================================
+GPU[0]		: Card Series: 		AMD INSTINCT MI200 (MCM) OAM LC MBA HPE C2
+GPU[0]		: Card Model: 		0x7408
+GPU[0]		: Card Vendor: 		Advanced Micro Devices, Inc. [AMD/ATI]
+GPU[0]		: Card SKU: 		D65201
+(rocm-smi not on PATH outside the container)
+
+──── does TensorFlow SEE the GPU? ────
+
+rocBLAS error: Cannot read /.singularity.d/libs/rocblas/library/TensileLibrary.dat: Illegal seek for GPU arch : gfx90a
+ List of available TensileLibrary Files : 
+
+rocBLAS error: Could not initialize Tensile host:
+filesystem error: directory iterator cannot open directory: No such file or directory [/.singularity.d/libs/rocblas/library]
+/software/setonix/2025.08/containers/wrappers/quay.io/pawsey/tensorflow/2.17-rocm6.3.3/bin/tensorflow-exec: line 6: 4127071 Aborted                 singularity ${SINGULARITY_OPTS} exec ${SINGULARITY_COMMAND_OPTS} -B $wrapperDir/99-shpc.sh:/.singularity.d/env/99-shpc.sh /software/setonix/2025.08/containers/sifs/quay.io/pawsey/tensorflow/2.17-rocm6.3.3/quay.io-pawsey-tensorflow-2.17-rocm6.3.3-sha256:2ad901150db9bb762e3645be5e0496b28fe0e516eb603c0551bcadb979216454.sif "$@"
+
+──── TIMED annotate on the same genome the CPU probe used ────
+target: GCA_016801405.1_ASM1680140v1_genomic.fna (36M)
+Using 1 GPU: AMD Instinct MI250X
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792156972.183740 4127207 service.cc:146] XLA service 0x5a3ca5d0 initialized for platform ROCM (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1792156972.183775 4127207 service.cc:154]   StreamExecutor device (0): AMD Instinct MI250X, AMDGPU ISA version: gfx90a:sramecc+:xnack-
+W0000 00:00:1792156973.760304 4127207 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_greater/Assert/Assert
+W0000 00:00:1792156973.761201 4127207 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_equal_1/Assert/Assert
+W0000 00:00:1792156973.761240 4127207 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_greater_1/Assert/Assert
+W0000 00:00:1792156973.761286 4127207 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_equal_3/Assert/Assert
+W0000 00:00:1792156973.761320 4127207 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_greater_2/Assert/Assert
+W0000 00:00:1792156973.761363 4127207 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_equal_5/Assert/Assert
+
+rocBLAS error: Cannot read /.singularity.d/libs/rocblas/library/TensileLibrary.dat: Illegal seek for GPU arch : gfx90a
+ List of available TensileLibrary Files : 
+
+rocBLAS error: Could not initialize Tensile host:
+filesystem error: directory iterator cannot open directory: No such file or directory [/.singularity.d/libs/rocblas/library]
+/software/setonix/2025.08/containers/wrappers/quay.io/pawsey/tensorflow/2.17-rocm6.3.3/bin/tensorflow-exec: line 6: 4127187 Aborted                 singularity ${SINGULARITY_OPTS} exec ${SINGULARITY_COMMAND_OPTS} -B $wrapperDir/99-shpc.sh:/.singularity.d/env/99-shpc.sh /software/setonix/2025.08/containers/sifs/quay.io/pawsey/tensorflow/2.17-rocm6.3.3/quay.io-pawsey-tensorflow-2.17-rocm6.3.3-sha256:2ad901150db9bb762e3645be5e0496b28fe0e516eb603c0551bcadb979216454.sif "$@"
+WALL_GPU 29 s   (exit: 134)   CPU baseline was 2447 s
+
+──── result ────
+  coding.fa ABSENT: GPU route did not produce output
+END Fri Oct 16 09:22:55 PM AWST 2026

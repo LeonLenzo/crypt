@@ -1,0 +1,21 @@
+host     nid002018
+project  PRJEB33109
+started  2026-10-19T13:56:37+08:00
+staged 41G into RAM in 201s
+
+PRJEB33109: 11 runs on disk, 11 to classify
+  [done ] ERR3383633   102s    78 species    15,157,169 reads
+  [done ] ERR3383632   103s    91 species    15,932,254 reads
+  [done ] ERR3383634   122s    76 species    21,174,036 reads
+  [done ] ERR3383635   156s    85 species    27,107,101 reads
+  [done ] ERR3383636    96s    86 species    15,721,890 reads
+  [done ] ERR3383637   120s    81 species    20,053,769 reads
+  [done ] ERR3383638   132s    84 species    22,321,601 reads
+  [done ] ERR3383639   131s    81 species    21,777,490 reads
+  [done ] ERR3383640    99s    69 species    17,108,148 reads
+  [done ] ERR3383641   110s    72 species    18,935,654 reads
+  [done ] ERR3383642   110s    74 species    18,926,541 reads
+
+PRJEB33109: 11 classified, 0 failed, 6.1 min
+exit     0 after 364s
+finished 2026-10-19T14:06:02+08:00

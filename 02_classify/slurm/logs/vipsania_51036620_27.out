@@ -1,0 +1,16 @@
+task 27  GCF_020647795.1  Trichoderma atroviride
+  genome: /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/genomes/GCF_020647795.1/ncbi_dataset/data/GCF_020647795.1/GCF_020647795.1_ASM2064779v1_genomic.fna (37M)
+!! library failed, and see docs/troubleshooting.md in the Vipsania repository.
+
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792156383.518967 3836431 service.cc:152] XLA service 0x3a3cd400 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1792156383.519028 3836431 service.cc:160]   StreamExecutor device (0): Host, Default Version
+I0000 00:00:1792156390.834480 3836431 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Found model location /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+Using model config /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/config.json
+Model successfully created.
+Model successfully built.
+Using model weights /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/latest_checkpoint.weights.h5
+Model weights successfully loaded.
+  WALL 2819 s  (exit: 0)
+  predicted: 11163 sequences

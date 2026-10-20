@@ -1,0 +1,26 @@
+host     setonix-dm02
+started  2026-10-20T10:14:06+08:00
+PRJEB83049: 20 runs, 0.062 TiB
+  [done ] ERR14034083  2760s   3.09 GB    1.1 MB/s
+  [done ] ERR14035194  2989s   3.25 GB    1.1 MB/s
+  [done ] ERR14034321  3882s   3.91 GB    1.0 MB/s
+  [done ] ERR14034540  4102s   3.52 GB    0.9 MB/s
+  [done ] ERR14035165  4130s   3.06 GB    0.7 MB/s
+  [done ] ERR14035403  4231s   2.88 GB    0.7 MB/s
+  [done ] ERR14033663  4488s   3.57 GB    0.8 MB/s
+  [20/20] 21.7 GiB, 96.8 min, eta 0 min
+
+PRJEB83049: 7/20 ok, 13 failed, 21.7 GiB, 96.8 min
+  FAILED ERR14034672: failed ERR14034672_1.fastq.gz failed 3x
+  FAILED ERR14034295: failed ERR14034295_1.fastq.gz failed 3x
+  FAILED ERR14034636: failed ERR14034636_1.fastq.gz failed 3x
+  FAILED ERR14034819: failed ERR14034819_1.fastq.gz failed 3x
+  FAILED ERR14033682: failed ERR14033682_1.fastq.gz failed 3x
+  FAILED ERR14033795: failed ERR14033795_1.fastq.gz failed 3x
+  FAILED ERR14033621: failed ERR14033621_1.fastq.gz failed 3x
+  FAILED ERR14034138: failed ERR14034138_1.fastq.gz failed 3x
+  FAILED ERR14033865: failed ERR14033865_1.fastq.gz failed 3x
+  FAILED ERR14035161: failed ERR14035161_1.fastq.gz failed 3x
+  13 runs carry a note, e.g. ERR14034672: ERR14034672_1.fastq.gz failed 3x
+exit     1 after 5806s
+finished 2026-10-20T11:50:52+08:00

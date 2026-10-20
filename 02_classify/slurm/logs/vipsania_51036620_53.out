@@ -1,0 +1,16 @@
+task 53  GCA_013266185.1  Fusarium sarcochroum
+  genome: /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/genomes/GCA_013266185.1/ncbi_dataset/data/GCA_013266185.1/GCA_013266185.1_ASM1326618v1_genomic.fna (46M)
+!! library failed, and see docs/troubleshooting.md in the Vipsania repository.
+
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792159147.489652 4036597 service.cc:152] XLA service 0x4d954d10 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1792159147.489708 4036597 service.cc:160]   StreamExecutor device (0): Host, Default Version
+I0000 00:00:1792159154.550862 4036597 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Found model location /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+Using model config /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/config.json
+Model successfully created.
+Model successfully built.
+Using model weights /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/latest_checkpoint.weights.h5
+Model weights successfully loaded.
+  WALL 8015 s  (exit: 0)
+  predicted: 15579 sequences

@@ -1,0 +1,47 @@
+
+──── node and GPU ────
+host: nid002184  cpus=?  gpus=1
+
+
+============================ ROCm System Management Interface ============================
+====================================== Product Info ======================================
+GPU[0]		: Card Series: 		AMD INSTINCT MI200 (MCM) OAM LC MBA HPE C2
+GPU[0]		: Card Model: 		0x7408
+GPU[0]		: Card Vendor: 		Advanced Micro Devices, Inc. [AMD/ATI]
+GPU[0]		: Card SKU: 		D65201
+(rocm-smi not on PATH outside the container)
+
+──── does TensorFlow SEE the GPU? ────
+  tf 2.17.0  rocm_build: True  cuda_build: False
+  devices: [('CPU', '/physical_device:CPU:0'), ('GPU', '/physical_device:GPU:0')]
+  GPU count: 1
+  matmul on GPU OK, result sum finite: True
+
+──── TIMED annotate on the same genome the CPU probe used ────
+target: GCA_016801405.1_ASM1680140v1_genomic.fna (36M)
+W0000 00:00:1792157347.183573 4129525 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_equal_5/Assert/Assert
+I0000 00:00:1792157490.685327 4129525 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+W0000 00:00:1792157579.489856 4129525 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_greater/Assert/Assert
+W0000 00:00:1792157579.490751 4129525 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_equal_1/Assert/Assert
+W0000 00:00:1792157579.490789 4129525 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_greater_1/Assert/Assert
+W0000 00:00:1792157579.490832 4129525 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_equal_3/Assert/Assert
+W0000 00:00:1792157579.490871 4129525 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_greater_2/Assert/Assert
+W0000 00:00:1792157579.490913 4129525 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_equal_5/Assert/Assert
+W0000 00:00:1792157736.652968 4129525 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_greater/Assert/Assert
+W0000 00:00:1792157736.653859 4129525 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_equal_1/Assert/Assert
+W0000 00:00:1792157736.653896 4129525 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_greater_1/Assert/Assert
+W0000 00:00:1792157736.653940 4129525 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_equal_3/Assert/Assert
+W0000 00:00:1792157736.653977 4129525 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_greater_2/Assert/Assert
+W0000 00:00:1792157736.654018 4129525 assert_op.cc:38] Ignoring Assert operator vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/assert_equal_5/Assert/Assert
+Found model location /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+Using model config /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/config.json
+Model successfully created.
+Model successfully built.
+Using model weights /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/latest_checkpoint.weights.h5
+Model weights successfully loaded.
+WALL_GPU 448 s   (exit: 0)   CPU baseline was 2447 s
+
+──── result ────
+  coding.fa: 16M, 13634 sequences
+  CPU run gave 13,634 sequences / 19.29 Mb — these should match closely
+END Fri Oct 16 09:36:06 PM AWST 2026

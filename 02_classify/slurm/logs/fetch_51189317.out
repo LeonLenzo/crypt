@@ -1,0 +1,19 @@
+host     setonix-dm01
+started  2026-10-20T10:14:05+08:00
+PRJEB67964: 20 runs, 0.063 TiB
+  [20/20] 0.0 GiB, 73.8 min, eta 0 min
+
+PRJEB67964: 0/20 ok, 20 failed, 0.0 GiB, 73.8 min
+  FAILED ERR12177791: failed ERR12177791_1.fastq.gz failed 3x
+  FAILED ERR12178004: failed ERR12178004_1.fastq.gz failed 3x
+  FAILED ERR12177815: failed ERR12177815_1.fastq.gz failed 3x
+  FAILED ERR12177641: failed ERR12177641_1.fastq.gz failed 3x
+  FAILED ERR12177979: failed ERR12177979_1.fastq.gz failed 3x
+  FAILED ERR12177590: failed ERR12177590_1.fastq.gz failed 3x
+  FAILED ERR12177759: failed ERR12177759_1.fastq.gz failed 3x
+  FAILED ERR12177410: failed ERR12177410_1.fastq.gz failed 3x
+  FAILED ERR12177864: failed ERR12177864_1.fastq.gz failed 3x
+  FAILED ERR12177513: failed ERR12177513_1.fastq.gz failed 3x
+  20 runs carry a note, e.g. ERR12177791: ERR12177791_1.fastq.gz failed 3x
+exit     1 after 4426s
+finished 2026-10-20T11:27:51+08:00

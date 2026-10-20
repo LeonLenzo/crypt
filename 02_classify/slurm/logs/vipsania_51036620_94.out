@@ -1,0 +1,16 @@
+task 94  GCA_054948735.1  Hemileia vastatrix
+  genome: /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/genomes/GCA_054948735.1/ncbi_dataset/data/GCA_054948735.1/GCA_054948735.1_ASM5494873v1_genomic.fna (644M)
+W0000 00:00:1792162420.952356 2849402 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792162420.952372 2849402 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792162420.952375 2849402 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792162420.952377 2849402 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2026-10-16 22:53:44.601725: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+!! No GPU found. Vipsania will run on the CPU, which is far slower and not
+!! practical for annotating or training on whole genomes.
+!!
+!! If this machine does have a GPU, TensorFlow was unable to load its CUDA
+!! libraries. Run the command again with TF_CPP_MIN_LOG_LEVEL=0 to see which
+!! library failed, and see docs/troubleshooting.md in the Vipsania repository.
+
+  WALL 30 s  (exit: 137)
+  FAILED: no coding.fa written

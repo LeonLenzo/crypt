@@ -1,0 +1,99 @@
+
+──── environment ────
+python: Python 3.12.12
+host:   nid002044   cpus=36
+VIPSANIA_CACHE=/software/projects/pawsey1168/llenzo/cache/vipsania
+
+──── venv + install ────
+installing vipsania (this is the step that can fail on a CUDA pin)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from rich->keras>=3.5.0->tensorflow<2.20->vipsania) (2.21.0)
+Requirement already satisfied: mdurl~=0.1 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from markdown-it-py>=2.2.0->rich->keras>=3.5.0->tensorflow<2.20->vipsania) (0.1.2)
+Requirement already satisfied: click>=8.2.0 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (8.5.0)
+Requirement already satisfied: opentelemetry-api>=1.43.0 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (1.45.1)
+Requirement already satisfied: opentelemetry-exporter-otlp-proto-http>=1.43.0 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (1.45.1)
+Requirement already satisfied: opentelemetry-sdk>=1.43.0 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (1.45.1)
+Requirement already satisfied: platformdirs in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (4.13.3)
+Requirement already satisfied: pyyaml in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (6.0.3)
+Requirement already satisfied: xxhash>=3.0.0 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (4.0.1)
+Requirement already satisfied: googleapis-common-protos~=1.52 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (1.75.0)
+Requirement already satisfied: opentelemetry-exporter-http-transport==0.66b1 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-http-transport[requests]==0.66b1->opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (0.66b1)
+Requirement already satisfied: opentelemetry-exporter-otlp-common==0.66b1 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (0.66b1)
+Requirement already satisfied: opentelemetry-exporter-otlp-proto-common==1.45.1 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (1.45.1)
+Requirement already satisfied: opentelemetry-proto==1.45.1 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (1.45.1)
+Requirement already satisfied: opentelemetry-semantic-conventions==0.66b1 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-sdk>=1.43.0->wandb->vipsania) (0.66b1)
+pip exit: 0
+
+──── what actually got installed ────
+  vipsania     ?
+  tensorflow   2.19.1
+  keras        3.15.1
+  TF devices: ['CPU']
+  built with cuda: True
+
+──── cli surface ────
+usage: vipsania [-h] {annotate,train,download} ...
+
+Vipsania - an unsupervised deep learning ab-initio gene finder.
+
+positional arguments:
+  {annotate,train,download}
+    annotate            Generate a genome annotation of a fasta file with a
+                        given trained Vipsania model.
+    train               Train a Vipsania model. Supply either a path to a json
+                        model configuration file or the ID for an existing
+                        training run.
+    download            Download a pretrained Vipsania model ahead of time.
+                        Annotation downloads the model it needs on its own, so
+                        this is only useful to prepare a machine that has no
+                        internet access when it annotates.
+
+options:
+  -h, --help            show this help message and exit
+(--help exit: 0)
+
+──── pre-download the Fungi model, so it is not inside the timing ────
+batch=8  hmm_parallel=36
+Model fh1kg88z is already in /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+(download exit: 0)
+
+──── fetch ONE genome to predict on ────
+sample: 1 assemblies  (/scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/predict_sample.tsv)
+  genomic FASTA already on disk: 1
+  to download:                   0
+
+manifest → /scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/predict_genomes.tsv
+── summary ──────────────────────────────────────────────
+  annotated       1
+  total           1 of 1  (0.0 GB)
+target: /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/genomes/GCA_016801405.1/ncbi_dataset/data/GCA_016801405.1/GCA_016801405.1_ASM1680140v1_genomic.fna  (36M)
+contigs: 23   bases: 37020537
+
+──── TIMED run 1 of 2: PRETRAINED only (no --finetune) ────
+        posterior = self.hmmlayer(
+    File "/software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/bricks2marble/tf/hmm/layer.py", line 577, in call
+        x = self.call_HMM(
+    File "/software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/bricks2marble/tf/hmm/layer.py", line 539, in call_HMM
+        return self.hmm(
+    File "/software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/hidten/tf/hmm.py", line 120, in call
+        return self.viterbi(
+    File "/software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/hidten/tf/viterbi.py", line 79, in viterbi
+        viterbi_seqs, gamma_log = self._viterbi_parallel(
+    File "/software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/hidten/tf/viterbi.py", line 256, in _viterbi_parallel
+        local_log = self._parallel_scan(
+    File "/software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/hidten/tf/scan.py", line 151, in _parallel_scan
+        emission_scores = tf.reshape(
+
+    ValueError: Exception encountered when calling TFHMM.call().
+    
+    [1mCannot reshape a tensor with 57600000 elements to shape [576,5555,1,18] (57594240 elements) for '{{node vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/Reshape}} = Reshape[T=DT_FLOAT, Tshape=DT_INT32](vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/add_2, vipsania_1/vipsania_stripe_16_1/hmm_block_1/annotation_hmm_1/tfhmm_1/Reshape/shape)' with input shapes: [16,200000,1,18], [4] and with input tensors computed as partial shapes: input[1] = [576,5555,1,18].[0m
+    
+    Arguments received by TFHMM.call():
+      • observations=('tf.Tensor(shape=(16, 200000, 160), dtype=float32)', 'tf.Tensor(shape=(16, 200000, 65), dtype=float32)', 'tf.Tensor(shape=(16, 200000, 65), dtype=float32)')
+      • transition_delta=None
+      • mode=<HMMMode.VITERBI: 5>
+      • parallel=36
+      • output_dtype=<dtype: 'int32'>
+
+WALL_PRETRAINED 19 s   (exit: 1)
+
+──── TIMED run 2 of 2: WITH --finetune ────

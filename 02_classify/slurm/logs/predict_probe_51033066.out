@@ -1,0 +1,134 @@
+
+──── environment ────
+python: Python 3.12.12
+host:   nid002044   cpus=36
+VIPSANIA_CACHE=/software/projects/pawsey1168/llenzo/cache/vipsania
+
+──── venv + install ────
+installing vipsania (this is the step that can fail on a CUDA pin)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from rich->keras>=3.5.0->tensorflow<2.20->vipsania) (2.21.0)
+Requirement already satisfied: mdurl~=0.1 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from markdown-it-py>=2.2.0->rich->keras>=3.5.0->tensorflow<2.20->vipsania) (0.1.2)
+Requirement already satisfied: click>=8.2.0 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (8.5.0)
+Requirement already satisfied: opentelemetry-api>=1.43.0 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (1.45.1)
+Requirement already satisfied: opentelemetry-exporter-otlp-proto-http>=1.43.0 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (1.45.1)
+Requirement already satisfied: opentelemetry-sdk>=1.43.0 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (1.45.1)
+Requirement already satisfied: platformdirs in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (4.13.3)
+Requirement already satisfied: pyyaml in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (6.0.3)
+Requirement already satisfied: xxhash>=3.0.0 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from wandb->vipsania) (4.0.1)
+Requirement already satisfied: googleapis-common-protos~=1.52 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (1.75.0)
+Requirement already satisfied: opentelemetry-exporter-http-transport==0.66b1 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-http-transport[requests]==0.66b1->opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (0.66b1)
+Requirement already satisfied: opentelemetry-exporter-otlp-common==0.66b1 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (0.66b1)
+Requirement already satisfied: opentelemetry-exporter-otlp-proto-common==1.45.1 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (1.45.1)
+Requirement already satisfied: opentelemetry-proto==1.45.1 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-exporter-otlp-proto-http>=1.43.0->wandb->vipsania) (1.45.1)
+Requirement already satisfied: opentelemetry-semantic-conventions==0.66b1 in /software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages (from opentelemetry-sdk>=1.43.0->wandb->vipsania) (0.66b1)
+pip exit: 0
+
+──── what actually got installed ────
+  vipsania     ?
+  tensorflow   2.19.1
+  keras        3.15.1
+  TF devices: ['CPU']
+  built with cuda: True
+
+──── cli surface ────
+usage: vipsania [-h] {annotate,train,download} ...
+
+Vipsania - an unsupervised deep learning ab-initio gene finder.
+
+positional arguments:
+  {annotate,train,download}
+    annotate            Generate a genome annotation of a fasta file with a
+                        given trained Vipsania model.
+    train               Train a Vipsania model. Supply either a path to a json
+                        model configuration file or the ID for an existing
+                        training run.
+    download            Download a pretrained Vipsania model ahead of time.
+                        Annotation downloads the model it needs on its own, so
+                        this is only useful to prepare a machine that has no
+                        internet access when it annotates.
+
+options:
+  -h, --help            show this help message and exit
+(--help exit: 0)
+
+──── pre-download the Fungi model, so it is not inside the timing ────
+batch=8  hmm_parallel=auto (library picks a divisor of T)
+Model fh1kg88z is already in /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+(download exit: 0)
+
+──── fetch ONE genome to predict on ────
+sample: 1 assemblies  (/scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/predict_sample.tsv)
+  genomic FASTA already on disk: 1
+  to download:                   0
+
+manifest → /scratch/pawsey1168/llenzo/crypt/02_classify/data/silver/predict_genomes.tsv
+── summary ──────────────────────────────────────────────
+  annotated       1
+  total           1 of 1  (0.0 GB)
+target: /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/genomes/GCA_016801405.1/ncbi_dataset/data/GCA_016801405.1/GCA_016801405.1_ASM1680140v1_genomic.fna  (36M)
+contigs: 23   bases: 37020537
+
+──── TIMED run 1 of 2: PRETRAINED only (no --finetune) ────
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1792151488.838577 3272406 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1792151488.843095 3272406 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1792151488.856802 3272406 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792151488.856819 3272406 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792151488.856821 3272406 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1792151488.856823 3272406 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2026-10-16 19:51:31.701565: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+!! No GPU found. Vipsania will run on the CPU, which is far slower and not
+!! practical for annotating or training on whole genomes.
+!!
+!! If this machine does have a GPU, TensorFlow was unable to load its CUDA
+!! libraries. Run the command again with TF_CPP_MIN_LOG_LEVEL=0 to see which
+!! library failed, and see docs/troubleshooting.md in the Vipsania repository.
+
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792151508.256966 3272406 service.cc:152] XLA service 0x39b43700 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1792151508.257039 3272406 service.cc:160]   StreamExecutor device (0): Host, Default Version
+I0000 00:00:1792151514.952173 3272406 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Found model location /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+Using model config /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/config.json
+Model successfully created.
+Model successfully built.
+Using model weights /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/latest_checkpoint.weights.h5
+Model weights successfully loaded.
+WALL_PRETRAINED 2447 s   (exit: 0)
+
+──── TIMED run 2 of 2: WITH --finetune ────
+W0000 00:00:1792153936.413455 3287823 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2026-10-16 20:32:19.533923: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+!! No GPU found. Vipsania will run on the CPU, which is far slower and not
+!! practical for annotating or training on whole genomes.
+!!
+!! If this machine does have a GPU, TensorFlow was unable to load its CUDA
+!! libraries. Run the command again with TF_CPP_MIN_LOG_LEVEL=0 to see which
+!! library failed, and see docs/troubleshooting.md in the Vipsania repository.
+
+/software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/keras/src/saving/saving_lib.py:869: UserWarning: Skipping variable loading for optimizer 'multi_lr_adam_w', because it has 1235 variables whereas the saved optimizer has 0 variables. 
+  saveable.load_own_variables(store)
+/software/projects/pawsey1168/llenzo/venv/vipsania/lib/python3.12/site-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Found model location /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+Using model config /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/config.json
+Model successfully created.
+Model successfully built.
+Model successfully compiled.
+Using model weights /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/latest_checkpoint.weights.h5
+Model weights successfully loaded.
+Epoch 1/10
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792154025.191814 3288039 service.cc:152] XLA service 0x15398c035bc0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1792154025.191882 3288039 service.cc:160]   StreamExecutor device (0): Host, Default Version
+I0000 00:00:1792154184.335525 3288039 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+WALL_FINETUNED 258 s   (exit: 137)
+
+──── result ────
+  pretrained_coding.fa: 20M, sequences: 13634
+  pretrained.gff3: 7.5M
+
+Compare against the TRUTH we already hold for this accession:
+  real CDS lives under data/bronze/cds/pathogen/<accession>/ and its gene count is in
+  ref_candidates.tsv (protein_coding_genes). compare.py does this properly.
+END Fri Oct 16 08:36:33 PM AWST 2026

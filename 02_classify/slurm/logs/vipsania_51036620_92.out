@@ -1,0 +1,16 @@
+task 92  GCA_009192285.1  Morchella semilibera
+  genome: /scratch/pawsey1168/llenzo/crypt/02_classify/data/bronze/genomes/GCA_009192285.1/ncbi_dataset/data/GCA_009192285.1/GCA_009192285.1_ASM919228v1_genomic.fna (55M)
+!! library failed, and see docs/troubleshooting.md in the Vipsania repository.
+
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1792162320.680213 2848534 service.cc:152] XLA service 0x1e246d40 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1792162320.680256 2848534 service.cc:160]   StreamExecutor device (0): Host, Default Version
+I0000 00:00:1792162326.952127 2848534 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Found model location /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z
+Using model config /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/config.json
+Model successfully created.
+Model successfully built.
+Using model weights /software/projects/pawsey1168/llenzo/cache/vipsania/models/fh1kg88z/latest_checkpoint.weights.h5
+Model weights successfully loaded.
+  WALL 3582 s  (exit: 0)
+  predicted: 12433 sequences

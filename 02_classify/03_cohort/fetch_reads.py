@@ -156,7 +156,11 @@ def main() -> None:
                          "RANDOM sample of whole BioSamples; never substitute the runs already "
                          "on disk, which are the STAT-selected ones and are biased toward "
                          "pathogen presence")
-    ap.add_argument("--limit", type=int, help="stop after this many runs")
+    ap.add_argument("--limit", type=int,
+                    help="stop after this many runs. SMOKE TESTS ONLY: it takes the first N "
+                         "in accession order, which is not a random subset -- accession order "
+                         "is submission order. To change the sample SIZE, redraw with "
+                         "resolve.py --pilot N, which keeps BioSamples whole and stays seeded")
     ap.add_argument("--workers", type=int, default=DEFAULT_WORKERS)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()

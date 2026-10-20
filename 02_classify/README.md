@@ -1,23 +1,32 @@
-# 02_classify — 01_refs DONE, 02_build RUNNING
+# 02_classify — BUILT END TO END
 
 This README began as the design, written before the code, and the design sections below still
-read that way. Status as of 2026-10-16:
+read that way. Status reconciled against the tree and the data on **2026-10-20**:
 
 | step | state |
 |---|---|
-| `seeds/` | moved across unchanged from `03_kraken`, already built |
-| `01_refs` | **DONE.** 4,286 annotated assemblies / 1,547 species, measured against NCBI, not estimated |
-| `02_build` | `fetch_cds.py` + `build_db.py` written; the fetch is running on Setonix |
-| `utilities/saturation` | carried across, repointed, demoted to a QC record |
-| `03_cohort`, `04_classify`, `05_detect` | not started |
+| `seeds/` | carried across from `03_kraken`, built |
+| `01_refs` | **DONE.** 4,271 annotated assemblies / 1,547 species, measured against NCBI, not estimated |
+| `01_refs/predict` | benchmark **COMPLETE both arms**: recall 0.963 / precision 0.945 (n=60), novelty 0.963 (n=59). A production run is not decided |
+| `02_build` | **DONE. db_v4 is built.** 7,539,317,601 root minimizers, 43 GB hash, k=35 l=31, 5h 40m at 106 GB peak RSS |
+| `03_cohort` | **BUILT.** `resolve.py`, `migrate_reads.py`, `fetch_depth.py`, `fetch_reads.py`, `freshen.py` |
+| `04_classify` | **BUILT and RUN.** 1,184 runs classified against db_v4 |
+| `05_detect` | **BUILT and RUN.** 1,184 runs called; `detections.tsv` and `coinfection.tsv` in gold |
+| `report/figures` | `db_contents`, `predict_counts`, `predict_gain`, `rarefaction`, `saturation_cloud`, `detect`, `detect_runs` |
+| `utilities/` | `saturation` and `rarefaction`, both QC records rather than pipeline steps |
 
-Not started also means not designed past the sections below. Two pieces of `01_refs` are
-deliberately unfinished: the **miniprot** pass over the 2,138 species that have assemblies but
-no gene model, and **host genomic** references (`seeds/hosts.tsv`; `kraken_hosts.py` has not
-moved). Host CDS *is* in the candidate set — 43 assemblies across the six species — which is
-what db_v4 actually needs, because these are RNA-seq libraries.
+Each step has its own README with the decisions that are not visible in the code.
 
-It replaces `03_kraken`. Not a rename and not a port: **every input to that module has
+Two pieces of `01_refs` are deliberately unfinished: the **miniprot** pass over the 2,138
+species that have assemblies but no gene model, and **host genomic** references
+(`seeds/hosts.tsv`). Host CDS *is* in the candidate set, 43 assemblies across the six species,
+which is what db_v4 actually needs, because these are RNA-seq libraries.
+
+**What is not done is the cohort.** 1,184 of 7,688 runs are classified, and those 1,184 are
+exactly the old STAT-gated set, so no rate computed from them is a prevalence. See CLAUDE.md,
+"What is NOT quotable yet".
+
+It replaced `03_kraken`. Not a rename and not a port: **every input to that module has
 changed**, and two of its dependencies on the superseded frames turned out to be live gates
 rather than stale paths.
 
@@ -221,7 +230,7 @@ analysis, the miniprot annotation pipeline, and `split/`. None touches STAT.
 - **Always smoke-test before a full launch.** A 6-run test caught `--run-list` taking the whole
   TSV line as the run ID, which had made every run return `no_local_reads`.
 
-## 01_stat and 02_literature can now go to legacy, and 01_stat's gate is why
+## 01_stat and 02_literature went to superseded/, and 01_stat's gate is why
 
 Both are superseded as CODE. Everything `01_literature` still reads from them is **data**:
 

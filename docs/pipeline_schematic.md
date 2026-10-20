@@ -1,234 +1,183 @@
 # Pipeline schematic
 
-What each step consumes, what it produces, and what depends on it. Regenerated
-2026-10-01 against the numbered layout.
+What each step consumes, what it produces, and what depends on it. Regenerated **2026-10-20**
+against the two live modules, after the four earlier modules were retired to `superseded/`.
 
-**This document deliberately does not repeat each script's options or output columns.**
-Those live in the script's own docstring, where they cannot drift out of step with the
-code. The previous version of this file duplicated them and went stale across two
-restructures. What belongs here is the chain: the order, the hand-offs, and where the
-data physically sits.
+**This document deliberately does not repeat each script's options or output columns.** Those
+live in the script's own docstring, where they cannot drift out of step with the code. An
+earlier version of this file duplicated them and went stale across two restructures. What
+belongs here is the chain: the order, the hand-offs, and where the data physically sits.
 
-Run every script from the repository root (`phd/01-review`). A numbered directory is a
-pipeline step; an unnumbered one (`slurm/`, `utilities/`, `data/`, `logs/`, `figures/`)
-is support. Each step keeps its own `data/` and `logs/`, so a step's outputs sit beside
-the code that wrote them.
+Run every script from the repository root (`phd/01-review`). A numbered directory is a pipeline
+step; an unnumbered one (`seeds/`, `slurm/`, `report/`, `utilities/`, `data/`, `logs/`) is
+support.
 
 ---
 
 ## The chain
 
 ```
-01_stat/01_build      PHI-base CSV + NCBI taxonomy
-                         └─> phibase_db.json ─────────────────────┐
-                                                                  │
-01_stat/02_fetch      SRA RunInfo + NCBI STAT profiles            │
-                         └─> stat_cache.jsonl ───────┐            │
-                                                     │            │
-01_stat/03_filter     gate → detect → dedup  <───────┴────────────┤
-                         └─> runs.tsv ──────────────┬─────────────┤
-                                                    │             │
-02_literature/01_search   BioProject/BioSample +    │             │
-                          literature resolution <───┤             │
-                         └─> bioprojects.json ──┐   │             │
-                         └─> biosamples.json ───┤   │             │
-                                                │   │             │
-02_literature/02_text     full-text retrieval <─┤   │             │
-                         └─> full_text written back into          │
-                             bioprojects.json (--apply)           │
-                                                │   │             │
-02_literature/03_classify  LLM study design <───┴───┴─────────────┤
-                         └─> samples.tsv ───────────┬─────────────┘
-                                                    │
-03_kraken/01_search      reference selection +      │
-                         CDS download  <────────────┴── phibase_db.json, runs.tsv
-                         └─> ref_candidates.tsv
-                         └─> data/cds/{pathogen,host}/ ──┐
-                                                         │
-     utilities/busco      completeness QC (not a gate) <─┤
-                         └─> busco_scores.tsv ───────┐   │
-                                                     │   │
-03_kraken/02_build       kraken2-build  <────────────┴───┘
-                         └─> data/db_v3/ + db_v3_inspect.tsv ──┐
-                                                               │
-03_kraken/03_select      target BioSamples + read download     │
-                         <── samples.tsv, runs.tsv             │
-                         └─> run_list.tsv, data/reads/ ──┐     │
-                                                         │     │
-03_kraken/04_assign      kraken2 classify  <─────────────┴─────┤
-                         └─> data/reports/*.txt ──┐            │
-                         host/ ─> host_calls.tsv ─┤            │
-                                                  │            │
-03_kraken/05_filter      artefact score + coverage │            │
-                         + co-occurrence  <───────┴────────────┘
-                         └─> data/_classified.tsv ──┐
-                                                    │
-04_kallisto              competitive read assignment│
-                         <──────────────────────────┘ + cds/pathogen/
-                         └─> 03_quant/data/ (174 runs)
-                             04_confirm/ ─> calls.tsv (not yet produced)
+01_literature         the papers are the sampling frame
+  retrieve/           Undermind + NCBI -> candidate studies
+  studies/            the papers themselves, one directory each (manual drop zone)
+  curate/             every value traced to a quoted sentence
+  seeds/              AUTHORED: curation.tsv, provenance.tsv  <-- irreplaceable
+  data/{bronze,silver,gold}
+  release/            cohort_samples.tsv, cohort_bioprojects.tsv, evidence/*.md
+        │
+        │  7,688 runs / 6,222 BioSamples / 41 BioProjects
+        ▼
+02_classify
+  seeds/              AUTHORED: who belongs in the database, and hosts
+  01_refs             routes -> survey -> select -> compare        4,271 assemblies
+        │             predict/  gene prediction for unannotated species (benchmarked)
+        ▼
+  02_build            fetch_cds -> build_db                        db_v4, 43 GB
+        │                                                          db_inspect.tsv
+        │                                                          ^ every coverage denominator
+        ▼
+  03_cohort           resolve -> fetch_depth -> fetch_reads        reads/<BioProject>/
+        │             migrate_reads (one-shot, done)  freshen (keep-alive)
+        ▼
+  04_classify         kraken2 --confidence 0.15 --minimum-hit-groups 3
+        │                     --report-minimizer-data
+        │                                              reports/<BioProject>/<Run>.txt
+        ▼
+  05_detect           absolute -> coverage -> saturation -> f.sp.
+        │                                              detections.tsv, coinfection.tsv
+        ▼
+  04_align            SPECIFIED, NOT BUILT. Competitive read assignment, to resolve
+                      congener clusters and low-coverage/high-saturation calls
 ```
 
-`01_stat/01_build/data/phibase_db.json` is the one artefact consumed by three different
-modules (`02_fetch`, `03_filter`, `02_literature/03_classify`, `03_kraken/01_search`). It
-is the pipeline's single reference anchor; nothing downstream resolves taxa independently.
+`01_literature` feeds `02_classify` through **five** files, all named in
+`02_classify/_layout.py` so a layout change breaks in one place:
+
+| | |
+|---|---|
+| `release/cohort_samples.tsv` | the cohort, one row per BioSample |
+| `release/cohort_bioprojects.tsv` | per-project summary |
+| `data/silver/runs.tsv` | run-level detail, including `declared_pathogens` and `BioSample` |
+| `seeds/curation.tsv` | what each study declared, as curated names |
+| `seeds/provenance.tsv` | host, tissue, location, year, each traced to a quote |
+
+**`cohort_samples.tsv` does NOT carry `declared_pathogens` or `BioSample`.** Both are in
+`runs.tsv`. Joining on the wrong one makes every detection look undeclared, with no error.
 
 ---
 
 ## Step by step
 
-Paths are relative to the repository root. "Large" marks data that is gitignored and
-lives on Setonix scratch, represented in the repo by a `manifest.tsv`.
+### 01_literature — build the cohort from the papers
 
-### 01_stat — screen the archive
+The frame. It exists because the original frame was a detector: screen SRA for pathogen
+signal, then read the papers. That cannot support a prevalence claim, because the gate selects
+for the thing being measured and its pass rate is host-dependent (wheat 3.42%, soybean 0.55%).
 
-| Step | Consumes | Produces |
+| script | reads | writes |
 |---|---|---|
-| `01_build/stat_build.py` | PHI-base CSV (`data/phi-base_current.csv`), local NCBI taxonomy via `ete3` | `01_build/data/phibase_db.json` |
-| `02_fetch/stat_fetch.py` | `phibase_db.json` | `02_fetch/data/stat_cache.jsonl` (large), `stat_cache_index.txt`, `{mode}_uid_checkpoint.txt`, `{mode}_accessions.txt` |
-| `03_filter/stat_filter.py` | `phibase_db.json`, `stat_cache.jsonl`, `{mode}_accessions.txt` | `03_filter/data/runs.tsv` |
+| `retrieve/*.py` | Undermind reports, NCBI, ENA portal | `data/bronze/`, candidate lists |
+| `curate/scaffold.py` | a study directory | an `adapter.yaml` stub |
+| `curate/apply_curation.py` | `seeds/curation.tsv` | `data/silver/` |
+| `curate/import_provenance.py` | `superseded/02_literature` provenance mining | `seeds/provenance.tsv` |
+| `report/*.py` | the silver tables | `data/gold/`, `report/figures/` |
+| `release/build_release.py` | everything above | `release/` |
 
-Two things here are load-bearing and easy to break:
+- **`seeds/` is authored and irreplaceable.** It sits outside `data/` deliberately: `data/`
+  means "delete it and it rebuilds", and these are the only files for which that is false.
+  Losing `seeds/` costs re-reading every paper.
+- **`release/` is the reviewer deliverable** and is generated, never hand-edited: flat TSV plus
+  one Markdown evidence file per project.
+- Read `curate/CURATING.md` before curating anything.
 
-- `_expand_taxids()` in `stat_build.py` must pass `intermediate_nodes=True`. The default
-  returns only leaf taxa and silently drops species nodes that have named strains as
-  children, which hits the rust formae speciales directly.
-- `stat_fetch.py` writes a single shared `stat_cache.jsonl` for both modes, so MAL and
-  HAL cannot run concurrently. Chain them.
+### 02_classify — the database, the reads, and the calls
 
-`specific_hits()` in `stat_filter.py` is the non-trivial part: it finds leaf-level species
-detections by locating k-mer counts not nested under any more specific count. Genus-level
-STAT counts reflect LCA promotion of shared k-mers and are not usable for co-infection.
+Each step has its own README with the decisions that are not visible in the code. In outline:
 
-### 02_literature — establish study design
-
-| Step | Consumes | Produces |
+| step | reads | writes |
 |---|---|---|
-| `01_search/meta_search.py` | `01_stat/03_filter/data/runs.tsv` | `01_search/data/{bioprojects.json, biosamples.json}` + `bp_cache.json`, `bs_cache.json`, `serper_cache.json` |
-| `02_text/meta_text.py` | `01_search/data/bioprojects.json` | `02_text/data/{text_cache.jsonl, failed_dois.tsv}`; `--apply` writes `full_text` back into `bioprojects.json` |
-| `03_classify/meta_classify.py` | `phibase_db.json`, `runs.tsv`, `bioprojects.json`, `biosamples.json` | `03_classify/data/samples.tsv` + `classify_cache.jsonl`, `host_disambig_cache.jsonl` |
+| `01_refs/routes.py` | `seeds/`, holobase, USDA Fungus-Host | membership, by route |
+| `01_refs/survey.py` | NCBI datasets | `silver/assemblies.tsv`, `assembly_survey.tsv` |
+| `01_refs/select_refs.py` | `assemblies.tsv` | `silver/ref_candidates.tsv` |
+| `01_refs/compare_refs.py` | `ref_candidates.tsv`, db_v3's | the diff |
+| `02_build/fetch_cds.py` | `ref_candidates.tsv` | `bronze/cds/` (Setonix, ~200 GB) |
+| `02_build/build_db.py` | `bronze/cds/` | `silver/db/db_v4/`, `db_inspect.tsv` |
+| `03_cohort/resolve.py` | the five `01_literature` files | `silver/run_list.tsv`, `fetch_plan.tsv` |
+| `03_cohort/fetch_depth.py` | ENA portal, one request per BioProject | `silver/run_depth.tsv` |
+| `03_cohort/fetch_reads.py` | `run_depth.tsv` | `bronze/reads/<BioProject>/` |
+| `04_classify/classify.py` | reads + db_v4 | `bronze/reports/<BioProject>/` |
+| `05_detect/detect.py` | reports + `db_inspect.tsv` + curation | `silver/_classified.tsv`, `gold/` |
 
-The entry gate is the module's defining constraint: **only BioProjects with retrievable
-full text are classified at all.** `samples.tsv` is therefore already the full-text-gated
-population, and no separate evidence stage is needed downstream. The predecessor
-classified everything including bare titles, guessing from near-empty context.
-
-Two deliberate divisions of labour:
-
-- Author-named pathogens and hosts are resolved to NCBI taxids in plain Python
-  (`_util.resolve_taxon_name()`), never asked of the LLM. An LLM recalling taxids from
-  memory produces confident wrong numbers.
-- The downstream fields (`pathogen_match_status`, the agreement flags,
-  `metadata_disagreement_flag`) are computed in Python, not LLM judgments, so the logic
-  can be revised without re-running paid calls.
-
-`--disambiguate-hosts` is a separate per-BioSample pass, cached by BioSample rather than
-BioProject, for the studies whose `named_hosts` holds more than one species (a rust's
-alternate-host life cycle, for instance). Without it a BioProject-constant host would be
-duplicated across every sample, which is wrong for per-sample analysis.
-
-### 03_kraken — detect from the reads
-
-| Step | Consumes | Produces |
-|---|---|---|
-| `01_search/kraken_search.py` | `phibase_db.json`, `runs.tsv`, holobase (`_refdata/holobase.db`) | `01_search/data/ref_candidates.tsv` (symlink to the versioned table), `data/cds/pathogen/` (large) |
-| `01_search/kraken_hosts.py` | `03_select/data/run_list.tsv` | `01_search/data/host_candidates.tsv`, `data/cds/host/` (large) |
-| `utilities/busco/kraken_busco.py` | `data/cds/` already on disk (never downloads) | `utilities/busco/data/busco_scores.tsv`, `busco_scan_cache.tsv` (both tracked) |
-| `02_build/kraken_build.py` | `busco_scores.tsv`, `data/cds/{pathogen,host}/` | `02_build/data/db_v3/` (large), `db_v3_inspect.tsv` (tracked) |
-| `03_select/kraken_select.py` | `02_literature/03_classify/data/samples.tsv`, `runs.tsv` | `03_select/data/run_list.tsv`, `data/reads/` (large) |
-| `04_assign/kraken_assign.py` | `data/reads/`, `db_v3/` | `04_assign/data/reports/*.txt`, `kraken_cache.jsonl` |
-| `04_assign/host/kraken_host_call.py` | `04_assign/data/reports/` | `04_assign/host/data/host_calls.tsv` |
-| `05_filter/detect.py` | `04_assign/data/reports/`, `host_calls.tsv`, `db_v3_inspect.tsv` | `05_filter/data/_classified.tsv` |
-
-Ordering notes that are not obvious from the tree:
-
-- `kraken_hosts.py` reads `03_select/data/run_list.tsv`, so host CDS selection runs
-  **after** read selection even though both sit under `01_search`. The host set is
-  defined by which runs were actually chosen.
-- `01_search` is the only step in the database chain that downloads. BUSCO and the build
-  both read CDS already on disk.
-- `busco_scan_cache.tsv` is tracked in git (1,082 accessions with full scores) and
-  `run_scan()` builds its skip list from it, so a rebuild does not rescan.
-- A threshold change needs no rescan: `run_finalize()` recomputes `busco_status` from
-  `complete_pct`, so `--finalize-only` is enough.
-
-BUSCO sits in `utilities/`, not in the numbered chain, because it is a QC record rather
-than a filter. Of 2,063 candidates, 1,986 pass, 7 fall below the completeness bar and 70
-have no CDS; a per-taxid fallback then adds 34 that failed but are their taxon's only
-representative. The screen cannot remove a taxon, only prune surplus assemblies within
-one. The attrition worth watching is the 70 missing annotations, not the 7 failures.
-
-`04_assign` requires `--reads-dir`; the ENA streaming path was removed once every read
-was local. Report read **counts**, not percentages: a percentage moves whenever the
-dominant organism's abundance moves, which conflates two different things.
-
-### 04_kallisto — resolve what k-mers cannot
-
-| Step | Consumes | Produces |
-|---|---|---|
-| `01_select/kallisto_select.py` | `03_kraken/05_filter/data/_classified.tsv` | `01_select/data/strata.tsv`, 174 runs across six strata |
-| `02_build/kallisto_neighbours.py` | the cached FracMinHash sketches | `02_build/data/neighbours.tsv`, measured containment |
-| `02_build/kallisto_build.py` | `03_kraken/01_search/data/cds/{pathogen,host}/`, `strata.tsv`, `neighbours.tsv` | one kallisto index per host (Setonix scratch) |
-| `03_quant/kallisto_quant.py` | the per-host indices, the same fastqs as `04_assign` | abundance + bus per run, 174/174 complete |
-| `04_confirm/kallisto_confirm.py` | the quant output | `calls.tsv`, **not yet produced** |
-
-Promoted out of `03_kraken` because it answers a different question by a different method
-(kallisto competitive EM, not k-mer counts), and because its output calibrates the
-`05_filter` thresholds. Nesting it under kraken inverted that dependency. Renamed from
-`04_align` on 2026-10-02, once kallisto was settled as the method rather than one candidate
-among several. See [../04_kallisto/README.md](../04_kallisto/README.md).
+- **`db_inspect.tsv` is the hinge.** Every coverage figure divides by a number from it, which is
+  why **coverage is not comparable across database versions**.
+- **`select_refs.py` queries nothing.** It filters `assemblies.tsv`, which is the survey's own
+  record, so the selection cannot disagree with the survey that justified it.
+- **`resolve.py` cross-checks the two `01_literature` tables against each other** and fails if
+  they disagree about which runs exist, rather than letting one win.
+- **`fetch_mode` in `fetch_plan.tsv` is not a denominator.** It records intent. What was
+  actually classified is counted from the reports.
 
 ---
 
 ## Figures, and which step owns them
 
-A figure script lives with the step that produced the newest data it reads.
+All under `02_classify/report/figures/`, each a `prep_*.py` that writes a TSV plus an `.R` that
+draws it, plus a **generated caption** carrying a FULL and a SHORT version.
 
-| Figure script | Reads | Lives in |
-|---|---|---|
-| `prep_scatter.py` + `scatter.R` | `runs.tsv` | `01_stat/03_filter/figures/` |
-| `prep_lit_resolution.py` + `lit_resolution_alluvial.R` | `text_cache.jsonl` | `02_literature/02_text/figures/` |
-| `sample_funnel_v3.py` | `samples.tsv` | `02_literature/03_classify/figures/` |
-| `crypt_host_tree.py` + `.R` | `samples.tsv` | `02_literature/03_classify/figures/` |
-| `host_breakdown.py` | `runs.tsv` | `03_kraken/03_select/figures/` |
-| `prep_taxonomy.py`, `composite.R`, `prep_network.py`, `network.R`, `prep_slopes.py`, `slopes.R`, `prep_signal_split.py`, `signal_split.R`, `model2d.R`, `example_detections.R`, `prep_method_comparison.py`, `method_comparison.R` | `_classified.tsv` | `03_kraken/05_filter/figures/` |
-| `busco_completeness.R` | `busco_scores.tsv` | `03_kraken/utilities/busco/figures/` |
-| `saturation_curves.py` | saturation sweep output | `03_kraken/utilities/saturation/figures/` |
+| figure | what it shows |
+|---|---|
+| `db_contents` | the db_v4 ring: 1,547 species by route and class |
+| `predict_counts` | prediction against annotation, three panels |
+| `predict_gain` | what prediction would add, by route |
+| `rarefaction` | depth against detection; read length costs nothing beyond Gkmer |
+| `saturation_cloud` | the two-dimensional presence surface |
+| `detect` | the detection calls, per species |
+| `detect_runs` | the same, per run |
 
-`host_breakdown.py` is the one awkward case: it is a kraken-side figure built on STAT
-output. It sits with `03_select` because that is the kraken step whose cohort it describes.
-
-Every figure follows the same two-stage convention: a `prep_*.py` that writes a plotting
-table, then an `.R` that renders it. The split exists so the expensive data assembly is
-not repeated on every styling change.
+- **Generate captions from data.** A caption hand-edited to match a figure is a caption that
+  will describe a figure that no longer exists; a silent `str.replace` renders the code stale.
+- The PDF is tracked and the PNG is not: the PDF is what goes into Illustrator and regenerates
+  the PNG at any resolution.
+- Ask whether labels should be stripped for assembly before drawing. Several of these are
+  printed and annotated separately.
 
 ---
 
 ## Shared root
 
-| File | Provides |
+| | |
 |---|---|
-| `_util.py` | `_Tee`, `make_log_dir`, `link_latest`, `http_get`, `load_json`, `save_json`, `build_manifest`, `resolve_taxon_name` (+ `HOST_NAME_ALIASES`), `upload_to_acacia` |
-| `manifest.py` | CLI over `build_manifest()`: run against any gitignored bulk-data directory so the repo records what exists without holding it |
+| `_paths.py` | artefacts that cross module boundaries, named once. Holds the `SUPERSEDED` prefix |
+| `_util.py` | domain-free helpers: `atomic_write`, `_Tee`, `make_log_dir`, `link_latest` |
+| `_exclusions.py` | unusable BioProjects, with evidence |
+| `manifest.py` | a CLI over one `_util` helper: what exists remotely, without the data |
 
-Scripts reach `_util` by inserting the repository root on `sys.path` with a
-`Path(__file__).resolve().parents[N]` walk, never by package import. This is why numbered
-directory names are safe: a leading digit would break `import`, but nothing imports by
-module name.
+Each live module also has its own `_layout.py` (paths) and shared modules beside it:
+`02_classify/_reads.py`, `_reports.py`, `_assembly.py`, `_taxonomy.py`, `_seeds.py`.
+
+**Named `_layout`, not `_paths`.** The repo root owns `_paths.py`, and a second module of that
+name shadows it on `sys.path`. That collision broke `review.py` and destroyed a table once.
+
+Nothing imports by module name: every cross-module import inserts the repository root on
+`sys.path`. A leading digit in a directory name would otherwise break `import`.
 
 ---
 
 ## Where the data actually lives
 
-Three locations, by design:
+| | |
+|---|---|
+| repo | code, small tracked TSVs, figures (PDF), log history. **No research data** |
+| `02_classify/data/silver/*.tsv` | TRACKED from 2026-10-19. Tables, not layers: the twelve are 6.6 MB while `silver/db/` alone is 139 GB |
+| Setonix `/scratch` | `bronze/`: CDS, reads, reports, sketches, genomes. **21-day purge on atime** |
+| Setonix cohort reads | `02_classify/data/bronze/reads/<BioProject>/`, 4.1 TiB over 28 projects |
+| Acacia | the CDS tree, project bucket. ~1 TB total, so reads stay on Lustre |
+| `_refdata` | the shared reference store, outside the repo. Search it before downloading |
+| `superseded/` | the four retired modules, on disk and untracked. See `SUPERSEDED.md` |
 
-- **In the repo.** Code, small tracked TSVs, figures, `manifest.tsv` files, and log
-  history (`logs/history/`, `*.latest`). Logs are tracked deliberately, for transparency.
-- **Setonix scratch.** Everything marked large above: CDS, reads, the Kraken2 database,
-  the per-run reports. Subject to the 21-day purge, which is why `04_assign` output (66 MB
-  against 14 TB of input reads) is copied off promptly.
-- **Acacia.** `s3://pawsey1168-kraken-db` on the project allocation, not the personal
-  one. The `--endpoint-url` flag is mandatory; omitting it returns a misleading
-  `InvalidAccessKeyId`.
-
-No research data is committed. Verify with `git check-ignore` before staging, not after.
+- **The purge clock is atime**, and `/scratch` is Lustre mounted without `noatime`, so reading
+  4 KB refreshes a file as well as reading all of it. `02_classify/slurm/freshen_reads.slurm`
+  is the keep-alive, and it covers the cohort tree only.
+- The flat pre-migration tree holds ~9.1 TB of non-cohort STAT-gated runs. Not freshened,
+  meant to expire.
+- **Never compute on a login node.** `sbatch` anything that does work.

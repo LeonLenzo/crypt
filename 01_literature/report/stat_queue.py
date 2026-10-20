@@ -36,8 +36,8 @@ from _exclusions import is_excluded, reason_for
 from _hostgroup import ORDER, project_group
 from _layout import ROOT, SEEDS, SILVER, TEXT_CACHE
 
-STAT_RUNS  = ROOT / "01_stat/03_filter/data/runs.tsv"
-CLASSIFIED = ROOT / "03_kraken/05_filter/data/_classified.tsv"
+STAT_RUNS  = ROOT / "superseded/01_stat/03_filter/data/runs.tsv"
+CLASSIFIED = ROOT / "superseded/03_kraken/05_filter/data/_classified.tsv"
 
 
 def tsv(path: Path) -> list[dict]:

@@ -53,7 +53,7 @@ from _layout import GOLD, ROOT, SILVER  # noqa: E402
 from _util import atomic_write  # noqa: E402
 
 CURVE = GOLD / "rarefaction_curve.tsv"
-DBV3 = ROOT / "03_kraken/05_filter/data/_classified.tsv"
+DBV3 = ROOT / "superseded/03_kraken/05_filter/data/_classified.tsv"
 DEPTH = SILVER / "run_depth.tsv"
 
 PLOT = HERE / "rarefaction_curve_plot.tsv"

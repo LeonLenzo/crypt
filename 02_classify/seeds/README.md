@@ -160,15 +160,17 @@ python 02_classify/seeds/build_seeds.py             # -> fungi_usda.tsv
 Then size the build before downloading anything:
 
 ```
-python 03_kraken/01_search/kraken_search.py --skip-seeds \
+python superseded/03_kraken/01_search/kraken_search.py --skip-seeds \
     --extra-clades 02_classify/seeds/residents.tsv \
     --sweep-rank genus --select-only --version residents --no-symlink
 ```
 
-The selector still lives in `03_kraken/01_search` as of 2026-10-15, and the command above is the
-one that produced the sizing. `02_classify/01_refs` replaces it; when it lands, these flags and
-the two cautions below carry across unchanged, because they are properties of the selection
-rather than of the script.
+**That selector has since been replaced.** `02_classify/01_refs/select_refs.py` is the live
+one, and it queries nothing: it filters `data/silver/assemblies.tsv`, which is `survey.py`'s
+own record, so the selection cannot disagree with the survey that justified it. The command
+above is kept because it is the one that produced the SIZING quoted here, and because the flags
+and the two cautions below are properties of the selection rather than of the script. Running
+it now needs its paths fixed first: it lives in `superseded/03_kraken/01_search`.
 
 `--skip-seeds` makes a standalone run: no PHI-base seed query, no seed-derived sweep targets,
 and `--retain` forced off. `--no-symlink` is **required** for any side run, because

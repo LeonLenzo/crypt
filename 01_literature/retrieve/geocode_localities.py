@@ -47,7 +47,7 @@ from pathlib import Path
 # not invoke this script.
 HERE = Path(__file__).resolve().parent
 MODULE = HERE.parent
-PROV = MODULE.parent / "02_literature/03_classify/data/cohort_provenance.tsv"
+PROV = MODULE.parent / "superseded/02_literature/03_classify/data/cohort_provenance.tsv"
 CACHE = MODULE / "data/bronze/geocode_cache.json"
 OUT = MODULE / "data/gold/localities.tsv"
 # accept-language=en matters: without it Nominatim returns the country in the local language

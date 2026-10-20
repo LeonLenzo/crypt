@@ -57,7 +57,7 @@ from _reads import scan_flat, scan_tree, write_manifest  # noqa: E402
 
 # The old flat tree. Named here and nowhere else; after this script has run once it is of
 # historical interest only, and 02_classify never reads it.
-FLAT = ROOT / "03_kraken/03_select/data/reads"
+FLAT = ROOT / "superseded/03_kraken/03_select/data/reads"
 
 
 def plan() -> tuple[list, dict, list, dict]:

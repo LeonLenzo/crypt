@@ -47,8 +47,8 @@ from _paths import ROOT          # repo-wide
 from _util import atomic_write
 from _layout import PROVENANCE, RUNS
 
-COHORT_PROV = ROOT / "02_literature/03_classify/data/cohort_provenance.tsv"
-SUPP_PROV   = ROOT / "02_literature/02_text/data/supp_provenance.tsv"
+COHORT_PROV = ROOT / "superseded/02_literature/03_classify/data/cohort_provenance.tsv"
+SUPP_PROV   = ROOT / "superseded/02_literature/02_text/data/supp_provenance.tsv"
 
 # One source token per provenance origin, so runs.tsv says WHICH mining pass produced a value.
 BATCH = {"supplement": "import-supp-2026-10-02",
@@ -88,7 +88,7 @@ def year_sources() -> dict:
         for r in csv.DictReader(open(SUPP_PROV), delimiter="\t"):
             if (r.get("date") or "").strip():
                 supp.setdefault(r["BioSample"], r["date"])
-    samples = ROOT / "02_literature/03_classify/data/samples.tsv"
+    samples = ROOT / "superseded/02_literature/03_classify/data/samples.tsv"
     if samples.exists():
         for r in csv.DictReader(open(samples), delimiter="\t"):
             sam[r["BioSample"]] = r.get("collection_date", "")

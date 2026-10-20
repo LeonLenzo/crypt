@@ -43,9 +43,9 @@ sys.path[:0] = [str(_HERE.parents[1]), str(_HERE.parents[2])]
 
 from _paths import ROOT
 
-STAT_CACHE = ROOT / "01_stat/02_fetch/data/stat_cache.jsonl"
-RUNS       = ROOT / "01_stat/03_filter/data/runs.tsv"
-SAMPLES    = ROOT / "02_literature/03_classify/data/samples.tsv"
+STAT_CACHE = ROOT / "superseded/01_stat/02_fetch/data/stat_cache.jsonl"
+RUNS       = ROOT / "superseded/01_stat/03_filter/data/runs.tsv"
+SAMPLES    = ROOT / "superseded/02_literature/03_classify/data/samples.tsv"
 OUT        = Path(__file__).resolve().parent / "data/truncation.tsv"
 
 _BP = re.compile(r'"BioProject":"([^"]+)"')

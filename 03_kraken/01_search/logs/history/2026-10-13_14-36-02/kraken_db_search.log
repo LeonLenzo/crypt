@@ -1,21 +1,0 @@
-Loaded 30 extra clades from 03_kraken/01_search/seeds/resident_clades.tsv
-STAT-detected genera: 38
-Depth floor: 4   sweep rank: genus   broad genera: included
-Species-normalised 2,778,093 taxids; seed coverage expanded 133 -> 133 taxa
-
-[1/2] SKIPPED (--skip-seeds): no PHI-base seeds in this run
-  Seed assemblies selected: 0
-  +30 clades injected from --extra-clades (30 given)
-
-[2/2] Sweeping 65 genus clades (up to 4 per species) …
-  5/65 clades … (70 swept so far)  10/65 clades … (266 swept so far)  15/65 clades … (312 swept so far)  20/65 clades … (517 swept so far)  25/65 clades … (586 swept so far)  30/65 clades … (607 swept so far)  35/65 clades … (647 swept so far)  40/65 clades … (662 swept so far)  45/65 clades … (679 swept so far)  50/65 clades … (711 swept so far)  55/65 clades … (746 swept so far)  60/65 clades … (762 swept so far)  65/65 clades … (762 swept so far)
-  Sweep assemblies selected: 762
-  retained 785 assemblies the new rules would have dropped (no-cap policy), across 137 taxa
-      +156 Parastagonospora nodorum
-      +55  Fusarium oxysporum
-      +45  Pyricularia oryzae
-      +42  Aspergillus niger
-      +25  Pyrenophora tritici-repentis
-  wrote ref_candidates_residents.tsv; left ref_candidates.tsv pointing at ref_candidates_v3.tsv
-
-Next: python 03_kraken/01_search/kraken_search.py --download   (or re-run this with --download)

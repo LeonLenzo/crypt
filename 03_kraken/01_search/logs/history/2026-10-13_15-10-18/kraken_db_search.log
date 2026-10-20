@@ -1,16 +1,0 @@
-Loaded 30 extra clades from 03_kraken/seeds/residents.tsv
-STAT-detected genera: 38
-Depth floor: 4   sweep rank: genus   broad genera: included
-Species-normalised 2,778,093 taxids; seed coverage expanded 133 -> 133 taxa
-
-[1/2] SKIPPED (--skip-seeds): no PHI-base seeds in this run
-  Seed assemblies selected: 0
-  seed-derived sweep targets suppressed (--skip-seeds)
-  +30 clades injected from --extra-clades (30 given)
-
-[2/2] Sweeping 30 genus clades (up to 4 per species) …
-  5/30 clades … (19 swept so far)  10/30 clades … (71 swept so far)  15/30 clades … (134 swept so far)  20/30 clades … (158 swept so far)  25/30 clades … (158 swept so far)  30/30 clades … (161 swept so far)
-  Sweep assemblies selected: 161
-  wrote ref_candidates_residents.tsv; left ref_candidates.tsv pointing at ref_candidates_v3.tsv
-
-Next: python 03_kraken/01_search/kraken_search.py --download   (or re-run this with --download)

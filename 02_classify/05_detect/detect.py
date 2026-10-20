@@ -12,11 +12,17 @@ Writes `silver/_classified.tsv` (every candidate, with its metrics) and
 
 CARRIED, because they are knowledge rather than code:
 
-  * **The `unbiased` f. sp. feature.** A detection whose reads pile onto ONE sub-taxon
-    (S1/S2 under the species) is LCA smearing, not a genome-wide infection. Saturation cannot
-    see this -- the reads genuinely do spread across the k-mer space of the sliver they came
-    from -- so it stays as its own feature. *Puccinia graminis* on wheat is the case that
-    forced it: two overlapping clouds, one rising and one flat, split by forma specialis.
+  * **The `unbiased` f. sp. feature, WHICH IS INERT UNDER db_v4 AND SAYS SO AT STARTUP.**
+    A detection whose reads pile onto ONE sub-taxon (S1/S2 under the species) is LCA smearing,
+    not a genome-wide infection, and saturation cannot see it -- the reads genuinely do spread
+    across the k-mer space of the sliver they came from. *Puccinia graminis* on wheat forced it
+    in db_v3: two overlapping clouds, one rising and one flat, split by forma specialis.
+    Measured 2026-10-20, **db_v4 contains no sub-species nodes whatsoever** (1,547 species,
+    zero S1/S2, against db_v3's 222), so `fsp_frac` is 0 on all 300,061 candidates and the test
+    never fires. It is RETAINED rather than deleted because the smearing it catches is a
+    property of the database build, not of the method: admit one strain-level assembly and it
+    matters again. A feature that silently does nothing is how knowledge rots, so the run
+    reports whether it is live.
   * **Per-host application.** The same organism is a real infection on its own host and a
     cross-mapping artefact on another; *Sclerotinia* is real on canola and noise on wheat,
     *P. striiformis* real on wheat and noise on maize. Host comes from the CURATED value in
@@ -194,6 +200,9 @@ def main() -> None:
 
     insp = load_inspect(Path(args.inspect))
     subs = subtaxa(Path(args.inspect))
+    n_sub = sum(len(v) for v in subs.values())
+    print(f"  f. sp. feature: {'LIVE, ' + str(n_sub) + ' sub-taxa' if n_sub else 'INERT'} "
+          f"-- this database has {n_sub} S1/S2 nodes under {len(subs)} species")
     lab = labels(HOLOBASE)
     # TWO tables, and both are needed. cohort_samples.tsv is the membership authority and
     # carries crop/host/setting, but it is keyed on Run and has NO BioSample and NO

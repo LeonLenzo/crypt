@@ -1,0 +1,1185 @@
+run	BioProject	crop	host	sampling_selection	n_fungi	n_pathogens	n_undeclared	coinfected	pathogens	undeclared
+ERR12013027	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013028	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013029	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia graminis;Puccinia striiformis	Puccinia striiformis
+ERR12013030	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013031	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013032	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013033	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013034	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013035	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013036	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013037	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013038	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013039	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia graminis	
+ERR12013040	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	3	2	yes	Puccinia graminis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR12013042	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	4	3	yes	Microdochium nivale;Puccinia graminis;Puccinia triticina;Zymoseptoria tritici	Microdochium nivale;Puccinia triticina;Zymoseptoria tritici
+ERR12013045	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	3	2	yes	Microdochium nivale;Puccinia graminis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR12013047	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Puccinia graminis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR12013048	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	24	3	2	yes	Microdochium nivale;Puccinia graminis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR12013049	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	32	8	7	yes	Fusarium acuminatum;Fusarium avenaceum;Fusarium tricinctum;Microdochium nivale;Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Zymoseptoria tritici	Fusarium acuminatum;Fusarium avenaceum;Fusarium tricinctum;Microdochium nivale;Parastagonospora nodorum;Puccinia striiformis;Zymoseptoria tritici
+ERR12013050	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	2	1	yes	Puccinia graminis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR12013051	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	29	6	5	yes	Akanthomyces lecanii;Fusarium avenaceum;Microdochium nivale;Parastagonospora nodorum;Puccinia graminis;Zymoseptoria tritici	Akanthomyces lecanii;Fusarium avenaceum;Microdochium nivale;Parastagonospora nodorum;Zymoseptoria tritici
+ERR12013052	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	14	2	1	yes	Puccinia graminis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR12013053	PRJEB65589	Other cereal	Secale cereale (rye)	disease-selected	4	1	0	no	Puccinia graminis	
+ERR12013054	PRJEB65589	Other cereal	Secale cereale (rye)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013055	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	3	2	yes	Puccinia graminis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR12013056	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia graminis;Puccinia triticina	Puccinia triticina
+ERR12013057	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	1	0	no	Puccinia graminis	
+ERR12013059	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013060	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia graminis	
+ERR12013061	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	4	3	yes	Puccinia graminis;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici
+ERR12013062	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013063	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia graminis	
+ERR12013064	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	3	2	yes	Akanthomyces lecanii;Puccinia graminis;Puccinia triticina	Akanthomyces lecanii;Puccinia triticina
+ERR12013065	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia graminis;Puccinia triticina	Puccinia triticina
+ERR12013066	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	3	2	yes	Cladosporium cladosporioides;Puccinia graminis;Sarocladium strictum	Cladosporium cladosporioides;Sarocladium strictum
+ERR12013067	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	2	1	yes	Puccinia graminis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR12013069	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	2	1	yes	Akanthomyces lecanii;Puccinia graminis	Akanthomyces lecanii
+ERR12013070	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia graminis	
+ERR12013071	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013072	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	3	2	yes	Puccinia graminis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR12013073	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia graminis	
+ERR12013075	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	14	1	0	no	Puccinia graminis	
+ERR12013076	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013077	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013078	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia graminis	
+ERR12013079	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia graminis	
+ERR15005444	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	10	4	3	yes	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Puccinia triticina	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis
+ERR15005445	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	11	6	5	yes	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Pyrenophora tritici-repentis;Zymoseptoria tritici
+ERR15005446	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	10	4	3	yes	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Puccinia triticina	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis
+ERR15005447	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	10	5	4	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina;Pyrenophora teres;Pyrenophora tritici-repentis	Parastagonospora nodorum;Puccinia striiformis;Pyrenophora teres;Pyrenophora tritici-repentis
+ERR15005448	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia striiformis
+ERR15005449	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	10	5	4	yes	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Zymoseptoria tritici
+ERR15005450	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	4	3	yes	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Puccinia triticina	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis
+ERR15005451	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia triticina	
+ERR15005452	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	4	3	yes	Puccinia striiformis;Puccinia triticina;Stemphylium lycopersici;Zymoseptoria tritici	Puccinia striiformis;Stemphylium lycopersici;Zymoseptoria tritici
+ERR15005453	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	4	3	yes	Epicoccum nigrum;Puccinia striiformis;Puccinia triticina;Stemphylium lycopersici	Epicoccum nigrum;Puccinia striiformis;Stemphylium lycopersici
+ERR15005454	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	25	4	3	yes	Epicoccum nigrum;Puccinia triticina;Stemphylium lycopersici;Zymoseptoria tritici	Epicoccum nigrum;Stemphylium lycopersici;Zymoseptoria tritici
+ERR15005455	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	3	2	yes	Parastagonospora nodorum;Puccinia triticina;Zymoseptoria tritici	Parastagonospora nodorum;Zymoseptoria tritici
+ERR15005456	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	2	1	yes	Puccinia triticina;Pyrenophora teres	Pyrenophora teres
+ERR15005457	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	1	0	no	Puccinia triticina	
+ERR15005458	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005459	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Blumeria graminis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR15005460	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005461	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005462	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	4	3	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Parastagonospora nodorum;Puccinia striiformis;Zymoseptoria tritici
+ERR15005463	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	1	0	no	Puccinia triticina	
+ERR15005464	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	1	0	no	Puccinia triticina	
+ERR15005465	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia triticina	
+ERR15005466	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	1	0	no	Puccinia triticina	
+ERR15005467	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	3	2	yes	Epicoccum nigrum;Puccinia triticina;Zymoseptoria tritici	Epicoccum nigrum;Zymoseptoria tritici
+ERR15005468	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005469	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	4	3	yes	Microdochium nivale;Puccinia triticina;Pyrenophora teres;Zymoseptoria tritici	Microdochium nivale;Pyrenophora teres;Zymoseptoria tritici
+ERR15005470	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	4	3	yes	Blumeria graminis;Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici	Blumeria graminis;Pyrenophora tritici-repentis;Zymoseptoria tritici
+ERR15005471	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia striiformis
+ERR15005472	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Microdochium nivale;Puccinia triticina;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR15005473	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Blumeria graminis;Puccinia triticina;Pyrenophora tritici-repentis	Blumeria graminis;Pyrenophora tritici-repentis
+ERR15005474	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici	Pyrenophora tritici-repentis;Zymoseptoria tritici
+ERR15005475	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005476	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici	Pyrenophora tritici-repentis;Zymoseptoria tritici
+ERR15005477	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	3	2	yes	Blumeria graminis;Puccinia triticina;Pyrenophora teres	Blumeria graminis;Pyrenophora teres
+ERR15005478	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	3	2	yes	Blumeria graminis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR15005479	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Blumeria graminis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR15005480	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	3	2	yes	Microdochium nivale;Puccinia triticina;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR15005481	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Blumeria graminis;Puccinia triticina;Pyrenophora teres	Blumeria graminis;Pyrenophora teres
+ERR15005482	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia triticina	
+ERR15005483	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005484	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Blumeria graminis;Puccinia triticina;Pyrenophora tritici-repentis	Blumeria graminis;Pyrenophora tritici-repentis
+ERR15005485	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Blumeria graminis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR15005486	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici	Pyrenophora tritici-repentis;Zymoseptoria tritici
+ERR15005487	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	4	3	yes	Epicoccum nigrum;Parastagonospora nodorum;Puccinia triticina;Zymoseptoria tritici	Epicoccum nigrum;Parastagonospora nodorum;Zymoseptoria tritici
+ERR15005488	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	5	4	yes	Blumeria graminis;Microdochium nivale;Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici	Blumeria graminis;Microdochium nivale;Pyrenophora tritici-repentis;Zymoseptoria tritici
+ERR15005489	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005490	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	25	5	4	yes	Blumeria graminis;Epicoccum nigrum;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Epicoccum nigrum;Puccinia striiformis;Zymoseptoria tritici
+ERR15005491	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	4	3	yes	Blumeria graminis;Cladosporium cladosporioides;Puccinia graminis;Puccinia triticina	Blumeria graminis;Cladosporium cladosporioides;Puccinia graminis
+ERR15005492	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia triticina	Blumeria graminis
+ERR15005493	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Blumeria graminis;Puccinia triticina	Blumeria graminis
+ERR15005494	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	1	0	no	Puccinia triticina	
+ERR15005495	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia triticina	Blumeria graminis
+ERR15005496	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	4	3	yes	Blumeria graminis;Cladosporium cladosporioides;Epicoccum nigrum;Puccinia triticina	Blumeria graminis;Cladosporium cladosporioides;Epicoccum nigrum
+ERR15005497	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia triticina	Blumeria graminis
+ERR15005498	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia triticina	
+ERR15005499	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia triticina	Blumeria graminis
+ERR15005500	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005501	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	3	2	yes	Microdochium nivale;Puccinia triticina;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR15005502	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005503	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005504	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	3	2	yes	Epicoccum nigrum;Puccinia triticina;Zymoseptoria tritici	Epicoccum nigrum;Zymoseptoria tritici
+ERR15005505	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	10	4	3	yes	Microdochium nivale;Puccinia triticina;Pyrenophora teres;Zymoseptoria tritici	Microdochium nivale;Pyrenophora teres;Zymoseptoria tritici
+ERR15005506	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Puccinia triticina;Pyrenophora teres;Zymoseptoria tritici	Pyrenophora teres;Zymoseptoria tritici
+ERR15005507	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005508	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia striiformis;Zymoseptoria tritici
+ERR15005509	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005510	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005511	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005512	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	3	2	yes	Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici	Pyrenophora tritici-repentis;Zymoseptoria tritici
+ERR15005513	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia triticina	
+ERR15005514	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	3	2	yes	Blumeria graminis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR15005515	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	4	3	yes	Blumeria graminis;Parastagonospora nodorum;Puccinia triticina;Pyrenophora tritici-repentis	Blumeria graminis;Parastagonospora nodorum;Pyrenophora tritici-repentis
+ERR15005516	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia triticina	
+ERR15005517	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	6	5	yes	Bipolaris sorokiniana;Blumeria graminis;Parastagonospora nodorum;Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici	Bipolaris sorokiniana;Blumeria graminis;Parastagonospora nodorum;Pyrenophora tritici-repentis;Zymoseptoria tritici
+ERR15005518	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Blumeria graminis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR15005519	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Blumeria graminis;Puccinia triticina;Pyrenophora teres	Blumeria graminis;Pyrenophora teres
+ERR15005520	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia triticina	
+ERR15005521	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia triticina	Blumeria graminis
+ERR15005522	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia triticina	
+ERR15005523	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	4	3	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici
+ERR15005524	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	3	2	yes	Blumeria graminis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR15005525	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia striiformis
+ERR15005526	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia striiformis
+ERR15005527	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia triticina	
+ERR15005528	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia striiformis
+ERR15005529	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia triticina	
+ERR15005530	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia striiformis
+ERR15005531	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005532	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005533	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	3	2	yes	Epicoccum nigrum;Puccinia triticina;Zymoseptoria tritici	Epicoccum nigrum;Zymoseptoria tritici
+ERR15005534	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia triticina	
+ERR15005535	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia triticina	
+ERR15005537	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	2	1	yes	Puccinia triticina;Zymoseptoria tritici	Zymoseptoria tritici
+ERR15005538	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia triticina;Pyrenophora tritici-repentis	Pyrenophora tritici-repentis
+ERR15005539	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	10	3	2	yes	Parastagonospora nodorum;Puccinia triticina;Zymoseptoria tritici	Parastagonospora nodorum;Zymoseptoria tritici
+ERR15005540	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	4	3	yes	Blumeria graminis;Puccinia triticina;Pyrenophora teres;Zymoseptoria tritici	Blumeria graminis;Pyrenophora teres;Zymoseptoria tritici
+ERR15005541	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia triticina	
+ERR15005542	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia triticina	
+ERR15005543	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia triticina	
+ERR1607729	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	2	1	yes	Cladosporium cladosporioides;Puccinia striiformis	Cladosporium cladosporioides
+ERR1607730	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	13	4	3	yes	Cladosporium cladosporioides;Epicoccum nigrum;Fusarium avenaceum;Puccinia striiformis	Cladosporium cladosporioides;Epicoccum nigrum;Fusarium avenaceum
+ERR1607731	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR1607732	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR1607733	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR1607734	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR1607735	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR1607736	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR1607737	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR1607738	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR1607739	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR1607744	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	4	3	yes	Blumeria graminis;Puccinia graminis;Puccinia striiformis;Puccinia triticina	Blumeria graminis;Puccinia graminis;Puccinia triticina
+ERR1607746	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR1607747	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	1	0	no	Puccinia striiformis	
+ERR1607748	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR1607749	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	12	5	4	yes	Bipolaris sorokiniana;Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis;Zymoseptoria tritici	Bipolaris sorokiniana;Cladosporium cladosporioides;Epicoccum nigrum;Zymoseptoria tritici
+ERR1607750	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	4	3	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis;Zymoseptoria tritici	Cladosporium cladosporioides;Epicoccum nigrum;Zymoseptoria tritici
+ERR1607752	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	11	5	4	yes	Microdochium nivale;Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Microdochium nivale;Parastagonospora nodorum;Puccinia triticina;Zymoseptoria tritici
+ERR1607753	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	4	3	yes	Epicoccum nigrum;Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Epicoccum nigrum;Microdochium nivale;Zymoseptoria tritici
+ERR1607754	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR1607755	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR1607756	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	4	3	yes	Microdochium nivale;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Microdochium nivale;Puccinia triticina;Zymoseptoria tritici
+ERR1607757	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR1607758	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR1607759	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR1607760	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina	Blumeria graminis;Puccinia triticina
+ERR1607761	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Zymoseptoria tritici	Parastagonospora nodorum;Zymoseptoria tritici
+ERR1607762	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607763	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607764	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR1607765	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607766	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR1607767	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607768	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607769	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR1607770	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	3	2	yes	Oculimacula yallundae;Puccinia striiformis;Zymoseptoria tritici	Oculimacula yallundae;Zymoseptoria tritici
+ERR1607771	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR1607772	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR1607773	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR1607774	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	4	3	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Puccinia triticina;Zymoseptoria tritici
+ERR1607775	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607776	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR1607777	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR1607778	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR1607779	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	4	3	yes	Blumeria graminis;Puccinia striiformis;Pyrenophora teres;Zymoseptoria tritici	Blumeria graminis;Pyrenophora teres;Zymoseptoria tritici
+ERR1607780	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Puccinia striiformis;Pyrenophora teres;Zymoseptoria tritici	Pyrenophora teres;Zymoseptoria tritici
+ERR1607781	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	13	1	0	no	Puccinia striiformis	
+ERR1607782	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607783	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607784	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	10	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR1607785	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	3	2	yes	Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR1607790	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR1607792	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR1607793	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR1607794	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	3	2	yes	Cladosporium cladosporioides;Puccinia striiformis;Pyrenophora tritici-repentis	Cladosporium cladosporioides;Pyrenophora tritici-repentis
+ERR1607795	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR1607796	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR1607797	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607798	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR1607799	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Blumeria graminis;Puccinia striiformis;Pyrenophora tritici-repentis	Blumeria graminis;Pyrenophora tritici-repentis
+ERR1607800	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR1607801	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR1607802	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607803	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607804	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607805	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR1607806	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	1	0	no	Puccinia striiformis	
+ERR1607807	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	4	3	yes	Microdochium nivale;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Microdochium nivale;Puccinia triticina;Zymoseptoria tritici
+ERR1607808	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR1607809	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR1607810	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR1607811	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR1607812	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	4	3	yes	Cladosporium cladosporioides;Puccinia striiformis;Stemphylium lycopersici;Zymoseptoria tritici	Cladosporium cladosporioides;Stemphylium lycopersici;Zymoseptoria tritici
+ERR1607813	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	1	0	no	Puccinia striiformis	
+ERR1607814	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR1607815	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR1607816	PRJEB15280	Wheat	Triticum durum/turgidum	disease-selected	8	2	1	yes	Cladosporium cladosporioides;Puccinia striiformis	Cladosporium cladosporioides
+ERR1607817	PRJEB15280	Other cereal	Secale cereale (rye)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR1607818	PRJEB15280	Other cereal	Secale cereale (rye)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR1607819	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	26	5	4	yes	Epicoccum nigrum;Microdochium nivale;Puccinia striiformis;Stemphylium lycopersici;Zymoseptoria tritici	Epicoccum nigrum;Microdochium nivale;Stemphylium lycopersici;Zymoseptoria tritici
+ERR1607820	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	24	3	2	yes	Epicoccum nigrum;Puccinia striiformis;Zymoseptoria tritici	Epicoccum nigrum;Zymoseptoria tritici
+ERR1607821	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	3	2	yes	Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR1607822	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	5	4	yes	Cladosporium cladosporioides;Microdochium nivale;Puccinia striiformis;Stemphylium lycopersici;Zymoseptoria tritici	Cladosporium cladosporioides;Microdochium nivale;Stemphylium lycopersici;Zymoseptoria tritici
+ERR1607823	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607824	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	2	1	yes	Puccinia striiformis;Stemphylium lycopersici	Stemphylium lycopersici
+ERR1607825	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR1607826	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	3	2	yes	Microdochium nivale;Puccinia striiformis;Stemphylium lycopersici	Microdochium nivale;Stemphylium lycopersici
+ERR1607828	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	15	1	0	no	Puccinia striiformis	
+ERR1607829	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607830	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607831	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607833	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	24	6	5	yes	Blumeria graminis;Fusarium culmorum;Microdochium nivale;Oculimacula yallundae;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Fusarium culmorum;Microdochium nivale;Oculimacula yallundae;Zymoseptoria tritici
+ERR1607834	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR1607838	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	4	3	yes	Fusarium lateritium;Parastagonospora nodorum;Puccinia striiformis;Zymoseptoria tritici	Fusarium lateritium;Parastagonospora nodorum;Zymoseptoria tritici
+ERR1607839	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	1	0	no	Puccinia striiformis	
+ERR1607841	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607842	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR1607843	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	25	5	4	yes	Cadophora malorum;Microdochium nivale;Parastagonospora nodorum;Puccinia striiformis;Zymoseptoria tritici	Cadophora malorum;Microdochium nivale;Parastagonospora nodorum;Zymoseptoria tritici
+ERR1607844	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607845	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607846	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607848	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607849	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	1	0	no	Puccinia striiformis	
+ERR1607851	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR1607852	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	1	0	no	Puccinia striiformis	
+ERR1607853	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR1607854	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607856	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR1607859	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR1607861	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR1607862	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR1607863	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR1607864	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR1607865	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170179	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170180	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR3170181	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR3170182	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Parastagonospora nodorum;Puccinia striiformis	Parastagonospora nodorum
+ERR3170183	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	14	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina	Parastagonospora nodorum;Puccinia triticina
+ERR3170184	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	1	0	no	Puccinia striiformis	
+ERR3170185	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	3	2	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis	Cladosporium cladosporioides;Epicoccum nigrum
+ERR3170186	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	11	3	2	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis	Cladosporium cladosporioides;Epicoccum nigrum
+ERR3170187	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	27	5	4	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis;Pyrenophora teres;Pyrenophora tritici-repentis	Cladosporium cladosporioides;Epicoccum nigrum;Pyrenophora teres;Pyrenophora tritici-repentis
+ERR3170188	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR3170189	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Blumeria graminis;Cladosporium cladosporioides;Puccinia striiformis	Blumeria graminis;Cladosporium cladosporioides
+ERR3170190	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170191	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina	Blumeria graminis;Puccinia triticina
+ERR3170192	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170193	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170194	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina	Blumeria graminis;Puccinia triticina
+ERR3170195	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170196	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170197	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170198	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170199	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170200	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Epicoccum nigrum;Puccinia striiformis	Epicoccum nigrum
+ERR3170201	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170202	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170203	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170204	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina	Blumeria graminis;Puccinia triticina
+ERR3170205	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170206	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170207	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170208	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina	Blumeria graminis;Puccinia triticina
+ERR3170209	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina	Parastagonospora nodorum;Puccinia triticina
+ERR3170210	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170211	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170212	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR3170213	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina	Parastagonospora nodorum;Puccinia triticina
+ERR3170214	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	4	3	yes	Epicoccum nigrum;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Epicoccum nigrum;Puccinia triticina;Zymoseptoria tritici
+ERR3170215	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170216	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170217	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170218	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170219	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170220	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170221	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR3170222	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR3170223	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR3170224	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR3170225	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170226	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170227	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170228	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	1	0	no	Puccinia striiformis	
+ERR3170229	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	14	4	3	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis;Puccinia triticina	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia triticina
+ERR3170230	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170231	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR3170232	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170233	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Cladosporium cladosporioides;Puccinia striiformis;Puccinia triticina	Cladosporium cladosporioides;Puccinia triticina
+ERR3170234	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	4	3	yes	Cladosporium cladosporioides;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Cladosporium cladosporioides;Puccinia triticina;Zymoseptoria tritici
+ERR3170235	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR3170236	PRJEB31334	Other cereal	Triticale	disease-selected	20	4	3	yes	Blumeria graminis;Epicoccum nigrum;Parastagonospora nodorum;Puccinia striiformis	Blumeria graminis;Epicoccum nigrum;Parastagonospora nodorum
+ERR3170237	PRJEB31334	Other cereal	Triticale	disease-selected	11	4	3	yes	Blumeria graminis;Cladosporium cladosporioides;Parastagonospora nodorum;Puccinia striiformis	Blumeria graminis;Cladosporium cladosporioides;Parastagonospora nodorum
+ERR3170238	PRJEB31334	Other cereal	Triticale	disease-selected	9	3	2	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina	Blumeria graminis;Puccinia triticina
+ERR3170239	PRJEB31334	Other cereal	Triticale	disease-selected	25	6	5	yes	Blumeria graminis;Epicoccum nigrum;Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina;Rhynchosporium secalis	Blumeria graminis;Epicoccum nigrum;Parastagonospora nodorum;Puccinia triticina;Rhynchosporium secalis
+ERR3170240	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170241	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	6	5	yes	Cladosporium cladosporioides;Didymella glomerata;Epicoccum nigrum;Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina	Cladosporium cladosporioides;Didymella glomerata;Epicoccum nigrum;Parastagonospora nodorum;Puccinia triticina
+ERR3170242	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170243	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR3170244	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170245	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170246	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170247	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170248	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170249	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR3170250	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170251	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	12	5	4	yes	Alternaria tenuissima;Bipolaris sorokiniana;Epicoccum nigrum;Parastagonospora nodorum;Puccinia striiformis	Alternaria tenuissima;Bipolaris sorokiniana;Epicoccum nigrum;Parastagonospora nodorum
+ERR3170252	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170253	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170254	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	4	3	yes	Cladosporium cladosporioides;Parastagonospora nodorum;Puccinia striiformis;Pyrenophora tritici-repentis	Cladosporium cladosporioides;Parastagonospora nodorum;Pyrenophora tritici-repentis
+ERR3170255	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	28	10	9	yes	Alternaria alternata;Alternaria tenuissima;Epicoccum nigrum;Fusarium graminearum;Microdochium nivale;Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis;Stemphylium lycopersici	Alternaria alternata;Alternaria tenuissima;Epicoccum nigrum;Fusarium graminearum;Microdochium nivale;Parastagonospora nodorum;Puccinia triticina;Pyrenophora tritici-repentis;Stemphylium lycopersici
+ERR3170256	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170257	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	5	4	yes	Blumeria graminis;Parastagonospora nodorum;Puccinia striiformis;Pyrenophora tritici-repentis;Zymoseptoria tritici	Blumeria graminis;Parastagonospora nodorum;Pyrenophora tritici-repentis;Zymoseptoria tritici
+ERR3170258	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170259	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170260	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	4	3	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis	Blumeria graminis;Puccinia triticina;Pyrenophora tritici-repentis
+ERR3170261	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Parastagonospora nodorum;Puccinia striiformis	Parastagonospora nodorum
+ERR3170262	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR3170263	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Pyrenophora tritici-repentis	Parastagonospora nodorum;Pyrenophora tritici-repentis
+ERR3170264	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	2	1	yes	Parastagonospora nodorum;Puccinia striiformis	Parastagonospora nodorum
+ERR3170265	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	10	4	3	yes	Blumeria graminis;Fusarium avenaceum;Parastagonospora nodorum;Puccinia striiformis	Blumeria graminis;Fusarium avenaceum;Parastagonospora nodorum
+ERR3170266	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR3170267	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170268	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3170269	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170272	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170273	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170274	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170275	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170276	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170277	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3170278	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3170279	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Blumeria graminis;Puccinia striiformis;Pyrenophora tritici-repentis	Blumeria graminis;Pyrenophora tritici-repentis
+ERR3188431	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188432	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188433	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188434	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3188435	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3188436	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188437	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR3188438	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188439	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3188440	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3188441	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188442	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188443	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188444	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR3188445	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188446	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Pyrenophora tritici-repentis	Pyrenophora tritici-repentis
+ERR3188447	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	3	2	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis	Cladosporium cladosporioides;Epicoccum nigrum
+ERR3188448	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188449	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188450	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188451	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis	Cladosporium cladosporioides;Epicoccum nigrum
+ERR3188452	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR3188453	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188454	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3188455	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188456	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188457	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188458	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188459	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188460	PRJEB31334	Other cereal	Triticale	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188461	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188462	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR3188463	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Blumeria graminis;Puccinia striiformis;Trichothecium roseum	Blumeria graminis;Trichothecium roseum
+ERR3188464	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188465	PRJEB31334	Wheat	Triticum dicoccon	disease-selected	3	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3188466	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3188467	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3188468	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	1	0	no	Puccinia striiformis	
+ERR3188469	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188470	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR3188471	PRJEB31334	Wheat	Triticum durum/turgidum	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188472	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR3188473	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188474	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Trichothecium roseum	Trichothecium roseum
+ERR3188475	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188476	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Cladosporium cladosporioides;Puccinia striiformis	Cladosporium cladosporioides
+ERR3188477	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188478	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR3188479	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR3188480	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Pyrenophora tritici-repentis	Pyrenophora tritici-repentis
+ERR3188481	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR3188482	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3188483	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3383632	PRJEB33109	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Cladosporium cladosporioides;Puccinia striiformis	Cladosporium cladosporioides
+ERR3383633	PRJEB33109	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3383634	PRJEB33109	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3383635	PRJEB33109	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3383636	PRJEB33109	Other cereal	Secale cereale (rye)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3383637	PRJEB33109	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3383638	PRJEB33109	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3383639	PRJEB33109	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3383640	PRJEB33109	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3383641	PRJEB33109	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3383642	PRJEB33109	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3850354	PRJEB36444	Wheat	Triticum aestivum (bread wheat)	disease-selected	12	4	3	yes	Blumeria graminis;Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Microdochium nivale;Zymoseptoria tritici
+ERR3850361	PRJEB36444	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR3856813	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856814	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR3856815	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856816	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3856817	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856818	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia graminis;Puccinia striiformis	Puccinia graminis
+ERR3856819	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856820	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856821	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia graminis;Puccinia striiformis	Puccinia graminis
+ERR3856822	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Puccinia graminis;Puccinia striiformis;Puccinia triticina	Puccinia graminis;Puccinia triticina
+ERR3856823	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856824	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia graminis;Puccinia striiformis	Puccinia graminis
+ERR3856825	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3856830	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR3856831	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856832	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR3856833	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	14	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3856834	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	3	2	yes	Fusarium avenaceum;Puccinia striiformis;Stemphylium lycopersici	Fusarium avenaceum;Stemphylium lycopersici
+ERR3856835	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Epicoccum nigrum;Puccinia striiformis	Epicoccum nigrum
+ERR3856836	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856837	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856838	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856839	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR3856840	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856841	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856842	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	3	2	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis	Cladosporium cladosporioides;Epicoccum nigrum
+ERR3856843	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3856844	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856845	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3856846	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856847	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856848	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3856849	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR3856850	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Epicoccum nigrum;Puccinia striiformis	Epicoccum nigrum
+ERR3856851	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Blumeria graminis;Epicoccum nigrum;Puccinia striiformis	Blumeria graminis;Epicoccum nigrum
+ERR3856852	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR3856853	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Epicoccum nigrum;Puccinia striiformis;Puccinia triticina	Epicoccum nigrum;Puccinia triticina
+ERR3856854	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	3	2	yes	Epicoccum nigrum;Puccinia striiformis;Puccinia triticina	Epicoccum nigrum;Puccinia triticina
+ERR3856855	PRJEB36485	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Epicoccum nigrum;Puccinia striiformis	Epicoccum nigrum
+ERR4152485	PRJEB15280	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315145	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315146	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315147	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315148	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315149	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315150	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Puccinia graminis;Puccinia striiformis;Puccinia triticina	Puccinia graminis;Puccinia triticina
+ERR4315151	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315152	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315153	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315154	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315155	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315156	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Puccinia graminis;Puccinia striiformis;Puccinia triticina	Puccinia graminis;Puccinia triticina
+ERR4315157	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315158	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315159	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315160	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315161	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315162	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	3	2	yes	Microdochium nivale;Parastagonospora nodorum;Puccinia striiformis	Microdochium nivale;Parastagonospora nodorum
+ERR4315163	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315164	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315165	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315166	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315167	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	1	0	no	Puccinia striiformis	
+ERR4315168	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315169	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315170	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	1	0	no	Puccinia striiformis	
+ERR4315171	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	1	0	no	Puccinia striiformis	
+ERR4315172	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315173	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	2	1	yes	Microdochium nivale;Puccinia striiformis	Microdochium nivale
+ERR4315174	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	3	2	yes	Microdochium nivale;Parastagonospora nodorum;Puccinia striiformis	Microdochium nivale;Parastagonospora nodorum
+ERR4315175	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	2	1	yes	Microdochium nivale;Puccinia striiformis	Microdochium nivale
+ERR4315176	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	2	1	yes	Microdochium nivale;Puccinia striiformis	Microdochium nivale
+ERR4315178	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315179	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315180	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	13	1	0	no	Puccinia striiformis	
+ERR4315181	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315182	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	4	3	yes	Blumeria graminis;Puccinia graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Puccinia graminis;Zymoseptoria tritici
+ERR4315183	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	5	4	yes	Blumeria graminis;Epicoccum nigrum;Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Epicoccum nigrum;Microdochium nivale;Zymoseptoria tritici
+ERR4315184	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315185	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315186	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315187	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315188	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315189	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina	Blumeria graminis;Puccinia triticina
+ERR4315190	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315191	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	10	4	3	yes	Blumeria graminis;Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Microdochium nivale;Zymoseptoria tritici
+ERR4315192	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	4	3	yes	Blumeria graminis;Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Microdochium nivale;Zymoseptoria tritici
+ERR4315196	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315197	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315198	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315199	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	1	0	no	Puccinia striiformis	
+ERR4315200	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	1	0	no	Puccinia striiformis	
+ERR4315201	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	1	0	no	Puccinia striiformis	
+ERR4315202	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315203	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315204	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315205	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315206	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315207	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315208	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315209	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315210	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315211	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315212	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315213	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315214	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315215	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315216	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315217	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315218	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315219	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315220	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315221	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315222	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina	Blumeria graminis;Puccinia triticina
+ERR4315223	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315224	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315225	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315226	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	5	4	yes	Blumeria graminis;Cladosporium cladosporioides;Puccinia striiformis;Puccinia triticina;Stemphylium lycopersici	Blumeria graminis;Cladosporium cladosporioides;Puccinia triticina;Stemphylium lycopersici
+ERR4315227	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	5	4	yes	Blumeria graminis;Cladosporium cladosporioides;Puccinia striiformis;Puccinia triticina;Stemphylium lycopersici	Blumeria graminis;Cladosporium cladosporioides;Puccinia triticina;Stemphylium lycopersici
+ERR4315228	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315229	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Microdochium nivale;Puccinia striiformis;Puccinia triticina	Microdochium nivale;Puccinia triticina
+ERR4315230	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315231	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315232	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315233	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315234	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315235	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315236	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315237	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	1	0	no	Puccinia striiformis	
+ERR4315238	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315239	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315240	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315241	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315242	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315243	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	28	6	5	yes	Alternaria tenuissima;Aureobasidium pullulans;Cladosporium cladosporioides;Puccinia striiformis;Puccinia triticina;Stemphylium lycopersici	Alternaria tenuissima;Aureobasidium pullulans;Cladosporium cladosporioides;Puccinia triticina;Stemphylium lycopersici
+ERR4315244	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	27	6	5	yes	Alternaria tenuissima;Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis;Puccinia triticina;Stemphylium lycopersici	Alternaria tenuissima;Cladosporium cladosporioides;Epicoccum nigrum;Puccinia triticina;Stemphylium lycopersici
+ERR4315245	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315246	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315247	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315248	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315249	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315250	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315251	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315252	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315253	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315254	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315255	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315256	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315257	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315258	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315259	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315260	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315261	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315262	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315263	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315264	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	5	4	yes	Blumeria graminis;Microdochium nivale;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Microdochium nivale;Puccinia triticina;Zymoseptoria tritici
+ERR4315265	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315266	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	5	4	yes	Blumeria graminis;Microdochium nivale;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Microdochium nivale;Puccinia triticina;Zymoseptoria tritici
+ERR4315267	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315268	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	3	2	yes	Cladosporium cladosporioides;Puccinia striiformis;Zymoseptoria tritici	Cladosporium cladosporioides;Zymoseptoria tritici
+ERR4315269	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315270	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	1	0	no	Puccinia striiformis	
+ERR4315271	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315272	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	1	0	no	Puccinia striiformis	
+ERR4315273	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315274	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315275	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315276	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315277	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	2	1	yes	Ascochyta lentis;Puccinia striiformis	Ascochyta lentis
+ERR4315278	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315279	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315280	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315281	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315282	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	3	2	yes	Epicoccum nigrum;Microdochium nivale;Puccinia striiformis	Epicoccum nigrum;Microdochium nivale
+ERR4315283	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315284	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315285	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315286	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	5	4	yes	Blumeria graminis;Cladosporium cladosporioides;Microdochium nivale;Puccinia striiformis;Pyrenophora teres	Blumeria graminis;Cladosporium cladosporioides;Microdochium nivale;Pyrenophora teres
+ERR4315287	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315288	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	2	1	yes	Puccinia striiformis;Pyrenophora teres	Pyrenophora teres
+ERR4315289	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	2	1	yes	Puccinia striiformis;Stemphylium lycopersici	Stemphylium lycopersici
+ERR4315290	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR4315291	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315292	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315293	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315294	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315295	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315296	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315297	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315298	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315299	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315300	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315301	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	1	0	no	Puccinia striiformis	
+ERR4315302	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	4	3	yes	Microdochium nivale;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Microdochium nivale;Puccinia triticina;Zymoseptoria tritici
+ERR4315303	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315304	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315305	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315306	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	2	1	yes	Microdochium nivale;Puccinia striiformis	Microdochium nivale
+ERR4315307	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	3	2	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis	Cladosporium cladosporioides;Epicoccum nigrum
+ERR4315308	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Cladosporium cladosporioides;Puccinia striiformis;Puccinia triticina	Cladosporium cladosporioides;Puccinia triticina
+ERR4315309	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315310	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	4	3	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis	Parastagonospora nodorum;Puccinia triticina;Pyrenophora tritici-repentis
+ERR4315311	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR4315312	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	5	4	yes	Blumeria graminis;Cladosporium cladosporioides;Puccinia striiformis;Puccinia triticina;Pyrenophora teres	Blumeria graminis;Cladosporium cladosporioides;Puccinia triticina;Pyrenophora teres
+ERR4315313	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR4315314	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR4315315	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	3	2	yes	Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis	Puccinia triticina;Pyrenophora tritici-repentis
+ERR4315316	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR4315317	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315318	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315319	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315320	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315321	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	24	5	4	yes	Cladosporium cladosporioides;Puccinia striiformis;Puccinia triticina;Pyrenophora teres;Stemphylium lycopersici	Cladosporium cladosporioides;Puccinia triticina;Pyrenophora teres;Stemphylium lycopersici
+ERR4315322	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	4	3	yes	Cladosporium cladosporioides;Puccinia striiformis;Puccinia triticina;Stemphylium lycopersici	Cladosporium cladosporioides;Puccinia triticina;Stemphylium lycopersici
+ERR4315323	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315324	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315325	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315326	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315327	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315328	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315329	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	15	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315330	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315331	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315332	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315333	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Zymoseptoria tritici	Parastagonospora nodorum;Zymoseptoria tritici
+ERR4315334	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	10	3	2	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis	Cladosporium cladosporioides;Epicoccum nigrum
+ERR4315335	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	2	1	yes	Epicoccum nigrum;Puccinia striiformis	Epicoccum nigrum
+ERR4315336	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315337	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315338	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Pyrenophora tritici-repentis	Pyrenophora tritici-repentis
+ERR4315339	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315340	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	2	1	yes	Cladosporium cladosporioides;Puccinia striiformis	Cladosporium cladosporioides
+ERR4315341	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315342	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315343	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Epicoccum nigrum;Puccinia striiformis	Epicoccum nigrum
+ERR4315344	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	2	1	yes	Cladosporium cladosporioides;Puccinia striiformis	Cladosporium cladosporioides
+ERR4315345	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	24	5	4	yes	Cladosporium cladosporioides;Puccinia striiformis;Pyrenophora teres;Stemphylium lycopersici;Zymoseptoria tritici	Cladosporium cladosporioides;Pyrenophora teres;Stemphylium lycopersici;Zymoseptoria tritici
+ERR4315346	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	2	1	yes	Cladosporium cladosporioides;Puccinia striiformis	Cladosporium cladosporioides
+ERR4315347	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	4	3	yes	Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis;Stemphylium lycopersici	Puccinia triticina;Pyrenophora tritici-repentis;Stemphylium lycopersici
+ERR4315348	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315349	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315350	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315351	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315353	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	26	4	3	yes	Oculimacula yallundae;Plenodomus lingam;Puccinia striiformis;Zymoseptoria tritici	Oculimacula yallundae;Plenodomus lingam;Zymoseptoria tritici
+ERR4315355	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	3	2	yes	Alternaria brassicicola;Puccinia striiformis;Zymoseptoria tritici	Alternaria brassicicola;Zymoseptoria tritici
+ERR4315356	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315357	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315358	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	1	0	no	Puccinia striiformis	
+ERR4315359	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315360	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315361	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315362	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	1	0	no	Puccinia striiformis	
+ERR4315363	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	3	2	yes	Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR4315364	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315365	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	1	0	no	Puccinia striiformis	
+ERR4315366	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315367	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315368	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315369	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315370	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	4	3	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis;Puccinia triticina	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia triticina
+ERR4315371	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315372	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315373	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315374	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315375	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	4	3	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis;Puccinia triticina	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia triticina
+ERR4315376	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315378	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Pyrenophora tritici-repentis	Pyrenophora tritici-repentis
+ERR4315379	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	2	1	yes	Cladosporium cladosporioides;Puccinia striiformis	Cladosporium cladosporioides
+ERR4315380	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315381	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315382	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	14	1	0	no	Puccinia striiformis	
+ERR4315383	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315384	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315385	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Cladosporium cladosporioides;Puccinia striiformis;Trichothecium roseum	Cladosporium cladosporioides;Trichothecium roseum
+ERR4315386	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315387	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia graminis;Puccinia striiformis	Puccinia graminis
+ERR4315388	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315389	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315390	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR4315391	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR4315392	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315393	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315394	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315395	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315396	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315397	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Zymoseptoria tritici	Parastagonospora nodorum;Zymoseptoria tritici
+ERR4315398	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	3	2	yes	Puccinia graminis;Puccinia striiformis;Zymoseptoria tritici	Puccinia graminis;Zymoseptoria tritici
+ERR4315399	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315400	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315401	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	3	2	yes	Plenodomus lingam;Puccinia striiformis;Zymoseptoria tritici	Plenodomus lingam;Zymoseptoria tritici
+ERR4315402	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315403	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315404	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315405	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315406	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315407	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina	Parastagonospora nodorum;Puccinia triticina
+ERR4315408	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	11	4	3	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis;Puccinia triticina	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia triticina
+ERR4315409	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina	Parastagonospora nodorum;Puccinia triticina
+ERR4315410	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315411	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315412	PRJEB39201	Wheat	Triticum durum/turgidum	disease-selected	4	3	2	yes	Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis	Puccinia triticina;Pyrenophora tritici-repentis
+ERR4315413	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315414	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	12	5	4	yes	Cladosporium cladosporioides;Epicoccum nigrum;Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina	Cladosporium cladosporioides;Epicoccum nigrum;Parastagonospora nodorum;Puccinia triticina
+ERR4315415	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315416	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315417	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315418	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315419	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315420	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315421	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315422	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315423	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315425	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315426	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315427	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315428	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315429	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315430	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315431	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315432	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia graminis;Puccinia striiformis	Puccinia graminis
+ERR4315433	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	4	3	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia graminis;Puccinia striiformis	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia graminis
+ERR4315434	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	3	2	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia striiformis	Cladosporium cladosporioides;Epicoccum nigrum
+ERR4315435	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315436	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315437	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Cladosporium cladosporioides;Puccinia striiformis	Cladosporium cladosporioides
+ERR4315438	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315439	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315440	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	4	3	yes	Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici	Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici
+ERR4315441	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315442	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315443	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315444	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315445	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315446	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315447	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315448	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315449	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315450	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315451	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315452	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315453	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315454	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315455	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315456	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315457	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315458	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Parastagonospora nodorum;Puccinia striiformis	Parastagonospora nodorum
+ERR4315459	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315460	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315461	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315462	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	1	0	no	Puccinia striiformis	
+ERR4315463	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315464	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315465	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315466	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315467	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	13	1	0	no	Puccinia striiformis	
+ERR4315468	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315469	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315470	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315471	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315472	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315473	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315474	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315475	PRJEB39201	Wheat	Triticum durum/turgidum	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315476	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315477	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315478	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315479	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR4315480	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	1	0	no	Puccinia striiformis	
+ERR4315481	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR4315482	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315483	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315484	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315485	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Cladosporium cladosporioides;Puccinia striiformis;Pyrenophora teres	Cladosporium cladosporioides;Pyrenophora teres
+ERR4315486	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	1	0	no	Puccinia striiformis	
+ERR4315487	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315488	PRJEB39201	Wheat	Triticum durum/turgidum	disease-selected	4	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315489	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315490	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	24	5	4	yes	Blumeria graminis;Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis	Blumeria graminis;Parastagonospora nodorum;Puccinia triticina;Pyrenophora tritici-repentis
+ERR4315491	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	3	2	yes	Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis	Puccinia triticina;Pyrenophora tritici-repentis
+ERR4315492	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	3	2	yes	Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis	Puccinia triticina;Pyrenophora tritici-repentis
+ERR4315493	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	1	0	no	Puccinia striiformis	
+ERR4315494	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315495	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	1	0	no	Puccinia striiformis	
+ERR4315496	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315497	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	1	0	no	Puccinia striiformis	
+ERR4315498	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	15	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315499	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	3	2	yes	Blumeria graminis;Microdochium nivale;Puccinia striiformis	Blumeria graminis;Microdochium nivale
+ERR4315500	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	3	2	yes	Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR4315501	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	3	2	yes	Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR4315502	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	2	1	yes	Microdochium nivale;Puccinia striiformis	Microdochium nivale
+ERR4315503	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	24	4	3	yes	Fusarium avenaceum;Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Fusarium avenaceum;Microdochium nivale;Zymoseptoria tritici
+ERR4315504	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR4315505	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315506	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315507	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315508	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315509	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315510	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315511	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315513	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315514	PRJEB39201	Wheat	Triticum durum/turgidum	disease-selected	22	4	3	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina;Stemphylium lycopersici	Parastagonospora nodorum;Puccinia triticina;Stemphylium lycopersici
+ERR4315515	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	4	3	yes	Parastagonospora nodorum;Puccinia striiformis;Pyrenophora teres;Pyrenophora tritici-repentis	Parastagonospora nodorum;Pyrenophora teres;Pyrenophora tritici-repentis
+ERR4315516	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315517	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315518	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315519	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315520	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315521	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR4315522	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	25	7	6	yes	Fusarium acuminatum;Fusarium avenaceum;Fusarium culmorum;Microdochium nivale;Puccinia striiformis;Stemphylium lycopersici;Zymoseptoria tritici	Fusarium acuminatum;Fusarium avenaceum;Fusarium culmorum;Microdochium nivale;Stemphylium lycopersici;Zymoseptoria tritici
+ERR4315524	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315525	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	4	3	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Puccinia triticina;Zymoseptoria tritici
+ERR4315526	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315527	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315528	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315529	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315530	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315531	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315532	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315533	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315534	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315535	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	1	0	no	Puccinia striiformis	
+ERR4315536	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315537	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315538	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315539	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315540	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315541	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315542	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315543	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315544	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315545	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315546	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	24	5	4	yes	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia graminis;Puccinia striiformis;Puccinia triticina	Cladosporium cladosporioides;Epicoccum nigrum;Puccinia graminis;Puccinia triticina
+ERR4315547	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis	Puccinia triticina;Pyrenophora tritici-repentis
+ERR4315548	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315549	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	25	5	4	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici	Parastagonospora nodorum;Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici
+ERR4315550	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	24	4	3	yes	Microdochium nivale;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Microdochium nivale;Puccinia triticina;Zymoseptoria tritici
+ERR4315551	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR4315552	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315553	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315554	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315555	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315556	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315557	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315558	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315559	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315560	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315561	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315562	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315563	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315564	PRJEB39201	Wheat	Triticum durum/turgidum	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315565	PRJEB39201	Wheat	Triticum durum/turgidum	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315566	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315567	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315568	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315569	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315570	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315571	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	3	2	yes	Microdochium nivale;Puccinia striiformis;Zymoseptoria tritici	Microdochium nivale;Zymoseptoria tritici
+ERR4315572	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR4315573	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315574	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315575	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR4315576	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	4	3	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Blumeria graminis;Puccinia triticina;Zymoseptoria tritici
+ERR4315577	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315578	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+ERR4315579	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315580	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315581	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315582	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Zymoseptoria tritici	Parastagonospora nodorum;Zymoseptoria tritici
+ERR4315583	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	24	5	4	yes	Microdochium nivale;Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Microdochium nivale;Parastagonospora nodorum;Puccinia triticina;Zymoseptoria tritici
+ERR4315584	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	4	3	yes	Cladosporium cladosporioides;Puccinia striiformis;Puccinia triticina;Stemphylium lycopersici	Cladosporium cladosporioides;Puccinia triticina;Stemphylium lycopersici
+ERR4315585	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	2	1	yes	Cladosporium cladosporioides;Puccinia striiformis	Cladosporium cladosporioides
+ERR4315586	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	4	3	yes	Cladosporium cladosporioides;Puccinia striiformis;Puccinia triticina;Stemphylium lycopersici	Cladosporium cladosporioides;Puccinia triticina;Stemphylium lycopersici
+ERR4315587	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	6	5	yes	Cladosporium cladosporioides;Microdochium nivale;Puccinia striiformis;Puccinia triticina;Stemphylium lycopersici;Zymoseptoria tritici	Cladosporium cladosporioides;Microdochium nivale;Puccinia triticina;Stemphylium lycopersici;Zymoseptoria tritici
+ERR4315588	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315589	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315590	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315591	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315592	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315593	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	13	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR4315594	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315595	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315596	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina	Blumeria graminis;Puccinia triticina
+ERR4315597	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis	Puccinia triticina;Pyrenophora tritici-repentis
+ERR4315598	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315599	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315600	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315601	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Blumeria graminis;Puccinia striiformis;Puccinia triticina	Blumeria graminis;Puccinia triticina
+ERR4315602	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315603	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315604	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	26	6	5	yes	Epicoccum nigrum;Microdochium nivale;Parastagonospora nodorum;Puccinia striiformis;Pyrenophora tritici-repentis;Stemphylium lycopersici	Epicoccum nigrum;Microdochium nivale;Parastagonospora nodorum;Pyrenophora tritici-repentis;Stemphylium lycopersici
+ERR4315605	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	5	4	yes	Epicoccum nigrum;Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis	Epicoccum nigrum;Parastagonospora nodorum;Puccinia triticina;Pyrenophora tritici-repentis
+ERR4315606	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina	Parastagonospora nodorum;Puccinia triticina
+ERR4315607	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	24	7	6	yes	Epicoccum nigrum;Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis;Pyricularia oryzae	Epicoccum nigrum;Parastagonospora nodorum;Puccinia graminis;Puccinia triticina;Pyrenophora tritici-repentis;Pyricularia oryzae
+ERR4315608	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Parastagonospora nodorum;Puccinia striiformis	Parastagonospora nodorum
+ERR4315609	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	4	3	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Parastagonospora nodorum;Puccinia triticina;Zymoseptoria tritici
+ERR4315610	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	25	6	5	yes	Epicoccum nigrum;Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Epicoccum nigrum;Parastagonospora nodorum;Puccinia graminis;Puccinia triticina;Zymoseptoria tritici
+ERR4315611	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	5	4	yes	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis	Parastagonospora nodorum;Puccinia graminis;Puccinia triticina;Pyrenophora tritici-repentis
+ERR4315612	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	4	3	yes	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Puccinia triticina	Parastagonospora nodorum;Puccinia graminis;Puccinia triticina
+ERR4315613	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina	Parastagonospora nodorum;Puccinia triticina
+ERR4315614	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Zymoseptoria tritici	Parastagonospora nodorum;Zymoseptoria tritici
+ERR4315615	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	4	3	yes	Parastagonospora nodorum;Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis	Parastagonospora nodorum;Puccinia triticina;Pyrenophora tritici-repentis
+ERR4315616	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	28	6	5	yes	Cladosporium cladosporioides;Epicoccum nigrum;Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Stemphylium lycopersici	Cladosporium cladosporioides;Epicoccum nigrum;Parastagonospora nodorum;Puccinia graminis;Stemphylium lycopersici
+ERR4315617	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	24	6	5	yes	Cladosporium cladosporioides;Epicoccum nigrum;Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Zymoseptoria tritici	Cladosporium cladosporioides;Epicoccum nigrum;Parastagonospora nodorum;Puccinia graminis;Zymoseptoria tritici
+ERR4315618	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315619	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315620	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315621	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315622	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315623	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315624	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315625	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315626	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315627	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315628	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315629	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315630	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315631	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315632	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315633	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315634	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315635	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4315636	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	3	2	yes	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Zymoseptoria tritici
+ERR4315637	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315638	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315639	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315640	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315641	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315642	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315643	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315644	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315645	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315646	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315648	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	3	2	yes	Fusarium avenaceum;Puccinia striiformis;Zymoseptoria tritici	Fusarium avenaceum;Zymoseptoria tritici
+ERR4315649	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315650	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315651	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315652	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+ERR4315653	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+ERR4315654	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315655	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315656	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315657	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	8	3	2	yes	Epicoccum nigrum;Mucor circinelloides;Puccinia striiformis	Epicoccum nigrum;Mucor circinelloides
+ERR4315658	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	2	1	yes	Puccinia striiformis;Stemphylium lycopersici	Stemphylium lycopersici
+ERR4315659	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	22	3	2	yes	Puccinia striiformis;Stemphylium lycopersici;Zymoseptoria tritici	Stemphylium lycopersici;Zymoseptoria tritici
+ERR4315660	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	3	2	yes	Parastagonospora nodorum;Puccinia striiformis;Zymoseptoria tritici	Parastagonospora nodorum;Zymoseptoria tritici
+ERR4315661	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Puccinia striiformis;Stemphylium lycopersici;Zymoseptoria tritici	Stemphylium lycopersici;Zymoseptoria tritici
+ERR4315662	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	3	2	yes	Puccinia striiformis;Stemphylium lycopersici;Zymoseptoria tritici	Stemphylium lycopersici;Zymoseptoria tritici
+ERR4315663	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Puccinia triticina	Puccinia triticina
+ERR4315664	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	3	2	yes	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia triticina;Zymoseptoria tritici
+ERR4315665	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4315678	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4315679	PRJEB31334	Wheat	Triticum aestivum (bread wheat)	disease-selected	0	0	0	no		
+ERR4315685	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4761816	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+ERR4761817	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4761818	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4761819	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4761820	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4761821	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4761822	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	2	1	yes	Parastagonospora nodorum;Puccinia striiformis	Parastagonospora nodorum
+ERR4761823	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	3	2	yes	Oculimacula yallundae;Puccinia striiformis;Zymoseptoria tritici	Oculimacula yallundae;Zymoseptoria tritici
+ERR4761824	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4761825	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia graminis;Puccinia striiformis	Puccinia graminis
+ERR4761826	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4761827	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia striiformis;Stemphylium lycopersici	Stemphylium lycopersici
+ERR4761828	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+ERR4761829	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR4761830	PRJEB39201	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	4	3	yes	Botrytis cinerea;Oculimacula yallundae;Puccinia striiformis;Zymoseptoria tritici	Botrytis cinerea;Oculimacula yallundae;Zymoseptoria tritici
+ERR6847875	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia graminis;Puccinia triticina	Puccinia triticina
+ERR6847876	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	3	2	yes	Cladosporium cladosporioides;Puccinia graminis;Puccinia triticina	Cladosporium cladosporioides;Puccinia triticina
+ERR6847877	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia graminis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR6847878	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Puccinia graminis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR6847879	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia graminis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR6847880	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	18	2	1	yes	Puccinia graminis;Pyrenophora teres	Pyrenophora teres
+ERR6847881	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia graminis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR6847882	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	3	2	yes	Puccinia graminis;Puccinia striiformis;Zymoseptoria tritici	Puccinia striiformis;Zymoseptoria tritici
+ERR6847883	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	15	3	2	yes	Cladosporium cladosporioides;Puccinia graminis;Zymoseptoria tritici	Cladosporium cladosporioides;Zymoseptoria tritici
+ERR6847884	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia graminis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR6847885	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	3	2	yes	Fusarium poae;Puccinia graminis;Zymoseptoria tritici	Fusarium poae;Zymoseptoria tritici
+ERR6847886	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	3	2	yes	Parastagonospora nodorum;Puccinia graminis;Zymoseptoria tritici	Parastagonospora nodorum;Zymoseptoria tritici
+ERR6847887	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	3	2	yes	Parastagonospora nodorum;Puccinia graminis;Zymoseptoria tritici	Parastagonospora nodorum;Zymoseptoria tritici
+ERR6847888	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	3	2	yes	Puccinia graminis;Puccinia striiformis;Zymoseptoria tritici	Puccinia striiformis;Zymoseptoria tritici
+ERR6847889	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	3	2	yes	Puccinia graminis;Puccinia striiformis;Zymoseptoria tritici	Puccinia striiformis;Zymoseptoria tritici
+ERR6847890	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	23	4	3	yes	Blumeria graminis;Puccinia graminis;Puccinia striiformis;Zymoseptoria tritici	Blumeria graminis;Puccinia striiformis;Zymoseptoria tritici
+ERR6847891	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	2	1	yes	Puccinia graminis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR6847892	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	4	3	yes	Parastagonospora nodorum;Puccinia graminis;Puccinia triticina;Zymoseptoria tritici	Parastagonospora nodorum;Puccinia triticina;Zymoseptoria tritici
+ERR6847893	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	24	4	3	yes	Puccinia graminis;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici	Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici
+ERR6847894	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	9	4	3	yes	Akanthomyces lecanii;Puccinia graminis;Puccinia triticina;Zymoseptoria tritici	Akanthomyces lecanii;Puccinia triticina;Zymoseptoria tritici
+ERR6847895	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	2	1	yes	Puccinia graminis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR6847896	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Puccinia graminis;Zymoseptoria tritici	Zymoseptoria tritici
+ERR6847897	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	1	yes	Puccinia graminis;Zymoseptoria tritici	Zymoseptoria tritici
+SRR10095075	PRJNA564795	Maize	Zea mays (maize)	unselected	6	3	3	yes	Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR10095076	PRJNA564795	Maize	Zea mays (maize)	unselected	5	2	2	yes	Exserohilum turcicum;Puccinia sorghi	Exserohilum turcicum;Puccinia sorghi
+SRR14212082	PRJNA721299	Other cereal	Setaria italica	unselected	8	3	3	yes	Cladosporium cladosporioides;Penicillium oxalicum;Pyricularia oryzae	Cladosporium cladosporioides;Penicillium oxalicum;Pyricularia oryzae
+SRR14212083	PRJNA721299	Other cereal	Setaria italica	unselected	7	3	3	yes	Cladosporium cladosporioides;Penicillium oxalicum;Pyricularia oryzae	Cladosporium cladosporioides;Penicillium oxalicum;Pyricularia oryzae
+SRR14212084	PRJNA721299	Other cereal	Setaria italica	unselected	10	4	4	yes	Cladosporium cladosporioides;Fusarium equiseti;Penicillium oxalicum;Pyricularia oryzae	Cladosporium cladosporioides;Fusarium equiseti;Penicillium oxalicum;Pyricularia oryzae
+SRR14212085	PRJNA721299	Other cereal	Setaria italica	unselected	4	3	3	yes	Fusarium equiseti;Penicillium oxalicum;Pyricularia oryzae	Fusarium equiseti;Penicillium oxalicum;Pyricularia oryzae
+SRR15141031	PRJNA746402	Maize	Zea mays (maize)	unselected	9	5	5	yes	Alternaria tenuissima;Bipolaris zeicola;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum	Alternaria tenuissima;Bipolaris zeicola;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum
+SRR15141038	PRJNA746402	Maize	Zea mays (maize)	unselected	10	6	6	yes	Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141039	PRJNA746402	Maize	Zea mays (maize)	unselected	4	4	4	yes	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141080	PRJNA746402	Maize	Zea mays (maize)	unselected	9	5	5	yes	Alternaria tenuissima;Bipolaris zeicola;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum	Alternaria tenuissima;Bipolaris zeicola;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum
+SRR15141101	PRJNA746402	Maize	Zea mays (maize)	unselected	3	3	3	yes	Bipolaris zeicola;Exserohilum turcicum;Puccinia sorghi	Bipolaris zeicola;Exserohilum turcicum;Puccinia sorghi
+SRR15141113	PRJNA746402	Maize	Zea mays (maize)	unselected	9	5	5	yes	Alternaria tenuissima;Bipolaris zeicola;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum	Alternaria tenuissima;Bipolaris zeicola;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum
+SRR15141128	PRJNA746402	Maize	Zea mays (maize)	unselected	14	7	7	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Sarocladium strictum
+SRR15141131	PRJNA746402	Maize	Zea mays (maize)	unselected	1	1	1	no	Exserohilum turcicum	Exserohilum turcicum
+SRR15141136	PRJNA746402	Maize	Zea mays (maize)	unselected	9	6	6	yes	Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141137	PRJNA746402	Maize	Zea mays (maize)	unselected	4	4	4	yes	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141141	PRJNA746402	Maize	Zea mays (maize)	unselected	10	5	5	yes	Alternaria tenuissima;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Alternaria tenuissima;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141150	PRJNA746402	Maize	Zea mays (maize)	unselected	14	7	7	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Sarocladium strictum
+SRR15141153	PRJNA746402	Maize	Zea mays (maize)	unselected	1	1	1	no	Exserohilum turcicum	Exserohilum turcicum
+SRR15141158	PRJNA746402	Maize	Zea mays (maize)	unselected	4	4	4	yes	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141159	PRJNA746402	Maize	Zea mays (maize)	unselected	10	7	7	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Alternaria alternata;Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141165	PRJNA746402	Maize	Zea mays (maize)	unselected	10	5	5	yes	Alternaria tenuissima;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Alternaria tenuissima;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141215	PRJNA746402	Maize	Zea mays (maize)	unselected	15	7	7	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Sarocladium strictum
+SRR15141218	PRJNA746402	Maize	Zea mays (maize)	unselected	2	2	2	yes	Exserohilum turcicum;Puccinia sorghi	Exserohilum turcicum;Puccinia sorghi
+SRR15141223	PRJNA746402	Maize	Zea mays (maize)	unselected	12	8	8	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Fusarium avenaceum;Puccinia sorghi	Alternaria alternata;Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Fusarium avenaceum;Puccinia sorghi
+SRR15141224	PRJNA746402	Maize	Zea mays (maize)	unselected	5	4	4	yes	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141228	PRJNA746402	Maize	Zea mays (maize)	unselected	10	5	5	yes	Alternaria tenuissima;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Alternaria tenuissima;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141232	PRJNA746402	Maize	Zea mays (maize)	unselected	9	5	5	yes	Alternaria tenuissima;Bipolaris zeicola;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum	Alternaria tenuissima;Bipolaris zeicola;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum
+SRR15141241	PRJNA746402	Maize	Zea mays (maize)	unselected	3	3	3	yes	Bipolaris zeicola;Exserohilum turcicum;Puccinia sorghi	Bipolaris zeicola;Exserohilum turcicum;Puccinia sorghi
+SRR15141258	PRJNA746402	Maize	Zea mays (maize)	unselected	4	4	4	yes	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141284	PRJNA746402	Maize	Zea mays (maize)	unselected	9	5	5	yes	Alternaria tenuissima;Bipolaris zeicola;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum	Alternaria tenuissima;Bipolaris zeicola;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum
+SRR15141292	PRJNA746402	Maize	Zea mays (maize)	unselected	3	3	3	yes	Bipolaris zeicola;Exserohilum turcicum;Puccinia sorghi	Bipolaris zeicola;Exserohilum turcicum;Puccinia sorghi
+SRR15141319	PRJNA746402	Maize	Zea mays (maize)	unselected	14	7	7	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Sarocladium strictum
+SRR15141321	PRJNA746402	Maize	Zea mays (maize)	unselected	1	1	1	no	Exserohilum turcicum	Exserohilum turcicum
+SRR15141327	PRJNA746402	Maize	Zea mays (maize)	unselected	11	7	7	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Alternaria alternata;Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141328	PRJNA746402	Maize	Zea mays (maize)	unselected	4	4	4	yes	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141333	PRJNA746402	Maize	Zea mays (maize)	unselected	10	5	5	yes	Alternaria tenuissima;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Alternaria tenuissima;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141365	PRJNA746402	Maize	Zea mays (maize)	unselected	9	5	5	yes	Alternaria tenuissima;Bipolaris zeicola;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum	Alternaria tenuissima;Bipolaris zeicola;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum
+SRR15141375	PRJNA746402	Maize	Zea mays (maize)	unselected	3	3	3	yes	Bipolaris zeicola;Exserohilum turcicum;Puccinia sorghi	Bipolaris zeicola;Exserohilum turcicum;Puccinia sorghi
+SRR15141402	PRJNA746402	Maize	Zea mays (maize)	unselected	14	7	7	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Sarocladium strictum
+SRR15141405	PRJNA746402	Maize	Zea mays (maize)	unselected	1	1	1	no	Exserohilum turcicum	Exserohilum turcicum
+SRR15141410	PRJNA746402	Maize	Zea mays (maize)	unselected	10	7	7	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Alternaria alternata;Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141411	PRJNA746402	Maize	Zea mays (maize)	unselected	4	4	4	yes	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141417	PRJNA746402	Maize	Zea mays (maize)	unselected	10	5	5	yes	Alternaria tenuissima;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Alternaria tenuissima;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141432	PRJNA746402	Maize	Zea mays (maize)	unselected	15	7	7	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Sarocladium strictum
+SRR15141435	PRJNA746402	Maize	Zea mays (maize)	unselected	2	2	2	yes	Exserohilum turcicum;Puccinia sorghi	Exserohilum turcicum;Puccinia sorghi
+SRR15141440	PRJNA746402	Maize	Zea mays (maize)	unselected	12	8	8	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Fusarium avenaceum;Puccinia sorghi	Alternaria alternata;Alternaria tenuissima;Bipolaris victoriae;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Fusarium avenaceum;Puccinia sorghi
+SRR15141441	PRJNA746402	Maize	Zea mays (maize)	unselected	4	4	4	yes	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15141447	PRJNA746402	Maize	Zea mays (maize)	unselected	10	5	5	yes	Alternaria tenuissima;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Alternaria tenuissima;Bipolaris zeicola;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15538945	PRJNA753546	Maize	Zea mays (maize)	unselected	8	6	6	yes	Alternaria alternata;Cercospora zeae-maydis;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Alternaria alternata;Cercospora zeae-maydis;Cladosporium cladosporioides;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR15539004	PRJNA753546	Maize	Zea mays (maize)	symptom-avoided	19	6	6	yes	Alternaria alternata;Alternaria tenuissima;Cercospora zeae-maydis;Cladosporium cladosporioides;Epicoccum nigrum;Puccinia sorghi	Alternaria alternata;Alternaria tenuissima;Cercospora zeae-maydis;Cladosporium cladosporioides;Epicoccum nigrum;Puccinia sorghi
+SRR1555102	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+SRR1555123	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	3	2	yes	Blumeria graminis;Microdochium nivale;Puccinia striiformis	Blumeria graminis;Microdochium nivale
+SRR1555294	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	7	1	0	no	Puccinia striiformis	
+SRR1555295	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+SRR1555738	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR1555739	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+SRR1555740	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	15	1	0	no	Puccinia striiformis	
+SRR1556067	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	2	1	yes	Oculimacula yallundae;Puccinia striiformis	Oculimacula yallundae
+SRR1557190	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+SRR1557191	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+SRR1557212	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	17	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+SRR1557213	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	3	2	yes	Puccinia striiformis;Stemphylium lycopersici;Zymoseptoria tritici	Stemphylium lycopersici;Zymoseptoria tritici
+SRR1557214	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR1557259	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+SRR1562049	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+SRR1562050	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+SRR1562077	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+SRR1562078	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR1562079	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR1562080	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR1562081	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR1562084	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	0	no	Puccinia striiformis	
+SRR1562085	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR1562182	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR1562185	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Blumeria graminis;Puccinia striiformis	Blumeria graminis
+SRR1562247	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+SRR1562262	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+SRR1562263	PRJNA256347	Other cereal	Triticale	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR1575605	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR1575607	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+SRR1575608	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+SRR1576647	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	21	2	1	yes	Microdochium nivale;Puccinia striiformis	Microdochium nivale
+SRR1576651	PRJNA256347	Other cereal	Triticale	disease-selected	5	1	0	no	Puccinia striiformis	
+SRR1576668	PRJNA256347	Other cereal	Triticale	disease-selected	6	2	1	yes	Microdochium nivale;Puccinia striiformis	Microdochium nivale
+SRR1576784	PRJNA256347	Other cereal	Triticale	disease-selected	20	2	1	yes	Microdochium nivale;Puccinia striiformis	Microdochium nivale
+SRR1576785	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	20	1	0	no	Puccinia striiformis	
+SRR1576786	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	19	1	0	no	Puccinia striiformis	
+SRR1576813	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	16	2	1	yes	Puccinia striiformis;Zymoseptoria tritici	Zymoseptoria tritici
+SRR1576814	PRJNA256347	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR22142917	PRJNA896566	Maize	Zea mays (maize)	unselected	68	30	30	yes	Alternaria alternata;Alternaria brassicicola;Alternaria dauci;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Choanephora cucurbitarum;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Diaporthe helianthi;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium chlamydosporum;Fusarium equiseti;Fusarium fujikuroi;Fusarium sporotrichioides;Fusarium verticillioides;Puccinia sorghi;Pyricularia grisea;Sarocladium strictum;Stemphylium lycopersici	Alternaria alternata;Alternaria brassicicola;Alternaria dauci;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Choanephora cucurbitarum;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Diaporthe helianthi;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium chlamydosporum;Fusarium equiseti;Fusarium fujikuroi;Fusarium sporotrichioides;Fusarium verticillioides;Puccinia sorghi;Pyricularia grisea;Sarocladium strictum;Stemphylium lycopersici
+SRR22142919	PRJNA896566	Maize	Zea mays (maize)	unselected	72	30	30	yes	Alternaria alternata;Alternaria dauci;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Choanephora cucurbitarum;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Diaporthe helianthi;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium chlamydosporum;Fusarium equiseti;Fusarium graminearum;Fusarium sporotrichioides;Fusarium verticillioides;Paraphoma chrysanthemicola;Puccinia sorghi;Pyricularia grisea;Sarocladium strictum;Stemphylium lycopersici	Alternaria alternata;Alternaria dauci;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Choanephora cucurbitarum;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Diaporthe helianthi;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium chlamydosporum;Fusarium equiseti;Fusarium graminearum;Fusarium sporotrichioides;Fusarium verticillioides;Paraphoma chrysanthemicola;Puccinia sorghi;Pyricularia grisea;Sarocladium strictum;Stemphylium lycopersici
+SRR22142944	PRJNA896566	Maize	Zea mays (maize)	unselected	30	15	15	yes	Alternaria alternata;Alternaria dauci;Alternaria tenuissima;Bipolaris maydis;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cladosporium cladosporioides;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Sarocladium strictum;Stemphylium lycopersici	Alternaria alternata;Alternaria dauci;Alternaria tenuissima;Bipolaris maydis;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cladosporium cladosporioides;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Sarocladium strictum;Stemphylium lycopersici
+SRR22142976	PRJNA896566	Maize	Zea mays (maize)	unselected	31	10	10	yes	Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cladosporium cladosporioides;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti	Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cladosporium cladosporioides;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti
+SRR22142977	PRJNA896566	Maize	Zea mays (maize)	unselected	45	21	21	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Choanephora cucurbitarum;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium sporotrichioides;Fusarium verticillioides;Penicillium oxalicum;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Choanephora cucurbitarum;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium sporotrichioides;Fusarium verticillioides;Penicillium oxalicum;Sarocladium strictum
+SRR22142978	PRJNA896566	Maize	Zea mays (maize)	unselected	35	13	13	yes	Alternaria alternata;Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cladosporium cladosporioides;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Penicillium oxalicum;Sarocladium strictum	Alternaria alternata;Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cladosporium cladosporioides;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Penicillium oxalicum;Sarocladium strictum
+SRR24010228	PRJNA950118	Barley	Hordeum jubatum	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR24010229	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR24010230	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR24010231	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR24010233	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR24010234	PRJNA950118	Barley	Hordeum jubatum	disease-selected	2	1	0	no	Puccinia striiformis	
+SRR24010236	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR24010238	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR24010239	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	1	0	no	Puccinia striiformis	
+SRR24010241	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR24010242	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	2	1	yes	Puccinia graminis;Puccinia striiformis	Puccinia graminis
+SRR24010244	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR24010245	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR24010246	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2	1	yes	Parastagonospora nodorum;Puccinia striiformis	Parastagonospora nodorum
+SRR24010247	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+SRR24010248	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	0	no	Puccinia striiformis	
+SRR24010249	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	1	yes	Parastagonospora nodorum;Puccinia striiformis	Parastagonospora nodorum
+SRR24010250	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	0	no	Puccinia striiformis	
+SRR28718298	PRJNA1100217	Maize	Zea mays (maize)	inoculated	1	1	0	no	Fusarium verticillioides	
+SRR28718299	PRJNA1100217	Maize	Zea mays (maize)	inoculated	1	1	0	no	Fusarium verticillioides	
+SRR28718300	PRJNA1100217	Maize	Zea mays (maize)	inoculated	4	3	2	yes	Cladosporium cladosporioides;Fusarium verticillioides;Penicillium oxalicum	Cladosporium cladosporioides;Penicillium oxalicum
+SRR28718302	PRJNA1100217	Maize	Zea mays (maize)	inoculated	10	6	5	yes	Bipolaris maydis;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Fusarium verticillioides;Penicillium oxalicum	Bipolaris maydis;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Penicillium oxalicum
+SRR30673023	PRJNA1161467	Maize	Zea mays (maize)	inoculated	2	2	1	yes	Mycosarcoma maydis;Rhizoctonia solani	Mycosarcoma maydis
+SRR30673024	PRJNA1161467	Maize	Zea mays (maize)	inoculated	9	5	4	yes	Cladosporium cladosporioides;Fusarium equiseti;Fusarium graminearum;Fusarium verticillioides;Rhizoctonia solani	Cladosporium cladosporioides;Fusarium equiseti;Fusarium graminearum;Fusarium verticillioides
+SRR30673025	PRJNA1161467	Maize	Zea mays (maize)	inoculated	1	1	0	no	Rhizoctonia solani	
+SRR30673031	PRJNA1161467	Maize	Zea mays (maize)	inoculated	2	2	1	yes	Mycosarcoma maydis;Rhizoctonia solani	Mycosarcoma maydis
+SRR30673032	PRJNA1161467	Maize	Zea mays (maize)	inoculated	8	5	4	yes	Fusarium equiseti;Fusarium graminearum;Fusarium verticillioides;Rhizoctonia solani;Sarocladium strictum	Fusarium equiseti;Fusarium graminearum;Fusarium verticillioides;Sarocladium strictum
+SRR31200152	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	inoculated	2	1	0	no	Fusarium graminearum	
+SRR31200153	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	inoculated	1	1	0	no	Fusarium graminearum	
+SRR31200154	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	inoculated	2	1	0	no	Fusarium graminearum	
+SRR31200155	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	inoculated	3	1	0	no	Fusarium graminearum	
+SRR31200163	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	unselected	0	0	0	no		
+SRR31200164	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	unselected	0	0	0	no		
+SRR31200165	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	unselected	0	0	0	no		
+SRR31200166	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	unselected	0	0	0	no		
+SRR31200167	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	unselected	0	0	0	no		
+SRR31200168	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	unselected	0	0	0	no		
+SRR31200169	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	inoculated	2	1	0	no	Fusarium graminearum	
+SRR31200170	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	inoculated	2	1	0	no	Fusarium graminearum	
+SRR5113839	PRJNA357594	Maize	Zea mays (maize)	inoculated	1	1	0	no	Fusarium graminearum	
+SRR5225794	PRJNA369690	Maize	Zea mays (maize)	disease-selected	6	3	3	yes	Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR5225796	PRJNA369690	Maize	Zea mays (maize)	disease-selected	6	3	3	yes	Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR5225798	PRJNA369690	Maize	Zea mays (maize)	disease-selected	6	3	3	yes	Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR6292047	PRJNA418364	Maize	Zea mays (maize)	inoculated	1	1	0	no	Fusarium verticillioides	
+SRR6292049	PRJNA418364	Maize	Zea mays (maize)	inoculated	1	1	0	no	Aspergillus flavus	
+SRR6292051	PRJNA418364	Maize	Zea mays (maize)	inoculated	3	3	1	yes	Aspergillus flavus;Choanephora cucurbitarum;Fusarium verticillioides	Choanephora cucurbitarum
+SRR6292066	PRJNA418364	Maize	Zea mays (maize)	inoculated	1	1	0	no	Aspergillus flavus	
+SRR6292067	PRJNA418364	Maize	Zea mays (maize)	inoculated	1	1	0	no	Aspergillus flavus	
+SRR6292089	PRJNA418364	Maize	Zea mays (maize)	inoculated	1	1	0	no	Fusarium verticillioides	
+SRR8204116	PRJNA505891	Maize	Zea mays (maize)	unselected	43	18	18	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium fujikuroi;Fusarium sporotrichioides;Penicillium oxalicum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium fujikuroi;Fusarium sporotrichioides;Penicillium oxalicum
+SRR8204117	PRJNA505891	Maize	Zea mays (maize)	unselected	28	14	14	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum
+SRR8204118	PRJNA505891	Maize	Zea mays (maize)	unselected	19	11	11	yes	Alternaria alternata;Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Puccinia sorghi;Sarocladium strictum
+SRR8204122	PRJNA505891	Maize	Zea mays (maize)	unselected	31	15	15	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Fusarium verticillioides;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Fusarium verticillioides;Puccinia sorghi;Sarocladium strictum
+SRR8204123	PRJNA505891	Maize	Zea mays (maize)	unselected	49	21	21	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum
+SRR8204124	PRJNA505891	Maize	Zea mays (maize)	unselected	30	16	16	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Colletotrichum graminicola;Curvularia cactivora;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Colletotrichum graminicola;Curvularia cactivora;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
+SRR8204125	PRJNA505891	Maize	Zea mays (maize)	unselected	46	19	19	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium chlamydosporum;Fusarium equiseti;Penicillium oxalicum;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium chlamydosporum;Fusarium equiseti;Penicillium oxalicum;Sarocladium strictum
+SRR8204126	PRJNA505891	Maize	Zea mays (maize)	unselected	45	17	17	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium verticillioides	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium verticillioides
+SRR8204127	PRJNA505891	Maize	Zea mays (maize)	unselected	39	18	18	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum
+SRR8204128	PRJNA505891	Maize	Zea mays (maize)	unselected	52	22	22	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium graminearum;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium graminearum;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum
+SRR8204129	PRJNA505891	Maize	Zea mays (maize)	unselected	19	11	11	yes	Alternaria alternata;Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Puccinia sorghi;Sarocladium strictum
+SRR8204133	PRJNA505891	Maize	Zea mays (maize)	unselected	22	13	13	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum
+SRR8204136	PRJNA505891	Maize	Zea mays (maize)	unselected	27	13	13	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris sorokiniana;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris sorokiniana;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Puccinia sorghi;Sarocladium strictum
+SRR8204137	PRJNA505891	Maize	Zea mays (maize)	unselected	26	13	13	yes	Alternaria alternata;Bipolaris maydis;Bipolaris sorokiniana;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Bipolaris maydis;Bipolaris sorokiniana;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum
+SRR8204140	PRJNA505891	Maize	Zea mays (maize)	unselected	40	17	17	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum
+SRR8204149	PRJNA505891	Maize	Zea mays (maize)	unselected	45	20	20	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Puccinia sorghi;Sarocladium strictum
+SRR8204150	PRJNA505891	Maize	Zea mays (maize)	unselected	36	17	17	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum
+SRR8204151	PRJNA505891	Maize	Zea mays (maize)	unselected	24	13	13	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris zeicola;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia clavata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum
+SRR8204152	PRJNA505891	Maize	Zea mays (maize)	unselected	46	21	21	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Choanephora cucurbitarum;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Choanephora cucurbitarum;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum
+SRR8204153	PRJNA505891	Maize	Zea mays (maize)	unselected	41	18	18	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum
+SRR8204154	PRJNA505891	Maize	Zea mays (maize)	unselected	48	22	22	yes	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium graminearum;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium graminearum;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum
+SRR8475379	PRJNA516527	Maize	Zea mays (maize)		6	4	4	yes	Alternaria tenuissima;Bipolaris maydis;Bipolaris zeicola;Curvularia clavata	Alternaria tenuissima;Bipolaris maydis;Bipolaris zeicola;Curvularia clavata
+SRR9129829	PRJNA306542	Rice	Oryza sativa (rice)	unselected	4	1	1	no	Penicillium oxalicum	Penicillium oxalicum
+SRR9129869	PRJNA306542	Rice	Oryza sativa (rice)	unselected	3	0	0	no		

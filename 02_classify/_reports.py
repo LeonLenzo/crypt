@@ -36,11 +36,16 @@ under 100,000 where 1% is fewer than 1,000 k-mers -- reachable by cross-mapping 
 `absolute_floor_ok()` exists for that reason and must be applied ALONGSIDE the relative floor,
 not instead of it.
 
-CLADE and not DIRECT minimizers, deliberately. db_v4 tags sequence at mixed ranks (a species
-node for most assemblies, a strain node where NCBI resolved one), so a species' own k-mers are
-split between its node and its children. The direct column would count only the former and
-under-report every species that has a strain in the database. Both sides of the published db_v3
-ratios were clade figures and remain comparable.
+CLADE and not DIRECT minimizers, and the reason is about db_v3 rather than db_v4. Measured
+2026-10-20: **db_v4 has NO sub-species nodes at all** -- 1,547 species, zero S1/S2, and
+clade == direct for every one of them. db_v3 was the opposite: 222 S1 nodes, and 189 of its 944
+species had clade != direct, including *Austropuccinia psidii* whose entire 16,585,424
+minimizers sat under a strain node with direct = 0. Reading `direct` there would have given it
+nothing.
+
+So for db_v4 the choice is currently a no-op, and it stays `clade` for two reasons: a db_v3
+comparison must use the same column on both sides, and a future build that admits strain-level
+assemblies would silently break a `direct` reader with no error.
 """
 
 import csv

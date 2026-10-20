@@ -74,10 +74,48 @@ STATUS_COLS = ["Run", "BioProject", "status", "seconds", "bytes", "n_files", "no
 # fewer files than workers.
 DEFAULT_WORKERS = 24
 RETRIES = 3
-# Scaled, never flat. A flat timeout is what truncated 224 files: large runs blew the limit and
-# small ones did not, so the failure looked sporadic. 2 MB/s is a deliberately pessimistic floor.
+
+# ── THE TIMEOUT, AND THE BUG IT IS FIXING ────────────────────────────────────────────────────
+# This divisor was 2 MB/s until 2026-10-20 and that number was wrong, in direct contradiction
+# of the DEFAULT_WORKERS comment eight lines above, which already recorded the MEASURED
+# per-stream rate as ~0.7 MB/s. Both were written in the same sitting. The measurement was
+# right; the budget was a guess that never got reconciled with it.
+#
+# What it cost: 54 of 80 pilot runs failed, and the failure was perfectly size-dependent,
+# because that is what a too-tight timeout looks like.
+#
+#     largest file   ok  fail        budget   needed at 0.7 MB/s
+#        <0.5 GB     51     0          900s        408s
+#       0.5-1 GB     10     1          900s       1021s   over
+#       1-1.5 GB      1     9          900s       1702s   over
+#       1.5-2 GB      6    36         1134s       2384s   over
+#          >2 GB      0    28         1415s       3187s   over
+#
+# Re-measured against ENA the same day: 0.69 MB/s on a single stream. Not a transient. The
+# files were fine throughout (HTTP 200, Content-Length matching the cached byte count, range
+# requests served), so nothing was wrong except the clock.
+#
+# ── WHY THE FIX IS NOT JUST A BIGGER NUMBER ──────────────────────────────────────────────────
+# A max-time sized from an assumed rate fails the same way whenever the assumption drifts, and
+# it cannot tell a slow transfer from a dead one. curl can tell them apart directly:
+#
+#   --speed-limit/--speed-time   abort only if throughput stays under the floor for that long.
+#                                This is the REAL timeout now: a genuine stall dies in 3 min
+#                                instead of 24, and a slow-but-progressing transfer never dies.
+#   --max-time                   a backstop only, sized at 0.25 MB/s. That is ~3x below the
+#                                measured rate, so it should never be what fires. If it does,
+#                                something is wrong that a retry will not fix.
+#
+# 50 KB/s is a stall floor, not a rate estimate: it is 1/14th of measured, so only a transfer
+# that has effectively stopped trips it.
+STALL_BYTES = 50 * 1024      # --speed-limit
+STALL_SECONDS = 180          # --speed-time
+BACKSTOP_BPS = 0.25 * 1024 * 1024
+
+
 def budget(nbytes: int) -> int:
-    return max(900, int(nbytes / (2 * 1024 * 1024)) + 300)
+    """Backstop max-time. Deliberately generous; stall detection is the real timeout."""
+    return max(1800, int(nbytes / BACKSTOP_BPS) + 300)
 
 
 def pick_files(urls: list, run: str) -> tuple[list, str]:
@@ -115,21 +153,31 @@ def fetch_run(run: str, proj: str, urls: list, sizes: list, dry: bool) -> dict:
             exp = want.get(name, 0)
             for attempt in range(RETRIES):
                 url = u if u.startswith("http") else "https://" + u
-                r = subprocess.run(
-                    ["curl", "-sSL", "--fail", "--max-time", str(budget(exp)),
-                     "-o", str(out), url], capture_output=True, text=True)
+                # RESUME on a transport failure. ENA sends Accept-Ranges: bytes, so a retry
+                # continues from the partial instead of re-downloading from zero. At 0.7 MB/s a
+                # 2.3 GB file is ~55 minutes, so restarting a retry is most of an hour thrown
+                # away. `-C -` on a complete file is a no-op (416, handled by --fail below), and
+                # on a fresh attempt there is no partial, so it is safe unconditionally.
+                cmd = ["curl", "-sSL", "--fail",
+                       "--speed-limit", str(STALL_BYTES),
+                       "--speed-time", str(STALL_SECONDS),
+                       "--max-time", str(budget(exp)),
+                       "-C", "-", "-o", str(out), url]
+                r = subprocess.run(cmd, capture_output=True, text=True)
                 if r.returncode == 0 and out.exists():
                     # Size first: ENA publishes the byte count, so truncation is detectable
                     # without decompressing the whole file.
                     if exp and abs(out.stat().st_size - exp) > max(1024, exp * 0.001):
+                        # Wrong SIZE is not a stall: resuming would append to a bad file, so
+                        # this one restarts clean. Only transport failures resume.
                         out.unlink(missing_ok=True)
+                        time.sleep(2 * (attempt + 1))
                         continue
                     t = subprocess.run(["gzip", "-t", str(out)], capture_output=True)
                     if t.returncode == 0:
                         break
-                    out.unlink(missing_ok=True)
-                else:
-                    out.unlink(missing_ok=True)
+                    out.unlink(missing_ok=True)       # corrupt: restart clean, do not resume
+                # else: transport failure. KEEP the partial so the next attempt resumes.
                 time.sleep(2 * (attempt + 1))
             else:
                 shutil.rmtree(tmp, ignore_errors=True)

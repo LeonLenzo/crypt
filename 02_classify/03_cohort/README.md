@@ -52,8 +52,16 @@ disagreements**.
   open, so concurrency is the only lever.
 - **`pick_files()` must choose.** ENA lists a third orphan-reads file beside `_1`/`_2` for some
   runs. `_1`/`_2` win.
-- **Timeouts scale with size:** `budget = max(900, nbytes/(2 MB) + 300)`. A flat timeout broke
-  both the genome download and classification previously.
+- **The timeout is stall detection, not a rate estimate.** `--speed-limit 50 KB/s` with
+  `--speed-time 180` aborts only a transfer that has effectively stopped; `--max-time` is a
+  backstop sized at 0.25 MB/s, about 3x below measured, so it should never be what fires. A
+  retry **resumes** (`-C -`), since ENA serves ranges and restarting a 2.3 GB file costs most
+  of an hour.
+- **This replaced a budget that assumed 2 MB/s, which cost 54 of 80 pilot runs on 2026-10-20.**
+  The failure was perfectly size-dependent: 100% success under 0.5 GB, 0% above 2 GB. The
+  number contradicted the measured 0.7 MB/s recorded eight lines above it in the same file.
+  **A timeout derived from an assumed throughput is a latent size-dependent failure**, and it
+  looks sporadic rather than systematic until you bucket the outcomes by file size.
 - Files land in `reads_tmp/<Run>/` and are renamed into place only after a byte-count check and
   `gzip -t`.
 

@@ -62,9 +62,17 @@ DEPTH = SILVER / "run_depth.tsv"
 STATUS = SILVER / "fetch_status.tsv"
 STATUS_COLS = ["Run", "BioProject", "status", "seconds", "bytes", "n_files", "note"]
 
-# Eight, not sixteen. Sixteen was tested against NCBI and caused connection contention with no
-# throughput gain; the limit is the same courtesy toward EBI.
-DEFAULT_WORKERS = 8
+# TWENTY-FOUR, and the "8 not 16" rule does NOT apply here. That rule came from NCBI, where 16
+# parallel prefetch streams caused connection contention with no throughput gain. The
+# constraint against EBI is different and was measured on 2026-10-20: every worker gets its own
+# ~0.7 MB/s regardless of how many are running, which is latency-bound TCP (Perth to Hinxton is
+# ~300 ms RTT, and one stream cannot fill that window). Contention is not the limit, so
+# throughput scales with streams instead of collapsing. At 8 workers a 3.2 GB ENA file takes
+# ~75 minutes and the 0.37 TiB pilot set takes ~8 hours.
+# If this ever needs to go further, the next lever is lftp's `pget -n` (present on Setonix,
+# aria2c is not), which splits ONE file across parallel segments and helps where a project has
+# fewer files than workers.
+DEFAULT_WORKERS = 24
 RETRIES = 3
 # Scaled, never flat. A flat timeout is what truncated 224 files: large runs blew the limit and
 # small ones did not, so the failure looked sporadic. 2 MB/s is a deliberately pessimistic floor.

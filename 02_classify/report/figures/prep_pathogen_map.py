@@ -57,6 +57,7 @@ denominator layer) and pathogen_map_caption.txt.
 
 import csv
 import sys
+from math import comb
 from collections import defaultdict
 from pathlib import Path
 
@@ -74,7 +75,17 @@ MIN_SITES = 8          # a species needs this many distinct localities to get a 
 GOOD_PRECISION = {"locality", "locality-nofacility",
                   "corrected-high", "corrected-medium", "corrected-low"}
 
+# The Europe window. 67% of localities and 69% of libraries sit inside it, which is why the
+# world panels give the signal about a fifth of their area and a zoom is worth drawing.
+EUROPE = {"lon": (-11.0, 32.0), "lat": (35.0, 60.0)}
+
+# Maritime northwest Europe against the continental and southern remainder. The split is by
+# climate, which is what wheat foliar pathogens actually respond to, and it is declared here as
+# a hypothesis rather than drawn from the data after looking at it.
+MARITIME = {"UK", "Ireland", "Netherlands", "Belgium", "Denmark"}
+
 TSV = HERE / "pathogen_map.tsv"
+EUROPE_TSV = HERE / "pathogen_map_europe.tsv"
 SITES_TSV = HERE / "pathogen_map_sites.tsv"
 CAPTION = HERE / "pathogen_map_caption.txt"
 
@@ -173,6 +184,68 @@ def main() -> None:
         for row in sorted(rows, key=lambda x: (order[x[0]], -int(x[6]))):
             w.writerow(row)
 
+    # ── the Europe rate, which the map itself cannot show ────────────────────────────────────
+    # A panel shows WHERE a species was found; this is HOW OFTEN, with a denominator, inside
+    # the zoom window. Written so the figure can print it rather than implying it from point
+    # density, which follows sampling effort.
+    def in_europe(r):
+        return (EUROPE["lon"][0] <= r["lon"] <= EUROPE["lon"][1]
+                and EUROPE["lat"][0] <= r["lat"] <= EUROPE["lat"][1])
+
+    eu_runs = [r for r in runs if in_europe(r)]
+    with atomic_write(EUROPE_TSV) as fh:
+        w = csv.writer(fh, delimiter="\t", lineterminator="\n")
+        w.writerow(["species", "n_libraries", "n_detected", "rate",
+                    "n_localities", "n_localities_detected"])
+        for sp, _, _ in drawn:
+            elig = [r for r in eu_runs if r["declared"] != sp]
+            det_ = [r for r in elig if sp in r["hits"]]
+            locs_all = {r["loc"] for r in elig}
+            locs_det = {r["loc"] for r in det_}
+            w.writerow([sp, len(elig), len(det_),
+                        f"{len(det_) / len(elig):.4f}" if elig else "",
+                        len(locs_all), len(locs_det)])
+
+    # ── the maritime/continental test ────────────────────────────────────────────────────────
+    # The EYE reads several gradients off the Europe panels. Most do not survive a denominator,
+    # and this is the check that says which. Fisher's exact rather than chi-square because tan
+    # spot's maritime cell is a single library.
+    def fisher2(a, b, c, d):
+        n, r1, r2, c1 = a + b + c + d, a + b, c + d, a + c
+        def pr(x):
+            return comb(r1, x) * comb(r2, c1 - x) / comb(n, c1)
+        p0, tot = pr(a), 0.0
+        for x in range(max(0, c1 - r2), min(r1, c1) + 1):
+            px = pr(x)
+            if px <= p0 * (1 + 1e-9):
+                tot += px
+        return min(1.0, tot)
+
+    split = []
+    for sp, _, _ in drawn:
+        cell = {}
+        for grp in ("maritime", "continental"):
+            elig = [r for r in eu_runs
+                    if r["declared"] != sp
+                    and ((r["country"] in MARITIME) == (grp == "maritime"))]
+            cell[grp] = (sum(1 for r in elig if sp in r["hits"]), len(elig))
+        (ad, an), (cd, cn) = cell["maritime"], cell["continental"]
+        if not (an and cn):
+            continue
+        ra, rc = ad / an, cd / cn
+        split.append((sp, ad, an, ra, cd, cn, rc,
+                      (ra / rc) if rc else float("inf"),
+                      fisher2(ad, an - ad, cd, cn - cd)))
+    bonf = 0.05 / len(split) if split else float("nan")
+    with atomic_write(HERE / "pathogen_map_climate.tsv") as fh:
+        w = csv.writer(fh, delimiter="\t", lineterminator="\n")
+        w.writerow(["species", "maritime_detected", "maritime_n", "maritime_rate",
+                    "continental_detected", "continental_n", "continental_rate",
+                    "ratio", "fisher_p", "survives_bonferroni"])
+        for sp, ad, an, ra, cd, cn, rc, rt, pv in split:
+            w.writerow([sp, ad, an, f"{ra:.4f}", cd, cn, f"{rc:.4f}",
+                        f"{rt:.3f}", f"{pv:.3e}", "yes" if pv < bonf else "no"])
+
     lons = [s["lon"] for s in sites.values()]
     lats = [s["lat"] for s in sites.values()]
 
@@ -231,6 +304,43 @@ def main() -> None:
     A("both lower-latitude and both phyllosphere saprotrophs that FUNGuild also labels plant")
     A("pathogens; neither is drawn.")
     A("")
+    A(f"THE EUROPE PANEL SET covers {EUROPE['lon'][0]:.0f} to {EUROPE['lon'][1]:.0f} longitude and {EUROPE['lat'][0]:.0f} to {EUROPE['lat'][1]:.0f} latitude, which holds")
+    A(f"{len(eu_runs)} of the {len(runs)} drawn libraries. Each panel prints its European detection rate, which")
+    A("is the quantity with a denominator; the points show where, the printed rate shows how")
+    A("often:")
+    A("")
+    A("  species                          libraries   detected      rate")
+    for row in csv.DictReader(open(EUROPE_TSV), delimiter="\t"):
+        A(f"  {row['species']:<34} {int(row['n_libraries']):>7}   {int(row['n_detected']):>8}   {float(row['rate']):>7.1%}")
+    A("")
+    A("ONE OF THE SIX APPARENT GRADIENTS SURVIVES A DENOMINATOR. Maritime northwest Europe (UK,")
+    A("Ireland, Netherlands, Belgium, Denmark) against the continental and southern remainder,")
+    A(f"Fisher's exact, Bonferroni over {len(split)} tests so significance needs p < {bonf:.4f}:")
+    A("")
+    A("  species                          maritime   continental   ratio    Fisher p")
+    for sp, ad, an, ra, cd, cn, rc, rt, pv in sorted(split, key=lambda x: x[8]):
+        mark = "  <-- survives" if pv < bonf else ""
+        A(f"  {sp:<34} {ra:>6.1%}      {rc:>6.1%}   {rt:>5.2f}   {pv:>9.2e}{mark}")
+    A("")
+    A("BOTH SURVIVORS ARE Pyrenophora, AND THEY ARE NOT EACH OTHER. A genus-level coincidence")
+    A("in this pipeline is first a congener-smearing suspect, so it was checked: of the 60")
+    A("libraries calling either species, only 3 call both, 40 are tan spot alone and 17 net")
+    A("blotch alone. Smearing produces near-complete overlap at near-identical coverage, which is")
+    A("what the Alternaria cluster does; these are independent, and where each is detected alone")
+    A("the median coverages differ (7.0% against 2.7%). Two stubble-borne Pleosporales sharing a")
+    A("continental distribution is coherent rather than suspicious. P. teres is primarily a")
+    A("BARLEY pathogen and its presence on wheat, while recorded, is worth flagging.")
+    A("")
+    A("Pyrenophora tritici-repentis is detected in 1 of 350 maritime libraries and 15 of 292")
+    A("continental ones, an eighteenfold difference, and tan spot is indeed a disease of")
+    A("reduced-tillage continental wheat rather than of the maritime northwest. Everything else")
+    A("fails, INCLUDING the two gradients the panels make most obvious: Zymoseptoria tritici")
+    A("reads as strongly maritime and is 42.3% against 34.3% at p = 0.04, which does not survive")
+    A("correction, and Microdochium nivale looks almost exclusively British and is 9.1% against")
+    A("7.2% at p = 0.39. Both are")
+    A("mostly the sampling: 354 of the 648 European libraries are maritime, and 317 of those are")
+    A("from the UK alone.")
+    A("")
     A("POINT SIZE is the number of libraries at that locality in which the species was detected,")
     A("not a rate. Most localities contributed a single library, so a rate there would be 0 or")
     A("100% and would overstate what one sample can say.")
@@ -263,12 +373,17 @@ def main() -> None:
         fh.write("\n".join(L))
 
     print(f"-> {TSV.name}  ({len(rows)} species x locality rows)")
+    print(f"-> {EUROPE_TSV.name}, pathogen_map_climate.tsv")
     print(f"-> {SITES_TSV.name}  ({len(sites)} localities)")
     print(f"-> {CAPTION.name}")
     print(f"\n  drawn libraries {len(runs):,}, localities {len(sites)}, "
           f"lon {min(lons):.0f} to {max(lons):.0f}, lat {min(lats):.0f} to {max(lats):.0f}")
     print(f"  excluded: {dict(dropped)}")
     print(f"  latitude baseline (all sampled localities): {base_lat:.1f} deg")
+    print(f"  maritime vs continental, Bonferroni p < {bonf:.4f}:")
+    for sp, ad, an, ra, cd, cn, rc, rt, pv in sorted(split, key=lambda x: x[8])[:4]:
+        print(f"    {sp:<34} {ra:>6.1%} vs {rc:>6.1%}  ratio {rt:>5.2f}  p={pv:.2e}"
+              f"{'  SURVIVES' if pv < bonf else ''}")
     for sp, n_sites, n_lib in drawn:
         print(f"    {sp:<34} {n_sites:>4} localities, {n_lib:>4} libraries")
 

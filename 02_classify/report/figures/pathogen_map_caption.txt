@@ -60,6 +60,62 @@ species that DO sit away from it are Cladosporium cladosporioides and Epicoccum 
 both lower-latitude and both phyllosphere saprotrophs that FUNGuild also labels plant
 pathogens; neither is drawn.
 
+THE EUROPE PANEL SET covers -11 to 32 longitude and 35 to 60 latitude, which holds
+642 of the 928 drawn libraries. Each panel prints its European detection rate, which
+is the quantity with a denominator; the points show where, the printed rate shows how
+often:
+
+  species                          libraries   detected      rate
+  Zymoseptoria tritici                   642        248     38.6%
+  Puccinia triticina                     604        103     17.1%
+  Blumeria graminis                      642         81     12.6%
+  Parastagonospora nodorum               642         23      3.6%
+  Microdochium nivale                    642         53      8.3%
+  Cladosporium cladosporioides           642         19      3.0%
+  Epicoccum nigrum                       642         12      1.9%
+  Pyrenophora tritici-repentis           642         16      2.5%
+  Stemphylium lycopersici                642         25      3.9%
+  Puccinia graminis                      591          5      0.9%
+  Pyrenophora teres                      642         12      1.9%
+  Puccinia striiformis                    89         12     13.5%
+
+ONE OF THE SIX APPARENT GRADIENTS SURVIVES A DENOMINATOR. Maritime northwest Europe (UK,
+Ireland, Netherlands, Belgium, Denmark) against the continental and southern remainder,
+Fisher's exact, Bonferroni over 12 tests so significance needs p < 0.0042:
+
+  species                          maritime   continental   ratio    Fisher p
+  Pyrenophora tritici-repentis         0.3%        5.1%    0.06    1.08e-04  <-- survives
+  Pyrenophora teres                    0.3%        3.8%    0.08    1.73e-03  <-- survives
+  Cladosporium cladosporioides         1.4%        4.8%    0.30    1.74e-02
+  Puccinia triticina                  13.7%       21.0%    0.65    2.23e-02
+  Zymoseptoria tritici                42.3%       34.2%    1.23    4.19e-02
+  Puccinia graminis                    1.6%        0.0%     inf    6.51e-02
+  Stemphylium lycopersici              4.9%        2.7%    1.77    2.19e-01
+  Blumeria graminis                   11.4%       14.0%    0.81    3.41e-01
+  Microdochium nivale                  9.1%        7.2%    1.27    3.91e-01
+  Parastagonospora nodorum             4.3%        2.7%    1.56    3.94e-01
+  Puccinia striiformis                14.8%       11.4%    1.30    7.58e-01
+  Epicoccum nigrum                     1.7%        2.1%    0.83    7.77e-01
+
+BOTH SURVIVORS ARE Pyrenophora, AND THEY ARE NOT EACH OTHER. A genus-level coincidence
+in this pipeline is first a congener-smearing suspect, so it was checked: of the 60
+libraries calling either species, only 3 call both, 40 are tan spot alone and 17 net
+blotch alone. Smearing produces near-complete overlap at near-identical coverage, which is
+what the Alternaria cluster does; these are independent, and where each is detected alone
+the median coverages differ (7.0% against 2.7%). Two stubble-borne Pleosporales sharing a
+continental distribution is coherent rather than suspicious. P. teres is primarily a
+BARLEY pathogen and its presence on wheat, while recorded, is worth flagging.
+
+Pyrenophora tritici-repentis is detected in 1 of 350 maritime libraries and 15 of 292
+continental ones, an eighteenfold difference, and tan spot is indeed a disease of
+reduced-tillage continental wheat rather than of the maritime northwest. Everything else
+fails, INCLUDING the two gradients the panels make most obvious: Zymoseptoria tritici
+reads as strongly maritime and is 42.3% against 34.3% at p = 0.04, which does not survive
+correction, and Microdochium nivale looks almost exclusively British and is 9.1% against
+7.2% at p = 0.39. Both are
+mostly the sampling: 354 of the 648 European libraries are maritime, and 317 of those are
+from the UK alone.
+
 POINT SIZE is the number of libraries at that locality in which the species was detected,
 not a rate. Most localities contributed a single library, so a rate there would be 0 or
 100% and would overstate what one sample can say.

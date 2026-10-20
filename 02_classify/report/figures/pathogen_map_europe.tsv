@@ -1,0 +1,13 @@
+species	n_libraries	n_detected	rate	n_localities	n_localities_detected
+Zymoseptoria tritici	642	248	0.3863	258	138
+Puccinia triticina	604	103	0.1705	242	60
+Blumeria graminis	642	81	0.1262	258	55
+Parastagonospora nodorum	642	23	0.0358	258	23
+Microdochium nivale	642	53	0.0826	258	42
+Cladosporium cladosporioides	642	19	0.0296	258	13
+Epicoccum nigrum	642	12	0.0187	258	12
+Pyrenophora tritici-repentis	642	16	0.0249	258	12
+Stemphylium lycopersici	642	25	0.0389	258	18
+Puccinia graminis	591	5	0.0085	232	5
+Pyrenophora teres	642	12	0.0187	258	10
+Puccinia striiformis	89	12	0.1348	48	10

@@ -45,6 +45,26 @@ ERR12013076	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	
 ERR12013077	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	1	0	no	no		Puccinia graminis	
 ERR12013078	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	1	0	no	no		Puccinia graminis	
 ERR12013079	PRJEB65589	Wheat	Triticum aestivum (bread wheat)	disease-selected	3	1	1	0	no	no		Puccinia graminis	
+ERR14033621	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14033663	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14033682	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14033795	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14033865	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14034083	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14034138	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14034295	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14034321	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14034460	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14034540	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14034636	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14034672	PRJEB83049	Sorghum	Sorghum bicolor	unselected	1	0	0	0	no	no			
+ERR14034819	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14035061	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14035161	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14035165	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14035194	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+ERR14035371	PRJEB83049	Sorghum	Sorghum bicolor	unselected	1	0	0	0	no	no			
+ERR14035403	PRJEB83049	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
 ERR15005444	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	10	4	2	3	yes	yes	Puccinia	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Puccinia triticina	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis
 ERR15005445	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	11	6	4	5	yes	yes	Puccinia	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Pyrenophora tritici-repentis;Zymoseptoria tritici
 ERR15005446	PRJEB84390	Wheat	Triticum aestivum (bread wheat)	disease-selected	10	4	2	3	yes	yes	Puccinia	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis;Puccinia triticina	Parastagonospora nodorum;Puccinia graminis;Puccinia striiformis
@@ -1016,6 +1036,26 @@ ERR6847896	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	4	2
 ERR6847897	PRJEB47693	Wheat	Triticum aestivum (bread wheat)	disease-selected	5	2	2	1	yes	yes		Puccinia graminis;Zymoseptoria tritici	Zymoseptoria tritici
 SRR10095075	PRJNA564795	Maize	Zea mays (maize)	unselected	6	3	3	3	yes	yes		Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi	Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi
 SRR10095076	PRJNA564795	Maize	Zea mays (maize)	unselected	5	2	2	2	yes	yes		Exserohilum turcicum;Puccinia sorghi	Exserohilum turcicum;Puccinia sorghi
+SRR11262912	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11262940	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11262948	PRJNA609211	Rice	Oryza sativa (rice)	unselected	1	0	0	0	no	no			
+SRR11262950	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11262985	PRJNA609211	Rice	Oryza sativa (rice)	unselected	1	0	0	0	no	no			
+SRR11262986	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11262992	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11263008	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11263015	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11263045	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11263077	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11263084	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11263087	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11263109	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11263135	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11263136	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11263180	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11263196	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11263213	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR11263222	PRJNA609211	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
 SRR14212082	PRJNA721299	Other cereal	Setaria italica	unselected	8	3	3	3	yes	yes		Cladosporium cladosporioides;Penicillium oxalicum;Pyricularia oryzae	Cladosporium cladosporioides;Penicillium oxalicum;Pyricularia oryzae
 SRR14212083	PRJNA721299	Other cereal	Setaria italica	unselected	7	3	3	3	yes	yes		Cladosporium cladosporioides;Penicillium oxalicum;Pyricularia oryzae	Cladosporium cladosporioides;Penicillium oxalicum;Pyricularia oryzae
 SRR14212084	PRJNA721299	Other cereal	Setaria italica	unselected	10	4	4	4	yes	yes		Cladosporium cladosporioides;Fusarium equiseti;Penicillium oxalicum;Pyricularia oryzae	Cladosporium cladosporioides;Fusarium equiseti;Penicillium oxalicum;Pyricularia oryzae
@@ -1128,15 +1168,40 @@ SRR24010247	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	2
 SRR24010248	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	2	1	1	0	no	no		Puccinia striiformis	
 SRR24010249	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	6	2	2	1	yes	yes		Parastagonospora nodorum;Puccinia striiformis	Parastagonospora nodorum
 SRR24010250	PRJNA950118	Wheat	Triticum aestivum (bread wheat)	disease-selected	1	1	1	0	no	no		Puccinia striiformis	
+SRR2541194	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541202	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541210	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541219	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541237	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541251	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541260	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541263	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541277	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541303	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541323	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541325	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541332	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541373	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541380	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541384	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541391	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541401	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541403	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR2541414	PRJNA297424	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
 SRR28718298	PRJNA1100217	Maize	Zea mays (maize)	inoculated	1	1	1	0	no	no		Fusarium verticillioides	
 SRR28718299	PRJNA1100217	Maize	Zea mays (maize)	inoculated	1	1	1	0	no	no		Fusarium verticillioides	
 SRR28718300	PRJNA1100217	Maize	Zea mays (maize)	inoculated	4	3	3	2	yes	yes		Cladosporium cladosporioides;Fusarium verticillioides;Penicillium oxalicum	Cladosporium cladosporioides;Penicillium oxalicum
 SRR28718302	PRJNA1100217	Maize	Zea mays (maize)	inoculated	10	6	5	5	yes	yes		Bipolaris maydis;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Fusarium verticillioides;Penicillium oxalicum	Bipolaris maydis;Bipolaris zeicola;Cladosporium cladosporioides;Epicoccum nigrum;Penicillium oxalicum
+SRR3051739	PRJNA306542	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR3051740	PRJNA306542	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR3051741	PRJNA306542	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR3051742	PRJNA306542	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
 SRR30673023	PRJNA1161467	Maize	Zea mays (maize)	inoculated	2	2	2	1	yes	yes		Mycosarcoma maydis;Rhizoctonia solani	Mycosarcoma maydis
 SRR30673024	PRJNA1161467	Maize	Zea mays (maize)	inoculated	9	5	3	4	yes	yes	Fusarium	Cladosporium cladosporioides;Fusarium equiseti;Fusarium graminearum;Fusarium verticillioides;Rhizoctonia solani	Cladosporium cladosporioides;Fusarium equiseti;Fusarium graminearum;Fusarium verticillioides
 SRR30673025	PRJNA1161467	Maize	Zea mays (maize)	inoculated	1	1	1	0	no	no		Rhizoctonia solani	
 SRR30673031	PRJNA1161467	Maize	Zea mays (maize)	inoculated	2	2	2	1	yes	yes		Mycosarcoma maydis;Rhizoctonia solani	Mycosarcoma maydis
 SRR30673032	PRJNA1161467	Maize	Zea mays (maize)	inoculated	8	5	3	4	yes	yes	Fusarium	Fusarium equiseti;Fusarium graminearum;Fusarium verticillioides;Rhizoctonia solani;Sarocladium strictum	Fusarium equiseti;Fusarium graminearum;Fusarium verticillioides;Sarocladium strictum
+SRR3090738	PRJNA306542	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
 SRR31200152	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	inoculated	2	1	1	0	no	no		Fusarium graminearum	
 SRR31200153	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	inoculated	1	1	1	0	no	no		Fusarium graminearum	
 SRR31200154	PRJNA1181034	Wheat	Triticum aestivum (bread wheat)	inoculated	2	1	1	0	no	no		Fusarium graminearum	
@@ -1180,6 +1245,60 @@ SRR8204151	PRJNA505891	Maize	Zea mays (maize)	unselected	24	13	9	13	yes	yes	Cerc
 SRR8204152	PRJNA505891	Maize	Zea mays (maize)	unselected	46	21	13	21	yes	yes	Bipolaris;Cercospora	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Choanephora cucurbitarum;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Choanephora cucurbitarum;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum
 SRR8204153	PRJNA505891	Maize	Zea mays (maize)	unselected	41	18	11	18	yes	yes	Bipolaris;Cercospora	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Puccinia sorghi;Sarocladium strictum
 SRR8204154	PRJNA505891	Maize	Zea mays (maize)	unselected	48	22	12	22	yes	yes	Bipolaris;Cercospora;Fusarium	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium graminearum;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum	Alternaria alternata;Alternaria tenuissima;Bipolaris maydis;Bipolaris oryzae;Bipolaris sorokiniana;Bipolaris victoriae;Bipolaris zeicola;Blakeslea trispora;Cercospora beticola;Cercospora kikuchii;Cercospora zeae-maydis;Cladosporium cladosporioides;Curvularia cactivora;Curvularia clavata;Didymella glomerata;Epicoccum nigrum;Exserohilum turcicum;Fusarium equiseti;Fusarium graminearum;Fusarium sporotrichioides;Puccinia sorghi;Sarocladium strictum
+SRR8357667	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357690	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357708	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357748	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357750	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357794	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357870	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357888	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357891	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357892	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357924	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357934	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357940	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357948	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8357963	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8358010	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8358012	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8358024	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8358054	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR8358069	PRJNA510920	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
 SRR8475379	PRJNA516527	Maize	Zea mays (maize)		6	4	3	4	yes	yes		Alternaria tenuissima;Bipolaris maydis;Bipolaris zeicola;Curvularia clavata	Alternaria tenuissima;Bipolaris maydis;Bipolaris zeicola;Curvularia clavata
+SRR8742873	PRJNA527782	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+SRR8742882	PRJNA527782	Sorghum	Sorghum bicolor	unselected	1	0	0	0	no	no			
+SRR8742884	PRJNA527782	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+SRR8742888	PRJNA527782	Sorghum	Sorghum bicolor	unselected	4	2	2	2	yes	yes		Cladosporium cladosporioides;Epicoccum nigrum	Cladosporium cladosporioides;Epicoccum nigrum
+SRR8742899	PRJNA527782	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+SRR8742900	PRJNA527782	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+SRR8742902	PRJNA527782	Sorghum	Sorghum bicolor	unselected	1	1	1	1	no	no		Cladosporium cladosporioides	Cladosporium cladosporioides
+SRR8742906	PRJNA527782	Sorghum	Sorghum bicolor	unselected	6	3	3	3	yes	yes		Alternaria atra;Cladosporium cladosporioides;Epicoccum nigrum	Alternaria atra;Cladosporium cladosporioides;Epicoccum nigrum
+SRR8742932	PRJNA527782	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+SRR8742939	PRJNA527782	Sorghum	Sorghum bicolor	unselected	4	2	2	2	yes	yes		Alternaria atra;Cladosporium cladosporioides	Alternaria atra;Cladosporium cladosporioides
+SRR8742946	PRJNA527782	Sorghum	Sorghum bicolor	unselected	8	3	3	3	yes	yes		Alternaria atra;Cladosporium cladosporioides;Epicoccum nigrum	Alternaria atra;Cladosporium cladosporioides;Epicoccum nigrum
+SRR8742959	PRJNA527782	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+SRR8742972	PRJNA527782	Sorghum	Sorghum bicolor	unselected	0	0	0	0	no	no			
+SRR8742985	PRJNA527782	Sorghum	Sorghum bicolor	unselected	1	1	1	1	no	no		Cladosporium cladosporioides	Cladosporium cladosporioides
+SRR8742988	PRJNA527782	Sorghum	Sorghum bicolor	unselected	3	1	1	1	no	no		Cladosporium cladosporioides	Cladosporium cladosporioides
+SRR8743000	PRJNA527782	Sorghum	Sorghum bicolor	unselected	1	1	1	1	no	no		Cladosporium cladosporioides	Cladosporium cladosporioides
+SRR8743003	PRJNA527782	Sorghum	Sorghum bicolor	unselected	5	2	2	2	yes	yes		Alternaria atra;Cladosporium cladosporioides	Alternaria atra;Cladosporium cladosporioides
+SRR8743051	PRJNA527782	Sorghum	Sorghum bicolor	unselected	9	5	3	5	yes	yes	Alternaria	Alternaria alternata;Alternaria atra;Alternaria tenuissima;Cladosporium cladosporioides;Epicoccum nigrum	Alternaria alternata;Alternaria atra;Alternaria tenuissima;Cladosporium cladosporioides;Epicoccum nigrum
+SRR8743052	PRJNA527782	Sorghum	Sorghum bicolor	unselected	7	4	3	4	yes	yes		Alternaria atra;Alternaria tenuissima;Cladosporium cladosporioides;Epicoccum nigrum	Alternaria atra;Alternaria tenuissima;Cladosporium cladosporioides;Epicoccum nigrum
+SRR8743056	PRJNA527782	Sorghum	Sorghum bicolor	unselected	12	5	3	5	yes	yes	Alternaria	Alternaria alternata;Alternaria atra;Alternaria tenuissima;Cladosporium cladosporioides;Epicoccum nigrum	Alternaria alternata;Alternaria atra;Alternaria tenuissima;Cladosporium cladosporioides;Epicoccum nigrum
+SRR9129782	PRJNA306542	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR9129816	PRJNA306542	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
 SRR9129829	PRJNA306542	Rice	Oryza sativa (rice)	unselected	4	1	1	1	no	no		Penicillium oxalicum	Penicillium oxalicum
+SRR9129853	PRJNA306542	Rice	Oryza sativa (rice)	unselected	1	0	0	0	no	no			
 SRR9129869	PRJNA306542	Rice	Oryza sativa (rice)	unselected	3	0	0	0	no	no			
+SRR9129876	PRJNA306542	Rice	Oryza sativa (rice)	unselected	1	0	0	0	no	no			
+SRR9129878	PRJNA306542	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR9129884	PRJNA306542	Rice	Oryza sativa (rice)	unselected	1	0	0	0	no	no			
+SRR9129887	PRJNA306542	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR9129933	PRJNA306542	Rice	Oryza sativa (rice)	unselected	2	0	0	0	no	no			
+SRR9129973	PRJNA306542	Rice	Oryza sativa (rice)	unselected	1	0	0	0	no	no			
+SRR9129976	PRJNA306542	Rice	Oryza sativa (rice)	unselected	2	0	0	0	no	no			
+SRR9129984	PRJNA306542	Rice	Oryza sativa (rice)	unselected	1	0	0	0	no	no			
+SRR9129990	PRJNA306542	Rice	Oryza sativa (rice)	unselected	2	0	0	0	no	no			
+SRR9129992	PRJNA306542	Rice	Oryza sativa (rice)	unselected	0	0	0	0	no	no			
+SRR9129998	PRJNA306542	Rice	Oryza sativa (rice)	unselected	1	0	0	0	no	no			

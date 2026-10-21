@@ -92,7 +92,9 @@ def text_of(path: Path) -> str:
                   file=sys.stderr)
             return ""
         return s
-    s = re.sub(r"<[^>]+>", " ", s)
+    if path.suffix.lower() in (".xml", ".html", ".htm"):
+        s = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", s, flags=re.S | re.I)
+        s = re.sub(r"<[^>]+>", " ", s)
     return defang(html.unescape(re.sub(r"\s+", " ", s)))
 
 
@@ -154,12 +156,17 @@ def main() -> None:
             if not sd.is_dir():
                 continue
             for f in sd.iterdir():
+                # EVERY text-bearing format, not just the two I first thought of. Leon
+                # pushed back on a "no readable text" report for 10 projects and was right:
+                # the studies tree holds 82 _fulltext.xml, 40 pdf, 22 _cachedtext.txt and 4
+                # html, and only the first two were being read. Five dirs genuinely hold no
+                # text; everything else was a file-extension oversight on my part.
+                if f.name in ("SOURCE.txt", "NEEDED.md") or f.suffix.lower() in (
+                        ".xlsx", ".csv", ".tsv", ".yaml", ".zip", ".docx", ".md"):
+                    continue
                 if f.suffix.lower() == ".pdf":
                     pdfs.append(f.name)
-                    t = text_of(f)
-                    if t:
-                        texts.append((d, f.name, t))
-                elif f.name.endswith("_fulltext.xml"):
+                if f.suffix.lower() in (".pdf", ".xml", ".txt", ".html", ".htm"):
                     t = text_of(f)
                     if t:
                         texts.append((d, f.name, t))

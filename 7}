@@ -1,4 +1,0 @@
-  File "<stdin>", line 17
-    print(f{largest file: {ok: {failed: {cached: budget needed@0.7MB/s)
-           ^
-SyntaxError: invalid syntax

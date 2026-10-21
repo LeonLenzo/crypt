@@ -35,6 +35,19 @@ is `protected`, not `sheltered`.
 | `sheltered` | rain, dew or free water deliberately excluded or interrupted for any part of the growing period | rain-out shelter; closing canopy; "protecting the field from rain"; drought imposed by rain exclusion rather than by withholding irrigation alone |
 | `protected` | a chemical or biological treatment applied that suppresses fungi | fungicide, seed treatment with a fungicidal active, "general plant protection" |
 | `indoor` | the sequenced plants were grown entirely under cover | glasshouse, growth chamber, polytunnel, controlled environment |
+
+**Structural rain exclusion goes in `setting`, not here.** Leon's call, 2026-10-21. `setting`
+already qualifies rather than splits: `field (chamber-raised, transferred outdoors)` and
+`field (inoculated in situ)` are existing values. A rain-out facility is a fact about where the
+plant grew, so it belongs there as **`field (rain-excluded)`**, which keeps the project in the
+cohort while recording exactly what differed. Qualifying also avoids reclassifying a study
+against its own description: the Baihe authors call theirs a field experiment.
+
+Use the `setting` qualifier only where exclusion covers the WHOLE experiment. Where it covers
+one arm and the arms cannot be separated by a predicate, record `disease_exposure: sheltered`
+at project level and say so in the note. PRJNA510920 is that case: rain exclusion applies to
+the W-deplete half of an open IRRI field, and the SampleName codes `4s`/`4w`/`9s`/`9w` are
+never defined in the paper.
 | `unknown` | the methods do not say, or full text is unavailable | |
 
 ## A separate, ORTHOGONAL field: `tissue_selection`

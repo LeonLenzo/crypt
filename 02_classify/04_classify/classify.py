@@ -98,8 +98,12 @@ def manifest() -> dict:
         write_manifest(tree, READS_MANIFEST)
     except OSError as e:                        # a read-only checkout must not stop a classify
         print(f"  (could not refresh {READS_MANIFEST.name}: {e})", file=sys.stderr)
-    return {run: {"BioProject": e["BioProject"], "bytes": e["bytes"]}
-            for run, e in tree.items()}
+    # Return the scan entries UNCHANGED. The three keys the rest of this file reads
+    # (BioProject, files, bytes) are exactly what scan_tree already provides, and `files` is a
+    # list of absolute Paths rather than a ";"-joined string of basenames that has to be
+    # rejoined to READS/<proj>. Rebuilding a narrower dict here is what broke the first attempt
+    # at this fix: it dropped `files` and every worker raised KeyError.
+    return tree
 
 
 def done(report: Path) -> bool:
@@ -118,7 +122,9 @@ def classify_run(run: str, m: dict, db: Path, threads: int, mmap: bool,
                 "report_bytes": report.stat().st_size, "species_rows": "",
                 "reads_classified": ""}
 
-    files = [READS / proj / n for n in m["files"].split(";")]
+    files = list(m["files"])
+    # Re-checked rather than trusted even though the scan just ran: /scratch is under a 21-day
+    # purge, and a job that queues behind a long one can start hours after the scan.
     missing = [f.name for f in files if not f.exists()]
     if missing:
         return {"Run": run, "BioProject": proj, "status": f"missing:{missing[0]}",

@@ -57,6 +57,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from _layout import DB, READS, READS_MANIFEST, REPORTS, SILVER  # noqa: E402
+from _reads import scan_tree, write_manifest  # noqa: E402
 from _reports import parse_report  # noqa: E402
 
 # db_v3's published operating point, carried across unchanged so a db_v4 number differs
@@ -74,10 +75,31 @@ STATUS_COLS = ["Run", "BioProject", "status", "seconds", "report_bytes", "specie
 
 
 def manifest() -> dict:
-    if not READS_MANIFEST.exists():
-        sys.exit(f"no reads manifest: {READS_MANIFEST}\n"
-                 "Run: python 02_classify/03_cohort/migrate_reads.py --apply")
-    return {r["Run"]: r for r in csv.DictReader(open(READS_MANIFEST), delimiter="\t")}
+    """What is on disk, by SCANNING, never by reading a table.
+
+    This read `reads_manifest.tsv` until 2026-10-21, and that was wrong in the specific way
+    `_reads.py` opens by warning about: presence is a non-empty file in its final location,
+    never a name in a table. The manifest is written by `migrate_reads.py`, which is a one-shot
+    that ran once against the tree as it stood that day. Every run fetched afterwards was
+    invisible here, so a classify job over six freshly downloaded projects reported
+    "no reads on disk" and exited 0 against 120 runs and 305 GB that were sitting right there.
+
+    A stale snapshot fails SILENTLY and in the safe-looking direction: it under-reports, so the
+    job succeeds at doing nothing. Scanning costs one stat per file and cannot drift.
+
+    The manifest is still WRITTEN, as a record of what the tree held at classify time, but
+    nothing reads it to decide what exists.
+    """
+    tree = scan_tree(READS)
+    if not tree:
+        sys.exit(f"no reads found under {READS}\n"
+                 "Fetch some: python 02_classify/03_cohort/fetch_reads.py --project <PRJ>")
+    try:
+        write_manifest(tree, READS_MANIFEST)
+    except OSError as e:                        # a read-only checkout must not stop a classify
+        print(f"  (could not refresh {READS_MANIFEST.name}: {e})", file=sys.stderr)
+    return {run: {"BioProject": e["BioProject"], "bytes": e["bytes"]}
+            for run, e in tree.items()}
 
 
 def done(report: Path) -> bool:

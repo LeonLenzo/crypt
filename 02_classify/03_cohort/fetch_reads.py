@@ -73,7 +73,40 @@ STATUS_COLS = ["Run", "BioProject", "status", "seconds", "bytes", "n_files", "no
 # aria2c is not), which splits ONE file across parallel segments and helps where a project has
 # fewer files than workers.
 DEFAULT_WORKERS = 24
-RETRIES = 3
+RETRIES = 5
+
+# ── THE RETRY POLICY, AND THE 623-RUN FAILURE IT IS FIXING ──────────────────────────────────
+# Job 51341245 (PRJEB83049, 2026-10-22) marked 623 of 820 runs `failed`. Almost none of them
+# were real failures. The median time-to-failure across all 623 was 13 SECONDS, and so were
+# the minimum, the 25th and the 75th percentile. Thirteen seconds is the three backoff sleeps
+# (2+4+6 = 12 s) and essentially nothing else, so curl exited INSTANTLY on all three attempts.
+# The files were fine: ENA still served them with matching `fastq_bytes` the next morning, and
+# the same curl flags fetched 5 MB in under a second. EBI had refused connections for a while,
+# after ~13 h of 24 sustained streams.
+#
+# Twelve seconds of total backoff cannot ride out anything a public archive does. The schedule
+# below is sized to survive a ~15 minute interruption, which is the realistic unit:
+#
+#     30s, 60s, 120s, 240s   =  7.5 min of waiting across 5 attempts
+#
+# and codes that mean "come back later" wait DOUBLE that, so a rate-limit episode gets ~15 min.
+# This is cheap insurance: the alternative is re-queueing a 14-hour job.
+BACKOFF_BASE = 30
+BACKOFF_CAP = 600
+
+# curl exit 22 means HTTP >= 400 under --fail, which lumps "slow down" in with "gone".
+# `-w %{http_code}` separates them, and the separation is the whole point: retrying a 404 is
+# waste, and abandoning a 503 after 12 s is how 623 runs were lost. The old code could not
+# tell the two apart because `capture_output=True` swallowed curl's stderr and nothing ever
+# printed it, which is why `fetch_51341245.err` was EMPTY for a 623-run failure and the cause
+# had to be inferred from timing. Every terminal failure now prints the reason.
+HTTP_RETRY = {408, 429, 500, 502, 503, 504}   # transient; come back later
+HTTP_FATAL = {400, 401, 403, 404, 410}        # retrying cannot help
+# 416 is NOT an error here. `-C -` on a file that is ALREADY COMPLETE asks for a range past the
+# end of it, and the server is right to refuse. The previous comment claimed `--fail` "handled"
+# this; it does the opposite, turning a finished download into exit 22. Treated as "the bytes
+# are already here" and allowed to fall through to verification.
+HTTP_COMPLETE = 416
 
 # ── THE TIMEOUT, AND THE BUG IT IS FIXING ────────────────────────────────────────────────────
 # This divisor was 2 MB/s until 2026-10-20 and that number was wrong, in direct contradiction
@@ -118,6 +151,12 @@ def budget(nbytes: int) -> int:
     return max(1800, int(nbytes / BACKSTOP_BPS) + 300)
 
 
+def backoff(attempt: int, http: int) -> int:
+    """Seconds to wait before the next attempt. See THE RETRY POLICY above."""
+    wait = min(BACKOFF_CAP, BACKOFF_BASE * (2 ** attempt))
+    return wait * 2 if http in HTTP_RETRY else wait
+
+
 def pick_files(urls: list, run: str) -> tuple[list, str]:
     """Choose which ENA files to take. Returns (urls, note)."""
     paired = [u for u in urls if u.endswith(("_1.fastq.gz", "_2.fastq.gz"))]
@@ -151,45 +190,67 @@ def fetch_run(run: str, proj: str, urls: list, sizes: list, dry: bool) -> dict:
         for u, name in zip(chosen, names):
             out = tmp / name
             exp = want.get(name, 0)
+            url = u if u.startswith("http") else "https://" + u
+            verified, why, http = False, "", 0
             for attempt in range(RETRIES):
-                url = u if u.startswith("http") else "https://" + u
                 # RESUME on a transport failure. ENA sends Accept-Ranges: bytes, so a retry
                 # continues from the partial instead of re-downloading from zero. At 0.7 MB/s a
                 # 2.3 GB file is ~55 minutes, so restarting a retry is most of an hour thrown
-                # away. `-C -` on a complete file is a no-op (416, handled by --fail below), and
-                # on a fresh attempt there is no partial, so it is safe unconditionally.
+                # away. On a fresh attempt there is no partial, so `-C -` is safe
+                # unconditionally; on an already-complete one it yields 416, see HTTP_COMPLETE.
                 cmd = ["curl", "-sSL", "--fail",
                        "--speed-limit", str(STALL_BYTES),
                        "--speed-time", str(STALL_SECONDS),
                        "--max-time", str(budget(exp)),
+                       "-w", "%{http_code}",
                        "-C", "-", "-o", str(out), url]
                 r = subprocess.run(cmd, capture_output=True, text=True)
-                if r.returncode == 0 and out.exists():
+                # %{http_code} is "000" when curl never got a response at all (DNS, refused
+                # connection, stall), which is exactly the case that must stay retryable.
+                http = int((r.stdout or "").strip()[-3:] or 0)
+
+                if r.returncode == 0 or http == HTTP_COMPLETE:
                     # Size first: ENA publishes the byte count, so truncation is detectable
                     # without decompressing the whole file.
-                    if exp and abs(out.stat().st_size - exp) > max(1024, exp * 0.001):
+                    size = out.stat().st_size if out.exists() else 0
+                    if exp and abs(size - exp) > max(1024, exp * 0.001):
+                        why = f"size {size} != expected {exp}"
                         # Wrong SIZE is not a stall: resuming would append to a bad file, so
                         # this one restarts clean. Only transport failures resume.
                         out.unlink(missing_ok=True)
-                        time.sleep(2 * (attempt + 1))
-                        continue
-                    t = subprocess.run(["gzip", "-t", str(out)], capture_output=True)
-                    if t.returncode == 0:
+                    elif subprocess.run(["gzip", "-t", str(out)],
+                                        capture_output=True).returncode != 0:
+                        why = "gzip -t failed"
+                        out.unlink(missing_ok=True)   # corrupt: restart clean, do not resume
+                    else:
+                        verified = True
                         break
-                    out.unlink(missing_ok=True)       # corrupt: restart clean, do not resume
-                # else: transport failure. KEEP the partial so the next attempt resumes.
-                time.sleep(2 * (attempt + 1))
-            else:
-                shutil.rmtree(tmp, ignore_errors=True)
+                else:
+                    why = (f"curl exit {r.returncode} http {http}: "
+                           f"{(r.stderr or '').strip()[:120]}")
+                    if http in HTTP_FATAL:
+                        break                         # retrying cannot help
+                    # else: transport failure. KEEP the partial so the next attempt resumes.
+
+                if attempt < RETRIES - 1:
+                    time.sleep(backoff(attempt, http))
+
+            if not verified:
+                # The partial is deliberately LEFT in reads_tmp so a resubmit resumes it
+                # instead of starting from zero. That is safe because presence is defined as a
+                # non-empty file in its FINAL location, so a parked partial can never be
+                # mistaken for a finished run; main() prints how much is sitting there.
+                print(f"  [fail ] {run} {name} after {attempt + 1}x: {why}", flush=True)
                 return {"Run": run, "BioProject": proj, "status": "failed", "n_files": 0,
                         "seconds": round(time.time() - t0), "bytes": 0,
-                        "note": f"{name} failed {RETRIES}x"}
+                        "note": f"{name}: {why}"[:200]}
             got.append(out)
 
         # Publish: rename into the project tree only once EVERY file is verified.
         dest.mkdir(parents=True, exist_ok=True)
         for p in got:
             os.rename(p, dest / p.name)
+        shutil.rmtree(tmp, ignore_errors=True)        # empty now; only the WIN cleans up
         nb = sum((dest / p.name).stat().st_size for p in got)
         el = round(time.time() - t0)
         print(f"  [done ] {run} {el:5d}s {nb/1e9:6.2f} GB "
@@ -199,8 +260,6 @@ def fetch_run(run: str, proj: str, urls: list, sizes: list, dry: bool) -> dict:
     except Exception as e:                      # noqa: BLE001 - never kill the pool
         return {"Run": run, "BioProject": proj, "status": f"error:{type(e).__name__}",
                 "seconds": round(time.time() - t0), "bytes": 0, "n_files": 0, "note": str(e)[:120]}
-    finally:
-        shutil.rmtree(tmp, ignore_errors=True)
 
 
 def main() -> None:
@@ -278,6 +337,10 @@ def main() -> None:
     notes = [r for r in rows if r["note"]]
     if notes:
         print(f"  {len(notes)} runs carry a note, e.g. {notes[0]['Run']}: {notes[0]['note']}")
+    parked = sum(f.stat().st_size for f in READS_TMP.rglob("*") if f.is_file())
+    if parked:
+        print(f"  {parked / 2**30:.1f} GiB of partials parked in {READS_TMP.name}/ -- a "
+              f"resubmit RESUMES these, it does not refetch them")
     if bad:
         sys.exit(1)
 

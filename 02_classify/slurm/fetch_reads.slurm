@@ -22,8 +22,14 @@
 # workers streaming to disk. The OLD route (prefetch + fasterq-dump + pigz) cost ~10,000 SU for
 # 14 TB precisely because decompress-then-recompress is CPU-bound.
 #
-# --workers 8 and not 16, the same courtesy limit used against NCBI, where 16 caused connection
-# contention with no throughput gain.
+# --workers 24. The "8 not 16" courtesy limit belongs to NCBI, where 16 prefetch streams caused
+# connection contention with no throughput gain, and it does NOT apply here: against EBI every
+# worker gets its own ~0.7 MB/s because the limit is latency, not contention, so throughput
+# scales with streams. Measured on job 51341245: 24 workers held 17.5 MB/s aggregate at
+# 0.73 MB/s per stream, exactly linear. The default was left at 8 long after fetch_reads.py's
+# DEFAULT_WORKERS moved to 24, so submitting without WORKERS= silently cost two thirds of the
+# rate. Raise it only with the retry policy in mind: that job ended with EBI refusing
+# connections after ~13 h, and whether sustained concurrency provoked that is still unknown.
 
 set -uo pipefail
 
@@ -33,7 +39,7 @@ cd /scratch/pawsey1168/llenzo/crypt || exit 1
 mkdir -p 02_classify/slurm/logs
 
 : "${PROJECT:?set PROJECT, e.g. --export=ALL,PROJECT=PRJEB83049}"
-ARGS="--project $PROJECT --workers ${WORKERS:-8}"
+ARGS="--project $PROJECT --workers ${WORKERS:-24}"
 [ -n "${PILOT:-}" ] && ARGS="$ARGS --pilot-only"
 [ -n "${LIMIT:-}" ] && ARGS="$ARGS --limit $LIMIT"
 

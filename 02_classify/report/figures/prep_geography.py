@@ -100,10 +100,16 @@ def year_of(s: str):
 
 
 def gkmer(row):
+    """Gkmer for one run. ENA's read_len is bases PER SPOT, so a paired library's per-read
+    length is HALF of it -- the same correction rarefy.py and prep_rarefaction.py already make.
+    Without it every paired run is inflated (median 1.25x, up to 2.10x over the cohort), which
+    moved the cohort median from 1.68 to 2.30 Gkmer and biased the per-country medians below."""
     try:
         bases, L = float(row["bases"]), float(row["read_len"])
     except (TypeError, ValueError, KeyError):
         return None
+    if row.get("layout") == "PAIRED":
+        L = L / 2
     return bases * (L - 34) / L / 1e9 if L > 35 else None
 
 

@@ -136,6 +136,28 @@ READS = BRONZE / "reads"
 # Same rule fetch_cds.py enforces after the 1,997-directories / 1,162-files incident: presence
 # is a non-empty file in its final location, always.
 READS_TMP = BRONZE / "reads_tmp"
+# ── controls: a SEPARATE tree, deliberately ─────────────────────────────────────────────────
+# The negative controls (01_literature/controls/) are single-pathogen libraries from OTHER
+# studies, fetched to measure how much cross-mapping a known-single-source library produces.
+# They are NOT cohort runs and they live in their own subtree rather than as extra directories
+# under READS, for one reason: `scan_tree(READS)` is what `04_classify` and the reads manifest
+# treat as "the cohort on disk", so a control project sitting there would be counted in the
+# denominator of anything that asks how much of the cohort is fetched or classified. 05_detect
+# joins to COHORT_SAMPLES and would drop them, but "it gets dropped downstream" is not the same
+# as "it is not in the set", and the whole point of the controls is to be outside the set.
+#   The layout mirrors READS exactly -- <accession>/<Run>_1.fastq.gz -- so the same scan_tree,
+# the same fetch_run and the same classify.py work against it with no special case, which is
+# why they take the root as an argument instead of importing the constant.
+CONTROLS = BRONZE / "controls"
+CONTROL_READS = CONTROLS / "reads"
+CONTROL_READS_TMP = CONTROLS / "reads_tmp"
+CONTROL_REPORTS = CONTROLS / "reports"
+# One ENA filereport capture per accession, as served. BRONZE because it is somebody else's
+# table and because the archive's own answer is EVIDENCE here: PRJEB29046's ENA sample title
+# for ERR2822761 is a copy of the mock's, and the paper says that run is the 4 DPI infection.
+# Keeping the capture means the disagreement stays visible instead of being corrected away.
+CONTROL_META = CONTROLS / "meta"
+
 # Raw Kraken2 output, one report per run. Large and regeneratable.
 # Also one directory per BioProject, for the same reason and one more: it makes "is this
 # project classified" a directory listing, and that check is what licenses deleting its reads.
@@ -176,6 +198,10 @@ FETCH_PLAN = SILVER / "fetch_plan.tsv"           # 03_cohort: per BioProject, wh
 READS_MANIFEST = SILVER / "reads_manifest.tsv"   # what is actually on scratch
 HOST_CALLS = SILVER / "host_calls.tsv"           # 04_classify: the host called FROM READS
 CLASSIFIED = SILVER / "_classified.tsv"          # 05_detect: one row per candidate detection
+# The controls fetch, kept apart from fetch_status.tsv for the same reason the reads are: a
+# cumulative table that mixes cohort and control runs cannot answer "how much of the cohort
+# landed" without a join nobody will remember to write.
+CONTROL_FETCH_STATUS = SILVER / "control_fetch_status.tsv"
 
 # ── gold: small, generated, tracked ─────────────────────────────────────────────────────────
 DETECTIONS = GOLD / "detections.tsv"             # the presence calls this pipeline turns on

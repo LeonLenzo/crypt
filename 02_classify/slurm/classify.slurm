@@ -33,6 +33,16 @@
 #
 # NO DEPTH FILTER. Every run on disk is classified. A detection is valid at any depth; only
 # ABSENCE is depth-dependent, and that caveat belongs to 05_detect's denominator, not here.
+#
+# CONTROLS=1 classifies the NEGATIVE CONTROLS instead of the cohort:
+#
+#   sbatch --export=ALL,CONTROLS=1,PROJECT="PRJEB29046 PRJNA613154" 02_classify/slurm/classify.slurm
+#
+# It points --reads/--reports at `data/bronze/controls/`, where PROJECT names the control
+# ACCESSION rather than a cohort BioProject. Nothing else changes, and that is the requirement:
+# a control classified under different settings measures nothing. The separate tree exists so
+# controls cannot enter the cohort's denominator -- see the comment beside CONTROL_READS in
+# _layout.py.
 
 set -uo pipefail
 
@@ -57,8 +67,20 @@ SHM=/dev/shm/db_v4_$SLURM_JOB_ID
 WORKERS=${WORKERS:-8}
 THREADS=${THREADS:-8}
 
+# Built as an ARRAY, not a string. A quoted string with a line continuation inside it keeps the
+# backslash as a literal character, and unquoted $TREE then word-splits it into an argument of
+# its own, so classify.py is handed a bare "\" and argparse rejects the run.
+TREE=()
+TREE_NAME=cohort
+if [ -n "${CONTROLS:-}" ]; then
+  TREE=(--reads 02_classify/data/bronze/controls/reads
+        --reports 02_classify/data/bronze/controls/reports)
+  TREE_NAME=controls
+fi
+
 echo "host     $(hostname)"
 echo "project  $PROJECT"
+echo "tree     $TREE_NAME"
 echo "started  $(date -Is)"
 
 SECONDS=0
@@ -76,7 +98,7 @@ for P in $PROJECT; do
   python3 02_classify/04_classify/classify.py \
       --project "$P" --db "$SHM" \
       --workers "$WORKERS" --threads "$THREADS" --mmap \
-      --tmp-dir "$MYSCRATCH/kraken_tmp" || rc=$?
+      --tmp-dir "$MYSCRATCH/kraken_tmp" "${TREE[@]+${TREE[@]}}" || rc=$?
 done
 
 echo "exit     $rc after ${SECONDS}s"

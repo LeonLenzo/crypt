@@ -74,7 +74,7 @@ STATUS_COLS = ["Run", "BioProject", "status", "seconds", "report_bytes", "specie
                "reads_classified"]
 
 
-def manifest() -> dict:
+def manifest(reads: Path = READS, manifest_path: Path = READS_MANIFEST) -> dict:
     """What is on disk, by SCANNING, never by reading a table.
 
     This read `reads_manifest.tsv` until 2026-10-21, and that was wrong in the specific way
@@ -90,14 +90,14 @@ def manifest() -> dict:
     The manifest is still WRITTEN, as a record of what the tree held at classify time, but
     nothing reads it to decide what exists.
     """
-    tree = scan_tree(READS)
+    tree = scan_tree(reads)
     if not tree:
-        sys.exit(f"no reads found under {READS}\n"
+        sys.exit(f"no reads found under {reads}\n"
                  "Fetch some: python 02_classify/03_cohort/fetch_reads.py --project <PRJ>")
     try:
-        write_manifest(tree, READS_MANIFEST)
+        write_manifest(tree, manifest_path)
     except OSError as e:                        # a read-only checkout must not stop a classify
-        print(f"  (could not refresh {READS_MANIFEST.name}: {e})", file=sys.stderr)
+        print(f"  (could not refresh {manifest_path.name}: {e})", file=sys.stderr)
     # Return the scan entries UNCHANGED. The three keys the rest of this file reads
     # (BioProject, files, bytes) are exactly what scan_tree already provides, and `files` is a
     # list of absolute Paths rather than a ";"-joined string of basenames that has to be
@@ -112,9 +112,9 @@ def done(report: Path) -> bool:
 
 
 def classify_run(run: str, m: dict, db: Path, threads: int, mmap: bool,
-                 tmp_dir: Path) -> dict:
+                 tmp_dir: Path, reports: Path = REPORTS) -> dict:
     proj = m["BioProject"]
-    out_dir = REPORTS / proj
+    out_dir = reports / proj
     out_dir.mkdir(parents=True, exist_ok=True)
     report = out_dir / f"{run}.report.tsv"
     if done(report):
@@ -182,9 +182,20 @@ def main() -> None:
                     help="--memory-mapping. Correct ONLY against /dev/shm, never Lustre")
     ap.add_argument("--force", action="store_true", help="reclassify runs that have a report")
     ap.add_argument("--tmp-dir", default=os.environ.get("MYSCRATCH", "/tmp") + "/kraken_tmp")
+    # The NEGATIVE CONTROLS live in their own reads tree (`_layout.CONTROL_READS`) so they
+    # cannot enter the cohort's denominator -- see the comment beside that constant. The tree
+    # has the identical shape, so pointing these two at it is the whole integration; nothing
+    # about the classification changes, which is the point, since a control classified under
+    # different settings measures nothing.
+    #   `--project` then names the control ACCESSION, and the manifest is written beside the
+    # reads rather than over the cohort's.
+    ap.add_argument("--reads", default=str(READS),
+                    help="reads root; use CONTROL_READS for the negative controls")
+    ap.add_argument("--reports", default=str(REPORTS), help="reports root; pair it with --reads")
     args = ap.parse_args()
 
-    man = manifest()
+    reads_root, reports_root = Path(args.reads), Path(args.reports)
+    man = manifest(reads_root, reads_root.parent / "reads_manifest.tsv")
     by_proj = {}
     for run, m in man.items():
         by_proj.setdefault(m["BioProject"], []).append(run)
@@ -194,7 +205,7 @@ def main() -> None:
         tot = [0, 0, 0]
         for proj in sorted(by_proj, key=lambda p: -len(by_proj[p])):
             runs = by_proj[proj]
-            d = sum(1 for r in runs if done(REPORTS / proj / f"{r}.report.tsv"))
+            d = sum(1 for r in runs if done(reports_root / proj / f"{r}.report.tsv"))
             b = sum(int(man[r]["bytes"]) for r in runs) / 2**40
             print(f"{proj:14s} {len(runs):7d} {d:6d} {len(runs)-d:6d} {b:7.3f}")
             tot[0] += len(runs); tot[1] += d; tot[2] += len(runs) - d
@@ -207,8 +218,8 @@ def main() -> None:
         sys.exit(f"no reads on disk for {args.project}")
     if args.force:
         for r in runs:
-            (REPORTS / args.project / f"{r}.report.tsv").unlink(missing_ok=True)
-    todo = [r for r in runs if not done(REPORTS / args.project / f"{r}.report.tsv")]
+            (reports_root / args.project / f"{r}.report.tsv").unlink(missing_ok=True)
+    todo = [r for r in runs if not done(reports_root / args.project / f"{r}.report.tsv")]
     print(f"\n{args.project}: {len(runs)} runs on disk, {len(todo)} to classify")
     if not todo:
         print("nothing to do")
@@ -220,7 +231,7 @@ def main() -> None:
     rows = []
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
         futs = {ex.submit(classify_run, r, man[r], Path(args.db), args.threads,
-                          args.mmap, tmp_dir): r for r in todo}
+                          args.mmap, tmp_dir, reports_root): r for r in todo}
         for i, fut in enumerate(as_completed(futs), 1):
             rows.append(fut.result())
             if i % 25 == 0:

@@ -168,8 +168,16 @@ def pick_files(urls: list, run: str) -> tuple[list, str]:
     return urls, ""
 
 
-def fetch_run(run: str, proj: str, urls: list, sizes: list, dry: bool) -> dict:
-    dest = READS / proj
+def fetch_run(run: str, proj: str, urls: list, sizes: list, dry: bool,
+              dest_root: Path = READS, tmp_root: Path = READS_TMP) -> dict:
+    """Fetch one run. `dest_root`/`tmp_root` are arguments and not the imported constants so
+    the negative controls can reuse this function against their own tree
+    (`_layout.CONTROL_READS`). Everything that makes this function worth reusing -- the retry
+    schedule, the HTTP_RETRY/HTTP_FATAL split, the 416 case, stall detection, verify-then-
+    rename -- was paid for in failed jobs and must not be duplicated and left to drift. The
+    defaults keep every existing caller unchanged.
+    """
+    dest = dest_root / proj
     chosen, note = pick_files(urls, run)
     names = [u.rsplit("/", 1)[-1] for u in chosen]
     final = [dest / n for n in names]
@@ -182,7 +190,7 @@ def fetch_run(run: str, proj: str, urls: list, sizes: list, dry: bool) -> dict:
                 "bytes": sum(sizes[:len(chosen)]), "n_files": len(chosen), "note": note}
 
     want = {u.rsplit("/", 1)[-1]: s for u, s in zip(urls, sizes)}
-    tmp = READS_TMP / run
+    tmp = tmp_root / run
     tmp.mkdir(parents=True, exist_ok=True)
     t0 = time.time()
     try:

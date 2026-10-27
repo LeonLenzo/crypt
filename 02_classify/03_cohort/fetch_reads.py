@@ -100,8 +100,24 @@ BACKOFF_CAP = 600
 # tell the two apart because `capture_output=True` swallowed curl's stderr and nothing ever
 # printed it, which is why `fetch_51341245.err` was EMPTY for a 623-run failure and the cause
 # had to be inferred from timing. Every terminal failure now prints the reason.
-HTTP_RETRY = {408, 429, 500, 502, 503, 504}   # transient; come back later
-HTTP_FATAL = {400, 401, 403, 404, 410}        # retrying cannot help
+HTTP_RETRY = {403, 408, 429, 500, 502, 503, 504}   # transient; come back later
+HTTP_FATAL = {400, 401, 404, 410}                 # retrying cannot help
+
+# ── 403 IS EBI'S THROTTLE CODE AND BELONGS IN HTTP_RETRY, measured 2026-10-27 ───────────────
+# It sat in HTTP_FATAL until then, beside 404 and 410, so the 7.5-minute backoff above -- built
+# specifically to ride out a ~15-minute archive interruption -- never applied to the one code
+# EBI actually uses to say slow down. The schedule was right and it was wired to the wrong set.
+#
+# Measured: job 51599349 lost 6 runs of PRJNA746402, every one HTTP 403 and every one abandoned
+# "after 1x" because HTTP_FATAL breaks out of the loop. A HEAD on SRR15141060_1.fastq.gz from
+# the same copy node the next morning returned 200 with a matching Content-Length. The files
+# were never gone. Job 51403212 failed the same way at larger scale: 24 HTTP 403s CLUSTERED
+# LATE in the run, which is the signature of rate-based refusal and not of missing objects.
+#
+# The asymmetry is what settles it. Retrying a genuinely-forbidden object costs 7.5 minutes on
+# one run; treating a throttle as fatal costs the run outright and the loss scales with how
+# hard the archive is being pushed, which is exactly when a fetch is most expensive to repeat.
+# 401 stays fatal because that is an auth answer, and ENA's public fastq endpoint has no auth.
 # 416 is NOT an error here. `-C -` on a file that is ALREADY COMPLETE asks for a range past the
 # end of it, and the server is right to refuse. The previous comment claimed `--fail` "handled"
 # this; it does the opposite, turning a finished download into exit 22. Treated as "the bytes

@@ -1,0 +1,7 @@
+crop	n_runs	n_projects	retained	pct_below_floor	median_gkmer	q25_gkmer	q75_gkmer	dominant_layout
+Rice	2784	6	0	64.2	0.050	0.016	0.942	SINGLE 51.0 (n=1636)
+Maize	2511	16	1374	37.9	1.130	0.348	4.033	PAIRED 151.0 (n=750)
+Wheat	1215	14	1132	4.3	3.071	2.368	4.436	PAIRED 202.0 (n=528)
+Sorghum	1120	4	1118	0.0	3.863	3.363	4.357	PAIRED 151.0 (n=745)
+Other cereal	55	7	54	1.8	5.059	4.114	5.434	PAIRED 202.0 (n=11)
+Barley	3	2	2	0.0	7.466	7.178	7.466	PAIRED 300.0 (n=3)

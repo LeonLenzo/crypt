@@ -7,13 +7,21 @@ per-run sequencing depth and the reason each run is excluded.
 
 ## THE FUNNEL, REPRODUCED EXACTLY
 
-Four nested filters, applied in this order, checked against the counts recorded on 2026-10-23:
+Four nested filters, applied in this order, checked against the counts recorded on 2026-10-27:
 
     cohort as curated                 7,688 runs  41 projects
-    disease_exposure == open          6,282       30
-    + not inoculated                  6,239       28
-    + setting == field                6,135       27
-    + Gkmer >= 0.463                  3,580       26
+    disease_exposure == open          6,382       31
+    + not inoculated                  6,339       29
+    + setting == field                6,235       28
+    + Gkmer >= 0.463                  3,680       27
+
+**The counts moved +100 on 2026-10-27 and the check is what surfaced it**, which is the only
+reason the targets are hardcoded. PRJEB84390's `disease_exposure` was corrected from `unknown`
+to `open` (Leon's call): the 100 runs are field-collected, naturally Pt-infected wheat from 11
+countries, so exposure occurred by construction. The earlier `unknown` applied rule 2 to a
+project whose evidence was already in `provenance.tsv` under setting/tissue/selection and simply
+never wired to this field. 100 wheat runs joined the retained set, all of them already fetched
+and classified. Previous counts, for the record: 6,282 / 6,239 / 6,135 / 3,580.
 
 `setting == "field"` is EXACT, not a prefix match. 104 runs are
 `field (chamber-raised, transferred outdoors)`, which is not grown in the field throughout, and
@@ -32,6 +40,7 @@ Writes depth_funnel.tsv (one row per cohort run) and depth_funnel_summary.tsv.
 
 import csv
 import statistics as st
+import textwrap
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -54,6 +63,12 @@ SUMMARY = HERE / "depth_funnel_summary.tsv"
 # every gate falls on the crops very unevenly (every rain-exclusion run is rice, every
 # inoculated run is maize or wheat).
 STEPS = HERE / "depth_funnel_steps.tsv"
+# The caption for Supplementary Table S4, GENERATED from the counts so it cannot go stale.
+# The funnel is a RESULT, not bookkeeping (Leon, 2026-10-27): it is the only place a reader can
+# see that rice leaves the analysis entirely and why, and that each gate falls on one crop.
+# Captions are generated here for the reason in `crypt-figure-caption-discipline`: a hand-edited
+# caption beside a regenerated table is how a stale number survives a rebuild.
+CAPTION = HERE / "depth_funnel_caption.txt"
 
 # Grouped for the figure. The raw reason is kept in its own column so nothing is lost.
 GROUP = {
@@ -135,14 +150,14 @@ def main() -> None:
     # drift between them, which is backwards.
     GATES = (
         ("cohort as curated", lambda r: True, 7688),
-        ("exposure is open", lambda r: r["disease_exposure"] == "open", 6282),
+        ("exposure is open", lambda r: r["disease_exposure"] == "open", 6382),
         ("not inoculated",
          lambda r: r["disease_exposure"] == "open"
-         and r["sampling_selection"] != "inoculated", 6239),
+         and r["sampling_selection"] != "inoculated", 6339),
         ("field throughout",
          lambda r: r["disease_exposure"] == "open"
-         and r["sampling_selection"] != "inoculated" and r["setting"] == "field", 6135),
-        (f"depth >= {FLOOR} Gkmer", lambda r: r["reason"] == "retained", 3580),
+         and r["sampling_selection"] != "inoculated" and r["setting"] == "field", 6235),
+        (f"depth >= {FLOOR} Gkmer", lambda r: r["reason"] == "retained", 3680),
     )
     crops = sorted({r["crop"] for r in rows},
                    key=lambda c: -sum(1 for r in rows if r["crop"] == c))
@@ -170,6 +185,66 @@ def main() -> None:
                 w.writerow(["", reason, "final reason"]
                            + [sum(1 for r in sub if r["crop"] == c) for c in crops]
                            + [len(sub), len({r["BioProject"] for r in sub})])
+
+    # ── the caption, every number computed ──────────────────────────────────────────────────
+    def n(**kw):
+        return sum(1 for r in rows if all(r[k] == v for k, v in kw.items()))
+
+    surv = {lbl: sum(1 for r in rows if keep(r)) for lbl, keep, _ in GATES}
+    per_crop = {c: n(crop=c, reason="retained") for c in crops}
+    n_proj = len({r["BioProject"] for r in rows})
+    n_proj_ret = len({r["BioProject"] for r in rows if r["reason"] == "retained"})
+    rice_dep = sorted(float(r["gkmer"]) for r in rows
+                      if r["crop"] == "Rice" and r["reason"] == "below depth floor" and r["gkmer"])
+    rice_design = (n(crop="Rice", reason="exposure: protected")
+                   + n(crop="Rice", reason="exposure: sheltered")
+                   + n(crop="Rice", reason="not field throughout"))
+    rice_unk = n(crop="Rice", reason="exposure: unknown")
+
+    # Composed as sentences and wrapped at the end. Writing the template with its own line
+    # breaks around the interpolations wrapped mid-sentence and read as a broken caption.
+    body = [
+        "Runs surviving each of the four inclusion gates, applied in the order shown, by crop. "
+        "Gates are NESTED, not independent: every run is attributed to the FIRST gate it fails, "
+        "so a run excluded for disease exposure is not counted again at the depth floor. The "
+        f"curated cohort of {surv['cohort as curated']:,} runs across {n_proj} BioProjects "
+        f"reduces to {surv[GATES[-1][0]]:,} runs across {n_proj_ret} BioProjects.",
+
+        "Each gate falls on the crops unevenly, and that is the result the table carries. All "
+        f"{n(reason='exposure: protected') + n(reason='exposure: sheltered')} "
+        "fungicide-protected and rain-excluded runs are rice, as are all "
+        f"{n(reason='not field throughout')} runs not grown in the field throughout; all "
+        f"{n(reason='inoculated')} inoculated runs are maize or wheat. The depth floor is the "
+        "only gate that touches four crops.",
+
+        f"RICE LEAVES THE ANALYSIS ENTIRELY: {per_crop.get('Rice', 0)} of {n(crop='Rice'):,} "
+        f"rice runs are retained. {rice_design} are excluded by a documented feature of the "
+        "study design (fungicide application, rain exclusion, or not field-grown throughout), "
+        f"{rice_unk} are recorded as disease exposure undetermined, and {len(rice_dep):,} fall "
+        "below the depth floor.",
+
+        "The depth exclusion does not depend on where the floor is set. Those runs have a "
+        f"median {rice_dep[len(rice_dep)//2]:.3f} Gkmer and a maximum of {rice_dep[-1]:.3f} "
+        f"against a floor of {FLOOR}, and none is within 2x of it, so any floor at or above "
+        f"{rice_dep[-1] * 1.05:.2f} Gkmer excludes exactly the same runs. Rice is therefore "
+        "reported as outside the analysable set rather than as a crop in which no co-infection "
+        "was found.",
+
+        "Depth is Gkmer, the number of k-mer start positions a library provides at k = 35, not "
+        "reads or bases. ENA read_len is bases per spot, so a paired library's per-read length "
+        "is half of it, and at k = 35 a 51 nt read yields 17 k-mers against 116 for a 150 nt "
+        "read.",
+
+        "Retained by crop: "
+        + ", ".join(f"{c} {per_crop[c]:,}" for c in crops if per_crop[c]) + ".",
+    ]
+    with atomic_write(CAPTION) as fh:
+        fh.write("Supplementary Table S4. The inclusion funnel, per crop.\n")
+        fh.write("Caption for report/figures/depth_funnel_steps.tsv "
+                 "and depth_funnel.{png,pdf}\n\n")
+        fh.write("GENERATED by report/figures/prep_depth_funnel.py -- do not hand-edit.\n\n\n")
+        fh.write("FULL CAPTION\n\n")
+        fh.write("\n\n".join(textwrap.fill(b, 88) for b in body) + "\n")
 
     # The funnel, printed so a mismatch against the recorded counts is visible immediately.
     print("  funnel:")

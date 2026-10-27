@@ -1,17 +1,17 @@
 step	gate	measure	Rice	Maize	Wheat	Sorghum	Other cereal	Barley	TOTAL	n_projects
 0	cohort as curated	surviving	2784	2511	1215	1120	55	3	7688	41
-1	exposure is open	surviving	1661	2345	1099	1120	55	2	6282	30
-1	exposure is open	lost at this gate	1123	166	116	0	0	1	1406	
-2	not inoculated	surviving	1661	2317	1084	1120	55	2	6239	28
+1	exposure is open	surviving	1661	2345	1199	1120	55	2	6382	31
+1	exposure is open	lost at this gate	1123	166	16	0	0	1	1306	
+2	not inoculated	surviving	1661	2317	1184	1120	55	2	6339	29
 2	not inoculated	lost at this gate	0	28	15	0	0	0	43	
-3	field throughout	surviving	1557	2317	1084	1120	55	2	6135	27
+3	field throughout	surviving	1557	2317	1184	1120	55	2	6235	28
 3	field throughout	lost at this gate	104	0	0	0	0	0	104	
-4	depth >= 0.463 Gkmer	surviving	0	1374	1032	1118	54	2	3580	26
+4	depth >= 0.463 Gkmer	surviving	0	1374	1132	1118	54	2	3680	27
 4	depth >= 0.463 Gkmer	lost at this gate	1557	943	52	2	1	0	2555	
-	exposure: unknown	final reason	633	166	116	0	0	1	916	9
+	exposure: unknown	final reason	633	166	16	0	0	1	816	8
 	exposure: protected	final reason	239	0	0	0	0	0	239	1
 	exposure: sheltered	final reason	251	0	0	0	0	0	251	1
 	inoculated	final reason	0	28	15	0	0	0	43	3
 	not field throughout	final reason	104	0	0	0	0	0	104	1
 	below depth floor	final reason	1557	943	52	2	1	0	2555	7
-	retained	final reason	0	1374	1032	1118	54	2	3580	26
+	retained	final reason	0	1374	1132	1118	54	2	3680	27

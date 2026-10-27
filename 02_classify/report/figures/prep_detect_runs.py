@@ -29,7 +29,7 @@ MODULE = HERE.parent.parent
 sys.path.insert(0, str(MODULE))
 sys.path.insert(0, str(MODULE.parent))
 
-from _layout import CLASSIFIED, COINFECTION  # noqa: E402
+from _layout import CLASSIFIED, COHORT_SAMPLES, COINFECTION, LIT_RUNS  # noqa: E402
 from _util import atomic_write  # noqa: E402
 
 TSV = HERE / "detect_runs.tsv"
@@ -60,6 +60,13 @@ def main() -> None:
     args = ap.parse_args()
 
     summ = {s["run"]: s for s in csv.DictReader(open(COINFECTION), delimiter="\t")}
+    # The run's own provenance, for the figure's title block. location, collection_date and
+    # tissue are curated per run in the release; declared_pathogens lives in the literature
+    # run table and is what the STUDY said it was sequencing, which is not the same as what
+    # was detected and is the whole point of the comparison.
+    coh = {r["Run"]: r for r in csv.DictReader(open(COHORT_SAMPLES), delimiter="\t")}
+    decl = {r["Run"]: (r.get("declared_pathogens") or "").strip()
+            for r in csv.DictReader(open(LIT_RUNS), delimiter="\t")}
 
     if args.runs:
         chosen = [r.strip() for r in args.runs.split(",") if r.strip()]
@@ -135,6 +142,12 @@ def main() -> None:
             "tier": tier, "pathogen_source": src, "phibase_host": ph,
             "run": r["run"], "BioProject": r["BioProject"], "crop": s.get("crop", ""),
             "host": s.get("host", ""), "selection": s.get("sampling_selection", ""),
+            "location": coh.get(r["run"], {}).get("location", ""),
+            "year": (coh.get(r["run"], {}).get("collection_date", "") or "")[:4],
+            "tissue": coh.get(r["run"], {}).get("tissue", ""),
+            # "none" is a real curated value meaning the study declared nothing, not a gap.
+            "declared_pathogens": "" if decl.get(r["run"], "") == "none"
+                                  else decl.get(r["run"], ""),
             "n_pathogens": s.get("n_pathogens", ""),
             "n_undeclared": s.get("n_undeclared", ""), "declared": declared,
             "panel": f"{r['run']}  ·  {s.get('crop','?')}  ·  "

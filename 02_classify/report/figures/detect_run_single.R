@@ -87,8 +87,16 @@ STD_ROWS <- 30
 
 # One x range for EVERY run, so paging through is a comparison and not a sequence of
 # separately-scaled pictures. Same reason the y range is fixed.
-xr <- range(d$redundancy); yr <- c(min(d$coverage), 1)
-xs <- 10^seq(log10(xr[1]) - 0.3, log10(xr[2]) + 0.3, length.out = 500)
+# BOTH AXES ARE FIXED CONSTANTS, Leon's call: x from 10^-6 to 10^4 and y from 10^-6 to 1, NOT
+# derived from the data. Deriving them meant the frame moved with whatever happened to be in
+# the current detect_runs.tsv, so two runs rendered in different batches were not comparable,
+# which is the one thing this figure has to be. A constant frame also puts the null curve, the
+# shape test and the abundance floor in the same place on every image, so a reader learns the
+# geometry once.
+#   Clipping y at -3 was tried and reverted: it removed ~91% of the rejected candidates, and
+# that cloud is the evidence that the floors reject far more than they admit.
+xr <- c(1e-6, 1e4); yr <- c(1e-6, 1)
+xs <- 10^seq(log10(xr[1]), log10(xr[2]), length.out = 500)
 null  <- data.frame(x = xs, y = 1 - exp(-pmin(700, xs)))
 shape <- data.frame(x = xs, y = SAT_FLOOR * (1 - exp(-pmin(700, xs))))
 
@@ -112,7 +120,12 @@ plot_run <- function(run) {
 
   n_und <- sum(cal$declared == "undeclared")
   n_dec <- sum(cal$declared == "declared")
-  sub <- sprintf("%s  ·  %s  ·  %s  ·  %s", m$crop, m$host, m$BioProject, m$selection)
+  # Title block, Leon's format: run and project, then the sample's own provenance. The
+  # declared pathogen is listed only where the study named one, because "none" is 82% of the
+  # cohort and a comma with nothing after it reads as missing data rather than as a finding.
+  ttl <- sprintf("%s (%s)", run, m$BioProject)
+  bits <- c(m$host, m$declared_pathogens, m$location, m$year, m$tissue)
+  sub <- paste(bits[!is.na(bits) & nzchar(bits)], collapse = ", ")
   hdr <- sprintf(paste("%d undeclared pathogen%s  ·  %d declared  ·",
                        "%d other fungi above the floor  ·  %d of %d candidates called"),
                  n_und, if (n_und == 1) "" else "s", n_dec,
@@ -168,8 +181,8 @@ plot_run <- function(run) {
                           alpha = unname(TIER_ALPHA[names(TIER_LABEL)])))) +
     scale_x_log10(limits = c(xs[1], xs[length(xs)]),
                   breaks = 10^seq(-6, 4, by = 2), labels = seq(-6, 4, by = 2)) +
-    scale_y_log10(limits = yr, breaks = 10^seq(-6, 0, by = 2),
-                  labels = seq(-6, 0, by = 2)) +
+    scale_y_log10(limits = yr, breaks = 10^seq(-6, 0, by = 1),
+                  labels = seq(-6, 0, by = 1)) +
     labs(x = expression(log[10]~"Redundancy"), y = expression(log[10]~"Coverage")) +
     theme_classic(base_size = 12) +
     theme(panel.background = element_rect(fill = "white", colour = NA),
@@ -217,18 +230,11 @@ plot_run <- function(run) {
 
   p <- (g | tg) + patchwork::plot_layout(widths = c(1.72, 1)) +
     patchwork::plot_annotation(
-      title = run, subtitle = paste0(sub, "\n", hdr),
-      caption = paste("ring: pathogen the study declared   ·",
-                      "numbered: reportable pathogens and host; other fungi are coloured only\n",
-                      "solid curve: null for reads spread uniformly   ·",
-                      "long-dash: shape test (saturation 0.05)   ·",
-                      "dash: abundance floor (coverage 1%)"),
+      title = ttl, subtitle = paste0(sub, "\n", hdr),
       theme = theme(
         plot.background = element_rect(fill = "white", colour = NA),
         plot.title      = element_text(face = "bold", size = 17),
         plot.subtitle   = element_text(size = 10.5, colour = "grey25", lineheight = 1.3),
-        plot.caption    = element_text(size = 8.8, colour = "grey35", hjust = 0,
-                                       lineheight = 1.3),
         plot.margin     = margin(12, 14, 8, 12)))
 
   f <- file.path(OUTDIR, paste0(run, ".png"))

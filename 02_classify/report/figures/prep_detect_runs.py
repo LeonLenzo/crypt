@@ -100,13 +100,39 @@ def main() -> None:
         pathogens = {x for x in (s.get("pathogens") or "").split(";") if x}
         if r["call"] == "yes" and r["species"] in pathogens:
             declared = "undeclared" if r["species"] in undeclared else "declared"
-        elif r["call"] == "yes" and (r["kingdom"] or "").strip() == "Viridiplantae":
-            declared = "host"
-        elif r["call"] == "yes":
-            declared = "other fungus"
         else:
             declared = ""
+        # HOW THE TAXON ENTERED THE REFERENCE, in the Methods' own vocabulary, with PHI-BASE
+        # AND FUNGUILD KEPT APART. Leon, 2026-10-27: those are different kinds of evidence and
+        # the figure must not merge them. routes.py supplies the five membership routes; the
+        # Methods then narrows "pathogen" to route 2 (PHI-base) or route 3 resolved at or below
+        # species rank (FUNGuild), and splits the evidence three ways: documented on the host
+        # sampled, documented on another plant, or a species-rank guild assignment with no host
+        # record. `pathogen_source` is the seam: "phibase"/"both" against "funguild".
+        route = (r.get("route") or "").strip()
+        src = (r.get("pathogen_source") or "").strip()
+        ph = (r.get("phibase_host") or "").strip()
+        if (r["kingdom"] or "").strip() == "Viridiplantae":
+            tier = "host"
+        elif r.get("pathogen") == "yes" and ph == "this_host":
+            tier = "phibase_crop"
+        elif r.get("pathogen") == "yes" and ph == "other_plant":
+            tier = "phibase_plant"
+        elif r.get("pathogen") == "yes":
+            tier = "funguild"          # species-rank guild, no PHI-base host record
+        elif route == "host_associate":
+            tier = "host_associate"
+        elif route == "plant_associate":
+            tier = "plant_associate"
+        elif route == "congener":
+            tier = "congener"
+        else:
+            # On the target route but NOT reportable: no PHI-base record and no species-rank
+            # guild assignment. 2,148 of these 2,180 called rows carry an EMPTY guild string.
+            # They are in scope to give the classifier competitors, not to be found.
+            tier = "target_unresolved"
         rows.append({
+            "tier": tier, "pathogen_source": src, "phibase_host": ph,
             "run": r["run"], "BioProject": r["BioProject"], "crop": s.get("crop", ""),
             "host": s.get("host", ""), "selection": s.get("sampling_selection", ""),
             "n_pathogens": s.get("n_pathogens", ""),

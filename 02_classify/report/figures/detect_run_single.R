@@ -206,15 +206,11 @@ plot_run <- function(run) {
           axis.ticks       = element_line(colour = INK, linewidth = 0.7),
           axis.text        = element_text(colour = INK, size = 13),
           axis.title       = element_text(colour = INK, size = 15),
-          legend.position  = "bottom",
-          legend.box       = "horizontal",
-          legend.box.just  = "top",
-          legend.text      = element_text(size = 9.2),
-          legend.key.size  = unit(14, "pt"),
-          # WIDE keys, or longdash and solid are indistinguishable: a 14pt key is shorter than
-          # one dash-gap cycle, so the shape-test entry rendered as a solid line identical to
-          # the null curve it is meant to be told apart from.
-          legend.key.width = unit(34, "pt"),
+          # NO LEGEND ON THE PLOT. Eleven keys in two guide boxes could not be laid out inside
+          # the panel width and ggplot clipped the left column. It is also the same legend on
+          # every one of ~2,400 images, so it is written ONCE to _legend.png beside them and
+          # drawn by hand below, which removes the layout constraint entirely.
+          legend.position  = "none",
           legend.margin    = margin(0, 0, 0, 0),
           plot.margin      = margin(4, 6, 4, 4))
 
@@ -265,6 +261,44 @@ plot_run <- function(run) {
               run, nrow(s), nrow(cal), nrow(lab), n_und, basename(f)))
 }
 
+# ── the legend, drawn once as its own image ──────────────────────────────────────────────────
+# Hand-built rather than extracted from a plot: cowplot's extraction helpers have moved twice
+# across versions, and a legend that silently comes back NULL is worse than one drawn
+# explicitly. Everything here mirrors the geoms above, so the key cannot drift from the plot.
+write_legend <- function() {
+  # ONE COLUMN of tiers, lines beside them. Three columns were tried at two different pitches
+  # and both overran, because text size is fixed in POINTS while the column offset is in data
+  # units: widening the x range to make room shrinks the units and makes the text occupy MORE
+  # of them, so the overlap gets worse rather than better. Going vertical removes the
+  # constraint instead of negotiating with it.
+  tl <- data.frame(tier = factor(names(TIER_LABEL), levels = names(TIER_COLOUR)),
+                   lab = unname(TIER_LABEL),
+                   x = 0, y = -(seq_along(TIER_LABEL) - 1))
+  ll <- data.frame(lab = factor(unname(LINE_LAB), levels = unname(LINE_LAB)),
+                   x = 8.0, y = -(seq_along(LINE_LAB) - 1))
+
+  g <- ggplot() +
+    geom_point(data = tl, aes(x, y, colour = tier, alpha = tier), shape = 16, size = 4.6) +
+    geom_text(data = tl, aes(x + 0.22, y, label = lab), hjust = 0, size = 4.0, colour = INK) +
+    geom_segment(data = ll, aes(x = x, xend = x + 0.75, y = y, yend = y, linetype = lab),
+                 colour = LINE_COL, linewidth = 0.7) +
+    geom_text(data = ll, aes(x + 0.95, y, label = lab), hjust = 0, size = 4.0, colour = INK) +
+    scale_colour_manual(values = TIER_COLOUR, guide = "none", drop = FALSE) +
+    scale_alpha_manual(values = TIER_ALPHA, guide = "none", drop = FALSE) +
+    scale_linetype_manual(values = c("solid", "longdash", "dashed"), guide = "none") +
+    scale_x_continuous(limits = c(-0.3, 15.0), expand = c(0, 0)) +
+    scale_y_continuous(limits = c(-7.6, 0.6), expand = c(0, 0)) +
+    theme_void() +
+    theme(plot.background = element_rect(fill = "white", colour = NA),
+          plot.margin     = margin(14, 14, 14, 14))
+
+  f <- file.path(OUTDIR, "_legend.png")
+  ragg::agg_png(f, width = 1800, height = 640, res = 190, background = "white")
+  print(g); invisible(dev.off())
+  cat("  legend -> _legend.png\n")
+}
+
 runs <- unique(d$run[order(d$panel_order, d$run)])
 cat("writing", length(runs), "run image(s) to", OUTDIR, "\n")
 invisible(lapply(runs, plot_run))
+write_legend()

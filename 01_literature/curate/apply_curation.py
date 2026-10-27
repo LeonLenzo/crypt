@@ -102,7 +102,22 @@ SETTABLE = {"tissue": "tissue_source", "location": "location_source",
             # claim. Stored as NAMES and resolved to taxids in Python: an LLM recalling a taxid
             # produces confident wrong numbers. Read relative to our scope, so a virus-targeted
             # study declares nothing and its fungal detections are all unreported.
-            "declared_pathogens": "declared_pathogens_source"}
+            "declared_pathogens": "declared_pathogens_source",
+            # ADDED 2026-10-27. It was curated with evidence from 2026-10-21 but was never in
+            # this whitelist, and the whitelist is a sys.exit rather than a skip, so
+            # apply_curation.py has been UNRUNNABLE since the first disease_exposure rule
+            # landed. Two consequences, both found the hard way: a later tissue rule could not
+            # take effect at all, and the field never reached runs.tsv, so
+            # prep_depth_funnel.py reads curation.tsv directly and resolves a MISSING rule to
+            # "unknown" by default -- which is how PRJNA306542 and PRJNA609211, 633 rice runs
+            # carrying documented whole-facility rain exclusion, came to be excluded as an
+            # evidence gap rather than by design.
+            "disease_exposure": "disease_exposure_source",
+            # Orthogonal to disease_exposure and documented as such in curate/DISEASE-EXPOSURE.md:
+            # how the TISSUE was chosen (representative, positional, symptomatic), which is a
+            # selection covariate rather than a statement about the plant's exposure. Three
+            # rules, evidenced, and never applied for the same whitelist reason.
+            "tissue_selection": "tissue_selection_source"}
 
 
 def read(p: Path) -> list[dict]:

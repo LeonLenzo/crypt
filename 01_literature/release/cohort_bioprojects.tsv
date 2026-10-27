@@ -22,7 +22,7 @@ PRJNA896566	Zea mays	accession_list	72	Maize:72	1	10.1093/plphys/kiad460	evidenc
 PRJEB37824	Zea mays	kraken_cohort	60	Maize:60	1	10.15252/msb.20209667	evidence/PRJEB37824.md
 PRJEB65589	Puccinia graminis f. sp. tritici	accession_list	53	Wheat:51; Other cereal:2	1	10.1111/nph.19864	evidence/PRJEB65589.md
 PRJNA418364	Zea mays	kraken_cohort	45	Maize:45	1	10.3389/fpls.2017.02075	evidence/PRJNA418364.md
-PRJNA505891	Zea mays	accession_list	42	Maize:42	1	10.1105/tpc.18.00930	evidence/PRJNA505891.md
+PRJNA505891	Zea mays	accession_list	42	Maize:42	2	10.1105/tpc.18.00930; PRJNA505891	evidence/PRJNA505891.md
 PRJEB36485	Puccinia striiformis f. sp. tritici	accession_list	39	Wheat:39	2	10.1111/ppa.13468	evidence/PRJEB36485.md
 PRJNA256347	Puccinia striiformis f. sp. tritici	accession_list	39	Wheat:35; Other cereal:4	1	10.1186/s12864-021-07488-3	evidence/PRJNA256347.md
 PRJNA721299	Setaria italica	kraken_cohort	36	Other cereal:36	1	10.7717/peerj.12968	evidence/PRJNA721299.md

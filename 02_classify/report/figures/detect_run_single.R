@@ -97,8 +97,18 @@ STD_ROWS <- 30
 # that cloud is the evidence that the floors reject far more than they admit.
 xr <- c(1e-6, 1e4); yr <- c(1e-6, 1)
 xs <- 10^seq(log10(xr[1]), log10(xr[2]), length.out = 500)
-null  <- data.frame(x = xs, y = 1 - exp(-pmin(700, xs)))
-shape <- data.frame(x = xs, y = SAT_FLOOR * (1 - exp(-pmin(700, xs))))
+# The three boundaries as ONE data frame, so they can be a legend instead of a sentence of
+# grey text under the plot. They are distinguished by LINETYPE and share a colour, because
+# ggplot allows one colour scale per plot and that one is spent on the tiers.
+LINE_COL <- "grey30"
+LINE_LAB <- c(null  = "null: reads spread uniformly",
+              shape = "shape test (saturation 0.05)",
+              floor = "abundance floor (coverage 1%)")
+bounds <- rbind(
+  data.frame(x = xs, y = 1 - exp(-pmin(700, xs)),                   which = "null"),
+  data.frame(x = xs, y = SAT_FLOOR * (1 - exp(-pmin(700, xs))),     which = "shape"),
+  data.frame(x = xs, y = COV_FLOOR,                                 which = "floor"))
+bounds$which <- factor(bounds$which, levels = names(LINE_LAB))
 
 plot_run <- function(run) {
   s <- d[d$run == run, ]
@@ -113,6 +123,10 @@ plot_run <- function(run) {
   # coloured by how they entered the reference and left unlabelled: naming twenty Alternaria
   # and Cladosporium that the Methods does not count as pathogens buries the ones it does.
   cal$named <- cal$tier %in% NAMED
+  # NUMBERED IN TIER ORDER, not by coverage alone: the table is read as groups, so the colours
+  # cluster and the eye can take "what did PHI-base call on this crop" in one block instead of
+  # tracking one hue down an interleaved list. Within a tier it is still coverage, descending.
+  cal <- cal[order(cal$tier, -cal$coverage), ]
   cal$n <- NA_integer_
   cal$n[cal$named] <- seq_len(sum(cal$named))
   lab <- cal[cal$named, ]
@@ -135,12 +149,10 @@ plot_run <- function(run) {
                     tier = factor(names(TIER_COLOUR), levels = names(TIER_COLOUR)))
 
   g <- ggplot(s, aes(redundancy, coverage)) +
-    geom_line(data = null,  aes(x, y), inherit.aes = FALSE,
-              colour = "grey45", linewidth = 0.8) +
-    geom_line(data = shape, aes(x, y), inherit.aes = FALSE,
-              colour = INK, linewidth = 0.6, linetype = "longdash") +
-    geom_hline(yintercept = COV_FLOOR, linetype = "dashed",
-               linewidth = 0.6, colour = INK) +
+    geom_line(data = bounds, aes(x, y, linetype = which), inherit.aes = FALSE,
+              colour = LINE_COL, linewidth = 0.65) +
+    scale_linetype_manual(values = c(null = "solid", shape = "longdash", floor = "dashed"),
+                          labels = LINE_LAB, breaks = names(LINE_LAB), name = NULL) +
     geom_point(data = rej, shape = 21, size = 1.5, stroke = 0.3,
                colour = "grey60", fill = NA, alpha = 0.5) +
     # EVERY tier needs a row somewhere or its legend key renders empty. drop = FALSE keeps the
@@ -176,9 +188,11 @@ plot_run <- function(run) {
     # rather than being flattened to solid and contradicting the plot. override.aes takes a
     # vector, in the order of `breaks`.
     guides(colour = guide_legend(
-      ncol = 2,
-      override.aes = list(size = 3.6, shape = 16,
-                          alpha = unname(TIER_ALPHA[names(TIER_LABEL)])))) +
+             ncol = 2, order = 1,
+             override.aes = list(size = 3.6, shape = 16,
+                                 alpha = unname(TIER_ALPHA[names(TIER_LABEL)]))),
+           linetype = guide_legend(ncol = 1, order = 2,
+                                   override.aes = list(colour = LINE_COL))) +
     scale_x_log10(limits = c(xs[1], xs[length(xs)]),
                   breaks = 10^seq(-6, 4, by = 2), labels = seq(-6, 4, by = 2)) +
     scale_y_log10(limits = yr, breaks = 10^seq(-6, 0, by = 1),
@@ -193,8 +207,14 @@ plot_run <- function(run) {
           axis.text        = element_text(colour = INK, size = 13),
           axis.title       = element_text(colour = INK, size = 15),
           legend.position  = "bottom",
-          legend.text      = element_text(size = 8.4),
-          legend.key.size  = unit(10, "pt"),
+          legend.box       = "horizontal",
+          legend.box.just  = "top",
+          legend.text      = element_text(size = 9.2),
+          legend.key.size  = unit(14, "pt"),
+          # WIDE keys, or longdash and solid are indistinguishable: a 14pt key is shorter than
+          # one dash-gap cycle, so the shape-test entry rendered as a solid line identical to
+          # the null curve it is meant to be told apart from.
+          legend.key.width = unit(34, "pt"),
           legend.margin    = margin(0, 0, 0, 0),
           plot.margin      = margin(4, 6, 4, 4))
 
@@ -230,7 +250,7 @@ plot_run <- function(run) {
 
   p <- (g | tg) + patchwork::plot_layout(widths = c(1.72, 1)) +
     patchwork::plot_annotation(
-      title = ttl, subtitle = paste0(sub, "\n", hdr),
+      title = ttl, subtitle = sub,
       theme = theme(
         plot.background = element_rect(fill = "white", colour = NA),
         plot.title      = element_text(face = "bold", size = 17),

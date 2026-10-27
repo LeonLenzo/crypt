@@ -76,6 +76,18 @@ TIER_ALPHA <- c(
   congener          = 0.25,
   host              = 1.00)
 
+# Short forms for the table, where the full legend wording would not fit and is redundant with
+# the swatch beside it.
+TIER_SHORT <- c(
+  phibase_crop      = "PHI-base, this crop",
+  phibase_plant     = "PHI-base, other plant",
+  funguild          = "FUNGuild",
+  host_associate    = "host associate",
+  plant_associate   = "plant associate",
+  target_unresolved = "pathogen route, unresolved",
+  congener          = "congener",
+  host              = "host")
+
 # Only these are labelled and tabulated. The Methods' definition of a reportable pathogen is
 # route 2, or route 3 resolved at or below species rank, which is exactly the first three.
 NAMED <- c("phibase_crop", "phibase_plant", "funguild", "host")
@@ -214,20 +226,47 @@ plot_run <- function(run) {
           legend.margin    = margin(0, 0, 0, 0),
           plot.margin      = margin(4, 6, 4, 4))
 
-  # ── the ranked table: pathogens and host only ───────────────────────────────────────────
-  tb <- lab
-  tb$y <- -tb$n
-  tb$txt <- sprintf("%-2d  %s", tb$n, tb$species)
-  tb$cov <- sprintf("%.1f%%", 100 * tb$coverage)
-  tb$sat <- sprintf("%.2f", tb$saturation)
-  tb$bold <- ifelse(tb$tier == "host", "plain", "bold")
+  # ── the ranked table, grouped by route ──────────────────────────────────────────────────
+  # One block per tier, in the legend's order, with a gap between blocks so the colours read as
+  # groups. Tiers that are not individually named still get a row, as a COUNT: a reader must be
+  # able to see that eighteen plant associates cleared the floor without being made to read
+  # eighteen names the Methods does not count as pathogens.
+  rows_tb <- list(); y <- 0
+  # `grp`, NOT `sub`: `sub` is the SUBTITLE string, built above and consumed by
+  # plot_annotation below, and shadowing it here replaced the whole provenance line with a
+  # stray "8". R gives no warning for that, and the plot still renders.
+  for (tr in names(TIER_COLOUR)) {
+    grp <- cal[cal$tier == tr, ]
+    if (!nrow(grp)) next
+    if (tr %in% NAMED) {
+      for (i in seq_len(nrow(grp))) {
+        y <- y - 1
+        rows_tb[[length(rows_tb) + 1]] <- data.frame(
+          tier = tr, y = y, txt = sprintf("%-2d  %s", grp$n[i], grp$species[i]),
+          cov = sprintf("%.1f%%", 100 * grp$coverage[i]),
+          sat = sprintf("%.2f", grp$saturation[i]),
+          declared = grp$declared[i],
+          bold = if (tr == "host") "plain" else "bold", count = FALSE)
+      }
+    } else {
+      y <- y - 1
+      rows_tb[[length(rows_tb) + 1]] <- data.frame(
+        tier = tr, y = y,
+        txt = sprintf("%d × %s", nrow(grp), TIER_SHORT[[tr]]),
+        cov = "", sat = "", declared = "", bold = "plain", count = TRUE)
+    }
+    y <- y - 0.55                      # the break between route blocks
+  }
+  tb <- do.call(rbind, rows_tb)
+  tb$tier <- factor(tb$tier, levels = names(TIER_COLOUR))
 
   tg <- ggplot(tb, aes(0, y)) +
     geom_point(aes(x = 0, colour = tier, alpha = tier), shape = 16, size = 3.6) +
     geom_point(data = tb[tb$declared == "declared", ], aes(x = 0), shape = 21,
                size = 6.0, stroke = 0.8, colour = INK, fill = NA) +
     geom_text(aes(x = 0.45, label = txt), hjust = 0, size = 3.1,
-              fontface = tb$bold, colour = INK) +
+              fontface = tb$bold,
+              colour = ifelse(tb$count, "grey45", INK)) +
     geom_text(aes(x = 8.1, label = cov), hjust = 1, size = 3.0, family = "mono",
               colour = INK) +
     geom_text(aes(x = 9.4, label = sat), hjust = 1, size = 3.0, family = "mono",
@@ -239,7 +278,7 @@ plot_run <- function(run) {
     scale_colour_manual(values = TIER_COLOUR, guide = "none", drop = FALSE) +
     scale_alpha_manual(values = TIER_ALPHA, guide = "none", drop = FALSE) +
     scale_x_continuous(limits = c(-0.5, 9.6)) +
-    scale_y_continuous(limits = c(-max(STD_ROWS, nrow(tb)) - 0.6, 0.8)) +
+    scale_y_continuous(limits = c(min(-STD_ROWS, min(tb$y)) - 0.8, 0.8)) +
     theme_void(base_size = 12) +
     theme(plot.background = element_rect(fill = "white", colour = NA),
           plot.margin     = margin(4, 4, 4, 2))
@@ -254,7 +293,7 @@ plot_run <- function(run) {
         plot.margin     = margin(12, 14, 8, 12)))
 
   f <- file.path(OUTDIR, paste0(run, ".png"))
-  h <- 480 + 52 * max(STD_ROWS, nrow(tb))
+  h <- 480 + 52 * max(STD_ROWS, abs(min(tb$y)))
   ragg::agg_png(f, width = 2300, height = h, res = 190, background = "white")
   print(p); invisible(dev.off())
   cat(sprintf("  %-14s %4d candidates, %2d called, %2d named, %2d undeclared -> %s\n",
@@ -276,6 +315,7 @@ write_legend <- function() {
                    x = 0, y = -(seq_along(TIER_LABEL) - 1))
   ll <- data.frame(lab = factor(unname(LINE_LAB), levels = unname(LINE_LAB)),
                    x = 8.0, y = -(seq_along(LINE_LAB) - 1))
+  dl <- data.frame(lab = "pathogen the study declared", x = 8.0, y = -4.2)
 
   g <- ggplot() +
     geom_point(data = tl, aes(x, y, colour = tier, alpha = tier), shape = 16, size = 4.6) +
@@ -283,6 +323,14 @@ write_legend <- function() {
     geom_segment(data = ll, aes(x = x, xend = x + 0.75, y = y, yend = y, linetype = lab),
                  colour = LINE_COL, linewidth = 0.7) +
     geom_text(data = ll, aes(x + 0.95, y, label = lab), hjust = 0, size = 4.0, colour = INK) +
+    # The declared halo. It was missing from the key entirely, which left the one ring on the
+    # plot unexplained -- and it is the mark that answers the paper's own question, so it is
+    # the last thing that should have gone unlabelled.
+    geom_point(data = dl, aes(x + 0.37, y), shape = 16, size = 4.6,
+               colour = TIER_COLOUR[["phibase_crop"]]) +
+    geom_point(data = dl, aes(x + 0.37, y), shape = 21, size = 8.4, stroke = 0.9,
+               colour = INK, fill = NA) +
+    geom_text(data = dl, aes(x + 0.95, y, label = lab), hjust = 0, size = 4.0, colour = INK) +
     scale_colour_manual(values = TIER_COLOUR, guide = "none", drop = FALSE) +
     scale_alpha_manual(values = TIER_ALPHA, guide = "none", drop = FALSE) +
     scale_linetype_manual(values = c("solid", "longdash", "dashed"), guide = "none") +

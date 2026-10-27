@@ -61,6 +61,21 @@ TIER_LABEL <- c(
   target_unresolved = "pathogen route, not species-resolved",
   congener          = "congener: shares a genus with a pathogen",
   host              = "host (plant)")
+# RELEVANCE, carried by alpha instead of by a black ring on every point. The host and a
+# pathogen documented on this crop are the two things a reader is here for, so they stay solid;
+# everything else fades in order of how much it bears on the question. The ramp is not
+# decoration: the bottom two entries are taxa the reference carries to give the classifier
+# competitors rather than to be found, and they should recede.
+TIER_ALPHA <- c(
+  phibase_crop      = 1.00,
+  phibase_plant     = 0.85,
+  funguild          = 0.70,
+  host_associate    = 0.55,
+  plant_associate   = 0.42,
+  target_unresolved = 0.32,
+  congener          = 0.25,
+  host              = 1.00)
+
 # Only these are labelled and tabulated. The Methods' definition of a reportable pathogen is
 # route 2, or route 3 resolved at or below species rank, which is exactly the first three.
 NAMED <- c("phibase_crop", "phibase_plant", "funguild", "host")
@@ -120,28 +135,37 @@ plot_run <- function(run) {
     # "PHI-base: pathogen of another plant" and "congener" came out as labels with no swatch.
     # An invisible point per tier fixes it, and the key stays complete across every run so the
     # legend does not change shape as you page through.
-    geom_point(data = key, aes(fill = tier), shape = 21, size = 0,
-               stroke = 0, alpha = 0, show.legend = TRUE) +
-    geom_point(data = other, aes(fill = tier), shape = 21, size = 2.8,
-               stroke = 0.4, colour = INK) +
-    geom_point(data = lab, aes(fill = tier), shape = 21, size = 4.0,
-               stroke = 0.5, colour = INK) +
+    geom_point(data = key, aes(colour = tier), shape = 16, size = 0,
+               alpha = 0, show.legend = TRUE) +
+    # SHAPE 16, not 21. A borderless point has to map COLOUR, because shape 21's colour is its
+    # border and setting that to NA with stroke 0 makes ggplot drop the glyph entirely -- the
+    # first attempt rendered a plot with numbers and no points at all.
+    geom_point(data = other, aes(colour = tier, alpha = tier), shape = 16, size = 3.0) +
+    geom_point(data = lab, aes(colour = tier, alpha = tier), shape = 16, size = 4.4) +
     # DECLARED is a halo, not a fill, so it composes with any tier colour instead of
     # competing with it. A pathogen the study named carries a ring; everything else does not.
     geom_point(data = cal[cal$declared == "declared", ], shape = 21, size = 7.0,
                stroke = 0.9, colour = INK, fill = NA) +
     ggrepel::geom_text_repel(data = lab, aes(label = n), size = 3.0, seed = 1,
-                             colour = INK, fontface = "bold", max.overlaps = Inf,
+                             inherit.aes = TRUE, colour = INK,
+                             fontface = "bold", max.overlaps = Inf,
                              min.segment.length = 0.1, segment.size = 0.2,
                              segment.colour = "grey70", box.padding = 0.3,
                              point.padding = 0.3) +
-    scale_fill_manual(values = TIER_COLOUR, labels = TIER_LABEL,
-                      breaks = names(TIER_LABEL), name = NULL, drop = FALSE) +
+    scale_colour_manual(values = TIER_COLOUR, labels = TIER_LABEL,
+                        breaks = names(TIER_LABEL), name = NULL, drop = FALSE,
+                        aesthetics = "colour") +
+    scale_alpha_manual(values = TIER_ALPHA, guide = "none", drop = FALSE) +
     # override.aes must restore alpha: the invisible key layer above is drawn at alpha = 0 and
     # the legend glyph INHERITS that, so any tier with no real data in a run came out as a
     # label with no swatch. Only visible on runs missing a tier, which is most of them.
-    guides(fill = guide_legend(ncol = 2,
-                               override.aes = list(size = 3.4, alpha = 1, stroke = 0.5))) +
+    # The legend keys carry the SAME alpha as the points, so the ramp is part of the key
+    # rather than being flattened to solid and contradicting the plot. override.aes takes a
+    # vector, in the order of `breaks`.
+    guides(colour = guide_legend(
+      ncol = 2,
+      override.aes = list(size = 3.6, shape = 16,
+                          alpha = unname(TIER_ALPHA[names(TIER_LABEL)])))) +
     scale_x_log10(limits = c(xs[1], xs[length(xs)]),
                   breaks = 10^seq(-6, 4, by = 2), labels = seq(-6, 4, by = 2)) +
     scale_y_log10(limits = yr, breaks = 10^seq(-6, 0, by = 2),
@@ -170,7 +194,7 @@ plot_run <- function(run) {
   tb$bold <- ifelse(tb$tier == "host", "plain", "bold")
 
   tg <- ggplot(tb, aes(0, y)) +
-    geom_point(aes(x = 0, fill = tier), shape = 21, size = 3.4, stroke = 0.5, colour = INK) +
+    geom_point(aes(x = 0, colour = tier, alpha = tier), shape = 16, size = 3.6) +
     geom_point(data = tb[tb$declared == "declared", ], aes(x = 0), shape = 21,
                size = 6.0, stroke = 0.8, colour = INK, fill = NA) +
     geom_text(aes(x = 0.45, label = txt), hjust = 0, size = 3.1,
@@ -183,7 +207,8 @@ plot_run <- function(run) {
              colour = "grey40", fontface = "bold") +
     annotate("text", x = 9.4, y = 0.1, label = "sat", hjust = 1, size = 2.9,
              colour = "grey40", fontface = "bold") +
-    scale_fill_manual(values = TIER_COLOUR, guide = "none", drop = FALSE) +
+    scale_colour_manual(values = TIER_COLOUR, guide = "none", drop = FALSE) +
+    scale_alpha_manual(values = TIER_ALPHA, guide = "none", drop = FALSE) +
     scale_x_continuous(limits = c(-0.5, 9.6)) +
     scale_y_continuous(limits = c(-max(STD_ROWS, nrow(tb)) - 0.6, 0.8)) +
     theme_void(base_size = 12) +

@@ -56,11 +56,22 @@ TIER_LABEL <- c(
   phibase_crop      = "PHI-base: pathogen of this crop",
   phibase_plant     = "PHI-base: pathogen of another plant",
   funguild          = "FUNGuild: plant pathogen, no host record",
-  host_associate    = "host associate: seen in a phytobiome study",
-  plant_associate   = "plant associate: recorded on a plant",
-  target_unresolved = "pathogen route, not species-resolved",
+  host_associate    = "host epiphyte",
+  plant_associate   = "plant epiphyte",
+  target_unresolved = "pathogen genus, no species evidence",
   congener          = "congener: shares a genus with a pathogen",
   host              = "host (plant)")
+
+# DROPPED FROM THE FIGURE, Leon's call. These are taxa the database admits through the pathogen
+# route on a GENUS-level FUNGuild label while the species itself carries no pathogen evidence,
+# so the Methods does not count them and naming them only crowded the ones it does. 2,180 of
+# 11,716 called rows cohort-wide, 86% of them Cladosporium and Alternaria, which are the
+# dominant phyllosphere residents rather than miscast pathogens: 82% have no called congener in
+# the same run to cross-map from, and their saturation (0.122 median) sits with the plant
+# epiphytes rather than below them.
+#   They stay in db_v4 and keep doing their job, which is absorbing reads that would otherwise
+# be forced onto a named pathogen. This hides them from the PICTURE, nothing more.
+HIDE <- c("target_unresolved")
 # RELEVANCE, carried by alpha instead of by a black ring on every point. The host and a
 # pathogen documented on this crop are the two things a reader is here for, so they stay solid;
 # everything else fades in order of how much it bears on the question. The ramp is not
@@ -79,12 +90,12 @@ TIER_ALPHA <- c(
 # Short forms for the table, where the full legend wording would not fit and is redundant with
 # the swatch beside it.
 TIER_SHORT <- c(
-  phibase_crop      = "PHI-base, this crop",
-  phibase_plant     = "PHI-base, other plant",
-  funguild          = "FUNGuild",
-  host_associate    = "host associate",
-  plant_associate   = "plant associate",
-  target_unresolved = "pathogen route, unresolved",
+  phibase_crop      = "PHI-base: pathogen of this crop",
+  phibase_plant     = "PHI-base: pathogen of another plant",
+  funguild          = "FUNGuild: plant pathogen",
+  host_associate    = "host epiphyte",
+  plant_associate   = "plant epiphyte",
+  target_unresolved = "pathogen genus, no species evidence",
   congener          = "congener",
   host              = "host")
 
@@ -127,7 +138,7 @@ plot_run <- function(run) {
   if (!nrow(s)) return(invisible(NULL))
   m <- s[1, ]
   rej <- s[s$call != "yes", ]
-  cal <- s[s$call == "yes", ]
+  cal <- s[s$call == "yes" & !(s$tier %in% HIDE), ]
   cal$tier <- factor(cal$tier, levels = names(TIER_COLOUR))
   cal <- cal[order(-cal$coverage), ]
 
@@ -239,21 +250,27 @@ plot_run <- function(run) {
     grp <- cal[cal$tier == tr, ]
     if (!nrow(grp)) next
     if (tr %in% NAMED) {
+      # A HEADER on each block names the route, which is what lets the legend stop carrying
+      # the eight tier keys: the colour is decoded here, beside the rows it applies to,
+      # instead of in a separate key the reader has to hold in their head.
+      y <- y - 1
+      rows_tb[[length(rows_tb) + 1]] <- data.frame(
+        tier = tr, y = y, txt = TIER_SHORT[[tr]], cov = "", sat = "",
+        declared = "", kind = "head")
       for (i in seq_len(nrow(grp))) {
         y <- y - 1
         rows_tb[[length(rows_tb) + 1]] <- data.frame(
           tier = tr, y = y, txt = sprintf("%-2d  %s", grp$n[i], grp$species[i]),
           cov = sprintf("%.1f%%", 100 * grp$coverage[i]),
           sat = sprintf("%.2f", grp$saturation[i]),
-          declared = grp$declared[i],
-          bold = if (tr == "host") "plain" else "bold", count = FALSE)
+          declared = grp$declared[i], kind = "row")
       }
     } else {
       y <- y - 1
       rows_tb[[length(rows_tb) + 1]] <- data.frame(
         tier = tr, y = y,
         txt = sprintf("%d × %s", nrow(grp), TIER_SHORT[[tr]]),
-        cov = "", sat = "", declared = "", bold = "plain", count = TRUE)
+        cov = "", sat = "", declared = "", kind = "count")
     }
     y <- y - 0.55                      # the break between route blocks
   }
@@ -261,12 +278,20 @@ plot_run <- function(run) {
   tb$tier <- factor(tb$tier, levels = names(TIER_COLOUR))
 
   tg <- ggplot(tb, aes(0, y)) +
-    geom_point(aes(x = 0, colour = tier, alpha = tier), shape = 16, size = 3.6) +
-    geom_point(data = tb[tb$declared == "declared", ], aes(x = 0), shape = 21,
-               size = 6.0, stroke = 0.8, colour = INK, fill = NA) +
-    geom_text(aes(x = 0.45, label = txt), hjust = 0, size = 3.1,
-              fontface = tb$bold,
-              colour = ifelse(tb$count, "grey45", INK)) +
+    # Swatch on rows and counts, not on headers: the header is the name of the group, and a
+    # dot beside it would read as one more member of it.
+    geom_point(data = tb[tb$kind != "head", ], aes(x = 0, colour = tier, alpha = tier),
+               shape = 16, size = 3.6) +
+    geom_point(data = tb[tb$declared == "declared" & tb$kind == "row", ], aes(x = 0),
+               shape = 21, size = 6.0, stroke = 0.8, colour = INK, fill = NA) +
+    # NO BOLD ANYWHERE. Weight was being used for two different things at once -- pathogen
+    # versus host, and named versus counted -- and neither reading survived the other.
+    # Hierarchy is carried by indent and colour instead.
+    geom_text(data = tb[tb$kind == "head", ], aes(x = 0, label = txt), hjust = 0,
+              size = 3.0, colour = "grey35") +
+    geom_text(data = tb[tb$kind != "head", ], aes(x = 0.45, label = txt), hjust = 0,
+              size = 3.1, colour = ifelse(tb$kind[tb$kind != "head"] == "count",
+                                          "grey45", INK)) +
     geom_text(aes(x = 8.1, label = cov), hjust = 1, size = 3.0, family = "mono",
               colour = INK) +
     geom_text(aes(x = 9.4, label = sat), hjust = 1, size = 3.0, family = "mono",
@@ -310,12 +335,17 @@ write_legend <- function() {
   # units: widening the x range to make room shrinks the units and makes the text occupy MORE
   # of them, so the overlap gets worse rather than better. Going vertical removes the
   # constraint instead of negotiating with it.
-  tl <- data.frame(tier = factor(names(TIER_LABEL), levels = names(TIER_COLOUR)),
-                   lab = unname(TIER_LABEL),
-                   x = 0, y = -(seq_along(TIER_LABEL) - 1))
+  # The eight tier keys are GONE: each table block is now headed by its route name with the
+  # swatches beside the rows it applies to, so the colour is decoded where it is used rather
+  # than in a key held in the reader's head. What is left is what the table cannot say --
+  # the three boundaries, and the ring.
+  keep <- setdiff(names(TIER_LABEL), HIDE)
+  tl <- data.frame(tier = factor(keep, levels = names(TIER_COLOUR)),
+                   lab = unname(TIER_LABEL[keep]),
+                   x = 0, y = -(seq_along(keep) - 1))
   ll <- data.frame(lab = factor(unname(LINE_LAB), levels = unname(LINE_LAB)),
-                   x = 8.0, y = -(seq_along(LINE_LAB) - 1))
-  dl <- data.frame(lab = "pathogen the study declared", x = 8.0, y = -4.2)
+                   x = 7.4, y = -(seq_along(LINE_LAB) - 1))
+  dl <- data.frame(lab = "pathogen the study declared", x = 7.4, y = -4.2)
 
   g <- ggplot() +
     geom_point(data = tl, aes(x, y, colour = tier, alpha = tier), shape = 16, size = 4.6) +
@@ -335,13 +365,13 @@ write_legend <- function() {
     scale_alpha_manual(values = TIER_ALPHA, guide = "none", drop = FALSE) +
     scale_linetype_manual(values = c("solid", "longdash", "dashed"), guide = "none") +
     scale_x_continuous(limits = c(-0.3, 15.0), expand = c(0, 0)) +
-    scale_y_continuous(limits = c(-7.6, 0.6), expand = c(0, 0)) +
+    scale_y_continuous(limits = c(-6.6, 0.6), expand = c(0, 0)) +
     theme_void() +
     theme(plot.background = element_rect(fill = "white", colour = NA),
           plot.margin     = margin(14, 14, 14, 14))
 
   f <- file.path(OUTDIR, "_legend.png")
-  ragg::agg_png(f, width = 1800, height = 640, res = 190, background = "white")
+  ragg::agg_png(f, width = 1800, height = 580, res = 190, background = "white")
   print(g); invisible(dev.off())
   cat("  legend -> _legend.png\n")
 }

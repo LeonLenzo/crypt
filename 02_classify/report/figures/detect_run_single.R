@@ -95,14 +95,20 @@ plot_run <- function(run) {
                              min.segment.length = 0.1, segment.size = 0.2,
                              segment.colour = "grey70", box.padding = 0.3,
                              point.padding = 0.25) +
+    # Both axes are read as EXPONENTS now: plain integers on the ticks and log10 in the title,
+    # instead of 10^x notation plus compressed log ticks. The minor ticks were decoration here
+    # -- nothing in this figure is read off an interpolated position between decades, only
+    # relative to the three boundaries -- and dropping them takes a band of visual noise out
+    # from under the data. It also puts the coverage floor on a round number: 1% is -2.
+    # Even decades only, and no bracketed definitions: both quantities are defined in Methods,
+    # so repeating them on every one of ~2,400 images is noise. A tick every other decade is
+    # enough to place a point, because nothing here is read off an absolute position -- only
+    # relative to the three boundaries.
     scale_x_log10(limits = c(xs[1], xs[length(xs)]),
-                  labels = trans_format("log10", math_format(10^.x))) +
-    scale_y_log10(limits = yr, breaks = 10^(-6:0),
-                  labels = c("0.0001%", "0.001%", "0.01%", "0.1%", "1%", "10%", "100%")) +
-    annotation_logticks(sides = "bl", size = 0.3, short = unit(2, "pt"),
-                        mid = unit(3, "pt"), long = unit(4, "pt")) +
-    labs(x = "Redundancy available  (reads × k-mers per spot / taxon's db_v4 minimizers)",
-         y = "Coverage observed  (distinct / taxon's db_v4 minimizers)") +
+                  breaks = 10^seq(-6, 4, by = 2), labels = seq(-6, 4, by = 2)) +
+    scale_y_log10(limits = yr, breaks = 10^seq(-6, 0, by = 2),
+                  labels = seq(-6, 0, by = 2)) +
+    labs(x = expression(log[10]~"Redundancy"), y = expression(log[10]~"Coverage")) +
     theme_classic(base_size = 12) +
     theme(panel.background = element_rect(fill = "white", colour = NA),
           plot.background  = element_rect(fill = "white", colour = NA),

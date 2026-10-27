@@ -185,3 +185,8 @@ docs/*
 # R writes this whenever a script plots without opening a device explicitly. It is an
 # artefact, never an output, and it was committed once by accident.
 Rplots.pdf
+
+# Per-run detection images (detect_run_single.R). One PNG per run at ~0.4 MB, so the full
+# cohort is hundreds of MB of regenerable figures. The repo holds code, small figures and
+# manifests; these are a browsing artefact, rebuilt on demand from detect_runs.tsv.
+02_classify/report/figures/runs/

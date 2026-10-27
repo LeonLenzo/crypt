@@ -91,9 +91,26 @@ def main() -> None:
         if red <= 0 or cov <= 0:
             continue
         s = summ.get(r["run"], {})
+        # DECLARED vs UNDECLARED, which is the paper's actual question and was not on the
+        # figure. coinfection.tsv carries both lists per run; `undeclared` is a subset of
+        # `pathogens`, so a called pathogen absent from `undeclared` is one the study named.
+        # Anything that is not a called pathogen gets "" rather than "no", because "this study
+        # did not declare the host plant" is not a meaningful statement.
+        undeclared = {x for x in (s.get("undeclared") or "").split(";") if x}
+        pathogens = {x for x in (s.get("pathogens") or "").split(";") if x}
+        if r["call"] == "yes" and r["species"] in pathogens:
+            declared = "undeclared" if r["species"] in undeclared else "declared"
+        elif r["call"] == "yes" and (r["kingdom"] or "").strip() == "Viridiplantae":
+            declared = "host"
+        elif r["call"] == "yes":
+            declared = "other fungus"
+        else:
+            declared = ""
         rows.append({
             "run": r["run"], "BioProject": r["BioProject"], "crop": s.get("crop", ""),
+            "host": s.get("host", ""), "selection": s.get("sampling_selection", ""),
             "n_pathogens": s.get("n_pathogens", ""),
+            "n_undeclared": s.get("n_undeclared", ""), "declared": declared,
             "panel": f"{r['run']}  ·  {s.get('crop','?')}  ·  "
                      f"{s.get('n_pathogens','?')} pathogen"
                      f"{'' if s.get('n_pathogens')=='1' else 's'}",

@@ -70,8 +70,33 @@ FIELDS = ("run_accession,study_accession,secondary_study_accession,sample_access
           "instrument_model,read_count,base_count,fastq_bytes,fastq_ftp,"
           "scientific_name,sample_title,experiment_title")
 
-# A control must be the same kind of library as the cohort. See the module docstring.
-WANT_SOURCE = "TRANSCRIPTOMIC"
+# ── THE MOLECULE CHECK, AND WHY IT IS NOT library_source ───────────────────────────────────
+# This filter answers exactly one question: is this library RNA? A CDS database cannot be
+# scored on DNA. It does NOT decide whether a study is an admissible control -- that is a
+# methods read, and it lives in `01_literature/controls/control_candidates.tsv`. Keeping the
+# two apart is the point: a label can be wrong, a quoted methods sentence cannot.
+#
+# It keyed on `library_source == TRANSCRIPTOMIC` until 2026-10-27 and that rejected a valid
+# control outright. **PRJEB58154 (Child 2023, Z. tritici, the highest undeclared load at 343)
+# has all 18 runs labelled `library_source=METAGENOMIC`, `scientific_name=plant metagenome`,
+# with `library_strategy=RNA-Seq`.** The submitter described the library's CONTENT -- a wheat
+# leaf carrying a fungus is two organisms -- not its molecule. The paper is unambiguous: sample
+# labels are strain x dpi x replicate ("B6_2" = Dztbck1, 6 dpi, rep 2) for three single strains
+# inoculated separately, and libraries were TruSeq HT stranded mRNA, so poly(A) and matching
+# the cohort's chemistry. Rejecting it lost the single most valuable control to a metadata
+# convention.
+#
+# STRATEGY ALONE IS ALSO NOT ENOUGH, which is why both are tested. The original justification
+# stands and is the opposite error: 245 of P. triticina's 418 runs declare
+# `library_strategy=RNA-Seq` with `library_source=GENOMIC`. So the rule is RNA-Seq strategy AND
+# not a DNA source.
+WANT_STRATEGY = "RNA-SEQ"
+DNA_SOURCES = {"GENOMIC", "METAGENOMIC_DNA", "SYNTHETIC", "VIRAL RNA"}
+# Admissible, but the second two describe a library that MAY be a community rather than one
+# pathogen plus its host. That cannot be settled from a label, so they are admitted and FLAGGED
+# for the methods read instead of being silently taken or silently dropped.
+RNA_SOURCES = {"TRANSCRIPTOMIC", "METATRANSCRIPTOMIC", "METAGENOMIC"}
+FLAG_SOURCES = {"METATRANSCRIPTOMIC", "METAGENOMIC"}
 WANT_PLATFORM = "ILLUMINA"
 
 STATUS_COLS = ["Run", "BioProject", "status", "seconds", "bytes", "n_files", "note"]
@@ -111,9 +136,15 @@ def filereport(accession: str, refresh: bool = False) -> list[dict]:
 
 
 def admissible(row: dict) -> str:
-    """"" if the run may be fetched, else the reason it may not."""
-    if (row.get("library_source") or "").upper() != WANT_SOURCE:
-        return f"library_source={row.get('library_source') or 'empty'}"
+    """"" if the run may be fetched, else the reason it may not. See THE MOLECULE CHECK."""
+    strat = (row.get("library_strategy") or "").upper()
+    src = (row.get("library_source") or "").upper()
+    if strat != WANT_STRATEGY:
+        return f"library_strategy={row.get('library_strategy') or 'empty'}"
+    if src in DNA_SOURCES:
+        return f"library_source={src} is DNA"
+    if src not in RNA_SOURCES:
+        return f"library_source={src or 'empty'} is not a known RNA source"
     if (row.get("instrument_platform") or "").upper() != WANT_PLATFORM:
         return f"platform={row.get('instrument_platform') or 'empty'}"
     if not row.get("fastq_ftp"):
@@ -121,35 +152,49 @@ def admissible(row: dict) -> str:
     return ""
 
 
-def plan(accession: str, refresh: bool) -> tuple[list, list]:
-    """(todo, rejected) for one accession. todo rows are (run, urls, sizes)."""
-    todo, rejected = [], []
+def flagged(row: dict) -> str:
+    """"" unless the source label leaves the single-pathogen question open."""
+    src = (row.get("library_source") or "").upper()
+    if src in FLAG_SOURCES:
+        return (f"{src}: RNA, so fetchable, but the label does not say whether this is ONE "
+                f"pathogen plus its host or a community -- confirm against the methods")
+    return ""
+
+
+def plan(accession: str, refresh: bool) -> tuple[list, list, set]:
+    """(todo, rejected, notes) for one accession. todo rows are (run, urls, sizes)."""
+    todo, rejected, notes = [], [], set()
     for r in filereport(accession, refresh):
         why = admissible(r)
         if why:
             rejected.append((r["run_accession"], why))
             continue
+        if flagged(r):
+            notes.add(flagged(r))
         urls = [u for u in r["fastq_ftp"].split(";") if u]
         sizes = [int(s) for s in (r.get("fastq_bytes") or "").split(";") if s.strip().isdigit()]
         sizes += [0] * (len(urls) - len(sizes))
         todo.append((r["run_accession"], urls, sizes))
-    return sorted(todo), rejected
+    return sorted(todo), rejected, notes
 
 
 def describe(accession: str, refresh: bool) -> None:
     """Print what the archive says, run by run. The pass to read BEFORE spending the stream."""
     rows = filereport(accession, refresh)
     print(f"\n{accession}: {len(rows)} runs")
-    print(f"  {'run':14s} {'source':15s} {'sel':12s} {'GB':>6s} {'Mreads':>7s}  title")
+    print(f"  {'run':14s} {'source':18s} {'strategy':10s} {'GB':>6s} {'Mreads':>7s}  title")
     for r in sorted(rows, key=lambda x: x["run_accession"]):
         gb = sum(int(s) for s in (r.get("fastq_bytes") or "").split(";")
                  if s.strip().isdigit()) / 1e9
         mr = int(r["read_count"]) / 1e6 if (r.get("read_count") or "").isdigit() else 0
-        flag = admissible(r)
-        print(f"  {r['run_accession']:14s} {(r.get('library_source') or '-'):15s} "
-              f"{(r.get('library_selection') or '-'):12s} {gb:6.2f} {mr:7.1f}  "
-              f"{(r.get('sample_title') or r.get('experiment_title') or '')[:60]}"
-              f"{'   REJECTED: ' + flag if flag else ''}")
+        why, flag = admissible(r), flagged(r)
+        print(f"  {r['run_accession']:14s} {(r.get('library_source') or '-'):18s} "
+              f"{(r.get('library_strategy') or '-'):10s} {gb:6.2f} {mr:7.1f}  "
+              f"{(r.get('sample_title') or r.get('experiment_title') or '')[:48]}"
+              f"{'   REJECTED: ' + why if why else ('   FLAG' if flag else '')}")
+    notes = {flagged(r) for r in rows if flagged(r)}
+    for n in sorted(notes):
+        print(f"  NOTE  {n}")
 
 
 def main() -> None:
@@ -173,12 +218,14 @@ def main() -> None:
     rows = []
     t0 = time.time()
     for acc in args.accession:
-        todo, rejected = plan(acc, args.refresh)
+        todo, rejected, notes = plan(acc, args.refresh)
         tb = sum(sum(s) for _, _, s in todo) / 2**40
         print(f"\n--- {acc}: {len(todo)} runs, {tb:.4f} TiB"
               f"{'  (DRY RUN)' if args.dry_run else ''} ---", flush=True)
         for run, why in rejected:
             print(f"  {run}: REJECTED, {why}")
+        for n in sorted(notes):
+            print(f"  NOTE  {n}")
         if not todo:
             print(f"  {acc}: nothing admissible")
             continue

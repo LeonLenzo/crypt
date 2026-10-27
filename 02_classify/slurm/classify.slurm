@@ -67,6 +67,16 @@ SHM=/dev/shm/db_v4_$SLURM_JOB_ID
 WORKERS=${WORKERS:-8}
 THREADS=${THREADS:-8}
 
+# The tmp dir is PER JOB ($SLURM_JOB_ID), and that is a correctness requirement, not tidiness.
+# classify.py writes each report to "$TMP/<Run>.report.partial" and renames it on success, so
+# two classify jobs that overlap on the same run -- which is the normal case, because the whole
+# point of the resume check is that a job may be started while another is still going -- would
+# have two kraken2 processes writing ONE partial file and both renaming it over the real report.
+# The resume check cannot catch that: the result is a non-empty report of interleaved output,
+# which is indistinguishable from a good one by size. Separate tmp dirs make the overlap safe,
+# which is what lets a freshly-landed project be classified without cancelling the chained
+# sweep that will confirm it later.
+
 # Built as an ARRAY, not a string. A quoted string with a line continuation inside it keeps the
 # backslash as a literal character, and unquoted $TREE then word-splits it into an argument of
 # its own, so classify.py is handed a bare "\" and argparse rejects the run.
@@ -98,7 +108,7 @@ for P in $PROJECT; do
   python3 02_classify/04_classify/classify.py \
       --project "$P" --db "$SHM" \
       --workers "$WORKERS" --threads "$THREADS" --mmap \
-      --tmp-dir "$MYSCRATCH/kraken_tmp" "${TREE[@]+${TREE[@]}}" || rc=$?
+      --tmp-dir "$MYSCRATCH/kraken_tmp/$SLURM_JOB_ID" "${TREE[@]+${TREE[@]}}" || rc=$?
 done
 
 echo "exit     $rc after ${SECONDS}s"

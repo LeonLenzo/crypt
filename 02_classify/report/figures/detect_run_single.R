@@ -58,20 +58,23 @@ TIER_LABEL <- c(
   funguild          = "FUNGuild: plant pathogen, no host record",
   host_associate    = "host epiphyte",
   plant_associate   = "plant epiphyte",
-  target_unresolved = "pathogen genus, no species evidence",
+  target_unresolved = "pathogen genus label only",
   congener          = "congener: shares a genus with a pathogen",
   host              = "host (plant)")
 
-# DROPPED FROM THE FIGURE, Leon's call. These are taxa the database admits through the pathogen
-# route on a GENUS-level FUNGuild label while the species itself carries no pathogen evidence,
-# so the Methods does not count them and naming them only crowded the ones it does. 2,180 of
-# 11,716 called rows cohort-wide, 86% of them Cladosporium and Alternaria, which are the
-# dominant phyllosphere residents rather than miscast pathogens: 82% have no called congener in
-# the same run to cross-map from, and their saturation (0.122 median) sits with the plant
-# epiphytes rather than below them.
-#   They stay in db_v4 and keep doing their job, which is absorbing reads that would otherwise
-# be forced onto a named pathogen. This hides them from the PICTURE, nothing more.
-HIDE <- c("target_unresolved")
+# SHOWN, NOT HIDDEN, and NOT relabelled as an epiphyte. These are taxa the database admits
+# through the pathogen route on a GENUS-level FUNGuild label while the species itself carries
+# no pathogen evidence. Hiding them was tried and reverted: 2,180 of 11,716 called rows is too
+# much to drop from a picture whose job is to show what cleared the floors.
+#   Calling them epiphytes was considered and REFUSED, because the routes are the evidence
+# chain and these carry no plant association at all: 0 of 2,180 have a USDA Fungus-Host record,
+# 19 have a phytobiome-study record, and 99% have NEITHER. "Epiphyte" would assert a record
+# that does not exist, which is the same error as calling them pathogens pointed the other way.
+#   What IS known is one thing only, and the label says exactly that: their genus was labelled
+# a plant pathogen. The absence of a USDA record is a fact about the reference databases, not
+# about the biology -- Cladosporium allicinum is obviously found on plants, nobody entered the
+# species-rank record.
+HIDE <- character(0)
 # RELEVANCE, carried by alpha instead of by a black ring on every point. The host and a
 # pathogen documented on this crop are the two things a reader is here for, so they stay solid;
 # everything else fades in order of how much it bears on the question. The ramp is not
@@ -95,7 +98,7 @@ TIER_SHORT <- c(
   funguild          = "FUNGuild: plant pathogen",
   host_associate    = "host epiphyte",
   plant_associate   = "plant epiphyte",
-  target_unresolved = "pathogen genus, no species evidence",
+  target_unresolved = "pathogen genus label only",
   congener          = "congener",
   host              = "host")
 

@@ -19,6 +19,7 @@ selection is seeded so the figure is reproducible.
 
 import argparse
 import csv
+import sqlite3
 import random
 import sys
 from collections import defaultdict
@@ -29,7 +30,8 @@ MODULE = HERE.parent.parent
 sys.path.insert(0, str(MODULE))
 sys.path.insert(0, str(MODULE.parent))
 
-from _layout import CLASSIFIED, COHORT_SAMPLES, COINFECTION, LIT_RUNS  # noqa: E402
+from _layout import (CLASSIFIED, COHORT_SAMPLES, COINFECTION,  # noqa: E402
+                     HOLOBASE, LIT_RUNS)
 from _util import atomic_write  # noqa: E402
 
 TSV = HERE / "detect_runs.tsv"
@@ -37,6 +39,33 @@ SEED = 20261020
 # One sample per rung of the outcome, so the panel row reads as a gradient from clean to
 # heavily co-infected rather than as an arbitrary sample.
 WANT = [(0, 1), (1, 2), (2, 2), (3, 1), (5, 1), (8, 1)]   # (n_pathogens, how many runs)
+
+
+def plant_associated() -> set:
+    """NCBI taxids with a USDA Fungus-Host record against a PLANT host.
+
+    THE SAME DEFINITION ROUTE 4 USES, read from holobase rather than from the routes column,
+    because that column is stale and cannot be refreshed cheaply. `select_refs.py` takes routes
+    from `assemblies.tsv`, which is `survey.py`'s record of what NCBI held, and refreshing it
+    means re-querying NCBI and pulling assemblies for 578 newly-seeded taxa -- a database
+    composition change, not a relabel.
+
+    The seed bug this works around is fixed in build_seeds.py and real: route 4 gated on
+    assembly LEVEL, so a species was denied "recorded on a plant" because its only assembly was
+    a contig, then picked up by route 1 on a genus-level FUNGuild label. Cladosporium allicinum
+    holds 43 USDA plant-host records and was routed as a pathogen-genus taxon on that basis.
+    Reading holobase asks the evidence directly and cannot go stale the same way.
+    """
+    if not HOLOBASE.exists():
+        print(f"  no holobase at {HOLOBASE}; plant-association unknown", file=sys.stderr)
+        return set()
+    con = sqlite3.connect(HOLOBASE)
+    return {int(t) for (t,) in con.execute(
+        "SELECT DISTINCT tf.ncbi_taxid FROM host_association h "
+        "JOIN taxon tf ON tf.taxon_id = h.fungus_id "
+        "JOIN taxon th ON th.taxon_id = h.host_id "
+        "WHERE h.source = 'usda_fungus_host' AND th.kingdom = 'Viridiplantae' "
+        "AND tf.ncbi_taxid IS NOT NULL") if t is not None}
 
 
 def guild_of(g: str) -> str:
@@ -64,6 +93,8 @@ def main() -> None:
     # tissue are curated per run in the release; declared_pathogens lives in the literature
     # run table and is what the STUDY said it was sequencing, which is not the same as what
     # was detected and is the whole point of the comparison.
+    PLANT_ASSOC = plant_associated()
+    print(f"  {len(PLANT_ASSOC):,} taxids carry a USDA plant-host record")
     coh = {r["Run"]: r for r in csv.DictReader(open(COHORT_SAMPLES), delimiter="\t")}
     decl = {r["Run"]: (r.get("declared_pathogens") or "").strip()
             for r in csv.DictReader(open(LIT_RUNS), delimiter="\t")}
@@ -117,6 +148,7 @@ def main() -> None:
         # sampled, documented on another plant, or a species-rank guild assignment with no host
         # record. `pathogen_source` is the seam: "phibase"/"both" against "funguild".
         route = (r.get("route") or "").strip()
+        rts = {x for x in (r.get("routes") or "").split(";") if x}
         src = (r.get("pathogen_source") or "").strip()
         ph = (r.get("phibase_host") or "").strip()
         if (r["kingdom"] or "").strip() == "Viridiplantae":
@@ -127,11 +159,16 @@ def main() -> None:
             tier = "phibase_plant"
         elif r.get("pathogen") == "yes":
             tier = "funguild"          # species-rank guild, no PHI-base host record
-        elif route == "host_associate":
+        # NOT a reportable pathogen, so FALL BACK PAST `target`. The strongest route is the
+        # right answer for membership but the wrong one for a detection label: "target" only
+        # says a genus-level pathogen label exists somewhere, and precedence puts it above
+        # every route that carries real species-level evidence. Asking what else is known
+        # about the taxon is the honest question once the pathogen test has already failed.
+        elif "host_associate" in rts:
             tier = "host_associate"
-        elif route == "plant_associate":
+        elif "plant_associate" in rts or int(r["taxid"]) in PLANT_ASSOC:
             tier = "plant_associate"
-        elif route == "congener":
+        elif rts == {"congener"} or route == "congener":
             tier = "congener"
         else:
             # On the target route but NOT reportable: no PHI-base record and no species-rank

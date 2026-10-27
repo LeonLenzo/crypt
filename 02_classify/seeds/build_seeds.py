@@ -83,12 +83,28 @@ USDA_TSV = HERE / "fungi_usda.tsv"
 ANNOT_TSV = HERE / "fungi_annotated.tsv"
 ANNOT_CACHE = HERE / ".annotation_cache.jsonl"   # gitignored; a rerun costs nothing
 
-# Assembly levels a reference may be built from. Contig-only taxa are excluded here because
-# 01_search/kraken_search.py's own gate is scaffold_plus(), so listing them as seeds would
-# promise taxa the selector then silently drops. If that gate is ever relaxed (there is an
-# open decision about it for six resident genera whose only annotated assembly is a contig,
-# including Papiliotrema, rice's most abundant genus), relax it here too and in step.
+# Assembly levels a reference may be built from.
+#
+# THE ROUTE-4 GATE IS RELAXED, 2026-10-27, which is the condition the note below anticipated.
+# It read: contig-only taxa are excluded because 01_search/kraken_search.py's own gate is
+# scaffold_plus(), so seeding them would promise taxa the selector then drops; relax it here if
+# that gate is ever relaxed. It was. 01_search is RETIRED, and its replacement
+# 01_refs/select_refs.py states "the assembly-level gate is gone" -- `require_scaffold`
+# defaults to False and survives only as a comparison flag. db_v4's selected reference set is
+# 1,526 Contig assemblies out of 4,271, so the seed had been aligned to a dead module's
+# behaviour for two database versions.
+#
+# What it cost, measured on the called detections: a species was denied route 4
+# (plant_associate) on ASSEMBLY QUALITY no matter how many plant-host records it held, and then
+# picked up by route 1 on a genus-level FUNGuild label -- a stronger claim resting on weaker
+# evidence, decided by contig N50. Cladosporium allicinum carries 43 USDA plant-host records
+# and was routed as a pathogen-genus taxon because its only assembly is a contig. Ten species
+# and 1,058 called rows sit on the wrong side of it.
+#
+# ANY_LEVEL is therefore what route 4 counts. SCAFFOLD_PLUS is kept because the NCBI annotation
+# survey below still uses it, and that is a separate question with its own refetch cost.
 SCAFFOLD_PLUS = ("Scaffold", "Chromosome", "Complete Genome")
+ANY_LEVEL = ("Scaffold", "Chromosome", "Complete Genome", "Contig")
 
 # Ranks worth seeding. formae speciales are kept deliberately: the rusts' f.sp. split is a
 # real signal in 05_filter, and `_expand_taxids()` must pass intermediate_nodes=True for the
@@ -148,7 +164,7 @@ SELECT tf.ncbi_taxid                          AS ncbi_taxid,
  ORDER BY n_assemblies DESC, n_plant_hosts DESC
 """
 
-QUERY_FUNGI = _SELECT.format(levels=SCAFFOLD_PLUS, ranks=RANKS, kingdom="Fungi",
+QUERY_FUNGI = _SELECT.format(levels=ANY_LEVEL, ranks=RANKS, kingdom="Fungi",
                              having="HAVING n_assemblies > 0")
 
 
@@ -363,7 +379,7 @@ def main():
         r["in_db_v3"] = "yes" if str(r["ncbi_taxid"]) in v3 else "no"
 
     new = [r for r in rows if r["in_db_v3"] == "no"]
-    print(f"USDA plant-associated fungi with a scaffold+ assembly : {len(rows):,}")
+    print(f"USDA plant-associated fungi with any assembly        : {len(rows):,}")
     print(f"  already in db_v3                                   : {len(rows) - len(new):,}")
     print(f"  NEW to db_v3                                       : {len(new):,}")
     print(f"  assemblies they hold (pre-floor, pre-annotation)    : "

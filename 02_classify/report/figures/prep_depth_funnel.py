@@ -54,6 +54,13 @@ from _layout import COHORT_SAMPLES, SILVER  # noqa: E402
 from _util import atomic_write  # noqa: E402
 
 FLOOR = 0.463
+# THE FOUR CROPS THE PAPER COVERS. Leon, 2026-10-27: the supplementary table has to be true to
+# the paper, which claims wheat, maize, rice and sorghum, so "other cereal" and "barley" are not
+# columns in it. They are not a rounding error either: dropping them removes 58 runs, 56 of them
+# previously retained, and two whole projects (PRJNA721299, 36 Setaria italica KERNEL runs, and
+# PRJNA1232637, 1 Hordeum vulgare run). The retained "barley" was 2 runs of Hordeum jubatum, a
+# wild grass rather than the crop. Cohort 7,688 -> 7,630 and retained 3,680 -> 3,624.
+PAPER_CROPS = ("Wheat", "Maize", "Rice", "Sorghum")
 CURATION = MODULE.parent / "01_literature/seeds/curation.tsv"
 TSV = HERE / "depth_funnel.tsv"
 SUMMARY = HERE / "depth_funnel_summary.tsv"
@@ -145,106 +152,95 @@ def main() -> None:
                         f"{st.median(g):.3f}", f"{g[int(.25 * (len(g) - 1))]:.3f}",
                         f"{g[int(.75 * (len(g) - 1))]:.3f}", f"{lay[0]} (n={lay[1]})"])
 
-    # ONE definition of the gates, used by both the table and the check below. They were
-    # written twice before and the printed check is the only thing that would have caught a
-    # drift between them, which is backwards.
-    GATES = (
-        ("cohort as curated", lambda r: True, 7688),
-        ("exposure is open", lambda r: r["disease_exposure"] == "open", 6382),
-        ("not inoculated",
-         lambda r: r["disease_exposure"] == "open"
-         and r["sampling_selection"] != "inoculated", 6339),
-        ("field throughout",
-         lambda r: r["disease_exposure"] == "open"
-         and r["sampling_selection"] != "inoculated" and r["setting"] == "field", 6235),
-        (f"depth >= {FLOOR} Gkmer", lambda r: r["reason"] == "retained", 3680),
-    )
-    crops = sorted({r["crop"] for r in rows},
-                   key=lambda c: -sum(1 for r in rows if r["crop"] == c))
+    # ── THE PUBLICATION TABLE: three stages, two filters of different KIND ────────────────
+    # Leon's design, 2026-10-27. The two filters are not the same sort of thing and the table
+    # says so: "Naturally Infected" is METHODOLOGICAL (what the originating study did to the
+    # plants, or failed to report) and "Library Depth" is TECHNICAL (what the sequencing can
+    # support). Collapsing them into one list of five reasons hid that distinction, which is
+    # the one a reader needs in order to judge whether an exclusion is about the world or
+    # about us.
+    #   Filter rows carry the LOSS, not the survivors, with a Total Remaining row at the foot.
+    # Restricted to PAPER_CROPS.
+    pc = [r for r in rows if r["crop"] in PAPER_CROPS]
+
+    def methodological(r):
+        return (r["disease_exposure"] == "open"
+                and r["sampling_selection"] != "inoculated"
+                and r["setting"] == "field")
+
+    def technical(r):
+        return bool(r["gkmer"]) and float(r["gkmer"]) >= FLOOR
+
+    s1 = pc
+    s2 = [r for r in s1 if methodological(r)]
+    s3 = [r for r in s2 if technical(r)]
+
+    def cells(sub):
+        return [sum(1 for r in sub if r["crop"] == c) for c in PAPER_CROPS]
+
+    def lost(a, b):
+        keep = {id(r) for r in b}
+        return [r for r in a if id(r) not in keep]
+
+    l2, l3 = lost(s1, s2), lost(s2, s3)
     with atomic_write(STEPS) as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
-        w.writerow(["step", "gate", "measure"] + crops + ["TOTAL", "n_projects"])
-        prev = None
-        for i, (lbl, keep, _t) in enumerate(GATES):
-            surv = [r for r in rows if keep(r)]
-            w.writerow([i, lbl, "surviving"]
-                       + [sum(1 for r in surv if r["crop"] == c) for c in crops]
-                       + [len(surv), len({r["BioProject"] for r in surv})])
-            if prev is not None:
-                lost = [r for r in prev if not keep(r)]
-                w.writerow([i, lbl, "lost at this gate"]
-                           + [sum(1 for r in lost if r["crop"] == c) for c in crops]
-                           + [len(lost), ""])
-            prev = surv
-        # The raw reason, which is finer than `fate`: the grouped "disease suppressed or
-        # manipulated by design" is FOUR different exclusions, and they do not fall alike.
+        w.writerow([""] + list(PAPER_CROPS) + ["TOTAL"])
+        w.writerow(["Literature Search"] + cells(s1) + [len(s1)])
+        w.writerow(["Naturally Infected"] + [-x if x else 0 for x in cells(l2)] + [-len(l2)])
+        w.writerow(["Library Depth"] + [-x if x else 0 for x in cells(l3)] + [-len(l3)])
+        w.writerow(["Total Remaining"] + cells(s3) + [len(s3)])
+        # Not part of the manuscript table, but the caption quotes these and they must be
+        # checkable against the same run-level file rather than retyped.
+        w.writerow([])
+        w.writerow(["# sub-reasons within the methodological filter"]
+                   + list(PAPER_CROPS) + ["TOTAL", "n_projects"])
         for reason in ("exposure: unknown", "exposure: protected", "exposure: sheltered",
-                       "inoculated", "not field throughout", "below depth floor", "retained"):
-            sub = [r for r in rows if r["reason"] == reason]
+                       "inoculated", "not field throughout"):
+            sub = [r for r in pc if r["reason"] == reason]
             if sub:
-                w.writerow(["", reason, "final reason"]
-                           + [sum(1 for r in sub if r["crop"] == c) for c in crops]
+                w.writerow([reason] + cells(sub)
                            + [len(sub), len({r["BioProject"] for r in sub})])
 
-    # ── the caption, every number computed ──────────────────────────────────────────────────
-    def n(**kw):
-        return sum(1 for r in rows if all(r[k] == v for k, v in kw.items()))
-
-    surv = {lbl: sum(1 for r in rows if keep(r)) for lbl, keep, _ in GATES}
-    per_crop = {c: n(crop=c, reason="retained") for c in crops}
-    n_proj = len({r["BioProject"] for r in rows})
-    n_proj_ret = len({r["BioProject"] for r in rows if r["reason"] == "retained"})
-    rice_dep = sorted(float(r["gkmer"]) for r in rows
-                      if r["crop"] == "Rice" and r["reason"] == "below depth floor" and r["gkmer"])
-    rice_design = (n(crop="Rice", reason="exposure: protected")
-                   + n(crop="Rice", reason="exposure: sheltered")
-                   + n(crop="Rice", reason="not field throughout"))
-    rice_unk = n(crop="Rice", reason="exposure: unknown")
-
-    # Composed as sentences and wrapped at the end. Writing the template with its own line
-    # breaks around the interpolations wrapped mid-sentence and read as a broken caption.
+    # ── the caption: what the table IS, not what it shows ───────────────────────────────────
+    # Leon, 2026-10-27: "the caption doesn't need to describe the data, just what it is". So it
+    # defines the three stages, the two kinds of filter and the depth unit, and stops. The
+    # findings the earlier draft narrated (rice leaving entirely, each filter falling on one
+    # crop) are RESULTS and belong in the Results text, not here. The sub-reasons are listed
+    # because they define what the methodological filter is; their counts are data and are in
+    # the table's second block.
     body = [
-        "Runs surviving each of the four inclusion gates, applied in the order shown, by crop. "
-        "Gates are NESTED, not independent: every run is attributed to the FIRST gate it fails, "
-        "so a run excluded for disease exposure is not counted again at the depth floor. The "
-        f"curated cohort of {surv['cohort as curated']:,} runs across {n_proj} BioProjects "
-        f"reduces to {surv[GATES[-1][0]]:,} runs across {n_proj_ret} BioProjects.",
-
-        "Each gate falls on the crops unevenly, and that is the result the table carries. All "
-        f"{n(reason='exposure: protected') + n(reason='exposure: sheltered')} "
-        "fungicide-protected and rain-excluded runs are rice, as are all "
-        f"{n(reason='not field throughout')} runs not grown in the field throughout; all "
-        f"{n(reason='inoculated')} inoculated runs are maize or wheat. The depth floor is the "
-        "only gate that touches four crops.",
-
-        f"RICE LEAVES THE ANALYSIS ENTIRELY: {per_crop.get('Rice', 0)} of {n(crop='Rice'):,} "
-        f"rice runs are retained. {rice_design} are excluded by a documented feature of the "
-        "study design (fungicide application, rain exclusion, or not field-grown throughout), "
-        f"{rice_unk} are recorded as disease exposure undetermined, and {len(rice_dep):,} fall "
-        "below the depth floor.",
-
-        "The depth exclusion does not depend on where the floor is set. Those runs have a "
-        f"median {rice_dep[len(rice_dep)//2]:.3f} Gkmer and a maximum of {rice_dep[-1]:.3f} "
-        f"against a floor of {FLOOR}, and none is within 2x of it, so any floor at or above "
-        f"{rice_dep[-1] * 1.05:.2f} Gkmer excludes exactly the same runs. Rice is therefore "
-        "reported as outside the analysable set rather than as a crop in which no co-infection "
-        "was found.",
-
-        "Depth is Gkmer, the number of k-mer start positions a library provides at k = 35, not "
-        "reads or bases. ENA read_len is bases per spot, so a paired library's per-read length "
-        "is half of it, and at k = 35 a 51 nt read yields 17 k-mers against 116 for a 150 nt "
-        "read.",
-
-        "Retained by crop: "
-        + ", ".join(f"{c} {per_crop[c]:,}" for c in crops if per_crop[c]) + ".",
+        "Runs removed at each stage of the inclusion funnel, for the four cereal crops this "
+        "study covers. Literature Search is the curated cohort. Naturally Infected is a "
+        # lowercase in the caption: the distinction is carried by the sentence, and caps read as
+        # shouting on a printed page. The emphasis belongs in the code comment, not the paper.
+        "methodological filter, removing runs whose originating study did not provide an "
+        "unmanipulated, naturally infected field sample: disease exposure not determinable from "
+        "the paper, fungicide protection, rain exclusion, inoculation rather than natural "
+        "infection, or plants not field-grown throughout. Library Depth is a technical filter, "
+        f"removing libraries below {FLOOR} Gkmer, the count of k-mer start positions a library "
+        "provides at k = 35. Filter rows give runs removed; Total Remaining is the analysed set.",
     ]
     with atomic_write(CAPTION) as fh:
-        fh.write("Supplementary Table S4. The inclusion funnel, per crop.\n")
-        fh.write("Caption for report/figures/depth_funnel_steps.tsv "
-                 "and depth_funnel.{png,pdf}\n\n")
+        fh.write("Supplementary Table T4. The inclusion funnel.\n")
+        fh.write("Caption for report/figures/depth_funnel_steps.tsv\n\n")
         fh.write("GENERATED by report/figures/prep_depth_funnel.py -- do not hand-edit.\n\n\n")
         fh.write("FULL CAPTION\n\n")
         fh.write("\n\n".join(textwrap.fill(b, 88) for b in body) + "\n")
+
+    # The self-check still runs over the WHOLE cohort, not PAPER_CROPS, because its targets are
+    # the recorded cohort funnel and the point is to catch curation drift.
+    GATES = (
+        ("cohort as curated", lambda r: True, 7688),
+        ("exposure is open", lambda r: r["disease_exposure"] == "open", 6382),
+        ("+ not inoculated",
+         lambda r: r["disease_exposure"] == "open"
+         and r["sampling_selection"] != "inoculated", 6339),
+        ("+ field throughout",
+         lambda r: r["disease_exposure"] == "open"
+         and r["sampling_selection"] != "inoculated" and r["setting"] == "field", 6235),
+        ("+ depth floor", lambda r: r["reason"] == "retained", 3680),
+    )
 
     # The funnel, printed so a mismatch against the recorded counts is visible immediately.
     print("  funnel:")

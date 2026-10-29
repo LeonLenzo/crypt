@@ -1,0 +1,7 @@
+citation: Human MP, Berger DK, Crampton BG (2020). Time-Course RNAseq Reveals Exserohilum turcicum Effectors and Pathogenicity Determinants. Frontiers in Microbiology 11:360.
+doi: https://doi.org/10.3389/fmicb.2020.00360
+sequence_data: PRJNA560644  (verified resolves in ENA and SRA, 2026-10-26)
+target_species: Exserohilum turcicum
+stored_file: Hum20.pdf
+retrieved: 2026-10-26 via Undermind open-access PDF link
+role: negative-control candidate for the saturation-floor calibration; see ../controls/control_candidates.tsv

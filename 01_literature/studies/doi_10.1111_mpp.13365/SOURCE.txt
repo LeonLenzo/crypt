@@ -1,0 +1,7 @@
+citation: Child HT, Deeks MJ, Rudd JJ, Bates S (2023). Comparison of the impact of two key fungal signalling pathways on Zymoseptoria tritici infection reveals divergent contribution to invasive growth through distinct regulation of infection-associated genes. Molecular Plant Pathology 24:1220-1237.
+doi: https://doi.org/10.1111/mpp.13365
+sequence_data: PRJEB58154  (18 runs, verified in ENA 2026-10-26; use the IPO323 wildtype runs as the single-pathogen control)
+target_species: Zymoseptoria tritici
+stored_file: Chi23.pdf
+retrieved: 2026-10-26 via Undermind open-access PDF link
+role: negative-control candidate (Z. tritici); replaces Rudd 2015 which has a mock time course but no deposited accession

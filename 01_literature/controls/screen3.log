@@ -1,0 +1,40 @@
+Puccinia striiformis            1395 runs
+Puccinia triticina               418 runs
+Puccinia graminis                203 runs
+Blumeria graminis                176 runs
+Zymoseptoria tritici             549 runs
+Parastagonospora nodorum          16 runs
+Exserohilum turcicum             138 runs
+Bipolaris maydis                  74 runs
+Bipolaris sorokiniana             98 runs
+Pyrenophora teres                104 runs
+Pyrenophora tritici-repentis       6 runs
+Curvularia clavata                27 runs
+Fusarium graminearum            2138 runs
+Fusarium verticillioides         423 runs
+Alternaria alternata             338 runs
+Alternaria tenuissima             14 runs
+
+resolving papers for 56 shortlisted studies (36 already cached)
+  [2/56] PRJNA436064 none 
+  [3/56] PRJNA560311 none 
+  [8/56] PRJNA1188614 europepmc_geo 10.1093/g3journal/jkaf084
+  [10/56] PRJNA976811 none 
+  [13/56] PRJNA293594 europepmc_srp 10.1101/gr.199877.115
+  [20/56] PRJNA1528706 none 
+  [23/56] PRJNA390225 none 
+  [24/56] PRJNA516068 none 
+  [27/56] PRJNA655244 none 
+  [29/56] PRJNA1014615 none 
+  [30/56] PRJNA1027801 none 
+  [32/56] PRJNA1150090 none 
+  [33/56] PRJNA1445497 none 
+  [34/56] PRJNA1273446 none 
+  [36/56] PRJNA719070 none 
+  [37/56] PRJNA475942 none 
+  [43/56] PRJEB120974 none 
+  [44/56] PRJNA1457771 none 
+  [51/56] PRJNA918399 europepmc_geo 10.1186/s12915-023-01520-6
+  [53/56] PRJNA454075 europepmc_srp 10.1186/s12915-018-0543-2
+
+wrote candidates_runs.tsv (6117 runs) and candidates_studies.tsv (497 studies)

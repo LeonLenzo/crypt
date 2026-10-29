@@ -1,0 +1,7 @@
+citation: Yu H, et al. (2024). Infection-specific transcriptional patterns of the maize pathogen Cochliobolus heterostrophus unravel genes involved in asexual development and virulence. Molecular Plant Pathology 25:e70001.
+doi: https://doi.org/10.1111/mpp.70001
+sequence_data: PRJNA1043471  (verified resolves in ENA and SRA, 2026-10-26)
+target_species: Bipolaris maydis
+stored_file: Yu24.pdf
+retrieved: 2026-10-26 via Undermind open-access PDF link
+role: negative-control candidate for the saturation-floor calibration; see ../controls/control_candidates.tsv

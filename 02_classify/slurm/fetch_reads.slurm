@@ -14,6 +14,12 @@
 #   cd /scratch/pawsey1168/llenzo/crypt
 #   sbatch --export=ALL,PROJECT=PRJEB83049,PILOT=1 02_classify/slurm/fetch_reads.slurm
 #
+# PROJECT MAY BE A SPACE-SEPARATED LIST, and for a queue of small projects it should be. Same
+# reason classify.slurm takes one: the per-job overhead is paid once, and submitting nine jobs
+# that each want the single ENA stream just serialises them with extra queue latency. Order the
+# list by value, because a 24 h wall is a real constraint here and the job may not finish: the
+# first projects in the list are the ones that land.
+#
 # PARTITION=copy, not work. This is pure network and filesystem I/O: ENA serves ready-made
 # fastq.gz, so nothing is decompressed or recompressed and no core is doing arithmetic. The
 # `copy` partition exists for exactly this and keeps a 24h data transfer off the compute nodes.
@@ -39,15 +45,21 @@ cd /scratch/pawsey1168/llenzo/crypt || exit 1
 mkdir -p 02_classify/slurm/logs
 
 : "${PROJECT:?set PROJECT, e.g. --export=ALL,PROJECT=PRJEB83049}"
-ARGS="--project $PROJECT --workers ${WORKERS:-24}"
-[ -n "${PILOT:-}" ] && ARGS="$ARGS --pilot-only"
-[ -n "${LIMIT:-}" ] && ARGS="$ARGS --limit $LIMIT"
-
 echo "host     $(hostname)"
+echo "projects $PROJECT"
 echo "started  $(date -Is)"
+
 SECONDS=0
-python3 02_classify/03_cohort/fetch_reads.py $ARGS
-rc=$?
+rc=0
+for P in $PROJECT; do
+  echo "--- $P ---"
+  ARGS="--project $P --workers ${WORKERS:-24}"
+  [ -n "${PILOT:-}" ] && ARGS="$ARGS --pilot-only"
+  [ -n "${LIMIT:-}" ] && ARGS="$ARGS --limit $LIMIT"
+  python3 02_classify/03_cohort/fetch_reads.py $ARGS || rc=$?
+  echo "--- $P done, ${SECONDS}s elapsed in job ---"
+done
+
 echo "exit     $rc after ${SECONDS}s"
 echo "finished $(date -Is)"
 exit $rc

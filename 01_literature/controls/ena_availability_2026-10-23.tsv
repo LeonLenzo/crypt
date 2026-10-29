@@ -1,0 +1,25 @@
+kind	species	taxid	rank	rna_seq_runs
+pathogen	Puccinia striiformis	27350	species	1395
+pathogen	Puccinia triticina	208348	species	418
+pathogen	Puccinia graminis	5297	species	203
+pathogen	Puccinia sorghi	27349	species	4
+pathogen	Blumeria graminis	34373	species	176
+pathogen	Zymoseptoria tritici	1047171	species	549
+pathogen	Parastagonospora nodorum	13684	species	16
+pathogen	Exserohilum turcicum	93612	species	138
+pathogen	Bipolaris zeicola	5017	species	0
+pathogen	Bipolaris maydis	5016	species	74
+pathogen	Bipolaris sorokiniana	45130	species	98
+pathogen	Cercospora zeae-maydis	135779	species	0
+pathogen	Pyrenophora tritici-repentis	45151	species	6
+pathogen	Pyrenophora teres	53485	species	104
+pathogen	Curvularia clavata	95742	species	27
+pathogen	Fusarium graminearum	5518	species	2138
+pathogen	Fusarium verticillioides	117187	species	423
+pathogen	Alternaria alternata	5599	species	338
+pathogen	Alternaria tenuissima	119927	species	14
+host	Triticum aestivum	4565	species	23773
+host	Zea mays	4577	species	58814
+host	Sorghum bicolor	4558	species	10769
+host	Oryza sativa	4530	species	45264
+host	Hordeum vulgare	4513	species	13695

@@ -1,0 +1,7 @@
+citation: Basak P, et al. (2024). Transcriptome analysis of Bipolaris sorokiniana - Hordeum vulgare provides insights into mechanisms of host-pathogen interaction. Frontiers in Microbiology 15:1360571.
+doi: https://doi.org/10.3389/fmicb.2024.1360571
+sequence_data: PRJNA996376  (verified resolves in ENA and SRA, 2026-10-26)
+target_species: Bipolaris sorokiniana
+stored_file: Bas24.pdf
+retrieved: 2026-10-26 via Undermind open-access PDF link
+role: negative-control candidate for the saturation-floor calibration; see ../controls/control_candidates.tsv

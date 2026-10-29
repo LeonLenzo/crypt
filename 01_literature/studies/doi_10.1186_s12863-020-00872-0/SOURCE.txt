@@ -1,0 +1,7 @@
+citation: Wei J, et al. (2020). Puccinia triticina pathotypes THTT and THTS display complex transcript profiles on wheat cultivar Thatcher. BMC Genetics 21(?).
+doi: https://doi.org/10.1186/s12863-020-00872-0
+sequence_data: PRJNA613154  (2 runs SRR11348676/677, verified in ENA and SRA 2026-10-26; single-pathotype Thatcher infection)
+target_species: Puccinia triticina
+stored_file: Wei20.pdf
+retrieved: 2026-10-26 via Undermind open-access PDF link
+role: negative-control candidate (P. triticina); replaces Bruce 2014 (no accession). Neugebauer 2018 deposited only GenBank TSA contigs, no raw reads.

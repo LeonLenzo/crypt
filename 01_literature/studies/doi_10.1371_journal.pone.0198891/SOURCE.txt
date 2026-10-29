@@ -1,0 +1,7 @@
+citation: Hu Y, et al. (2018). Comparative transcriptome profiling of Blumeria graminis f. sp. tritici during compatible and incompatible interactions with sister wheat lines carrying and lacking Pm40. PLoS ONE 13:e0198891.
+doi: https://doi.org/10.1371/journal.pone.0198891
+sequence_data: SRP117269  (verified resolves in ENA and SRA, 2026-10-26)
+target_species: Blumeria graminis
+stored_file: Hu18.pdf
+retrieved: 2026-10-26 via Undermind open-access PDF link
+role: negative-control candidate for the saturation-floor calibration; see ../controls/control_candidates.tsv

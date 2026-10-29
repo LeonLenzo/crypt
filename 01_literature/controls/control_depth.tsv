@@ -1,0 +1,16 @@
+study	accession	species	n_runs	gkmer_min	gkmer_median	gkmer_max	role	depth_note
+Child 2023	PRJEB58154	Zymoseptoria tritici	18	5.20	6.00	8.24	in planta + mutants	deep, rarefy from one
+Wei 2020	PRJNA613154	Puccinia triticina	2	0.11	0.11	0.11	in planta	BELOW FLOOR and thin, cannot rarefy up
+Hu 2018	SRP117269	Blumeria graminis	37	3.81	10.26	14.57	in planta time course	deep; 6-72 hpi spans effective fungal depth
+Henningsen 2021	PRJNA483957	Puccinia graminis	54	1.26	2.66	4.37	in planta + mock	mid; mock arm is the host floor
+Rutter 2017	PRJNA347320	Puccinia graminis	37	0.39	2.95	23.94	in planta + mock	deep; spans floor to 24
+Dobon 2016	PRJEB12497	Puccinia striiformis	42	2.10	3.28	7.33	in planta time course	0-11 dpi spans effective fungal depth
+Human 2020	PRJNA560644	Exserohilum turcicum	12	2.53	2.60	2.93	in planta	narrow depth, one timepoint band
+Jones 2019	PRJNA632579	Parastagonospora nodorum	16	4.73	30.14	67.13	in vitro + in planta	DEEPEST in set; axenic arm = clean high effective depth
+Moolhuijzen 2018	PRJEB29046	Pyrenophora tritici-repentis	6	4.00	4.24	4.77	mock + infection + axenic	complete template, all three arms
+Kim 2021	PRJNA634448	Puccinia sorghi	36	7.92	16.52	40.02	in planta + mock	deep; mock arm present
+Basak 2024	PRJNA996376	Bipolaris sorokiniana	10	3.88	9.39	22.08	in planta + axenic	deep; axenic PDB arm
+Yu 2024	PRJNA1043471	Bipolaris maydis	9	5.28	6.14	6.92	in planta + axenic	axenic CMX arm
+Rocher 2022	PRJNA795285	Fusarium graminearum	35	0.72	2.62	14.52	in planta	deep, spans floor
+cohort-retained	-	REFERENCE	3580	0.46	3.10	32.10	-	the range the controls must cover
+carlia	not deposited	Parastagonospora nodorum	12	30	35	40	axenic in vitro	in-house; deeper than needed, P. nodorum already covered by Jones

@@ -1,0 +1,49 @@
+run	BioProject	biosample	host	species	taxid	kingdom	guild	route	routes	pathogen	pathogen_source	phibase_host	reads	distinct	db_clade	redundancy	coverage	saturation	fsp_frac	judgeable	call	reason
+ERR2822756	PRJEB29046			Triticum aestivum	4565	Viridiplantae		host	host	no			19003376	12302279	32855993	77.5034	0.37443	0.37443	0.0000	yes	yes	
+ERR2822757	PRJEB29046			Triticum aestivum	4565	Viridiplantae		host	host	no			15953426	11836457	32855993	65.0645	0.360253	0.360253	0.0000	yes	yes	
+ERR2822758	PRJEB29046			Pyrenophora tritici-repentis	45151	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	17186751	4037992	5551287	414.863	0.727397	0.727397	0.0000	yes	yes	
+ERR2822759	PRJEB29046			Pyrenophora tritici-repentis	45151	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	19954098	4064028	5551287	481.663	0.732088	0.732088	0.0000	yes	yes	
+ERR2822760	PRJEB29046			Triticum aestivum	4565	Viridiplantae		host	host	no			16936326	12516989	32855993	69.0732	0.380965	0.380965	0.0000	yes	yes	
+ERR2822760	PRJEB29046			Pyrenophora tritici-repentis	45151	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	139009	1247693	5551287	3.35548	0.224757	0.232883	0.0000	yes	yes	
+ERR2822761	PRJEB29046			Triticum aestivum	4565	Viridiplantae		host	host	no			17917482	12537425	32855993	73.0747	0.381587	0.381587	0.0000	yes	yes	
+ERR2822761	PRJEB29046			Pyrenophora tritici-repentis	45151	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	215552	1640819	5551287	5.20311	0.295575	0.297209	0.0000	yes	yes	
+ERR11021185	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			16353030	10024197	32855993	41.3106	0.305095	0.305095	0.0000	yes	yes	
+ERR11021185	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	226148	1556981	6239459	3.00832	0.249538	0.262499	0.0000	yes	yes	
+ERR11021186	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			18479878	10662523	32855993	46.6834	0.324523	0.324523	0.0000	yes	yes	
+ERR11021186	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	339269	2007335	6239459	4.5131	0.321716	0.325283	0.0000	yes	yes	
+ERR11021187	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			17548776	10909555	32855993	44.3313	0.332042	0.332042	0.0000	yes	yes	
+ERR11021187	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	185868	1512894	6239459	2.4725	0.242472	0.264816	0.0000	yes	yes	
+ERR11021188	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			16111993	9944998	32855993	40.7017	0.302684	0.302684	0.0000	yes	yes	
+ERR11021188	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	635465	2287506	6239459	8.45323	0.366619	0.366697	0.0000	yes	yes	
+ERR11021189	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			19070087	10803840	32855993	48.1744	0.328824	0.328824	0.0000	yes	yes	
+ERR11021189	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	1040035	2738344	6239459	13.835	0.438875	0.438876	0.0000	yes	yes	
+ERR11021190	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			17683407	11206165	32855993	44.6714	0.341069	0.341069	0.0000	yes	yes	
+ERR11021190	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	672694	2484408	6239459	8.94847	0.398177	0.398229	0.0000	yes	yes	
+ERR11021191	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			24270362	11589013	32855993	61.3112	0.352721	0.352721	0.0000	yes	yes	
+ERR11021191	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	247305	1720987	6239459	3.28976	0.275823	0.286499	0.0000	yes	yes	
+ERR11021192	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			18518341	10658644	32855993	46.7806	0.324405	0.324405	0.0000	yes	yes	
+ERR11021192	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	241533	1500942	6239459	3.21298	0.240556	0.250641	0.0000	yes	yes	
+ERR11021193	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			14765136	10263701	32855993	37.2993	0.312384	0.312384	0.0000	yes	yes	
+ERR11021193	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	142312	1177033	6239459	1.8931	0.188643	0.222091	0.0000	yes	yes	
+ERR11021194	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			15795940	9645989	32855993	39.9033	0.293584	0.293584	0.0000	yes	yes	
+ERR11021194	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	143952	1070447	6239459	1.91491	0.171561	0.20121	0.0000	yes	yes	
+ERR11021195	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			20062297	11245675	32855993	50.6809	0.342272	0.342272	0.0000	yes	yes	
+ERR11021195	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	275611	1722700	6239459	3.6663	0.276098	0.283343	0.0000	yes	yes	
+ERR11021196	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			15602484	10353050	32855993	39.4146	0.315104	0.315104	0.0000	yes	yes	
+ERR11021196	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	170608	1307380	6239459	2.2695	0.209534	0.233689	0.0000	yes	yes	
+ERR11021197	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			24137371	11349396	32855993	60.9752	0.345428	0.345428	0.0000	yes	yes	
+ERR11021197	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	237403	1646550	6239459	3.15804	0.263893	0.275609	0.0000	yes	yes	
+ERR11021198	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			17194188	9136101	32855993	43.4355	0.278065	0.278065	0.0000	yes	yes	
+ERR11021198	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	244390	1306452	6239459	3.25098	0.209385	0.217823	0.0000	yes	yes	
+ERR11021199	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			12277468	9909818	32855993	31.015	0.301614	0.301614	0.0000	yes	yes	
+ERR11021199	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	216698	1514731	6239459	2.88261	0.242766	0.257165	0.0000	yes	yes	
+ERR11021200	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			16873194	10131684	32855993	42.6246	0.308366	0.308366	0.0000	yes	yes	
+ERR11021200	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	477999	1999105	6239459	6.35855	0.320397	0.320953	0.0000	yes	yes	
+ERR11021201	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			15902406	10323972	32855993	40.1723	0.314219	0.314219	0.0000	yes	yes	
+ERR11021201	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	536445	2128806	6239459	7.13602	0.341184	0.341456	0.0000	yes	yes	
+ERR11021202	PRJEB58154			Triticum aestivum	4565	Viridiplantae		host	host	no			18040442	10341560	32855993	45.5733	0.314754	0.314754	0.0000	yes	yes	
+ERR11021202	PRJEB58154			Zymoseptoria tritici	1047171	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	448671	2040199	6239459	5.96842	0.326983	0.327822	0.0000	yes	yes	
+SRR11348676	PRJNA613154			Triticum aestivum	4565	Viridiplantae		host	host	no			1531288	2552413	32855993	0.699091	0.0776849	0.154454	0.0000	yes	yes	
+SRR11348676	PRJNA613154			Puccinia triticina	208348	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	1748859	2373948	8607804	3.04757	0.27579	0.289536	0.0000	yes	yes	
+SRR11348677	PRJNA613154			Puccinia triticina	208348	Fungi	Plant Pathogen	target	plant_associate;target	yes	both	other_plant	2328600	2679839	8607804	4.05783	0.311327	0.316803	0.0000	yes	yes	
+SRR11348677	PRJNA613154			Triticum aestivum	4565	Viridiplantae		host	host	no			1364930	2331998	32855993	0.623142	0.0709763	0.153051	0.0000	yes	yes	

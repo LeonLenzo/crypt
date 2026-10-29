@@ -1,0 +1,7 @@
+citation: Kim S-B, et al. (2021). Analysis of the transcriptomic, metabolomic, and gene regulatory responses to Puccinia sorghi in maize. Molecular Plant Pathology 22:465-479.
+doi: https://doi.org/10.1111/mpp.13040
+sequence_data: PRJNA634448  (verified resolves in ENA and SRA, 2026-10-26)
+target_species: Puccinia sorghi
+stored_file: Kim21e.pdf
+retrieved: 2026-10-26 via Undermind open-access PDF link
+role: negative-control candidate for the saturation-floor calibration; see ../controls/control_candidates.tsv

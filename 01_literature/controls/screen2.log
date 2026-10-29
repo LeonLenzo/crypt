@@ -1,0 +1,50 @@
+Puccinia striiformis            1395 runs
+Puccinia triticina               418 runs
+Puccinia graminis                203 runs
+Blumeria graminis                176 runs
+Zymoseptoria tritici             549 runs
+Parastagonospora nodorum          16 runs
+Exserohilum turcicum             138 runs
+Bipolaris maydis                  74 runs
+Bipolaris sorokiniana             98 runs
+Pyrenophora teres                104 runs
+Pyrenophora tritici-repentis       6 runs
+Curvularia clavata                27 runs
+Fusarium graminearum            2138 runs
+Fusarium verticillioides         423 runs
+Alternaria alternata             338 runs
+Alternaria tenuissima             14 runs
+
+resolving papers for 56 shortlisted studies (38 already cached)
+  [2/56] PRJNA436064 none 
+  [3/56] PRJNA560311 none 
+  [4/56] PRJNA505097 europepmc_ambiguous_3 10.1128/mbio.01371-25
+  [5/56] PRJNA743515 europepmc 10.1111/mpp.13155
+  [8/56] PRJNA1188614 none 
+  [9/56] PRJNA1187605 europepmc 10.1093/g3journal/jkaf084
+  [10/56] PRJNA976811 none 
+  [11/56] PRJNA1020378 europepmc 10.1038/s41467-024-48336-8
+  [12/56] PRJNA664506 europepmc 10.1007/s44297-026-00070-x
+  [13/56] PRJNA293594 none 
+  [19/56] PRJNA1181034 europepmc 10.1186/s12864-026-12964-9
+  [25/56] PRJEB75530 ena_xref 10.1371/journal.ppat.1007666
+  [30/56] PRJNA1027801 none 
+  [32/56] PRJNA1150090 none 
+  [34/56] PRJNA1273446 none 
+  [38/56] PRJNA764855 europepmc 10.3389/ffunb.2022.894590
+  [40/56] PRJNA632579 ena_xref 10.1038/s41598-019-52444-7
+  [41/56] PRJNA415866 europepmc_ambiguous_2 10.1186/s12915-021-01123-z
+  [42/56] PRJNA950118 europepmc 10.1186/s12915-023-01717-9
+  [43/56] PRJEB120974 none 
+  [44/56] PRJNA1457771 none 
+  [45/56] PRJNA396589 europepmc_ambiguous_3 10.1186/s12864-021-07488-3
+  [47/56] PRJNA1195871 europepmc 10.1101/gr.280359.124
+  [48/56] PRJNA749614 europepmc 10.1371/journal.pone.0280004
+  [49/56] PRJNA392275 europepmc_ambiguous_2 10.1534/g3.117.300196
+  [50/56] PRJEB29046 europepmc 10.1186/s13104-018-3993-2
+  [52/56] PRJNA604047 europepmc 10.1111/mpp.13064
+  [53/56] PRJNA454075 none 
+  [55/56] PRJEB8798 ena_xref 10.1104/pp.114.255927
+  [56/56] PRJNA1162778 europepmc 10.1128/mbio.03468-25
+
+wrote candidates_runs.tsv (6117 runs) and candidates_studies.tsv (497 studies)

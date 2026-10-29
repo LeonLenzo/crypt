@@ -1,0 +1,7 @@
+run	accession	species	material	role	dpi
+ERR2822756	PRJEB29046	Triticum aestivum	wheat mock inoculation	host-only floor	3
+ERR2822757	PRJEB29046	Triticum aestivum	wheat mock inoculation	host-only floor	4
+ERR2822760	PRJEB29046	Pyrenophora tritici-repentis	infected wheat	single-pathogen infection	3
+ERR2822761	PRJEB29046	Pyrenophora tritici-repentis	infected wheat	single-pathogen infection	4
+ERR2822758	PRJEB29046	Pyrenophora tritici-repentis	M4 vegetative mycelia in vitro	axenic culture	NA
+ERR2822759	PRJEB29046	Pyrenophora tritici-repentis	M4 sporulating mycelia in vitro	axenic culture	NA

@@ -1,0 +1,7 @@
+citation: Jones DAB, et al. (2019). A specific fungal transcription factor controls effector gene expression and orchestrates the establishment of the necrotrophic pathogen lifestyle on wheat. Scientific Reports 9:15884.
+doi: https://doi.org/10.1038/s41598-019-52444-7
+sequence_data: PRJNA632579  (verified resolves in ENA and SRA, 2026-10-26)
+target_species: Parastagonospora nodorum
+stored_file: Jon19.pdf
+retrieved: 2026-10-26 via Undermind open-access PDF link
+role: negative-control candidate for the saturation-floor calibration; see ../controls/control_candidates.tsv

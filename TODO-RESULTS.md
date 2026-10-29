@@ -105,6 +105,43 @@ one, those being an insect pathogen and a *Penicillium*; the rest were yeasts an
       (21 runs, 100% co-infected, 30.9% fungal, median 10 pathogen genera) and currently
       without a curated site.
 
+## 1b. 03_align, the host-response question
+
+Leon's third question for this paper: do samples carrying more than one pathogen differ
+transcriptionally from singly infected ones? Needs `03_align`, which does not exist yet, and is
+a job for a separate agent. Per-gene host quantification is not produced anywhere in the
+current pipeline.
+
+**Never compare across sites.** The big wheat projects are surveys, not replicated experiments:
+PRJEB39201 is 538 runs over 240 sites, roughly two runs per site, and no site in any of the
+multisite projects holds 10 runs in both infection classes.
+
+What the site structure does allow:
+
+    project       runs  sites  sites with both classes  runs in those  median runs/site
+    PRJEB39201     538    240                       55            274               4
+    PRJEB31334     153     75                       14             80             4.5
+    PRJEB15280     132     75                       12             50               3
+    PRJEB84390     100     32                        7             52               5
+    PRJNA746402     61      1                        1             59              59
+    PRJNA718488     30      1                        1             27              27
+    PRJEB47693      23      8                        0              0               0
+
+Design that follows from it:
+
+- [ ] **Primary: PRJNA746402**, maize, Spain (Pontevedra, Salcedo), one site, one design, 59
+      informative runs split 14 single against 45 multi.
+- [ ] **Secondary: a site-blocked analysis of PRJEB39201**, using the 55 sites that contain both
+      classes (274 runs) with site as a block. Per-site power is negligible at a median of four
+      runs, so the strength is in the number of blocks: a stratified or mixed model reporting
+      within-site effects only, never a pooled contrast.
+- [ ] **Condition on severity, designed in rather than checked after.** A run carrying two
+      pathogens probably carries more disease, so match or covary on the dominant pathogen's
+      coverage. Otherwise the result reads as amount of infection rather than diversity of it.
+- [ ] PRJNA718488 (Zurich, 27 runs, 17 against 10) is inoculated, so keep it as the manipulated
+      contrast rather than as part of the estimate.
+- [ ] Causality is not recoverable from this design either way, and the Discussion has to say so.
+
 ## 2. Decisions
 
 Settled 2026-10-23:

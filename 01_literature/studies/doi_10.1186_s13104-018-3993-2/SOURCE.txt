@@ -1,0 +1,7 @@
+citation: Moolhuijzen P, See PT, Moffat CS (2018). Exploration of wheat and pathogen transcriptomes during tan spot infection. BMC Research Notes 11:907.
+doi: https://doi.org/10.1186/s13104-018-3993-2
+sequence_data: PRJEB29046  (verified resolves in ENA and SRA, 2026-10-26)
+target_species: Pyrenophora tritici-repentis
+stored_file: Moo18b.pdf
+retrieved: 2026-10-26 via Undermind open-access PDF link
+role: negative-control candidate for the saturation-floor calibration; see ../controls/control_candidates.tsv

@@ -1,0 +1,7 @@
+citation: Rutter WB, et al. (2017). Divergent and convergent modes of interaction between wheat and Puccinia graminis f. sp. tritici isolates revealed by the comparative gene co-expression network and genome analyses. BMC Genomics 18:291.
+doi: https://doi.org/10.1186/s12864-016-3353-3
+sequence_data: PRJNA347320  (verified resolves in ENA and SRA, 2026-10-26)
+target_species: Puccinia graminis
+stored_file: Rut17.pdf
+retrieved: 2026-10-26 via Undermind open-access PDF link
+role: negative-control candidate for the saturation-floor calibration; see ../controls/control_candidates.tsv

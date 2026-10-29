@@ -1,0 +1,7 @@
+citation: Henningsen EC, et al. (2021). Identification of Candidate Susceptibility Genes to Puccinia graminis f. sp. tritici in Wheat. Frontiers in Plant Science 12:635326.
+doi: https://doi.org/10.3389/fpls.2021.635326
+sequence_data: PRJNA483957  (verified resolves in ENA and SRA, 2026-10-26)
+target_species: Puccinia graminis
+stored_file: Hen21.pdf
+retrieved: 2026-10-26 via Undermind open-access PDF link
+role: negative-control candidate for the saturation-floor calibration; see ../controls/control_candidates.tsv

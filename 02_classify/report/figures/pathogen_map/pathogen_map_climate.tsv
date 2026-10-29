@@ -1,0 +1,13 @@
+species	maritime_detected	maritime_n	maritime_rate	continental_detected	continental_n	continental_rate	ratio	fisher_p	survives_bonferroni
+Zymoseptoria tritici	148	350	0.4229	100	322	0.3106	1.362	3.044e-03	yes
+Puccinia triticina	45	328	0.1372	69	306	0.2255	0.608	5.055e-03	no
+Blumeria graminis	40	350	0.1143	67	322	0.2081	0.549	1.030e-03	yes
+Parastagonospora nodorum	15	350	0.0429	8	322	0.0248	1.725	2.114e-01	no
+Microdochium nivale	32	350	0.0914	21	322	0.0652	1.402	2.519e-01	no
+Cladosporium cladosporioides	5	350	0.0143	14	322	0.0435	0.329	3.360e-02	no
+Epicoccum nigrum	6	350	0.0171	6	322	0.0186	0.920	1.000e+00	no
+Pyrenophora tritici-repentis	1	350	0.0029	15	322	0.0466	0.061	1.466e-04	yes
+Stemphylium lycopersici	17	350	0.0486	8	322	0.0248	1.955	1.520e-01	no
+Puccinia graminis	5	318	0.0157	0	303	0.0000	inf	6.186e-02	no
+Pyrenophora teres	1	350	0.0029	11	322	0.0342	0.084	2.270e-03	yes
+Puccinia striiformis	8	54	0.1481	4	65	0.0615	2.407	1.372e-01	no

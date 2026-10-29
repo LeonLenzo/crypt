@@ -1,0 +1,6 @@
+species	n_declared	found_declared	rate_declared	n_undeclared	found_undeclared	rate_undeclared	n_projects_declaring
+Fusarium graminearum	12	6	0.5000	1086	1	0.0009	1
+Puccinia graminis	67	67	1.0000	1031	27	0.0262	2
+Puccinia striiformis	890	889	0.9989	208	26	0.1250	8
+Puccinia triticina	99	99	1.0000	999	197	0.1972	1
+none	30	0	0.0000	1068	0	0.0000	1

@@ -1,0 +1,17 @@
+region	crop	xmin	xmax	ymin	ymax	n_localities	n_libraries	median_undeclared	max_undeclared
+Europe	Maize	-25.0	45.0	34.0	71.0	1	43	5.0	8
+Europe	Other cereal	-25.0	45.0	34.0	71.0	6	11	0.5	5
+Europe	Wheat	-25.0	45.0	34.0	71.0	259	672	1.0	7
+North America	Barley	-168.0	-52.0	7.0	72.0	1	2	0.0	0
+North America	Maize	-168.0	-52.0	7.0	72.0	7	56	6.0	30
+North America	Sorghum	-168.0	-52.0	7.0	72.0	2	304	0.5	5
+North America	Wheat	-168.0	-52.0	7.0	72.0	37	62	0.0	9
+South America	Wheat	-82.0	-34.0	-56.0	13.0	19	49	1.0	6
+Africa	Maize	-19.0	52.0	-36.0	38.0	2	5	2.8	3
+Africa	Other cereal	-19.0	52.0	-36.0	38.0	2	2	0.0	0
+Africa	Wheat	-19.0	52.0	-36.0	38.0	67	147	0.0	4
+Asia	Maize	40.0	150.0	5.0	60.0	2	5	2.5	5
+Asia	Other cereal	40.0	150.0	5.0	60.0	1	4	3.0	4
+Asia	Rice	40.0	150.0	5.0	60.0	2	81	0.0	1
+Asia	Wheat	40.0	150.0	5.0	60.0	12	64	1.0	4
+Oceania	Wheat	110.0	180.0	-48.0	-9.0	1	2	0.5	1

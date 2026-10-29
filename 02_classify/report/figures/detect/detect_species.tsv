@@ -1,0 +1,149 @@
+species	guild	evidence	n_runs	median_coverage	median_saturation
+Puccinia striiformis	plant pathogen	host-resolved	929	0.45247	0.45247
+Cladosporium allicinum	unlabelled	not a pathogen	634	0.06666	0.14122
+Sporobolomyces roseus	unlabelled	not a pathogen	478	0.06519	0.12718
+Dioszegia hungarica	unlabelled	not a pathogen	449	0.03912	0.17847
+Zymoseptoria tritici	plant pathogen	host-resolved	310	0.14287	0.21081
+Puccinia triticina	plant pathogen	host-resolved	298	0.20318	0.22685
+Alternaria viburni	unlabelled	not a pathogen	236	0.03833	0.11747
+Alternaria triticimaculans	unlabelled	not a pathogen	232	0.03863	0.12015
+Alternaria ethzedia	unlabelled	not a pathogen	221	0.03800	0.11188
+Alternaria conjuncta	unlabelled	not a pathogen	218	0.03823	0.11781
+Alternaria infectoria	endophyte	not a pathogen	216	0.03923	0.11436
+Alternaria novae-zelandiae	unlabelled	not a pathogen	215	0.03818	0.10784
+Alternaria sp. Ai002NY15	unlabelled	not a pathogen	214	0.03904	0.11388
+Alternaria sp. BMP 2799	unlabelled	not a pathogen	214	0.03673	0.11470
+Alternaria sp. BMP 0032	unlabelled	not a pathogen	213	0.03566	0.11833
+Alternaria hordeiaustralica	unlabelled	not a pathogen	213	0.03442	0.11915
+Alternaria metachromatica	unlabelled	not a pathogen	206	0.03466	0.11882
+Alternaria ventricosa	unlabelled	not a pathogen	189	0.03291	0.10897
+Alternaria arbusti	unlabelled	not a pathogen	177	0.03356	0.09846
+Alternaria incomplexa	unlabelled	not a pathogen	167	0.03621	0.10417
+Cladosporium inversicolor	unlabelled	not a pathogen	159	0.02580	0.11940
+Blumeria graminis	plant pathogen	host-resolved	159	0.08209	0.20233
+Epicoccum nigrum	plant pathogen	funguild-only	128	0.03601	0.08997
+Cladosporium cladosporioides	plant pathogen	funguild-only	114	0.02990	0.11568
+Puccinia graminis	plant pathogen	host-resolved	96	0.35372	0.35372
+Microdochium majus	unlabelled	not a pathogen	90	0.05821	0.17893
+Sporobolomyces ruberrimus	unlabelled	not a pathogen	88	0.02661	0.13392
+Filobasidium floriforme	unlabelled	not a pathogen	83	0.02379	0.10461
+Alternaria rosae	unlabelled	not a pathogen	76	0.02005	0.08471
+Ramularia collo-cygni	endophyte	not a pathogen	74	0.04369	0.19361
+Exserohilum turcicum	plant pathogen	host-resolved	71	0.28680	0.28990
+Parastagonospora nodorum	plant pathogen	host-resolved	70	0.05982	0.11792
+Tilletiopsis washingtonensis	unlabelled	not a pathogen	69	0.02064	0.14226
+Alternaria arborescens	unlabelled	not a pathogen	68	0.06504	0.09821
+Bipolaris zeicola	plant pathogen	host-resolved	66	0.07285	0.09931
+Microdochium nivale	plant pathogen	funguild-only	61	0.03279	0.16609
+Alternaria tenuissima	plant pathogen	funguild-only	56	0.03445	0.06941
+Zymoseptoria brevis	unlabelled	not a pathogen	54	0.01465	0.10059
+Puccinia sorghi	plant pathogen	funguild-only	54	0.24524	0.24657
+Cladosporium sp. NU13	unlabelled	not a pathogen	47	0.03452	0.10799
+Pyrenophora tritici-repentis	plant pathogen	host-resolved	43	0.06045	0.14322
+Alternaria alternata	plant pathogen	other-plant	42	0.03839	0.06760
+Stemphylium lycopersici	plant pathogen	other-plant	35	0.02085	0.07511
+Alternaria sp. MG1	unlabelled	not a pathogen	32	0.09725	0.10899
+Ampelomyces quisqualis	endophyte	not a pathogen	31	0.02146	0.08577
+Sarocladium strictum	plant pathogen	funguild-only	31	0.03152	0.10452
+Bipolaris sivanesaniana	unlabelled	not a pathogen	30	0.03322	0.08611
+Didymella pomorum	unlabelled	not a pathogen	29	0.05907	0.14316
+Curvularia kusanoi	unlabelled	not a pathogen	29	0.06685	0.09055
+Bipolaris maydis	plant pathogen	host-resolved	29	0.44045	0.44045
+Pseudopithomyces chartarum	animal pathogen	not a pathogen	28	0.12964	0.13409
+Curvularia clavata	plant pathogen	funguild-only	28	0.18062	0.18822
+Cercospora beticola	plant pathogen	other-plant	27	0.18308	0.18308
+Cercospora kikuchii	plant pathogen	other-plant	27	0.15647	0.15705
+Cercospora berteroae	unlabelled	not a pathogen	27	0.05864	0.07682
+Fusarium irregulare	unlabelled	not a pathogen	26	0.04558	0.09956
+Moesziomyces antarcticus	unlabelled	not a pathogen	25	0.01977	0.09009
+Cercospora zeae-maydis	plant pathogen	host-resolved	24	0.41923	0.41929
+Didymella glomerata	plant pathogen	funguild-only	23	0.01556	0.13508
+Fusarium sp. FIESC RH6	unlabelled	not a pathogen	23	0.03568	0.08874
+Malassezia restricta	animal pathogen	not a pathogen	22	0.03104	0.22349
+Bipolaris sorokiniana	plant pathogen	host-resolved	21	0.02230	0.10299
+Pyrenophora teres	plant pathogen	other-plant	20	0.02732	0.16914
+Moesziomyces aphidis	other	not a pathogen	20	0.03203	0.09975
+Phaeosphaeriaceae sp. SRC1lsM3a	unlabelled	not a pathogen	20	0.02235	0.12288
+Alternaria gaisen	unlabelled	not a pathogen	19	0.01654	0.08593
+Sporobolomyces pararoseus	unlabelled	not a pathogen	18	0.04200	0.10930
+Fusarium equiseti	plant pathogen	funguild-only	17	0.02366	0.09938
+Bipolaris oryzae	plant pathogen	other-plant	17	0.01822	0.13947
+Bipolaris victoriae	plant pathogen	other-plant	17	0.02559	0.08250
+Fusarium coffeatum	unlabelled	not a pathogen	16	0.02603	0.08830
+Didymella keratinophila	unlabelled	not a pathogen	15	0.01536	0.20847
+Curvularia cactivora	plant pathogen	funguild-only	15	0.01497	0.32108
+Didymella heteroderae	unlabelled	not a pathogen	15	0.01699	0.21703
+Fusarium verticillioides	plant pathogen	host-resolved	14	0.09747	0.12609
+Fusarium graminearum	plant pathogen	host-resolved	13	0.10802	0.10967
+Fusarium flagelliforme	unlabelled	not a pathogen	12	0.01807	0.07065
+Alternaria postmessia	unlabelled	not a pathogen	12	0.16085	0.16088
+Blakeslea trispora	plant pathogen	funguild-only	12	0.04557	0.15314
+Penicillium oxalicum	plant pathogen	funguild-only	11	0.05902	0.13684
+Rhodotorula taiwanensis	unlabelled	not a pathogen	11	0.01605	0.10547
+Fusarium avenaceum	plant pathogen	host-resolved	10	0.02358	0.08102
+Cercospora zeina	unlabelled	not a pathogen	10	0.47374	0.47382
+Dissoconium aciculare	unlabelled	not a pathogen	9	0.01850	0.23683
+Fusarium sporotrichioides	plant pathogen	other-plant	9	0.01439	0.09260
+Didymella sp. IMI 355093	unlabelled	not a pathogen	8	0.01278	0.15002
+Phaeosphaeria sp. MPI-PUGE-AT-0046c	unlabelled	not a pathogen	8	0.01275	0.19681
+Sporobolomyces koalae	unlabelled	not a pathogen	7	0.03909	0.13972
+Alternaria atra	plant pathogen	funguild-only	7	0.01986	0.16703
+Oculimacula yallundae	plant pathogen	funguild-only	6	0.02703	0.16391
+Malassezia globosa	animal pathogen	not a pathogen	6	0.01368	0.20159
+Penicillium salamii	unlabelled	not a pathogen	6	0.01412	0.10606
+Alternaria sp. RS040	unlabelled	not a pathogen	6	0.02296	0.08119
+Ustilago trichophora	unlabelled	not a pathogen	6	0.05962	0.10865
+Diaporthe australafricana	unlabelled	not a pathogen	5	0.01330	0.16457
+Pyricularia oryzae	plant pathogen	host-resolved	5	0.07554	0.07678
+Rhizoctonia solani	plant pathogen	other-plant	5	0.05966	0.06474
+Choanephora cucurbitarum	plant pathogen	funguild-only	5	0.01631	0.13264
+Akanthomyces lecanii	plant pathogen	funguild-only	4	0.01884	0.08839
+Malassezia arunalokei	unlabelled	not a pathogen	4	0.01121	0.15747
+Aspergillus sydowii	animal pathogen	not a pathogen	4	0.01860	0.14567
+Aspergillus flavus	plant pathogen	host-resolved	4	0.08022	0.08765
+Diaporthe batatas	unlabelled	not a pathogen	4	0.01912	0.10297
+Trichothecium roseum	plant pathogen	funguild-only	3	0.14655	0.14690
+Aspergillus versicolor	animal pathogen	not a pathogen	3	0.01169	0.10747
+Fusarium chlamydosporum	plant pathogen	funguild-only	3	0.01109	0.13516
+Aureobasidium sp. EXF-3399	unlabelled	not a pathogen	3	0.03583	0.06849
+Sarocladium implicatum	animal pathogen	not a pathogen	3	0.02712	0.10429
+Alternaria dauci	plant pathogen	funguild-only	3	0.01364	0.21451
+Fusarium culmorum	plant pathogen	host-resolved	2	0.17994	0.18039
+Nothophoma quercina	unlabelled	not a pathogen	2	0.15940	0.30262
+Penicillium bialowiezense	unlabelled	not a pathogen	2	0.01925	0.11390
+Aureobasidium sp. EXF-12298	unlabelled	not a pathogen	2	0.02543	0.21205
+Plenodomus lingam	plant pathogen	other-plant	2	0.06492	0.13542
+Alternaria brassicicola	plant pathogen	other-plant	2	0.01024	1.00354
+Fusarium acuminatum	plant pathogen	funguild-only	2	0.03042	0.06128
+Mycosarcoma maydis	plant pathogen	host-resolved	2	0.02303	0.20577
+Hypsizygus marmoreus	unlabelled	not a pathogen	2	0.11577	0.17148
+Fusarium fujikuroi	plant pathogen	host-resolved	2	0.01807	0.06774
+Sporisorium graminicola	unlabelled	not a pathogen	2	0.01485	0.17023
+Alternaria burnsii	unlabelled	not a pathogen	2	0.05859	0.05859
+Didymella exigua	unlabelled	not a pathogen	2	0.01050	0.06485
+Colletotrichum incanum	unlabelled	not a pathogen	2	0.01115	0.09221
+Diaporthe helianthi	plant pathogen	funguild-only	2	0.02259	0.13908
+Pyricularia grisea	plant pathogen	funguild-only	2	0.02514	0.11637
+Rhodotorula glutinis	endophyte	not a pathogen	1	0.01223	0.12618
+Fusarium lateritium	plant pathogen	funguild-only	1	0.01236	0.11296
+Cadophora malorum	plant pathogen	funguild-only	1	0.02775	0.07573
+Rhynchosporium secalis	plant pathogen	funguild-only	1	0.02589	0.09365
+Rhodotorula babjevae	unlabelled	not a pathogen	1	0.01458	0.08386
+Cladosporium halotolerans	animal pathogen	not a pathogen	1	0.01614	0.11052
+Aureobasidium sp. EXF-8845	unlabelled	not a pathogen	1	0.01949	0.11088
+Aureobasidium pullulans	plant pathogen	funguild-only	1	0.01005	0.07103
+Ascochyta lentis	plant pathogen	other-plant	1	0.02353	0.07887
+Neodidymelliopsis sp. IMI 364377	unlabelled	not a pathogen	1	0.01926	0.09956
+Dactylonectria estremocensis	unlabelled	not a pathogen	1	0.03295	0.10665
+Mucor circinelloides	plant pathogen	funguild-only	1	0.01455	0.06288
+Botrytis cinerea	plant pathogen	other-plant	1	0.03142	0.29889
+Fusarium poae	plant pathogen	funguild-only	1	0.01840	0.19545
+Fusarium tricinctum	plant pathogen	funguild-only	1	0.02983	0.05642
+Fusarium sp. VM40	unlabelled	not a pathogen	1	0.01016	0.12790
+Pseudozyma flocculosa	endophyte	not a pathogen	1	0.03077	0.41162
+Blumeria hordei	unlabelled	not a pathogen	1	0.01280	0.17190
+Beauveria bassiana	animal pathogen	other-plant	1	0.06448	0.07781
+Colletotrichum graminicola	plant pathogen	host-resolved	1	0.01430	0.10148
+Aureobasidium mustum	unlabelled	not a pathogen	1	0.01130	0.12346
+Paraphoma chrysanthemicola	plant pathogen	funguild-only	1	0.01009	0.10614
+Colletotrichum karsti	endophyte	not a pathogen	1	0.01171	0.11657

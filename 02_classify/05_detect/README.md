@@ -28,32 +28,65 @@ against everything, so `if score < FLOOR: continue` *admits* those rows. That in
 species count from 32 to 44 on 2026-10-13 before it was caught. `call_one()` is written
 `dist is not None and dist >= MIN_DISTINCT` for that reason.
 
-## Where the 1% coverage floor came from
+## Where the 2% coverage floor came from
 
 This is the number most likely to be challenged, and CLAUDE.md's old account of it was the
 threshold sweep, which reads like a filter tuned to move a result. The honest account:
 
-**1% is an abundance floor, not an artefact filter.** It asks whether enough of the organism's
-k-mer space is present to say its DNA is in the library. It was never meant to establish that
-the organism is actively infecting.
+**It is anchored to the ceiling of a negative control.** The control is obligate rusts on host
+genera they carry no USDA record for: real organism DNA that cannot be infecting, so whatever
+coverage it reaches is cross-mapping plus deposition. Over **10,314 such rows** it runs
 
-Under db_v3 the floor could not be anchored. The cleanest negative control available is
-obligate rusts on hosts they cannot infect, and that null reached **13% coverage at its 75th
-percentile and up to 74%**, far above the floor, because the signal is real organism DNA from
-spore drift or a mis-called host. So the sweep was all the justification there was, and the
-sweep is not a justification: wheat went 0% -> 80%, 1% -> 47%, 2% -> 40%, 5% -> 30%,
-10% -> 23%, and any of those could be argued for.
+    p75  0.018%    p95  0.046%    p99  0.095%    p99.9  0.221%    max  1.970%
 
-**db_v4 changed that.** The same off-host null now sits at **0.032% at the 75th percentile,
-1.97% maximum, with 0 of 6,285 rows called.** 1% is therefore roughly 30x the null's 75th
-percentile, which is a basis rather than a preference.
+**Raised from 1% to 2% on 2026-10-28.** 1% was defended as "roughly 30x the null's 75th
+percentile", which was true but left the floor *inside* the control's range -- five null rows
+cleared it. At 2% **zero of 10,314 clear it**. That is a categorically different sentence: not
+a percentile ratio but the point at which the negative control is exhausted.
 
-Two things this still does not give:
+Measured cost of the change:
+
+| floor | calls | runs | undeclared | biotroph calls |
+|---|---|---|---|---|
+| 1% | 3,150 | 1,370 | 1,873 | 1,617 |
+| **2%** | **2,635** | **1,301** | **1,388** | **1,519** |
+| 3% | 2,428 | 1,288 | 1,192 | 1,468 |
+| 5% | 2,189 | 1,276 | 983 | 1,403 |
+
+Calls fall 16% but runs only 5%, and the obligate biotrophs, which carry the strongest claim,
+retain 94%. Past 2% the control is already exhausted, so more stringency buys no extra
+justification and spends real evidence.
+
+Note when rebuilding this null: **exclude Triticale.** It is x*Triticosecale, a hybrid whose
+genus token matches nothing in USDA, so genuine wheat rusts on it score as off-host and
+contaminate the tail (max 53.9% instead of 1.970%).
+
+### What the floor does and does not exclude
+
+The previous wording -- "coverage is not an artefact filter and we do not claim it is" -- is
+now too modest in one direction and still correct in the other. Precisely:
+
+- **Cross-mapping: excluded, and validated.** Zero of 10,314 negative-control rows clear 2%.
+  *Phakopsora pachyrhizi* on wheat, the worst db_v3 offender, tops out at 0.07% over 1,510
+  db_v4 rows and is never called. (CLAUDE.md's "residual Phakopsora is a real finding" entry
+  describes db_v3; db_v4 closed it.)
+- **Drift and deposition: NOT excluded, and not excludable.** Deposited material is real DNA
+  off a real genome and spreads k-mers normally, so no abundance or shape statistic separates
+  it from infection. That is answered by the host axis and by obligate biotrophy, not by a
+  threshold. Disclose it; do not threshold it away.
+- **Saturation is not the artefact filter either.** On the same control its values run p95
+  1.57, p99 5.22, max 30.3, against p05 0.069 / median 0.245 for genuinely called host
+  pathogens -- the artefacts score *higher*, because at low N the denominator collapses toward
+  N*L. It is a shape test that works only where there is depth to judge spread.
+
+Two limits that remain:
 
 - **Coverage is not comparable across database versions.** The denominator is each build's own
   `db_inspect.tsv`. A db_v3 rate and a db_v4 rate are different measurements, and the db_v3
   wheat 47% cannot be restated against db_v4 by arithmetic.
-- **Coverage is not proof of active co-infection.** Disclose that; do not threshold it away.
+- **The control is built from rusts**, which have large, well-represented genomes in db_v4, so
+  it may not generalise to small or thinly-represented taxa. The axenic controls are what
+  would generalise it.
 
 ## Saturation, and its limits
 

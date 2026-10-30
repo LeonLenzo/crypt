@@ -53,7 +53,18 @@ sys.path.insert(0, str(MODULE.parent))
 from _layout import COHORT_SAMPLES, SILVER  # noqa: E402
 from _util import atomic_write  # noqa: E402
 
-FLOOR = 0.463
+# 0.5 Gkmer, set at the knee of the rarefaction curve: detection retention climbs
+# steeply to 0.5 (23% of established detections at 0.019 Gkmer, 41% at 0.1, 55% at
+# 0.21, 68% at 0.5) and then flattens, gaining only nine points by 2.0 Gkmer for a
+# fourfold increase in depth. It was 0.463 until 2026-10-30, a value that first
+# appears in TODO-RESULTS.md on 2026-10-26 with no derivation recorded anywhere and
+# which matches nothing measurable: percentile 36.3 of the depth distribution, no gap
+# near it, no project median. Moving to 0.5 costs 63 runs, all maize.
+#   CAVEAT, and it belongs in the Methods: the curve is five WHEAT libraries, so
+# applying it to maize and sorghum is an assumption. And it is a floor on TOTAL
+# depth, not fungal depth, which is bimodal and cannot be used because it is an
+# outcome of the classification rather than a property of the library.
+FLOOR = 0.5
 # THE FOUR CROPS THE PAPER COVERS. Leon, 2026-10-27: the supplementary table has to be true to
 # the paper, which claims wheat, maize, rice and sorghum, so "other cereal" and "barley" are not
 # columns in it. They are not a rounding error either: dropping them removes 58 runs, 56 of them
@@ -80,6 +91,8 @@ CAPTION = HERE / "depth_funnel_caption.txt"
 # Grouped for the figure. The raw reason is kept in its own column so nothing is lost.
 GROUP = {
     "retained": "retained",
+    "long-read platform": "below the depth floor",
+    "non-foliar tissue": "disease suppressed or manipulated by design",
     "below depth floor": "below the depth floor",
     "inoculated": "disease suppressed or manipulated by design",
     "not field throughout": "disease suppressed or manipulated by design",
@@ -100,6 +113,15 @@ def gkmer(d):
     return bases * (L - 34) / L / 1e9 if L > 35 else None
 
 
+sys.path.insert(0, str(MODULE.parent))
+from _exclusions import is_foliar  # noqa: E402
+
+
+# Platforms whose error profile breaks exact k-mer matching at k=35. DNBSEQ and BGISEQ are
+# short-read and stay in.
+LONG_READ = {"OXFORD_NANOPORE", "PACBIO_SMRT"}
+
+
 def main() -> None:
     coh = list(csv.DictReader(open(COHORT_SAMPLES), delimiter="\t"))
     dep = {r["Run"]: r for r in csv.DictReader(open(SILVER / "run_depth.tsv"), delimiter="\t")}
@@ -118,6 +140,26 @@ def main() -> None:
             reason = "inoculated"
         elif r["setting"] != "field":
             reason = "not field throughout"
+        # FOLIAR, which is narrower than the cohort was curated. The screen admitted AERIAL
+        # tissue and said so -- "leaf, stem, spike, head, panicle, flower, fruit" -- so an ear
+        # and a kernel are in scope by that definition. The ANALYSIS assumes foliar: the
+        # pathogenic-capacity axis is leaf/fruit/seed and the resident community db_v4 was
+        # built against is the phyllosphere. A developing kernel is a different organ with a
+        # different mycobiome. Leon 2026-10-29; see _exclusions.is_foliar for the cost (19
+        # runs) and for why the test matches the curated string exactly rather than by
+        # substring, which read "ear leaf" as non-foliar and overcounted by 727.
+        elif not is_foliar(r.get("tissue", "")):
+            reason = "non-foliar tissue"
+        # LONG READS ARE NOT COMPARABLE AT k=35. One base error destroys 35 k-mers, so a
+        # Nanopore library's coverage and saturation sit on a different scale from an
+        # Illumina one and cannot be read against the same floors. Worse, Gkmer assumes
+        # error-free k-mers, so it OVERSTATES usable sequence for exactly the platform where
+        # that assumption fails: of PRJEB31334's 52 MinION runs, 51 fell below the depth
+        # floor and one cleared it at 0.69 Gkmer on 1,176 nt mean read length. It had not
+        # been classified, so nothing downstream was affected, but it was inside the
+        # analysed cohort. Found 2026-10-29 by reading the platform column of S3.
+        elif (d.get("platform") or "").upper() in LONG_READ:
+            reason = "long-read platform"
         elif g is None or g < FLOOR:
             reason = "below depth floor"
         else:
@@ -239,7 +281,14 @@ def main() -> None:
         ("+ field throughout",
          lambda r: r["disease_exposure"] == "open"
          and r["sampling_selection"] != "inoculated" and r["setting"] == "field", 6235),
-        ("+ depth floor", lambda r: r["reason"] == "retained", 3680),
+        # 3,625 since the foliar gate landed 2026-10-29; it was 3,680 while the cohort's
+        # own "aerial" definition stood, and the 55 difference is ear, kernel, seed, spike
+        # and tassel samples.
+        # 3,624 since the long-read gate landed 2026-10-29, removing the single MinION run
+        # that had cleared the depth floor; 3,625 before it, 3,680 before the foliar gate.
+        # 3,561 since the depth floor moved 0.463 -> 0.5 on 2026-10-30; 3,624 before that,
+        # 3,625 before the long-read gate, 3,680 before the foliar gate.
+        ("+ foliar + platform + depth", lambda r: r["reason"] == "retained", 3561),
     )
 
     # The funnel, printed so a mismatch against the recorded counts is visible immediately.

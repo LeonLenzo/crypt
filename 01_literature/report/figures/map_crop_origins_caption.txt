@@ -11,7 +11,7 @@ letters a-d below are the order they are meant to be read in, not a layout.
 FULL CAPTION
 
 Geographic, compositional and temporal distribution of the field cereal RNA-seq
-cohort: 7,630 publicly archived samples from 39 BioProjects, each curated to a
+cohort: 3,541 publicly archived samples from 25 BioProjects, each curated to a
 field setting against a quoted sentence in an available manuscript. Colour marks
 the crop throughout.
 
@@ -21,11 +21,11 @@ but area is not proportional to count. Points are semi-transparent, so
 overlapping localities compound into darker patches. Country outlines are drawn
 in the background colour.
 
-  Circles, marked "Locality" in the Resolution key (7,470 samples at
-  462 localities), sit at coordinates geocoded from the locality string
+  Circles, marked "Locality" in the Resolution key (3,398 samples at
+  449 localities), sit at coordinates geocoded from the locality string
   recorded for the sample.
 
-  Diamonds, marked "Country" (147 samples across 23 countries), sit at the
+  Diamonds, marked "Country" (142 samples across 23 countries), sit at the
   centroid of the largest landmass polygon of their country. These samples name
   a country and nothing finer, so the diamond states WHICH COUNTRY and is drawn
   at a place nobody sampled. It is not a collection site and should not be read
@@ -40,34 +40,33 @@ site across seasons counts once. (c) therefore counts localities the studies
 NAMED, which is slightly more than the map can draw: 11 of those names resolve
 no better than their own country and appear in (a) as diamonds.
 
-(d) Year. Samples per year of collection, stacked by crop, over 2012 to 2024.
+(d) Year. Samples per year of collection, stacked by crop, over 2013 to 2022.
 Only the first and last year are labelled, to give the range; every year in
-between has its own bar. Based on the 7,395 of 7,630 samples carrying a
+between has its own bar. Based on the 3,494 of 3,541 samples carrying a
 collection date. Bars rather than a continuous series, because year here is a
-discrete count: an area or line would draw a slope between 2015 and 2016
+discrete count: an area or line would draw a slope between 2016 and 2017
 asserting collection at every instant in between, and none occurred. Every year
 in the range has a position on the axis, so a year with no collection reads as
 an absent bar rather than being skipped.
 
                 samples   projects   localities   country-only
-  Wheat           1,215         14          420            146
-  Maize           2,511         16           44              1
-  Rice            2,784          6            6              0
-  Sorghum         1,120          4            4              0
+  Wheat           1,131         12          418            141
+  Maize           1,292         10           39              1
+  Sorghum         1,118          4            4              0
 
 The crops are not comparable in shape and the two bar panels exist to show it:
-rice is 2,784 samples at 6 localities because the rice data are large
-GWAS panels grown at one farm, while wheat is 1,215 at 420 because the
-wheat data are rust surveys that sample broadly. (a) alone reads as a wheat map
-and (b) alone reads as a rice cohort; both are true.
+wheat is 1,131 samples spread over 418 localities, while sorghum is
+1,118 at 4. Sample count and geographic spread are close to
+independent here, so (a) and (b) rank the crops differently and both are
+correct.
 
 
 WHAT IS NOT SHOWN
 
-13 of the 7,630 samples carry no location at all and are absent from the map
+1 of the 3,541 samples carry no location at all and are absent from the map
 while remaining in (b), (c) and (d).
 
-The 147 samples drawn at country centroids are not a geocoding failure. Most are
+The 142 samples drawn at country centroids are not a geocoding failure. Most are
 rust surveys where the submitter recorded the country an isolate came from and
 no collection site, and ENA holds no latitude, longitude or locality field for
 them. Where a finer value exists it has been pursued: supplementary tables were
@@ -77,7 +76,7 @@ seeds/missing_localities.tsv is the worklist of localities that do not place,
 and carries 57 reviewed corrections for names the gazetteer could not match
 as written. The rows still without a correction are open work.
 
-Three crops below a 100-sample floor are excluded from every panel: barley (3), other cereal (55).
+Three crops below a 100-sample floor are excluded from every panel: barley (2), other cereal (18).
 Barley's absence is a property of the archive, not of this figure - there is no
 field barley study in the cohort, only incidental barley samples inside wheat
 rust surveys. Note that the kraken read-based host call reports far more barley
@@ -85,16 +84,16 @@ than this; it is wrong, and systematically so, in exactly these rust surveys.
 See seeds/found.tsv, 2026-10-09.
 
 Localities are placed at four precisions, recorded per locality in
-data/gold/cereal_localities.tsv: 344 samples at a name that resolved as given,
-63 after a research-facility name was dropped (for example "USA: Nebraska,
-Lincoln (UNL Havelock Research Farm)" placed as Lincoln, Nebraska), 55
+data/gold/cereal_localities.tsv: 338 samples at a name that resolved as given,
+57 after a research-facility name was dropped (for example "USA: Nebraska,
+Lincoln (UNL Havelock Research Farm)" placed as Lincoln, Nebraska), 54
 through a reviewed spelling correction, and 1 at province level.
 
 (e) Study design. The share of each crop's samples that were sampled WITH
 REFERENCE TO DISEASE - chosen because diseased, deliberately infected, sprayed
 to suppress disease, or chosen because NOT diseased - against those sampled on
 some other criterion entirely: genotype, treatment, growth stage, clock time.
-Pathology share by crop: wheat 98%, maize 9%, rice 0%, sorghum 0%.
+Pathology share by crop: wheat 99%, maize 2%, sorghum 0%.
 
 THE PANEL CARRIES NO LEGEND. Each crop keeps its own hue from (a) to (d) and
 shows the split as two weights of that hue, the DARKER weight being pathology
@@ -113,22 +112,22 @@ paper-sourced: no run's value comes from an archive attribute. The label is the
 SAMPLING criterion rather than the study's purpose, and the two diverge in one
 place - PRJNA564795 is a gray leaf spot trial at a disease hotspot whose 10 runs
 were sampled without regard to individual symptom, so they count as physiology
-here while the study is pathology. 3 samples record no selection at all and
+here while the study is pathology. 0 samples record no selection at all and
 are drawn as a third, invisible segment rather than dropped. Run cohort.py for
 the full cross-tab.
 
 
 SHORT CAPTION
 
-Distribution of 7,630 field cereal RNA-seq samples from 39 BioProjects, coloured
+Distribution of 3,541 field cereal RNA-seq samples from 25 BioProjects, coloured
 by crop. (a) One point per locality and crop, point area proportional to log
-sample count. Circles are 7,470 samples at 462 geocoded localities;
-diamonds are 147 samples that name only a country, drawn at its centroid and
-not at a collection site; 13 samples carry no location and are absent.
+sample count. Circles are 3,398 samples at 449 geocoded localities;
+diamonds are 142 samples that name only a country, drawn at its centroid and
+not at a collection site; 1 samples carry no location and are absent.
 (b, c) The same cohort as samples, and as distinct localities finer than a
-country. (d) Samples per year of collection, stacked by crop, for the 7,395
+country. (d) Samples per year of collection, stacked by crop, for the 3,494
 samples carrying a date. (e) Share of each crop sampled with reference to
-disease: wheat 98%, maize 9%, rice 0%, sorghum 0%.
+disease: wheat 99%, maize 2%, sorghum 0%.
 
 
 SOURCES

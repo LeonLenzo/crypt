@@ -24,7 +24,7 @@ HERE <- "02_classify/report/figures/depth_funnel"
 d    <- read.delim(file.path(HERE, "depth_funnel.tsv"), stringsAsFactors = FALSE)
 s    <- read.delim(file.path(HERE, "depth_funnel_summary.tsv"), stringsAsFactors = FALSE)
 
-FLOOR <- 0.463
+FLOOR <- 0.5
 
 # Chosen for this figure. Retained is the one saturated colour; every exclusion is a reason,
 # not a value, so they read as a set without competing with it.
@@ -83,7 +83,7 @@ out <- (a | b) + plot_layout(widths = c(1, 1), guides = "collect") +
   plot_annotation(
     title = "Why the rice studies are excluded before anything is counted",
     caption = paste0(
-      "The red line is the 0.463 Gkmer inclusion floor; the shaded band is below it. Every one of 2,784 rice runs is excluded: 1,123 because the study sheltered,\n",
+      "The red line is the 0.5 Gkmer inclusion floor; the shaded band is below it. Every one of 2,784 rice runs is excluded: 1,123 because the study sheltered,\n",
       "protected or did not report its disease exposure, 104 because the plants were raised in a chamber before transfer, and the remaining 1,557 on depth.\n",
       "Rice is 1,636 single-end 51 nt runs, which at k=35 yield 17 k-mers per read against 116 for a 150 nt read, so the gap is wider than base counts suggest.\n",
       "A log axis cannot show zero, so panel a omits 45 rice runs with effectively no bases recorded and 2 sorghum runs with no depth metadata. Panel b counts all 7,688."),

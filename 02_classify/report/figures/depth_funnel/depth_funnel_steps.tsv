@@ -1,8 +1,8 @@
 	Wheat	Maize	Rice	Sorghum	TOTAL
 Literature Search	1215	2511	2784	1120	7630
 Naturally Infected	-31	-194	-1227	0	-1452
-Library Depth	-52	-943	-1557	-2	-2554
-Total Remaining	1132	1374	0	1118	3624
+Library Depth	-52	-1016	-1557	-2	-2627
+Total Remaining	1132	1301	0	1118	3551
 
 # sub-reasons within the methodological filter	Wheat	Maize	Rice	Sorghum	TOTAL	n_projects
 exposure: unknown	16	166	633	0	815	7

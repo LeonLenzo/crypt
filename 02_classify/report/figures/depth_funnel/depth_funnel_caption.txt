@@ -12,5 +12,5 @@ filter, removing runs whose originating study did not provide an unmanipulated,
 naturally infected field sample: disease exposure not determinable from the paper,
 fungicide protection, rain exclusion, inoculation rather than natural infection, or
 plants not field-grown throughout. Library Depth is a technical filter, removing
-libraries below 0.463 Gkmer, the count of k-mer start positions a library provides at k
-= 35. Filter rows give runs removed; Total Remaining is the analysed set.
+libraries below 0.5 Gkmer, the count of k-mer start positions a library provides at k =
+35. Filter rows give runs removed; Total Remaining is the analysed set.

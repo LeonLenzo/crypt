@@ -125,6 +125,42 @@ EXCLUDED = {
 }
 
 
+# ── Tissue: FOLIAR, which is narrower than the cohort was curated ───────────────────────────
+#
+# The cohort was screened for field-grown AERIAL tissue, and the Undermind prompt says so
+# explicitly: "leaf, stem, spike, head, panicle, flower, fruit". An ear and a kernel are
+# aerial, so they are in scope by that definition and are NOT a curation error.
+#
+# The ANALYSIS assumes foliar, and that assumption is load-bearing in two places: the
+# FungalTraits pathogenic-capacity axis is leaf/fruit/seed, and the resident community the
+# db_v4 scope was built against is the PHYLLOSPHERE (Dioszegia, Cryptococcus, Cladosporium,
+# Sporobolomyces). A developing kernel is a different organ with a different mycobiome.
+#
+# Leon's call 2026-10-29: narrow to foliar. This NARROWS A DOCUMENTED SCOPE DECISION, so it is
+# recorded here rather than applied silently, and it is applied at analysis stage like every
+# other exclusion so the set stays measurable with and without.
+#
+# Measured cost: 19 of the 3,624 retained runs. 17 `immature kernel` from PRJNA383416 and 2
+# `ear` from PRJNA291919, both maize, both projects otherwise valid and retained in full for
+# their leaf samples. The other non-foliar tissue in the wider cohort (254 kernel in
+# PRJNA383416, 112 in PRJNA395908, 45 seeds, 36 kernel in PRJNA721299) never reached the
+# retained set: it was already removed by the depth floor and the four-crop restriction.
+NON_FOLIAR_TISSUE = {
+    "immature kernel", "kernel", "Kernel", "kernel (developing, in situ)",
+    "seed", "seeds", "ear", "tassel", "spike",
+}
+
+
+def is_foliar(tissue: str) -> bool:
+    """True unless the curated tissue names a non-leaf organ.
+
+    Matches the curated string EXACTLY, deliberately. A substring test reads "ear leaf",
+    "leaf (ear leaf 16 blade, midrib removed)" and "stem/leaf (rust lesion)" as non-foliar,
+    and all three are leaf samples -- that mistake cost a 727-run overcount the first time.
+    """
+    return (tissue or "").strip() not in NON_FOLIAR_TISSUE
+
+
 def is_excluded(bioproject: str) -> bool:
     """True if this BioProject is in the registry."""
     return bioproject in EXCLUDED

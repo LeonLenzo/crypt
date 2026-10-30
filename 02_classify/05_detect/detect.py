@@ -143,7 +143,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from _layout import (CDS_MANIFEST, CLASSIFIED, COHORT_SAMPLES, COINFECTION, CONTROL_REPORTS,
-                     DB_INSPECT,
+                     DB_INSPECT, SEEDS,
                      DETECTIONS, GOLD, HOLOBASE, LIT_RUNS, REF_CANDIDATES, REPORTS,
                      SILVER)  # noqa: E402
 from _reports import load_inspect, parse_report  # noqa: E402
@@ -293,6 +293,34 @@ def pathogen_status(db: Path) -> dict:
     return out
 
 
+def curated_status(path: Path) -> dict:
+    """ncbi_taxid -> curated verdict, the OVERRIDE on top of PHI-base and FUNGuild.
+
+    Tier C is the ambiguous bucket: a genus-level pathogen prior and NO species-rank evidence.
+    The prior cannot be inherited, because that set mixes real pathogens with biocontrol and
+    mycoparasite yeasts sitting in a pathogen genus. Auto-promoting it would have injected
+    *Tilletiopsis washingtonensis*, a mycoparasite of powdery mildew, as 122 false pathogen
+    calls. So each of the 23 carries a cited literature verdict instead.
+
+    `status == 'pathogen'` makes a taxon a pathogen; EVERY other status makes it not one,
+    including where PHI-base or FUNGuild would have said otherwise. The curation is the most
+    specific evidence available and it wins.
+    """
+    if not path.exists():
+        print(f"  no {path.name}; curated override not applied", file=sys.stderr)
+        return {}
+    out = {}
+    with open(path) as fh:
+        for r in csv.DictReader((l for l in fh if not l.startswith("#")), delimiter="\t"):
+            tid, st = (r.get("ncbi_taxid") or "").strip(), (r.get("status") or "").strip()
+            if tid.isdigit() and st:
+                out[int(tid)] = st
+    npath = sum(1 for v in out.values() if v == "pathogen")
+    print(f"  curated override: {len(out)} species, {npath} pathogen, "
+          f"{len(out) - npath} not")
+    return out
+
+
 def subtaxa(inspect_path: Path) -> dict:
     """species taxid -> [S1/S2 taxids beneath it], for the f. sp. feature.
 
@@ -375,6 +403,7 @@ def main() -> None:
     lab = labels(HOLOBASE)
     rts_of = routes_of()
     paths_of = pathogen_status(HOLOBASE)
+    curated = curated_status(SEEDS / "taxon_status.tsv")
     print(f"  routes: {len(rts_of):,} taxa carry membership provenance; congener-only taxa "
           f"are {'REPORTED (--allow-congener)' if args.allow_congener else 'not reportable'}")
     # TWO tables, and both are needed. cohort_samples.tsv is the membership authority and
@@ -430,6 +459,14 @@ def main() -> None:
                 kind, guilds = lab.get(rec["taxid"], ["", set()])
                 rts = rts_of.get(rec["taxid"], set())
                 psrc, phosts = paths_of.get(rec["taxid"], ("", set()))
+                # THE CURATED VERDICT WINS, both ways. It promotes a Tier C species that the
+                # species-rank rule would have missed (Blumeria hordei rendered as an
+                # epiphyte) and it demotes one the genus prior would have promoted.
+                cst = curated.get(rec["taxid"])
+                if cst == "pathogen":
+                    psrc = psrc or "curated"
+                elif cst:
+                    psrc, phosts = "", set()
                 # Host-range axis, which is what PHI-base is uniquely good for: has this
                 # species been shown to cause disease on the plant this library came from?
                 # `.split()[0]` on an empty string raises, and a CONTROL has no row in

@@ -1,0 +1,374 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Per-run detections</title>
+<!--
+  Browse the per-run detection panels. Open this file; nothing to install and no server.
+
+  Rendering the cohort to PNG took 45 minutes and 472 MB, and a 23-species change to
+  taxon_status.tsv invalidated every image the same afternoon. So the data ships (data.json,
+  built by prep_browser.py) and the panel is drawn here, on demand.
+
+  THE PANEL IS DRAWN TWICE IN THIS REPOSITORY -- here in SVG and in panel.R for the batch
+  renderer and any figure that goes in the paper. That is deliberate but it is a real cost, so
+  the rule is: panel.R is authoritative for anything published, this is for looking. The
+  colour, shape and floor vocabulary are copied from panel.R and must be changed in both.
+
+  The floor sliders re-call client-side, mirroring 05_detect's three floors in order. The
+  header says WHAT-IF the moment one moves off the pipeline's own value, so a number read off
+  a moved slider cannot be mistaken for a pipeline result.
+-->
+<style>
+  :root{
+    --ink:#1b1b1b; --mut:#6b6b6b; --line:#d8d8d8; --bg:#fff; --panel:#fafafa;
+    --host:#3e9e3b; --pcrop:#8c0404; --poth:#e77e7e;
+    --rcrop:#22127e; --roth:#add0e4; --norec:#bdb5b5;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}
+  #wrap{display:grid;grid-template-columns:320px 1fr;height:100vh}
+  #side{border-right:1px solid var(--line);padding:14px;overflow:auto;background:var(--panel)}
+  #main{padding:16px 20px;overflow:auto}
+  h1{font-size:16px;margin:0 0 12px}
+  label{display:block;font-size:12px;color:var(--mut);margin:10px 0 3px}
+  select,input[type=text]{width:100%;padding:5px;font:13px inherit;border:1px solid var(--line);border-radius:3px;background:#fff}
+  input[type=range]{width:100%}
+  #runs{list-style:none;margin:8px 0 0;padding:0;max-height:38vh;overflow:auto;border:1px solid var(--line);background:#fff;border-radius:3px}
+  #runs li{padding:4px 8px;cursor:pointer;font-size:12.5px;border-bottom:1px solid #f0f0f0}
+  #runs li:hover{background:#eef3f8}
+  #runs li.sel{background:#e3ebf3;font-weight:600}
+  .cnt{color:var(--mut);font-size:11px}
+  #ttl{font-size:19px;font-weight:700;margin:0}
+  #sub{color:#555;font-size:13px;margin:2px 0 6px}
+  #whatif{color:var(--pcrop);font-weight:700;font-size:12.5px;margin:4px 0;display:none}
+  #stage{display:grid;grid-template-columns:minmax(420px,1fr) minmax(330px,440px);gap:20px;align-items:start}
+  /* Rows are a GRID, not a table, so every card shares one column template and the numbers
+     line up across cards. A table per card would align only within itself. */
+  .grid{font-size:12.5px}
+  .r{display:grid;grid-template-columns:1fr 60px 50px;gap:4px;padding:1.5px 6px}
+  .r .num{text-align:right;font-family:ui-monospace,monospace;white-space:nowrap}
+  .r.hdr{color:var(--mut);font-weight:700;font-size:11.5px;padding-bottom:3px}
+  .card{border:1px solid var(--line);border-radius:5px;margin-bottom:7px;background:#fff;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:6px 9px;font-weight:700;
+                background:#f6f7f8;display:flex;align-items:center;gap:7px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card>summary::before{content:"\25B8";color:var(--mut);font-size:11px;transition:transform .12s}
+  .card[open]>summary::before{transform:rotate(90deg)}
+  .card>summary:hover{background:#eef3f8}
+  .sub2{margin:0}
+  .sub2>summary{list-style:none;cursor:pointer;color:#555;font-size:11.5px;padding:4px 9px 2px 20px;
+                display:flex;align-items:center;gap:6px;user-select:none}
+  .sub2>summary::-webkit-details-marker{display:none}
+  .sub2>summary::before{content:"\25B8";font-size:10px;color:#aaa;transition:transform .12s}
+  .sub2[open]>summary::before{transform:rotate(90deg)}
+  .sub2>summary:hover{background:#f6f8fa}
+  .badge{margin-left:auto;color:var(--mut);font-weight:400;font-size:11px}
+  .r.body{padding-left:34px}
+  .sw{display:inline-block;width:11px;height:11px;margin-right:6px;vertical-align:-1px}
+  .foot{color:var(--mut);font-size:11.5px;margin-top:14px;border-top:1px solid var(--line);padding-top:8px}
+  button{font:12px inherit;padding:4px 9px;border:1px solid var(--line);background:#fff;border-radius:3px;cursor:pointer}
+  button:hover{background:#eef3f8}
+  /* Hover links the two halves: a point and its row are the same object seen twice. */
+  .r.body{cursor:default}
+  .r.body.hl{background:#fdf3d7;border-radius:3px}
+  g.pt{cursor:default}
+  g.pt .halo{opacity:0}
+  g.pt.hl .halo{opacity:1}
+  #tip{position:fixed;pointer-events:none;display:none;z-index:9;background:#1b1b1b;color:#fff;
+       padding:6px 9px;border-radius:4px;font-size:12px;line-height:1.35;max-width:300px;
+       box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  #tip b{font-style:italic;font-weight:600}
+  #tip span{color:#bbb}
+</style>
+<div id="wrap">
+  <div id="side">
+    <h1>Per-run detections</h1>
+    <label>BioProject</label><select id="f-proj"></select>
+    <label>Crop</label><select id="f-crop"></select>
+    <label>Search species / run</label><input type="text" id="f-q" placeholder="e.g. Puccinia, SRR82">
+    <label>Minimum pathogens called <b id="v-minp">0</b></label>
+    <input type="range" id="f-minp" min="0" max="20" value="0">
+    <label><input type="checkbox" id="f-undec"> only runs with an undeclared pathogen</label>
+    <div class="cnt" id="n-match"></div>
+    <ul id="runs"></ul>
+    <label>Point labels</label>
+    <select id="f-lab"><option value="none">none</option><option value="name">species</option><option value="number">number</option></select>
+    <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+    <b style="font-size:12.5px">Detection floors</b>
+    <div class="cnt">defaults are 05_detect's own</div>
+    <label>coverage floor <b id="v-cov"></b></label><input type="range" id="f-cov" min="0" max="1000" value="200">
+    <label>saturation floor <b id="v-sat"></b></label><input type="range" id="f-sat" min="0" max="50" value="5">
+    <label>absolute floor <b id="v-dist"></b> k-mers</label><input type="range" id="f-dist" min="0" max="50" value="10">
+    <button id="reset">Reset floors</button>
+    <div class="foot" id="meta"></div>
+  </div>
+  <div id="main">
+    <h2 id="ttl">loading…</h2>
+    <div id="sub"></div>
+    <div id="whatif"></div>
+    <div id="tip"></div>
+    <div id="stage"><div id="plot"></div><div id="tbl"></div></div>
+    <div class="foot" id="note"></div>
+  </div>
+</div>
+<script>
+const COL=["var(--host)","var(--pcrop)","var(--poth)","var(--rcrop)","var(--roth)","var(--norec)"];
+const TIER_LABEL=["Host","Host pathogen","Non-host pathogen","Recorded on this crop","Recorded on other plants","No plant host record"];
+const HOLLOW=[3,4,5], NAMED=[0,1,2];
+// FOUR pathogen classes, ordered by how much is known about the species. Mirrors panel.R:
+// triangle-up biotroph, circle characterised, square putative, triangle-down opportunist.
+// Filled = pathogen or host, open = not. Indices match prep_browser.py's TROPHIC list.
+const MARK_LABEL=["","obligate biotroph","necrotroph / hemibiotroph",
+                  "weak pathogen (no species-rank record)","opportunist (saprotroph genus)"];
+const TROPHIC_ORDER=[1,2,3,4];
+const SHAPE={host:"diamond",1:"triangle",2:"circle",3:"square",4:"triangledown",res:"hollow"};
+const XR=[-6,4], YR=[-5,0], W=620, H=620, M={l:62,r:14,t:14,b:52};
+// Which cards the reader has collapsed, by key, kept across run changes -- collapsing
+// Resident once should stay collapsed while paging, not reset on every redraw.
+const SHUT=new Set();
+let DATA=null, CUR=null, F={cov:0.02,sat:0.05,dist:10000}, DEF={cov:0.02,sat:0.05,dist:10000};
+
+const $=id=>document.getElementById(id);
+const sx=v=>M.l+(Math.log10(v)-XR[0])/(XR[1]-XR[0])*(W-M.l-M.r);
+const sy=v=>M.t+(1-(Math.log10(v)-YR[0])/(YR[1]-YR[0]))*(H-M.t-M.b);
+
+function markOf(d){           // d = decision row
+  const tier=d[1], tro=d[2];
+  if(tier===0) return "diamond";
+  if(HOLLOW.includes(tier)) return "hollow";
+  return SHAPE[tro]||"circle";
+}
+function glyph(x,y,shape,fill,size,op){
+  const s=size, o=`fill-opacity="${op}" stroke-opacity="${op}"`;
+  if(shape==="hollow") return `<circle cx="${x}" cy="${y}" r="${s*.52}" fill="none" stroke="${fill}" stroke-width="1.5" ${o}/>`;
+  if(shape==="triangle") return `<polygon points="${x},${y-s*.68} ${x-s*.62},${y+s*.44} ${x+s*.62},${y+s*.44}" fill="${fill}" ${o}/>`;
+  if(shape==="square") return `<rect x="${x-s*.5}" y="${y-s*.5}" width="${s}" height="${s}" fill="${fill}" ${o}/>`;
+  if(shape==="triangledown") return `<polygon points="${x},${y+s*.68} ${x-s*.62},${y-s*.44} ${x+s*.62},${y-s*.44}" fill="${fill}" ${o}/>`;
+  if(shape==="diamond") return `<polygon points="${x},${y-s*.68} ${x-s*.6},${y} ${x},${y+s*.68} ${x+s*.6},${y}" fill="${fill}" ${o}/>`;
+  return `<circle cx="${x}" cy="${y}" r="${s*.5}" fill="${fill}" ${o}/>`;
+}
+const called=d=>!d[10] && d[8]>=F.dist && d[5]>=F.cov && d[6]>=F.sat;
+const moved=()=>F.cov!==DEF.cov||F.sat!==DEF.sat||F.dist!==DEF.dist;
+
+// ONE ORDER FOR BOTH HALVES. The plot used to number by coverage and the table by group, so
+// `number` mode disagreed between them -- found while wiring the hover, not by reading. The
+// sequence below is the table's reading order, and the plot now follows it, which also gives
+// every called row a stable id to link the two by.
+function ordering(run){
+  const cal=run.d.map((d,i)=>({d,i})).filter(x=>called(x.d));
+  const seq=[];
+  for(const tier of NAMED){
+    const g=cal.filter(x=>x.d[1]===tier).sort((a,b)=>b.d[5]-a.d[5]);
+    if(tier===0) seq.push(...g);
+    else for(const tro of TROPHIC_ORDER) seq.push(...g.filter(x=>x.d[2]===tro));
+  }
+  const res=cal.filter(x=>HOLLOW.includes(x.d[1]));
+  const num=new Map(seq.map((x,k)=>[x.i,k+1]));
+  return {seq,res,num};
+}
+
+function drawPanel(run){
+  const p=[];
+  p.push(`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="system-ui,sans-serif">`);
+  // axes
+  p.push(`<line x1="${M.l}" y1="${M.t}" x2="${M.l}" y2="${H-M.b}" stroke="var(--ink)" stroke-width="1.4"/>`);
+  p.push(`<line x1="${M.l}" y1="${H-M.b}" x2="${W-M.r}" y2="${H-M.b}" stroke="var(--ink)" stroke-width="1.4"/>`);
+  for(let e=XR[0];e<=XR[1];e+=2){const x=sx(Math.pow(10,e));
+    p.push(`<line x1="${x}" y1="${H-M.b}" x2="${x}" y2="${H-M.b+5}" stroke="var(--ink)"/>`);
+    p.push(`<text x="${x}" y="${H-M.b+19}" font-size="12" text-anchor="middle" fill="var(--ink)">${e}</text>`);}
+  for(let e=YR[0];e<=YR[1];e+=1){const y=sy(Math.pow(10,e));
+    p.push(`<line x1="${M.l-5}" y1="${y}" x2="${M.l}" y2="${y}" stroke="var(--ink)"/>`);
+    p.push(`<text x="${M.l-9}" y="${y+4}" font-size="12" text-anchor="end" fill="var(--ink)">${e}</text>`);}
+  p.push(`<text x="${(M.l+W-M.r)/2}" y="${H-6}" font-size="13" text-anchor="middle">log₁₀ Redundancy</text>`);
+  p.push(`<text transform="translate(14,${(M.t+H-M.b)/2}) rotate(-90)" font-size="13" text-anchor="middle">log₁₀ Coverage</text>`);
+  // the abundance floor, the only line kept
+  const yf=sy(F.cov);
+  p.push(`<line x1="${M.l}" y1="${yf}" x2="${W-M.r}" y2="${yf}" stroke="#555" stroke-width="1.3" stroke-dasharray="7,5"/>`);
+  // the rejected cloud, downsampled upstream
+  for(const [x,y] of run.k){ if(y<=0||x<=0) continue;
+    p.push(`<circle cx="${sx(x).toFixed(1)}" cy="${sy(y).toFixed(1)}" r="2" fill="none" stroke="#b9b9b9" stroke-width=".8" stroke-opacity=".7"/>`);}
+  // decision rows: rejected ones faint, called ones in the vocabulary
+  const cal=run.d.filter(called);
+  for(const d of run.d){ if(called(d)) continue;
+    p.push(`<circle cx="${sx(d[7]).toFixed(1)}" cy="${sy(d[5]).toFixed(1)}" r="2.4" fill="none" stroke="#b9b9b9" stroke-width=".9" stroke-opacity=".8"/>`);}
+  const ord=ordering(run);
+  for(const {d,i} of [...ord.seq,...ord.res]){
+    const x=sx(d[7]), y=sy(d[5]), col=COL[d[1]], named=NAMED.includes(d[1]);
+    // A transparent disc makes the hit area usable at these mark sizes; the halo is the
+    // highlight and sits under it so it cannot swallow the pointer.
+    p.push(`<g class="pt" data-i="${i}">`);
+    p.push(`<circle class="halo" cx="${x}" cy="${y}" r="${named?13:10}" fill="none" stroke="#2b6cb0" stroke-width="2"/>`);
+    p.push(glyph(x,y,markOf(d),col,named?9:6,0.7));
+    if(d[4]) p.push(`<circle cx="${x}" cy="${y}" r="9" fill="none" stroke="var(--ink)" stroke-width="1.5"/>`);
+    const lab=$("f-lab").value;
+    if(named&&lab!=="none"){
+      const t=lab==="name"?d[0].replace(/^(\w)\w+\s/,"$1. "):String(ord.num.get(i));
+      p.push(`<text x="${x+11}" y="${y-7}" font-size="10.5" fill="var(--ink)">${t}</text>`);}
+    p.push(`<circle cx="${x}" cy="${y}" r="11" fill="transparent"/></g>`);
+  }
+  p.push("</svg>");
+  return p.join("");
+}
+
+function drawTable(run){
+  const ord=ordering(run);
+  const op=k=>SHUT.has(k)?"":" open";
+  const card=(key,swatch,title,count,inner)=>
+    `<details class="card"${op(key)} data-k="${key}"><summary>${swatch}${title}`
+    +`<span class="badge">${count}</span></summary><div class="grid">${inner}</div></details>`;
+  const dot=(c,hollow)=>`<span class="sw" style="${hollow
+      ? `border:1.5px solid ${c};border-radius:50%`:`background:${c}`}"></span>`;
+
+  let h=`<div class="grid"><div class="r hdr"><span></span>`
+       +`<span class="num">cov</span><span class="num">sat</span></div></div>`;
+  for(const tier of NAMED){
+    const g=ord.seq.filter(x=>x.d[1]===tier); if(!g.length) continue;
+    let inner="";
+    if(tier===0) inner=g.map(rowHtml).join("");
+    else for(const tro of TROPHIC_ORDER){
+      const sg=g.filter(x=>x.d[2]===tro); if(!sg.length) continue;
+      const k=`${tier}:${tro}`;
+      inner+=`<details class="sub2"${op(k)} data-k="${k}"><summary>${MARK_LABEL[tro]}`
+            +`<span class="badge">${sg.length}</span></summary>${sg.map(rowHtml).join("")}</details>`;
+    }
+    h+=card(String(tier),dot(COL[tier],false),TIER_LABEL[tier],g.length,inner);
+  }
+  // Residents are counted, not listed, so the card body is the three tier tallies.
+  const res=ord.res;
+  if(res.length){
+    let inner="";
+    for(const tier of HOLLOW){
+      const c=res.filter(x=>x.d[1]===tier).length; if(!c) continue;
+      inner+=`<div class="r body" style="color:#555">${dot(COL[tier],true)}`
+            +`${c} &times; ${TIER_LABEL[tier].toLowerCase()}<span></span><span></span></div>`;
+    }
+    h+=card("res",dot(COL[3],true),"Resident",res.length,inner);
+  }
+  if(!ord.seq.length) h+=`<div class="r" style="font-weight:700">no detection cleared the floors</div>`;
+  return h;
+
+  function rowHtml(x){
+    const d=x.d, i=ord.num.get(x.i);
+    return `<div class="r body" data-i="${x.i}"><span>`
+      +`${$("f-lab").value==="number"?i+".&nbsp;":""}<i>${d[0]}</i>`
+      +(d[4]?` <span class="cnt">declared</span>`:"")
+      +`</span><span class="num">${(d[5]*100).toFixed(1)}%</span>`
+      +`<span class="num">${d[6].toFixed(2)}</span></div>`;
+  }
+}
+
+// ── hover: a point and its table row are the same object, so highlight both ────────────────
+// Listeners are attached after every render rather than delegated, because both halves are
+// replaced wholesale by innerHTML and a delegated handler would be the only thing in the file
+// that survives a redraw -- easy to forget when the markup changes.
+function linkHover(run){
+  const tip=$("tip");
+  const rowOf=i=>document.querySelector(`.r.body[data-i="${i}"]`);
+  const ptOf =i=>document.querySelector(`g.pt[data-i="${i}"]`);
+  const on=(i,ev)=>{
+    const r=rowOf(i), g=ptOf(i);
+    if(r) r.classList.add("hl");
+    if(g) g.classList.add("hl");
+    const d=run.d[i];
+    tip.innerHTML=`<b>${d[0]}</b><br>${MARK_LABEL[d[2]]||TIER_LABEL[d[1]]}`
+      +`<br><span>coverage</span> ${(d[5]*100).toFixed(2)}%  <span>saturation</span> ${d[6].toFixed(3)}`
+      +`<br><span>reads</span> ${d[9].toLocaleString()}  <span>distinct k-mers</span> ${d[8].toLocaleString()}`
+      +(d[4]?`<br><span>declared by the study</span>`:"");
+    tip.style.display="block"; move(ev);
+  };
+  const off=i=>{
+    const r=rowOf(i), g=ptOf(i);
+    if(r) r.classList.remove("hl");
+    if(g) g.classList.remove("hl");
+    tip.style.display="none";
+  };
+  const move=ev=>{
+    if(!ev) return;
+    // Flip the tip before it leaves the viewport rather than letting it clip.
+    const pad=14, w=tip.offsetWidth, h=tip.offsetHeight;
+    let x=ev.clientX+pad, y=ev.clientY+pad;
+    if(x+w>innerWidth-8) x=ev.clientX-w-pad;
+    if(y+h>innerHeight-8) y=ev.clientY-h-pad;
+    tip.style.left=x+"px"; tip.style.top=y+"px";
+  };
+  // Card state is remembered by key, so collapsing Resident stays collapsed while paging.
+  // <details> fires `toggle` after the fact, so read `.open` rather than inferring it.
+  for(const el of document.querySelectorAll("details[data-k]")){
+    el.addEventListener("toggle",()=>{
+      if(el.open) SHUT.delete(el.dataset.k); else SHUT.add(el.dataset.k);
+    });
+  }
+  for(const el of document.querySelectorAll('g.pt[data-i], .r.body[data-i]')){
+    const i=+el.dataset.i;
+    el.addEventListener("mouseenter",ev=>on(i,ev));
+    el.addEventListener("mousemove",move);
+    el.addEventListener("mouseleave",()=>off(i));
+  }
+}
+
+function show(run){
+  CUR=run;
+  $("ttl").textContent=`${run.r} (${run.p})`;
+  $("sub").textContent=[run.h,run.dp,run.loc,run.y,run.t].filter(Boolean).join(", ");
+  $("whatif").style.display=moved()?"block":"none";
+  $("whatif").textContent=`WHAT-IF: coverage ${(F.cov*100).toFixed(2)}%, saturation ${F.sat.toFixed(2)}, absolute ${F.dist.toLocaleString()} k-mers. Not the pipeline's call.`;
+  $("plot").innerHTML=drawPanel(run);
+  $("tbl").innerHTML=drawTable(run);
+  linkHover(run);
+  const kept=run.k.length, tot=run.kn;
+  $("note").textContent=`${run.d.length} candidates cleared the absolute floor and are shown in full. `
+    +`The faint cloud is ${kept.toLocaleString()} of ${tot.toLocaleString()} rejected rows, downsampled for size.`;
+  [...document.querySelectorAll("#runs li")].forEach(li=>li.classList.toggle("sel",li.dataset.r===run.r));
+}
+
+function matches(){
+  const pj=$("f-proj").value, cr=$("f-crop").value, q=$("f-q").value.trim().toLowerCase(),
+        mp=+$("f-minp").value, ud=$("f-undec").checked;
+  return DATA.runs.filter(r=>{
+    if(pj!=="(all)"&&r.p!==pj) return false;
+    if(cr!=="(all)"&&r.c!==cr) return false;
+    if(r.np<mp) return false;
+    if(ud&&!r.nu) return false;
+    if(q){ const hit=r.r.toLowerCase().includes(q)||r.d.some(d=>d[0].toLowerCase().includes(q));
+           if(!hit) return false; }
+    return true;
+  });
+}
+function refresh(keep){
+  const m=matches();
+  $("n-match").textContent=`${m.length.toLocaleString()} of ${DATA.runs.length.toLocaleString()} runs`;
+  $("runs").innerHTML=m.slice(0,400).map(r=>
+    `<li data-r="${r.r}">${r.r} <span class="cnt">${r.c}, ${r.np} pathogen${r.np===1?"":"s"}${r.nu?`, ${r.nu} undeclared`:""}</span></li>`).join("")
+    +(m.length>400?`<li class="cnt" style="cursor:default">… ${m.length-400} more, narrow the filters</li>`:"");
+  [...document.querySelectorAll("#runs li[data-r]")].forEach(li=>
+    li.onclick=()=>show(DATA.runs.find(r=>r.r===li.dataset.r)));
+  if(m.length&&(!keep||!m.includes(CUR))) show(m[0]); else if(CUR) show(CUR);
+}
+
+// The payload is INLINED when this file is built as detections.html, and fetched when it is
+// the index.html template served over http. Inlining exists because a file:// page cannot
+// fetch -- Chrome blocks it as a cross-origin request to a null origin -- and "open the file"
+// is the whole point of shipping HTML instead of a Shiny app.
+const inline=document.getElementById("payload");
+const load=inline?Promise.resolve(JSON.parse(inline.textContent)):fetch("data.json").then(r=>r.json());
+load.then(j=>{
+  DATA=j; DEF={cov:j.meta.cov_floor,sat:j.meta.sat_floor,dist:j.meta.min_distinct}; F={...DEF};
+  const projs=[...new Set(j.runs.map(r=>r.p))].sort(), crops=[...new Set(j.runs.map(r=>r.c))].filter(Boolean).sort();
+  $("f-proj").innerHTML=["(all)",...projs].map(v=>`<option>${v}</option>`).join("");
+  $("f-crop").innerHTML=["(all)",...crops].map(v=>`<option>${v}</option>`).join("");
+  $("f-minp").max=Math.max(...j.runs.map(r=>r.np));
+  $("f-cov").value=F.cov*10000; $("f-sat").value=F.sat*100; $("f-dist").value=F.dist/1000;
+  $("meta").textContent=`${j.meta.n_runs.toLocaleString()} runs from ${j.meta.source}. Floors shown are 05_detect's: coverage ${(DEF.cov*100).toFixed(0)}%, saturation ${DEF.sat}, absolute ${DEF.dist.toLocaleString()} k-mers.`;
+  const syncF=()=>{
+    F={cov:+$("f-cov").value/10000, sat:+$("f-sat").value/100, dist:+$("f-dist").value*1000};
+    $("v-cov").textContent=(F.cov*100).toFixed(2)+"%"; $("v-sat").textContent=F.sat.toFixed(2);
+    $("v-dist").textContent=(F.dist/1000).toFixed(0); if(CUR) show(CUR);};
+  ["f-cov","f-sat","f-dist"].forEach(i=>$(i).oninput=syncF);
+  $("reset").onclick=()=>{$("f-cov").value=DEF.cov*10000;$("f-sat").value=DEF.sat*100;$("f-dist").value=DEF.dist/1000;syncF();};
+  ["f-proj","f-crop","f-undec","f-lab"].forEach(i=>$(i).onchange=()=>refresh(true));
+  $("f-q").oninput=()=>refresh(true);
+  $("f-minp").oninput=()=>{$("v-minp").textContent=$("f-minp").value;refresh(true);};
+  syncF(); refresh(false);
+}).catch(e=>{$("ttl").textContent="could not load the data";$("sub").textContent=
+  "Open the GENERATED index.html (rebuild with prep_browser.py) — it has the data inlined. "+e;
+  console.error(e);});
+</script>

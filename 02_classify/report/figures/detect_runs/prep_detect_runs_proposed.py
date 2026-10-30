@@ -104,18 +104,73 @@ def fungaltraits() -> dict:
     return out
 
 
-def trophic_of(species: str, ft: dict) -> str:
-    """biotroph | necrotroph | opportunist, for a taxon already judged a pathogen."""
+def phibase_species(db: Path) -> set:
+    """ncbi_taxid with an EXPERIMENTAL pathogenicity record on a plant, at species rank.
+
+    This is the axis that separates a characterised pathogen from a ubiquitous colonist, and
+    it is a fact rather than a severity judgment: somebody has published molecular pathology
+    on this species. Severity itself has no machine-readable source -- EPPO ranks quarantine
+    status, not importance, and CABI is not retrievable -- so it is not attempted.
+    """
+    con = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
+    out = {int(t) for (t,) in con.execute(
+        "SELECT DISTINCT f.ncbi_taxid FROM host_association a "
+        "JOIN taxon f ON f.taxon_id = a.fungus_id JOIN taxon h ON h.taxon_id = a.host_id "
+        "WHERE a.association_type IN ('pathogenic','experimentally_verified') "
+        "AND h.kingdom = 'Viridiplantae' AND f.rank = 'species' "
+        "AND f.ncbi_taxid IS NOT NULL") if t}
+    con.close()
+    return out
+
+
+def trophic_of(species: str, taxid: int, ft: dict, phi: set, cur: dict) -> str:
+    """biotroph | necrotroph | weak | opportunist, for a taxon judged a pathogen.
+
+    THE AXIS IS TROPHIC LIFESTYLE, with strength splitting the necrotrophs. An earlier pass
+    replaced the lifestyle axis with an evidence axis and relabelled the middle class
+    "characterised pathogen", which deleted necrotroph/hemibiotroph from the figure entirely
+    and left three classes defined by which database holds a record. That was wrong: the
+    reader is being told what kind of organism this is, and "has a PHI-base entry" is not a
+    kind of organism. Lifestyle names the class; evidence only decides where a NECROTROPH
+    sits within it.
+
+    THE MIDDLE CLASS WAS WRONG AND THIS FIXES IT. Splitting on FungalTraits' genus-level
+    `primary_lifestyle` put *Epicoccum nigrum* beside *Zymoseptoria tritici*, because the
+    genus carries a plant_pathogen label; the only thing separating them in the figure was an
+    A/B/C evidence code, which is a provenance note masquerading as a finding. Leon,
+    2026-10-29: the weak pathogens belong with the opportunists.
+
+    The split is now species-rank PHI-base. Measured over the called pathogens, the two
+    classes separate on an axis nobody tuned: median USDA host breadth is 18 genera for the
+    characterised and 194 for the rest. A fungus recorded on 194 plant genera with no
+    published pathology is a generalist colonist, not an understudied specialist.
+
+    FOUR CLASSES, not three. Leon, 2026-10-29: the weak pathogens get their own cluster
+    rather than being folded in with the opportunists, because the two are separable and the
+    separator is not a judgment. A species with no record of its own may still sit in a genus
+    that FungalTraits calls a plant pathogen (`putative`), or in one it does not
+    (`opportunist`). Host breadth tracks it without being asked to: median USDA host genera
+    run 35 / 18 / 44 / 245 across the four, and 245 is a generalist colonist by any reading.
+
+    CURATED EVIDENCE COUNTS AS SPECIES-RANK EVIDENCE. `taxon_status.tsv` carries 13 cited
+    literature verdicts, and two of them -- *Microdochium majus* on wheat and *Ramularia
+    collo-cygni* on barley -- are real pathogens that PHI-base simply does not hold. Leaving
+    them in `putative` would rank a cited monograph below a database's coverage.
+
+    WHAT "opportunist" AND "putative" DO NOT MEAN: that the species is harmless, or that the
+    detection is false. They mean no species-rank pathogenicity record exists. PHI-base holds
+    only ~340 fungal taxa and is biased to the well studied, so these classes conflate "weak"
+    with "uncharacterised" and the manuscript must say so.
+    """
     hit = ft.get(species.split()[0])
-    if not hit:
-        return ""
-    order, life = hit
+    order = hit[0] if hit else ""
+    life = hit[1] if hit else ""
+    # An obligate biotroph is one whether or not a database holds a record for it.
     if order in BIOTROPH_ORDERS:
         return "biotroph"
-    # NOT a plant_pathogen genus, yet something called it a pathogen at species rank. These
-    # are the ubiquitous colonists a reviewer singles out first (Cladosporium, Aspergillus,
-    # Penicillium), and saying so is better than letting them sit beside Exserohilum.
-    return "necrotroph" if life == "plant_pathogen" else "opportunist"
+    if taxid in phi or cur.get(species) == "pathogen":
+        return "necrotroph"
+    return "weak" if life == "plant_pathogen" else "opportunist"
 
 
 def curated() -> dict:
@@ -132,7 +187,8 @@ def main() -> None:
     hosts = usda_hosts()
     cur = curated()
     ft = fungaltraits()
-    print(f"  FungalTraits: {len(ft):,} genera")
+    phi = phibase_species(HOLOBASE)
+    print(f"  FungalTraits: {len(ft):,} genera; PHI-base species-rank on a plant: {len(phi):,}")
     print(f"  USDA recorded_on: {len(hosts):,} fungal taxids with a plant host")
     print(f"  curated override: {len(cur)} species, "
           f"{sum(1 for v in cur.values() if v == 'pathogen')} pathogen")
@@ -194,7 +250,8 @@ def main() -> None:
         # which is a different question from the tier's "what is it to this plant", so the
         # figure gives it a different channel (shape) rather than another hue.
         r["tier"], r["evidence"] = tier, grade
-        r["trophic"] = trophic_of(sp, ft) if tier in ("pathogen_crop", "pathogen_other") else ""
+        r["trophic"] = (trophic_of(sp, int(tid), ft, phi, cur)
+                        if tid and tier in ("pathogen_crop", "pathogen_other") else "")
         if r["call"] == "yes":
             counts[(old, tier)] += 1
             moved += old != tier

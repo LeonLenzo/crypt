@@ -201,3 +201,18 @@ Rplots.pdf
 02_classify/report/figures/detect_runs/runs/
 02_classify/report/figures/detect_runs/runs_name/
 02_classify/report/figures/detect_runs/runs_none/
+
+# The per-run browser: index.html is GENERATED with ~10 MB of data inlined, and
+# data.json is the same payload for anyone serving the template instead. Both rebuild from
+# prep_browser.py; _template.html is the source and is tracked.
+02_classify/report/figures/detect_runs/browser/index.html
+02_classify/report/figures/detect_runs/browser/data.json
+
+# The static site's DATA and its generated preview page. site/build.py rebuilds both from the
+# release layer in one command, so neither belongs in history: runs.json alone is 11 MB and
+# would be rewritten on every threshold change. The CODE is tracked -- index.html, app.css,
+# app.js, build.py, build_basemap.R -- and that is the whole site. world.json is the one
+# borderline case: 1.4 MB, changes never, and Rscript + the `maps` package to rebuild. It is
+# ignored for consistency and because the Action that publishes the site regenerates it.
+site/data/
+site/preview.html

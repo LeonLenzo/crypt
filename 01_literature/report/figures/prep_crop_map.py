@@ -6,14 +6,22 @@ single ORDERED value per country. Crop is categorical and several crops can shar
 so the unit here is one row per (locality, crop) and the figure plots points, not country
 circles.
 
-Crop comes from `gold/cohort_hosts.tsv`, which is written by `report/host_summary.py --per-run`
-and is the only place the host is resolved correctly. Do NOT read `run_species.tsv` here: its
-`scientific_name` is the PATHOGEN for every rust and FHB survey, which files infected wheat
-leaves under Puccinia and reported 56 wheat runs instead of 1,012.
+READS THE SUPPLEMENTARY TABLES, NOT THE WORKING GOLD FILES. Leon, 2026-10-29. The figure and
+the supplement have to describe the same cohort, and the only way to guarantee that is to
+build the figure from the file the reader is given. S2 carries the curated host, crop,
+locality, coordinates, date and study focus per run; S3 carries the library statistics and
+the depth floor. Everything below comes from those two and nothing else.
 
-Coordinates come from `gold/cereal_localities.tsv`, written by
-`01_literature/retrieve/geocode_localities.py --input gold/cohort_hosts.tsv`, which owns the
-string-convention handling and the wrong-type / wrong-country rejections.
+AND IT PLOTS THE ANALYSED COHORT, not the curated one. Previously the panels showed all 7,630
+curated samples while every result in the paper was computed on the subset that survived the
+exclusions, so the map described a cohort the Results never used. A sample is plotted only if
+it cleared BOTH filters: the methodological one in S2 and the depth floor in S3.
+
+The host resolution and geocoding that used to be read from gold/cohort_hosts.tsv and
+gold/cereal_localities.tsv still happen upstream -- S2 is built from them -- so the warning
+that applied there applies here: never resolve crop from `run_species.tsv`, whose
+`scientific_name` is the PATHOGEN for every rust and FHB survey and reports 56 wheat runs
+instead of 1,012.
 
 Its `precision` column is carried through and matters. The largest sites all name a research
 facility no geocoder knows, so they are placed by dropping that name: "USA: Nebraska, Lincoln
@@ -41,8 +49,9 @@ sys.path[:0] = [str(_HERE.parents[2]), str(_HERE.parents[3])]
 
 from _layout import GOLD
 
-HOSTS = GOLD / "cohort_hosts.tsv"
-LOCS  = GOLD / "cereal_localities.tsv"
+TABLES = _HERE.parents[1] / "tables"
+S2 = TABLES / "Supplementary Data S2.tsv"
+S3 = TABLES / "Supplementary Data S3.tsv"
 OUT   = GOLD / "crop_map.tsv"
 OUTC  = GOLD / "crop_totals.tsv"
 OUTY  = GOLD / "crop_year.tsv"
@@ -88,6 +97,18 @@ PATHOGEN = re.compile(r"Puccinia|Blumeria|Zymoseptoria|Fusarium|Pyrenophora|Rhiz
 ORDER = ["Wheat", "Maize", "Rice", "Sorghum", "Barley", "Other cereal", "Cereal, host unresolved"]
 
 
+def crop_of_row(r: dict) -> str | None:
+    """The crop S2 recorded, falling back to deriving it from the host string.
+
+    S2 carries a curated `crop` for every selected run, so the figure uses it directly
+    instead of re-running the regex. Deriving the same quantity twice from different inputs
+    is exactly how a figure and its supplementary table come to disagree. The host fallback
+    survives for the rare row with no crop recorded.
+    """
+    c = (r.get("crop") or "").strip()
+    return c or crop_of(r.get("host", ""))
+
+
 def crop_of(host: str) -> str | None:
     h = (host or "").strip()
     for pat, label in CROP:
@@ -126,12 +147,27 @@ def country_of(loc: str) -> str:
 
 
 def main() -> None:
-    for p in (HOSTS, LOCS):
+    for p in (S2, S3):
         if not p.exists():
-            sys.exit(f"missing {p}; run host_summary.py --per-run and geocode_localities.py")
+            sys.exit(f"missing {p}; run report/tables/build_s2.py and build_s3.py")
 
-    runs = list(csv.DictReader(HOSTS.open(), delimiter="\t"))
-    coords = {r["location"]: r for r in csv.DictReader(LOCS.open(), delimiter="\t")}
+    # ANALYSED = cleared the methodological filter (S2) AND the depth floor (S3). Both are
+    # required: S2 alone is the curated cohort, which is 7,630, and the Results are computed
+    # on 3,605.
+    # `analysed` is the single authoritative flag: it carries the methodological filter,
+    # the long-read platform gate AND the depth floor. `passes_depth_floor` alone admitted
+    # the one MinION run that cleared depth but is not comparable at k=35.
+    depth_ok = {r["Run"] for r in csv.DictReader(S3.open(), delimiter="\t")
+                if r.get("analysed") == "1"}
+    runs = [r for r in csv.DictReader(S2.open(), delimiter="\t")
+            if r["selected"] == "1" and not r["methodological_exclusion"]
+            and r["Run"] in depth_ok]
+    # S2 carries the geocode per run, so there is no second table to join and no chance of
+    # the two disagreeing about where a locality is.
+    coords = {r["location"]: {"lat": r["lat"], "lon": r["lon"],
+                              "country": r.get("country", ""),
+                              "precision": r["location_precision"]}
+              for r in runs if r.get("lat")}
 
     cell = collections.defaultdict(lambda: dict(n=0, projects=set(), years=set()))
     ccell = collections.defaultdict(lambda: dict(n=0, projects=set(), years=set()))
@@ -145,13 +181,16 @@ def main() -> None:
     unfindable_by_crop = collections.Counter()
 
     for r in runs:
-        crop = crop_of(r["host"])
+        crop = crop_of_row(r)
         if crop is None:
             continue
         tot[crop] += 1
-        sel = (r.get("sampling_selection") or "").strip()
-        design[(crop, "Pathology" if sel in PATHOLOGY else
-                      "Physiology" if sel in PHYSIOLOGY else "Not recorded")] += 1
+        # study_focus is computed once, in build_s2.py, from the same PATHOLOGY set this
+        # file defines. Reading it rather than recomputing keeps panel (e) and the
+        # supplementary table in lockstep by construction.
+        focus = (r.get("study_focus") or "").strip()
+        design[(crop, "Pathology" if focus == "pathology" else
+                      "Physiology" if focus == "physiology" else "Not recorded")] += 1
         tot_proj[crop].add(r["BioProject"])
         loc = (r["location"] or "").strip()
         # A bare country is not a locality. Counting it as one inflated the localities panel
@@ -246,14 +285,14 @@ def main() -> None:
     # trimmed to where the data actually are: 6 samples predate 2010 and would otherwise
     # stretch the axis back to 1981 for a line of zeros.
     years = sorted({int(r["collection_date"][:4]) for r in runs
-                    if crop_of(r["host"]) in keep and r["collection_date"][:4].isdigit()})
+                    if crop_of_row(r) in keep and r["collection_date"][:4].isdigit()})
     lo = min(y for y in years if sum(1 for r in runs
                                      if r["collection_date"][:4] == str(y)) >= 10)
     span = [y for y in range(lo, max(years) + 1)]
     ycount = collections.Counter()
     undated = collections.Counter()
     for r in runs:
-        c = crop_of(r["host"])
+        c = crop_of_row(r)
         if c not in keep:
             continue
         d = r["collection_date"][:4]
@@ -282,7 +321,7 @@ def main() -> None:
 
     print(f"wrote {OUT}  ({sum(1 for (l, c) in cell if c in keep)} locality x crop cells)")
     print(f"wrote {OUTC}")
-    print(f"  cereal runs: {sum(tot.values()):,} in {len({r['BioProject'] for r in runs if crop_of(r['host'])})} projects")
+    print(f"  cereal runs: {sum(tot.values()):,} in {len({r['BioProject'] for r in runs if crop_of_row(r)})} projects")
     print(f"  plotted {placed:,} at a geocoded locality   "
           f"{sum(c['n'] for c in ccell.values()):,} at a country centroid   "
           f"no locality string {noloc:,}   neither {nocountry:,}")

@@ -21,6 +21,23 @@ _HERE = Path(__file__).resolve()
 sys.path[:0] = [str(_HERE.parents[2]), str(_HERE.parents[3])]
 from _layout import GOLD, SEEDS
 
+# The panels are built from the supplementary tables and describe the ANALYSED cohort, so the
+# caption has to read the same source or it will narrate a different one. Two inputs used to
+# come from the working gold files, which hold all 7,630 curated samples: `cereal_localities`
+# for the unresolved-country tally and `cohort_hosts` for the project count. Both now come
+# from S2, restricted to runs that cleared the methodological filter and the depth floor.
+TABLES = Path(__file__).resolve().parents[1] / "tables"
+S2 = TABLES / "Supplementary Data S2.tsv"
+S3 = TABLES / "Supplementary Data S3.tsv"
+
+
+def analysed_rows():
+    # See prep_crop_map.py: `analysed` carries every filter, `passes_depth_floor` only one.
+    depth_ok = {r["Run"] for r in tsv(S3) if r.get("analysed") == "1"}
+    return [r for r in tsv(S2)
+            if r["selected"] == "1" and not r["methodological_exclusion"]
+            and r["Run"] in depth_ok]
+
 OUT = _HERE.parent / "map_crop_origins_caption.txt"
 
 
@@ -37,12 +54,12 @@ def main() -> None:
     rows = [r for r in tsv(GOLD / "crop_map.tsv") if r["crop"] in keep]
     geo = [r for r in rows if r["precision"] != "country"]
     ctr = [r for r in rows if r["precision"] == "country"]
-    locs = tsv(GOLD / "cereal_localities.tsv")
+    analysed = analysed_rows()
     pr = collections.Counter(r["precision"] for r in geo)
     corrected = sum(v for k, v in pr.items() if k.startswith("corrected"))
     yrs = tsv(GOLD / "crop_year.tsv")
     dsn = tsv(GOLD / "crop_design.tsv")
-    hosts = tsv(GOLD / "cohort_hosts.tsv")
+
     fixes = tsv(SEEDS / "missing_localities.tsv") if (SEEDS / "missing_localities.tsv").exists() else []
 
     n_total = sum(int(tot[k]["runs"]) for k in keep)
@@ -50,10 +67,11 @@ def main() -> None:
     n_unplaced = sum(int(tot[k]["runs_unplaced"]) for k in keep)
     n_dated = sum(int(r["n"]) for r in yrs)
     years = sorted({int(r["year"]) for r in yrs})
-    projects = len({r["BioProject"] for r in hosts
-                    if any(r["host"].startswith(p) for p in
-                           ("Triticum", "Zea mays", "Oryza sativa", "Sorghum bicolor"))})
-    still = sum(1 for r in locs if r["precision"] == "country")
+    projects = len({r["BioProject"] for r in analysed if r["crop"] in keep})
+    # Localities still placed at a country centroid, counted over the ANALYSED runs rather
+    # than over every locality the geocoder ever saw.
+    still = len({r["location"] for r in analysed
+                 if r["crop"] in keep and r.get("location_precision") == "country"})
     applied = sum(1 for f in fixes if f.get("corrected", "").strip())
 
     # Panel e's numbers are DERIVED, never typed. The caution paragraph this replaces
@@ -66,6 +84,15 @@ def main() -> None:
         n = sum(d.values())
         return 100 * d.get("Pathology", 0) / n if n else 0.0
     n_norec = sum(d.get("Not recorded", 0) for d in dz.values())
+    # DERIVED, not named. This paragraph used to hardcode "rice ... while wheat ...", and
+    # broke outright the moment the panels moved to the analysed cohort and rice left it.
+    # Take the widest and narrowest spread from the data instead.
+    _by_loc = sorted(keep, key=lambda c: int(tot[c]["localities"]))
+    narrow, broad = _by_loc[0], _by_loc[-1]
+    broad_n, broad_l = int(tot[broad]["runs"]), tot[broad]["localities"]
+    narrow_n, narrow_l = int(tot[narrow]["runs"]), tot[narrow]["localities"]
+    broad, narrow = broad.lower(), narrow.lower()
+
     design_line = ", ".join(f"{c.lower()} {pathpct(c):.0f}%" for c in keep)
 
     tbl = "\n".join(
@@ -128,10 +155,10 @@ an absent bar rather than being skipped.
 {tbl}
 
 The crops are not comparable in shape and the two bar panels exist to show it:
-rice is {int(tot['Rice']['runs']):,} samples at {tot['Rice']['localities']} localities because the rice data are large
-GWAS panels grown at one farm, while wheat is {int(tot['Wheat']['runs']):,} at {tot['Wheat']['localities']} because the
-wheat data are rust surveys that sample broadly. (a) alone reads as a wheat map
-and (b) alone reads as a rice cohort; both are true.
+{broad} is {broad_n:,} samples spread over {broad_l} localities, while {narrow} is
+{narrow_n:,} at {narrow_l}. Sample count and geographic spread are close to
+independent here, so (a) and (b) rank the crops differently and both are
+correct.
 
 
 WHAT IS NOT SHOWN

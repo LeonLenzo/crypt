@@ -1,0 +1,142 @@
+doi	title	n_bioprojects	bioprojects
+10.1186/s12864-021-07488-3	T. Adams et al., “Rust expression browser: an open source database for simultaneous analysis of host and pathogen gene expression profiles with expVIP,” BMC Genomics, vol. 22, Mar. 2021, doi: [10.1186/s12864-021-07488-3](https://doi.org/10.1186/s12864-021-07488-3).	5	PRJEB15280;PRJEB31334;PRJEB33109;PRJEB39201;PRJNA256347
+10.3389/fpls.2022.926285	2022 Pentatricopeptide Repeat Gene-Mediated Mitochondrial RNA Editing Impacts on Rice Drought Tolerance.	3	PRJNA306542;PRJNA609211;PRJNA825139
+10.3389/fpls.2022.971371	2022 Comparative transcriptome meta-analysis reveals a set of genes involved in the responses to multiple pathogens in maize.	3	PRJEB10574;PRJNA308408;PRJNA418364
+10.3390/ijms27135987	2026 Genome-Wide Identification of the P-Type Ca&lt;sup&gt;2+&lt;/sup&gt;-ATPase Gene Family in Maize and Its Expression Dynamics Under Abiotic a	3	PRJEB10574;PRJNA308408;PRJNA418364
+10.1038/s41467-023-43178-2	2023 LHP1-mediated epigenetic buffering of subgenome diversity and defense responses confers genome plasticity and adaptability in allopolyploid	2	PRJNA450087;PRJNA595999
+10.1073/pnas.1907500116	N. Varoquaux et al., “Transcriptomic analysis of field-droughted sorghum from seedling to maturity reveals biotic and metabolic responses,” Proceedings of the National Academy of Sciences of the United States of America, vol. 116, pp. 27124–27132, Dec. 2019, doi: [10.1073/pnas.1907500116](https://doi.org/10.1073/pnas.1907500116).	2	PRJNA1119650;PRJNA527782
+10.1099/mgen.0.001136	2023 The expression landscape and pangenome of long non-coding RNA in the fungal wheat pathogen Zymoseptoria tritici.	2	PRJNA327013;PRJNA415716
+10.1186/s12870-025-06553-3	2025 Comparative transcriptomes reveal insights into different host responses associated with Fusarium head blight resistance in wheat.	2	PRJNA531693;PRJNA842823
+10.1186/s12915-023-01717-9	S. Holden et al., “Uncovering the history of recombination and population structure in western Canadian stripe rust populations through mating type alleles,” BMC Biology, vol. 21, Apr. 2023, doi: [10.1186/s12915-023-01717-9](https://doi.org/10.1186/s12915-023-01717-9).	2	PRJEB33109;PRJNA950118
+10.1186/s12915-024-01852-x	F. Rocher et al., “Integrative systems biology of wheat susceptibility to Fusarium graminearum uncovers a conserved gene regulatory network and identifies master regulators targeted by fungal core effectors,” BMC Biology, vol. 22, Mar. 2024, doi: [10.1186/s12915-024-01852-x](https://doi.org/10.1186/s12915-024-01852-x).	2	PRJEB59062;PRJEB59238
+10.64898/2026.05.21.727028	C. Colvin and S. Chopra, “Population-scale transcriptomics reveals host genetic control of phyllosphere fungal communities,” May 26, 2026. doi: [10.64898/2026.05.21.727028](https://doi.org/10.64898/2026.05.21.727028).	2	PRJEB67964;PRJEB83049
+10.1002/pld3.129	O. Danilevskaya et al., “Developmental and transcriptional responses of maize to drought stress under field conditions,” Plant Direct, vol. 3, May 2019, doi: [10.1002/pld3.129](https://doi.org/10.1002/pld3.129).	1	PRJNA291919
+10.1002/pld3.484	2023 A survey of lineage-specific genes in <i>Triticeae</i> reveals de novo gene evolution from genomic raw material.	1	PRJNA327013
+10.1002/pld3.70061	2026 A Reference-Free Algorithm Discovers Regulation in the Plant Transcriptome.	1	PRJNA527782
+10.1007/s44154-024-00158-w	2024 MicroRNA (miRNA) profiling of maize genotypes with differential response to Aspergillus flavus implies zma-miR156-squamosa promoter binding	1	PRJNA767817
+10.1016/j.molp.2021.07.008	RNA-seq of ZmMM1 wild type and mutant after NLB inoculation	1	PRJNA738667
+10.1016/j.molp.2024.09.006		1	PRJNA1161467
+10.1016/j.xplc.2025.101542	2026 Genome-based mutant RNA mapping identifies an NLR pair underlying Yr6-mediated stripe rust resistance in wheat.	1	PRJNA1226203
+10.1021/acs.jafc.6c00147		1	PRJNA1416819
+10.1038/nature25966	Zea mays Raw sequence reads	1	PRJNA383416
+10.1038/s41467-019-09287-7	2019 Water impacts nutrient dose responses genome-wide to affect crop production.	1	PRJNA510920
+10.1038/s41467-020-20777-x	M. C. Kolodziej et al., “A membrane-bound ankyrin repeat protein confers race-specific leaf rust disease resistance in wheat,” Nature Communications, vol. 12, Feb. 2021, doi: [10.1038/s41467-020-20777-x](https://doi.org/10.1038/s41467-020-20777-x).	1	PRJNA674985
+10.1038/s41467-021-22660-9	2021 The N-terminus of an Ustilaginoidea virens Ser-Thr-rich glycosylphosphatidylinositol-anchored protein elicits plant immunity as a MAMP.	1	PRJNA690691
+10.1038/s41467-025-61827-6	RNA sequencing of Magnaporthe oryzae infection of Oryza sativa indica leaves and roots	1	PRJNA423161
+10.1038/s41588-020-0671-9	2020 European maize genomes highlight intraspecies variation in repeat and gene content.	1	PRJNA383416
+10.1038/s41588-025-02281-4	Natural variation in SBRR1 confers sheath blight resistance in rice	1	PRJNA953858
+10.1038/s41598-017-12326-2	2017 Dynamic transcriptome and phytohormone profiling along the time of light exposure in the mesocotyl of rice seedling.	1	PRJNA306542
+10.1038/s41598-020-73521-2	2020 Epigenetic regulation of gene expression improves Fusarium head blight resistance in durum wheat.	1	PRJNA595999
+10.1038/s41598-025-89119-5	2025 The evolution, variation and expression patterns of the annexin gene family in the maize pan-genome.	1	PRJNA395908
+10.1038/srep37302	2016 Genetic determination of the enhanced drought resistance of rice maintainer HuHan2B by pedigree breeding.	1	PRJNA306542
+10.1073/pnas.2116896119	A genetically linked pair of NLR immune receptors show contrasting patterns of evolution	1	PRJDB12891
+10.1080/17429145.2024.2393803		1	PRJNA1100217
+10.1093/gbe/evx241	V. Bueno-Sancho et al., “Pathogenomic Analysis of Wheat Yellow Rust Lineages Detects Seasonal Variation and Host Specificity,” Genome Biology and Evolution, vol. 9, pp. 3282–3296, Nov. 2017, doi: [10.1093/gbe/evx241](https://doi.org/10.1093/gbe/evx241).	1	PRJEB15280
+10.1093/jxb/erac426	Z.-W. Ren, P. Kopittke, F.-J. Zhao, and P. Wang, “Nutrient accumulation and transcriptome patterns during grain development in rice,” Journal of Experimental Botany, vol. 74, pp. 909–930, Oct. 2022, doi: [10.1093/jxb/erac426](https://doi.org/10.1093/jxb/erac426).	1	PRJNA799471
+10.1093/pcp/pcab088	M. Kashima et al., “Genomic Basis of Transcriptome Dynamics in Rice under Field Conditions,” Plant and Cell Physiology, vol. 62, pp. 1436–1445, Oct. 2018, doi: [10.1093/pcp/pcab088](https://doi.org/10.1093/pcp/pcab088).	1	PRJDB7234
+10.1093/plcell/koab049	Identification of wheat genes required for pathogen ingress	1	PRJEB36444
+10.1093/plcell/koag196	2026 The mRNA covalent modification dihydrouridine regulates transcript turnover and photosynthetic capacity during plant abiotic stress.	1	PRJNA1119650
+10.1093/plphys/kiac038	2022 Shielding the oil reserves: the scutellum as a source of chemical defenses.	1	PRJNA750086
+10.1093/plphys/kiad460	R. Kumar et al., “Genetic architecture of source-sink-regulated senescence in maize.” Plant physiology, Aug. 2023, doi: [10.1093/plphys/kiad460](https://doi.org/10.1093/plphys/kiad460).	1	PRJNA896566
+10.1094/mpmi-03-17-0054-r	Maize and Cercospora zeina transcriptome analysis during gray leaf spot foliar disease	1	PRJNA369690
+10.1094/mpmi-07-22-0153-r		1	PRJNA818435
+10.1101/042317	O. Wilkins et al., “Environmental gene regulatory influence networks in rice (Oryza sativa):response to water deficit, high temperature and agricultural environments,” Jun. 03, 2016. doi: [10.1101/042317](https://doi.org/10.1101/042317).	1	PRJNA297424
+10.1101/2021.05.05.442799		1	PRJNA725619
+10.1101/2023.03.30.534825	Uncovering the history of recombination and population structure in western Canadian stripe rust populations through mating type alleles.	1	PRJNA950118
+10.1101/2023.10.31.565032	J. V. Torres-Rodríguez et al., “Population level gene expression can repeatedly link genes to functions in maize,” bioRxiv, Nov. 2023, doi: [10.1101/2023.10.31.565032](https://doi.org/10.1101/2023.10.31.565032).	1	PRJEB67964
+10.1101/2024.12.10.627719	Rust expression browser: an open source database for simultaneous analysis of host and pathogen gene expression profiles with expVIP.	1	PRJEB39201
+10.1101/gr.229716.117	2018 Coregulation of ribosomal RNA with hundreds of genes contributes to phenotypic variation.	1	PRJNA383416
+10.1104/pp.114.255927	J. Rudd et al., “Transcriptome and Metabolite Profiling of the Infection Cycle of Zymoseptoria tritici on Wheat Reveals a Biphasic Interaction with Plant Immunity Involving Differential Pathogen Chromosomal Contributions and a Variation on the Hemibiotrophic Lifestyle Definition1\[OPEN\],” Plant Physiology, vol. 167, pp. 1158–1185, Jan. 2015, doi: [10.1104/pp.114.255927](https://doi.org/10.110	1	PRJEB8798
+10.1105/tpc.112.103499	Zea mays cultivar:Nathan Transcriptome or Gene expression	1	PRJNA209313
+10.1105/tpc.17.00764	D. Lanver et al., “The Biotrophic Development of Ustilago maydis Studied by RNA-Seq Analysis\[OPEN\],” Plant Cell, vol. 30, pp. 300–323, Jan. 2018, doi: [10.1105/tpc.17.00764](https://doi.org/10.1105/tpc.17.00764).	1	PRJNA407369
+10.1105/tpc.18.00930	R. Sekhon et al., “Integrated Genome-Scale Analysis Identifies Novel Genes and Networks Underlying Senescence in Maize\[OPEN\],” Plant Cell, vol. 31, pp. 1968–1989, Jun. 2019, doi: [10.1105/tpc.18.00930](https://doi.org/10.1105/tpc.18.00930).	1	PRJNA505891
+10.1111/eva.13054	2020 Transcriptomic divergence between upland and lowland ecotypes contributes to rice adaptation to a drought-prone agroecosystem.	1	PRJNA306542
+10.1111/jac.70189	Zea mays cultivar:SY-XT1 Raw sequence reads	1	PRJNA1307747
+10.1111/jipb.70231	2026 PanGraphRNA: An efficient and flexible bioinformatics platform for graph pangenome-based RNA-seq data analysis.	1	PRJEB67964
+10.1111/mpp.13391	Knockout of transcription factor OsERF65 enhances the ability of ROS scavenging, confers rice resistance to sheath blight	1	PRJNA918425
+10.1111/nph.17312	2021 Myb10-D confers PHS-3D resistance to pre-harvest sprouting by regulating NCED in ABA biosynthesis pathway of wheat.	1	PRJNA605937
+10.1111/nph.19864		1	PRJEB65589
+10.1111/pce.13803		1	PRJNA516527
+10.1111/pce.14367	Y. Hashida et al., “Fillable and unfillable gaps in plant transcriptome under field and controlled environments,” Plant, Cell & Environment, vol. 45, pp. 2410–2427, Aug. 2021, doi: [10.1111/pce.14367](https://doi.org/10.1111/pce.14367).	1	PRJNA726716
+10.1111/pce.14579		1	PRJNA307989
+10.1111/pce.70649	2026 Integrated Multi-Omic Analyses Uncover a Regulatory Link Between Photosynthesis and Drought Tolerance in Field-Grown Sorghum.	1	PRJNA1119650
+10.1111/ppa.13468	Pathogenomic analyses reveals a potential recent shift in the South African Puccinia striiformis f. sp. tritici population	1	PRJEB36485
+10.1111/ppa.13532	A. Tsushima, C. Lewis, K. Flath, S. Kildea, and D. G. O. Saunders, “Wheat stem rust recorded for the first time in decades in Ireland,” Plant Pathology, vol. 71, pp. 890–900, Jan. 2022, doi: [10.1111/ppa.13532](https://doi.org/10.1111/ppa.13532).	1	PRJEB47693
+10.1111/ppl.70150	2025 Unravelling ecophysiological and molecular adjustments in the photosynthesis-respiration balance during Fusarium graminearum infection in wh	1	PRJEB59062
+10.1111/tpj.13419	Systems genetics reveals a transcriptional network associated with susceptibility in the maize-gray leaf spot pathosystem	1	PRJNA321325
+10.1111/tpj.14184	2019 An updated gene atlas for maize reveals organ-specific and stress-induced genes.	1	PRJEB10574
+10.1111/tpj.70182		1	PRJNA1006331
+10.1111/tpj.70250	H. Mangal et al., “Genes and pathways determining flowering time variation in temperate‐adapted sorghum,” The Plant Journal, vol. 122, Dec. 2024, doi: [10.1111/tpj.70250](https://doi.org/10.1111/tpj.70250).	1	PRJEB83049
+10.1126/sciadv.adv1760	2025 Stripe rust fungi hijack a host transcriptional repressor to induce TaSWEET14d for enhanced sugar uptake in wheat.	1	PRJNA1171632
+10.1126/science.aao7294	Variation in the AvrSr35 gene determines Sr35 resistance against wheat stem rust race Ug99.	1	PRJNA415853
+10.1126/science.adl5764	Impact of the effector MoNUDIX from Magnaporthe oryzae on the transcripts of rice (Nipponbare) during infection	1	PRJNA1181513
+10.1128/mra.00473-20	BIOCOMES RNASeq	1	PRJNA577523
+10.1186/s12284-025-00839-8	2025 Identification of Leaf Rust-Related Gene Signature in Wheat (Triticum Aestivum L.) Using High-Throughput Sequencing, Network Analysis, and M	1	PRJNA674985
+10.1186/s12859-026-06368-5	2026 CRESCENT, a comprehensive RNA-Seq expression, splicing, and coding/non-coding element network tool.	1	PRJEB59062
+10.1186/s12864-016-2780-5	2016 Transcriptome analysis of maize resistance to Fusarium graminearum.	1	PRJNA308408
+10.1186/s12864-018-4513-4	Transcriptome profiling of two inbred lines with distinct responses to Gibberella ear rot disease identified candidate genes for resistance in maize	1	PRJNA357594
+10.1186/s12864-019-6161-8	2019 Weighted gene co-expression network analysis unveils gene networks associated with the Fusarium head blight resistance in tetraploid wheat.	1	PRJNA531693
+10.1186/s12864-020-07193-7	2020 Temporal transcriptomic differences between tolerant and susceptible genotypes contribute to rice drought tolerance.	1	PRJNA609211
+10.1186/s12864-020-6646-5	2020 Temporal responses of conserved miRNAs to drought and their associations with drought tolerance and productivity in rice.	1	PRJNA609211
+10.1186/s12864-021-07800-1	2021 Fusarium head blight resistance in European winter wheat: insights from genome-wide transcriptome analysis.	1	PRJNA731024
+10.1186/s12864-022-09001-w	R. R. Lappe, M. G. Elmore, Z. R. Lozier, G. Jander, W. Miller, and S. Whitham, “Metagenomic identification of novel viruses of maize and teosinte in North America,” BMC Genomics, vol. 23, Nov. 2022, doi: [10.1186/s12864-022-09001-w](https://doi.org/10.1186/s12864-022-09001-w).	1	PRJNA753546
+10.1186/s12864-025-12230-4	A. Tsushima et al., “k-mer-based GWAS reveals a candidate avirulence gene and structural variation in Puccinia triticina linked to gain of Lr20 virulence,” BMC Genomics, vol. 26, Nov. 2025, doi: [10.1186/s12864-025-12230-4](https://doi.org/10.1186/s12864-025-12230-4).	1	PRJEB84390
+10.1186/s12864-026-12921-6	2026 SLAF-seq efficiently identifies SNP markers for wheat (Triticum aestivum L.) improvement.	1	PRJNA1314945
+10.1186/s12864-026-12964-9	RNA-seq data for verticillium dahliae Aspf2-like protein (VDAL) Reduces Fusarium Head Blight by activating wheat resistance	1	PRJNA1181034
+10.1186/s12870-021-03149-5	2021 Pathogen and drought stress affect cell wall and phytohormone signaling to shape host responses in a sorghum COMT bmr12 mutant.	1	PRJNA573931
+10.1186/s12870-021-03272-3	2021 Association mapping of drought tolerance and agronomic traits in rice (Oryza sativa L.) landraces.	1	PRJNA306542
+10.1186/s12870-024-05020-9	Triticum aestivum Raw sequence reads	1	PRJNA938609
+10.1186/s12870-024-05186-2	2024 Genome-wide identification and investigation of monosaccharide transporter gene family based on their evolution and expression analysis unde	1	PRJEB10574
+10.1186/s12870-025-06495-w	the interaction between maize ear and Fusarium verticillioides Genome sequencing and assembly	1	PRJNA735336
+10.1186/s12870-026-08418-9	2026 Genome-wide identification and expression analysis of RBR-type ubiquitin ligase family genes reveal the role of ZmIBR10 in maize disease res	1	PRJNA418364
+10.1186/s12915-019-0684-y	G. V. Radhakrishnan et al., “MARPLE, a point-of-care, strain-level disease diagnostics and surveillance tool for complex fungal pathogens,” BMC Biology, vol. 17, Aug. 2019, doi: [10.1186/s12915-019-0684-y](https://doi.org/10.1186/s12915-019-0684-y).	1	PRJEB31334
+10.1186/s13059-015-0590-8	A. Hubbard et al., “Field pathogenomics reveals the emergence of a diverse wheat yellow rust population,” Genome Biology, vol. 16, Feb. 2015, doi: [10.1186/s13059-015-0590-8](https://doi.org/10.1186/s13059-015-0590-8).	1	PRJNA256347
+10.1186/s13059-025-03690-8	Y. Hashida et al., “Field-crop transcriptome models are enhanced by measurements in systematically controlled environments,” Genome Biology, vol. 26, Sep. 2024, doi: [10.1186/s13059-025-03690-8](https://doi.org/10.1186/s13059-025-03690-8).	1	PRJNA1074001
+10.1186/s13059-025-03694-4	2025 HebQTLs reveal intra-subgenome regulation inducing unbalanced expression and function among bread wheat homoeologs.	1	PRJNA838764
+10.1186/s13059-025-03740-1	2025 Integrated phenomic and genomic analyses unveil modes of altered phenotypic plasticity during wheat improvement.	1	PRJNA838764
+10.1371/journal.pgen.1007637	2018 The genetic architecture of colonization resistance in Brachypodium distachyon to non-adapted stripe rust (Puccinia striiformis) isolates.	1	PRJNA256347
+10.1371/journal.pgen.1011052	ZmEREB92 plays a negative role in seed germination by regulating ethylene signaling and starch mobilization in maize	1	PRJNA983310
+10.1371/journal.pone.0179477	X. Zhang et al., “Genome-wide identification of gene expression in contrasting maize inbred lines under field drought conditions reveals the significance of transcription factors in drought tolerance,” PLoS ONE, vol. 12, Jul. 2017, doi: [10.1371/journal.pone.0179477](https://doi.org/10.1371/journal.pone.0179477).	1	PRJNA379712
+10.15252/msb.20209667	D. Cruz et al., “Using single‐plant‐omics in the field to link maize genes to functions and phenotypes,” Molecular Systems Biology, vol. 16, Apr. 2020, doi: [10.15252/msb.20209667](https://doi.org/10.15252/msb.20209667).	1	PRJEB37824
+10.3389/fgene.2016.00206	A Network Approach of Gene Co-Expression in the Zea mays/Aspergillus flavus Pathosystem to Map Host/Pathogen Interaction Pathways	1	PRJNA339565
+10.3389/fgene.2021.716821	M. Caicedo, E. D. Munaiz, R. Malvar, J. C. Jimenez, and B. Ordás, “Precision Mapping of a Maize MAGIC Population Identified a Candidate Gene for the Senescence-Associated Physiological Traits,” Frontiers in Genetics, vol. 12, Oct. 2021, doi: [10.3389/fgene.2021.716821](https://doi.org/10.3389/fgene.2021.716821).	1	PRJNA746402
+10.3389/fpls.2016.01886	2016 Transcriptomic and Metabolomic Studies Disclose Key Metabolism Pathways Contributing to Well-maintained Photosynthesis under the Drought and	1	PRJNA306542
+10.3389/fpls.2017.01314	2017 Root Transcriptomic Analysis Revealing the Importance of Energy Metabolism to the Development of Deep Roots in Rice (<i>Oryza sativa</i> L.)	1	PRJNA306542
+10.3389/fpls.2017.02075	2017 Comparative Histological and Transcriptional Analysis of Maize Kernels Infected with <i>Aspergillus flavus</i> and <i>Fusarium verticillioid	1	PRJNA418364
+10.3389/fpls.2020.00191	Maize and Cercospora zeina transcriptome analysis during gray leaf spot foliar disease	1	PRJNA564795
+10.3389/fpls.2021.664733	Y.-L. Sun et al., “Integrated Gene Co-expression Analysis and Metabolites Profiling Highlight the Important Role of ZmHIR3 in Maize Resistance to Gibberella Stalk Rot,” Frontiers in Plant Science, vol. 12, May 2021, doi: [10.3389/fpls.2021.664733](https://doi.org/10.3389/fpls.2021.664733).	1	PRJNA721468
+10.3389/fpls.2021.720462	M. Poretti et al., “Comparative Transcriptome Analysis of Wheat Lines in the Field Reveals Multiple Essential Biochemical Pathways Suppressed by Obligate Pathogens,” Frontiers in Plant Science, vol. 12, Sep. 2021, doi: [10.3389/fpls.2021.720462](https://doi.org/10.3389/fpls.2021.720462).	1	PRJNA718488
+10.3389/fpls.2021.761446	2021 Flavonoids Modulate the Accumulation of Toxins From <i>Aspergillus flavus</i> in Maize Kernels.	1	PRJNA767817
+10.3389/fpls.2022.1055277	S. Liu et al., “Cytological observation and transcriptome analysis reveal dynamic changes of Rhizoctonia solani colonization on leaf sheath and different genes recruited between the resistant and susceptible genotypes in rice,” Frontiers in Plant Science, vol. 13, Nov. 2022, doi: [10.3389/fpls.2022.1055277](https://doi.org/10.3389/fpls.2022.1055277).	1	PRJNA886841
+10.3389/fpls.2022.926621	2022 The Black Necrotic Lesion Enhanced <i>Fusarium graminearum</i> Resistance in Wheat.	1	PRJNA842823
+10.3389/fpls.2022.982240	2022 Linkage mapping and association analysis to identify a reliable QTL for stigma exsertion rate in rice.	1	PRJNA609211
+10.3389/fpls.2022.985396	2022 Comparative transcriptome profiling and weighted gene co-expression network analysis to identify core genes in maize (<i>Zea mays</i> L.) si	1	PRJEB13048
+10.3389/fpls.2023.1096249	N. B. Ranabhat, J. Fellers, M. Bruce, and J. L. S. Rupp, “Brome mosaic virus detected in Kansas wheat co-infected with other common wheat viruses,” Frontiers in Plant Science, vol. 14, Mar. 2023, doi: [10.3389/fpls.2023.1096249](https://doi.org/10.3389/fpls.2023.1096249).	1	PRJNA915982
+10.3389/fpls.2023.1153967	2023 Genome-wide association study identifies a gene conferring high physiological phosphorus use efficiency in rice.	1	PRJNA306542
+10.3389/fpls.2023.1299461	Dual RNA-sequencing of Fusarium Head Blight resistance in winter wheat	1	PRJNA976214
+10.3389/fpls.2024.1345774	N. Gawande and S. Sankaranarayanan, “Genome wide characterization and expression analysis of CrRLK1L gene family in wheat unravels their roles in development and stress-specific responses,” Frontiers in Plant Science, vol. 15, Mar. 2024, doi: [10.3389/fpls.2024.1345774](https://doi.org/10.3389/fpls.2024.1345774).	1	PRJNA522013
+10.3389/fpls.2025.1537605	Transcriptomic analysis of two Chinese wheat landraces with contrasting Fusarium head blight resistance reveals miRNA-mediated defense mechanisms.	1	PRJNA1183537
+10.3389/fpls.2025.1540179	RNA-Seq of Triticum turgdum: leaves and roots in drought	1	PRJNA1261096
+10.3389/fpls.2025.1624954	2025 Dissecting the genetic architecture of yield-related traits by QTL mapping in maize.	1	PRJEB10574
+10.3389/fpls.2025.1625014	2025 Identification and expression pattern analysis of the OsCBL gene family in rice.	1	PRJNA306542
+10.3389/fpls.2025.1671460	2025 Genome-wide association studies on leaf midrib architecture in maize.	1	PRJEB10574
+10.3389/fpls.2025.1710663	2025 Comparative genomics and expression analysis of the CIPK gene family in rice (Oryza sativa) and foxtail millet (Setaria italica).	1	PRJNA306542
+10.3390/cimb43020069	Triticum aestivum Transcriptome or Gene expression	1	PRJNA273659
+10.3390/genes16050539	2025 Genome-Wide Identification and Phylogenetic Characterization of the FTIP Gene Family in Maize (Zea mays).	1	PRJEB10406
+10.3390/ijms222313062	2021 A Comparative Transcriptomic Meta-Analysis Revealed Conserved Key Genes and Regulatory Networks Involved in Drought Tolerance in Cereal Crop	1	PRJNA306542
+10.3390/ijms231810236	Sweet corn RNA-sequencing after Bipolaris maydis Infection	1	PRJNA853857
+10.3390/ijms232415897	2022 Genome-Wide Association Analysis of Senescence-Related Traits in Maize.	1	PRJNA746402
+10.3390/ijms26020640	2025 Re-Examination Characterization and Screening of Stripe Rust Resistance Gene of Wheat <i>TaPR1</i> Gene Family Based on the Transcriptome in	1	PRJNA1203070
+10.3390/ijms26104618	2025 Transcriptional Dynamics of Receptor-Based Genes Reveal Immunity Hubs in Rice Response to Magnaporthe oryzae Infection.	1	PRJNA590671
+10.3390/jof4010039	2018 FungiDB: An Integrated Bioinformatic Resource for Fungi and Oomycetes.	1	PRJEB13569
+10.3390/pathogens14111087	K. Trzmiel, A. Zarzyńska‐Nowak, and B. Hasiów‐Jaroszewska, “Occurrence and Molecular Characteristics of Polerovirus BVG Isolates from Poland,” Pathogens, vol. 14, Oct. 2025, doi: [10.3390/pathogens14111087](https://doi.org/10.3390/pathogens14111087).	1	PRJNA1232637
+10.3390/plants11212807	2022 Transcriptome and Proteome Co-Profiling Offers an Understanding of Pre-Harvest Sprouting (PHS) Molecular Mechanisms in Wheat (<i>Triticum ae	1	PRJNA862687
+10.3390/plants12162932	2023 The Expression of <i>Triticum aestivum</i> Cysteine-Rich Receptor-like Protein Kinase Genes during Leaf Rust Fungal Infection.	1	PRJNA674985
+10.3390/plants13070982	2024 Transcriptome-Wide <i>N</i><sup>6</sup>-Methyladenosine (m<sup>6</sup>A) Methylation Analyses in a Compatible Wheat-<i>Puccinia striiformis<	1	PRJNA1072674
+10.3390/plants14020241	2025 Differential Stress Responses to Rice Blast Fungal Infection Associated with the Vegetative Growth Phase in Rice.	1	PRJDB19723
+10.3390/v13122457	C. D. Redila, V. Prakash, and S. Nouri, “Metagenomics Analysis of the Wheat Virome Identifies Novel Plant and Fungal-Associated Viral Sequences,” Viruses, vol. 13, Dec. 2021, doi: [10.3390/v13122457](https://doi.org/10.3390/v13122457).	1	PRJNA722004
+10.3390/v15020401	2023 Genomic High Plains Wheat Mosaic Virus Sequences from Australia: Their Phylogenetics and Evidence for Emaravirus Recombination and Reassortm	1	PRJNA796936
+10.3390/v17010126	N. B. Ranabhat, J. Fellers, M. Bruce, and J. L. S. Rupp, “High-Throughput Oxford Nanopore Sequencing Unveils Complex Viral Population in Kansas Wheat: Implications for Sustainable Virus Management,” Viruses, vol. 17, Jan. 2025, doi: [10.3390/v17010126](https://doi.org/10.3390/v17010126).	1	PRJNA915982
+10.7554/elife.08411	A. Plessis et al., “Multiple abiotic stimuli are integrated in the regulation of rice gene expression under field conditions,” eLife, vol. 4, Nov. 2015, doi: [10.7554/eLife.08411](https://doi.org/10.7554/eLife.08411).	1	PRJNA297424
+10.7554/elife.75790	2022 Association analyses of host genetics, root-colonizing microbes, and plant phenotypes under different nitrogen conditions in maize.	1	PRJNA383416
+10.7717/peerj.12968	Setaria italica Raw sequence reads	1	PRJNA721299

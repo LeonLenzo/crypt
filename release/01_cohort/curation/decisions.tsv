@@ -1,0 +1,7 @@
+doi	decision	reason
+10.1038/s42003-018-0013-y	drop	stem rust re-emergence: ecology and epidemiology, no RNA-seq of field tissue
+10.1094/pdis-02-21-0352-re	drop	curl-mite virus occurrence survey, not shotgun RNA of plant tissue
+10.1101/2020.08.10.244806	drop	curl-mite disease ecology and epidemiology
+10.1111/ppa.70139	drop	WSMV isolate molecular characterisation, consensus genome not reads
+10.3390/v15020401	drop	HPWMoV genome sequences, consensus not reads
+10.1186/s12915-019-0684-y	drop	MARPLE is targeted amplicon sequencing, not shotgun RNA-seq

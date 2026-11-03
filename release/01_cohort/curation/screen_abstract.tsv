@@ -1,0 +1,71 @@
+doi	data_type	recommend	signal	has_abstract	open_access	title
+10.1007/978-1-4939-7249-4_2	review	drop	An Advanced Tool	1		Field Pathogenomics: An Advanced Tool for Wheat Rust Surveillance
+10.1007/s00203-026-05119-7	rna_seq	review	Microsatellite + transcriptom	1		A transcriptome-wide approach for rapid pathotype discrimination of Puccinia striiformis f. sp. tritici in north-western India
+10.1007/s00705-017-3579-7	genome_only	drop	Complete genome sequence	1		Complete genome sequence of maize yellow striate virus, a new cytorhabdovirus infecting maize and wheat crops in Argentina
+10.1007/s00705-021-05175-y	rna_seq	keep	RNA-seq	1		Molecular characterization of a novel wheat-infecting virus of the family Betaflexiviridae
+10.1007/s00705-022-05360-7	rna_seq	keep	transcriptom	1		Complete genome sequence of a novel wheat-infecting polerovirus associated with yellowing dwarf disease in China
+10.1007/s00705-022-05361-6	genome_only	drop	complete nucleotide sequence	1		A novel tenuivirus infecting wheat in Brazil
+10.1007/s00705-022-05649-7	rna_seq	keep	RNAtag-seq	1		Genomic and phylogenetic characterization of wheat yellows virus, a novel tenuivirus infecting wheat in South Africa
+10.1007/s00705-023-05758-x	rna_seq	keep	High-throughput sequenc	1		Complete genome sequence of triticum yellow stripe virus, a new polerovirus infecting wheat (triticum aestivum) in China
+10.1007/s00705-024-06011-9	genome_only	drop	full-length genome	1		Genomic and biological characteristics of a novel leafhopper-transmitted marafivirus infecting Triticum aestivum
+10.1007/s00705-025-06336-z	rna_seq	keep	RNA-seq	1		The complete nucleotide sequence and genome organization of a novel wheat-infecting luteovirus
+10.1007/s00705-025-06451-x	rna_seq	keep	high-throughput sequenc	1		Hidden diversity of yellow dwarf viruses in Australian cereals
+10.1007/s10327-025-01256-x	rna_seq	keep	small RNA	1		Characterization of wheat virus Q from wheat in Hokkaido, Japan
+10.1007/s11274-025-04391-x	rna_seq	review	SSR + Field pathogenomic	1		Use of Field pathogenomics approach for Puccinia striiformis f. sp. tritici race identification and phylogenomic delineation in North India
+10.1007/s13313-026-01098-x	rna_seq	keep	high throughput sequenc	1		The identification of a novel cereal-infecting luteovirus, cereal red leaf virus, and clarification of other yellow dwarf viruses present in the Northern grain region of Australia
+10.1007/s41348-024-00942-w	genome_only	drop	complete genome sequence	1		The nearly complete genome sequence of clade B, wheat streak mosaic virus isolate from Türkiye
+10.1016/j.cropro.2020.105464	rna_seq	keep	Next generation sequenc	1		Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa
+10.1016/s2095-3119(19)62805-4	rna_seq	keep	small RNA	1		Virome identification in wheat in the Czech Republic using small RNA deep sequencing
+10.1038/s41598-018-31671-4	rna_seq	keep	next-generation sequenc	1		Barley RNA viromes in six different geographical regions in Korea
+10.1038/s41598-019-55547-3	rna_seq	keep	deep sequenc	1		Plant virome reconstruction and antiviral RNAi characterization by deep sequencing of small RNAs from dried leaves
+10.1038/s42003-018-0013-y	unclear	review	no sequencing language found	1		Potential for re-emergence of wheat stem rust in the United Kingdom
+10.1080/00275514.2019.1607135	rna_seq	keep	Field pathogenomic	1		Field pathogenomics of Fusarium head blight reveals pathogen transcriptome differences due to host resistance
+10.1093/gbe/evx241	rna_seq	keep	Pathogenomic	1		Pathogenomic Analysis of Wheat Yellow Rust Lineages Detects Seasonal Variation and Host Specificity
+10.1093/plcell/koab049	rna_seq	keep	RNA-seq	1		The branched-chain amino acid aminotransferase TaBCAT1 modulates amino acid metabolism and positively regulates wheat rust susceptibility
+10.1094/pdis-02-21-0352-re	unclear	review	no sequencing language found	1		Occurrence of Wheat Curl Mite and Mite-Vectored Viruses of Wheat in Colorado and Insights into the Wheat Virome
+10.1094/pdis-03-13-0243-pdn	rna_seq	keep	Total RNA	1		Wheat mosaic virus (WMoV), the Causal Agent of High Plains Disease, is Present in Ohio Wheat Fields
+10.1094/pdis-06-22-1294-pdn	unclear	review	no abstract retrieved	0		First Report of Barley Virus G Infecting Winter Barley ( Hordeum vulgare ) in France
+10.1094/pdis-06-25-1277-re	rna_seq	keep	high-throughput sequenc	1		Relative Occurrence and Seasonal Variations of Wheat-Infecting Viruses in Texas
+10.1094/pdis-08-17-1223-pdn	rna_seq	keep	Total RNA	1		Agropyron mosaic virus Detected in Ohio Wheat (Triticum aestivum)
+10.1094/pdis-08-17-1224-pdn	rna_seq	keep	Total RNA	1		First Report of Cocksfoot mottle virus Infecting Wheat (Triticum aestivum) in Ohio
+10.1094/pdis-08-19-1724-re	rna_seq	keep	High-Throughput Sequenc	1		Occurrence and High-Throughput Sequencing of Viruses in Ohio Wheat
+10.1094/pdis-09-18-1700-re	rna_seq	keep	Nanopore	1		Wheat Virus Identification Within Infected Tissue Using Nanopore Sequencing Technology
+10.1094/phyto-07-19-0258-fi	rna_seq	keep	High-throughput sequenc	1		Sixty Years After the First Description: Genome Sequence and Biological Characterization of European Wheat Striate Mosaic Virus Infecting Cereal Crops
+10.1101/2020.08.10.244806	unclear	review	no sequencing language found	1		Ecology and Epidemiology of Wheat Curl Mite and Mite-Transmissible Viruses in Colorado and Insights into the Wheat Virome
+10.1101/2023.03.30.534825	rna_seq	keep	transcriptom	1		Uncovering the history of recombination and population structure in western Canadian stripe rust populations through mating-type alleles
+10.1101/2024.12.10.627719	unclear	review	no sequencing language found	1		Two divergent haploid nuclei shaped the landscape of population diversity in wheat stripe rust
+10.1111/nph.19864	unclear	review	no sequencing language found	1		Resurgence of wheat stem rust infections in western Europe: causes and how to curtail them
+10.1111/ppa.12970	genome_only	drop	complete genome sequence	1		A novel putative member of the family Benyviridae is associated with soilborne wheat mosaic disease in Brazil
+10.1111/ppa.13468	rna_seq	keep	Pathogenomic	1		Pathogenomic analyses of Puccinia striiformis f. sp. tritici supports a close genetic relationship between South and East Africa
+10.1111/ppa.13532	rna_seq	keep	transcriptom	1		Wheat stem rust recorded for the first time in decades in Ireland
+10.1111/ppa.70139	unclear	review	no sequencing language found	1		Molecular Characterisation of Wheat Streak Mosaic Virus Isolates From Central Europe Based on Complete Genome Sequences
+10.1128/mra.00451-20	genome_only	drop	complete genome of	1		Identification of a Divergent Isolate of Ryegrass Mosaic Virus in Ohio Wheat
+10.1128/mra.00745-22	genome_only	drop	Complete Nucleotide Sequence	1		The Complete Nucleotide Sequence of Barley Yellow Dwarf Virus-PAV from Wheat in Turkey
+10.1186/s12864-021-07488-3	rna_seq	keep	Transcriptom	1		Rust expression browser: an open source database for simultaneous analysis of host and pathogen gene expression profiles with expVIP
+10.1186/s12864-025-12230-4	unclear	review	no sequencing language found	1		k-mer-based GWAS reveals a candidate avirulence gene and structural variation in Puccinia triticina linked to gain of Lr20 virulence
+10.1186/s12915-016-0309-7	rna_seq	keep	transcriptom	1		Emergence of wheat blast in Bangladesh was caused by a South American lineage of Magnaporthe oryzae
+10.1186/s12915-019-0684-y	unclear	review	no sequencing language found	1		MARPLE, a point-of-care, strain-level disease diagnostics and surveillance tool for complex fungal pathogens
+10.1186/s12915-023-01717-9	rna_seq	keep	transcriptom	1		Uncovering the history of recombination and population structure in western Canadian stripe rust populations through mating type alleles
+10.1186/s13059-015-0590-8	rna_seq	keep	Field pathogenomic	1		Field pathogenomics reveals the emergence of a diverse wheat yellow rust population
+10.1371/journal.pone.0188495	rna_seq	keep	next generation sequenc	1		Classical and next generation sequencing approaches unravel Bymovirus diversity in barley crops in France
+10.15212/ijafr-2023-0110	rna_seq	keep	high-throughput sequenc	1		The first survey using high-throughput sequencing of cereal and barley yellow dwarf viruses in Irish spring and winter barley crops
+10.21203/rs.3.rs-1261136/v1	genome_only	drop	Molecular Characterization of a Novel	1		Molecular Characterization of a Novel Virga-like Virus Detected From Wheat
+10.21203/rs.3.rs-405043/v1	rna_seq	keep	RNA-seq	1		Molecular Characterization of a Novel Wheat-infecting Virus in Family Betaflexiviridae
+10.3389/fagro.2025.1721047	unclear	review	no abstract retrieved	0		Data collection and transcriptome analysis of Triticum aestivum samples from Alabama revealed the presence of barley yellow dwarf virus
+10.3389/fmicb.2017.01689	genome_only	drop	Full-Length Sequence	1		Identification, Characterization and Full-Length Sequence Analysis of a Novel Polerovirus Associated with Wheat Leaf Yellowing Disease
+10.3389/fmicb.2018.00468	rna_seq	keep	transcriptom	1		Identification and Characterization of Wheat Yellow Striate Virus, a Novel Leafhopper-Transmitted Nucleorhabdovirus Infecting Wheat
+10.3389/fmicb.2021.673218	rna_seq	keep	High-Throughput Sequenc	1		A Survey Using High-Throughput Sequencing Suggests That the Diversity of Cereal and Barley Yellow Dwarf Viruses Is Underestimated
+10.3389/fmicb.2021.699078	rna_seq	keep	High-Throughput Sequenc	1		Full Genome Evolutionary Studies of Wheat Streak Mosaic-Associated Viruses Using High-Throughput Sequencing
+10.3389/fmicb.2021.715545	rna_seq	keep	RNA seq	1		Identification of a Novel Quinvirus in the Family Betaflexiviridae That Infects Winter Wheat
+10.3389/fpls.2021.720462	rna_seq	keep	Transcriptom	1		Comparative Transcriptome Analysis of Wheat Lines in the Field Reveals Multiple Essential Biochemical Pathways Suppressed by Obligate Pathogens
+10.3389/fpls.2023.1096249	rna_seq	keep	nanopore	1		Brome mosaic virus detected in Kansas wheat co-infected with other common wheat viruses
+10.3389/fpls.2024.1464454	unclear	review	no sequencing language found	1		A recent shift in the Puccinia striiformis f. sp. tritici population in Serbia coincides with changes in yield losses of commercial winter wheat varieties
+10.3390/agronomy10121888	rna_seq	keep	transcriptom	1		Differential Gene Expression Analysis of Wheat Breeding Lines Reveal Molecular Insights in Yellow Rust Resistance under Field Conditions
+10.3390/genes15060697	rna_seq	keep	RNA-seq	1		Identification of Barley yellow mosaic virus Isolates Breaking rym3 Resistance in Japan
+10.3390/pathogens12030358	rna_seq	keep	small RNA	1		Discovery and Genome Characterization of a Closterovirus from Wheat Plants with Yellowing Leaf Symptoms in Japan
+10.3390/plants11030256	rna_seq	keep	Metatranscriptom	1		Identification of Viruses Infecting Oats in Korea by Metatranscriptomics
+10.3390/plants12122374	rna_seq	keep	Illumina	1		Analysis of Wheat Virome in Korea Using Illumina and Oxford Nanopore Sequencing Platforms
+10.3390/v13122457	rna_seq	keep	total RNA	1		Metagenomics Analysis of the Wheat Virome Identifies Novel Plant and Fungal-Associated Viral Sequences
+10.3390/v15020401	unclear	review	no sequencing language found	1		Genomic High Plains Wheat Mosaic Virus Sequences from Australia: Their Phylogenetics and Evidence for Emaravirus Recombination and Reassortment
+10.3390/v17010126	rna_seq	keep	Nanopore	1		High-Throughput Oxford Nanopore Sequencing Unveils Complex Viral Population in Kansas Wheat: Implications for Sustainable Virus Management
+10.64898/2025.12.18.695303	rna_seq	keep	transcriptom	1		Novel clonal lineages of wheat stem rust in the Southern Cone of South America

@@ -1,0 +1,53 @@
+# Fungal and oomycete genera that cause disease on wheat and the other small-grain
+# cereals, plus the genera of the common cereal viruses' vectors and hosts of confusion.
+# Used only to FLAG a Latin binomial found in the text as pathogen-like; every binomial is
+# reported either way, so a genus missing from here is visible rather than dropped.
+Puccinia
+Blumeria
+Zymoseptoria
+Mycosphaerella
+Septoria
+Parastagonospora
+Phaeosphaeria
+Stagonospora
+Pyrenophora
+Drechslera
+Bipolaris
+Cochliobolus
+Fusarium
+Microdochium
+Gibberella
+Magnaporthe
+Pyricularia
+Claviceps
+Tilletia
+Ustilago
+Urocystis
+Rhizoctonia
+Ceratobasidium
+Gaeumannomyces
+Oculimacula
+Ramularia
+Alternaria
+Cladosporium
+Epicoccum
+Ascochyta
+Didymella
+Phoma
+Leptosphaeria
+Sclerotinia
+Botrytis
+Verticillium
+Colletotrichum
+Phakopsora
+Melampsora
+Sporisorium
+Typhula
+Pythium
+Phytophthora
+Peronospora
+Albugo
+Zymoseptoria
+Cercospora
+Aspergillus
+Penicillium

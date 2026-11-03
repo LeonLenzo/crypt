@@ -224,3 +224,6 @@ release/01_cohort/raw/fulltext/
 # graphify: generated code graph, rebuildable with `graphify update .` at no API cost
 graphify-out/
 **/graphify-out/
+# Manually obtained full text: publishers' content, same policy as raw/fulltext/.
+# It is an INPUT (no script can fetch it) but the bodies stay out of git.
+release/01_cohort/inputs/fulltext_manual/

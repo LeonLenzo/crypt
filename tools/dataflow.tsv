@@ -1,0 +1,453 @@
+script	direction	file	expression	line	found_by
+release/01_cohort/bioproject_screen.py	read	raw_papers.tsv	PAPERS	81	open
+release/01_cohort/bioproject_screen.py	write	bioproject_screen_papers.tsv	OUT	105	open
+release/01_cohort/bioproject_screen.py	touches	*.xml	"str(FULLTEXT / ""*.xml"")"	86	glob
+release/01_cohort/bioproject_screen.py	read	*.xml	raw/fulltext/*.xml		docstring
+release/01_cohort/fetch_fulltext.py	touches	host_screen_papers.tsv	SCREEN	78	read_tsv
+release/01_cohort/fetch_fulltext.py	write	raw_fulltext.tsv	OUT	125	open
+release/01_cohort/fetch_fulltext.py	touches	raw_fulltext.tsv	OUT	84	read_tsv
+release/01_cohort/fetch_fulltext.py	read	host_screen_papers.tsv	curation/host_screen_papers.tsv		docstring
+release/01_cohort/fetch_fulltext.py	write	<doi>.xml	raw/fulltext/<doi>.xml		docstring
+release/01_cohort/fetch_title_abstract.py	write	raw_papers.tsv	OUT	91	open
+release/01_cohort/fetch_title_abstract.py	read	dois.txt	inputs/dois.txt		docstring
+release/01_cohort/host_screen.py	read	raw_papers.tsv	PAPERS	79	open
+release/01_cohort/host_screen.py	write	host_screen_papers.tsv	OUT	92	open
+research/01_literature/_resolver.py	read	runs.tsv	RUNS	102	open
+research/01_literature/controls/screen_candidates.py	touches	{taxid}.tsv	"f""{taxid}.tsv"""	161	join
+research/01_literature/controls/screen_candidates.py	write	candidates_runs.tsv	OUT_RUNS	185	open
+research/01_literature/controls/screen_candidates.py	touches	candidates_studies.tsv	open(OUT_STUDIES)	214	DictReader
+research/01_literature/controls/screen_candidates.py	write	candidates_studies.tsv	OUT_STUDIES	232	open
+research/01_literature/controls/screen_candidates.py	read	candidates_studies.tsv	OUT_STUDIES	214	open
+research/01_literature/curate/apply_curation.py	touches	joins.tsv	JOINS	182	read
+research/01_literature/curate/apply_curation.py	touches	papers.tsv	PAPERS	311	read
+research/01_literature/curate/apply_curation.py	touches	runs.tsv	RUNS	342	read
+research/01_literature/curate/apply_curation.py	touches	curation.tsv	CURATION	343	read
+research/01_literature/curate/apply_curation.py	touches	provenance.tsv	PROVENANCE	344	read
+research/01_literature/curate/apply_curation.py	write	runs.tsv	RUNS	462	atomic_write
+research/01_literature/curate/declared_worklist.py	read	text_cache.jsonl	TEXT_CACHE	83	open
+research/01_literature/curate/declared_worklist.py	touches	cohort_bioprojects.tsv	open(BIOPROJECTS)	105	DictReader
+research/01_literature/curate/declared_worklist.py	touches	cohort_samples.tsv	open(SAMPLES)	106	DictReader
+research/01_literature/curate/declared_worklist.py	touches	curation.tsv	open(CURATION)	123	DictReader
+research/01_literature/curate/declared_worklist.py	write	declared_worklist.tsv	OUT	181	open
+research/01_literature/curate/declared_worklist.py	read	cohort_bioprojects.tsv	BIOPROJECTS	105	open
+research/01_literature/curate/declared_worklist.py	read	cohort_samples.tsv	SAMPLES	106	open
+research/01_literature/curate/declared_worklist.py	read	curation.tsv	CURATION	123	open
+research/01_literature/curate/import_provenance.py	touches	runs.tsv	RUNS	123	read
+research/01_literature/curate/import_provenance.py	touches	cohort_provenance.tsv	open(COHORT_PROV)	78	DictReader
+research/01_literature/curate/import_provenance.py	touches	supp_provenance.tsv	open(SUPP_PROV)	88	DictReader
+research/01_literature/curate/import_provenance.py	write	runs.tsv	RUNS	212	atomic_write
+research/01_literature/curate/import_provenance.py	read	cohort_provenance.tsv	COHORT_PROV	78	open
+research/01_literature/curate/import_provenance.py	read	supp_provenance.tsv	SUPP_PROV	88	open
+research/01_literature/curate/import_provenance.py	write	provenance.tsv	PROVENANCE	206	open
+research/01_literature/curate/import_provenance.py	touches	provenance.tsv	PROVENANCE	184	read
+research/01_literature/curate/review.py	touches	worklist.tsv	"""worklist.tsv"""	377	read
+research/01_literature/curate/review.py	touches	runs.tsv	"""runs.tsv"""	389	read
+research/01_literature/curate/review.py	read	decisions.tsv	DECISIONS	101	open
+research/01_literature/curate/review.py	write	decisions.tsv	DECISIONS	125	open
+research/01_literature/curate/review.py	write	found.tsv	FOUND	148	open
+research/01_literature/curate/review.py	touches	papers.tsv	"""papers.tsv"""	381	read
+research/01_literature/curate/review.py	touches	bioprojects.tsv	"""bioprojects.tsv"""	387	read
+research/01_literature/curate/scaffold.py	touches	papers.tsv	"""papers.tsv"""	241	read
+research/01_literature/curate/scaffold.py	touches	paper_bioproject.tsv	"""paper_bioproject.tsv"""	243	read
+research/01_literature/curate/scaffold.py	touches	runs.tsv	"""runs.tsv"""	244	read
+research/01_literature/curate/scaffold.py	touches	*.json	"""*.json"""	250	glob
+research/01_literature/curate/scaffold.py	touches	bioprojects.tsv	"""bioprojects.tsv"""	242	read
+research/01_literature/curate/scan_exposure.py	touches	cohort_samples.tsv	open(COHORT)	137	DictReader
+research/01_literature/curate/scan_exposure.py	write	exposure_scan.tsv	OUT	194	open
+research/01_literature/curate/scan_exposure.py	read	cohort_samples.tsv	COHORT	137	open
+research/01_literature/report/build_release.py	touches	paper_bioproject.tsv	"SILVER / ""paper_bioproject.tsv"""	95	read
+research/01_literature/report/build_release.py	touches	papers.tsv	"SILVER / ""papers.tsv"""	268	read
+research/01_literature/report/build_release.py	touches	bioprojects.tsv	"SILVER / ""bioprojects.tsv"""	276	read
+research/01_literature/report/build_release.py	touches	cohort_hosts.tsv	"GOLD / ""cohort_hosts.tsv"""	82	read
+research/01_literature/report/build_release.py	touches	curation.tsv	"SEEDS / ""curation.tsv"""	87	read
+research/01_literature/report/build_release.py	touches	joins.tsv	"SEEDS / ""joins.tsv"""	88	read
+research/01_literature/report/build_release.py	touches	provenance.tsv	"SEEDS / ""provenance.tsv"""	89	read
+research/01_literature/report/build_release.py	touches	cereal_localities.tsv	"GOLD / ""cereal_localities.tsv"""	91	read
+research/01_literature/report/figures/caption.py	touches	crop_year.tsv	"GOLD / ""crop_year.tsv"""	60	tsv
+research/01_literature/report/figures/caption.py	touches	crop_design.tsv	"GOLD / ""crop_design.tsv"""	61	tsv
+research/01_literature/report/figures/caption.py	write	map_crop_origins_caption.txt	OUT	244	write_text
+research/01_literature/report/figures/caption.py	touches	missing_localities.tsv	"SEEDS / ""missing_localities.tsv"""	63	tsv
+research/01_literature/report/figures/caption.py	touches	Supplementary Data S3.tsv	S3	36	tsv
+research/01_literature/report/figures/caption.py	touches	Supplementary Data S2.tsv	S2	37	tsv
+research/01_literature/report/figures/caption.py	touches	crop_totals.tsv	"GOLD / ""crop_totals.tsv"""	50	tsv
+research/01_literature/report/figures/caption.py	touches	crop_map.tsv	"GOLD / ""crop_map.tsv"""	54	tsv
+research/01_literature/report/figures/prep_crop_map.py	touches	Supplementary Data S3.tsv	S3.open()	160	DictReader
+research/01_literature/report/figures/prep_crop_map.py	touches	Supplementary Data S2.tsv	S2.open()	162	DictReader
+research/01_literature/report/freeze_cohort_inputs.py	touches	provenance.tsv	"SEEDS / ""provenance.tsv"""	75	read
+research/01_literature/report/freeze_cohort_inputs.py	touches	curation.tsv	"SEEDS / ""curation.tsv"""	96	read
+research/01_literature/report/freeze_cohort_inputs.py	touches	joins.tsv	"SEEDS / ""joins.tsv"""	106	read
+research/01_literature/report/freeze_cohort_inputs.py	touches	curated_rules.tsv	"CUR / ""curated_rules.tsv"""	119	write
+research/01_literature/report/freeze_cohort_inputs.py	touches	runs.tsv	"SILVER / ""runs.tsv"""	137	read
+research/01_literature/report/freeze_cohort_inputs.py	touches	curated_rules_runs.tsv	"CUR / ""curated_rules_runs.tsv"""	147	write
+research/01_literature/report/freeze_cohort_inputs.py	touches	raw_bioprojects.tsv	"RAW / ""raw_bioprojects.tsv"""	162	write
+research/01_literature/report/freeze_cohort_inputs.py	touches	bioprojects.tsv	"read(SILVER / ""bioprojects.tsv"")"	162	write
+research/01_literature/report/freeze_cohort_inputs.py	touches	raw_runs.tsv	"RAW / ""raw_runs.tsv"""	216	write
+research/01_literature/report/freeze_cohort_inputs.py	touches	paper_bioproject.tsv	"SILVER / ""paper_bioproject.tsv"""	227	read
+research/01_literature/report/freeze_cohort_inputs.py	touches	papers.tsv	"SILVER / ""papers.tsv"""	232	read
+research/01_literature/report/freeze_cohort_inputs.py	touches	raw_papers.tsv	"RAW / ""raw_papers.tsv"""	243	write
+research/01_literature/report/freeze_cohort_inputs.py	touches	raw_library_stats.tsv	"RAW / ""raw_library_stats.tsv"""	255	write
+research/01_literature/report/freeze_cohort_inputs.py	touches	run_depth.tsv	read(DEPTH)	255	write
+research/01_literature/report/freeze_cohort_inputs.py	touches	decisions.tsv	"SEEDS / ""decisions.tsv"""	260	read
+research/01_literature/report/freeze_cohort_inputs.py	touches	curated_decisions.tsv	"CUR / ""curated_decisions.tsv"""	261	write
+research/01_literature/report/freeze_cohort_inputs.py	touches	cohort_bioprojects.tsv	"MODULE / ""release"" / ""cohort_bioprojects.tsv"""	166	read
+research/01_literature/report/host_summary.py	touches	runs.tsv	RUNS	210	all_runs
+research/01_literature/report/host_summary.py	touches	coinfection.tsv	"dict( host=host, host_group=host_group(host), samples=a[""n""], projects"	311	append
+research/01_literature/report/make_curation_worklists.py	touches	paper_bioproject.tsv	"SILVER / ""paper_bioproject.tsv"""	71	read
+research/01_literature/report/make_curation_worklists.py	touches	papers.tsv	"SILVER / ""papers.tsv"""	75	read
+research/01_literature/report/make_curation_worklists.py	touches	bioprojects.tsv	"SILVER / ""bioprojects.tsv"""	150	read
+research/01_literature/report/make_curation_worklists.py	touches	cohort_bioprojects.tsv	"MODULE / ""release"" / ""cohort_bioprojects.tsv"""	69	read
+research/01_literature/report/offtarget_screen.py	touches	runs.tsv	RUNS.open()	151	DictReader
+research/01_literature/report/project_brief.py	touches	bioprojects.tsv	"(r for r in read(""bioprojects.tsv"") if r[""BioProject""] == bp)"	59	next
+research/01_literature/report/project_brief.py	touches	offtarget.tsv	"(r for r in read(""offtarget.tsv"") if r[""BioProject""] == bp)"	68	next
+research/01_literature/report/project_brief.py	touches	accession_papers.tsv	"""accession_papers.tsv"""	73	read
+research/01_literature/report/project_brief.py	touches	paper_bioproject.tsv	"""paper_bioproject.tsv"""	82	read
+research/01_literature/report/project_brief.py	touches	curation.tsv	"""curation.tsv"""	88	read
+research/01_literature/report/project_brief.py	touches	joins.tsv	"""joins.tsv"""	89	read
+research/01_literature/report/project_brief.py	touches	runs.tsv	"""runs.tsv"""	97	read
+research/01_literature/report/stat_queue.py	touches	runs.tsv	STAT_RUNS	60	tsv
+research/01_literature/report/stat_queue.py	touches	_classified.tsv	CLASSIFIED	68	tsv
+research/01_literature/report/tables/build_s1.py	touches	papers.tsv	"open(SILVER / ""papers.tsv"")"	66	DictReader
+research/01_literature/report/tables/build_s1.py	touches	paper_bioproject.tsv	"open(SILVER / ""paper_bioproject.tsv"")"	67	DictReader
+research/01_literature/report/tables/build_s1.py	touches	cohort_samples.tsv	"open(RELEASE / ""cohort_samples.tsv"")"	77	DictReader
+research/01_literature/report/tables/build_s1.py	write	Supplementary Data S1.tsv	OUT	126	atomic_write
+research/01_literature/report/tables/build_s1.py	read	papers.tsv	"SILVER / ""papers.tsv"""	66	open
+research/01_literature/report/tables/build_s1.py	read	paper_bioproject.tsv	"SILVER / ""paper_bioproject.tsv"""	67	open
+research/01_literature/report/tables/build_s1.py	touches	cohort_bioprojects.tsv	"open(RELEASE / ""cohort_bioprojects.tsv"")"	69	DictReader
+research/01_literature/report/tables/build_s1.py	touches	bioprojects.tsv	"open(SILVER / ""bioprojects.tsv"")"	74	DictReader
+research/01_literature/report/tables/build_s1.py	read	cohort_samples.tsv	"RELEASE / ""cohort_samples.tsv"""	77	open
+research/01_literature/report/tables/build_s1.py	touches	runs.tsv	"open(SILVER / ""runs.tsv"")"	81	DictReader
+research/01_literature/report/tables/build_s1.py	read	cohort_bioprojects.tsv	"RELEASE / ""cohort_bioprojects.tsv"""	69	open
+research/01_literature/report/tables/build_s1.py	read	bioprojects.tsv	"SILVER / ""bioprojects.tsv"""	74	open
+research/01_literature/report/tables/build_s1.py	read	runs.tsv	"SILVER / ""runs.tsv"""	81	open
+research/01_literature/report/tables/build_s2.py	touches	papers.tsv	"open(SILVER / ""papers.tsv"")"	107	DictReader
+research/01_literature/report/tables/build_s2.py	touches	paper_bioproject.tsv	"open(SILVER / ""paper_bioproject.tsv"")"	117	DictReader
+research/01_literature/report/tables/build_s2.py	touches	provenance.tsv	"(l for l in open(SEEDS / ""provenance.tsv"") if not l.startswith(""#""))"	146	DictReader
+research/01_literature/report/tables/build_s2.py	read	papers.tsv	"SILVER / ""papers.tsv"""	107	open
+research/01_literature/report/tables/build_s2.py	read	paper_bioproject.tsv	"SILVER / ""paper_bioproject.tsv"""	117	open
+research/01_literature/report/tables/build_s2.py	write	Supplementary Data S2.tsv	OUT	267	atomic_write
+research/01_literature/report/tables/build_s2.py	touches	cohort_bioprojects.tsv	"open(RELEASE / ""cohort_bioprojects.tsv"")"	88	DictReader
+research/01_literature/report/tables/build_s2.py	touches	runs.tsv	"open(SILVER / ""runs.tsv"")"	89	DictReader
+research/01_literature/report/tables/build_s2.py	touches	cohort_samples.tsv	"open(RELEASE / ""cohort_samples.tsv"")"	92	DictReader
+research/01_literature/report/tables/build_s2.py	read	cohort_bioprojects.tsv	"RELEASE / ""cohort_bioprojects.tsv"""	88	open
+research/01_literature/report/tables/build_s2.py	read	runs.tsv	"SILVER / ""runs.tsv"""	89	open
+research/01_literature/report/tables/build_s2.py	read	cohort_samples.tsv	"RELEASE / ""cohort_samples.tsv"""	92	open
+research/01_literature/report/tables/build_s2.py	touches	depth_funnel.tsv	open(FUNNEL)	93	DictReader
+research/01_literature/report/tables/build_s2.py	read	provenance.tsv	"SEEDS / ""provenance.tsv"""	146	open
+research/01_literature/report/tables/build_s2.py	read	depth_funnel.tsv	FUNNEL	93	open
+research/01_literature/report/tables/build_s3.py	touches	runs.tsv	"open(SILVER / ""runs.tsv"")"	72	DictReader
+research/01_literature/report/tables/build_s3.py	read	runs.tsv	"SILVER / ""runs.tsv"""	72	open
+research/01_literature/report/tables/build_s3.py	write	Supplementary Data S3.tsv	OUT	108	atomic_write
+research/01_literature/report/tables/build_s3.py	touches	cohort_bioprojects.tsv	"open(RELEASE / ""cohort_bioprojects.tsv"")"	62	DictReader
+research/01_literature/report/tables/build_s3.py	touches	run_depth.tsv	"open(CLASSIFY / ""data"" / ""silver"" / ""run_depth.tsv"")"	64	DictReader
+research/01_literature/report/tables/build_s3.py	touches	cohort_samples.tsv	"open(RELEASE / ""cohort_samples.tsv"")"	69	DictReader
+research/01_literature/report/tables/build_s3.py	read	cohort_bioprojects.tsv	"RELEASE / ""cohort_bioprojects.tsv"""	62	open
+research/01_literature/report/tables/build_s3.py	read	run_depth.tsv	"CLASSIFY / ""data"" / ""silver"" / ""run_depth.tsv"""	64	open
+research/01_literature/report/tables/build_s3.py	touches	depth_funnel.tsv	open(FUNNEL)	66	DictReader
+research/01_literature/report/tables/build_s3.py	read	cohort_samples.tsv	"RELEASE / ""cohort_samples.tsv"""	69	open
+research/01_literature/report/tables/build_s3.py	read	depth_funnel.tsv	FUNNEL	66	open
+research/01_literature/report/truncation_check.py	read	stat_cache.jsonl	STAT_CACHE	61	open
+research/01_literature/report/truncation_check.py	read	runs.tsv	RUNS	72	open
+research/01_literature/report/truncation_check.py	read	samples.tsv	SAMPLES	82	open
+research/01_literature/report/truncation_check.py	write	truncation.tsv	OUT	170	open
+research/01_literature/resolvers/ada21.py	touches	ada21_runs.csv	OUT	226	finish
+research/01_literature/resolvers/ada21.py	touches	ena_run_sample_map.tsv	ENA_CACHE.open()	106	DictReader
+research/01_literature/resolvers/che18.py	touches	geo_sample_titles.tsv	TITLES.open()	80	DictReader
+research/01_literature/resolvers/che18.py	touches	che18_runs.csv	OUT	100	finish
+research/01_literature/resolvers/corredor21.py	touches	corredor21_runs.csv	OUT	136	finish
+research/01_literature/resolvers/cruz20.py	touches	cruz20_runs.csv	OUT	97	finish
+research/01_literature/resolvers/cruz20.py	read	runs.tsv	RUNS	59	open
+research/01_literature/resolvers/epicon.py	write	GSE128441_samples.txt	CACHE	85	write_text
+research/01_literature/resolvers/epicon.py	touches	epicon_runs.csv	OUT	148	finish
+research/01_literature/resolvers/kashima.py	touches	kashima_runs.csv	OUT	153	finish
+research/01_literature/resolvers/kashima.py	touches	ena_run_sample_map.tsv	ENA_CACHE.open()	64	DictReader
+research/01_literature/resolvers/lewis22.py	touches	lewis22_runs.csv	OUT	137	finish
+research/01_literature/resolvers/lewis24.py	touches	lewis24_runs.csv	OUT	105	finish
+research/01_literature/resolvers/range28.py	touches	PRJNA1119650.json	ATTRS.open()	105	load
+research/01_literature/resolvers/range28.py	touches	range28_runs.csv	OUT	143	finish
+research/01_literature/resolvers/rudd15.py	touches	rudd15_runs.csv	OUT	101	finish
+research/01_literature/resolvers/rudd15.py	read	{BIOPROJECT}.tsv	REPORT	79	open
+research/01_literature/resolvers/sato24.py	touches	sato24_runs.csv	OUT	138	finish
+research/01_literature/resolvers/sato24.py	touches	runs.tsv	RUNS.open()	95	DictReader
+research/01_literature/resolvers/tsu25.py	touches	tsu25_runs.csv	OUT	131	finish
+research/01_literature/resolvers/visser21.py	touches	visser21_runs.csv	OUT	124	finish
+research/01_literature/resolvers/ztpan23.py	touches	ztpan23_runs.csv	OUT	90	finish
+research/01_literature/retrieve/accession_papers.py	read	paper_bioproject.tsv	PAPER_BIOPROJECT	89	open
+research/01_literature/retrieve/accession_papers.py	touches	bioprojects.tsv	open(BIOPROJECTS)	86	DictReader
+research/01_literature/retrieve/accession_papers.py	touches	papers.tsv	open(PAPERS)	115	DictReader
+research/01_literature/retrieve/accession_papers.py	read	bioprojects.tsv	BIOPROJECTS	86	open
+research/01_literature/retrieve/accession_papers.py	read	papers.tsv	PAPERS	115	open
+research/01_literature/retrieve/fetch_abstracts.py	touches	curated_papers.tsv	open(PAPERS)	92	DictReader
+research/01_literature/retrieve/fetch_abstracts.py	write	abstracts.json	CACHE	141	write_text
+research/01_literature/retrieve/fetch_abstracts.py	touches	abstracts.json	CACHE.read_text()	90	loads
+research/01_literature/retrieve/fetch_abstracts.py	read	curated_papers.tsv	PAPERS	92	open
+research/01_literature/retrieve/geocode_localities.py	touches	missing_localities.tsv	"MODULE / ""seeds/missing_localities.tsv"""	142	load_fixes
+research/01_literature/retrieve/geocode_localities.py	touches	geocode_cache.json	"open(CACHE, ""w"")"	344	dump
+research/01_literature/retrieve/geocode_localities.py	write	geocode_cache.json	CACHE	344	open
+research/01_literature/retrieve/geocode_localities.py	read	geocode_cache.json	CACHE	297	open
+research/01_literature/retrieve/resolve_accessions.py	touches	worklist.tsv	open(WORKLIST)	95	DictReader
+research/01_literature/retrieve/resolve_accessions.py	read	worklist.tsv	WORKLIST	95	open
+research/01_literature/retrieve/sources.py	write	{acc}.xml	"BIOPROJECT_XML / f""{acc}.xml"""	359	write_text
+research/01_literature/retrieve/triage.py	touches	bioprojects.tsv	BIOPROJECTS	1045	_write
+research/01_literature/retrieve/triage.py	touches	papers.tsv	PAPERS	1050	_write
+research/01_literature/retrieve/triage.py	touches	paper_bioproject.tsv	PAPER_BIOPROJECT	1054	_write
+research/01_literature/retrieve/triage.py	touches	runs.tsv	RUNS	1057	_write
+research/01_literature/retrieve/triage.py	read	runs.tsv	STAT_RUNS	288	open
+research/01_literature/retrieve/triage.py	read	backfill_accessions.tsv	BACKFILL	508	open
+research/01_literature/retrieve/triage.py	read	found.tsv	FOUND	527	open
+research/01_literature/retrieve/triage.py	read	run_scope.tsv	RUN_SCOPE	622	open
+research/01_literature/retrieve/triage.py	read	stat_cache.jsonl	STAT_CACHE	280	open
+research/02_classify/01_refs/compare_refs.py	touches	fungi_annotated.tsv	FUNGI_ANNOTATED	98	read_seed_tsv
+research/02_classify/01_refs/compare_refs.py	touches	exclusions.tsv	"SEEDS / ""exclusions.tsv"""	183	read_seed_tsv
+research/02_classify/01_refs/compare_refs.py	write	refs_diff.tsv	DIFF_TSV	265	open
+research/02_classify/01_refs/compare_refs.py	write	retain_candidates.tsv	RETAIN_TSV	282	open
+research/02_classify/01_refs/predict/compare.py	touches	*.fna	"""**/*.fna"""	88	glob
+research/02_classify/01_refs/predict/compare.py	touches	.tagged.fna	DERIVED_SUFFIXES	89	endswith
+research/02_classify/01_refs/predict/fetch_genomes.py	touches	*.fna	"""**/*.fna"""	52	glob
+research/02_classify/01_refs/predict/fetch_genomes.py	write	predict_genomes.tsv	GENOME_MANIFEST	123	atomic_write
+research/02_classify/01_refs/predict/fetch_genomes.py	touches	.tagged.fna	DERIVED_SUFFIXES	53	endswith
+research/02_classify/01_refs/predict/sample.py	touches	ref_candidates.tsv	REF_CANDIDATES	176	read_tsv
+research/02_classify/01_refs/predict/sample.py	touches	assemblies.tsv	ASSEMBLIES	177	read_tsv
+research/02_classify/01_refs/predict/sample.py	touches	miniprot_worklist.tsv	WORKLIST	178	read_tsv
+research/02_classify/01_refs/routes.py	touches	holobase.db	HOLOBASE	96	connect
+research/02_classify/01_refs/routes.py	touches	hosts.tsv	HOSTS	163	read_seed_tsv
+research/02_classify/01_refs/routes.py	touches	fungi_usda.tsv	FUNGI_USDA	183	read_seed_tsv
+research/02_classify/01_refs/routes.py	touches	residents.tsv	RESIDENTS	211	read_seed_rows
+research/02_classify/01_refs/routes.py	touches	exclusions.tsv	EXCLUSIONS	286	read_seed_tsv
+research/02_classify/01_refs/routes.py	write	routes.tsv	ROUTES_TSV	431	open
+research/02_classify/01_refs/survey.py	write	assembly_survey.tsv	SURVEY_TSV	316	open
+research/02_classify/01_refs/survey.py	write	miniprot_worklist.tsv	MINIPROT_TSV	322	open
+research/02_classify/01_refs/survey.py	write	assemblies.tsv	ASSEMBLIES_TSV	327	open
+research/02_classify/02_build/build_db.py	touches	taxdump.tar.gz	TAXDUMP_URL	173	urlretrieve
+research/02_classify/02_build/build_db.py	touches	db_inspect.tsv	DB_INSPECT	308	inspect
+research/02_classify/02_build/build_db.py	touches	*.fna	"""**/*.fna"""	110	glob
+research/02_classify/02_build/build_db.py	touches	.tagged.fna	DERIVED_SUFFIXES	111	endswith
+research/02_classify/02_build/fetch_cds.py	touches	*.fna	"""**/*.fna"""	90	glob
+research/02_classify/02_build/fetch_cds.py	touches	.tagged.fna	DERIVED_SUFFIXES	158	endswith
+research/02_classify/02_build/fetch_cds.py	write	cds_manifest.tsv	CDS_MANIFEST	283	atomic_write
+research/02_classify/02_build/fetch_cds.py	touches	.fna	""".fna"""	158	endswith
+research/02_classify/03_cohort/fetch_depth.py	touches	run_depth.tsv	DEPTH	147	replace
+research/02_classify/03_cohort/fetch_depth.py	touches	cohort_samples.tsv	open(COHORT_SAMPLES)	104	DictReader
+research/02_classify/03_cohort/fetch_depth.py	read	cohort_samples.tsv	COHORT_SAMPLES	104	open
+research/02_classify/03_cohort/fetch_reads.py	touches	_2.fastq.gz	"(""_1.fastq.gz"", ""_2.fastq.gz"")"	178	endswith
+research/02_classify/03_cohort/fetch_reads.py	touches	run_list.tsv	open(RUN_LIST)	307	DictReader
+research/02_classify/03_cohort/fetch_reads.py	touches	run_depth.tsv	open(DEPTH)	313	DictReader
+research/02_classify/03_cohort/fetch_reads.py	write	fetch_status.tsv	STATUS	348	open
+research/02_classify/03_cohort/fetch_reads.py	read	run_list.tsv	RUN_LIST	307	open
+research/02_classify/03_cohort/fetch_reads.py	read	run_depth.tsv	DEPTH	313	open
+research/02_classify/03_cohort/migrate_reads.py	touches	reads_manifest.tsv	READS_MANIFEST	167	write_manifest
+research/02_classify/03_cohort/migrate_reads.py	touches	run_list.tsv	open(RUN_LIST)	70	DictReader
+research/02_classify/03_cohort/migrate_reads.py	read	run_list.tsv	RUN_LIST	70	open
+research/02_classify/03_cohort/resolve.py	touches	cohort_samples.tsv	open(COHORT_SAMPLES)	122	DictReader
+research/02_classify/03_cohort/resolve.py	read	cohort_samples.tsv	COHORT_SAMPLES	122	open
+research/02_classify/03_cohort/resolve.py	touches	runs.tsv	open(LIT_RUNS)	123	DictReader
+research/02_classify/03_cohort/resolve.py	read	runs.tsv	LIT_RUNS	123	open
+research/02_classify/04_classify/classify.py	touches	reads_manifest.tsv	"reads_root.parent / ""reads_manifest.tsv"""	198	manifest
+research/02_classify/04_classify/classify.py	write	classify_status.tsv	STATUS	245	open
+research/02_classify/04_classify/classify.py	touches	{r}.report.tsv	"reports_root / args.project / f""{r}.report.tsv"""	222	done
+research/02_classify/05_detect/detect.py	touches	holobase.db	HOLOBASE	403	labels
+research/02_classify/05_detect/detect.py	touches	taxon_status.tsv	"SEEDS / ""taxon_status.tsv"""	406	curated_status
+research/02_classify/05_detect/detect.py	touches	_classified.tsv	pfx + CLASSIFIED.name	527	with_name
+research/02_classify/05_detect/detect.py	touches	detections.tsv	pfx + DETECTIONS.name	528	with_name
+research/02_classify/05_detect/detect.py	touches	coinfection.tsv	pfx + COINFECTION.name	529	with_name
+research/02_classify/05_detect/detect.py	touches	cohort_samples.tsv	open(COHORT_SAMPLES)	414	DictReader
+research/02_classify/05_detect/detect.py	touches	runs.tsv	open(LIT_RUNS)	415	DictReader
+research/02_classify/05_detect/detect.py	touches	*.report.tsv	"""*.report.tsv"""	434	glob
+research/02_classify/05_detect/detect.py	read	cohort_samples.tsv	COHORT_SAMPLES	414	open
+research/02_classify/05_detect/detect.py	read	runs.tsv	LIT_RUNS	415	open
+research/02_classify/_assembly.py	touches	*.fna.gz	"""**/*.fna.gz"""	464	glob
+research/02_classify/_assembly.py	touches	*.fna	"""**/*.fna"""	444	glob
+research/02_classify/_assembly.py	touches	.tagged.fna	"(""_clean.fna"", ""_combined.fna"", "".tagged.fna"")"	445	endswith
+research/02_classify/_reads.py	touches	.fastq.gz	""".fastq.gz"""	75	endswith
+research/02_classify/report/figures/db_contents/prep_db_contents.py	touches	hosts.tsv	HOSTS	94	read_seed_tsv
+research/02_classify/report/figures/db_contents/prep_db_contents.py	touches	holobase.db	HOLOBASE	101	connect
+research/02_classify/report/figures/db_contents/prep_db_contents.py	touches	assembly_survey.tsv	open(SURVEY)	146	DictReader
+research/02_classify/report/figures/db_contents/prep_db_contents.py	write	{OUT}_params.tsv	"Path(f""{OUT}_params.tsv"")"	567	write_text
+research/02_classify/report/figures/db_contents/prep_db_contents.py	touches	{OUT}_clades.tsv	"Path(f""{OUT}_clades.tsv"")"	572	clade_table
+research/02_classify/report/figures/db_contents/prep_db_contents.py	write	{OUT}_caption.txt	"Path(f""{OUT}_caption.txt"")"	576	write_text
+research/02_classify/report/figures/db_contents/prep_db_contents.py	read	assembly_survey.tsv	SURVEY	146	open
+research/02_classify/report/figures/db_contents/prep_db_contents.py	write	{OUT}_tips.tsv	"f""{OUT}_tips.tsv"""	552	open
+research/02_classify/report/figures/db_contents/prep_db_contents.py	touches	{OUT}_params.tsv	"f""{OUT}_params.tsv"""	567	Path
+research/02_classify/report/figures/db_contents/prep_db_contents.py	touches	{OUT}_caption.txt	"f""{OUT}_caption.txt"""	576	Path
+research/02_classify/report/figures/depth_funnel/prep_depth_funnel.py	touches	cohort_samples.tsv	open(COHORT_SAMPLES)	132	DictReader
+research/02_classify/report/figures/depth_funnel/prep_depth_funnel.py	write	depth_funnel.tsv	TSV	194	atomic_write
+research/02_classify/report/figures/depth_funnel/prep_depth_funnel.py	write	depth_funnel_summary.tsv	SUMMARY	202	atomic_write
+research/02_classify/report/figures/depth_funnel/prep_depth_funnel.py	write	depth_funnel_steps.tsv	STEPS	246	atomic_write
+research/02_classify/report/figures/depth_funnel/prep_depth_funnel.py	write	depth_funnel_caption.txt	CAPTION	284	atomic_write
+research/02_classify/report/figures/depth_funnel/prep_depth_funnel.py	touches	depth_funnel_caption.txt	"""FULL CAPTION\n\n"""	288	write
+research/02_classify/report/figures/depth_funnel/prep_depth_funnel.py	read	cohort_samples.tsv	COHORT_SAMPLES	132	open
+research/02_classify/report/figures/depth_funnel/prep_depth_funnel.py	touches	run_depth.tsv	"open(SILVER / ""run_depth.tsv"")"	133	DictReader
+research/02_classify/report/figures/depth_funnel/prep_depth_funnel.py	touches	curation.tsv	open(CURATION)	135	DictReader
+research/02_classify/report/figures/depth_funnel/prep_depth_funnel.py	read	run_depth.tsv	"SILVER / ""run_depth.tsv"""	133	open
+research/02_classify/report/figures/depth_funnel/prep_depth_funnel.py	read	curation.tsv	CURATION	135	open
+research/02_classify/report/figures/detect/prep_detect.py	touches	_classified.tsv	open(CLASSIFIED)	63	DictReader
+research/02_classify/report/figures/detect/prep_detect.py	touches	detections.tsv	open(DETECTIONS)	64	DictReader
+research/02_classify/report/figures/detect/prep_detect.py	touches	coinfection.tsv	open(COINFECTION)	65	DictReader
+research/02_classify/report/figures/detect/prep_detect.py	write	detect_surface.tsv	SURFACE	90	atomic_write
+research/02_classify/report/figures/detect/prep_detect.py	write	detect_persample.tsv	PERSAMPLE	105	atomic_write
+research/02_classify/report/figures/detect/prep_detect.py	write	detect_species.tsv	SPECIES	152	atomic_write
+research/02_classify/report/figures/detect/prep_detect.py	write	detect_caption.txt	CAPTION	269	atomic_write
+research/02_classify/report/figures/detect/prep_detect.py	read	_classified.tsv	CLASSIFIED	63	open
+research/02_classify/report/figures/detect/prep_detect.py	read	detections.tsv	DETECTIONS	64	open
+research/02_classify/report/figures/detect/prep_detect.py	read	coinfection.tsv	COINFECTION	65	open
+research/02_classify/report/figures/detect_runs/prep_browser.py	touches	detect_runs_all_proposed.tsv	open(SRC)	88	DictReader
+research/02_classify/report/figures/detect_runs/prep_browser.py	read	detect_runs_all_proposed.tsv	SRC	88	open
+research/02_classify/report/figures/detect_runs/prep_browser.py	write	data.json	OUT	137	atomic_write
+research/02_classify/report/figures/detect_runs/prep_detect_runs.py	touches	holobase.db	HOLOBASE	63	connect
+research/02_classify/report/figures/detect_runs/prep_detect_runs.py	touches	_classified.tsv	open(CLASSIFIED)	131	DictReader
+research/02_classify/report/figures/detect_runs/prep_detect_runs.py	read	_classified.tsv	CLASSIFIED	131	open
+research/02_classify/report/figures/detect_runs/prep_detect_runs.py	touches	coinfection.tsv	open(COINFECTION)	97	DictReader
+research/02_classify/report/figures/detect_runs/prep_detect_runs.py	touches	cohort_samples.tsv	open(COHORT_SAMPLES)	104	DictReader
+research/02_classify/report/figures/detect_runs/prep_detect_runs.py	touches	runs.tsv	open(LIT_RUNS)	106	DictReader
+research/02_classify/report/figures/detect_runs/prep_detect_runs.py	read	coinfection.tsv	COINFECTION	97	open
+research/02_classify/report/figures/detect_runs/prep_detect_runs.py	read	cohort_samples.tsv	COHORT_SAMPLES	104	open
+research/02_classify/report/figures/detect_runs/prep_detect_runs.py	read	runs.tsv	LIT_RUNS	106	open
+research/02_classify/report/figures/detect_runs/prep_detect_runs_proposed.py	touches	holobase.db	"f""file:{HOLOBASE}?mode=ro"""	60	connect
+research/02_classify/report/figures/detect_runs/prep_detect_runs_proposed.py	touches	_classified.tsv	open(CLASSIFIED)	201	DictReader
+research/02_classify/report/figures/detect_runs/prep_detect_runs_proposed.py	touches	polme2020-s1-fungal-traits-genera.tsv	"str(REFDATA / ""databases/fungaltraits/*/"" ""polme2020-s1-fungal-traits-"	95	glob
+research/02_classify/report/figures/detect_runs/prep_detect_runs_proposed.py	read	taxon_status.tsv	STATUS	179	open
+research/02_classify/report/figures/detect_runs/prep_detect_runs_proposed.py	touches	detect_runs.tsv	open(SRC)	196	DictReader
+research/02_classify/report/figures/detect_runs/prep_detect_runs_proposed.py	read	_classified.tsv	CLASSIFIED	201	open
+research/02_classify/report/figures/detect_runs/prep_detect_runs_proposed.py	write	detect_runs_proposed.tsv	TSV	259	atomic_write
+research/02_classify/report/figures/detect_runs/prep_detect_runs_proposed.py	read	detect_runs.tsv	SRC	196	open
+research/02_classify/report/figures/geography/prep_geography.py	touches	run_depth.tsv	"open(SILVER / ""run_depth.tsv"")"	131	DictReader
+research/02_classify/report/figures/geography/prep_geography.py	touches	detections.tsv	"open(GOLD / ""detections.tsv"")"	137	DictReader
+research/02_classify/report/figures/geography/prep_geography.py	read	run_depth.tsv	"SILVER / ""run_depth.tsv"""	131	open
+research/02_classify/report/figures/geography/prep_geography.py	read	detections.tsv	"GOLD / ""detections.tsv"""	137	open
+research/02_classify/report/figures/geography/prep_geography.py	write	geography_control.tsv	CONTROL_TSV	163	atomic_write
+research/02_classify/report/figures/geography/prep_geography.py	write	geography.tsv	TSV	189	atomic_write
+research/02_classify/report/figures/geography/prep_geography.py	write	geography_replication.tsv	"HERE / ""geography_replication.tsv"""	202	atomic_write
+research/02_classify/report/figures/geography/prep_geography.py	write	geography_species.tsv	SPECIES_TSV	226	atomic_write
+research/02_classify/report/figures/geography/prep_geography.py	write	geography_year.tsv	YEAR_TSV	238	atomic_write
+research/02_classify/report/figures/geography/prep_geography.py	write	geography_caption.txt	CAPTION	348	atomic_write
+research/02_classify/report/figures/geography/prep_geography.py	touches	coinfection.tsv	"open(GOLD / ""coinfection.tsv"")"	127	DictReader
+research/02_classify/report/figures/geography/prep_geography.py	touches	cohort_samples.tsv	open(COHORT_SAMPLES)	128	DictReader
+research/02_classify/report/figures/geography/prep_geography.py	touches	runs.tsv	open(LIT_RUNS)	129	DictReader
+research/02_classify/report/figures/geography/prep_geography.py	touches	geography_control.tsv	open(CONTROL_TSV)	175	DictReader
+research/02_classify/report/figures/geography/prep_geography.py	read	coinfection.tsv	"GOLD / ""coinfection.tsv"""	127	open
+research/02_classify/report/figures/geography/prep_geography.py	read	cohort_samples.tsv	COHORT_SAMPLES	128	open
+research/02_classify/report/figures/geography/prep_geography.py	read	runs.tsv	LIT_RUNS	129	open
+research/02_classify/report/figures/geography/prep_geography.py	read	geography_control.tsv	CONTROL_TSV	175	open
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	touches	detections.tsv	"open(GOLD / ""detections.tsv"")"	106	DictReader
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	touches	pathogen_map_europe.tsv	open(EUROPE_TSV)	313	DictReader
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	read	detections.tsv	"GOLD / ""detections.tsv"""	106	open
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	write	pathogen_map_sites.tsv	SITES_TSV	138	atomic_write
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	write	pathogen_map.tsv	TSV	178	atomic_write
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	write	pathogen_map_europe.tsv	EUROPE_TSV	196	atomic_write
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	write	pathogen_map_climate.tsv	"HERE / ""pathogen_map_climate.tsv"""	240	atomic_write
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	read	pathogen_map_europe.tsv	EUROPE_TSV	313	open
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	write	pathogen_map_caption.txt	CAPTION	372	atomic_write
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	touches	coinfection.tsv	"open(GOLD / ""coinfection.tsv"")"	101	DictReader
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	touches	cohort_samples.tsv	open(COHORT_SAMPLES)	102	DictReader
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	touches	runs.tsv	open(LIT_RUNS)	103	DictReader
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	read	coinfection.tsv	"GOLD / ""coinfection.tsv"""	101	open
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	read	cohort_samples.tsv	COHORT_SAMPLES	102	open
+research/02_classify/report/figures/pathogen_map/prep_pathogen_map.py	read	runs.tsv	LIT_RUNS	103	open
+research/02_classify/report/figures/predict_counts/prep_predict_counts.py	write	predict_counts.tsv	TSV	88	atomic_write
+research/02_classify/report/figures/predict_counts/prep_predict_counts.py	write	predict_counts_params.tsv	PARAMS	101	atomic_write
+research/02_classify/report/figures/predict_counts/prep_predict_counts.py	write	predict_counts_caption.txt	CAPTION	241	atomic_write
+research/02_classify/report/figures/predict_counts/prep_predict_counts.py	touches	ref_candidates.tsv	"open(REF_CANDIDATES, newline="""")"	63	DictReader
+research/02_classify/report/figures/predict_counts/prep_predict_counts.py	touches	predict_genomes.tsv	"open(GENOMES_MANIFEST, newline="""")"	65	DictReader
+research/02_classify/report/figures/predict_counts/prep_predict_counts.py	touches	predict_benchmark.tsv	"open(PREDICT_METRICS, newline="""")"	66	DictReader
+research/02_classify/report/figures/predict_counts/prep_predict_counts.py	read	ref_candidates.tsv	REF_CANDIDATES	63	open
+research/02_classify/report/figures/predict_counts/prep_predict_counts.py	read	predict_genomes.tsv	GENOMES_MANIFEST	65	open
+research/02_classify/report/figures/predict_counts/prep_predict_counts.py	read	predict_benchmark.tsv	PREDICT_METRICS	66	open
+research/02_classify/report/figures/predict_gain/prep_predict_gain.py	touches	assembly_survey.tsv	open(SURVEY)	70	DictReader
+research/02_classify/report/figures/predict_gain/prep_predict_gain.py	read	assembly_survey.tsv	SURVEY	70	open
+research/02_classify/report/figures/predict_gain/prep_predict_gain.py	write	predict_gain.tsv	TSV	93	atomic_write
+research/02_classify/report/figures/predict_gain/prep_predict_gain.py	touches	predict_benchmark.tsv	open(BENCH)	110	DictReader
+research/02_classify/report/figures/predict_gain/prep_predict_gain.py	write	predict_gain_caption.txt	CAPTION	195	atomic_write
+research/02_classify/report/figures/predict_gain/prep_predict_gain.py	read	predict_benchmark.tsv	BENCH	110	open
+research/02_classify/report/figures/rarefaction/prep_rarefaction.py	touches	_classified.tsv	open(DBV3)	91	DictReader
+research/02_classify/report/figures/rarefaction/prep_rarefaction.py	touches	rarefaction_curve.tsv	open(CURVE)	86	DictReader
+research/02_classify/report/figures/rarefaction/prep_rarefaction.py	read	_classified.tsv	DBV3	91	open
+research/02_classify/report/figures/rarefaction/prep_rarefaction.py	write	rarefaction_curve_plot.tsv	PLOT	122	atomic_write
+research/02_classify/report/figures/rarefaction/prep_rarefaction.py	write	rarefaction_retained.tsv	RETAINED	140	atomic_write
+research/02_classify/report/figures/rarefaction/prep_rarefaction.py	touches	run_depth.tsv	open(DEPTH)	148	DictReader
+research/02_classify/report/figures/rarefaction/prep_rarefaction.py	write	rarefaction_threshold_cost.tsv	THRESHOLD	170	atomic_write
+research/02_classify/report/figures/rarefaction/prep_rarefaction.py	write	rarefaction_caption.txt	CAPTION	292	atomic_write
+research/02_classify/report/figures/rarefaction/prep_rarefaction.py	read	rarefaction_curve.tsv	CURVE	86	open
+research/02_classify/report/figures/rarefaction/prep_rarefaction.py	read	run_depth.tsv	DEPTH	148	open
+research/02_classify/report/figures/rarefaction/prep_rarefaction.py	touches	run_list.tsv	"open(SILVER / ""run_list.tsv"")"	149	DictReader
+research/02_classify/report/figures/rarefaction/prep_rarefaction.py	read	run_list.tsv	"SILVER / ""run_list.tsv"""	149	open
+research/02_classify/report/figures/saturation_cloud/prep_saturation_cloud.py	write	saturation_cloud.tsv	TSV	140	atomic_write
+research/02_classify/report/figures/saturation_cloud/prep_saturation_cloud.py	write	saturation_cloud_caption.txt	CAPTION	214	atomic_write
+research/02_classify/report/figures/saturation_cloud/prep_saturation_cloud.py	touches	run_depth.tsv	"open(SILVER / ""run_depth.tsv"")"	88	DictReader
+research/02_classify/report/figures/saturation_cloud/prep_saturation_cloud.py	touches	*.report.tsv	"""*.report.tsv"""	98	glob
+research/02_classify/report/figures/saturation_cloud/prep_saturation_cloud.py	touches	{run}.report.tsv	"f""*/{run}.report.tsv"""	101	glob
+research/02_classify/report/figures/saturation_cloud/prep_saturation_cloud.py	read	run_depth.tsv	"SILVER / ""run_depth.tsv"""	88	open
+research/02_classify/report/figures/undeclared_map/prep_undeclared_map.py	write	undeclared_map.tsv	TSV	133	atomic_write
+research/02_classify/report/figures/undeclared_map/prep_undeclared_map.py	write	undeclared_map_regions.tsv	REG_TSV	140	atomic_write
+research/02_classify/report/figures/undeclared_map/prep_undeclared_map.py	touches	coinfection.tsv	"open(GOLD / ""coinfection.tsv"")"	82	DictReader
+research/02_classify/report/figures/undeclared_map/prep_undeclared_map.py	touches	cohort_samples.tsv	open(COHORT_SAMPLES)	83	DictReader
+research/02_classify/report/figures/undeclared_map/prep_undeclared_map.py	read	coinfection.tsv	"GOLD / ""coinfection.tsv"""	82	open
+research/02_classify/report/figures/undeclared_map/prep_undeclared_map.py	read	cohort_samples.tsv	COHORT_SAMPLES	83	open
+research/02_classify/seeds/build_seeds.py	touches	holobase.db	"f""file:{HOLOBASE}?mode=ro"""	191	connect
+research/02_classify/seeds/build_seeds.py	read	db_inspect.tsv	DB_INSPECT	118	open
+research/02_classify/seeds/build_seeds.py	touches	fungi_usda.tsv	open(USDA_TSV)	235	DictReader
+research/02_classify/seeds/build_seeds.py	read	.annotation_cache.jsonl	ANNOT_CACHE	246	open
+research/02_classify/seeds/build_seeds.py	write	fungi_annotated.tsv	ANNOT_TSV	336	open
+research/02_classify/seeds/build_seeds.py	write	fungi_usda.tsv	USDA_TSV	394	open
+research/02_classify/seeds/build_seeds.py	read	fungi_usda.tsv	USDA_TSV	235	open
+research/02_classify/seeds/build_seeds.py	write	.annotation_cache.jsonl	ANNOT_CACHE	301	open
+research/02_classify/utilities/controls/control_depth.py	touches	*.tsv	"""*.tsv"""	54	glob
+research/02_classify/utilities/controls/control_depth.py	write	control_depth.tsv	OUT	80	atomic_write
+research/02_classify/utilities/controls/control_depth.py	touches	*.report.tsv	"""*.report.tsv"""	51	glob
+research/02_classify/utilities/controls/fetch_controls.py	write	control_fetch_status.tsv	CONTROL_FETCH_STATUS	242	open
+research/02_classify/utilities/rarefaction/audit_analysed.py	touches	Supplementary Data S2.tsv	open(S2)	64	DictReader
+research/02_classify/utilities/rarefaction/audit_analysed.py	touches	Supplementary Data S3.tsv	open(S3)	65	DictReader
+research/02_classify/utilities/rarefaction/audit_analysed.py	touches	.report	""".report"""	78	split
+research/02_classify/utilities/rarefaction/audit_analysed.py	read	Supplementary Data S2.tsv	S2	64	open
+research/02_classify/utilities/rarefaction/audit_analysed.py	read	Supplementary Data S3.tsv	S3	65	open
+research/02_classify/utilities/rarefaction/rarefy.py	touches	rarefy_worklist.tsv	WORKLIST	158	replace
+research/02_classify/utilities/rarefaction/rarefy.py	touches	rarefaction_curve.tsv	CURVE	284	replace
+research/02_classify/utilities/rarefaction/rarefy.py	touches	task_*.tsv	"""task_*.tsv"""	274	glob
+research/02_classify/utilities/rarefaction/rarefy.py	touches	run_depth.tsv	"open(SILVER / ""run_depth.tsv"")"	121	DictReader
+research/02_classify/utilities/rarefaction/rarefy.py	touches	.fastq.gz	""".fastq.gz"""	234	replace
+research/02_classify/utilities/rarefaction/rarefy.py	read	run_depth.tsv	"SILVER / ""run_depth.tsv"""	121	open
+research/02_classify/utilities/rarefaction/rarefy.py	read	rarefy_worklist.tsv	WORKLIST	201	open
+research/02_classify/utilities/rarefaction/rarefy.py	touches	{t['run']}*.fastq.gz	"f""*/{t['run']}*.fastq.gz"""	216	glob
+research/02_classify/utilities/rarefaction/select_cohort.py	touches	run_depth.tsv	"open(SILVER / ""run_depth.tsv"")"	83	DictReader
+research/02_classify/utilities/rarefaction/select_cohort.py	read	run_depth.tsv	"SILVER / ""run_depth.tsv"""	83	open
+research/02_classify/utilities/rarefaction/select_cohort.py	touches	Supplementary Data S2.tsv	open(S2)	99	DictReader
+research/02_classify/utilities/rarefaction/select_cohort.py	touches	Supplementary Data S3.tsv	open(S3)	100	DictReader
+research/02_classify/utilities/rarefaction/select_cohort.py	touches	.report	""".report"""	125	split
+research/02_classify/utilities/rarefaction/select_cohort.py	touches	coinfection.tsv	open(COINFECTION)	151	DictReader
+research/02_classify/utilities/rarefaction/select_cohort.py	read	Supplementary Data S2.tsv	S2	99	open
+research/02_classify/utilities/rarefaction/select_cohort.py	read	Supplementary Data S3.tsv	S3	100	open
+research/02_classify/utilities/rarefaction/select_cohort.py	read	coinfection.tsv	COINFECTION	151	open
+research/02_classify/utilities/saturation/saturation.py	touches	cds_from_genomic.fna	"""cds_from_genomic.fna"""	167	rglob
+research/divergence.py	touches	ref_candidates_v3.tsv	open(REF)	23	DictReader
+research/divergence.py	read	ref_candidates_v3.tsv	REF	23	open
+tools/dataflow.py	touches	.gz	(n for n in reversed(names) if n.endswith(DATA_EXT))	98	next
+tools/dataflow.py	write	dataflow.tsv	OUT	246	open
+tools/docxedit/docx_review.py	touches	comments.xml	"f'<Override PartName=""/word/comments.xml"" ' f'ContentType=""{CT_COMMENT"	143	replace
+research/01_literature/report/figures/map_crop_origins.R	read	crop_map.tsv	"file.path(here, ""data/gold/crop_map.tsv""), stringsAsFactors = FALSE)"	51	R
+research/01_literature/report/figures/map_crop_origins.R	read	crop_totals.tsv	"file.path(here, ""data/gold/crop_totals.tsv""), stringsAsFactors = FALSE"	52	R
+research/01_literature/report/figures/map_crop_origins.R	read	crop_year.tsv	"file.path(here, ""data/gold/crop_year.tsv""), stringsAsFactors = FALSE)"	53	R
+research/01_literature/report/figures/map_crop_origins.R	read	crop_design.tsv	"file.path(here, ""data/gold/crop_design.tsv""), stringsAsFactors = FALSE"	54	R
+research/02_classify/report/figures/db_contents/db_contents.R	read	_params.tsv	"paste0(in_stem, ""_params.tsv""), stringsAsFactors = FALSE)"	85	R
+research/02_classify/report/figures/db_contents/db_contents.R	read	_tips.tsv	"paste0(in_stem, ""_tips.tsv""), stringsAsFactors = FALSE)"	90	R
+research/02_classify/report/figures/depth_funnel/depth_funnel.R	read	depth_funnel.tsv	"file.path(HERE, ""depth_funnel.tsv""), stringsAsFactors = FALSE)"	24	R
+research/02_classify/report/figures/depth_funnel/depth_funnel.R	read	depth_funnel_summary.tsv	"file.path(HERE, ""depth_funnel_summary.tsv""), stringsAsFactors = FALSE)"	25	R
+research/02_classify/report/figures/detect/detect.R	read	detect_surface.tsv	"file.path(HERE, ""detect_surface.tsv""), stringsAsFactors = FALSE)"	14	R
+research/02_classify/report/figures/detect/detect.R	read	detect_persample.tsv	"file.path(HERE, ""detect_persample.tsv""), stringsAsFactors = FALSE)"	15	R
+research/02_classify/report/figures/detect/detect.R	read	detect_species.tsv	"file.path(HERE, ""detect_species.tsv""), stringsAsFactors = FALSE)"	16	R
+research/02_classify/report/figures/detect_runs/detect_run_single.R	read	detect_runs.tsv	"file.path(HERE, ""detect_runs.tsv""), stringsAsFactors = FALSE)"	31	R
+research/02_classify/report/figures/detect_runs/detect_run_single_proposed.R	read	detect_runs_proposed.tsv	file.path(HERE, SRCTSV), stringsAsFactors = FALSE)	24	R
+research/02_classify/report/figures/detect_runs/detect_runs.R	read	detect_runs.tsv	"file.path(HERE, ""detect_runs.tsv""), stringsAsFactors = FALSE)"	16	R
+research/02_classify/report/figures/geography/geography.R	read	geography_species.tsv	"file.path(HERE, ""geography_species.tsv""), stringsAsFactors = FALSE)"	22	R
+research/02_classify/report/figures/geography/geography.R	read	geography.tsv	"file.path(HERE, ""geography.tsv""), stringsAsFactors = FALSE,"	23	R
+research/02_classify/report/figures/pathogen_map/pathogen_map.R	read	pathogen_map.tsv	"file.path(HERE, ""pathogen_map.tsv""), stringsAsFactors = FALSE)"	30	R
+research/02_classify/report/figures/pathogen_map/pathogen_map.R	read	pathogen_map_sites.tsv	"file.path(HERE, ""pathogen_map_sites.tsv""), stringsAsFactors = FALSE)"	31	R
+research/02_classify/report/figures/pathogen_map/pathogen_map_europe.R	read	pathogen_map.tsv	"file.path(HERE, ""pathogen_map.tsv""), stringsAsFactors = FALSE)"	29	R
+research/02_classify/report/figures/pathogen_map/pathogen_map_europe.R	read	pathogen_map_sites.tsv	"file.path(HERE, ""pathogen_map_sites.tsv""), stringsAsFactors = FALSE)"	30	R
+research/02_classify/report/figures/pathogen_map/pathogen_map_europe.R	read	pathogen_map_europe.tsv	"file.path(HERE, ""pathogen_map_europe.tsv""), stringsAsFactors = FALSE)"	31	R
+research/02_classify/report/figures/predict_counts/predict_counts.R	read	predict_counts.tsv	"file.path(HERE, ""predict_counts.tsv""), stringsAsFactors = FALSE)"	23	R
+research/02_classify/report/figures/predict_counts/predict_counts.R	read	predict_counts_params.tsv	"file.path(HERE, ""predict_counts_params.tsv""), stringsAsFactors = FALSE"	24	R
+research/02_classify/report/figures/predict_gain/predict_gain.R	read	predict_gain.tsv	"file.path(HERE, ""predict_gain.tsv""), stringsAsFactors = FALSE)"	32	R
+research/02_classify/report/figures/rarefaction/rarefaction.R	read	rarefaction_curve_plot.tsv	"file.path(HERE, ""rarefaction_curve_plot.tsv""), stringsAsFactors = FALS"	23	R
+research/02_classify/report/figures/rarefaction/rarefaction.R	read	rarefaction_retained.tsv	"file.path(HERE, ""rarefaction_retained.tsv""), stringsAsFactors = FALSE)"	24	R
+research/02_classify/report/figures/rarefaction/rarefaction.R	read	rarefaction_threshold_cost.tsv	"file.path(HERE, ""rarefaction_threshold_cost.tsv""), stringsAsFactors = "	25	R
+research/02_classify/report/figures/saturation_cloud/saturation_cloud.R	read	saturation_cloud.tsv	"file.path(HERE, ""saturation_cloud.tsv""), stringsAsFactors = FALSE)"	19	R
+research/02_classify/report/figures/undeclared_map/undeclared_map.R	read	undeclared_map.tsv	"file.path(HERE, ""undeclared_map.tsv""), stringsAsFactors = FALSE)"	35	R
+research/02_classify/report/figures/undeclared_map/undeclared_map.R	read	undeclared_map_regions.tsv	"file.path(HERE, ""undeclared_map_regions.tsv""), stringsAsFactors = FALS"	36	R

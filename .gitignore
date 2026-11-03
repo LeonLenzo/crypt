@@ -10,7 +10,7 @@
 # One rule, by directory, rather than the sixteen per-file blocks that used to live here.
 # Those blocks had already failed in both directions, which is the argument for a directory
 # rule and is the same argument 01_literature and 02_classify's data/ rules won on.
-/superseded/
+/research/superseded/
 
 # Log history dirs + .latest symlinks are now TRACKED (transparency — Leon's
 # call 2026-09-01: full run history should be visible in the repo, not just
@@ -68,9 +68,9 @@ docs/*
 # gold/: generated, but a few kilobytes of summary numbers worth having in history. git does
 # not descend into an excluded directory, so re-including it needs the directory itself
 # re-included first.
-01_literature/data/**
-!01_literature/data/gold/
-!01_literature/data/gold/*.tsv
+research/01_literature/data/**
+!research/01_literature/data/gold/
+!research/01_literature/data/gold/*.tsv
 
 # The hand-built records used to live here as exceptions to the rule above, which meant
 # tracking depended on whether somebody remembered `git add -f`: joins.tsv was never added to
@@ -93,17 +93,17 @@ docs/*
 # tracked; so are the Undermind reports and the prompts.
 # git does not descend into an excluded directory, so re-including a file inside one needs the
 # directories re-included at every level first. `studies/*` alone would hide the adapters.
-01_literature/studies/**
-!01_literature/studies/*/
-!01_literature/studies/*/adapter.yaml
+research/01_literature/studies/**
+!research/01_literature/studies/*/
+!research/01_literature/studies/*/adapter.yaml
 # SOURCE.txt is the per-study provenance note: the citation, where the text came from, which
 # accessions it sources and any warning about the study. Re-included BY RULE because tracking
 # it by `git add -f` habit had already lost 10 of 33 of them, which is the same failure the
 # seeds/ split was made to end (see 01_literature/_layout.py).
-!01_literature/studies/*/SOURCE*.txt
-01_literature/*.pdf
-01_literature/*.xls
-01_literature/*.xlsx
+!research/01_literature/studies/*/SOURCE*.txt
+research/01_literature/*.pdf
+research/01_literature/*.xls
+research/01_literature/*.xlsx
 
 # WSL writes an alternate-data-stream sidecar next to anything downloaded through Windows.
 # Pure noise, never ours, and they appear beside every PDF and spreadsheet dropped into
@@ -112,13 +112,13 @@ docs/*
 
 # seeds/ annotation cache: one line per genus from the datasets CLI, purely a speed-up
 # for re-running build_seeds.py --annotate. Regenerated, never the record.
-02_classify/seeds/.annotation_cache.jsonl
+research/02_classify/seeds/.annotation_cache.jsonl
 
 # Own-submission metadata: BioSample attribute templates for OUR OWN unpublished deposits
 # (PRJNA1509083 P. nodorum infection timecourse; oat rust field collections with GPS). This is
 # unpublished research data for other chapters that was dropped at this repo root, and the repo
 # is PUBLIC. Never commit it: move it to the project it belongs to.
-/_selfdata/
+/research/_selfdata/
 
 # 02_classify (2026-10-15), which replaces 03_kraken. Same rule as 01_literature, and for the
 # same reason: 03_kraken gave each numbered step its own data/, logs/ and figures/, so tracking
@@ -143,10 +143,10 @@ docs/*
 #
 # See 02_classify/_layout.py (named _layout, not _paths: the repo root owns _paths.py and a
 # second module of that name shadows it).
-02_classify/data/**
-!02_classify/data/gold/
-!02_classify/data/gold/*.tsv
-!02_classify/data/gold/.gitkeep
+research/02_classify/data/**
+!research/02_classify/data/gold/
+!research/02_classify/data/gold/*.tsv
+!research/02_classify/data/gold/.gitkeep
 
 # SILVER TABLES ARE TRACKED, from 2026-10-19. The layer boundary turned out to be the wrong
 # place to cut, because the stated reason for ignoring silver was REBUILDABILITY and gold is
@@ -165,15 +165,15 @@ docs/*
 #
 # `*.tsv` is deliberately a SINGLE star: it matches tables sitting directly in silver/ and can
 # never descend into silver/db/, so the 139 GB index cannot leak in by accident.
-!02_classify/data/silver/
-!02_classify/data/silver/*.tsv
+!research/02_classify/data/silver/
+!research/02_classify/data/silver/*.tsv
 
 # ...with one exception, on the same reasoning as the PNG rule below. _classified.tsv is one
 # row per candidate detection: 2.4 MB under db_v3, larger under db_v4, and REWRITTEN on every
 # threshold sweep. The co-infection rate is threshold-dependent and gets swept often, so this
 # is the one silver table that would be re-committed dozens of times in an afternoon. Its
 # summary lands in gold, which is where the history belongs.
-02_classify/data/silver/_classified.tsv
+research/02_classify/data/silver/_classified.tsv
 
 # 02_classify figures: the PDF is tracked and the PNG is not. The PDF is 132 KB of vector
 # paths, is what goes into Illustrator, and regenerates the PNG at any resolution; the PNG is
@@ -183,7 +183,7 @@ docs/*
 # Sorted into one directory per figure on 2026-10-28, so the PNG rule needs ** rather than
 # a single star -- a flat-directory rule silently stops matching the moment the tree gains a
 # level, and the failure mode is 38 MB of raster quietly becoming trackable.
-02_classify/report/figures/**/*.png
+research/02_classify/report/figures/**/*.png
 
 # R writes this whenever a script plots without opening a device explicitly. It is an
 # artefact, never an output, and it was committed once by accident.
@@ -196,17 +196,17 @@ Rplots.pdf
 # The FULL per-run table: every classified run, ~222 MB, regenerated by
 # `prep_detect_runs.py --all`. The six-run sample (detect_runs.tsv) stays tracked, because
 # detect_runs.R plots those six as a figure in their own right.
-02_classify/report/figures/detect_runs/detect_runs_all*.tsv
+research/02_classify/report/figures/detect_runs/detect_runs_all*.tsv
 
-02_classify/report/figures/detect_runs/runs/
-02_classify/report/figures/detect_runs/runs_name/
-02_classify/report/figures/detect_runs/runs_none/
+research/02_classify/report/figures/detect_runs/runs/
+research/02_classify/report/figures/detect_runs/runs_name/
+research/02_classify/report/figures/detect_runs/runs_none/
 
 # The per-run browser: index.html is GENERATED with ~10 MB of data inlined, and
 # data.json is the same payload for anyone serving the template instead. Both rebuild from
 # prep_browser.py; _template.html is the source and is tracked.
-02_classify/report/figures/detect_runs/browser/index.html
-02_classify/report/figures/detect_runs/browser/data.json
+research/02_classify/report/figures/detect_runs/browser/index.html
+research/02_classify/report/figures/detect_runs/browser/data.json
 
 # The static site's DATA and its generated preview page. site/build.py rebuilds both from the
 # release layer in one command, so neither belongs in history: runs.json alone is 11 MB and
@@ -216,3 +216,11 @@ Rplots.pdf
 # ignored for consistency and because the Action that publishes the site regenerates it.
 site/data/
 site/preview.html
+
+# release/01_cohort: full-text bodies are the publishers' content, same policy as
+# 01_literature/studies/. The manifest raw/raw_fulltext.tsv IS tracked.
+release/01_cohort/raw/fulltext/
+
+# graphify: generated code graph, rebuildable with `graphify update .` at no API cost
+graphify-out/
+**/graphify-out/

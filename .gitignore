@@ -227,3 +227,5 @@ graphify-out/
 # Manually obtained full text: publishers' content, same policy as raw/fulltext/.
 # It is an INPUT (no script can fetch it) but the bodies stay out of git.
 release/01_cohort/inputs/fulltext_manual/
+# per-BioSample raw attribute dump: large, regenerable; the flattened biosamples.tsv is tracked
+release/01_cohort/raw/biosample_attrs.jsonl

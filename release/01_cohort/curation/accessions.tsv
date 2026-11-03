@@ -1,4 +1,6 @@
 doi	accession	type	section	in_deposit_section	context
+10.1007/s00705-022-05649-7	PRJNA816710	bioproject	unsectioned	0	iotechnology Information (NCBI) sequence read archive with the accession number PRJNA816710. De novo assembly of contigs was performed using metaSPAdes 3.14.0 [
+10.1016/j.cropro.2020.105464	PRJNA628830	bioproject	unsectioned	0	ets have been deposited as an NCBI Sequence Read Archive with BioProject number PRJNA628830. Taxonomic classification of unassembled reads indi­ cated the prese
 10.1038/s41598-018-31671-4	SRR6706097	run	unsectioned	0	e pGEM-T-Easy Vector (Promega, Wisconsin, US) followed by Sanger sequencing. Electronic supplementary material Supporting information Tab
 10.1038/s41598-018-31671-4	SRR6706098	run	unsectioned	0	y Vector (Promega, Wisconsin, US) followed by Sanger sequencing. Electronic supplementary material Supporting information Table S1
 10.1038/s41598-018-31671-4	SRR6706099	run	unsectioned	0	omega, Wisconsin, US) followed by Sanger sequencing. Electronic supplementary material Supporting information Table S1 Tab
@@ -24,6 +26,8 @@ doi	accession	type	section	in_deposit_section	context
 10.1111/ppa.13468	PRJEB36485	bioproject	unsectioned	0	ropean Nucleotide Archive (ENA) database under the following accession numbers: PRJEB36485 and PRJEB45236. Individual accession num- bers for all publicly avail
 10.1111/ppa.13468	PRJEB45236	bioproject	unsectioned	0	de Archive (ENA) database under the following accession numbers: PRJEB36485 and PRJEB45236. Individual accession num- bers for all publicly available sequence d
 10.1111/ppa.13532	PRJEB47693	bioproject	DATA AVAILABILITY STATEMENT	1	Nucleotide Archive (ENA) database at https://www.ebi.ac.uk under accession number PRJEB47693. Individual accession numbers for all publicly available sequence d
+10.1111/ppa.70139	SAMN47240510	biosample	unsectioned	0	ata were deposited in the Sequencing Read Archive (SRA) under accession numbers SAMN47240510 and SAMN47240511 for WSMV-­LW and WSMV-­Ukr, respectively. In the f
+10.1111/ppa.70139	SAMN47240511	biosample	unsectioned	0	d in the Sequencing Read Archive (SRA) under accession numbers SAMN47240510 and SAMN47240511 for WSMV-­LW and WSMV-­Ukr, respectively. In the final stage, missi
 10.1186/s12864-021-07488-3	PRJEB39201	bioproject	Availability of data and materials	1	e data used in this study are available at the European Nucleotide Archive (ENA): PRJEB39201, PRJEB33109, PRJEB31334, PRJEB15280 and PRJEB12497; and the NCBI SR
 10.1186/s12864-021-07488-3	PRJEB33109	bioproject	Availability of data and materials	1	in this study are available at the European Nucleotide Archive (ENA): PRJEB39201, PRJEB33109, PRJEB31334, PRJEB15280 and PRJEB12497; and the NCBI SRA: PRJNA2563
 10.1186/s12864-021-07488-3	PRJEB31334	bioproject	Availability of data and materials	1	y are available at the European Nucleotide Archive (ENA): PRJEB39201, PRJEB33109, PRJEB31334, PRJEB15280 and PRJEB12497; and the NCBI SRA: PRJNA256347, PRJNA181
@@ -45,6 +49,7 @@ doi	accession	type	section	in_deposit_section	context
 10.1186/s12915-023-01717-9	PRJNA256347	bioproject	References	0	ect:PRJEB33109 (2019) 69. Cook NM, Chng S, Woodman TL, Warren R, Oliver RP, Saunders DG. High frequency of fungicide resistance‐associated mutations in the whea
 10.1186/s13059-015-0590-8	PRJNA256347	bioproject	Materials and methods	0	ds from all RNA-seq and gDNA runs were deposited in the short read archive (GenBank; PRJNA256347 and PRJNA257181).
 10.1186/s13059-015-0590-8	PRJNA257181	bioproject	Materials and methods	0	seq and gDNA runs were deposited in the short read archive (GenBank; PRJNA256347 and PRJNA257181).
+10.15212/ijafr-2023-0110	PRJNA918968	bioproject	De novo assembly of RNA sequencing data	0	(SRA) at the National Center for Biotechnology Information (NCBI) under BioProject PRJNA918968. The cleaned data for each sample were then aligned to the barley
 10.3389/fagro.2025.1721047	PRJNA1250571	bioproject	unsectioned	0	4043. The raw reads are available on the NCBI repository with BioProject number PRJNA1250571, and the accession number for each dataset is listed in Table 1. Fo
 10.3389/fmicb.2021.699078	PRJNA722004	bioproject	RNASeq Analysis Obtained Full Genome Sequences of WSM Viruses	0	3 ). All raw sequences were deposited in the GenBank under the BioProject number PRJNA722004 . After trimming, an average of 26 million clean reads were obtaine
 10.3389/fpls.2021.720462	PRJNA718488	bioproject	Materials and Methods	0	omics Center Zürich. 1 Transcriptomic sequences are available under the NCBI BioProject PRJNA718488.

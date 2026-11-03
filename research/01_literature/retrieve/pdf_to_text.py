@@ -4,7 +4,7 @@
     python research/01_literature/retrieve/pdf_to_text.py
     python research/01_literature/retrieve/pdf_to_text.py --drop ~/Downloads
 
-Reads  release/01_cohort/curation/fulltext_wanted.tsv   the papers still missing text
+Reads  release/01_cohort/inputs/pg_dois.txt   the corpus (and abstracts.tsv for titles)
        studies/doi_<slug>/*.pdf                         PDFs already on disk
        --drop DIR                                       anything newly downloaded
 Writes release/01_cohort/inputs/fulltext_manual/<slug>.txt
@@ -35,7 +35,8 @@ HERE = Path(__file__).resolve().parent
 MODULE = HERE.parent
 ROOT = MODULE.parent
 REPO = ROOT.parent
-WANTED = REPO / "release" / "01_cohort" / "curation" / "fulltext_wanted.tsv"
+DOIS = REPO / "release" / "01_cohort" / "inputs" / "pg_dois.txt"
+ABSTRACTS = REPO / "release" / "01_cohort" / "raw" / "abstracts.tsv"
 DST = REPO / "release" / "01_cohort" / "inputs" / "fulltext_manual"
 STUDIES = MODULE / "studies"
 MIN_CHARS = 4000
@@ -94,12 +95,14 @@ def main():
         import pymupdf  # noqa: F401
     except ImportError:
         sys.exit("pymupdf is needed: pip install --user pymupdf")
-    if not WANTED.exists():
-        sys.exit(f"no {WANTED}; run release/01_cohort/fetch_fulltext.py first")
-
-    with open(WANTED, newline="", encoding="utf-8") as fh:
-        wanted = [(r["doi"], r.get("title", ""))
-                  for r in csv.DictReader(fh, delimiter="\t") if r["doi"]]
+    if not DOIS.exists():
+        sys.exit(f"no {DOIS}")
+    titles = {}
+    if ABSTRACTS.exists():
+        with open(ABSTRACTS, newline="", encoding="utf-8") as fh:
+            titles = {r["doi"]: r.get("title", "") for r in csv.DictReader(fh, delimiter="\t")}
+    wanted = [(d.strip().lower(), titles.get(d.strip().lower(), ""))
+              for d in DOIS.read_text().splitlines() if d.strip()]
     DST.mkdir(parents=True, exist_ok=True)
     print(f"{len(wanted)} papers wanted")
 
@@ -108,6 +111,17 @@ def main():
         out = DST / f"{slug(doi)}.txt"
         if out.exists() and not args.force:
             skipped += 1
+            continue
+        # an .xml or .txt already named by slug needs no conversion, just placing
+        pre = list(args.drop.glob(f"{slug(doi)}.xml")) + list(args.drop.glob(f"{slug(doi)}.txt")) \
+            if args.drop else []
+        if pre:
+            dst = out.with_suffix(pre[0].suffix)
+            if pre[0].resolve() != dst.resolve():
+                import shutil as _sh
+                _sh.copy2(pre[0], dst)
+            done += 1
+            print(f"  {doi} -> {dst.name}  (already text, placed)")
             continue
         found = pdfs_for(doi, args.drop, title)
         if not found:

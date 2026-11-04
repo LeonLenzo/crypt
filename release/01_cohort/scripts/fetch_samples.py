@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Fetch every run and its BioSample metadata, for the BioProjects the kept papers name.
 
-    python release/01_cohort/fetch_samples.py
+    python release/01_cohort/scripts/fetch_samples.py
 
-Reads  curation/screen_fulltext.tsv   keep papers and their BioProjects
-Writes raw/samples.tsv                one row per RUN, with its BioSample attributes merged
-       raw/sample_attrs.jsonl         every BioSample attribute verbatim (gitignored)
+Reads  data/curation/screen_fulltext.tsv   keep papers and their BioProjects
+Writes data/raw/samples.tsv                one row per RUN, with its BioSample attributes merged
+       data/raw/sample_attrs.jsonl         every BioSample attribute verbatim (gitignored)
 
 ONE ROW PER RUN, not per sample: reads are classified per run downstream, and a few samples
 carry several runs (one has 15), so sample-keying would bury run accessions. Each run row
@@ -32,9 +32,11 @@ import urllib.request
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-SCREEN = HERE / "curation" / "screen_fulltext.tsv"
-OUT = HERE / "raw" / "samples.tsv"
-ATTRS = HERE / "raw" / "sample_attrs.jsonl"
+MODULE = HERE.parent
+DATA = MODULE / "data"
+SCREEN = DATA / "curation" / "screen_fulltext.tsv"
+OUT = DATA / "raw" / "samples.tsv"
+ATTRS = DATA / "raw" / "sample_attrs.jsonl"
 PORTAL = "https://www.ebi.ac.uk/ena/portal/api/filereport"
 XML = "https://www.ebi.ac.uk/ena/browser/api/xml/"
 PAUSE = 0.25

@@ -2,11 +2,11 @@
 """Pull the study-level facts out of each paper's text: what was sequenced, from where, and
 what it was infected with.
 
-    python release/01_cohort/screen_fulltext.py
+    python release/01_cohort/scripts/screen_fulltext.py
 
-Reads  raw/fulltext.tsv          every text we hold, and its source
-       inputs/pathogen_genera.txt a flag-list of cereal pathogen genera
-Writes curation/screen_fulltext.tsv   one row per paper
+Reads  data/raw/fulltext.tsv          every text we hold, and its source
+       data/inputs/pathogen_genera.txt a flag-list of cereal pathogen genera
+Writes data/curation/screen_fulltext.tsv   one row per paper
 
 This replaces bioproject_screen.py, which found only accessions. The corpus is now field
 pathogenomic wheat studies by construction, so host, setting and disease-selection no longer
@@ -48,11 +48,13 @@ import re
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-FULLTEXT = HERE / "raw" / "fulltext.tsv"
-ABSTRACT_SCREEN = HERE / "curation" / "screen_abstract.tsv"
-DECISIONS = HERE / "curation" / "decisions.tsv"
-GENERA = HERE / "inputs" / "pathogen_genera.txt"
-OUT = HERE / "curation" / "screen_fulltext.tsv"
+MODULE = HERE.parent
+DATA = MODULE / "data"
+FULLTEXT = DATA / "raw" / "fulltext.tsv"
+ABSTRACT_SCREEN = DATA / "curation" / "screen_abstract.tsv"
+DECISIONS = DATA / "curation" / "decisions.tsv"
+GENERA = DATA / "inputs" / "pathogen_genera.txt"
+OUT = DATA / "curation" / "screen_fulltext.tsv"
 
 TAG = re.compile(r"<[^>]+>")
 ACCESSION = re.compile(
@@ -159,7 +161,7 @@ def main():
 
     for r in papers:
         doi, source, path = r["doi"], r.get("source", ""), r.get("path", "")
-        raw = (HERE / path).read_text(errors="ignore") if path and (HERE / path).is_file() else ""
+        raw = (MODULE / path).read_text(errors="ignore") if path and (MODULE / path).is_file() else ""
         is_sectioned = "<sec" in raw[:200000]
         text = raw if is_sectioned else plain(raw, path.lower().endswith((".html", ".htm")))
         full = (r.get("title", "") + " " + text)

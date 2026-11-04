@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Inventory the cohort's sequencing reads, and fetch the ones not already on disk.
 
-    python release/01_cohort/fetch_reads.py                         # inventory only
-    python release/01_cohort/fetch_reads.py --reads-dir DIR         # mark what DIR already holds
-    python release/01_cohort/fetch_reads.py --reads-dir DIR --fetch # pull the missing ones
+    python release/01_cohort/scripts/fetch_reads.py                         # inventory only
+    python release/01_cohort/scripts/fetch_reads.py --reads-dir DIR         # mark what DIR already holds
+    python release/01_cohort/scripts/fetch_reads.py --reads-dir DIR --fetch # pull the missing ones
 
-Reads  curation/screen_samples.tsv   the cohort: one row per run
-Writes raw/reads_ena/<project>.tsv   ENA's file listing per project (fetched, cached)
-       raw/reads_manifest.tsv        one row per run: expected files, md5, bytes, local status
+Reads  data/curation/screen_samples.tsv   the cohort: one row per run
+Writes data/raw/reads_ena/<project>.tsv   ENA's file listing per project (fetched, cached)
+       data/raw/reads_manifest.tsv        one row per run: expected files, md5, bytes, local status
 
 WHY THE FETCH LIVES HERE, NOT IN 02_classify. The reads are public SRA/ENA data the cohort
 points to; materialising them is part of building the cohort, not part of the classifier (the
@@ -35,9 +35,11 @@ import urllib.request
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-SCREEN = HERE / "curation" / "screen_samples.tsv"
-ENADIR = HERE / "raw" / "reads_ena"
-OUT = HERE / "raw" / "reads_manifest.tsv"
+MODULE = HERE.parent
+DATA = MODULE / "data"
+SCREEN = DATA / "curation" / "screen_samples.tsv"
+ENADIR = DATA / "raw" / "reads_ena"
+OUT = DATA / "raw" / "reads_manifest.tsv"
 PORTAL = "https://www.ebi.ac.uk/ena/portal/api/filereport"
 UA = {"User-Agent": "crypt/1.0 (+mailto:leon.lenzo@curtin.edu.au)"}
 COLS = ["run", "BioProject", "n_files", "files", "ena_bytes", "ena_md5",
@@ -208,7 +210,7 @@ def main():
 
     st = collections.Counter(r["status"].split(":")[0] for r in rows)
     tb = sum(int(r["ena_bytes"] or 0) for r in rows) / 1e12
-    print(f"-> {OUT.relative_to(HERE)}  {len(rows)} runs over {len(by_proj)} projects, "
+    print(f"-> {OUT.relative_to(MODULE)}  {len(rows)} runs over {len(by_proj)} projects, "
           f"{tb:.2f} TB on ENA")
     for s in ("present", "present (inventory)", "fetched", "missing", "unscanned",
               "no ENA fastq", "failed"):

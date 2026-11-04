@@ -1,0 +1,127 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>crypt browser</title>
+<meta name="description" content="Cryptic co-infection in public cereal RNA-seq: the cohort, the species called, and the evidence behind every curated value.">
+<!--
+  The crypt browser. Static: open index.html behind any web server, or publish the directory.
+
+  Three views over site/data/, which build.py writes and nothing else may:
+    MAP      where the cohort was collected, and what was found there
+    SPECIES  one species at a time: where, on what, declared or not, how strongly
+    RUNS     one library at a time: composition, the ranked candidates, the floor space
+
+  THE EVIDENCE IS ONE CLICK FROM EVERY CURATED VALUE. Click a run id and the drawer shows the
+  quotation behind its setting, selection, tissue, location and year, with the DOI and the locus
+  in the paper. That is the project's claim about itself and it should be the easiest thing on
+  the page to check.
+
+  NO BUILD STEP. Three files and a data directory; nothing is bundled, minified or transpiled.
+  The site must still open in five years from a Zenodo snapshot, which rules out a toolchain.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,650;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="app.css">
+
+<div id="shell">
+  <header>
+    <h1>crypt browser</h1>
+    <span class="sub" id="hdr-sub"></span>
+    <nav role="tablist">
+      <button id="nav-map" role="tab" aria-selected="true">Map</button>
+      <button id="nav-species" role="tab" aria-selected="false">Species</button>
+      <button id="nav-runs" role="tab" aria-selected="false">Runs</button>
+    </nav>
+  </header>
+
+  <!-- ── MAP ──────────────────────────────────────────────────────────────────────────── -->
+  <main id="v-map" class="on" role="tabpanel" aria-labelledby="nav-map">
+    <aside>
+      <div class="ctl">
+        <span class="lbl">Marker fill</span>
+        <div class="seg" id="m-mode">
+          <button data-m="extent" aria-pressed="true">Extent</button>
+          <button data-m="burden" aria-pressed="false">Undeclared</button>
+        </div>
+        <p class="note">Extent asks where the cohort is. Undeclared shades each site by
+          undeclared species per classified library.</p>
+      </div>
+      <div class="ctl">
+        <label for="m-crop">Crop</label>
+        <select id="m-crop"></select>
+      </div>
+      <p class="note" id="m-unplaced"></p>
+      <div id="site-detail" style="margin-top:16px"></div>
+    </aside>
+    <section class="stage" id="map-stage"></section>
+  </main>
+
+  <!-- ── SPECIES ──────────────────────────────────────────────────────────────────────── -->
+  <main id="v-species" role="tabpanel" aria-labelledby="nav-species">
+    <aside>
+      <div class="ctl">
+        <label for="sp-q">Search species</label>
+        <input type="search" id="sp-q" placeholder="Puccinia, Zymoseptoria...">
+      </div>
+      <div class="ctl"><label for="sp-king">Kingdom</label><select id="sp-king"></select></div>
+      <label class="chk"><input type="checkbox" id="sp-path"> pathogens only</label>
+      <ul class="pick" id="sp-pick" style="max-height:58vh"></ul>
+      <p class="note" id="sp-count"></p>
+      <p class="note">Most libraries first; counts are libraries. The host plant is a
+        Viridiplantae row, reported by the pipeline but not a finding.</p>
+    </aside>
+    <section class="stage" id="sp-stage">
+      <h2 class="t">Species</h2>
+      <p class="s">Pick a species on the left. Each one is the detections table read across
+        instead of down: where it was found, on which crop, declared by the study or not.</p>
+    </section>
+  </main>
+
+  <!-- ── RUNS ─────────────────────────────────────────────────────────────────────────── -->
+  <main id="v-runs" role="tabpanel" aria-labelledby="nav-runs">
+    <aside>
+      <div class="ctl">
+        <label for="r-q">Search run or location</label>
+        <input type="search" id="r-q" placeholder="SRR..., Nebraska...">
+      </div>
+      <div class="ctl"><label for="r-crop">Crop</label><select id="r-crop"></select></div>
+      <div class="ctl"><label for="r-proj">BioProject</label><select id="r-proj"></select></div>
+      <ul class="pick" id="r-pick" style="max-height:34vh"></ul>
+      <p class="note" id="r-count"></p>
+
+      <div style="border-top:1px solid var(--line);margin:14px 0 0;padding-top:12px">
+        <span class="lbl">Detection floors</span>
+        <p class="note" style="margin:0 0 9px">Moving one re-calls every row in the browser and
+          marks the panel WHAT-IF. The pipeline's own values are the reset.</p>
+        <div class="ctl">
+          <label for="f-cov">Coverage <span id="f-cov-v" style="font-family:var(--mono)"></span></label>
+          <input type="range" id="f-cov" min="1" max="500" step="1" value="200">
+        </div>
+        <div class="ctl">
+          <label for="f-sat">Saturation <span id="f-sat-v" style="font-family:var(--mono)"></span></label>
+          <input type="range" id="f-sat" min="1" max="500" step="1" value="50">
+        </div>
+        <div class="ctl">
+          <label for="f-dist">Distinct k-mers <span id="f-dist-v" style="font-family:var(--mono)"></span></label>
+          <input type="range" id="f-dist" min="1000" max="200000" step="1000" value="10000">
+        </div>
+        <button id="f-reset" style="width:100%;padding:5px;border:1px solid var(--line-strong);
+          background:#fff;border-radius:4px;cursor:pointer;font-size:12.5px">Reset to the pipeline</button>
+      </div>
+    </aside>
+    <section class="stage" id="r-stage">
+      <h2 class="t">Runs</h2>
+      <p class="s">One library at a time.</p>
+    </section>
+  </main>
+</div>
+
+<div id="tip"></div>
+<div id="scrim"></div>
+<div id="drawer" role="dialog" aria-modal="true" aria-label="Curated evidence">
+  <div class="dh"><h3></h3><button title="Close">&times;</button></div>
+  <div class="db"></div>
+</div>
+
+<script src="app.js"></script>

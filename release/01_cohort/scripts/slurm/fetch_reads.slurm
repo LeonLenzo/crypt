@@ -6,10 +6,10 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=8G
 #SBATCH --time=24:00:00
-#SBATCH --output=release/01_cohort/slurm/logs/fetch_%j.out
-#SBATCH --error=release/01_cohort/slurm/logs/fetch_%j.err
+#SBATCH --output=release/01_cohort/scripts/slurm/logs/fetch_%j.out
+#SBATCH --error=release/01_cohort/scripts/slurm/logs/fetch_%j.err
 #
-# Fetch the reads ENA still owes the cohort, into release/01_cohort/raw/reads/<BioProject>/.
+# Fetch the reads ENA still owes the cohort, into release/01_cohort/data/raw/reads/<BioProject>/.
 #
 #   cd /scratch/pawsey1168/llenzo/crypt
 #   sbatch release/01_cohort/slurm/fetch_reads.slurm
@@ -27,12 +27,12 @@
 set -uo pipefail
 module load python/3.11.6
 cd /scratch/pawsey1168/llenzo/crypt || exit 1
-mkdir -p release/01_cohort/slurm/logs
+mkdir -p release/01_cohort/scripts/slurm/logs
 echo "host     $(hostname)"
 echo "started  $(date -Is)"
 SECONDS=0
-python3 release/01_cohort/fetch_reads.py \
-    --reads-dir release/01_cohort/raw/reads --fetch --workers "${WORKERS:-24}"
+python3 release/01_cohort/scripts/fetch_reads.py \
+    --reads-dir release/01_cohort/data/raw/reads --fetch --workers "${WORKERS:-24}"
 rc=$?
 echo "exit     $rc after ${SECONDS}s"
 echo "finished $(date -Is)"

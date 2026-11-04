@@ -1,0 +1,215 @@
+/* app.css -- the crypt browser.
+ *
+ * COMMITS TO A LIGHT SURFACE, deliberately. The tier colours are db_contents.R's own, shared
+ * with every figure in the paper (panel.R says so and must keep saying so). Two of them,
+ * #8c0404 and #22127e, are dark enough that they disappear on a dark surface, so a dark mode
+ * would need a SECOND palette -- and two palettes for one key is how the site and the paper
+ * come to disagree about what dark red means. One key, one surface.
+ *
+ * no_record is #7a7a7a and NOT db_contents.R's #bdb5b5. That is the one deliberate departure:
+ * against resident_other (#add0e4) the original pair separates by OKLab dE 8.0, below the 15
+ * floor for normal colour vision, so "resident, no plant host record" and "resident, recorded
+ * on other plants" were hard to tell apart for every reader, not only CVD ones. #7a7a7a takes
+ * the pair to 26.3 and keeps grey's meaning (evidence absent, not negative). The same pair is
+ * in the paper figures and should be changed there too.
+ */
+
+:root{
+  --surface:#fcfcfb; --panel:#f6f6f4; --line:#e2e2de; --line-strong:#c9c9c3;
+  --ink:#1b1b1b; --ink-2:#55554f; --ink-3:#86867e;
+  --host:#3e9e3b; --pcrop:#8c0404; --poth:#e77e7e;
+  --rcrop:#22127e; --roth:#add0e4; --norec:#7a7a7a;
+  --site:#5b6b7a;                                  /* "where the data is": neutral, not a tier */
+  --warn:#8c0404;
+  /* Two faces, both chosen for an instrument rather than a page. Source Sans 3 was cut for
+     interfaces and long text and has a true italic, which matters because every binomial on
+     this site is italicised. IBM Plex Mono carries the numbers: its tabular figures line up in
+     the measure columns, where a proportional digit would make two coverages of the same
+     magnitude look different lengths. Both fall back to the platform stack. */
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+
+*{box-sizing:border-box}
+:where(button,select,input,summary,[tabindex]):focus-visible{outline:2px solid var(--ink);
+  outline-offset:2px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+html,body{height:100%}
+body{margin:0;font:14px/1.5 var(--sans);color:var(--ink);background:var(--surface);
+  font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit}
+
+/* ── frame ──────────────────────────────────────────────────────────────────────────────── */
+#shell{display:flex;flex-direction:column;height:100vh;min-height:0}
+header{display:flex;align-items:baseline;gap:18px;padding:10px 18px;border-bottom:1px solid var(--line);flex:0 0 auto}
+header h1{font-size:15px;font-weight:650;margin:0;letter-spacing:-.01em}
+header .sub{font-size:12px;color:var(--ink-3)}
+nav{display:flex;gap:2px;margin-left:auto}
+nav button{padding:5px 13px;border:1px solid transparent;border-radius:4px;background:none;cursor:pointer;font-size:13px;color:var(--ink-2)}
+nav button:hover{background:var(--panel)}
+nav button[aria-selected=true]{background:var(--panel);border-color:var(--line);color:var(--ink);font-weight:600}
+
+main{flex:1 1 auto;min-height:0;display:none}
+main.on{display:grid}
+#v-map,#v-species,#v-runs{grid-template-columns:300px 1fr}
+aside{border-right:1px solid var(--line);background:var(--panel);padding:14px;overflow:auto;min-width:0}
+section.stage{overflow:auto;padding:16px 20px;min-width:0}
+
+/* ── controls ───────────────────────────────────────────────────────────────────────────── */
+.ctl{margin:0 0 14px}
+.ctl > label,.lbl{display:block;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin:0 0 4px}
+select,input[type=search],input[type=text]{width:100%;padding:5px 7px;font:13px var(--sans);color:var(--ink);
+  background:#fff;border:1px solid var(--line-strong);border-radius:4px}
+input[type=range]{width:100%;accent-color:var(--ink-2)}
+.seg{display:flex;gap:0;border:1px solid var(--line-strong);border-radius:4px;overflow:hidden;background:#fff}
+.seg button{flex:1;padding:5px 4px;border:0;background:none;cursor:pointer;font-size:12px;color:var(--ink-2)}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed=true]{background:var(--ink);color:#fff;font-weight:600}
+.chk{display:flex;align-items:center;gap:7px;font-size:12.5px;padding:2px 0;cursor:pointer;color:var(--ink-2)}
+.chk input{accent-color:var(--ink-2);margin:0}
+
+.pick{list-style:none;margin:6px 0 0;padding:0;max-height:46vh;overflow:auto;
+  border:1px solid var(--line);border-radius:4px;background:#fff}
+.pick li{padding:5px 9px;cursor:pointer;font-size:12.5px;border-bottom:1px solid #f1f1ee;
+  display:flex;gap:8px;align-items:baseline}
+.pick li:last-child{border-bottom:0}
+.pick li:hover{background:#eef2f6}
+.pick li[aria-selected=true]{background:#e4ebf2;font-weight:600}
+.pick .n{margin-left:auto;font:11.5px var(--mono);color:var(--ink-3)}
+.pick i{font-style:italic}
+
+/* ── headings & prose ───────────────────────────────────────────────────────────────────── */
+h2.t{font-size:19px;font-weight:650;margin:0;letter-spacing:-.015em}
+h2.t i{font-style:italic}
+p.s{margin:3px 0 0;font-size:13px;color:var(--ink-2)}
+.whatif{display:none;margin:7px 0 0;padding:5px 9px;border-left:3px solid var(--warn);
+  background:#fdf3f3;font-size:12.5px;font-weight:600;color:var(--warn)}
+.whatif.on{display:block}
+.note{font-size:12px;color:var(--ink-3);margin:8px 0 0}
+
+/* ── stat row ───────────────────────────────────────────────────────────────────────────── */
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+.stat{border:1px solid var(--line);border-radius:5px;padding:8px 12px;background:#fff;min-width:96px}
+.stat .k{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
+.stat .v{font:600 20px/1.2 var(--sans);font-variant-numeric:tabular-nums;margin-top:1px}
+.stat .v small{font-size:12px;font-weight:400;color:var(--ink-3)}
+
+/* ── legend ─────────────────────────────────────────────────────────────────────────────── */
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;margin:0 0 10px;font-size:12px;color:var(--ink-2)}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend .sw{width:11px;height:11px;border-radius:2px;flex:0 0 auto}
+
+/* ── the composition strip ──────────────────────────────────────────────────────────────── */
+.comp{margin:16px 0 4px}
+.comp .bar{display:flex;height:14px;border-radius:3px;overflow:hidden;background:var(--panel)}
+.comp .bar i{display:block;height:100%;box-shadow:2px 0 0 var(--surface)}  /* 2px surface gap */
+.comp .bar i:last-child{box-shadow:none}
+
+/* ── the ranked rows: the default run view ──────────────────────────────────────────────── */
+.ranked{margin:10px 0 0;font-size:13px}
+.ranked .grp{display:flex;align-items:center;gap:8px;margin:16px 0 4px;font-weight:650;font-size:12.5px}
+.ranked .grp .sw{width:11px;height:11px;border-radius:2px}
+.ranked .grp .c{margin-left:auto;font:11.5px var(--mono);color:var(--ink-3);font-weight:400}
+.ranked .hd,.ranked .row{display:grid;
+  grid-template-columns:16px minmax(150px,1.3fr) minmax(90px,1fr) 62px minmax(70px,.8fr) 52px 74px;
+  gap:10px;align-items:center;padding:2px 4px;border-radius:3px}
+.ranked .hd{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);
+  padding-bottom:4px;border-bottom:1px solid var(--line)}
+.ranked .row{min-height:22px;cursor:default}
+.ranked .row:hover{background:#eef2f6}
+.ranked .row.out{opacity:.45}
+.ranked .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ranked .nm i{font-style:italic}
+.ranked .nm em{font-style:normal;color:var(--ink-3);font-size:11.5px;margin-left:5px}
+.ranked .num{text-align:right;font:12px var(--mono);font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.ranked .num.dim{color:var(--ink-3)}
+.ranked .dec{width:16px;text-align:center;font-size:12px;color:var(--ink-2)}
+/* the measure track: one log axis per column, the floor a dashed rule (a threshold IS the one
+   thing dashing should mean -- gridlines here are solid hairlines) */
+.track{position:relative;height:11px;background:linear-gradient(var(--panel),var(--panel)) no-repeat center/100% 5px;border-radius:3px}
+.track .fill{position:absolute;top:3px;height:5px;left:0;border-radius:0 3px 3px 0}
+.track .fl{position:absolute;top:-1px;bottom:-1px;width:0;border-left:1px dashed var(--ink-3)}
+.axcap{display:grid;grid-template-columns:16px minmax(150px,1.3fr) minmax(90px,1fr) 62px minmax(70px,.8fr) 52px 74px;
+  gap:10px;font:10.5px var(--mono);color:var(--ink-3);padding:3px 4px 0}
+.axcap .r{position:relative;height:12px}
+.axcap .r span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+
+/* ── the scatter: the statistical view, on a toggle ─────────────────────────────────────── */
+.scatter{margin:12px 0 0}
+.scatter svg{display:block;max-width:100%;height:auto;overflow:visible}
+.gridline{stroke:var(--line);stroke-width:1;shape-rendering:crispEdges}
+.axis{stroke:var(--line-strong);stroke-width:1}
+.axlab{font:11px var(--mono);fill:var(--ink-3)}
+.axttl{font:12px var(--sans);fill:var(--ink-2)}
+.floorline{stroke:var(--ink-3);stroke-width:1;stroke-dasharray:4 3;fill:none}
+.cloudpt{fill:var(--ink-3);opacity:.22}
+.mk{stroke:var(--surface);stroke-width:2}          /* 2px surface ring on overlapping marks */
+.mk.hollow{fill:none;stroke-width:1.6}
+
+/* ── the map ────────────────────────────────────────────────────────────────────────────── */
+#mapwrap{position:relative;border:1px solid var(--line);border-radius:5px;background:#fff;overflow:hidden}
+#mapsvg{display:block;width:100%;height:auto;cursor:grab;touch-action:none}
+#mapsvg.drag{cursor:grabbing}
+.coast{fill:#f1f1ed;stroke:var(--line-strong);stroke-width:.4;vector-effect:non-scaling-stroke}
+.site{stroke:#fff;stroke-width:1;vector-effect:non-scaling-stroke;cursor:pointer}
+.site:hover{stroke:var(--ink);stroke-width:1.6}
+.site.sel{stroke:var(--ink);stroke-width:2}
+.mapctl{position:absolute;top:8px;right:8px;display:flex;flex-direction:column;gap:3px}
+.mapctl button{width:26px;height:26px;border:1px solid var(--line-strong);background:#fff;border-radius:4px;
+  cursor:pointer;font-size:15px;line-height:1;color:var(--ink-2)}
+.mapctl button:hover{background:var(--panel)}
+.ramp{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--ink-2);margin:8px 0 0}
+.ramp .steps{display:flex}
+.ramp .steps i{width:22px;height:10px;display:block}
+.sizekey{display:flex;align-items:flex-end;gap:9px;font-size:11.5px;color:var(--ink-2);margin:8px 0 0}
+.sizekey svg{overflow:visible}
+
+/* ── tooltip ────────────────────────────────────────────────────────────────────────────── */
+#tip{position:fixed;z-index:60;pointer-events:none;display:none;max-width:290px;
+  background:#1b1b1b;color:#f4f4f1;border-radius:5px;padding:7px 10px;font-size:12px;line-height:1.45;
+  box-shadow:0 4px 14px rgba(0,0,0,.26)}
+#tip.on{display:block}
+#tip b{font-weight:650}
+#tip i{font-style:italic}
+#tip .kv{display:grid;grid-template-columns:auto auto;gap:1px 10px;margin-top:4px;
+  font:11.5px var(--mono);font-variant-numeric:tabular-nums}
+#tip .kv span:nth-child(odd){color:#b9b9b2}
+#tip .kv span:nth-child(even){text-align:right}
+
+/* ── the evidence drawer ────────────────────────────────────────────────────────────────── */
+#scrim{position:fixed;inset:0;background:rgba(27,27,27,.3);z-index:70;display:none}
+#scrim.on{display:block}
+#drawer{position:fixed;top:0;right:0;bottom:0;width:min(560px,94vw);z-index:71;background:var(--surface);
+  border-left:1px solid var(--line-strong);box-shadow:-8px 0 26px rgba(0,0,0,.14);
+  display:none;flex-direction:column}
+#drawer.on{display:flex}
+#drawer .dh{display:flex;align-items:baseline;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line);flex:0 0 auto}
+#drawer .dh h3{margin:0;font-size:15px;font-weight:650}
+#drawer .dh button{margin-left:auto;border:1px solid var(--line-strong);background:#fff;border-radius:4px;
+  width:26px;height:26px;cursor:pointer;line-height:1;color:var(--ink-2)}
+#drawer .db{overflow:auto;padding:14px 16px}
+.claim{border:1px solid var(--line);border-left:3px solid var(--ink-3);border-radius:0 4px 4px 0;
+  padding:9px 12px;margin:0 0 9px;background:#fff}
+.claim .f{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
+.claim .v{font-weight:600;margin:1px 0 5px}
+.claim blockquote{margin:0;padding:0 0 0 10px;border-left:2px solid var(--line-strong);
+  font-size:12.5px;color:var(--ink-2);font-style:italic}
+.claim .src{margin:6px 0 0;font:11.5px var(--mono);color:var(--ink-3);word-break:break-word}
+.claim .src a{text-decoration:underline}
+.missing{font-size:12.5px;color:var(--ink-3);border:1px dashed var(--line-strong);border-radius:4px;padding:10px}
+
+/* ── table view: the accessible fallback, always reachable ──────────────────────────────── */
+details.tbl{margin:18px 0 0;border-top:1px solid var(--line);padding-top:10px}
+details.tbl summary{cursor:pointer;font-size:12.5px;color:var(--ink-2)}
+details.tbl table{border-collapse:collapse;margin:10px 0 0;font-size:12px;width:100%}
+details.tbl th,details.tbl td{text-align:left;padding:3px 9px 3px 0;border-bottom:1px solid var(--line);
+  white-space:nowrap}
+details.tbl th{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+details.tbl td.n{text-align:right;font:11.5px var(--mono);font-variant-numeric:tabular-nums}
+.scrollx{overflow-x:auto}
+
+@media (max-width:860px){
+  #v-map,#v-species,#v-runs{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  aside{border-right:0;border-bottom:1px solid var(--line);max-height:42vh}
+}

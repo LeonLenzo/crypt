@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Assemble the run-level cohort, filling each attribute from the best available source.
 
-    python release/01_cohort/build_cohort.py
+    python release/01_cohort/scripts/build_cohort.py
 
-Reads  raw/samples.tsv                   every run + its BioSample metadata, one table
-       curation/curated_attributes.tsv   prior hand/supplement curation, ported
-       curation/supplements.tsv          per-accession provenance lifted from paper supplements
-       curation/screen_fulltext.tsv      the keep/drop verdict per paper
-Writes curation/screen_samples.tsv       one row per RNA-seq run in a kept project
+Reads  data/raw/samples.tsv                   every run + its BioSample metadata, one table
+       data/curation/curated_attributes.tsv   prior hand/supplement curation, ported
+       data/curation/supplements.tsv          per-accession provenance lifted from paper supplements
+       data/curation/screen_fulltext.tsv      the keep/drop verdict per paper
+Writes data/curation/screen_samples.tsv       one row per RNA-seq run in a kept project
 
 PRECEDENCE, highest first, recorded per value in a `<field>_src` column so nothing is taken
 on trust: curated > supplement > biosample (the submitter's attribute record) > archive (the
@@ -29,11 +29,13 @@ import re
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-SAMPLES = HERE / "raw" / "samples.tsv"
-CURATED = HERE / "curation" / "curated_attributes.tsv"
-SUPPLEMENTS = HERE / "curation" / "supplements.tsv"
-SCREEN = HERE / "curation" / "screen_fulltext.tsv"
-OUT = HERE / "curation" / "screen_samples.tsv"
+MODULE = HERE.parent
+DATA = MODULE / "data"
+SAMPLES = DATA / "raw" / "samples.tsv"
+CURATED = DATA / "curation" / "curated_attributes.tsv"
+SUPPLEMENTS = DATA / "curation" / "supplements.tsv"
+SCREEN = DATA / "curation" / "screen_fulltext.tsv"
+OUT = DATA / "curation" / "screen_samples.tsv"
 
 RNA = {"RNA-Seq", "ncRNA-Seq"}
 FIELDS = ["host", "tissue", "setting", "location", "collection_date", "lat", "lon"]

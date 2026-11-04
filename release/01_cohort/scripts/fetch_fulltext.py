@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""Fetch the title and the fullest available text for every DOI in inputs/pg_dois.txt.
+"""Fetch the title and the fullest available text for every DOI in data/inputs/pg_dois.txt.
 
-    python release/01_cohort/fetch_fulltext.py
-    python release/01_cohort/fetch_fulltext.py --retry     # ask again for what is missing
+    python release/01_cohort/scripts/fetch_fulltext.py
+    python release/01_cohort/scripts/fetch_fulltext.py --retry     # ask again for what is missing
 
-Reads  curation/screen_abstract.tsv  the gate: only papers NOT recommended `drop` are fetched
-       inputs/fulltext_manual/*      anything obtained by hand, checked first
-Writes raw/fulltext/<doi>.*          the text, by whichever route reached it
-       raw/fulltext.tsv          one row per paper: title, source, note, bytes, path
+Reads  data/curation/screen_abstract.tsv  the gate: only papers NOT recommended `drop` are fetched
+       data/inputs/fulltext_manual/*      anything obtained by hand, checked first
+Writes data/raw/fulltext/<doi>.*          the text, by whichever route reached it
+       data/raw/fulltext.tsv          one row per paper: title, source, note, bytes, path
 
 `source` records the route, best first:
 
-    manual    obtained by hand and dropped into inputs/fulltext_manual/. No script can
+    manual    obtained by hand and dropped into data/inputs/fulltext_manual/. No script can
               fetch these, which is what makes them an input rather than a retrieval
     pmc       EuropePMC, as JATS XML with sections marked up
     biorxiv   the preprint server's own full-text page. EuropePMC indexes preprints as PPR
@@ -23,13 +23,13 @@ Writes raw/fulltext/<doi>.*          the text, by whichever route reached it
 FULL TEXT IS FETCHED ONLY FOR SURVIVORS. screen_abstract.py runs first and marks reviews,
 marker assays and book chapters `drop`; those are skipped here, so no reviewer hand-downloads
 the PDF of a paper the abstract already ruled out. A `source=none` survivor is one to fetch by
-hand: drop its PDF in inputs/fulltext_manual/ and convert with
+hand: drop its PDF in data/inputs/fulltext_manual/ and convert with
 research/01_literature/retrieve/pdf_to_text.py.
 
 The file extension carries the route (.xml, .biorxiv.html, else manual), so
 provenance survives the manifest being lost or its columns changing, which has happened twice.
 
-NOTHING IS REFETCHED. A file already in raw/fulltext/ settles that DOI before any request is
+NOTHING IS REFETCHED. A file already in data/raw/fulltext/ settles that DOI before any request is
 made, checked by looking on disk rather than by trusting this manifest: the manifest's own
 columns have changed under it, and reading them to decide what exists once sent 147 already
 downloaded articles back to EuropePMC.
@@ -46,10 +46,12 @@ import urllib.request
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-SCREEN = HERE / "curation" / "screen_abstract.tsv"
-MANUAL = HERE / "inputs" / "fulltext_manual"
-BODIES = HERE / "raw" / "fulltext"
-OUT = HERE / "raw" / "fulltext.tsv"
+MODULE = HERE.parent
+DATA = MODULE / "data"
+SCREEN = DATA / "curation" / "screen_abstract.tsv"
+MANUAL = DATA / "inputs" / "fulltext_manual"
+BODIES = DATA / "raw" / "fulltext"
+OUT = DATA / "raw" / "fulltext.tsv"
 MAILTO = "leon.lenzo@curtin.edu.au"
 EPMC = "https://www.ebi.ac.uk/europepmc/webservices/rest"
 CROSSREF = "https://api.crossref.org/works/"
@@ -125,7 +127,7 @@ def main():
         with open(OUT, newline="", encoding="utf-8") as fh:
             prior = {r["doi"]: r for r in csv.DictReader(fh, delimiter="\t")}
     abs_tbl = {}
-    ab = HERE / "raw" / "abstracts.tsv"
+    ab = DATA / "raw" / "abstracts.tsv"
     if ab.exists():
         with open(ab, newline="", encoding="utf-8") as fh:
             abs_tbl = {r["doi"]: r for r in csv.DictReader(fh, delimiter="\t")}
@@ -155,7 +157,7 @@ def main():
         if f:
             rows.append({"doi": d, "title": title, "pmcid": pmcid, "source": source_of(f),
                          "note": "", "bytes": f.stat().st_size,
-                         "path": str(f.relative_to(HERE)), "abstract": abstract})
+                         "path": str(f.relative_to(MODULE)), "abstract": abstract})
             continue
 
         path, source, note, size = "", "none", "", 0
@@ -164,7 +166,7 @@ def main():
                 data = get(f"{EPMC}/{pmcid}/fullTextXML", timeout=90)
                 p = BODIES / f"{slug(d)}.xml"
                 p.write_bytes(data)
-                source, size, path, fetched = "pmc", len(data), str(p.relative_to(HERE)), fetched + 1
+                source, size, path, fetched = "pmc", len(data), str(p.relative_to(MODULE)), fetched + 1
             except Exception:
                 note = "full text request failed"
             time.sleep(PAUSE)
@@ -178,7 +180,7 @@ def main():
             if data:
                 p = BODIES / f"{slug(d)}.biorxiv.html"
                 p.write_bytes(data)
-                source, size, note, path = "biorxiv", len(data), "", str(p.relative_to(HERE))
+                source, size, note, path = "biorxiv", len(data), "", str(p.relative_to(MODULE))
                 fetched += 1
             time.sleep(PAUSE)
 

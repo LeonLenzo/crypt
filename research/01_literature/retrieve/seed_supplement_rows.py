@@ -3,9 +3,9 @@
 
     python research/01_literature/retrieve/seed_supplement_rows.py
 
-Reads  release/01_cohort/raw/supplements/*.xlsx   the fetched Additional-file tables
-       release/01_cohort/curation/screen_samples.tsv   our runs and their BioSamples
-Writes release/01_cohort/curation/supplements.tsv  run -> host/setting/location/date, cited
+Reads  release/01_cohort/data/raw/supplements/*.xlsx   the fetched Additional-file tables
+       release/01_cohort/data/curation/screen_samples.tsv   our runs and their BioSamples
+Writes release/01_cohort/data/curation/supplements.tsv  run -> host/setting/location/date, cited
 
 WHY THIS LIVES IN research/ AND RUNS ONCE. Two wheat yellow-rust papers re-analyse public
 SRA and publish a per-accession provenance table (country, year, host, field-vs-lab) that the
@@ -26,9 +26,9 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent.parent.parent
 COHORT = REPO / "release" / "01_cohort"
-SUPP = COHORT / "raw" / "supplements"
-SCREEN = COHORT / "curation" / "screen_samples.tsv"
-OUT = COHORT / "curation" / "supplements.tsv"
+SUPP = COHORT / "data" / "raw" / "supplements"
+SCREEN = COHORT / "data" / "curation" / "screen_samples.tsv"
+OUT = COHORT / "data" / "curation" / "supplements.tsv"
 ENA = "https://www.ebi.ac.uk/ena/portal/api/filereport"
 UA = {"User-Agent": "crypt/1.0 (+mailto:leon.lenzo@curtin.edu.au)"}
 COLS = ["run", "host", "tissue", "setting", "location", "collection_date", "source"]

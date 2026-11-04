@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Build the manuscript's cohort supplementary data tables from the curated cohort.
 
-    python release/01_cohort/make_supp_tables.py
+    python release/01_cohort/scripts/make_supp_tables.py
 
-Reads  curation/screen_fulltext.tsv   the candidate studies and their BioProjects
-       curation/screen_samples.tsv     the per-run cohort, each value with its source
-Writes outputs/supp_data_s1_studies.tsv   one row per candidate study
-       outputs/supp_data_s2_cohort.tsv     one row per cohort run, values + sources
+Reads  data/curation/screen_fulltext.tsv   the candidate studies and their BioProjects
+       data/curation/screen_samples.tsv     the per-run cohort, each value with its source
+Writes data/outputs/supp_data_s1_studies.tsv   one row per candidate study
+       data/outputs/supp_data_s2_cohort.tsv     one row per cohort run, values + sources
 
 S1 lists every study the full-text screen assessed, its verdict, the facts read from it, and the
 BioProjects it references with how many cohort runs each contributed. S2 is the run-level cohort
@@ -14,7 +14,7 @@ exactly as curated: every attribute beside the source that set it (curated / sup
 biosample / archive), which is what the manuscript cites as the provenance of each value.
 
 This is a projection of the curation, not new curation: it adds nothing a reader could not derive
-from the curation/ tables, it only arranges them as the paper cites them.
+from the data/curation/ tables, it only arranges them as the paper cites them.
 """
 
 import collections
@@ -22,9 +22,11 @@ import csv
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-FULLTEXT = HERE / "curation" / "screen_fulltext.tsv"
-SAMPLES = HERE / "curation" / "screen_samples.tsv"
-OUTDIR = HERE / "outputs"
+MODULE = HERE.parent
+DATA = MODULE / "data"
+FULLTEXT = DATA / "curation" / "screen_fulltext.tsv"
+SAMPLES = DATA / "curation" / "screen_samples.tsv"
+OUTDIR = DATA / "outputs"
 
 S1_COLS = ["doi", "verdict", "host", "field", "tissue", "years", "target_pathogens",
            "n_pathogen_genera", "bioprojects", "bioprojects_own", "n_cohort_runs"]
@@ -73,8 +75,8 @@ def main():
         w.writerows(cohort)
 
     kept = sum(1 for r in s1 if r["verdict"] == "keep")
-    print(f"-> outputs/supp_data_s1_studies.tsv   {len(s1)} candidate studies ({kept} kept)")
-    print(f"-> outputs/supp_data_s2_cohort.tsv     {len(cohort)} runs, "
+    print(f"-> data/outputs/supp_data_s1_studies.tsv   {len(s1)} candidate studies ({kept} kept)")
+    print(f"-> data/outputs/supp_data_s2_cohort.tsv     {len(cohort)} runs, "
           f"{len(runs_by_proj)} BioProjects, {len({r['sample'] for r in cohort})} samples")
 
 

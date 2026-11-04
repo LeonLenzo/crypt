@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Fetch the title and abstract for every DOI in inputs/pg_dois.txt.
+"""Fetch the title and abstract for every DOI in data/inputs/pg_dois.txt.
 
-    python release/01_cohort/fetch_abstracts.py
-    python release/01_cohort/fetch_abstracts.py --refresh   # re-request cached DOIs
+    python release/01_cohort/scripts/fetch_abstracts.py
+    python release/01_cohort/scripts/fetch_abstracts.py --refresh   # re-request cached DOIs
 
-Reads  inputs/pg_dois.txt      one DOI per line, the corpus
-Writes raw/abstracts.tsv       doi, title, abstract, pmcid, open_access
+Reads  data/inputs/pg_dois.txt      one DOI per line, the corpus
+Writes data/raw/abstracts.tsv       doi, title, abstract, pmcid, open_access
 
 This is the CHEAP pass, and it comes first on purpose. screen_abstract.py reads this to
 decide a paper's study type, and only papers it does not drop go on to the expensive
@@ -27,8 +27,10 @@ import urllib.request
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-DOIS = HERE / "inputs" / "pg_dois.txt"
-OUT = HERE / "raw" / "abstracts.tsv"
+MODULE = HERE.parent
+DATA = MODULE / "data"
+DOIS = DATA / "inputs" / "pg_dois.txt"
+OUT = DATA / "raw" / "abstracts.tsv"
 MAILTO = "leon.lenzo@curtin.edu.au"
 EPMC = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 CROSSREF = "https://api.crossref.org/works/"

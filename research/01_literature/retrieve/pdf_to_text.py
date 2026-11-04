@@ -4,10 +4,10 @@
     python research/01_literature/retrieve/pdf_to_text.py
     python research/01_literature/retrieve/pdf_to_text.py --drop ~/Downloads
 
-Reads  release/01_cohort/inputs/pg_dois.txt   the corpus (and abstracts.tsv for titles)
+Reads  release/01_cohort/data/inputs/pg_dois.txt   the corpus (and abstracts.tsv for titles)
        studies/doi_<slug>/*.pdf                         PDFs already on disk
        --drop DIR                                       anything newly downloaded
-Writes release/01_cohort/inputs/fulltext_manual/<slug>.txt
+Writes release/01_cohort/data/inputs/fulltext_manual/<slug>.txt
 
 WHY THIS LIVES IN research/. The release tree holds what a reviewer can run. These PDFs are
 paywalled, obtained through an institutional subscription, and no reviewer can fetch them, so
@@ -35,9 +35,9 @@ HERE = Path(__file__).resolve().parent
 MODULE = HERE.parent
 ROOT = MODULE.parent
 REPO = ROOT.parent
-DOIS = REPO / "release" / "01_cohort" / "inputs" / "pg_dois.txt"
-ABSTRACTS = REPO / "release" / "01_cohort" / "raw" / "abstracts.tsv"
-DST = REPO / "release" / "01_cohort" / "inputs" / "fulltext_manual"
+DOIS = REPO / "release" / "01_cohort" / "data" / "inputs" / "pg_dois.txt"
+ABSTRACTS = REPO / "release" / "01_cohort" / "data" / "raw" / "abstracts.tsv"
+DST = REPO / "release" / "01_cohort" / "data" / "inputs" / "fulltext_manual"
 STUDIES = MODULE / "studies"
 MIN_CHARS = 4000
 

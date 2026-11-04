@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Classify each paper's study type from its title and abstract, before full text is chased.
 
-    python release/01_cohort/screen_abstract.py
+    python release/01_cohort/scripts/screen_abstract.py
 
-Reads  raw/abstracts.tsv          title and abstract for every DOI in the corpus
-Writes curation/screen_abstract.tsv   one row per paper: data_type, signal, recommendation
+Reads  data/raw/abstracts.tsv          title and abstract for every DOI in the corpus
+Writes data/curation/screen_abstract.tsv   one row per paper: data_type, signal, recommendation
 
 WHY. The corpus is a semantic-search result, and semantic search matches TOPIC, not study
 TYPE: it returns reviews, methods chapters and marker-assay papers that are about wheat
@@ -33,8 +33,10 @@ import re
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-SRC = HERE / "raw" / "abstracts.tsv"
-OUT = HERE / "curation" / "screen_abstract.tsv"
+MODULE = HERE.parent
+DATA = MODULE / "data"
+SRC = DATA / "raw" / "abstracts.tsv"
+OUT = DATA / "curation" / "screen_abstract.tsv"
 
 # Deliberately broad: every way a paper says "we shotgun-sequenced RNA".
 RNASEQ = re.compile(

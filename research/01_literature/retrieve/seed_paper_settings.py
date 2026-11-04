@@ -3,8 +3,8 @@
 
     python research/01_literature/retrieve/seed_paper_settings.py
 
-Reads  release/01_cohort/curation/screen_samples.tsv   runs, their project, date, what is filled
-Writes release/01_cohort/curation/supplements.tsv       merges `paper:` / `sibling:` rows in
+Reads  release/01_cohort/data/curation/screen_samples.tsv   runs, their project, date, what is filled
+Writes release/01_cohort/data/curation/supplements.tsv       merges `paper:` / `sibling:` rows in
 
 WHY. The single-project papers in the cohort carry no per-accession table to join, so their
 one archive-missing fact, `setting` (field vs glasshouse vs lab), is read from the Methods and
@@ -23,10 +23,10 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 COHORT = HERE.parent.parent.parent / "release" / "01_cohort"
-SCREEN = COHORT / "curation" / "screen_samples.tsv"
-SAMPLES = COHORT / "raw" / "samples.tsv"
-CURATED = COHORT / "curation" / "curated_attributes.tsv"
-OUT = COHORT / "curation" / "supplements.tsv"
+SCREEN = COHORT / "data" / "curation" / "screen_samples.tsv"
+SAMPLES = COHORT / "data" / "raw" / "samples.tsv"
+CURATED = COHORT / "data" / "curation" / "curated_attributes.tsv"
+OUT = COHORT / "data" / "curation" / "supplements.tsv"
 COLS = ["run", "host", "tissue", "setting", "location", "collection_date", "source"]
 
 # One entry per single-project paper. `setting` is the project-wide call; `date_split` overrides

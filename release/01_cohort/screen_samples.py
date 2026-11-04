@@ -25,6 +25,7 @@ this feeds.
 
 import collections
 import csv
+import re
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -41,6 +42,18 @@ FIELDS = ["host", "tissue", "setting", "location", "collection_date", "lat", "lo
 def read(path):
     with open(path, newline="", encoding="utf-8") as fh:
         return list(csv.DictReader(fh, delimiter="\t"))
+
+
+def split_latlon(s):
+    """Decimal (lat, lon) from a BioSample lat_lon string, e.g. '42.5 N 71.1 W' or '42.5,-71.1'."""
+    hemi = re.findall(r"(-?\d+\.\d+)\s*([NSEW])", s or "")
+    if len(hemi) == 2:
+        d = {c: float(v) for v, c in hemi}
+        lat = d["N"] if "N" in d else (-d["S"] if "S" in d else None)
+        lon = d["E"] if "E" in d else (-d["W"] if "W" in d else None)
+        return lat, lon
+    nums = re.findall(r"-?\d+\.\d+", s or "")
+    return (float(nums[0]), float(nums[1])) if len(nums) == 2 else (None, None)
 
 
 def main():
@@ -62,7 +75,12 @@ def main():
             continue
         cur = curated.get(r["run"], {})
         sup = supp.get(r["run"], {})
-        bs = r  # samples.tsv row already holds this sample's attributes
+        bs = dict(r)  # samples.tsv row already holds this sample's attributes
+        # the archive stores coordinates as one combined lat_lon field; split it so the
+        # biosample tier can fill lat/lon like any other attribute
+        la, lo = split_latlon(r.get("lat_lon", ""))
+        bs["lat"] = f"{la:.5f}" if la is not None else ""
+        bs["lon"] = f"{lo:.5f}" if lo is not None else ""
         out = {"run": r["run"], "BioProject": r["BioProject"], "sample": r["sample"],
                "library_strategy": r["library_strategy"], "platform": r["platform"],
                "model": r["model"], "read_count": r["read_count"],

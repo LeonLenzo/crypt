@@ -49,7 +49,9 @@ SPECS = [
     {"doi": "10.1186/s12915-023-01717-9", "file": "12915_2023_1717_MOESM1_ESM.xlsx",
      "table": "S1", "key": "SRR", "key_kind": "run",
      "host": None, "location": "Origin", "date": "Year of collection", "setting_col": None,
-     "setting_fixed": "field"},  # body: field samples, 30 countries, 2013-2018
+     "setting_fixed": "field",  # body: field samples, 30 countries, 2013-2018
+     # no host column; the pathogen's forma specialis names the host it grows on
+     "host_map": ("f. sp", {"tritici": "Triticum aestivum", "hordei": "Hordeum vulgare"})},
 ]
 
 
@@ -109,9 +111,13 @@ def main():
             if not run or run not in runs or run in seeded:
                 continue
             setting = spec["setting_fixed"] or norm_setting(row.get(spec["setting_col"]))
+            host = (row.get(spec["host"]) or "").strip() if spec["host"] else ""
+            if not host and spec.get("host_map"):
+                col, table = spec["host_map"]
+                host = table.get((row.get(col) or "").strip().lower(), "")
             seeded[run] = {
                 "run": run,
-                "host": (row.get(spec["host"]) or "").strip() if spec["host"] else "",
+                "host": host,
                 "tissue": "",  # the tables name no tissue; left for a hand read
                 "setting": setting,
                 "location": (row.get(spec["location"]) or "").strip(),

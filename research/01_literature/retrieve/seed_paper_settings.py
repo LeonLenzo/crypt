@@ -24,6 +24,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 COHORT = HERE.parent.parent.parent / "release" / "01_cohort"
 SCREEN = COHORT / "curation" / "screen_samples.tsv"
+SAMPLES = COHORT / "raw" / "samples.tsv"
+CURATED = COHORT / "curation" / "curated_attributes.tsv"
 OUT = COHORT / "curation" / "supplements.tsv"
 COLS = ["run", "host", "tissue", "setting", "location", "collection_date", "source"]
 
@@ -100,23 +102,42 @@ def year(s):
 
 
 def main():
-    runs = read(SCREEN)
-    by_proj = collections.defaultdict(list)
-    for r in runs:
-        by_proj[r["BioProject"]].append(r)
-    # the setting the rust supplements already gave each project, for siblings to inherit
-    resolved = {bp: collections.Counter(r["setting"] for r in rs if r.get("setting"))
-                for bp, rs in by_proj.items()}
+    # The decision reads only STABLE inputs, never this script's own merged output, so re-running
+    # is idempotent: a run needs a setting here unless curation or a supp: row already gives one.
+    cohort = read(SCREEN)                       # the run universe: project + date
+    samples = {r["run"]: r for r in read(SAMPLES)}      # biosample host/location per run
+    curated = {r["run"]: r for r in read(CURATED)} if CURATED.exists() else {}
+    prior = read(OUT) if OUT.exists() else []
+    supp = {r["run"]: r for r in prior if r.get("source", "").startswith("supp:")}
+    kept = [r for r in prior if not r.get("source", "").startswith(("paper:", "sibling:"))]
 
-    out = {}
-    for r in runs:
-        # already resolved by curated or supplement? leave it to that row
-        if r.get("setting_src") in ("curated", "supplement"):
-            continue
-        bp = r["BioProject"]
-        spec = SPECS.get(bp)
-        row = {"run": r["run"], "host": "", "tissue": "", "setting": "",
+    run2proj = {r["run"]: r["BioProject"] for r in cohort}
+    # per project, the setting/host the rust supp: rows carry, for an unmatched sibling to inherit.
+    # Setting is uniform within a study and host follows the pathogen's forma specialis, so both
+    # inherit safely; LOCATION is NOT inherited, because these surveys span dozens to hundreds of
+    # sites (PRJEB39201 alone has 240) and stamping the modal site on an unmatched run invents it.
+    proj_supp = collections.defaultdict(list)
+    for run, r in supp.items():
+        proj_supp[run2proj.get(run)].append(r)
+
+    def dominant(rs, field):
+        c = collections.Counter(r[field] for r in rs if r.get(field))
+        return c.most_common(1)[0][0] if c else ""
+    resolved = {bp: {f: dominant(rs, f) for f in ("setting", "host")}
+                for bp, rs in proj_supp.items()}
+
+    def has(run, field):  # is this field already settled by curation, a supp row, or biosample?
+        return bool(curated.get(run, {}).get(field) or supp.get(run, {}).get(field)
+                    or samples.get(run, {}).get(field))
+
+    out, unread = {}, set()
+    for r in cohort:
+        run, bp = r["run"], r["BioProject"]
+        if curated.get(run, {}).get("setting") or run in supp:
+            continue  # setting already settled upstream
+        row = {"run": run, "host": "", "tissue": "", "setting": "",
                "location": "", "collection_date": "", "source": ""}
+        spec = SPECS.get(bp)
         if spec:
             setting = spec["setting"]
             if spec.get("date_split"):
@@ -124,21 +145,21 @@ def main():
                 y = year(r.get("collection_date"))
                 setting = ge if (y and y >= cut) else lt
             row["setting"] = setting
-            if spec.get("host") and not r.get("host"):
+            if spec.get("host") and not has(run, "host"):
                 row["host"] = spec["host"]
-            if spec.get("location") and not r.get("location"):
+            if spec.get("location") and not has(run, "location"):
                 row["location"] = spec["location"]
             row["source"] = f"paper:{spec['doi']}"
-        elif resolved.get(bp):
-            # a run the supplements missed: inherit the project's dominant resolved setting
-            row["setting"] = resolved[bp].most_common(1)[0][0]
+        elif resolved.get(bp, {}).get("setting"):
+            row["setting"] = resolved[bp]["setting"]
+            if resolved[bp]["host"] and not has(run, "host"):
+                row["host"] = resolved[bp]["host"]
             row["source"] = f"sibling:{bp}"
         else:
-            continue  # no basis yet (a project still to be read)
-        out[r["run"]] = row
+            unread.add(bp)
+            continue
+        out[run] = row
 
-    kept = [r for r in (read(OUT) if OUT.exists() else [])
-            if not r.get("source", "").startswith(("paper:", "sibling:"))]
     rows = kept + list(out.values())
     with open(OUT, "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=COLS, delimiter="\t", lineterminator="\n")
@@ -148,15 +169,10 @@ def main():
     tally = collections.Counter(r["source"].split(":")[0] for r in out.values())
     print(f"-> supplements.tsv  {len(rows)} rows total; added {len(out)} "
           f"({dict(tally)}), {len(kept)} supp-rows kept")
-    for bp in sorted({r["run"][:0] or SPECS and bp for bp in SPECS}):  # noqa
-        pass
     print("   settings written:",
           dict(collections.Counter(r["setting"] for r in out.values())))
-    missing = [bp for bp, rs in by_proj.items()
-               if any(r.get("setting_src") not in ("curated", "supplement")
-                      and r["run"] not in out for r in rs)]
-    if missing:
-        print("   still no basis (unread projects):", missing)
+    if unread:
+        print("   still no basis (unread projects):", sorted(unread))
 
 
 if __name__ == "__main__":

@@ -233,3 +233,6 @@ graphify-out/
 release/01_cohort/inputs/fulltext_manual/
 # per-BioSample raw attribute dump: large, regenerable; the flattened biosamples.tsv is tracked
 release/01_cohort/raw/sample_attrs.jsonl
+
+# cohort read bytes, consolidated under the release tree on Setonix; never committed
+release/01_cohort/raw/reads/

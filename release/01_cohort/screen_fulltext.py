@@ -7,7 +7,6 @@ what it was infected with.
 Reads  raw/fulltext.tsv          every text we hold, and its source
        inputs/pathogen_genera.txt a flag-list of cereal pathogen genera
 Writes curation/screen_fulltext.tsv   one row per paper
-       curation/accessions.tsv         one row per (paper, accession) with its context
 
 This replaces bioproject_screen.py, which found only accessions. The corpus is now field
 pathogenomic wheat studies by construction, so host, setting and disease-selection no longer
@@ -54,7 +53,6 @@ ABSTRACT_SCREEN = HERE / "curation" / "screen_abstract.tsv"
 DECISIONS = HERE / "curation" / "decisions.tsv"
 GENERA = HERE / "inputs" / "pathogen_genera.txt"
 OUT = HERE / "curation" / "screen_fulltext.tsv"
-ACC = HERE / "curation" / "accessions.tsv"
 
 TAG = re.compile(r"<[^>]+>")
 ACCESSION = re.compile(
@@ -168,6 +166,8 @@ def main():
 
         accs = scan_accessions(raw or text, is_sectioned, doi, acc_rows) if text else set()
         bp = sorted(a for a in accs if a.startswith("PRJ"))
+        own = sorted({x["accession"] for x in acc_rows if x["doi"] == doi
+                      and x["accession"].startswith("PRJ") and x["in_deposit_section"] == 1})
 
         tissue = [k for k, rx in TISSUE.items() if re.search(rx, text, re.I)]
         rna = next((name for name, rx in RNA_SEL if re.search(rx, full, re.I)), "")
@@ -191,7 +191,8 @@ def main():
         seq_in_body = bool(text and SEQ_METHOD.search(text))
         rows.append({
             "doi": doi, "text_source": source, "seq_in_body": int(seq_in_body),
-            "accessions": ";".join(bp), "all_accessions": ";".join(sorted(accs)),
+            "bioprojects": ";".join(bp), "bioprojects_own": ";".join(own),
+            "all_accessions": ";".join(sorted(accs)),
             "accession_types": ";".join(sorted({a.split("_")[0] for a in
                                                 {x["type"] for x in acc_rows if x["doi"] == doi}})),
             "host": "wheat" if TARGET_HOST.search(full) else
@@ -223,11 +224,11 @@ def main():
             r["verdict"], r["verdict_reason"] = overrides[doi][0], overrides[doi][1]
         elif rec == "keep":
             r["verdict"], r["verdict_reason"] = "keep", "clear at the abstract"
-        elif r["seq_in_body"] and (r["field"] == 1 or r["accessions"]):
+        elif r["seq_in_body"] and (r["field"] == 1 or r["bioprojects"]):
             # A review-flagged paper whose BODY shows RNA-seq and either field material or a
             # deposit is a genuine study; the abstract was just terse.
             r["verdict"], r["verdict_reason"] = "keep", "body confirms RNA-seq of field material"
-        elif r["has_body"] and not r["seq_in_body"] and not r["accessions"]:
+        elif r["has_body"] and not r["seq_in_body"] and not r["bioprojects"]:
             r["verdict"], r["verdict_reason"] = "drop", "body shows no RNA-seq and no deposit"
         else:
             r["verdict"], r["verdict_reason"] = "review", "body inconclusive, needs a human"
@@ -236,19 +237,13 @@ def main():
             "has_body", "host", "host_ok", "field",
             "glasshouse_mentioned", "tissue", "years", "target_pathogens",
             "mentioned_pathogens", "n_pathogen_genera_named", "rna_selection",
-            "healthy_sampled", "axenic_control", "accessions", "accession_types",
-            "all_accessions", "location_terms", "supp_for"]
+            "healthy_sampled", "axenic_control", "bioprojects", "bioprojects_own",
+            "accession_types", "all_accessions", "location_terms", "supp_for"]
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with open(OUT, "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=COLS, delimiter="\t", lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
-    with open(ACC, "w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=["doi", "accession", "type", "section",
-                                           "in_deposit_section", "context"],
-                           delimiter="\t", lineterminator="\n")
-        w.writeheader()
-        w.writerows(acc_rows)
 
     n = len(rows)
     v = collections.Counter(r["verdict"] for r in rows)
@@ -262,14 +257,13 @@ def main():
     print(f"   host verified wheat               {sum(r['host_ok'] for r in rows)}")
     print(f"   NON-wheat dominant (search miss?)  {[r['doi'] for r in rows if not r['host_ok']][:6]}")
     print(f"   field language present            {sum(r['field'] for r in rows)}")
-    print(f"   names a BioProject                {sum(1 for r in rows if r['accessions'])}")
+    print(f"   names a BioProject                {sum(1 for r in rows if r['bioprojects'])}")
     print(f"   names >=1 pathogen genus          {sum(1 for r in rows if r['n_pathogen_genera_named'])}")
     print(f"   sampled healthy plants too        {sum(r['healthy_sampled'] for r in rows)}")
     print(f"   sequenced an axenic control       {sum(r['axenic_control'] for r in rows)}")
     rs = collections.Counter(r["rna_selection"] or "unstated" for r in rows)
     print(f"   RNA selection: {dict(rs.most_common())}")
     print(f"   need a supplement for some field  {sum(1 for r in rows if r['supp_for'])}")
-    print(f"-> {ACC.name}  {len(acc_rows)} accession mentions")
 
 
 if __name__ == "__main__":

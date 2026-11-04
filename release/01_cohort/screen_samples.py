@@ -3,11 +3,10 @@
 
     python release/01_cohort/build_cohort.py
 
-Reads  raw/runs.tsv                      resolved runs + archive-side metadata
-       raw/biosamples.tsv                BioSample attributes, flattened
+Reads  raw/samples.tsv                   every run + its BioSample metadata, one table
        curation/curated_attributes.tsv   prior hand/supplement curation, ported
        curation/screen_fulltext.tsv      the keep/drop verdict per paper
-Writes outputs/cohort_runs.tsv           one row per RNA-seq run in a kept project
+Writes curation/screen_samples.tsv       one row per RNA-seq run in a kept project
 
 PRECEDENCE, highest first, recorded per value in a `<field>_src` column so nothing is taken
 on trust: curated (a human read the paper or its supplement) > biosample (the submitter's
@@ -26,11 +25,10 @@ import csv
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-RUNS = HERE / "raw" / "runs.tsv"
-BIOSAMPLES = HERE / "raw" / "biosamples.tsv"
+SAMPLES = HERE / "raw" / "samples.tsv"
 CURATED = HERE / "curation" / "curated_attributes.tsv"
 SCREEN = HERE / "curation" / "screen_fulltext.tsv"
-OUT = HERE / "outputs" / "cohort_runs.tsv"
+OUT = HERE / "curation" / "screen_samples.tsv"
 
 RNA = {"RNA-Seq", "ncRNA-Seq"}
 FIELDS = ["host", "tissue", "setting", "location", "collection_date", "lat", "lon"]
@@ -44,21 +42,21 @@ def read(path):
 def main():
     keep = {r["doi"] for r in read(SCREEN) if r["verdict"] == "keep"}
     curated = {r["run"]: r for r in read(CURATED)}
-    biosample = {r["sample"]: r for r in read(BIOSAMPLES)}
-    # archive-side values already on each run row, under their own names
-    arch_map = {"host": "host", "tissue": "tissue_type", "setting": None,
-                "location": "country", "collection_date": "collection_date",
+    # samples.tsv carries BioSample-derived host/tissue/location/date and the archive
+    # country/date on each run row; `setting` has no archive source (only the paper says it).
+    arch_map = {"host": "host", "tissue": "tissue", "setting": None,
+                "location": "location", "collection_date": "collection_date",
                 "lat": None, "lon": None}
 
     rows, src_tally = [], collections.Counter()
-    for r in read(RUNS):
+    for r in read(SAMPLES):
         if r["library_strategy"] not in RNA:
             continue
         # a run belongs if any kept paper named its project; runs.tsv carries named_by
         if not (set(r.get("named_by", "").split(";")) & keep):
             continue
         cur = curated.get(r["run"], {})
-        bs = biosample.get(r["sample"], {})
+        bs = r  # samples.tsv row already holds this sample's attributes
         out = {"run": r["run"], "BioProject": r["BioProject"], "sample": r["sample"],
                "library_strategy": r["library_strategy"], "platform": r["platform"],
                "model": r["model"], "read_count": r["read_count"],

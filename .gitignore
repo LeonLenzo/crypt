@@ -220,6 +220,10 @@ site/preview.html
 # release/01_cohort: full-text bodies are the publishers' content, same policy as
 # 01_literature/studies/. The manifest raw/raw_fulltext.tsv IS tracked.
 release/01_cohort/raw/fulltext/
+# fetched supplement spreadsheets, same grounds: not ours to redistribute. The values lifted
+# from them live in curation/supplements.tsv, which IS tracked, so the cohort rebuilds without
+# them; seed_supplement_rows.py re-fetches them from the publisher when needed.
+release/01_cohort/raw/supplements/
 
 # graphify: generated code graph, rebuildable with `graphify update .` at no API cost
 graphify-out/

@@ -5,14 +5,17 @@
 
 Reads  raw/samples.tsv                   every run + its BioSample metadata, one table
        curation/curated_attributes.tsv   prior hand/supplement curation, ported
+       curation/supplements.tsv          per-accession provenance lifted from paper supplements
        curation/screen_fulltext.tsv      the keep/drop verdict per paper
 Writes curation/screen_samples.tsv       one row per RNA-seq run in a kept project
 
 PRECEDENCE, highest first, recorded per value in a `<field>_src` column so nothing is taken
-on trust: curated (a human read the paper or its supplement) > biosample (the submitter's
-attribute record) > archive (the run report's fixed field). A value and where it came from
-travel together, because "leaf, from the paper" and "leaf, guessed from a sparse archive
-field" are not the same evidence and a reviewer must be able to tell them apart.
+on trust: curated > supplement > biosample (the submitter's attribute record) > archive (the
+run report's fixed field). `curated` and `supplement` are both a human reading the paper;
+curated ranks first only because it is the established port and the two agree wherever they
+overlap, so supplement serves to fill the runs curation never reached. A value and where it
+came from travel together, because "leaf, from the paper" and "leaf, guessed from a sparse
+archive field" are not the same evidence and a reviewer must be able to tell them apart.
 
 Scope: RNA-seq / ncRNA-Seq runs only (WGS reference genomes and AMPLICON assays are in
 runs.tsv, labelled, and excluded here), from BioProjects named by a paper the screen kept.
@@ -27,6 +30,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 SAMPLES = HERE / "raw" / "samples.tsv"
 CURATED = HERE / "curation" / "curated_attributes.tsv"
+SUPPLEMENTS = HERE / "curation" / "supplements.tsv"
 SCREEN = HERE / "curation" / "screen_fulltext.tsv"
 OUT = HERE / "curation" / "screen_samples.tsv"
 
@@ -42,6 +46,7 @@ def read(path):
 def main():
     keep = {r["doi"] for r in read(SCREEN) if r["verdict"] == "keep"}
     curated = {r["run"]: r for r in read(CURATED)}
+    supp = {r["run"]: r for r in read(SUPPLEMENTS)} if SUPPLEMENTS.exists() else {}
     # samples.tsv carries BioSample-derived host/tissue/location/date and the archive
     # country/date on each run row; `setting` has no archive source (only the paper says it).
     arch_map = {"host": "host", "tissue": "tissue", "setting": None,
@@ -56,6 +61,7 @@ def main():
         if not (set(r.get("named_by", "").split(";")) & keep):
             continue
         cur = curated.get(r["run"], {})
+        sup = supp.get(r["run"], {})
         bs = r  # samples.tsv row already holds this sample's attributes
         out = {"run": r["run"], "BioProject": r["BioProject"], "sample": r["sample"],
                "library_strategy": r["library_strategy"], "platform": r["platform"],
@@ -66,6 +72,8 @@ def main():
             val, src = "", ""
             if cur.get(f):
                 val, src = cur[f], "curated"
+            elif sup.get(f):
+                val, src = sup[f], "supplement"
             elif bs.get(f):
                 val, src = bs[f], "biosample"
             elif arch_map.get(f) and r.get(arch_map[f]):
@@ -90,10 +98,12 @@ def main():
     print(f"   from a paper's own deposit: {sum(1 for r in rows if r['own_deposit']=='1')}")
     print("\n   attribute coverage, and from where:")
     for f in FIELDS:
-        c = {s: src_tally[(f, s)] for s in ("curated", "biosample", "archive", "none")}
+        c = {s: src_tally[(f, s)]
+             for s in ("curated", "supplement", "biosample", "archive", "none")}
         filled = len(rows) - c["none"]
         print(f"     {f:<16}{filled:>5}/{len(rows)} ({100*filled/len(rows):>3.0f}%)   "
-              f"curated {c['curated']}, biosample {c['biosample']}, archive {c['archive']}")
+              f"curated {c['curated']}, supplement {c['supplement']}, "
+              f"biosample {c['biosample']}, archive {c['archive']}")
 
 
 if __name__ == "__main__":

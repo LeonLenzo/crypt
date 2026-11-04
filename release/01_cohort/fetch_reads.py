@@ -29,6 +29,8 @@ import argparse
 import csv
 import hashlib
 import collections
+import concurrent.futures as cf
+import time
 import urllib.request
 from pathlib import Path
 
@@ -85,19 +87,33 @@ def md5sum(path, chunk=1 << 20):
     return h.hexdigest()
 
 
-def fetch_file(url, dst, md5, verify):
+def fetch_file(url, dst, md5, verify, tries=4):
+    """Stream one fastq.gz to a .part, md5-check it, rename into place. Retries on failure.
+
+    EBI has been seen to refuse connections after many hours of sustained streaming, so each
+    file gets a few attempts with backoff rather than failing the whole run on one hiccup. The
+    rename is the commit point: a file only appears at its final name once complete and clean,
+    so an interrupted job resumes by re-requesting exactly what is not yet there.
+    """
     tmp = dst.with_suffix(dst.suffix + ".part")
-    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=600) as r, \
-            open(tmp, "wb") as fh:
-        while True:
-            block = r.read(1 << 20)
-            if not block:
-                break
-            fh.write(block)
-    if verify and md5 and md5sum(tmp) != md5:
-        tmp.unlink()
-        raise ValueError("md5 mismatch")
-    tmp.rename(dst)
+    for attempt in range(1, tries + 1):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA),
+                                        timeout=600) as r, open(tmp, "wb") as fh:
+                while True:
+                    block = r.read(1 << 20)
+                    if not block:
+                        break
+                    fh.write(block)
+            if verify and md5 and md5sum(tmp) != md5:
+                raise ValueError("md5 mismatch")
+            tmp.rename(dst)
+            return
+        except Exception:
+            tmp.unlink(missing_ok=True)
+            if attempt == tries:
+                raise
+            time.sleep(5 * attempt)
 
 
 def main():
@@ -107,6 +123,8 @@ def main():
     ap.add_argument("--inventory", type=Path,
                     help="a prior manifest to seed presence from when no tree is reachable")
     ap.add_argument("--fetch", action="store_true", help="download the missing files")
+    ap.add_argument("--workers", type=int, default=24,
+                    help="concurrent download streams (EBI scales ~linearly to 24)")
     ap.add_argument("--no-verify", action="store_true", help="skip md5 check on fetch")
     ap.add_argument("--refresh", action="store_true", help="re-request ENA listings")
     args = ap.parse_args()
@@ -124,6 +142,7 @@ def main():
     listings = {p: ena_files(p, args.refresh) for p in sorted(by_proj)}
 
     fetched = failed = 0
+    todo = {}   # run -> (dirp, [(name,url,md5)...]) for missing runs when --fetch
     for r in cohort:
         run, proj = r["run"], r["BioProject"]
         files = listings.get(proj, {}).get(run, [])
@@ -139,15 +158,8 @@ def main():
             row["local_bytes"] = sum((dirp / n).stat().st_size for n in names)
             row["status"] = "present"
         elif args.fetch and dirp and names:
-            dirp.mkdir(parents=True, exist_ok=True)
-            try:
-                for n, url, md5, _ in files:
-                    if not (dirp / n).exists():
-                        fetch_file(url, dirp / n, md5, not args.no_verify)
-                row["local_bytes"] = sum((dirp / n).stat().st_size for n in names)
-                row["status"], fetched = "fetched", fetched + 1
-            except Exception as e:
-                row["status"], failed = f"failed: {e}", failed + 1
+            row["status"] = "missing"   # queued; set to fetched/failed after the pool runs
+            todo[run] = (dirp, [(n, url, md5) for n, url, md5, _ in files])
         elif not files:
             row["status"] = "no ENA fastq"
         elif run in known:
@@ -158,6 +170,35 @@ def main():
         else:
             row["status"] = "unscanned"
         rows.append(row)
+
+    # Download the queued files concurrently: EBI gives each stream its own bandwidth, so
+    # throughput scales with workers. One file per task; a run counts fetched only if every one
+    # of its files lands. Nothing already on disk is re-requested, so a re-run resumes.
+    if todo:
+        for dirp, _ in todo.values():
+            dirp.mkdir(parents=True, exist_ok=True)
+        tasks = [(run, dirp / n, url, md5) for run, (dirp, fs) in todo.items()
+                 for n, url, md5 in fs if not (dirp / n).exists()]
+        print(f"fetching {len(tasks)} files for {len(todo)} runs with {args.workers} workers")
+        errs = collections.defaultdict(list)
+        with cf.ThreadPoolExecutor(max_workers=args.workers) as ex:
+            futs = {ex.submit(fetch_file, url, dst, md5, not args.no_verify): run
+                    for run, dst, url, md5 in tasks}
+            for fut in cf.as_completed(futs):
+                try:
+                    fut.result()
+                except Exception as e:
+                    errs[futs[fut]].append(str(e))
+        by_run = {row["run"]: row for row in rows}
+        for run, (dirp, fs) in todo.items():
+            row = by_run[run]
+            if errs[run] or not all((dirp / n).exists() for n, _, _ in fs):
+                row["status"] = f"failed: {errs[run][0] if errs[run] else 'incomplete'}"
+                failed += 1
+            else:
+                row["local_bytes"] = sum((dirp / n).stat().st_size for n, _, _ in fs)
+                row["status"] = "fetched"
+                fetched += 1
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with open(OUT, "w", newline="", encoding="utf-8") as fh:

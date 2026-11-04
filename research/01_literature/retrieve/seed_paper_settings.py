@@ -56,6 +56,9 @@ SPECS = {
                  "collected during 2018 from farmers' fields and/or experimental plots"),
     "PRJNA486288": dict(
         doi="10.1080/00275514.2019.1607135", setting="field",
+        # SRR7797540 is an axenic Fusarium culture on potato-dextrose agar (host "PDA" in the
+        # archive), a control alongside the field samples, so its setting is lab not field.
+        overrides={"SRR7797540": "lab"},
         evidence="we implemented a field pathogenomics strategy where RNA of naturally "
                  "infected samples was collected from multiple locations in Illinois"),
     "PRJNA1250571": dict(
@@ -144,6 +147,8 @@ def main():
                 cut, ge, lt = spec["date_split"]
                 y = year(r.get("collection_date"))
                 setting = ge if (y and y >= cut) else lt
+            if spec.get("overrides", {}).get(run):
+                setting = spec["overrides"][run]
             row["setting"] = setting
             if spec.get("host") and not has(run, "host"):
                 row["host"] = spec["host"]

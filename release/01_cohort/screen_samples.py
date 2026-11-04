@@ -44,6 +44,30 @@ def read(path):
         return list(csv.DictReader(fh, delimiter="\t"))
 
 
+def normalize_host(h):
+    """Fold the free-text host a submitter typed to a clean binomial.
+
+    BioSample host is uncontrolled text: "wheat", "Soft red winter wheat: IL11-28222",
+    "Triticum aestivum (bread wheat)", "not collected", "PDA" (a culture medium, not a host).
+    The cohort is a few cereals, so the mapping is small and explicit rather than a taxonomy
+    lookup; the cultivar after a ':'/';' is dropped (S2 does not carry it) and non-hosts blank.
+    """
+    h = (h or "").strip()
+    low = h.lower()
+    if low in ("", "none", "not collected", "missing", "na", "n/a", "pda"):
+        return ""
+    if low == "wheat" or ("soft re" in low and "winter wheat" in low):
+        return "Triticum aestivum"
+    if low == "perenial grass":
+        return "perennial grass"
+    if low.startswith("triticale"):
+        return "Triticosecale"
+    if low.startswith("triticum durum"):
+        return "Triticum turgidum"
+    h = re.sub(r"\s*\(.*?\)", "", h)   # drop a common-name gloss: "(bread wheat)", "(rye)"
+    return re.split(r"[;:]", h)[0].strip()
+
+
 def split_latlon(s):
     """Decimal (lat, lon) from a BioSample lat_lon string, e.g. '42.5 N 71.1 W' or '42.5,-71.1'."""
     hemi = re.findall(r"(-?\d+\.\d+)\s*([NSEW])", s or "")
@@ -96,6 +120,10 @@ def main():
                 val, src = bs[f], "biosample"
             elif arch_map.get(f) and r.get(arch_map[f]):
                 val, src = r[arch_map[f]], "archive"
+            if f == "host":
+                val = normalize_host(val)
+                if not val:          # a non-host like "PDA" or "not collected": no value, no source
+                    src = ""
             out[f] = val
             out[f"{f}_src"] = src
             src_tally[(f, src or "none")] += 1

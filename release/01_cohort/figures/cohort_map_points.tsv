@@ -1,0 +1,461 @@
+lat	lon	runs	placement	bioprojects	precision	location
+47.374	8.541	30	Locality	1	locality	Switzerland: Zurich
+52.070	0.176	24	Locality	2	locality	UK: Ickleton
+53.006	-0.981	23	Locality	3	locality	UK: Caythorpe
+7.083	40.200	18	Locality	2	locality	Ethiopia: Selka
+52.373	-0.045	17	Locality	4	locality	UK: Cambridgeshire
+-28.231	28.309	14	Locality	2	locality	South Africa: Bethlehem
+52.111	-1.283	14	Locality	1	locality	UK: Wardington
+52.829	0.463	13	Locality	2	locality	UK: Wolferton
+53.481	-0.267	13	Locality	1	locality	UK: Rothwell (Lincolnshire)
+51.992	0.096	12	Locality	1	locality	UK: Langley (Essex)
+-35.281	149.130	12	Locality	1	uncurated	Australia: Canberra
+55.913	13.120	11	Locality	2	locality	Sweden: Svalöv
+48.324	1.787	11	Locality	3	locality	France: Louville la Chenard
+49.832	2.868	10	Locality	3	locality	France: 80200 Marchelepot
+52.552	1.048	10	Locality	2	locality	UK: Morley (Norfolk)
+52.198	0.139	10	Locality	2	locality	UK: Cambridge
+51.846	10.853	10	Locality	1	locality	Germany: Silstedt
+-37.313	-59.985	10	Locality	1	locality	Argentina: Chillar
+34.817	105.444	9	Locality	1	locality	China: Jinshan Gangu Tianshui
+45.596	3.780	9	Locality	1	locality	France: Louville
+7.124	40.008	8	Locality	3	corrected-medium	Ethiopia: Sinana RS
+50.717	23.362	8	Locality	4	locality	Poland: Jaroseawiec
+51.280	1.080	8	Locality	1	locality	UK: Canterbury
+7.408	39.242	8	Locality	1	locality	Ethiopia: Meraro
+52.758	-1.242	8	Locality	1	locality	UK: Throws
+52.193	1.120	8	Locality	1	locality	UK: Stonham Aspal
+-33.897	-60.575	8	Locality	1	locality	Argentina: Pergamino
+53.182	-0.203	8	Locality	3	locality	UK: Lincolnshire
+55.001	-115.002	8	Locality	1	locality	Canada: Alberta
+7.695	39.760	7	Locality	2	corrected-medium	Ethiopia: Arsi Robe
+52.110	0.155	7	Locality	2	locality	UK: Whittlesford
+51.020	6.628	6	Locality	3	corrected-high	Germany: Gommershoven
+50.529	4.152	6	Locality	3	locality	Belgium: Mignault
+34.353	105.679	6	Locality	1	locality	China: Pingnan Qinzhou Tianshui
+-37.846	-58.255	6	Locality	1	locality	Argentina: Balcarce
+45.319	19.833	6	Locality	1	corrected-medium	Serbia: Rimski Šančevi
+52.195	8.347	6	Locality	1	locality	Germany: Melle
+54.416	9.848	6	Locality	1	locality	Germany: Harzhof
+52.978	-0.024	6	Locality	2	locality	UK: Boston
+52.751	0.712	6	Locality	1	locality-nofacility	UK: Rougham (Suffolk)
+-27.421	-56.601	6	Locality	1	locality	Argentina: Paraná
+51.153	-1.338	5	Locality	3	locality	UK: Sutton Scotney
+52.823	9.187	5	Locality	2	locality	Germany: Hingste
+53.841	-0.514	5	Locality	2	locality	UK: Bishop Burton
+53.868	-1.325	5	Locality	4	locality	UK: Headley Hall
+49.594	17.251	5	Locality	2	locality	Czechia: Olomouc
+49.473	8.329	5	Locality	3	locality	Germany: Ruchheim
+50.929	-2.326	5	Locality	2	locality	UK: Sturminster Newton
+45.555	18.695	5	Locality	2	locality	Croatia: Osijek
+52.032	0.794	5	Locality	2	locality	UK: Newton
+52.765	-0.887	5	Locality	2	locality	UK: Melton Mowbray
+33.612	-6.710	5	Locality	1	locality	Morocco: Merchouch
+37.885	-4.776	5	Locality	1	locality	Spain: Córdoba
+48.963	16.432	5	Locality	1	locality	Czechia: Branisovice
+52.015	-0.905	5	Locality	1	locality	UK: Thornton
+51.765	9.859	5	Locality	2	locality	Germany: Lower Saxony, Northeim
+49.444	17.205	5	Locality	1	locality	Czechia: Hrubčice
+48.330	1.656	5	Locality	1	locality	France: Chartres, Allonnes
+7.950	39.133	4	Locality	3	corrected-medium	Ethiopia: Kulumsa
+44.445	11.476	4	Locality	2	corrected-high	Italy: Orzzano dell'Emilia
+35.338	105.962	4	Locality	1	locality	China: Nanhu Zhuanglang Pingliang
+30.226	-92.018	4	Locality	1	locality-nofacility	USA: Lafayette, Indiana
+46.067	-118.352	4	Locality	1	locality	USA: Walla Walla, Washington
+7.103	39.196	4	Locality	2	locality	Ethiopia: Assasa
+10.212	38.652	4	Locality	2	country	Ethiopia: Adigulo AS
+37.692	-97.338	4	Locality	1	locality-nofacility	USA: Wichita, Kansas
+47.969	0.158	4	Locality	2	locality	France: Allonnes
+-29.061	30.589	4	Locality	1	locality	South Africa: Greytown
+36.919	-6.076	4	Locality	1	locality	Spain: Lebrija
+54.248	-0.374	4	Locality	1	locality	UK: Osgodby
+51.652	8.079	4	Locality	1	locality	Germany: Lippetal
+50.314	15.711	4	Locality	1	locality	Czechia: Hněvčeves
+52.321	9.745	4	Locality	1	locality	Germany: Hemmingen
+41.729	0.440	4	Locality	1	locality	Spain: Almacelles
+54.406	9.298	4	Locality	2	locality	Germany: Wohlde
+52.841	-6.926	4	Locality	2	locality	Ireland: Carlow
+52.261	-7.112	4	Locality	1	locality	Ireland: Waterford
+53.123	-0.518	4	Locality	1	locality	UK: Boothby Graffoe
+40.760	-81.910	4	Locality	1	uncurated	USA:Idaho
+55.532	-106.141	4	Locality	1	locality	Canada: Saskatchewan
+55.001	-125.002	4	Locality	1	locality	Canada: British Columbia
+34.401	73.378	3	Locality	1	corrected-high	Pakistan: Atter Shisha
+51.051	13.185	3	Locality	2	locality	Germany: Etzdorf
+51.150	12.283	3	Locality	2	locality	Germany: Groitzsch
+52.555	13.463	3	Locality	1	locality	Germany: Weißensee
+34.144	73.213	3	Locality	1	locality	Pakistan: Abbottabad
+53.819	18.905	3	Locality	2	locality	Poland: Gurcz
+55.854	-2.868	3	Locality	1	locality	UK: Humbie
+52.291	-3.116	3	Locality	1	locality	UK: Cascob
+47.990	-2.383	3	Locality	2	locality	France: Loyat
+44.513	11.829	3	Locality	2	locality	Italy: Conselice
+-34.475	19.898	3	Locality	2	locality	South Africa: Napier
+49.695	-112.833	3	Locality	1	locality	Canada: Lethbridge
+55.599	14.114	3	Locality	2	locality	Sweden: Österlen
+7.533	39.250	3	Locality	2	locality	Ethiopia: Bekoji
+52.090	0.076	3	Locality	2	locality	UK: Fowlmere
+53.074	-0.801	3	Locality	2	locality	UK: Newark
+49.310	1.432	3	Locality	2	locality	France: Ecouis
+52.396	9.594	3	Locality	1	locality	Germany: Seelze
+52.243	5.634	3	Locality	1	country	The Netherlands: De Vries
+-37.805	-63.041	3	Locality	1	locality	Argentina: Bordenave
+55.802	-2.209	3	Locality	1	locality	UK: Chirnside
+51.788	4.474	3	Locality	1	locality	The Netherlands: Westmaas
+43.914	1.273	3	Locality	1	locality	France: Montbartier
+54.135	-1.499	3	Locality	2	locality	UK: North Yorkshire
+56.501	-2.711	3	Locality	1	locality	UK: Carnoustie
+8.817	38.950	3	Locality	1	locality	Ethiopia: Kora
+52.651	-7.251	3	Locality	1	locality	Ireland: Kilkenny
+52.251	1.080	3	Locality	1	corrected-high	UK: Mendelsham
+51.717	-1.966	3	Locality	1	locality	UK: Cirencester
+-36.527	-71.910	2	Locality	1	corrected-medium	Chile: StaRosa Chillán
+50.260	7.425	2	Locality	2	locality	Germany: Moselsürsch
+49.375	8.304	2	Locality	2	corrected-medium	Germany: Bohl-Iggelheim
+53.966	-1.074	2	Locality	1	locality	UK: York
+49.466	17.391	2	Locality	2	locality	Czechia: Rokytnice
+47.943	1.480	2	Locality	1	locality	France: La Corbillière
+49.542	10.961	2	Locality	1	locality	Germany: Hüttendorf
+48.546	19.318	2	Locality	1	locality	Slovakia: Vígľaš-Pstruša
+51.505	-3.576	2	Locality	2	locality	UK: Bridgend
+7.683	37.967	2	Locality	1	corrected-low	Ethiopia: Hadya Lemo Dicho Demala
+7.747	38.155	2	Locality	1	corrected-low	Ethiopia: Silt'e
+52.473	-113.733	2	Locality	1	locality	Canada: Lacombe
+9.198	39.152	2	Locality	1	corrected-medium	Ethiopia: Aleltu Chole Shenkole
+55.710	13.370	2	Locality	1	locality	Sweden: Sandby
+-28.785	26.498	2	Locality	1	locality	South Africa: Free State
+-29.116	26.215	2	Locality	2	locality	South Africa: Bloemfontein
+51.847	0.862	2	Locality	2	corrected-high	UK: Layer de la Haye
+50.335	3.583	2	Locality	2	locality	France: Saultain
+51.777	0.917	2	Locality	2	locality	UK: Mersea
+-34.374	20.434	2	Locality	1	locality	South Africa: Ouplaas
+-34.533	20.043	2	Locality	1	locality	South Africa: Bredasdorp
+48.013	-2.328	2	Locality	1	locality	France: Neant sur Yvel
+50.350	2.639	2	Locality	1	locality	France: Frévin-Capelle
+49.560	8.387	2	Locality	1	locality	Germany: Mörsch Frankenthal
+52.228	17.278	2	Locality	1	locality	Poland: Sroda Wielkopolska
+-33.441	121.724	2	Locality	1	corrected-high	Australia: Scadden
+52.788	-0.153	2	Locality	2	locality	UK: Spalding
+52.662	1.123	2	Locality	1	locality	UK: Honingham
+49.465	4.010	2	Locality	1	locality	France: Proviseux
+48.607	-0.061	2	Locality	1	locality	France: Momont
+28.467	-16.251	2	Locality	1	locality	Spain: Santa Cruz de Tenerife
+42.733	-1.561	2	Locality	1	locality	Spain: Elorz
+51.234	0.707	2	Locality	1	locality	UK: Lenham
+47.321	-0.333	2	Locality	1	locality	France: Grézillé
+49.423	8.393	2	Locality	1	locality	Germany: Limburgerhof
+49.456	15.981	2	Locality	1	locality	Czechia: Kněževes
+49.470	8.438	2	Locality	1	locality	Germany: Ludwigshafen
+-0.601	36.015	2	Locality	1	corrected-high	Kenya: MauNarok
+51.741	9.910	2	Locality	1	locality	Germany: Wetze
+52.036	-2.429	2	Locality	1	locality	UK: Ledbury
+55.958	-3.209	2	Locality	1	locality	UK: Stockbridge
+51.045	-1.243	2	Locality	1	locality	UK: Hampshire
+51.754	12.157	2	Locality	1	locality	Germany: Quellendorf
+50.035	8.959	2	Locality	1	corrected-high	Germany: Selingenstadt
+42.345	-3.681	2	Locality	1	locality	Spain: Burgos
+52.246	0.713	2	Locality	2	locality	UK: Bury St Edmunds
+52.028	-1.148	2	Locality	1	locality	UK: Brackley
+43.943	27.044	2	Locality	1	locality	Bulgaria: Lyuben
+-38.284	-59.203	2	Locality	1	locality	Argentina: La Dulce
+48.564	1.507	2	Locality	1	locality	France: Bouglainval
+52.998	-7.398	2	Locality	1	locality	Ireland: Laois
+-34.008	20.656	2	Locality	1	locality	South Africa: Suurbraak
+52.060	-1.340	2	Locality	1	locality	United Kingdom: Oxfordshire, Banbury
+53.388	-0.338	2	Locality	1	locality	United Kingdom: Lincolnshire, Market Rasen
+52.225	0.888	2	Locality	1	locality	United Kingdom: Suffolk, Woolpit
+52.055	-2.715	2	Locality	1	locality	UK: Hereford
+52.216	19.134	2	Locality	1	country	Poland: Gova-Jciow
+-32.766	118.232	2	Locality	1	locality	Australia: Western Australia, Kulin
+48.202	16.552	1	Locality	1	locality	Austria: Groß Enzersdorf
+52.354	9.548	1	Locality	1	locality	Germany: Dunau
+51.598	-1.125	1	Locality	1	locality	UK: Wallingford
+51.873	0.358	1	Locality	1	corrected-high	UK: Dunmow
+52.183	0.220	1	Locality	1	locality	UK: Fulbourn
+48.342	11.972	1	Locality	1	locality	Germany: Grucking
+48.813	12.612	1	Locality	1	locality	Germany: Kirchmatting
+42.606	23.596	1	Locality	1	locality	Bulgaria: Novi Han
+48.650	9.385	1	Locality	1	locality	Germany: Tachenhausen
+52.400	-0.489	1	Locality	1	locality	UK: Titchmarsh
+-38.678	-72.503	1	Locality	1	corrected-high	Chile: Cajón Temuco
+-33.713	-70.689	1	Locality	1	corrected-medium	Chile: Los Tilos Santiago
+48.097	16.236	1	Locality	1	locality	Austria: Gießhübl
+50.783	3.376	1	Locality	1	locality	Belgium: Zwevegem
+50.778	3.450	1	Locality	1	locality	Belgium: Avelgem
+51.946	-0.445	1	Locality	1	locality	UK: Streatley
+52.845	-0.461	1	Locality	1	locality	UK: Keisby
+52.047	-0.025	1	Locality	1	locality	UK: Royston
+-38.698	-72.415	1	Locality	1	locality	Chile: Carillanca Vilcun
+47.937	-2.361	1	Locality	1	locality	France: Gourhel
+48.555	3.014	1	Locality	1	locality	France: Nangis
+51.119	2.635	1	Locality	1	locality	Belgium: Koksijde
+9.417	39.350	1	Locality	1	locality	Ethiopia: Sembo
+49.280	4.311	1	Locality	1	locality	France: Vauroisy
+52.040	16.766	1	Locality	1	locality	Poland: Choryn
+47.938	-2.565	1	Locality	1	locality	France: Guégon
+42.601	-1.645	1	Locality	1	locality	Spain: Garínoain
+53.566	-0.554	1	Locality	1	locality	UK: Broughton
+42.580	-84.442	1	Locality	1	corrected-medium	USA: Lansing/Mason, Michigan
+41.320	-122.305	1	Locality	1	locality	USA: Siskiyou, California
+43.378	-99.839	1	Locality	1	locality	USA: Tripp, South Dakota
+35.799	-90.934	1	Locality	1	locality-nofacility	USA: Cash, Arkansas
+7.967	38.283	1	Locality	1	corrected-low	Ethiopia: Silti Wereda Danicho Azoro
+44.565	-123.262	1	Locality	1	locality-nofacility	USA: Corvallis, Oregon
+43.171	-99.167	1	Locality	1	locality-nofacility	USA: Gregory, South Dakota
+43.631	-111.774	1	Locality	1	locality-nofacility	USA: Ririe, Indiana
+41.152	-74.036	1	Locality	1	locality-nofacility	USA: Rockland, Indiana
+8.539	37.976	1	Locality	1	corrected-high	Ethiopia: Weliso Kora
+7.314	37.859	1	Locality	1	corrected-low	Ethiopia: Danbora Amancho Boganeos
+11.252	36.704	1	Locality	1	corrected-low	Ethiopia: Absila
+35.815	-101.348	1	Locality	1	locality-nofacility	USA: Hutchinson, Kansas
+41.238	-85.853	1	Locality	1	locality-nofacility	USA: Warsaw, Virginia
+40.166	-101.039	1	Locality	1	locality-nofacility	USA: Hitchcock, Nebraska
+36.725	-102.479	1	Locality	1	locality	USA: Cimarron, Oklahoma
+46.926	-117.683	1	Locality	1	corrected-high	USA: Edicott, Washington
+47.670	-117.878	1	Locality	1	corrected-high	USA: Raerden, Washington
+8.217	38.427	1	Locality	1	corrected-medium	Ethiopia: Gurage Zone
+38.679	-121.773	1	Locality	1	locality-nofacility	USA: Woodland, California
+34.638	-99.334	1	Locality	1	locality-nofacility	USA: Altus, Oklahoma
+26.353	-98.216	1	Locality	1	locality-nofacility	USA: Hidalgo, Texas
+44.321	-96.751	1	Locality	1	locality	USA: Brookings County, South Dakota
+47.375	-109.639	1	Locality	1	locality	USA: Montana
+18.336	-64.755	1	Locality	1	locality-nofacility	USA: St John, Washington
+42.322	-103.073	1	Locality	1	locality-nofacility	USA: Hemingford, Nebraska
+40.913	-73.839	1	Locality	1	locality-nofacility	USA: Mt Vernon, Washington
+47.542	-122.284	1	Locality	1	locality	USA: Othello, Washington
+7.206	37.777	1	Locality	1	corrected-low	Ethiopia: Shinshihco
+8.437	38.609	1	Locality	1	locality	Ethiopia: Tiya
+7.108	39.780	1	Locality	1	corrected-low	Ethiopia: Dinsho Abakera Zalo
+43.049	-76.563	1	Locality	1	locality-nofacility	USA: Weedsport, New York
+35.051	-97.937	1	Locality	1	locality-nofacility	USA: Chickasha, Oklahoma
+45.679	-111.044	1	Locality	1	locality-nofacility	USA: Bozeman, Montana
+53.633	-113.629	1	Locality	1	locality	Canada: St Albert
+48.202	-114.315	1	Locality	1	locality-nofacility	USA: Kalispell, Montana
+7.396	39.232	1	Locality	1	corrected-low	Ethiopia: Bilalo
+9.950	39.217	1	Locality	1	locality	Ethiopia: Ch'aso
+11.739	38.473	1	Locality	1	corrected-low	Ethiopia: Lay Gayint 08 Wuha Midir
+9.867	38.350	1	Locality	1	corrected-low	Ethiopia: Kuyu Liben Kura
+-29.624	24.083	1	Locality	1	locality	South Africa: Hopetown
+-29.573	21.205	1	Locality	1	locality	South Africa: Northern Cape
+-33.547	20.728	1	Locality	1	locality	South Africa: Western Cape
+53.906	-1.694	1	Locality	1	locality	UK: Otley
+56.183	-3.219	1	Locality	1	locality	UK: Glenrothes, Fife
+51.241	1.190	1	Locality	1	locality-nofacility	UK: Adisham, Kent
+52.298	9.728	1	Locality	1	locality	Germany: Hemmingen, 30966
+52.095	0.890	1	Locality	1	locality	UK: Chelsworth
+52.680	0.939	1	Locality	1	locality	UK: Dereham
+52.117	0.355	1	Locality	1	locality-nofacility	UK: West Wickham, Cambridgeshire
+-32.394	20.661	1	Locality	1	locality	South Africa: Sutherland
+-29.750	24.787	1	Locality	1	locality	South Africa: Luckhoff
+-34.095	21.261	1	Locality	1	locality	South Africa: Riversdal
+-27.431	32.066	1	Locality	1	locality	South Africa: Jozini
+49.951	15.795	1	Locality	1	locality	Czechia: Chrudim
+37.679	-4.554	1	Locality	1	locality	Spain: Espejo
+46.348	18.702	1	Locality	1	locality	Hungary: Szekszárd
+54.203	10.134	1	Locality	1	locality	Germany: Bothkamp
+47.278	4.222	1	Locality	1	locality	France: Bourgogne
+49.297	4.317	1	Locality	1	locality	France: Pontfaverger
+52.068	0.885	1	Locality	1	locality	UK: Lindsey
+53.323	6.786	1	Locality	1	locality	The Netherlands: Wirdum
+46.863	18.618	1	Locality	1	locality	Hungary: Sárbogárdi Járás
+51.895	-1.639	1	Locality	1	locality	UK: Foscot
+51.736	4.899	1	Locality	1	locality	The Netherlands: Hank
+-1.512	29.877	1	Locality	1	locality	Rwanda: Rwerere
+53.911	-0.581	1	Locality	1	locality	UK: East Yorkshire
+32.598	35.058	1	Locality	1	locality	Israel: Ramot Menashe
+31.424	34.491	1	Locality	1	locality	Israel: Beeri
+-33.642	-62.404	1	Locality	1	locality	Argentina: Arias
+52.629	1.292	1	Locality	1	locality	UK: Norwich
+-0.161	35.694	1	Locality	1	locality	Kenya: Mau Summit
+-0.286	36.125	1	Locality	1	locality	Kenya: Judea
+0.722	35.399	1	Locality	1	locality	Kenya: Moiben
+36.981	-5.941	1	Locality	1	locality	Spain: Las Cabezas de San Juan
+52.132	-106.661	1	Locality	1	locality	Canada: Saskatoon
+52.678	-2.451	1	Locality	1	locality	UK: Telford
+51.372	1.131	1	Locality	1	locality	UK: Herne Bay
+55.651	-2.253	1	Locality	1	locality	UK: Coldstream
+52.292	-0.773	1	Locality	1	locality	UK: Mears Ashby
+53.229	-0.540	1	Locality	1	locality	UK: Lincoln
+52.667	-1.000	1	Locality	1	locality	UK: Leicestershire
+56.035	12.613	1	Locality	1	corrected-high	Denmark: Helsignør
+52.084	9.775	1	Locality	1	locality	Germany: Gronau
+52.140	1.142	1	Locality	1	locality	UK: Hemingstone
+52.314	0.547	1	Locality	1	locality	UK: Tuddenham
+51.485	9.680	1	Locality	1	locality	Germany: Bühren
+51.327	3.490	1	Locality	1	locality	The Netherlands: Oostburg
+50.164	3.065	1	Locality	1	locality	France: Mœuvres
+53.954	12.550	1	Locality	1	locality	Germany: Walkendorf
+52.300	0.838	1	Locality	1	locality	UK: Ixworth
+52.229	1.030	1	Locality	1	locality	UK: Gipping
+37.182	-5.782	1	Locality	1	locality	Spain: Utrera
+52.368	-2.719	1	Locality	1	locality	UK: Ludlow
+45.911	14.383	1	Locality	1	locality	Slovenia: Borovnica
+-36.527	-64.008	1	Locality	1	locality	Argentina: Anguil
+52.581	-0.417	1	Locality	1	locality	UK: Wansford
+52.557	-0.443	1	Locality	1	locality	UK: Nassington
+31.589	34.559	1	Locality	1	locality	Israel: Yad Mordechai
+-32.741	-65.206	1	Locality	1	locality	Argentina: Chacabuco
+45.140	20.133	1	Locality	1	locality	Serbia: Krčedin
+46.484	30.732	1	Locality	1	locality	Ukraine: Odessa
+53.348	-2.475	1	Locality	1	locality	UK: High Legh
+-33.034	-68.897	1	Locality	1	locality	Argentina: Placita
+51.645	-1.004	1	Locality	1	locality	UK: Watlington (Oxfordshire)
+51.148	-2.717	1	Locality	1	locality	UK: Glastonbury
+42.340	-1.654	1	Locality	1	locality	Spain: Caparroso
+51.568	3.702	1	Locality	1	locality	The Netherlands: Kamperland
+52.102	0.958	1	Locality	1	corrected-high	UK: Nauhton
+49.589	10.981	1	Locality	1	locality	Germany: Erlangen
+47.684	17.634	1	Locality	1	locality	Hungary: Győr
+49.157	-0.394	1	Locality	1	locality	France: Louvigny
+49.455	17.451	1	Locality	1	locality	Czechia: Přerov
+53.189	7.163	1	Locality	1	locality	The Netherlands: Nieuw Beerta
+27.636	89.836	1	Locality	1	locality	Bhutan: Punakha
+52.123	-1.328	1	Locality	1	locality	UK: Cropredy
+-32.054	-61.602	1	Locality	1	locality	Argentina: Cañada Rosquin
+45.316	20.914	1	Locality	1	locality	Serbia: Konak
+-1.278	35.477	1	Locality	1	locality	Kenya: Narok
+0.279	37.516	1	Locality	1	country	Kenya: Kikapu
+0.376	35.370	1	Locality	1	locality	Kenya: Cheptiret
+55.458	14.181	1	Locality	1	locality	Sweden: Borrby
+52.768	0.192	1	Locality	1	corrected-medium	UK: Sutton Bridge
+53.316	-0.184	1	Locality	1	locality	UK: Benniworth
+55.778	-2.344	1	Locality	1	locality	UK: Duns
+42.710	-2.990	1	Locality	1	locality	Spain: Suzana
+51.788	1.153	1	Locality	1	locality	UK: Clacton
+49.855	6.565	1	Locality	1	corrected-high	Germany: Welsch Billig
+48.313	12.273	1	Locality	1	locality	Germany: Buchbach
+50.000	1.334	1	Locality	1	locality	France: Touffreville-sur-Eu
+50.532	2.507	1	Locality	1	corrected-medium	France: Allouange
+49.978	3.917	1	Locality	1	locality	France: La Capelle
+41.430	27.092	1	Locality	1	locality	Turkey: Babaeski
+48.931	2.091	1	Locality	1	locality	France: Saint-Germain-en-Laye
+52.113	0.538	1	Locality	1	locality	UK: Hundon
+46.187	16.934	1	Locality	1	locality	Croatia: Sigetec
+51.438	18.944	1	Locality	1	locality	Poland: Widawa
+38.042	-6.184	1	Locality	1	locality	Spain: Puerto de Santa Maria
+-0.284	35.707	1	Locality	1	locality	Kenya: Ngenia
+50.495	2.890	1	Locality	1	locality	France: Meurchin
+36.682	-6.138	1	Locality	1	locality	Spain: Jerez
+52.562	-0.074	1	Locality	1	locality	UK: Coates (Peterborough)
+51.857	0.584	1	Locality	1	locality	UK: Tye Green
+55.916	-2.751	1	Locality	1	locality	UK: East Lothian
+55.750	-2.500	1	Locality	1	locality	UK: Berwickshire
+49.703	17.973	1	Locality	1	locality	Czechia: Kujavy
+51.311	4.264	1	Locality	1	locality	Belgium: Doel
+48.648	9.367	1	Locality	1	locality	Germany: Oberboihingen
+44.082	-0.719	1	Locality	1	locality	France: Luglon
+46.218	16.984	1	Locality	1	locality	Croatia: Gotalovo
+41.170	27.500	1	Locality	1	corrected-medium	Turkey: Murath
+47.605	18.213	1	Locality	1	locality	Hungary: Kocs
+49.247	1.422	1	Locality	1	locality	France: Les Andelys
+-34.454	-58.541	1	Locality	1	locality	Argentina: Victoria
+-34.008	-62.241	1	Locality	1	locality	Argentina: Sancti Spiritu
+54.488	-1.133	1	Locality	1	locality	UK: Great Ayton
+31.611	34.510	1	Locality	1	locality	Israel: Nahal Shikma
+-0.283	35.742	1	Locality	1	locality	Kenya: Ngecha
+-0.414	35.673	1	Locality	1	locality	Kenya: Siwot Keringet
+42.626	-1.834	1	Locality	1	corrected-high	Spain: Medigorría
+51.825	0.244	1	Locality	1	corrected-high	UK: Crabbs Green
+-32.695	-62.104	1	Locality	1	locality	Argentina: Marcos Juárez
+-35.973	-62.733	1	Locality	1	locality	Argentina: Trenque Lauquen
+51.196	12.881	1	Locality	1	locality	Germany: Motterwitz
+56.196	-3.172	1	Locality	1	locality	UK: Glenrothes
+52.855	0.002	1	Locality	1	locality	UK: Holbeach Marsh
+55.528	-1.904	1	Locality	1	locality	UK: Chillingham
+50.713	-2.340	1	Locality	1	locality	UK: Woodsford
+51.899	-8.473	1	Locality	1	locality	Ireland: Cork
+51.833	-1.250	1	Locality	1	locality	United Kingdom: Oxfordshire
+51.770	0.465	1	Locality	1	locality-nofacility	United Kingdom: Essex, Ickleton
+52.652	-2.644	1	Locality	1	locality-nofacility	United Kingdom: Shropshire, Edgmond
+53.885	-1.260	1	Locality	1	locality	United Kingdom: North Yorkshire, Tadcaster
+52.125	0.100	1	Locality	1	locality	United Kingdom: Cambs, Newton
+50.358	3.523	1	Locality	1	locality	France: Valenciennes
+52.094	0.131	1	Locality	1	locality	United Kingdom: Cambridge, Duxford
+51.447	-3.399	1	Locality	1	locality-nofacility	United Kingdom: Vale of Glamorgan, Bridgend
+52.321	-1.554	1	Locality	1	locality-nofacility	United Kingdom: Warwickshire., Peopleton
+52.249	0.114	1	Locality	1	locality	United Kingdom: Cambridgeshire, Impington
+52.632	1.184	1	Locality	1	region	United Kingdom: Norfolk, Bawburgh, Church Farm, Dorothea de Winton Field Station
+-34.150	19.914	1	Locality	1	corrected-medium	South Africa: Tygerhoek
+52.359	0.150	1	Locality	1	locality	United Kingdom: Cambridgeshire, Haddenham
+50.443	-4.625	1	Locality	1	locality	United Kingdom: Cornwall
+50.480	3.099	1	Locality	1	locality	France: Mons-en-Pévèle
+51.562	-1.785	1	Locality	1	locality	United Kingdom: Swindon
+50.945	-0.528	1	Locality	1	locality	UK: West Sussex
+50.471	17.737	1	Locality	1	corrected-medium	Poland: Chrzelive
+51.453	-1.032	1	Locality	1	locality	UK: Berkshire
+50.797	-2.345	1	Locality	1	locality	UK: Dorset
+52.047	7.467	1	Locality	1	locality	Germany: Altenberge
+51.773	20.427	1	Locality	1	locality	Poland: Pagow
+49.287	1.411	1	Locality	1	locality	France: Fresne L'Archeveque
+51.207	0.721	1	Locality	1	locality	UK: Kent
+51.375	7.700	1	Locality	1	locality	Germany: Iserlohn
+49.744	1.019	1	Locality	1	corrected-high	France: Beauval Encaux
+49.231	0.846	1	Locality	1	corrected-high	France: Le Gios Thiel
+51.752	-1.258	1	Locality	1	locality	UK: Oxford
+52.809	0.309	1	Locality	1	locality	UK: Terrington St Clement
+39.810	-83.060	1	Locality	1	uncurated	USA:Ohio
+41.230	-83.660	1	Locality	1	uncurated	USA:Ohio
+40.620	-83.700	1	Locality	1	uncurated	USA:Ohio
+40.560	-84.340	1	Locality	1	uncurated	USA:Ohio
+40.600	-84.080	1	Locality	1	uncurated	USA:Ohio
+40.590	-83.860	1	Locality	1	uncurated	USA:Ohio
+41.050	-84.030	1	Locality	1	uncurated	USA:Ohio
+41.220	-83.755	1	Locality	1	uncurated	USA:Ohio
+40.230	-83.410	1	Locality	1	uncurated	USA:Ohio
+40.200	-83.590	1	Locality	1	uncurated	USA:Ohio
+41.250	-84.580	1	Locality	1	uncurated	USA:Ohio
+40.900	-82.320	1	Locality	1	uncurated	USA:Ohio
+41.290	-84.470	1	Locality	1	uncurated	USA:Ohio
+41.290	-84.420	1	Locality	1	uncurated	USA:Ohio
+40.930	-84.020	1	Locality	1	uncurated	USA:Ohio
+41.280	-82.860	1	Locality	1	uncurated	USA:Ohio
+41.340	-84.060	1	Locality	1	uncurated	USA:Ohio
+40.250	-83.290	1	Locality	1	uncurated	USA:Ohio
+40.140	-84.130	1	Locality	1	uncurated	USA:Ohio
+40.140	-84.060	1	Locality	1	uncurated	USA:Ohio
+40.760	-82.060	1	Locality	1	uncurated	USA:Ohio
+40.110	-84.470	1	Locality	1	uncurated	USA:Ohio
+40.880	-81.960	1	Locality	1	uncurated	USA:Ohio
+38.690	-83.060	1	Locality	1	uncurated	USA:Ohio
+41.330	-83.270	1	Locality	1	uncurated	USA:Ohio
+40.680	-82.480	1	Locality	1	uncurated	USA:Ohio
+40.100	-84.480	1	Locality	1	uncurated	USA:Ohio
+39.720	-82.980	1	Locality	1	uncurated	USA:Ohio
+39.140	-82.950	1	Locality	1	uncurated	USA:Ohio
+39.460	-82.950	1	Locality	1	uncurated	USA:Ohio
+41.310	-83.160	1	Locality	1	uncurated	USA:Ohio
+41.130	-84.480	1	Locality	1	uncurated	USA:Ohio
+40.170	-84.590	1	Locality	1	uncurated	USA:Ohio
+41.180	-83.960	1	Locality	1	uncurated	USA:Ohio
+39.770	-83.060	1	Locality	1	uncurated	USA:Ohio
+40.200	-83.730	1	Locality	1	uncurated	USA:Ohio
+41.130	-84.150	1	Locality	1	uncurated	USA:Ohio
+41.220	-83.750	1	Locality	1	uncurated	USA:Ohio
+41.020	-82.270	1	Locality	1	uncurated	USA:Ohio
+40.880	-82.510	1	Locality	1	uncurated	USA:Ohio
+-31.237	116.787	1	Locality	1	locality	Australia: Western Australia, Goomalling
+-32.369	117.800	1	Locality	1	locality	Australia: Western Australia, Corrigin
+-30.892	116.719	1	Locality	1	locality	Australia: Western Australia, Wongan Hills
+-28.466	24.667	65	Country	4	country	South Africa
+37.251	-95.848	47	Country	4	country	USA
+54.336	-2.194	33	Country	8	country	UK
+44.206	20.908	27	Country	2	country	Serbia
+0.400	37.892	16	Country	2	country	Kenya
+36.910	104.180	14	Country	1	country	China
+56.831	-98.337	14	Country	1	country	Canada
+46.719	1.689	12	Country	4	country	France
+-43.560	170.424	12	Country	2	country	New Zealand
+38.947	35.457	10	Country	2	country	Turkey
+-37.080	-63.622	7	Country	1	country	Argentina
+51.929	19.117	5	Country	2	country	Poland
+56.272	9.524	5	Country	1	country	Denmark
+51.091	10.437	4	Country	1	country	Germany
+-24.926	133.401	4	Country	2	country	Australia
+-19.023	29.115	3	Country	1	country	Zimbabwe
+50.501	4.445	3	Country	1	country	Belgium
+46.803	8.212	2	Country	1	country	Switzerland
+52.096	5.323	2	Country	1	country	Netherlands
+44.736	16.459	1	Country	1	country	Croatia
+45.967	24.974	1	Country	1	country	Romania
+-29.612	28.221	1	Country	1	country	Lesotho
+42.511	12.557	1	Country	1	country	Italy

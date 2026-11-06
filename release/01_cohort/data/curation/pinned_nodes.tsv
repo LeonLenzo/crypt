@@ -1,0 +1,105 @@
+# AUTHORED. Nodes placed by hand, overriding the solver.
+#
+# The layout is good at keeping edges radial and clouds apart, and it has no opinion
+# about what a reader should notice. Where a node needs to sit somewhere for a reason
+# the solver cannot know, say so here rather than tuning a constant until it happens:
+# every constant is global, so moving one node by adjusting PROJECT_SWING or PAD moves
+# all of them, and that has repeatedly cost more than it bought.
+#
+# node       "B|<accession>", "P|<doi>", or "S|search"
+# angle_deg  bearing from the search node, degrees, anticlockwise from east. Blank keeps
+#            the solved bearing.
+# radius     distance from the search node, in points. Blank keeps the solved radius.
+# reason     why, in a sentence. A pin with no reason is indistinguishable from a bug.
+#
+# A pinned node takes its cloud of samples with it. Pins are applied last, so they are
+# not checked against anything: a pin can overlap a neighbour or put an edge through a
+# cloud, and the run reports it rather than silently correcting it.
+#
+id	node	angle_deg	radius	reason
+search	S|search			
+P01	P|10.1186/s12864-021-07488-3			
+P02	P|10.1111/ppa.13468			
+P03	P|10.1186/s12915-023-01717-9			
+P04	P|10.1007/s00705-022-05649-7			
+P05	P|10.1016/j.cropro.2020.105464			
+P06	P|10.1038/s42003-018-0013-y			
+P07	P|10.1080/00275514.2019.1607135			
+P08	P|10.1093/gbe/evx241			
+P09	P|10.1093/plcell/koab049			
+P10	P|10.1094/mpmi-09-21-0236-a			
+P11	P|10.1111/nph.19864			
+P12	P|10.1111/ppa.13532			
+P13	P|10.1128/mbio.02275-17			
+P14	P|10.1128/mra.00451-20			
+P15	P|10.1186/s12864-016-2684-4			
+P16	P|10.1186/s12864-025-12230-4			
+P17	P|10.1186/s12915-019-0684-y			
+P18	P|10.1186/s13059-015-0590-8			
+P19	P|10.1186/s13059-022-02658-2			
+P20	P|10.15212/ijafr-2023-0110			
+P21	P|10.3389/fagro.2025.1721047			
+P22	P|10.3389/fmicb.2021.699078			
+P23	P|10.3389/fpls.2021.720462			
+P24	P|10.3389/fpls.2024.1464454			
+P25	P|10.3390/genes15060697			
+P26	P|10.3390/plants12122374			
+P27	P|10.3390/v13122457			
+P28	P|10.3390/v15020401			
+P29	P|10.1007/s00203-026-05119-7			
+P30	P|10.1007/s00705-021-05175-y			
+P31	P|10.1007/s00705-023-05758-x			
+P32	P|10.1007/s10327-025-01256-x			
+P33	P|10.1007/s11274-025-04391-x			
+P34	P|10.1007/s13313-026-01098-x			
+P35	P|10.1016/s2095-3119(19)62805-4			
+P36	P|10.1038/s41598-018-31671-4			
+P37	P|10.1038/s41598-019-55547-3			
+P38	P|10.1094/pdis-08-19-1724-re			
+P39	P|10.1094/pdis-09-18-1700-re			
+P40	P|10.1094/phyto-07-19-0258-fi			
+P41	P|10.1101/2023.03.30.534825			
+P42	P|10.1101/2024.12.10.627719			
+P43	P|10.1186/s12915-016-0309-7			
+P44	P|10.1371/journal.pone.0188495			
+P45	P|10.21203/rs.3.rs-405043/v1			
+P46	P|10.3389/fmicb.2018.00468			
+P47	P|10.3389/fmicb.2021.673218			
+P48	P|10.3389/fmicb.2021.715545			
+P49	P|10.3389/fpls.2023.1096249			
+P50	P|10.3390/agronomy10121888			
+P51	P|10.3390/pathogens12030358			
+P52	P|10.3390/plants11030256			
+P53	P|10.3390/v17010126			
+P54	P|10.64898/2025.12.18.695303			
+PRJEB39201	B|PRJEB39201			
+PRJEB31334	B|PRJEB31334			
+PRJEB15280	B|PRJEB15280			
+PRJEB84390	B|PRJEB84390			
+PRJEB65589	B|PRJEB65589			
+PRJNA918968	B|PRJNA918968			
+PRJNA256347	B|PRJNA256347			
+PRJNA558380	B|PRJNA558380			
+PRJEB12497	B|PRJEB12497			
+PRJEB36485	B|PRJEB36485			
+PRJNA722004	B|PRJNA722004			
+PRJNA950118	B|PRJNA950118			
+PRJNA718488	B|PRJNA718488			
+PRJEB45236	B|PRJEB45236			
+PRJEB47693	B|PRJEB47693			
+PRJEB36444	B|PRJEB36444			
+PRJEB77002	B|PRJEB77002			
+PRJNA628830	B|PRJNA628830			
+PRJNA396589	B|PRJNA396589			
+PRJNA486288	B|PRJNA486288			
+PRJEB22223	B|PRJEB22223			
+PRJNA725323	B|PRJNA725323			
+PRJEB33109	B|PRJEB33109			
+PRJDB18040	B|PRJDB18040			
+PRJEB39756	B|PRJEB39756			
+PRJNA176472	B|PRJNA176472			
+PRJNA796936	B|PRJNA796936			
+PRJNA816710	B|PRJNA816710			
+PRJNA776691	B|PRJNA776691			
+PRJNA1250571	B|PRJNA1250571			
+PRJNA749614	B|PRJNA749614			

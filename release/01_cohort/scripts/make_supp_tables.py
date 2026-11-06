@@ -30,7 +30,8 @@ OUTDIR = DATA / "outputs"
 
 S1_COLS = ["doi", "verdict", "host", "field", "tissue", "years", "target_pathogens",
            "n_pathogen_genera", "bioprojects", "bioprojects_own", "n_cohort_runs"]
-S2_COLS = ["run", "BioProject", "sample", "own_deposit", "library_strategy", "platform",
+S2_COLS = ["run", "BioProject", "sample", "own_deposit", "library_strategy",
+           "assay_in_scope", "platform",
            "model", "read_count", "host", "host_src", "tissue", "tissue_src",
            "setting", "setting_src", "location", "location_src",
            "collection_date", "collection_date_src", "lat", "lon"]

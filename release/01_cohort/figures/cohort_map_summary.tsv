@@ -1,0 +1,15 @@
+measure	value
+field-wheat runs in cohort	1396
+drawn at a locality	1075
+drawn at a country centroid	289
+not drawn: no usable place	32
+locality points	437
+country points	23
+locality runs at precision: locality	874
+locality runs at precision: uncurated	56
+locality runs at precision: locality-nofacility	43
+locality runs at precision: corrected-medium	38
+locality runs at precision: corrected-high	37
+locality runs at precision: corrected-low	16
+locality runs at precision: country	10
+locality runs at precision: region	1

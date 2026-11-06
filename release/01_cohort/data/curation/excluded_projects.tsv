@@ -1,0 +1,8 @@
+# AUTHORED. BioProjects that reach the cohort through a paper that names them but do not
+# belong in it. A paper can cite a deposit from a different crop entirely; the run-level
+# host field cannot catch that when the submitter left it blank.
+#
+# This is the only place a BioProject leaves the cohort. Nothing is dropped silently:
+# screen_samples.py reports what it removed and why.
+BioProject	reason
+PRJNA743927	rice study, named in passing by 10.1371/journal.pone.0280004; one run, host left blank by the submitter so no host filter can see it

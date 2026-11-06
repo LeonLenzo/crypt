@@ -131,7 +131,15 @@ def main():
     if ab.exists():
         with open(ab, newline="", encoding="utf-8") as fh:
             abs_tbl = {r["doi"]: r for r in csv.DictReader(fh, delimiter="\t")}
-    manual = {f.stem: f for f in MANUAL.iterdir() if f.is_file()} if MANUAL.is_dir() else {}
+    # A hand-obtained paper arrives as a PDF and pdf_to_text.py leaves the .txt beside
+    # it, so both share a DOI stem. Prefer the text: taking the PDF stores an unreadable
+    # body that screens as a paper naming no accessions, which is indistinguishable in
+    # the output from a paper that genuinely names none.
+    manual = {}
+    if MANUAL.is_dir():
+        for f in sorted(MANUAL.iterdir(), key=lambda f: f.suffix.lower() == ".pdf"):
+            if f.is_file():
+                manual.setdefault(f.stem, f)
     ondisk = {}
     for f in BODIES.iterdir():
         if f.is_file() and f.stat().st_size:

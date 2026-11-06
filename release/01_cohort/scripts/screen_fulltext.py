@@ -5,7 +5,9 @@ what it was infected with.
     python release/01_cohort/scripts/screen_fulltext.py
 
 Reads  data/raw/fulltext.tsv          every text we hold, and its source
-       data/inputs/pathogen_genera.txt a flag-list of cereal pathogen genera
+       data/curation/pathogen_genera.txt a flag-list of cereal pathogen genera
+       data/curation/relations.tsv       authored: who GENERATED a BioProject, where the
+                                       deposit section cannot tell
 Writes data/curation/screen_fulltext.tsv   one row per paper
 
 This replaces bioproject_screen.py, which found only accessions. The corpus is now field
@@ -14,6 +16,14 @@ need curating away a mixed population; they are captured here ONLY to verify the
 not let something through, and are expected to be constant.
 
 WHAT EACH COLUMN IS FOR
+  bioprojects_own               the deposits this paper GENERATED, and
+  bioprojects_reanalysed        the ones it used but did not produce. Inferred from the
+                                data availability section, which is right for a paper
+                                reporting its own sequencing and wrong for one built on
+                                other people's, since a browser or meta-analysis lists
+                                every accession it used in the same place. Rows in
+                                data/curation/relations.tsv override the inference; see
+                                that file for the evidence behind each.
   accessions, accession_types   the deposits to resolve. Kept apart by type: only PRJ* is a
                                 BioProject; GSE/SRP/E-MTAB resolve to one; SRR/SAM imply one.
   host, host_ok                 wheat is assumed; host_ok is 0 when a non-target crop (barley,
@@ -45,6 +55,7 @@ WHAT EACH COLUMN IS FOR
 import collections
 import csv
 import re
+import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -53,7 +64,8 @@ DATA = MODULE / "data"
 FULLTEXT = DATA / "raw" / "fulltext.tsv"
 ABSTRACT_SCREEN = DATA / "curation" / "screen_abstract.tsv"
 DECISIONS = DATA / "curation" / "decisions.tsv"
-GENERA = DATA / "inputs" / "pathogen_genera.txt"
+GENERA = DATA / "curation" / "pathogen_genera.txt"
+RELATIONS = DATA / "curation" / "relations.tsv"
 OUT = DATA / "curation" / "screen_fulltext.tsv"
 
 TAG = re.compile(r"<[^>]+>")
@@ -142,7 +154,35 @@ def scan_accessions(text, is_sectioned, doi, rows):
     return seen
 
 
+def resolve(path):
+    """Locate a body file named in fulltext.tsv.
+
+    The `path` column has been written relative to the module root and, in older copies,
+    relative to data/. Accept either: when this resolved only one way it read every body
+    as empty, and the screen then regenerated from nothing. That failure is silent in the
+    output, which still looks like a valid table, just one where no paper mentions a
+    BioProject, so see the guard in main() as well.
+    """
+    for base in (MODULE, DATA):
+        if (base / path).is_file():
+            return base / path
+    return None
+
+
+def read_relations():
+    """doi -> {BioProject: relation}, from the authored overlay. Comments start with #."""
+    decided = {}
+    if not RELATIONS.is_file():
+        return decided
+    lines = [l for l in RELATIONS.read_text().splitlines() if l and not l.startswith("#")]
+    for row in csv.DictReader(lines, delimiter="\t"):
+        decided.setdefault(row["doi"].strip().lower(), {})[row["BioProject"].strip()] = \
+            row["relation"].strip()
+    return decided
+
+
 def main():
+    relations = read_relations()
     genera = {l.strip() for l in GENERA.read_text().splitlines()
               if l.strip() and not l.startswith("#")}
     recommend = {}
@@ -152,24 +192,33 @@ def main():
     overrides = {}
     if DECISIONS.exists():
         with open(DECISIONS, newline="", encoding="utf-8") as fh:
-            overrides = {r["doi"]: (r["decision"], r.get("reason", ""))
+            overrides = {r["doi"].strip().lower(): (r["decision"], r.get("reason", ""))
                          for r in csv.DictReader(fh, delimiter="\t") if r.get("decision")}
 
-    rows, acc_rows = [], []
+    rows, acc_rows, missing = [], [], []
     with open(FULLTEXT, newline="", encoding="utf-8") as fh:
         papers = list(csv.DictReader(fh, delimiter="\t"))
 
     for r in papers:
         doi, source, path = r["doi"], r.get("source", ""), r.get("path", "")
-        raw = (MODULE / path).read_text(errors="ignore") if path and (MODULE / path).is_file() else ""
+        body = resolve(path)
+        raw = body.read_text(errors="ignore") if body else ""
+        if path and not body:
+            missing.append(doi)
         is_sectioned = "<sec" in raw[:200000]
         text = raw if is_sectioned else plain(raw, path.lower().endswith((".html", ".htm")))
         full = (r.get("title", "") + " " + text)
 
         accs = scan_accessions(raw or text, is_sectioned, doi, acc_rows) if text else set()
         bp = sorted(a for a in accs if a.startswith("PRJ"))
-        own = sorted({x["accession"] for x in acc_rows if x["doi"] == doi
-                      and x["accession"].startswith("PRJ") and x["in_deposit_section"] == 1})
+        own = {x["accession"] for x in acc_rows if x["doi"] == doi
+               and x["accession"].startswith("PRJ") and x["in_deposit_section"] == 1}
+        # Authored rows win over the deposit-section inference, in both directions.
+        # "undecided" is held with the reanalyses, so nothing is credited on a guess.
+        decided = relations.get(doi.lower(), {})
+        own = sorted((own | {b for b, rel in decided.items() if rel == "generated"})
+                     - {b for b, rel in decided.items() if rel != "generated"})
+        reanalysed = sorted(set(bp) - set(own))
 
         tissue = [k for k, rx in TISSUE.items() if re.search(rx, text, re.I)]
         rna = next((name for name, rx in RNA_SEL if re.search(rx, full, re.I)), "")
@@ -194,6 +243,7 @@ def main():
         rows.append({
             "doi": doi, "text_source": source, "seq_in_body": int(seq_in_body),
             "bioprojects": ";".join(bp), "bioprojects_own": ";".join(own),
+            "bioprojects_reanalysed": ";".join(reanalysed),
             "all_accessions": ";".join(sorted(accs)),
             "accession_types": ";".join(sorted({a.split("_")[0] for a in
                                                 {x["type"] for x in acc_rows if x["doi"] == doi}})),
@@ -222,8 +272,8 @@ def main():
     for r in rows:
         doi = r["doi"]
         rec = recommend.get(doi, "keep")
-        if doi in overrides:
-            r["verdict"], r["verdict_reason"] = overrides[doi][0], overrides[doi][1]
+        if doi.strip().lower() in overrides:
+            r["verdict"], r["verdict_reason"] = overrides[doi.strip().lower()]
         elif rec == "keep":
             r["verdict"], r["verdict_reason"] = "keep", "clear at the abstract"
         elif r["seq_in_body"] and (r["field"] == 1 or r["bioprojects"]):
@@ -240,7 +290,14 @@ def main():
             "glasshouse_mentioned", "tissue", "years", "target_pathogens",
             "mentioned_pathogens", "n_pathogen_genera_named", "rna_selection",
             "healthy_sampled", "axenic_control", "bioprojects", "bioprojects_own",
+            "bioprojects_reanalysed",
             "accession_types", "all_accessions", "location_terms", "supp_for"]
+    # A body file named but not found reads as an empty paper, and an empty paper still
+    # writes a plausible-looking row. Refuse to leave that on disk.
+    if missing:
+        sys.exit(f"ERROR: {len(missing)} of {len(rows)} papers name a body file that does "
+                 f"not resolve under {MODULE} or {DATA}, so they would screen as empty. "
+                 f"Nothing written. First few: {', '.join(missing[:5])}")
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with open(OUT, "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=COLS, delimiter="\t", lineterminator="\n")
@@ -251,7 +308,8 @@ def main():
     v = collections.Counter(r["verdict"] for r in rows)
     print(f"-> {OUT.name}  {n} papers")
     print(f"   VERDICT: {dict(v.most_common())}  "
-          f"({sum(1 for r in rows if r['doi'] in overrides)} by hand override)")
+          f"({sum(1 for r in rows if r['doi'].strip().lower() in overrides)} "
+          f"by hand override)")
     still = [r["doi"] for r in rows if r["verdict"] == "review"]
     if still:
         print(f"   still need a human: {still}")

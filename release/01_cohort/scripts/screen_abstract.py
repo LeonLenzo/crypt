@@ -37,6 +37,7 @@ MODULE = HERE.parent
 DATA = MODULE / "data"
 SRC = DATA / "raw" / "abstracts.tsv"
 OUT = DATA / "curation" / "screen_abstract.tsv"
+DECISIONS = DATA / "curation" / "decisions.tsv"
 
 # Deliberately broad: every way a paper says "we shotgun-sequenced RNA".
 RNASEQ = re.compile(
@@ -89,10 +90,22 @@ def classify(title, abstract):
 
 
 def main():
+    # decisions.tsv binds here as well as at the full-text screen. A paper dropped on the
+    # abstract never has its body fetched, so without this the hand decision can never
+    # reach it: the override existed only at a stage the paper could no longer get to.
+    overrides = {}
+    if DECISIONS.is_file():
+        with open(DECISIONS, newline="", encoding="utf-8") as fh:
+            overrides = {r["doi"].strip().lower(): r["decision"]
+                         for r in csv.DictReader(fh, delimiter="\t")}
+
     rows = []
     with open(SRC, newline="", encoding="utf-8") as fh:
         for r in csv.DictReader(fh, delimiter="\t"):
             dt, sig, rec = classify(r.get("title", ""), r.get("abstract", ""))
+            if r["doi"].strip().lower() in overrides:
+                rec = overrides[r["doi"].strip().lower()]
+                sig = "set by hand in decisions.tsv"
             rows.append({"doi": r["doi"], "data_type": dt, "recommend": rec,
                          "signal": sig, "has_abstract": int(bool(r.get("abstract"))),
                          "open_access": r.get("open_access", ""), "title": r.get("title", "")})

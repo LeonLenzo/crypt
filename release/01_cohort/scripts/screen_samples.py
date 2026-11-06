@@ -7,7 +7,7 @@ Reads  data/raw/samples.tsv                   every run + its BioSample metadata
        data/curation/curated_attributes.tsv   prior hand/supplement curation, ported
        data/curation/supplements.tsv          per-accession provenance lifted from paper supplements
        data/curation/screen_fulltext.tsv      the keep/drop verdict per paper
-Writes data/curation/screen_samples.tsv       one row per RNA-seq run in a kept project
+Writes data/curation/screen_samples.tsv       one row per run in a kept project
 
 PRECEDENCE, highest first, recorded per value in a `<field>_src` column so nothing is taken
 on trust: curated > supplement > biosample (the submitter's attribute record) > archive (the
@@ -17,10 +17,13 @@ overlap, so supplement serves to fill the runs curation never reached. A value a
 came from travel together, because "leaf, from the paper" and "leaf, guessed from a sparse
 archive field" are not the same evidence and a reviewer must be able to tell them apart.
 
-Scope: RNA-seq / ncRNA-Seq runs only (WGS reference genomes and AMPLICON assays are in
-runs.tsv, labelled, and excluded here), from BioProjects named by a paper the screen kept.
-Nothing about the foliar or depth gates happens here; those belong to 02_classify, which
-this feeds.
+Scope: RNA-Seq and ncRNA-Seq runs only, from BioProjects named by a paper the screen
+kept. Carrying every assay was tried and reverted on 2026-11-05: rescuing four papers
+whose deposits are WGS-heavy took the table from 1,996 runs to 4,750 while adding 37
+usable ones, so two thirds of it was reference genomes that no downstream step reads and
+that nothing but `assay_in_scope` kept out of a denominator. `assay_in_scope` is still
+written, now constant, so a consumer that filters on it stays correct either way.
+Nothing about the foliar or depth gates happens here; those belong to 02_classify.
 """
 
 import collections
@@ -38,6 +41,7 @@ SCREEN = DATA / "curation" / "screen_fulltext.tsv"
 OUT = DATA / "curation" / "screen_samples.tsv"
 
 RNA = {"RNA-Seq", "ncRNA-Seq"}
+EXCLUDED_PROJECTS = DATA / "curation" / "excluded_projects.tsv"
 FIELDS = ["host", "tissue", "setting", "location", "collection_date", "lat", "lon"]
 
 
@@ -92,9 +96,19 @@ def main():
                 "location": "location", "collection_date": "collection_date",
                 "lat": None, "lon": None}
 
-    rows, src_tally = [], collections.Counter()
+    dropped_project = {}
+    if EXCLUDED_PROJECTS.is_file():
+        lines = [l for l in EXCLUDED_PROJECTS.read_text().splitlines()
+                 if l and not l.startswith("#")]
+        dropped_project = {r["BioProject"]: r["reason"]
+                           for r in csv.DictReader(lines, delimiter="\t")}
+
+    rows, src_tally, removed = [], collections.Counter(), collections.Counter()
     for r in read(SAMPLES):
         if r["library_strategy"] not in RNA:
+            continue
+        if r["BioProject"] in dropped_project:
+            removed[r["BioProject"]] += 1
             continue
         # a run belongs if any kept paper named its project; runs.tsv carries named_by
         if not (set(r.get("named_by", "").split(";")) & keep):
@@ -108,7 +122,9 @@ def main():
         bs["lat"] = f"{la:.5f}" if la is not None else ""
         bs["lon"] = f"{lo:.5f}" if lo is not None else ""
         out = {"run": r["run"], "BioProject": r["BioProject"], "sample": r["sample"],
-               "library_strategy": r["library_strategy"], "platform": r["platform"],
+               "library_strategy": r["library_strategy"],
+               "assay_in_scope": int(r["library_strategy"] in RNA),
+               "platform": r["platform"],
                "model": r["model"], "read_count": r["read_count"],
                "named_by": r["named_by"],
                "own_deposit": r["named_in_deposit_section"]}
@@ -131,7 +147,8 @@ def main():
             src_tally[(f, src or "none")] += 1
         rows.append(out)
 
-    cols = (["run", "BioProject", "sample", "library_strategy", "platform", "model",
+    cols = (["run", "BioProject", "sample", "library_strategy", "assay_in_scope",
+             "platform", "model",
              "read_count", "named_by", "own_deposit"]
             + [c for f in FIELDS for c in (f, f"{f}_src")])
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -143,6 +160,8 @@ def main():
     print(f"-> {OUT.name}  {len(rows)} RNA-seq runs over "
           f"{len({r['BioProject'] for r in rows})} BioProjects, "
           f"{len({r['sample'] for r in rows})} BioSamples")
+    for bp, n in removed.items():
+        print(f"   excluded {bp}: {n} run(s) — {dropped_project[bp]}")
     print(f"   from a paper's own deposit: {sum(1 for r in rows if r['own_deposit']=='1')}")
     print("\n   attribute coverage, and from where:")
     for f in FIELDS:

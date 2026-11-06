@@ -1,0 +1,62 @@
+# AUTHORED. Who GENERATED a BioProject, where the deposit-section heuristic cannot tell.
+#
+# screen_fulltext.py infers bioprojects_own from accessions appearing in a paper's data
+# availability section. That is right for a paper reporting its own sequencing and wrong
+# for one built on other people's: a browser or meta-analysis lists every accession it
+# used in exactly the same place. 10.1186/s12864-021-07488-3, the Rust Expression Browser,
+# claimed all nine it names and generated one, overstating its contribution by 531 runs.
+#
+# Rows here override that inference, in both directions. Evidence is the INSDC project
+# record (submitting centre, submitter's study title, ENA-FIRST-PUBLIC) read against the
+# paper's year, since data is deposited at or before publication and a paper years after
+# the release cannot be the source. Gathered by retrieve/primary_papers.py; see
+# data/silver/primary_papers_worklist.tsv in the research tree for the candidates each
+# decision was taken from.
+#
+# relation  generated   this paper produced the data
+#           reanalysed  this paper used data someone else deposited
+#           undecided   named by more than one plausible depositor, not yet resolved.
+#                       Treated as reanalysed, so nothing is credited on a guess.
+#
+doi	BioProject	relation	evidence
+10.1186/s12864-021-07488-3	PRJEB39201	generated	centre John Innes Centre, study "RNA-Seq of field samples of Wheat Yellow Rust uploaded into the Rust Expression Browser", public 2021-02-22 against paper 2021
+10.1186/s12864-021-07488-3	PRJEB31334	reanalysed	public 2019-07-10, two years before the paper; study is MARPLE diagnostics
+10.1186/s12864-021-07488-3	PRJEB15280	reanalysed	public 2016-12-01, five years before the paper
+10.1186/s12864-021-07488-3	PRJEB33109	reanalysed	public 2019-06-20, two years before the paper
+10.1186/s12864-021-07488-3	PRJEB12497	reanalysed	public 2016-03-24, five years before the paper
+10.1186/s12864-021-07488-3	PRJNA176472	reanalysed	public 2013-05-31, eight years before the paper; centre Australian National University
+10.1186/s12864-021-07488-3	PRJNA181960	reanalysed	not a cohort project; listed for completeness of the nine claimed
+10.1186/s12864-021-07488-3	PRJNA256347	reanalysed	public 2014-10-31, seven years before the paper
+10.1186/s12864-021-07488-3	PRJNA396589	reanalysed	public 2017-08-02, four years before the paper; centre Australian National University
+10.1093/gbe/evx241	PRJEB15280	generated	earliest paper naming it, 2017, against public 2016-12-01; centre John Innes Centre, study "Field pathogenomics detects rapid global spread of recent emergent European lineages"
+10.1186/s13059-015-0590-8	PRJNA256347	generated	earliest paper naming it, 2015, against public 2014-10-31; study "Field pathogenomics of PST-infected wheat and triticale"
+10.1186/s12864-025-12230-4	PRJEB84390	generated	public 2025-09-30 against paper 2025; study names the same brown rust field comparison
+10.3389/fpls.2021.720462	PRJNA718488	generated	public 2021-09-30 against paper 2021; centre University of Zurich, study is the Puccinia field transcriptomic survey
+10.1111/nph.19864	PRJEB65589	generated	public 2024-06-04 against paper 2024; centre John Innes Centre, study "How to curtail the rise in wheat stem rust infections in western Europe"
+10.15212/ijafr-2023-0110	PRJNA918968	generated	sole paper naming it; centre Teagasc, publisher is Teagasc's own Irish Journal of Agricultural and Food Research; study "Viral metagenomics - barley host"
+10.1111/ppa.13468	PRJEB36485	generated	sole paper naming it; study "Pathogenomic analyses reveals a potential recent shift in the South African Puccinia striiformis" matches the paper's subject
+10.1016/j.cropro.2020.105464	PRJNA628830	generated	sole paper naming it; centre Agricultural Research Council and study "Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa" both match
+10.1007/s00705-022-05649-7	PRJNA816710	generated	sole paper naming it; centre Agricultural Research Council, study "Genomic and phylogenetic characterization of a novel tenuivirus infecting wheat in South Africa"
+10.3389/fagro.2025.1721047	PRJNA1250571	generated	sole paper naming it; centre Auburn University, study "RNAseq analysis of four cultivars of Triticum aestivum (wheat) exhibiting viral symptoms"
+10.1080/00275514.2019.1607135	PRJNA486288	generated	sole paper naming it; centre University of Illinois, study "Population genomics and gene expression analysis of Fusarium Head Blight"
+10.1111/ppa.13468	PRJEB45236	undecided	named by this and by 10.1186/s12915-023-01717-9; centre John Innes Centre, public 2021-08-23, both papers plausible
+10.1186/s12915-023-01717-9	PRJEB45236	undecided	see the row above
+10.1186/s12915-023-01717-9	PRJEB39756	undecided	sole namer, but it claims one of the seven it names as its own, the same shape as the Rust Expression Browser; centre John Innes Centre, study "New Zealand Pst isolates"
+10.3390/genes15060697	PRJDB18040	generated	centre Institute of Crop Science NARO, study "Transcriptome of barley cultivars' root in the BaYMV infested field", public 2024-05-31 against paper 2024; sole paper naming it
+10.1186/s12915-019-0684-y	PRJEB31334	generated	study title is "Mobile And Real-time PLant disEase (MARPLE) diagnostics", which is this paper; centre John Innes Centre, public 2019-07-10 against paper 2019. The only other paper naming it is the 2021 Rust Expression Browser, two years later
+10.1101/2024.12.10.627719	PRJNA599033	generated	sole kept paper naming it; no other paper in Europe PMC names the accession
+10.1080/00275514.2019.1607135	PRJNA397890	generated	sole kept paper naming it, and it already credibly deposited PRJNA486288
+10.1186/s12915-023-01717-9	PRJEB39756	generated	sole paper naming it anywhere. Weaker than the other sole-namer rows: this paper names seven deposits, the shape that proved wrong for the Rust Expression Browser, so revisit if a South African or New Zealand Pst paper turns up
+10.1128/mra.00451-20	PRJNA558380	generated	centre The Ohio State University, study "Sequencing of viruses associated with wheat in Ohio", public 2019-08-04 against this 2020 announcement; earliest paper naming the accession
+10.1111/ppa.13468	PRJEB45236	generated	resolves the undecided row above. Centre John Innes Centre and study "Pathogenomic analyses of the South African Puccinia striiformis f. sp. tritici population" match this paper's subject, and its sibling deposit PRJEB36485 is already credited to it. The other namer, 10.1186/s12915-023-01717-9, is 2023 against a 2021 deposit and claims one of the seven deposits it names
+10.1186/s12915-023-01717-9	PRJEB45236	reanalysed	resolves the undecided row above; see the row for 10.1111/ppa.13468
+10.1186/s13059-015-0590-8	PRJNA257181	generated	centre The Genome Analysis Centre and public 2014-08-02, the same centre and season as PRJNA256347 which this paper already generated; earliest of the two namers at 2015
+10.3389/fmicb.2021.699078	PRJNA722004	generated	centre Kansas State University, public 2021-04-16, study "Evolutionary studies of wheat streak mosaic-associated viruses"; both namers are 2021 papers from the same group and both are credited
+10.3390/v13122457	PRJNA722004	generated	see the row above; co-credited, not a reanalysis
+10.1101/2024.12.10.627719	PRJNA749614	undecided	centre Australian National University, public 2021-07-27, and neither namer fits: this one is a 2024 preprint and 10.1371/journal.pone.0280004 was shown by the full-text screen to deposit PRJNA509734 and others, not this
+10.1371/journal.pone.0280004	PRJNA749614	undecided	see the row above
+10.1186/s12864-021-07488-3	PRJEB33109	generated	supersedes the reanalysed row above. Both the deposit and this paper are John Innes Centre, and public 2019-06-20 against a 2021 paper is an ordinary publication lag. The only other namer is 2023. Weaker than the other generated rows: this paper's data availability is a single list of everything it used, which is why its other eight claims were rejected
+10.1186/s13059-022-02658-2	PRJNA725323	generated	named in this paper's data availability statement (PMC8957140); the BioSample records match. Identified by Leon 2026-11-05
+10.1094/MPMI-09-21-0236-A	PRJNA749614	generated	supersedes the undecided rows above; identified by Leon 2026-11-05 as the original depositor. A lab study, so its runs are controls rather than field material
+10.1186/s12864-021-07488-3	PRJNA176472	generated	Leon's call 2026-11-05. These are spore libraries, not wheat field samples, so they stay out of the field-wheat count on setting=lab regardless of who is credited. 10.1371/journal.pgen.1007637 references the deposit for a different use
+10.3390/v15020401	PRJNA796936	generated	this paper is the depositor; it was un-dropped earlier the same day once its 8 RNA-Seq runs were found

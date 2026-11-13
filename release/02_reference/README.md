@@ -1,0 +1,387 @@
+# 02_reference
+
+Decides which organisms the classifier's database contains, and selects the assemblies that
+can supply CDS for them. This file states the scope rule and the evidence for it.
+
+The analysed cohort is **field *Triticum aestivum*, 1,450 runs** (`release/01_cohort`). The
+*Hordeum*, *Secale* and *Triticosecale* runs in that tree are lab controls and noise, not
+analysed samples.
+
+## The rule
+
+One scope decision and two labels, no routes.
+
+    SCOPE   every fungus USDA ever recorded on a plant, read at GENUS, with an annotated
+            assembly (data/inputs/scope_exceptions.tsv adds three genera USDA misses).
+    LABEL 1 recorded on wheat?        USDA, host = Triticum              -> on_wheat
+    LABEL 2 a known pathogen?         PHI-base, a NAMED DISEASE on any plant
+                                                                 -> is_plant_pathogen
+            a known wheat pathogen?   PHI-base, a named disease on Triticum,
+                                      or the curated supplement  -> is_wheat_pathogen
+
+The whole database in one sentence: every fungus found on a plant, with a note of when it was
+recorded on wheat and when it was shown pathogenic on wheat. A detection then reads off those
+columns: a species with none of them is a resident, one with `is_wheat_pathogen` is an expected
+pathogen, and one that is `is_pathogen` but not `on_wheat` is a candidate unreported interaction.
+
+**Scope is ANY plant, never wheat.** The study exists to find unreported host associations, and
+a reference absent from the database is invisible and unrecoverable because the reads go
+silently to the nearest taxon present. So `on_wheat` and the PHI-base labels are columns, never
+filters. Filtering the database to what is already known on wheat would make the finding
+impossible to make.
+
+**Genus, not species.** Read at species rank the master loses 903 of 5,973 fungal detections
+on field wheat (15.1%), led by *Dioszegia hungarica* and by unnamed strain designations USDA
+cannot hold for want of a binomial (*Alternaria* sp. BMP 0032, *Cladosporium* sp. NU13). None
+is pathogen-labelled, so the genus reading protects the resident layer, not the pathogen layer.
+
+**Why PHI-base and not FUNGuild/FungalTraits for the pathogen label.** FUNGuild and FungalTraits
+assign "plant pathogen" at GENUS by name substring, so they inherit every homonym and label
+every species in a genus from one member: 37 of 39 pathogen labels db_v4 carried were genus
+priors landing on chytrids, pollen parasites and the industrial yeast *Komagataella phaffii*.
+PHI-base is curated per species from pathogenicity experiments and ships the NCBI taxid of both
+pathogen and host, so `is_pathogen` and `is_wheat_pathogen` are a join, not a guess. The cost is
+recall (PHI-base is smaller), but the label it gives is one you can defend species by species.
+
+## The pipeline
+
+    inputs/scope_rule.tsv        the criterion, and a pin on every dataset it is applied to
+    inputs/scope_exceptions.tsv  admitted outside the master, and what was rejected
+
+    fetch_species.py     -> raw/raw_usda_fungus_host.csv   827,645 records, md5-pinned
+                            raw/raw_taxdmp.zip             NCBI Taxonomy, dated archive
+    fetch_pathogens.py   -> raw/raw_phibase.csv            PHI-base v4-19, the pathogen label
+    screen_species.py    -> curation/screen_species.tsv     99,059 names, scope + on_wheat
+    screen_merges.py     -> curation/screen_merges.tsv       22 provisional NCBI names
+    screen_pathogens.py  -> curation/screen_pathogens.tsv   150 PHI-base fungal pathogens
+    fetch_assemblies.py  -> raw/raw_assembly_summary.txt    26,826 GenBank fungal assemblies
+    screen_assemblies.py -> curation/screen_assemblies.tsv  21,413 in-scope assemblies
+    build_reference.py   -> outputs/supp_data_s3_reference.tsv  5,843 taxa, ONE ROW EACH
+
+    raw/raw_sources_manifest.tsv   provenance for all four sources, TRACKED
+
+Each fetch pairs with its screen: scope (species), pathogenicity (pathogens), buildability
+(assemblies). A fetch gets pinned bytes; a screen decides. `screen_merges.py` sits between
+them and reconciles the two naming systems; see "Two names, one fungus".
+
+**`outputs/` is the deliverable and the only thing the figures read.** `build_reference.py`
+is the last step: it joins the four curation tables and the taxdump into one published row
+per taxon, `supp_data_s3_reference.tsv`, and both panels are drawn from that and nothing
+else. This follows `01_cohort`, whose figures read `supp_data_s2_cohort.tsv` rather than
+reaching back into `curation/`. The curation tables remain the audit trail; a reviewer
+holding only S3 can regenerate both panels.
+
+The table is self-sufficient on purpose. It carries the six parent ranks per taxon, so panel
+B's topology is rebuilt from those columns and nothing under `figures/` opens the taxdump.
+Its columns are the two figure axes (`usda_row`, `phibase_col`), the five-way `category`
+that is panel B's tip colour, the counts (`n_assemblies`, `n_annotated`, `annotation_ratio`),
+the labels with their provenance (`wheat_pathogen_source`, `plant_pathogen_evidence`), the
+`route` into scope, `merged_from`, and `in_tree` marking the rows panel B draws.
+
+**The pathogen label is a SEPARATE table on purpose.** It never enters the Kraken2 database,
+which is pure taxonomy; it is an annotation joined to a detection afterwards. Keeping it out of
+`screen_species.tsv` also gives one clean row per pathogen species rather than the label
+inheriting across every USDA name variant.
+
+Four public sources and nothing else (USDA, NCBI Taxonomy, NCBI assemblies, PHI-base). Nothing
+is resolved against a private database: holobase was used during design and was **wrong twice**,
+once in each direction, so the shipped pipeline does not read it. See "What holobase got wrong".
+
+## The funnel
+
+    99,059  distinct fungus names in USDA
+    21,071  resolve to a fungal NCBI taxid          (28,858 names; 7,787 are synonyms
+                                                     of a name already in the list)
+     4,135  genera, which is what the master reads
+     5,843  taxa inside those genera with any assembly
+     2,314  of them carry a gene model
+
+69.5% of USDA names have no NCBI node at all. That is a property of NCBI, not a matching
+failure: USDA is a herbarium records database reaching back to 1960s literature and most of
+those fungi have never been sequenced. A name with no node cannot have an assembly either,
+because assemblies are keyed to taxids, so the 69.5% could never have contributed CDS.
+
+**Synonymy is load-bearing and comes only from NCBI.** USDA ships nine columns and none is an
+accepted-name field, so it records whatever name each publication used across six decades.
+9,285 of the 28,858 resolutions arrive through a name NCBI files as a synonym, and **2,902
+taxa are reachable by no other route**: drop synonymy and you lose 14% of the master outright,
+not merely 9,285 spellings. `authority` and `type material` are excluded as name classes,
+carrying the author string and a strain designation respectively.
+
+**The unit is a TAXON, not a described species, and the figures say `taxa` for that reason.**
+1,373 of the 3,465 congeners are NCBI `sp.` nodes: unidentified isolates carrying a strain
+code and no binomial (*Alternaria* sp. BMP 0032). They are legitimate reference entries,
+because an unidentified *Alternaria* gives Kraken2 as real a competitor as a named one, but
+they are not species in any taxonomic sense, and 5,843 printed as "species" invites a
+diversity reading the number cannot carry. The observation side does not have the problem:
+it is 99.4% named binomials, because USDA only indexes formal names.
+
+## Two names, one fungus
+
+USDA and NCBI can hold the same fungus under two names, and then the reference counts it
+twice and builds it once. *Cercospora flagellaris* is the case that exposed it: USDA has the
+binomial with 33 host records and NO genome, while every genome is filed under the
+provisional node *Cercospora* cf. *flagellaris*, which USDA never names. The name arrived as
+an observation with nothing to build and the genome as a congener, and the two never met.
+
+`screen_merges.py` folds the provisional node onto the binomial. The criterion is a token
+match, never a substring: the NCBI name must parse as `<Genus> cf. <epithet>` with an
+optional trailing strain code, and `<Genus> <epithet>` must be a `usda_name` in the master.
+It writes `curation/screen_merges.tsv`, one row per affected node with its action, and that
+table is the whole record: delete a row and the next run un-merges that taxon.
+
+    merge     16 taxa,  61 assemblies   the binomial has its own NCBI node; move the
+                                        assemblies onto it. Four of the targets had no
+                                        genome at all before the merge.
+    reroute    1 taxon,   2 assemblies  USDA names it, NCBI has no node for the binomial,
+                                        so the provisional node is promoted in place
+                                        (*Cercospora* cf. *sigesbeckiae*)
+    keep       5 taxa,    8 assemblies  `aff.`, NOT merged
+
+**`aff.` is deliberately not merged.** `cf.` ("compare with") says the isolate is probably
+that species; `aff.` ("has affinity to") says it is probably a DIFFERENT, undescribed species
+related to it. Merging an `aff.` node would assert the identity its own name denies, and an
+undescribed relative is exactly what the congener tier is for. The five are written out with
+`action = keep` so the decision is visible rather than silent.
+
+The merge also repaired a resolution fault worth recording. NCBI lists `Haematonectria sp.`
+and `Neocosmospora sp.` as *equivalent names* of the single node *Fusarium* cf. *solani*, and
+USDA carries both of those placeholders, so 24 assemblies were being counted as an
+observation of a named species on the strength of two genus-level placeholders pinned to one
+arbitrary isolate. They now sit under *Fusarium solani*, which is what USDA's 1,225 records
+actually describe.
+
+## Why one list and not five
+
+The research tree reached its database through five routes: `target` (FUNGuild + PHI-base),
+`congener`, `host`, `plant_associate` (USDA) and `host_associate` (literature residents).
+Measured against db_v4's calls on the **1,135 classified field-wheat runs**:
+
+| | detections |
+|---|---:|
+| species is in USDA | 5,053 of 5,973 fungal (84.6%) |
+| species is not, but its GENUS is | 903 (15.1%) |
+| **outside USDA entirely** | **17 (0.3%)** |
+
+The 17 are *Malassezia* and nothing else: *restricta* 15, *arunalokei* 1, *globosa* 1.
+
+The other four routes were then checked for what they uniquely contribute. **FungalTraits**
+is fully redundant: 1,069 genus-keyed plant-pathogen genera, no species, and FUNGuild already
+holds 1,068 of them, the exception being *Heterospora*. **PHI-base** adds no genera and 2
+buildable species, with USDA a strict superset at genus rank. **FUNGuild** adds 13 species
+USDA has no plant record for, of which only *Zygosaccharomyces bailii* and *Tilletiaria
+anomala* have an annotated assembly; both were built into db_v4, both received reads across
+hundreds of runs, and both produced zero detections, every one of their 845 rows reading
+`below absolute floor`. **Residents** contributes the exceptions file. **Congener** was never
+a scope list: it expands the genus of a known pathogen so the LCA has somewhere to park a
+read, and a genus-level master does that for every USDA genus rather than only pathogen
+genera.
+
+These four comparisons were made in the research tree against holobase and have not been
+re-derived from the public sources. The conclusions they support are each corroborated by the
+detection evidence above, which has been.
+
+## The pathogen label, measured
+
+PHI-base v4-19 holds **150 fungal pathogen taxa; 118 pathogenic on a plant, 26 on wheat**
+(18 from PHI-base, 8 from the curated supplement). The wheat set is what a reviewer would
+expect: the *Fusarium* head-blight complex (*graminearum*, *culmorum*, *avenaceum*,
+*asiaticum*, *pseudograminearum*), all three rusts (*Puccinia graminis*, *striiformis*,
+*triticina*), *Zymoseptoria tritici*, *Bipolaris sorokiniana*, *Gaeumannomyces graminis*,
+*Pyrenophora tritici-repentis*, *Pyricularia oryzae* (wheat blast), *Parastagonospora
+nodorum* and *Blumeria graminis*, plus the eight canonical wheat diseases PHI-base does not
+curate (`inputs/wheat_pathogens_curated.tsv`: *Tilletia caries*, *T. controversa*, *Ustilago
+tritici*, *Oculimacula yallundae*, *Microdochium nivale*, *Claviceps purpurea*, *Rhizoctonia
+solani*, *Alternaria alternata*). `wheat_pathogen_source` tags every call's provenance.
+
+**A plant host is not enough; the record must name a disease.** PHI-base scores an
+interaction against whatever host the experiment used, and the plant is not always the host
+being harmed. In a tripartite insect-fungus-plant assay, or an endophyte colonisation study,
+the plant is present but is not the victim, and those rows carry `Disease_name = "no data
+found"`. Requiring at least one NAMED disease separates them. Five fungi in this reference
+were labelled plant pathogens on disease-less rows alone, and every one is a plant
+ASSOCIATE rather than a pathogen:
+
+| | what it is | why PHI-base has a plant row |
+|---|---|---|
+| *Epichloe festucae* | the textbook grass endophyte, a mutualist | colonisation of *Lolium*/*Festuca* |
+| *Aspergillus ochraceus* | storage fungus, ochratoxin A | grain and pear assays |
+| *Leptographium clavigerum* | beetle-vectored blue stain on pine | vector association |
+| *Metarhizium acridum* | locust biocontrol agent | tripartite assay on rice |
+| *Metarhizium robertsii* | insect pathogen and root endophyte | root colonisation of barley |
+
+That set is coherent in a way that argues the condition is sound rather than lucky. It is
+also the same error this file already indicts FUNGuild for, arriving by a different route:
+the join is exact, but what it joins on is the experiment's host, not the disease.
+
+The condition is applied to the wheat label too, and is a **no-op** there: all 18 PHI-base
+wheat taxa already carry at least one named disease, so the wheat count does not move.
+Nothing is dropped from the table either way. A taxon whose only plant rows lack a disease
+keeps its row with `plant_pathogen_evidence = host_only`, recording why it was not labelled.
+
+**The label is applied at SPECIES rank**, because PHI-base keys pathogens by species taxid.
+`screen_pathogens.tsv` is one row per pathogen species, so *Fusarium oxysporum* appears once as a
+wheat pathogen rather than once per forma specialis. A detection resolves only to species and is
+joined to this table on the species taxid, which is the matching granularity.
+
+**No known wheat pathogen falls outside the scope.** Zero of the 26 wheat pathogens are
+absent from the USDA master. So the broad scope loses nothing the narrow label cares about,
+which is the test the whole design has to pass.
+
+**No congener carries a pathogen label at all.** After the merge and the disease condition,
+the entire congener row of the figure sits in one cell: 3,465 taxa, none of them a known
+plant or wheat pathogen. That is a structural property, not a coincidence. A fungus PHI-base
+scores with a named disease is a studied fungus, and USDA records studied fungi, so the
+pathogen annotation can never reach a taxon admitted only because its genus qualified. No
+detection can be called a pathogen on the strength of genus membership.
+
+## What the rule drops
+
+Of db_v4's 1,547 built taxa the rule retains 1,477 and drops 70.
+
+    usda_species     964   kept
+    usda_genus       494   kept
+    exception         19   kept
+    outside           70   DROPPED
+
+Those 70 absorbed 8,815,071 reads, **0.11%** of the 7.9 billion fungal reads classified on
+field wheat. The reads do not disappear when the taxa do; they are reassigned to the nearest
+surviving taxon. That is the one effect this cannot predict, and only a rebuild settles it.
+
+No pathogen-labelled detection falls outside USDA. Zero of the 17 carry one.
+
+A caveat worth keeping: this measures whether USDA covers what the UNION database found, not
+whether a USDA-only database would have found the same. The union is the generous case, so it
+is the strongest evidence available rather than a proof.
+
+## What holobase got wrong
+
+holobase is a private tool and is not in this pipeline, which is why. Both errors were found
+by checking the public sources directly.
+
+- ***Cryptococcus*** was reported absent from USDA and carried as an exception. It has **39
+  USDA records, 18 of them on *Triticum aestivum***. Almost certainly the 5206-fungus /
+  79213-scale-insect homonym its own seed file warns about. It is not an exception.
+- **The `assembly` table cannot answer whether an assembly exists**, in either direction. It
+  recorded zero for *Tilletiaria anomala*, which NCBI holds two annotated assemblies of, and
+  three accessions for *Hansenula subpelliculosa*, which NCBI returns nothing for. Its
+  `is_annotated` is 1 on all 36,709 rows, so it cannot answer annotation either.
+
+Annotation now comes from `assembly_summary.txt`'s own `annotation_provider`,
+`annotation_date` and `protein_coding_gene_count` columns. GenBank only: RefSeq holds
+re-annotated copies of assemblies already in that file, and taking both is how db_v4 came to
+build 432 genomes twice under paired GCA/GCF accessions, every pair differing in CDS size.
+That defect is retired by construction rather than by a dedup rule.
+
+## The gene-prediction gap, handed to research/predict
+
+3,529 in-scope taxa have no gene model. They are not equal:
+
+    genus already has annotated assemblies   2,597   predicting here mostly adds competitors
+    genus has NO annotation at all             932   the gap that costs calls
+
+The 932 is the worklist, derived from `screen_assemblies.tsv` by selection rather than copied
+out, so it stays correct when the assembly summary is refreshed. 751 of them (80.6%) have
+exactly one assembly; the best available is Scaffold for 620, Contig 230, Chromosome 64,
+Complete Genome 18, and 238 carry more than 5,000 contigs.
+
+Predicted CDS is a **competitor only** and must never support a positive call about its own
+species, because homology projection biases toward genes conserved with the guide. Every
+predicted species therefore dilutes species-level resolution for the species that can be
+reported, and buys nothing reportable itself. That argues for the smallest set that closes
+real misattribution gaps. The worked example is *Puccinia hordei*, absent from db_v3 and read
+as *P. triticina*.
+
+All 932 are in genera with no annotation, so none has an annotated congener to guide miniprot.
+That makes this set ab initio's case.
+
+## Decisions not yet taken
+
+- **The host side is not screened.** The criterion says "recorded on at least one plant host",
+  and testing it needs the 64,961 host names resolved too. What is implemented is "recorded in
+  USDA at all". The dataset is a plant-pathology compilation so the two nearly coincide, but
+  they are not the same statement: *Clohesyomyces*' single record gives the host as `"wood"`.
+- **`assembly_summary.txt` is unpinned.** It is rebuilt daily and NCBI publishes no archive,
+  so there is nothing stable to pin to. The md5 and the server's `Last-Modified` go into the
+  manifest instead, and setting `expected_md5` in `scope_rule.tsv` turns enforcement on.
+- **The declared-pathogen set has not been ported.** `target_pathogens` is empty for 53 of the
+  63 studies in `release/01_cohort`, so the test that no declared pathogen falls outside the
+  master cannot yet be run against the live cohort.
+
+## The figure
+
+Two panels, each owning a directory under `figures/`: its scripts, its data, its caption and
+its output live together, following `02_classify/report/figures/<name>/`. Every number is
+read from the curation tables at draw time; none is transcribed.
+
+    figures/matrix/   plot_matrix.py  -> matrix.png + matrix_numbers.tsv
+                      caption.py      -> matrix_caption.txt
+    figures/tree/     prep_tree.py    -> tree_{tree.nwk,tips,clades,params}
+                      tree.R          -> tree.png
+                      tree_legend.R   -> tree_legend.png
+                      caption.py      -> tree_caption.txt
+
+Both read `data/outputs/supp_data_s3_reference.tsv` and nothing else. The two caption
+scripts additionally read `curation/screen_merges.tsv` and `screen_pathogens.tsv`, for the
+two facts S3 cannot carry: the `aff.` nodes deliberately not merged, and a labelled taxon
+with no in-scope assembly. Neither is a row in the reference.
+
+Run, after the screens:
+
+    python scripts/build_reference.py
+    python figures/matrix/plot_matrix.py && python figures/matrix/caption.py
+    python figures/tree/prep_tree.py && Rscript figures/tree/tree.R \
+      && Rscript figures/tree/tree_legend.R && python figures/tree/caption.py
+
+**Panel A is a matrix because the two facts are independent.** A taxon carries where USDA
+recorded it and what PHI-base scored it as, and those do not nest. Drawn as a Venn, the
+awkward combination (a plant pathogen USDA records on wheat but PHI-base never scores on
+wheat) needs an overlap lens with no name, and every box ends up labelled with the inclusive
+set name while holding the exclusive count. Crossed axes draw as a matrix, where that
+combination is simply a cell, and the counts are disjoint and sum to the cohort.
+
+**Three cells are empty and are not drawn.** The staircase is the result: no wheat pathogen
+in scope is off-wheat in USDA, and no congener is a pathogen of anything. The captions say
+which gap means what, because an absent box on its own reads as a layout choice.
+
+**Five colours, one per occupied observation cell, shared by both panels.** Hue is the
+PHI-base column, saturation the USDA row (`scripts/_palette.py` `MATRIX`). Panel B's five
+tip categories ARE those five cells, which is why `prep_tree.py` emits five and not four: a
+plant pathogen USDA records on wheat is a different cell from one it does not. The hexes are
+repeated in `tree.R` and `tree_legend.R` and the three must be kept in step.
+
+**Sized to be placed, not cropped.** All three files render at their final print size at
+300 dpi and tile an **A4 portrait** page (8.27 x 11.69 in): the fan on top at full width,
+the matrix as a landscape band beneath it with the key beside it.
+
+    width   0.30 + tree 7.50 + 0.30                                  =  8.10
+    band    0.30 + matrix 4.89 + 0.20 + legend 2.58 + 0.30           =  8.27
+    height  0.30 + 7.50 + 0.20 + max(band 3.26, 3.16) + 0.30         = 11.56
+
+Stacking beats side by side here. A square fan placed next to the matrix wastes whatever
+height the matrix does not use, and the fan is then limited by the width the matrix leaves
+it. Stacked, the fan is limited only by the page, and the band fills the strip left over.
+`tree.R` scales every stroke and type size by `OUT_IN / 15`, because the fan was designed at
+15 in and shrinking that PNG into the layout would take 12 pt numerals down to about 5 pt.
+
+**The tree carries no legend and no title.** `tree_legend.R` draws the key as its own file,
+one swatch and one label per row after `01_cohort`'s `cohort_network_legend`, so the fan can
+be placed and scaled without dragging a legend block with it.
+
+**Captions are generated, never hand-edited.** Each `caption.py` reads the tables and
+interpolates every figure, after the drift recorded in `crypt-figure-caption-discipline`.
+Paragraphs are wrapped at write time so a number changing width cannot leave a ragged line.
+
+**Superseded.** `plot_partition.py` (the nested Euler), `plot_schematic.py` (the
+source-banded flow), `plot_funnel`, `plot_collapse`, `plot_butterfly` and `plot_legend` are
+in `research/superseded/02_reference_figs/` with their outputs. PDFs are no longer written.
+
+## Layout
+
+    data/inputs/     what we supply: the criterion, the pins, the exceptions
+    data/raw/        what the three sources return. Large files gitignored, manifest tracked
+    data/curation/   decisions, by hand or from a stated criterion
+    data/outputs/    THE DELIVERABLE: supp_data_s3_reference.tsv, what the figures read
+    scripts/         the pipeline steps, plus _palette.py and _caption.py
+    figures/matrix/  panel A: its script, its numbers, its caption, its png
+    figures/tree/    panel B: same, plus the separate legend

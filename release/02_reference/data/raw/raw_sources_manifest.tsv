@@ -1,0 +1,37 @@
+source	field	value
+usda	retrieved_on	2026-11-10
+usda	source_name	United States National Fungus Collections Fungus-Host Dataset
+usda	source_doi	10.15482/USDA.ADC/1524414
+usda	licence	U.S. Public Domain
+usda	file	Fungus-Host-Data_20211105.csv
+usda	bytes	187658073
+usda	md5	72269bcf94e77595fbe57dc100de5221
+usda	n_records	827645
+usda	n_fungus_names	99059
+usda	n_host_names	64961
+ncbi_taxonomy	retrieved_on	2026-11-10
+ncbi_taxonomy	source_name	NCBI Taxonomy
+ncbi_taxonomy	source_doi	
+ncbi_taxonomy	licence	public domain
+ncbi_taxonomy	file	taxdmp_2026-11-01.zip
+ncbi_taxonomy	bytes	79960131
+ncbi_taxonomy	md5	42a27451954fd10ddcb50f0549ab7869
+phibase	source_name	PHI-base: Pathogen-Host Interactions database
+phibase	licence	CC-BY 4.0
+phibase	url	https://raw.githubusercontent.com/PHI-base/data/master/releases/phi-base_v4-19_2026-03-25.csv
+phibase	file	phi-base_v4-19_2026-03-25.csv
+phibase	bytes	17715693
+phibase	md5	b0725633e97fedba070e2cf8f5b163ee
+phibase	retrieved_on	2026-11-10
+phibase	n_rows	24123
+ncbi_assembly	source_name	NCBI GenBank fungal assembly summary
+ncbi_assembly	licence	public domain
+ncbi_assembly	url	https://ftp.ncbi.nlm.nih.gov/genomes/genbank/fungi/assembly_summary.txt
+ncbi_assembly	file	assembly_summary.txt
+ncbi_assembly	bytes	10686826
+ncbi_assembly	md5	050f64bd690c25012426c310f3c6e2ee
+ncbi_assembly	last_modified	
+ncbi_assembly	pinned	no
+ncbi_assembly	retrieved_on	2026-11-10
+ncbi_assembly	n_assemblies	26826
+ncbi_assembly	n_annotated	6196

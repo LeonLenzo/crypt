@@ -1,0 +1,23 @@
+from_taxid	from_name	qualifier	action	to_taxid	to_name	usda_name	usda_records	to_has_own_assemblies	assemblies_moved	note
+1914044	Boletellus aff. emodensis	aff.	keep			Boletellus emodensis	2	no	1	aff. denotes a related undescribed species
+2881482	Clarireedia aff. paspali H2	aff.	keep			Clarireedia paspali	3	no	1	aff. denotes a related undescribed species
+1967640	Claviceps aff. purpurea	aff.	keep			Claviceps purpurea	2323	no	2	aff. denotes a related undescribed species
+3395814	Gyroporus aff. castaneus	aff.	keep			Gyroporus castaneus	2	no	2	aff. denotes a related undescribed species
+2163413	Metschnikowia aff. pulcherrima	aff.	keep			Metschnikowia pulcherrima	4	no	2	aff. denotes a related undescribed species
+2738401	Alternaria cf. alternata	cf.	merge	5599	Alternaria alternata	Alternaria alternata	1465	yes	1	USDA binomial has its own NCBI node
+1868926	Cercospora cf. flagellaris	cf.	merge	1579221	Cercospora flagellaris	Cercospora flagellaris	33	no	2	USDA binomial has its own NCBI node
+1907226	Chytriomyces cf. hyalinus JEL632	cf.	merge	4814	Chytriomyces hyalinus	Chytriomyces hyalinus	1	yes	1	USDA binomial has its own NCBI node
+2144180	Cladosporium cf. tenuissimum	cf.	merge	70808	Cladosporium tenuissimum	Cladosporium tenuissimum	132	yes	1	USDA binomial has its own NCBI node
+2778372	Fusarium cf. falciforme	cf.	merge	195108	Fusarium falciforme	Fusarium falciforme	15	yes	10	USDA binomial has its own NCBI node
+2778373	Fusarium cf. hostae	cf.	merge	152502	Fusarium hostae	Fusarium hostae	13	yes	3	USDA binomial has its own NCBI node
+2778374	Fusarium cf. nygamai	cf.	merge	42673	Fusarium nygamai	Fusarium nygamai	36	yes	2	USDA binomial has its own NCBI node
+1715230	Fusarium cf. solani	cf.	merge	169388	Fusarium solani	Fusarium solani	1225	yes	24	USDA binomial has its own NCBI node
+2778375	Fusarium cf. verticillioides	cf.	merge	117187	Fusarium verticillioides	Fusarium verticillioides	162	yes	4	USDA binomial has its own NCBI node
+2025524	Graphilbum cf. rectangulosporium	cf.	merge	345159	Graphilbum rectangulosporium	Graphilbum rectangulosporium	7	no	1	USDA binomial has its own NCBI node
+2917766	Ophiostoma cf. undulatum	cf.	merge	983331	Ophiostoma undulatum	Ophiostoma undulatum	1	no	1	USDA binomial has its own NCBI node
+3062267	Penicillium cf. chrysogenum	cf.	merge	5076	Penicillium chrysogenum	Penicillium chrysogenum	59	yes	5	USDA binomial has its own NCBI node
+2972120	Penicillium cf. griseofulvum	cf.	merge	5078	Penicillium griseofulvum	Penicillium griseofulvum	14	yes	3	USDA binomial has its own NCBI node
+2972119	Penicillium cf. viridicatum	cf.	merge	60134	Penicillium viridicatum	Penicillium viridicatum	19	yes	1	USDA binomial has its own NCBI node
+2776139	Sporothrix cf. nigrograna	cf.	merge	1892483	Sporothrix nigrograna	Sporothrix nigrograna	1	no	1	USDA binomial has its own NCBI node
+3058842	Teloschistes cf. exilis	cf.	merge	271840	Teloschistes exilis	Teloschistes exilis	2	yes	1	USDA binomial has its own NCBI node
+1868927	Cercospora cf. sigesbeckiae	cf.	reroute			Cercospora sigesbeckiae	11	no	2	USDA names it; NCBI has no node for the binomial

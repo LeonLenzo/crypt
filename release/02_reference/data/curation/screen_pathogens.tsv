@@ -1,0 +1,151 @@
+ncbi_taxid	species	is_plant_pathogen	is_wheat_pathogen	wheat_pathogen_source	plant_pathogen_evidence	n_plant_hosts	n_plant_named_disease	n_wheat_records	n_wheat_named_disease	n_phibase_records	in_usda_genus
+5599	Alternaria alternata	yes	yes	curated	named_disease	14	161	0	0	162	yes
+29001	Alternaria brassicicola	yes	no		named_disease	7	51	0	0	51	yes
+135859	Alternaria citri	yes	no		named_disease	5	6	0	0	6	yes
+160389	Alternaria longipes	yes	no		named_disease	1	2	0	0	2	yes
+48097	Alternaria panax	yes	no		named_disease	1	2	0	0	2	yes
+48100	Alternaria solani	yes	no		named_disease	2	4	0	0	4	yes
+205686	Ascochyta lentis	yes	no		named_disease	1	2	0	0	2	yes
+5454	Ascochyta rabiei	yes	no		named_disease	1	6	0	0	6	yes
+40993	Aspergillus carbonarius	yes	no		named_disease	3	10	0	0	10	yes
+5059	Aspergillus flavus	yes	no		named_disease	4	116	0	0	125	yes
+746128	Aspergillus fumigatus	no	no		no_plant_host	0	0	0	0	475	yes
+162425	Aspergillus nidulans	no	no		no_plant_host	0	0	0	0	6	yes
+5061	Aspergillus niger	yes	no		named_disease	1	1	0	0	1	yes
+40380	Aspergillus ochraceus	no	no		host_only	2	0	0	0	2	yes
+176275	Beauveria bassiana	yes	no		named_disease	1	4	0	0	204	yes
+5016	Bipolaris maydis	yes	no		named_disease	1	140	0	0	142	yes
+101162	Bipolaris oryzae	yes	no		named_disease	1	3	0	0	3	yes
+45130	Bipolaris sorokiniana	yes	yes	phibase	named_disease	2	14	1	1	14	yes
+40125	Bipolaris victoriae	yes	no		named_disease	1	1	0	0	1	yes
+5017	Bipolaris zeicola	yes	no		named_disease	1	24	0	0	24	yes
+5039	Blastomyces dermatitidis	no	no		no_plant_host	0	0	0	0	1	no
+34373	Blumeria graminis	yes	yes	phibase	named_disease	4	34	11	11	34	yes
+55169	Botryosphaeria dothidea	yes	no		named_disease	1	2	0	0	2	yes
+40559	Botrytis cinerea	yes	no		named_disease	32	614	0	0	626	yes
+278938	Botrytis elliptica	yes	no		named_disease	1	2	0	0	2	yes
+5476	Candida albicans	no	no		no_plant_host	0	0	0	0	839	yes
+42374	Candida dubliniensis	no	no		no_plant_host	0	0	0	0	24	yes
+5482	Candida tropicalis	no	no		no_plant_host	0	0	0	0	10	yes
+498019	Candidozyma auris	no	no		no_plant_host	0	0	0	0	8	no
+5158	Ceratocystis fimbriata	yes	no		named_disease	2	9	0	0	10	yes
+312341	Ceratocystis harringtonii	yes	no		named_disease	1	1	0	0	1	yes
+929235	Ceratocystis manginecans	yes	no		named_disease	1	1	0	0	1	yes
+132184	Cercospora apii	yes	no		named_disease	1	1	0	0	1	yes
+122368	Cercospora beticola	yes	no		named_disease	2	3	0	0	3	yes
+1579221	Cercospora flagellaris	yes	no		named_disease	1	1	0	0	1	yes
+84275	Cercospora kikuchii	yes	no		named_disease	1	1	0	0	1	yes
+29003	Cercospora nicotianae	yes	no		named_disease	1	8	0	0	9	yes
+135779	Cercospora zeae-maydis	yes	no		named_disease	1	2	0	0	2	yes
+984309	Ciboria shiraiana	yes	no		named_disease	1	2	0	0	2	yes
+5111	Claviceps purpurea	yes	yes	curated	named_disease	1	27	0	0	27	yes
+36911	Clavispora lusitaniae	no	no		no_plant_host	0	0	0	0	2	yes
+29856	Clonostachys rosea	yes	no		named_disease	1	4	0	0	4	yes
+5501	Coccidioides immitis	no	no		no_plant_host	0	0	0	0	1	no
+199306	Coccidioides posadasii	no	no		no_plant_host	0	0	0	0	1	no
+27357	Colletotrichum acutatum	yes	no		named_disease	4	8	0	0	8	yes
+702518	Colletotrichum asianum	yes	no		named_disease	1	1	0	0	1	yes
+538528	Colletotrichum camelliae	yes	no		named_disease	1	1	0	0	1	yes
+27358	Colletotrichum coccodes	yes	no		named_disease	1	2	0	0	2	yes
+690256	Colletotrichum fructicola	yes	no		named_disease	5	60	0	0	60	yes
+474922	Colletotrichum gloeosporioides	yes	no		named_disease	18	92	0	0	92	yes
+31870	Colletotrichum graminicola	yes	no		named_disease	2	45	0	0	45	yes
+80884	Colletotrichum higginsianum	yes	no		named_disease	3	29	0	0	29	yes
+5462	Colletotrichum lagenaria	yes	no		named_disease	1	11	0	0	11	yes
+1585795	Colletotrichum lentis	yes	no		named_disease	1	1	0	0	1	yes
+290576	Colletotrichum lindemuthianum	yes	no		named_disease	1	8	0	0	8	yes
+5465	Colletotrichum orbiculare	yes	no		named_disease	3	96	0	0	96	yes
+1209932	Colletotrichum scovillei	yes	no		named_disease	1	4	0	0	4	yes
+690259	Colletotrichum siamense	yes	no		named_disease	2	3	0	0	3	yes
+1209068	Colletotrichum tabaci	yes	no		named_disease	1	1	0	0	1	yes
+5466	Colletotrichum trifolii	yes	no		named_disease	1	2	0	0	2	yes
+5116	Cryphonectria parasitica	yes	no		named_disease	4	22	0	0	22	yes
+552467	Cryptococcus bacillisporus	no	no		no_plant_host	0	0	0	0	16	yes
+5207	Cryptococcus neoformans	no	no		no_plant_host	0	0	0	0	496	yes
+5503	Curvularia lunata	yes	no		named_disease	1	9	0	0	9	yes
+252740	Cytospora chrysosperma	yes	no		named_disease	1	3	0	0	3	yes
+430498	Dactylellina haptotyla	no	no		no_plant_host	0	0	0	0	1	yes
+64363	Dothistroma septosporum	yes	no		named_disease	1	1	0	0	1	yes
+35717	Epichloe festucae	no	no		host_only	3	0	0	0	12	yes
+5970	Exophiala dermatitidis	no	no		no_plant_host	0	0	0	0	5	yes
+93612	Exserohilum turcicum	yes	no		named_disease	1	14	0	0	14	yes
+5499	Fulvia fulva	yes	no		named_disease	6	75	0	0	75	yes
+282267	Fusarium asiaticum	yes	yes	phibase	named_disease	2	17	13	13	17	yes
+40199	Fusarium avenaceum	yes	yes	phibase	named_disease	4	12	4	4	12	yes
+48490	Fusarium circinatum	yes	no		named_disease	1	1	0	0	1	yes
+5516	Fusarium culmorum	yes	yes	phibase	named_disease	2	2	2	2	2	yes
+5127	Fusarium fujikuroi	yes	no		named_disease	3	22	0	0	22	yes
+5518	Fusarium graminearum	yes	yes	phibase	named_disease	15	1976	1762	1762	1978	yes
+2502994	Fusarium odoratissimum	yes	no		named_disease	1	3	0	0	4	yes
+5507	Fusarium oxysporum	yes	yes	phibase	named_disease	27	341	2	2	379	yes
+948311	Fusarium proliferatum	yes	no		named_disease	3	13	0	0	13	yes
+101028	Fusarium pseudograminearum	yes	yes	phibase	named_disease	2	32	25	25	32	yes
+42676	Fusarium sacchari	yes	no		named_disease	1	5	0	0	5	yes
+5128	Fusarium sambucinum	yes	no		named_disease	1	1	0	0	1	yes
+169388	Fusarium solani	yes	no		named_disease	5	12	0	0	14	yes
+5514	Fusarium sporotrichioides	yes	yes	phibase	named_disease	1	1	1	1	1	yes
+117187	Fusarium verticillioides	yes	yes	phibase	named_disease	5	108	2	2	108	yes
+232082	Fusarium virguliforme	yes	no		named_disease	1	4	0	0	4	yes
+29850	Gaeumannomyces graminis	yes	yes	phibase	named_disease	3	2	2	2	3	yes
+13563	Heterobasidion annosum	yes	no		named_disease	2	2	0	0	2	yes
+5037	Histoplasma capsulatum	no	no		no_plant_host	0	0	0	0	23	no
+45133	Lasiodiplodia theobromae	yes	no		named_disease	2	7	0	0	7	yes
+226899	Leptographium clavigerum	no	no		host_only	1	0	0	0	1	yes
+5480	Lodderomyces parapsilosis	no	no		no_plant_host	0	0	0	0	58	no
+203908	Melampsora laricis-populina	yes	no		named_disease	2	29	0	0	29	yes
+5261	Melampsora lini	yes	no		named_disease	2	7	0	0	7	yes
+92637	Metarhizium acridum	no	no		host_only	1	0	0	0	35	yes
+5530	Metarhizium anisopliae	no	no		no_plant_host	0	0	0	0	9	yes
+568076	Metarhizium robertsii	no	no		host_only	2	0	0	0	87	yes
+5520	Microdochium nivale	yes	yes	curated	curated	0	0	0	0	0	yes
+1682391	Microdochium sorghi	yes	no		named_disease	1	1	0	0	1	yes
+38448	Monilinia fructicola	yes	no		named_disease	5	14	0	0	15	yes
+153609	Moniliophthora perniciosa	yes	no		named_disease	2	4	0	0	4	yes
+5270	Mycosarcoma maydis	yes	no		named_disease	3	538	0	0	538	yes
+5478	Nakaseomyces glabratus	no	no		no_plant_host	0	0	0	0	256	no
+86028	Oculimacula yallundae	yes	yes	curated	curated	0	0	0	0	0	yes
+2813651	Orbilia oligospora	no	no		no_plant_host	0	0	0	0	37	yes
+121759	Paracoccidioides brasiliensis	no	no		no_plant_host	0	0	0	0	12	no
+13684	Parastagonospora nodorum	yes	yes	phibase	named_disease	2	62	62	62	62	yes
+36651	Penicillium digitatum	yes	no		named_disease	3	44	0	0	44	yes
+27334	Penicillium expansum	yes	no		named_disease	7	134	0	0	134	yes
+40296	Penicillium italicum	yes	no		named_disease	2	3	0	0	3	yes
+170000	Phakopsora pachyrhizi	yes	no		named_disease	1	2	0	0	2	yes
+5022	Plenodomus lingam	yes	no		named_disease	3	41	0	0	41	yes
+1873960	Pseudocercospora fijiensis	yes	no		named_disease	3	8	0	0	8	yes
+685502	Pseudocercospora fuligena	yes	no		named_disease	1	2	0	0	2	yes
+285811	Pseudopyrenochaeta lycopersici	yes	no		named_disease	1	1	0	0	1	yes
+5297	Puccinia graminis	yes	yes	phibase	named_disease	4	11	6	6	11	yes
+27350	Puccinia striiformis	yes	yes	phibase	named_disease	3	54	33	33	54	yes
+208348	Puccinia triticina	yes	yes	phibase	named_disease	1	3	3	3	3	yes
+76659	Pyrenopeziza brassicae	yes	no		named_disease	1	1	0	0	1	yes
+53485	Pyrenophora teres	yes	no		named_disease	1	1	0	0	1	yes
+45151	Pyrenophora tritici-repentis	yes	yes	phibase	named_disease	3	144	144	144	144	yes
+318829	Pyricularia oryzae	yes	yes	phibase	named_disease	12	1933	65	65	1933	yes
+456999	Rhizoctonia solani	yes	yes	curated	named_disease	3	7	0	0	7	yes
+64495	Rhizopus arrhizus	no	no		no_plant_host	0	0	0	0	5	yes
+77044	Rosellinia necatrix	yes	no		named_disease	1	1	0	0	1	yes
+4932	Saccharomyces cerevisiae	no	no		no_plant_host	0	0	0	0	14	yes
+5180	Sclerotinia sclerotiorum	yes	no		named_disease	17	224	0	0	233	yes
+2698418	Sclerotiophoma versabilis	yes	no		named_disease	1	2	0	0	2	yes
+39703	Septoria lycopersici	yes	no		named_disease	1	1	0	0	1	yes
+72558	Sporisorium reilianum	yes	no		named_disease	1	111	0	0	111	yes
+49012	Sporisorium scitamineum	yes	no		named_disease	1	12	0	0	12	yes
+29908	Sporothrix schenckii	no	no		no_plant_host	0	0	0	0	2	yes
+183478	Stemphylium lycopersici	yes	no		named_disease	1	2	0	0	2	yes
+286115	Synchytrium endobioticum	yes	no		named_disease	1	1	0	0	1	yes
+13290	Tilletia caries	yes	yes	curated	curated	0	0	0	0	0	yes
+13291	Tilletia controversa	yes	yes	curated	curated	0	0	0	0	0	yes
+29875	Trichoderma virens	yes	no		named_disease	4	8	0	0	10	yes
+523103	Trichophyton mentagrophytes	no	no		no_plant_host	0	0	0	0	7	yes
+5551	Trichophyton rubrum	no	no		no_plant_host	0	0	0	0	5	yes
+1159556	Ustilaginoidea virens	yes	no		named_disease	2	74	0	0	74	yes
+185366	Ustilago esculenta	yes	no		named_disease	1	1	0	0	1	yes
+120017	Ustilago hordei	yes	no		named_disease	1	5	0	0	5	yes
+117174	Ustilago tritici	yes	yes	curated	curated	0	0	0	0	0	yes
+5025	Venturia inaequalis	no	no		no_plant_host	0	0	0	0	1	yes
+27337	Verticillium dahliae	yes	no		named_disease	18	385	0	0	385	yes
+100787	Verticillium longisporum	yes	no		named_disease	3	21	0	0	21	yes
+1051616	Verticillium nonalfalfae	yes	no		named_disease	1	2	0	0	3	yes
+93591	Zarea fungicola	no	no		no_plant_host	0	0	0	0	2	yes
+1047171	Zymoseptoria tritici	yes	yes	phibase	named_disease	3	103	102	102	103	yes

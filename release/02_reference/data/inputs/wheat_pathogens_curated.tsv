@@ -1,0 +1,24 @@
+# AUTHORED 2026-11-13. Canonical wheat fungal pathogens that PHI-base does NOT curate with a
+# Triticum host, admitted from authoritative wheat-disease references. PHI-base is a molecular
+# database (experimentally verified virulence genes), so it misses well-established field
+# diseases nobody has done gene-function work on. This file is the reproducible patch: one row
+# per species, the named wheat disease it causes, and the citation that evidences it.
+#
+# screen_pathogens.py UNIONS this into is_wheat_pathogen (and is_plant_pathogen) and tags
+# wheat_pathogen_source so every label traces to either PHI-base or a named reference here.
+#
+# ADMISSION RULE: the species must cause a NAMED disease of wheat (Triticum) documented in a
+# peer-reviewed review or the APS disease compendium. ncbi_taxid is resolved to SPECIES rank
+# (the join is species-level). Do not add a species already carried by PHI-base; this file is
+# for the gaps only. No database swap recovers these -- see the memory note on the exhausted
+# PHI-base-alternative search (CABI paywalled, EPPO quarantine-only, Zenodo host-range DB is
+# cross-kingdom and host-blind).
+ncbi_taxid	species	disease	evidence	added
+5599	Alternaria alternata	black point / leaf blight of wheat grain	Bockus et al. 2010, Compendium of Wheat Diseases and Pests, 3rd ed., APS Press	2026-11-13
+456999	Rhizoctonia solani	sharp eyespot / bare patch (root and crown rot)	Bockus et al. 2010, Compendium of Wheat Diseases and Pests, 3rd ed., APS Press	2026-11-13
+5111	Claviceps purpurea	ergot	Bockus et al. 2010, Compendium of Wheat Diseases and Pests, 3rd ed., APS Press	2026-11-13
+13290	Tilletia caries	common bunt (stinking smut)	Bockus et al. 2010, Compendium of Wheat Diseases and Pests, 3rd ed., APS Press	2026-11-13
+13291	Tilletia controversa	dwarf bunt	Bockus et al. 2010, Compendium of Wheat Diseases and Pests, 3rd ed., APS Press	2026-11-13
+117174	Ustilago tritici	loose smut of wheat	Bockus et al. 2010, Compendium of Wheat Diseases and Pests, 3rd ed., APS Press	2026-11-13
+5520	Microdochium nivale	pink snow mould / seedling blight and foot rot	Bockus et al. 2010, Compendium of Wheat Diseases and Pests, 3rd ed., APS Press	2026-11-13
+86028	Oculimacula yallundae	eyespot (strawbreaker foot rot)	Bockus et al. 2010, Compendium of Wheat Diseases and Pests, 3rd ed., APS Press	2026-11-13

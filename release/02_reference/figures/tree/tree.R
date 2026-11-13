@@ -1,0 +1,143 @@
+#!/usr/bin/env Rscript
+# tree.R — the reference contents as a circular taxonomic cladogram (panel B).
+#
+#   Rscript release/02_reference/figures/tree/tree.R
+#
+# The panel carries NO legend and no title: tree_legend.R draws the key as its own file, so
+# the fan can be placed at whatever size the layout wants without dragging a legend block
+# with it. caption.py writes the words.
+#
+# Reads only what prep_tree.py wrote. IT IS A TAXONOMY, NOT A PHYLOGENY: radius encodes rank
+# (kingdom -> species), not divergence. Bar length is the species' genome count on a log
+# scale; tip colour is the label category. Layout and style only -- prep_tree.py owns the data.
+#
+# Structure follows 02_classify's db_contents.R: the fan is coord_polar(theta="y") under the
+# hood, so a geom_rect in tree coordinates tiles its angular slot exactly (a wedge), which is
+# what the bars need at this tip count.
+
+suppressPackageStartupMessages({
+  library(ggplot2); library(ggtree); library(treeio); library(ape); library(dplyr)
+})
+
+# ── style ─────────────────────────────────────────────────────────────────────
+# FIVE colours, one per occupied observation cell of panel A, and the same five hexes, so a
+# hue means the same thing in both panels. Residents are the recessive pale mass and the
+# pathogens the few bright tips, which is the point: the eye reads the pathogen sliver
+# against the community. Order here is the DRAW order, residents underneath.
+# Keep in step with scripts/_palette.py MATRIX and figures/tree/tree_legend.R.
+CAT_COLOUR <- c(
+  wheat_pathogen   = "#e05a26",   # Wheat x Wheat pathogen
+  onwheat_pathogen = "#f5a800",   # Wheat x Plant pathogen
+  onwheat_resident = "#1aa64b",   # Wheat x Non pathogen
+  plant_pathogen   = "#fbe49a",   # Plant x Plant pathogen
+  plant_resident   = "#c3e8bf")   # Plant x Non pathogen
+
+# OUT_IN is the size the panel is PLACED at, and every stroke and type size below is scaled
+# by it. The design was tuned at 15 in; rendering at 15 and shrinking the PNG into an A4
+# layout would take 12 pt numerals down to about 5 pt, so the panel is rendered at its final
+# size instead and the constants scale with it. A4 landscape (11.69 x 8.27 in) holds this
+# A4 PORTRAIT (8.27 x 11.69 in), fan on top and the matrix band beneath. The fan is limited
+# by page WIDTH here, not by the matrix: 8.27 - 0.6 margins = 7.67, taken as 7.5 to leave the
+# band its 3.26 + 0.2 gutter inside the 11.69 height.
+OUT_IN <- 7.5
+S <- OUT_IN / 15
+
+BRANCH_COLOUR <- "#8a8a8a"; BRANCH_WIDTH <- 0.12 * S
+TIP_BRANCH_COLOUR <- "#8a8a8a"; TIP_BRANCH_WIDTH <- 0.06 * S
+HOLE <- 5; BAR_GAP <- 0.35; BAR_SCALE <- 2      # tree coordinates: NOT scaled by S
+ARC_GAP <- 0.45; ARC_WIDTH <- 1.1 * S; ARC_PAD <- 5; LABEL_MIN <- 40
+TICK_SIZE <- 4.2 * S
+
+# ── inputs ────────────────────────────────────────────────────────────────────
+here <- dirname(sub("^--file=", "", grep("^--file=", commandArgs(FALSE), value = TRUE)[1]))
+if (is.na(here) || !nzchar(here)) here <- "."
+stem <- normalizePath(file.path(here, "tree"), mustWork = FALSE)
+params <- read.delim(paste0(stem, "_params.tsv"), stringsAsFactors = FALSE)
+OPEN_ANGLE <- params$value[params$param == "open_angle_deg"]
+tr   <- read.tree(paste0(stem, "_tree.nwk"))
+tips <- read.delim(paste0(stem, "_tips.tsv"), stringsAsFactors = FALSE)
+tips$category <- factor(tips$category, levels = names(CAT_COLOUR))
+cat(sprintf("  %d tips, %d internal nodes\n", Ntip(tr), Nnode(tr)))
+
+# ── tree ──────────────────────────────────────────────────────────────────────
+p <- suppressWarnings(ggtree(tr, layout = "fan", open.angle = OPEN_ANGLE,
+                             color = BRANCH_COLOUR, linewidth = BRANCH_WIDTH))
+d <- p$data; is_tip <- d$isTip
+tip_seg <- d[is_tip, ]; tip_seg$xpar <- d$x[match(tip_seg$parent, d$node)]
+p <- p + geom_segment(data = tip_seg, aes(x = xpar, xend = x, y = y, yend = y),
+                      colour = TIP_BRANCH_COLOUR, linewidth = TIP_BRANCH_WIDTH,
+                      inherit.aes = FALSE)
+
+# ── bars: genome count, log scale, coloured by category ───────────────────────
+xtip <- max(d$x[is_tip])
+bars <- d[is_tip, c("label", "y", "angle")] |> left_join(tips, by = "label")
+stopifnot(!anyNA(bars$category))
+# draw residents first so the bright categories sit on top where arcs overlap
+bars <- bars[order(bars$category, decreasing = TRUE), ]
+bars$x0 <- xtip + BAR_GAP
+bars$x1 <- bars$x0 + log10(bars$n_genomes + 1) * BAR_SCALE
+p <- p + geom_rect(data = bars,
+                   aes(xmin = x0, xmax = x1, ymin = y - 0.5, ymax = y + 0.5, fill = category),
+                   inherit.aes = FALSE) +
+  scale_fill_manual(values = CAT_COLOUR, breaks = names(CAT_COLOUR),
+                    name = NULL, drop = FALSE)
+
+# ── annotation-ratio band: a ring at the tip base under the bars ───────────────
+# Per species, annotated assemblies / total assemblies. Pale = every assembly is annotated;
+# dark purple = few are, i.e. genomes sitting unannotated that gene prediction would unlock.
+# Drawn with a fixed fill VECTOR (not an aes) so it needs no scale and never collides with the
+# category scale above. band_colour is precomputed in prep_tree.py.
+band_x0 <- xtip + 0.04; band_x1 <- xtip + BAR_GAP - 0.04
+p <- p + geom_rect(data = bars, aes(ymin = y - 0.5, ymax = y + 0.5),
+                   xmin = band_x0, xmax = band_x1, fill = bars$band_colour,
+                   inherit.aes = FALSE)
+
+# ── log gridlines + numerals (kept in both modes) ─────────────────────────────
+top <- max(bars$n_genomes)
+ticks <- c(1, 10, 100, 1000); ticks <- ticks[ticks <= top * 1.5]
+tickx <- bars$x0[1] + log10(ticks + 1) * BAR_SCALE
+p <- p + geom_vline(xintercept = tickx, colour = "#b0b0b0", linewidth = 0.2 * S,
+                    linetype = "dotted")
+ylab <- max(d$y) + Ntip(tr) * OPEN_ANGLE / 360 / 2
+p <- p + annotate("text", x = tickx, y = ylab, label = format(ticks, big.mark = ","),
+                  size = TICK_SIZE, colour = "#333333", hjust = 0.5, vjust = -0.4)
+
+# ── clade arcs, WITH their class names ────────────────────────────────────────
+# The arc alone says "these tips belong together" and not which group they are, which left
+# the reader no way to tell a Dothideomycete bar from a Sordariomycete one. The name is set
+# radially at the arc's mid angle: ggtree's `angle` column is the tip's angle BEFORE the
+# rotate_tree below, so the displayed angle is that plus ROT, and a label landing in the
+# left half is flipped 180 degrees so it never reads upside down.
+ROT <- 90 + OPEN_ANGLE / 2
+arcs <- bars |> filter(class != "") |> group_by(class) |>
+  summarise(n = n(), ymin = min(y), ymax = max(y), amid = mean(angle), .groups = "drop") |>
+  filter(n >= LABEL_MIN) |>
+  mutate(pad = pmin(ARC_PAD, 0.15 * n), ymin = ymin + pad, ymax = ymax - pad,
+         ymid = (ymin + ymax) / 2,
+         disp = (amid + ROT) %% 360,
+         flip = disp > 90 & disp < 270,
+         lab_angle = ifelse(flip, disp + 180, disp),
+         hj = ifelse(flip, 1, 0))
+arcx <- bars$x0[1] + log10(top + 1) * BAR_SCALE + ARC_GAP
+p <- p + geom_segment(data = arcs, aes(x = arcx, xend = arcx, y = ymin, yend = ymax),
+                      colour = "#333333", linewidth = ARC_WIDTH, lineend = "butt",
+                      inherit.aes = FALSE) +
+  geom_text(data = arcs, aes(x = arcx + 0.28, y = ymid, label = class, angle = lab_angle,
+                             hjust = hj), size = 4.6 * S, colour = "#333333",
+            inherit.aes = FALSE)
+cat(sprintf("  %d class arcs: %s\n", nrow(arcs), paste(arcs$class, collapse = ", ")))
+
+# ── hole, theme, out ──────────────────────────────────────────────────────────
+p <- p + xlim(c(-HOLE, arcx + 3.4)) +      # room for the class names outside the arcs
+  theme(panel.background = element_rect(fill = "white", colour = NA),
+        plot.background = element_rect(fill = "white", colour = NA),
+        plot.margin = margin(0, 0, 0, 0))
+
+p <- p + theme(legend.position = "none")
+p <- rotate_tree(p, ROT)
+
+png <- paste0(stem, ".png")
+ragg::agg_png(png, width = OUT_IN, height = OUT_IN, units = "in", res = 300,
+              background = "white")
+print(p); invisible(dev.off())
+cat(sprintf("  -> %s\n", png))

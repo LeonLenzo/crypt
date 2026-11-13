@@ -1,0 +1,40 @@
+# AUTHORED. The reference scope criterion, and a pin on every dataset it is applied to.
+# fetch_species.py reads the pins from here and refuses to proceed on a mismatch, because a
+# silently revised source would change what the database contains without changing any code.
+# A mismatch is a hard stop. Re-pin deliberately, after looking at what changed.
+#
+# source=scope           the rule itself
+# source=usda            the master list
+# source=ncbi_taxonomy   the name authority the master list is resolved against
+source	field	value	note
+scope	criterion	fungus recorded on at least one plant host	asked of the taxon, never of a particular host: the study exists to find UNREPORTED host associations
+scope	rank	genus	any species inside a qualifying genus that has an annotated assembly is in
+scope	kingdom	Fungi	oomycetes out since 2026-10-13
+scope	cohort_host_genera	Triticum	a LABEL, never a filter. The analysed cohort is field Triticum aestivum (1,450 runs); the Hordeum, Secale and Triticosecale runs in release/01_cohort are lab controls and noise, not analysed samples. Filtering the reference to fungi already recorded on wheat would make an unreported host association structurally undetectable, which is the finding this chapter exists to make. Recording which fungi ARE already known on wheat is what lets a detection be called novel
+scope	cohort_host_aliases	wheat=Triticum	3 USDA records give the host as the common name 'wheat', all Puccinia from Wakefield & Hansford 1948-49 (Uganda). Aliased so they are not silently missed
+scope	name_classes	scientific name,synonym,equivalent name	names OF the taxon. `authority` carries the author string and `type material` is a strain designation; matching a bare binomial against either invites false positives. `includes` is accepted but flagged, being loose subsumption rather than equivalence
+scope	pathogen_label	PHI-base, experimental pathogenicity on a plant host	FUNGuild and FungalTraits assign plant-pathogen at genus by name substring and inherit homonyms (37 of 39 db_v4 pathogen labels were genus priors on chytrids and industrial yeasts). PHI-base is curated per species from pathogenicity experiments and carries the NCBI taxid of both pathogen and host, so is_pathogen and is_wheat_pathogen are a join, not a guess. It is a LABEL, never scope: 0 PHI-base wheat pathogens fall outside the USDA master
+usda	source_name	United States National Fungus Collections Fungus-Host Dataset	the USDA Fungus-Host Distributions database
+usda	source_doi	10.15482/USDA.ADC/1524414	-
+usda	figshare_article	24855585	api.figshare.com/v2/articles/<id>
+usda	expected_file	Fungus-Host-Data_20211105.csv	frozen at 2021-11-05
+usda	expected_md5	72269bcf94e77595fbe57dc100de5221	figshare's own computed_md5
+usda	licence	U.S. Public Domain	-
+usda	association	every record is an occurrence	records WHERE A FUNGUS WAS FOUND, never pathogenicity, which is why it reaches saprotrophs, endophytes and epiphytes
+ncbi_taxonomy	source_name	NCBI Taxonomy	names.dmp + nodes.dmp
+ncbi_taxonomy	url	https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump_archive/taxdmp_2026-11-01.zip	the DATED archive, not pub/taxonomy/taxdmp.zip, which is rebuilt daily and cannot be pinned
+ncbi_taxonomy	expected_file	taxdmp_2026-11-01.zip	-
+ncbi_taxonomy	expected_md5	42a27451954fd10ddcb50f0549ab7869	OUR checksum of the dated file, not NCBI's: NCBI publishes no .md5 alongside the archive. The dated file is immutable, so a reviewer fetching it gets these bytes
+ncbi_taxonomy	licence	public domain	-
+ncbi_assembly	source_name	NCBI GenBank fungal assembly summary	the one file that says what exists to build from, and whether it carries a gene model
+ncbi_assembly	url	https://ftp.ncbi.nlm.nih.gov/genomes/genbank/fungi/assembly_summary.txt	GenBank only. RefSeq is a re-annotated copy of assemblies already here, and taking both put 432 duplicate pairs into db_v4; `gbrs_paired_asm` names the RefSeq twin if one is ever wanted
+ncbi_assembly	expected_file	assembly_summary.txt	-
+ncbi_assembly	expected_md5		DELIBERATELY BLANK. Unlike USDA and the dated taxdump, this file is rebuilt daily and NCBI publishes no archive of it, so there is nothing stable to pin to. fetch_assemblies.py records the md5 and the server's Last-Modified in the manifest instead. Paste an md5 here to freeze a specific snapshot and the fetch will then enforce it
+ncbi_assembly	licence	public domain	-
+phibase	source_name	PHI-base: Pathogen-Host Interactions database	curated pathogenicity, one row per gene-interaction experiment
+phibase	url	https://raw.githubusercontent.com/PHI-base/data/master/releases/phi-base_v4-19_2026-03-25.csv	the DATED release, not releases/phi-base_current.csv, which rolls to the newest version
+phibase	expected_file	phi-base_v4-19_2026-03-25.csv	current == v4-19 as of 2026-11-09
+phibase	expected_md5	b0725633e97fedba070e2cf8f5b163ee	-
+phibase	licence	CC-BY 4.0	-
+phibase	pathogen_taxid_col	Pathogen_NCBI_species_Taxonomy ID	the pathogen species taxid, used directly; no name resolution needed
+phibase	host_taxid_col	Host_NCBI_Taxonomy_ID	the EXPERIMENTAL host taxid; is_pathogen requires it under Viridiplantae, is_wheat_pathogen under Triticum (4565)

@@ -1,0 +1,21 @@
+# AUTHORED. Taxa admitted to the reference OUTSIDE the master list, each with the structural
+# reason the master list cannot reach it. The master list is USDA Fungus-Host read at GENUS:
+# see scope_rule.tsv and README.md.
+#
+# status=in       admitted
+# status=dropped  considered and rejected, kept here because a thing merely absent is an
+#                 accident whereas a thing listed is a decision
+#
+# kind=unrecorded_resident  named by a WHEAT leaf abundance study; USDA is a herbarium records
+#                           database and holds no record for the genus at all
+#
+# Checked against raw_usda_fungus_host.csv directly on 2026-11-09, NOT against holobase,
+# which was wrong about two of these. Detection counts are from db_v4 over the 1,135
+# classified field-wheat runs and are evidence, not membership: they go stale on a rebuild.
+ncbi_taxid	name	rank	status	kind	evidence
+5277	Leucosporidium	genus	in	unrecorded_resident	wheat top20; 0 USDA records
+55193	Malassezia	genus	in	unrecorded_resident	0 USDA records; 17 detections on field wheat (restricta 15, arunalokei 1, globosa 1). Human skin yeast, so a CONTAMINATION marker rather than a resident
+29901	Mrakia	genus	in	unrecorded_resident	wheat top20; 0 USDA records
+5206	Cryptococcus	genus	dropped	-	NOT an exception: 39 USDA records, 18 of them on Triticum aestivum. holobase reported it absent, almost certainly the homonym it warns about (5206 fungus / 79213 scale insect)
+1231656	Clohesyomyces	genus	dropped	-	evidence is rice, and the cohort is wheat. Its single USDA record gives the host as "wood", which is not a plant taxon, so whether it passes the criterion depends on the host screen that is not yet applied
+765868	Phaeosphaeriaceae sp. SRC1lsM3a	species	dropped	-	its 17 detections were all on sorghum, which is not in the cohort. Re-admit only if it appears on wheat

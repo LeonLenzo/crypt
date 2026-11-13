@@ -236,3 +236,12 @@ release/01_cohort/data/raw/sample_attrs.jsonl
 
 # cohort read bytes, consolidated under the release tree on Setonix; never committed
 release/01_cohort/data/raw/reads/
+
+# release/02_reference: 267 MB of public source data (USDA Fungus-Host, NCBI Taxonomy),
+# refetched in one command by scripts/fetch_species.py. The manifest
+# raw/raw_sources_manifest.tsv IS tracked, so a reviewer can checksum their own copies
+# against the ones the pipeline ran on.
+release/02_reference/data/raw/raw_usda_fungus_host.csv
+release/02_reference/data/raw/raw_taxdmp.zip
+release/02_reference/data/raw/raw_phibase.csv
+release/02_reference/data/raw/raw_assembly_summary.txt

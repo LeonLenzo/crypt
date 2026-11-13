@@ -47,7 +47,7 @@ force over soft-masked sequence, ambiguity codes, chunk boundaries, short contig
 palindromic k-mers. It also means these numbers are directly comparable to the existing
 saturation and depth-bias tables, which were computed at exactly these parameters.
 
-    python 02_classify/01_refs/predict/compare.py --tool vipsania_pretrained \\
+    python research/predict/compare.py --tool vipsania_pretrained \\
         --predicted-dir data/bronze/predicted/vipsania_pretrained
 """
 
@@ -59,7 +59,9 @@ from pathlib import Path
 
 import numpy as np
 
-MODULE = Path(__file__).resolve().parent.parent.parent
+# _layout.py and the silver tables still live in 02_classify. This module reads them until
+# its inputs are repointed at release/02_reference; see README.md.
+MODULE = Path(__file__).resolve().parent.parent / "02_classify"
 sys.path.insert(0, str(MODULE))
 sys.path.insert(0, str(MODULE.parent))
 

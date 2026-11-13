@@ -23,7 +23,7 @@ assembly is an order of magnitude larger than a CDS set.
 
 Run on Setonix inside a job, never on a login node:
     sbatch 02_classify/slurm/predict_fetch.slurm
-    python 02_classify/01_refs/predict/fetch_genomes.py --inventory
+    python research/predict/fetch_genomes.py --inventory
 """
 
 import argparse
@@ -33,7 +33,9 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-MODULE = Path(__file__).resolve().parent.parent.parent
+# _layout.py and the silver tables still live in 02_classify. This module reads them until
+# its inputs are repointed at release/02_reference; see README.md.
+MODULE = Path(__file__).resolve().parent.parent / "02_classify"
 sys.path.insert(0, str(MODULE))
 sys.path.insert(0, str(MODULE.parent))
 
@@ -76,7 +78,7 @@ def main() -> None:
         sample_path = Path(args.sample) if args.sample else PREDICT_SAMPLE
         gdir = Path(args.genomes_dir) if args.genomes_dir else GENOMES
         if not sample_path.exists():
-            sys.exit(f"no sample at {sample_path} — run 01_refs/predict/sample.py first")
+            sys.exit(f"no sample at {sample_path} — run research/predict/sample.py first")
         rows = list(csv.DictReader(open(sample_path, newline=""), delimiter="\t"))
         if args.arm:
             rows = [r for r in rows if r["arm"] == args.arm]

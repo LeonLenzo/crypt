@@ -169,12 +169,22 @@ def acacia_inventory(bucket: str, prefix: str, profile: str) -> dict:
 
 
 def pull_from_acacia(acc: str, dest: Path, bucket: str, profile: str) -> Path | None:
-    """Copy one accession's CDS tree out of Acacia. Returns the FASTA, or None."""
-    dest.mkdir(parents=True, exist_ok=True)
-    cmd = ["aws", "s3", "cp", "--recursive", "--endpoint-url", ACACIA_ENDPOINT,
-           "--profile", profile, "--only-show-errors",
-           f"s3://{bucket}/{ACACIA_CDS_PREFIX}/{acc}/", str(dest)]
-    r = subprocess.run(cmd, capture_output=True, text=True, timeout=1800)
+    """Copy one accession's CDS FASTA out of Acacia with a SINGLE-FILE cp. Returns it, or None.
+
+    NOT `cp --recursive`. aws-cli 2.13 (the Singularity-wrapped module on Setonix) on Ceph
+    recreates the directory tree but SILENTLY DROPS the .fna, and can still exit 0 -- so a
+    recursive pull reports success and leaves `<acc>/ncbi_dataset/data/<acc>/` empty, which
+    only surfaces at build time as "no CDS found". Found 2026-11-11 after a db0 pull reported
+    2,864 Acacia successes and put zero FASTAs on disk; a single-file cp of the same key works.
+    The key is the datasets layout, which is how every CDS in the bucket was written.
+    """
+    rel = f"ncbi_dataset/data/{acc}/cds_from_genomic.fna"
+    out = dest / rel
+    out.parent.mkdir(parents=True, exist_ok=True)
+    cmd = ["aws", "s3", "cp", "--endpoint-url", ACACIA_ENDPOINT, "--profile", profile,
+           "--only-show-errors",
+           f"s3://{bucket}/{ACACIA_CDS_PREFIX}/{acc}/{rel}", str(out)]
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
     if r.returncode != 0:
         print(f"  {acc}  acacia pull FAILED: {(r.stderr or '').strip()[:160]}", flush=True)
         return None

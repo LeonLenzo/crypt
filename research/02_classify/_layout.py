@@ -173,7 +173,7 @@ SKETCHES = BRONZE / "sketches"
 GENOMES = BRONZE / "genomes"
 # Predicted CDS, one subtree per tool, kept apart from the downloaded CDS in BRONZE/cds so
 # nothing can mistake a prediction for an NCBI gene model. Predicted references are
-# COMPETITOR-ONLY and never reportable; see 01_refs/predict/README.md.
+# COMPETITOR-ONLY and never reportable; see research/predict/README.md.
 PREDICTED = BRONZE / "predicted"
 
 # ── silver: generated tables ────────────────────────────────────────────────────────────────

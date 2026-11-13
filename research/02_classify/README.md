@@ -7,7 +7,7 @@ read that way. Status reconciled against the tree and the data on **2026-10-20**
 |---|---|
 | `seeds/` | carried across from `03_kraken`, built |
 | `01_refs` | **DONE.** 4,271 annotated assemblies / 1,547 species, measured against NCBI, not estimated |
-| `01_refs/predict` | benchmark **COMPLETE both arms**: recall 0.963 / precision 0.945 (n=60), novelty 0.963 (n=59). A production run is not decided |
+| `01_refs/predict` | **MOVED to `research/predict/`** on 2026-11-09. Benchmark complete both arms: recall 0.963 / precision 0.945 (n=60), novelty 0.963 (n=59) |
 | `02_build` | **DONE. db_v4 is built.** 7,539,317,601 root minimizers, 43 GB hash, k=35 l=31, 5h 40m at 106 GB peak RSS |
 | `03_cohort` | **BUILT.** `resolve.py`, `migrate_reads.py`, `fetch_depth.py`, `fetch_reads.py`, `freshen.py` |
 | `04_classify` | **BUILT and RUN.** 1,184 runs classified against db_v4 |

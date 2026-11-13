@@ -55,7 +55,7 @@ contig-level ones would be the obvious way to get a confidently wrong answer.
 
 Sampling is seeded and deterministic, so the sample is reproducible from this file alone.
 
-    python 02_classify/01_refs/predict/sample.py --per-arm 60
+    python research/predict/sample.py --per-arm 60
 """
 
 import argparse
@@ -65,7 +65,9 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-MODULE = Path(__file__).resolve().parent.parent.parent
+# _layout.py and the silver tables still live in 02_classify. This module reads them until
+# its inputs are repointed at release/02_reference; see README.md.
+MODULE = Path(__file__).resolve().parent.parent / "02_classify"
 sys.path.insert(0, str(MODULE))
 sys.path.insert(0, str(MODULE.parent))
 
@@ -297,7 +299,7 @@ def main() -> None:
                 label = "(focal)" if tag == "yes" else f"({tag})"
                 print(f"      {label:16s} {k:3d}")
     print(f"\nseed {args.seed}; rerunning with the same seed reproduces this sample exactly.")
-    print("Next: 01_refs/predict/fetch_genomes.py  (GENOMIC fasta; db_v4 holds only CDS)")
+    print("Next: research/predict/fetch_genomes.py  (GENOMIC fasta; db_v4 holds only CDS)")
 
 
 if __name__ == "__main__":

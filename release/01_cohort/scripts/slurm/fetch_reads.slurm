@@ -37,7 +37,7 @@ SECONDS=0
 # never moved, so that directory is empty and a job pointed at it refetches the whole cohort
 # into the wrong tree. Both are gitignored until the bytes are relocated and every reader
 # agrees on one path.
-python3 release/01_cohort/scripts/fetch_reads.py \
+python3 -u release/01_cohort/scripts/fetch_reads.py \
     --reads-dir release/01_cohort/raw/reads --fetch --workers "${WORKERS:-24}"
 rc=$?
 echo "exit     $rc after ${SECONDS}s"

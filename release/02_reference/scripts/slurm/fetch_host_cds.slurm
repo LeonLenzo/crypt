@@ -35,7 +35,7 @@ mkdir -p release/02_reference/scripts/slurm/logs
 echo "host     $(hostname)"
 echo "started  $(date -Is)"
 SECONDS=0
-python3 release/02_reference/scripts/fetch_host_cds.py
+python3 -u release/02_reference/scripts/fetch_host_cds.py
 rc=$?
 echo "exit     $rc after ${SECONDS}s"
 

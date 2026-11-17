@@ -29,7 +29,7 @@ mkdir -p tools/logs
 echo "host     $(hostname)"
 echo "started  $(date -Is)"
 SECONDS=0
-python3 tools/migrate_cds_to_release.py
+python3 -u tools/migrate_cds_to_release.py
 rc=$?
 echo "exit     $rc after ${SECONDS}s"
 

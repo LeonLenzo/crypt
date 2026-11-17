@@ -248,6 +248,15 @@ release/01_cohort/data/raw/sample_attrs.jsonl
 release/01_cohort/data/raw/reads/
 release/01_cohort/raw/
 
+# research/predict: the gene-prediction arm's BYTES, found unignored the same day and for the
+# same reason as the reads tree above. predicted/ is 137 vipsania outputs at 4.2 GB and busco/
+# is its validation run; both are regenerable from worklist.tsv and the fetched genomes, and
+# the small tables beside them (worklist, all135_busco, all135_congener) are the record and
+# stay tracked. The genomes fetched for prediction are not ours to redistribute either.
+research/predict/data/predicted/
+research/predict/data/busco/
+research/predict/data/genomes/
+
 # release/02_reference: 267 MB of public source data (USDA Fungus-Host, NCBI Taxonomy),
 # refetched in one command by scripts/fetch_species.py. The manifest
 # raw/raw_sources_manifest.tsv IS tracked, so a reviewer can checksum their own copies

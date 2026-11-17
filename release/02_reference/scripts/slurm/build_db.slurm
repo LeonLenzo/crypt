@@ -63,7 +63,7 @@ fi
 
 echo "START $(date -Is)  node $(hostname)  mem $(free -g | awk '/^Mem:/{print $2"G"}')"
 SECONDS=0
-python3 release/02_reference/scripts/build_db.py --threads "${THREADS:-128}" "$@"
+python3 -u release/02_reference/scripts/build_db.py --threads "${THREADS:-128}" "$@"
 rc=$?
 
 # db_inspect is the coverage denominator every detection figure divides by, and it describes

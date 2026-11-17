@@ -33,7 +33,7 @@ mkdir -p release/02_reference/scripts/slurm/logs
 echo "host     $(hostname)"
 echo "started  $(date -Is)"
 SECONDS=0
-python3 release/02_reference/scripts/fetch_cds.py \
+python3 -u release/02_reference/scripts/fetch_cds.py \
     --tier "${TIER:-db0_baseline,db1_congener}" --workers "${WORKERS:-8}"
 rc=$?
 echo "exit     $rc after ${SECONDS}s"

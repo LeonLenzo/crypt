@@ -51,6 +51,24 @@ def read(path):
         return list(csv.DictReader(fh, delimiter="\t"))
 
 
+def write_manifest(rows):
+    """Write the manifest. Called BEFORE the fetch, periodically during it, and at the end.
+
+    It used to be written only after the pool drained, which meant a job killed at its wall
+    clock left the manifest describing the PREVIOUS run. That is how `reads_manifest.tsv`
+    came to be dated 2026-11-13 while 875 runs sat on disk, and it is why the state had to
+    be counted off the filesystem instead. Written through a temp file and renamed, so a
+    reader never sees a half-written table.
+    """
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    tmp = OUT.with_suffix(".tsv.tmp")
+    with open(tmp, "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=COLS, delimiter="\t", lineterminator="\n")
+        w.writeheader()
+        w.writerows(rows)
+    tmp.replace(OUT)
+
+
 def ena_files(project, refresh=False):
     """ENA's fastq listing for a project: {run: [(filename, url, md5, bytes), ...]}, cached."""
     cache = ENADIR / f"{project}.tsv"
@@ -110,12 +128,50 @@ def fetch_file(url, dst, md5, verify, tries=4):
             if verify and md5 and md5sum(tmp) != md5:
                 raise ValueError("md5 mismatch")
             tmp.rename(dst)
-            return
-        except Exception:
+            return dst.stat().st_size
+        except Exception as e:
             tmp.unlink(missing_ok=True)
             if attempt == tries:
                 raise
+            # Say so. A silent retry made a job that was coping look like a job that was
+            # hung, and EBI refusing a stream mid-transfer is the normal case here, not a
+            # fault: it is why `tries` exists.
+            print(f"    retry {attempt}/{tries - 1}  {dst.name}  {type(e).__name__}: {e}",
+                  flush=True)
             time.sleep(5 * attempt)
+
+
+def _refresh_status(rows, todo, errs, final=True):
+    """Recompute status for every queued run from what is NOW on disk. Returns (ok, bad).
+
+    Split out of the end-of-job block so the manifest can be refreshed mid-flight. A run is
+    `fetched` only when every one of its files is present.
+
+    `final` separates two states a single on-disk check cannot tell apart. A run missing a
+    file because that file ERRORED is `failed: <reason>`. A run missing a file that simply
+    has not been reached yet is `pending` mid-flight and only becomes `failed: incomplete`
+    once the pool has drained. Without the distinction an interim manifest reports every
+    run not yet started as a failure, which is the opposite of informative.
+    """
+    by_run = {row["run"]: row for row in rows}
+    ok = bad = 0
+    for run, (dirp, fs) in todo.items():
+        row = by_run[run]
+        got = [n for n, _, _ in fs if (dirp / n).exists()]
+        if len(got) == len(fs) and not errs[run]:
+            row["local_bytes"] = sum((dirp / n).stat().st_size for n, _, _ in fs)
+            row["status"] = "fetched"
+            ok += 1
+        elif errs[run]:
+            row["status"] = f"failed: {errs[run][0]}"
+            bad += 1
+        elif final:
+            row["status"] = "failed: incomplete"
+            bad += 1
+        else:
+            row["local_bytes"] = sum((dirp / n).stat().st_size for n in got)
+            row["status"] = f"pending ({len(got)}/{len(fs)} files)"
+    return ok, bad
 
 
 def main():
@@ -154,14 +210,26 @@ def main():
                "ena_md5": ";".join(f[2] for f in files), "local_bytes": "", "status": ""}
 
         dirp = (args.reads_dir / proj) if args.reads_dir else None
-        present = bool(dirp) and names and all((dirp / n).exists() and (dirp / n).stat().st_size
-                                               for n in names)
+        # Count what is actually there rather than testing all-or-nothing, so a run holding
+        # one mate of two is reported as PARTIAL instead of being lumped in with runs that
+        # have nothing. The two need different readings: a partial run is unusable for
+        # analysis but nearly paid for, and on 2026-11-17 there were 175 of them hidden
+        # inside a single "missing 685".
+        got = [n for n in names if (dirp / n).exists() and (dirp / n).stat().st_size] if dirp \
+            else []
+        present = bool(dirp) and names and len(got) == len(names)
         if present:
             row["local_bytes"] = sum((dirp / n).stat().st_size for n in names)
             row["status"] = "present"
         elif args.fetch and dirp and names:
-            row["status"] = "missing"   # queued; set to fetched/failed after the pool runs
+            # queued; overwritten by _refresh_status once the pool has run
+            row["status"] = f"partial ({len(got)}/{len(names)} files)" if got else "missing"
+            if got:
+                row["local_bytes"] = sum((dirp / n).stat().st_size for n in got)
             todo[run] = (dirp, [(n, url, md5) for n, url, md5, _ in files])
+        elif got:
+            row["status"] = f"partial ({len(got)}/{len(names)} files)"
+            row["local_bytes"] = sum((dirp / n).stat().st_size for n in got)
         elif not files:
             row["status"] = "no ENA fastq"
         elif run in known:
@@ -176,44 +244,69 @@ def main():
     # Download the queued files concurrently: EBI gives each stream its own bandwidth, so
     # throughput scales with workers. One file per task; a run counts fetched only if every one
     # of its files lands. Nothing already on disk is re-requested, so a re-run resumes.
+    # Write it once BEFORE fetching anything, so even a job killed in its first minute
+    # leaves a manifest describing the CURRENT disk rather than a previous run's.
+    write_manifest(rows)
     if todo:
         for dirp, _ in todo.values():
             dirp.mkdir(parents=True, exist_ok=True)
         tasks = [(run, dirp / n, url, md5) for run, (dirp, fs) in todo.items()
                  for n, url, md5 in fs if not (dirp / n).exists()]
-        print(f"fetching {len(tasks)} files for {len(todo)} runs with {args.workers} workers")
+
+        # HALF-COMPLETE RUNS FIRST. The commit point is the FILE, not the run, so whenever a
+        # file fails its retries or a job is killed at the wall clock, the sibling mate that
+        # already landed stays on disk and the run sits unusable with one of two files. On
+        # 2026-11-17 that was 148 runs. Ordering by how much of the run is already there
+        # finishes those first, which converts half-runs into analysable runs instead of
+        # starting new ones. It does not change WHAT gets fetched, only the order.
+        have = {run: sum(1 for n, _, _ in fs if (dirp / n).exists())
+                for run, (dirp, fs) in todo.items()}
+        tasks.sort(key=lambda t: -have[t[0]])
+        n_partial = sum(1 for t in tasks if have[t[0]])
+        print(f"fetching {len(tasks)} files for {len(todo)} runs with {args.workers} workers",
+              flush=True)
+        if n_partial:
+            print(f"  {n_partial} of those complete a run that is already part-downloaded; "
+                  f"queued first", flush=True)
+
         errs = collections.defaultdict(list)
+        t0 = time.time()
+        done_n = done_b = 0
         with cf.ThreadPoolExecutor(max_workers=args.workers) as ex:
-            futs = {ex.submit(fetch_file, url, dst, md5, not args.no_verify): run
+            futs = {ex.submit(fetch_file, url, dst, md5, not args.no_verify): (run, dst)
                     for run, dst, url, md5 in tasks}
             for fut in cf.as_completed(futs):
+                run, dst = futs[fut]
                 try:
-                    fut.result()
+                    nb = fut.result() or 0
+                    done_n += 1
+                    done_b += nb
+                    el = max(time.time() - t0, 1e-9)
+                    rate = done_b / el
+                    left = len(tasks) - done_n
+                    eta = (left * (done_b / done_n) / rate / 3600) if done_n and rate else 0
+                    print(f"  [{done_n}/{len(tasks)}] {dst.name}  {nb/1e9:.2f} GB  "
+                          f"{done_b/1e12:.3f} TB total  {rate/1e6:.1f} MB/s  "
+                          f"ETA {eta:.1f} h", flush=True)
                 except Exception as e:
-                    errs[futs[fut]].append(str(e))
-        by_run = {row["run"]: row for row in rows}
-        for run, (dirp, fs) in todo.items():
-            row = by_run[run]
-            if errs[run] or not all((dirp / n).exists() for n, _, _ in fs):
-                row["status"] = f"failed: {errs[run][0] if errs[run] else 'incomplete'}"
-                failed += 1
-            else:
-                row["local_bytes"] = sum((dirp / n).stat().st_size for n, _, _ in fs)
-                row["status"] = "fetched"
-                fetched += 1
+                    errs[run].append(str(e))
+                    done_n += 1
+                    print(f"  [{done_n}/{len(tasks)}] FAILED {dst.name}  {e}", flush=True)
+                # Keep the manifest honest while the job runs, not only if it survives to
+                # the end. Every 25 files is cheap against ~1.5 GB per file.
+                if done_n % 25 == 0:
+                    _refresh_status(rows, todo, errs, final=False)
+                    write_manifest(rows)
+        fetched, failed = _refresh_status(rows, todo, errs)
 
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUT, "w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=COLS, delimiter="\t", lineterminator="\n")
-        w.writeheader()
-        w.writerows(rows)
+    write_manifest(rows)
 
-    st = collections.Counter(r["status"].split(":")[0] for r in rows)
+    st = collections.Counter(r["status"].split(":")[0].split(" (")[0] for r in rows)
     tb = sum(int(r["ena_bytes"] or 0) for r in rows) / 1e12
     print(f"-> {OUT.relative_to(MODULE)}  {len(rows)} runs over {len(by_proj)} projects, "
           f"{tb:.2f} TB on ENA")
-    for s in ("present", "present (inventory)", "fetched", "missing", "unscanned",
-              "no ENA fastq", "failed"):
+    for s in ("present", "present (inventory)", "fetched", "partial", "pending", "missing",
+              "unscanned", "no ENA fastq", "failed"):
         if st[s]:
             print(f"   {s:<20}{st[s]:>5}")
     if args.fetch:

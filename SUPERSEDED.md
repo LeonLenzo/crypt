@@ -91,10 +91,27 @@ healthy tree while freshening nothing the cohort used. Replaced by
 Six strata, one kallisto index per host, intended to confirm Kraken2 calls by competitive EM
 and to calibrate the detection thresholds.
 
-**Superseded by the planned `02_classify/04_align`**, which answers the same question against
-db_v4's reference set. Its measurements are worth carrying across:
-`02_build/data/neighbours.tsv` holds the containment between reference species, which is how
-cross-talk was quantified without going through taxonomy.
+**Superseded by `research/03_align` (designed) and `release/04_align` (the deliverable).**
+The `02_classify/04_align` path named in older documents never existed and could not have,
+because `02_classify/04_` is `04_classify`.
+
+**The replacement keeps this module's competitive reference and drops its EM.** One combined
+index per host, holding host CDS plus every species seen in that host plus their measured
+k-mer neighbours, carries forward unchanged and is still load-bearing. What does not carry
+forward is EM apportionment, which splits an ambiguous read fractionally between the species
+it matches, in proportion to the unique support each already has. That rule inflates exactly
+the population this chapter is about: conserved housekeeping reads go to the abundant declared
+pathogen while a low-level undeclared congener keeps its own unique effector reads, so its
+apparent transcriptome comes out mostly effectors. `03_align` counts species-unique reads only
+and discards the rest, applying the same rule to the gene set and the background. The reference
+set also changes, from db_v4's to the db0/db1/db2 ladder, so no coverage or containment number
+crosses between them.
+
+Its measurements are worth carrying across: `02_build/data/neighbours.tsv` holds the
+containment between reference species, 398 pairs at >=1% over 45 species, computed from cached
+FracMinHash sketches at k=31. That is how cross-talk was quantified without going through
+taxonomy, and containment rather than taxonomic rank is the right unit, because at congeneric
+divergence synonymous substitutions break a 31-mer every few bases.
 
 ## Rules
 

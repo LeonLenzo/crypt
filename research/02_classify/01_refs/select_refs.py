@@ -33,7 +33,7 @@ That is the whole policy, and it replaces three mechanisms that each needed defe
   * **BUSCO is not a gate and never was.** At the 50% threshold 2 of 1,018 assemblies fail, and
     a per-taxid fallback meant 0 of 309 taxa were ever lost to it. It stays as a SCORE, because
     it is the tie-breaker deciding which single assembly represents a taxon, which `03_align`'s
-    kallisto index depends on. Do not filter on duplication either: the worst offenders are
+    combined bowtie2 index depends on. Do not filter on duplication either: the worst offenders are
     *P. graminis* at 86.6% duplicated and *V. longisporum* at 71.3%, which is dikaryotic and
     allodiploid biology, and such a filter would preferentially remove the rusts whose absence
     caused the *Phakopsora* artefact. Kraken2 stores each distinct minimizer once, so

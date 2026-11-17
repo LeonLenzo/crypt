@@ -1,7 +1,27 @@
-# 02_classify — BUILT END TO END
+# 02_classify — BUILT END TO END, and now the RESEARCH-tree version
 
 This README began as the design, written before the code, and the design sections below still
-read that way. Status reconciled against the tree and the data on **2026-10-20**:
+read that way.
+
+**Status, 2026-11-17.** This module is complete and its results stand, but it is the research
+tree's answer and is being superseded module by module by `release/02_reference` (scope, landed)
+and `release/03_classify` (build, classify, detect; not built). Its derivations are still the
+authority and are cited from the release tree: the three detection floors, the saturation
+statistic, the off-host null, the rarefaction. Its RESULTS are db_v4 over the four-cereal
+cohort, which the chapter no longer analyses ([[crypt-cohort-is-wheat]] in memory), so read any
+count here as a record of what was run, not as the chapter's numbers.
+
+| | |
+|---|---|
+| runs processed | **4,875** distinct runs in `data/silver/_classified.tsv` |
+| runs with >=1 detection | 4,142, over 13,191 (run x species) rows in `data/gold/detections.tsv` |
+| database | db_v4. Superseded by the db0/db1/db2 ladder from `release/02_reference` |
+| cohort | four cereals. Superseded by the wheat cohort in `release/01_cohort` |
+
+Counts above were read from the tables on 2026-11-17. Earlier revisions of this file said
+1,184, which was true on 2026-10-20 and was still being quoted as current three weeks later.
+
+Per-step state, reconciled 2026-10-20 except where noted:
 
 | step | state |
 |---|---|
@@ -17,14 +37,19 @@ read that way. Status reconciled against the tree and the data on **2026-10-20**
 
 Each step has its own README with the decisions that are not visible in the code.
 
-Two pieces of `01_refs` are deliberately unfinished: the **miniprot** pass over the 2,138
-species that have assemblies but no gene model, and **host genomic** references
-(`seeds/hosts.tsv`). Host CDS *is* in the candidate set, 43 assemblies across the six species,
-which is what db_v4 actually needs, because these are RNA-seq libraries.
+The gene-prediction arm MOVED to `research/predict/` on 2026-11-09 and is DONE. It is no
+longer miniprot over 2,138 species: it is **vipsania over 135 genomes**, prioritised rather
+than exhaustive, and all 135 are validated (BUSCO 135/135, median completeness 99.4% against
+98.4% for db_v4's downloaded assemblies). See `research/predict/README.md`.
 
-**What is not done is the cohort.** 1,184 of 7,688 runs are classified, and those 1,184 are
-exactly the old STAT-gated set, so no rate computed from them is a prevalence. See CLAUDE.md,
-"What is NOT quotable yet".
+**Host genomic** references (`seeds/hosts.tsv`) remain deliberately unfinished. Host CDS *is*
+in the candidate set, 43 assemblies across the six species, which is what the database
+actually needs, because these are RNA-seq libraries.
+
+**No rate computed from this module is a prevalence**, and that is now true by decision as
+well as by sampling: the rate was demoted to the instrument on 2026-11-02. The early classified
+sets were also exactly the old STAT-gated runs, so the denominator was pre-screened for the
+thing being counted. See CLAUDE.md, "Why no rate from this cohort is a prevalence".
 
 It replaced `03_kraken`. Not a rename and not a port: **every input to that module has
 changed**, and two of its dependencies on the superseded frames turned out to be live gates

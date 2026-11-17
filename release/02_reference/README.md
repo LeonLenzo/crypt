@@ -3,9 +3,16 @@
 Decides which organisms the classifier's database contains, and selects the assemblies that
 can supply CDS for them. This file states the scope rule and the evidence for it.
 
-The analysed cohort is **field *Triticum aestivum*, 1,450 runs** (`release/01_cohort`). The
-*Hordeum*, *Secale* and *Triticosecale* runs in that tree are lab controls and noise, not
-analysed samples.
+The cohort is **1,560 runs over 31 BioProjects** (`release/01_cohort`), of which 1,450 are
+*Triticum aestivum* and 1,379 of those are field. Wheat is the analysed host; maize, sorghum
+and rice are out of the chapter as of 2026-11-17.
+
+The other 110 runs are retained deliberately and are two different things. **84 are field runs
+on a related host from a cohort BioProject** (*Hordeum vulgare* 57, *Triticosecale* 10,
+*T. turgidum* 8, *Triticum* sp. 8, *Secale cereale* 5, *H. jubatum* 4, *T. dicoccon* 1,
+perennial grass 1): same deposit, same protocol, a different host, which is what makes them
+usable as a host contrast. **86 are lab**, 71 of them *T. aestivum*, and these are the axenic
+and inoculated controls that anchor the detection floors. Neither set is noise.
 
 ## The rule
 

@@ -1,145 +1,136 @@
 # Pipeline schematic
 
-What each step consumes, what it produces, and what depends on it. Regenerated **2026-10-20**
-against the two live modules, after the four earlier modules were retired to `superseded/`.
+What each step consumes, what it produces, and what depends on it. Regenerated **2026-11-17**
+over both trees, after a memory and methods audit found this file still describing the
+2026-10-20 single-tree layout and a `02_classify/04_align` path that never existed.
 
 **This document deliberately does not repeat each script's options or output columns.** Those
 live in the script's own docstring, where they cannot drift out of step with the code. An
-earlier version of this file duplicated them and went stale across two restructures. What
-belongs here is the chain: the order, the hand-offs, and where the data physically sits.
+earlier version duplicated them and went stale across two restructures. What belongs here is
+the chain: the order, the hand-offs, and where the data physically sits.
 
-Run every script from the repository root (`phd/01-review`). A numbered directory is a pipeline
-step; an unnumbered one (`seeds/`, `slurm/`, `report/`, `utilities/`, `data/`, `logs/`) is
-support.
+**Nor does it carry status.** Whether a module is built, running or waiting is in the module's
+own README and in the `crypt-session-state-<date>` memory note. A status line in this file is a
+status line that will be wrong.
+
+Run every script from the repository root (`phd/01-review`).
 
 ---
 
-## The chain
+## Two trees
 
 ```
-01_literature         the papers are the sampling frame
-  retrieve/           Undermind + NCBI -> candidate studies
-  studies/            the papers themselves, one directory each (manual drop zone)
-  curate/             every value traced to a quoted sentence
-  seeds/              AUTHORED: curation.tsv, provenance.tsv  <-- irreplaceable
-  data/{bronze,silver,gold}
-  release/            cohort_samples.tsv, cohort_bioprojects.tsv, evidence/*.md
+release/     the reviewer deliverable. Public sources only, rebuilt forward from its own
+             inputs, nothing copied in. This is the tree that gets a Zenodo snapshot.
+research/    the working tree: the history, the reasoning, and the design docs written
+             before a thing is built. Also where anything touching a private database lives.
+```
+
+A `release/` module is the boiled-down version of the question its `research/` counterpart
+answered, and supersedes it when it lands. They are SIBLINGS; nothing is copied from one to
+the other. See `crypt-release-tree` in memory for the four tiers inside a release module and
+why `inputs/` differs from `raw/`.
+
+The numbering does not line up across the trees, and that is not a mistake:
+
+| release | research | why they differ |
+|---|---|---|
+| `01_cohort` | `01_literature` | renamed: the cohort comes from databases as well as papers |
+| `02_reference` | `02_classify/01_refs` | reference scope split out as its own module |
+| `03_classify` | `02_classify/02_build`..`05_detect` | build, classify and detect together |
+| `04_align` | `03_align` | research has no separate reference module, so it is one lower |
+
+---
+
+## The release chain
+
+```
+01_cohort            the cohort: who is in it, and what is known about each run
+  inputs/dois.txt          503 DOIs. AUTHORED, the one irreplaceable input
+  fetch_title_abstract ->  raw_papers.tsv
+  host_screen          ->  curation/host_screen_papers.tsv
+  fetch_fulltext       ->  raw_fulltext.tsv + raw/fulltext/*.xml
+  bioproject_screen    ->  curation/bioproject_screen_papers.tsv
+  fetch_samples / screen_samples / audit
+  make_supp_tables     ->  outputs/supp_data_s1_studies.tsv
+                           outputs/supp_data_s2_cohort.tsv   <-- the cohort, one row per run
+  figures/                 cohort_map, cohort_network
         │
-        │  7,688 runs / 6,222 BioSamples / 41 BioProjects
+        │  wheat. Related cereal hosts in cohort BioProjects are the host contrast;
+        │  lab libraries are the controls. Counts in the module README.
         ▼
-02_classify
-  seeds/              AUTHORED: who belongs in the database, and hosts
-  01_refs             routes -> survey -> select -> compare        4,271 assemblies
-        │             predict/  gene prediction for unannotated species (benchmarked)
+02_reference         which organisms the database contains, and which assemblies supply CDS
+  inputs/scope_rule.tsv        the criterion, with a pin on every dataset it is applied to
+  inputs/scope_exceptions.tsv  admitted outside the master, and what was rejected
+  inputs/wheat_pathogens_curated.tsv  the 8 wheat diseases PHI-base does not curate
+  fetch_species        ->  raw_usda_fungus_host.csv, raw_taxdmp.zip
+  fetch_pathogens      ->  raw_phibase.csv
+  screen_species       ->  curation/screen_species.tsv      scope + on_wheat
+  screen_merges        ->  curation/screen_merges.tsv       two names, one fungus
+  screen_pathogens     ->  curation/screen_pathogens.tsv    the pathogen label
+  fetch_assemblies     ->  raw_assembly_summary.txt
+  screen_assemblies    ->  curation/screen_assemblies.tsv
+  build_reference      ->  outputs/supp_data_s3_reference.tsv  <-- ONE ROW PER TAXON
+  plan_build           ->  outputs/build_plan.tsv              <-- the db tier per assembly
+  fetch_cds --tier     ->  CDS on Setonix
+  figures/                 matrix, tree
+        │
+        │  the db ladder. kraken2-build --add-to-library is incremental, so each
+        │  tier reuses the last and the subtraction between them is clean:
+        │
+        │     db0  baseline     route in {usda_species, exception}, annotated
+        │     db1  +congeners   db0 + route usda_genus, annotated
+        │     db2  +predicted   db1 + the 135 gene-predicted genomes (research/predict)
+        │
+        │  db1-db0 measures competition among already-represented genera;
+        │  db2-db1 measures reach into genera nothing could represent before.
+        │  PREDICTED CDS IS A COMPETITOR ONLY, never a positive call.
         ▼
-  02_build            fetch_cds -> build_db                        db_v4, 43 GB
-        │                                                          db_inspect.tsv
-        │                                                          ^ every coverage denominator
+03_classify          NOT BUILT. Kraken2 against the db ladder, then the detection calls
+                     Supersedes research/02_classify/{02_build,03_cohort,04_classify,05_detect}
+                     The THREE FLOORS and the saturation statistic carry across unchanged;
+                     see research/02_classify/05_detect/README.md for their derivation.
+        │
+        │  this is the SCREEN: which organisms are present and worth characterising.
+        │  It is explicitly NOT a prevalence. See CLAUDE.md.
         ▼
-  03_cohort           resolve -> fetch_depth -> fetch_reads        reads/<BioProject>/
-        │             migrate_reads (one-shot, done)  freshen (keep-alive)
-        ▼
-  04_classify         kraken2 --confidence 0.15 --minimum-hit-groups 3
-        │                     --report-minimizer-data
-        │                                              reports/<BioProject>/<Run>.txt
-        ▼
-  05_detect           absolute -> coverage -> saturation -> f.sp.
-        │                                              detections.tsv, coinfection.tsv
-        ▼
-  04_align            SPECIFIED, NOT BUILT. Competitive read assignment, to resolve
-                      congener clusters and low-coverage/high-saturation calls
+04_align             NOT BUILT. Competitive assignment, then function
+                     Design and reasoning: research/03_align/README.md
+                     bowtie2 -k against a combined per-host tagged CDS index.
+                     Species-unique reads only; NO EM.
 ```
 
-`01_literature` feeds `02_classify` through **five** files, all named in
-`02_classify/_layout.py` so a layout change breaks in one place:
+---
+
+## The research tree
+
+`research/` is not a dead archive. Three parts of it are load-bearing right now.
 
 | | |
 |---|---|
-| `release/cohort_samples.tsv` | the cohort, one row per BioSample |
-| `release/cohort_bioprojects.tsv` | per-project summary |
-| `data/silver/runs.tsv` | run-level detail, including `declared_pathogens` and `BioSample` |
-| `seeds/curation.tsv` | what each study declared, as curated names |
-| `seeds/provenance.tsv` | host, tissue, location, year, each traced to a quote |
+| `01_literature/` | the curation audit chain. Every curated value traces to a quoted sentence, and `seeds/curation.tsv` + `seeds/provenance.tsv` are AUTHORED and irreplaceable |
+| `02_classify/` | the db_v4 results the release tree's scope decisions were measured against, and the derivations (three floors, saturation, the rarefaction, the off-host null) |
+| `predict/` | the gene-prediction arm, moved out of `01_refs` on 2026-11-09. vipsania over 135 genomes, DONE and validated. Supplies db2 |
+| `03_align/` | the align DESIGN doc. No code |
+| `superseded/` | four retired modules, on disk and untracked. See `SUPERSEDED.md` |
 
-**`cohort_samples.tsv` does NOT carry `declared_pathogens` or `BioSample`.** Both are in
-`runs.tsv`. Joining on the wrong one makes every detection look undeclared, with no error.
-
----
-
-## Step by step
-
-### 01_literature — build the cohort from the papers
-
-The frame. It exists because the original frame was a detector: screen SRA for pathogen
-signal, then read the papers. That cannot support a prevalence claim, because the gate selects
-for the thing being measured and its pass rate is host-dependent (wheat 3.42%, soybean 0.55%).
-
-| script | reads | writes |
-|---|---|---|
-| `retrieve/*.py` | Undermind reports, NCBI, ENA portal | `data/bronze/`, candidate lists |
-| `curate/scaffold.py` | a study directory | an `adapter.yaml` stub |
-| `curate/apply_curation.py` | `seeds/curation.tsv` | `data/silver/` |
-| `curate/import_provenance.py` | `superseded/02_literature` provenance mining | `seeds/provenance.tsv` |
-| `report/*.py` | the silver tables | `data/gold/`, `report/figures/` |
-| `release/build_release.py` | everything above | `release/` |
-
-- **`seeds/` is authored and irreplaceable.** It sits outside `data/` deliberately: `data/`
-  means "delete it and it rebuilds", and these are the only files for which that is false.
-  Losing `seeds/` costs re-reading every paper.
-- **`release/` is the reviewer deliverable** and is generated, never hand-edited: flat TSV plus
-  one Markdown evidence file per project.
-- Read `curate/CURATING.md` before curating anything.
-
-### 02_classify — the database, the reads, and the calls
-
-Each step has its own README with the decisions that are not visible in the code. In outline:
+`research/02_classify`'s chain, for reading its outputs:
 
 | step | reads | writes |
 |---|---|---|
-| `01_refs/routes.py` | `seeds/`, holobase, USDA Fungus-Host | membership, by route |
-| `01_refs/survey.py` | NCBI datasets | `silver/assemblies.tsv`, `assembly_survey.tsv` |
-| `01_refs/select_refs.py` | `assemblies.tsv` | `silver/ref_candidates.tsv` |
-| `01_refs/compare_refs.py` | `ref_candidates.tsv`, db_v3's | the diff |
-| `02_build/fetch_cds.py` | `ref_candidates.tsv` | `bronze/cds/` (Setonix, ~200 GB) |
-| `02_build/build_db.py` | `bronze/cds/` | `silver/db/db_v4/`, `db_inspect.tsv` |
-| `03_cohort/resolve.py` | the five `01_literature` files | `silver/run_list.tsv`, `fetch_plan.tsv` |
-| `03_cohort/fetch_depth.py` | ENA portal, one request per BioProject | `silver/run_depth.tsv` |
-| `03_cohort/fetch_reads.py` | `run_depth.tsv` | `bronze/reads/<BioProject>/` |
+| `01_refs/routes,survey,select,compare` | seeds, USDA, NCBI datasets | `silver/ref_candidates.tsv` |
+| `02_build/fetch_cds,build_db` | `ref_candidates.tsv` | `silver/db/db_v4/`, `db_inspect.tsv` |
+| `03_cohort/resolve,fetch_depth,fetch_reads` | the `01_literature` tables | `bronze/reads/<BioProject>/` |
 | `04_classify/classify.py` | reads + db_v4 | `bronze/reports/<BioProject>/` |
 | `05_detect/detect.py` | reports + `db_inspect.tsv` + curation | `silver/_classified.tsv`, `gold/` |
 
-- **`db_inspect.tsv` is the hinge.** Every coverage figure divides by a number from it, which is
-  why **coverage is not comparable across database versions**.
-- **`select_refs.py` queries nothing.** It filters `assemblies.tsv`, which is the survey's own
-  record, so the selection cannot disagree with the survey that justified it.
-- **`resolve.py` cross-checks the two `01_literature` tables against each other** and fails if
-  they disagree about which runs exist, rather than letting one win.
-- **`fetch_mode` in `fetch_plan.tsv` is not a denominator.** It records intent. What was
-  actually classified is counted from the reports.
-
----
-
-## Figures, and which step owns them
-
-All under `02_classify/report/figures/`, each a `prep_*.py` that writes a TSV plus an `.R` that
-draws it, plus a **generated caption** carrying a FULL and a SHORT version.
-
-| figure | what it shows |
-|---|---|
-| `db_contents` | the db_v4 ring: 1,547 species by route and class |
-| `predict_counts` | prediction against annotation, three panels |
-| `predict_gain` | what prediction would add, by route |
-| `rarefaction` | depth against detection; read length costs nothing beyond Gkmer |
-| `saturation_cloud` | the two-dimensional presence surface |
-| `detect` | the detection calls, per species |
-| `detect_runs` | the same, per run |
-
-- **Generate captions from data.** A caption hand-edited to match a figure is a caption that
-  will describe a figure that no longer exists; a silent `str.replace` renders the code stale.
-- The PDF is tracked and the PNG is not: the PDF is what goes into Illustrator and regenerates
-  the PNG at any resolution.
-- Ask whether labels should be stripped for assembly before drawing. Several of these are
-  printed and annotated separately.
+- **`db_inspect.tsv` is the hinge.** Every coverage figure divides by a number from it, which
+  is why **coverage is not comparable across database versions**: db_v3 against db_v4, and
+  equally db_v4 against db0/db1/db2.
+- **`select_refs.py` queries nothing.** It filters the survey's own record, so the selection
+  cannot disagree with the survey that justified it.
+- **`fetch_mode` is not a denominator.** It records intent. What was classified is counted from
+  the reports.
 
 ---
 
@@ -147,19 +138,23 @@ draws it, plus a **generated caption** carrying a FULL and a SHORT version.
 
 | | |
 |---|---|
-| `_paths.py` | artefacts that cross module boundaries, named once. Holds the `SUPERSEDED` prefix |
-| `_util.py` | domain-free helpers: `atomic_write`, `_Tee`, `make_log_dir`, `link_latest` |
-| `_exclusions.py` | unusable BioProjects, with evidence |
-| `manifest.py` | a CLI over one `_util` helper: what exists remotely, without the data |
+| `research/_paths.py` | artefacts that cross module boundaries. Holds the `SUPERSEDED` prefix |
+| `research/_util.py` | domain-free helpers: `atomic_write`, `_Tee`, `make_log_dir`, `link_latest` |
+| `research/_exclusions.py` | unusable BioProjects, with evidence |
+| `tools/dataflow.py` | which script reads and writes which file |
+| `tools/docxedit/` | the manuscript is a .docx in OneDrive open in Word; edit it through here |
 
-Each live module also has its own `_layout.py` (paths) and shared modules beside it:
-`02_classify/_reads.py`, `_reports.py`, `_assembly.py`, `_taxonomy.py`, `_seeds.py`.
+Each research module has its own `_layout.py` (paths) plus shared modules beside it.
 
-**Named `_layout`, not `_paths`.** The repo root owns `_paths.py`, and a second module of that
-name shadows it on `sys.path`. That collision broke `review.py` and destroyed a table once.
+**Named `_layout`, not `_paths`.** The root owns `_paths.py`, and a second module of that name
+shadows it on `sys.path`. That collision broke `review.py` and destroyed a table once.
 
 Nothing imports by module name: every cross-module import inserts the repository root on
 `sys.path`. A leading digit in a directory name would otherwise break `import`.
+
+Release modules do not use `_layout.py`. Each script resolves its own module root from
+`__file__` and reads `data/` beneath it, because a release module is meant to be readable and
+runnable on its own.
 
 ---
 
@@ -168,16 +163,15 @@ Nothing imports by module name: every cross-module import inserts the repository
 | | |
 |---|---|
 | repo | code, small tracked TSVs, figures (PDF), log history. **No research data** |
-| `02_classify/data/silver/*.tsv` | TRACKED from 2026-10-19. Tables, not layers: the twelve are 6.6 MB while `silver/db/` alone is 139 GB |
+| `release/*/data/{inputs,curation,outputs}` | TRACKED. These are the deliverable |
+| `release/*/data/raw/` | fetched bytes, md5-pinned where it matters. Large bodies gitignored, manifests tracked |
 | Setonix `/scratch` | `bronze/`: CDS, reads, reports, sketches, genomes. **21-day purge on atime** |
-| Setonix cohort reads | `02_classify/data/bronze/reads/<BioProject>/`, 4.1 TiB over 28 projects |
-| Acacia | the CDS tree, project bucket. ~1 TB total, so reads stay on Lustre |
+| Acacia | the CDS tree, project bucket. ~1 TB, so reads stay on Lustre |
 | `_refdata` | the shared reference store, outside the repo. Search it before downloading |
-| `superseded/` | the four retired modules, on disk and untracked. See `SUPERSEDED.md` |
+| `superseded/` | the four retired modules, on disk and untracked |
 
 - **The purge clock is atime**, and `/scratch` is Lustre mounted without `noatime`, so reading
-  4 KB refreshes a file as well as reading all of it. `02_classify/slurm/freshen_reads.slurm`
-  is the keep-alive, and it covers the cohort tree only.
-- The flat pre-migration tree holds ~9.1 TB of non-cohort STAT-gated runs. Not freshened,
-  meant to expire.
+  4 KB refreshes a file as well as reading all of it. The keep-alive covers the cohort tree
+  only.
+- **Predicted CDS lives on Setonix scratch only** and is not mirrored to Acacia.
 - **Never compute on a login node.** `sbatch` anything that does work.

@@ -107,10 +107,19 @@ one, those being an insect pathogen and a *Penicillium*; the rest were yeasts an
 
 ## 1b. 03_align, the host-response question
 
+**MOVED 2026-11-17 to `research/03_align/README.md`, "The host-response design".** It is job 3
+of that module, not a separate thing, and the design now lives beside the index it depends on.
+Two changes were made there and are not reflected below: the wheat decision removed
+**PRJNA746402**, which was the primary and is maize, so the question has a secondary design and
+no primary; and the host-quantification rule is an open question, because hexaploid wheat makes
+the species-unique rule the wrong instrument within the host.
+
+What follows is the 2026-10-23 version, kept because the site-structure table is the evidence
+the blocked design rests on. The four-cereal numbers in it need recomputing on the wheat cohort.
+
 Leon's third question for this paper: do samples carrying more than one pathogen differ
-transcriptionally from singly infected ones? Needs `03_align`, which does not exist yet, and is
-a job for a separate agent. Per-gene host quantification is not produced anywhere in the
-current pipeline.
+transcriptionally from singly infected ones? Per-gene host quantification is not produced
+anywhere in the current pipeline.
 
 **Never compare across sites.** The big wheat projects are surveys, not replicated experiments:
 PRJEB39201 is 538 runs over 240 sites, roughly two runs per site, and no site in any of the

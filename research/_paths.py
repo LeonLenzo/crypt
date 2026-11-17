@@ -106,7 +106,7 @@ SKETCH_INDEX   = SUPERSEDED / "03_kraken/utilities/saturation/data/sketch_index.
 SKETCHES       = SUPERSEDED / "03_kraken/utilities/saturation/data/sketches"
 SATURATION     = SUPERSEDED / "03_kraken/utilities/saturation/data/saturation_summary.tsv"
 
-# ── 04_kallisto: competitive read assignment. Superseded by the planned 02_classify/04_align ─
+# ── 04_kallisto: competitive read assignment. Superseded by research/03_align (bowtie2) ─────
 STRATA         = SUPERSEDED / "04_kallisto/01_select/data/strata.tsv"
 NEIGHBOURS     = SUPERSEDED / "04_kallisto/02_build/data/neighbours.tsv"
 KALLISTO_IDX   = SUPERSEDED / "04_kallisto/02_build/data/idx"

@@ -13,14 +13,15 @@ reuses the previous library), and each tier isolates one effect:
 
     db0  baseline    observations: route in {usda_species, exception}, annotated
     db1  +congeners  db0 + route usda_genus, annotated      (a sibling of a recorded genus)
-    db2  +predicted  db1 + gene-predicted CDS for the orphan-genus species
+    db2  +predicted  db1 + gene-predicted CDS, 135 genomes (research/predict/worklist.py)
 
 The tiers touch disjoint genera, which is what makes the subtraction clean. A congener is an
 annotated species, so its genus is never an orphan; a predicted species is in a genus with no
 annotation at all. So db1-db0 measures competition among already-represented genera and
 db2-db1 measures reach into genera nothing could represent before. db2's predicted set is NOT
 emitted here: it is genomic FASTA fetched and predicted in research/predict, then added to the
-library. This plan covers the CDS that exist to download, tiers db0 and db1.
+library, and predicted CDS is a COMPETITOR only, never a positive call. This plan covers the
+CDS that exist to download, tiers db0 and db1.
 
 ONE ASSEMBLY PER SPECIES by default. db_v4 took several per species for pangenome breadth, but
 the saturation work found open pangenomes with marginal return ~gamma/n (median gamma 0.162),
@@ -131,7 +132,7 @@ def main():
         print(f"  {label:<32}{n[t]:>5} asm  {len(sp[t]):>5} sp  "
               f"+{gb[t] * 0.5 / 1e9:4.1f} GB CDS   (cumulative {cum_n:,} asm, "
               f"~{cum_gb * 0.5 / 1e9:.1f} GB)")
-    print(f"\n  db2 adds the 932 gene-predicted orphan-genus species in research/predict")
+    print(f"\n  db2 adds the 135 gene-predicted genomes in research/predict (worklist.py)")
     print(f"  CDS size estimated as 0.50 x genome (the db_v4 ratio)")
     print(f"\n  -> {OUT}")
 

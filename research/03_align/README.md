@@ -1,10 +1,17 @@
 # 03_align: which genes the reads come from, and whether they are pathogenicity genes
 
-Sketched 2026-11-02. Nothing here is built. This file is the design and its reasoning; it
-supersedes the `02_classify/04_align` named in `SUPERSEDED.md` and CLAUDE.md, which could never
-have had that path because `02_classify/04_` is `04_classify`. Align is its own module for the
-reason CLAUDE.md already gives: a different method (competitive EM, not k-mer counts) answering
-a different question.
+Sketched 2026-11-02, revised 2026-11-17. Nothing here is built. This file is the design and
+its reasoning; **the deliverable is `release/04_align`**, which does not exist yet. It
+supersedes the `02_classify/04_align` named in older documents, which could never have had that
+path because `02_classify/04_` is `04_classify`. Align is its own module for the reason
+CLAUDE.md gives: a different method answering a different question, and nesting it under the
+classifier inverted the dependency.
+
+**Revised 2026-11-17 by the methods audit**, on three points: the cohort is now wheat, the
+reference set moves from db_v4 to the db0/db1/db2 ladder, and the host-response question moves
+into this module as a third job rather than sitting unowned in `TODO-RESULTS.md`. Everything
+about the quantifier and the statistic is unchanged. The measured-scope table near the end is
+flagged as stale and says why.
 
 ## Why this module is now the spine, not an appendix
 
@@ -82,10 +89,10 @@ This is the part that constrains the writing, not the code.
 - A within-sample score is **relative prominence inside that sample**. Not induction, not
   differential expression, and not evidence that the expressed fraction is unexpectedly high.
 
-## The two questions, in order
+## The three questions, in order
 
-`02_classify` establishes that an organism's DNA is present above three floors. It cannot say
-which genes the reads came from, which makes two different things impossible:
+`03_classify` establishes that an organism's DNA is present above three floors. It cannot say
+which genes the reads came from, which makes three different things impossible:
 
 1. **Is this organism actually here, or are its reads a congener's?** The old `04_kallisto`
    module was built to answer exactly this and its design is carried forward below.
@@ -93,9 +100,25 @@ which genes the reads came from, which makes two different things impossible:
    being revived now rather than when it was first specified. Leon 2026-11-02: we accept that
    causation of disease is not available from archived field samples, but "this fungus is
    expressing genes associated with pathogenicity" is a weaker claim the data can carry.
+3. **Does the HOST respond differently when more than one pathogen is present?** Leon's third
+   question for the paper, moved here on 2026-11-17 from `research/TODO-RESULTS.md` section
+   1b, where it had no owning module. It belongs here and not in its own module because it
+   needs the same artefact as the other two and no other: a per-gene quantification against an
+   index that already holds host CDS. Nothing else in the pipeline produces one.
 
 The order is not negotiable. A functional test run on a cross-mapping artefact characterises
-the function of an organism that is not there. **Confirm presence, then characterise.**
+the function of an organism that is not there, and a host-response contrast built on
+mis-assigned co-infection calls contrasts the wrong samples. **Confirm presence, then
+characterise.**
+
+**Question 3 is structurally different from questions 1 and 2 and must not inherit their
+design.** The whole argument below for a within-sample, no-contrast statistic exists because
+there is no uninfected control for a fungus found opportunistically in somebody else's
+experiment. For the host that is not true: every run has a host, singly and multiply infected
+runs both exist in the same deposits, and the contrast is between runs rather than within one.
+So question 3 CAN use a conventional between-sample model, and should, with the design
+constraints in "The host-response design" below. Carrying the unique-reads rule across to it is
+a separate judgement, also below, and the answer is probably not.
 
 ## What carries forward from 04_kallisto, unchanged
 
@@ -119,8 +142,14 @@ intact because they were right and were measured rather than assumed:
   k-mer space with *P. nodorum* (0.13%) than with *Alternaria alternata* (0.16%) and are
   generic Dothideomycete background rather than bleed.
 
-What does NOT carry forward is the reference set. It must be db_v4's, or coverage and
-containment are measured against different denominators and nothing is comparable.
+What does NOT carry forward is the reference set. **It must be whichever database tier the
+detections being confirmed were called against**, which as of 2026-11-17 is the db0/db1/db2
+ladder from `release/02_reference`, not db_v4. Coverage and containment both divide by the
+build's own inspect table, so mixing tiers measures two things against different denominators
+and nothing is comparable. Pin the tier in the module's own output and state it beside every
+number. The 398-pair `neighbours.tsv` above was computed on db_v4's species set and is a
+MEASUREMENT CARRIED ACROSS, not a denominator; it needs recomputation on the shipped tier
+before it is used as one.
 
 ## The quantifier is an ALIGNER, and there is no EM
 
@@ -290,6 +319,74 @@ trophic axis for that split already exists in the detection figure. So the test 
 direction rather than being a search for whatever comes out. If obligate biotrophs show
 necrotroph-like cell wall degrading enrichment, the method is wrong and we learn that.
 
+## The host-response design
+
+Moved here 2026-11-17 from `TODO-RESULTS.md` section 1b, with its reasoning intact and one
+consequence of the wheat decision added. The question: do samples carrying more than one
+pathogen differ transcriptionally from singly infected ones?
+
+### What the index already gives it, and the one thing it does not
+
+Host CDS is in the index for the other two questions, as a read sink so host reads are absorbed
+rather than forced onto a pathogen. Quantifying it per gene rather than discarding it is the
+whole of the extra work on the alignment side, so question 3 costs one more count table and no
+second index, no second alignment pass and no second reference decision. That is why it is not
+its own module.
+
+The one thing it does not give is the uniqueness rule. **Do not carry species-unique-reads
+across to the host, unexamined.** That rule exists to stop one fungus's reads being apportioned
+onto a congener, and bread wheat is hexaploid: the A, B and D homoeologues of a gene are far
+closer to each other than two congeneric fungi are, so a large and NON-RANDOM fraction of wheat
+reads align equally well to two or three homoeologues of their own gene. Discarding every one
+of those does not remove a bias, it removes the conserved core of the transcriptome, and it
+removes more of it from exactly the gene families that retain all three copies. The Kraken2
+version of this is already a recorded trap in CLAUDE.md, where 27.7% of the *Triticum* clade's
+minimizers sat at the genus node. The likely answer is to quantify the host at the GENE level
+with homoeologues collapsed, and to state that choice rather than inherit a rule designed for a
+different problem. Decide it before building, not after.
+
+### The design, and the constraint that drives it
+
+**Never compare across sites.** The big wheat projects are surveys, not replicated experiments,
+and site is confounded with everything.
+
+The wheat cohort's structure, from `release/01_cohort`:
+
+| project | runs | what it is |
+|---|---:|---|
+| PRJEB39201 | 550 | the global survey. Many sites, few runs each |
+| PRJEB31334 | 153 | multi-site survey |
+| PRJEB15280 | 138 | multi-site survey |
+| PRJEB84390 | 100 | multi-site survey |
+| PRJNA718488 | 30 | INOCULATED, Zurich, one site. The manipulated contrast |
+
+**The wheat decision cost this question its primary design, and that is an open decision, not a
+detail.** The design recorded on 2026-10-23 made **PRJNA746402** primary: maize, one site in
+Pontevedra, one design, 59 informative runs split 14 single against 45 multi. It was the only
+project in the whole cohort offering a clean single-versus-multi contrast at one site with
+usable n. It is maize, so it is out, and nothing in the wheat cohort replaces it. What remains:
+
+- **Site-blocked analysis of the surveys.** PRJEB39201 previously gave 55 sites holding both
+  classes over 274 runs, at a median of four runs per site. Per-site power is negligible, so
+  the strength is entirely in the number of blocks: a stratified or mixed model reporting
+  within-site effects only, never a pooled contrast. Those site counts are four-cereal-era and
+  need recomputing on the wheat cohort and the shipped tier.
+- **PRJNA718488 as the manipulated contrast**, not as part of the estimate. It is inoculated,
+  so it answers a different question, and it is 30 runs.
+
+So the honest statement of where question 3 stands is that it has a secondary design and no
+primary, and the secondary rests on many weak blocks. Either accept it as a blocked analysis
+with that limitation stated, or let the question go. See the open questions below.
+
+**Condition on severity, designed in rather than checked after.** A run carrying two pathogens
+probably carries more disease, so match or covary on the dominant pathogen's coverage.
+Otherwise the result reads as amount of infection rather than diversity of it, which is a
+different claim and a less interesting one.
+
+**Causality is not recoverable from this design either way** and the Discussion has to say so.
+A host difference between singly and multiply infected field samples is an association. Nothing
+in an archived survey establishes which came first.
+
 ## What the module can claim, and what it cannot
 
 **Can:** "species X's expressed transcriptome is enriched for secreted plant cell wall degrading
@@ -304,7 +401,19 @@ tissue, so expression of a biotroph-specific programme is evidence of a living i
 rather than of decay. This is the strongest claim in the module and it is available precisely
 where the cohort is richest.
 
-## Measured scope, 2026-11-02, from `02_classify/data/gold/detections.tsv`
+## Measured scope, 2026-11-02 — STALE, AND KEPT FOR ITS SHAPE NOT ITS NUMBERS
+
+**Read this section for what it establishes and not for any figure in it.** Every number below
+comes from `research/02_classify/data/gold/detections.tsv`, which is db_v4 over the FOUR-CEREAL
+cohort. Both halves of that have since changed: the chapter is wheat only as of 2026-11-17, and
+the database is the db0/db1/db2 ladder. Maize and sorghum carried most of the secondary-detection
+volume, so the event counts will fall substantially and the species list will shift toward the
+wheat pathogens and the wheat resident core.
+
+**What survives the recount is the finding that depth is not the binding constraint**, because
+that is a statement about the depth distribution of secondary detections rather than about how
+many there are. Recompute the table against the shipped tier on the wheat cohort before scoping
+anything from it.
 
 Depth is not the binding constraint, which was not obvious in advance. Of 3,387 classified
 runs, 1,869 carry two or more fungal detections. Secondary (rank 2 and below) detections have
@@ -331,8 +440,11 @@ it into a manuscript as if it were measured.
       01_index/     bowtie2 index per host over db_v4 CDS, tagged headers, host CDS as sink
       02_align/     bowtie2 -k + samtools per run; BAM is the product, not a count table
       03_assign/    read -> species-unique or ambiguous; per-gene unique counts; positional
-                    spread; the three presence facts
+                    spread; the three presence facts. ALSO emits the host gene-level count
+                    table, which costs no extra alignment pass
       04_function/  gene set annotation, then the within-sample enrichment test
+      05_host/      the single-versus-multi host contrast, site-blocked. Between-sample and
+                    conventional, unlike 04_function. Reads 03_assign's host table
       controls/     the off-host null, the axenic with/without-congener pair, and the
                     Chapter 2 validation. Built alongside 04_function, never after it
       seeds/        gene set definitions and their provenance
@@ -341,10 +453,19 @@ it into a manuscript as if it were measured.
 
 ## Open questions before anything is built
 
-1. **Which subset.** The 928 obligate-biotroph events (854 runs, 6 species, >=20,000 reads) are
-   where the claim is strongest and where alignment cost is affordable. The full 4,483-event /
-   98-species set is the ambitious version. Scoping is no longer a concession now that
-   prevalence is not the claim.
+0. **Does question 3 survive losing PRJNA746402?** Added 2026-11-17. The wheat decision removed
+   the only one-site, one-design, adequately powered single-versus-multi contrast in the
+   cohort, leaving a site-blocked analysis over many four-run blocks plus a 30-run inoculated
+   project. Three options, and this is Leon's call: run it blocked and state the limitation;
+   drop the question from this chapter; or keep it as a descriptive companion to the pathogen
+   result rather than a test of its own. Nothing else in the module depends on the answer,
+   because `03_assign` emits the host table either way.
+1. **Which subset.** The obligate-biotroph events are where the claim is strongest and where
+   alignment cost is affordable; the full secondary-detection set is the ambitious version.
+   Scoping is no longer a concession now that prevalence is not the claim. **Recount on the
+   wheat cohort and the shipped db tier first**: the counts in the measured-scope section above
+   are four-cereal db_v4 and the biotroph set in particular was carried by rust surveys that
+   are mostly wheat, so it may shrink less than the total does.
 2. **Where annotation lives.** It is a property of the reference set and `_refdata`/holobase is
    the single source of reference truth, but its only consumer today is this module and the
    repo's convention is that a thing lives with its consumer. Holobase is the better long-run
@@ -358,3 +479,7 @@ it into a manuscript as if it were measured.
 5. **bowtie2 end-to-end or local.** Local soft-clips, which helps against divergent references
    but can let a conserved domain carry a read that end-to-end would reject. Test on the
    controls rather than choosing on principle.
+6. **How the host is quantified.** Added 2026-11-17. Hexaploid wheat makes the species-unique
+   rule the wrong instrument within the host, for the reason in "The host-response design"
+   above. Gene-level with homoeologues collapsed is the likely answer. Decide and state it;
+   do not let question 3 inherit question 2's rule by default.

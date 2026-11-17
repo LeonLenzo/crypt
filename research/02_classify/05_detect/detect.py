@@ -119,9 +119,12 @@ So `coinfection.tsv` carries BOTH counts and neither is hidden:
 
 Measured here: 701/1,177 runs (60%) co-infected by species, 605/1,177 (51%) by genus.
 
-Resolving it properly is `04_align`'s job -- competitive EM assigns a read to one reference
-instead of counting it against all plausible ones -- and this gives that module a defined
-target set rather than "a stratified sample". Note it may not fully succeed: *Puccinia* species
+Resolving it properly is the align module's job -- it keeps only reads whose best alignments
+name exactly one species, instead of counting a read against every plausible reference -- and
+this gives that module a defined target set rather than "a stratified sample". Note it does NOT
+apportion ambiguous reads: competitive EM was the original design and was dropped on 2026-11-02
+because it inflates exactly the low-abundance undeclared congeners this chapter is about. See
+research/03_align/README.md. Note it may not fully succeed: *Puccinia* species
 are separable by exact k-mers (a 16-point ANI gap) but formae speciales are not, and whether
 *Alternaria* sections separate is unmeasured.
 

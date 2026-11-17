@@ -24,6 +24,7 @@
 set -uo pipefail
 module load python/3.11.6
 cd /scratch/pawsey1168/llenzo/crypt || exit 1
+tools/repo_sync.sh require-current || exit 1
 mkdir -p tools/logs
 echo "host     $(hostname)"
 echo "started  $(date -Is)"
@@ -31,5 +32,12 @@ SECONDS=0
 python3 tools/migrate_cds_to_release.py
 rc=$?
 echo "exit     $rc after ${SECONDS}s"
+
+# The manifest describes bytes only this machine holds, so this machine commits it.
+tools/repo_sync.sh publish \
+    "02_reference: CDS manifest after the migration into release/ (job ${SLURM_JOB_ID:-?})" \
+    release/02_reference/data/raw/cds_fetch_manifest.tsv
+prc=$?
+[ "$rc" -eq 0 ] && rc=$prc
 echo "finished $(date -Is)"
 exit $rc

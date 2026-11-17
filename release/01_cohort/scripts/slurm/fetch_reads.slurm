@@ -28,12 +28,25 @@ set -uo pipefail
 module load python/3.11.6
 cd /scratch/pawsey1168/llenzo/crypt || exit 1
 mkdir -p release/01_cohort/scripts/slurm/logs
+tools/repo_sync.sh require-current || exit 1
 echo "host     $(hostname)"
 echo "started  $(date -Is)"
 SECONDS=0
+# READS-DIR IS release/01_cohort/raw/reads, a sibling of data/, and not data/raw/reads.
+# c3ceabc moved this path to data/raw/reads when it restructured the module; the 3.3 TB was
+# never moved, so that directory is empty and a job pointed at it refetches the whole cohort
+# into the wrong tree. Both are gitignored until the bytes are relocated and every reader
+# agrees on one path.
 python3 release/01_cohort/scripts/fetch_reads.py \
-    --reads-dir release/01_cohort/data/raw/reads --fetch --workers "${WORKERS:-24}"
+    --reads-dir release/01_cohort/raw/reads --fetch --workers "${WORKERS:-24}"
 rc=$?
 echo "exit     $rc after ${SECONDS}s"
+
+# The manifest describes bytes only this machine holds, so this machine commits it.
+tools/repo_sync.sh publish \
+    "01_cohort: reads manifest after fetch job ${SLURM_JOB_ID:-?}" \
+    release/01_cohort/data/raw/reads_manifest.tsv
+prc=$?
+[ "$rc" -eq 0 ] && rc=$prc
 echo "finished $(date -Is)"
 exit $rc

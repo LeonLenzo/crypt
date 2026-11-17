@@ -6,8 +6,8 @@
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=4G
 #SBATCH --time=00:30:00
-#SBATCH --output=/scratch/pawsey1168/llenzo/crypt/release/01_cohort/slurm/logs/scan_reads_%j.out
-#SBATCH --error=/scratch/pawsey1168/llenzo/crypt/release/01_cohort/slurm/logs/scan_reads_%j.err
+#SBATCH --output=release/01_cohort/scripts/slurm/logs/scan_reads_%j.out
+#SBATCH --error=release/01_cohort/scripts/slurm/logs/scan_reads_%j.err
 
 # Rewrite reads_manifest.tsv from a DISK SCAN, fetching nothing.
 #
@@ -19,8 +19,17 @@
 # fetch job is in flight: presence is read off the filesystem and nothing is written but the
 # manifest, through a temp-file rename.
 set -uo pipefail
-cd /scratch/pawsey1168/llenzo/crypt/release/01_cohort
+cd /scratch/pawsey1168/llenzo/crypt || exit 1
+mkdir -p release/01_cohort/scripts/slurm/logs
 module load python/3.11.6
+tools/repo_sync.sh require-current || exit 1
 echo "START $(date -Is)"
-python -u scripts/fetch_reads.py --reads-dir raw/reads
-echo "END $(date -Is)  rc=$?"
+python3 -u release/01_cohort/scripts/fetch_reads.py --reads-dir release/01_cohort/raw/reads
+rc=$?
+tools/repo_sync.sh publish \
+    "01_cohort: reads manifest from a disk scan (job ${SLURM_JOB_ID:-?})" \
+    release/01_cohort/data/raw/reads_manifest.tsv
+prc=$?
+[ "$rc" -eq 0 ] && rc=$prc
+echo "END $(date -Is)  rc=$rc"
+exit $rc

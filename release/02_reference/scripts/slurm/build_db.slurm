@@ -23,8 +23,11 @@
 # sooner; --build-only resumes without redoing the library if it ever does run out.
 #
 # --dependency=singleton so two arms of the ladder cannot build into the same library at once.
-set -euo pipefail
+# -e is deliberately NOT set: the exit code is captured and reported, and under -e a failed
+# build would exit before the publish hook and before rc is read.
+set -uo pipefail
 cd /scratch/pawsey1168/llenzo/crypt || exit 1
+tools/repo_sync.sh require-current || exit 1
 mkdir -p release/02_reference/scripts/slurm/logs
 module load python/3.11.6
 
@@ -47,4 +50,14 @@ python3 release/02_reference/scripts/build_db.py \
     --tier "${TIER:-db0_baseline,db1_congener}" \
     ${EXTRA:+--extra-cds "$EXTRA"} \
     --threads "${THREADS:-128}" "$@"
-echo "END $(date -Is) after ${SECONDS}s"
+rc=$?
+
+# db_inspect is the coverage denominator every detection figure divides by, and it describes
+# an index only this machine holds, so this machine commits it.
+tools/repo_sync.sh publish \
+    "02_reference: db_inspect for ${NAME} (job ${SLURM_JOB_ID:-?})" \
+    "release/02_reference/data/outputs/db_inspect_${NAME}.tsv"
+prc=$?
+[ "$rc" -eq 0 ] && rc=$prc
+echo "END $(date -Is) after ${SECONDS}s  rc=$rc"
+exit $rc

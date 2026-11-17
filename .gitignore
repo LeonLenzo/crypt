@@ -234,8 +234,19 @@ release/01_cohort/data/inputs/fulltext_manual/
 # per-BioSample raw attribute dump: large, regenerable; the flattened biosamples.tsv is tracked
 release/01_cohort/data/raw/sample_attrs.jsonl
 
-# cohort read bytes, consolidated under the release tree on Setonix; never committed
+# cohort read bytes, consolidated under the release tree on Setonix; never committed.
+#
+# BOTH PATHS ARE IGNORED, and the second one is the one that matters. c3ceabc restructured
+# 01_cohort into data/figures/scripts and moved the reads path inside fetch_reads.slurm to
+# data/raw/reads, but the 3.3 TB on Setonix was never moved and still sits at raw/reads, a
+# sibling of data/. The live fetch jobs use raw/reads, which is why they work. So the tree
+# that actually holds the reads was NOT covered by this rule: `git status` on Setonix showed
+# `?? release/01_cohort/raw/`, which is 3.3 TB one `git add -A` away from being staged.
+#
+# Both rules stay until the reads are relocated under data/raw/ (a rename, same filesystem)
+# and every reader agrees on one path. Removing either one early is how this reappears.
 release/01_cohort/data/raw/reads/
+release/01_cohort/raw/
 
 # release/02_reference: 267 MB of public source data (USDA Fungus-Host, NCBI Taxonomy),
 # refetched in one command by scripts/fetch_species.py. The manifest

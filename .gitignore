@@ -245,3 +245,19 @@ release/02_reference/data/raw/raw_usda_fungus_host.csv
 release/02_reference/data/raw/raw_taxdmp.zip
 release/02_reference/data/raw/raw_phibase.csv
 release/02_reference/data/raw/raw_assembly_summary.txt
+release/02_reference/data/raw/raw_ensembl_plants_species.txt
+release/02_reference/data/raw/host_cds/
+
+# The database's BYTES: the CDS trees and the Kraken2 index, on Setonix scratch. 92 GB of
+# fungal CDS over 5,302 accessions, migrated out of research/02_classify/data/bronze/cds_db0
+# on 2026-11-17 so the module runs entirely from release/, plus the host CDS above and
+# whatever the build writes. Ignored by DIRECTORY, the same rule research/02_classify's
+# data/ won, because a per-file list has already failed in both directions here.
+#
+# What is present is recorded in the manifests, which ARE tracked:
+#   raw/cds_fetch_manifest.tsv   accession -> status, bytes
+#   raw/host_cds_manifest.tsv    species -> resolved file, bytes, md5
+# Nothing under these directories is ours or irreplaceable: a reviewer refetches from the
+# manifest, which is the same contract raw_assembly_summary.txt and the reads tree have.
+release/02_reference/data/raw/cds/
+release/02_reference/data/db/

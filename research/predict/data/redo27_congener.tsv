@@ -1,0 +1,28 @@
+pred_acc	taxon	congener_acc	congener
+GCA_019977855.1	Penicillium aurantiogriseum	GCA_012295545.2	Penicillium digitatum
+GCA_030770065.1	Pichia fermentans	GCA_001661235.1	Pichia membranifaciens NRRL Y-2026
+GCA_012365135.1	Pyrenophora graminea	GCA_031213615.1	Pyrenophora teres f. teres
+GCA_059642765.1	Septoria lycopersici	GCA_024291795.1	Septoria linicola
+GCA_059628595.1	Stemphylium eturmiunum	GCA_003268315.2	Stemphylium lycopersici
+GCA_055672515.1	Stemphylium vesicarium	GCA_003268315.2	Stemphylium lycopersici
+GCA_004299765.1	Talaromyces funiculosus	GCA_011392495.1	Talaromyces pinophilus
+GCA_040333175.1	Talaromyces variabilis	GCA_011392495.1	Talaromyces pinophilus
+GCA_045933385.1	Tilletia bromi	GCA_009428295.1	Tilletia walkeri
+GCA_054127445.1	Trichoderma hamatum	GCA_011066345.1	Trichoderma lentiforme
+GCA_001950475.1	Trichoderma koningii	GCA_011066345.1	Trichoderma lentiforme
+GCA_030278935.1	Trichoderma polysporum	GCA_011066345.1	Trichoderma lentiforme
+GCA_020827535.1	Ustilago esculenta	GCA_019972555.1	Ustilago shanxiensis
+GCA_022560035.1	Boeremia foveata	GCA_020726555.1	Boeremia exigua
+GCA_023084525.1	Botryosphaeria kuwatsukai	GCA_021436945.2	Botryosphaeria dothidea
+GCA_014849355.1	Cryphonectria radicalis	GCA_011745365.1	Cryphonectria parasitica EP155
+GCA_002116355.1	Dothistroma pini	GCA_000340195.1	Dothistroma septosporum NZE10
+GCA_001599095.1	Hyphopichia homilentoma	GCA_001661395.1	Hyphopichia burtonii NRRL Y-1933
+GCA_047837085.1	Macrophomina pseudophaseolina	GCA_020744275.1	Macrophomina phaseolina
+GCA_003049425.1	Magnaporthiopsis incrustans	GCA_000193285.1	Magnaporthiopsis poae ATCC 64411
+GCA_001600675.1	Millerozyma acaciae	GCA_000315895.1	Millerozyma farinosa CBS 7064
+GCA_928852645.1	Mycosarcoma mackinlayi	GCA_000328475.2	Mycosarcoma maydis
+GCA_059756515.1	Papiliotrema aurea	GCA_031326905.1	Papiliotrema laurentii
+GCA_001748405.1	Paraphoma sp. B47-9	GCA_020744225.1	Paraphoma chrysanthemicola
+GCA_026873275.1	Pseudopithomyces maydicus	GCA_033220655.1	Pseudopithomyces chartarum
+GCA_003012195.1	Trichothecium ovalisporum	GCA_026184415.1	Trichothecium roseum
+GCA_038381055.1	Ustilaginoidea albicans	GCA_000965225.2	Ustilaginoidea virens

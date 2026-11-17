@@ -1,0 +1,114 @@
+pred_acc	taxon	congener_acc	congener
+GCA_036768465.1	Alternaria brassicae	GCA_019702505.1	Alternaria panax
+GCA_060574935.1	Alternaria chartarum	GCA_019702505.1	Alternaria panax
+GCA_001950455.1	Alternaria consortialis	GCA_019702505.1	Alternaria panax
+GCA_019059555.1	Alternaria longipes	GCA_019702505.1	Alternaria panax
+GCA_040583965.1	Alternaria oregonensis	GCA_019702505.1	Alternaria panax
+GCA_002952155.1	Alternaria solani	GCA_019702505.1	Alternaria panax
+GCA_040583995.1	Alternaria triticina	GCA_019702505.1	Alternaria panax
+GCA_027569315.1	Aspergillus amstelodami	GCA_016808415.1	Aspergillus terreus
+GCA_004849945.1	Aspergillus ochraceus	GCA_016808415.1	Aspergillus terreus
+GCA_039880875.1	Aspergillus pseudoglaucus	GCA_016808415.1	Aspergillus terreus
+GCA_963379335.1	Aspergillus sp.	GCA_016808415.1	Aspergillus terreus
+GCA_003671435.1	Berkeleyomyces basicola	GCA_048999995.1	Berkeleyomyces rouxiae
+GCA_026262445.1	Bipolaris bicolor	GCA_028858645.1	Bipolaris maydis
+GCA_035078755.1	Bipolaris gigantea	GCA_028858645.1	Bipolaris maydis
+GCA_000527765.2	Bipolaris victoriae	GCA_028858645.1	Bipolaris maydis
+GCA_048999985.1	Ceratobasidium cereale	GCA_015039395.1	Ceratobasidium sp. AG-I
+GCA_002018265.1	Ceratocystis harringtonii	GCA_042258205.1	Ceratocystis pirilliformis
+GCA_006681795.1	Ceratocystis manginecans	GCA_042258205.1	Ceratocystis pirilliformis
+GCA_022836995.1	Cercospora apii	GCA_010093985.1	Cercospora zeae-maydis SCOH1-5
+GCA_058382225.1	Cercospora flagellaris	GCA_010093985.1	Cercospora zeae-maydis SCOH1-5
+GCA_002994015.1	Cercospora nicotianae	GCA_010093985.1	Cercospora zeae-maydis SCOH1-5
+GCA_052324125.1	Cladosporium oxysporum	GCA_056320455.1	Cladosporium cladosporioides
+GCA_052324145.1	Cladosporium pseudocladosporioides	GCA_056320455.1	Cladosporium cladosporioides
+GCA_052323905.1	Cladosporium sphaerospermum	GCA_056320455.1	Cladosporium cladosporioides
+GCA_002249775.1	Colletotrichum coccodes	GCA_027942845.1	Colletotrichum fioriniae
+GCA_003386485.1	Colletotrichum lentis	GCA_027942845.1	Colletotrichum fioriniae
+GCA_001693025.3	Colletotrichum lindemuthianum	GCA_027942845.1	Colletotrichum fioriniae
+GCA_051527715.1	Cordyceps farinosa	GCA_059933775.1	Cordyceps cateniannulata
+GCA_020744315.1	Curvularia eragrostidis	GCA_011058905.1	Curvularia kusanoi
+GCA_002982235.1	Curvularia geniculata	GCA_011058905.1	Curvularia kusanoi
+GCA_026262405.1	Curvularia hawaiiensis	GCA_011058905.1	Curvularia kusanoi
+GCA_005212705.1	Curvularia lunata	GCA_011058905.1	Curvularia kusanoi
+GCA_000817285.1	Curvularia papendorfii	GCA_011058905.1	Curvularia kusanoi
+GCA_026262435.1	Curvularia spicifera	GCA_011058905.1	Curvularia kusanoi
+GCA_039634465.1	Didymella pinodella	GCA_022225945.2	Didymella pomorum
+GCA_040893085.1	Epicoccum sorghinum	GCA_019721275.1	Epicoccum nigrum
+GCA_026367775.1	Exserohilum rostratum	GCA_000359705.1	Exserohilum turcica Et28A
+GCA_058578815.1	Filobasidium magnum	GCA_019201745.1	Filobasidium floriforme
+GCA_017657135.1	Fusarium acaciae-mearnsii	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_017657045.1	Fusarium aethiopicum	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_002982035.1	Fusarium algeriense	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_012977745.1	Fusarium anguioides	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_051942675.1	Fusarium armeniacum	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_025258505.1	Fusarium asiaticum	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_017656985.1	Fusarium boothii	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_018886245.1	Fusarium brachygibbosum	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_004367475.1	Fusarium camptoceras	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_054553065.1	Fusarium cerealis	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_004367485.1	Fusarium citri	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_037577415.1	Fusarium compactum	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_014824425.1	Fusarium concentricum	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_013184415.1	Fusarium concolor	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_017656885.1	Fusarium cortaderiae	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_013623525.1	Fusarium dimerum	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_044592905.1	Fusarium flocciferum	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_017656835.1	Fusarium gerlachii	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_011035845.1	Fusarium hostae	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_004367075.1	Fusarium incarnatum	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_044647245.1	Fusarium inflexum	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_034753255.1	Fusarium kyushuense	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_017656825.1	Fusarium louisianense	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_032355295.1	Fusarium meridionale	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_004367095.1	Fusarium nanum	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_014898925.1	Fusarium nelsonii	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_013623555.1	Fusarium nisikadoi	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_014898975.1	Fusarium nodosum	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_055255615.1	Fusarium sacchari	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_004367495.1	Fusarium scirpi	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_012977735.1	Fusarium tanahbumbuense	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_013363175.1	Fusarium virguliforme	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_037179535.1	Fusarium vorosii	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_001457955.1	Heterobasidion annosum	GCA_000320585.2	Heterobasidion irregulare TC 32-1
+GCA_003049465.1	Magnaporthiopsis rhizophila	GCA_000193285.1	Magnaporthiopsis poae ATCC 64411
+GCA_060154625.1	Mucor racemosus	GCA_040256725.1	Mucor lusitanicus
+GCA_045529365.1	Neonectria candida	GCA_037954305.1	Neonectria magnoliae
+GCA_003012165.1	Paramyrothecium roridum	GCA_023375755.1	Paramyrothecium foliicola
+GCA_022559985.1	Parastagonospora avenae	GCA_020569285.1	Parastagonospora nodorum
+GCA_019977855.1	Penicillium aurantiogriseum	GCA_012295545.2	Penicillium digitatum
+GCA_053572805.1	Penicillium commune	GCA_012295545.2	Penicillium digitatum
+GCA_015585785.1	Penicillium dipodomyicola	GCA_012295545.2	Penicillium digitatum
+GCA_024706585.1	Penicillium simplicissimum	GCA_012295545.2	Penicillium digitatum
+GCA_054124195.1	Penicillium sp.	GCA_012295545.2	Penicillium digitatum
+GCA_016109475.1	Phialophora verrucosa	GCA_000835435.1	Phialophora macrospora
+GCA_030770065.1	Pichia fermentans	GCA_001661235.1	Pichia membranifaciens NRRL Y-2026
+GCA_001630605.1	Pseudogymnoascus pannorum	GCA_048593815.1	Pseudogymnoascus australis
+GCA_019395275.1	Puccinia brachypodii	GCA_008522505.1	Puccinia graminis f. sp. tritici
+GCA_062009385.1	Puccinia hordei	GCA_008522505.1	Puccinia graminis f. sp. tritici
+GCA_012365135.1	Pyrenophora graminea	GCA_031213615.1	Pyrenophora teres f. teres
+GCA_059642765.1	Septoria lycopersici	GCA_024291795.1	Septoria linicola
+GCA_059628595.1	Stemphylium eturmiunum	GCA_003268315.2	Stemphylium lycopersici
+GCA_055672515.1	Stemphylium vesicarium	GCA_003268315.2	Stemphylium lycopersici
+GCA_004299765.1	Talaromyces funiculosus	GCA_011392495.1	Talaromyces pinophilus
+GCA_040333175.1	Talaromyces variabilis	GCA_011392495.1	Talaromyces pinophilus
+GCA_045933385.1	Tilletia bromi	GCA_009428295.1	Tilletia walkeri
+GCA_054127445.1	Trichoderma hamatum	GCA_011066345.1	Trichoderma lentiforme
+GCA_001950475.1	Trichoderma koningii	GCA_011066345.1	Trichoderma lentiforme
+GCA_030278935.1	Trichoderma polysporum	GCA_011066345.1	Trichoderma lentiforme
+GCA_020827535.1	Ustilago esculenta	GCA_019972555.1	Ustilago shanxiensis
+GCA_030567955.1	[Candida] sp.	GCA_000825705.1	[Torrubiella] hemipterigena
+GCA_022560035.1	Boeremia foveata	GCA_020726555.1	Boeremia exigua
+GCA_023084525.1	Botryosphaeria kuwatsukai	GCA_021436945.2	Botryosphaeria dothidea
+GCA_014849355.1	Cryphonectria radicalis	GCA_011745365.1	Cryphonectria parasitica EP155
+GCA_002116355.1	Dothistroma pini	GCA_000340195.1	Dothistroma septosporum NZE10
+GCA_001599095.1	Hyphopichia homilentoma	GCA_001661395.1	Hyphopichia burtonii NRRL Y-1933
+GCA_047837085.1	Macrophomina pseudophaseolina	GCA_020744275.1	Macrophomina phaseolina
+GCA_003049425.1	Magnaporthiopsis incrustans	GCA_000193285.1	Magnaporthiopsis poae ATCC 64411
+GCA_001600675.1	Millerozyma acaciae	GCA_000315895.1	Millerozyma farinosa CBS 7064
+GCA_928852645.1	Mycosarcoma mackinlayi	GCA_000328475.2	Mycosarcoma maydis
+GCA_059756515.1	Papiliotrema aurea	GCA_031326905.1	Papiliotrema laurentii
+GCA_001748405.1	Paraphoma sp. B47-9	GCA_020744225.1	Paraphoma chrysanthemicola
+GCA_026873275.1	Pseudopithomyces maydicus	GCA_033220655.1	Pseudopithomyces chartarum
+GCA_003012195.1	Trichothecium ovalisporum	GCA_026184415.1	Trichothecium roseum
+GCA_038381055.1	Ustilaginoidea albicans	GCA_000965225.2	Ustilaginoidea virens

@@ -1,0 +1,136 @@
+tier	ncbi_taxid	taxon	genus	family	usda_row	phibase_col	n_assemblies	accession	assembly_level	contig_count	genome_size_mb	predict_risk	reason
+A	39291	Agroathelia rolfsii	Agroathelia	Amylocorticiaceae	wheat	none	6	GCA_002940785.1	Scaffold	1976	32.5		silent wheat x none, 6 assemblies, no gene model
+A	29911	Alternaria brassicae	Alternaria	Pleosporaceae	wheat	none	6	GCA_036768465.1	Complete Genome	10	33.8		silent wheat x none, 6 assemblies, no gene model
+A	119957	Alternaria chartarum	Alternaria	Pleosporaceae	wheat	none	1	GCA_060574935.1	Scaffold	1154	38.7		silent wheat x none, 1 assemblies, no gene model
+A	230004	Alternaria consortialis	Alternaria	Pleosporaceae	wheat	none	1	GCA_001950455.1	Scaffold	105	34.2		silent wheat x none, 1 assemblies, no gene model
+A	160389	Alternaria longipes	Alternaria	Pleosporaceae	wheat	plant_pathogen	1	GCA_019059555.1	Chromosome	15	39.4		silent wheat x plant_pathogen, 1 assemblies, no gene model
+A	283353	Alternaria oregonensis	Alternaria	Pleosporaceae	wheat	none	1	GCA_040583965.1	Scaffold	92	33.7		silent wheat x none, 1 assemblies, no gene model
+A	48100	Alternaria solani	Alternaria	Pleosporaceae	plant	plant_pathogen	4	GCA_002952155.1	Complete Genome	10	32.8		silent plant x plant_pathogen, 4 assemblies, no gene model
+A	216836	Alternaria triticina	Alternaria	Pleosporaceae	wheat	none	2	GCA_040583995.1	Scaffold	219	34.6		silent wheat x none, 2 assemblies, no gene model
+A	112178	Arthrinium phaeospermum	Arthrinium	Apiosporaceae	wheat	none	1	GCA_006503535.1	Contig	19	48.4		silent wheat x none, 1 assemblies, no gene model
+A	5054	Aspergillus amstelodami	Aspergillus	Aspergillaceae	wheat	none	1	GCA_027569315.1	Contig	375	25.7		silent wheat x none, 1 assemblies, no gene model
+A	40380	Aspergillus ochraceus	Aspergillus	Aspergillaceae	wheat	none	5	GCA_004849945.1	Scaffold	55	37.0		silent wheat x none, 5 assemblies, no gene model
+A	1405805	Aspergillus pseudoglaucus	Aspergillus	Aspergillaceae	wheat	none	2	GCA_039880875.1	Scaffold	176	26.5		silent wheat x none, 2 assemblies, no gene model
+A	5065	Aspergillus sp.	Aspergillus	Aspergillaceae	wheat	none	1	GCA_963379335.1	Contig	4019	12.6		silent wheat x none, 1 assemblies, no gene model
+A	124036	Berkeleyomyces basicola	Berkeleyomyces	Ceratocystidaceae	wheat	none	2	GCA_003671435.1	Scaffold	250	25.3		silent wheat x none, 2 assemblies, no gene model
+A	102001	Bipolaris bicolor	Bipolaris	Pleosporaceae	wheat	none	1	GCA_026262445.1	Scaffold	529	35.1		silent wheat x none, 1 assemblies, no gene model
+A	2695822	Bipolaris gigantea	Bipolaris	Pleosporaceae	wheat	none	9	GCA_035078755.1	Scaffold	2092	31.9		silent wheat x none, 9 assemblies, no gene model
+A	40125	Bipolaris victoriae	Bipolaris	Pleosporaceae	wheat	plant_pathogen	1	GCA_000527765.2	Contig	21	34.0		silent wheat x plant_pathogen, 1 assemblies, no gene model
+A	157611	Bullera alba	Bullera	Bulleraceae	wheat	none	2	GCA_001600095.1	Scaffold	20	19.4		silent wheat x none, 2 assemblies, no gene model
+A	76351	Ceratobasidium cereale	Ceratobasidium	Ceratobasidiaceae	wheat	none	2	GCA_048999985.1	Complete Genome	16	41.1		silent wheat x none, 2 assemblies, no gene model
+A	312341	Ceratocystis harringtonii	Ceratocystis	Ceratocystidaceae	plant	plant_pathogen	1	GCA_002018265.1	Scaffold	1500	26.1		silent plant x plant_pathogen, 1 assemblies, no gene model
+A	929235	Ceratocystis manginecans	Ceratocystis	Ceratocystidaceae	plant	plant_pathogen	8	GCA_006681795.1	Scaffold	1742	31.6		silent plant x plant_pathogen, 8 assemblies, no gene model
+A	132184	Cercospora apii	Cercospora	Mycosphaerellaceae	plant	plant_pathogen	2	GCA_022836995.1	Scaffold	35	34.8		silent plant x plant_pathogen, 2 assemblies, no gene model
+A	1579221	Cercospora flagellaris	Cercospora	Mycosphaerellaceae	plant	plant_pathogen	2	GCA_058382225.1	Scaffold	32	33.6		silent plant x plant_pathogen, 2 assemblies, no gene model
+A	29003	Cercospora nicotianae	Cercospora	Mycosphaerellaceae	plant	plant_pathogen	2	GCA_002994015.1	Scaffold	1082	33.4		silent plant x plant_pathogen, 2 assemblies, no gene model
+A	984309	Ciboria shiraiana	Ciboria	Sclerotiniaceae	plant	plant_pathogen	1	GCA_008122225.1	Contig	29	39.1		silent plant x plant_pathogen, 1 assemblies, no gene model
+A	29919	Cladosporium oxysporum	Cladosporium	Cladosporiaceae	wheat	none	3	GCA_052324125.1	Scaffold	61	30.8		silent wheat x none, 3 assemblies, no gene model
+A	887100	Cladosporium pseudocladosporioides	Cladosporium	Cladosporiaceae	wheat	none	3	GCA_052324145.1	Scaffold	46	32.9		silent wheat x none, 3 assemblies, no gene model
+A	92950	Cladosporium sphaerospermum	Cladosporium	Cladosporiaceae	wheat	none	4	GCA_052323905.1	Scaffold	204	29.5		silent wheat x none, 4 assemblies, no gene model
+A	27358	Colletotrichum coccodes	Colletotrichum	Glomerellaceae	plant	plant_pathogen	3	GCA_002249775.1	Scaffold	827	50.1		silent plant x plant_pathogen, 3 assemblies, no gene model
+A	1585795	Colletotrichum lentis	Colletotrichum	Glomerellaceae	plant	plant_pathogen	1	GCA_003386485.1	Scaffold	2980	56.1		silent plant x plant_pathogen, 1 assemblies, no gene model
+A	290576	Colletotrichum lindemuthianum	Colletotrichum	Glomerellaceae	plant	plant_pathogen	6	GCA_001693025.3	Scaffold	120	100.4	large_genome	silent plant x plant_pathogen, 6 assemblies, no gene model
+A	89141	Cordyceps farinosa	Cordyceps	Cordycipitaceae	wheat	none	8	GCA_051527715.1	Scaffold	666	30.7		silent wheat x none, 8 assemblies, no gene model
+A	418125	Curvularia eragrostidis	Curvularia	Pleosporaceae	wheat	none	1	GCA_020744315.1	Contig	3600	36.9		silent wheat x none, 1 assemblies, no gene model
+A	418126	Curvularia geniculata	Curvularia	Pleosporaceae	wheat	none	2	GCA_002982235.1	Scaffold	741	33.5		silent wheat x none, 2 assemblies, no gene model
+A	1230527	Curvularia hawaiiensis	Curvularia	Pleosporaceae	wheat	none	1	GCA_026262405.1	Scaffold	3122	30.0		silent wheat x none, 1 assemblies, no gene model
+A	5503	Curvularia lunata	Curvularia	Pleosporaceae	wheat	plant_pathogen	2	GCA_005212705.1	Scaffold	741	33.5		silent wheat x plant_pathogen, 2 assemblies, no gene model
+A	1537989	Curvularia papendorfii	Curvularia	Pleosporaceae	wheat	none	1	GCA_000817285.1	Contig	374	33.4		silent wheat x none, 1 assemblies, no gene model
+A	145392	Curvularia spicifera	Curvularia	Pleosporaceae	wheat	none	1	GCA_026262435.1	Scaffold	272	31.7		silent wheat x none, 1 assemblies, no gene model
+A	89926	Cystofilobasidium macerans	Cystofilobasidium	Cystofilobasidiaceae	wheat	none	2	GCA_014825765.1	Scaffold	1222	20.1		silent wheat x none, 2 assemblies, no gene model
+A	749633	Didymella pinodella	Didymella	Didymellaceae	wheat	none	8	GCA_039634465.1	Complete Genome	15	34.3		silent wheat x none, 8 assemblies, no gene model
+A	33199	Drechslera avenae	Drechslera	Pleosporaceae	wheat	none	4	GCA_034640345.1	Scaffold	486	32.6		silent wheat x none, 4 assemblies, no gene model
+A	749593	Epicoccum sorghinum	Epicoccum	Didymellaceae	wheat	none	4	GCA_040893085.1	Chromosome	22	32.7		silent wheat x none, 4 assemblies, no gene model
+A	1659837	Exserohilum rostratum	Exserohilum	Pleosporaceae	wheat	none	6	GCA_026367775.1	Complete Genome	16	34.1		silent wheat x none, 6 assemblies, no gene model
+A	104409	Filobasidium magnum	Filobasidium	Filobasidiaceae	wheat	none	2	GCA_058578815.1	Contig	29	25.2		silent wheat x none, 2 assemblies, no gene model
+A	2710536	Furcasterigmium furcatum	Furcasterigmium	Plectosphaerellaceae	wheat	none	1	GCA_001599815.1	Scaffold	94	40.3		silent wheat x none, 1 assemblies, no gene model
+A	282272	Fusarium acaciae-mearnsii	Fusarium	Nectriaceae	wheat	none	4	GCA_017657135.1	Scaffold	47	36.9		silent wheat x none, 4 assemblies, no gene model
+A	569394	Fusarium aethiopicum	Fusarium	Nectriaceae	wheat	none	3	GCA_017657045.1	Scaffold	53	36.8		silent wheat x none, 3 assemblies, no gene model
+A	2050978	Fusarium algeriense	Fusarium	Nectriaceae	wheat	none	2	GCA_002982035.1	Scaffold	3476	50.0		silent wheat x none, 2 assemblies, no gene model
+A	183586	Fusarium anguioides	Fusarium	Nectriaceae	wheat	none	1	GCA_012977745.1	Scaffold	766	38.9		silent wheat x none, 1 assemblies, no gene model
+A	679435	Fusarium armeniacum	Fusarium	Nectriaceae	wheat	none	2	GCA_051942675.1	Scaffold	220	37.3		silent wheat x none, 2 assemblies, no gene model
+A	282267	Fusarium asiaticum	Fusarium	Nectriaceae	wheat	wheat_pathogen	259	GCA_025258505.1	Complete Genome	4	38.3		silent wheat x wheat_pathogen, 259 assemblies, no gene model
+A	282271	Fusarium boothii	Fusarium	Nectriaceae	wheat	none	8	GCA_017656985.1	Scaffold	58	36.4		silent wheat x none, 8 assemblies, no gene model
+A	679434	Fusarium brachygibbosum	Fusarium	Nectriaceae	wheat	none	2	GCA_018886245.1	Scaffold	312	40.4		silent wheat x none, 2 assemblies, no gene model
+A	57143	Fusarium camptoceras	Fusarium	Nectriaceae	wheat	none	1	GCA_004367475.1	Scaffold	508	36.8		silent wheat x none, 1 assemblies, no gene model
+A	56641	Fusarium cerealis	Fusarium	Nectriaceae	wheat	none	4	GCA_054553065.1	Chromosome	10	36.7		silent wheat x none, 4 assemblies, no gene model
+A	2495903	Fusarium citri	Fusarium	Nectriaceae	wheat	none	1	GCA_004367485.1	Scaffold	464	37.9		silent wheat x none, 1 assemblies, no gene model
+A	867872	Fusarium compactum	Fusarium	Nectriaceae	wheat	none	1	GCA_037577415.1	Contig	13	38.8		silent wheat x none, 1 assemblies, no gene model
+A	48491	Fusarium concentricum	Fusarium	Nectriaceae	wheat	none	1	GCA_014824425.1	Scaffold	642	43.1		silent wheat x none, 1 assemblies, no gene model
+A	48492	Fusarium concolor	Fusarium	Nectriaceae	wheat	none	1	GCA_013184415.1	Scaffold	3356	49.6		silent wheat x none, 1 assemblies, no gene model
+A	281068	Fusarium cortaderiae	Fusarium	Nectriaceae	wheat	none	6	GCA_017656885.1	Scaffold	44	36.7		silent wheat x none, 6 assemblies, no gene model
+A	57145	Fusarium dimerum	Fusarium	Nectriaceae	wheat	none	2	GCA_013623525.1	Scaffold	2381	37.6		silent wheat x none, 2 assemblies, no gene model
+A	56642	Fusarium flocciferum	Fusarium	Nectriaceae	wheat	none	1	GCA_044592905.1	Scaffold	223	40.8		silent wheat x none, 1 assemblies, no gene model
+A	569362	Fusarium gerlachii	Fusarium	Nectriaceae	wheat	none	2	GCA_017656835.1	Scaffold	48	36.6		silent wheat x none, 2 assemblies, no gene model
+A	152502	Fusarium hostae	Fusarium	Nectriaceae	wheat	none	6	GCA_011035845.1	Scaffold	2153	53.4		silent wheat x none, 6 assemblies, no gene model
+A	298378	Fusarium incarnatum	Fusarium	Nectriaceae	wheat	none	3	GCA_004367075.1	Scaffold	402	37.5		silent wheat x none, 3 assemblies, no gene model
+A	42671	Fusarium inflexum	Fusarium	Nectriaceae	wheat	none	1	GCA_044647245.1	Scaffold	1706	52.6		silent wheat x none, 1 assemblies, no gene model
+A	56665	Fusarium kyushuense	Fusarium	Nectriaceae	wheat	none	2	GCA_034753255.1	Chromosome	22	37.0		silent wheat x none, 2 assemblies, no gene model
+A	1571108	Fusarium louisianense	Fusarium	Nectriaceae	wheat	none	2	GCA_017656825.1	Scaffold	91	36.0		silent wheat x none, 2 assemblies, no gene model
+A	282269	Fusarium meridionale	Fusarium	Nectriaceae	wheat	none	5	GCA_032355295.1	Complete Genome	4	37.0		silent wheat x none, 5 assemblies, no gene model
+A	2494468	Fusarium nanum	Fusarium	Nectriaceae	wheat	none	1	GCA_004367095.1	Scaffold	544	37.2		silent wheat x none, 1 assemblies, no gene model
+A	77846	Fusarium nelsonii	Fusarium	Nectriaceae	wheat	none	1	GCA_014898925.1	Scaffold	1652	41.4		silent wheat x none, 1 assemblies, no gene model
+A	78863	Fusarium nisikadoi	Fusarium	Nectriaceae	wheat	none	1	GCA_013623555.1	Scaffold	1101	40.9		silent wheat x none, 1 assemblies, no gene model
+A	2592597	Fusarium nodosum	Fusarium	Nectriaceae	wheat	none	1	GCA_014898975.1	Scaffold	336	35.7		silent wheat x none, 1 assemblies, no gene model
+A	42676	Fusarium sacchari	Fusarium	Nectriaceae	wheat	plant_pathogen	6	GCA_055255615.1	Scaffold	1591	45.9		silent wheat x plant_pathogen, 6 assemblies, no gene model
+A	2211609	Fusarium scirpi	Fusarium	Nectriaceae	wheat	none	1	GCA_004367495.1	Scaffold	601	39.6		silent wheat x none, 1 assemblies, no gene model
+A	2594821	Fusarium tanahbumbuense	Fusarium	Nectriaceae	wheat	none	1	GCA_012977735.1	Scaffold	1060	37.8		silent wheat x none, 1 assemblies, no gene model
+A	232082	Fusarium virguliforme	Fusarium	Nectriaceae	plant	plant_pathogen	9	GCA_013363175.1	Scaffold	3981	45.4		silent plant x plant_pathogen, 9 assemblies, no gene model
+A	569361	Fusarium vorosii	Fusarium	Nectriaceae	wheat	none	4	GCA_037179535.1	Complete Genome	4	38.9		silent wheat x none, 4 assemblies, no gene model
+A	13563	Heterobasidion annosum	Heterobasidion	Bondarzewiaceae	plant	plant_pathogen	4	GCA_001457955.1	Scaffold	1912	28.0		silent plant x plant_pathogen, 4 assemblies, no gene model
+A	165777	Magnaporthiopsis rhizophila	Magnaporthiopsis	Magnaporthaceae	wheat	none	1	GCA_003049465.1	Scaffold	689	39.9		silent wheat x none, 1 assemblies, no gene model
+A	64636	Marquandomyces marquandii	Marquandomyces	Clavicipitaceae	wheat	none	2	GCA_048569445.1	Complete Genome	8	42.8		silent wheat x none, 2 assemblies, no gene model
+A	4841	Mucor racemosus	Mucor	Mucoraceae	wheat	none	4	GCA_060154625.1	Scaffold	8458	47.6	fragmented	silent wheat x none, 4 assemblies, no gene model
+A	1634535	Neonectria candida	Neonectria	Nectriaceae	wheat	none	1	GCA_045529365.1	Scaffold	2259	46.7		silent wheat x none, 1 assemblies, no gene model
+A	335854	Nigrospora oryzae	Nigrospora	Apiosporaceae	wheat	none	1	GCA_016758845.1	Contig	15	43.2		silent wheat x none, 1 assemblies, no gene model
+A	114231	Nigrospora sphaerica	Nigrospora	Apiosporaceae	wheat	none	4	GCA_026119995.1	Scaffold	2341	46.7		silent wheat x none, 4 assemblies, no gene model
+A	33175	Ophiosphaerella herpotricha	Ophiosphaerella	Phaeosphaeriaceae	wheat	none	3	GCA_028458545.1	Contig	4361	54.3		silent wheat x none, 3 assemblies, no gene model
+A	85572	Ophiosphaerella narmari	Ophiosphaerella	Phaeosphaeriaceae	wheat	none	3	GCA_028456235.1	Contig	1036	44.5		silent wheat x none, 3 assemblies, no gene model
+A	1859971	Paramyrothecium roridum	Paramyrothecium	Stachybotryaceae	wheat	none	1	GCA_003012165.1	Scaffold	2401	45.1		silent wheat x none, 1 assemblies, no gene model
+A	1351752	Parastagonospora avenae	Parastagonospora	Phaeosphaeriaceae	wheat	none	11	GCA_022559985.1	Scaffold	1754	36.9		silent wheat x none, 11 assemblies, no gene model
+A	36655	Penicillium aurantiogriseum	Penicillium	Aspergillaceae	wheat	none	1	GCA_019977855.1	Contig	4	32.6		silent wheat x none, 1 assemblies, no gene model
+A	36653	Penicillium commune	Penicillium	Aspergillaceae	wheat	none	65	GCA_053572805.1	Contig	171	36.0		silent wheat x none, 65 assemblies, no gene model
+A	254876	Penicillium dipodomyicola	Penicillium	Aspergillaceae	wheat	none	3	GCA_015585785.1	Scaffold	470	32.1		silent wheat x none, 3 assemblies, no gene model
+A	69488	Penicillium simplicissimum	Penicillium	Aspergillaceae	wheat	none	3	GCA_024706585.1	Contig	196	39.0		silent wheat x none, 3 assemblies, no gene model
+A	5081	Penicillium sp.	Penicillium	Aspergillaceae	wheat	none	2	GCA_054124195.1	Scaffold	2873	20.2		silent wheat x none, 2 assemblies, no gene model
+A	39412	Phialophora verrucosa	Phialophora	Herpotrichiellaceae	wheat	none	6	GCA_016109475.1	Scaffold	144	36.2		silent wheat x none, 6 assemblies, no gene model
+A	73001	Phoma herbarum	Phoma	Didymellaceae	wheat	none	2	GCA_001599375.1	Scaffold	498	39.3		silent wheat x none, 2 assemblies, no gene model
+A	53655	Pichia fermentans	Pichia	Pichiaceae	wheat	none	9	GCA_030770065.1	Scaffold	497	19.8		silent wheat x none, 9 assemblies, no gene model
+A	79858	Pseudogymnoascus pannorum	Pseudogymnoascus	Thelebolaceae	wheat	none	2	GCA_001630605.1	Scaffold	652	30.5		silent wheat x none, 2 assemblies, no gene model
+A	285811	Pseudopyrenochaeta lycopersici	Pseudopyrenochaeta	Pseudopyrenochaetaceae	plant	plant_pathogen	2	GCA_000601435.1	Scaffold	12392	50.5	fragmented	silent plant x plant_pathogen, 2 assemblies, no gene model
+A	27343	Puccinia brachypodii	Puccinia	Pucciniaceae	wheat	none	1	GCA_019395275.1	Scaffold	23880	90.7	fragmented	silent wheat x none, 1 assemblies, no gene model
+A	27345	Puccinia hordei	Puccinia	Pucciniaceae	wheat	none	21	GCA_062009385.1	Chromosome	29	143.3	large_genome	silent wheat x none, 21 assemblies, no gene model
+A	76659	Pyrenopeziza brassicae	Pyrenopeziza	Ploettnerulaceae	plant	plant_pathogen	1	GCA_958299125.1	Scaffold	46	73.2		silent plant x plant_pathogen, 1 assemblies, no gene model
+A	5028	Pyrenophora graminea	Pyrenophora	Pleosporaceae	wheat	none	1	GCA_012365135.1	Scaffold	3004	32.6		silent wheat x none, 1 assemblies, no gene model
+A	2698418	Sclerotiophoma versabilis	Sclerotiophoma	Didymellaceae	plant	plant_pathogen	1	GCA_012274445.1	Contig	95	41.0		silent plant x plant_pathogen, 1 assemblies, no gene model
+A	39703	Septoria lycopersici	Septoria	Mycosphaerellaceae	plant	plant_pathogen	1	GCA_059642765.1	Chromosome	14	29.6		silent plant x plant_pathogen, 1 assemblies, no gene model
+A	278952	Sphaerellopsis filum	Sphaerellopsis	Leptosphaeriaceae	wheat	none	1	GCA_041753865.1	Scaffold	1142	28.0		silent wheat x none, 1 assemblies, no gene model
+A	235069	Stemphylium eturmiunum	Stemphylium	Pleosporaceae	wheat	none	2	GCA_059628595.1	Contig	19	41.0		silent wheat x none, 2 assemblies, no gene model
+A	119933	Stemphylium vesicarium	Stemphylium	Pleosporaceae	wheat	none	5	GCA_055672515.1	Scaffold	25	41.4		silent wheat x none, 5 assemblies, no gene model
+A	28572	Talaromyces funiculosus	Talaromyces	Trichocomaceae	wheat	none	10	GCA_004299765.1	Complete Genome	21	28.5		silent wheat x none, 10 assemblies, no gene model
+A	28576	Talaromyces variabilis	Talaromyces	Trichocomaceae	wheat	none	1	GCA_040333175.1	Scaffold	25	33.8		silent wheat x none, 1 assemblies, no gene model
+A	157179	Tilletia bromi	Tilletia	Tilletiaceae	wheat	none	2	GCA_045933385.1	Contig	3313	29.0		silent wheat x none, 2 assemblies, no gene model
+A	49224	Trichoderma hamatum	Trichoderma	Hypocreaceae	wheat	none	7	GCA_054127445.1	Scaffold	17	39.9		silent wheat x none, 7 assemblies, no gene model
+A	97093	Trichoderma koningii	Trichoderma	Hypocreaceae	wheat	none	2	GCA_001950475.1	Scaffold	105	32.3		silent wheat x none, 2 assemblies, no gene model
+A	40695	Trichoderma polysporum	Trichoderma	Hypocreaceae	wheat	none	1	GCA_030278935.1	Scaffold	883	39.1		silent wheat x none, 1 assemblies, no gene model
+A	185366	Ustilago esculenta	Ustilago	Ustilaginaceae	plant	plant_pathogen	2	GCA_020827535.1	Scaffold	42	26.4		silent plant x plant_pathogen, 2 assemblies, no gene model
+A	1895944	Vishniacozyma victoriae	Vishniacozyma	Bulleribasidiaceae	wheat	none	1	GCA_017654735.1	Contig	94	11.7		silent wheat x none, 1 assemblies, no gene model
+A	49569	Waitea zeae	Waitea	Corticiaceae	wheat	none	5	GCA_037855235.1	Contig	6700	31.6	fragmented	silent wheat x none, 5 assemblies, no gene model
+A	1853550	[Candida] sp.			wheat	none	15	GCA_030567955.1	Scaffold	61	10.2		silent wheat x none, 15 assemblies, no gene model
+B	5411	Cystofilobasidium bisporidii	Cystofilobasidium	Cystofilobasidiaceae	congener	none	2	GCA_014825535.1	Scaffold	2057	21.5		dark genus recorded on wheat (5 species in scope)
+B	33176	Ophiosphaerella korrae	Ophiosphaerella	Phaeosphaeriaceae	plant	none	5	GCA_028456385.1	Contig	2368	68.1		dark genus recorded on wheat (3 species in scope)
+B	89920	Vishniacozyma dimennae	Vishniacozyma	Bulleribasidiaceae	congener	none	1	GCA_052935135.1	Contig	98	22.3		dark genus recorded on wheat (6 species in scope)
+C2	749552	Boeremia foveata	Boeremia	Didymellaceae	plant	none	1	GCA_022560035.1	Scaffold	2134	34.5		competitor for Boeremia exigua (2 annotated assemblies, no annotated congener)
+C2	2021124	Botryosphaeria kuwatsukai	Botryosphaeria	Botryosphaeriaceae	plant	none	2	GCA_023084525.1	Scaffold	616	43.9		competitor for Botryosphaeria dothidea (2 annotated assemblies, no annotated congener)
+C2	40262	Cryphonectria radicalis	Cryphonectria	Cryphonectriaceae	plant	none	7	GCA_014849355.1	Scaffold	386	40.6		competitor for Cryphonectria parasitica (1 annotated assemblies, no annotated congener)
+C2	332034	Dothistroma pini	Dothistroma	Mycosphaerellaceae	plant	none	1	GCA_002116355.1	Scaffold	1076	30.0		competitor for Dothistroma septosporum (1 annotated assemblies, no annotated congener)
+C2	45558	Hyphopichia homilentoma	Hyphopichia	Debaryomycetaceae	congener	none	2	GCA_001599095.1	Scaffold	32	12.2		competitor for Hyphopichia burtonii (1 annotated assemblies, no annotated congener)
+C2	1435034	Macrophomina pseudophaseolina	Macrophomina	Botryosphaeriaceae	plant	none	12	GCA_047837085.1	Scaffold	2460	47.9		competitor for Macrophomina phaseolina (2 annotated assemblies, no annotated congener)
+C2	36781	Magnaporthiopsis incrustans	Magnaporthiopsis	Magnaporthaceae	plant	none	1	GCA_003049425.1	Scaffold	682	39.3		competitor for Magnaporthiopsis poae (1 annotated assemblies, no annotated congener)
+C2	28986	Millerozyma acaciae	Millerozyma	Debaryomycetaceae	congener	none	2	GCA_001600675.1	Scaffold	29	11.1		competitor for Millerozyma farinosa (1 annotated assemblies, no annotated congener)
+C2	684617	Mycosarcoma mackinlayi	Mycosarcoma		plant	none	1	GCA_928852645.1	Contig	79	20.0		competitor for Mycosarcoma maydis (1 annotated assemblies, no annotated congener)
+C2	214992	Papiliotrema aurea	Papiliotrema	Rhynchogastremaceae	congener	none	1	GCA_059756515.1	Contig	15	24.8		competitor for Papiliotrema laurentii (1 annotated assemblies, no annotated congener)
+C2	1804209	Paraphoma sp. B47-9	Paraphoma	Phaeosphaeriaceae	congener	none	1	GCA_001748405.1	Contig	576	38.5		competitor for Paraphoma chrysanthemicola (2 annotated assemblies, no annotated congener)
+C2	1921599	Pseudopithomyces maydicus	Pseudopithomyces	Didymosphaeriaceae	plant	none	1	GCA_026873275.1	Contig	22	39.4		competitor for Pseudopithomyces chartarum (1 annotated assemblies, no annotated congener)
+C2	508457	Trichothecium ovalisporum	Trichothecium		congener	none	1	GCA_003012195.1	Scaffold	1712	32.1		competitor for Trichothecium roseum (1 annotated assemblies, no annotated congener)
+C2	906972	Ustilaginoidea albicans	Ustilaginoidea	Clavicipitaceae	plant	none	1	GCA_038381055.1	Contig	37	38.0		competitor for Ustilaginoidea virens (2 annotated assemblies, no annotated congener)

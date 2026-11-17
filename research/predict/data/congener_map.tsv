@@ -1,0 +1,10 @@
+pred_acc	taxon	congener_acc	congener
+GCA_030567955.1	[Candida] sp.	GCA_000825705.1	[Torrubiella] hemipterigena
+GCA_026262435.1	Curvularia spicifera	GCA_011058905.1	Curvularia kusanoi
+GCA_017656985.1	Fusarium boothii	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_022559985.1	Parastagonospora avenae	GCA_020569285.1	Parastagonospora nodorum
+GCA_025258505.1	Fusarium asiaticum	GCA_038050555.1	Fusarium oxysporum f. sp. vasinfectum
+GCA_060154625.1	Mucor racemosus	GCA_040256725.1	Mucor lusitanicus
+GCA_019395275.1	Puccinia brachypodii	GCA_008522505.1	Puccinia graminis f. sp. tritici
+GCA_001693025.3	Colletotrichum lindemuthianum	GCA_027942845.1	Colletotrichum fioriniae
+GCA_062009385.1	Puccinia hordei	GCA_008522505.1	Puccinia graminis f. sp. tritici

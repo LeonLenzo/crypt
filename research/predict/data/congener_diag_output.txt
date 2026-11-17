@@ -1,0 +1,115 @@
+taxon                     congener                 contain    null  ratio  null set by
+Curvularia eragrostidis   Curvularia kusanoi        0.0008  0.0100   0.08  Bipolaris maydis
+Epicoccum sorghinum       Epicoccum nigrum          0.0135  0.1774   0.08  Curvularia kusanoi
+Curvularia papendorfii    Curvularia kusanoi        0.0010  0.0107   0.09  Bipolaris maydis
+Curvularia geniculata     Curvularia kusanoi        0.0009  0.0099   0.10  Bipolaris maydis
+Curvularia hawaiiensis    Curvularia kusanoi        0.0008  0.0080   0.10  Bipolaris maydis
+Curvularia lunata         Curvularia kusanoi        0.0009  0.0099   0.10  Bipolaris maydis
+Curvularia spicifera      Curvularia kusanoi        0.0011  0.0093   0.12  Bipolaris maydis
+[Candida] sp.             [Torrubiella] hemipteri   0.0000  0.0001   0.20  Hyphopichia burtonii NRRL Y-
+Boeremia foveata          Boeremia exigua           0.0008  0.0014   0.58  Alternaria panax
+Penicillium simplicissimu Penicillium digitatum     0.0010  0.0010   0.99  Aspergillus terreus
+Hyphopichia homilentoma   Hyphopichia burtonii NR   0.0004  0.0004   1.00  Millerozyma farinosa CBS 706
+Fusarium virguliforme     Fusarium oxysporum f. s   0.0029  0.0023   1.24  Neonectria magnoliae
+Botryosphaeria kuwatsukai Botryosphaeria dothidea   0.0060  0.0047   1.27  Macrophomina phaseolina
+Aspergillus sp.           Aspergillus terreus       0.0006  0.0003   2.00  Colletotrichum fioriniae
+Fusarium dimerum          Fusarium oxysporum f. s   0.0022  0.0009   2.38  Neonectria magnoliae
+Aspergillus pseudoglaucus Aspergillus terreus       0.0008  0.0003   2.65  Penicillium digitatum
+Alternaria oregonensis    Alternaria panax          0.0124  0.0047   2.66  Stemphylium lycopersici
+Alternaria triticina      Alternaria panax          0.0121  0.0043   2.85  Stemphylium lycopersici
+Aspergillus amstelodami   Aspergillus terreus       0.0011  0.0004   2.96  Penicillium digitatum
+Aspergillus ochraceus     Aspergillus terreus       0.0012  0.0004   3.00  Penicillium digitatum
+Pichia fermentans         Pichia membranifaciens    0.0004  0.0001   3.33  Stemphylium lycopersici
+Penicillium sp.           Penicillium digitatum     0.0015  0.0004   3.70  Aspergillus terreus
+Exserohilum rostratum     Exserohilum turcica Et2   0.0266  0.0071   3.74  Bipolaris maydis
+Millerozyma acaciae       Millerozyma farinosa CB   0.0007  0.0002   3.75  Hyphopichia burtonii NRRL Y-
+Septoria lycopersici      Septoria linicola         0.0054  0.0013   4.11  Cercospora zeae-maydis SCOH1
+Didymella pinodella       Didymella pomorum         0.0253  0.0055   4.57  Boeremia exigua
+Talaromyces variabilis    Talaromyces pinophilus    0.0009  0.0002   4.82  Aspergillus terreus
+Cercospora apii           Cercospora zeae-maydis    0.0086  0.0016   5.44  Septoria linicola
+Cercospora nicotianae     Cercospora zeae-maydis    0.0087  0.0015   5.72  Septoria linicola
+Colletotrichum lindemuthi Colletotrichum fiorinia   0.0036  0.0006   5.73  Neonectria magnoliae
+Cercospora flagellaris    Cercospora zeae-maydis    0.0086  0.0015   5.75  Septoria linicola
+Alternaria solani         Alternaria panax          0.0268  0.0044   6.12  Stemphylium lycopersici
+Alternaria brassicae      Alternaria panax          0.0289  0.0044   6.52  Stemphylium lycopersici
+Alternaria longipes       Alternaria panax          0.0296  0.0045   6.54  Stemphylium lycopersici
+Fusarium kyushuense       Fusarium oxysporum f. s   0.0047  0.0007   6.57  Neonectria magnoliae
+Alternaria consortialis   Alternaria panax          0.0276  0.0042   6.63  Stemphylium lycopersici
+Papiliotrema aurea        Papiliotrema laurentii    0.0008  0.0001   6.75  Filobasidium floriforme
+Fusarium citri            Fusarium oxysporum f. s   0.0057  0.0008   6.76  Neonectria magnoliae
+Fusarium gerlachii        Fusarium oxysporum f. s   0.0057  0.0008   6.86  Neonectria magnoliae
+Fusarium asiaticum        Fusarium oxysporum f. s   0.0055  0.0008   6.90  Neonectria magnoliae
+Fusarium acaciae-mearnsii Fusarium oxysporum f. s   0.0054  0.0008   6.93  Neonectria magnoliae
+Fusarium boothii          Fusarium oxysporum f. s   0.0056  0.0008   6.96  Neonectria magnoliae
+Fusarium nodosum          Fusarium oxysporum f. s   0.0052  0.0007   7.24  Neonectria magnoliae
+Fusarium aethiopicum      Fusarium oxysporum f. s   0.0055  0.0008   7.33  Neonectria magnoliae
+Fusarium camptoceras      Fusarium oxysporum f. s   0.0056  0.0008   7.33  Neonectria magnoliae
+Fusarium louisianense     Fusarium oxysporum f. s   0.0059  0.0008   7.39  Neonectria magnoliae
+Fusarium cortaderiae      Fusarium oxysporum f. s   0.0059  0.0008   7.41  Neonectria magnoliae
+Alternaria chartarum      Alternaria panax          0.0347  0.0046   7.52  Stemphylium lycopersici
+Fusarium meridionale      Fusarium oxysporum f. s   0.0059  0.0008   7.65  Neonectria magnoliae
+Fusarium armeniacum       Fusarium oxysporum f. s   0.0055  0.0007   7.67  Neonectria magnoliae
+Fusarium incarnatum       Fusarium oxysporum f. s   0.0061  0.0008   7.78  Neonectria magnoliae
+Fusarium vorosii          Fusarium oxysporum f. s   0.0061  0.0008   7.78  Neonectria magnoliae
+Trichothecium ovalisporum Trichothecium roseum      0.0052  0.0007   7.94  Neonectria magnoliae
+Cladosporium sphaerosperm Cladosporium cladospori   0.0043  0.0005   8.02  Curvularia kusanoi
+Fusarium nanum            Fusarium oxysporum f. s   0.0058  0.0007   8.11  Neonectria magnoliae
+Fusarium compactum        Fusarium oxysporum f. s   0.0064  0.0008   8.13  Neonectria magnoliae
+Trichoderma koningii      Trichoderma lentiforme    0.0106  0.0013   8.29  Paramyrothecium foliicola
+Fusarium scirpi           Fusarium oxysporum f. s   0.0074  0.0009   8.61  Neonectria magnoliae
+Fusarium cerealis         Fusarium oxysporum f. s   0.0063  0.0007   8.77  Neonectria magnoliae
+Colletotrichum lentis     Colletotrichum fiorinia   0.0064  0.0007   9.05  Magnaporthiopsis poae ATCC 6
+Fusarium tanahbumbuense   Fusarium oxysporum f. s   0.0069  0.0008   9.06  Neonectria magnoliae
+Fusarium flocciferum      Fusarium oxysporum f. s   0.0083  0.0009   9.39  Neonectria magnoliae
+Trichoderma hamatum       Trichoderma lentiforme    0.0077  0.0007  10.71  Paramyrothecium foliicola
+Fusarium brachygibbosum   Fusarium oxysporum f. s   0.0098  0.0009  11.31  Neonectria magnoliae
+Cordyceps farinosa        Cordyceps cateniannulat   0.0120  0.0010  11.88  [Torrubiella] hemipterigena
+Colletotrichum coccodes   Colletotrichum fiorinia   0.0072  0.0006  12.68  Neonectria magnoliae
+Fusarium nelsonii         Fusarium oxysporum f. s   0.0110  0.0008  12.98  Neonectria magnoliae
+Trichoderma polysporum    Trichoderma lentiforme    0.0084  0.0006  13.36  Paramyrothecium foliicola
+Bipolaris gigantea        Bipolaris maydis          0.0861  0.0060  14.41  Exserohilum turcica Et28A
+Mycosarcoma mackinlayi    Mycosarcoma maydis        0.0038  0.0003  15.00  Tilletia walkeri
+Ceratobasidium cereale    Ceratobasidium sp. AG-I   0.0005  0.0000  15.33  Cercospora zeae-maydis SCOH1
+Fusarium anguioides       Fusarium oxysporum f. s   0.0112  0.0007  15.37  Neonectria magnoliae
+Bipolaris bicolor         Bipolaris maydis          0.1224  0.0072  17.08  Exserohilum turcica Et28A
+Bipolaris victoriae       Bipolaris maydis          0.1237  0.0068  18.20  Exserohilum turcica Et28A
+Stemphylium eturmiunum    Stemphylium lycopersici   0.1179  0.0051  23.03  Alternaria panax
+Stemphylium vesicarium    Stemphylium lycopersici   0.1178  0.0051  23.09  Alternaria panax
+Tilletia bromi            Tilletia walkeri          0.0053  0.0002  23.47  Cryphonectria parasitica EP1
+Pseudopithomyces maydicus Pseudopithomyces charta   0.0185  0.0006  29.23  Curvularia kusanoi
+Macrophomina pseudophaseo Macrophomina phaseolina   0.3823  0.0121  31.57  Botryosphaeria dothidea
+Fusarium concolor         Fusarium oxysporum f. s   0.0184  0.0006  32.09  Neonectria magnoliae
+Parastagonospora avenae   Parastagonospora nodoru   0.0837  0.0023  35.94  Paraphoma chrysanthemicola
+Neonectria candida        Neonectria magnoliae      0.0477  0.0013  36.21  Fusarium oxysporum f. sp. va
+Ceratocystis harringtonii Ceratocystis pirillifor   0.1240  0.0029  42.06  Berkeleyomyces rouxiae
+Fusarium algeriense       Fusarium oxysporum f. s   0.0359  0.0008  42.81  Neonectria magnoliae
+Penicillium dipodomyicola Penicillium digitatum     0.0269  0.0006  48.62  Aspergillus terreus
+Penicillium commune       Penicillium digitatum     0.0365  0.0006  58.33  Aspergillus terreus
+Paraphoma sp. B47-9       Paraphoma chrysanthemic   0.1248  0.0021  59.44  Parastagonospora nodorum
+Mucor racemosus           Mucor lusitanicus         0.0078  0.0001  59.60  Puccinia graminis f. sp. tri
+Penicillium aurantiogrise Penicillium digitatum     0.0375  0.0006  62.42  Aspergillus terreus
+Puccinia hordei           Puccinia graminis f. sp   0.0037  0.0000  90.50  Ceratocystis pirilliformis
+Ceratocystis manginecans  Ceratocystis pirillifor   0.2718  0.0029  95.00  Berkeleyomyces rouxiae
+Pseudogymnoascus pannorum Pseudogymnoascus austra   0.0281  0.0003 105.38  Colletotrichum fioriniae
+Cladosporium pseudoclados Cladosporium cladospori   0.0497  0.0005 109.95  Curvularia kusanoi
+Cryphonectria radicalis   Cryphonectria parasitic   0.0762  0.0006 124.94  Magnaporthiopsis poae ATCC 6
+Puccinia brachypodii      Puccinia graminis f. sp   0.0069  0.0001 133.75  Ceratocystis pirilliformis
+Talaromyces funiculosus   Talaromyces pinophilus    0.0243  0.0002 135.36  Aspergillus terreus
+Cladosporium oxysporum    Cladosporium cladospori   0.0726  0.0005 150.12  Curvularia kusanoi
+Berkeleyomyces basicola   Berkeleyomyces rouxiae    0.4039  0.0025 162.18  Ceratocystis pirilliformis
+Fusarium hostae           Fusarium oxysporum f. s   0.1228  0.0007 168.38  Neonectria magnoliae
+Fusarium sacchari         Fusarium oxysporum f. s   0.1222  0.0006 190.50  Neonectria magnoliae
+Pyrenophora graminea      Pyrenophora teres f. te   0.7478  0.0039 190.81  Stemphylium lycopersici
+Dothistroma pini          Dothistroma septosporum   0.0775  0.0004 205.38  Septoria linicola
+Fusarium nisikadoi        Fusarium oxysporum f. s   0.1782  0.0008 219.85  Neonectria magnoliae
+Magnaporthiopsis incrusta Magnaporthiopsis poae A   0.1406  0.0006 223.85  Cryphonectria parasitica EP1
+Fusarium concentricum     Fusarium oxysporum f. s   0.1399  0.0006 224.25  Neonectria magnoliae
+Magnaporthiopsis rhizophi Magnaporthiopsis poae A   0.3851  0.0006 668.17  Cryphonectria parasitica EP1
+Fusarium inflexum         Fusarium oxysporum f. s   0.6663  0.0008 835.28  Neonectria magnoliae
+Phialophora verrucosa     Phialophora macrospora    0.0739  0.0001 991.14  Neonectria magnoliae
+Ustilaginoidea albicans   Ustilaginoidea virens     0.7371  0.00071058.25  Cordyceps cateniannulata
+Paramyrothecium roridum   Paramyrothecium foliico   0.8539  0.00071208.00  Neonectria magnoliae
+Heterobasidion annosum    Heterobasidion irregula   0.3830  0.00014301.00  Macrophomina phaseolina
+Filobasidium magnum       Filobasidium floriforme   0.3553  0.00014553.80  Papiliotrema laurentii
+Ustilago esculenta        Ustilago shanxiensis          NA      NA         
+-> /scratch/pawsey1168/llenzo/crypt/research/predict/data/all135_congener_check.tsv

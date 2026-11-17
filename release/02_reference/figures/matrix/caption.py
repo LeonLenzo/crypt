@@ -43,7 +43,11 @@ def provisional_counts(ref):
 def main():
     M = {(r["row"], r["col"]): (int(r["taxa"]), int(r["assemblies"]), int(r["cds"]))
          for r in rd(FIG / "matrix_numbers.tsv")}
-    ref = rd(S3)
+    # Fungi only: S3 also publishes the host sink (route=host, kingdom=Viridiplantae). The
+    # three host rows would not change any number this caption quotes -- no pathogen taxid is
+    # a plant and no host name parses as an `sp.` node -- but the caption describes the fungal
+    # scope, so it reads the fungal scope.
+    ref = [r for r in rd(S3) if r["kingdom"] == "Fungi"]
     pth = rd(CUR / "screen_pathogens.tsv")
     mrg = rd(CUR / "screen_merges.tsv")
     scope = {int(r["ncbi_taxid"]) for r in ref}

@@ -5842,3 +5842,6 @@ ncbi_taxid	taxon	kingdom	phylum	class	order	family	genus	route	usda_row	on_wheat
 3058867	cf. Caloplaca sp. 2 TL-2023	Fungi	Ascomycota	Lecanoromycetes	Teloschistales	Teloschistaceae	Caloplaca	usda_genus	congener	no	none	no	no			1	1	1.0		no	
 3058866	cf. Caloplaca sp. 3 TL-2023	Fungi	Ascomycota	Lecanoromycetes	Teloschistales	Teloschistaceae	Caloplaca	usda_genus	congener	no	none	no	no			1	1	1.0		no	
 3127905	cf. Muellerella sp. BF14	Fungi	Ascomycota	Eurotiomycetes	Verrucariales	Verrucariaceae	Muellerella	usda_genus	congener	no	none	no	no			1	0	0.0		no	
+4565	Triticum aestivum	Viridiplantae	Streptophyta	Magnoliopsida	Poales	Poaceae	Triticum	host								19	19	1.0	host_analysed	no	
+4513	Hordeum vulgare	Viridiplantae	Streptophyta	Magnoliopsida	Poales	Poaceae	Hordeum	host								1	1	1.0	host_contrast	no	
+3702	Arabidopsis thaliana	Viridiplantae	Streptophyta	Magnoliopsida	Brassicales	Brassicaceae	Arabidopsis	host								1	1	1.0	host_outgroup	no	

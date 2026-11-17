@@ -257,6 +257,10 @@ def clade_table(tax, order, angle, path):
 def main():
     with open(S3) as fh:
         rows = list(csv.DictReader(fh, delimiter="\t"))
+    # Fungi only. S3 also publishes the host sink (route=host, kingdom=Viridiplantae); every
+    # host row already carries in_tree=no, so this is belt and braces rather than a fix, but
+    # it states the intent where a reader of this file will look for it.
+    rows = [r for r in rows if r["kingdom"] == "Fungi"]
     tax = Tax([r for r in rows if r["in_tree"] == "yes"])
     species = load_species(rows)
     children, root = build_tree(tax, species)

@@ -63,12 +63,17 @@ recall (PHI-base is smaller), but the label it gives is one you can defend speci
     screen_pathogens.py  -> curation/screen_pathogens.tsv   150 PHI-base fungal pathogens
     fetch_assemblies.py  -> raw/raw_assembly_summary.txt    26,826 GenBank fungal assemblies
     screen_assemblies.py -> curation/screen_assemblies.tsv  21,413 in-scope assemblies
-    build_reference.py   -> outputs/supp_data_s3_reference.tsv  5,843 taxa, ONE ROW EACH
+    fetch_hosts.py       -> raw/raw_ensembl_plants_species.txt  267 genomes, release-63
+    screen_hosts.py      -> curation/screen_hosts.tsv        11 cohort hosts, 3 kept
+    fetch_host_cds.py    -> raw/host_cds/<species>/*.cds.all.fa.gz   21 CDS sets
+                            raw/host_cds_manifest.tsv        resolved file, bytes, md5
+    build_reference.py   -> outputs/supp_data_s3_reference.tsv  5,846 rows: 5,843 fungal
+                            taxa + the 3 hosts, ONE ROW EACH
 
     raw/raw_sources_manifest.tsv   provenance for all four sources, TRACKED
 
 Each fetch pairs with its screen: scope (species), pathogenicity (pathogens), buildability
-(assemblies). A fetch gets pinned bytes; a screen decides. `screen_merges.py` sits between
+(assemblies), the sink (hosts). A fetch gets pinned bytes; a screen decides. `screen_merges.py` sits between
 them and reconciles the two naming systems; see "Two names, one fungus".
 
 **`outputs/` is the deliverable and the only thing the figures read.** `build_reference.py`
@@ -280,6 +285,126 @@ re-annotated copies of assemblies already in that file, and taking both is how d
 build 432 genomes twice under paired GCA/GCF accessions, every pair differing in CDS size.
 That defect is retired by construction rather than by a dedup rule.
 
+## The host sink: why there is wheat in a fungal database
+
+**db0 and db1 were built with no plant CDS at all** (`Fungi 100%` in `db_inspect.tsv`), and
+that was a regression rather than a decision. The scope rule above says "every fungus USDA
+ever recorded on a plant", a wheat genome satisfies no clause of it, and when the module was
+written around that sentence the host sink silently fell out. db_v3 had held 38 plant species,
+568 M minimizers, 11.8% of the database.
+
+Two independent things break without it.
+
+**The sink.** Without host CDS a plant read is absorbed by the nearest fungal CDS and reported
+as a fungal hit. These are plant RNA-seq libraries, so the great majority of reads are wheat,
+and that is a false-positive mechanism aimed straight at the claim this chapter makes.
+
+**The host call is a result, not a diagnostic.** `04_assign` ranks reads across hosts to decide
+which plant a library came from, and agrees with the LLM-curated host 91.2% of the time. With
+no host CDS there is no host call to make.
+
+Neither is contradicted by the measured finding that host-read REMOVAL is unnecessary (PST read
+counts ratio 1.00x raw against HISAT2-split across five ground-truth runs). That tested
+deleting host reads BEFORE classification, which changes the percentage and not what Kraken2
+finds. Putting host CDS IN the database is the opposite operation: it gives a plant read a
+correct home instead of a fungal one.
+
+### Three hosts, and the exclusions matter more than the inclusions
+
+`screen_hosts.py` is a SCREEN OVER THE COHORT, not an authored list. The research tree's
+`seeds/hosts.tsv` was hand-written for a four-cereal cohort and still names *Oryza*, *Zea* and
+*Sorghum*, none of which has a run left.
+
+    analysed   Triticum aestivum     1,450 runs   19 Ensembl cultivars
+    contrast   Hordeum vulgare          57 runs   reference only (MorexV3)
+    outgroup   Arabidopsis thaliana      declared  reference only (TAIR10)
+
+**ENSEMBL PLANTS, NOT NCBI, and the difference is decisive.** NCBI GenBank holds the wheat
+pangenome as ASSEMBLIES and not as gene models: of its twelve *T. aestivum* entries carrying
+an `annotation_provider`, **eight have `protein_coding_gene_count = 0`** -- the NIAB cultivars
+(Alchemy, Xi19, Robigus, Soissons, Brompton, Rialto, Claire) are assembled and not annotated
+-- leaving only Chinese Spring, annotated twice. So "all available wheat CDS" from NCBI is two
+annotations of one cultivar plus three fragments, and `annotation_provider` is not a test for
+"has genes": selecting on it would queue eight 15 Gb downloads that each yield an empty CDS
+file. Ensembl Plants publishes **19 *T. aestivum* cultivars with CDS**, which is the breadth a
+sink actually wants.
+
+Ensembl is also the better provenance story. It ships immutable numbered releases, so plants
+release-63 is a stable artefact a reviewer re-fetches byte-identically and `expected_md5` is
+pinned; the fungal `assembly_summary.txt` is rebuilt daily and cannot be pinned at all. Note
+the two numbering systems: Ensembl Genomes numbers plants releases separately from Ensembl
+core, so `summary.txt` calls release-63 "Release 116" because it loads into Ensembl v116
+databases, and `/pub/release-116/` does not exist.
+
+**BREADTH SCALES WITH COHORT REPRESENTATION.** The analysed host takes every cultivar, because
+that is where the reads are and a cultivar-specific transcript missing from the sink leaks onto
+a fungus. A contrast or outgroup host takes its reference only: barley is 57 runs and
+Arabidopsis is pure QC, so the 77 barley cultivars Ensembl carries would be weight with no
+question behind it.
+
+Taking all 19 wheat cultivars is safe in a way one-species-per-genus is not, and for the same
+reason: **they all share taxid 4565**, so they consolidate on ONE node and no genus-level LCA
+bleed can occur, and Kraken2 stores each distinct minimizer once so the redundancy adds no
+weight to the taxon.
+
+**ONE SPECIES PER GENUS, and it is the load-bearing clause.** It drops hosts the cohort really
+contains: *T. turgidum* (8 runs), *Triticum* sp. (8), *T. dicoccon* (1) and *H. jubatum* (4).
+Adding them would be actively harmful. db_v3 held both hexaploid *T. aestivum* and tetraploid
+*T. turgidum*, and 27.7% of the *Triticum* clade's 51.8 M minimizers migrated to the GENUS
+node, so a correct wheat call scored low coverage; db_v4 fixed that by consolidating.
+Re-adding a congeneric host would re-create a defect already paid for. Those runs call as
+*T. aestivum*, which is taxonomically honest and costs nothing. Note the floor is a property of
+the GENUS (*Hordeum* is 61 runs across *vulgare* and *jubatum*) while a database entry is a
+SPECIES, so the floor qualifies a genus and one representative is picked from it.
+
+### Two traps that live in this screen
+
+**Ensembl files barley under 112509 (*H. vulgare* subsp. *vulgare*), not the cohort's 4513.**
+Hosts cannot be matched on taxid equality, so `screen_hosts.py` walks `nodes.dmp` and accepts
+any Ensembl genome at or below the cohort's taxon, then tags the CDS with the COHORT's species
+taxid so a host call resolves at the rank the cohort records and the chapter reports. Same
+reasoning as using 1047171 for *Z. tritici* rather than the IPO323 strain node 336722.
+
+**The CDS filename cannot be constructed from the species table.** Its `assembly` column and
+the FASTA's assembly token disagree -- Landmark is `PGSBv2.0_Landmark` in the table and
+`PGSBv2.1` in the file, Weebil is `EI_WeebilV1` against `WeebilV1` -- so building URLs 404s on
+2 of 19 cultivars, silently, because one missing cultivar of nineteen looks like nothing.
+`fetch_host_cds.py` lists each `cds/` directory instead and records the resolved filename in
+`host_cds_manifest.tsv`. It takes `.cds.all.fa.gz`, the gene-build CDS, never
+`.cds.abinitio.fa.gz`, which is unreviewed prediction Ensembl excludes from its gene set.
+
+*Triticosecale* (10 runs) and *Secale cereale* (5) fall below a 1% floor on the cohort, and
+**the sink survives their exclusion** because Triticeae CDS are near-identical: a rye or
+triticale read lands on wheat or on a Triticeae ancestor, and either way not on a fungus,
+which is the whole job of the sink.
+
+**The outgroup is declared, not derived, and that is deliberate.** Host assignment ranks rather
+than thresholds, so with only cohort hosts present every library is called as one of them by
+construction and a mislabelled or contaminated library cannot be seen. A distant dicot gives
+that signal somewhere to land for ~10 M minimizers. It is how *Fragaria*'s absence was found:
+30 strawberry runs ranking onto *Populus*, *Arachis* and *Glycine*.
+
+Every cohort host gets a row in `screen_hosts.tsv` with its `decision` and `reason`, kept or
+dropped, following `screen_merges.tsv`. A host crossing the run floor changes its row rather
+than appearing or vanishing without trace.
+
+### What this does to S3 and to the figures
+
+**S3 is now the DATABASE CONTENTS, not the fungal scope.** Host rows carry `route=host`,
+`kingdom=Viridiplantae` and empty fungal columns, because no clause of the scope rule and no
+PHI-base label means anything for a wheat genome. They are published here rather than only in
+`build_plan.tsv` because that is not a `supp_data_*` table, so hosts would otherwise be absent
+from the supplement entirely, describing a database that contains wheat as though it did not.
+
+**Anything counting the funnel or drawing a panel filters `kingdom == "Fungi"`.** Both figure
+scripts and both captions do; `matrix_numbers.tsv` is byte-identical before and after the
+hosts were added, which is the check that the filter works. Every host row also carries
+`in_tree=no`, so panel B is unaffected either way.
+
+**The host tier is in EVERY database and is never subtracted.** `build_plan.tsv` tags it
+`host` rather than giving it a rung on the db0/db1/db2 ladder: a comparison where one arm has
+the sink and the other does not measures the sink, not the tier.
+
 ## The gene-prediction gap, handed to research/predict
 
 3,529 in-scope taxa have no gene model. They are not equal:
@@ -287,10 +412,14 @@ That defect is retired by construction rather than by a dedup rule.
     genus already has annotated assemblies   2,597   predicting here mostly adds competitors
     genus has NO annotation at all             932   the gap that costs calls
 
-The 932 is the worklist, derived from `screen_assemblies.tsv` by selection rather than copied
-out, so it stays correct when the assembly summary is refreshed. 751 of them (80.6%) have
-exactly one assembly; the best available is Scaffold for 620, Contig 230, Chromosome 64,
-Complete Genome 18, and 238 carry more than 5,000 contigs.
+**The 932 was the wrong target and is superseded.** The unit is the GENUS, since one
+prediction gives every species in it a k-mer neighbour, and 932 species is only 437 genera --
+led by *Leccinum*, *Inocybe* and lichenised taxa that do not occur in a wheat leaf. The live
+worklist is **135 genomes** (`research/predict/worklist.py`): 118 silent reportables in the
+wheat row or a pathogen column with no gene model, 3 on-wheat dark genera, 14 congener
+competitors for callable wheat-relevant taxa that have none. All 135 are predicted and
+validated; this section is rewritten when the prediction arm lands here as supplementary
+table S4.
 
 Predicted CDS is a **competitor only** and must never support a positive call about its own
 species, because homology projection biases toward genes conserved with the guide. Every
@@ -395,7 +524,7 @@ in `research/superseded/02_reference_figs/` with their outputs. PDFs are no long
 
     data/inputs/     what we supply: the criterion, the pins, the exceptions
     data/raw/        what the three sources return. Large files gitignored, manifest tracked
-    data/curation/   decisions, by hand or from a stated criterion
+    data/curation/   decisions, by hand or from a stated criterion (incl. screen_hosts.tsv)
     data/outputs/    THE DELIVERABLE: supp_data_s3_reference.tsv, what the figures read
     scripts/         the pipeline steps, plus _palette.py and _caption.py
     figures/matrix/  panel A: its script, its numbers, its caption, its png

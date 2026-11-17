@@ -67,6 +67,13 @@ def grid():
     inv = {v: k for k, v in S3_COL.items()}
     with open(S3) as fh:
         for r in csv.DictReader(fh, delimiter="\t"):
+            # S3 now publishes the HOST SINK as well as the fungal scope (route=host,
+        # kingdom=Viridiplantae, empty fungal columns), because a reference table that
+        # omitted the wheat in the database would misdescribe what was built. This panel
+        # is the fungal scope, so it filters. Without the filter a host row keys on an
+        # empty phibase_col and raises.
+            if r["kingdom"] != "Fungi":
+                continue
             key = (r["usda_row"], inv[r["phibase_col"]])
             cell = cells[key]
             cell[0] += 1

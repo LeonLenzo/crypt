@@ -35,3 +35,26 @@ ncbi_assembly	pinned	no
 ncbi_assembly	retrieved_on	2026-11-10
 ncbi_assembly	n_assemblies	26826
 ncbi_assembly	n_annotated	6196
+ncbi_assembly_plant	source_name	NCBI GenBank plant assembly summary
+ncbi_assembly_plant	licence	public domain
+ncbi_assembly_plant	url	https://ftp.ncbi.nlm.nih.gov/genomes/genbank/plant/assembly_summary.txt
+ncbi_assembly_plant	file	assembly_summary.txt
+ncbi_assembly_plant	bytes	4076741
+ncbi_assembly_plant	md5	aabd7465781450f4b6a3e79bae687648
+ncbi_assembly_plant	last_modified	Mon, 16 Nov 2026 01:52:20 GMT
+ncbi_assembly_plant	pinned	no
+ncbi_assembly_plant	retrieved_on	2026-11-17
+ncbi_assembly_plant	n_assemblies	10437
+ncbi_assembly_plant	n_annotated	891
+ensembl_plants	source_name	Ensembl Plants
+ensembl_plants	licence	Apache 2.0 / no restriction
+ensembl_plants	release	plants-63
+ensembl_plants	url	https://ftp.ebi.ac.uk/ensemblgenomes/pub/plants/release-63/species_EnsemblPlants.txt
+ensembl_plants	file	species_EnsemblPlants.txt
+ensembl_plants	bytes	45380
+ensembl_plants	md5	c2f95db302e953244fdeab678b248414
+ensembl_plants	last_modified	
+ensembl_plants	pinned	yes
+ensembl_plants	retrieved_on	2026-11-17
+ensembl_plants	n_genomes	267
+ensembl_plants	n_taxids	135

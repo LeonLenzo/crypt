@@ -7,6 +7,7 @@ Reads  data/curation/screen_assemblies.tsv   what is buildable, and by which rou
        data/curation/screen_species.tsv      USDA names resolved, and on_wheat
        data/curation/screen_pathogens.tsv    the PHI-base labels
        data/curation/screen_merges.tsv       provisional names folded onto their binomial
+       data/curation/screen_hosts.tsv        the plant hosts, the database's sink
        data/raw/raw_taxdmp.zip               nodes.dmp + names.dmp, for the lineage
 Writes data/outputs/supp_data_s3_reference.tsv
 
@@ -26,6 +27,21 @@ holding only this TSV can regenerate both panels.
 One row per taxon IN THE REFERENCE, so a taxon that carries a label but has no in-scope
 assembly is absent by construction (one wheat pathogen is in that position). The pathogen
 labels are a property of the taxon and travel with it; they are never a filter on scope.
+
+## THE HOSTS ARE ROWS HERE, AND THAT CHANGES WHAT THIS TABLE CLAIMS TO BE
+
+The database contains plant CDS as a SINK: without it a plant read is absorbed by the nearest
+fungal CDS and reported as a fungal hit, and these are plant RNA-seq libraries. A table that
+called itself the reference while omitting wheat would misdescribe what was built, so the
+hosts are published here rather than only in build_plan.tsv, which is not a supp_data_*
+table and so would leave them out of the supplement entirely.
+
+The consequence is that S3 is "THE DATABASE CONTENTS", not "the fungal scope". Host rows
+carry `route=host`, `kingdom=Viridiplantae` and EMPTY fungal columns, because no clause of
+the scope rule or the PHI-base label means anything for a wheat genome. **Anything counting
+the scope funnel or drawing a panel must filter `kingdom == "Fungi"`** -- the figures do, and
+the matrix cell report below does. `in_tree` is `no` for every host, so panel B is unaffected
+either way.
 """
 
 import argparse
@@ -158,25 +174,61 @@ def main():
         row.update({r: lin.get(r, "") for r in RANKS})
         rows.append(row)
 
+    # The host sink. Kept rows only; screen_hosts.tsv carries the dropped hosts and their
+    # reasons as the audit trail, which is not a database input.
+    hosts = CUR / "screen_hosts.tsv"
+    n_host = 0
+    if hosts.exists():
+        for h in rd(hosts):
+            if h["decision"] != "keep" or not h["ensembl_species"]:
+                continue
+            t = int(h["ncbi_taxid"])
+            n = int(h["n_genomes"])
+            lin = lineage(t, parent, rank, name)
+            row = {c: "" for c in COLS}
+            row.update({
+                "ncbi_taxid": t, "taxon": name.get(t, h["host"]),
+                "route": "host", "usda_row": "", "on_wheat": "",
+                "phibase_col": "", "is_plant_pathogen": "", "is_wheat_pathogen": "",
+                # Every host genome carries a gene model by construction: these come from
+                # Ensembl Plants, where a genome is only published with a gene build, so
+                # n_annotated == n_assemblies and the ratio is 1 for a host by definition.
+                "n_assemblies": n, "n_annotated": n, "annotation_ratio": 1.0,
+                "category": f"host_{h['role']}", "in_tree": "no", "merged_from": "",
+            })
+            row.update({r: lin.get(r, "") for r in RANKS})
+            rows.append(row)
+            n_host += 1
+    else:
+        print("  WARNING: no screen_hosts.tsv, so S3 omits the host sink. "
+              "Run screen_hosts.py first.")
+
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with open(OUT, "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=COLS, delimiter="\t", lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
 
+    fungi = [r for r in rows if r["kingdom"] == "Fungi"]
     cells = defaultdict(lambda: [0, 0, 0])
-    for r in rows:
+    for r in fungi:
         c = cells[(r["usda_row"], r["phibase_col"])]
         c[0] += 1
         c[1] += r["n_assemblies"]
         c[2] += r["n_annotated"]
-    print(f"{len(rows):,} taxa, {sum(r['n_assemblies'] for r in rows):,} assemblies, "
-          f"{sum(r['n_annotated'] for r in rows):,} with a gene model")
+    print(f"{len(fungi):,} fungal taxa, {sum(r['n_assemblies'] for r in fungi):,} "
+          f"assemblies, {sum(r['n_annotated'] for r in fungi):,} with a gene model")
     for k in sorted(cells):
         t, a, c = cells[k]
         print(f"  {k[0]:<9} x {k[1]:<15} {t:>6,} taxa {a:>7,} asm {c:>6,} cds")
     print(f"  in_tree {sum(1 for r in rows if r['in_tree'] == 'yes'):,}")
-    missing = [r["taxon"] for r in rows if not r["genus"]]
+    if n_host:
+        print(f"\n  + {n_host} HOST taxa (the sink, kingdom Viridiplantae, excluded from "
+              f"every count above):")
+        for r in rows[-n_host:]:
+            print(f"      {r['category']:<18}{r['taxon']:<24}{r['genus']}")
+    print(f"  {len(rows):,} rows total in the table")
+    missing = [r["taxon"] for r in fungi if not r["genus"]]
     if missing:
         print(f"  note: {len(missing)} taxa have no genus in the lineage: "
               + ", ".join(missing[:5]))

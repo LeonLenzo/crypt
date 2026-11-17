@@ -11,9 +11,18 @@ Writes data/outputs/build_plan.tsv          one row per SELECTED assembly, with 
 The chapter builds three databases as an incremental ladder (kraken2-build --add-to-library
 reuses the previous library), and each tier isolates one effect:
 
+    host  the sink    plant CDS, in EVERY database (screen_hosts.py). Not a tier of the
+                      ladder: it is present in all three, so it never enters a subtraction.
     db0  baseline    observations: route in {usda_species, exception}, annotated
     db1  +congeners  db0 + route usda_genus, annotated      (a sibling of a recorded genus)
     db2  +predicted  db1 + gene-predicted CDS, 135 genomes (research/predict/worklist.py)
+
+THE HOST TIER IS NOT PART OF THE LADDER AND MUST NOT BE SUBTRACTED. db0/db1 were built
+without any plant CDS at all (`Fungi 100%` in db_inspect.tsv), which is a regression: without
+a host sink a plant read is absorbed by the nearest fungal CDS and reported as a fungal hit,
+and these are plant RNA-seq libraries. Hosts go into every database so that db1-db0 and
+db2-db1 still isolate one effect each; a comparison where one arm has the sink and the other
+does not measures the sink, not the tier.
 
 The tiers touch disjoint genera, which is what makes the subtraction clean. A congener is an
 annotated species, so its genus is never an orphan; a predicted species is in a genus with no
@@ -41,9 +50,15 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
 SCREEN = HERE / "data/curation/screen_assemblies.tsv"
+HOSTS = HERE / "data/curation/screen_hosts.tsv"
 TAXDMP = HERE / "data/raw/raw_taxdmp.zip"
 OUT = HERE / "data/outputs/build_plan.tsv"
 LEVEL = {"Complete Genome": 3, "Chromosome": 2, "Scaffold": 1, "Contig": 0}
+# CDS as a fraction of genome, used only to SIZE the download. Fungal genomes are gene-dense
+# and the db_v4 ratio is ~0.50. PLANTS ARE NOT: a hexaploid wheat genome is mostly repeat, and
+# its CDS is ~0.2 GB against ~15 GB genomic (CLAUDE.md), so applying the fungal ratio to a
+# host overstates it by ~40x and made the host sink look like 9.9 GB when it is nearer 0.3.
+CDS_RATIO = {"fungus": 0.50, "host": 0.013}
 
 csv.field_size_limit(10 ** 7)
 
@@ -103,17 +118,57 @@ def main():
                      "exception" if "exception" in routes else "usda_genus")
             rows.append((tier(route), r))
 
+    # The host sink. Kept rows only; screen_hosts.tsv also carries every dropped host with
+    # its reason, which is the audit trail and not a build input.
+    n_host = 0
+    if HOSTS.exists():
+        for h in csv.DictReader((ln for ln in open(HOSTS) if not ln.startswith("#")),
+                                delimiter="\t"):
+            if h["decision"] != "keep" or not h["ensembl_species"]:
+                continue
+            # EVERY cultivar for the analysed host, the reference alone for the others
+            # (screen_hosts.py decides which). Taking all 19 wheat cultivars is safe in a
+            # way one-species-per-genus is not, for the same reason: they all share taxid
+            # 4565, so they consolidate on ONE node and no genus-level LCA bleed is
+            # possible, and Kraken2 stores each minimizer once so the redundancy adds no
+            # weight. What it buys is k-mer coverage of the plant transcriptome, which is
+            # what decides whether a plant read is absorbed or leaks onto a fungus.
+            #
+            # HOST CDS COMES FROM ENSEMBL PLANTS, NOT NCBI, so the row carries the Ensembl
+            # species key as its `cds_ref` and the NCBI GCA only for traceability. NCBI has
+            # the wheat pangenome as assemblies without gene models (8 of 12 annotated
+            # T. aestivum entries carry 0 protein-coding genes), so it cannot supply this.
+            sps = [x for x in h["ensembl_species"].split(";") if x]
+            accs = h["assembly_accessions"].split(";")
+            for i, sp in enumerate(sps):
+                rows.append(("host", {
+                    "accession": accs[i] if i < len(accs) else "",
+                    "species_taxid": h["ncbi_taxid"],
+                    "organism_name": h["host"], "genus": h["genus"], "route": h["role"],
+                    "on_wheat": "", "assembly_level": "", "contig_count": "",
+                    "genome_size_mb": "", "protein_coding_genes": "",
+                    "cds_source": "ensembl_plants", "cds_ref": sp,
+                }))
+                n_host += 1
+    else:
+        print("  WARNING: no screen_hosts.tsv; the build plan has NO HOST SINK. "
+              "Run screen_hosts.py first.")
+
     OUT.parent.mkdir(parents=True, exist_ok=True)
+    # cds_source / cds_ref exist because the host CDS does not come from NCBI. Without them
+    # build_plan would describe only the half of the database `datasets` can fetch, and the
+    # whole point of carrying hosts here is that ONE table says what was built.
     cols = ["db_tier", "accession", "species_taxid", "organism_name", "genus", "route",
             "on_wheat", "assembly_level", "contig_count", "genome_size_mb",
-            "protein_coding_genes"]
+            "protein_coding_genes", "cds_source", "cds_ref"]
     with open(OUT, "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
         w.writerow(cols)
         for t, r in sorted(rows, key=lambda tr: (tr[0], tr[1]["organism_name"])):
             w.writerow([t, r["accession"], r["species_taxid"], r["organism_name"],
                         r["genus"], r["route"], r["on_wheat"], r["assembly_level"],
-                        r["contig_count"], r["genome_size_mb"], r["protein_coding_genes"]])
+                        r["contig_count"], r["genome_size_mb"], r["protein_coding_genes"],
+                        r.get("cds_source", "ncbi"), r.get("cds_ref", r["accession"])])
 
     # report
     n = defaultdict(int)
@@ -122,18 +177,25 @@ def main():
     for t, r in rows:
         n[t] += 1
         sp[t].add(r["species_taxid"])
-        gb[t] += float(r["genome_size_mb"] or 0) * 1e6
+        gb[t] += (float(r["genome_size_mb"] or 0) * 1e6
+                  * CDS_RATIO["host" if t == "host" else "fungus"])
     print(f"build plan: {len(rows):,} assemblies, "
           f"{'all' if cap is None else cap} per species\n")
+    if n_host:
+        print(f"  {'host sink (in EVERY database)':<32}{n['host']:>5} cds  "
+              f"{len(sp['host']):>5} sp  (Ensembl Plants; size from "
+              f"raw/host_cds_manifest.tsv)")
     cum_sp = cum_gb = cum_n = 0
     for t, label in (("db0_baseline", "db0 baseline (observations)"),
                      ("db1_congener", "db1 adds congeners")):
         cum_sp += len(sp[t]); cum_gb += gb[t]; cum_n += n[t]
         print(f"  {label:<32}{n[t]:>5} asm  {len(sp[t]):>5} sp  "
-              f"+{gb[t] * 0.5 / 1e9:4.1f} GB CDS   (cumulative {cum_n:,} asm, "
-              f"~{cum_gb * 0.5 / 1e9:.1f} GB)")
+              f"+{gb[t] / 1e9:4.1f} GB CDS   (cumulative {cum_n:,} asm, "
+              f"~{cum_gb / 1e9:.1f} GB)")
     print(f"\n  db2 adds the 135 gene-predicted genomes in research/predict (worklist.py)")
-    print(f"  CDS size estimated as 0.50 x genome (the db_v4 ratio)")
+    print(f"  CDS sized as {CDS_RATIO['fungus']:.2f} x genome for fungi "
+          f"(the db_v4 ratio), {CDS_RATIO['host']:.3f} x for hosts (plants are mostly "
+          f"repeat: wheat CDS is ~0.2 GB against ~15 GB genomic)")
     print(f"\n  -> {OUT}")
 
 

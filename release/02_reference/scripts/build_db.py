@@ -59,6 +59,25 @@ subtraction measures the tier and not the sink.
    is deliberate too: Kraken2's LCA already resolves a shared k-mer to the common ancestor, so
    low-complexity masking removes real sequence for nothing.
 
+## AN EVIDENCED ABSENCE IS AN EXCLUSION; AN UNEXPLAINED ONE IS FATAL
+
+30 of the plan's 5,302 fungal assemblies have no CDS at NCBI at all: `datasets download
+--include cds` returns a package with no `cds_from_genomic.fna`, recorded in
+`cds_fetch_manifest.tsv` as `no_cds_in_package`. They are in the plan because
+`screen_assemblies.py` tests `annotation_provider`, and an assembly can name a provider while
+shipping no gene model.
+
+A gene-count test would not fix it. 18 of the 30 carry `protein_coding_genes` of 0 or blank,
+but **12 claim a nonzero count and still ship nothing** (4, 5, 16, 47, 135 and 237 genes among
+them), so the only test that settles it is the fetch. That is why the exclusion is recognised
+here and not in the screen: the evidence is a fetch result, and it lives in a tracked manifest.
+
+So the rule has two halves. A planned accession whose manifest says `no_cds_in_package` is
+EXCLUDED, counted and listed. Anything else absent is FATAL, because an unexplained gap is a
+purge, a half-finished fetch or a path that moved, and building past it makes every coverage
+denominator wrong in an unrecorded direction. Published `n_annotated` in S3 still counts those
+30, which is a separate decision about the supplement and not one this script can make.
+
 ## The taxonomy comes from the module's pinned taxdump
 
 `raw/raw_taxdmp.zip` is the archive every screen in this module already reads, md5-pinned in
@@ -145,15 +164,27 @@ def host_files():
     return out
 
 
+NO_CDS_AT_SOURCE = "no_cds_in_package"
+
+
+def fetch_status():
+    """accession -> the status fetch_cds.py recorded, for telling absences apart."""
+    if not CDS_MANIFEST.exists():
+        return {}
+    return {r["accession"]: r.get("status", "") for r in rd(CDS_MANIFEST)}
+
+
 def plan_rows(tiers, extra):
     """The accessions to build, as (accession, taxid, source_path, label).
 
-    Hosts are added whatever `tiers` says; see the docstring.
+    Hosts are added whatever `tiers` says, and an absence the fetch manifest explains is
+    separated from one it does not; see the docstring.
     """
     if not PLAN.exists():
         sys.exit(f"no plan at {PLAN} — run plan_build.py first")
     hosts = host_files()
-    rows, missing = [], []
+    status = fetch_status()
+    rows, missing, excluded = [], [], []
     for r in rd(PLAN):
         tier = r["db_tier"]
         if tier != HOST_TIER and tier not in tiers:
@@ -170,7 +201,11 @@ def plan_rows(tiers, extra):
         else:
             src = CDS / r["accession"] / "cds_from_genomic.fna"
         if not src.is_file() or not src.stat().st_size:
-            missing.append((r["accession"], tier, f"no CDS at {src}"))
+            if status.get(r["accession"]) == NO_CDS_AT_SOURCE:
+                excluded.append((r["accession"], tier, r.get("organism_name", ""),
+                                 r.get("protein_coding_genes", "")))
+            else:
+                missing.append((r["accession"], tier, f"no CDS at {src}"))
             continue
         rows.append((r["accession"], int(taxid), src, r.get("organism_name", "")))
     for acc, taxid, path in extra:
@@ -179,7 +214,7 @@ def plan_rows(tiers, extra):
             missing.append((acc, "extra", f"no CDS at {p}"))
             continue
         rows.append((acc, int(taxid), p, "(predicted)"))
-    return rows, missing
+    return rows, missing, excluded
 
 
 def read_extra(path):
@@ -319,7 +354,18 @@ def main():
     inspect_out = OUTPUTS / f"db_inspect_{args.name}.tsv"
 
     if not args.build_only:
-        rows, missing = plan_rows(tiers, read_extra(args.extra_cds))
+        rows, missing, excluded = plan_rows(tiers, read_extra(args.extra_cds))
+        if excluded:
+            path = db_dir / "excluded_no_cds.tsv"
+            with atomic_write(path) as fh:
+                w = csv.writer(fh, delimiter="\t", lineterminator="\n")
+                w.writerow(["accession", "db_tier", "organism_name", "protein_coding_genes"])
+                w.writerows(excluded)
+            zero = sum(1 for _, _, _, g in excluded if g in ("0", "na", ""))
+            print(f"{len(excluded):,} planned assemblies have NO CDS at NCBI "
+                  f"(no_cds_in_package); {zero} of them also report 0 or no gene count, so "
+                  f"{len(excluded) - zero} claim genes and ship none.")
+            print(f"  excluded and listed -> {path}")
         if missing:
             path = db_dir / "build_failures.tsv"
             with atomic_write(path) as fh:

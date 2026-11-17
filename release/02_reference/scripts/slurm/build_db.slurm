@@ -13,9 +13,14 @@
 # Build one Kraken2 index from the CDS on disk. Fetches nothing.
 #
 #   cd /scratch/pawsey1168/llenzo/crypt
-#   NAME=db1p sbatch release/02_reference/scripts/slurm/build_db.slurm
-#   NAME=db2 TIER=db0_baseline,db1_congener EXTRA=.../predicted.tsv sbatch ...
-#   NAME=db1p sbatch release/02_reference/scripts/slurm/build_db.slurm --build-only
+#   sbatch release/02_reference/scripts/slurm/build_db.slurm --name db1p
+#   sbatch ... --name db2 --extra-cds data/curation/predicted_cds.tsv
+#   sbatch ... --name db1p --build-only
+#
+# ARGUMENTS ARE FLAGS, NOT ENVIRONMENT VARIABLES, and that is not a style choice: Setonix
+# defaults sbatch to --export=NONE, so `NAME=db1p sbatch ...` reaches the job with NAME unset.
+# Job 53297249 died in 9 s on exactly that. Everything here is forwarded to build_db.py
+# verbatim, so the flags are the script's own and there is one place to read them.
 #
 # PARTITION=work and a whole node: db_v4 took 5 h 40 m and peaked near 106 GB of hash for
 # ~10 B minimizers, and --build is the only step that needs a compute node at all. The wall is
@@ -43,13 +48,22 @@ elif "$K2_ZEN2/kraken2-build" --version >/dev/null 2>&1; then
 else echo "ABORT: no runnable kraken2-build found at either pinned path."; exit 1; fi
 echo "kraken2-build: $(which kraken2-build)  $(kraken2-build --version 2>&1 | head -1)"
 
+# --name is required, and is also the inspect table's name, so read it back out of the args.
+NAME=""
+prev=""
+for a in "$@"; do
+    [ "$prev" = "--name" ] && NAME="$a"
+    case "$a" in --name=*) NAME="${a#--name=}" ;; esac
+    prev="$a"
+done
+if [ -z "$NAME" ]; then
+    echo "usage: sbatch build_db.slurm --name <db> [--tier a,b] [--extra-cds F] [--build-only]"
+    exit 2
+fi
+
 echo "START $(date -Is)  node $(hostname)  mem $(free -g | awk '/^Mem:/{print $2"G"}')"
 SECONDS=0
-python3 release/02_reference/scripts/build_db.py \
-    --name "${NAME:?set NAME, e.g. NAME=db1p}" \
-    --tier "${TIER:-db0_baseline,db1_congener}" \
-    ${EXTRA:+--extra-cds "$EXTRA"} \
-    --threads "${THREADS:-128}" "$@"
+python3 release/02_reference/scripts/build_db.py --threads "${THREADS:-128}" "$@"
 rc=$?
 
 # db_inspect is the coverage denominator every detection figure divides by, and it describes

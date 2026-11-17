@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Assemble the reference cohort into one published table, one row per taxon.
 
-    python release/02_reference/scripts/build_reference.py
+    python release/02_reference/scripts/make_supp_tables.py
 
 Reads  data/curation/screen_assemblies.tsv   what is buildable, and by which route
        data/curation/screen_species.tsv      USDA names resolved, and on_wheat

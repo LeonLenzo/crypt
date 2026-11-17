@@ -5,7 +5,7 @@
     python release/02_reference/scripts/fetch_cds.py --tier db0_baseline --have acacia.txt
     python release/02_reference/scripts/fetch_cds.py --tier db0_baseline,db1_congener --dry-run
 
-Reads  data/outputs/build_plan.tsv       the tiered assembly selection from plan_build.py
+Reads  data/curation/build_plan.tsv       the tiered assembly selection from plan_build.py
        --have FILE (optional)            accessions already available (one per line); skipped
 Writes data/raw/cds/<accession>/cds_from_genomic.fna   the CDS, one dir per accession
        data/raw/cds_fetch_manifest.tsv   accession -> status, bytes, TRACKED
@@ -35,7 +35,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
-PLAN = HERE / "data/outputs/build_plan.tsv"
+PLAN = HERE / "data/curation/build_plan.tsv"
 CDS = HERE / "data/raw/cds"
 MANIFEST = HERE / "data/raw/cds_fetch_manifest.tsv"
 

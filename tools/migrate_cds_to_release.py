@@ -58,7 +58,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 SRC = REPO / "research/02_classify/data/bronze/cds_db0/pathogen"
 DEST = REPO / "release/02_reference/data/raw/cds"
-PLAN = REPO / "release/02_reference/data/outputs/build_plan.tsv"
+PLAN = REPO / "release/02_reference/data/curation/build_plan.tsv"
 MANIFEST = REPO / "release/02_reference/data/raw/cds_fetch_manifest.tsv"
 FNA = "cds_from_genomic.fna"
 

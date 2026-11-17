@@ -6,7 +6,11 @@
 
 Reads  data/curation/screen_assemblies.tsv  every in-scope assembly, annotated or not
        data/raw/raw_taxdmp.zip             nodes.dmp, for the genus walk
-Writes data/outputs/build_plan.tsv          one row per SELECTED assembly, with its db tier
+Writes data/curation/build_plan.tsv         one row per SELECTED assembly, with its db tier
+
+It sits in `curation/` and not `outputs/` because it is a DECISION, the fifth screen of the
+module, and `outputs/` is the published supplement that the figures read. The plan is read by
+fetch_cds.py and build_db.py, never by a figure.
 
 The chapter builds three databases as an incremental ladder (kraken2-build --add-to-library
 reuses the previous library), and each tier isolates one effect:
@@ -52,7 +56,7 @@ HERE = Path(__file__).resolve().parent.parent
 SCREEN = HERE / "data/curation/screen_assemblies.tsv"
 HOSTS = HERE / "data/curation/screen_hosts.tsv"
 TAXDMP = HERE / "data/raw/raw_taxdmp.zip"
-OUT = HERE / "data/outputs/build_plan.tsv"
+OUT = HERE / "data/curation/build_plan.tsv"
 LEVEL = {"Complete Genome": 3, "Chromosome": 2, "Scaffold": 1, "Contig": 0}
 # CDS as a fraction of genome, used only to SIZE the download. Fungal genomes are gene-dense
 # and the db_v4 ratio is ~0.50. PLANTS ARE NOT: a hexaploid wheat genome is mostly repeat, and

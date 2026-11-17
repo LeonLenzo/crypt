@@ -1,0 +1,22 @@
+ensembl_species	host	role	ncbi_taxid	file	bytes	md5	status
+triticum_aestivum	Triticum aestivum	analysed	4565	Triticum_aestivum.IWGSC.cds.all.fa.gz	49367533	868796933289a65fcda74d7fb4d9da42	fetched
+triticum_aestivum_alchemy	Triticum aestivum	analysed	4565	Triticum_aestivum_alchemy.GCA951799155v1.cds.all.fa.gz	39944478	5355090a2c41679fc61280f39498eed6	fetched
+triticum_aestivum_arinalrfor	Triticum aestivum	analysed	4565	Triticum_aestivum_arinalrfor.PGSBv2.1.cds.all.fa.gz	64121434	c169c39d29f481f50267cb73c41f690e	fetched
+triticum_aestivum_cadenza	Triticum aestivum	analysed	4565	Triticum_aestivum_cadenza.EIv1.1.cds.all.fa.gz	44649620	157c9caea2bffb64484cbe4b27f8e4c0	fetched
+triticum_aestivum_claire	Triticum aestivum	analysed	4565	Triticum_aestivum_claire.EIv1.1.cds.all.fa.gz	44613426	a8dcf42546a95447d98bc43f55fa3023	fetched
+triticum_aestivum_jagger	Triticum aestivum	analysed	4565	Triticum_aestivum_jagger.PGSBv2.1.cds.all.fa.gz	62025062	7504a98e00164b736cdc49526a24b56d	fetched
+triticum_aestivum_julius	Triticum aestivum	analysed	4565	Triticum_aestivum_julius.PGSBv2.1.cds.all.fa.gz	63536894	61943e29f3698b47550d97cc1848b06b	fetched
+triticum_aestivum_kariega	Triticum aestivum	analysed	4565	Triticum_aestivum_kariega.Tae_Kariega_v1.cds.all.fa.gz	57022018	60410efc31a09a7e246b59c00b5dbe58	fetched
+triticum_aestivum_lancer	Triticum aestivum	analysed	4565	Triticum_aestivum_lancer.PGSBv2.1.cds.all.fa.gz	62210963	367a65b39654e96c48e5f9490a43ec2f	fetched
+triticum_aestivum_landmark	Triticum aestivum	analysed	4565	Triticum_aestivum_landmark.PGSBv2.1.cds.all.fa.gz	62205700	44cadb8828696827e94eef4d90ff1081	fetched
+triticum_aestivum_mace	Triticum aestivum	analysed	4565	Triticum_aestivum_mace.PGSBv2.1.cds.all.fa.gz	62299472	2d187736d3482f7827c33f8254da3d1c	fetched
+triticum_aestivum_mattis	Triticum aestivum	analysed	4565	Triticum_aestivum_mattis.PGSBv2.1.cds.all.fa.gz	62461410	d6caaf67292de9647b53330fd1faa393	fetched
+triticum_aestivum_norin61	Triticum aestivum	analysed	4565	Triticum_aestivum_norin61.PGSBv2.1.cds.all.fa.gz	64625943	b0a06932fdade70f1bc12d5357fff48e	fetched
+triticum_aestivum_paragon	Triticum aestivum	analysed	4565	Triticum_aestivum_paragon.GCA949126075v1.cds.all.fa.gz	49103809	077dd5b6f4d148d982e21e64f630ab0b	fetched
+triticum_aestivum_refseqv2	Triticum aestivum	analysed	4565	Triticum_aestivum_refseqv2.IWGSC_RefSeq_v2.1.cds.all.fa.gz	48857088	606b539ee47331638016656c15ea76db	fetched
+triticum_aestivum_renan	Triticum aestivum	analysed	4565	Triticum_aestivum_renan.Triticum_aestivum_Renan_v2.1.cds.all.fa.gz	45522978	bce6f3bcba1283531ed2e1fcb0281579	fetched
+triticum_aestivum_robigus	Triticum aestivum	analysed	4565	Triticum_aestivum_robigus.EIv1.1.cds.all.fa.gz	44543374	ef55598eba88eb05b58f60bc61259776	fetched
+triticum_aestivum_stanley	Triticum aestivum	analysed	4565	Triticum_aestivum_stanley.PGSBv2.2.cds.all.fa.gz	62210491	de9c3972bea1e76b0c0aa6d3461884d4	fetched
+triticum_aestivum_weebil	Triticum aestivum	analysed	4565	Triticum_aestivum_weebil.WeebilV1.cds.all.fa.gz	44940021	1916586686fd8c04d5a24df3526a4199	fetched
+hordeum_vulgare	Hordeum vulgare	contrast	4513	Hordeum_vulgare.MorexV3_pseudomolecules_assembly.cds.all.fa.gz	14739633	f1ac191431ca9e0c12bf643e4b840122	fetched
+arabidopsis_thaliana	Arabidopsis thaliana	outgroup	3702	Arabidopsis_thaliana.TAIR10.cds.all.fa.gz	14458892	869920318b66409d50f838a3e9c512f7	fetched

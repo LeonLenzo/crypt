@@ -65,9 +65,15 @@ recall (PHI-base is smaller), but the label it gives is one you can defend speci
     screen_assemblies.py -> curation/screen_assemblies.tsv  21,413 in-scope assemblies
     fetch_hosts.py       -> raw/raw_ensembl_plants_species.txt  267 genomes, release-63
     screen_hosts.py      -> curation/screen_hosts.tsv        11 cohort hosts, 3 kept
-    fetch_host_cds.py    -> raw/host_cds/<species>/*.cds.all.fa.gz   21 CDS sets
+    fetch_host_cds.py    -> raw/host_cds/<species>/*.cds.all.fa.gz   21 CDS sets, 1.06 GB
                             raw/host_cds_manifest.tsv        resolved file, bytes, md5
-    build_reference.py   -> outputs/supp_data_s3_reference.tsv  5,846 rows: 5,843 fungal
+    plan_build.py        -> curation/build_plan.tsv          5,323 selected assemblies,
+                                                             tiered: db0, db1, host
+    fetch_cds.py         -> raw/cds/<accession>/cds_from_genomic.fna   5,272 CDS, 98 GB
+                            raw/cds_fetch_manifest.tsv       accession -> status, bytes
+    build_db.py          -> data/db/<name>/                  the Kraken2 index
+                            outputs/db_inspect_<name>.tsv    minimizers per taxon
+    make_supp_tables.py  -> outputs/supp_data_s3_reference.tsv  5,846 rows: 5,843 fungal
                             taxa + the 3 hosts, ONE ROW EACH
 
     raw/raw_sources_manifest.tsv   provenance for all four sources, TRACKED
@@ -76,7 +82,16 @@ Each fetch pairs with its screen: scope (species), pathogenicity (pathogens), bu
 (assemblies), the sink (hosts). A fetch gets pinned bytes; a screen decides. `screen_merges.py` sits between
 them and reconciles the two naming systems; see "Two names, one fungus".
 
-**`outputs/` is the deliverable and the only thing the figures read.** `build_reference.py`
+The module ends in TWO artefacts, and the names say which is which. `build_db.py` builds the
+index; `make_supp_tables.py` writes the published table, and is named for what it does rather
+than for the thing it describes (it was `build_reference.py`, which reads as the database
+builder and was taken for one). `plan_build.py` decides and `build_db.py` acts, the same split
+as a screen and a fetch, and they stay apart for a reason: `build_plan.tsv` must be IDENTICAL
+across the arms of the ladder for a tier subtraction to isolate one effect, and a plan
+regenerated inside a six-hour build can differ between arms with nothing saying so. That file
+therefore lives in `curation/`, with the other decisions, and not in `outputs/`.
+
+**`outputs/` is the deliverable and the only thing the figures read.** `make_supp_tables.py`
 is the last step: it joins the four curation tables and the taxdump into one published row
 per taxon, `supp_data_s3_reference.tsv`, and both panels are drawn from that and nothing
 else. This follows `01_cohort`, whose figures read `supp_data_s2_cohort.tsv` rather than
@@ -465,7 +480,7 @@ with no in-scope assembly. Neither is a row in the reference.
 
 Run, after the screens:
 
-    python scripts/build_reference.py
+    python scripts/make_supp_tables.py
     python figures/matrix/plot_matrix.py && python figures/matrix/caption.py
     python figures/tree/prep_tree.py && Rscript figures/tree/tree.R \
       && Rscript figures/tree/tree_legend.R && python figures/tree/caption.py

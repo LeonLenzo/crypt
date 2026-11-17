@@ -70,7 +70,7 @@ The numbering does not line up across the trees, and that is not a mistake:
   screen_pathogens     ->  curation/screen_pathogens.tsv    the pathogen label
   fetch_assemblies     ->  raw_assembly_summary.txt
   screen_assemblies    ->  curation/screen_assemblies.tsv
-  build_reference      ->  outputs/supp_data_s3_reference.tsv  <-- ONE ROW PER TAXON
+  make_supp_tables     ->  outputs/supp_data_s3_reference.tsv  <-- ONE ROW PER TAXON
   plan_build           ->  outputs/build_plan.tsv              <-- the db tier per assembly
   fetch_cds --tier     ->  CDS on Setonix
   figures/                 matrix, tree

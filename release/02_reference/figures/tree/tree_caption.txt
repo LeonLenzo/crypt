@@ -40,10 +40,14 @@ carrying a gene model: pale where all of them do, dark purple where few do.
 the gene-prediction worklist, because those are genomes already deposited
 whose CDS the database cannot currently use.
 
-The 5 arcs outside the bars mark the taxonomic classes with at least 40
-members: Agaricomycetes, Dothideomycetes, Eurotiomycetes, Leotiomycetes,
-Sordariomycetes. They are reading aids for position in the tree, not a result;
-the smaller classes are present as tips but carry no arc.
+The 5 arcs outside the bars mark the taxonomic classes large enough to label,
+each identified by a SYMBOL rather than a name: circle Agaricomycetes (202
+taxa); square Dothideomycetes (160 taxa); diamond Eurotiomycetes (129 taxa);
+triangle Leotiomycetes (74 taxa); inverted triangle Sordariomycetes (366
+taxa). A symbol is used because a class name set radially reads at a different
+angle in every quadrant and competes with the bars it annotates. The arcs are
+reading aids for position in the tree, not a result, and the smaller classes
+are present as tips but carry no arc.
 
 
 HOW TO READ IT
@@ -75,6 +79,6 @@ colour is its cell in panel A (wheat pathogen 24; pathogen elsewhere, recorded
 on wheat 21; non-pathogen, recorded on wheat 108; pathogen elsewhere, not on
 wheat 46; non-pathogen, not on wheat 973). The inner ring is the share of that
 taxon's assemblies carrying a gene model, pale where all do and dark purple
-where few do (620 of 1,172 fully annotated). Arcs mark the 5 taxonomic classes
-with at least 40 members. Congeners are excluded, being classifier competitors
-that are never reported.
+where few do (620 of 1,172 fully annotated). Symbols on the 5 outer arcs mark
+the largest taxonomic classes, keyed in tree_legend.png. Congeners are
+excluded, being classifier competitors that are never reported.

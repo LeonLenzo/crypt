@@ -3,20 +3,18 @@
 #
 #   Rscript release/02_reference/figures/tree/tree_legend.R
 #
-# Reads  tree_tips.tsv      (written by prep_tree.py, beside this script)
+# Reads  tree_tips.tsv, tree_arcs.tsv   (prep_tree.py and tree.R, beside this script)
 # Writes tree_legend.png
 #
 # Separate from the fan on purpose. A legend welded into the panel fixes its size and
-# position relative to the plot, which makes the panel unplaceable; drawn apart, the key can
-# sit wherever the layout wants.
+# position relative to the plot, which makes the panel unplaceable.
 #
-# ONE SWATCH, ONE LABEL, one row each, following 01_cohort's cohort_network_legend. The
-# inner ring's ramp is the sixth row, in the same grammar: its swatch is just a wider strip.
-# Bar LENGTH is left to the caption, because the fan prints its own log gridline numerals
-# and a key repeating them would be the only redundant thing here.
+# TWO COLUMNS: bar colour on the left, arc symbol on the right, the ring ramp beneath them.
+# One column would be ~5 in tall and the page band is 3.3; side by side it is 2.5.
 #
-# The five colours are the five occupied observation cells of panel A. Keep in step with
-# scripts/_palette.py MATRIX and figures/tree/tree.R CAT_COLOUR.
+# The SHAPE ASSIGNMENT IS READ BACK from tree_arcs.tsv, which tree.R writes while drawing,
+# so the key cannot drift from the panel. The colours are mirrored by hand from
+# scripts/_palette.py MATRIX and tree.R CAT_COLOUR; keep those three in step.
 
 suppressPackageStartupMessages({ library(ggplot2) })
 
@@ -25,67 +23,77 @@ CAT <- c(wheat_pathogen   = "#e05a26",
          onwheat_resident = "#1aa64b",
          plant_pathogen   = "#fbe49a",
          plant_resident   = "#c3e8bf")
-# Wrapped to two lines where needed: the key is narrow because it shares the bottom band
-# with the matrix, and a label that overruns is worse than one that takes a second line.
 CAT_LABEL <- c(wheat_pathogen   = "wheat pathogen",
                onwheat_pathogen = "pathogen elsewhere,\nrecorded on wheat",
                onwheat_resident = "non-pathogen,\nrecorded on wheat",
                plant_pathogen   = "pathogen elsewhere,\nnot on wheat",
                plant_resident   = "non-pathogen,\nnot on wheat")
-
 RING_PALE <- "#f2effa"; RING_DARK <- "#54278f"   # prep_tree.py ratio_colour() endpoints
-OUT_IN <- 2.58                # fills the band beside the 4.89 in matrix: 7.67 - 4.89 - 0.2
-SW <- 0.62                    # swatch side, in legend units
-ROW <- 1.0
-RAMP_W <- 2.3                 # the ring strip is a swatch, just a longer one
-XMIN <- -0.1; XMAX <- 5.9     # extents are declared, so the PNG aspect can be derived
-                              # from them rather than guessed; a stale guess clipped the
-                              # ramp label off the right edge once already
+INK <- "#1a1a1a"; MUTED <- "#707070"
+
+OUT_IN <- 3.67                # band is 7.67 wide: 3.80 matrix + 0.20 gutter + this
+SW <- 0.58                    # swatch side, in legend units
+ROW <- 1.05
+C1 <- 0.0                     # column origins
+C2 <- 6.35
+RAMP_W <- 2.4
+XMIN <- -0.15; XMAX <- 12.1   # declared, so the PNG aspect is derived and never clipped
 
 here <- dirname(sub("^--file=", "", grep("^--file=", commandArgs(FALSE), value = TRUE)[1]))
 if (is.na(here) || !nzchar(here)) here <- "."
 tips <- read.delim(file.path(here, "tree_tips.tsv"), stringsAsFactors = FALSE)
+arcs <- read.delim(file.path(here, "tree_arcs.tsv"), stringsAsFactors = FALSE)
 stopifnot(all(unique(tips$category) %in% names(CAT)))   # a new category must reach the key
 
 n <- length(CAT)
-YMAX <- length(CAT) * 1.0 + 0.55
-d <- data.frame(
-  y    = seq(n, 1) * ROW,
-  fill = unname(CAT),
-  lab  = unname(CAT_LABEL))
+ytop <- n * ROW
+col1 <- data.frame(y = seq(n, 1) * ROW, fill = unname(CAT), lab = unname(CAT_LABEL))
+col2 <- data.frame(y = seq(nrow(arcs), 1) * ROW, shape = arcs$shape, lab = arcs$class)
 
-# the inner-ring ramp, one row below the categories
-ry <- -0.75
-YMIN <- ry - 1.05
-steps <- 60
-edges <- seq(0, RAMP_W, length.out = steps + 1)
-ramp <- data.frame(xmin = edges[-(steps + 1)], xmax = edges[-1],
-                   fill = colorRampPalette(c(RING_DARK, RING_PALE))(steps))
+ry <- -1.30                                     # the ramp row, under both columns
+YMAX <- ytop + 1.05
+YMIN <- ry - 1.00
 
-p <- ggplot(d) +
-  geom_rect(aes(xmin = 0, xmax = SW, ymin = y - SW / 2, ymax = y + SW / 2),
-            fill = d$fill, colour = "#4a4a4a", linewidth = 0.45) +
-  geom_text(aes(x = SW + 0.32, y = y, label = lab), hjust = 0, size = 3.1,
-            colour = "#1a1a1a", lineheight = 0.92) +
-  geom_rect(data = ramp, aes(xmin = xmin, xmax = xmax, ymin = ry - SW / 2,
-                             ymax = ry + SW / 2), fill = ramp$fill, inherit.aes = FALSE) +
-  annotate("rect", xmin = 0, xmax = RAMP_W, ymin = ry - SW / 2, ymax = ry + SW / 2,
+ramp_edges <- seq(C1, C1 + RAMP_W, length.out = 61)
+ramp <- data.frame(xmin = ramp_edges[-61], xmax = ramp_edges[-1],
+                   fill = colorRampPalette(c(RING_DARK, RING_PALE))(60))
+
+p <- ggplot() +
+  # headers
+  annotate("text", x = C1, y = ytop + 0.62, label = "bar colour", hjust = 0, size = 3.4,
+           fontface = "bold", colour = INK) +
+  annotate("text", x = C2, y = ytop + 0.62, label = "arc symbol", hjust = 0, size = 3.4,
+           fontface = "bold", colour = INK) +
+  # column 1: the five panel-A cells
+  geom_rect(data = col1, aes(xmin = C1, xmax = C1 + SW, ymin = y - SW / 2, ymax = y + SW / 2),
+            fill = col1$fill, colour = "#4a4a4a", linewidth = 0.45) +
+  geom_text(data = col1, aes(x = C1 + SW + 0.3, y = y, label = lab), hjust = 0, size = 3.0,
+            colour = INK, lineheight = 0.92) +
+  # column 2: the taxonomic classes marked on the fan
+  geom_point(data = col2, aes(x = C2 + SW / 2, y = y, shape = shape), size = 2.9,
+             fill = "white", colour = "#333333", stroke = 0.75) +
+  scale_shape_identity() +
+  geom_text(data = col2, aes(x = C2 + SW + 0.3, y = y, label = lab), hjust = 0, size = 3.0,
+            colour = INK) +
+  # the annotation-ratio ramp
+  annotate("text", x = C1, y = ry + SW / 2 + 0.40, label = "assemblies annotated (inner ring)",
+           hjust = 0, size = 3.0, colour = INK) +
+  geom_rect(data = ramp, aes(xmin = xmin, xmax = xmax, ymin = ry - SW / 2, ymax = ry + SW / 2),
+            fill = ramp$fill) +
+  annotate("rect", xmin = C1, xmax = C1 + RAMP_W, ymin = ry - SW / 2, ymax = ry + SW / 2,
            fill = NA, colour = "#4a4a4a", linewidth = 0.45) +
-  annotate("text", x = 0, y = ry - SW / 2 - 0.28, label = "few", hjust = 0, size = 2.9,
-           colour = "#707070") +
-  annotate("text", x = RAMP_W, y = ry - SW / 2 - 0.28, label = "all", hjust = 1,
-           size = 2.9, colour = "#707070") +
-  annotate("text", x = 0, y = ry + SW / 2 + 0.34, label = "assemblies annotated",
-           hjust = 0, size = 3.1, colour = "#1a1a1a") +
+  annotate("text", x = C1, y = ry - SW / 2 - 0.30, label = "few", hjust = 0, size = 2.8,
+           colour = MUTED) +
+  annotate("text", x = C1 + RAMP_W, y = ry - SW / 2 - 0.30, label = "all", hjust = 1,
+           size = 2.8, colour = MUTED) +
   coord_fixed(xlim = c(XMIN, XMAX), ylim = c(YMIN, YMAX), expand = FALSE) +
   theme_void() +
   theme(plot.background = element_rect(fill = "white", colour = NA),
         plot.margin = margin(4, 4, 4, 4))
 
-# coord_fixed means the PNG must carry the extents' own aspect or ggplot pads it with
-# whitespace on one axis; derive it rather than hard-coding a ratio.
+# coord_fixed means the PNG must carry the extents' own aspect, or ggplot pads one axis.
 out <- file.path(here, "tree_legend.png")
 ragg::agg_png(out, width = OUT_IN, height = OUT_IN * (YMAX - YMIN) / (XMAX - XMIN),
               units = "in", res = 300, background = "white")
 print(p); invisible(dev.off())
-cat(sprintf("  -> %s\n", out))
+cat(sprintf("  -> %s  (%d colours, %d classes)\n", out, nrow(col1), nrow(col2)))

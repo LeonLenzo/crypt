@@ -46,6 +46,11 @@ BRANCH_COLOUR <- "#8a8a8a"; BRANCH_WIDTH <- 0.12 * S
 TIP_BRANCH_COLOUR <- "#8a8a8a"; TIP_BRANCH_WIDTH <- 0.06 * S
 HOLE <- 5; BAR_GAP <- 0.35; BAR_SCALE <- 2      # tree coordinates: NOT scaled by S
 ARC_GAP <- 0.45; ARC_WIDTH <- 1.1 * S; ARC_PAD <- 5; LABEL_MIN <- 40
+SYM_GAP <- 1.05            # symbol centre, outside the arc. In TREE x-units, so not * S:
+                           # the fan's radius is in the same units and both scale together.
+# Filled shapes with a separate border, so they read as marks and not as data points. In
+# class-name order; tree_legend.R reads the assignment back from tree_arcs.tsv.
+SHAPES <- c(21, 22, 23, 24, 25)
 TICK_SIZE <- 4.2 * S
 
 # ── inputs ────────────────────────────────────────────────────────────────────
@@ -102,33 +107,37 @@ ylab <- max(d$y) + Ntip(tr) * OPEN_ANGLE / 360 / 2
 p <- p + annotate("text", x = tickx, y = ylab, label = format(ticks, big.mark = ","),
                   size = TICK_SIZE, colour = "#333333", hjust = 0.5, vjust = -0.4)
 
-# ── clade arcs, WITH their class names ────────────────────────────────────────
-# The arc alone says "these tips belong together" and not which group they are, which left
-# the reader no way to tell a Dothideomycete bar from a Sordariomycete one. The name is set
-# radially at the arc's mid angle: ggtree's `angle` column is the tip's angle BEFORE the
-# rotate_tree below, so the displayed angle is that plus ROT, and a label landing in the
-# left half is flipped 180 degrees so it never reads upside down.
+# ── clade arcs, MARKED WITH A SYMBOL ──────────────────────────────────────────
+# A symbol, not a name. Set radially, a 15-character class name is the least legible thing
+# on the panel: it reads at a different angle in every quadrant, half of it needs flipping,
+# and at this size it competes with the bars it is meant to annotate. A point shape is
+# orientation-free, reads at a glance, and the name moves to the key, where there is room
+# for it. The shape assignment is written to tree_arcs.tsv so tree_legend.R cannot drift
+# from it.
 ROT <- 90 + OPEN_ANGLE / 2
 arcs <- bars |> filter(class != "") |> group_by(class) |>
-  summarise(n = n(), ymin = min(y), ymax = max(y), amid = mean(angle), .groups = "drop") |>
+  summarise(n = n(), ymin = min(y), ymax = max(y), .groups = "drop") |>
   filter(n >= LABEL_MIN) |>
+  arrange(class) |>
   mutate(pad = pmin(ARC_PAD, 0.15 * n), ymin = ymin + pad, ymax = ymax - pad,
          ymid = (ymin + ymax) / 2,
-         disp = (amid + ROT) %% 360,
-         flip = disp > 90 & disp < 270,
-         lab_angle = ifelse(flip, disp + 180, disp),
-         hj = ifelse(flip, 1, 0))
+         shape = SHAPES[seq_len(n())])
+stopifnot(nrow(arcs) <= length(SHAPES))     # more classes than shapes = silent recycling
 arcx <- bars$x0[1] + log10(top + 1) * BAR_SCALE + ARC_GAP
 p <- p + geom_segment(data = arcs, aes(x = arcx, xend = arcx, y = ymin, yend = ymax),
                       colour = "#333333", linewidth = ARC_WIDTH, lineend = "butt",
                       inherit.aes = FALSE) +
-  geom_text(data = arcs, aes(x = arcx + 0.28, y = ymid, label = class, angle = lab_angle,
-                             hjust = hj), size = 4.6 * S, colour = "#333333",
-            inherit.aes = FALSE)
-cat(sprintf("  %d class arcs: %s\n", nrow(arcs), paste(arcs$class, collapse = ", ")))
+  geom_point(data = arcs, aes(x = arcx + SYM_GAP, y = ymid, shape = shape),
+             size = 7.5 * S, fill = "white", colour = "#333333", stroke = 1.6 * S,
+             inherit.aes = FALSE) +
+  scale_shape_identity()
+write.table(arcs[, c("class", "n", "shape")], paste0(stem, "_arcs.tsv"), sep = "\t",
+            quote = FALSE, row.names = FALSE)
+cat(sprintf("  %d class arcs: %s\n", nrow(arcs),
+            paste(sprintf("%s(%d)", arcs$class, arcs$shape), collapse = ", ")))
 
 # ── hole, theme, out ──────────────────────────────────────────────────────────
-p <- p + xlim(c(-HOLE, arcx + 3.4)) +      # room for the class names outside the arcs
+p <- p + xlim(c(-HOLE, arcx + SYM_GAP + 0.6)) +   # room for the symbols outside the arcs
   theme(panel.background = element_rect(fill = "white", colour = NA),
         plot.background = element_rect(fill = "white", colour = NA),
         plot.margin = margin(0, 0, 0, 0))

@@ -3,7 +3,7 @@
 
     python release/02_reference/figures/tree/caption.py
 
-Reads  tree_tips.tsv, tree_clades.tsv            (beside this script)
+Reads  tree_tips.tsv, tree_arcs.tsv              (beside this script)
 Writes tree_caption.txt
 
 Nothing here is prose-with-numbers-typed-in: the narrative is a template and every figure in
@@ -39,11 +39,11 @@ def main():
     part = n - full
     top = max(int(t["n_genomes"]) for t in tips)
     single = sum(1 for t in tips if int(t["n_genomes"]) == 1)
-    # tree.R draws an arc only for classes with >= LABEL_MIN members, so the caption has to
-    # apply the same floor or it reports every class in the table instead of every arc drawn.
-    LABEL_MIN = 40
-    clades = [r for r in rd(FIG / "tree_clades.tsv")
-              if r["rank"] == "class" and int(r["n_species"]) >= LABEL_MIN]
+    # tree_arcs.tsv is written by tree.R as it draws, so this is exactly what is on the
+    # panel. Reading tree_clades.tsv instead reported every class in the taxonomy (154).
+    arcs = rd(FIG / "tree_arcs.tsv")
+    SHAPE_NAME = {"21": "circle", "22": "square", "23": "diamond",
+                  "24": "triangle", "25": "inverted triangle"}
 
     key = "\n".join(f"  {LABEL[k]:<42}{cat[k]:>6,}" for k in LABEL if cat[k])
 
@@ -84,10 +84,13 @@ def main():
         f"segments are the gene-prediction worklist, because those are genomes already "
         f"deposited whose CDS the database cannot currently use.",
         "",
-        f"The {len(clades)} arcs outside the bars mark the taxonomic classes with at least "
-        f"{LABEL_MIN} members: " + ", ".join(sorted(c["clade"] for c in clades)) + ". They "
-        f"are reading aids for position in the tree, not a result; the smaller classes are "
-        f"present as tips but carry no arc.",
+        f"The {len(arcs)} arcs outside the bars mark the taxonomic classes large enough to "
+        f"label, each identified by a SYMBOL rather than a name: "
+        + "; ".join(f"{SHAPE_NAME.get(a['shape'], a['shape'])} {a['class']} "
+                    f"({int(a['n']):,} taxa)" for a in arcs) + ". A symbol is used because a "
+        f"class name set radially reads at a different angle in every quadrant and competes "
+        f"with the bars it annotates. The arcs are reading aids for position in the tree, "
+        f"not a result, and the smaller classes are present as tips but carry no arc.",
         "",
         "",
         "HOW TO READ IT",
@@ -118,9 +121,9 @@ def main():
         + "; ".join(f"{LABEL[k]} {cat[k]:,}" for k in LABEL if cat[k]) +
         f"). The inner ring is the share of that taxon's assemblies carrying a gene model, "
         f"pale where all do and dark purple where few do ({full:,} of {n:,} fully "
-        f"annotated). Arcs mark the {len(clades)} taxonomic classes with at least "
-        f"{LABEL_MIN} members. Congeners are excluded, being classifier competitors that "
-        f"are never reported.",
+        f"annotated). Symbols on the {len(arcs)} outer arcs mark the largest taxonomic "
+        f"classes, keyed in tree_legend.png. Congeners are excluded, being classifier "
+        f"competitors that are never reported.",
     ))
 
 

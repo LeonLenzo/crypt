@@ -318,6 +318,7 @@ read from the curation tables at draw time; none is transcribed.
                       caption.py      -> matrix_caption.txt
     figures/tree/     prep_tree.py    -> tree_{tree.nwk,tips,clades,params}
                       tree.R          -> tree.png
+                      tree.R          -> tree_arcs.tsv (the shape per class)
                       tree_legend.R   -> tree_legend.png
                       caption.py      -> tree_caption.txt
 
@@ -355,8 +356,8 @@ repeated in `tree.R` and `tree_legend.R` and the three must be kept in step.
 the matrix as a landscape band beneath it with the key beside it.
 
     width   0.30 + tree 7.50 + 0.30                                  =  8.10
-    band    0.30 + matrix 4.89 + 0.20 + legend 2.58 + 0.30           =  8.27
-    height  0.30 + 7.50 + 0.20 + max(band 3.26, 3.16) + 0.30         = 11.56
+    band    0.30 + matrix 3.81 + 0.20 + legend 3.67 + 0.30           =  8.28
+    height  0.30 + 7.50 + 0.20 + max(band 3.26, 2.57) + 0.30         = 11.56
 
 Stacking beats side by side here. A square fan placed next to the matrix wastes whatever
 height the matrix does not use, and the fan is then limited by the width the matrix leaves
@@ -365,8 +366,15 @@ it. Stacked, the fan is limited only by the page, and the band fills the strip l
 15 in and shrinking that PNG into the layout would take 12 pt numerals down to about 5 pt.
 
 **The tree carries no legend and no title.** `tree_legend.R` draws the key as its own file,
-one swatch and one label per row after `01_cohort`'s `cohort_network_legend`, so the fan can
-be placed and scaled without dragging a legend block with it.
+after `01_cohort`'s `cohort_network_legend`, so the fan can be placed and scaled without
+dragging a legend block with it. It is two columns, bar colour and arc symbol, because one
+column would be about 5 in tall against a 3.3 in band.
+
+**The clade arcs are marked with a SYMBOL, not a class name.** Set radially, a 15-character
+name reads at a different angle in every quadrant, half of it needs flipping, and at this
+size it competes with the bars it annotates. A point shape is orientation-free. `tree.R`
+writes the assignment to `tree_arcs.tsv` as it draws, and both the key and the caption read
+it back, so neither can drift from the panel.
 
 **Captions are generated, never hand-edited.** Each `caption.py` reads the tables and
 interpolates every figure, after the drift recorded in `crypt-figure-caption-discipline`.

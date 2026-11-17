@@ -96,8 +96,9 @@ def main():
     #   0.30 + tree 7.50 + 0.20 gutter + matrix 3.06 + 0.30  = 11.36 tall  (page 11.69)
     #   0.30 + tree 7.50 + 0.30                              =  8.10 wide (page  8.27)
     #
-    # The band is 7.67 wide, so the matrix takes 4.90 and the tree legend sits beside it.
-    CW, CH, GAP = 1.23, 0.78, 0.07          # pill width, height, and the space between
+    # The band is 7.67 wide: 3.80 matrix + 0.20 gutter + 3.67 legend (which carries the arc
+    # symbol key, so it needs two columns and more width than it used to).
+    CW, CH, GAP = 0.87, 0.78, 0.07          # pill width, height, and the space between
     X0, YTOP = 1.00, 2.46                   # grid origin: left edge, top edge
     PAD, ROUND = 0.085, 0.075               # inside a pill, and its corner radius
     fig, ax = plt.subplots(figsize=(X0 + 3 * CW + 2 * GAP + 0.06, YTOP + 0.80))

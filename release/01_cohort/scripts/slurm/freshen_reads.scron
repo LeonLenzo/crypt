@@ -1,0 +1,25 @@
+# The weekly keep-alive for the cohort reads. Install with:
+#
+#   scrontab release/01_cohort/scripts/slurm/freshen_reads.scron
+#
+# scrontab REPLACES the whole crontab, it does not append, so this file is the complete
+# definition of llenzo's scheduled work. `scrontab -l` shows what is installed, `scrontab -r`
+# removes everything. Slurm's cron is enabled here (ScronParameters = enable in slurm.conf),
+# so no external scheduler and no ssh-from-a-laptop is involved: the trigger lives on the same
+# machine as the data, and a laptop being asleep cannot break it.
+#
+# A scrontab job does NOT requeue if it fails; it simply runs again next week. With a 21-day
+# purge window and a weekly cadence that is two free misses, which is the margin this needs.
+#
+# 06:00 Monday AWST. Off the Monday-morning login peak and well inside the copy partition's
+# usual idle window.
+#SCRON --account=pawsey1168
+#SCRON --partition=copy
+#SCRON --ntasks=1
+#SCRON --cpus-per-task=1
+#SCRON --mem=4G
+#SCRON --time=01:00:00
+#SCRON --job-name=freshen_reads
+#SCRON --output=/scratch/pawsey1168/llenzo/crypt/release/01_cohort/scripts/slurm/logs/freshen_cron_%j.out
+#SCRON --error=/scratch/pawsey1168/llenzo/crypt/release/01_cohort/scripts/slurm/logs/freshen_cron_%j.err
+0 6 * * 1 /scratch/pawsey1168/llenzo/crypt/release/01_cohort/scripts/slurm/freshen_reads.sh

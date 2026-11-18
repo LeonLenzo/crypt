@@ -15,8 +15,8 @@
 #   cd /scratch/pawsey1168/llenzo/crypt
 #   sbatch release/01_cohort/scripts/slurm/freshen_reads.slurm
 #
-# PARTITION=copy. Reading one 4 KB block per file is ~12 MB of I/O over the whole cohort and
-# no core does arithmetic; --mem=4G because the memory request sets the CPU bill.
+# PARTITION=copy. This is ~3,000 metadata operations and no data path at all; --mem=4G
+# because the memory request sets the CPU bill.
 #
 # WHAT KILLED THE LAST ONE. research/02_classify/slurm/freshen_reads.slurm called a script
 # whose reads root came from `_layout.READS`, pointing into the research tree. The cohort had

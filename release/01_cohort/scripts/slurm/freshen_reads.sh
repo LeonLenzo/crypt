@@ -20,6 +20,10 @@ SECONDS=0
 # --older-than 0 so nothing is skipped. The old script's default of 10 left recently touched
 # files to expire a few days after the rest: the tree stops having one deadline and starts
 # having a dozen.
+#
+# The script sets atime with os.utime and then re-stats to prove it moved. Reading a block per
+# file, which is what the old one did, does not reliably update atime on this filesystem at
+# scale: job 53349626 read 2,950 files, reported success, and left 2,596 atimes untouched.
 python3 -u release/01_cohort/scripts/freshen_reads.py --all --older-than 0
 rc=$?
 echo "exit     $rc after ${SECONDS}s"

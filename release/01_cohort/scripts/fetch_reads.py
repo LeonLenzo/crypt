@@ -107,8 +107,17 @@ def md5sum(path, chunk=1 << 20):
     return h.hexdigest()
 
 
-def fetch_file(url, dst, md5, verify, tries=4):
-    """Stream one fastq.gz to a .part, md5-check it, rename into place. Retries on failure.
+def fetch_file(url, dst, md5, size, verify, tries=4):
+    """Stream one fastq.gz to a .part, size- and md5-check it, rename into place.
+
+    SIZE IS CHECKED BEFORE THE HASH, and it is checked at all because the two failures look
+    identical without it. ENA publishes fastq_bytes alongside fastq_md5 and this function used
+    to take only the md5, so a stream EBI cut short was reported as `md5 mismatch` -- the same
+    words a genuinely corrupt file earns -- after hashing the whole truncated download to find
+    out. Job 53279097 produced 164 of those and the cause could only be established by
+    re-fetching seven of them by hand and comparing byte counts (all seven were intact at
+    source; EBI was throttling). Comparing the counts first names the cause in the log and
+    skips a pointless hash over a file already known to be the wrong length.
 
     EBI has been seen to refuse connections after many hours of sustained streaming, so each
     file gets a few attempts with backoff rather than failing the whole run on one hiccup. The
@@ -125,6 +134,10 @@ def fetch_file(url, dst, md5, verify, tries=4):
                     if not block:
                         break
                     fh.write(block)
+            got = tmp.stat().st_size
+            if size and got != size:
+                raise ValueError(f"short read: got {got} bytes, ENA says {size} "
+                                 f"({got - size:+d})")
             if verify and md5 and md5sum(tmp) != md5:
                 raise ValueError("md5 mismatch")
             tmp.rename(dst)
@@ -226,7 +239,7 @@ def main():
             row["status"] = f"partial ({len(got)}/{len(names)} files)" if got else "missing"
             if got:
                 row["local_bytes"] = sum((dirp / n).stat().st_size for n in got)
-            todo[run] = (dirp, [(n, url, md5) for n, url, md5, _ in files])
+            todo[run] = (dirp, [(n, url, md5, sz) for n, url, md5, sz in files])
         elif got:
             row["status"] = f"partial ({len(got)}/{len(names)} files)"
             row["local_bytes"] = sum((dirp / n).stat().st_size for n in got)
@@ -250,8 +263,8 @@ def main():
     if todo:
         for dirp, _ in todo.values():
             dirp.mkdir(parents=True, exist_ok=True)
-        tasks = [(run, dirp / n, url, md5) for run, (dirp, fs) in todo.items()
-                 for n, url, md5 in fs if not (dirp / n).exists()]
+        tasks = [(run, dirp / n, url, md5, sz) for run, (dirp, fs) in todo.items()
+                 for n, url, md5, sz in fs if not (dirp / n).exists()]
 
         # HALF-COMPLETE RUNS FIRST. The commit point is the FILE, not the run, so whenever a
         # file fails its retries or a job is killed at the wall clock, the sibling mate that
@@ -259,7 +272,7 @@ def main():
         # 2026-11-17 that was 148 runs. Ordering by how much of the run is already there
         # finishes those first, which converts half-runs into analysable runs instead of
         # starting new ones. It does not change WHAT gets fetched, only the order.
-        have = {run: sum(1 for n, _, _ in fs if (dirp / n).exists())
+        have = {run: sum(1 for n, _, _, _ in fs if (dirp / n).exists())
                 for run, (dirp, fs) in todo.items()}
         tasks.sort(key=lambda t: -have[t[0]])
         n_partial = sum(1 for t in tasks if have[t[0]])
@@ -273,8 +286,8 @@ def main():
         t0 = time.time()
         done_n = done_b = 0
         with cf.ThreadPoolExecutor(max_workers=args.workers) as ex:
-            futs = {ex.submit(fetch_file, url, dst, md5, not args.no_verify): (run, dst)
-                    for run, dst, url, md5 in tasks}
+            futs = {ex.submit(fetch_file, url, dst, md5, sz, not args.no_verify): (run, dst)
+                    for run, dst, url, md5, sz in tasks}
             for fut in cf.as_completed(futs):
                 run, dst = futs[fut]
                 try:

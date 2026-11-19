@@ -107,50 +107,74 @@ def md5sum(path, chunk=1 << 20):
     return h.hexdigest()
 
 
-def fetch_file(url, dst, md5, size, verify, tries=4):
-    """Stream one fastq.gz to a .part, size- and md5-check it, rename into place.
+class ShortRead(Exception):
+    """The stream ended early. The bytes on disk are GOOD, there are just not enough yet."""
 
-    SIZE IS CHECKED BEFORE THE HASH, and it is checked at all because the two failures look
-    identical without it. ENA publishes fastq_bytes alongside fastq_md5 and this function used
-    to take only the md5, so a stream EBI cut short was reported as `md5 mismatch` -- the same
-    words a genuinely corrupt file earns -- after hashing the whole truncated download to find
-    out. Job 53279097 produced 164 of those and the cause could only be established by
-    re-fetching seven of them by hand and comparing byte counts (all seven were intact at
-    source; EBI was throttling). Comparing the counts first names the cause in the log and
-    skips a pointless hash over a file already known to be the wrong length.
 
-    EBI has been seen to refuse connections after many hours of sustained streaming, so each
-    file gets a few attempts with backoff rather than failing the whole run on one hiccup. The
-    rename is the commit point: a file only appears at its final name once complete and clean,
-    so an interrupted job resumes by re-requesting exactly what is not yet there.
+def fetch_file(url, dst, md5, size, verify, tries=8):
+    """Stream one fastq.gz to a .part, RESUMING it, size- and md5-check it, rename into place.
+
+    THE .part SURVIVES A FAILED ATTEMPT, WHICH IS THE WHOLE POINT. EBI closes these
+    connections cleanly partway through a large file -- measured on 2026-11-19 at 201 MB,
+    316 MB, 402 MB, 432 MB and 469 MB into files of 1.7-2.5 GB, so the cut point is arbitrary
+    and always well short. The old code deleted the .part and restarted from zero on every
+    failure, which means a file EBI will not serve in one go can never finish no matter how
+    many retries it gets: three attempts from zero is three truncations. Job 53279097 spent
+    eight hours proving that 21 times.
+
+    EBI advertises `Accept-Ranges: bytes` and answers 206, so each attempt resumes from where
+    the last one stopped and every truncation becomes progress instead of a wasted transfer.
+
+    A SHORT READ AND A BAD CHECKSUM GET OPPOSITE TREATMENT. Missing bytes are resumed; wrong
+    bytes cannot be, so an md5 failure over a file of the RIGHT length deletes the .part and
+    starts clean. Keeping it would resume forever on top of corruption.
+
+    `tries` is 8 rather than 4 because an attempt now advances the file instead of replacing
+    it, so more attempts are worth having.
     """
     tmp = dst.with_suffix(dst.suffix + ".part")
     for attempt in range(1, tries + 1):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA),
-                                        timeout=600) as r, open(tmp, "wb") as fh:
-                while True:
-                    block = r.read(1 << 20)
-                    if not block:
-                        break
-                    fh.write(block)
+            have = tmp.stat().st_size if tmp.exists() else 0
+            if size and have > size:
+                # Longer than ENA says: it cannot be a prefix of the right file.
+                tmp.unlink(missing_ok=True)
+                have = 0
+            req = urllib.request.Request(url, headers=dict(UA))
+            if have:
+                req.add_header("Range", f"bytes={have}-")
+            with urllib.request.urlopen(req, timeout=600) as r:
+                # A server that ignores Range replies 200 with the WHOLE file; appending that
+                # to what we have would silently produce a longer, corrupt file that still
+                # fails only at the md5. Append only on an explicit 206.
+                resuming = bool(have) and getattr(r, "status", r.getcode()) == 206
+                if have and not resuming:
+                    have = 0
+                with open(tmp, "ab" if resuming else "wb") as fh:
+                    while True:
+                        block = r.read(1 << 20)
+                        if not block:
+                            break
+                        fh.write(block)
             got = tmp.stat().st_size
             if size and got != size:
-                raise ValueError(f"short read: got {got} bytes, ENA says {size} "
-                                 f"({got - size:+d})")
+                raise ShortRead(f"got {got} of {size} bytes ({got / size * 100:.0f}%)")
             if verify and md5 and md5sum(tmp) != md5:
-                raise ValueError("md5 mismatch")
+                tmp.unlink(missing_ok=True)
+                raise ValueError("md5 mismatch over a file of the right length: "
+                                 "corrupt, restarting clean")
             tmp.rename(dst)
             return dst.stat().st_size
         except Exception as e:
-            tmp.unlink(missing_ok=True)
             if attempt == tries:
                 raise
-            # Say so. A silent retry made a job that was coping look like a job that was
-            # hung, and EBI refusing a stream mid-transfer is the normal case here, not a
-            # fault: it is why `tries` exists.
-            print(f"    retry {attempt}/{tries - 1}  {dst.name}  {type(e).__name__}: {e}",
-                  flush=True)
+            # Say so. A silent retry made a job that was coping look like a job that was hung,
+            # and EBI cutting a stream is the normal case here, not a fault: it is why `tries`
+            # exists. Report what is banked so a resume reads as progress.
+            banked = tmp.stat().st_size if tmp.exists() else 0
+            where = f"  [{banked / size * 100:.0f}% banked]" if size and banked else ""
+            print(f"    retry {attempt}/{tries - 1}  {dst.name}  "
+                  f"{type(e).__name__}: {e}{where}", flush=True)
             time.sleep(5 * attempt)
 
 

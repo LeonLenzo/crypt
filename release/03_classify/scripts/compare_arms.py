@@ -13,7 +13,12 @@ db2 is db1p plus 135 gene-predicted genomes and NOTHING else, so a difference be
 is attributable to those references. The question is not whether more reads are classified; it
 is whether reads that previously came to rest at GENUS or above now rest at SPECIES. A read in
 a genus with no annotated member cannot be resolved below genus however abundant it is, and
-31% of classified reads sat at genus rank in the audit that motivated the prediction arm.
+that unresolved fraction is what the prediction arm was built to reduce.
+
+**THE PROFILE IS MEASURED OVER FUNGAL READS, and the all-reads profile is reported beside it
+as context.** The host is most of a plant RNA-seq library and resolves at species, so it sets
+the all-reads denominator and buries any fungal movement below the second decimal place. The
+fungal restriction is a lineage test on the Fungi node, not a name match.
 
 **Only runs classified in BOTH arms are compared**, and the count is printed. A per-run paired
 difference is the right statistic here because run depth and library composition vary by orders
@@ -41,9 +46,16 @@ OUT = MODULE / "data" / "outputs" / "arm_resolution.tsv"
 
 ARMS = ("db1p", "db2")
 BUCKETS = ("unclassified", "species", "genus", "above_genus")
+FUNGI_TAXID = 4751
+# The fungal buckets are the ones the purpose test is about. The host swamps the all-reads
+# denominator -- wheat alone is about 79% of classified reads and resolves at species -- so a
+# shift of a few hundred thousand fungal reads is invisible there. Measured both ways because
+# the all-reads profile is still what says whether the library as a whole moved.
+FBUCKETS = ("f_reads", "f_species", "f_genus", "f_above_genus")
 OUT_COLS = (["run", "BioProject"]
-            + [f"{a}_{b}" for a in ARMS for b in ("reads",) + BUCKETS]
-            + ["delta_species", "delta_genus", "delta_above_genus", "delta_unclassified"])
+            + [f"{a}_{b}" for a in ARMS for b in ("reads",) + BUCKETS + FBUCKETS]
+            + ["delta_species", "delta_genus", "delta_above_genus", "delta_unclassified",
+               "delta_f_species", "delta_f_genus", "delta_f_above_genus"])
 
 
 def bucket(rank: str) -> str:
@@ -63,11 +75,16 @@ def profile(report: Path) -> dict:
     it across ranks counts the same read many times. The direct column is where a read actually
     came to rest, which is the whole question.
     """
-    out = dict.fromkeys(BUCKETS, 0)
+    out = dict.fromkeys(BUCKETS + FBUCKETS, 0)
     total = 0
     for rec in parse_report(report):
-        out[bucket(rec["rank"])] += rec["reads_direct"]
+        b = bucket(rec["rank"])
+        out[b] += rec["reads_direct"]
         total += rec["reads_direct"]
+        if rec["taxid"] == FUNGI_TAXID or any(t == FUNGI_TAXID for _, t, _ in rec["lineage"]):
+            out["f_reads"] += rec["reads_direct"]
+            if b != "unclassified":
+                out[f"f_{b}"] += rec["reads_direct"]
     out["reads"] = total
     return out
 
@@ -98,9 +115,9 @@ def main() -> None:
         prof = {a: profile(found[a][run]) for a in ARMS}
         row = {"run": run, "BioProject": found["db2"][run].parent.name}
         for a in ARMS:
-            for key in ("reads",) + BUCKETS:
+            for key in ("reads",) + BUCKETS + FBUCKETS:
                 row[f"{a}_{key}"] = prof[a][key]
-        for b in BUCKETS:
+        for b in BUCKETS + ("f_species", "f_genus", "f_above_genus"):
             row[f"delta_{b}"] = prof["db2"][b] - prof["db1p"][b]
         rows.append(row)
 
@@ -110,25 +127,36 @@ def main() -> None:
         w.writeheader()
         w.writerows(rows)
 
-    def share(row, arm, b):
-        clf = row[f"{arm}_reads"] - row[f"{arm}_unclassified"]
-        return row[f"{arm}_{b}"] / clf if clf else None
+    def share(row, arm, b, denom):
+        d = row[f"{arm}_{denom}"]
+        if denom == "reads":
+            d -= row[f"{arm}_unclassified"]
+        return row[f"{arm}_{b}"] / d if d else None
 
     print(f"{len(rows):,} runs classified in both arms "
           f"(db1p only {only['db1p']:,}, db2 only {only['db2']:,})")
-    print(f"\n{'bucket':14s} {'db1p':>9s} {'db2':>9s} {'shift':>9s}   "
-          "median share of CLASSIFIED reads, per run")
-    for b in ("species", "genus", "above_genus"):
-        a1 = [s for r in rows if (s := share(r, "db1p", b)) is not None]
-        a2 = [s for r in rows if (s := share(r, "db2", b)) is not None]
-        if not a1:
-            continue
-        m1, m2 = statistics.median(a1), statistics.median(a2)
-        print(f"{b:14s} {m1:8.2%} {m2:8.2%} {m2-m1:+8.2%}")
-    moved = sum(1 for r in rows if r["delta_species"] > 0)
-    print(f"\nruns where more reads rest at species in db2: {moved:,} of {len(rows):,}")
-    print(f"median per-run change in reads resting at genus: "
-          f"{statistics.median([r['delta_genus'] for r in rows]):+,.0f}")
+
+    for label, buckets, denom in (
+            ("FUNGAL reads only -- this is the purpose test",
+             ("f_species", "f_genus", "f_above_genus"), "f_reads"),
+            ("all classified reads, which the host dominates",
+             ("species", "genus", "above_genus"), "reads")):
+        print(f"\n{label}")
+        print(f"  {'bucket':14s} {'db1p':>9s} {'db2':>9s} {'shift':>9s}   median share per run")
+        for b in buckets:
+            a1 = [s for r in rows if (s := share(r, "db1p", b, denom)) is not None]
+            a2 = [s for r in rows if (s := share(r, "db2", b, denom)) is not None]
+            if not a1:
+                continue
+            m1, m2 = statistics.median(a1), statistics.median(a2)
+            print(f"  {b:14s} {m1:8.2%} {m2:8.2%} {m2 - m1:+8.2%}")
+
+    for b in ("f_species", "f_genus", "species", "genus"):
+        d = [r[f"delta_{b}"] for r in rows]
+        up = sum(1 for x in d if x > 0)
+        print(f"\n{b}: more in db2 for {up:,} of {len(rows):,} runs, "
+              f"median per-run change {statistics.median(d):+,.0f}, "
+              f"total {sum(d):+,.0f}")
 
     cand = MODULE / "data" / "raw" / "candidates_db2.tsv"
     if cand.is_file():

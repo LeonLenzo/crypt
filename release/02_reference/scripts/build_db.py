@@ -108,6 +108,7 @@ from contextlib import contextmanager
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
+REPO = HERE.parent.parent
 PLAN = HERE / "data/curation/build_plan.tsv"
 CDS = HERE / "data/raw/cds"
 HOST_CDS = HERE / "data/raw/host_cds"
@@ -209,7 +210,12 @@ def plan_rows(tiers, extra):
             continue
         rows.append((r["accession"], int(taxid), src, r.get("organism_name", "")))
     for acc, taxid, path in extra:
+        # The extra-cds table carries REPO-RELATIVE paths, so one table describes the same
+        # files on both machines. An absolute path is still honoured, because the first
+        # generated copy of that table held them.
         p = Path(path)
+        if not p.is_absolute():
+            p = REPO / p
         if not p.is_file() or not p.stat().st_size:
             missing.append((acc, "extra", f"no CDS at {p}"))
             continue

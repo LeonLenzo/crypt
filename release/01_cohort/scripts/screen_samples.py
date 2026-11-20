@@ -7,6 +7,7 @@ Reads  data/raw/samples.tsv                   every run + its BioSample metadata
        data/curation/curated_attributes.tsv   prior hand/supplement curation, ported
        data/curation/supplements.tsv          per-accession provenance lifted from paper supplements
        data/curation/screen_fulltext.tsv      the keep/drop verdict per paper
+       data/curation/declared_pathogens.tsv   what the STUDY declared, per BioProject
 Writes data/curation/screen_samples.tsv       one row per run in a kept project
 
 PRECEDENCE, highest first, recorded per value in a `<field>_src` column so nothing is taken
@@ -38,6 +39,7 @@ SAMPLES = DATA / "raw" / "samples.tsv"
 CURATED = DATA / "curation" / "curated_attributes.tsv"
 SUPPLEMENTS = DATA / "curation" / "supplements.tsv"
 SCREEN = DATA / "curation" / "screen_fulltext.tsv"
+DECLARED = DATA / "curation" / "declared_pathogens.tsv"
 OUT = DATA / "curation" / "screen_samples.tsv"
 
 RNA = {"RNA-Seq", "ncRNA-Seq"}
@@ -103,6 +105,15 @@ def main():
         dropped_project = {r["BioProject"]: r["reason"]
                            for r in csv.DictReader(lines, delimiter="\t")}
 
+    # The study's own declaration, per BioProject. `declared_status` is carried and not
+    # collapsed into the value: a project nobody has curated yet is UNKNOWN, and an unknown
+    # declaration can never support a claim that a detection was unreported. Blank value plus
+    # status `not_curated` says that; blank value plus `none_declared` says the paper declares
+    # no pathogen, which is the opposite and is itself evidence.
+    declared = {}
+    if DECLARED.is_file():
+        declared = {r["BioProject"]: r for r in read(DECLARED)}
+
     rows, src_tally, removed = [], collections.Counter(), collections.Counter()
     for r in read(SAMPLES):
         if r["library_strategy"] not in RNA:
@@ -126,8 +137,13 @@ def main():
                "assay_in_scope": int(r["library_strategy"] in RNA),
                "platform": r["platform"],
                "model": r["model"], "read_count": r["read_count"],
+               "base_count": r["base_count"], "library_layout": r["library_layout"],
                "named_by": r["named_by"],
-               "own_deposit": r["named_in_deposit_section"]}
+               "own_deposit": r["named_in_deposit_section"],
+               "declared_pathogens": declared.get(r["BioProject"], {}).get(
+                   "declared_pathogens", ""),
+               "declared_status": declared.get(r["BioProject"], {}).get(
+                   "status", "not_curated")}
         for f in FIELDS:
             val, src = "", ""
             if cur.get(f):
@@ -149,7 +165,8 @@ def main():
 
     cols = (["run", "BioProject", "sample", "library_strategy", "assay_in_scope",
              "platform", "model",
-             "read_count", "named_by", "own_deposit"]
+             "read_count", "base_count", "library_layout", "named_by", "own_deposit",
+             "declared_pathogens", "declared_status"]
             + [c for f in FIELDS for c in (f, f"{f}_src")])
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with open(OUT, "w", newline="", encoding="utf-8") as fh:

@@ -6,7 +6,7 @@
 
 Reads  research/predict/data/worklist.tsv              the 135 genomes, accession + ncbi_taxid
        research/predict/data/predicted/<acc>/coding.fa  vipsania's CDS, deduplicated
-Writes data/curation/extra_cds_db2.tsv                  accession, taxid, path
+Writes data/curation/extra_cds_db2.tsv                  accession, taxid, repo-relative path
 
 WHY THIS IS A SEPARATE FILE AND NOT A TIER IN build_plan.tsv. `plan_build.py` emits only CDS
 that exists to download from NCBI, which predicted CDS by definition does not, so the plan
@@ -78,7 +78,11 @@ def main():
         if not cds.stat().st_size:
             bad.append((acc, "coding.fa is empty"))
             continue
-        rows.append({"accession": acc, "taxid": taxid, "path": str(cds)})
+        # REPO-RELATIVE, so the table describes the same files on both machines. The first
+        # generated copy held absolute scratch paths, which made a tracked decision table
+        # machine-specific; build_db.py resolves a relative path against the repo root.
+        rows.append({"accession": acc, "taxid": taxid,
+                     "path": str(cds.relative_to(REPO))})
 
     nbytes = sum((PREDICTED / r["accession"] / "coding.fa").stat().st_size for r in rows)
     print(f"worklist {len(rd(WORKLIST))} rows -> {len(rows)} resolved "

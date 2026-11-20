@@ -281,3 +281,18 @@ release/02_reference/data/raw/host_cds/
 # manifest, which is the same contract raw_assembly_summary.txt and the reads tree have.
 release/02_reference/data/raw/cds/
 release/02_reference/data/db/
+
+# release/03_classify: the Kraken2 reports and the full candidate table, on Setonix scratch.
+# Ignored by DIRECTORY, the same rule every other data tree in this repo settled on, because a
+# per-file list has already failed in both directions twice.
+#
+# What is tracked instead:
+#   data/raw/reports_manifest_<arm>.tsv  run -> status, bytes, species rows, reads. One row per
+#                                        run, rewritten rather than appended, so it describes
+#                                        the tree rather than logging the jobs that built it.
+#   data/outputs/                        the calls and the supplementary tables
+#
+# candidates_<arm>.tsv is one row per run and taxon, rewritten on every threshold change. Its
+# summary is what lands in outputs/, which is where the history belongs.
+release/03_classify/data/raw/reports/
+release/03_classify/data/raw/candidates_*.tsv

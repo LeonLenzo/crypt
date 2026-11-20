@@ -51,6 +51,7 @@ The numbering does not line up across the trees, and that is not a mistake:
   host_screen          ->  curation/host_screen_papers.tsv
   fetch_fulltext       ->  raw_fulltext.tsv + raw/fulltext/*.xml
   bioproject_screen    ->  curation/bioproject_screen_papers.tsv
+  curation/declared_pathogens.tsv  what the STUDY declared, per BioProject, with its quote
   fetch_samples / screen_samples / audit
   make_supp_tables     ->  outputs/supp_data_s1_studies.tsv
                            outputs/supp_data_s2_cohort.tsv   <-- the cohort, one row per run
@@ -71,7 +72,8 @@ The numbering does not line up across the trees, and that is not a mistake:
   fetch_assemblies     ->  raw_assembly_summary.txt
   screen_assemblies    ->  curation/screen_assemblies.tsv
   make_supp_tables     ->  outputs/supp_data_s3_reference.tsv  <-- ONE ROW PER TAXON
-  plan_build           ->  outputs/build_plan.tsv              <-- the db tier per assembly
+  plan_build           ->  curation/build_plan.tsv             <-- the db tier per assembly
+  plan_extra_cds       ->  curation/extra_cds_db2.tsv          <-- the 135 predicted genomes
   fetch_cds --tier     ->  CDS on Setonix
   figures/                 matrix, tree
         │
@@ -86,10 +88,26 @@ The numbering does not line up across the trees, and that is not a mistake:
         │  db2-db1 measures reach into genera nothing could represent before.
         │  PREDICTED CDS IS A COMPETITOR ONLY, never a positive call.
         ▼
-03_classify          NOT BUILT. Kraken2 against the db ladder, then the detection calls
+03_classify          Kraken2 against the ladder, then the detection calls
                      Supersedes research/02_classify/{02_build,03_cohort,04_classify,05_detect}
                      The THREE FLOORS and the saturation statistic carry across unchanged;
-                     see research/02_classify/05_detect/README.md for their derivation.
+                     see research/02_classify/05_detect/README.md for their derivation
+  inputs/thresholds.tsv            the operating point, authored, floor by floor
+  inputs/null_biotroph_orders.tsv  which orders the off-host null is built from
+  classify.py --arm     ->  data/raw/reports/<arm>/<PRJ>/<Run>.report.tsv   on Setonix
+                            data/raw/reports_manifest_<arm>.tsv
+  calibrate_floors.py   ->  curation/null_offhost_<arm>.tsv   where the null is exhausted
+  detect.py --arm       ->  outputs/detections_<arm>.tsv      the calls
+                            data/raw/candidates_<arm>.tsv     every candidate, on scratch
+  make_supp_tables.py   ->  outputs/supp_data_s5_detections.tsv  one row per call
+                            outputs/supp_data_s6_runs.tsv        one row per cohort run
+  compare_arms.py       ->  outputs/arm_resolution.tsv        db2 - db1p, by assigned rank
+  figures/resolution/                                         the purpose test
+
+                     TWO ARMS, db1p and db2. db0 is not one: the copy on disk has no host
+                     sink, so db1p-db0 would measure the sink. Coverage divides by each
+                     arm's own inspect table, so the floor is re-anchored per arm and a
+                     coverage figure is never restated across arms by arithmetic.
         │
         │  this is the SCREEN: which organisms are present and worth characterising.
         │  It is explicitly NOT a prevalence. See CLAUDE.md.

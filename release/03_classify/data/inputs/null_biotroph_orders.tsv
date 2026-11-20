@@ -1,0 +1,3 @@
+order	rationale
+Pucciniales	the rusts. Obligate biotrophs: they cannot grow or sporulate without living tissue of a compatible host, so a rust of another host family found in a wheat library is real DNA that cannot be infecting that plant. Their genomes are large and well represented, which makes them the strongest available null
+Erysiphales	the powdery mildews. Obligate biotrophs on the same argument. Blumeria graminis is recorded on Triticum and is therefore excluded from the null by the on_wheat test, not by this table

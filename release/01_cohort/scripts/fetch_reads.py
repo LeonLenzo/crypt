@@ -194,9 +194,9 @@ def _refresh_status(rows, todo, errs, final=True):
     ok = bad = 0
     for run, (dirp, fs) in todo.items():
         row = by_run[run]
-        got = [n for n, _, _ in fs if (dirp / n).exists()]
+        got = [n for n, _, _, _ in fs if (dirp / n).exists()]
         if len(got) == len(fs) and not errs[run]:
-            row["local_bytes"] = sum((dirp / n).stat().st_size for n, _, _ in fs)
+            row["local_bytes"] = sum((dirp / n).stat().st_size for n, _, _, _ in fs)
             row["status"] = "fetched"
             ok += 1
         elif errs[run]:

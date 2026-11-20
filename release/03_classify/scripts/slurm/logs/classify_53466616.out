@@ -1,0 +1,35 @@
+repo_sync: current at 95ea3fb
+kraken2: /software/projects/pawsey1168/llenzo/setonix/2025.08/software/linux-sles15-zen3/gcc-14.2.0/kraken2-2.1.2-qk2lek64msmwg57n2fowuf5b7etidqaj/bin/kraken2  Kraken version 2.1.2
+host     nid001760
+arm      db1p
+started  2026-11-20T13:06:09+08:00
+staged 54G into RAM in 43s
+
+PRJNA1250571: 4 runs on disk, 4 to classify
+  [done ] SRR33129855   134s   172 species    14,350,025 reads
+  [done ] SRR33129854   140s   328 species    12,804,070 reads
+  [done ] SRR33129857   152s   239 species    13,982,747 reads
+  [done ] SRR33129856   157s   295 species    15,550,225 reads
+PRJNA1250571: 4 classified, 0 failed, 2.6 min
+
+PRJNA749614: 4 runs on disk, 4 to classify
+  [done ] SRR15357734   272s    92 species    57,924,017 reads
+  [done ] SRR15357735   272s    87 species    68,506,426 reads
+  [done ] SRR15357736   301s   106 species    74,900,872 reads
+  [done ] SRR15357733   318s    82 species    65,616,490 reads
+PRJNA749614: 4 classified, 0 failed, 5.3 min
+
+PRJNA776691: 6 runs on disk, 6 to classify
+  [done ] SRR22371365     6s    33 species        52,321 reads
+  [done ] SRR22371364     9s    46 species       172,175 reads
+  [done ] SRR22371366    10s    65 species       176,758 reads
+  [done ] SRR16774428    69s   240 species    12,342,689 reads
+  [done ] SRR16774430    71s   183 species    13,662,686 reads
+  [done ] SRR16774429    81s   205 species    13,443,731 reads
+PRJNA776691: 6 classified, 0 failed, 1.4 min
+
+-> data/raw/reports_manifest_db1p.tsv  14 runs recorded
+repo_sync: committed 3f3f65a  release/03_classify/data/raw/reports_manifest_db1p.tsv
+repo_sync: pushed
+exit     0 after 561s
+finished 2026-11-20T13:16:13+08:00

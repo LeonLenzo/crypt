@@ -7,6 +7,7 @@
 Reads  data/raw/reports/db1p/<BioProject>/<Run>.report.tsv   the baseline arm
        data/raw/reports/db2/<BioProject>/<Run>.report.tsv     the same runs, plus predictions
        data/raw/candidates_db2.tsv                            what the competitors absorbed
+       ../02_reference/data/curation/extra_cds_db2.tsv         the tier each prediction is in
 Writes data/outputs/arm_resolution.tsv   one row per run: where its reads came to rest, per arm
 
 db2 is db1p plus 135 gene-predicted genomes and NOTHING else, so a difference between the arms
@@ -14,6 +15,18 @@ is attributable to those references. The question is not whether more reads are 
 is whether reads that previously came to rest at GENUS or above now rest at SPECIES. A read in
 a genus with no annotated member cannot be resolved below genus however abundant it is, and
 that unresolved fraction is what the prediction arm was built to reduce.
+
+**THE THREE TIERS PREDICT DIFFERENT DIRECTIONS AND ARE REPORTED SEPARATELY.** Pooling them
+measures their sum and then reads as a failure of the smallest one:
+
+    A   118 genomes   in the reference scope already, with no gene model, so they sat in the
+                      database and could never be called. Giving them CDS makes them callable
+                      AND puts a competitor in their genus.
+    B     3 genomes   a genus the database did not hold at all. THIS is the only tier the
+                      "do reads move down to species" question is about.
+    C2   14 genomes   a competitor for a taxon that had none, so the LCA can decline. Its
+                      intended effect is reads moving UP to the genus node: that is the db_v2
+                      failure being fixed, not a regression.
 
 **THE PROFILE IS MEASURED OVER FUNGAL READS, and the all-reads profile is reported beside it
 as context.** The host is most of a plant RNA-seq library and resolves at species, so it sets
@@ -159,6 +172,12 @@ def main() -> None:
               f"total {sum(d):+,.0f}")
 
     cand = MODULE / "data" / "raw" / "candidates_db2.tsv"
+    extra = (MODULE.parent / "02_reference" / "data" / "curation" / "extra_cds_db2.tsv")
+    tier_of = {}
+    if extra.is_file():
+        for r in csv.DictReader(open(extra, newline="", encoding="utf-8"), delimiter="\t"):
+            if r["taxid"].isdigit():
+                tier_of[int(r["taxid"])] = r.get("tier", "")
     if cand.is_file():
         comp = [c for c in csv.DictReader(open(cand, newline="", encoding="utf-8"),
                                          delimiter="\t")
@@ -168,6 +187,19 @@ def main() -> None:
             taxa = collections.Counter(c["taxon"] for c in comp)
             print(f"\npredicted competitors absorbed {reads:,} reads over {len(comp):,} rows "
                   f"and {len(taxa)} species, none of them callable")
+            if tier_of:
+                by_tier = collections.defaultdict(lambda: [0, 0, set()])
+                for c in comp:
+                    t = tier_of.get(int(c["taxid"]), "?")
+                    by_tier[t][0] += int(c["reads"])
+                    by_tier[t][1] += 1
+                    by_tier[t][2].add(c["taxon"])
+                for t in sorted(by_tier):
+                    rd, n, sp = by_tier[t]
+                    print(f"  tier {t:2s}  {rd:>14,d} reads  {n:>6,d} rows  "
+                          f"{len(sp):>3d} species")
+            else:
+                print(f"  note: no {extra.name}, so the tiers cannot be separated")
             print("  most absorbed: "
                   + ", ".join(f"{t} ({n} runs)" for t, n in taxa.most_common(5)))
     else:

@@ -6,7 +6,7 @@
 
 Reads  research/predict/data/worklist.tsv              the 135 genomes, accession + ncbi_taxid
        research/predict/data/predicted/<acc>/coding.fa  vipsania's CDS, deduplicated
-Writes data/curation/extra_cds_db2.tsv                  accession, taxid, repo-relative path
+Writes data/curation/extra_cds_db2.tsv                  accession, taxid, tier, reason, path
 
 WHY THIS IS A SEPARATE FILE AND NOT A TIER IN build_plan.tsv. `plan_build.py` emits only CDS
 that exists to download from NCBI, which predicted CDS by definition does not, so the plan
@@ -43,7 +43,7 @@ PREDICT = REPO / "research" / "predict" / "data"
 WORKLIST = PREDICT / "worklist.tsv"
 PREDICTED = PREDICT / "predicted"
 OUT = MODULE / "data" / "curation" / "extra_cds_db2.tsv"
-COLS = ["accession", "taxid", "path"]
+COLS = ["accession", "taxid", "tier", "reason", "path"]
 
 
 def rd(path):
@@ -81,7 +81,14 @@ def main():
         # REPO-RELATIVE, so the table describes the same files on both machines. The first
         # generated copy held absolute scratch paths, which made a tracked decision table
         # machine-specific; build_db.py resolves a relative path against the repo root.
+        # The TIER travels with the row, because it is why this genome is in db2 and the
+        # three tiers predict DIFFERENT effects: A was in scope and uncallable, B is a genus
+        # the database did not hold at all, C2 exists to give a competitor-less taxon a
+        # competitor so the LCA can decline. A db2 - db1p comparison pooled over all three
+        # measures their sum and reads as a failure of the one that is only 3 genomes.
         rows.append({"accession": acc, "taxid": taxid,
+                     "tier": (r.get("tier") or "").strip(),
+                     "reason": " ".join((r.get("reason") or "").split()),
                      "path": str(cds.relative_to(REPO))})
 
     nbytes = sum((PREDICTED / r["accession"] / "coding.fa").stat().st_size for r in rows)

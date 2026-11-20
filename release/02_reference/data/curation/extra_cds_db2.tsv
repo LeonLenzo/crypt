@@ -1,136 +1,136 @@
-accession	taxid	path
-GCA_002940785.1	39291	research/predict/data/predicted/GCA_002940785.1/coding.fa
-GCA_036768465.1	29911	research/predict/data/predicted/GCA_036768465.1/coding.fa
-GCA_060574935.1	119957	research/predict/data/predicted/GCA_060574935.1/coding.fa
-GCA_001950455.1	230004	research/predict/data/predicted/GCA_001950455.1/coding.fa
-GCA_019059555.1	160389	research/predict/data/predicted/GCA_019059555.1/coding.fa
-GCA_040583965.1	283353	research/predict/data/predicted/GCA_040583965.1/coding.fa
-GCA_002952155.1	48100	research/predict/data/predicted/GCA_002952155.1/coding.fa
-GCA_040583995.1	216836	research/predict/data/predicted/GCA_040583995.1/coding.fa
-GCA_006503535.1	112178	research/predict/data/predicted/GCA_006503535.1/coding.fa
-GCA_027569315.1	5054	research/predict/data/predicted/GCA_027569315.1/coding.fa
-GCA_004849945.1	40380	research/predict/data/predicted/GCA_004849945.1/coding.fa
-GCA_039880875.1	1405805	research/predict/data/predicted/GCA_039880875.1/coding.fa
-GCA_963379335.1	5065	research/predict/data/predicted/GCA_963379335.1/coding.fa
-GCA_003671435.1	124036	research/predict/data/predicted/GCA_003671435.1/coding.fa
-GCA_026262445.1	102001	research/predict/data/predicted/GCA_026262445.1/coding.fa
-GCA_035078755.1	2695822	research/predict/data/predicted/GCA_035078755.1/coding.fa
-GCA_000527765.2	40125	research/predict/data/predicted/GCA_000527765.2/coding.fa
-GCA_001600095.1	157611	research/predict/data/predicted/GCA_001600095.1/coding.fa
-GCA_048999985.1	76351	research/predict/data/predicted/GCA_048999985.1/coding.fa
-GCA_002018265.1	312341	research/predict/data/predicted/GCA_002018265.1/coding.fa
-GCA_006681795.1	929235	research/predict/data/predicted/GCA_006681795.1/coding.fa
-GCA_022836995.1	132184	research/predict/data/predicted/GCA_022836995.1/coding.fa
-GCA_058382225.1	1579221	research/predict/data/predicted/GCA_058382225.1/coding.fa
-GCA_002994015.1	29003	research/predict/data/predicted/GCA_002994015.1/coding.fa
-GCA_008122225.1	984309	research/predict/data/predicted/GCA_008122225.1/coding.fa
-GCA_052324125.1	29919	research/predict/data/predicted/GCA_052324125.1/coding.fa
-GCA_052324145.1	887100	research/predict/data/predicted/GCA_052324145.1/coding.fa
-GCA_052323905.1	92950	research/predict/data/predicted/GCA_052323905.1/coding.fa
-GCA_002249775.1	27358	research/predict/data/predicted/GCA_002249775.1/coding.fa
-GCA_003386485.1	1585795	research/predict/data/predicted/GCA_003386485.1/coding.fa
-GCA_001693025.3	290576	research/predict/data/predicted/GCA_001693025.3/coding.fa
-GCA_051527715.1	89141	research/predict/data/predicted/GCA_051527715.1/coding.fa
-GCA_020744315.1	418125	research/predict/data/predicted/GCA_020744315.1/coding.fa
-GCA_002982235.1	418126	research/predict/data/predicted/GCA_002982235.1/coding.fa
-GCA_026262405.1	1230527	research/predict/data/predicted/GCA_026262405.1/coding.fa
-GCA_005212705.1	5503	research/predict/data/predicted/GCA_005212705.1/coding.fa
-GCA_000817285.1	1537989	research/predict/data/predicted/GCA_000817285.1/coding.fa
-GCA_026262435.1	145392	research/predict/data/predicted/GCA_026262435.1/coding.fa
-GCA_014825765.1	89926	research/predict/data/predicted/GCA_014825765.1/coding.fa
-GCA_039634465.1	749633	research/predict/data/predicted/GCA_039634465.1/coding.fa
-GCA_034640345.1	33199	research/predict/data/predicted/GCA_034640345.1/coding.fa
-GCA_040893085.1	749593	research/predict/data/predicted/GCA_040893085.1/coding.fa
-GCA_026367775.1	1659837	research/predict/data/predicted/GCA_026367775.1/coding.fa
-GCA_058578815.1	104409	research/predict/data/predicted/GCA_058578815.1/coding.fa
-GCA_001599815.1	2710536	research/predict/data/predicted/GCA_001599815.1/coding.fa
-GCA_017657135.1	282272	research/predict/data/predicted/GCA_017657135.1/coding.fa
-GCA_017657045.1	569394	research/predict/data/predicted/GCA_017657045.1/coding.fa
-GCA_002982035.1	2050978	research/predict/data/predicted/GCA_002982035.1/coding.fa
-GCA_012977745.1	183586	research/predict/data/predicted/GCA_012977745.1/coding.fa
-GCA_051942675.1	679435	research/predict/data/predicted/GCA_051942675.1/coding.fa
-GCA_025258505.1	282267	research/predict/data/predicted/GCA_025258505.1/coding.fa
-GCA_017656985.1	282271	research/predict/data/predicted/GCA_017656985.1/coding.fa
-GCA_018886245.1	679434	research/predict/data/predicted/GCA_018886245.1/coding.fa
-GCA_004367475.1	57143	research/predict/data/predicted/GCA_004367475.1/coding.fa
-GCA_054553065.1	56641	research/predict/data/predicted/GCA_054553065.1/coding.fa
-GCA_004367485.1	2495903	research/predict/data/predicted/GCA_004367485.1/coding.fa
-GCA_037577415.1	867872	research/predict/data/predicted/GCA_037577415.1/coding.fa
-GCA_014824425.1	48491	research/predict/data/predicted/GCA_014824425.1/coding.fa
-GCA_013184415.1	48492	research/predict/data/predicted/GCA_013184415.1/coding.fa
-GCA_017656885.1	281068	research/predict/data/predicted/GCA_017656885.1/coding.fa
-GCA_013623525.1	57145	research/predict/data/predicted/GCA_013623525.1/coding.fa
-GCA_044592905.1	56642	research/predict/data/predicted/GCA_044592905.1/coding.fa
-GCA_017656835.1	569362	research/predict/data/predicted/GCA_017656835.1/coding.fa
-GCA_011035845.1	152502	research/predict/data/predicted/GCA_011035845.1/coding.fa
-GCA_004367075.1	298378	research/predict/data/predicted/GCA_004367075.1/coding.fa
-GCA_044647245.1	42671	research/predict/data/predicted/GCA_044647245.1/coding.fa
-GCA_034753255.1	56665	research/predict/data/predicted/GCA_034753255.1/coding.fa
-GCA_017656825.1	1571108	research/predict/data/predicted/GCA_017656825.1/coding.fa
-GCA_032355295.1	282269	research/predict/data/predicted/GCA_032355295.1/coding.fa
-GCA_004367095.1	2494468	research/predict/data/predicted/GCA_004367095.1/coding.fa
-GCA_014898925.1	77846	research/predict/data/predicted/GCA_014898925.1/coding.fa
-GCA_013623555.1	78863	research/predict/data/predicted/GCA_013623555.1/coding.fa
-GCA_014898975.1	2592597	research/predict/data/predicted/GCA_014898975.1/coding.fa
-GCA_055255615.1	42676	research/predict/data/predicted/GCA_055255615.1/coding.fa
-GCA_004367495.1	2211609	research/predict/data/predicted/GCA_004367495.1/coding.fa
-GCA_012977735.1	2594821	research/predict/data/predicted/GCA_012977735.1/coding.fa
-GCA_013363175.1	232082	research/predict/data/predicted/GCA_013363175.1/coding.fa
-GCA_037179535.1	569361	research/predict/data/predicted/GCA_037179535.1/coding.fa
-GCA_001457955.1	13563	research/predict/data/predicted/GCA_001457955.1/coding.fa
-GCA_003049465.1	165777	research/predict/data/predicted/GCA_003049465.1/coding.fa
-GCA_048569445.1	64636	research/predict/data/predicted/GCA_048569445.1/coding.fa
-GCA_060154625.1	4841	research/predict/data/predicted/GCA_060154625.1/coding.fa
-GCA_045529365.1	1634535	research/predict/data/predicted/GCA_045529365.1/coding.fa
-GCA_016758845.1	335854	research/predict/data/predicted/GCA_016758845.1/coding.fa
-GCA_026119995.1	114231	research/predict/data/predicted/GCA_026119995.1/coding.fa
-GCA_028458545.1	33175	research/predict/data/predicted/GCA_028458545.1/coding.fa
-GCA_028456235.1	85572	research/predict/data/predicted/GCA_028456235.1/coding.fa
-GCA_003012165.1	1859971	research/predict/data/predicted/GCA_003012165.1/coding.fa
-GCA_022559985.1	1351752	research/predict/data/predicted/GCA_022559985.1/coding.fa
-GCA_019977855.1	36655	research/predict/data/predicted/GCA_019977855.1/coding.fa
-GCA_053572805.1	36653	research/predict/data/predicted/GCA_053572805.1/coding.fa
-GCA_015585785.1	254876	research/predict/data/predicted/GCA_015585785.1/coding.fa
-GCA_024706585.1	69488	research/predict/data/predicted/GCA_024706585.1/coding.fa
-GCA_054124195.1	5081	research/predict/data/predicted/GCA_054124195.1/coding.fa
-GCA_016109475.1	39412	research/predict/data/predicted/GCA_016109475.1/coding.fa
-GCA_001599375.1	73001	research/predict/data/predicted/GCA_001599375.1/coding.fa
-GCA_030770065.1	53655	research/predict/data/predicted/GCA_030770065.1/coding.fa
-GCA_001630605.1	79858	research/predict/data/predicted/GCA_001630605.1/coding.fa
-GCA_000601435.1	285811	research/predict/data/predicted/GCA_000601435.1/coding.fa
-GCA_019395275.1	27343	research/predict/data/predicted/GCA_019395275.1/coding.fa
-GCA_062009385.1	27345	research/predict/data/predicted/GCA_062009385.1/coding.fa
-GCA_958299125.1	76659	research/predict/data/predicted/GCA_958299125.1/coding.fa
-GCA_012365135.1	5028	research/predict/data/predicted/GCA_012365135.1/coding.fa
-GCA_012274445.1	2698418	research/predict/data/predicted/GCA_012274445.1/coding.fa
-GCA_059642765.1	39703	research/predict/data/predicted/GCA_059642765.1/coding.fa
-GCA_041753865.1	278952	research/predict/data/predicted/GCA_041753865.1/coding.fa
-GCA_059628595.1	235069	research/predict/data/predicted/GCA_059628595.1/coding.fa
-GCA_055672515.1	119933	research/predict/data/predicted/GCA_055672515.1/coding.fa
-GCA_004299765.1	28572	research/predict/data/predicted/GCA_004299765.1/coding.fa
-GCA_040333175.1	28576	research/predict/data/predicted/GCA_040333175.1/coding.fa
-GCA_045933385.1	157179	research/predict/data/predicted/GCA_045933385.1/coding.fa
-GCA_054127445.1	49224	research/predict/data/predicted/GCA_054127445.1/coding.fa
-GCA_001950475.1	97093	research/predict/data/predicted/GCA_001950475.1/coding.fa
-GCA_030278935.1	40695	research/predict/data/predicted/GCA_030278935.1/coding.fa
-GCA_020827535.1	185366	research/predict/data/predicted/GCA_020827535.1/coding.fa
-GCA_017654735.1	1895944	research/predict/data/predicted/GCA_017654735.1/coding.fa
-GCA_037855235.1	49569	research/predict/data/predicted/GCA_037855235.1/coding.fa
-GCA_030567955.1	1853550	research/predict/data/predicted/GCA_030567955.1/coding.fa
-GCA_014825535.1	5411	research/predict/data/predicted/GCA_014825535.1/coding.fa
-GCA_028456385.1	33176	research/predict/data/predicted/GCA_028456385.1/coding.fa
-GCA_052935135.1	89920	research/predict/data/predicted/GCA_052935135.1/coding.fa
-GCA_022560035.1	749552	research/predict/data/predicted/GCA_022560035.1/coding.fa
-GCA_023084525.1	2021124	research/predict/data/predicted/GCA_023084525.1/coding.fa
-GCA_014849355.1	40262	research/predict/data/predicted/GCA_014849355.1/coding.fa
-GCA_002116355.1	332034	research/predict/data/predicted/GCA_002116355.1/coding.fa
-GCA_001599095.1	45558	research/predict/data/predicted/GCA_001599095.1/coding.fa
-GCA_047837085.1	1435034	research/predict/data/predicted/GCA_047837085.1/coding.fa
-GCA_003049425.1	36781	research/predict/data/predicted/GCA_003049425.1/coding.fa
-GCA_001600675.1	28986	research/predict/data/predicted/GCA_001600675.1/coding.fa
-GCA_928852645.1	684617	research/predict/data/predicted/GCA_928852645.1/coding.fa
-GCA_059756515.1	214992	research/predict/data/predicted/GCA_059756515.1/coding.fa
-GCA_001748405.1	1804209	research/predict/data/predicted/GCA_001748405.1/coding.fa
-GCA_026873275.1	1921599	research/predict/data/predicted/GCA_026873275.1/coding.fa
-GCA_003012195.1	508457	research/predict/data/predicted/GCA_003012195.1/coding.fa
-GCA_038381055.1	906972	research/predict/data/predicted/GCA_038381055.1/coding.fa
+accession	taxid	tier	reason	path
+GCA_002940785.1	39291	A	silent wheat x none, 6 assemblies, no gene model	research/predict/data/predicted/GCA_002940785.1/coding.fa
+GCA_036768465.1	29911	A	silent wheat x none, 6 assemblies, no gene model	research/predict/data/predicted/GCA_036768465.1/coding.fa
+GCA_060574935.1	119957	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_060574935.1/coding.fa
+GCA_001950455.1	230004	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_001950455.1/coding.fa
+GCA_019059555.1	160389	A	silent wheat x plant_pathogen, 1 assemblies, no gene model	research/predict/data/predicted/GCA_019059555.1/coding.fa
+GCA_040583965.1	283353	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_040583965.1/coding.fa
+GCA_002952155.1	48100	A	silent plant x plant_pathogen, 4 assemblies, no gene model	research/predict/data/predicted/GCA_002952155.1/coding.fa
+GCA_040583995.1	216836	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_040583995.1/coding.fa
+GCA_006503535.1	112178	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_006503535.1/coding.fa
+GCA_027569315.1	5054	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_027569315.1/coding.fa
+GCA_004849945.1	40380	A	silent wheat x none, 5 assemblies, no gene model	research/predict/data/predicted/GCA_004849945.1/coding.fa
+GCA_039880875.1	1405805	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_039880875.1/coding.fa
+GCA_963379335.1	5065	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_963379335.1/coding.fa
+GCA_003671435.1	124036	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_003671435.1/coding.fa
+GCA_026262445.1	102001	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_026262445.1/coding.fa
+GCA_035078755.1	2695822	A	silent wheat x none, 9 assemblies, no gene model	research/predict/data/predicted/GCA_035078755.1/coding.fa
+GCA_000527765.2	40125	A	silent wheat x plant_pathogen, 1 assemblies, no gene model	research/predict/data/predicted/GCA_000527765.2/coding.fa
+GCA_001600095.1	157611	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_001600095.1/coding.fa
+GCA_048999985.1	76351	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_048999985.1/coding.fa
+GCA_002018265.1	312341	A	silent plant x plant_pathogen, 1 assemblies, no gene model	research/predict/data/predicted/GCA_002018265.1/coding.fa
+GCA_006681795.1	929235	A	silent plant x plant_pathogen, 8 assemblies, no gene model	research/predict/data/predicted/GCA_006681795.1/coding.fa
+GCA_022836995.1	132184	A	silent plant x plant_pathogen, 2 assemblies, no gene model	research/predict/data/predicted/GCA_022836995.1/coding.fa
+GCA_058382225.1	1579221	A	silent plant x plant_pathogen, 2 assemblies, no gene model	research/predict/data/predicted/GCA_058382225.1/coding.fa
+GCA_002994015.1	29003	A	silent plant x plant_pathogen, 2 assemblies, no gene model	research/predict/data/predicted/GCA_002994015.1/coding.fa
+GCA_008122225.1	984309	A	silent plant x plant_pathogen, 1 assemblies, no gene model	research/predict/data/predicted/GCA_008122225.1/coding.fa
+GCA_052324125.1	29919	A	silent wheat x none, 3 assemblies, no gene model	research/predict/data/predicted/GCA_052324125.1/coding.fa
+GCA_052324145.1	887100	A	silent wheat x none, 3 assemblies, no gene model	research/predict/data/predicted/GCA_052324145.1/coding.fa
+GCA_052323905.1	92950	A	silent wheat x none, 4 assemblies, no gene model	research/predict/data/predicted/GCA_052323905.1/coding.fa
+GCA_002249775.1	27358	A	silent plant x plant_pathogen, 3 assemblies, no gene model	research/predict/data/predicted/GCA_002249775.1/coding.fa
+GCA_003386485.1	1585795	A	silent plant x plant_pathogen, 1 assemblies, no gene model	research/predict/data/predicted/GCA_003386485.1/coding.fa
+GCA_001693025.3	290576	A	silent plant x plant_pathogen, 6 assemblies, no gene model	research/predict/data/predicted/GCA_001693025.3/coding.fa
+GCA_051527715.1	89141	A	silent wheat x none, 8 assemblies, no gene model	research/predict/data/predicted/GCA_051527715.1/coding.fa
+GCA_020744315.1	418125	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_020744315.1/coding.fa
+GCA_002982235.1	418126	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_002982235.1/coding.fa
+GCA_026262405.1	1230527	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_026262405.1/coding.fa
+GCA_005212705.1	5503	A	silent wheat x plant_pathogen, 2 assemblies, no gene model	research/predict/data/predicted/GCA_005212705.1/coding.fa
+GCA_000817285.1	1537989	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_000817285.1/coding.fa
+GCA_026262435.1	145392	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_026262435.1/coding.fa
+GCA_014825765.1	89926	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_014825765.1/coding.fa
+GCA_039634465.1	749633	A	silent wheat x none, 8 assemblies, no gene model	research/predict/data/predicted/GCA_039634465.1/coding.fa
+GCA_034640345.1	33199	A	silent wheat x none, 4 assemblies, no gene model	research/predict/data/predicted/GCA_034640345.1/coding.fa
+GCA_040893085.1	749593	A	silent wheat x none, 4 assemblies, no gene model	research/predict/data/predicted/GCA_040893085.1/coding.fa
+GCA_026367775.1	1659837	A	silent wheat x none, 6 assemblies, no gene model	research/predict/data/predicted/GCA_026367775.1/coding.fa
+GCA_058578815.1	104409	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_058578815.1/coding.fa
+GCA_001599815.1	2710536	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_001599815.1/coding.fa
+GCA_017657135.1	282272	A	silent wheat x none, 4 assemblies, no gene model	research/predict/data/predicted/GCA_017657135.1/coding.fa
+GCA_017657045.1	569394	A	silent wheat x none, 3 assemblies, no gene model	research/predict/data/predicted/GCA_017657045.1/coding.fa
+GCA_002982035.1	2050978	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_002982035.1/coding.fa
+GCA_012977745.1	183586	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_012977745.1/coding.fa
+GCA_051942675.1	679435	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_051942675.1/coding.fa
+GCA_025258505.1	282267	A	silent wheat x wheat_pathogen, 259 assemblies, no gene model	research/predict/data/predicted/GCA_025258505.1/coding.fa
+GCA_017656985.1	282271	A	silent wheat x none, 8 assemblies, no gene model	research/predict/data/predicted/GCA_017656985.1/coding.fa
+GCA_018886245.1	679434	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_018886245.1/coding.fa
+GCA_004367475.1	57143	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_004367475.1/coding.fa
+GCA_054553065.1	56641	A	silent wheat x none, 4 assemblies, no gene model	research/predict/data/predicted/GCA_054553065.1/coding.fa
+GCA_004367485.1	2495903	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_004367485.1/coding.fa
+GCA_037577415.1	867872	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_037577415.1/coding.fa
+GCA_014824425.1	48491	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_014824425.1/coding.fa
+GCA_013184415.1	48492	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_013184415.1/coding.fa
+GCA_017656885.1	281068	A	silent wheat x none, 6 assemblies, no gene model	research/predict/data/predicted/GCA_017656885.1/coding.fa
+GCA_013623525.1	57145	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_013623525.1/coding.fa
+GCA_044592905.1	56642	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_044592905.1/coding.fa
+GCA_017656835.1	569362	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_017656835.1/coding.fa
+GCA_011035845.1	152502	A	silent wheat x none, 6 assemblies, no gene model	research/predict/data/predicted/GCA_011035845.1/coding.fa
+GCA_004367075.1	298378	A	silent wheat x none, 3 assemblies, no gene model	research/predict/data/predicted/GCA_004367075.1/coding.fa
+GCA_044647245.1	42671	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_044647245.1/coding.fa
+GCA_034753255.1	56665	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_034753255.1/coding.fa
+GCA_017656825.1	1571108	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_017656825.1/coding.fa
+GCA_032355295.1	282269	A	silent wheat x none, 5 assemblies, no gene model	research/predict/data/predicted/GCA_032355295.1/coding.fa
+GCA_004367095.1	2494468	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_004367095.1/coding.fa
+GCA_014898925.1	77846	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_014898925.1/coding.fa
+GCA_013623555.1	78863	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_013623555.1/coding.fa
+GCA_014898975.1	2592597	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_014898975.1/coding.fa
+GCA_055255615.1	42676	A	silent wheat x plant_pathogen, 6 assemblies, no gene model	research/predict/data/predicted/GCA_055255615.1/coding.fa
+GCA_004367495.1	2211609	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_004367495.1/coding.fa
+GCA_012977735.1	2594821	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_012977735.1/coding.fa
+GCA_013363175.1	232082	A	silent plant x plant_pathogen, 9 assemblies, no gene model	research/predict/data/predicted/GCA_013363175.1/coding.fa
+GCA_037179535.1	569361	A	silent wheat x none, 4 assemblies, no gene model	research/predict/data/predicted/GCA_037179535.1/coding.fa
+GCA_001457955.1	13563	A	silent plant x plant_pathogen, 4 assemblies, no gene model	research/predict/data/predicted/GCA_001457955.1/coding.fa
+GCA_003049465.1	165777	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_003049465.1/coding.fa
+GCA_048569445.1	64636	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_048569445.1/coding.fa
+GCA_060154625.1	4841	A	silent wheat x none, 4 assemblies, no gene model	research/predict/data/predicted/GCA_060154625.1/coding.fa
+GCA_045529365.1	1634535	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_045529365.1/coding.fa
+GCA_016758845.1	335854	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_016758845.1/coding.fa
+GCA_026119995.1	114231	A	silent wheat x none, 4 assemblies, no gene model	research/predict/data/predicted/GCA_026119995.1/coding.fa
+GCA_028458545.1	33175	A	silent wheat x none, 3 assemblies, no gene model	research/predict/data/predicted/GCA_028458545.1/coding.fa
+GCA_028456235.1	85572	A	silent wheat x none, 3 assemblies, no gene model	research/predict/data/predicted/GCA_028456235.1/coding.fa
+GCA_003012165.1	1859971	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_003012165.1/coding.fa
+GCA_022559985.1	1351752	A	silent wheat x none, 11 assemblies, no gene model	research/predict/data/predicted/GCA_022559985.1/coding.fa
+GCA_019977855.1	36655	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_019977855.1/coding.fa
+GCA_053572805.1	36653	A	silent wheat x none, 65 assemblies, no gene model	research/predict/data/predicted/GCA_053572805.1/coding.fa
+GCA_015585785.1	254876	A	silent wheat x none, 3 assemblies, no gene model	research/predict/data/predicted/GCA_015585785.1/coding.fa
+GCA_024706585.1	69488	A	silent wheat x none, 3 assemblies, no gene model	research/predict/data/predicted/GCA_024706585.1/coding.fa
+GCA_054124195.1	5081	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_054124195.1/coding.fa
+GCA_016109475.1	39412	A	silent wheat x none, 6 assemblies, no gene model	research/predict/data/predicted/GCA_016109475.1/coding.fa
+GCA_001599375.1	73001	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_001599375.1/coding.fa
+GCA_030770065.1	53655	A	silent wheat x none, 9 assemblies, no gene model	research/predict/data/predicted/GCA_030770065.1/coding.fa
+GCA_001630605.1	79858	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_001630605.1/coding.fa
+GCA_000601435.1	285811	A	silent plant x plant_pathogen, 2 assemblies, no gene model	research/predict/data/predicted/GCA_000601435.1/coding.fa
+GCA_019395275.1	27343	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_019395275.1/coding.fa
+GCA_062009385.1	27345	A	silent wheat x none, 21 assemblies, no gene model	research/predict/data/predicted/GCA_062009385.1/coding.fa
+GCA_958299125.1	76659	A	silent plant x plant_pathogen, 1 assemblies, no gene model	research/predict/data/predicted/GCA_958299125.1/coding.fa
+GCA_012365135.1	5028	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_012365135.1/coding.fa
+GCA_012274445.1	2698418	A	silent plant x plant_pathogen, 1 assemblies, no gene model	research/predict/data/predicted/GCA_012274445.1/coding.fa
+GCA_059642765.1	39703	A	silent plant x plant_pathogen, 1 assemblies, no gene model	research/predict/data/predicted/GCA_059642765.1/coding.fa
+GCA_041753865.1	278952	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_041753865.1/coding.fa
+GCA_059628595.1	235069	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_059628595.1/coding.fa
+GCA_055672515.1	119933	A	silent wheat x none, 5 assemblies, no gene model	research/predict/data/predicted/GCA_055672515.1/coding.fa
+GCA_004299765.1	28572	A	silent wheat x none, 10 assemblies, no gene model	research/predict/data/predicted/GCA_004299765.1/coding.fa
+GCA_040333175.1	28576	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_040333175.1/coding.fa
+GCA_045933385.1	157179	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_045933385.1/coding.fa
+GCA_054127445.1	49224	A	silent wheat x none, 7 assemblies, no gene model	research/predict/data/predicted/GCA_054127445.1/coding.fa
+GCA_001950475.1	97093	A	silent wheat x none, 2 assemblies, no gene model	research/predict/data/predicted/GCA_001950475.1/coding.fa
+GCA_030278935.1	40695	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_030278935.1/coding.fa
+GCA_020827535.1	185366	A	silent plant x plant_pathogen, 2 assemblies, no gene model	research/predict/data/predicted/GCA_020827535.1/coding.fa
+GCA_017654735.1	1895944	A	silent wheat x none, 1 assemblies, no gene model	research/predict/data/predicted/GCA_017654735.1/coding.fa
+GCA_037855235.1	49569	A	silent wheat x none, 5 assemblies, no gene model	research/predict/data/predicted/GCA_037855235.1/coding.fa
+GCA_030567955.1	1853550	A	silent wheat x none, 15 assemblies, no gene model	research/predict/data/predicted/GCA_030567955.1/coding.fa
+GCA_014825535.1	5411	B	dark genus recorded on wheat (5 species in scope)	research/predict/data/predicted/GCA_014825535.1/coding.fa
+GCA_028456385.1	33176	B	dark genus recorded on wheat (3 species in scope)	research/predict/data/predicted/GCA_028456385.1/coding.fa
+GCA_052935135.1	89920	B	dark genus recorded on wheat (6 species in scope)	research/predict/data/predicted/GCA_052935135.1/coding.fa
+GCA_022560035.1	749552	C2	competitor for Boeremia exigua (2 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_022560035.1/coding.fa
+GCA_023084525.1	2021124	C2	competitor for Botryosphaeria dothidea (2 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_023084525.1/coding.fa
+GCA_014849355.1	40262	C2	competitor for Cryphonectria parasitica (1 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_014849355.1/coding.fa
+GCA_002116355.1	332034	C2	competitor for Dothistroma septosporum (1 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_002116355.1/coding.fa
+GCA_001599095.1	45558	C2	competitor for Hyphopichia burtonii (1 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_001599095.1/coding.fa
+GCA_047837085.1	1435034	C2	competitor for Macrophomina phaseolina (2 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_047837085.1/coding.fa
+GCA_003049425.1	36781	C2	competitor for Magnaporthiopsis poae (1 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_003049425.1/coding.fa
+GCA_001600675.1	28986	C2	competitor for Millerozyma farinosa (1 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_001600675.1/coding.fa
+GCA_928852645.1	684617	C2	competitor for Mycosarcoma maydis (1 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_928852645.1/coding.fa
+GCA_059756515.1	214992	C2	competitor for Papiliotrema laurentii (1 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_059756515.1/coding.fa
+GCA_001748405.1	1804209	C2	competitor for Paraphoma chrysanthemicola (2 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_001748405.1/coding.fa
+GCA_026873275.1	1921599	C2	competitor for Pseudopithomyces chartarum (1 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_026873275.1/coding.fa
+GCA_003012195.1	508457	C2	competitor for Trichothecium roseum (1 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_003012195.1/coding.fa
+GCA_038381055.1	906972	C2	competitor for Ustilaginoidea virens (2 annotated assemblies, no annotated congener)	research/predict/data/predicted/GCA_038381055.1/coding.fa

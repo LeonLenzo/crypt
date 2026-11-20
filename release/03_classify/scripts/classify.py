@@ -4,6 +4,7 @@
     python release/03_classify/scripts/classify.py --arm db1p --list
     python release/03_classify/scripts/classify.py --arm db1p --project PRJEB39201 --threads 8
     python release/03_classify/scripts/classify.py --arm db2 --project PRJEB39201 --force
+    python release/03_classify/scripts/classify.py --arm db1p --rescan
 
 Reads  ../01_cohort/raw/reads/<BioProject>/<Run>*.fastq.gz   the cohort reads, by SCANNING
        ../02_reference/data/db/<arm>/                        the Kraken2 index for the arm
@@ -211,6 +212,8 @@ def main() -> None:
     ap.add_argument("--mmap", action="store_true",
                     help="--memory-mapping. Correct ONLY against /dev/shm, never Lustre")
     ap.add_argument("--force", action="store_true", help="reclassify runs that have a report")
+    ap.add_argument("--rescan", action="store_true",
+                    help="rebuild the manifest from the reports on disk and exit")
     ap.add_argument("--reads-dir", default=str(READS))
     ap.add_argument("--reports-dir", help="default data/raw/reports/<arm>")
     ap.add_argument("--tmp-dir", default=os.environ.get("MYSCRATCH", "/tmp") + "/kraken_tmp")
@@ -219,6 +222,35 @@ def main() -> None:
     db = Path(args.db) if args.db else DB_DIR / args.arm
     reports = Path(args.reports_dir) if args.reports_dir else REPORTS / args.arm
     manifest = MODULE / "data" / "raw" / f"reports_manifest_{args.arm}.tsv"
+
+    if args.rescan:
+        # The manifest is merged per job, so two jobs finishing seconds apart can each read it
+        # before the other's commit lands and the later write can drop the earlier job's rows.
+        # The reports are the truth, so this rebuilds the table from them. Run it once after a
+        # sweep: `seconds` is lost for rows this pass did not time, which is the only thing
+        # the file holds that a report does not.
+        rows = []
+        for proj_dir in sorted(p for p in reports.iterdir() if p.is_dir()):
+            for report in sorted(proj_dir.glob("*.report.tsv")):
+                run = report.name.split(".")[0]
+                n_sp, reads = report_stats(report)
+                rows.append({"run": run, "BioProject": proj_dir.name, "arm": args.arm,
+                             "status": "ok" if done(report) else "short",
+                             "seconds": "", "report_bytes": report.stat().st_size,
+                             "species_rows": n_sp, "reads_classified": reads})
+        kept = {r["run"]: r for r in rows}
+        if manifest.exists():
+            for r in csv.DictReader(open(manifest, newline="", encoding="utf-8"),
+                                    delimiter="\t"):
+                if r["run"] in kept and r.get("seconds"):
+                    kept[r["run"]]["seconds"] = r["seconds"]
+        manifest.unlink(missing_ok=True)
+        n = merge_manifest(manifest, list(kept.values()))
+        short = sum(1 for r in rows if r["status"] == "short")
+        print(f"-> {manifest.relative_to(MODULE)}  {n} runs from {len(rows)} reports on disk"
+              + (f", {short} SHORT and unusable" if short else ""))
+        return
+
     if not (db / "hash.k2d").is_file():
         sys.exit(f"no Kraken2 index at {db} (hash.k2d missing)")
 

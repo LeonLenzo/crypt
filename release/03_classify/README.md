@@ -156,6 +156,14 @@ becomes a filesystem RPC. `classify.py` does not default it on; the SLURM script
 for either arm, against `db_v4`'s 80 GB, because the hash is 57.5 or 59.8 GB rather than 41 GB.
 A request sized for `db_v4` does not fit.
 
+**Every step after classify.py also runs on Setonix**, because the reports are 1,560 files per
+arm on scratch and are never copied down. So `detections_<arm>.tsv`, `null_offhost_<arm>.tsv`
+and the supplementary tables are written there and reach the local clone through
+`tools/repo_sync.sh publish`, by the machine that produced them. That is the same
+one-author-per-file rule the manifests already run on, and it is why a partial table should be
+deleted rather than left sitting dirty: two authors for one tracked file is what the rule
+exists to prevent.
+
 **No depth filter, and no selection of any kind.** Every run on disk is classified. A detection
 is valid at any depth; only absence is depth-dependent, and that caveat attaches to a
 denominator rather than to a call. A pathogen recovered from a 0.019 Gkmer library had to be

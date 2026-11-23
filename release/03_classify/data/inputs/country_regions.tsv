@@ -1,54 +1,59 @@
 # Country -> region, for the per-run panel's column grouping. AUTHORED, and a judgement.
 #
-# Countries are too fine a grain for this figure: 41 of them across a 7-inch grid leaves most
-# blocks too narrow to name, and the geographic signal is not national anyway. Septoria
-# tritici blotch is a maritime northwest European disease, stem rust an East African and
-# Southern Cone one; those are the units the pattern actually has.
+# Countries are too fine a grain: 41 of them across a 7-inch grid left 18 too narrow to name,
+# and the geographic signal is not national anyway. Septoria tritici blotch is a maritime
+# western European disease, stem rust an East African and Southern Cone one; those are the
+# units the pattern has.
 #
-# Regions are cut for WHEAT PATHOLOGY, not by continent or by UN subregion. The split that
-# matters inside Europe is maritime northwest against continental centre-east against
-# Mediterranean, because that is the climate axis the foliar diseases follow. Turkey, Israel
-# and Morocco sit in the Mediterranean on the same reasoning, not with West Asia or Africa.
+# NINE regions, deliberately coarse. Europe splits only east/west: a finer cut (northwest /
+# central / southeast / Mediterranean) was tried and made four thin blocks out of one clear
+# contrast. Turkey, Israel and Morocco are NOT Europe and sit in North Africa and West Asia.
+# Pakistan and Bhutan join East Asia as one Asia block rather than carrying 7 runs alone.
 #
 # `region_order` is not used: the panel orders regions west to east by the mean longitude of
-# their own runs, the same rule it used for countries. A country here with no runs costs
-# nothing. A country in the data and NOT here is a hard error, never a silent "Other".
+# their own runs. A country here with no runs costs nothing. A country in the data and NOT
+# here is a hard error, never a silent "Other".
 country	region
 Canada	North America
 USA	North America
+Mexico	North America
 Argentina	South America
 Chile	South America
-UK	Northwest Europe
-Ireland	Northwest Europe
-France	Northwest Europe
-Netherlands	Northwest Europe
-Belgium	Northwest Europe
-Denmark	Northwest Europe
-Sweden	Northwest Europe
-Norway	Northwest Europe
-Finland	Northwest Europe
-Germany	Central Europe
-Switzerland	Central Europe
-Austria	Central Europe
-Poland	Central Europe
-Czech Republic	Central Europe
-Slovakia	Central Europe
-Hungary	Central Europe
-Slovenia	Central Europe
-Croatia	Southeast Europe
-Serbia	Southeast Europe
-Romania	Southeast Europe
-Bulgaria	Southeast Europe
-Ukraine	Southeast Europe
-Russia	Southeast Europe
-Spain	Mediterranean
-Italy	Mediterranean
-Portugal	Mediterranean
-Greece	Mediterranean
-Turkey	Mediterranean
-Israel	Mediterranean
-Morocco	Mediterranean
-Tunisia	Mediterranean
+Brazil	South America
+Uruguay	South America
+UK	Western Europe
+Ireland	Western Europe
+France	Western Europe
+Netherlands	Western Europe
+Belgium	Western Europe
+Denmark	Western Europe
+Sweden	Western Europe
+Norway	Western Europe
+Finland	Western Europe
+Germany	Western Europe
+Switzerland	Western Europe
+Austria	Western Europe
+Spain	Western Europe
+Italy	Western Europe
+Portugal	Western Europe
+Greece	Western Europe
+Poland	Eastern Europe
+Czech Republic	Eastern Europe
+Slovakia	Eastern Europe
+Hungary	Eastern Europe
+Slovenia	Eastern Europe
+Croatia	Eastern Europe
+Serbia	Eastern Europe
+Romania	Eastern Europe
+Bulgaria	Eastern Europe
+Ukraine	Eastern Europe
+Russia	Eastern Europe
+Turkey	North Africa and West Asia
+Israel	North Africa and West Asia
+Morocco	North Africa and West Asia
+Tunisia	North Africa and West Asia
+Iran	North Africa and West Asia
+Egypt	North Africa and West Asia
 Ethiopia	East Africa
 Kenya	East Africa
 Rwanda	East Africa
@@ -58,14 +63,13 @@ South Africa	Southern Africa
 Zimbabwe	Southern Africa
 Lesotho	Southern Africa
 Zambia	Southern Africa
-Pakistan	South and Central Asia
-India	South and Central Asia
-Nepal	South and Central Asia
-Bhutan	South and Central Asia
-Iran	South and Central Asia
-Kazakhstan	South and Central Asia
-China	East Asia
-Japan	East Asia
-Korea, Republic of	East Asia
+China	Asia
+Japan	Asia
+Korea, Republic of	Asia
+Pakistan	Asia
+India	Asia
+Nepal	Asia
+Bhutan	Asia
+Kazakhstan	Asia
 Australia	Oceania
 New Zealand	Oceania

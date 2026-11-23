@@ -84,22 +84,24 @@ PHI_KEY = {"none": "none", "plant_pathogen": "vagrant", "wheat_pathogen": "wheat
 # it sits with the other taxa USDA records on wheat rather than where a reader of the
 # literature would file it. That disagreement is the label's, and the figure should show it
 # rather than paper over it.
-SLOT_BAND = {
-    ("wheat", "none"):       (5, "Wheat resident"),
-    ("wheat", "vagrant"):    (6, "Pathogen of another plant, recorded on wheat"),
-    ("plant", "none"):       (7, "Plant resident"),
-    ("plant", "vagrant"):    (8, "Pathogen of another plant"),
-}
-
-# Taxa in the ('congener', 'none') slot are NOT DRAWN. They are in the reference only because
-# their GENUS qualified, so USDA holds no host record for the taxon itself and there is no
-# statement the panel can make about where it belongs. Leon's call, 2026-11-23.
+# A NON-PATHOGEN IS BANDED ON on_wheat, AND NOT ON THE USDA ROW. The USDA row looks like the
+# natural axis and is the wrong one. USDA Fungus-Host records fungi OBSERVED ON PLANTS, not
+# pathogens, and `usda_row = congener` means only that USDA holds no record under that
+# SPECIES name, the taxon having entered because its genus does. It therefore mixes two
+# different things and cannot tell them apart: a genuine plant associate USDA has not
+# recorded, and a species of a plant-associated genus that lives nowhere near a plant. No
+# column in supp_data_s3 separates them.
 #
-# This is a real cost, not only tidying: it removes Dioszegia hungarica, called in 353 runs,
-# which 02_reference's scope notes name as part of the wheat resident core. The calls are not
-# being judged false, they are being left out of a figure whose every other row carries a
-# host record. supp_data_s5 keeps all of them.
-DROP_SLOTS = {("congener", "none")}
+# 02_reference already settled this and the figure should not relitigate it. Its scope is
+# read at GENUS precisely because species rank loses 903 of 5,973 fungal detections on field
+# wheat, "led by Dioszegia hungarica" -- the taxon an earlier version of this panel dropped
+# for carrying the congener label. Reading `congener` as weak evidence would re-impose the
+# species-rank reading the reference was built to avoid.
+#
+# So: two resident bands, split on whether USDA records the SPECIES on wheat. Colour still
+# carries the full matrix slot, so the USDA-coverage distinction is visible as a shade
+# without being promoted to a claim about the organism.
+RESIDENT_BAND = {"yes": (5, "Wheat resident"), "no": (7, "Plant resident")}
 
 # The two halves of the panel, bracketed on the far left.
 SUPER = {True: "Pathogens", False: "Residents"}
@@ -219,7 +221,7 @@ def country(loc):
 
 def load():
     """-> (order, taxa, grid, meta): runs in drawing order and the state of every cell."""
-    s3 = {r["taxon"]: (r["usda_row"], r["phibase_col"]) for r in
+    s3 = {r["taxon"]: (r["usda_row"], r["phibase_col"], r["on_wheat"]) for r in
           csv.DictReader(open(S3REF), delimiter="\t")}
     runs, excluded, decl_of = {}, 0, {}
     with open(S2) as fh:
@@ -302,7 +304,7 @@ def load():
             collapsed_of[key].add(r["taxon"])
             hit[key].add(r["run"])
             cov[key][r["run"]] = float(r["coverage"])
-            slot_votes[key][s3.get(r["taxon"], ("congener", "none"))] += 1
+            slot_votes[key][s3.get(r["taxon"], ("congener", "none", "no"))] += 1
             state = declaration(decl_of[r["run"]], r["taxon"], r["genus"],
                                 r["taxon_class"] == "host")[0]
             mismatched += state != r["declared"]
@@ -323,9 +325,10 @@ def load():
     # A collapsed genus has no row in S3, and taking the slot of whichever member happened to
     # be read last made its band depend on file order. Take the MODAL slot of the members,
     # the slot name breaking a tie, so the result is reproducible.
-    mrow = {t: (lambda k: (k[0], PHI_KEY[k[1]]))(
-                min(v.most_common(), key=lambda kv: (-kv[1], kv[0]))[0])
-            for t, v in slot_votes.items()}
+    modal = {t: min(v.most_common(), key=lambda kv: (-kv[1], kv[0]))[0]
+             for t, v in slot_votes.items()}
+    mrow = {t: (k[0], PHI_KEY[k[1]]) for t, k in modal.items()}
+    onwheat = {t: k[2] for t, k in modal.items()}
 
     # CONGENER-TRACKING, and it is a FLAG, NEVER A FILTER. The module's standing rule is
     # that a congener cluster is reported and not removed, and an earlier version of this
@@ -373,11 +376,7 @@ def load():
             raise SystemExit(f"{GRP} collapses {t} to a genus but has no row for the genus "
                              f"itself. Add one; the disease band must be chosen, not "
                              f"inherited.")
-    band = lambda t: grp[t][:2] if is_wp(t) else SLOT_BAND[mrow[t]]
-    dropped_slot = {t: len(hit[t]) for t in list(hit)
-                    if len(hit[t]) >= MIN_RUNS and not is_wp(t) and mrow[t] in DROP_SLOTS}
-    for t in dropped_slot:
-        del hit[t]
+    band = lambda t: grp[t][:2] if is_wp(t) else RESIDENT_BAND[onwheat[t]]
     taxa = sorted((t for t in hit if len(hit[t]) >= MIN_RUNS),
                   key=lambda t: (band(t)[0], -len(hit[t]), t))
     dropped = {t: len(v) for t, v in sorted(hit.items(), key=lambda kv: (-len(kv[1]), kv[0]))
@@ -398,13 +397,12 @@ def load():
             # rather than authored a second time in the grouping table
             {t: collections.Counter(
                 klass[x] for x in (collapsed_of[t] or {t})).most_common(1)[0][0]
-             for t in taxa}, {t: mrow[t] for t in taxa}, spill, dropped_slot)
+             for t in taxa}, {t: mrow[t] for t in taxa}, spill)
 
 
 def main():
     (order, taxa, grid, runs, ordered, bycty, dropped, unknown_name, excluded,
-     bands, supers, mismatched, collapsed, suspect, tclass, mrow, spill,
-     dropped_slot) = load()
+     bands, supers, mismatched, collapsed, suspect, tclass, mrow, spill) = load()
     plt.rcParams.update({"font.family": "DejaVu Sans", "savefig.facecolor": "white",
                          "figure.facecolor": "white"})
 
@@ -467,12 +465,7 @@ def main():
             x1 = xs[bi] + (c1 - c0) * cw
             ax.imshow(blk[:, c0:c1], interpolation="nearest", aspect="auto",
                       extent=(xs[bi], x1, b_bot, b_top), zorder=2)
-            # A RULE CENTRED IN THE GAP, not a line butted against the data. Padding on both
-            # sides is what keeps it from reading as a column: at one-pixel columns a line
-            # drawn flush against the block is indistinguishable from a detection.
-            if bi < len(ordered) - 1:
-                ax.plot([x1 + REGION_GAP / 2] * 2, [b_bot, b_top], color="#c8c8c8",
-                        linewidth=0.7, solid_capstyle="butt", zorder=3)
+
         for i in range(i0, i1 + 1):
             ty = b_top - (i - i0 + 0.5) * RH
             n_sp = collapsed.get(taxa[i], 0)
@@ -494,6 +487,23 @@ def main():
         # non-pathogen recorded on wheat -- so a single swatch would contradict its own rows.
         ax.text(BANDX, b_top + 0.045, name, ha="left", va="bottom", fontsize=6.8,
                 color=MUTED)
+
+    # THE RULES ARE DRAWN ONCE, FULL HEIGHT AND FULL WIDTH, not per block. Drawn inside the
+    # band loop the region rules broke at every band gap, which read as the rule being
+    # interrupted by the data rather than as one divider running the height of the panel.
+    #
+    # Each rule sits CENTRED IN ITS GAP with padding either side. At one-pixel columns a line
+    # butted against a block is indistinguishable from a detection, so the padding is what
+    # makes it a divider rather than a column.
+    g_bot = top - (len(taxa) * RH + (len(spans) - 1) * BAND_GAP)
+    for bi in range(len(ordered) - 1):
+        xr = xs[bi] + len(bycty[ordered[bi]]) * cw + REGION_GAP / 2
+        ax.plot([xr, xr], [g_bot, top], color="#c8c8c8", linewidth=0.7,
+                solid_capstyle="butt", zorder=1)
+    for k in range(len(spans) - 1):
+        yr = top - ((spans[k][1] + 1) * RH + (k + 0.5) * BAND_GAP)
+        ax.plot([X0, X0 + GW], [yr, yr], color="#c8c8c8", linewidth=0.7,
+                solid_capstyle="butt", zorder=1)
 
     # PATHOGENS vs RESIDENTS, bracketed down the left. Computed from the rows rather than
     # authored: a band is a pathogen band when its taxa are wheat pathogens.
@@ -579,10 +589,6 @@ def main():
               f"{SPILL_RATIO:.0%} of its coverage): " +
               ", ".join(f"{t} ({n} runs, all with {p}, ratio {r:.2f})"
                         for t, (n, p, r) in sorted(spill.items())))
-    if dropped_slot:
-        print(f"  not drawn, {sorted(DROP_SLOTS)} slot (no host record of their own): " +
-              ", ".join(f"{t} ({n})" for t, n in sorted(dropped_slot.items(),
-                                                        key=lambda kv: -kv[1])))
     if collapsed:
         print("  collapsed to genus: " +
               ", ".join(f"{g} ({n} spp.)" for g, n in sorted(collapsed.items())))

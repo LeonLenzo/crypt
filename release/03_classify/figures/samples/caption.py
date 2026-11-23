@@ -36,9 +36,9 @@ S3REF = HERE.parent / "02_reference/data/outputs/supp_data_s3_reference.tsv"
 S5 = HERE / "data/outputs/supp_data_s5_detections.tsv"
 # The geography sentence contrasts these two groups of REGIONS. They are named because the
 # claim is about them; every share is computed, never typed.
-MARITIME = ["Northwest Europe"]
+MARITIME = ["Western Europe"]
 ELSEWHERE = ["North America", "South America", "Southern Africa", "East Africa",
-             "East Asia", "Oceania"]
+             "Asia", "Oceania"]
 FOCUS = "Zymoseptoria tritici"
 COLLAPSED = "Alternaria"        # the one genus the panel draws as a single row
 SPILL_PARTNER = "Zymoseptoria tritici"   # the congener the withheld taxon rides on
@@ -119,17 +119,6 @@ def numbers():
     n["mm_ratio"] = statistics.median(
         [covs[mm][r] / covs[mn][r] for r in byt[mm] & byt[mn] if covs[mn][r]])
     # what the panel leaves out, computed so the caption cannot drift from the plot
-    s3 = {r["taxon"]: r["usda_row"] for r in rd(S3REF)}
-    # A member of a COLLAPSED genus never was a row, so it cannot have been dropped as one:
-    # four Alternaria sp. entries sit in the congener slot but travel inside the collapsed
-    # Alternaria row, and counting them here reported 6 rows lost where the plot lost 2.
-    grp = plot_samples.groups()
-    nod = {t: len(v) for t, v in byt.items()
-           if len(v) >= MIN_RUNS and s3.get(t) == "congener"
-           and not grp.get(t, (0, "", False))[2]}
-    n["n_norecord"] = len(nod)
-    n["norecord"] = ", ".join(f"{abbrev(t)} ({v})" for t, v in
-                              sorted(nod.items(), key=lambda kv: -kv[1]))
     unl = sorted(collections.Counter(
         c["region"] for c in cols if c["region"]).items(), key=lambda kv: -kv[1])
     small = [(c, v) for c, v in unl if v < plot_samples.LABEL_MIN]
@@ -216,14 +205,6 @@ def main():
         f"read straight off that table, so the band says exactly what the colour says and "
         f"no taxon is placed by opinion. The plant host is not drawn, because every library "
         f"has one and no study declares it as a pathogen.",
-        "",
-        f"Taxa with no USDA host record of their own are not drawn. They are in the "
-        f"reference only because their genus qualified, so there is no slot for them and no "
-        f"statement this panel can make about where they belong. That costs "
-        f"{n['n_norecord']} rows: {n['norecord']}. The first is named in 02_reference's own "
-        f"scope notes as part of the wheat resident core, so these calls are not being "
-        f"judged false, only left out of a figure whose every other row carries a host "
-        f"record; supp_data_s5 keeps all of them.",
         "",
         f"The slot rule puts Microdochium majus with the taxa recorded on wheat rather than "
         f"with the stem-base diseases, and that disagreement is worth reading rather than "

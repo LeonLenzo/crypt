@@ -32,10 +32,14 @@ columns: a species with none of them is a resident, one with `is_wheat_pathogen`
 pathogen, and one that is `is_pathogen` but not `on_wheat` is a candidate unreported interaction.
 
 **Scope is ANY plant, never wheat.** The study exists to find unreported host associations, and
-a reference absent from the database is invisible and unrecoverable because the reads go
-silently to the nearest taxon present. So `on_wheat` and the PHI-base labels are columns, never
-filters. Filtering the database to what is already known on wheat would make the finding
-impossible to make.
+a reference absent from the database is invisible and unrecoverable: its reads are simply not
+classified. Contrary to the common assumption, they do not transfer to the nearest relative
+present; measured on held-out congeneric *Puccinia* at k=31, ~96% of reads from an absent
+species match no reference k-mer at all, and the few that do carry only a handful of conserved
+k-mers (the pile-up signature, not a detection). So absence costs sensitivity, not false
+attribution. Either way `on_wheat` and the PHI-base labels are columns, never filters:
+filtering the database to what is already known on wheat would make the finding impossible to
+make.
 
 **Genus, not species.** Read at species rank the master loses 903 of 5,973 fungal detections
 on field wheat (15.1%), led by *Dioszegia hungarica* and by unnamed strain designations USDA
@@ -207,6 +211,56 @@ genera.
 These four comparisons were made in the research tree against holobase and have not been
 re-derived from the public sources. The conclusions they support are each corroborated by the
 detection evidence above, which has been.
+
+### The genus tier is not a weak tier, and `usda_row = congener` is a bad name for it
+
+**Re-derived on db2 and the 1,379 field-wheat runs, 2026-11-23**, independently of the db_v4
+measurement above and agreeing with it to a tenth of a percent:
+
+| | detections | |
+|---|---:|---:|
+| `route = usda_species` | 5,166 | 84.6% |
+| `route = usda_genus` | 918 | 15.0% |
+| `route = exception` | 21 | 0.3% |
+
+Same leader as before, *Dioszegia hungarica* at 353 of 1,379 runs, and the exceptions are
+still *Malassezia* and nothing else (*restricta* 19, *globosa* 1, *arunalokei* 1). Two
+databases and two cohorts giving the same split is the strongest evidence here that reading
+the scope at genus is doing real work rather than padding the reference.
+
+**`usda_row` collapses `route = usda_genus` to the word `congener`, and the word is wrong.**
+It is set in `make_supp_tables.py` as
+
+    usda_row = "wheat" if onw else ("plant" if obs else "congener")
+
+so it means exactly *USDA holds no record under this species name*. In this project's
+vocabulary "congener" means something else: a relative admitted so Kraken2's LCA has
+somewhere to park a read, with no expectation that the organism is present. Applying that
+word to a tier carrying 15.0% of all field-wheat detections invites the reader, and invited
+one of this repo's own figures, to treat those calls as artefacts and drop them. **One did:
+a draft of `03_classify/figures/samples` removed *Dioszegia hungarica* on the strength of
+the label, which is the single detection the genus reading exists to keep.**
+
+**What the tier actually mixes, and what nothing here can separate.** USDA Fungus-Host
+records fungi OBSERVED ON PLANTS, not pathogens, so an absent species-level record is weak
+evidence about anything. Two different cases arrive at `usda_genus` and no column
+distinguishes them:
+
+- a genuine plant associate USDA has not recorded under that name, which is what
+  *D. hungarica* and *Sporobolomyces ruberrimus* are, both common wheat phyllosphere yeasts;
+- a species of a plant-associated genus that is not itself plant-associated.
+
+No available source resolves it: FungalTraits is genus-keyed (1,069 genera, no species) and
+so cannot speak to a species its genus already covers, and that is why it was found redundant
+above. The honest position is that **the label describes USDA's coverage of a NAME and is
+never evidence about the organism**; whether the organism is there is what the detection and
+the off-host null answer, independently.
+
+A rename of the value, `congener` -> `genus_only`, would say what the column means. It is not
+done here because `usda_row` is a published column of S3 and its values are keys in
+`scripts/_palette.py`, `figures/matrix/plot_matrix.py`, `figures/tree/tree.R` and
+`03_classify/figures/samples/plot_samples.py`; the change is cheap but it is a change to a
+deliverable and wants a deliberate pass, not a drive-by.
 
 ## The pathogen label, measured
 

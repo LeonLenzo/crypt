@@ -52,10 +52,10 @@ ERR1224580	PRJEB12497	Triticum aestivum	lab	db2	1	49	0	0	0	0	0		not_curated	0	0	
 ERR1607733	PRJEB15280	Triticum aestivum	field	db2	1	197	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.504463	
 ERR1607736	PRJEB15280	Triticum aestivum	field	db2	1	241	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.467991	
 ERR1607741	PRJEB15280	Triticum aestivum	lab	db2	1	43	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.258743	
-ERR1607744	PRJEB15280	Triticum aestivum	field	db2	1	155	3	2	3	3	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.534647	
+ERR1607744	PRJEB15280	Triticum aestivum	field	db2	1	155	3	2	3	3	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.534647	
 ERR1607749	PRJEB15280	Triticum aestivum	field	db2	1	506	7	7	2	2	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Sporobolomyces ruberrimus	0.42164	
-ERR1607754	PRJEB15280	Triticum aestivum	field	db2	1	258	5	4	3	3	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.35383	
-ERR1607756	PRJEB15280	Triticum aestivum	field	db2	1	347	8	6	4	4	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.457219	
+ERR1607754	PRJEB15280	Triticum aestivum	field	db2	1	258	5	4	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.35383	
+ERR1607756	PRJEB15280	Triticum aestivum	field	db2	1	347	8	6	4	4	7	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.457219	
 ERR1607758	PRJEB15280	Triticum aestivum	field	db2	1	229	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.428981	
 ERR1607761	PRJEB15280	Triticum aestivum	field	db2	1	408	6	6	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.427196	
 ERR1607766	PRJEB15280	Triticum aestivum	field	db2	1	427	4	4	3	3	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.436354	
@@ -65,7 +65,7 @@ ERR1607775	PRJEB15280	Triticum aestivum	field	db2	1	463	6	6	2	2	5	Puccinia strii
 ERR1607777	PRJEB15280	Triticum aestivum	field	db2	1	379	6	6	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.489687	
 ERR1607779	PRJEB15280	Triticum aestivum	field	db2	1	297	5	5	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.419582	
 ERR1607781	PRJEB15280	Triticum aestivum	field	db2	1	304	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.451244	
-ERR1607795	PRJEB15280	Triticum aestivum	field	db2	1	380	5	4	3	3	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.50606	
+ERR1607795	PRJEB15280	Triticum aestivum	field	db2	1	380	5	4	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.50606	
 ERR1607798	PRJEB15280	Triticum aestivum	field	db2	1	219	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Blumeria graminis	0.591726	
 ERR1607800	PRJEB15280	Triticum aestivum	field	db2	1	182	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.50492	
 ERR1607801	PRJEB15280	Triticum aestivum	field	db2	1	261	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.485865	
@@ -114,11 +114,11 @@ ERR1607767	PRJEB15280	Triticum aestivum	field	db2	1	591	18	5	2	2	17	Puccinia str
 ERR1607778	PRJEB15280	Triticum aestivum	field	db2	1	303	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.316116	
 ERR1607786	PRJEB15280	perennial grass	field	db2	1	549	16	5	1	1	15	Puccinia striiformis f. sp. tritici	curated	0	0	0	Sporobolomyces roseus	0.599939	Alternaria
 ERR1607787	PRJEB15280	Triticum aestivum	field	db2	1	375	6	5	2	2	5	Puccinia striiformis f. sp. tritici	curated	1	1	0	Puccinia striiformis	0.412779	
-ERR1607792	PRJEB15280	Triticum aestivum	field	db2	1	149	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.466605	
+ERR1607792	PRJEB15280	Triticum aestivum	field	db2	1	149	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.466605	
 ERR1607804	PRJEB15280	Triticum aestivum	field	db2	1	273	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.460363	
 ERR1607805	PRJEB15280	Triticum aestivum	field	db2	1	243	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.430412	
 ERR1607809	PRJEB15280	Triticum aestivum	field	db2	1	231	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.487046	
-ERR1607810	PRJEB15280	Triticum aestivum	field	db2	1	268	5	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.515287	
+ERR1607810	PRJEB15280	Triticum aestivum	field	db2	1	268	5	4	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.515287	
 ERR1607811	PRJEB15280	Triticum aestivum	field	db2	1	178	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.447703	
 ERR1607813	PRJEB15280	Triticum aestivum	field	db2	1	388	6	5	1	1	5	Puccinia striiformis f. sp. tritici	curated	0	0	1	Sporobolomyces roseus	0.436722	
 ERR1607818	PRJEB15280	Secale cereale	field	db2	1	282	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.454803	
@@ -139,17 +139,17 @@ ERR1607737	PRJEB15280	Triticum aestivum	field	db2	1	203	1	1	1	1	0	Puccinia strii
 ERR1607742	PRJEB15280	Triticum aestivum	lab	db2	1	167	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.525286	
 ERR1607743	PRJEB15280	Triticum aestivum	lab	db2	1	143	3	2	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.526825	
 ERR1607750	PRJEB15280	Triticum aestivum	field	db2	1	432	6	6	2	2	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.490921	
-ERR1607755	PRJEB15280	Triticum aestivum	field	db2	1	300	7	6	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.487289	
+ERR1607755	PRJEB15280	Triticum aestivum	field	db2	1	300	7	6	3	3	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.487289	
 ERR1607762	PRJEB15280	Triticum aestivum	field	db2	1	287	5	5	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.434582	
 ERR1607764	PRJEB15280	Triticum aestivum	field	db2	1	344	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.40498	
 ERR1607770	PRJEB15280	Triticum aestivum	field	db2	1	537	18	6	3	3	17	Puccinia striiformis f. sp. tritici	curated	1	1	0	Puccinia striiformis	0.254507	Alternaria
-ERR1607776	PRJEB15280	Triticum aestivum	field	db2	1	181	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.394459	
-ERR1607784	PRJEB15280	Triticum aestivum	field	db2	1	386	6	5	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.519922	
-ERR1607793	PRJEB15280	Triticum aestivum	field	db2	1	284	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.519574	
+ERR1607776	PRJEB15280	Triticum aestivum	field	db2	1	181	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.394459	
+ERR1607784	PRJEB15280	Triticum aestivum	field	db2	1	386	6	5	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.519922	
+ERR1607793	PRJEB15280	Triticum aestivum	field	db2	1	284	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.519574	
 ERR1607794	PRJEB15280	Triticum aestivum	field	db2	1	492	18	6	2	2	17	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.453273	Alternaria;Cladosporium
 ERR1607797	PRJEB15280	Triticum aestivum	field	db2	1	275	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.355196	
 ERR1607803	PRJEB15280	Triticum aestivum	field	db2	1	140	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.430545	
-ERR1607807	PRJEB15280	Triticum aestivum	field	db2	1	298	7	6	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.486567	
+ERR1607807	PRJEB15280	Triticum aestivum	field	db2	1	298	7	6	3	3	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.486567	
 ERR1607808	PRJEB15280	Triticum aestivum	field	db2	1	200	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.43393	
 ERR1607812	PRJEB15280	Triticum aestivum	field	db2	1	681	21	6	2	2	20	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.402452	Alternaria
 ERR1607820	PRJEB15280	Triticum aestivum	field	db2	1	613	22	8	2	2	21	Puccinia striiformis f. sp. tritici	curated	1	1	1	Cladosporium allicinum	0.483032	Alternaria
@@ -161,11 +161,11 @@ ERR1607845	PRJEB15280	Triticum aestivum	field	db2	1	341	6	4	2	2	5	Puccinia strii
 ERR1607846	PRJEB15280	Triticum aestivum	field	db2	1	359	19	6	2	2	18	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.519981	Alternaria
 ERR1607849	PRJEB15280	Triticum aestivum	field	db2	1	300	13	5	1	1	12	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.477852	Alternaria
 ERR1607866	PRJEB15280	Triticum aestivum	field	db2	1	156	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.30609	
-ERR4152485	PRJEB15280	Triticum aestivum	field	db2	1	215	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.519654	
+ERR4152485	PRJEB15280	Triticum aestivum	field	db2	1	215	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.519654	
 ERR1607747	PRJEB15280	Triticum aestivum	field	db2	1	391	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.323159	
 ERR1607748	PRJEB15280	Triticum aestivum	field	db2	1	387	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.31828	
 ERR1607751	PRJEB15280	Triticum aestivum	field	db2	1	315	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.673631	
-ERR1607752	PRJEB15280	Triticum aestivum	field	db2	1	501	9	7	4	4	7	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.467934	
+ERR1607752	PRJEB15280	Triticum aestivum	field	db2	1	501	9	7	4	4	8	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.467934	
 ERR1607757	PRJEB15280	Triticum aestivum	field	db2	1	374	6	6	2	2	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.490708	
 ERR1607760	PRJEB15280	Triticum aestivum	field	db2	1	231	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.518178	
 ERR1607763	PRJEB15280	Triticum aestivum	field	db2	1	238	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.377869	
@@ -204,17 +204,17 @@ ERR3170184	PRJEB31334	Triticum aestivum	field	db2	1	340	15	2	1	1	14	Puccinia str
 ERR3170188	PRJEB31334	Triticum aestivum	field	db2	1	224	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.466525	
 ERR3170192	PRJEB31334	Triticum aestivum	field	db2	1	205	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.43318	
 ERR3170193	PRJEB31334	Triticum aestivum	field	db2	1	199	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.393496	
-ERR3170198	PRJEB31334	Triticum aestivum	field	db2	1	136	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.458215	
-ERR3170204	PRJEB31334	Triticum aestivum	field	db2	1	236	3	2	3	3	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.419917	
+ERR3170198	PRJEB31334	Triticum aestivum	field	db2	1	136	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.458215	
+ERR3170204	PRJEB31334	Triticum aestivum	field	db2	1	236	3	2	3	3	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.419917	
 ERR3170205	PRJEB31334	Triticum aestivum	field	db2	1	212	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.389371	
-ERR3170212	PRJEB31334	Triticum aestivum	field	db2	1	205	4	3	3	3	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.465461	
+ERR3170212	PRJEB31334	Triticum aestivum	field	db2	1	205	4	3	3	3	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.465461	
 ERR3170231	PRJEB31334	Triticum aestivum	field	db2	1	217	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.474567	
 ERR3170246	PRJEB31334	Triticum aestivum	field	db2	1	188	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.491955	
 ERR3170253	PRJEB31334	Triticum aestivum	field	db2	1	232	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.300528	
 ERR3170254	PRJEB31334	Triticum aestivum	field	db2	1	503	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.450125	
-ERR3170258	PRJEB31334	Triticum aestivum	field	db2	1	447	5	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.423026	
+ERR3170258	PRJEB31334	Triticum aestivum	field	db2	1	447	5	4	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.423026	
 ERR3170262	PRJEB31334	Triticum aestivum	field	db2	1	310	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.500663	
-ERR3170268	PRJEB31334	Triticum aestivum	field	db2	1	385	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.429535	
+ERR3170268	PRJEB31334	Triticum aestivum	field	db2	1	385	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.429535	
 ERR3188433	PRJEB31334	Triticum aestivum	field	db2	1	151	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.484884	
 ERR3188435	PRJEB31334	Triticum aestivum	field	db2	1	161	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.468999	
 ERR3188436	PRJEB31334	Triticum aestivum	field	db2	1	232	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.450491	
@@ -222,7 +222,7 @@ ERR3188440	PRJEB31334	Triticum aestivum	field	db2	1	203	2	2	2	2	1	Puccinia strii
 ERR3188446	PRJEB31334	Triticum aestivum	field	db2	1	291	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.390176	
 ERR3188447	PRJEB31334	Triticum aestivum	field	db2	1	453	7	7	1	1	6	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.458119	
 ERR3188450	PRJEB31334	Triticum aestivum	field	db2	1	184	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.475191	
-ERR3188452	PRJEB31334	Triticum aestivum	field	db2	1	250	3	2	3	3	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.470549	
+ERR3188452	PRJEB31334	Triticum aestivum	field	db2	1	250	3	2	3	3	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.470549	
 ERR3188468	PRJEB31334	Triticum aestivum	field	db2	1	277	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.482558	
 ERR3188469	PRJEB31334	Triticum aestivum	field	db2	1	210	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.516678	
 ERR3188479	PRJEB31334	Triticum aestivum	field	db2	1	223	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.480086	
@@ -251,24 +251,24 @@ ERR3188470	PRJEB31334	Triticum aestivum	field	db2	1	276	3	3	2	2	2	Puccinia strii
 ERR3188481	PRJEB31334	Triticum aestivum	field	db2	1	227	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.506733	
 ERR3188482	PRJEB31334	Triticum aestivum	field	db2	1	248	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.382714	
 ERR3188483	PRJEB31334	Triticum aestivum	field	db2	1	300	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.407281	
-ERR3170179	PRJEB31334	Triticum aestivum	field	db2	1	155	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.490848	
-ERR3170183	PRJEB31334	Triticum aestivum	field	db2	1	260	3	2	3	3	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.405562	
+ERR3170179	PRJEB31334	Triticum aestivum	field	db2	1	155	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.490848	
+ERR3170183	PRJEB31334	Triticum aestivum	field	db2	1	260	3	2	3	3	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.405562	
 ERR3170202	PRJEB31334	Triticum aestivum	field	db2	1	237	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.390948	
-ERR3170213	PRJEB31334	Triticum aestivum	field	db2	1	241	5	4	3	3	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.499223	
+ERR3170213	PRJEB31334	Triticum aestivum	field	db2	1	241	5	4	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.499223	
 ERR3170218	PRJEB31334	Triticum aestivum	field	db2	1	201	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.492345	
 ERR3170220	PRJEB31334	Triticum aestivum	field	db2	1	201	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.479123	
 ERR3170222	PRJEB31334	Triticum aestivum	field	db2	1	248	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.476538	
 ERR3170224	PRJEB31334	Triticum aestivum	field	db2	1	250	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.465766	
 ERR3170227	PRJEB31334	Triticum aestivum	field	db2	1	244	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.465476	
 ERR3170228	PRJEB31334	Triticum aestivum	field	db2	1	279	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.462196	
-ERR3170229	PRJEB31334	Triticum aestivum	field	db2	1	347	12	9	2	2	10	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.487157	
-ERR3170233	PRJEB31334	Triticum aestivum	field	db2	1	249	5	3	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.466706	
+ERR3170229	PRJEB31334	Triticum aestivum	field	db2	1	347	12	9	2	2	11	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.487157	
+ERR3170233	PRJEB31334	Triticum aestivum	field	db2	1	249	5	3	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.466706	
 ERR3170235	PRJEB31334	Triticum aestivum	field	db2	1	243	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.436774	
 ERR3170236	PRJEB31334	Triticosecale	field	db2	1	516	6	6	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.51646	
-ERR3170238	PRJEB31334	Triticosecale	field	db2	1	416	6	5	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.536436	
-ERR3170239	PRJEB31334	Triticosecale	field	db2	1	628	23	10	4	4	21	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.524444	Alternaria
+ERR3170238	PRJEB31334	Triticosecale	field	db2	1	416	6	5	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.536436	
+ERR3170239	PRJEB31334	Triticosecale	field	db2	1	628	23	10	4	4	22	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.524444	Alternaria
 ERR3170241	PRJEB31334	Triticum aestivum	field	db2	1	517	11	6	1	1	10	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.482593	Alternaria
-ERR3170248	PRJEB31334	Triticum aestivum	field	db2	1	355	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.488016	
+ERR3170248	PRJEB31334	Triticum aestivum	field	db2	1	355	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.488016	
 ERR3170249	PRJEB31334	Triticum aestivum	field	db2	1	270	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.414161	
 ERR3170266	PRJEB31334	Triticum aestivum	field	db2	1	340	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.354673	
 ERR3170276	PRJEB31334	Triticum aestivum	field	db2	1	245	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.429127	
@@ -287,25 +287,25 @@ ERR4315679	PRJEB31334	Triticum aestivum	field	db2	1	13	0	0	0	0	0	Puccinia striif
 ERR3170180	PRJEB31334	Triticum aestivum	field	db2	1	282	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.459492	
 ERR3170186	PRJEB31334	Triticum aestivum	field	db2	1	269	10	7	1	1	9	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.484061	Cladosporium
 ERR3170187	PRJEB31334	Triticum aestivum	field	db2	1	325	22	8	2	2	21	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.479719	Alternaria;Cladosporium
-ERR3170196	PRJEB31334	Triticum aestivum	field	db2	1	197	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.417525	
-ERR3170197	PRJEB31334	Triticum aestivum	field	db2	1	203	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.389635	
+ERR3170196	PRJEB31334	Triticum aestivum	field	db2	1	197	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.417525	
+ERR3170197	PRJEB31334	Triticum aestivum	field	db2	1	203	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.389635	
 ERR3170201	PRJEB31334	Triticum aestivum	field	db2	1	339	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.418051	
-ERR3170209	PRJEB31334	Triticum aestivum	field	db2	1	152	3	2	3	3	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.477576	
-ERR3170210	PRJEB31334	Triticum aestivum	field	db2	1	132	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.467659	
-ERR3170211	PRJEB31334	Triticum aestivum	field	db2	1	144	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.499731	
+ERR3170209	PRJEB31334	Triticum aestivum	field	db2	1	152	3	2	3	3	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.477576	
+ERR3170210	PRJEB31334	Triticum aestivum	field	db2	1	132	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.467659	
+ERR3170211	PRJEB31334	Triticum aestivum	field	db2	1	144	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.499731	
 ERR3170215	PRJEB31334	Triticum aestivum	field	db2	1	117	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.41768	
 ERR3170216	PRJEB31334	Triticum aestivum	field	db2	1	143	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.426925	
 ERR3170225	PRJEB31334	Triticum aestivum	field	db2	1	211	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.450964	
 ERR3170226	PRJEB31334	Triticum aestivum	field	db2	1	218	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.46865	
 ERR3170234	PRJEB31334	Triticum aestivum	field	db2	1	325	21	5	1	1	20	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.442299	Alternaria;Cladosporium
 ERR3170237	PRJEB31334	Triticosecale	field	db2	1	445	8	6	2	2	7	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.511809	
-ERR3170242	PRJEB31334	Triticum aestivum	field	db2	1	277	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.468695	
+ERR3170242	PRJEB31334	Triticum aestivum	field	db2	1	277	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.468695	
 ERR3170243	PRJEB31334	Triticum aestivum	field	db2	1	258	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.434899	
 ERR3170247	PRJEB31334	Triticum aestivum	field	db2	1	229	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.301779	
 ERR3170250	PRJEB31334	Triticum aestivum	field	db2	1	257	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.23188	
-ERR3170255	PRJEB31334	Triticum aestivum	field	db2	1	527	22	6	6	6	20	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.455775	Alternaria
+ERR3170255	PRJEB31334	Triticum aestivum	field	db2	1	527	22	6	6	6	21	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.455775	Alternaria
 ERR3170256	PRJEB31334	Triticum aestivum	field	db2	1	260	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.50218	
-ERR3170260	PRJEB31334	Triticum aestivum	field	db2	1	402	9	6	4	4	7	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.43331	Alternaria
+ERR3170260	PRJEB31334	Triticum aestivum	field	db2	1	402	9	6	4	4	8	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.43331	Alternaria
 ERR3170264	PRJEB31334	Triticum aestivum	field	db2	1	497	5	4	1	1	4	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.521859	
 ERR3170269	PRJEB31334	Triticum aestivum	field	db2	1	243	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.394089	
 ERR3170272	PRJEB31334	Triticum aestivum	field	db2	1	158	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.499979	
@@ -317,23 +317,23 @@ ERR3188448	PRJEB31334	Triticum aestivum	field	db2	1	248	1	1	1	1	0	Puccinia strii
 ERR3188451	PRJEB31334	Triticum aestivum	field	db2	1	350	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.482056	
 ERR3188457	PRJEB31334	Triticum aestivum	field	db2	1	171	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.32452	
 ERR3188464	PRJEB31334	Triticum aestivum	field	db2	1	191	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.437888	
-ERR3188465	PRJEB31334	Triticum dicoccon	field	db2	1	236	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.521943	
-ERR3188466	PRJEB31334	Triticum aestivum	field	db2	1	302	4	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.435846	
+ERR3188465	PRJEB31334	Triticum dicoccon	field	db2	1	236	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.521943	
+ERR3188466	PRJEB31334	Triticum aestivum	field	db2	1	302	4	3	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.435846	
 ERR3170181	PRJEB31334	Triticum aestivum	field	db2	1	258	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.400619	
-ERR3170191	PRJEB31334	Triticum aestivum	field	db2	1	145	3	2	3	3	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Blumeria graminis	0.536065	
-ERR3170194	PRJEB31334	Triticum aestivum	field	db2	1	132	3	2	3	3	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Blumeria graminis	0.553488	
+ERR3170191	PRJEB31334	Triticum aestivum	field	db2	1	145	3	2	3	3	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Blumeria graminis	0.536065	
+ERR3170194	PRJEB31334	Triticum aestivum	field	db2	1	132	3	2	3	3	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Blumeria graminis	0.553488	
 ERR3170195	PRJEB31334	Triticum aestivum	field	db2	1	177	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.424473	
 ERR3170200	PRJEB31334	Triticum aestivum	field	db2	1	428	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.371705	
 ERR3170203	PRJEB31334	Triticum aestivum	field	db2	1	179	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.400371	
 ERR3170206	PRJEB31334	Triticum aestivum	field	db2	1	210	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.391048	
 ERR3170207	PRJEB31334	Triticum aestivum	field	db2	1	289	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.438016	
-ERR3170208	PRJEB31334	Triticum aestivum	field	db2	1	162	3	2	3	3	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.448571	
-ERR3170214	PRJEB31334	Triticum aestivum	field	db2	1	363	7	6	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.470414	
+ERR3170208	PRJEB31334	Triticum aestivum	field	db2	1	162	3	2	3	3	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.448571	
+ERR3170214	PRJEB31334	Triticum aestivum	field	db2	1	363	7	6	3	3	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.470414	
 ERR3170221	PRJEB31334	Triticum aestivum	field	db2	1	290	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.501632	
-ERR3170230	PRJEB31334	Triticum aestivum	field	db2	1	272	5	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.483234	
+ERR3170230	PRJEB31334	Triticum aestivum	field	db2	1	272	5	4	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.483234	
 ERR3170244	PRJEB31334	Triticum aestivum	field	db2	1	259	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.481978	
 ERR3170257	PRJEB31334	Triticum aestivum	field	db2	1	377	5	5	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.487153	
-ERR3170259	PRJEB31334	Triticum aestivum	field	db2	1	431	5	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	0	Puccinia striiformis	0.42848	
+ERR3170259	PRJEB31334	Triticum aestivum	field	db2	1	431	5	4	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	0	0	Puccinia striiformis	0.42848	
 ERR3170263	PRJEB31334	Triticum aestivum	field	db2	1	462	6	5	2	2	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.523801	
 ERR3170267	PRJEB31334	Triticum aestivum	field	db2	1	282	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.327354	
 ERR3170273	PRJEB31334	Triticum aestivum	field	db2	1	123	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.480037	
@@ -347,7 +347,7 @@ ERR3188459	PRJEB31334	Triticum aestivum	field	db2	1	182	1	1	1	1	0	Puccinia strii
 ERR3188460	PRJEB31334	Triticosecale	field	db2	1	211	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.478797	
 ERR3188462	PRJEB31334	Triticum aestivum	field	db2	1	215	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.499755	
 ERR3188463	PRJEB31334	Triticum aestivum	field	db2	1	210	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.518761	
-ERR3188467	PRJEB31334	Triticum aestivum	field	db2	1	180	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.522819	
+ERR3188467	PRJEB31334	Triticum aestivum	field	db2	1	180	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.522819	
 ERR3188471	PRJEB31334	Triticum turgidum	field	db2	1	197	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.443672	
 ERR3188474	PRJEB31334	Triticum aestivum	field	db2	1	280	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.50548	
 ERR3188476	PRJEB31334	Triticum aestivum	field	db2	1	176	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.481716	
@@ -365,7 +365,7 @@ ERR3383635	PRJEB33109	Triticum aestivum	field	db2	1	102	1	1	1	1	0	Puccinia strii
 ERR3383637	PRJEB33109	Triticum aestivum	field	db2	1	94	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.528216	
 ERR3850344	PRJEB36444	Triticum aestivum	field	db2	1	242	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.460793	
 ERR3850355	PRJEB36444	Triticum aestivum	field	db2	1	387	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.502905	
-ERR3850357	PRJEB36444	Triticum aestivum	field	db2	1	275	5	4	3	3	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.502935	
+ERR3850357	PRJEB36444	Triticum aestivum	field	db2	1	275	5	4	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.502935	
 ERR3850358	PRJEB36444	Triticum aestivum	field	db2	1	256	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.503094	
 ERR3850343	PRJEB36444	Triticum aestivum	field	db2	1	311	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.402337	
 ERR3850347	PRJEB36444	Triticum aestivum	field	db2	1	262	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.427505	
@@ -389,24 +389,24 @@ ERR3850350	PRJEB36444	Triticum aestivum	field	db2	1	313	2	2	1	1	1	Puccinia strii
 ERR3850354	PRJEB36444	Triticum aestivum	field	db2	1	564	6	5	4	4	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.572162	
 ERR3850359	PRJEB36444	Triticum aestivum	field	db2	1	256	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.488486	
 ERR3850361	PRJEB36444	Triticum aestivum	field	db2	1	210	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.494327	
-ERR3856818	PRJEB36485	Triticum aestivum	field	db2	1	141	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.257334	
+ERR3856818	PRJEB36485	Triticum aestivum	field	db2	1	141	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.257334	
 ERR3856820	PRJEB36485	Triticum aestivum	field	db2	1	78	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.267315	
 ERR3856836	PRJEB36485	Triticum aestivum	field	db2	1	266	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.469209	
 ERR3856837	PRJEB36485	Triticum aestivum	field	db2	1	126	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.298293	
 ERR3856840	PRJEB36485	Triticum aestivum	field	db2	1	126	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.270343	
 ERR3856841	PRJEB36485	Triticum aestivum	field	db2	1	96	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.300325	
-ERR3856854	PRJEB36485	Triticum aestivum	field	db2	1	417	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.458921	
+ERR3856854	PRJEB36485	Triticum aestivum	field	db2	1	417	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.458921	
 ERR3856813	PRJEB36485	Triticum aestivum	field	db2	1	240	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.515845	
 ERR3856817	PRJEB36485	Triticum aestivum	field	db2	1	126	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.280047	
 ERR3856830	PRJEB36485	Triticum aestivum	field	db2	1	125	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.171681	
 ERR3856831	PRJEB36485	Triticum aestivum	field	db2	1	97	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.175994	
-ERR3856843	PRJEB36485	Triticum aestivum	field	db2	1	154	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.294667	
+ERR3856843	PRJEB36485	Triticum aestivum	field	db2	1	154	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.294667	
 ERR3856849	PRJEB36485	Triticum aestivum	field	db2	1	381	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.389666	
 ERR3856851	PRJEB36485	Triticum aestivum	field	db2	1	303	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.34272	
 ERR3856814	PRJEB36485	Triticum aestivum	field	db2	1	194	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.328988	
 ERR3856834	PRJEB36485	Triticum aestivum	field	db2	1	494	18	5	1	1	17	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.318188	Alternaria
 ERR3856838	PRJEB36485	Triticum aestivum	field	db2	1	128	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.31425	
-ERR3856845	PRJEB36485	Triticum aestivum	field	db2	1	283	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	0	Puccinia striiformis	0.265789	
+ERR3856845	PRJEB36485	Triticum aestivum	field	db2	1	283	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	0	Puccinia striiformis	0.265789	
 ERR3856846	PRJEB36485	Triticum aestivum	field	db2	1	305	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.337685	
 ERR3856847	PRJEB36485	Triticum aestivum	field	db2	1	521	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.151016	
 ERR3856850	PRJEB36485	Triticum aestivum	field	db2	1	415	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.433172	
@@ -418,16 +418,16 @@ ERR3856852	PRJEB36485	Triticum aestivum	field	db2	1	197	1	1	1	1	0	Puccinia strii
 ERR3856855	PRJEB36485	Triticum aestivum	field	db2	1	413	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.44298	
 ERR3856816	PRJEB36485	Triticum aestivum	field	db2	1	175	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.248744	
 ERR3856819	PRJEB36485	Triticum aestivum	field	db2	1	109	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.292374	
-ERR3856821	PRJEB36485	Triticum aestivum	field	db2	1	177	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.332571	
-ERR3856822	PRJEB36485	Triticum aestivum	field	db2	1	135	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.351808	
+ERR3856821	PRJEB36485	Triticum aestivum	field	db2	1	177	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.332571	
+ERR3856822	PRJEB36485	Triticum aestivum	field	db2	1	135	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.351808	
 ERR3856823	PRJEB36485	Triticum aestivum	field	db2	1	91	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.310893	
-ERR3856825	PRJEB36485	Triticum aestivum	field	db2	1	135	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.368024	
+ERR3856825	PRJEB36485	Triticum aestivum	field	db2	1	135	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.368024	
 ERR3856832	PRJEB36485	Triticum aestivum	field	db2	1	279	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.39071	
-ERR3856833	PRJEB36485	Triticum aestivum	field	db2	1	247	9	2	2	2	7	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.322246	Alternaria
+ERR3856833	PRJEB36485	Triticum aestivum	field	db2	1	247	9	2	2	2	8	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.322246	Alternaria
 ERR3856839	PRJEB36485	Triticum aestivum	field	db2	1	288	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.36996	
 ERR3856844	PRJEB36485	Triticum aestivum	field	db2	1	285	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.319748	
-ERR3856848	PRJEB36485	Triticum aestivum	field	db2	1	289	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.431892	
-ERR3856853	PRJEB36485	Triticum aestivum	field	db2	1	380	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.449863	
+ERR3856848	PRJEB36485	Triticum aestivum	field	db2	1	289	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.431892	
+ERR3856853	PRJEB36485	Triticum aestivum	field	db2	1	380	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.449863	
 ERR4315149	PRJEB39201	Triticum aestivum	field	db2	1	186	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.491546	
 ERR4315152	PRJEB39201	Triticum aestivum	field	db2	1	199	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.450445	
 ERR4315153	PRJEB39201	Triticum aestivum	field	db2	1	184	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.430266	
@@ -439,12 +439,12 @@ ERR4315171	PRJEB39201	Triticum aestivum	field	db2	1	374	4	4	1	1	3	Puccinia strii
 ERR4315172	PRJEB39201	Triticum aestivum	field	db2	1	266	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.410269	
 ERR4315174	PRJEB39201	Triticum aestivum	field	db2	1	728	22	6	2	2	21	Puccinia striiformis f. sp. tritici	curated	1	1	0	Microdochium majus	0.710098	Alternaria
 ERR4315190	PRJEB39201	Triticum aestivum	field	db2	1	397	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.470626	
-ERR4315194	PRJEB39201	Triticum aestivum	field	db2	1	463	20	5	3	3	18	Puccinia striiformis f. sp. tritici	curated	1	1	0	Puccinia triticina	0.429273	Alternaria
+ERR4315194	PRJEB39201	Triticum aestivum	field	db2	1	463	20	5	3	3	19	Puccinia striiformis f. sp. tritici	curated	1	1	0	Puccinia triticina	0.429273	Alternaria
 ERR4315202	PRJEB39201	Triticum aestivum	field	db2	1	202	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.40952	
 ERR4315203	PRJEB39201	Triticum aestivum	field	db2	1	276	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.476318	
 ERR4315204	PRJEB39201	Triticum aestivum	field	db2	1	200	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.413656	
 ERR4315206	PRJEB39201	Triticum aestivum	field	db2	1	153	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.528307	
-ERR4315226	PRJEB39201	Triticum aestivum	field	db2	1	351	6	4	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.526289	
+ERR4315226	PRJEB39201	Triticum aestivum	field	db2	1	351	6	4	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.526289	
 ERR4315230	PRJEB39201	Triticum aestivum	field	db2	1	265	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.472524	
 ERR4315241	PRJEB39201	Triticum aestivum	field	db2	1	265	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.357062	
 ERR4315247	PRJEB39201	Triticum aestivum	field	db2	1	248	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.478287	
@@ -460,7 +460,7 @@ ERR4315290	PRJEB39201	Triticum aestivum	field	db2	1	334	4	4	2	2	3	Puccinia strii
 ERR4315296	PRJEB39201	Triticum aestivum	field	db2	1	200	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.499705	
 ERR4315297	PRJEB39201	Triticum aestivum	field	db2	1	472	5	5	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.391405	
 ERR4315307	PRJEB39201	Triticum aestivum	field	db2	1	324	20	5	1	1	19	Puccinia striiformis f. sp. tritici	curated	0	0	1	Cladosporium allicinum	0.504785	Alternaria
-ERR4315313	PRJEB39201	Triticum aestivum	field	db2	1	411	7	6	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.373279	
+ERR4315313	PRJEB39201	Triticum aestivum	field	db2	1	411	7	6	3	3	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.373279	
 ERR4315318	PRJEB39201	Triticum aestivum	field	db2	1	239	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.155618	
 ERR4315319	PRJEB39201	Triticum aestivum	field	db2	1	179	4	4	3	3	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Blumeria graminis	0.801358	
 ERR4315320	PRJEB39201	Triticum aestivum	field	db2	1	140	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.501867	
@@ -472,35 +472,35 @@ ERR4315334	PRJEB39201	Triticum aestivum	field	db2	1	541	7	7	1	1	6	Puccinia strii
 ERR4315340	PRJEB39201	Triticum aestivum	field	db2	1	367	7	5	1	1	6	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.500108	Cladosporium
 ERR4315343	PRJEB39201	Triticum aestivum	field	db2	1	288	5	4	1	1	4	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.439633	
 ERR4315346	PRJEB39201	Triticum aestivum	field	db2	1	396	5	4	1	1	4	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.515711	
-ERR4315349	PRJEB39201	Triticum aestivum	field	db2	1	378	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	0	Puccinia triticina	0.260377	
+ERR4315349	PRJEB39201	Triticum aestivum	field	db2	1	378	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	0	Puccinia triticina	0.260377	
 ERR4315350	PRJEB39201	Triticum aestivum	field	db2	1	318	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.0820123	
 ERR4315355	PRJEB39201	Triticum aestivum	field	db2	1	347	17	3	1	1	16	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.327822	Alternaria
 ERR4315366	PRJEB39201	Triticum aestivum	field	db2	1	336	18	4	2	2	17	Puccinia striiformis f. sp. tritici	curated	1	1	0	Cladosporium allicinum	0.325812	Alternaria
 ERR4315369	PRJEB39201	Triticum aestivum	field	db2	1	300	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.388504	
 ERR4315383	PRJEB39201	Triticum aestivum	field	db2	1	215	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.455431	
 ERR4315389	PRJEB39201	Triticum aestivum	field	db2	1	568	19	6	2	2	18	Puccinia striiformis f. sp. tritici	curated	1	1	0	Cladosporium allicinum	0.526738	Alternaria
-ERR4315393	PRJEB39201	Triticum aestivum	field	db2	1	239	5	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.459375	
+ERR4315393	PRJEB39201	Triticum aestivum	field	db2	1	239	5	4	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.459375	
 ERR4315396	PRJEB39201	Triticum aestivum	field	db2	1	159	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.468389	
 ERR4315397	PRJEB39201	Triticum aestivum	field	db2	1	636	18	5	2	2	17	Puccinia striiformis f. sp. tritici	curated	1	1	0	Puccinia striiformis	0.264741	Alternaria
 ERR4315403	PRJEB39201	Triticum aestivum	field	db2	1	197	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.506114	
 ERR4315404	PRJEB39201	Triticum aestivum	field	db2	1	217	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.462281	
-ERR4315407	PRJEB39201	Triticum aestivum	field	db2	1	251	5	4	3	3	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.489709	
-ERR4315411	PRJEB39201	Triticum aestivum	field	db2	1	245	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.424895	
+ERR4315407	PRJEB39201	Triticum aestivum	field	db2	1	251	5	4	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.489709	
+ERR4315411	PRJEB39201	Triticum aestivum	field	db2	1	245	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.424895	
 ERR4315422	PRJEB39201	Triticum aestivum	field	db2	1	211	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.373732	
 ERR4315423	PRJEB39201	Triticum aestivum	field	db2	1	177	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.51254	
 ERR4315430	PRJEB39201	Triticum aestivum	field	db2	1	235	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.459588	
 ERR4315431	PRJEB39201	Triticum aestivum	field	db2	1	246	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.44753	
-ERR4315439	PRJEB39201	Triticum aestivum	field	db2	1	232	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.503179	
-ERR4315440	PRJEB39201	Triticum aestivum	field	db2	1	239	4	3	4	4	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.496191	
+ERR4315439	PRJEB39201	Triticum aestivum	field	db2	1	232	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.503179	
+ERR4315440	PRJEB39201	Triticum aestivum	field	db2	1	239	4	3	4	4	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.496191	
 ERR4315445	PRJEB39201	Triticum aestivum	field	db2	1	305	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.448181	
 ERR4315452	PRJEB39201	Triticum aestivum	field	db2	1	244	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.489792	
 ERR4315455	PRJEB39201	Triticum aestivum	field	db2	1	289	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.280294	
-ERR4315460	PRJEB39201	Triticum aestivum	field	db2	1	300	5	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.44842	
+ERR4315460	PRJEB39201	Triticum aestivum	field	db2	1	300	5	4	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.44842	
 ERR4315471	PRJEB39201	Triticum aestivum	field	db2	1	253	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.440224	
 ERR4315473	PRJEB39201	Triticum aestivum	field	db2	1	175	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.502578	
-ERR4315478	PRJEB39201	Triticum aestivum	field	db2	1	448	13	5	2	2	11	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.456374	Alternaria
-ERR4315479	PRJEB39201	Triticum aestivum	field	db2	1	492	17	6	3	3	15	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.332854	Alternaria
-ERR4315481	PRJEB39201	Triticum aestivum	field	db2	1	320	14	5	2	2	12	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.461056	Alternaria
+ERR4315478	PRJEB39201	Triticum aestivum	field	db2	1	448	13	5	2	2	12	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.456374	Alternaria
+ERR4315479	PRJEB39201	Triticum aestivum	field	db2	1	492	17	6	3	3	16	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.332854	Alternaria
+ERR4315481	PRJEB39201	Triticum aestivum	field	db2	1	320	14	5	2	2	13	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.461056	Alternaria
 ERR4315482	PRJEB39201	Triticum aestivum	field	db2	1	430	7	6	2	2	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.47283	
 ERR4315485	PRJEB39201	Triticum aestivum	field	db2	1	317	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.485401	
 ERR4315487	PRJEB39201	Triticum aestivum	field	db2	1	353	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.346655	
@@ -518,21 +518,21 @@ ERR4315549	PRJEB39201	Triticum aestivum	field	db2	1	511	20	8	3	3	19	Puccinia str
 ERR4315553	PRJEB39201	Triticum aestivum	field	db2	1	359	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.456191	
 ERR4315555	PRJEB39201	Triticum aestivum	field	db2	1	382	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.0629847	
 ERR4315560	PRJEB39201	Triticum aestivum	field	db2	1	241	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.461702	
-ERR4315561	PRJEB39201	Triticum aestivum	field	db2	1	194	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.457136	
+ERR4315561	PRJEB39201	Triticum aestivum	field	db2	1	194	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.457136	
 ERR4315562	PRJEB39201	Triticum aestivum	field	db2	1	173	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.518393	
 ERR4315571	PRJEB39201	Triticum aestivum	field	db2	1	428	5	5	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.470179	
-ERR4315575	PRJEB39201	Triticum aestivum	field	db2	1	372	6	5	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.456233	
+ERR4315575	PRJEB39201	Triticum aestivum	field	db2	1	372	6	5	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.456233	
 ERR4315577	PRJEB39201	Triticum aestivum	field	db2	1	300	5	5	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.478001	
 ERR4315578	PRJEB39201	Triticum aestivum	field	db2	1	434	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.437087	
 ERR4315585	PRJEB39201	Triticum aestivum	field	db2	1	307	18	4	1	1	17	Puccinia striiformis f. sp. tritici	curated	0	0	0	Cladosporium allicinum	0.687028	Alternaria
 ERR4315587	PRJEB39201	Triticum aestivum	field	db2	1	344	21	6	3	3	20	Puccinia striiformis f. sp. tritici	curated	1	1	0	Cladosporium allicinum	0.661724	Alternaria;Cladosporium
-ERR4315593	PRJEB39201	Triticum aestivum	field	db2	1	354	11	7	3	3	9	Puccinia striiformis f. sp. tritici	curated	1	1	1	Microdochium majus	0.706473	Alternaria
-ERR4315595	PRJEB39201	Triticum aestivum	field	db2	1	271	6	5	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.478238	
-ERR4315596	PRJEB39201	Triticum aestivum	field	db2	1	199	4	3	3	3	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.348733	
-ERR4315597	PRJEB39201	Triticum aestivum	field	db2	1	228	4	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.434954	
-ERR4315601	PRJEB39201	Triticum aestivum	field	db2	1	198	4	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.472287	
+ERR4315593	PRJEB39201	Triticum aestivum	field	db2	1	354	11	7	3	3	10	Puccinia striiformis f. sp. tritici	curated	1	1	1	Microdochium majus	0.706473	Alternaria
+ERR4315595	PRJEB39201	Triticum aestivum	field	db2	1	271	6	5	2	2	5	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.478238	
+ERR4315596	PRJEB39201	Triticum aestivum	field	db2	1	199	4	3	3	3	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.348733	
+ERR4315597	PRJEB39201	Triticum aestivum	field	db2	1	228	4	3	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.434954	
+ERR4315601	PRJEB39201	Triticum aestivum	field	db2	1	198	4	3	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.472287	
 ERR4315608	PRJEB39201	Triticum aestivum	field	db2	1	290	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.279891	
-ERR4315611	PRJEB39201	Triticum aestivum	field	db2	1	310	8	6	4	4	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.446855	Puccinia
+ERR4315611	PRJEB39201	Triticum aestivum	field	db2	1	310	8	6	4	4	7	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.446855	Puccinia
 ERR4315614	PRJEB39201	Triticum aestivum	field	db2	1	388	20	7	3	3	19	Puccinia striiformis f. sp. tritici	curated	1	1	1	Parastagonospora nodorum	0.408865	Alternaria
 ERR4315624	PRJEB39201	Triticum aestivum	field	db2	1	179	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.504619	
 ERR4315631	PRJEB39201	Triticum aestivum	field	db2	1	283	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.369303	
@@ -555,7 +555,7 @@ ERR4315159	PRJEB39201	Triticum aestivum	field	db2	1	314	1	1	1	1	0	Puccinia strii
 ERR4315162	PRJEB39201	Triticum aestivum	field	db2	1	556	20	5	2	2	19	Puccinia striiformis f. sp. tritici	curated	1	1	0	Cladosporium allicinum	0.235948	Alternaria
 ERR4315165	PRJEB39201	Triticum aestivum	field	db2	1	257	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.345283	
 ERR4315178	PRJEB39201	Triticum aestivum	field	db2	1	194	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.494014	
-ERR4315181	PRJEB39201	Triticum aestivum	field	db2	1	243	4	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.468045	
+ERR4315181	PRJEB39201	Triticum aestivum	field	db2	1	243	4	3	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.468045	
 ERR4315184	PRJEB39201	Triticum aestivum	field	db2	1	400	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.474453	
 ERR4315197	PRJEB39201	Triticum aestivum	field	db2	1	236	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.508281	
 ERR4315199	PRJEB39201	Triticum aestivum	field	db2	1	298	4	3	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.447822	
@@ -581,10 +581,10 @@ ERR4315279	PRJEB39201	Triticum aestivum	field	db2	1	193	1	1	1	1	0	Puccinia strii
 ERR4315283	PRJEB39201	Triticum aestivum	field	db2	1	283	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.370043	
 ERR4315292	PRJEB39201	Triticum aestivum	field	db2	1	203	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.218631	
 ERR4315293	PRJEB39201	Triticum aestivum	field	db2	1	257	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.451929	
-ERR4315299	PRJEB39201	Triticum aestivum	field	db2	1	363	4	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.389524	
+ERR4315299	PRJEB39201	Triticum aestivum	field	db2	1	363	4	3	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.389524	
 ERR4315306	PRJEB39201	Triticum aestivum	field	db2	1	392	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.449655	
-ERR4315311	PRJEB39201	Triticum aestivum	field	db2	1	386	18	4	2	2	16	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.486919	Alternaria
-ERR4315312	PRJEB39201	Triticum aestivum	field	db2	1	257	17	6	4	3	15	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.511913	Alternaria
+ERR4315311	PRJEB39201	Triticum aestivum	field	db2	1	386	18	4	2	2	17	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.486919	Alternaria
+ERR4315312	PRJEB39201	Triticum aestivum	field	db2	1	257	17	6	4	3	16	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.511913	Alternaria
 ERR4315327	PRJEB39201	Triticum aestivum	field	db2	1	193	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.5008	
 ERR4315330	PRJEB39201	Triticum aestivum	field	db2	1	138	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.514473	
 ERR4315335	PRJEB39201	Triticum aestivum	field	db2	1	523	6	6	1	1	5	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.266579	
@@ -594,18 +594,18 @@ ERR4315357	PRJEB39201	Triticum aestivum	field	db2	1	325	17	4	2	2	16	Puccinia str
 ERR4315358	PRJEB39201	Triticum aestivum	field	db2	1	322	17	3	1	1	16	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.400844	Alternaria
 ERR4315359	PRJEB39201	Triticum aestivum	field	db2	1	389	17	3	1	1	16	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.275106	Alternaria
 ERR4315364	PRJEB39201	Triticum aestivum	field	db2	1	388	21	7	2	2	20	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.461634	Alternaria
-ERR4315372	PRJEB39201	Triticum aestivum	field	db2	1	261	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.390542	
+ERR4315372	PRJEB39201	Triticum aestivum	field	db2	1	261	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.390542	
 ERR4315376	PRJEB39201	Triticum aestivum	field	db2	1	361	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.442572	
 ERR4315381	PRJEB39201	Triticum aestivum	field	db2	1	204	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.442174	
 ERR4315385	PRJEB39201	Triticum aestivum	field	db2	1	149	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.495399	
 ERR4315386	PRJEB39201	Triticum aestivum	field	db2	1	137	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.481743	
-ERR4315390	PRJEB39201	Triticum aestivum	field	db2	1	349	20	6	3	3	18	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.479364	Alternaria
+ERR4315390	PRJEB39201	Triticum aestivum	field	db2	1	349	20	6	3	3	19	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.479364	Alternaria
 ERR4315392	PRJEB39201	Triticum aestivum	field	db2	1	287	18	6	3	3	17	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.466234	Alternaria
 ERR4315400	PRJEB39201	Triticum aestivum	field	db2	1	247	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.475937	
 ERR4315401	PRJEB39201	Triticum aestivum	field	db2	1	365	21	7	3	2	20	Puccinia striiformis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.603763	Alternaria
 ERR4315406	PRJEB39201	Triticum aestivum	field	db2	1	241	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.459388	
 ERR4315408	PRJEB39201	Triticum aestivum	field	db2	1	383	6	5	1	1	5	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.476694	
-ERR4315412	PRJEB39201	Triticum turgidum	field	db2	1	238	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia triticina	0.565068	
+ERR4315412	PRJEB39201	Triticum turgidum	field	db2	1	238	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia triticina	0.565068	
 ERR4315418	PRJEB39201	Triticum aestivum	field	db2	1	181	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.430629	
 ERR4315428	PRJEB39201	Triticum aestivum	field	db2	1	187	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.40856	
 ERR4315429	PRJEB39201	Triticum aestivum	field	db2	1	178	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.432522	
@@ -623,31 +623,31 @@ ERR4315494	PRJEB39201	Triticum aestivum	field	db2	1	272	2	2	1	1	1	Puccinia strii
 ERR4315499	PRJEB39201	Triticum aestivum	field	db2	1	528	19	7	2	2	18	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.462573	Alternaria
 ERR4315504	PRJEB39201	Triticum aestivum	field	db2	1	314	5	5	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.277362	
 ERR4315506	PRJEB39201	Triticum aestivum	field	db2	1	329	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.230732	
-ERR4315514	PRJEB39201	Triticum turgidum	field	db2	1	284	20	6	3	3	18	Puccinia striiformis f. sp. tritici	curated	1	1	0	Puccinia striiformis	0.423023	Alternaria
+ERR4315514	PRJEB39201	Triticum turgidum	field	db2	1	284	20	6	3	3	19	Puccinia striiformis f. sp. tritici	curated	1	1	0	Puccinia striiformis	0.423023	Alternaria
 ERR4315517	PRJEB39201	Triticum aestivum	field	db2	1	154	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.448112	
 ERR4315519	PRJEB39201	Triticum aestivum	field	db2	1	149	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.352689	
 ERR4315527	PRJEB39201	Triticum aestivum	field	db2	1	118	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.491344	
 ERR4315542	PRJEB39201	Triticum aestivum	field	db2	1	432	22	8	2	2	21	Puccinia striiformis f. sp. tritici	curated	1	1	1	Cladosporium allicinum	0.651629	Alternaria
-ERR4315547	PRJEB39201	Triticum aestivum	field	db2	1	235	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.526507	
+ERR4315547	PRJEB39201	Triticum aestivum	field	db2	1	235	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.526507	
 ERR4315554	PRJEB39201	Triticum aestivum	field	db2	1	346	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.398059	
 ERR4315557	PRJEB39201	Triticum aestivum	field	db2	1	219	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.485001	
 ERR4315563	PRJEB39201	Triticum aestivum	field	db2	1	204	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.476392	
 ERR4315567	PRJEB39201	Triticum aestivum	field	db2	1	211	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.4258	
 ERR4315580	PRJEB39201	Triticum aestivum	field	db2	1	381	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.448988	
-ERR4315586	PRJEB39201	Triticum aestivum	field	db2	1	314	19	4	2	2	17	Puccinia striiformis f. sp. tritici	curated	1	0	0	Cladosporium allicinum	0.486444	Alternaria
+ERR4315586	PRJEB39201	Triticum aestivum	field	db2	1	314	19	4	2	2	18	Puccinia striiformis f. sp. tritici	curated	1	0	0	Cladosporium allicinum	0.486444	Alternaria
 ERR4315588	PRJEB39201	Triticum aestivum	field	db2	1	130	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.343914	
 ERR4315589	PRJEB39201	Triticum aestivum	field	db2	1	171	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.486019	
-ERR4315605	PRJEB39201	Triticum aestivum	field	db2	1	306	7	6	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.477948	
-ERR4315606	PRJEB39201	Triticum aestivum	field	db2	1	252	8	7	3	3	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.455191	
-ERR4315607	PRJEB39201	Triticum aestivum	field	db2	1	358	19	7	5	5	16	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.400787	Alternaria;Puccinia
-ERR4315617	PRJEB39201	Triticum aestivum	field	db2	1	409	20	6	3	3	18	Puccinia striiformis f. sp. tritici	curated	1	1	0	Parastagonospora nodorum	0.446211	Alternaria
+ERR4315605	PRJEB39201	Triticum aestivum	field	db2	1	306	7	6	3	3	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.477948	
+ERR4315606	PRJEB39201	Triticum aestivum	field	db2	1	252	8	7	3	3	7	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.455191	
+ERR4315607	PRJEB39201	Triticum aestivum	field	db2	1	358	19	7	5	5	18	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.400787	Alternaria;Puccinia
+ERR4315617	PRJEB39201	Triticum aestivum	field	db2	1	409	20	6	3	3	19	Puccinia striiformis f. sp. tritici	curated	1	1	0	Parastagonospora nodorum	0.446211	Alternaria
 ERR4315620	PRJEB39201	Triticum aestivum	field	db2	1	224	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.496926	
 ERR4315621	PRJEB39201	Triticum aestivum	field	db2	1	204	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.477418	
 ERR4315623	PRJEB39201	Triticum aestivum	field	db2	1	307	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.393022	
 ERR4315628	PRJEB39201	Triticum aestivum	field	db2	1	255	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.29051	
 ERR4315629	PRJEB39201	Triticum aestivum	field	db2	1	326	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.432023	
 ERR4315632	PRJEB39201	Triticum aestivum	field	db2	1	257	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.489093	
-ERR4315640	PRJEB39201	Triticum aestivum	field	db2	1	137	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.433671	
+ERR4315640	PRJEB39201	Triticum aestivum	field	db2	1	137	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.433671	
 ERR4315643	PRJEB39201	Triticum aestivum	field	db2	1	239	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.353682	
 ERR4315646	PRJEB39201	Triticum aestivum	field	db2	1	253	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.517215	
 ERR4315649	PRJEB39201	Triticum aestivum	field	db2	1	371	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.5199	
@@ -672,20 +672,20 @@ ERR4315170	PRJEB39201	Triticum aestivum	field	db2	1	577	15	5	1	1	14	Puccinia str
 ERR4315177	PRJEB39201	Triticum aestivum	field	db2	1	392	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.0408747	
 ERR4315185	PRJEB39201	Triticum aestivum	field	db2	1	280	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.382332	
 ERR4315187	PRJEB39201	Triticum aestivum	field	db2	1	366	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.230314	
-ERR4315189	PRJEB39201	Triticum aestivum	field	db2	1	270	4	3	3	3	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Blumeria graminis	0.332606	
+ERR4315189	PRJEB39201	Triticum aestivum	field	db2	1	270	4	3	3	3	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Blumeria graminis	0.332606	
 ERR4315192	PRJEB39201	Triticum aestivum	field	db2	1	583	7	6	3	3	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.243428	
 ERR4315193	PRJEB39201	Triticum aestivum	field	db2	1	1149	27	9	4	4	26	Puccinia striiformis f. sp. tritici	curated	1	1	0	Cladosporium allicinum	0.548356	Alternaria;Cladosporium
 ERR4315198	PRJEB39201	Triticum aestivum	field	db2	1	279	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.483787	
 ERR4315209	PRJEB39201	Triticum aestivum	field	db2	1	260	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.479403	
 ERR4315212	PRJEB39201	Triticum aestivum	field	db2	1	480	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.369072	
 ERR4315225	PRJEB39201	Triticum aestivum	field	db2	1	356	5	5	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.480549	
-ERR4315229	PRJEB39201	Triticum aestivum	field	db2	1	341	5	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.495791	
+ERR4315229	PRJEB39201	Triticum aestivum	field	db2	1	341	5	4	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.495791	
 ERR4315235	PRJEB39201	Triticum aestivum	field	db2	1	278	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.450458	
 ERR4315249	PRJEB39201	Triticum aestivum	field	db2	1	206	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.460793	
 ERR4315250	PRJEB39201	Triticum aestivum	field	db2	1	253	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.37816	
 ERR4315253	PRJEB39201	Triticum aestivum	field	db2	1	206	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.500896	
 ERR4315257	PRJEB39201	Triticum aestivum	field	db2	1	254	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.474172	
-ERR4315278	PRJEB39201	Triticum aestivum	field	db2	1	205	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.490349	
+ERR4315278	PRJEB39201	Triticum aestivum	field	db2	1	205	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.490349	
 ERR4315281	PRJEB39201	Triticum aestivum	field	db2	1	185	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.502852	
 ERR4315285	PRJEB39201	Triticum aestivum	field	db2	1	233	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.458263	
 ERR4315287	PRJEB39201	Triticum aestivum	field	db2	1	366	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.524043	
@@ -696,29 +696,29 @@ ERR4315298	PRJEB39201	Triticum aestivum	field	db2	1	288	1	1	1	1	0	Puccinia strii
 ERR4315300	PRJEB39201	Triticum aestivum	field	db2	1	287	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.232829	
 ERR4315301	PRJEB39201	Triticum aestivum	field	db2	1	375	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.1773	
 ERR4315305	PRJEB39201	Triticum aestivum	field	db2	1	202	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.388577	
-ERR4315310	PRJEB39201	Triticum aestivum	field	db2	1	372	7	6	4	4	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.554163	
-ERR4315314	PRJEB39201	Triticum aestivum	field	db2	1	326	6	5	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.420452	
-ERR4315316	PRJEB39201	Triticum aestivum	field	db2	1	226	16	5	3	3	14	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.443041	Alternaria
-ERR4315322	PRJEB39201	Triticum aestivum	field	db2	1	286	13	3	2	2	11	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.519742	Alternaria
+ERR4315310	PRJEB39201	Triticum aestivum	field	db2	1	372	7	6	4	4	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.554163	
+ERR4315314	PRJEB39201	Triticum aestivum	field	db2	1	326	6	5	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.420452	
+ERR4315316	PRJEB39201	Triticum aestivum	field	db2	1	226	16	5	3	3	15	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.443041	Alternaria
+ERR4315322	PRJEB39201	Triticum aestivum	field	db2	1	286	13	3	2	2	12	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.519742	Alternaria
 ERR4315341	PRJEB39201	Triticum aestivum	field	db2	1	178	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.485692	
 ERR4315342	PRJEB39201	Triticum aestivum	field	db2	1	308	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.49143	
 ERR4315344	PRJEB39201	Triticum aestivum	field	db2	1	393	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.470733	
 ERR4315348	PRJEB39201	Triticum aestivum	field	db2	1	275	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.429751	
 ERR4315351	PRJEB39201	Triticum aestivum	field	db2	1	299	0	0	0	0	0	Puccinia striiformis f. sp. tritici	curated	0	0	1			
 ERR4315352	PRJEB39201	Triticum aestivum	field	db2	1	377	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	0	Puccinia striiformis	0.417957	
-ERR4315367	PRJEB39201	Triticum aestivum	field	db2	1	280	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.412747	
-ERR4315368	PRJEB39201	Triticum aestivum	field	db2	1	283	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.454339	
+ERR4315367	PRJEB39201	Triticum aestivum	field	db2	1	280	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.412747	
+ERR4315368	PRJEB39201	Triticum aestivum	field	db2	1	283	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.454339	
 ERR4315378	PRJEB39201	Triticum aestivum	field	db2	1	297	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.468709	
 ERR4315380	PRJEB39201	Triticum aestivum	field	db2	1	236	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.371166	
 ERR4315416	PRJEB39201	Triticum aestivum	field	db2	1	205	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.41299	
 ERR4315417	PRJEB39201	Triticum aestivum	field	db2	1	219	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.431945	
-ERR4315419	PRJEB39201	Triticum aestivum	field	db2	1	219	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.339267	
+ERR4315419	PRJEB39201	Triticum aestivum	field	db2	1	219	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.339267	
 ERR4315420	PRJEB39201	Triticum aestivum	field	db2	1	164	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.413414	
-ERR4315427	PRJEB39201	Triticum aestivum	field	db2	1	189	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.462564	
+ERR4315427	PRJEB39201	Triticum aestivum	field	db2	1	189	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.462564	
 ERR4315432	PRJEB39201	Triticum aestivum	field	db2	1	239	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.504715	
-ERR4315433	PRJEB39201	Triticum aestivum	field	db2	1	303	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.51931	
+ERR4315433	PRJEB39201	Triticum aestivum	field	db2	1	303	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.51931	
 ERR4315436	PRJEB39201	Triticum aestivum	field	db2	1	357	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.478044	
-ERR4315438	PRJEB39201	Triticum aestivum	field	db2	1	210	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.416408	
+ERR4315438	PRJEB39201	Triticum aestivum	field	db2	1	210	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.416408	
 ERR4315449	PRJEB39201	Triticum aestivum	field	db2	1	217	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.5113	
 ERR4315451	PRJEB39201	Triticum aestivum	field	db2	1	271	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.453697	
 ERR4315457	PRJEB39201	Triticum aestivum	field	db2	1	441	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.45568	
@@ -735,28 +735,28 @@ ERR4315498	PRJEB39201	Triticum aestivum	field	db2	1	365	4	4	1	1	3	Puccinia strii
 ERR4315502	PRJEB39201	Triticum aestivum	field	db2	1	429	16	6	2	2	15	Puccinia striiformis f. sp. tritici	curated	1	1	1	Microdochium nivale	0.146438	Alternaria
 ERR4315512	PRJEB39201	Triticum aestivum	field	db2	1	187	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	0	Puccinia striiformis	0.468263	
 ERR4315522	PRJEB39201	Triticum aestivum	field	db2	1	631	25	8	5	5	24	Puccinia striiformis f. sp. tritici	curated	1	1	0	Cladosporium allicinum	0.22995	Alternaria;Fusarium
-ERR4315525	PRJEB39201	Triticum aestivum	field	db2	1	338	6	5	4	4	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.48253	
+ERR4315525	PRJEB39201	Triticum aestivum	field	db2	1	338	6	5	4	4	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.48253	
 ERR4315526	PRJEB39201	Triticum aestivum	field	db2	1	360	6	6	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.513323	
 ERR4315552	PRJEB39201	Triticum aestivum	field	db2	1	407	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.449167	
 ERR4315559	PRJEB39201	Triticum aestivum	field	db2	1	242	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.504092	
 ERR4315564	PRJEB39201	Triticum turgidum	field	db2	1	305	5	5	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.535545	
 ERR4315568	PRJEB39201	Triticum aestivum	field	db2	1	338	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.279131	
 ERR4315573	PRJEB39201	Triticum aestivum	field	db2	1	335	5	5	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.389789	
-ERR4315583	PRJEB39201	Triticum aestivum	field	db2	1	638	23	7	4	4	21	Puccinia striiformis f. sp. tritici	curated	1	1	0	Zymoseptoria tritici	0.609075	Alternaria
+ERR4315583	PRJEB39201	Triticum aestivum	field	db2	1	638	23	7	4	4	22	Puccinia striiformis f. sp. tritici	curated	1	1	0	Zymoseptoria tritici	0.609075	Alternaria
 ERR4315590	PRJEB39201	Triticum aestivum	field	db2	1	159	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.459642	
-ERR4315594	PRJEB39201	Triticum aestivum	field	db2	1	189	4	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.525587	
-ERR4315609	PRJEB39201	Triticum aestivum	field	db2	1	316	18	7	4	4	16	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.293606	Alternaria
-ERR4315610	PRJEB39201	Triticum aestivum	field	db2	1	375	20	7	4	4	17	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.424657	Alternaria;Puccinia
+ERR4315594	PRJEB39201	Triticum aestivum	field	db2	1	189	4	3	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.525587	
+ERR4315609	PRJEB39201	Triticum aestivum	field	db2	1	316	18	7	4	4	17	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.293606	Alternaria
+ERR4315610	PRJEB39201	Triticum aestivum	field	db2	1	375	20	7	4	4	19	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.424657	Alternaria;Puccinia
 ERR4315627	PRJEB39201	Triticum aestivum	field	db2	1	152	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.467508	
 ERR4315634	PRJEB39201	Triticum aestivum	field	db2	1	232	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.481032	
 ERR4315637	PRJEB39201	Triticum aestivum	field	db2	1	163	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.497799	
 ERR4315638	PRJEB39201	Triticum aestivum	field	db2	1	144	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.494328	
 ERR4315644	PRJEB39201	Triticum aestivum	field	db2	1	253	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.430499	
 ERR4315650	PRJEB39201	Triticum aestivum	field	db2	1	273	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.352953	
-ERR4315651	PRJEB39201	Triticum aestivum	field	db2	1	246	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.347031	
+ERR4315651	PRJEB39201	Triticum aestivum	field	db2	1	246	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.347031	
 ERR4315657	PRJEB39201	Triticum aestivum	field	db2	1	447	5	4	1	1	4	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.340527	
 ERR4315666	PRJEB39201	Triticum aestivum	field	db2	1	285	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.319748	
-ERR4315670	PRJEB39201	Triticum aestivum	field	db2	1	289	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.431892	
+ERR4315670	PRJEB39201	Triticum aestivum	field	db2	1	289	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.431892	
 ERR4315677	PRJEB39201	Triticum aestivum	field	db2	1	413	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.44298	
 ERR4315685	PRJEB39201	Triticum aestivum	field	db2	1	492	19	4	2	2	18	Puccinia striiformis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.578929	Alternaria
 ERR4315147	PRJEB39201	Triticum aestivum	field	db2	1	191	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.37124	
@@ -769,7 +769,7 @@ ERR4315182	PRJEB39201	Triticum aestivum	field	db2	1	328	6	5	3	3	5	Puccinia strii
 ERR4315183	PRJEB39201	Triticum aestivum	field	db2	1	328	7	7	4	4	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.442914	
 ERR4315186	PRJEB39201	Triticum aestivum	field	db2	1	372	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.195784	
 ERR4315191	PRJEB39201	Triticum aestivum	field	db2	1	456	6	5	2	2	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.541894	
-ERR4315195	PRJEB39201	Triticum aestivum	field	db2	1	679	25	7	4	3	23	Puccinia striiformis f. sp. tritici	curated	1	1	0	Sporobolomyces roseus	0.361135	Alternaria;Cladosporium
+ERR4315195	PRJEB39201	Triticum aestivum	field	db2	1	679	25	7	4	3	24	Puccinia striiformis f. sp. tritici	curated	1	1	0	Sporobolomyces roseus	0.361135	Alternaria;Cladosporium
 ERR4315201	PRJEB39201	Triticum aestivum	field	db2	1	403	6	5	1	1	5	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.485526	
 ERR4315208	PRJEB39201	Triticum aestivum	field	db2	1	200	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.500099	
 ERR4315210	PRJEB39201	Triticum aestivum	field	db2	1	218	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.468381	
@@ -782,56 +782,56 @@ ERR4315234	PRJEB39201	Triticum aestivum	field	db2	1	360	2	2	1	1	1	Puccinia strii
 ERR4315236	PRJEB39201	Triticum aestivum	field	db2	1	328	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.416475	
 ERR4315238	PRJEB39201	Triticum aestivum	field	db2	1	291	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.461681	
 ERR4315240	PRJEB39201	Triticum aestivum	field	db2	1	229	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.442087	
-ERR4315244	PRJEB39201	Triticum aestivum	field	db2	1	529	23	5	2	2	21	Puccinia striiformis f. sp. tritici	curated	1	0	0	Cladosporium allicinum	0.427666	Alternaria
+ERR4315244	PRJEB39201	Triticum aestivum	field	db2	1	529	23	5	2	2	22	Puccinia striiformis f. sp. tritici	curated	1	0	0	Cladosporium allicinum	0.427666	Alternaria
 ERR4315245	PRJEB39201	Triticum aestivum	field	db2	1	217	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.459814	
 ERR4315246	PRJEB39201	Triticum aestivum	field	db2	1	228	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.514362	
 ERR4315251	PRJEB39201	Triticum aestivum	field	db2	1	259	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.374904	
 ERR4315252	PRJEB39201	Triticum aestivum	field	db2	1	255	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.422924	
 ERR4315256	PRJEB39201	Triticum aestivum	field	db2	1	239	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.485345	
 ERR4315262	PRJEB39201	Triticum aestivum	field	db2	1	504	13	4	2	2	12	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.468432	Alternaria
-ERR4315266	PRJEB39201	Triticum aestivum	field	db2	1	417	5	4	4	4	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.544603	
+ERR4315266	PRJEB39201	Triticum aestivum	field	db2	1	417	5	4	4	4	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.544603	
 ERR4315267	PRJEB39201	Triticum aestivum	field	db2	1	226	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.504317	
 ERR4315282	PRJEB39201	Triticum aestivum	field	db2	1	453	5	5	1	1	4	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.438296	
 ERR4315288	PRJEB39201	Triticum aestivum	field	db2	1	345	5	4	1	1	4	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.492073	
-ERR4315302	PRJEB39201	Triticum aestivum	field	db2	1	718	8	6	4	4	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Microdochium majus	0.396143	
+ERR4315302	PRJEB39201	Triticum aestivum	field	db2	1	718	8	6	4	4	7	Puccinia striiformis f. sp. tritici	curated	1	1	1	Microdochium majus	0.396143	
 ERR4315303	PRJEB39201	Triticum aestivum	field	db2	1	141	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.0248215	
 ERR4315309	PRJEB39201	Triticum aestivum	field	db2	1	275	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.485328	
-ERR4315321	PRJEB39201	Triticum aestivum	field	db2	1	323	23	7	3	2	21	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.543523	Alternaria
+ERR4315321	PRJEB39201	Triticum aestivum	field	db2	1	323	23	7	3	2	22	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.543523	Alternaria
 ERR4315324	PRJEB39201	Triticum aestivum	field	db2	1	226	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.535336	
 ERR4315329	PRJEB39201	Triticum aestivum	field	db2	1	197	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.513091	
 ERR4315332	PRJEB39201	Triticum aestivum	field	db2	1	442	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.476185	
-ERR4315347	PRJEB39201	Triticum aestivum	field	db2	1	370	6	5	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.466473	
+ERR4315347	PRJEB39201	Triticum aestivum	field	db2	1	370	6	5	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.466473	
 ERR4315356	PRJEB39201	Triticum aestivum	field	db2	1	274	18	3	1	1	17	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.398887	Alternaria
-ERR4315373	PRJEB39201	Triticum aestivum	field	db2	1	286	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.389418	
+ERR4315373	PRJEB39201	Triticum aestivum	field	db2	1	286	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.389418	
 ERR4315374	PRJEB39201	Triticum aestivum	field	db2	1	261	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.264809	
-ERR4315375	PRJEB39201	Triticum aestivum	field	db2	1	357	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.451619	
+ERR4315375	PRJEB39201	Triticum aestivum	field	db2	1	357	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.451619	
 ERR4315382	PRJEB39201	Triticum aestivum	field	db2	1	354	13	2	1	1	12	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.435199	Alternaria
 ERR4315384	PRJEB39201	Triticum aestivum	field	db2	1	119	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.532608	
 ERR4315388	PRJEB39201	Triticum aestivum	field	db2	1	140	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.509986	
-ERR4315391	PRJEB39201	Triticum aestivum	field	db2	1	295	21	7	3	3	19	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.508723	Alternaria
+ERR4315391	PRJEB39201	Triticum aestivum	field	db2	1	295	21	7	3	3	20	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.508723	Alternaria
 ERR4315394	PRJEB39201	Triticum aestivum	field	db2	1	274	18	5	1	1	17	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.451533	Alternaria
 ERR4315395	PRJEB39201	Triticum aestivum	field	db2	1	324	20	6	2	2	19	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.523125	Alternaria
 ERR4315398	PRJEB39201	Triticum aestivum	field	db2	1	260	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.191441	
 ERR4315409	PRJEB39201	Triticum aestivum	field	db2	1	231	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.483825	
 ERR4315410	PRJEB39201	Triticum aestivum	field	db2	1	196	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.494249	
-ERR4315414	PRJEB39201	Triticum aestivum	field	db2	1	342	9	7	3	3	7	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.498887	
+ERR4315414	PRJEB39201	Triticum aestivum	field	db2	1	342	9	7	3	3	8	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.498887	
 ERR4315421	PRJEB39201	Triticum aestivum	field	db2	1	192	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.264356	
 ERR4315426	PRJEB39201	Triticum aestivum	field	db2	1	147	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.511128	
 ERR4315434	PRJEB39201	Triticum aestivum	field	db2	1	333	5	5	1	1	4	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.518239	
 ERR4315446	PRJEB39201	Triticum aestivum	field	db2	1	487	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.157333	
 ERR4315447	PRJEB39201	Triticum aestivum	field	db2	1	187	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.484776	
 ERR4315456	PRJEB39201	Triticum aestivum	field	db2	1	251	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.284437	
-ERR4315470	PRJEB39201	Triticum aestivum	field	db2	1	190	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.493866	
+ERR4315470	PRJEB39201	Triticum aestivum	field	db2	1	190	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.493866	
 ERR4315476	PRJEB39201	Triticum aestivum	field	db2	1	214	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.511106	
 ERR4315477	PRJEB39201	Triticum aestivum	field	db2	1	301	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.381588	
 ERR4315488	PRJEB39201	Triticum turgidum	field	db2	1	303	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.45567	
-ERR4315491	PRJEB39201	Triticum aestivum	field	db2	1	328	6	5	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.435357	
-ERR4315492	PRJEB39201	Triticum aestivum	field	db2	1	328	7	5	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.473015	
+ERR4315491	PRJEB39201	Triticum aestivum	field	db2	1	328	6	5	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.435357	
+ERR4315492	PRJEB39201	Triticum aestivum	field	db2	1	328	7	5	3	3	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.473015	
 ERR4315493	PRJEB39201	Triticum aestivum	field	db2	1	456	19	5	1	1	18	Puccinia striiformis f. sp. tritici	curated	0	0	1	Cladosporium allicinum	0.622274	Alternaria
 ERR4315501	PRJEB39201	Triticum aestivum	field	db2	1	299	6	5	2	2	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.413458	
 ERR4315503	PRJEB39201	Triticum aestivum	field	db2	1	573	20	6	2	2	19	Puccinia striiformis f. sp. tritici	curated	1	1	1	Cladosporium allicinum	0.402838	Alternaria
 ERR4315505	PRJEB39201	Triticum aestivum	field	db2	1	396	5	5	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.411631	
-ERR4315507	PRJEB39201	Triticum aestivum	field	db2	1	275	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.46363	
+ERR4315507	PRJEB39201	Triticum aestivum	field	db2	1	275	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.46363	
 ERR4315508	PRJEB39201	Triticum aestivum	field	db2	1	329	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.48025	
 ERR4315520	PRJEB39201	Triticum aestivum	field	db2	1	183	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.486907	
 ERR4315521	PRJEB39201	Triticum aestivum	field	db2	1	218	4	3	3	3	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Microdochium majus	0.479089	
@@ -841,21 +841,21 @@ ERR4315531	PRJEB39201	Triticum aestivum	field	db2	1	309	5	5	2	2	4	Puccinia strii
 ERR4315535	PRJEB39201	Triticum aestivum	field	db2	1	342	14	3	1	1	13	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.403972	Alternaria
 ERR4315539	PRJEB39201	Triticum aestivum	field	db2	1	295	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.489613	
 ERR4315540	PRJEB39201	Triticum aestivum	field	db2	1	418	4	4	3	3	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Blumeria graminis	0.686509	
-ERR4315544	PRJEB39201	Triticum aestivum	field	db2	1	234	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.414266	
-ERR4315550	PRJEB39201	Triticum aestivum	field	db2	1	637	22	8	3	3	20	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.480803	Alternaria
+ERR4315544	PRJEB39201	Triticum aestivum	field	db2	1	234	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.414266	
+ERR4315550	PRJEB39201	Triticum aestivum	field	db2	1	637	22	8	3	3	21	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.480803	Alternaria
 ERR4315556	PRJEB39201	Triticum aestivum	field	db2	1	306	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.443716	
 ERR4315558	PRJEB39201	Triticum aestivum	field	db2	1	170	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.477349	
 ERR4315566	PRJEB39201	Triticum aestivum	field	db2	1	300	11	5	1	1	10	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.439487	Alternaria
-ERR4315572	PRJEB39201	Triticum aestivum	field	db2	1	294	6	5	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.401303	
+ERR4315572	PRJEB39201	Triticum aestivum	field	db2	1	294	6	5	3	3	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.401303	
 ERR4315574	PRJEB39201	Triticum aestivum	field	db2	1	254	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.37766	
 ERR4315581	PRJEB39201	Triticum aestivum	field	db2	1	166	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.340611	
 ERR4315591	PRJEB39201	Triticum aestivum	field	db2	1	150	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.467452	
-ERR4315598	PRJEB39201	Triticum aestivum	field	db2	1	201	4	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.492247	
+ERR4315598	PRJEB39201	Triticum aestivum	field	db2	1	201	4	3	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.492247	
 ERR4315602	PRJEB39201	Triticum aestivum	field	db2	1	172	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.493379	
-ERR4315603	PRJEB39201	Triticum aestivum	field	db2	1	195	4	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.498752	
+ERR4315603	PRJEB39201	Triticum aestivum	field	db2	1	195	4	3	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.498752	
 ERR4315604	PRJEB39201	Triticum aestivum	field	db2	1	360	23	9	4	4	22	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.494985	Alternaria
-ERR4315612	PRJEB39201	Triticum aestivum	field	db2	1	309	9	7	4	4	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.514325	Puccinia
-ERR4315616	PRJEB39201	Triticum aestivum	field	db2	1	515	24	6	2	2	22	Puccinia striiformis f. sp. tritici	curated	1	0	0	Dioszegia hungarica	0.547628	Alternaria
+ERR4315612	PRJEB39201	Triticum aestivum	field	db2	1	309	9	7	4	4	8	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.514325	Puccinia
+ERR4315616	PRJEB39201	Triticum aestivum	field	db2	1	515	24	6	2	2	23	Puccinia striiformis f. sp. tritici	curated	1	0	0	Dioszegia hungarica	0.547628	Alternaria
 ERR4315622	PRJEB39201	Triticum aestivum	field	db2	1	229	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.457789	
 ERR4315625	PRJEB39201	Triticum aestivum	field	db2	1	184	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.507332	
 ERR4315636	PRJEB39201	Triticum aestivum	field	db2	1	240	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Blumeria graminis	0.488295	
@@ -863,11 +863,11 @@ ERR4315654	PRJEB39201	Triticum aestivum	field	db2	1	235	1	1	1	1	0	Puccinia strii
 ERR4315658	PRJEB39201	Triticum aestivum	field	db2	1	403	18	4	1	1	17	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.363975	Alternaria
 ERR4315664	PRJEB39201	Triticum aestivum	field	db2	1	493	20	8	2	2	19	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.405745	Alternaria
 ERR4315668	PRJEB39201	Triticum aestivum	field	db2	1	305	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.337685	
-ERR4315675	PRJEB39201	Triticum aestivum	field	db2	1	380	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.449863	
+ERR4315675	PRJEB39201	Triticum aestivum	field	db2	1	380	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.449863	
 ERR4761815	PRJEB39201	Triticum aestivum	field	db2	1	531	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	0	Fusarium avenaceum	0.154511	
 ERR4761821	PRJEB39201	Triticum aestivum	field	db2	1	573	18	5	2	2	17	Puccinia striiformis f. sp. tritici	curated	1	1	1	Cladosporium allicinum	0.443461	Alternaria
-ERR4761825	PRJEB39201	Triticum aestivum	field	db2	1	169	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.500561	
-ERR4315150	PRJEB39201	Triticum aestivum	field	db2	1	117	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.513186	
+ERR4761825	PRJEB39201	Triticum aestivum	field	db2	1	169	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.500561	
+ERR4315150	PRJEB39201	Triticum aestivum	field	db2	1	117	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.513186	
 ERR4315151	PRJEB39201	Triticum aestivum	field	db2	1	253	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.481963	
 ERR4315154	PRJEB39201	Triticum aestivum	field	db2	1	168	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.469434	
 ERR4315164	PRJEB39201	Triticum aestivum	field	db2	1	292	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.416336	
@@ -881,22 +881,22 @@ ERR4315205	PRJEB39201	Triticum aestivum	field	db2	1	212	1	1	1	1	0	Puccinia strii
 ERR4315215	PRJEB39201	Triticum aestivum	field	db2	1	292	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.376161	
 ERR4315218	PRJEB39201	Triticum aestivum	field	db2	1	208	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.47254	
 ERR4315222	PRJEB39201	Triticum aestivum	field	db2	1	205	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.495384	
-ERR4315227	PRJEB39201	Triticum aestivum	field	db2	1	402	18	5	3	3	16	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.485019	Alternaria
+ERR4315227	PRJEB39201	Triticum aestivum	field	db2	1	402	18	5	3	3	17	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.485019	Alternaria
 ERR4315231	PRJEB39201	Triticum aestivum	field	db2	1	290	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.54071	
 ERR4315233	PRJEB39201	Triticum aestivum	field	db2	1	265	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.441285	
 ERR4315237	PRJEB39201	Triticum aestivum	field	db2	1	424	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.388151	
 ERR4315242	PRJEB39201	Triticum aestivum	field	db2	1	408	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.321907	
-ERR4315243	PRJEB39201	Triticum aestivum	field	db2	1	606	25	6	3	2	23	Puccinia striiformis f. sp. tritici	curated	1	1	0	Cladosporium allicinum	0.456746	Alternaria
+ERR4315243	PRJEB39201	Triticum aestivum	field	db2	1	606	25	6	3	2	24	Puccinia striiformis f. sp. tritici	curated	1	1	0	Cladosporium allicinum	0.456746	Alternaria
 ERR4315260	PRJEB39201	Triticum aestivum	field	db2	1	349	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.448242	
 ERR4315261	PRJEB39201	Triticum aestivum	field	db2	1	393	3	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.462596	
 ERR4315276	PRJEB39201	Triticum aestivum	field	db2	1	235	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.478281	
 ERR4315277	PRJEB39201	Triticum aestivum	field	db2	1	420	5	5	2	1	4	Puccinia striiformis f. sp. tritici	curated	1	1	0	Cladosporium allicinum	0.78825	
-ERR4315284	PRJEB39201	Triticum aestivum	field	db2	1	351	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.429962	
+ERR4315284	PRJEB39201	Triticum aestivum	field	db2	1	351	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.429962	
 ERR4315286	PRJEB39201	Triticum aestivum	field	db2	1	500	7	6	3	3	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.499733	
 ERR4315289	PRJEB39201	Triticum aestivum	field	db2	1	500	17	4	1	1	16	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.506931	Alternaria
 ERR4315304	PRJEB39201	Triticum aestivum	field	db2	1	173	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.0349647	
 ERR4315308	PRJEB39201	Triticum aestivum	field	db2	1	343	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.405894	
-ERR4315315	PRJEB39201	Triticum aestivum	field	db2	1	348	19	5	3	3	17	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.455663	Alternaria
+ERR4315315	PRJEB39201	Triticum aestivum	field	db2	1	348	19	5	3	3	18	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.455663	Alternaria
 ERR4315317	PRJEB39201	Triticum aestivum	field	db2	1	157	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.0424317	
 ERR4315323	PRJEB39201	Triticum aestivum	field	db2	1	241	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.52536	
 ERR4315326	PRJEB39201	Triticum aestivum	field	db2	1	188	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.486369	
@@ -910,11 +910,11 @@ ERR4315361	PRJEB39201	Triticum aestivum	field	db2	1	275	17	3	1	1	16	Puccinia str
 ERR4315362	PRJEB39201	Triticum aestivum	field	db2	1	262	17	3	1	1	16	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.47593	Alternaria
 ERR4315363	PRJEB39201	Triticum aestivum	field	db2	1	340	16	3	2	2	15	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.44407	Alternaria
 ERR4315365	PRJEB39201	Triticum aestivum	field	db2	1	341	17	3	1	1	16	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.30994	Alternaria
-ERR4315370	PRJEB39201	Triticum aestivum	field	db2	1	363	4	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.361961	
+ERR4315370	PRJEB39201	Triticum aestivum	field	db2	1	363	4	3	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.361961	
 ERR4315371	PRJEB39201	Triticum aestivum	field	db2	1	336	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.466508	
 ERR4315379	PRJEB39201	Triticum aestivum	field	db2	1	317	4	3	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.492639	
-ERR4315387	PRJEB39201	Triticum aestivum	field	db2	1	141	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.485658	
-ERR4315399	PRJEB39201	Triticum aestivum	field	db2	1	256	21	5	2	2	19	Puccinia striiformis f. sp. tritici	curated	1	0	1	Sporobolomyces roseus	0.334604	Alternaria
+ERR4315387	PRJEB39201	Triticum aestivum	field	db2	1	141	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.485658	
+ERR4315399	PRJEB39201	Triticum aestivum	field	db2	1	256	21	5	2	2	20	Puccinia striiformis f. sp. tritici	curated	1	0	1	Sporobolomyces roseus	0.334604	Alternaria
 ERR4315402	PRJEB39201	Triticum aestivum	field	db2	1	338	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.248265	
 ERR4315405	PRJEB39201	Triticum aestivum	field	db2	1	218	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.477161	
 ERR4315413	PRJEB39201	Triticum aestivum	field	db2	1	396	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.501763	
@@ -932,7 +932,7 @@ ERR4315465	PRJEB39201	Triticum aestivum	field	db2	1	226	1	1	1	1	0	Puccinia strii
 ERR4315472	PRJEB39201	Triticum aestivum	field	db2	1	196	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.465989	
 ERR4315475	PRJEB39201	Triticum turgidum	field	db2	1	276	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.399928	
 ERR4315484	PRJEB39201	Triticum aestivum	field	db2	1	161	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.498758	
-ERR4315490	PRJEB39201	Triticum aestivum	field	db2	1	407	21	7	4	4	19	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.506846	Alternaria
+ERR4315490	PRJEB39201	Triticum aestivum	field	db2	1	407	21	7	4	4	20	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.506846	Alternaria
 ERR4315496	PRJEB39201	Triticum aestivum	field	db2	1	422	5	5	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.499208	
 ERR4315497	PRJEB39201	Triticum aestivum	field	db2	1	440	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.479928	
 ERR4315500	PRJEB39201	Triticum aestivum	field	db2	1	430	15	7	3	3	14	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.404584	Alternaria
@@ -945,21 +945,21 @@ ERR4315530	PRJEB39201	Triticum aestivum	field	db2	1	254	14	2	1	1	13	Puccinia str
 ERR4315532	PRJEB39201	Triticum aestivum	field	db2	1	382	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.474265	
 ERR4315536	PRJEB39201	Triticum aestivum	field	db2	1	203	4	4	3	3	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.51127	
 ERR4315543	PRJEB39201	Triticum aestivum	field	db2	1	225	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.391405	
-ERR4315546	PRJEB39201	Triticum aestivum	field	db2	1	377	10	6	3	3	7	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.467672	Alternaria;Puccinia
+ERR4315546	PRJEB39201	Triticum aestivum	field	db2	1	377	10	6	3	3	9	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.467672	Alternaria;Puccinia
 ERR4315548	PRJEB39201	Triticum aestivum	field	db2	1	163	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.471588	
-ERR4315551	PRJEB39201	Triticum aestivum	field	db2	1	435	8	7	3	3	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.462732	
+ERR4315551	PRJEB39201	Triticum aestivum	field	db2	1	435	8	7	3	3	7	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.462732	
 ERR4315565	PRJEB39201	Triticum turgidum	field	db2	1	165	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.494289	
 ERR4315569	PRJEB39201	Triticum aestivum	field	db2	1	358	4	4	1	1	3	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.463434	
 ERR4315570	PRJEB39201	Triticum aestivum	field	db2	1	265	3	3	1	1	2	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.451903	
-ERR4315576	PRJEB39201	Triticum aestivum	field	db2	1	245	6	5	4	4	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.496951	
-ERR4315579	PRJEB39201	Triticum aestivum	field	db2	1	286	5	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.44356	
+ERR4315576	PRJEB39201	Triticum aestivum	field	db2	1	245	6	5	4	4	5	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.496951	
+ERR4315579	PRJEB39201	Triticum aestivum	field	db2	1	286	5	4	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.44356	
 ERR4315582	PRJEB39201	Triticum aestivum	field	db2	1	379	18	7	2	2	17	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.323468	Alternaria
-ERR4315584	PRJEB39201	Triticum aestivum	field	db2	1	353	21	5	2	2	19	Puccinia striiformis f. sp. tritici	curated	1	0	0	Cladosporium allicinum	0.572745	Alternaria;Cladosporium
+ERR4315584	PRJEB39201	Triticum aestivum	field	db2	1	353	21	5	2	2	20	Puccinia striiformis f. sp. tritici	curated	1	0	0	Cladosporium allicinum	0.572745	Alternaria;Cladosporium
 ERR4315592	PRJEB39201	Triticum aestivum	field	db2	1	223	5	5	3	3	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.483706	
-ERR4315599	PRJEB39201	Triticum aestivum	field	db2	1	205	4	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.400849	
-ERR4315600	PRJEB39201	Triticum aestivum	field	db2	1	200	4	3	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.52347	
+ERR4315599	PRJEB39201	Triticum aestivum	field	db2	1	205	4	3	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.400849	
+ERR4315600	PRJEB39201	Triticum aestivum	field	db2	1	200	4	3	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.52347	
 ERR4315613	PRJEB39201	Triticum aestivum	field	db2	1	291	5	5	2	2	4	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.39493	
-ERR4315615	PRJEB39201	Triticum aestivum	field	db2	1	315	9	7	4	4	7	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.472839	
+ERR4315615	PRJEB39201	Triticum aestivum	field	db2	1	315	9	7	4	4	8	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.472839	
 ERR4315618	PRJEB39201	Triticum aestivum	field	db2	1	161	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.477585	
 ERR4315619	PRJEB39201	Triticum aestivum	field	db2	1	254	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.367444	
 ERR4315626	PRJEB39201	Triticum aestivum	field	db2	1	164	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.398645	
@@ -970,11 +970,11 @@ ERR4315641	PRJEB39201	Triticum aestivum	field	db2	1	249	2	2	1	1	1	Puccinia strii
 ERR4315645	PRJEB39201	Triticum aestivum	field	db2	1	227	2	2	1	1	1	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.44447	
 ERR4315647	PRJEB39201	Triticum aestivum	field	db2	1	620	7	5	4	4	6	Puccinia striiformis f. sp. tritici	curated	1	1	0	Microdochium majus	0.218308	Microdochium
 ERR4315655	PRJEB39201	Triticum aestivum	field	db2	1	265	4	4	2	2	3	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.425692	
-ERR4315663	PRJEB39201	Triticum aestivum	field	db2	1	206	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.382214	
+ERR4315663	PRJEB39201	Triticum aestivum	field	db2	1	206	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.382214	
 ERR4315665	PRJEB39201	Triticum aestivum	field	db2	1	472	7	6	2	2	6	Puccinia striiformis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.536911	
-ERR4315667	PRJEB39201	Triticum aestivum	field	db2	1	283	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	0	Puccinia striiformis	0.265789	
+ERR4315667	PRJEB39201	Triticum aestivum	field	db2	1	283	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	0	Puccinia striiformis	0.265789	
 ERR4315669	PRJEB39201	Triticum aestivum	field	db2	1	521	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.151016	
-ERR4315676	PRJEB39201	Triticum aestivum	field	db2	1	417	3	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.458921	
+ERR4315676	PRJEB39201	Triticum aestivum	field	db2	1	417	3	2	2	2	2	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.458921	
 ERR4761816	PRJEB39201	Triticum aestivum	field	db2	1	179	2	2	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.494641	
 ERR4761819	PRJEB39201	Triticum aestivum	field	db2	1	534	18	5	2	2	17	Puccinia striiformis f. sp. tritici	curated	1	1	1	Puccinia striiformis	0.388276	Alternaria
 ERR4761822	PRJEB39201	Triticum aestivum	field	db2	1	431	19	6	1	1	18	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.456886	Alternaria
@@ -1019,28 +1019,28 @@ ERR6847884	PRJEB47693	Triticum aestivum	field	db2	1	247	4	4	2	2	3	Puccinia grami
 ERR6847888	PRJEB47693	Triticum aestivum	field	db2	1	130	4	4	2	2	3	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.455492	
 ERR6847891	PRJEB47693	Triticum aestivum	field	db2	1	407	5	4	2	2	4	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.702593	
 ERR6847895	PRJEB47693	Triticum aestivum	field	db2	1	390	5	4	2	2	4	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.667926	
-ERR6847875	PRJEB47693	Triticum aestivum	field	db2	1	233	2	1	2	2	0	Puccinia graminis f. sp. tritici	curated	1	0	1	Puccinia graminis	0.386618	
+ERR6847875	PRJEB47693	Triticum aestivum	field	db2	1	233	2	1	2	2	1	Puccinia graminis f. sp. tritici	curated	1	0	1	Puccinia graminis	0.386618	
 ERR6847877	PRJEB47693	Triticum aestivum	field	db2	1	241	4	4	2	2	3	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.431631	
 ERR6847878	PRJEB47693	Triticum aestivum	field	db2	1	267	4	4	2	2	3	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.440739	
 ERR6847880	PRJEB47693	Triticum aestivum	field	db2	1	255	14	4	1	1	13	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.424509	Alternaria
 ERR6847881	PRJEB47693	Triticum aestivum	field	db2	1	247	4	4	2	2	3	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.444929	
-ERR6847882	PRJEB47693	Triticum aestivum	field	db2	1	321	5	4	2	2	3	Puccinia graminis f. sp. tritici	curated	1	0	1	Puccinia graminis	0.431222	
+ERR6847882	PRJEB47693	Triticum aestivum	field	db2	1	321	5	4	2	2	4	Puccinia graminis f. sp. tritici	curated	1	0	1	Puccinia graminis	0.431222	
 ERR6847883	PRJEB47693	Triticum aestivum	field	db2	1	312	7	6	2	2	6	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.4285	
 ERR6847887	PRJEB47693	Triticum aestivum	field	db2	1	357	6	6	3	3	5	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.447918	
 ERR6847896	PRJEB47693	Triticum aestivum	field	db2	1	267	2	2	2	2	1	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.442056	
 ERR6847871	PRJEB47693	Triticum aestivum	field	db2	1	313	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.393686	
 ERR6847873	PRJEB47693	Triticum aestivum	field	db2	1	392	2	2	1	1	1	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.339048	
 ERR6847889	PRJEB47693	Triticum aestivum	field	db2	1	437	13	6	2	2	12	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.657336	Alternaria
-ERR6847892	PRJEB47693	Triticum aestivum	field	db2	1	326	6	5	4	4	4	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.435352	
-ERR6847893	PRJEB47693	Triticum aestivum	field	db2	1	395	18	6	4	4	15	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.5132	Alternaria;Puccinia
+ERR6847892	PRJEB47693	Triticum aestivum	field	db2	1	326	6	5	4	4	5	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.435352	
+ERR6847893	PRJEB47693	Triticum aestivum	field	db2	1	395	18	6	4	4	17	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.5132	Alternaria;Puccinia
 ERR6847897	PRJEB47693	Triticum aestivum	field	db2	1	342	5	5	2	2	4	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.441885	
 ERR6847874	PRJEB47693	Hordeum vulgare	field	db2	1	430	20	6	2	2	19	Puccinia graminis f. sp. tritici	curated	1	1	1	Microdochium majus	0.645717	Alternaria
-ERR6847876	PRJEB47693	Triticum aestivum	field	db2	1	356	3	2	2	2	1	Puccinia graminis f. sp. tritici	curated	1	0	1	Puccinia graminis	0.154483	
+ERR6847876	PRJEB47693	Triticum aestivum	field	db2	1	356	3	2	2	2	2	Puccinia graminis f. sp. tritici	curated	1	0	1	Puccinia graminis	0.154483	
 ERR6847879	PRJEB47693	Triticum aestivum	field	db2	1	188	5	5	2	2	4	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.43624	
 ERR6847885	PRJEB47693	Triticum aestivum	field	db2	1	437	17	6	2	2	16	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.439605	Alternaria
 ERR6847886	PRJEB47693	Triticum aestivum	field	db2	1	345	6	6	3	3	5	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.454706	
-ERR6847890	PRJEB47693	Triticum aestivum	field	db2	1	468	20	7	4	4	18	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.529922	Alternaria
-ERR6847894	PRJEB47693	Triticum aestivum	field	db2	1	386	7	6	3	3	5	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.6031	
+ERR6847890	PRJEB47693	Triticum aestivum	field	db2	1	468	20	7	4	4	19	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.529922	Alternaria
+ERR6847894	PRJEB47693	Triticum aestivum	field	db2	1	386	7	6	3	3	6	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.6031	
 ERR12013027	PRJEB65589	Triticum aestivum	field	db2	1	130	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.456588	
 ERR12013029	PRJEB65589	Triticum aestivum	field	db2	1	94	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.506473	
 ERR12013033	PRJEB65589	Triticum aestivum	field	db2	1	106	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.487728	
@@ -1049,19 +1049,19 @@ ERR12013035	PRJEB65589	Triticum aestivum	field	db2	1	146	1	1	1	1	0	Puccinia gram
 ERR12013050	PRJEB65589	Triticum aestivum	field	db2	1	268	3	3	2	2	2	Puccinia graminis f. sp. tritici	curated	1	1	0	Zymoseptoria tritici	0.271715	
 ERR12013051	PRJEB65589	Triticum aestivum	field	db2	1	401	24	11	5	5	23	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.384839	Alternaria
 ERR12013055	PRJEB65589	Triticum aestivum	field	db2	1	508	7	7	2	2	6	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.387568	
-ERR12013056	PRJEB65589	Triticum aestivum	field	db2	1	338	5	4	2	2	3	Puccinia graminis f. sp. tritici	curated	1	0	1	Puccinia graminis	0.43455	
+ERR12013056	PRJEB65589	Triticum aestivum	field	db2	1	338	5	4	2	2	4	Puccinia graminis f. sp. tritici	curated	1	0	1	Puccinia graminis	0.43455	
 ERR12013058	PRJEB65589	Triticum aestivum	field	db2	1	260	5	5	2	2	4	Puccinia graminis f. sp. tritici	curated	1	1	0	Zymoseptoria tritici	0.470274	
 ERR12013059	PRJEB65589	Triticum aestivum	field	db2	1	97	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.352519	
 ERR12013064	PRJEB65589	Triticum aestivum	field	db2	1	720	20	7	1	1	19	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.356221	Alternaria
-ERR12013065	PRJEB65589	Triticum aestivum	field	db2	1	352	3	2	2	2	1	Puccinia graminis f. sp. tritici	curated	1	0	1	Puccinia graminis	0.427745	
+ERR12013065	PRJEB65589	Triticum aestivum	field	db2	1	352	3	2	2	2	2	Puccinia graminis f. sp. tritici	curated	1	0	1	Puccinia graminis	0.427745	
 ERR12013070	PRJEB65589	Triticum aestivum	field	db2	1	279	2	2	1	1	1	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.208257	
 ERR12013073	PRJEB65589	Triticum aestivum	field	db2	1	188	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.315991	
 ERR12013030	PRJEB65589	Triticum aestivum	field	db2	1	85	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.514414	
-ERR12013041	PRJEB65589	Triticum aestivum	field	db2	1	339	6	5	3	3	4	Puccinia graminis f. sp. tritici	curated	1	1	0	Zymoseptoria tritici	0.554909	
-ERR12013042	PRJEB65589	Triticum aestivum	field	db2	1	460	9	7	4	4	7	Puccinia graminis f. sp. tritici	curated	1	1	0	Cladosporium allicinum	0.256466	
+ERR12013041	PRJEB65589	Triticum aestivum	field	db2	1	339	6	5	3	3	5	Puccinia graminis f. sp. tritici	curated	1	1	0	Zymoseptoria tritici	0.554909	
+ERR12013042	PRJEB65589	Triticum aestivum	field	db2	1	460	9	7	4	4	8	Puccinia graminis f. sp. tritici	curated	1	1	0	Cladosporium allicinum	0.256466	
 ERR12013045	PRJEB65589	Triticum aestivum	field	db2	1	297	6	5	3	3	5	Puccinia graminis f. sp. tritici	curated	1	1	0	Zymoseptoria tritici	0.410713	
-ERR12013047	PRJEB65589	Triticum aestivum	field	db2	1	221	3	2	3	3	1	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.234806	
-ERR12013049	PRJEB65589	Triticum aestivum	field	db2	1	428	25	10	4	4	23	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.413097	Alternaria
+ERR12013047	PRJEB65589	Triticum aestivum	field	db2	1	221	3	2	3	3	2	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia graminis	0.234806	
+ERR12013049	PRJEB65589	Triticum aestivum	field	db2	1	428	25	10	4	4	24	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.413097	Alternaria
 ERR12013052	PRJEB65589	Triticum aestivum	field	db2	1	318	4	4	2	2	3	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.372365	
 ERR12013054	PRJEB65589	Secale cereale	field	db2	1	236	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	0	Puccinia graminis	0.23848	
 ERR12013060	PRJEB65589	Triticum aestivum	field	db2	1	517	2	2	1	1	1	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.38175	
@@ -1071,7 +1071,7 @@ ERR12013077	PRJEB65589	Triticum aestivum	field	db2	1	163	1	1	1	1	0	Puccinia gram
 ERR12013032	PRJEB65589	Triticum aestivum	field	db2	1	79	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.519886	
 ERR12013036	PRJEB65589	Triticum aestivum	field	db2	1	162	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.448667	
 ERR12013039	PRJEB65589	Triticum aestivum	field	db2	1	350	2	2	1	1	1	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.0767634	
-ERR12013040	PRJEB65589	Triticum aestivum	field	db2	1	321	11	6	3	3	9	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.3338	Alternaria
+ERR12013040	PRJEB65589	Triticum aestivum	field	db2	1	321	11	6	3	3	10	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.3338	Alternaria
 ERR12013053	PRJEB65589	Secale cereale	field	db2	1	187	3	3	1	1	2	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.379889	
 ERR12013057	PRJEB65589	Triticum aestivum	field	db2	1	678	2	2	1	1	1	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.10344	
 ERR12013063	PRJEB65589	Triticum aestivum	field	db2	1	372	2	2	1	1	1	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.39845	
@@ -1080,11 +1080,11 @@ ERR12013079	PRJEB65589	Triticum aestivum	field	db2	1	399	2	2	1	1	1	Puccinia gram
 ERR12013028	PRJEB65589	Triticum aestivum	field	db2	1	90	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.52978	
 ERR12013037	PRJEB65589	Triticum aestivum	field	db2	1	95	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.595406	
 ERR12013048	PRJEB65589	Triticum aestivum	field	db2	1	337	20	8	3	3	19	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.420403	Alternaria
-ERR12013061	PRJEB65589	Triticum aestivum	field	db2	1	463	18	7	4	4	15	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.477718	Alternaria;Puccinia
+ERR12013061	PRJEB65589	Triticum aestivum	field	db2	1	463	18	7	4	4	17	Puccinia graminis f. sp. tritici	curated	1	1	1	Puccinia triticina	0.477718	Alternaria;Puccinia
 ERR12013067	PRJEB65589	Triticum aestivum	field	db2	1	606	21	7	2	2	20	Puccinia graminis f. sp. tritici	curated	1	1	1	Cladosporium allicinum	0.491251	Alternaria
 ERR12013068	PRJEB65589	Triticum aestivum	field	db2	1	601	9	5	1	1	8	Puccinia graminis f. sp. tritici	curated	0	0	0	Puccinia graminis	0.332565	Alternaria
-ERR12013072	PRJEB65589	Triticum aestivum	field	db2	1	408	19	5	3	3	17	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.35922	Alternaria
-ERR12013074	PRJEB65589	Triticum aestivum	field	db2	1	221	18	4	2	2	16	Puccinia graminis f. sp. tritici	curated	1	0	0	Puccinia graminis	0.353103	Alternaria
+ERR12013072	PRJEB65589	Triticum aestivum	field	db2	1	408	19	5	3	3	18	Puccinia graminis f. sp. tritici	curated	1	1	1	Zymoseptoria tritici	0.35922	Alternaria
+ERR12013074	PRJEB65589	Triticum aestivum	field	db2	1	221	18	4	2	2	17	Puccinia graminis f. sp. tritici	curated	1	0	0	Puccinia graminis	0.353103	Alternaria
 ERR12013076	PRJEB65589	Triticum aestivum	field	db2	1	97	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.33067	
 ERR12013031	PRJEB65589	Triticum aestivum	field	db2	1	101	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.504404	
 ERR12013038	PRJEB65589	Triticum aestivum	field	db2	1	111	1	1	1	1	0	Puccinia graminis f. sp. tritici	curated	0	0	1	Puccinia graminis	0.517118	
@@ -1120,9 +1120,9 @@ ERR13340230	PRJEB77002	Triticum aestivum	field	db2	1	215	4	4	1	1	0		not_curated	
 ERR13340233	PRJEB77002	Triticum aestivum	field	db2	1	223	2	2	1	1	0		not_curated	0	0	1	Puccinia striiformis	0.295458	
 ERR13340240	PRJEB77002	Triticum aestivum	field	db2	1	155	1	1	1	1	0		not_curated	0	0	1	Puccinia striiformis	0.143529	
 ERR13340245	PRJEB77002	Triticum aestivum	field	db2	1	162	1	1	1	1	0		not_curated	0	0	1	Puccinia striiformis	0.322646	
-ERR15005450	PRJEB84390	Triticum aestivum	field	db2	1	407	9	7	4	4	6	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.592035	Puccinia
+ERR15005450	PRJEB84390	Triticum aestivum	field	db2	1	407	9	7	4	4	8	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.592035	Puccinia
 ERR15005451	PRJEB84390	Triticum aestivum	field	db2	1	168	1	1	1	1	0	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.505973	
-ERR15005453	PRJEB84390	Triticum aestivum	field	db2	1	331	19	4	2	2	17	Puccinia triticina	curated	1	0	1	Cladosporium allicinum	0.550269	Alternaria
+ERR15005453	PRJEB84390	Triticum aestivum	field	db2	1	331	19	4	2	2	18	Puccinia triticina	curated	1	0	1	Cladosporium allicinum	0.550269	Alternaria
 ERR15005460	PRJEB84390	Triticum aestivum	field	db2	1	290	4	4	2	2	3	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.378923	
 ERR15005461	PRJEB84390	Triticum aestivum	field	db2	1	222	4	4	2	2	3	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.595934	
 ERR15005472	PRJEB84390	Triticum aestivum	field	db2	1	250	5	4	3	3	4	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.515938	
@@ -1130,13 +1130,13 @@ ERR15005474	PRJEB84390	Triticum aestivum	field	db2	1	347	4	4	3	3	3	Puccinia trit
 ERR15005482	PRJEB84390	Triticum aestivum	field	db2	1	177	3	3	1	1	2	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.713236	
 ERR15005483	PRJEB84390	Triticum aestivum	field	db2	1	220	4	4	2	2	3	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.757118	
 ERR15005484	PRJEB84390	Triticum aestivum	field	db2	1	231	5	5	3	3	4	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.716969	
-ERR15005491	PRJEB84390	Triticum aestivum	field	db2	1	210	6	4	3	3	4	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.622272	
+ERR15005491	PRJEB84390	Triticum aestivum	field	db2	1	210	6	4	3	3	5	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.622272	
 ERR15005496	PRJEB84390	Triticum aestivum	field	db2	1	304	20	6	2	2	19	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.563704	Alternaria
 ERR15005513	PRJEB84390	Triticum aestivum	field	db2	1	112	1	1	1	1	0	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.321173	
 ERR15005519	PRJEB84390	Triticum aestivum	field	db2	1	236	4	4	2	2	3	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.511455	
-ERR15005523	PRJEB84390	Triticum aestivum	field	db2	1	173	6	5	3	3	4	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.517576	
+ERR15005523	PRJEB84390	Triticum aestivum	field	db2	1	173	6	5	3	3	5	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.517576	
 ERR15005525	PRJEB84390	Triticum aestivum	field	db2	1	292	1	1	1	1	0	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.13856	
-ERR15005528	PRJEB84390	Triticum aestivum	field	db2	1	267	4	3	2	2	2	Puccinia triticina	curated	1	0	1	Puccinia triticina	0.504444	
+ERR15005528	PRJEB84390	Triticum aestivum	field	db2	1	267	4	3	2	2	3	Puccinia triticina	curated	1	0	1	Puccinia triticina	0.504444	
 ERR15005529	PRJEB84390	Triticum aestivum	field	db2	1	361	3	3	1	1	2	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.424689	
 ERR15005532	PRJEB84390	Triticum aestivum	field	db2	1	284	17	5	2	2	16	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.542141	Alternaria
 ERR15005454	PRJEB84390	Triticum aestivum	field	db2	1	346	22	7	2	2	21	Puccinia triticina	curated	1	1	1	Cladosporium allicinum	0.550393	Alternaria
@@ -1153,13 +1153,13 @@ ERR15005526	PRJEB84390	Triticum aestivum	field	db2	1	316	1	1	1	1	0	Puccinia trit
 ERR15005537	PRJEB84390	Triticum aestivum	field	db2	1	301	16	6	2	2	15	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.646139	Alternaria
 ERR15005538	PRJEB84390	Triticum aestivum	field	db2	1	183	6	6	2	2	5	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.675321	
 ERR15005543	PRJEB84390	Triticum aestivum	field	db2	1	107	1	1	1	1	0	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.778391	
-ERR15005447	PRJEB84390	Triticum aestivum	field	db2	1	369	8	7	4	4	6	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.599267	
+ERR15005447	PRJEB84390	Triticum aestivum	field	db2	1	369	8	7	4	4	7	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.599267	
 ERR15005455	PRJEB84390	Triticum aestivum	field	db2	1	255	18	4	2	2	17	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.631815	Alternaria
 ERR15005457	PRJEB84390	Triticum aestivum	field	db2	1	250	14	4	1	1	13	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.592791	Alternaria
 ERR15005464	PRJEB84390	Triticum aestivum	field	db2	1	144	14	4	1	1	13	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.60986	Alternaria
 ERR15005469	PRJEB84390	Triticum aestivum	field	db2	1	357	21	7	3	2	20	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.593349	Alternaria
 ERR15005470	PRJEB84390	Triticum aestivum	field	db2	1	316	6	6	4	4	5	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.613315	
-ERR15005471	PRJEB84390	Triticum aestivum	field	db2	1	155	3	2	2	2	1	Puccinia triticina	curated	1	0	1	Puccinia triticina	0.556074	
+ERR15005471	PRJEB84390	Triticum aestivum	field	db2	1	155	3	2	2	2	2	Puccinia triticina	curated	1	0	1	Puccinia triticina	0.556074	
 ERR15005475	PRJEB84390	Triticum aestivum	field	db2	1	256	3	3	2	2	2	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.649245	
 ERR15005476	PRJEB84390	Triticum aestivum	field	db2	1	326	5	5	3	3	4	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.500614	
 ERR15005478	PRJEB84390	Triticum aestivum	field	db2	1	318	5	5	3	3	4	Puccinia triticina	curated	1	1	1	Blumeria graminis	0.908703	
@@ -1175,26 +1175,26 @@ ERR15005535	PRJEB84390	Triticum aestivum	field	db2	1	296	2	2	1	1	1	Puccinia trit
 ERR15005540	PRJEB84390	Triticum aestivum	field	db2	1	262	6	6	3	2	5	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.585359	
 ERR15005542	PRJEB84390	Triticum aestivum	field	db2	1	124	1	1	1	1	0	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.820715	
 ERR15005444	PRJEB84390	Triticum aestivum	field	db2	1	283	6	6	2	2	5	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.485074	
-ERR15005445	PRJEB84390	Triticum aestivum	field	db2	1	299	10	8	6	6	7	Puccinia triticina	curated	1	1	1	Puccinia striiformis	0.40358	Puccinia
+ERR15005445	PRJEB84390	Triticum aestivum	field	db2	1	299	10	8	6	6	9	Puccinia triticina	curated	1	1	1	Puccinia striiformis	0.40358	Puccinia
 ERR15005448	PRJEB84390	Triticum aestivum	field	db2	1	359	4	4	1	1	3	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.49877	
 ERR15005459	PRJEB84390	Triticum aestivum	field	db2	1	275	3	3	2	2	2	Puccinia triticina	curated	1	1	0	Puccinia triticina	0.184416	
-ERR15005462	PRJEB84390	Triticum aestivum	field	db2	1	279	8	6	3	3	6	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.571355	
+ERR15005462	PRJEB84390	Triticum aestivum	field	db2	1	279	8	6	3	3	7	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.571355	
 ERR15005466	PRJEB84390	Triticum aestivum	field	db2	1	239	3	3	1	1	2	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.567111	
 ERR15005473	PRJEB84390	Triticum aestivum	field	db2	1	340	5	5	3	3	4	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.686307	
 ERR15005487	PRJEB84390	Triticum aestivum	field	db2	1	291	18	7	3	3	17	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.660717	Alternaria
 ERR15005501	PRJEB84390	Triticum aestivum	field	db2	1	291	7	6	2	2	6	Puccinia triticina	curated	1	1	1	Zymoseptoria tritici	0.740006	
 ERR15005506	PRJEB84390	Triticum aestivum	field	db2	1	289	6	6	3	2	5	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.707838	
 ERR15005507	PRJEB84390	Triticum aestivum	field	db2	1	258	6	6	2	2	5	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.517013	
-ERR15005508	PRJEB84390	Triticum aestivum	field	db2	1	286	18	7	3	3	16	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.656177	Alternaria
+ERR15005508	PRJEB84390	Triticum aestivum	field	db2	1	286	18	7	3	3	17	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.656177	Alternaria
 ERR15005509	PRJEB84390	Triticum aestivum	field	db2	1	245	5	5	2	2	4	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.58028	
 ERR15005517	PRJEB84390	Triticum aestivum	field	db2	1	273	18	8	5	5	17	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.652299	Alternaria
 ERR15005520	PRJEB84390	Triticum aestivum	field	db2	1	99	1	1	1	1	0	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.64365	
-ERR15005530	PRJEB84390	Triticum aestivum	field	db2	1	190	2	1	2	2	0	Puccinia triticina	curated	1	0	1	Puccinia triticina	0.249227	
+ERR15005530	PRJEB84390	Triticum aestivum	field	db2	1	190	2	1	2	2	1	Puccinia triticina	curated	1	0	1	Puccinia triticina	0.249227	
 ERR15005531	PRJEB84390	Triticum aestivum	field	db2	1	313	3	3	1	1	2	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.566381	
 ERR15005539	PRJEB84390	Triticum aestivum	field	db2	1	365	6	6	2	2	5	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.7047	
-ERR15005446	PRJEB84390	Triticum aestivum	field	db2	1	260	7	6	2	2	5	Puccinia triticina	curated	1	0	1	Puccinia triticina	0.538851	
-ERR15005449	PRJEB84390	Triticum aestivum	field	db2	1	350	9	7	5	5	6	Puccinia triticina	curated	1	1	1	Puccinia striiformis	0.47373	Puccinia
-ERR15005452	PRJEB84390	Triticum aestivum	field	db2	1	307	19	5	3	3	17	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.372768	Alternaria
+ERR15005446	PRJEB84390	Triticum aestivum	field	db2	1	260	7	6	2	2	6	Puccinia triticina	curated	1	0	1	Puccinia triticina	0.538851	
+ERR15005449	PRJEB84390	Triticum aestivum	field	db2	1	350	9	7	5	5	8	Puccinia triticina	curated	1	1	1	Puccinia striiformis	0.47373	Puccinia
+ERR15005452	PRJEB84390	Triticum aestivum	field	db2	1	307	19	5	3	3	18	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.372768	Alternaria
 ERR15005458	PRJEB84390	Triticum aestivum	field	db2	1	264	4	4	1	1	3	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.584737	
 ERR15005463	PRJEB84390	Triticum aestivum	field	db2	1	235	4	4	1	1	3	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.582162	
 ERR15005467	PRJEB84390	Triticum aestivum	field	db2	1	317	7	6	2	2	6	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.441268	
@@ -1203,7 +1203,7 @@ ERR15005481	PRJEB84390	Triticum aestivum	field	db2	1	267	5	5	2	2	4	Puccinia trit
 ERR15005486	PRJEB84390	Triticum aestivum	field	db2	1	318	6	6	3	3	5	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.632021	
 ERR15005488	PRJEB84390	Triticum aestivum	field	db2	1	283	9	8	4	4	8	Puccinia triticina	curated	1	1	1	Zymoseptoria tritici	0.599776	
 ERR15005489	PRJEB84390	Triticum aestivum	field	db2	1	363	6	6	2	2	5	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.686125	
-ERR15005490	PRJEB84390	Triticum aestivum	field	db2	1	315	21	6	4	4	19	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.609981	Alternaria
+ERR15005490	PRJEB84390	Triticum aestivum	field	db2	1	315	21	6	4	4	20	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.609981	Alternaria
 ERR15005494	PRJEB84390	Triticum aestivum	field	db2	1	169	2	2	1	1	1	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.621106	
 ERR15005498	PRJEB84390	Triticum aestivum	field	db2	1	117	1	1	1	1	0	Puccinia triticina	curated	0	0	1	Puccinia triticina	0.615408	
 ERR15005499	PRJEB84390	Triticum aestivum	field	db2	1	125	2	2	2	2	1	Puccinia triticina	curated	1	1	1	Puccinia triticina	0.654043	
@@ -1524,15 +1524,15 @@ SRR23826076	PRJNA918968	Hordeum vulgare	field	db2	1	291	1	1	0	0	0		not_curated	0
 SRR23826080	PRJNA918968	Hordeum vulgare	field	db2	1	494	0	0	0	0	0		not_curated	0	0	1			
 SRR23826088	PRJNA918968	Hordeum vulgare	field	db2	1	403	2	2	0	0	0		not_curated	0	0	1	Sporobolomyces ruberrimus	0.0357742	
 SRR23826094	PRJNA918968	Hordeum vulgare	field	db2	1	383	0	0	0	0	0		not_curated	0	0	1			
-SRR24010213	PRJNA950118	Triticum aestivum	field	db2	1	276	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.25303	
+SRR24010213	PRJNA950118	Triticum aestivum	field	db2	1	276	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.25303	
 SRR24010214	PRJNA950118	Triticum aestivum	field	db2	1	64	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.491341	
 SRR24010217	PRJNA950118	Triticum aestivum	field	db2	1	73	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.493392	
-SRR24010218	PRJNA950118	Triticum aestivum	field	db2	1	92	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.451486	
+SRR24010218	PRJNA950118	Triticum aestivum	field	db2	1	92	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.451486	
 SRR24010222	PRJNA950118	Triticum aestivum	field	db2	1	234	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.406762	
 SRR24010230	PRJNA950118	Triticum aestivum	field	db2	1	165	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.360275	
-SRR24010242	PRJNA950118	Triticum aestivum	field	db2	1	188	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	0	Puccinia striiformis	0.396207	
+SRR24010242	PRJNA950118	Triticum aestivum	field	db2	1	188	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	0	Puccinia striiformis	0.396207	
 SRR24010247	PRJNA950118	Triticum aestivum	field	db2	1	252	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	0	Puccinia striiformis	0.392252	
-SRR24010215	PRJNA950118	Triticum aestivum	field	db2	1	93	2	1	2	2	0	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.330716	
+SRR24010215	PRJNA950118	Triticum aestivum	field	db2	1	93	2	1	2	2	1	Puccinia striiformis f. sp. tritici	curated	1	0	1	Puccinia striiformis	0.330716	
 SRR24010219	PRJNA950118	Triticum aestivum	field	db2	1	83	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.46925	
 SRR24010221	PRJNA950118	Triticum aestivum	field	db2	1	71	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.493412	
 SRR24010229	PRJNA950118	Triticum aestivum	field	db2	1	185	1	1	1	1	0	Puccinia striiformis f. sp. tritici	curated	0	0	1	Puccinia striiformis	0.352172	

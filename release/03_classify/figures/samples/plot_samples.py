@@ -270,14 +270,24 @@ def load():
         if med_n >= 3 and med_cv < 0.35 and not collapsed and len(hit.get(g, ())) >= MIN_RUNS:
             suspect.append((g, med_n, med_cv))
 
-    # SPILLOVER: a taxon that is NEVER called without a congener and only ever at a small
-    # fraction of that congener's coverage is not a detection, it is k-mers bleeding off an
-    # abundant neighbour. Applied as a uniform rule over every genus rather than named per
-    # taxon; in this cohort it catches exactly one, Zymoseptoria brevis (24 runs, 24 of them
-    # alongside Z. tritici, median coverage ratio 0.04). The Alternaria cluster does NOT trip
-    # it, because its members sit at ~1.0 of each other, which is why that one is collapsed
-    # instead; and Cladosporium inversicolor does not trip it either, because it is called
-    # alone in 4 runs, and being called alone is the evidence of independence.
+    # CONGENER-TRACKING, and it is a FLAG, NEVER A FILTER. The module's standing rule is
+    # that a congener cluster is reported and not removed, and an earlier version of this
+    # script broke it by deleting the row.
+    #
+    # The flag marks a taxon never called without a congener and only ever at a small
+    # fraction of that congener's coverage. In this cohort it catches one, Zymoseptoria
+    # brevis. What it is NOT is k-mer sharing between the two references: Kraken2's LCA
+    # already sends every minimizer the two share to the genus node, and in a passing run
+    # that node carries about 1.29 M of them while brevis still holds 100 k that are
+    # brevis-EXCLUSIVE in db2. Those cannot have come from the Z. tritici reference.
+    #
+    # The mechanism is reference-strain divergence: field Z. tritici differs from the
+    # reference genome, and where a field variant coincides with the brevis reference the
+    # k-mer is brevis-exclusive and is called brevis. No coverage floor separates that, the
+    # reads being real and the k-mers genuinely exclusive, which is why this is disclosed
+    # rather than thresholded. It is the close-relative false positive TIPP-SD (Shen 2026)
+    # measures and leaves uncorrected, and release/04_align is what resolves it, from
+    # species-unique reads and positional evenness.
     spill = {}
     for t, rr in hit.items():
         if len(rr) < MIN_RUNS:
@@ -289,8 +299,6 @@ def load():
         pairs = [cov[t][r] / cov[best][r] for r in rr & hit[best] if cov[best].get(r)]
         if pairs and statistics.median(pairs) < SPILL_RATIO:
             spill[t] = (len(rr), best, statistics.median(pairs))
-    for t in spill:
-        del hit[t]
 
     is_wp = lambda t: mrow[t][1] == "wheat_path"
     missing = sorted(t for t in hit
@@ -375,8 +383,8 @@ def main():
             ty = b_top - (i - i0 + 0.5) * RH
             n_sp = collapsed.get(taxa[i], 0)
             if not n_sp:
-                ax.text(X0 - 0.09, ty, abbrev(taxa[i]), ha="right", va="center",
-                        fontsize=7.4, style="italic", color=INK)
+                ax.text(X0 - 0.09, ty, abbrev(taxa[i]) + (" †" if taxa[i] in spill else ""),
+                        ha="right", va="center", fontsize=7.4, style="italic", color=INK)
                 continue
             # A collapsed row is "Alternaria (14 spp.)": the genus is a name and sets italic,
             # the count is not. Drawn as two texts and the suffix measured, so the pair still
@@ -443,7 +451,8 @@ def main():
     noloc = len(bycty.get("", ()))
     print(f"  {noloc} runs carry no location and sit in the unplaced block")
     if spill:
-        print("  SPILLOVER, not drawn (never called without a congener, and at <"
+        print("  FLAGGED † congener-tracking, still drawn (never called without a "
+              "congener, and at <"
               f"{SPILL_RATIO:.0%} of its coverage): " +
               ", ".join(f"{t} ({n} runs, all with {p}, ratio {r:.2f})"
                         for t, (n, p, r) in sorted(spill.items())))

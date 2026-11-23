@@ -243,17 +243,29 @@ def main():
         f"the calls are infections rather than contamination: neither spore drift, index "
         f"hopping nor cross-mapping is organised by continent.",
         "",
-        f"One taxon is withheld by a uniform rule. {n['sp']} is called in {n['sp_runs']} "
-        f"runs, {n['sp_both']} of them also carrying {n['sp_partner']}, at a median "
-        f"{n['sp_ratio']:.0f}% of its coverage: never found alone and never more than a "
-        f"trace beside an abundant congener, which "
-        f"is k-mers bleeding off a neighbour rather than a detection. The rule is applied to "
-        f"every genus and catches only this one. The Alternaria cluster does not trip it, "
-        f"because its members sit at comparable coverage to each other, which is why that "
-        f"one is collapsed instead; Cladosporium inversicolor does not trip it either, "
-        f"because it is called with no Cladosporium congener at all in {n['ci_alone']} "
-        f"runs, and being found alone is "
-        f"the evidence of independence.",
+        f"One row carries a dagger, and it is a flag rather than a removal. {n['sp']} is "
+        f"called in {n['sp_runs']} runs, {n['sp_both']} of them also carrying "
+        f"{n['sp_partner']}, at a median {n['sp_ratio']:.0f}% of its coverage and tracking "
+        f"it across runs: never found alone, never more than a trace beside an abundant "
+        f"congener. The rule is applied to every genus and marks only this one. The "
+        f"Alternaria cluster does not trip it, its members sitting at comparable coverage "
+        f"to each other, which is why that one is collapsed instead; Cladosporium "
+        f"inversicolor does not either, being called with no congener at all in "
+        f"{n['ci_alone']} runs, and being found alone is the evidence of independence.",
+        "",
+        f"The flagged call is NOT k-mers shared between the two references, and the "
+        f"distinction decides how it can be handled. Kraken2 assigns every minimizer two "
+        f"taxa share to their common ancestor, so in a passing run the Zymoseptoria genus "
+        f"node absorbs about 1.29 million of them while Z. brevis still holds some 100,000 "
+        f"exclusive to it in this database, which cannot have come from the Z. tritici "
+        f"reference. The likely mechanism is divergence from the reference genome: field "
+        f"Z. tritici differs from the assembly the database was built on, and where a field "
+        f"variant coincides with the brevis reference the k-mer is counted for brevis. No "
+        f"coverage floor separates that, the reads being real and the k-mers genuinely "
+        f"exclusive, so it is disclosed rather than thresholded away. It is the "
+        f"close-relative false positive that TIPP-SD (Shen et al. 2026) measures and leaves "
+        f"uncorrected, and release/04_align is what resolves it, from species-unique reads "
+        f"and positional evenness.",
         "",
         f"Detection is presence, not activity, and a species-level call inside a densely "
         f"represented genus is a call on that genus' k-mer space; both are taken up in "

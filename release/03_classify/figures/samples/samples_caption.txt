@@ -73,15 +73,29 @@ reasons, and it is evidence the calls are infections rather than
 contamination: neither spore drift, index hopping nor cross-mapping is
 organised by continent.
 
-One taxon is withheld by a uniform rule. Z. brevis is called in 24 runs, 24 of
-them also carrying Z. tritici, at a median 4% of its coverage: never found
-alone and never more than a trace beside an abundant congener, which is k-mers
-bleeding off a neighbour rather than a detection. The rule is applied to every
-genus and catches only this one. The Alternaria cluster does not trip it,
-because its members sit at comparable coverage to each other, which is why
-that one is collapsed instead; Cladosporium inversicolor does not trip it
-either, because it is called with no Cladosporium congener at all in 4 runs,
-and being found alone is the evidence of independence.
+One row carries a dagger, and it is a flag rather than a removal. Z. brevis is
+called in 24 runs, 24 of them also carrying Z. tritici, at a median 4% of its
+coverage and tracking it across runs: never found alone, never more than a
+trace beside an abundant congener. The rule is applied to every genus and
+marks only this one. The Alternaria cluster does not trip it, its members
+sitting at comparable coverage to each other, which is why that one is
+collapsed instead; Cladosporium inversicolor does not either, being called
+with no congener at all in 4 runs, and being found alone is the evidence of
+independence.
+
+The flagged call is NOT k-mers shared between the two references, and the
+distinction decides how it can be handled. Kraken2 assigns every minimizer two
+taxa share to their common ancestor, so in a passing run the Zymoseptoria
+genus node absorbs about 1.29 million of them while Z. brevis still holds some
+100,000 exclusive to it in this database, which cannot have come from the Z.
+tritici reference. The likely mechanism is divergence from the reference
+genome: field Z. tritici differs from the assembly the database was built on,
+and where a field variant coincides with the brevis reference the k-mer is
+counted for brevis. No coverage floor separates that, the reads being real and
+the k-mers genuinely exclusive, so it is disclosed rather than thresholded
+away. It is the close-relative false positive that TIPP-SD (Shen et al. 2026)
+measures and leaves uncorrected, and release/04_align is what resolves it,
+from species-unique reads and positional evenness.
 
 Detection is presence, not activity, and a species-level call inside a densely
 represented genus is a call on that genus' k-mer space; both are taken up in

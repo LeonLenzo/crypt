@@ -52,6 +52,7 @@ S5 = HERE / "data/outputs/supp_data_s5_detections.tsv"
 S2 = HERE.parent / "01_cohort/data/outputs/supp_data_s2_cohort.tsv"
 CEN = HERE.parent / "01_cohort/figures/country_centroids.tsv"
 GRP = HERE / "data/inputs/pathogen_groups.tsv"
+REGIONS = HERE / "data/inputs/country_regions.tsv"
 S3REF = HERE.parent / "02_reference/data/outputs/supp_data_s3_reference.tsv"
 FIG = Path(__file__).resolve().parent
 csv.field_size_limit(10 ** 7)
@@ -84,12 +85,24 @@ PHI_KEY = {"none": "none", "plant_pathogen": "vagrant", "wheat_pathogen": "wheat
 # literature would file it. That disagreement is the label's, and the figure should show it
 # rather than paper over it.
 SLOT_BAND = {
-    ("wheat", "none"):       (5, "Recorded on wheat, not a pathogen of it"),
+    ("wheat", "none"):       (5, "Wheat resident"),
     ("wheat", "vagrant"):    (6, "Pathogen of another plant, recorded on wheat"),
-    ("plant", "none"):       (7, "Recorded on another plant"),
+    ("plant", "none"):       (7, "Plant resident"),
     ("plant", "vagrant"):    (8, "Pathogen of another plant"),
-    ("congener", "none"):    (9, "Congener, no record of its own"),
 }
+
+# Taxa in the ('congener', 'none') slot are NOT DRAWN. They are in the reference only because
+# their GENUS qualified, so USDA holds no host record for the taxon itself and there is no
+# statement the panel can make about where it belongs. Leon's call, 2026-11-23.
+#
+# This is a real cost, not only tidying: it removes Dioszegia hungarica, called in 353 runs,
+# which 02_reference's scope notes name as part of the wheat resident core. The calls are not
+# being judged false, they are being left out of a figure whose every other row carries a
+# host record. supp_data_s5 keeps all of them.
+DROP_SLOTS = {("congener", "none")}
+
+# The two halves of the panel, bracketed on the far left.
+SUPER = {True: "Pathogens", False: "Residents"}
 LUM_CEILING = 0.70
 SPILL_RATIO = 0.25      # never-alone AND below this share of the congener's coverage
 SPILL = "Zymoseptoria brevis"   # what the rule catches here; the caption reads it from this
@@ -124,7 +137,22 @@ ALIAS = {"United Kingdom": "UK", "United States": "USA", "The Netherlands": "Net
          "Czechia": "Czech Republic", "Russian Federation": "Russia", "Zimbabwae": "Zimbabwe"}
 NULL_LOC = {"", "missing", "unknown", "not applicable", "not collected", "na", "n/a"}
 MIN_RUNS = 10           # a taxon needs this many calls across the cohort to get a row
-LABEL_MIN = 18          # a country needs this many runs for its name to fit above the block
+# COLUMNS GROUP BY REGION, NOT BY COUNTRY. 41 countries across a 7-inch grid left most
+# blocks too narrow to name -- 18 of them, including Ireland and the Netherlands, which the
+# caption names -- and the signal is not national anyway: Septoria tritici blotch is a
+# maritime northwest European disease and stem rust an East African and Southern Cone one.
+# The mapping is authored in data/inputs/country_regions.tsv; a country in the data and
+# missing from it is a hard error. The country of every run stays in samples_order.tsv.
+#
+# A region still needs a minimum width to carry a name, and WHAT FITS IS GEOMETRY. Labels sit
+# at LABEL_ROT, so two on one baseline clear each other only if their blocks are at least
+# (text height / sin(rot)) apart, about 0.115 in here. Labels are placed on two staggered
+# baselines and the separation is MEASURED: one that still would not clear is skipped and
+# reported, so a collision is never silent.
+LABEL_MIN = 12
+LABEL_ROT = 55
+LABEL_TIER = 0.30       # vertical offset of the second baseline, in inches
+REGION_GAP = 0.085      # gap between two region blocks; the rule sits in the middle of it
 BAND_GAP = 0.26         # inches of white between bands; the band's name sits in it
 
 # The host is excluded: every library has one, no study declares it as a pathogen, and a row
@@ -159,6 +187,19 @@ def groups():
 def abbrev(name):
     parts = name.split()
     return f"{parts[0][0]}. {' '.join(parts[1:])}" if len(parts) > 1 else name
+
+
+def regions():
+    """{country: region} from data/inputs/country_regions.tsv."""
+    out = {}
+    with open(REGIONS) as fh:
+        for line in fh:
+            if line.startswith("#") or line.startswith("country\t"):
+                continue
+            f = line.rstrip("\n").split("\t")
+            if len(f) >= 2:
+                out[f[0]] = f[1]
+    return out
 
 
 def country(loc):
@@ -201,9 +242,18 @@ def load():
     # Country order is the MEAN LONGITUDE OF ITS OWN RUNS where the runs carry coordinates,
     # and the gazetteer centroid only where none of them do. Using the centroid throughout
     # would place a country by its shape rather than by where the sampling actually happened.
+    reg = regions()
+    unmapped = sorted({m["country"] for m in runs.values()
+                       if m["country"] and m["country"] not in reg})
+    if unmapped:
+        raise SystemExit(f"{REGIONS} has no region for: {', '.join(unmapped)}. Add them; a "
+                         f"silent 'Other' bucket would hide where the runs came from.")
+    for m in runs.values():
+        m["region"] = reg.get(m["country"], "")
+
     bycty = defaultdict(list)
     for rid, m in runs.items():
-        bycty[m["country"]].append(rid)
+        bycty[m["region"]].append(rid)
     pos, unplaced, unknown_name = {}, [], []
     for c, ids in bycty.items():
         lons = [runs[i]["lon"] for i in ids if runs[i]["lon"] is not None]
@@ -233,7 +283,8 @@ def load():
     grp = groups()
     hit, declared_in, mismatched = defaultdict(set), defaultdict(set), 0
     cluster, cvs, collapsed_of = defaultdict(set), defaultdict(list), defaultdict(set)
-    klass, cov, mrow, gen_of = {}, defaultdict(dict), {}, {}
+    klass, cov, gen_of = {}, defaultdict(dict), {}
+    slot_votes = defaultdict(collections.Counter)
     with open(S5) as fh:
         for r in csv.DictReader(fh, delimiter="\t"):
             if r["run"] not in runs or r["taxon_class"] not in DRAWN_CLASSES:
@@ -251,8 +302,7 @@ def load():
             collapsed_of[key].add(r["taxon"])
             hit[key].add(r["run"])
             cov[key][r["run"]] = float(r["coverage"])
-            row, col = s3.get(r["taxon"], ("congener", "none"))
-            mrow[key] = (row, PHI_KEY[col])
+            slot_votes[key][s3.get(r["taxon"], ("congener", "none"))] += 1
             state = declaration(decl_of[r["run"]], r["taxon"], r["genus"],
                                 r["taxon_class"] == "host")[0]
             mismatched += state != r["declared"]
@@ -269,6 +319,13 @@ def load():
         collapsed = any(grp.get(t, (0, "", False))[2] for t in collapsed_of.get(g, ()))
         if med_n >= 3 and med_cv < 0.35 and not collapsed and len(hit.get(g, ())) >= MIN_RUNS:
             suspect.append((g, med_n, med_cv))
+
+    # A collapsed genus has no row in S3, and taking the slot of whichever member happened to
+    # be read last made its band depend on file order. Take the MODAL slot of the members,
+    # the slot name breaking a tie, so the result is reproducible.
+    mrow = {t: (lambda k: (k[0], PHI_KEY[k[1]]))(
+                min(v.most_common(), key=lambda kv: (-kv[1], kv[0]))[0])
+            for t, v in slot_votes.items()}
 
     # CONGENER-TRACKING, and it is a FLAG, NEVER A FILTER. The module's standing rule is
     # that a congener cluster is reported and not removed, and an earlier version of this
@@ -317,6 +374,10 @@ def load():
                              f"itself. Add one; the disease band must be chosen, not "
                              f"inherited.")
     band = lambda t: grp[t][:2] if is_wp(t) else SLOT_BAND[mrow[t]]
+    dropped_slot = {t: len(hit[t]) for t in list(hit)
+                    if len(hit[t]) >= MIN_RUNS and not is_wp(t) and mrow[t] in DROP_SLOTS}
+    for t in dropped_slot:
+        del hit[t]
     taxa = sorted((t for t in hit if len(hit[t]) >= MIN_RUNS),
                   key=lambda t: (band(t)[0], -len(hit[t]), t))
     dropped = {t: len(v) for t, v in sorted(hit.items(), key=lambda kv: (-len(kv[1]), kv[0]))
@@ -330,23 +391,27 @@ def load():
                                  else UNKNOWN if runs[rid]["status"] == "not_curated"
                                  else UNDECL)
     return (order, taxa, grid, runs, ordered, bycty, dropped, sorted(unknown_name),
-            excluded, [band(t)[1] for t in taxa], mismatched,
+            excluded, [band(t)[1] for t in taxa],
+            [is_wp(t) for t in taxa], mismatched,
             {t: len(collapsed_of[t]) for t in taxa if len(collapsed_of[t]) > 1}, suspect,
             # a band's category is the modal class of the taxa in it, read off the data
             # rather than authored a second time in the grouping table
             {t: collections.Counter(
                 klass[x] for x in (collapsed_of[t] or {t})).most_common(1)[0][0]
-             for t in taxa}, {t: mrow[t] for t in taxa}, spill)
+             for t in taxa}, {t: mrow[t] for t in taxa}, spill, dropped_slot)
 
 
 def main():
     (order, taxa, grid, runs, ordered, bycty, dropped, unknown_name, excluded,
-     bands, mismatched, collapsed, suspect, tclass, mrow, spill) = load()
+     bands, supers, mismatched, collapsed, suspect, tclass, mrow, spill,
+     dropped_slot) = load()
     plt.rcParams.update({"font.family": "DejaVu Sans", "savefig.facecolor": "white",
                          "figure.facecolor": "white"})
 
     GW, RH = 7.10, 0.235                    # grid width and row height, in inches
     X0, Y0 = 1.50, 0.52                     # Y0 leaves room for the west-east axis beneath
+    SUPX = 0.10                             # the pathogen/resident bracket, from the left
+    BANDX = 0.34                            # band names, indented inside the bracket
     PADR = 0.95                             # the rightmost country name runs past the grid
 
     # Consecutive rows sharing a band, top to bottom. The gaps between bands are what makes
@@ -358,11 +423,30 @@ def main():
         else:
             spans.append([i, i, b])
     gh = len(taxa) * RH + (len(spans) - 1) * BAND_GAP
-    H = Y0 + gh + 1.30
+    H = Y0 + gh + 1.30 + LABEL_TIER
     fig, ax = plt.subplots(figsize=(X0 + GW + PADR, H))
     top = Y0 + gh
 
-    cw = GW / len(order)
+    # REGIONS ARE DRAWN AS SEPARATE BLOCKS WITH REAL GAPS BETWEEN THEM. A white hairline
+    # over one continuous strip was doing this job before, and at one-pixel columns a line
+    # is indistinguishable from an empty run: the separator read as missing data. A gap of
+    # actual whitespace cannot be misread, and it also stops the eye carrying a run of
+    # detections across a boundary it does not cross.
+    #
+    # The gaps come OUT of the grid width, so the columns narrow rather than the panel
+    # widening, and every region keeps its true share of the remaining space.
+    nblk = len(ordered)
+    cw = (GW - (nblk - 1) * REGION_GAP) / len(order)
+    xs, at = [], 0.0
+    for c in ordered:
+        xs.append(X0 + at)
+        at += len(bycty[c]) * cw + REGION_GAP
+    starts = {}
+    pos = 0
+    for c in ordered:
+        starts[c] = pos
+        pos += len(bycty[c])
+
     for k, (i0, i1, name) in enumerate(spans):
         b_top = top - (i0 * RH + k * BAND_GAP)
         b_bot = b_top - (i1 - i0 + 1) * RH
@@ -377,8 +461,18 @@ def main():
             for state, col in ((DECL, DECLARED_COLOUR), (UNDECL, base),
                                (UNKNOWN, washed(base))):
                 blk[i - i0][grid[i] == state] = to_rgb(col)
-        ax.imshow(blk, interpolation="nearest", aspect="auto",
-                  extent=(X0, X0 + GW, b_bot, b_top), zorder=2)
+        for bi, c in enumerate(ordered):
+            c0 = starts[c]
+            c1 = c0 + len(bycty[c])
+            x1 = xs[bi] + (c1 - c0) * cw
+            ax.imshow(blk[:, c0:c1], interpolation="nearest", aspect="auto",
+                      extent=(xs[bi], x1, b_bot, b_top), zorder=2)
+            # A RULE CENTRED IN THE GAP, not a line butted against the data. Padding on both
+            # sides is what keeps it from reading as a column: at one-pixel columns a line
+            # drawn flush against the block is indistinguishable from a detection.
+            if bi < len(ordered) - 1:
+                ax.plot([x1 + REGION_GAP / 2] * 2, [b_bot, b_top], color="#c8c8c8",
+                        linewidth=0.7, solid_capstyle="butt", zorder=3)
         for i in range(i0, i1 + 1):
             ty = b_top - (i - i0 + 0.5) * RH
             n_sp = collapsed.get(taxa[i], 0)
@@ -398,23 +492,46 @@ def main():
         # No swatch on the band. Colour belongs to the TAXON now, and a band holds taxa of
         # more than one category -- Stem base and head carries a wheat pathogen and a
         # non-pathogen recorded on wheat -- so a single swatch would contradict its own rows.
-        ax.text(0.06, b_top + 0.045, name, ha="left", va="bottom", fontsize=6.8, color=MUTED)
-        # country hairlines are drawn per band so they do not cross the gaps between bands
-        at = 0
-        for c in ordered:
-            at += len(bycty[c])
-            if at < len(order):
-                ax.plot([X0 + at * cw] * 2, [b_bot, b_top], color="#ffffff",
-                        linewidth=0.8, zorder=3)
+        ax.text(BANDX, b_top + 0.045, name, ha="left", va="bottom", fontsize=6.8,
+                color=MUTED)
 
-    at = 0
-    for c in ordered:
+    # PATHOGENS vs RESIDENTS, bracketed down the left. Computed from the rows rather than
+    # authored: a band is a pathogen band when its taxa are wheat pathogens.
+    runs_of = []
+    for i, w in enumerate(supers):
+        if runs_of and runs_of[-1][2] == w:
+            runs_of[-1][1] = i
+        else:
+            runs_of.append([i, i, w])
+    for i0, i1, w in runs_of:
+        k0 = next(k for k, (a, b, _) in enumerate(spans) if a <= i0 <= b)
+        k1 = next(k for k, (a, b, _) in enumerate(spans) if a <= i1 <= b)
+        s_top = top - (i0 * RH + k0 * BAND_GAP)
+        s_bot = top - ((i1 + 1) * RH + k1 * BAND_GAP)
+        ax.plot([SUPX, SUPX], [s_bot, s_top], color="#9a9a9a", linewidth=1.1,
+                solid_capstyle="butt")
+        ax.text(SUPX - 0.08, (s_bot + s_top) / 2, SUPER[w], rotation=90, ha="center",
+                va="center", fontsize=7.6, color="#6a6a6a")
+
+    # two staggered baselines, with the separation MEASURED against the font
+    import math
+    need = (6.8 / 72) / math.sin(math.radians(LABEL_ROT))   # inches between same-tier labels
+    last = [-1e9, -1e9]
+    skipped = []
+    for bi, c in enumerate(ordered):
         n = len(bycty[c])
         if n >= LABEL_MIN:
-            ax.text(X0 + (at + n / 2) * cw, top + 0.07, c or "no location", rotation=55,
-                    rotation_mode="anchor", ha="left", va="baseline", fontsize=6.8,
-                    color=INK)
-        at += n
+            x = xs[bi] + n * cw / 2
+            tier = next((t for t in (0, 1) if x - last[t] >= need), None)
+            if tier is None:
+                skipped.append(c or "no location")
+            else:
+                last[tier] = x
+                ax.text(x, top + 0.07 + tier * LABEL_TIER, c or "no location",
+                        rotation=LABEL_ROT, rotation_mode="anchor", ha="left",
+                        va="baseline", fontsize=6.8, color=INK)
+    if skipped:
+        print(f"  label skipped, no tier clear: {', '.join(skipped)}")
     ax.annotate("", xy=(X0 + GW, Y0 - 0.17), xytext=(X0, Y0 - 0.17),
                 arrowprops=dict(arrowstyle="-|>", color=MUTED, linewidth=0.8,
                                 shrinkA=0, shrinkB=0))
@@ -432,22 +549,28 @@ def main():
 
     with open(FIG / "samples_order.tsv", "w", newline="") as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
-        w.writerow(["column", "run", "BioProject", "country", "lat", "lon",
+        w.writerow(["column", "run", "BioProject", "country", "region", "lat", "lon",
                     "declared_status", "n_calls"])
         for j, rid in enumerate(order):
             m = runs[rid]
-            w.writerow([j, rid, m["project"], m["country"], m["lat"], m["lon"],
+            w.writerow([j, rid, m["project"], m["country"], m["region"], m["lat"], m["lon"],
                         m["status"], int((grid[:, j] > 0).sum())])
 
     state = {k: int((grid == v).sum()) for k, v in
              (("declared", DECL), ("undeclared", UNDECL), ("unknown", UNKNOWN))}
     print(f"wrote {FIG / 'samples.png'}")
     print(f"  {len(order):,} {describe()} runs ({excluded} excluded), "
-          f"{len(ordered)} countries, {len(taxa)} taxa drawn")
+          f"{len(ordered)} regions, {len(taxa)} taxa drawn")
     print(f"  cells: {state}")
     top = list(dropped.items())[:8]
     print(f"  below MIN_RUNS={MIN_RUNS}: {len(dropped)} taxa not drawn, largest " +
           ", ".join(f"{abbrev(t)} ({n})" for t, n in top))
+    small = sorted(((len(v), c) for c, v in bycty.items() if c and len(v) < LABEL_MIN),
+                   reverse=True)
+    if small:
+        print(f"  drawn but unlabelled, under LABEL_MIN={LABEL_MIN}: {len(small)} regions, "
+              f"{sum(n for n, _ in small)} runs -- " +
+              ", ".join(f"{c} ({n})" for n, c in small[:8]) + " ...")
     noloc = len(bycty.get("", ()))
     print(f"  {noloc} runs carry no location and sit in the unplaced block")
     if spill:
@@ -456,6 +579,10 @@ def main():
               f"{SPILL_RATIO:.0%} of its coverage): " +
               ", ".join(f"{t} ({n} runs, all with {p}, ratio {r:.2f})"
                         for t, (n, p, r) in sorted(spill.items())))
+    if dropped_slot:
+        print(f"  not drawn, {sorted(DROP_SLOTS)} slot (no host record of their own): " +
+              ", ".join(f"{t} ({n})" for t, n in sorted(dropped_slot.items(),
+                                                        key=lambda kv: -kv[1])))
     if collapsed:
         print("  collapsed to genus: " +
               ", ".join(f"{g} ({n} spp.)" for g, n in sorted(collapsed.items())))

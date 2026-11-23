@@ -169,17 +169,38 @@ def normalise(name: str) -> str:
     return " ".join(toks[:2]).lower()
 
 
+GENUS_ONLY = {"sp.", "spp.", "sp", "spp"}
+
+
 def declared_sets(value: str) -> tuple[set, set]:
-    """(species, genera) a study declared, from the curated `; `-separated value."""
+    """(species, genera) a study declared, from the curated `; `-separated value.
+
+    **A GENUS IS RECORDED ONLY WHERE THE DECLARATION NAMES NO SPECIES.** This was wrong until
+    2026-11-23 and it silently erased the chapter's own result. The genus was added for every
+    declaration, including full binomials, so `declaration()`'s genus fallback fired for a
+    congener of the declared species: a study declaring *Puccinia striiformis* f. sp.
+    *tritici* also marked every *P. triticina* and *P. graminis* call as declared. The tell
+    was that not one *Puccinia* call in the whole cohort came out undeclared, while
+    *Zymoseptoria* and *Blumeria*, whose genera no study declares, behaved correctly.
+
+    A study that names a species has not reported its congeners. Wheat rust surveys declare
+    exactly one rust each, so the three *Puccinia* on wheat are precisely the case where the
+    distinction decides the result.
+
+    The genus branch is kept because a declaration CAN be genus-only ("Fusarium spp."), in
+    which case any species of that genus is genuinely reported. `main` prints how many such
+    declarations exist so the branch cannot quietly stop being exercised.
+    """
     species, genera = set(), set()
     for part in value.split(";"):
         part = part.strip()
         if not part:
             continue
         toks = part.split()
-        genera.add(toks[0].lower())
-        if len(toks) >= 2:
+        if len(toks) >= 2 and toks[1].lower() not in GENUS_ONLY:
             species.add(normalise(part))
+        else:
+            genera.add(toks[0].lower())
     return species, genera
 
 

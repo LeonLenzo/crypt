@@ -1,0 +1,26 @@
+# How the figures group the wheat pathogens into rows. AUTHORED, not derived.
+#
+# `group` is the disease type a wheat pathologist would name, which is what the figures band
+# rows by; `group_order` fixes the band order and runs broadly from the obligate biotrophs to
+# the necrotrophs, which is also roughly Basidiomycota -> Leotiomycetes -> Dothideomycetes ->
+# Sordariomycetes. `class` and `lifestyle` are recorded so the grouping can be switched to
+# either without re-curating, and because lifestyle bears on how a detection is read: an
+# obligate biotroph cannot be present as dead deposited material and still be transcribing.
+#
+# A taxon drawn by a figure and missing here is a hard error, never a silent drop.
+taxon	group	group_order	disease	class	lifestyle
+Puccinia striiformis	Rusts	1	stripe rust	Pucciniomycetes	obligate biotroph
+Puccinia triticina	Rusts	1	leaf rust	Pucciniomycetes	obligate biotroph
+Puccinia graminis	Rusts	1	stem rust	Pucciniomycetes	obligate biotroph
+Blumeria graminis	Powdery mildew	2	powdery mildew	Leotiomycetes	obligate biotroph
+Zymoseptoria tritici	Leaf blotch	3	Septoria tritici blotch	Dothideomycetes	hemibiotroph
+Parastagonospora nodorum	Leaf blotch	3	Septoria nodorum blotch	Dothideomycetes	necrotroph
+Pyrenophora tritici-repentis	Leaf blotch	3	tan spot	Dothideomycetes	necrotroph
+Bipolaris sorokiniana	Leaf blotch	3	spot blotch	Dothideomycetes	necrotroph
+Alternaria alternata	Leaf blotch	3	Alternaria leaf blight	Dothideomycetes	necrotroph
+Oculimacula yallundae	Stem base and head	4	eyespot	Leotiomycetes	necrotroph
+Microdochium nivale	Stem base and head	4	Microdochium patch	Sordariomycetes	necrotroph
+Microdochium majus	Stem base and head	4	Microdochium patch	Sordariomycetes	necrotroph
+Fusarium graminearum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph
+Fusarium culmorum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph
+Fusarium avenaceum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph

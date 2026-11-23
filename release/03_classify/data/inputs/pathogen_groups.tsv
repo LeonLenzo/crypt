@@ -7,20 +7,64 @@
 # either without re-curating, and because lifestyle bears on how a detection is read: an
 # obligate biotroph cannot be present as dead deposited material and still be transcribing.
 #
+# `collapse` marks a genus drawn as ONE row rather than one row per species, because its
+# species-level calls are a single organism spread over near-identical references. Only
+# Alternaria qualifies and the evidence is measured, not asserted: within a run its species
+# are called at a median coverage CV of 0.24 against 0.63 to 0.92 for every other genus, and
+# a run calling it calls a median of twelve species at once. The plot RE-MEASURES this at
+# draw time and warns if an uncollapsed genus starts behaving the same way, so the decision
+# is audited by the data rather than frozen here.
+#
 # A taxon drawn by a figure and missing here is a hard error, never a silent drop.
-taxon	group	group_order	disease	class	lifestyle
-Puccinia striiformis	Rusts	1	stripe rust	Pucciniomycetes	obligate biotroph
-Puccinia triticina	Rusts	1	leaf rust	Pucciniomycetes	obligate biotroph
-Puccinia graminis	Rusts	1	stem rust	Pucciniomycetes	obligate biotroph
-Blumeria graminis	Powdery mildew	2	powdery mildew	Leotiomycetes	obligate biotroph
-Zymoseptoria tritici	Leaf blotch	3	Septoria tritici blotch	Dothideomycetes	hemibiotroph
-Parastagonospora nodorum	Leaf blotch	3	Septoria nodorum blotch	Dothideomycetes	necrotroph
-Pyrenophora tritici-repentis	Leaf blotch	3	tan spot	Dothideomycetes	necrotroph
-Bipolaris sorokiniana	Leaf blotch	3	spot blotch	Dothideomycetes	necrotroph
-Alternaria alternata	Leaf blotch	3	Alternaria leaf blight	Dothideomycetes	necrotroph
-Oculimacula yallundae	Stem base and head	4	eyespot	Leotiomycetes	necrotroph
-Microdochium nivale	Stem base and head	4	Microdochium patch	Sordariomycetes	necrotroph
-Microdochium majus	Stem base and head	4	Microdochium patch	Sordariomycetes	necrotroph
-Fusarium graminearum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph
-Fusarium culmorum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph
-Fusarium avenaceum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph
+taxon	group	group_order	disease	class	lifestyle	collapse
+Puccinia striiformis	Rusts	1	stripe rust	Pucciniomycetes	obligate biotroph	no
+Puccinia triticina	Rusts	1	leaf rust	Pucciniomycetes	obligate biotroph	no
+Puccinia graminis	Rusts	1	stem rust	Pucciniomycetes	obligate biotroph	no
+Blumeria graminis	Powdery mildew	2	powdery mildew	Leotiomycetes	obligate biotroph	no
+Zymoseptoria tritici	Leaf blotch	3	Septoria tritici blotch	Dothideomycetes	hemibiotroph	no
+Parastagonospora nodorum	Leaf blotch	3	Septoria nodorum blotch	Dothideomycetes	necrotroph	no
+Pyrenophora tritici-repentis	Leaf blotch	3	tan spot	Dothideomycetes	necrotroph	no
+Bipolaris sorokiniana	Leaf blotch	3	spot blotch	Dothideomycetes	necrotroph	no
+Alternaria alternata	Leaf blotch	3	Alternaria leaf blight	Dothideomycetes	necrotroph	yes
+Oculimacula yallundae	Stem base and head	4	eyespot	Leotiomycetes	necrotroph	no
+Microdochium nivale	Stem base and head	4	Microdochium patch	Sordariomycetes	necrotroph	no
+Microdochium majus	Stem base and head	4	Microdochium patch	Sordariomycetes	necrotroph	no
+Fusarium graminearum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph	no
+Fusarium culmorum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph	no
+Fusarium avenaceum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph	no
+Alternaria triticina	Leaf blotch	3	Alternaria leaf blight	Dothideomycetes	necrotroph	yes
+Cladosporium allicinum	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	no
+Cladosporium inversicolor	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	no
+Cladosporium cladosporioides	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	no
+Epicoccum nigrum	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	no
+# The GENUS row. A collapsed genus is placed explicitly, not inherited from whichever of its
+# species sorts first: alphabetically that was Alternaria alternata, which put the cluster in
+# the Leaf blotch band and implied the calls resolve to a wheat pathogen. They do not. The
+# cluster is dominated by infectoria-group saprotrophs and cannot be resolved to species at
+# all, so it sits with the saprotrophs and the caption says the genus also contains wheat
+# pathogens the cluster cannot separate.
+Alternaria	Moulds and saprotrophs	6	unresolved	Dothideomycetes	mixed	yes
+Alternaria triticimaculans	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria viburni	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria ethzedia	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria infectoria	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria novae-zelandiae	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria conjuncta	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria hordeiaustralica	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria metachromatica	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria ventricosa	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria incomplexa	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria arbusti	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria rosae	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria sp. Ai002NY15	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria sp. BMP 2799	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria sp. BMP 0032	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Alternaria sp. MG1	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	yes
+Sporobolomyces roseus	Phyllosphere yeasts	5	none	Microbotryomycetes	yeast	no
+Sporobolomyces ruberrimus	Phyllosphere yeasts	5	none	Microbotryomycetes	yeast	no
+Dioszegia hungarica	Phyllosphere yeasts	5	none	Tremellomycetes	yeast	no
+Filobasidium floriforme	Phyllosphere yeasts	5	none	Tremellomycetes	yeast	no
+Malassezia restricta	Phyllosphere yeasts	5	none	Malasseziomycetes	yeast	no
+Zymoseptoria brevis	Congeners of wheat pathogens	7	none	Dothideomycetes	hemibiotroph	no
+Ramularia collo-cygni	Congeners of wheat pathogens	7	Ramularia leaf spot of barley	Dothideomycetes	necrotroph	no
+Microdochium majus	Congeners of wheat pathogens	7	Microdochium patch	Sordariomycetes	necrotroph	no

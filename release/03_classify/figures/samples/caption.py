@@ -109,6 +109,11 @@ def numbers():
          if covs[SPILL_PARTNER][r]])
     ci = "Cladosporium inversicolor"
     sibs = [t for t in byt if t != ci and genus[t] == genus[ci]]
+    mm, mn = "Microdochium majus", "Microdochium nivale"
+    n["mm_runs"] = len(byt[mm])
+    n["mm_alone"] = len(byt[mm] - byt[mn])
+    n["mm_ratio"] = statistics.median(
+        [covs[mm][r] / covs[mn][r] for r in byt[mm] & byt[mn] if covs[mn][r]])
     n["ci_alone"] = len(byt[ci] - set().union(*(byt[t] for t in sibs)))
 
     n["alt_cv"] = statistics.median(cv[COLLAPSED])
@@ -174,9 +179,21 @@ def main():
         f"{n['countries']} countries are represented across {n['projects']} BioProjects, "
         f"{n['geo']:,} runs carry coordinates and {n['noloc']} carry no location and sit in "
         f"the block at the right. Rows are every fungus called in at least {MIN_RUNS} runs, "
-        f"banded by the kind of disease it causes, or by what it is where it causes none. "
-        f"The plant host is not drawn, because every library has one and no study declares "
-        f"it as a pathogen.",
+        f"banded by two different rules, because the two halves of the panel answer to "
+        f"different things. A wheat pathogen is banded by the DISEASE it causes, which is "
+        f"the distinction a plant pathologist makes and which no column of the reference "
+        f"table carries. Everything else is banded by its SLOT IN THE REFERENCE MATRIX, "
+        f"read straight off that table, so the band says exactly what the colour says and "
+        f"no taxon is placed by opinion. The plant host is not drawn, because every library "
+        f"has one and no study declares it as a pathogen.",
+        "",
+        f"The slot rule puts Microdochium majus with the taxa recorded on wheat rather than "
+        f"with the stem-base diseases, and that disagreement is worth reading rather than "
+        f"smoothing. It is a genuine agent of Microdochium patch, but PHI-base does not "
+        f"score it, so the label says resident. The reads do not: it is called without "
+        f"M. nivale in {n['mm_alone']} of its {n['mm_runs']} runs and at "
+        f"{n['mm_ratio']:.2f} times its coverage where both occur, which is a detection in "
+        f"its own right. The gap is in the label, not the call.",
         "",
         f"The resident layer is the larger part of what is there: {n['n_resident_taxa']} "
         f"resident taxa are called, {n['n_resident_drawn']} of them often enough for a row, "

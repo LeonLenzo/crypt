@@ -72,6 +72,24 @@ DECLARED_COLOUR = "#3d3d3d"     # the study reported it; the one state that is n
 # two have to be translated, not assumed equal -- the panel raised a KeyError on the first
 # wheat pathogen it met, which is the good failure mode for a mismatch like this.
 PHI_KEY = {"none": "none", "plant_pathogen": "vagrant", "wheat_pathogen": "wheat_path"}
+
+# TWO BANDING RULES, because the two halves of the panel answer to different things.
+# A WHEAT PATHOGEN is banded by the DISEASE it causes, which is the distinction a plant
+# pathologist makes and which no column of S3 carries, so it is authored in
+# pathogen_groups.tsv. Everything else is banded by its MATRIX SLOT, read straight off S3:
+# the band then says exactly what the colour says, nobody has to invent a category, and a
+# taxon cannot be placed by opinion. Microdochium majus is the case that forced this -- it
+# is a real Microdochium patch agent, but PHI-base does not score it, so under the slot rule
+# it sits with the other taxa USDA records on wheat rather than where a reader of the
+# literature would file it. That disagreement is the label's, and the figure should show it
+# rather than paper over it.
+SLOT_BAND = {
+    ("wheat", "none"):       (5, "Recorded on wheat, not a pathogen of it"),
+    ("wheat", "vagrant"):    (6, "Pathogen of another plant, recorded on wheat"),
+    ("plant", "none"):       (7, "Recorded on another plant"),
+    ("plant", "vagrant"):    (8, "Pathogen of another plant"),
+    ("congener", "none"):    (9, "Congener, no record of its own"),
+}
 LUM_CEILING = 0.70
 SPILL_RATIO = 0.25      # never-alone AND below this share of the congener's coverage
 SPILL = "Zymoseptoria brevis"   # what the rule catches here; the caption reads it from this
@@ -274,18 +292,23 @@ def load():
     for t in spill:
         del hit[t]
 
-    missing = sorted(t for t in hit if len(hit[t]) >= MIN_RUNS and t not in grp)
+    is_wp = lambda t: mrow[t][1] == "wheat_path"
+    missing = sorted(t for t in hit
+                     if len(hit[t]) >= MIN_RUNS and is_wp(t) and t not in grp)
     if missing:
-        raise SystemExit(f"{GRP} has no group for: {', '.join(missing)}. Add them rather "
-                         f"than letting the panel drop a pathogen it detected.")
+        raise SystemExit(f"{GRP} has no disease band for the wheat pathogen(s): "
+                         f"{', '.join(missing)}. Add them rather than letting the panel "
+                         f"drop a pathogen it detected.")
     # band first, then prevalence within the band
     # A collapsed genus must have its OWN row in the table. Inheriting the band from
     # whichever species sorted first was order-dependent and silently wrong.
     for t in hit:
-        if len(hit[t]) >= MIN_RUNS and len(collapsed_of[t]) > 1 and t not in grp:
+        if (len(hit[t]) >= MIN_RUNS and len(collapsed_of[t]) > 1 and is_wp(t)
+                and t not in grp):
             raise SystemExit(f"{GRP} collapses {t} to a genus but has no row for the genus "
-                             f"itself. Add one; the band must be chosen, not inherited.")
-    band = lambda t: grp[t][:2]
+                             f"itself. Add one; the disease band must be chosen, not "
+                             f"inherited.")
+    band = lambda t: grp[t][:2] if is_wp(t) else SLOT_BAND[mrow[t]]
     taxa = sorted((t for t in hit if len(hit[t]) >= MIN_RUNS),
                   key=lambda t: (band(t)[0], -len(hit[t]), t))
     dropped = {t: len(v) for t, v in sorted(hit.items(), key=lambda kv: (-len(kv[1]), kv[0]))

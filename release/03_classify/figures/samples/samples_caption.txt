@@ -10,9 +10,22 @@ Every one of the 1,379 RNA-seq runs in the cohort is one column, grouped by
 country and ordered west to east; within a country, columns run by longitude.
 40 countries are represented across 24 BioProjects, 1,062 runs carry
 coordinates and 32 carry no location and sit in the block at the right. Rows
-are every fungus called in at least 10 runs, banded by the kind of disease it
-causes, or by what it is where it causes none. The plant host is not drawn,
-because every library has one and no study declares it as a pathogen.
+are every fungus called in at least 10 runs, banded by two different rules,
+because the two halves of the panel answer to different things. A wheat
+pathogen is banded by the DISEASE it causes, which is the distinction a plant
+pathologist makes and which no column of the reference table carries.
+Everything else is banded by its SLOT IN THE REFERENCE MATRIX, read straight
+off that table, so the band says exactly what the colour says and no taxon is
+placed by opinion. The plant host is not drawn, because every library has one
+and no study declares it as a pathogen.
+
+The slot rule puts Microdochium majus with the taxa recorded on wheat rather
+than with the stem-base diseases, and that disagreement is worth reading
+rather than smoothing. It is a genuine agent of Microdochium patch, but
+PHI-base does not score it, so the label says resident. The reads do not: it
+is called without M. nivale in 43 of its 76 runs and at 1.46 times its
+coverage where both occur, which is a detection in its own right. The gap is
+in the label, not the call.
 
 The resident layer is the larger part of what is there: 67 resident taxa are
 called, 28 of them often enough for a row, led by C. allicinum 556, S. roseus

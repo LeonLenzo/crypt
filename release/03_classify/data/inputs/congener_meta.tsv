@@ -1,0 +1,399 @@
+# Taxa for congener_sharing.py: every db2 species in a genus the cohort calls.
+# Genera with a single species are omitted; they can have no congener pair.
+species_taxid	genus	organism_name
+2714763	Akanthomyces	Akanthomyces lecanii
+2231603	Akanthomyces	Akanthomyces muscarius
+5599	Alternaria	Alternaria alternata
+156630	Alternaria	Alternaria arborescens
+232088	Alternaria	Alternaria arbusti
+119953	Alternaria	Alternaria atra
+29001	Alternaria	Alternaria brassicicola
+1187904	Alternaria	Alternaria burnsii
+181017	Alternaria	Alternaria conjuncta
+48095	Alternaria	Alternaria dauci
+181014	Alternaria	Alternaria ethzedia
+167740	Alternaria	Alternaria gaisen
+1187925	Alternaria	Alternaria hordeiaustralica
+1187928	Alternaria	Alternaria incomplexa
+45303	Alternaria	Alternaria infectoria
+283354	Alternaria	Alternaria metachromatica
+430562	Alternaria	Alternaria novae-zelandiae
+48097	Alternaria	Alternaria panax
+1187938	Alternaria	Alternaria postmessia
+1187941	Alternaria	Alternaria rosae
+2817039	Alternaria	Alternaria sp. Ai002NY15
+2817042	Alternaria	Alternaria sp. BMP 0032
+2817041	Alternaria	Alternaria sp. BMP 2799
+1678846	Alternaria	Alternaria sp. MG1
+3450158	Alternaria	Alternaria sp. RS040
+119927	Alternaria	Alternaria tenuissima
+297637	Alternaria	Alternaria triticimaculans
+1187951	Alternaria	Alternaria ventricosa
+566460	Alternaria	Alternaria viburni
+2249482	Ascochyta	Ascochyta clinopodiicola
+205686	Ascochyta	Ascochyta lentis
+5454	Ascochyta	Ascochyta rabiei
+3424008	Aureobasidium	Aureobasidium aubasidani
+46634	Aureobasidium	Aureobasidium melanogenum
+2773714	Aureobasidium	Aureobasidium musti
+559561	Aureobasidium	Aureobasidium namibiae CBS 147.97
+5580	Aureobasidium	Aureobasidium pullulans
+2894284	Aureobasidium	Aureobasidium sp. EXF-10727
+2894285	Aureobasidium	Aureobasidium sp. EXF-10728
+2894281	Aureobasidium	Aureobasidium sp. EXF-12298
+2894282	Aureobasidium	Aureobasidium sp. EXF-12344
+2831173	Aureobasidium	Aureobasidium sp. EXF-3399
+2894283	Aureobasidium	Aureobasidium sp. EXF-3400
+2894279	Aureobasidium	Aureobasidium sp. EXF-8845
+2894280	Aureobasidium	Aureobasidium sp. EXF-8846
+1042127	Aureobasidium	Aureobasidium subglaciale
+2773716	Aureobasidium	Aureobasidium uvarum
+2773715	Aureobasidium	Aureobasidium vineae
+5016	Bipolaris	Bipolaris maydis
+101162	Bipolaris	Bipolaris oryzae ATCC 44560
+1918533	Bipolaris	Bipolaris sivanesaniana
+45130	Bipolaris	Bipolaris sorokiniana
+5017	Bipolaris	Bipolaris zeicola 26-R-13
+34373	Blumeria	Blumeria graminis f. sp. triticale
+2867405	Blumeria	Blumeria hordei
+139639	Botrytis	Botrytis aclada
+139641	Botrytis	Botrytis byssoidea
+40559	Botrytis	Botrytis cinerea
+2478750	Botrytis	Botrytis deweyae
+278938	Botrytis	Botrytis elliptica
+1964551	Botrytis	Botrytis fragariae
+278940	Botrytis	Botrytis galanthina
+278943	Botrytis	Botrytis hyacinthi
+278948	Botrytis	Botrytis paeoniae
+87229	Botrytis	Botrytis porri
+1463999	Botrytis	Botrytis sinoallii
+87230	Botrytis	Botrytis tulipae
+51156	Cadophora	Cadophora gregata
+108018	Cadophora	Cadophora malorum
+1485229	Cadophora	Cadophora sp. DSE1049
+2774352	Cadophora	Cadophora sp. M221
+2138324	Cadophora	Cadophora sp. MPI-SDFR-AT-0126
+1854472	Chaetomium	Chaetomium fimeti
+38033	Chaetomium	Chaetomium globosum
+1485946	Chaetomium	Chaetomium olivicolor
+2821753	Chaetomium	Chaetomium sp. MPI-CAGE-AT-0009
+2823209	Chaetomium	Chaetomium sp. MPI-SDFR-AT-0129
+1170767	Chaetomium	Chaetomium strumarium
+1036253	Chaetomium	Chaetomium subaffine
+1854479	Chaetomium	Chaetomium tenue
+1338630	Cladosporium	Cladosporium allicinum
+29917	Cladosporium	Cladosporium cladosporioides
+1052093	Cladosporium	Cladosporium fusiforme
+1052096	Cladosporium	Cladosporium halotolerans
+887095	Cladosporium	Cladosporium inversicolor
+3085677	Cladosporium	Cladosporium sp. EXF-13502
+3468514	Cladosporium	Cladosporium sp. NU13
+5346	Coprinopsis	Coprinopsis cinerea AmutBmut pab1-1
+230819	Coprinopsis	Coprinopsis marcescibilis
+2826081	Coprinopsis	Coprinopsis sp. MPI-PUGE-AT-0042
+2739213	Curvularia	Curvularia cactivora
+95742	Curvularia	Curvularia clavata
+90978	Curvularia	Curvularia kusanoi
+1079267	Dactylonectria	Dactylonectria estremocensis
+307937	Dactylonectria	Dactylonectria macrodidyma
+1214573	Diaporthe	Diaporthe ampelina
+1214568	Diaporthe	Diaporthe amygdali
+127596	Diaporthe	Diaporthe australafricana
+748121	Diaporthe	Diaporthe batatas
+83186	Diaporthe	Diaporthe citri
+83184	Diaporthe	Diaporthe eres
+158607	Diaporthe	Diaporthe helianthi
+2419934	Diaporthe	Diaporthe ilicicola
+2614600	Diaporthe	Diaporthe sp. PMI_573
+105482	Diaporthe	Diaporthe vaccinii
+100019	Didymella	Didymella exigua CBS 183.55
+749621	Didymella	Didymella glomerata
+1769908	Didymella	Didymella heteroderae
+2301244	Didymella	Didymella keratinophila
+749634	Didymella	Didymella pomorum
+2978356	Didymella	Didymella sp. IMI 355093
+5515	Fusarium	Fusarium acuminatum
+78861	Fusarium	Fusarium acutatum
+1803897	Fusarium	Fusarium agapanthi
+2698982	Fusarium	Fusarium akasia
+1237068	Fusarium	Fusarium albosuccineum
+131363	Fusarium	Fusarium ambrosium
+48484	Fusarium	Fusarium annulatum
+48485	Fusarium	Fusarium anthophilum
+2364996	Fusarium	Fusarium austroafricanum
+282268	Fusarium	Fusarium austroamericanum
+40199	Fusarium	Fusarium avenaceum
+2698983	Fusarium	Fusarium awan
+44412	Fusarium	Fusarium beomiforme
+79018	Fusarium	Fusarium bulbicola
+86545	Fusarium	Fusarium chlamydosporum
+2885761	Fusarium	Fusarium chuoi
+48490	Fusarium	Fusarium circinatum
+231269	Fusarium	Fusarium coffeatum
+1567539	Fusarium	Fusarium coicis
+249398	Fusarium	Fusarium commune
+5516	Fusarium	Fusarium culmorum
+57161	Fusarium	Fusarium decemcellulare
+48507	Fusarium	Fusarium denticulatum
+2951361	Fusarium	Fusarium drepaniforme
+1325734	Fusarium	Fusarium duplospermum
+61235	Fusarium	Fusarium equiseti
+1147111	Fusarium	Fusarium euwallaceae
+195108	Fusarium	Fusarium falciforme
+2675880	Fusarium	Fusarium flagelliforme
+1325733	Fusarium	Fusarium floridanum
+5127	Fusarium	Fusarium fujikuroi
+282569	Fusarium	Fusarium gaditjirri
+78864	Fusarium	Fusarium globosum
+5518	Fusarium	Fusarium graminearum
+86546	Fusarium	Fusarium graminum
+42747	Fusarium	Fusarium heterosporum
+2494466	Fusarium	Fusarium irregulare
+1328300	Fusarium	Fusarium keratoplasticum
+2010991	Fusarium	Fusarium kuroshium
+179993	Fusarium	Fusarium langsethiae
+5523	Fusarium	Fusarium lateritium
+694270	Fusarium	Fusarium longipes
+192010	Fusarium	Fusarium mangiferae
+2951228	Fusarium	Fusarium mekan
+751941	Fusarium	Fusarium mexicanum
+1567541	Fusarium	Fusarium mundagurra
+1042133	Fusarium	Fusarium musae
+42672	Fusarium	Fusarium napiforme
+1053271	Fusarium	Fusarium nematophilum
+42673	Fusarium	Fusarium nygamai
+1325738	Fusarium	Fusarium obliquiseptatum
+2502994	Fusarium	Fusarium odoratissimum
+2604345	Fusarium	Fusarium oligoseptatum
+5507	Fusarium	Fusarium oxysporum
+2951362	Fusarium	Fusarium papillatum
+3417454	Fusarium	Fusarium phalaenopsidis
+47803	Fusarium	Fusarium phyllophilum
+1435070	Fusarium	Fusarium piperis
+36050	Fusarium	Fusarium poae
+948311	Fusarium	Fusarium proliferatum
+986114	Fusarium	Fusarium pseudensiforme
+48495	Fusarium	Fusarium pseudoanthophilum
+56676	Fusarium	Fusarium pseudocircinatum
+101028	Fusarium	Fusarium pseudograminearum
+48865	Fusarium	Fusarium redolens
+2698985	Fusarium	Fusarium rekanum
+5128	Fusarium	Fusarium sambucinum
+1208366	Fusarium	Fusarium sarcochroum
+169388	Fusarium	Fusarium solani
+2747967	Fusarium	Fusarium solani-melongenae
+1325737	Fusarium	Fusarium sp. AF-6
+2773459	Fusarium	Fusarium sp. DS 682
+2874508	Fusarium	Fusarium sp. FIESC RH6
+3387622	Fusarium	Fusarium sp. IMII-1
+2898545	Fusarium	Fusarium sp. LHS14.1
+2826082	Fusarium	Fusarium sp. MPI-SDFR-AT-0072
+122381	Fusarium	Fusarium sp. NRRL 25303
+1101274	Fusarium	Fusarium sp. NRRL 52700
+2692428	Fusarium	Fusarium sp. NRRL 66182
+2898544	Fusarium	Fusarium sp. Ph1
+3049762	Fusarium	Fusarium sp. VM40
+5514	Fusarium	Fusarium sporotrichioides
+42677	Fusarium	Fusarium subglutinans
+1567544	Fusarium	Fusarium tjaetaba
+1237075	Fusarium	Fusarium torreyae
+33205	Fusarium	Fusarium torulosum
+61284	Fusarium	Fusarium tricinctum
+1325736	Fusarium	Fusarium tuaranense
+2747968	Fusarium	Fusarium vanettenii 77-13-4
+2698986	Fusarium	Fusarium variasi
+56646	Fusarium	Fusarium venenatum
+117187	Fusarium	Fusarium verticillioides
+2698987	Fusarium	Fusarium warna
+221167	Fusarium	Fusarium xylarioides
+1053134	Fusarium	Fusarium zealandicum
+2954835	Fusarium	[Neocosmospora] mangrovei
+3469074	Fusarium	[Neocosmospora] sp. B6999-1
+3469075	Fusarium	[Neocosmospora] sp. B6999-2
+3469076	Fusarium	[Neocosmospora] sp. B6999-3
+3469077	Fusarium	[Neocosmospora] sp. B6999-4
+3469078	Fusarium	[Neocosmospora] sp. B6999-5
+1514897	Malassezia	Malassezia arunalokei
+1821822	Malassezia	Malassezia brasiliensis
+1381934	Malassezia	Malassezia caprae
+948313	Malassezia	Malassezia cuniculi
+1381935	Malassezia	Malassezia equina
+55194	Malassezia	Malassezia furfur
+76773	Malassezia	Malassezia globosa
+223818	Malassezia	Malassezia japonica
+180528	Malassezia	Malassezia nana
+76774	Malassezia	Malassezia obtusa
+77020	Malassezia	Malassezia pachydermatis
+1821823	Malassezia	Malassezia psittaci
+76775	Malassezia	Malassezia restricta
+3031751	Malassezia	Malassezia sp. CBS 17886
+76777	Malassezia	Malassezia sympodialis ATCC 42132
+2020962	Malassezia	Malassezia vespertilionis
+253288	Malassezia	Malassezia yamatoensis
+196109	Microdochium	Microdochium bolleyi
+647655	Microdochium	Microdochium majus
+5520	Microdochium	Microdochium nivale
+1682393	Microdochium	Microdochium trichocladiopsis
+92952	Naganishia	Naganishia adeliensis
+100951	Naganishia	Naganishia albida
+610337	Naganishia	Naganishia cerealis
+89922	Naganishia	Naganishia friedmannii
+104408	Naganishia	Naganishia liquefaciens
+1851511	Naganishia	Naganishia onofrii
+1424756	Naganishia	Naganishia vaughanmartiniae
+78410	Neonectria	Neonectria ditissima
+2732573	Neonectria	Neonectria magnoliae
+979145	Neonectria	Neonectria punicea
+1506179	Penicillium	Penicillium alfredii
+116970	Penicillium	Penicillium angulare
+416450	Penicillium	Penicillium antarcticum
+1131581	Penicillium	Penicillium argentinense
+1835702	Penicillium	Penicillium arizonense
+1132637	Penicillium	Penicillium atrosanguineum
+293381	Penicillium	Penicillium bialowiezense
+707954	Penicillium	Penicillium biforme
+126998	Penicillium	Penicillium bovifimosum
+104259	Penicillium	Penicillium brasilianum
+5074	Penicillium	Penicillium brevicompactum
+5075	Penicillium	Penicillium camemberti
+189055	Penicillium	Penicillium canariense
+5083	Penicillium	Penicillium canescens
+69766	Penicillium	Penicillium capsulatum
+2100454	Penicillium	Penicillium cataractarum
+63820	Penicillium	Penicillium chermesinum
+5076	Penicillium	Penicillium chrysogenum
+70096	Penicillium	Penicillium cinerascens
+5077	Penicillium	Penicillium citrinum
+293559	Penicillium	Penicillium concentricum
+36646	Penicillium	Penicillium coprophilum
+70792	Penicillium	Penicillium corylophilum
+1131564	Penicillium	Penicillium cosmopolitanum
+36656	Penicillium	Penicillium crustosum
+63821	Penicillium	Penicillium daleae
+69771	Penicillium	Penicillium decumbens
+1303715	Penicillium	Penicillium desertorum
+2819901	Penicillium	Penicillium diatomitis
+36651	Penicillium	Penicillium digitatum
+74830	Penicillium	Penicillium discolor
+1303716	Penicillium	Penicillium egyptiacum
+27334	Penicillium	Penicillium expansum
+1882269	Penicillium	Penicillium fimorum
+254877	Penicillium	Penicillium flavigenum
+48697	Penicillium	Penicillium freii
+3151616	Penicillium	Penicillium frequentans
+197659	Penicillium	Penicillium glandicola
+5078	Penicillium	Penicillium griseofulvum
+69774	Penicillium	Penicillium herquei
+2184411	Penicillium	Penicillium hesseltinei
+911720	Penicillium	Penicillium hetheringtonii
+1080232	Penicillium	Penicillium hispanicum
+40994	Penicillium	Penicillium hordei
+40296	Penicillium	Penicillium italicum
+94218	Penicillium	Penicillium lagena
+70099	Penicillium	Penicillium lividum
+1561947	Penicillium	Penicillium longicatenatum
+1343394	Penicillium	Penicillium maclennaniae
+303699	Penicillium	Penicillium macrosclerotiorum
+2972122	Penicillium	Penicillium majusculum
+1324776	Penicillium	Penicillium malachiteum
+203109	Penicillium	Penicillium manginii
+268346	Penicillium	Penicillium mononematosum
+60175	Penicillium	Penicillium nalgiovense
+229535	Penicillium	Penicillium nordicum
+1850975	Penicillium	Penicillium nucicola
+290292	Penicillium	Penicillium occitanis (nom. inval.)
+69780	Penicillium	Penicillium ochrochloron
+1167516	Penicillium	Penicillium odoratum
+99116	Penicillium	Penicillium olsonii
+69781	Penicillium	Penicillium oxalicum
+293373	Penicillium	Penicillium palitans
+1131562	Penicillium	Penicillium pancosmium
+176176	Penicillium	Penicillium paradoxum
+60169	Penicillium	Penicillium polonicum
+3158075	Penicillium	Penicillium psychrofluorescens
+1002107	Penicillium	Penicillium psychrosexuale
+1562058	Penicillium	Penicillium pulvis
+1903569	Penicillium	Penicillium riverlandense
+1792511	Penicillium	Penicillium robsamsonii
+69785	Penicillium	Penicillium rolfsii
+5082	Penicillium	Penicillium roqueforti
+1108849	Penicillium	Penicillium rubens
+1612424	Penicillium	Penicillium salamii
+1882272	Penicillium	Penicillium samsonianum
+60172	Penicillium	Penicillium solitum
+69789	Penicillium	Penicillium soppii
+2086405	Penicillium	Penicillium sp. DV-2018c
+3003415	Penicillium	Penicillium sp. IBT 16267x
+3003417	Penicillium	Penicillium sp. IBT 18751x
+3003414	Penicillium	Penicillium sp. IBT 31633x
+3003416	Penicillium	Penicillium sp. IBT 35674x
+2720512	Penicillium	Penicillium sp. str. #12
+303698	Penicillium	Penicillium steckii
+1316194	Penicillium	Penicillium subrubescens
+2972123	Penicillium	Penicillium tannophilum
+2036924	Penicillium	Penicillium taurinense
+168475	Penicillium	Penicillium taxi
+2608786	Penicillium	Penicillium terrarumae
+293382	Penicillium	Penicillium thymicola
+2839758	Penicillium	Penicillium ucsense
+1562060	Penicillium	Penicillium verhagenii
+60171	Penicillium	Penicillium verrucosum
+60134	Penicillium	Penicillium viridicatum
+29845	Penicillium	Penicillium vulpinum
+69791	Penicillium	Penicillium waksmanii
+220672	Plenodomus	Plenodomus biglobosus
+301713	Plenodomus	Plenodomus lindquistii
+5022	Plenodomus	Plenodomus lingam
+1077377	Plenodomus	Plenodomus tracheiphilus IPT5
+84751	Pseudozyma	Pseudozyma flocculosa
+327079	Pseudozyma	Pseudozyma hubeiensis
+27344	Puccinia	Puccinia coronata f. sp. avenae
+5297	Puccinia	Puccinia graminis f. sp. tritici
+27349	Puccinia	Puccinia sorghi
+27350	Puccinia	Puccinia striiformis
+208348	Puccinia	Puccinia triticina
+91370	Pyrenophora	Pyrenophora seminiperda CCB06
+53485	Pyrenophora	Pyrenophora teres f. maculata
+45151	Pyrenophora	Pyrenophora tritici-repentis
+86829	Rhodotorula	Rhodotorula araucariae
+86837	Rhodotorula	Rhodotorula babjevae
+86832	Rhodotorula	Rhodotorula dairenensis
+5288	Rhodotorula	Rhodotorula diobovata
+5535	Rhodotorula	Rhodotorula glutinis
+29898	Rhodotorula	Rhodotorula graminis
+86836	Rhodotorula	Rhodotorula kratochvilovae
+5537	Rhodotorula	Rhodotorula mucilaginosa
+1495444	Rhodotorula	Rhodotorula pacifica
+86838	Rhodotorula	Rhodotorula paludigena
+1965284	Rhodotorula	Rhodotorula sp. CCFEE 5036
+1305733	Rhodotorula	Rhodotorula sp. JG-1b
+86839	Rhodotorula	Rhodotorula sphaerocarpa
+741276	Rhodotorula	Rhodotorula taiwanensis
+5286	Rhodotorula	Rhodotorula toruloides
+1610689	Sarocladium	Sarocladium implicatum
+5046	Sarocladium	Sarocladium strictum
+100912	Sporobolomyces	Sporobolomyces blumeae
+183959	Sporobolomyces	Sporobolomyces carnicolor
+5002	Sporobolomyces	Sporobolomyces johnsonii
+500713	Sporobolomyces	Sporobolomyces koalae
+5003	Sporobolomyces	Sporobolomyces pararoseus
+183961	Sporobolomyces	Sporobolomyces phaffii
+40563	Sporobolomyces	Sporobolomyces roseus
+86828	Sporobolomyces	Sporobolomyces ruberrimus
+183962	Sporobolomyces	Sporobolomyces salmoneus
+5005	Sporobolomyces	Sporobolomyces salmonicolor
+307758	Ustilago	Ustilago bromivora
+120017	Ustilago	Ustilago hordei
+2031085	Ustilago	Ustilago loliicola
+86802	Ustilago	Ustilago nuda
+327080	Ustilago	Ustilago shanxiensis
+2043610	Ustilago	Ustilago sp. UG-2017a
+2043611	Ustilago	Ustilago sp. UG-2017b
+86804	Ustilago	Ustilago trichophora
+117174	Ustilago	Ustilago tritici
+1708542	Wallemia	Wallemia canadensis
+1540922	Wallemia	Wallemia hederae
+245174	Wallemia	Wallemia ichthyophaga
+1708541	Wallemia	Wallemia mellicola
+1047168	Zymoseptoria	Zymoseptoria brevis
+1047171	Zymoseptoria	Zymoseptoria tritici

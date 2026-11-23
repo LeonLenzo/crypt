@@ -28,7 +28,6 @@ Bipolaris sorokiniana	Leaf blotch	3	spot blotch	Dothideomycetes	necrotroph	no
 Alternaria alternata	Leaf blotch	3	Alternaria leaf blight	Dothideomycetes	necrotroph	yes
 Oculimacula yallundae	Stem base and head	4	eyespot	Leotiomycetes	necrotroph	no
 Microdochium nivale	Stem base and head	4	Microdochium patch	Sordariomycetes	necrotroph	no
-Microdochium majus	Stem base and head	4	Microdochium patch	Sordariomycetes	necrotroph	no
 Fusarium graminearum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph	no
 Fusarium culmorum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph	no
 Fusarium avenaceum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph	no
@@ -65,6 +64,5 @@ Sporobolomyces ruberrimus	Phyllosphere yeasts	5	none	Microbotryomycetes	yeast	no
 Dioszegia hungarica	Phyllosphere yeasts	5	none	Tremellomycetes	yeast	no
 Filobasidium floriforme	Phyllosphere yeasts	5	none	Tremellomycetes	yeast	no
 Malassezia restricta	Phyllosphere yeasts	5	none	Malasseziomycetes	yeast	no
-Zymoseptoria brevis	Congeners of wheat pathogens	7	none	Dothideomycetes	hemibiotroph	no
-Ramularia collo-cygni	Congeners of wheat pathogens	7	Ramularia leaf spot of barley	Dothideomycetes	necrotroph	no
-Microdochium majus	Congeners of wheat pathogens	7	Microdochium patch	Sordariomycetes	necrotroph	no
+Ramularia collo-cygni	Recorded on other hosts	7	Ramularia leaf spot of barley	Dothideomycetes	necrotroph	no
+Microdochium majus	Stem base and head	4	Microdochium patch	Sordariomycetes	necrotroph	no

@@ -24,6 +24,7 @@ sys.path.insert(0, str(HERE.parent / "02_reference/scripts"))
 from _caption import rd, para, write                    # noqa: E402
 
 sys.path.insert(0, str(FIG))
+import plot_samples                                      # noqa: E402
 from plot_samples import MIN_RUNS, abbrev               # noqa: E402
 sys.path.insert(0, str(HERE / "scripts"))
 from detect import declaration                          # noqa: E402
@@ -37,6 +38,7 @@ NW_EUROPE = ["Ireland", "Netherlands", "France", "UK", "Germany"]
 ELSEWHERE = ["USA", "Argentina", "South Africa", "Ethiopia", "China", "Australia"]
 FOCUS = "Zymoseptoria tritici"
 COLLAPSED = "Alternaria"        # the one genus the panel draws as a single row
+SPILL_PARTNER = "Zymoseptoria tritici"   # the congener the withheld taxon rides on
 
 
 def numbers():
@@ -90,6 +92,25 @@ def numbers():
             cv[r["genus"]].append(float(r["genus_cov_cv"]))
     for (run, g), v in per_run.items():
         size[g].append(len(v))
+    # the spillover case, recomputed with the plot's rule so the two cannot disagree
+    byt, covs, genus = defaultdict(set), defaultdict(dict), {}
+    for r in calls:
+        if r["taxon_class"] == "host":
+            continue
+        byt[r["taxon"]].add(r["run"])
+        covs[r["taxon"]][r["run"]] = float(r["coverage"])
+        genus[r["taxon"]] = r["genus"]
+    sp = plot_samples.SPILL
+    n["sp"], n["sp_partner"] = abbrev(sp), abbrev(SPILL_PARTNER)
+    n["sp_runs"] = len(byt[sp])
+    n["sp_both"] = len(byt[sp] & byt[SPILL_PARTNER])
+    n["sp_ratio"] = 100 * statistics.median(
+        [covs[sp][r] / covs[SPILL_PARTNER][r] for r in byt[sp] & byt[SPILL_PARTNER]
+         if covs[SPILL_PARTNER][r]])
+    ci = "Cladosporium inversicolor"
+    sibs = [t for t in byt if t != ci and genus[t] == genus[ci]]
+    n["ci_alone"] = len(byt[ci] - set().union(*(byt[t] for t in sibs)))
+
     n["alt_cv"] = statistics.median(cv[COLLAPSED])
     n["alt_n"] = statistics.median(size[COLLAPSED])
     others = [statistics.median(v) for g, v in cv.items()
@@ -153,10 +174,9 @@ def main():
         f"{n['countries']} countries are represented across {n['projects']} BioProjects, "
         f"{n['geo']:,} runs carry coordinates and {n['noloc']} carry no location and sit in "
         f"the block at the right. Rows are every fungus called in at least {MIN_RUNS} runs, "
-        f"banded by what kind of organism it is: the wheat pathogens by the disease they "
-        f"cause, then the phyllosphere residents, then three congeners of wheat pathogens "
-        f"that are not themselves recorded as one. The plant host is not drawn, because "
-        f"every library has one and no study declares it as a pathogen.",
+        f"banded by the kind of disease it causes, or by what it is where it causes none. "
+        f"The plant host is not drawn, because every library has one and no study declares "
+        f"it as a pathogen.",
         "",
         f"The resident layer is the larger part of what is there: {n['n_resident_taxa']} "
         f"resident taxa are called, {n['n_resident_drawn']} of them often enough for a row, "
@@ -176,9 +196,13 @@ def main():
         f"forced onto a tomato or soybean pathogen; adding the predicted competitors gave "
         f"them somewhere nearer to go.",
         "",
-        f"Colour is not abundance, it is who knew. A call is charcoal where the study that "
-        f"generated the run declared that pathogen, orange where it did not, and grey where "
-        f"nobody has yet curated what the study declared. Counting all {n['taxa']} wheat "
+        f"Colour carries two things and neither is abundance. The HUE is the taxon's "
+        f"category in the reference matrix, unchanged from that figure: orange a wheat "
+        f"pathogen, green a non-pathogen USDA records on wheat, pale green one it records "
+        f"on another plant, grey a congener with no record of its own. The TREATMENT is who "
+        f"knew: full colour where the study that generated the run did not declare that "
+        f"organism, charcoal where it did, and a washed-out tint where nobody has yet "
+        f"curated what the study declared. Counting all {n['taxa']} wheat "
         f"pathogens and not only the {n['drawn_taxa']} given a row, there are "
         f"{n['n_declared']:,} declared calls, {n['n_undeclared']} undeclared and "
         f"{n['n_unknown']} of unknown reporting status. "
@@ -201,6 +225,18 @@ def main():
         f"pattern is recovered from reads collected for other reasons, and it is evidence "
         f"the calls are infections rather than contamination: neither spore drift, index "
         f"hopping nor cross-mapping is organised by continent.",
+        "",
+        f"One taxon is withheld by a uniform rule. {n['sp']} is called in {n['sp_runs']} "
+        f"runs, {n['sp_both']} of them also carrying {n['sp_partner']}, at a median "
+        f"{n['sp_ratio']:.0f}% of its coverage: never found alone and never more than a "
+        f"trace beside an abundant congener, which "
+        f"is k-mers bleeding off a neighbour rather than a detection. The rule is applied to "
+        f"every genus and catches only this one. The Alternaria cluster does not trip it, "
+        f"because its members sit at comparable coverage to each other, which is why that "
+        f"one is collapsed instead; Cladosporium inversicolor does not trip it either, "
+        f"because it is called with no Cladosporium congener at all in {n['ci_alone']} "
+        f"runs, and being found alone is "
+        f"the evidence of independence.",
         "",
         f"Detection is presence, not activity, and a species-level call inside a densely "
         f"represented genus is a call on that genus' k-mer space; both are taken up in "

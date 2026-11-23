@@ -32,9 +32,19 @@ confirming rather than extracting. The value is set by reading the paper and quo
 
 A BioProject can appear in several papers and usually does; PRJNA749614 is named by three.
 Only one GENERATED the runs the cohort took, and that is the study whose declaration counts.
-`relations.tsv` already answers this where the deposit-section heuristic could not, so this
-worklist reports the generating DOI separately from every DOI that merely mentions the
-project. Curating against a reanalysis paper would record what somebody else looked for.
+Curating against a reanalysis would record what somebody else looked for.
+
+**`relations.tsv` IS AN EXCEPTION TABLE, AND ABSENCE FROM IT MEANS UNAMBIGUOUS.** It holds
+the cases the deposit-section heuristic could not settle, so it carries 41 rows for 31
+projects and most projects are simply not in it. An earlier version of this script treated a
+missing `generated` row as "unresolved" and reported five projects as blocked that are not:
+three are named by exactly one paper, and two carry a `reanalysed` row, which is POSITIVE
+information because it eliminates the only competing candidate. The resolution is therefore:
+
+    an explicit `generated` row                       -> that paper
+    otherwise, S1 papers naming the project, less
+    any marked `reanalysed` or `undecided` for it      -> if one remains, that paper
+                                                       -> if several, genuinely ambiguous
 
 ## Read the chain before fetching anything
 
@@ -58,7 +68,8 @@ OUT = DATA / "curation" / "declared_worklist.tsv"
 csv.field_size_limit(10 ** 7)
 
 COLS = ["BioProject", "status", "n_runs", "n_analysed_runs", "n_runs_with_wp_call",
-        "n_wp_taxa", "generating_doi", "other_dois", "has_text", "text_source",
+        "n_wp_taxa", "generating_doi", "resolved_by", "other_dois", "has_text",
+        "text_source",
         "screen_target_pathogens", "screen_mentioned_pathogens", "n_curated_runs",
         "affects_figures", "wp_taxa_at_stake"]
 
@@ -105,23 +116,38 @@ def main():
     # difference on the raw strings listed a project's own generating paper as a competing
     # one. Compare folded, report the spelling the source used.
     gen = {r["BioProject"]: r["doi"] for r in relations if r["relation"] == "generated"}
+    eliminated = defaultdict(set)
+    for r in relations:
+        if r["relation"] in ("reanalysed", "undecided"):
+            eliminated[r["BioProject"]].add(r["doi"].lower())
     mentions = defaultdict(dict)
     for r in screen.values():
         for b in filter(None, (x.strip() for x in r["bioprojects"].split(";"))):
             mentions[b][r["doi"].lower()] = r["doi"]
 
+    def generating(p):
+        """-> (doi, how). See the module docstring: absence from relations.tsv is not a gap."""
+        if p in gen:
+            return gen[p], "explicit"
+        left = {k: v for k, v in mentions[p].items() if k not in eliminated[p]}
+        if len(left) == 1:
+            return next(iter(left.values())), "sole candidate"
+        if not left:
+            return "", "NO CANDIDATE"
+        return "", f"AMBIGUOUS ({len(left)})"
+
     todo = [r for r in declared if r["status"] == "not_curated"]
     rows = []
     for r in sorted(todo, key=lambda x: -len(runs[x["BioProject"]])):
         p = r["BioProject"]
-        g = gen.get(p, "")
+        g, how = generating(p)
         t = text.get(g, {}) or text.get(g.lower(), {})
         sc = screen.get(g, {}) or screen.get(g.lower(), {})
         rows.append({
             "BioProject": p, "status": r["status"],
             "n_runs": len(runs[p]), "n_analysed_runs": len(analysed[p]),
             "n_runs_with_wp_call": len(wp_runs[p]), "n_wp_taxa": len(wp_taxa[p]),
-            "generating_doi": g or "UNRESOLVED",
+            "generating_doi": g or "UNRESOLVED", "resolved_by": how,
             "other_dois": ";".join(v for k, v in sorted(mentions[p].items())
                                    if k != g.lower()),
             "has_text": "yes" if t.get("path") else "no",
@@ -145,10 +171,14 @@ def main():
     print(f"  {len(hot)} of them have analysed runs carrying a wheat-pathogen call, so "
           f"curating those moves a figure; the other {len(rows) - len(hot)} buy completeness: "
           + ", ".join(r["BioProject"] for r in hot))
+    byhow = defaultdict(list)
+    for r in rows:
+        byhow[r["resolved_by"]].append(r["BioProject"])
+    print("  generating paper: " + ", ".join(f"{k} {len(v)}" for k, v in sorted(byhow.items())))
     no_gen = [r["BioProject"] for r in rows if r["generating_doi"] == "UNRESOLVED"]
     no_txt = [r["BioProject"] for r in rows if r["has_text"] == "no"]
     if no_gen:
-        print(f"  NO GENERATING PAPER in relations.tsv ({len(no_gen)}): {', '.join(no_gen)}")
+        print(f"  GENERATING PAPER UNRESOLVED ({len(no_gen)}): {', '.join(no_gen)}")
         print(f"    -> resolve the relation first; curating against a reanalysis would "
               f"record what somebody else looked for.")
     if no_txt:

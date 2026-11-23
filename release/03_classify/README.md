@@ -19,9 +19,20 @@ not the sink.
 | `db1p` | USDA scope at genus, annotated, plus the 3 hosts | 57.5 GB | 2,308 | 8,727,920,674 |
 | `db2` | `db1p` plus 135 gene-predicted genomes | 59.8 GB | 2,443 | 9,010,023,071 |
 
-`db2 - db1p` is the purpose test: the 135 predictions are the only difference, and they sit in
-genera that nothing in `db1p` could represent. The question it answers is whether reads move
-down from genus and order to species.
+`db2 - db1p` is the purpose test: the 135 predictions are the only difference. They are NOT
+mostly genus-orphans, and the measurement has to respect that. The v2 worklist is three tiers,
+118 + 3 + 14, and 112 of the 135 land in genera `db1p` already represents:
+
+    A   118   in the reference scope already, no gene model, so present and uncallable.
+              Giving them CDS both makes them reachable and puts a competitor in their genus.
+    B     3   a genus the database did not hold at all. The only tier "do reads move DOWN to
+              species" is about.
+    C2   14   a competitor for a taxon that had none, so Kraken2's LCA can decline. Its
+              intended effect is reads moving UP to the genus node.
+
+So the question db2 - db1p answers is whether the predictions take reads off species that were
+holding them for want of a competitor. Pooled across the tiers the aggregate read movement is
+upward, which is tiers A and C2 doing their job, not tier B failing.
 
 **`db0` is not an arm.** The copy on disk was built with no plant CDS at all, so `db1p - db0`
 would measure the host sink rather than the congener tier. The congener question was answered

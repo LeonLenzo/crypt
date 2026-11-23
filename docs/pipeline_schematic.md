@@ -84,8 +84,12 @@ The numbering does not line up across the trees, and that is not a mistake:
         │     db1  +congeners   db0 + route usda_genus, annotated
         │     db2  +predicted   db1 + the 135 gene-predicted genomes (research/predict)
         │
-        │  db1-db0 measures competition among already-represented genera;
-        │  db2-db1 measures reach into genera nothing could represent before.
+        │  db1-db0 measures competition among already-represented genera.
+        │  db2-db1 measures mostly COMPETITION too: the 135 are 118 tier A (in
+        │  scope, no gene model, so uncallable), 3 tier B (a genus the database
+        │  did not hold) and 14 tier C2 (a deliberate competitor). 112 of the
+        │  135 land in genera db1' already represents, so the older "reach into
+        │  genera nothing could represent" reading is wrong.
         │  PREDICTED CDS IS A COMPETITOR ONLY, never a positive call.
         ▼
 03_classify          Kraken2 against the ladder, then the detection calls

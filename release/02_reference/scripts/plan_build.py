@@ -28,10 +28,15 @@ and these are plant RNA-seq libraries. Hosts go into every database so that db1-
 db2-db1 still isolate one effect each; a comparison where one arm has the sink and the other
 does not measures the sink, not the tier.
 
-The tiers touch disjoint genera, which is what makes the subtraction clean. A congener is an
-annotated species, so its genus is never an orphan; a predicted species is in a genus with no
-annotation at all. So db1-db0 measures competition among already-represented genera and
-db2-db1 measures reach into genera nothing could represent before. db2's predicted set is NOT
+db1-db0 measures competition among already-represented genera. **db2-db1 is NOT "reach into
+genera nothing could represent", and that description is stale**: it described the 932-species
+worklist, which was genus-orphans. The v2 worklist that was actually built is 135 genomes in
+three tiers, and only 3 of them are a genus the database did not hold. 118 are tier A, taxa
+already in the reference scope with no gene model, so they sat in the database unable to be
+called; 14 are tier C2, a deliberate competitor for a taxon that had none. Measured over the
+cohort, 112 of the 135 land in genera db1' already represents. So db2-db1' measures mostly
+COMPETITION, not reach, and the two tiers predict opposite movements of reads across ranks.
+See research/predict/worklist.py for the tier definitions. db2's predicted set is NOT
 emitted here: it is genomic FASTA fetched and predicted in research/predict, then added to the
 library, and predicted CDS is a COMPETITOR only, never a positive call. This plan covers the
 CDS that exist to download, tiers db0 and db1.

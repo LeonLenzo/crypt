@@ -202,6 +202,36 @@ read by read before anything is characterised.
 
 ## State
 
-**Being built, 2026-11-20.** Nothing classified yet. The inputs are in place: both arms are
-built and backed up, their inspect tables are tracked in `02_reference/data/outputs/`, and the
-cohort's 1,560 runs are complete on scratch under `01_cohort/raw/reads/`.
+**Both arms are classified, 1,560 / 1,560, and the module has run end to end** (2026-11-20).
+
+| | db1p | db2 |
+|---|---|---|
+| candidates | 409,459 | 430,830 |
+| calls | 8,012 | 7,763 |
+| rejected on the absolute floor | 392,538 | 378,982 |
+| rejected on coverage | 8,648 | 7,545 |
+| rejected on saturation | 261 | 245 |
+| competitor_only | n/a | 36,295 rows, 35.2 M reads |
+| runs with a fungal call | 1,406 | 1,403 |
+| off-host null | 8,234 rows, max 1.964% | 8,233 rows, max 1.956% |
+
+The coverage floor is **anchored on each arm's own null** and both land on 2%, independently
+and on different denominators, which is where db_v4's null also sat (max 1.970%). No null row
+clearing the distinct floor reaches 2% in either arm.
+
+**db2 removes 256 calls and adds 7.** The removals are 200 residents, 26 wheat pathogens and
+30 of the 42 calls labelled a pathogen not recorded on wheat. The clearest case is
+*Stemphylium lycopersici*, a tomato pathogen called in 22 runs under `db1p` and in 1 under
+`db2`: its reads were Pleosporaceae reads with nowhere better to go, and with *Alternaria
+triticina* in the database they go there instead, taking it from about 0.07 coverage to 0.013.
+
+**That case is also the module's sharpest open question.** *A. triticina* is a wheat pathogen
+that was in the reference scope and could never be called for want of a gene model, which is
+exactly what tier A exists to fix. But predicted CDS is a competitor only, so `db2` can now
+remove the false *Stemphylium* call without being able to make the true *Alternaria* one. The
+rule is right for a novelty claim resting on our own gene prediction; whether it should hold
+for a tier-A taxon whose assembly is public and whose prediction passed BUSCO is a decision
+nobody has taken yet. `04_align` is where such a call would be confirmed from reads.
+
+**Carried forward:** 18 of 31 BioProjects have no curated declaration (344 runs, 202 of them
+with a call), so those detections read `unknown` and the undeclared count rests on the rest.

@@ -229,18 +229,21 @@ def main():
         f"Colour carries two things and neither is abundance. The HUE is the taxon's "
         f"category in the reference matrix, unchanged from that figure: orange a wheat "
         f"pathogen, green a non-pathogen USDA records on wheat, pale green one it records "
-        f"on another plant. The TREATMENT is who "
-        f"knew: full colour where the study that generated the run did not declare that "
-        f"organism, charcoal where it did, and a washed-out tint where nobody has yet "
-        f"curated what the study declared. Counting all {n['taxa']} wheat "
-        f"pathogens and not only the {n['drawn_taxa']} given a row, there are "
-        f"{n['n_declared']:,} declared calls, {n['n_undeclared']} undeclared and "
-        f"{n['n_unknown']} of unknown reporting status. "
-        f"{n['runs_undeclared']} runs carry at least one undeclared wheat pathogen, and in "
-        f"{n['runs_only']} of them the undeclared pathogen is the only one present. So the "
-        f"undeclared organism is a second pathogen beside the declared one rather than an "
-        f"alternative to it, which follows from the declared targets being recovered in "
-        f"nearly every run and is stated here as a consequence, not a separate finding.",
+        f"on another plant. The TREATMENT is who knew: full colour where the study that "
+        f"generated the run did not declare that organism, charcoal where it did"
+        + (f", and a washed-out tint where nobody has yet curated what the study declared"
+           if n["n_unknown"] else
+           ", and there is no third state because every study drawn here now has a curated "
+           "declaration")
+        + f". Counting all {n['taxa']} wheat pathogens and not only the "
+        f"{n['drawn_taxa']} given a row, there are {n['n_declared']:,} declared calls and "
+        f"{n['n_undeclared']} undeclared. "
+        f"{n['runs_undeclared']} runs carry at least one undeclared wheat pathogen; in "
+        f"{n['runs_both']} of them it sits beside the pathogen the study was about, and in "
+        f"{n['runs_only']} it is the only wheat pathogen present. The first is the common "
+        f"case and follows from the declared targets being recovered in nearly every run; "
+        f"the second is the stronger one, a study that reported no pathogen we can detect "
+        f"and whose reads carry one anyway.",
         "",
         f"The unit is the run and not the BioProject, deliberately. Projects in this cohort "
         f"are not geographically coherent — the largest spans twelve countries — so grouping "

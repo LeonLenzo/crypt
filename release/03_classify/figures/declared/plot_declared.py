@@ -108,10 +108,13 @@ def load():
     taxa = {t for _, t in hit} | declared_any
     dropped = {t: n_called(t) for t in taxa
                if t not in declared_any and n_called(t) < MIN_RUNS}
-    taxa = sorted(taxa - set(dropped), key=lambda t: -n_called(t))
+    # NAME BREAKS EVERY TIE. Without it the order falls out of set iteration, and two taxa
+    # or two projects on the same count reordered between runs: declared_cells.tsv stopped
+    # being reproducible the moment the curation added projects that tied.
+    taxa = sorted(taxa - set(dropped), key=lambda t: (-n_called(t), t))
     rank = {t: i for i, t in enumerate(taxa)}
     projects = sorted(keep, key=lambda p: (min((rank[t] for t in declared_raw[p]), default=99),
-                                           -len(runs[p])))
+                                           -len(runs[p]), p))
     share = {k: len(v) / len(runs[k[0]]) for k, v in hit.items()}
     declared = {(p, t) for p in keep for t in declared_raw[p]}
     return (projects, taxa, share, declared, {p: len(runs[p]) for p in projects}, hit,

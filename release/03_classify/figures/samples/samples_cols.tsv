@@ -56,51 +56,51 @@ col	run	BioProject	country	region	lat	lon	declared_status	n_calls
 54	ERR3170278	PRJEB31334	USA	Americas	30.2262187	-92.0178202	curated	5
 55	ERR3170268	PRJEB31334	USA	Americas	35.7990389	-90.9336124	curated	3
 56	ERR3170179	PRJEB31334	USA	Americas	41.2381017	-85.8530544	curated	2
-57	SRR9894702	PRJNA558380	USA	Americas	40.17	-84.59	not_curated	0
-58	SRR9894681	PRJNA558380	USA	Americas	41.25	-84.58	not_curated	0
-59	SRR9894705	PRJNA558380	USA	Americas	40.1	-84.48	not_curated	0
-60	SRR9894688	PRJNA558380	USA	Americas	41.13	-84.48	not_curated	1
-61	SRR9894704	PRJNA558380	USA	Americas	40.11	-84.47	not_curated	0
-62	SRR9894689	PRJNA558380	USA	Americas	41.29	-84.47	not_curated	1
+57	SRR9894702	PRJNA558380	USA	Americas	40.17	-84.59	none_declared	0
+58	SRR9894681	PRJNA558380	USA	Americas	41.25	-84.58	none_declared	0
+59	SRR9894705	PRJNA558380	USA	Americas	40.1	-84.48	none_declared	0
+60	SRR9894688	PRJNA558380	USA	Americas	41.13	-84.48	none_declared	1
+61	SRR9894704	PRJNA558380	USA	Americas	40.11	-84.47	none_declared	0
+62	SRR9894689	PRJNA558380	USA	Americas	41.29	-84.47	none_declared	1
 63	ERR3170182	PRJEB31334	USA	Americas	42.5797113	-84.4422845	curated	2
-64	SRR9894690	PRJNA558380	USA	Americas	41.29	-84.42	not_curated	0
-65	SRR9894703	PRJNA558380	USA	Americas	40.56	-84.34	not_curated	0
-66	SRR9894682	PRJNA558380	USA	Americas	41.13	-84.15	not_curated	1
-67	SRR9894699	PRJNA558380	USA	Americas	40.14	-84.13	not_curated	0
-68	SRR9894707	PRJNA558380	USA	Americas	40.6	-84.08	not_curated	0
-69	SRR9894700	PRJNA558380	USA	Americas	40.14	-84.06	not_curated	0
-70	SRR9894697	PRJNA558380	USA	Americas	41.34	-84.06	not_curated	0
-71	SRR9894709	PRJNA558380	USA	Americas	41.05	-84.03	not_curated	1
-72	SRR9894695	PRJNA558380	USA	Americas	40.93	-84.02	not_curated	0
-73	SRR9894710	PRJNA558380	USA	Americas	41.18	-83.96	not_curated	0
-74	SRR9894708	PRJNA558380	USA	Americas	40.59	-83.86	not_curated	2
-75	SRR9894668	PRJNA558380	USA	Americas	41.22	-83.755	not_curated	0
-76	SRR9894691	PRJNA558380	USA	Americas	41.22	-83.75	not_curated	2
-77	SRR9894679	PRJNA558380	USA	Americas	40.2	-83.73	not_curated	0
-78	SRR9894687	PRJNA558380	USA	Americas	40.62	-83.7	not_curated	1
-79	SRR9894684	PRJNA558380	USA	Americas	41.23	-83.66	not_curated	0
-80	SRR9894678	PRJNA558380	USA	Americas	40.2	-83.59	not_curated	0
-81	SRR9894674	PRJNA558380	USA	Americas	40.23	-83.41	not_curated	0
-82	SRR9894698	PRJNA558380	USA	Americas	40.25	-83.29	not_curated	0
-83	SRR9894685	PRJNA558380	USA	Americas	41.33	-83.27	not_curated	2
-84	SRR9894686	PRJNA558380	USA	Americas	41.31	-83.16	not_curated	2
-85	SRR9894676	PRJNA558380	USA	Americas	38.69	-83.06	not_curated	0
-86	SRR9894672	PRJNA558380	USA	Americas	39.77	-83.06	not_curated	0
-87	SRR9894669	PRJNA558380	USA	Americas	39.81	-83.06	not_curated	0
-88	SRR9894670	PRJNA558380	USA	Americas	39.72	-82.98	not_curated	0
-89	SRR9894673	PRJNA558380	USA	Americas	39.14	-82.95	not_curated	0
-90	SRR9894675	PRJNA558380	USA	Americas	39.46	-82.95	not_curated	0
-91	SRR9894696	PRJNA558380	USA	Americas	41.28	-82.86	not_curated	0
-92	SRR9894693	PRJNA558380	USA	Americas	40.88	-82.51	not_curated	0
-93	SRR9894694	PRJNA558380	USA	Americas	40.68	-82.48	not_curated	0
-94	SRR9894683	PRJNA558380	USA	Americas	40.9	-82.32	not_curated	0
-95	SRR9894692	PRJNA558380	USA	Americas	41.02	-82.27	not_curated	0
-96	SRR9894701	PRJNA558380	USA	Americas	40.76	-82.06	not_curated	0
-97	SRR9894711	PRJNA558380	USA	Americas	40.88	-81.96	not_curated	1
-98	SRR9894671	PRJNA558380	USA	Americas	40.76	-81.91	not_curated	1
-99	SRR9894677	PRJNA558380	USA	Americas	40.76	-81.91	not_curated	0
-100	SRR9894680	PRJNA558380	USA	Americas	40.76	-81.91	not_curated	0
-101	SRR9894706	PRJNA558380	USA	Americas	40.76	-81.91	not_curated	1
+64	SRR9894690	PRJNA558380	USA	Americas	41.29	-84.42	none_declared	0
+65	SRR9894703	PRJNA558380	USA	Americas	40.56	-84.34	none_declared	0
+66	SRR9894682	PRJNA558380	USA	Americas	41.13	-84.15	none_declared	1
+67	SRR9894699	PRJNA558380	USA	Americas	40.14	-84.13	none_declared	0
+68	SRR9894707	PRJNA558380	USA	Americas	40.6	-84.08	none_declared	0
+69	SRR9894700	PRJNA558380	USA	Americas	40.14	-84.06	none_declared	0
+70	SRR9894697	PRJNA558380	USA	Americas	41.34	-84.06	none_declared	0
+71	SRR9894709	PRJNA558380	USA	Americas	41.05	-84.03	none_declared	1
+72	SRR9894695	PRJNA558380	USA	Americas	40.93	-84.02	none_declared	0
+73	SRR9894710	PRJNA558380	USA	Americas	41.18	-83.96	none_declared	0
+74	SRR9894708	PRJNA558380	USA	Americas	40.59	-83.86	none_declared	2
+75	SRR9894668	PRJNA558380	USA	Americas	41.22	-83.755	none_declared	0
+76	SRR9894691	PRJNA558380	USA	Americas	41.22	-83.75	none_declared	2
+77	SRR9894679	PRJNA558380	USA	Americas	40.2	-83.73	none_declared	0
+78	SRR9894687	PRJNA558380	USA	Americas	40.62	-83.7	none_declared	1
+79	SRR9894684	PRJNA558380	USA	Americas	41.23	-83.66	none_declared	0
+80	SRR9894678	PRJNA558380	USA	Americas	40.2	-83.59	none_declared	0
+81	SRR9894674	PRJNA558380	USA	Americas	40.23	-83.41	none_declared	0
+82	SRR9894698	PRJNA558380	USA	Americas	40.25	-83.29	none_declared	0
+83	SRR9894685	PRJNA558380	USA	Americas	41.33	-83.27	none_declared	2
+84	SRR9894686	PRJNA558380	USA	Americas	41.31	-83.16	none_declared	2
+85	SRR9894676	PRJNA558380	USA	Americas	38.69	-83.06	none_declared	0
+86	SRR9894672	PRJNA558380	USA	Americas	39.77	-83.06	none_declared	0
+87	SRR9894669	PRJNA558380	USA	Americas	39.81	-83.06	none_declared	0
+88	SRR9894670	PRJNA558380	USA	Americas	39.72	-82.98	none_declared	0
+89	SRR9894673	PRJNA558380	USA	Americas	39.14	-82.95	none_declared	0
+90	SRR9894675	PRJNA558380	USA	Americas	39.46	-82.95	none_declared	0
+91	SRR9894696	PRJNA558380	USA	Americas	41.28	-82.86	none_declared	0
+92	SRR9894693	PRJNA558380	USA	Americas	40.88	-82.51	none_declared	0
+93	SRR9894694	PRJNA558380	USA	Americas	40.68	-82.48	none_declared	0
+94	SRR9894683	PRJNA558380	USA	Americas	40.9	-82.32	none_declared	0
+95	SRR9894692	PRJNA558380	USA	Americas	41.02	-82.27	none_declared	0
+96	SRR9894701	PRJNA558380	USA	Americas	40.76	-82.06	none_declared	0
+97	SRR9894711	PRJNA558380	USA	Americas	40.88	-81.96	none_declared	1
+98	SRR9894671	PRJNA558380	USA	Americas	40.76	-81.91	none_declared	1
+99	SRR9894677	PRJNA558380	USA	Americas	40.76	-81.91	none_declared	0
+100	SRR9894680	PRJNA558380	USA	Americas	40.76	-81.91	none_declared	0
+101	SRR9894706	PRJNA558380	USA	Americas	40.76	-81.91	none_declared	1
 102	ERR3170181	PRJEB31334	USA	Americas	43.048677	-76.5627197	curated	2
 103	ERR3170275	PRJEB31334	USA	Americas	41.1519319	-74.0357266	curated	1
 104	ERR3170256	PRJEB31334	USA	Americas	40.9125085	-73.8386504	curated	1
@@ -160,36 +160,36 @@ col	run	BioProject	country	region	lat	lon	declared_status	n_calls
 158	ERR15005448	PRJEB84390	Argentina	Americas			curated	4
 159	ERR15005449	PRJEB84390	Argentina	Americas			curated	9
 160	ERR15005450	PRJEB84390	Argentina	Americas			curated	8
-161	SRR14239690	PRJNA722004	USA	Americas			not_curated	0
-162	SRR14239692	PRJNA722004	USA	Americas			not_curated	1
-163	SRR14239693	PRJNA722004	USA	Americas			not_curated	1
-164	SRR14239696	PRJNA722004	USA	Americas			not_curated	1
-165	SRR14239697	PRJNA722004	USA	Americas			not_curated	0
-166	SRR14239698	PRJNA722004	USA	Americas			not_curated	0
-167	SRR14239699	PRJNA722004	USA	Americas			not_curated	0
-168	SRR14239700	PRJNA722004	USA	Americas			not_curated	0
-169	SRR14239701	PRJNA722004	USA	Americas			not_curated	0
-170	SRR14239702	PRJNA722004	USA	Americas			not_curated	0
-171	SRR14239704	PRJNA722004	USA	Americas			not_curated	0
-172	SRR14239705	PRJNA722004	USA	Americas			not_curated	2
-173	SRR14239706	PRJNA722004	USA	Americas			not_curated	0
-174	SRR14239708	PRJNA722004	USA	Americas			not_curated	0
-175	SRR14239709	PRJNA722004	USA	Americas			not_curated	1
-176	SRR14239710	PRJNA722004	USA	Americas			not_curated	1
-177	SRR14239711	PRJNA722004	USA	Americas			not_curated	0
-178	SRR14239712	PRJNA722004	USA	Americas			not_curated	0
-179	SRR14239713	PRJNA722004	USA	Americas			not_curated	0
-180	SRR14239714	PRJNA722004	USA	Americas			not_curated	1
-181	SRR14239715	PRJNA722004	USA	Americas			not_curated	1
-182	SRR14239716	PRJNA722004	USA	Americas			not_curated	1
-183	SRR14239717	PRJNA722004	USA	Americas			not_curated	0
-184	SRR14239718	PRJNA722004	USA	Americas			not_curated	1
-185	SRR14239719	PRJNA722004	USA	Americas			not_curated	0
-186	SRR14239720	PRJNA722004	USA	Americas			not_curated	0
-187	SRR14239721	PRJNA722004	USA	Americas			not_curated	0
-188	SRR14239722	PRJNA722004	USA	Americas			not_curated	4
-189	SRR14239723	PRJNA722004	USA	Americas			not_curated	0
-190	SRR14239724	PRJNA722004	USA	Americas			not_curated	0
+161	SRR14239690	PRJNA722004	USA	Americas			none_declared	0
+162	SRR14239692	PRJNA722004	USA	Americas			none_declared	1
+163	SRR14239693	PRJNA722004	USA	Americas			none_declared	1
+164	SRR14239696	PRJNA722004	USA	Americas			none_declared	1
+165	SRR14239697	PRJNA722004	USA	Americas			none_declared	0
+166	SRR14239698	PRJNA722004	USA	Americas			none_declared	0
+167	SRR14239699	PRJNA722004	USA	Americas			none_declared	0
+168	SRR14239700	PRJNA722004	USA	Americas			none_declared	0
+169	SRR14239701	PRJNA722004	USA	Americas			none_declared	0
+170	SRR14239702	PRJNA722004	USA	Americas			none_declared	0
+171	SRR14239704	PRJNA722004	USA	Americas			none_declared	0
+172	SRR14239705	PRJNA722004	USA	Americas			none_declared	2
+173	SRR14239706	PRJNA722004	USA	Americas			none_declared	0
+174	SRR14239708	PRJNA722004	USA	Americas			none_declared	0
+175	SRR14239709	PRJNA722004	USA	Americas			none_declared	1
+176	SRR14239710	PRJNA722004	USA	Americas			none_declared	1
+177	SRR14239711	PRJNA722004	USA	Americas			none_declared	0
+178	SRR14239712	PRJNA722004	USA	Americas			none_declared	0
+179	SRR14239713	PRJNA722004	USA	Americas			none_declared	0
+180	SRR14239714	PRJNA722004	USA	Americas			none_declared	1
+181	SRR14239715	PRJNA722004	USA	Americas			none_declared	1
+182	SRR14239716	PRJNA722004	USA	Americas			none_declared	1
+183	SRR14239717	PRJNA722004	USA	Americas			none_declared	0
+184	SRR14239718	PRJNA722004	USA	Americas			none_declared	1
+185	SRR14239719	PRJNA722004	USA	Americas			none_declared	0
+186	SRR14239720	PRJNA722004	USA	Americas			none_declared	0
+187	SRR14239721	PRJNA722004	USA	Americas			none_declared	0
+188	SRR14239722	PRJNA722004	USA	Americas			none_declared	4
+189	SRR14239723	PRJNA722004	USA	Americas			none_declared	0
+190	SRR14239724	PRJNA722004	USA	Americas			none_declared	0
 191	SRR24010213	PRJNA950118	Canada	Americas			curated	2
 192	SRR24010214	PRJNA950118	Canada	Americas			curated	1
 193	SRR24010215	PRJNA950118	Canada	Americas			curated	2
@@ -209,18 +209,18 @@ col	run	BioProject	country	region	lat	lon	declared_status	n_calls
 207	SRR33129855	PRJNA1250571	USA	Americas			not_curated	0
 208	SRR33129856	PRJNA1250571	USA	Americas			not_curated	0
 209	SRR33129857	PRJNA1250571	USA	Americas			not_curated	0
-210	SRR7797534	PRJNA486288	USA	Americas			not_curated	7
-211	SRR7797535	PRJNA486288	USA	Americas			not_curated	8
-212	SRR7797536	PRJNA486288	USA	Americas			not_curated	7
-213	SRR7797537	PRJNA486288	USA	Americas			not_curated	7
-214	SRR7797538	PRJNA486288	USA	Americas			not_curated	8
-215	SRR7797539	PRJNA486288	USA	Americas			not_curated	8
-216	SRR7797541	PRJNA486288	USA	Americas			not_curated	5
-217	SRR7797542	PRJNA486288	USA	Americas			not_curated	9
-218	SRR7797543	PRJNA486288	USA	Americas			not_curated	7
-219	SRR7797544	PRJNA486288	USA	Americas			not_curated	6
-220	SRR7797545	PRJNA486288	USA	Americas			not_curated	5
-221	SRR7797546	PRJNA486288	USA	Americas			not_curated	5
+210	SRR7797534	PRJNA486288	USA	Americas			curated	7
+211	SRR7797535	PRJNA486288	USA	Americas			curated	8
+212	SRR7797536	PRJNA486288	USA	Americas			curated	7
+213	SRR7797537	PRJNA486288	USA	Americas			curated	7
+214	SRR7797538	PRJNA486288	USA	Americas			curated	8
+215	SRR7797539	PRJNA486288	USA	Americas			curated	8
+216	SRR7797541	PRJNA486288	USA	Americas			curated	5
+217	SRR7797542	PRJNA486288	USA	Americas			curated	9
+218	SRR7797543	PRJNA486288	USA	Americas			curated	7
+219	SRR7797544	PRJNA486288	USA	Americas			curated	6
+220	SRR7797545	PRJNA486288	USA	Americas			curated	5
+221	SRR7797546	PRJNA486288	USA	Americas			curated	5
 222	ERR4315471	PRJEB39201	Spain	Europe	28.467178	-16.2507843	curated	2
 223	ERR4315472	PRJEB39201	Spain	Europe	28.467178	-16.2507843	curated	1
 224	ERR6847886	PRJEB47693	Ireland	Europe	51.8985136	-8.4726423	curated	6
@@ -952,32 +952,32 @@ col	run	BioProject	country	region	lat	lon	declared_status	n_calls
 950	ERR4315233	PRJEB39201	Bulgaria	Europe	43.94276	27.04398	curated	3
 951	ERR4315489	PRJEB39201	Ukraine	Europe	46.4843023	30.7322878	curated	5
 952	ERR12013066	PRJEB65589	UK	Europe			curated	4
-953	ERR13340220	PRJEB77002	Serbia	Europe			not_curated	3
-954	ERR13340221	PRJEB77002	Serbia	Europe			not_curated	2
-955	ERR13340222	PRJEB77002	Serbia	Europe			not_curated	2
-956	ERR13340223	PRJEB77002	Serbia	Europe			not_curated	5
-957	ERR13340224	PRJEB77002	Serbia	Europe			not_curated	4
-958	ERR13340225	PRJEB77002	Serbia	Europe			not_curated	2
-959	ERR13340226	PRJEB77002	Serbia	Europe			not_curated	1
-960	ERR13340227	PRJEB77002	Serbia	Europe			not_curated	4
-961	ERR13340228	PRJEB77002	Serbia	Europe			not_curated	2
-962	ERR13340229	PRJEB77002	Serbia	Europe			not_curated	2
-963	ERR13340230	PRJEB77002	Serbia	Europe			not_curated	4
-964	ERR13340231	PRJEB77002	Serbia	Europe			not_curated	1
-965	ERR13340232	PRJEB77002	Serbia	Europe			not_curated	1
-966	ERR13340233	PRJEB77002	Serbia	Europe			not_curated	2
-967	ERR13340234	PRJEB77002	Serbia	Europe			not_curated	4
-968	ERR13340235	PRJEB77002	Serbia	Europe			not_curated	3
-969	ERR13340236	PRJEB77002	Serbia	Europe			not_curated	4
-970	ERR13340237	PRJEB77002	Serbia	Europe			not_curated	5
-971	ERR13340238	PRJEB77002	Serbia	Europe			not_curated	1
-972	ERR13340239	PRJEB77002	Serbia	Europe			not_curated	1
-973	ERR13340240	PRJEB77002	Serbia	Europe			not_curated	1
-974	ERR13340241	PRJEB77002	Serbia	Europe			not_curated	1
-975	ERR13340242	PRJEB77002	Serbia	Europe			not_curated	2
-976	ERR13340243	PRJEB77002	Serbia	Europe			not_curated	1
-977	ERR13340244	PRJEB77002	Serbia	Europe			not_curated	1
-978	ERR13340245	PRJEB77002	Serbia	Europe			not_curated	1
+953	ERR13340220	PRJEB77002	Serbia	Europe			curated	3
+954	ERR13340221	PRJEB77002	Serbia	Europe			curated	2
+955	ERR13340222	PRJEB77002	Serbia	Europe			curated	2
+956	ERR13340223	PRJEB77002	Serbia	Europe			curated	5
+957	ERR13340224	PRJEB77002	Serbia	Europe			curated	4
+958	ERR13340225	PRJEB77002	Serbia	Europe			curated	2
+959	ERR13340226	PRJEB77002	Serbia	Europe			curated	1
+960	ERR13340227	PRJEB77002	Serbia	Europe			curated	4
+961	ERR13340228	PRJEB77002	Serbia	Europe			curated	2
+962	ERR13340229	PRJEB77002	Serbia	Europe			curated	2
+963	ERR13340230	PRJEB77002	Serbia	Europe			curated	4
+964	ERR13340231	PRJEB77002	Serbia	Europe			curated	1
+965	ERR13340232	PRJEB77002	Serbia	Europe			curated	1
+966	ERR13340233	PRJEB77002	Serbia	Europe			curated	2
+967	ERR13340234	PRJEB77002	Serbia	Europe			curated	4
+968	ERR13340235	PRJEB77002	Serbia	Europe			curated	3
+969	ERR13340236	PRJEB77002	Serbia	Europe			curated	4
+970	ERR13340237	PRJEB77002	Serbia	Europe			curated	5
+971	ERR13340238	PRJEB77002	Serbia	Europe			curated	1
+972	ERR13340239	PRJEB77002	Serbia	Europe			curated	1
+973	ERR13340240	PRJEB77002	Serbia	Europe			curated	1
+974	ERR13340241	PRJEB77002	Serbia	Europe			curated	1
+975	ERR13340242	PRJEB77002	Serbia	Europe			curated	2
+976	ERR13340243	PRJEB77002	Serbia	Europe			curated	1
+977	ERR13340244	PRJEB77002	Serbia	Europe			curated	1
+978	ERR13340245	PRJEB77002	Serbia	Europe			curated	1
 979	ERR15005500	PRJEB84390	France	Europe			curated	8
 980	ERR15005501	PRJEB84390	France	Europe			curated	7
 981	ERR15005502	PRJEB84390	France	Europe			curated	6
@@ -1205,34 +1205,34 @@ col	run	BioProject	country	region	lat	lon	declared_status	n_calls
 1203	ERR4315432	PRJEB39201	Kenya	Africa			curated	1
 1204	ERR4315435	PRJEB39201	Kenya	Africa			curated	1
 1205	ERR4315439	PRJEB39201	Kenya	Africa			curated	2
-1206	ERR5960059	PRJEB45236	South Africa	Africa			not_curated	1
-1207	ERR5960060	PRJEB45236	South Africa	Africa			not_curated	1
-1208	ERR5960061	PRJEB45236	South Africa	Africa			not_curated	1
-1209	ERR5960062	PRJEB45236	South Africa	Africa			not_curated	1
-1210	ERR5960063	PRJEB45236	South Africa	Africa			not_curated	1
-1211	ERR5960064	PRJEB45236	South Africa	Africa			not_curated	1
-1212	ERR5960065	PRJEB45236	South Africa	Africa			not_curated	1
-1213	ERR5960066	PRJEB45236	South Africa	Africa			not_curated	1
-1214	ERR5960067	PRJEB45236	South Africa	Africa			not_curated	1
-1215	ERR5960068	PRJEB45236	South Africa	Africa			not_curated	1
-1216	ERR5960069	PRJEB45236	South Africa	Africa			not_curated	1
-1217	ERR5960070	PRJEB45236	South Africa	Africa			not_curated	2
-1218	ERR5960071	PRJEB45236	South Africa	Africa			not_curated	1
-1219	ERR5960072	PRJEB45236	South Africa	Africa			not_curated	1
-1220	ERR5960073	PRJEB45236	South Africa	Africa			not_curated	1
-1221	ERR5960074	PRJEB45236	South Africa	Africa			not_curated	1
-1222	ERR5960075	PRJEB45236	South Africa	Africa			not_curated	1
-1223	ERR5960076	PRJEB45236	South Africa	Africa			not_curated	1
-1224	ERR5960077	PRJEB45236	South Africa	Africa			not_curated	1
-1225	ERR5960078	PRJEB45236	South Africa	Africa			not_curated	1
-1226	ERR5960079	PRJEB45236	South Africa	Africa			not_curated	1
-1227	ERR5960080	PRJEB45236	South Africa	Africa			not_curated	1
-1228	ERR5960081	PRJEB45236	South Africa	Africa			not_curated	1
-1229	ERR5960082	PRJEB45236	South Africa	Africa			not_curated	1
-1230	ERR5960083	PRJEB45236	South Africa	Africa			not_curated	1
-1231	ERR5960084	PRJEB45236	South Africa	Africa			not_curated	1
-1232	ERR5960085	PRJEB45236	South Africa	Africa			not_curated	1
-1233	ERR5960086	PRJEB45236	South Africa	Africa			not_curated	1
+1206	ERR5960059	PRJEB45236	South Africa	Africa			curated	1
+1207	ERR5960060	PRJEB45236	South Africa	Africa			curated	1
+1208	ERR5960061	PRJEB45236	South Africa	Africa			curated	1
+1209	ERR5960062	PRJEB45236	South Africa	Africa			curated	1
+1210	ERR5960063	PRJEB45236	South Africa	Africa			curated	1
+1211	ERR5960064	PRJEB45236	South Africa	Africa			curated	1
+1212	ERR5960065	PRJEB45236	South Africa	Africa			curated	1
+1213	ERR5960066	PRJEB45236	South Africa	Africa			curated	1
+1214	ERR5960067	PRJEB45236	South Africa	Africa			curated	1
+1215	ERR5960068	PRJEB45236	South Africa	Africa			curated	1
+1216	ERR5960069	PRJEB45236	South Africa	Africa			curated	1
+1217	ERR5960070	PRJEB45236	South Africa	Africa			curated	2
+1218	ERR5960071	PRJEB45236	South Africa	Africa			curated	1
+1219	ERR5960072	PRJEB45236	South Africa	Africa			curated	1
+1220	ERR5960073	PRJEB45236	South Africa	Africa			curated	1
+1221	ERR5960074	PRJEB45236	South Africa	Africa			curated	1
+1222	ERR5960075	PRJEB45236	South Africa	Africa			curated	1
+1223	ERR5960076	PRJEB45236	South Africa	Africa			curated	1
+1224	ERR5960077	PRJEB45236	South Africa	Africa			curated	1
+1225	ERR5960078	PRJEB45236	South Africa	Africa			curated	1
+1226	ERR5960079	PRJEB45236	South Africa	Africa			curated	1
+1227	ERR5960080	PRJEB45236	South Africa	Africa			curated	1
+1228	ERR5960081	PRJEB45236	South Africa	Africa			curated	1
+1229	ERR5960082	PRJEB45236	South Africa	Africa			curated	1
+1230	ERR5960083	PRJEB45236	South Africa	Africa			curated	1
+1231	ERR5960084	PRJEB45236	South Africa	Africa			curated	1
+1232	ERR5960085	PRJEB45236	South Africa	Africa			curated	1
+1233	ERR5960086	PRJEB45236	South Africa	Africa			curated	1
 1234	SRR11622360	PRJNA628830	South Africa	Africa			not_curated	0
 1235	SRR11622361	PRJNA628830	South Africa	Africa			not_curated	0
 1236	SRR11622362	PRJNA628830	South Africa	Africa			not_curated	0
@@ -1255,14 +1255,14 @@ col	run	BioProject	country	region	lat	lon	declared_status	n_calls
 1253	SRR11622379	PRJNA628830	South Africa	Africa			not_curated	0
 1254	SRR11622380	PRJNA628830	South Africa	Africa			not_curated	0
 1255	SRR11622381	PRJNA628830	South Africa	Africa			not_curated	0
-1256	SRR18337153	PRJNA816710	South Africa	Africa			not_curated	0
-1257	SRR18337154	PRJNA816710	South Africa	Africa			not_curated	0
-1258	SRR18337155	PRJNA816710	South Africa	Africa			not_curated	0
-1259	SRR18337156	PRJNA816710	South Africa	Africa			not_curated	0
-1260	SRR18337157	PRJNA816710	South Africa	Africa			not_curated	0
-1261	SRR18337158	PRJNA816710	South Africa	Africa			not_curated	0
-1262	SRR18337159	PRJNA816710	South Africa	Africa			not_curated	0
-1263	SRR18337160	PRJNA816710	South Africa	Africa			not_curated	0
+1256	SRR18337153	PRJNA816710	South Africa	Africa			none_declared	0
+1257	SRR18337154	PRJNA816710	South Africa	Africa			none_declared	0
+1258	SRR18337155	PRJNA816710	South Africa	Africa			none_declared	0
+1259	SRR18337156	PRJNA816710	South Africa	Africa			none_declared	0
+1260	SRR18337157	PRJNA816710	South Africa	Africa			none_declared	0
+1261	SRR18337158	PRJNA816710	South Africa	Africa			none_declared	0
+1262	SRR18337159	PRJNA816710	South Africa	Africa			none_declared	0
+1263	SRR18337160	PRJNA816710	South Africa	Africa			none_declared	0
 1264	ERR4315244	PRJEB39201	Turkey	Asia	41.4302616	27.0917789	curated	8
 1265	ERR4315243	PRJEB39201	Turkey	Asia	41.1699078	27.5002471	curated	7
 1266	ERR4315404	PRJEB39201	Israel	Asia	31.4241619	34.4911156	curated	1
@@ -1297,18 +1297,18 @@ col	run	BioProject	country	region	lat	lon	declared_status	n_calls
 1295	ERR3170192	PRJEB31334	China	Asia	35.3378321	105.9620113	curated	2
 1296	ERR4315349	PRJEB39201	Australia	Asia	-33.4412046	121.7243116	curated	2
 1297	ERR4315350	PRJEB39201	Australia	Asia	-33.4412046	121.7243116	curated	1
-1298	SRR14386296	PRJNA725323	Australia	Asia	-35.2809	149.13	not_curated	1
-1299	SRR14386297	PRJNA725323	Australia	Asia	-35.2809	149.13	not_curated	1
-1300	SRR14386300	PRJNA725323	Australia	Asia	-35.2809	149.13	not_curated	1
-1301	SRR14386301	PRJNA725323	Australia	Asia	-35.2809	149.13	not_curated	1
-1302	SRR14386302	PRJNA725323	Australia	Asia	-35.2809	149.13	not_curated	1
-1303	SRR14386303	PRJNA725323	Australia	Asia	-35.2809	149.13	not_curated	1
-1304	SRR14386308	PRJNA725323	Australia	Asia	-35.2809	149.13	not_curated	1
-1305	SRR14386309	PRJNA725323	Australia	Asia	-35.2809	149.13	not_curated	1
-1306	SRR14386310	PRJNA725323	Australia	Asia	-35.2809	149.13	not_curated	1
-1307	SRR14386311	PRJNA725323	Australia	Asia	-35.2809	149.13	not_curated	1
-1308	SRR14386312	PRJNA725323	Australia	Asia	-35.2809	149.13	not_curated	1
-1309	SRR14386313	PRJNA725323	Australia	Asia	-35.2809	149.13	not_curated	1
+1298	SRR14386296	PRJNA725323	Australia	Asia	-35.2809	149.13	curated	1
+1299	SRR14386297	PRJNA725323	Australia	Asia	-35.2809	149.13	curated	1
+1300	SRR14386300	PRJNA725323	Australia	Asia	-35.2809	149.13	curated	1
+1301	SRR14386301	PRJNA725323	Australia	Asia	-35.2809	149.13	curated	1
+1302	SRR14386302	PRJNA725323	Australia	Asia	-35.2809	149.13	curated	1
+1303	SRR14386303	PRJNA725323	Australia	Asia	-35.2809	149.13	curated	1
+1304	SRR14386308	PRJNA725323	Australia	Asia	-35.2809	149.13	curated	1
+1305	SRR14386309	PRJNA725323	Australia	Asia	-35.2809	149.13	curated	1
+1306	SRR14386310	PRJNA725323	Australia	Asia	-35.2809	149.13	curated	1
+1307	SRR14386311	PRJNA725323	Australia	Asia	-35.2809	149.13	curated	1
+1308	SRR14386312	PRJNA725323	Australia	Asia	-35.2809	149.13	curated	1
+1309	SRR14386313	PRJNA725323	Australia	Asia	-35.2809	149.13	curated	1
 1310	ERR15005491	PRJEB84390	Turkey	Asia			curated	5
 1311	ERR15005492	PRJEB84390	Turkey	Asia			curated	2
 1312	ERR15005493	PRJEB84390	Turkey	Asia			curated	4
@@ -1338,11 +1338,11 @@ col	run	BioProject	country	region	lat	lon	declared_status	n_calls
 1336	ERR3170259	PRJEB31334	China	Asia			curated	5
 1337	ERR3170260	PRJEB31334	China	Asia			curated	7
 1338	ERR4315351	PRJEB39201	Australia	Asia			curated	0
-1339	ERR4421877	PRJEB39756	New Zealand	Asia			not_curated	1
-1340	ERR4421878	PRJEB39756	New Zealand	Asia			not_curated	1
-1341	ERR4421879	PRJEB39756	New Zealand	Asia			not_curated	1
-1342	ERR4421880	PRJEB39756	New Zealand	Asia			not_curated	1
-1343	ERR4421881	PRJEB39756	New Zealand	Asia			not_curated	1
-1344	ERR4421882	PRJEB39756	New Zealand	Asia			not_curated	1
-1345	ERR4421883	PRJEB39756	New Zealand	Asia			not_curated	1
-1346	ERR4421884	PRJEB39756	New Zealand	Asia			not_curated	1
+1339	ERR4421877	PRJEB39756	New Zealand	Asia			curated	1
+1340	ERR4421878	PRJEB39756	New Zealand	Asia			curated	1
+1341	ERR4421879	PRJEB39756	New Zealand	Asia			curated	1
+1342	ERR4421880	PRJEB39756	New Zealand	Asia			curated	1
+1343	ERR4421881	PRJEB39756	New Zealand	Asia			curated	1
+1344	ERR4421882	PRJEB39756	New Zealand	Asia			curated	1
+1345	ERR4421883	PRJEB39756	New Zealand	Asia			curated	1
+1346	ERR4421884	PRJEB39756	New Zealand	Asia			curated	1

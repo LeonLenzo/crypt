@@ -216,9 +216,14 @@ invisible(dev.off())
 # Two keys and the split is the point: the TREATMENT of a colour says who knew, the HUE says
 # which reference-matrix category the taxon is. Both values come from the tables.
 wp  <- rows[rows$half == "Pathogens", ][1, ]
-key <- c("declared by the study"     = unique(cells$fill[cells$state == "declared"])[1],
-         "not declared"              = wp$colour,
-         "declaration not curated"   = wp$colour_unknown)
+# Only the states PRESENT in the cells get a key. Once the declarations were curated the
+# "not curated" state stopped occurring, and a key for a colour the panel never shows is a
+# reader looking for something that is not there.
+key <- c("declared by the study"   = unique(cells$fill[cells$state == "declared"])[1],
+         "not declared"            = wp$colour,
+         "declaration not curated" = wp$colour_unknown)
+present <- c("declared", "undeclared", "unknown") %in% unique(cells$state)
+key <- key[present]
 kd  <- data.frame(k = factor(names(key), levels = names(key)), x = 1, y = 1)
 
 g <- cowplot::get_plot_component(

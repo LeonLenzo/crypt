@@ -1,75 +1,76 @@
-# Country -> region, for the per-run panel's column grouping. AUTHORED, and a judgement.
+# Country -> region, for the per-run panel's column grouping. AUTHORED.
 #
-# Countries are too fine a grain: 41 of them across a 7-inch grid left 18 too narrow to name,
-# and the geographic signal is not national anyway. Septoria tritici blotch is a maritime
-# western European disease, stem rust an East African and Southern Cone one; those are the
-# units the pattern has.
+# FIVE regions. Countries are far too fine a grain for a 7-inch grid (41 of them, most too
+# narrow to name) and the finer regional cuts tried before this one -- twelve, then nine --
+# still split one clear contrast across several thin blocks. At this grain each block is wide
+# enough to read and the comparison the figure is for, Europe against everywhere else, is a
+# comparison between two blocks rather than across six.
 #
-# NINE regions, deliberately coarse. Europe splits only east/west: a finer cut (northwest /
-# central / southeast / Mediterranean) was tried and made four thin blocks out of one clear
-# contrast. Turkey, Israel and Morocco are NOT Europe and sit in North Africa and West Asia.
-# Pakistan and Bhutan join East Asia as one Asia block rather than carrying 7 runs alone.
+# FOUR regions. Australia and New Zealand fold into Asia: 27 runs between them made a
+# sliver too narrow to read, and the figure's comparison is Europe against the rest rather
+# than a geography lesson. The name is wrong for them and the caption says so. Turkey and
+# Israel sit in Asia, Morocco in Africa.
 #
-# `region_order` is not used: the panel orders regions west to east by the mean longitude of
-# their own runs. A country here with no runs costs nothing. A country in the data and NOT
+# The panel orders regions west to east by the mean longitude of their own runs, so no order
+# column is needed here. A country with no runs costs nothing. A country in the data and NOT
 # here is a hard error, never a silent "Other".
 country	region
-Canada	North America
-USA	North America
-Mexico	North America
-Argentina	South America
-Chile	South America
-Brazil	South America
-Uruguay	South America
-UK	Western Europe
-Ireland	Western Europe
-France	Western Europe
-Netherlands	Western Europe
-Belgium	Western Europe
-Denmark	Western Europe
-Sweden	Western Europe
-Norway	Western Europe
-Finland	Western Europe
-Germany	Western Europe
-Switzerland	Western Europe
-Austria	Western Europe
-Spain	Western Europe
-Italy	Western Europe
-Portugal	Western Europe
-Greece	Western Europe
-Poland	Eastern Europe
-Czech Republic	Eastern Europe
-Slovakia	Eastern Europe
-Hungary	Eastern Europe
-Slovenia	Eastern Europe
-Croatia	Eastern Europe
-Serbia	Eastern Europe
-Romania	Eastern Europe
-Bulgaria	Eastern Europe
-Ukraine	Eastern Europe
-Russia	Eastern Europe
-Turkey	North Africa and West Asia
-Israel	North Africa and West Asia
-Morocco	North Africa and West Asia
-Tunisia	North Africa and West Asia
-Iran	North Africa and West Asia
-Egypt	North Africa and West Asia
-Ethiopia	East Africa
-Kenya	East Africa
-Rwanda	East Africa
-Tanzania	East Africa
-Uganda	East Africa
-South Africa	Southern Africa
-Zimbabwe	Southern Africa
-Lesotho	Southern Africa
-Zambia	Southern Africa
-China	Asia
-Japan	Asia
-Korea, Republic of	Asia
+Canada	Americas
+USA	Americas
+Mexico	Americas
+Argentina	Americas
+Chile	Americas
+Brazil	Americas
+Uruguay	Americas
+UK	Europe
+Ireland	Europe
+France	Europe
+Netherlands	Europe
+Belgium	Europe
+Denmark	Europe
+Sweden	Europe
+Norway	Europe
+Finland	Europe
+Germany	Europe
+Switzerland	Europe
+Austria	Europe
+Spain	Europe
+Italy	Europe
+Portugal	Europe
+Greece	Europe
+Poland	Europe
+Czech Republic	Europe
+Slovakia	Europe
+Hungary	Europe
+Slovenia	Europe
+Croatia	Europe
+Serbia	Europe
+Romania	Europe
+Bulgaria	Europe
+Ukraine	Europe
+Russia	Europe
+Morocco	Africa
+Tunisia	Africa
+Egypt	Africa
+Ethiopia	Africa
+Kenya	Africa
+Rwanda	Africa
+Tanzania	Africa
+Uganda	Africa
+South Africa	Africa
+Zimbabwe	Africa
+Lesotho	Africa
+Zambia	Africa
+Turkey	Asia
+Israel	Asia
+Iran	Asia
 Pakistan	Asia
 India	Asia
 Nepal	Asia
 Bhutan	Asia
 Kazakhstan	Asia
-Australia	Oceania
-New Zealand	Oceania
+China	Asia
+Japan	Asia
+Korea, Republic of	Asia
+Australia	Asia
+New Zealand	Asia

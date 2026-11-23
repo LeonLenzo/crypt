@@ -1,12 +1,23 @@
 #!/usr/bin/env python3
-"""Every run is a column, ordered west to east: what was declared against what is there.
+"""Prepare the per-run panel: every run a column, ordered west to east.
 
-    python release/03_classify/figures/samples/plot_samples.py
+    python release/03_classify/figures/samples/prep_samples.py
+
+THIS SCRIPT DECIDES; plot_samples.R DRAWS. The split is deliberate. Every judgement here --
+which runs are analysed, whether a call was declared, which genus collapses, which band and
+which colour a taxon takes -- is imported from the pipeline that made it: `declaration` from
+detect.py so there is ONE definition of declared, `is_analysed` from _cohort.py, `MATRIX`
+from 02_reference. Re-implementing any of that in R would reintroduce exactly the drift
+those imports exist to prevent, and a 195-call disagreement with supp_data_s5 is how we
+found out it matters. What R gets is a tidy table of cells and the facet structure; what it
+does is the layout, which ggplot's faceting does far better than hand-computed inches.
 
 Reads  ../../data/outputs/supp_data_s5_detections.tsv    the calls
        ../../../01_cohort/data/outputs/supp_data_s2_cohort.tsv   runs, location, declaration
        ../../../01_cohort/figures/country_centroids.tsv   to place a country-only run
-Writes samples.png, samples_legend.png, samples_order.tsv  (beside this script)
+Writes samples_cells.tsv   one row per DRAWN cell: column, row, state, colour
+       samples_rows.tsv    one row per taxon row: label, band, half, colour
+       samples_cols.tsv    one row per run column: region, country, project
 
 THE UNIT IS THE RUN, NOT THE BIOPROJECT. A project is not a meaningful division of this
 cohort: PRJEB39201 alone spans twelve countries, so grouping by project averages a worldwide
@@ -34,12 +45,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.colors import to_rgb
-from matplotlib.patches import Rectangle
 
 HERE = Path(__file__).resolve().parents[2]              # release/03_classify
 sys.path.insert(0, str(HERE.parent / "02_reference/scripts"))
@@ -101,7 +107,7 @@ PHI_KEY = {"none": "none", "plant_pathogen": "vagrant", "wheat_pathogen": "wheat
 # So: two resident bands, split on whether USDA records the SPECIES on wheat. Colour still
 # carries the full matrix slot, so the USDA-coverage distinction is visible as a shade
 # without being promoted to a claim about the organism.
-RESIDENT_BAND = {"yes": (5, "Wheat resident"), "no": (7, "Plant resident")}
+RESIDENT_BAND = {"yes": (5, "Wheat"), "no": (7, "Plant")}
 
 # The two halves of the panel, bracketed on the far left.
 SUPER = {True: "Pathogens", False: "Residents"}
@@ -121,6 +127,13 @@ def legible(hexc):
     while _lum(out) > LUM_CEILING:
         out = darken(out, 0.94)
     return out
+
+
+def ramp(pale, dark, t):
+    """Interpolate pale->dark at t in [0,1], returned as hex."""
+    a = [int(pale.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4)]
+    b = [int(dark.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4)]
+    return "#%02x%02x%02x" % tuple(round(x + (y - x) * t) for x, y in zip(a, b))
 
 
 def washed(hexc, f=0.55):
@@ -151,11 +164,6 @@ MIN_RUNS = 10           # a taxon needs this many calls across the cohort to get
 # (text height / sin(rot)) apart, about 0.115 in here. Labels are placed on two staggered
 # baselines and the separation is MEASURED: one that still would not clear is skipped and
 # reported, so a collision is never silent.
-LABEL_MIN = 12
-LABEL_ROT = 55
-LABEL_TIER = 0.30       # vertical offset of the second baseline, in inches
-REGION_GAP = 0.085      # gap between two region blocks; the rule sits in the middle of it
-BAND_GAP = 0.26         # inches of white between bands; the band's name sits in it
 
 # The host is excluded: every library has one, no study declares it as a pathogen, and a row
 # that is charcoal-free and full in every column says nothing. `plant_pathogen` IS drawn even
@@ -252,23 +260,29 @@ def load():
                          f"silent 'Other' bucket would hide where the runs came from.")
     for m in runs.values():
         m["region"] = reg.get(m["country"], "")
+    # RUNS WITH NO LOCATION ARE DROPPED. The panel's x axis is geography, and a block of
+    # columns with no place on it is a column of data the axis cannot describe; it was
+    # sitting at the right edge labelled "no location", which reads as a region. They stay
+    # in supp_data_s5 and in every count the module makes. Leon's call, 2026-11-23.
+    noloc = [k for k, m in runs.items() if not m["region"]]
+    for k in noloc:
+        del runs[k]
 
     bycty = defaultdict(list)
     for rid, m in runs.items():
         bycty[m["region"]].append(rid)
-    pos, unplaced, unknown_name = {}, [], []
+    # The gazetteer check is on COUNTRIES, which is where the archive's spelling errors are
+    # ('Zimbabwae' was one). Groups are regions now, and a region is placed by its own runs'
+    # longitudes, so the centroid fallback only matters if a whole region had no coordinates.
+    cc = collections.Counter(m["country"] for m in runs.values() if m["country"])
+    unknown_name = sorted((c, n) for c, n in cc.items() if c not in cen)
+    pos, unplaced = {}, []
     for c, ids in bycty.items():
         lons = [runs[i]["lon"] for i in ids if runs[i]["lon"] is not None]
         if lons:
             pos[c] = sum(lons) / len(lons)
-            if c and c not in cen:
-                unknown_name.append((c, len(ids)))   # placed, but the name is still unresolved
-        elif c in cen:
-            pos[c] = cen[c]
         else:
-            unplaced.append(c)          # "" is no location at all and sorts first
-            if c:
-                unknown_name.append((c, len(ids)))
+            unplaced.append(c)
     ordered = sorted(pos, key=lambda c: pos[c]) + sorted(unplaced)
 
     # Within a country: by longitude, then latitude, then accession. The accession is the
@@ -397,253 +411,129 @@ def load():
             # rather than authored a second time in the grouping table
             {t: collections.Counter(
                 klass[x] for x in (collapsed_of[t] or {t})).most_common(1)[0][0]
-             for t in taxa}, {t: mrow[t] for t in taxa}, spill)
+             for t in taxa}, {t: mrow[t] for t in taxa}, spill, len(noloc))
+
+
 
 
 def main():
     (order, taxa, grid, runs, ordered, bycty, dropped, unknown_name, excluded,
-     bands, supers, mismatched, collapsed, suspect, tclass, mrow, spill) = load()
-    plt.rcParams.update({"font.family": "DejaVu Sans", "savefig.facecolor": "white",
-                         "figure.facecolor": "white"})
+     bands, supers, mismatched, collapsed, suspect, tclass, mrow, spill, noloc) = load()
 
-    GW, RH = 7.10, 0.235                    # grid width and row height, in inches
-    X0, Y0 = 1.50, 0.52                     # Y0 leaves room for the west-east axis beneath
-    SUPX = 0.10                             # the pathogen/resident bracket, from the left
-    BANDX = 0.34                            # band names, indented inside the bracket
-    PADR = 0.95                             # the rightmost country name runs past the grid
+    band_mode = collections.defaultdict(collections.Counter)
+    for i, t in enumerate(taxa):
+        band_mode[bands[i]][legible(MATRIX[mrow[t]])] += 1
+    # The label box takes the band's MODAL row colour, washed hard so the species names read
+    # on it. A band can hold more than one matrix slot -- Plant holds both the plant row and
+    # the no-species-record row -- so the box is the band's prevailing category, and the
+    # cells still carry each taxon's own.
+    band_fill = {b: washed(c.most_common(1)[0][0], 0.84) for b, c in band_mode.items()}
 
-    # Consecutive rows sharing a band, top to bottom. The gaps between bands are what makes
-    # the banding visible, so they are part of the geometry rather than a drawn line.
-    spans = []
-    for i, b in enumerate(bands):
-        if spans and spans[-1][2] == b:
-            spans[-1][1] = i
-        else:
-            spans.append([i, i, b])
-    gh = len(taxa) * RH + (len(spans) - 1) * BAND_GAP
-    H = Y0 + gh + 1.30 + LABEL_TIER
-    fig, ax = plt.subplots(figsize=(X0 + GW + PADR, H))
-    top = Y0 + gh
+    rows = []
+    for i, t in enumerate(taxa):
+        base = legible(MATRIX[mrow[t]])
+        rows.append({"row": i, "taxon": t,
+                     "label": abbrev(t) + (" \u2020" if t in spill else ""),
+                     "n_collapsed": collapsed.get(t, 0),
+                     "band": bands[i], "half": SUPER[supers[i]],
+                     "colour": base, "colour_unknown": washed(base),
+                     "band_fill": band_fill[bands[i]], "italic": 1,
+                     "n_runs": int((grid[i] > 0).sum())})
+    with open(FIG / "samples_rows.tsv", "w", newline="") as fh:
+        w = csv.DictWriter(fh, list(rows[0]), delimiter="\t", lineterminator="\n")
+        w.writeheader(); w.writerows(rows)
 
-    # REGIONS ARE DRAWN AS SEPARATE BLOCKS WITH REAL GAPS BETWEEN THEM. A white hairline
-    # over one continuous strip was doing this job before, and at one-pixel columns a line
-    # is indistinguishable from an empty run: the separator read as missing data. A gap of
-    # actual whitespace cannot be misread, and it also stops the eye carrying a run of
-    # detections across a boundary it does not cross.
-    #
-    # The gaps come OUT of the grid width, so the columns narrow rather than the panel
-    # widening, and every region keeps its true share of the remaining space.
-    nblk = len(ordered)
-    cw = (GW - (nblk - 1) * REGION_GAP) / len(order)
-    xs, at = [], 0.0
-    for c in ordered:
-        xs.append(X0 + at)
-        at += len(bycty[c]) * cw + REGION_GAP
-    starts = {}
-    pos = 0
-    for c in ordered:
-        starts[c] = pos
-        pos += len(bycty[c])
-
-    for k, (i0, i1, name) in enumerate(spans):
-        b_top = top - (i0 * RH + k * BAND_GAP)
-        b_bot = b_top - (i1 - i0 + 1) * RH
-        # imshow rather than 20,000 patches: at ~1,560 columns a rectangle is a fraction of
-        # a pixel wide and aliases away. Nearest-neighbour keeps every column present.
-        # Each ROW has its own colour now, so the block is built as RGB rather than drawn
-        # through one colormap: hue says which matrix category the taxon is, and the three
-        # states vary only the treatment of that hue.
-        blk = np.ones((i1 - i0 + 1, grid.shape[1], 3))
-        for i in range(i0, i1 + 1):
-            base = legible(MATRIX[mrow[taxa[i]]])
-            for state, col in ((DECL, DECLARED_COLOUR), (UNDECL, base),
-                               (UNKNOWN, washed(base))):
-                blk[i - i0][grid[i] == state] = to_rgb(col)
-        for bi, c in enumerate(ordered):
-            c0 = starts[c]
-            c1 = c0 + len(bycty[c])
-            x1 = xs[bi] + (c1 - c0) * cw
-            ax.imshow(blk[:, c0:c1], interpolation="nearest", aspect="auto",
-                      extent=(xs[bi], x1, b_bot, b_top), zorder=2)
-
-        for i in range(i0, i1 + 1):
-            ty = b_top - (i - i0 + 0.5) * RH
-            n_sp = collapsed.get(taxa[i], 0)
-            if not n_sp:
-                ax.text(X0 - 0.09, ty, abbrev(taxa[i]) + (" †" if taxa[i] in spill else ""),
-                        ha="right", va="center", fontsize=7.4, style="italic", color=INK)
-                continue
-            # A collapsed row is "Alternaria (14 spp.)": the genus is a name and sets italic,
-            # the count is not. Drawn as two texts and the suffix measured, so the pair still
-            # right-aligns on the same edge as every other row label.
-            suffix = f" ({n_sp} spp.)"
-            t2 = ax.text(X0 - 0.09, ty, suffix, ha="right", va="center", fontsize=7.0,
-                         color=MUTED)
-            w = t2.get_window_extent(fig.canvas.get_renderer()).width / fig.dpi
-            ax.text(X0 - 0.09 - w, ty, taxa[i], ha="right", va="center", fontsize=7.4,
-                    style="italic", color=INK)
-        # No swatch on the band. Colour belongs to the TAXON now, and a band holds taxa of
-        # more than one category -- Stem base and head carries a wheat pathogen and a
-        # non-pathogen recorded on wheat -- so a single swatch would contradict its own rows.
-        ax.text(BANDX, b_top + 0.045, name, ha="left", va="bottom", fontsize=6.8,
-                color=MUTED)
-
-    # THE RULES ARE DRAWN ONCE, FULL HEIGHT AND FULL WIDTH, not per block. Drawn inside the
-    # band loop the region rules broke at every band gap, which read as the rule being
-    # interrupted by the data rather than as one divider running the height of the panel.
-    #
-    # Each rule sits CENTRED IN ITS GAP with padding either side. At one-pixel columns a line
-    # butted against a block is indistinguishable from a detection, so the padding is what
-    # makes it a divider rather than a column.
-    g_bot = top - (len(taxa) * RH + (len(spans) - 1) * BAND_GAP)
-    for bi in range(len(ordered) - 1):
-        xr = xs[bi] + len(bycty[ordered[bi]]) * cw + REGION_GAP / 2
-        ax.plot([xr, xr], [g_bot, top], color="#c8c8c8", linewidth=0.7,
-                solid_capstyle="butt", zorder=1)
-    for k in range(len(spans) - 1):
-        yr = top - ((spans[k][1] + 1) * RH + (k + 0.5) * BAND_GAP)
-        ax.plot([X0, X0 + GW], [yr, yr], color="#c8c8c8", linewidth=0.7,
-                solid_capstyle="butt", zorder=1)
-
-    # PATHOGENS vs RESIDENTS, bracketed down the left. Computed from the rows rather than
-    # authored: a band is a pathogen band when its taxa are wheat pathogens.
-    runs_of = []
-    for i, w in enumerate(supers):
-        if runs_of and runs_of[-1][2] == w:
-            runs_of[-1][1] = i
-        else:
-            runs_of.append([i, i, w])
-    for i0, i1, w in runs_of:
-        k0 = next(k for k, (a, b, _) in enumerate(spans) if a <= i0 <= b)
-        k1 = next(k for k, (a, b, _) in enumerate(spans) if a <= i1 <= b)
-        s_top = top - (i0 * RH + k0 * BAND_GAP)
-        s_bot = top - ((i1 + 1) * RH + k1 * BAND_GAP)
-        ax.plot([SUPX, SUPX], [s_bot, s_top], color="#9a9a9a", linewidth=1.1,
-                solid_capstyle="butt")
-        ax.text(SUPX - 0.08, (s_bot + s_top) / 2, SUPER[w], rotation=90, ha="center",
-                va="center", fontsize=7.6, color="#6a6a6a")
-
-    # two staggered baselines, with the separation MEASURED against the font
-    import math
-    need = (6.8 / 72) / math.sin(math.radians(LABEL_ROT))   # inches between same-tier labels
-    last = [-1e9, -1e9]
-    skipped = []
-    for bi, c in enumerate(ordered):
-        n = len(bycty[c])
-        if n >= LABEL_MIN:
-            x = xs[bi] + n * cw / 2
-            tier = next((t for t in (0, 1) if x - last[t] >= need), None)
-            if tier is None:
-                skipped.append(c or "no location")
-            else:
-                last[tier] = x
-                ax.text(x, top + 0.07 + tier * LABEL_TIER, c or "no location",
-                        rotation=LABEL_ROT, rotation_mode="anchor", ha="left",
-                        va="baseline", fontsize=6.8, color=INK)
-    if skipped:
-        print(f"  label skipped, no tier clear: {', '.join(skipped)}")
-    ax.annotate("", xy=(X0 + GW, Y0 - 0.17), xytext=(X0, Y0 - 0.17),
-                arrowprops=dict(arrowstyle="-|>", color=MUTED, linewidth=0.8,
-                                shrinkA=0, shrinkB=0))
-    ax.text(X0 + GW / 2, Y0 - 0.24, f"{len(order):,} {describe()} runs, west to east",
-            ha="center", va="top", fontsize=7.0, color=MUTED)
-
-    ax.set_xlim(0, X0 + GW + PADR)
-    ax.set_ylim(0, H)
-    ax.axis("off")
-    fig.subplots_adjust(left=0, right=1, top=1, bottom=0)
-    FIG.mkdir(parents=True, exist_ok=True)
-    fig.savefig(FIG / "samples.png", dpi=600)
-
-    legend()
-
-    with open(FIG / "samples_order.tsv", "w", newline="") as fh:
+    with open(FIG / "samples_cols.tsv", "w", newline="") as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
-        w.writerow(["column", "run", "BioProject", "country", "region", "lat", "lon",
+        w.writerow(["col", "run", "BioProject", "country", "region", "lat", "lon",
                     "declared_status", "n_calls"])
         for j, rid in enumerate(order):
             m = runs[rid]
             w.writerow([j, rid, m["project"], m["country"], m["region"], m["lat"], m["lon"],
                         m["status"], int((grid[:, j] > 0).sum())])
 
-    state = {k: int((grid == v).sum()) for k, v in
-             (("declared", DECL), ("undeclared", UNDECL), ("unknown", UNKNOWN))}
-    print(f"wrote {FIG / 'samples.png'}")
-    print(f"  {len(order):,} {describe()} runs ({excluded} excluded), "
-          f"{len(ordered)} regions, {len(taxa)} taxa drawn")
-    print(f"  cells: {state}")
-    top = list(dropped.items())[:8]
-    print(f"  below MIN_RUNS={MIN_RUNS}: {len(dropped)} taxa not drawn, largest " +
-          ", ".join(f"{abbrev(t)} ({n})" for t, n in top))
-    small = sorted(((len(v), c) for c, v in bycty.items() if c and len(v) < LABEL_MIN),
-                   reverse=True)
-    if small:
-        print(f"  drawn but unlabelled, under LABEL_MIN={LABEL_MIN}: {len(small)} regions, "
-              f"{sum(n for n, _ in small)} runs -- " +
-              ", ".join(f"{c} ({n})" for n, c in small[:8]) + " ...")
-    noloc = len(bycty.get("", ()))
-    print(f"  {noloc} runs carry no location and sit in the unplaced block")
+    # ONLY NON-ZERO CELLS. The full product is 1,347 x 22 and 93% of it is absence; writing
+    # absence as rows would make a 30,000-line table whose only content is that nothing was
+    # found there. ggplot draws the panel background instead.
+    name = {DECL: "declared", UNDECL: "undeclared", UNKNOWN: "unknown"}
+    n_cell = 0
+    with open(FIG / "samples_cells.tsv", "w", newline="") as fh:
+        w = csv.writer(fh, delimiter="\t", lineterminator="\n")
+        w.writerow(["col", "row", "state", "fill"])
+        for i in range(grid.shape[0]):
+            base = legible(MATRIX[mrow[taxa[i]]])
+            fill = {DECL: DECLARED_COLOUR, UNDECL: base, UNKNOWN: washed(base)}
+            for j in np.nonzero(grid[i])[0]:
+                st = int(grid[i, j])
+                w.writerow([int(j), i, name[st], fill[st]])
+                n_cell += 1
+
+    # ── per-column totals, one summary row per half ───────────────────────────
+    # A count per RUN cannot be a number on a one-pixel column, so it is a colour. Each
+    # half gets its own ramp in its own hue and its own maximum: pathogens and residents
+    # differ several-fold in how many taxa a run carries, and one shared scale would flatten
+    # the half with the smaller range into a single tone. The ramps are therefore NOT
+    # comparable with each other, which the caption says.
+    halves = [("Pathogens", MATRIX[("wheat", "wheat_path")]),
+              ("Residents", MATRIX[("wheat", "none")])]
+    per_half = {}
+    for hname, hue in halves:
+        idx = [i for i, t in enumerate(taxa) if SUPER[supers[i]] == hname]
+        per_half[hname] = (grid[idx] > 0).sum(axis=0) if idx else np.zeros(grid.shape[1], int)
+
+    extra_rows, extra_cells = [], []
+    for hname, hue in halves:
+        counts = per_half[hname]
+        hi = int(counts.max())
+        r = len(rows) + len(extra_rows)
+        # BOTH summary rows sit at the BOTTOM, in a half of their own, and their label box
+        # is NOT tinted: the tint on the taxon boxes says which matrix category the rows
+        # are, and a summary of several categories has none to claim.
+        extra_rows.append({"row": r, "taxon": f"__total_{hname.lower()}__",
+                           "label": f"{hname.lower()} per run (0\u2013{hi})",
+                           "n_collapsed": 0, "band": " ", "half": "Total",
+                           "colour": hue, "colour_unknown": washed(hue), "italic": 0,
+                           "band_fill": "#ffffff",
+                           "n_runs": int((counts > 0).sum())})
+        for j, k in enumerate(counts):
+            if k:
+                extra_cells.append((j, r, "total",
+                                    ramp("#f2f2f2", ramp("#ffffff", hue, 0.95),
+                                         int(k) / hi)))
+    with open(FIG / "samples_rows.tsv", "a", newline="") as fh:
+        w = csv.DictWriter(fh, list(rows[0]), delimiter="\t", lineterminator="\n")
+        w.writerows(extra_rows)
+    with open(FIG / "samples_cells.tsv", "a", newline="") as fh:
+        w = csv.writer(fh, delimiter="\t", lineterminator="\n")
+        w.writerows(extra_cells)
+    n_cell += len(extra_cells)
+    print("  per-column totals: " + ", ".join(
+        f"{n} 0-{int(per_half[n].max())}" for n, _ in halves))
+
+    print(f"wrote {FIG}/samples_{{cells,rows,cols}}.tsv")
+    print(f"  {len(order):,} {describe()} runs ({excluded} excluded, {noloc} with no "
+          f"location), {len(ordered)} regions, {len(taxa)} rows, {n_cell:,} cells")
+    print(f"  cells: " + ", ".join(
+        f"{v} {sum(1 for i in range(grid.shape[0]) for _ in np.nonzero(grid[i] == k)[0])}"
+        for k, v in name.items()))
     if spill:
-        print("  FLAGGED † congener-tracking, still drawn (never called without a "
-              "congener, and at <"
-              f"{SPILL_RATIO:.0%} of its coverage): " +
+        print("  FLAGGED \u2020 congener-tracking: " +
               ", ".join(f"{t} ({n} runs, all with {p}, ratio {r:.2f})"
                         for t, (n, p, r) in sorted(spill.items())))
     if collapsed:
         print("  collapsed to genus: " +
               ", ".join(f"{g} ({n} spp.)" for g, n in sorted(collapsed.items())))
     if suspect:
-        print("  !! UNCOLLAPSED GENERA BEHAVING LIKE CLUSTERS -- review the collapse column "
-              "in data/inputs/pathogen_groups.tsv: " +
+        print("  !! UNCOLLAPSED GENERA BEHAVING LIKE CLUSTERS: " +
               ", ".join(f"{g} (median {n:.0f} spp/run, CV {c:.2f})" for g, n, c in suspect))
     if mismatched:
-        print(f"  !! {mismatched} calls disagree with S5's stored `declared` column. This "
-              f"figure recomputes it with detect.py's post-2026-11-23 congener fix; "
-              f"supp_data_s5/s6 are STALE until detect.py is re-run on Setonix.")
+        print(f"  !! {mismatched} calls disagree with S5's stored `declared` column")
     if unknown_name:
-        print("  COUNTRY NAMES THE GAZETTEER CANNOT RESOLVE -- fix in 01_cohort curation: " +
+        print("  COUNTRY NAMES THE GAZETTEER CANNOT RESOLVE: " +
               ", ".join(f"{c!r} ({n})" for c, n in unknown_name))
-
-
-def legend():
-    """Keys laid out by MEASURING each label, not by estimating from its character count.
-
-    The first version advanced x by a per-character guess and the last key ran off the
-    canvas. Matplotlib will report a text's drawn width, so ask it: draw, measure, place the
-    next swatch past the measurement.
-    """
-    SW, GAP, PAD = 0.15, 0.13, 0.30         # swatch, swatch-to-text, key-to-key, in inches
-    H = 0.30
-    fig, ax = plt.subplots(figsize=(8.0, H))     # provisional; trimmed to content below
-    ax.set_xlim(0, 8.0)
-    ax.set_ylim(0, H)
-    ax.axis("off")
-    fig.subplots_adjust(left=0, right=1, top=1, bottom=0)
-    rend = fig.canvas.get_renderer()
-
-    # TWO keys, and the split is the point: inside the grid a colour says who knew, in the
-    # left margin it says what kind of organism the band holds. The margin colours are
-    # 02_reference's, so a category is the same colour in every figure of the chapter.
-    x = 0.08
-    wp = legible(MATRIX[("wheat", "wheat_path")])
-    for colour, label in ((DECLARED_COLOUR, "declared by the study"),
-                          (wp, "not declared"),
-                          (washed(wp), "declaration not curated"),
-                          (None, "   colour = the taxon's category in the reference matrix")):
-        if colour is None:
-            t = ax.text(x, 0.155, label, ha="left", va="center", fontsize=7.4, color=MUTED)
-            x += t.get_window_extent(fig.canvas.get_renderer()).width / fig.dpi + 0.10
-            continue
-        ax.add_patch(Rectangle((x, 0.09), SW, 0.13, facecolor=colour,
-                               edgecolor="#d8d8d8", linewidth=0.5))
-        t = ax.text(x + SW + GAP, 0.155, label, ha="left", va="center", fontsize=7.4,
-                    color=INK)
-        x += SW + GAP + t.get_window_extent(rend).width / fig.dpi + PAD
-
-    W = x - PAD + 0.08
-    fig.set_size_inches(W, H)
-    ax.set_xlim(0, W)
-    fig.savefig(FIG / "samples_legend.png", dpi=300, facecolor="white")
+    top = list(dropped.items())[:8]
+    print(f"  below MIN_RUNS={MIN_RUNS}: {len(dropped)} taxa not drawn, largest " +
+          ", ".join(f"{abbrev(t)} ({n})" for t, n in top))
 
 
 if __name__ == "__main__":

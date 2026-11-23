@@ -1,7 +1,11 @@
 # How the figures group the wheat pathogens into rows. AUTHORED, not derived.
 #
+# `group` and `group_order` APPLY TO WHEAT PATHOGENS ONLY. A non-pathogen is banded on
+# on_wheat by the figure (Wheat / Plant), so the group named on a resident row below is
+# inert; the rows are kept because `collapse` is read for every taxon, pathogen or not.
+#
 # `group` is the disease type a wheat pathologist would name, which is what the figures band
-# rows by; `group_order` fixes the band order and runs broadly from the obligate biotrophs to
+# pathogen rows by; `group_order` fixes the band order and runs broadly from the obligate biotrophs to
 # the necrotrophs, which is also roughly Basidiomycota -> Leotiomycetes -> Dothideomycetes ->
 # Sordariomycetes. `class` and `lifestyle` are recorded so the grouping can be switched to
 # either without re-curating, and because lifestyle bears on how a detection is read: an
@@ -20,18 +24,18 @@ taxon	group	group_order	disease	class	lifestyle	collapse
 Puccinia striiformis	Rusts	1	stripe rust	Pucciniomycetes	obligate biotroph	no
 Puccinia triticina	Rusts	1	leaf rust	Pucciniomycetes	obligate biotroph	no
 Puccinia graminis	Rusts	1	stem rust	Pucciniomycetes	obligate biotroph	no
-Blumeria graminis	Powdery mildew	2	powdery mildew	Leotiomycetes	obligate biotroph	no
-Zymoseptoria tritici	Leaf blotch	3	Septoria tritici blotch	Dothideomycetes	hemibiotroph	no
-Parastagonospora nodorum	Leaf blotch	3	Septoria nodorum blotch	Dothideomycetes	necrotroph	no
-Pyrenophora tritici-repentis	Leaf blotch	3	tan spot	Dothideomycetes	necrotroph	no
-Bipolaris sorokiniana	Leaf blotch	3	spot blotch	Dothideomycetes	necrotroph	no
-Alternaria alternata	Leaf blotch	3	Alternaria leaf blight	Dothideomycetes	necrotroph	yes
-Oculimacula yallundae	Stem base and head	4	eyespot	Leotiomycetes	necrotroph	no
-Microdochium nivale	Stem base and head	4	Microdochium patch	Sordariomycetes	necrotroph	no
-Fusarium graminearum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph	no
-Fusarium culmorum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph	no
-Fusarium avenaceum	Stem base and head	4	Fusarium head blight	Sordariomycetes	necrotroph	no
-Alternaria triticina	Leaf blotch	3	Alternaria leaf blight	Dothideomycetes	necrotroph	yes
+Blumeria graminis	Mildews	2	powdery mildew	Leotiomycetes	obligate biotroph	no
+Zymoseptoria tritici	Blotches	3	Septoria tritici blotch	Dothideomycetes	hemibiotroph	no
+Parastagonospora nodorum	Blotches	3	Septoria nodorum blotch	Dothideomycetes	necrotroph	no
+Pyrenophora tritici-repentis	Blotches	3	tan spot	Dothideomycetes	necrotroph	no
+Bipolaris sorokiniana	Blotches	3	spot blotch	Dothideomycetes	necrotroph	no
+Alternaria alternata	Blotches	3	Alternaria leaf blight	Dothideomycetes	necrotroph	yes
+Oculimacula yallundae	Rots	4	eyespot	Leotiomycetes	necrotroph	no
+Microdochium nivale	Rots	4	Microdochium patch	Sordariomycetes	necrotroph	no
+Fusarium graminearum	Rots	4	Fusarium head blight	Sordariomycetes	necrotroph	no
+Fusarium culmorum	Rots	4	Fusarium head blight	Sordariomycetes	necrotroph	no
+Fusarium avenaceum	Rots	4	Fusarium head blight	Sordariomycetes	necrotroph	no
+Alternaria triticina	Blotches	3	Alternaria leaf blight	Dothideomycetes	necrotroph	yes
 Cladosporium allicinum	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	no
 Cladosporium inversicolor	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	no
 Cladosporium cladosporioides	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	no
@@ -65,4 +69,4 @@ Dioszegia hungarica	Phyllosphere yeasts	5	none	Tremellomycetes	yeast	no
 Filobasidium floriforme	Phyllosphere yeasts	5	none	Tremellomycetes	yeast	no
 Malassezia restricta	Phyllosphere yeasts	5	none	Malasseziomycetes	yeast	no
 Ramularia collo-cygni	Recorded on other hosts	7	Ramularia leaf spot of barley	Dothideomycetes	necrotroph	no
-Microdochium majus	Stem base and head	4	Microdochium patch	Sordariomycetes	necrotroph	no
+Microdochium majus	Rots	4	Microdochium patch	Sordariomycetes	necrotroph	no

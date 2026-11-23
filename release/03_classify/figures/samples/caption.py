@@ -3,11 +3,11 @@
 
     python release/03_classify/figures/samples/caption.py
 
-Reads  samples_order.tsv                               (beside this script, from the plot)
+Reads  samples_cols.tsv                               (beside this script, from the plot)
        ../../data/outputs/supp_data_s5_detections.tsv   the calls
 Writes samples_caption.txt
 
-The column order and its countries come from `samples_order.tsv`, which the plot writes as
+The column order and its countries come from `samples_cols.tsv`, which the plot writes as
 it draws, so the caption cannot narrate a different figure.
 
 Nothing here is prose-with-numbers-typed-in: the narrative is a template and every figure in
@@ -25,8 +25,8 @@ sys.path.insert(0, str(HERE.parent / "02_reference/scripts"))
 from _caption import rd, para, write                    # noqa: E402
 
 sys.path.insert(0, str(FIG))
-import plot_samples                                      # noqa: E402
-from plot_samples import MIN_RUNS, abbrev               # noqa: E402
+import prep_samples                                      # noqa: E402
+from prep_samples import MIN_RUNS, abbrev               # noqa: E402
 sys.path.insert(0, str(HERE / "scripts"))
 from detect import declaration                          # noqa: E402
 
@@ -36,23 +36,22 @@ S3REF = HERE.parent / "02_reference/data/outputs/supp_data_s3_reference.tsv"
 S5 = HERE / "data/outputs/supp_data_s5_detections.tsv"
 # The geography sentence contrasts these two groups of REGIONS. They are named because the
 # claim is about them; every share is computed, never typed.
-MARITIME = ["Western Europe"]
-ELSEWHERE = ["North America", "South America", "Southern Africa", "East Africa",
-             "Asia", "Oceania"]
+MARITIME = ["Europe"]
+ELSEWHERE = ["Americas", "Africa", "Asia"]
 FOCUS = "Zymoseptoria tritici"
 COLLAPSED = "Alternaria"        # the one genus the panel draws as a single row
 SPILL_PARTNER = "Zymoseptoria tritici"   # the congener the withheld taxon rides on
 
 
 def numbers():
-    cols = rd(FIG / "samples_order.tsv")
-    # samples_order.tsv IS the analysed set: the plot writes one row per column it drew, so
+    cols = rd(FIG / "samples_cols.tsv")
+    # samples_cols.tsv IS the analysed set: the plot writes one row per column it drew, so
     # filtering the calls through it keeps caption and panel on the same runs. Reading S5
     # whole counted the lab libraries and the host-contrast runs the panel excludes.
     drawn = {c["run"] for c in cols}
     calls = [r for r in rd(S5) if r["run"] in drawn]
     # Same recomputation the panel does, from the same function, so caption and panel agree
-    # even while supp_data_s5's stored `declared` column is stale. See plot_samples.load.
+    # even while supp_data_s5's stored `declared` column is stale. See prep_samples.load.
     crow = {r["run"]: r for r in rd(S2)}
     for r in calls:
         r["declared"] = declaration(crow[r["run"]], r["taxon"], r["genus"],
@@ -104,7 +103,7 @@ def numbers():
         byt[r["taxon"]].add(r["run"])
         covs[r["taxon"]][r["run"]] = float(r["coverage"])
         genus[r["taxon"]] = r["genus"]
-    sp = plot_samples.SPILL
+    sp = prep_samples.SPILL
     n["sp"], n["sp_partner"] = abbrev(sp), abbrev(SPILL_PARTNER)
     n["sp_runs"] = len(byt[sp])
     n["sp_both"] = len(byt[sp] & byt[SPILL_PARTNER])
@@ -119,11 +118,6 @@ def numbers():
     n["mm_ratio"] = statistics.median(
         [covs[mm][r] / covs[mn][r] for r in byt[mm] & byt[mn] if covs[mn][r]])
     # what the panel leaves out, computed so the caption cannot drift from the plot
-    unl = sorted(collections.Counter(
-        c["region"] for c in cols if c["region"]).items(), key=lambda kv: -kv[1])
-    small = [(c, v) for c, v in unl if v < plot_samples.LABEL_MIN]
-    n["n_unlabelled"] = len(small)
-    n["unlabelled_runs"] = sum(v for _, v in small)
 
     n["ci_alone"] = len(byt[ci] - set().union(*(byt[t] for t in sibs)))
 
@@ -193,10 +187,10 @@ def main():
         f"foliar diseases follow; the mapping is in data/inputs/country_regions.tsv and a "
         f"country missing from it stops the figure rather than falling into an Other "
         f"bucket. {n['countries']} countries are represented across {n['projects']} "
-        f"BioProjects, {n['geo']:,} runs carry coordinates and {n['noloc']} carry no "
-        f"location and sit in the block at the right. {n['n_unlabelled']} region holding "
-        f"{n['unlabelled_runs']} runs is drawn but too narrow to name; samples_order.tsv "
-        f"gives the country and region of every column. "
+        f"BioProjects, and {n['geo']:,} of them carry coordinates. Runs with no location "
+        f"at all are not drawn, the x axis being geography; they stay in supp_data_s5 and "
+        f"in every count the module makes. samples_cols.tsv gives the country and region "
+        f"of every column. "
         f"Rows are every fungus called in at least {MIN_RUNS} runs, "
         f"banded by two different rules, because the two halves of the panel answer to "
         f"different things. A wheat pathogen is banded by the DISEASE it causes, which is "
@@ -289,7 +283,7 @@ def main():
         f"Detection is presence, not activity, and a species-level call inside a densely "
         f"represented genus is a call on that genus' k-mer space; both are taken up in "
         f"04_align. Column order, project, country, coordinates and call count per run are "
-        f"in samples_order.tsv.",
+        f"in samples_cols.tsv.",
     )
     write(FIG / "samples_caption.txt", text)
 

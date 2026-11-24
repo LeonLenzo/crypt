@@ -1,0 +1,831 @@
+run	rung	taxon	taxon_class	redundancy	coverage	distinct	call	reason	fill	edge	label
+SRR6043971	1	Puccinia striiformis	wheat_pathogen	166.236	0.422698	4602587	detected	all floors	#e05a26	#7b3215	Puccinia striiformis
+SRR6043971	1	Triticum aestivum	host	0.0124182	0.00183335	95512	detected	host, ranked per run	#f0f0f0	#848484	Triticum aestivum
+SRR6043971	1	Puccinia brachypodii	resident	0.000863299	0.0014319	6890	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Puccinia brachypodii
+SRR6043971	1	Puccinia graminis	wheat_pathogen	0.0712771	0.000404941	4149	rejected	distinct	#e05a26	#7b3215	
+SRR6043971	1	Puccinia hordei	resident	0.000291308	0.00038161	2282	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Puccinia hordei
+SRR6043971	1	Penicillium olsonii	resident	0.00187257	0.000373692	2273	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Puccinia triticina	wheat_pathogen	0.00403077	0.000322375	2690	rejected	distinct	#e05a26	#7b3215	
+SRR6043971	1	Puccinia sorghi	resident	0.00356686	0.000303917	2078	rejected	distinct	#1aa64b	#0e5b29	
+SRR6043971	1	Puccinia coronata	resident	0.159424	0.000272647	1925	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Phakopsora pachyrhizi	plant_pathogen	0.491207	0.000145389	760	rejected	distinct	#fbe49a	#8a7d55	
+SRR6043971	1	Cronartium quercuum	resident	0.41854	0.00010389	448	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Melampsora laricis-populina	plant_pathogen	0.323884	9.98501e-05	537	rejected	distinct	#fbe49a	#8a7d55	
+SRR6043971	1	Sordaria macrospora	resident	0.000318047	9.7313e-05	41	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Termitomyces sp. T112	resident	0.000144244	7.31984e-05	68	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Aspergillus fumigatus	resident	0.000274742	6.20685e-05	333	rejected	distinct	#1aa64b	#0e5b29	
+SRR6043971	1	Thamnidium elegans	resident	6.14082e-05	5.13263e-05	224	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Melampsora americana	resident	0.00954554	4.882e-05	257	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Rhizopus arrhizus	resident	0.000103435	4.67001e-05	242	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Rhizopus delemar	resident	5.0725e-05	4.05043e-05	107	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Diversispora epigaea	resident	2.19699e-05	3.42665e-05	209	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Gigaspora rosea	resident	1.94315e-05	3.33526e-05	230	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Cladosporium cladosporioides	resident	0.000136731	3.26521e-05	128	rejected	distinct	#1aa64b	#0e5b29	
+SRR6043971	1	Atractiella rhizophila	resident	0.00114591	3.12231e-05	157	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Morchella rufobrunnea	resident	7.2143e-05	3.01493e-05	56	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Penicillium rubens	resident	0.000187498	2.79847e-05	20	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Cryptococcus hyracis	resident	0.000154231	2.53215e-05	22	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Cryptococcus neoformans	resident	2.29211e-05	2.53159e-05	148	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Glomus cerebriforme	resident	4.80432e-05	2.36631e-05	132	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Hordeum vulgare	host	5.53446e-05	2.35421e-05	171	rejected	host, outranked	#f0f0f0	#848484	Hordeum vulgare
+SRR6043971	1	Mixia osmundae	resident	4.13207e-05	2.22022e-05	72	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Austropuccinia psidii	resident	0.0419589	2.16988e-05	360	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Linnemannia elongata	resident	8.79249e-06	2.11938e-05	323	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Gigaspora margarita	resident	3.98403e-05	2.08121e-05	210	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Aspergillus heteromorphus	resident	3.16855e-05	1.82073e-05	77	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Classicula fluitans	resident	5.52824e-05	1.79461e-05	87	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Penicillium desertorum	resident	0.000131999	1.77311e-05	36	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Phialemonium thermophilum	resident	3.76598e-05	1.77057e-05	63	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Cladosporium halotolerans	resident	6.39615e-05	1.7661e-05	74	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Mucor saturninus	resident	5.23403e-05	1.7577e-05	45	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Rhodotorula graminis	resident	4.62326e-05	1.7251e-05	50	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Rhizophagus clarus	resident	2.97766e-05	1.62216e-05	146	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Wallemia mellicola	resident	0.000103887	1.58931e-05	41	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Funneliformis caledonium	resident	7.92359e-05	1.53741e-05	26	rejected	distinct	#1aa64b	#0e5b29	
+SRR6043971	1	Linnemannia gamsii	resident	0.0025727	1.43023e-05	184	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Aspergillus campestris	resident	5.02202e-05	1.3492e-05	36	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Talaromyces variabilis	resident	7.58969e-05	1.26495e-05	67	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Talaromyces variabilis
+SRR6043971	1	Gamsiella multidivaricata	resident	2.34566e-05	1.26036e-05	72	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Mucor ambiguus	resident	3.53298e-05	1.13372e-05	43	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Lentinula aff. detonsa	resident	0.0488042	1.07867e-05	17	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Lactarius indigo	resident	0.0407263	9.00716e-06	35	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Pleurotus ostreatus	resident	7.38517e-05	9.00182e-06	49	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Penicillium brevicompactum	resident	1.76006e-05	8.14358e-06	62	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Pisolithus tinctorius	resident	3.24257e-05	7.74346e-06	32	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Cladosporium sphaerospermum	resident	5.51087e-05	7.19703e-06	35	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Cladosporium sphaerospermum
+SRR6043971	1	Cladosporium sp. NU13	resident	3.21773e-05	6.24336e-06	26	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Penicillium griseofulvum	resident	2.18649e-05	6.20049e-06	38	rejected	distinct	#1aa64b	#0e5b29	
+SRR6043971	1	Gelatoporia subvermispora	resident	5.73858e-05	5.99553e-06	28	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Cladosporium inversicolor	resident	2.69342e-05	5.82904e-06	29	rejected	distinct	#1aa64b	#0e5b29	
+SRR6043971	1	Metschnikowia pulcherrima	resident	1.36923e-05	5.4156e-06	53	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Vanrija pseudolonga	resident	3.33471e-05	5.22603e-06	21	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Penicillium malachiteum	resident	6.42462e-05	4.79449e-06	50	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Exophiala dermatitidis	resident	2.29217e-05	4.7896e-06	28	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Tothia fuscella	resident	2.47778e-05	4.43781e-06	24	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Penicillium chermesinum	resident	2.8805e-05	4.29926e-06	20	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Pyrenochaeta sp. DS3sAY3a	resident	2.18262e-05	3.5834e-06	22	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Venturia nashicola	resident	2.51208e-05	3.5619e-06	19	rejected	distinct	#c3e8bf	#6b8069	
+SRR6043971	1	Aureobasidium melanogenum	resident	4.52709e-06	2.97301e-06	88	rejected	distinct	#f0f0f0	#848484	
+SRR6043971	1	Simplicillium lamellicola	resident	2.90963e-05	2.38851e-06	11	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Puccinia striiformis	wheat_pathogen	190.594	0.526825	5736384	detected	all floors	#e05a26	#7b3215	Puccinia striiformis
+ERR1607743	2	Triticum aestivum	host	15.1764	0.208169	10844962	detected	host, ranked per run	#f0f0f0	#848484	Triticum aestivum
+ERR1607743	2	Cladosporium cladosporioides	resident	1.36269	0.141636	555229	detected	all floors	#1aa64b	#0e5b29	Cladosporium cladosporioides
+ERR1607743	2	Cladosporium inversicolor	resident	0.46009	0.0287273	142921	detected	all floors	#1aa64b	#0e5b29	Cladosporium inversicolor
+ERR1607743	2	Cladosporium pseudocladosporioides	resident	0.046851	0.00637198	31310	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Cladosporium pseudocladosporioides
+ERR1607743	2	Cladosporium sp. NU13	resident	0.0348158	0.00551168	22953	rejected	coverage	#f0f0f0	#848484	Cladosporium sp. NU13
+ERR1607743	2	Cladosporium oxysporum	resident	0.0261916	0.00421254	18233	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Cladosporium oxysporum
+ERR1607743	2	Hordeum vulgare	host	0.0250896	0.00324275	23554	rejected	host, outranked	#f0f0f0	#848484	Hordeum vulgare
+ERR1607743	2	Puccinia brachypodii	resident	0.0342813	0.00183654	8837	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Puccinia brachypodii
+ERR1607743	2	Puccinia graminis	wheat_pathogen	0.0891813	0.000554952	5686	rejected	distinct	#e05a26	#7b3215	
+ERR1607743	2	Saccharomyces pastorianus	resident	0.00359384	0.000549804	41	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Puccinia hordei	resident	0.000537799	0.000521244	3117	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Puccinia hordei
+ERR1607743	2	Puccinia triticina	wheat_pathogen	0.0192867	0.000473976	3955	rejected	distinct	#e05a26	#7b3215	
+ERR1607743	2	Cladosporium sp. EXF-13502	resident	0.00291326	0.00046025	4361	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Cladosporium allicinum	resident	0.00230265	0.000436251	2361	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Puccinia coronata	resident	0.444527	0.000389212	2748	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Puccinia sorghi	resident	0.0114257	0.000388745	2658	rejected	distinct	#1aa64b	#0e5b29	
+ERR1607743	2	Cladosporium halotolerans	resident	0.000479711	0.000292839	1227	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Cladosporium fusiforme	resident	0.00210854	0.000284374	1500	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Olpidium bornovanus	resident	6.26964e-05	0.000237217	507	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Cladosporium sphaerospermum	resident	0.000413315	0.000235651	1146	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Cladosporium sphaerospermum
+ERR1607743	2	Penicillium nalgiovense	resident	0.000567975	0.000181352	599	rejected	distinct	#1aa64b	#0e5b29	
+ERR1607743	2	Phakopsora pachyrhizi	plant_pathogen	1.02225	0.000154381	807	rejected	distinct	#fbe49a	#8a7d55	
+ERR1607743	2	Penicillium nordicum	resident	0.000141868	0.000140809	133	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Cronartium quercuum	resident	1.06529	0.000122674	529	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Melampsora laricis-populina	plant_pathogen	0.926104	0.000122535	659	rejected	distinct	#fbe49a	#8a7d55	
+ERR1607743	2	Saccharomycodes ludwigii	resident	4.97356e-05	9.61307e-05	259	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Podosphaera aphanis	resident	0.00189094	8.96765e-05	591	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Arabidopsis thaliana	host	0.000316277	7.88332e-05	835	rejected	host, outranked	#f0f0f0	#848484	Arabidopsis thaliana
+ERR1607743	2	Rhizopus arrhizus	resident	0.000284446	7.75761e-05	402	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Saccharomyces cerevisiae	resident	0.000554074	7.74495e-05	487	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Melampsora americana	resident	0.00710189	6.93358e-05	365	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Meira miltonrushii	resident	0.00011482	6.25511e-05	219	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Rhodotorula graminis	resident	9.24652e-05	5.62382e-05	163	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Atractiella rhizophila	resident	0.00692874	5.29003e-05	266	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Thamnidium elegans	resident	6.14082e-05	5.27011e-05	230	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Aspergillus fumigatus	resident	0.000124883	4.97667e-05	267	rejected	distinct	#1aa64b	#0e5b29	
+ERR1607743	2	Cryptococcus neoformans	resident	2.29211e-05	4.96054e-05	290	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Malassezia globosa	resident	0.000547152	4.89987e-05	144	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Rhizopus delemar	resident	5.0725e-05	4.80752e-05	127	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Rhizopus azygosporus	resident	0.000233366	4.52799e-05	26	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Morchella rufobrunnea	resident	7.2143e-05	4.41472e-05	82	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Aulographum hederae	resident	0.020161	4.28672e-05	204	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Penicillium olsonii	resident	0.000198272	4.07723e-05	248	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Diversispora epigaea	resident	4.39399e-05	4.06608e-05	248	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Colletotrichum higginsianum	plant_pathogen	5.57237e-05	4.03373e-05	97	rejected	distinct	#fbe49a	#8a7d55	
+ERR1607743	2	Microstroma glucosiphilum	resident	0.00187194	3.98719e-05	137	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Hanseniaspora valbyensis	resident	8.00723e-05	3.97374e-05	133	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Rhizophagus sp. MUCL 43196	resident	0.000286472	3.8125e-05	107	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Phycomyces blakesleeanus	resident	4.55137e-05	3.56637e-05	210	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Aspergillus heteromorphus	resident	6.3371e-05	3.47595e-05	147	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Austropuccinia psidii	resident	0.112833	3.3814e-05	561	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Classicula fluitans	resident	5.52824e-05	3.36232e-05	163	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Mrakia frigida	resident	3.3362e-05	3.3611e-05	135	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Glomus cerebriforme	resident	0.0694224	3.35227e-05	187	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Kwoniella pini	resident	3.53018e-05	3.31942e-05	126	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Meristemomyces frigidus	resident	7.48669e-06	3.21816e-05	576	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Ascoidea rubescens	resident	0.000224311	3.18053e-05	95	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Linnemannia elongata	resident	1.7585e-05	3.01176e-05	459	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	[Candida] boidinii	resident	3.38642e-05	2.99471e-05	237	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Terfezia boudieri	resident	4.3582e-05	2.9922e-05	92	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Mixia osmundae	resident	4.13207e-05	2.99112e-05	97	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Venturia nashicola	resident	5.02416e-05	2.962e-05	158	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Synchytrium microbalum	resident	3.87269e-05	2.94787e-05	102	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Wallemia mellicola	resident	0.00135053	2.82975e-05	73	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Colletotrichum nymphaeae	resident	0.000263566	2.81923e-05	43	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Mucor ambiguus	resident	0.000282639	2.79475e-05	106	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Rhizophagus irregularis	resident	0.000173192	2.73106e-05	486	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Hortaea werneckii	resident	5.13506e-05	2.68249e-05	1330	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Ascobolus immersus	resident	1.95695e-05	2.65795e-05	182	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Acaromyces ingoldii	resident	0.000170977	2.60294e-05	102	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Rhizophagus clarus	resident	0.0822282	2.56657e-05	231	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Jimgerdemannia flammicorona	resident	6.89384e-05	2.53803e-05	148	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Schizosaccharomyces pombe	resident	0.000107894	2.53631e-05	63	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Epichloe bromicola	resident	0.00773778	2.53513e-05	54	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Kluyveromyces marxianus	resident	3.73224e-05	2.53458e-05	91	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Erysiphe pulchra	resident	9.30131e-05	2.53357e-05	73	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Backusella circina	resident	2.24143e-05	2.52579e-05	151	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Teratosphaeria nubilosa	resident	6.80405e-05	2.48805e-05	98	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Funneliformis caledonium	resident	7.92359e-05	2.48351e-05	42	rejected	distinct	#1aa64b	#0e5b29	
+ERR1607743	2	Gigaspora margarita	resident	1.32801e-05	2.46772e-05	249	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Rhodotorula sphaerocarpa	resident	4.07991e-05	2.46621e-05	81	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Taphrina deformans	resident	0.000893934	2.46319e-05	48	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Phialemonium thermophilum	resident	7.53195e-05	2.36076e-05	84	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Entrophospora sp. SA101	resident	2.09574e-05	2.33034e-05	149	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Penicillium rubens	resident	0.000374996	2.23878e-05	16	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Rhizomucor pusillus	resident	0.000122759	2.19866e-05	96	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Saccharata proteae	resident	0.000344849	2.16174e-05	84	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Linnemannia gamsii	resident	0.00889509	2.09093e-05	269	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Zasmidium cellare	resident	1.03075e-05	2.04613e-05	266	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Septoria linicola	resident	2.30376e-05	1.97711e-05	115	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Malassezia restricta	resident	0.000118184	1.94034e-05	44	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Hanseniaspora guilliermondii	resident	0.000133128	1.88764e-05	38	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Aspergillus steynii	resident	0.000104118	1.88423e-05	97	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Smittium mucronatum	resident	4.58194e-05	1.88065e-05	55	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Ambrosiozyma monospora	resident	1.92408e-05	1.86665e-05	130	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Racocetra persica	resident	3.0676e-05	1.80851e-05	79	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Thermoascus thermophilus	resident	6.36279e-05	1.80437e-05	38	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Lentinula aff. detonsa	resident	0.109767	1.71319e-05	27	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Gelatoporia subvermispora	resident	0.257232	1.67018e-05	78	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Sordaria brevicollis	resident	3.056e-05	1.66484e-05	73	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Berkeleyomyces basicola	resident	7.37951e-05	1.59706e-05	29	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Berkeleyomyces basicola
+ERR1607743	2	Tricholoma matsutake	resident	2.49506e-05	1.58269e-05	85	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Ambispora leptoticha	resident	3.31345e-05	1.55781e-05	63	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Pleurotus ostreatus	resident	0.000960072	1.54317e-05	84	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Cladorrhinum sp. PSN332	resident	0.000126049	1.50507e-05	80	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Ophiosphaerella herpotricha	resident	8.12061e-05	1.48474e-05	49	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Ophiosphaerella herpotricha
+ERR1607743	2	Westerdykella ornata	resident	3.07554e-05	1.46892e-05	64	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Massarina eburnea	resident	2.60033e-05	1.45541e-05	75	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Papiliotrema aurea	resident	3.07513e-05	1.44577e-05	63	competitor_only	predicted CDS, never a positive call	#f0f0f0	#848484	Papiliotrema aurea
+ERR1607743	2	Aspergillus chevalieri	resident	6.64411e-05	1.43791e-05	29	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Funneliformis geosporum	resident	2.34705e-05	1.38371e-05	79	rejected	distinct	#1aa64b	#0e5b29	
+ERR1607743	2	Acaulospora colombiana	resident	3.29765e-05	1.3289e-05	54	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Ambispora gerdemannii	resident	6.47209e-05	1.32823e-05	55	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Abortiporus biennis	resident	2.20745e-05	1.28494e-05	78	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Tothia fuscella	resident	2.47778e-05	1.27587e-05	69	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Lactarius indigo	resident	0.0451403	1.261e-05	49	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Astraeus odoratus	resident	2.87947e-05	1.24634e-05	58	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Mycena citricolor	resident	5.02938e-05	1.20105e-05	64	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Aureobasidium pullulans	resident	6.40149e-06	1.18475e-05	248	rejected	distinct	#1aa64b	#0e5b29	
+ERR1607743	2	Bimuria novae-zelandiae	resident	2.35264e-05	1.17632e-05	67	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Penicillium brevicompactum	resident	3.52013e-05	1.169e-05	89	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Lophium mytilinum	resident	2.28935e-05	1.16176e-05	68	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Pseudevernia consocians	resident	6.06552e-05	1.13163e-05	50	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Paraglomus occultum	resident	4.18385e-05	1.12402e-05	36	rejected	distinct	#1aa64b	#0e5b29	
+ERR1607743	2	Penicillium chermesinum	resident	2.8805e-05	1.11781e-05	52	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Exophiala dermatitidis	resident	4.58433e-05	1.11187e-05	65	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Fusarium proliferatum	plant_pathogen	6.56331e-05	1.10205e-05	45	rejected	distinct	#f5a800	#875c00	
+ERR1607743	2	Pisolithus tinctorius	resident	3.24257e-05	1.08892e-05	45	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Kluyveromyces lactis	resident	3.75044e-05	1.00758e-05	36	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Lentinula raphanica	resident	1.05819e-05	1.00291e-05	127	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Fusarium equiseti	resident	2.69764e-05	9.8645e-06	49	rejected	distinct	#1aa64b	#0e5b29	
+ERR1607743	2	Mortierella sp. AD094	resident	2.63475e-05	9.83116e-06	50	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Pyrenochaeta sp. DS3sAY3a	resident	2.18262e-05	9.77292e-06	60	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Microthyrium microscopicum	resident	5.17132e-05	9.64799e-06	50	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Pluteus cervinus	resident	1.80528e-05	9.16111e-06	68	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Glonium stellatum	resident	2.4217e-05	9.0362e-06	50	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Lachnellula suecica	resident	2.93122e-05	8.7499e-06	40	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Dactylellina haptotyla	resident	0.000150951	8.26099e-06	44	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Paxillus involutus	resident	3.64973e-05	8.17103e-06	30	rejected	distinct	#c3e8bf	#6b8069	
+ERR1607743	2	Exophiala mesophila	resident	1.71531e-05	8.06452e-06	63	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Penicillium malachiteum	resident	3.85477e-05	7.38352e-06	77	rejected	distinct	#f0f0f0	#848484	
+ERR1607743	2	Blumeria graminis	wheat_pathogen	5.09022e-05	7.21748e-06	19	rejected	distinct	#e05a26	#7b3215	
+ERR15005445	3	Puccinia striiformis	wheat_pathogen	25.6489	0.40358	4394419	detected	all floors	#e05a26	#7b3215	Puccinia striiformis
+ERR15005445	3	Puccinia graminis	wheat_pathogen	12.713	0.355788	3645382	detected	all floors	#e05a26	#7b3215	Puccinia graminis
+ERR15005445	3	Puccinia triticina	wheat_pathogen	3.65988	0.262572	2190980	detected	all floors	#e05a26	#7b3215	Puccinia triticina
+ERR15005445	3	Zymoseptoria tritici	wheat_pathogen	1.72141	0.179827	1119903	detected	all floors	#e05a26	#7b3215	Zymoseptoria tritici
+ERR15005445	3	Sporobolomyces roseus	resident	2.07473	0.152422	645855	detected	all floors	#1aa64b	#0e5b29	Sporobolomyces roseus
+ERR15005445	3	Triticum aestivum	host	6.87037	0.152301	7934409	detected	host, ranked per run	#f0f0f0	#848484	Triticum aestivum
+ERR15005445	3	Parastagonospora nodorum	wheat_pathogen	0.654435	0.110035	932819	detected	all floors	#e05a26	#7b3215	Parastagonospora nodorum
+ERR15005445	3	Dioszegia hungarica	resident	0.463922	0.0963246	378942	detected	all floors	#f0f0f0	#848484	Dioszegia hungarica
+ERR15005445	3	Pyrenophora tritici-repentis	wheat_pathogen	0.309561	0.0596858	321438	detected	all floors	#e05a26	#7b3215	Pyrenophora tritici-repentis
+ERR15005445	3	Bullera alba	resident	0.149611	0.0280425	106021	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Bullera alba
+ERR15005445	3	Alternaria triticimaculans	resident	0.131036	0.0243363	20194	detected	all floors	#1aa64b	#0e5b29	Alternaria triticimaculans
+ERR15005445	3	Cladosporium allicinum	resident	0.130924	0.0230265	124620	detected	all floors	#c3e8bf	#6b8069	Cladosporium allicinum
+ERR15005445	3	Cystofilobasidium macerans	resident	0.111928	0.0181418	61856	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Cystofilobasidium macerans
+ERR15005445	3	Ramularia collo-cygni	resident	0.0355058	0.0120479	58487	rejected	coverage	#c3e8bf	#6b8069	Ramularia collo-cygni
+ERR15005445	3	Alternaria ethzedia	resident	0.0268527	0.00655061	5541	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Alternaria viburni	resident	0.0220594	0.00646776	5698	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Alternaria sp. BMP 0032	resident	0.0232895	0.00625934	5157	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Alternaria novae-zelandiae	resident	0.0282534	0.00621978	5235	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Alternaria sp. Ai002NY15	resident	0.0240656	0.00619812	4963	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Alternaria infectoria	resident	0.0228239	0.00603482	4900	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Sporobolomyces ruberrimus	resident	0.0209662	0.00580666	21393	rejected	coverage	#f0f0f0	#848484	Sporobolomyces ruberrimus
+ERR15005445	3	Alternaria conjuncta	resident	0.0188195	0.00578536	5092	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Alternaria sp. BMP 2799	resident	0.0239818	0.00570544	4643	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Vishniacozyma victoriae	resident	0.0396157	0.00543719	12830	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Vishniacozyma victoriae
+ERR15005445	3	Alternaria hordeiaustralica	resident	0.0169622	0.0053886	4689	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Alternaria metachromatica	resident	0.0135988	0.00487429	4203	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Alternaria oregonensis	resident	0.0211635	0.00470947	5164	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Alternaria oregonensis
+ERR15005445	3	Zymoseptoria brevis	resident	0.0186734	0.00371627	11864	rejected	coverage	#c3e8bf	#6b8069	Zymoseptoria brevis
+ERR15005445	3	Alternaria incomplexa	resident	0.00513369	0.00330768	1902	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Alternaria arbusti	resident	0.0125674	0.00298942	1775	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Dissoconium aciculare	resident	0.00742562	0.00250162	10387	rejected	coverage	#c3e8bf	#6b8069	Dissoconium aciculare
+ERR15005445	3	Epicoccum nigrum	resident	0.00940849	0.00247779	15527	rejected	coverage	#1aa64b	#0e5b29	Epicoccum nigrum
+ERR15005445	3	Alternaria triticina	resident	0.00895591	0.00232062	4207	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Alternaria triticina
+ERR15005445	3	Hordeum vulgare	host	0.00645742	0.00229322	16657	rejected	host, outranked	#f0f0f0	#848484	Hordeum vulgare
+ERR15005445	3	Alternaria ventricosa	resident	0.00521308	0.0022613	2561	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Cladosporium cladosporioides	resident	0.00886913	0.00211193	8279	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Filobasidium magnum	resident	0.00745062	0.00195708	4114	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Filobasidium magnum
+ERR15005445	3	Alternaria arborescens	resident	0.00775423	0.00169836	2694	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Filobasidium floriforme	resident	0.0201891	0.00164377	4600	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Pyrenophora teres	plant_pathogen	0.028315	0.00163065	4014	rejected	distinct	#f5a800	#875c00	
+ERR15005445	3	Cystofilobasidium bisporidii	resident	0.00883267	0.00161487	5607	competitor_only	predicted CDS, never a positive call	#f0f0f0	#848484	Cystofilobasidium bisporidii
+ERR15005445	3	Cladosporium pseudocladosporioides	resident	0.00562386	0.00158618	7794	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Cladosporium pseudocladosporioides
+ERR15005445	3	Alternaria alternata	wheat_pathogen	0.0147359	0.00157723	8136	rejected	distinct	#e05a26	#7b3215	
+ERR15005445	3	Puccinia brachypodii	resident	0.00695294	0.00157572	7582	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Puccinia brachypodii
+ERR15005445	3	Tilletiopsis washingtonensis	resident	0.00515819	0.00143982	4738	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Alternaria sp. MG1	resident	0.00511877	0.00142135	296	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Alternaria postmessia	resident	0.00843847	0.00121432	118	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Alternaria rosae	resident	0.002779	0.00111673	5404	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Stemphylium vesicarium	resident	0.00191569	0.0011097	95	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Stemphylium vesicarium
+ERR15005445	3	Stemphylium lycopersici	plant_pathogen	0.00256516	0.00100702	4378	rejected	distinct	#fbe49a	#8a7d55	
+ERR15005445	3	Pyricularia oryzae	wheat_pathogen	0.00311481	0.000950838	2378	rejected	distinct	#e05a26	#7b3215	
+ERR15005445	3	Parastagonospora avenae	resident	0.00240048	0.000932762	4652	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Parastagonospora avenae
+ERR15005445	3	Alternaria brassicae	resident	0.00454063	0.000800787	188	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Alternaria brassicae
+ERR15005445	3	Puccinia hordei	resident	0.000575927	0.000794659	4752	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Puccinia hordei
+ERR15005445	3	Aspergillus fumigatus	resident	0.00505905	0.000754887	4050	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Alternaria tenuissima	resident	0.00485617	0.000753501	598	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Monosporascus cannonballus	resident	0.001544	0.00074062	118	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Puccinia coronata	resident	1.08525	0.000694293	4902	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Sporobolomyces salmoneus	resident	0.000280916	0.000603469	2290	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Cladosporium inversicolor	resident	0.0011043	0.00054793	2726	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Cladosporium sp. NU13	resident	0.000767933	0.000547735	2281	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Sporobolomyces pararoseus	resident	0.00188837	0.000543303	4223	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Alternaria burnsii	resident	0.00640853	0.000510657	575	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Cladosporium oxysporum	resident	0.000530466	0.000488648	2115	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Cladosporium oxysporum
+ERR15005445	3	Microdochium majus	resident	0.00122358	0.0004705	2018	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Puccinia sorghi	resident	0.117182	0.000455144	3112	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Vishniacozyma dimennae	resident	0.00124772	0.000431606	1787	competitor_only	predicted CDS, never a positive call	#f0f0f0	#848484	Vishniacozyma dimennae
+ERR15005445	3	Stemphylium eturmiunum	resident	0.00201757	0.000430578	35	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Stemphylium eturmiunum
+ERR15005445	3	Olpidium bornovanus	resident	0.000115099	0.000413141	883	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Mrakia frigida	resident	0.00226613	0.000412544	1657	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Sphaerellopsis filum	resident	0.00071967	0.000410122	1729	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Sphaerellopsis filum
+ERR15005445	3	Cladosporium sp. EXF-13502	resident	0.000475975	0.00035925	3404	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Rhizopus arrhizus	resident	0.00166152	0.000350829	1818	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Phakopsora pachyrhizi	plant_pathogen	1.6825	0.000328274	1716	rejected	distinct	#fbe49a	#8a7d55	
+ERR15005445	3	Pyrenophora graminea	resident	0.0023274	0.000320946	147	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Pyrenophora graminea
+ERR15005445	3	Cladosporium halotolerans	resident	0.000195703	0.000314557	1318	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Fusarium proliferatum	plant_pathogen	0.000903679	0.000310777	1269	rejected	distinct	#f5a800	#875c00	
+ERR15005445	3	Papiliotrema laurentii	resident	0.00023228	0.000284402	1004	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Penicillium nordicum	resident	0.000173629	0.000278442	263	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Berkeleyomyces basicola	resident	0.00099348	0.0002715	493	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Berkeleyomyces basicola
+ERR15005445	3	Phaeosphaeria sp. MPI-PUGE-AT-0046c	resident	0.00051407	0.000260907	1415	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Sporobolomyces phaffii	resident	6.94412e-05	0.000254053	900	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Cladosporium fusiforme	resident	9.32746e-05	0.000246836	1302	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Cladosporium sphaerospermum	resident	8.43081e-05	0.00023195	1128	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Cladosporium sphaerospermum
+ERR15005445	3	Alternaria longipes	plant_pathogen	0.000721887	0.000228891	130	competitor_only	predicted CDS, never a positive call	#f5a800	#875c00	Alternaria longipes
+ERR15005445	3	Papiliotrema aurea	resident	0.000206997	0.000220537	961	competitor_only	predicted CDS, never a positive call	#f0f0f0	#848484	Papiliotrema aurea
+ERR15005445	3	Sporobolomyces koalae	resident	0.000656797	0.000218932	738	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Ampelomyces quisqualis	resident	0.000188427	0.000211406	920	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Fusarium euwallaceae	resident	0.000191313	0.000205312	88	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Bipolaris zeicola	plant_pathogen	0.00230444	0.000205151	146	rejected	distinct	#fbe49a	#8a7d55	
+ERR15005445	3	Plenodomus lingam	plant_pathogen	0.000602442	0.000201542	1015	rejected	distinct	#fbe49a	#8a7d55	
+ERR15005445	3	Plenodomus biglobosus	resident	0.00110582	0.000192278	884	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Cronartium quercuum	resident	1.17393	0.000185054	798	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Sporobolomyces carnicolor	resident	2.28187e-05	0.000182828	657	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Plenodomus lindquistii	resident	0.000198318	0.000182799	907	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Termitomyces sp. T112	resident	0.00158884	0.000180843	168	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Leucosporidium creatinivorum	resident	0.000197182	0.000176502	734	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Pyrenophora seminiperda	resident	0.000618931	0.000173882	622	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Alternaria dauci	resident	0.000545063	0.000170609	385	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Alternaria panax	plant_pathogen	6.16096e-05	0.000161788	646	rejected	distinct	#fbe49a	#8a7d55	
+ERR15005445	3	Malassezia restricta	resident	0.000325448	0.00015655	355	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Alternaria gaisen	resident	7.01974e-05	0.000155804	182	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Taphrina deformans	resident	0.000378716	0.000154976	302	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Diaporthe vaccinii	resident	0.000185693	0.000153989	68	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Ophiobolus disseminans	resident	0.000175564	0.000152342	925	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Microdochium nivale	wheat_pathogen	0.000291562	0.000150647	805	rejected	distinct	#e05a26	#7b3215	
+ERR15005445	3	Plenodomus tracheiphilus	resident	0.000236452	0.000149945	52	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Alternaria sp. RS040	resident	0.000565169	0.000148185	86	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Curvularia eragrostidis	resident	0.000289145	0.000146232	705	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Curvularia eragrostidis
+ERR15005445	3	Alternaria atra	resident	0.000506733	0.000145428	353	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Fusarium graminearum	wheat_pathogen	0.000659488	0.000143872	322	rejected	distinct	#e05a26	#7b3215	
+ERR15005445	3	Drechslera avenae	resident	0.000129683	0.000143464	635	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Drechslera avenae
+ERR15005445	3	Melampsora laricis-populina	plant_pathogen	0.986199	0.000142245	765	rejected	distinct	#fbe49a	#8a7d55	
+ERR15005445	3	Alternaria chartarum	resident	4.76727e-05	0.000141274	486	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Alternaria chartarum
+ERR15005445	3	Rhodotorula babjevae	resident	0.000142174	0.000132086	838	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Decorospora gaudefroyi	resident	0.000107802	0.000129056	589	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Naganishia liquefaciens	resident	0.000189166	0.000125438	435	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Sporobolomyces blumeae	resident	4.6857e-05	0.000120857	423	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Rhizophagus irregularis	resident	0.000133631	0.000120088	2137	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Diversispora epigaea	resident	0.00194942	0.000119031	726	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Arabidopsis thaliana	host	0.000170318	0.000117825	1248	rejected	host, outranked	#f0f0f0	#848484	Arabidopsis thaliana
+ERR15005445	3	Exserohilum turcicum	plant_pathogen	0.000616452	0.000116733	559	rejected	distinct	#fbe49a	#8a7d55	
+ERR15005445	3	Cryptococcus neoformans	resident	0.000112211	0.000116487	681	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Dothidotthia symphoricarpi	resident	0.0255429	0.000111825	527	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Rhizopus azygosporus	resident	0.0408425	0.000111458	64	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Rhodotorula graminis	resident	0.0926267	0.000110751	321	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Thamnidium elegans	resident	1.87891e-05	0.000110672	483	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Rhizopus delemar	resident	0.0016762	0.000109778	290	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Scutellospora calospora	resident	0.00051472	0.000108055	241	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Thermothelomyces heterothallicus	resident	0.000197761	0.00010491	174	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Bipolaris maydis	plant_pathogen	0.000465134	0.000103582	420	rejected	distinct	#f5a800	#875c00	
+ERR15005445	3	Clathrospora elynae	resident	1.70854e-05	0.000103554	497	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Bipolaris sorokiniana	wheat_pathogen	0.00865842	0.000101505	323	rejected	distinct	#e05a26	#7b3215	
+ERR15005445	3	Ascoidea rubescens	resident	0.00172954	0.000101107	302	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Epicoccum sorghinum	resident	0.000118777	9.94639e-05	412	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Epicoccum sorghinum
+ERR15005445	3	Saccharomyces cerevisiae	resident	5.21631e-05	9.70107e-05	610	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Didymella exigua	resident	5.83728e-05	9.61016e-05	405	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Phyllozyma linderae	resident	0.000131623	9.39017e-05	351	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Rhizophagus sp. MUCL 43196	resident	0.000292173	9.33527e-05	262	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Setomelanomma holmii	resident	1.49028e-05	9.0507e-05	498	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Metschnikowia pulcherrima	resident	0.000142441	9.02259e-05	883	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Morchella rufobrunnea	resident	0.000132442	8.93711e-05	166	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Cucurbitaria berberidis	resident	3.26028e-05	8.7272e-05	439	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Bipolaris oryzae	plant_pathogen	5.50811e-05	8.69879e-05	259	rejected	distinct	#f5a800	#875c00	
+ERR15005445	3	Ascochyta lentis	plant_pathogen	0.000246294	8.65034e-05	432	rejected	distinct	#fbe49a	#8a7d55	
+ERR15005445	3	Neocucurbitaria cava	resident	1.78059e-05	8.55553e-05	394	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Pseudozyma flocculosa	resident	3.96287e-05	8.38486e-05	347	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Phycomyces blakesleeanus	resident	0.000250665	8.27058e-05	487	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Naganishia albida	resident	4.90103e-05	8.1883e-05	274	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Melampsora americana	resident	0.000825571	7.84539e-05	413	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Astraeus odoratus	resident	0.000193827	7.77887e-05	362	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Boeremia exigua	resident	2.46217e-05	7.6067e-05	760	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Naganishia adeliensis	resident	4.75828e-05	7.60164e-05	262	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Stagonosporopsis vannaccii	resident	3.32509e-05	7.48146e-05	369	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Naganishia cerealis	resident	3.28213e-05	7.44484e-05	186	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Pleomassaria siparia	resident	1.57311e-05	7.27084e-05	379	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Claviceps purpurea	wheat_pathogen	0.000285105	7.24351e-05	250	rejected	distinct	#e05a26	#7b3215	
+ERR15005445	3	Vanrija pseudolonga	resident	8.16256e-05	7.24179e-05	291	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Ascochyta rabiei	plant_pathogen	0.000814543	7.16476e-05	339	rejected	distinct	#fbe49a	#8a7d55	
+ERR15005445	3	Microstroma glucosiphilum	resident	0.0013603	7.13038e-05	245	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Didymella pomorum	resident	5.99633e-05	7.09322e-05	291	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Aulographum hederae	resident	0.0226759	7.01846e-05	334	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Elsinoe australis	resident	0.000243919	6.94573e-05	467	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Teratosphaeria destructans	resident	0.0305481	6.94561e-05	286	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Didymella pinodella	resident	5.39879e-05	6.91309e-05	315	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Didymella pinodella
+ERR15005445	3	Ophiosphaerella herpotricha	resident	0.000198773	6.90858e-05	228	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Ophiosphaerella herpotricha
+ERR15005445	3	Glomus cerebriforme	resident	0.15179	6.84794e-05	382	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Neocucurbitaria sp. VM-36	resident	0.000554103	6.77666e-05	351	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Aureobasidium sp. EXF-12298	resident	0.000233471	6.69093e-05	94	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Curvularia clavata	resident	2.0558e-05	6.66881e-05	266	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Parajaminaea phylloscopi	resident	0.000157208	6.62794e-05	242	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Microbotryum saponariae	resident	3.14086e-05	6.58815e-05	172	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Aspergillus heteromorphus	resident	0.000135727	6.54992e-05	277	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Ascochyta clinopodiicola	resident	2.26107e-05	6.34202e-05	230	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Cystobasidium minutum	resident	0.000294789	6.33271e-05	229	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Atractiella rhizophila	resident	0.0027886	6.30428e-05	317	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Pseudovirgaria hyperparasitica	resident	5.22116e-05	5.96401e-05	281	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Sclerotiophoma versabilis	plant_pathogen	1.72885e-05	5.94556e-05	282	competitor_only	predicted CDS, never a positive call	#fbe49a	#8a7d55	Sclerotiophoma versabilis
+ERR15005445	3	Rhizophagus clarus	resident	0.142082	5.86644e-05	528	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Gigaspora margarita	resident	0.000211292	5.80756e-05	586	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Paraphoma chrysanthemicola	resident	3.48315e-05	5.79818e-05	546	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Phialemonium thermophilum	resident	2.30455e-05	5.78948e-05	206	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Lophiostoma macrostomum	resident	3.83146e-05	5.70046e-05	366	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Microbotryum intermedium	resident	2.2092e-05	5.57688e-05	207	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Protomyces lactucae-debilis	resident	3.21728e-05	5.57139e-05	142	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Rhizoctonia solani	wheat_pathogen	0.00060563	5.5272e-05	3884	rejected	distinct	#e05a26	#7b3215	
+ERR15005445	3	Curvularia spicifera	resident	7.5686e-05	5.38417e-05	175	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Curvularia spicifera
+ERR15005445	3	Ustilago hordei	plant_pathogen	0.000172976	5.37912e-05	51	rejected	distinct	#f5a800	#875c00	
+ERR15005445	3	Ophiocordyceps polyrhachis-furcata	resident	0.000106677	5.36636e-05	165	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Fusarium oxysporum	wheat_pathogen	0.000122317	5.31408e-05	1140	rejected	distinct	#e05a26	#7b3215	
+ERR15005445	3	Aureobasidium sp. EXF-3399	resident	0.000205187	5.25478e-05	21	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Jimgerdemannia flammicorona	resident	8.43723e-05	5.1961e-05	303	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Amniculicola lignicola	resident	0.00588254	5.16914e-05	312	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Erythrobasidium hasegawianum	resident	2.095e-05	5.13529e-05	201	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Paraphaeosphaeria minitans	resident	1.49375e-05	5.02773e-05	276	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Podila humilis	resident	1.6679e-05	5.0037e-05	246	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Tremella mesenterica	resident	8.2169e-05	4.95018e-05	247	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Classicula fluitans	resident	3.38295e-05	4.78564e-05	232	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Aureobasidium melanogenum	resident	9.14201e-05	4.77033e-05	1412	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Fulvia fulva	plant_pathogen	1.39984e-05	4.76288e-05	279	rejected	distinct	#fbe49a	#8a7d55	
+ERR15005445	3	Russula earlei	resident	0.000768449	4.75965e-05	193	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Microdochium bolleyi	resident	8.15765e-05	4.67573e-05	235	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Paraphoma sp. B47-9	resident	1.92075e-05	4.56765e-05	195	competitor_only	predicted CDS, never a positive call	#f0f0f0	#848484	Paraphoma sp. B47-9
+ERR15005445	3	Epichloe bromicola	resident	0.00230979	4.5069e-05	96	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Zasmidium cellare	resident	6.3076e-06	4.49994e-05	585	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Byssothecium circinans	resident	1.37327e-05	4.48824e-05	268	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Pseudopithomyces chartarum	resident	1.53864e-05	4.48458e-05	239	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Mucor ambiguus	resident	0.00084317	4.48214e-05	170	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Monosporascus sp. 5C6A	resident	5.1052e-05	4.42036e-05	142	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Periconia digitata	resident	1.35363e-05	4.40756e-05	267	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Mucor saturninus	resident	0.000448408	4.37471e-05	112	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Bimuria novae-zelandiae	resident	1.43967e-05	4.37169e-05	249	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Corynespora cassiicola	resident	1.25749e-05	4.35519e-05	284	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Penicillium salamii	resident	6.80621e-06	4.28293e-05	516	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Aspergillus campestris	resident	0.000215122	4.27246e-05	114	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Pichia kudriavzevii	resident	2.80574e-05	4.24283e-05	124	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Entophlyctis helioformis	resident	2.03152e-05	4.18691e-05	169	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Racocetra persica	resident	3.75437e-05	4.16644e-05	182	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Wallemia mellicola	resident	0.00130323	4.14771e-05	107	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Nigrospora oryzae	resident	3.56513e-05	4.1086e-05	189	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Nigrospora oryzae
+ERR15005445	3	Nigrospora sphaerica	resident	1.72895e-05	4.04827e-05	192	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Nigrospora sphaerica
+ERR15005445	3	Neophaeococcomyces mojaviensis	resident	6.51664e-05	3.99343e-05	201	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Melanopsichium pennsylvanicum	resident	9.07774e-05	3.95767e-05	143	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Synchytrium microbalum	resident	2.36985e-05	3.81489e-05	132	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Trematosphaeria pertusa	resident	2.45226e-05	3.57372e-05	239	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Hortaea werneckii	resident	1.65387e-06	3.49934e-05	1735	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Aspergillus steynii	resident	7.96429e-05	3.43824e-05	177	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Linnemannia gamsii	resident	0.00528392	3.35793e-05	432	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Exophiala bonariae	resident	6.74631e-05	3.3567e-05	204	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Melanomma pulvis-pyrius	resident	0.000157087	3.3365e-05	209	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Plectosphaerella plurivora	resident	4.76268e-05	3.33001e-05	172	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Paraconiothyrium brasiliense	resident	1.79881e-05	3.31245e-05	151	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Septoria linicola	resident	1.40976e-05	3.30091e-05	192	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Mycothermus thermophilus	resident	2.09617e-05	3.20816e-05	251	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Austropuccinia psidii	resident	0.163661	3.2066e-05	532	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Microascus stellatus	resident	4.15463e-05	3.19198e-05	126	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Botrytis cinerea	plant_pathogen	4.50328e-05	3.18525e-05	174	rejected	distinct	#f5a800	#875c00	
+ERR15005445	3	Terfezia claveryi	resident	2.65545e-05	3.17358e-05	98	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Sordaria brevicollis	resident	5.61027e-05	3.14722e-05	138	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Aureobasidium pullulans	resident	3.91733e-05	3.12908e-05	655	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Aspergillus proliferans	resident	7.23258e-05	3.08708e-05	35	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Aspergillus wentii	resident	8.72636e-05	3.06842e-05	173	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Aspergillus vitricola	resident	2.44186e-05	3.03744e-05	204	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Gelatoporia subvermispora	resident	0.187383	3.01918e-05	141	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Athelia sp. TMB	resident	0.000668279	3.00913e-05	240	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Trichothecium roseum	resident	1.96413e-05	2.99409e-05	125	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Aspergillus ruber	resident	5.55169e-05	2.91125e-05	86	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Conidiobolus coronatus	resident	9.51845e-05	2.90196e-05	100	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Penicillium discolor	resident	1.96827e-05	2.8804e-05	120	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Sclerotinia nivalis	resident	5.4374e-05	2.81816e-05	85	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Dacryopinax primogenitus	resident	0.000637785	2.7741e-05	107	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Syncephalis plumigaleata	resident	0.00174554	2.73692e-05	81	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Glonium stellatum	resident	0.000444581	2.71086e-05	150	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Aureobasidium uvarum	resident	2.79874e-05	2.69635e-05	79	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Leucoagaricus sp. SymC.cos	resident	1.71886e-05	2.66213e-05	127	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Apiospora kogelbergensis	resident	3.71142e-05	2.65532e-05	176	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Exophiala dermatitidis	resident	0.000252481	2.65139e-05	155	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Tothia fuscella	resident	3.0325e-05	2.64419e-05	143	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Pleurotus ostreatus	resident	0.000150643	2.62706e-05	143	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Podosphaera aphanis	resident	1.24424e-05	2.57953e-05	170	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Coemansia reversa	resident	3.30542e-05	2.53953e-05	63	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Podosphaera leucotricha	resident	1.77494e-05	2.53253e-05	117	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Lenzites betulinus	resident	3.37582e-05	2.53186e-05	123	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Mycosarcoma maydis	plant_pathogen	2.27412e-05	2.52372e-05	91	rejected	distinct	#f5a800	#875c00	
+ERR15005445	3	Lactarius indigo	resident	0.000126615	2.52201e-05	98	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Microdochium trichocladiopsis	resident	1.35128e-05	2.4389e-05	148	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Fusarium mundagurra	resident	2.85505e-05	2.43724e-05	70	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Penicillium chermesinum	resident	0.000123389	2.42908e-05	113	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Lachnellula suecica	resident	0.000107624	2.36247e-05	108	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Pyricularia grisea	resident	1.79822e-05	2.34646e-05	107	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Grifola frondosa	resident	1.66994e-05	2.34199e-05	115	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Aspergillus sclerotioniger	resident	1.96416e-05	2.29951e-05	96	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Lentinula aff. detonsa	resident	0.00020812	2.28425e-05	36	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Blumeria graminis	wheat_pathogen	3.11491e-05	2.2792e-05	60	rejected	distinct	#e05a26	#7b3215	
+ERR15005445	3	Fusarium fujikuroi	plant_pathogen	8.40962e-05	2.22206e-05	65	rejected	distinct	#f5a800	#875c00	
+ERR15005445	3	Mycena citricolor	resident	1.53884e-05	2.19566e-05	117	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Diaporthe sp. PMI_573	resident	1.1071e-05	2.18719e-05	162	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Schizophyllum commune	resident	2.93414e-06	2.13978e-05	598	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Aspergillus pseudoglaucus	resident	2.8774e-05	2.10542e-05	60	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Aspergillus pseudoglaucus
+ERR15005445	3	Sarocladium strictum	resident	0.000160049	2.0982e-05	215	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Hyaloscypha finlandica	resident	0.000230773	2.08258e-05	37	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Agrocybe pediades	resident	1.90912e-05	2.00225e-05	172	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Fusarium pseudograminearum	wheat_pathogen	2.04035e-05	1.91594e-05	77	rejected	distinct	#e05a26	#7b3215	
+ERR15005445	3	Apiospora arundinis	resident	1.56091e-05	1.88451e-05	198	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Panaeolus cyanescens	resident	1.28421e-05	1.87933e-05	120	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Metarhizium album	resident	2.30445e-05	1.8267e-05	65	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Paecilomyces variotii	resident	2.34677e-05	1.78154e-05	249	rejected	distinct	#1aa64b	#0e5b29	
+ERR15005445	3	Lithohypha guttulata	resident	1.52611e-05	1.73083e-05	93	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Crucibulum laeve	resident	1.56479e-05	1.71745e-05	90	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Botrytis fragariae	resident	3.46799e-05	1.64941e-05	39	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Dactylellina haptotyla	resident	4.61864e-05	1.59587e-05	85	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Oculimacula yallundae	wheat_pathogen	1.22743e-05	1.5268e-05	102	rejected	distinct	#e05a26	#7b3215	
+ERR15005445	3	Tulasnella calospora	resident	4.54428e-05	1.27462e-05	69	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Penicillium brevicompactum	resident	1.07705e-05	1.26094e-05	96	rejected	distinct	#c3e8bf	#6b8069	
+ERR15005445	3	Rhodocollybia butyracea	resident	1.14555e-05	1.24335e-05	89	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Xylogone sp. PMI_703	resident	1.15114e-05	1.19326e-05	85	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Fusarium avenaceum	wheat_pathogen	1.10608e-05	1.13306e-05	84	rejected	distinct	#e05a26	#7b3215	
+ERR15005445	3	Penicillium malachiteum	resident	7.07667e-05	1.12191e-05	117	rejected	distinct	#f0f0f0	#848484	
+ERR15005445	3	Penicillium herquei	resident	1.26126e-05	1.09206e-05	71	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Triticum aestivum	host	4.97538	0.0487014	2537192	detected	host, ranked per run	#f0f0f0	#848484	Triticum aestivum
+SRR14239691	4	Hordeum vulgare	host	0.182046	0.000312794	2272	rejected	host, outranked	#f0f0f0	#848484	Hordeum vulgare
+SRR14239691	4	Saccharomyces pastorianus	resident	0.00327218	0.000295017	22	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Colletotrichum cuscutae	resident	0.00312537	0.000139808	155	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Olpidium bornovanus	resident	0.00276291	9.68519e-05	207	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Phyllosticta citricarpa	resident	0.000927043	7.38724e-05	35	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Penicillium nalgiovense	resident	0.000960403	6.96345e-05	230	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Arabidopsis thaliana	host	0.0123804	6.33498e-05	671	rejected	host, outranked	#f0f0f0	#848484	Arabidopsis thaliana
+SRR14239691	4	Puccinia graminis	wheat_pathogen	0.0149419	5.07518e-05	520	rejected	distinct	#e05a26	#7b3215	
+SRR14239691	4	Termitomyces sp. T112	resident	0.000210134	4.62872e-05	43	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Parastagonospora nodorum	wheat_pathogen	0.000828971	4.48247e-05	380	rejected	distinct	#e05a26	#7b3215	
+SRR14239691	4	Diaporthe vaccinii	resident	0.00110516	4.30263e-05	19	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Penicillium nordicum	resident	0.00542515	4.23486e-05	40	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Aspergillus ochraceoroseus	resident	0.00193637	3.79524e-05	22	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Aspergillus fumigatus	resident	0.570655	3.78376e-05	203	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Verticillium dahliae	plant_pathogen	0.000732366	3.57302e-05	50	rejected	distinct	#fbe49a	#8a7d55	
+SRR14239691	4	Rhizopus arrhizus	resident	0.00235443	3.20339e-05	166	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Phakopsora pachyrhizi	plant_pathogen	0.00044813	3.07996e-05	161	rejected	distinct	#fbe49a	#8a7d55	
+SRR14239691	4	Colletotrichum filicis	resident	0.000319697	3.05705e-05	14	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Trichoderma longibrachiatum	resident	8.69967e-05	2.8522e-05	16	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Mucor ambiguus	resident	0.680656	2.63655e-05	100	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Entomophthora muscae	resident	0.00017444	2.4425e-05	164	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Rhizopus azygosporus	resident	0.000764924	2.43815e-05	14	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Puccinia striiformis	wheat_pathogen	0.0385541	2.28679e-05	249	rejected	distinct	#e05a26	#7b3215	
+SRR14239691	4	Colletotrichum melonis	resident	9.77061e-05	2.20227e-05	11	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Aulographum hederae	resident	0.00567105	2.08032e-05	99	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Podospora anserina	resident	0.000143385	2.05664e-05	14	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Cryptococcus neoformans	resident	7.51306e-05	2.03553e-05	119	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Aspergillus heteromorphus	resident	0.00145402	1.91532e-05	81	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Terfezia boudieri	resident	0.00246024	1.82134e-05	56	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Melampsora laricis-populina	plant_pathogen	0.147395	1.80362e-05	97	rejected	distinct	#fbe49a	#8a7d55	
+SRR14239691	4	Sclerotinia sclerotiorum	plant_pathogen	0.000313003	1.76375e-05	11	rejected	distinct	#f5a800	#875c00	
+SRR14239691	4	Glomus cerebriforme	resident	0.53882	1.7568e-05	98	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Rhizophagus sp. MUCL 43196	resident	0.00106072	1.67465e-05	47	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Neurospora tetrasperma	resident	0.00154224	1.61861e-05	21	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Rhizophagus clarus	resident	2.36061	1.58883e-05	143	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Ophiosphaerella herpotricha	resident	0.00118301	1.57564e-05	52	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Ophiosphaerella herpotricha
+SRR14239691	4	Saccharomycodes ludwigii	resident	3.62273e-05	1.55888e-05	42	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Rhizopus delemar	resident	0.000738959	1.55203e-05	41	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Phyllosticta citriasiana	resident	2.68583e-05	1.48593e-05	27	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Staphylotrichum tortipilum	resident	1.11637e-05	1.46401e-05	64	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Diversispora epigaea	resident	0.00186433	1.4592e-05	89	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Plectosphaerella plurivora	resident	0.000160623	1.45204e-05	75	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Penicillium desertorum	resident	0.00853308	1.42834e-05	29	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Gelatoporia subvermispora	resident	7.16114	1.37041e-05	64	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Rhizophagus irregularis	resident	2.23712	1.27e-05	226	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Candelaria pacifica	resident	1.28624e-05	1.26509e-05	48	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Trichophyton rubrum	resident	0.000148991	1.22117e-05	4	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Colletotrichum sublineola	resident	0.00142077	1.21302e-05	25	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Cryptococcus floricola	resident	6.46681e-05	1.19259e-05	18	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Entophlyctis luteolus	resident	0.00144362	1.15437e-05	16	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Dothidotthia symphoricarpi	resident	0.00161547	1.14584e-05	54	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Gigaspora rosea	resident	0.00380739	1.14559e-05	79	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Ascobolus immersus	resident	0.000748355	1.13912e-05	78	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Mucor saturninus	resident	0.00314528	1.13274e-05	29	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Pleomassaria siparia	resident	0.00187249	1.13187e-05	59	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Cronartium quercuum	resident	0.00435713	1.11311e-05	48	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Linnemannia gamsii	resident	0.0137663	1.08822e-05	140	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Russula earlei	resident	0.00297275	1.03578e-05	42	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Penicillium rubens	resident	0.0232857	9.79466e-06	7	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Hanseniaspora valbyensis	resident	7.29056e-05	9.56087e-06	32	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Hanseniaspora guilliermondii	resident	7.27278e-05	9.4382e-06	19	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Colletotrichum caudatum	resident	0.780109	9.25798e-06	26	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Synchytrium microbalum	resident	0.00561351	9.24821e-06	32	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Cercospora beticola	plant_pathogen	4.99748e-05	9.21617e-06	9	rejected	distinct	#fbe49a	#8a7d55	
+SRR14239691	4	Parachaetomium inaequale	resident	3.35213e-05	9.15832e-06	40	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Penicillium salamii	resident	6.07612e-05	9.13028e-06	110	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Blyttiomyces helicus	resident	2.39338e-05	9.07276e-06	37	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Thermothelomyces heterothallicus	resident	0.000117698	9.04395e-06	15	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Coemansia javaensis	resident	1.94898e-05	8.78592e-06	22	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Saccharomyces cerevisiae	resident	0.000116419	8.74687e-06	55	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Plenodomus tracheiphilus	resident	0.000140726	8.65069e-06	3	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Rhizomucor pusillus	resident	0.000637097	8.47401e-06	37	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Entrophospora sp. SA101	resident	0.000602981	8.44552e-06	54	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Aspergillus brunneoviolaceus	resident	5.04611e-05	8.27186e-06	8	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Haplosporangium sp. Z 11	resident	0.00180606	8.22389e-06	2	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Alternaria oregonensis	resident	0.00093465	8.20784e-06	9	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Alternaria oregonensis
+SRR14239691	4	Aspergillus piperis	resident	5.72072e-05	8.2055e-06	7	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Funneliformis mosseae	resident	6.57629e-05	8.08516e-06	12	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Trichophyton verrucosum	resident	4.37094e-05	8.06072e-06	9	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Cryptococcus hyracis	resident	0.0432515	8.05685e-06	7	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Microbotryum saponariae	resident	0.000299088	8.04367e-06	21	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Atractiella rhizophila	resident	0.00163053	7.95493e-06	40	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Phycomyces blakesleeanus	resident	0.000571873	7.81205e-06	46	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Thamnidium elegans	resident	0.000950505	7.7906e-06	34	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Pseudogymnoascus destructans	resident	2.10246e-05	7.75454e-06	18	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Pichia kudriavzevii	resident	5.00955e-05	7.52761e-06	22	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Yamadazyma tenuis	resident	5.43292e-05	7.42162e-06	20	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Pleurotus ostreatus	resident	0.0029945	7.34843e-06	40	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Phlyctochytrium bullatum	resident	4.2687e-05	7.34737e-06	42	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Acaulospora morrowiae	resident	0.000716972	7.34563e-06	36	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Pyricularia oryzae	wheat_pathogen	0.000117082	7.19726e-06	18	rejected	distinct	#e05a26	#7b3215	
+SRR14239691	4	Phialemonium thermophilum	resident	0.00141271	7.02607e-06	25	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Jimgerdemannia flammicorona	resident	0.00353176	6.85954e-06	40	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Coemansia reversa	resident	5.90171e-05	6.85271e-06	17	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Aspergillus steynii	resident	0.00327059	6.79878e-06	35	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Rhodosporidiobolus ruineniae	resident	1.10597e-05	6.79862e-06	30	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Mixia osmundae	resident	0.000481566	6.78399e-06	22	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Linnemannia elongata	resident	0.00145381	6.69279e-06	102	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Pseudogymnoascus sp. 05NY08	resident	2.51117e-05	6.68922e-06	13	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Conidiobolus coronatus	resident	0.000354059	6.67452e-06	23	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Gigaspora margarita	resident	0.000827058	6.64005e-06	67	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Pisolithus tinctorius	resident	0.00153522	6.53354e-06	27	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Funneliformis geosporum	resident	0.00177797	6.48067e-06	37	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Lentinula aff. detonsa	resident	6.19319e-05	6.34513e-06	10	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Classicula fluitans	resident	0.000996622	6.18833e-06	30	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Fusarium proliferatum	plant_pathogen	0.000812719	6.12249e-06	25	rejected	distinct	#f5a800	#875c00	
+SRR14239691	4	Pseudogymnoascus sp. VKM F-4518 (FW-2643)	resident	2.48935e-05	6.12102e-06	12	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Entomortierella lignicola	resident	0.000123267	6.06196e-06	12	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Backusella circina	resident	0.000383674	6.02176e-06	36	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Aspergillus campestris	resident	7.31605e-05	5.99644e-06	16	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Funneliformis caledonium	resident	0.000692583	5.91313e-06	10	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Purpureocillium lilacinum	resident	1.51118e-05	5.88338e-06	57	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Mucor mucedo	resident	0.000503304	5.82911e-06	13	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Colletotrichum graminicola	plant_pathogen	5.93661e-05	5.77815e-06	19	rejected	distinct	#f5a800	#875c00	
+SRR14239691	4	Puccinia triticina	wheat_pathogen	5.84861e-06	5.75242e-06	48	rejected	distinct	#e05a26	#7b3215	
+SRR14239691	4	Leucoagaricus sp. SymC.cos	resident	0.0021585	5.65965e-06	27	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Pyronema omphalodes	resident	9.84527e-06	5.64862e-06	28	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Calocera viscosa	resident	0.00140781	5.59717e-06	26	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Kluyveromyces marxianus	resident	9.51494e-05	5.5705e-06	20	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Beauveria bassiana	plant_pathogen	3.02382e-05	5.36988e-06	26	rejected	distinct	#fbe49a	#8a7d55	
+SRR14239691	4	Teloschistes chrysophthalmus	resident	1.61479e-05	5.29412e-06	16	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Aspergillus eucalypticola	resident	6.4563e-05	5.29176e-06	8	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Patellaria atrata	resident	0.000168016	5.16416e-06	21	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Trichoderma ghanense	resident	5.01734e-05	5.14044e-06	15	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Alternaria alternata	wheat_pathogen	0.000321667	5.04031e-06	26	rejected	distinct	#e05a26	#7b3215	
+SRR14239691	4	Fusarium subglutinans	resident	5.9609e-05	4.88571e-06	8	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Amniculicola lignicola	resident	0.000654925	4.80465e-06	29	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Macrophomina phaseolina	resident	1.11592e-05	4.80185e-06	21	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Epichloe bromicola	resident	0.000114557	4.69469e-06	10	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Pseudovirgaria hyperparasitica	resident	0.000455751	4.66933e-06	22	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Wallemia mellicola	resident	0.00024593	4.65164e-06	12	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Chaetomium globosum	resident	2.05227e-05	4.62578e-06	33	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Trichoderma asperellum	resident	5.18132e-05	4.60065e-06	13	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Rhodosporidiobolus poonsookiae	resident	9.27157e-05	4.51205e-06	19	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Vanrija pseudolonga	resident	0.000364349	4.47945e-06	18	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Podila humilis	resident	0.00210444	4.47486e-06	22	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Pyrenophora tritici-repentis	wheat_pathogen	1.81237e-05	4.45641e-06	24	rejected	distinct	#e05a26	#7b3215	
+SRR14239691	4	Meristemomyces frigidus	resident	2.18131e-05	4.30205e-06	77	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Tricholoma matsutake	resident	0.00209909	4.28257e-06	23	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Pseudogymnoascus sp. VKM F-4519 (FW-2642)	resident	0.000712493	4.25818e-06	7	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Mucor hiemalis	resident	0.000228142	4.24981e-06	20	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Gamsiella multidivaricata	resident	0.0018538	4.20119e-06	24	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Metschnikowia bicuspidata	resident	0.00216476	4.18465e-06	10	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Athelia psychrophila	resident	2.79158e-05	4.1185e-06	36	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Thermothelomyces fergusii	resident	1.67266e-05	4.11288e-06	12	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Aspergillus indologenus	resident	2.81798e-05	4.04197e-06	7	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Rhodotorula sphaerocarpa	resident	2.97179e-05	3.95812e-06	13	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Exophiala dermatitidis	resident	1.69475	3.93432e-06	23	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Berkeleyomyces basicola	resident	2.68761e-05	3.85497e-06	7	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Berkeleyomyces basicola
+SRR14239691	4	Biscogniauxia mediterranea	resident	1.61771e-05	3.81203e-06	23	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Pseudogymnoascus sp. VKM F-103	resident	9.30147e-05	3.81187e-06	2	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	[Candida] boidinii	resident	6.16666e-06	3.79077e-06	30	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Fusarium fujikuroi	plant_pathogen	0.000283618	3.7604e-06	11	rejected	distinct	#f5a800	#875c00	
+SRR14239691	4	Circinella umbellata	resident	0.00115044	3.73722e-06	13	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Coemansia brasiliensis	resident	0.000817713	3.67804e-06	9	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Ascochyta rabiei	plant_pathogen	1.03144e-05	3.59295e-06	17	rejected	distinct	#fbe49a	#8a7d55	
+SRR14239691	4	Racocetra persica	resident	0.00234615	3.43388e-06	15	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Lophium mytilinum	resident	8.3378e-06	3.41694e-06	20	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Ambispora gerdemannii	resident	1.17856e-05	3.38094e-06	14	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Mycothermus thermophilus	resident	0.000106041	3.32319e-06	26	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Aspergillus ellipticus	resident	2.01979e-05	3.31096e-06	16	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Cirrosporium novae-zelandiae	resident	2.15027e-05	3.30454e-06	15	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Mycena pura	resident	5.17012e-06	3.28412e-06	31	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Phyllozyma linderae	resident	7.83359e-05	3.21031e-06	12	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Diversispora eburnea	resident	1.71166e-05	3.15658e-06	9	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Lactarius indigo	resident	0.000113033	3.08817e-06	12	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Syncephalis plumigaleata	resident	0.00014841	3.04102e-06	9	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Serpula lacrymans	resident	0.00151794	3.02397e-06	14	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Fusarium pseudocircinatum	resident	0.000632376	3.02349e-06	7	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Claviceps citrina	resident	1.63171e-05	3.00913e-06	9	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Hymenoscyphus fraxineus	resident	1.21787e-05	2.9946e-06	12	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Mucor flavus	resident	0.000411313	2.97462e-06	12	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Trichoderma atroviride	resident	0.000211077	2.94894e-06	15	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Morchella sextelata	resident	1.79359e-05	2.94014e-06	8	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Linnemannia hyalina	resident	0.00281339	2.9189e-06	8	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Podila verticillata	resident	8.48274e-05	2.82453e-06	13	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Trichoderma cornu-damae	resident	7.5756e-05	2.79413e-06	9	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Mycena olivaceomarginata	resident	5.9755e-06	2.75495e-06	45	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Ceratobasidium theobromae	resident	1.9128e-05	2.74362e-06	14	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Cytospora mali	resident	6.19368e-05	2.66517e-06	21	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Athelia sp. TMB	resident	0.000152973	2.63299e-06	21	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Lentinula edodes	resident	0.000345454	2.61363e-06	24	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Penicillium paradoxum	resident	1.25612e-05	2.57387e-06	10	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Fusarium verticillioides	wheat_pathogen	0.00388458	2.52691e-06	6	rejected	distinct	#e05a26	#7b3215	
+SRR14239691	4	Nowakowskiella sp. JEL0078	resident	4.47592e-05	2.52215e-06	11	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Armillaria ostoyae	resident	1.53199e-05	2.51132e-06	8	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Sordaria brevicollis	resident	0.000211468	2.50866e-06	11	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Jaapia argillacea	resident	4.88683e-05	2.50337e-06	15	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Aspergillus novofumigatus	resident	2.44164e-05	2.50154e-06	5	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Pseudevernia consocians	resident	0.000254041	2.48958e-06	11	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Fusarium irregulare	resident	4.03666e-05	2.48142e-06	3	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Seirophora lacunosa	resident	2.37997e-05	2.43836e-06	5	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Tremella mesenterica	resident	0.000127148	2.40495e-06	12	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Cetraspora pellucida	resident	0.00546034	2.38653e-06	17	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Tricholoma furcatifolium	resident	5.36292e-05	2.38095e-06	13	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Mycena sanguinolenta	resident	2.00278e-05	2.3597e-06	46	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Lichtheimia corymbifera	resident	2.87866e-05	2.35943e-06	8	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Hydnum rufescens	resident	0.000496999	2.35012e-06	12	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Hansenula anomala	resident	4.21857e-05	2.30511e-06	8	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Mycena galericulata	resident	8.00809e-06	2.29728e-06	28	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Penicillium subrubescens	resident	4.92684e-05	2.27147e-06	9	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Acephala macrosclerotiorum	resident	5.80202e-05	2.24565e-06	17	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Amanita thiersii	resident	4.75525e-05	2.19236e-06	9	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Astraeus odoratus	resident	2.0974e-05	2.14886e-06	10	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Thermomyces lanuginosus	resident	0.0014354	2.12253e-06	7	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Pyrenochaeta sp. DS3sAY3a	resident	3.17963e-05	2.11747e-06	13	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Penicillium malachiteum	resident	0.00185315	2.10958e-06	22	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Mycena vulgaris	resident	0.000221648	2.07167e-06	26	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Synchytrium endobioticum	plant_pathogen	1.25279e-05	2.05365e-06	8	rejected	distinct	#fbe49a	#8a7d55	
+SRR14239691	4	Pyrenophora teres	plant_pathogen	1.98257e-05	2.03121e-06	5	rejected	distinct	#f5a800	#875c00	
+SRR14239691	4	Colletotrichum orchidophilum	resident	9.90769e-06	2.03015e-06	10	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Rasamsonia emersonii	resident	0.00425512	1.99673e-06	9	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Cucurbitaria berberidis	resident	0.000291055	1.98797e-06	10	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Punctularia strigosozonata	resident	0.000357835	1.9409e-06	9	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Pleurotus eryngii	resident	0.000147756	1.92667e-06	7	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Tulasnella calospora	resident	0.00155962	1.84727e-06	10	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Fusarium poae	resident	0.00182459	1.83495e-06	8	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Dentiscutata heterogama	resident	0.00017891	1.83299e-06	4	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Apiospora marii	resident	9.92522e-06	1.83037e-06	9	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Podosphaera aphanis	resident	7.40516e-06	1.82084e-06	12	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Fusarium flagelliforme	resident	1.77302e-05	1.81652e-06	5	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Thelephora ganbajun	resident	0.000120851	1.80095e-06	8	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Mortierella sp. GBA30	resident	0.000304887	1.75706e-06	9	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Massarina eburnea	resident	0.000331463	1.74649e-06	9	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Microstroma glucosiphilum	resident	1.42033e-05	1.74622e-06	6	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Choanephora cucurbitarum	resident	7.08292e-06	1.74161e-06	12	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Hypoxylon cercidicola	resident	0.000589776	1.72642e-06	8	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Aureobasidium pullulans	resident	4.66283e-06	1.7198e-06	36	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Aspergillus lentulus	resident	0.000250497	1.71095e-06	6	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Trichoderma simmonsii	resident	4.13438e-05	1.69433e-06	2	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Xylaria palmicola	resident	5.11069e-05	1.67555e-06	8	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Apiospora sp. TS-2023a	resident	1.16206e-05	1.6668e-06	7	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Didymella exigua	resident	0.000266347	1.66102e-06	7	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Trematosphaeria pertusa	resident	4.37842e-05	1.64481e-06	11	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Sporormia fimetaria	resident	0.0001238	1.6143e-06	7	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Coprinopsis cinerea	resident	7.15052e-06	1.61171e-06	11	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Lactarius akahatsu	resident	2.5899e-05	1.59206e-06	3	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Penicillium longicatenatum	resident	8.62511e-05	1.59061e-06	9	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Dirinaria sp. TL-2023a	resident	0.00201446	1.5876e-06	6	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Hyaloscypha hepaticicola	resident	0.000122506	1.56889e-06	10	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Paraglomus occultum	resident	0.00100568	1.56114e-06	5	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Trichoderma sp. CBMAI-0020	resident	0.000888758	1.54989e-06	4	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Gyrodon lividus	resident	0.000163284	1.54422e-06	6	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Fusarium oxysporum	wheat_pathogen	4.54984e-06	1.53829e-06	33	rejected	distinct	#e05a26	#7b3215	
+SRR14239691	4	Hypoxylon sp. EC38	resident	3.67082e-05	1.50435e-06	4	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Trichoderma breve	resident	3.57963e-05	1.46698e-06	2	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Curvularia eragrostidis	resident	0.00123497	1.45195e-06	7	competitor_only	predicted CDS, never a positive call	#1aa64b	#0e5b29	Curvularia eragrostidis
+SRR14239691	4	Endogone sp. FLAS-F59071	resident	2.7744e-05	1.42124e-06	5	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Crepidotus variabilis	resident	8.60602e-06	1.41075e-06	8	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Mucor lusitanicus	resident	4.53872e-05	1.39502e-06	6	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Naematelia encephala	resident	1.3602e-05	1.39357e-06	5	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Schizosaccharomyces japonicus	resident	4.52431e-05	1.39059e-06	3	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Penicillium herquei	resident	0.000645553	1.38431e-06	9	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Mortierella sp. AD094	resident	0.000498978	1.37636e-06	7	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Coniochaeta ligniaria	resident	1.90447e-05	1.36584e-06	7	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Pseudorhypophila mangenotii	resident	7.41837e-05	1.33007e-06	7	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Phlegmacium glaucopus	resident	8.1028e-06	1.32825e-06	8	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Xylaria sp. FL1777	resident	2.14283e-05	1.31724e-06	6	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Mycena citricolor	resident	1.8317e-05	1.31364e-06	7	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Usnea florida	resident	2.742e-05	1.31099e-06	7	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Tothia fuscella	resident	6.31682e-05	1.29436e-06	7	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Chytriomyces hyalinus	resident	0.000363384	1.26441e-06	18	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Exserohilum turcicum	plant_pathogen	1.01912e-05	1.25295e-06	6	rejected	distinct	#fbe49a	#8a7d55	
+SRR14239691	4	Oidiodendron maius	resident	0.01235	1.21009e-06	8	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Allomyces macrogynus	resident	0.000280219	1.20882e-06	8	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Trametes sanguinea	resident	4.73984e-05	1.18705e-06	11	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Botryobasidium botryosum	resident	1.6394e-05	1.17573e-06	7	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Cladochytrium replicatum	resident	1.40521e-05	1.15175e-06	8	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Penicillium oxalicum	resident	8.02805e-06	1.1515e-06	7	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Mucor bainieri	resident	1.11498e-05	1.14234e-06	5	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Fusarium mexicanum	resident	8.04473e-05	1.09895e-06	2	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Pyricularia grisea	resident	1.07022e-05	1.09648e-06	5	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Penicillium citrinum	resident	0.119263	1.08806e-06	1	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Fusarium mundagurra	resident	0.000458783	1.04453e-06	3	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Aureobasidium uvarum	resident	9.9941e-05	1.02393e-06	3	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Cantharellus anzutake	resident	9.6856e-06	9.92323e-07	5	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Xylogone sp. PMI_703	resident	6.85108e-06	9.82683e-07	7	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Cercospora zeae-maydis	plant_pathogen	3.54148e-05	9.67565e-07	4	rejected	distinct	#fbe49a	#8a7d55	
+SRR14239691	4	Hebeloma cylindrosporum	resident	9.35803e-06	9.58762e-07	5	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Collybia nuda	resident	0.000560105	9.10868e-07	5	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Laccaria bicolor	resident	3.41103e-06	9.08626e-07	26	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Trichoderma afarasin	resident	4.41284e-05	9.04221e-07	1	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Wolfiporia cocos	resident	6.52857e-05	8.91832e-07	4	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Rhizoctonia solani	wheat_pathogen	0.00286063	8.68072e-07	61	rejected	distinct	#e05a26	#7b3215	
+SRR14239691	4	Pleurotus pulmonarius	resident	8.31462e-05	8.51861e-07	6	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Scleroderma citrinum	resident	0.00197533	8.43247e-07	5	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Orbilia oligospora	resident	3.41513e-06	8.3974e-07	12	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Sporisorium scitamineum	plant_pathogen	1.36301e-05	8.37872e-07	3	rejected	distinct	#fbe49a	#8a7d55	
+SRR14239691	4	Absidia glauca	resident	1.62778e-05	8.33858e-07	5	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Saitozyma podzolica	resident	2.68829e-05	8.26273e-07	3	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Emericellopsis atlantica	resident	1.33939e-05	8.23352e-07	3	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Penicillium robsamsonii	resident	0.000158265	8.10741e-07	2	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Sphaerobolus stellatus	resident	0.000271284	7.94113e-07	7	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Protomyces lactucae-debilis	resident	0.000382956	7.84703e-07	2	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Lophiostoma macrostomum	resident	3.80051e-05	7.78752e-07	5	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Aspergillus alliaceus	resident	0.000249142	7.73498e-07	5	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Thozetella sp. PMI_491	resident	1.05665e-05	7.578e-07	7	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Oculimacula yallundae	wheat_pathogen	7.3051e-06	7.48432e-07	5	rejected	distinct	#e05a26	#7b3215	
+SRR14239691	4	Tulasnella sp. 403	resident	1.20821e-05	7.42714e-07	3	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Pyricularia sp. CBS 133598	resident	1.20619e-05	7.41472e-07	3	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Arthrobotrys entomopaga	resident	1.11529e-05	6.85593e-07	3	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Sarocladium strictum	resident	4.76269e-06	6.83136e-07	7	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Penicillium verhagenii	resident	6.28709e-06	6.44134e-07	5	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Apiospora saccharicola	resident	1.03059e-05	6.33525e-07	3	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Teloschistes flavicans	resident	1.01157e-05	6.21834e-07	3	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Aspergillus felis	resident	1.00032e-05	6.14915e-07	3	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Exophiala xenobiotica	resident	2.10639e-05	6.04258e-07	7	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Apiospora kogelbergensis	resident	2.94515e-05	6.03482e-07	4	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Schizophyllum commune	resident	6.98507e-06	5.72516e-07	16	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Nemania abortiva	resident	2.50526e-05	5.13345e-07	3	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Trametes punicea	resident	1.25013e-05	5.1232e-07	2	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Paecilomyces variotii	resident	1.39669e-05	5.00836e-07	7	rejected	distinct	#1aa64b	#0e5b29	
+SRR14239691	4	Pseudocyphellaria aurata	resident	1.13493e-05	4.65109e-07	2	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Hypoxylon sp. FL1857	resident	1.02372e-05	4.19534e-07	2	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Fusarium decemcellulare	resident	5.47597e-06	3.36619e-07	3	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Lasiodiplodia mahajangana	resident	6.99537e-05	2.389e-07	1	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Psilocybe cyanescens	resident	7.87691e-06	1.61403e-07	1	rejected	distinct	#f0f0f0	#848484	
+SRR14239691	4	Cadophora malorum	resident	7.61074e-06	1.55949e-07	1	rejected	distinct	#c3e8bf	#6b8069	
+SRR14239691	4	Stipitochalara longipes	resident	6.35213e-06	1.30159e-07	1	rejected	distinct	#c3e8bf	#6b8069	

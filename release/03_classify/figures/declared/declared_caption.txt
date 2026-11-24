@@ -34,7 +34,7 @@ protocol and sampling design are all nested within it, so a percentage pooled
 over runs would be a weighted average over a handful of independent units.
 
 Only BioProjects whose declaration has been curated from the study's own text
-are shown. 9 further projects of the cohort (157 runs) have not been curated,
+are shown. 5 further projects of the cohort (88 runs) have not been curated,
 so their detections are unknown rather than undeclared and an outline would
 assert something the curation does not support; a further 4 (96 runs) was
 curated and declared no pathogen, with a wheat pathogen called in 21 of its

@@ -1,19 +1,6 @@
 BioProject	status	n_runs	n_analysed_runs	n_runs_with_wp_call	n_wp_taxa	generating_doi	resolved_by	other_dois	has_text	text_source	screen_target_pathogens	screen_mentioned_pathogens	n_curated_runs	affects_figures	wp_taxa_at_stake
 PRJNA918968	not_curated	48	0	0	0	10.15212/ijafr-2023-0110	explicit		yes	pmc			0	no	
-PRJNA558380	not_curated	44	44	11	4	10.1128/mra.00451-20	explicit	10.1094/pdis-08-19-1724-re	yes	pmc			0	yes	Blumeria graminis;Parastagonospora nodorum;Puccinia striiformis;Zymoseptoria tritici
-PRJEB12497	not_curated	42	0	25	1	10.1186/s12864-016-2684-4	sole candidate	10.1186/s12864-021-07488-3	yes	pmc		Blumeria graminis;Fusarium oxysporum;Magnaporthe oryzae;Melampsora larici;Mycosphaerella graminicola;Phytophthora infestans;Puccinia striiformis;Ustilago maydis	0	no	Puccinia striiformis
-PRJNA722004	not_curated	36	30	8	5	10.3390/v13122457	explicit	10.3389/fmicb.2021.699078	yes	pmc		Rhizoctonia solani	0	yes	Bipolaris sorokiniana;Microdochium nivale;Puccinia triticina;Pyrenophora tritici-repentis;Zymoseptoria tritici
-PRJEB45236	not_curated	28	28	28	2	10.1111/ppa.13468	explicit	10.1186/s12915-023-01717-9	yes	manual	Puccinia striiformis	Puccinia striiformis	0	yes	Puccinia graminis;Puccinia striiformis
-PRJEB77002	not_curated	26	26	26	4	10.3389/fpls.2024.1464454	sole candidate		yes	pmc	Puccinia striiformis	Fusarium head;Mycosphaerella graminicola;Puccinia striiformis	0	yes	Microdochium nivale;Puccinia striiformis;Puccinia triticina;Zymoseptoria tritici
 PRJNA628830	not_curated	22	22	0	0	10.1016/j.cropro.2020.105464	explicit		yes	manual		Puccinia spp	0	no	
-PRJNA396589	not_curated	15	0	15	1	10.1128/mbio.02275-17	sole candidate	10.1186/s12864-021-07488-3	yes	pmc	Puccinia striiformis	Fusarium oxysporum;Melampsora larici;Mycosphaerella graminicola;Phakopsora pachyrhizi;Phytophthora infestans;Puccinia striiformis;Sporisorium scitamineum;Ustilago maydis;Verticillium dahliae;Zymoseptoria tritici	0	no	Puccinia striiformis
-PRJNA486288	not_curated	13	12	13	6	10.1080/00275514.2019.1607135	explicit		yes	manual	Fusarium head	Alternaria citri;Aspergillus flavus;Botrytis cinerea;Claviceps purpurea;Fusarium head;Magnaporthe oryzae;Puccinia striiformis;Pyricularia oryzae	0	yes	Alternaria alternata;Blumeria graminis;Fusarium graminearum;Parastagonospora nodorum;Puccinia striiformis;Zymoseptoria tritici
-PRJEB22223	not_curated	12	12	12	3	10.1038/s42003-018-0013-y	sole candidate		yes	pmc		Puccinia graminis	12	yes	Puccinia graminis;Puccinia striiformis;Puccinia triticina
-PRJNA725323	not_curated	12	12	12	1	10.1186/s13059-022-02658-2	explicit	10.1371/journal.pone.0280004	yes	manual		Puccinia triticina	12	yes	Puccinia triticina
 PRJDB18040	not_curated	8	0	0	0	10.3390/genes15060697	explicit		yes	pmc			0	no	
-PRJEB39756	not_curated	8	8	8	1	10.1186/s12915-023-01717-9	explicit		yes	pmc		Puccinia striiformis;Ustilago maydis	0	yes	Puccinia striiformis
-PRJNA176472	not_curated	8	0	8	1	10.1186/s12864-021-07488-3	explicit	10.1371/journal.pgen.1007637	yes	pmc		Blumeria graminis;Magnaporthe oryaze;Peronospora parasitica;Phytophthora infestans;Puccinia striiformis	0	no	Puccinia striiformis
-PRJNA816710	not_curated	8	8	2	1	10.1007/s00705-022-05649-7	explicit		yes	manual		Fusarium head	0	yes	Bipolaris sorokiniana
 PRJNA776691	not_curated	6	6	0	0	10.3390/plants12122374	sole candidate		yes	pmc			0	no	
 PRJNA1250571	not_curated	4	4	0	0	10.3389/fagro.2025.1721047	explicit		yes	manual			0	no	
-PRJNA749614	not_curated	4	0	4	3	10.1094/MPMI-09-21-0236-A	explicit	10.1101/2024.12.10.627719;10.1371/journal.pone.0280004	yes	manual	Puccinia striiformis	Puccinia striiformis	4	no	Puccinia graminis;Puccinia striiformis;Puccinia triticina

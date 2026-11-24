@@ -1,0 +1,1561 @@
+run	BioProject	experiment_title	sample_title	library_name	sample_alias
+DRR552862	PRJDB18040	Illumina HiSeq X sequencing: Illumina HiSeq X paired end sequencing of SAMD00777104	Takanezawa_New_Sachiho_Golden_T01	NSG_T01	SAMD00777104
+DRR552863	PRJDB18040	Illumina HiSeq X sequencing: Illumina HiSeq X paired end sequencing of SAMD00777105	Takanezawa_New_Sachiho_Golden_T02	NSG_T02	SAMD00777105
+DRR552864	PRJDB18040	Illumina HiSeq X sequencing: Illumina HiSeq X paired end sequencing of SAMD00777106	Takanezawa_New_Sachiho_Golden_T03	NSG_T03	SAMD00777106
+DRR552865	PRJDB18040	Illumina HiSeq X sequencing: Illumina HiSeq X paired end sequencing of SAMD00777107	Takanezawa_New_Sachiho_Golden_T04	NSG_T04	SAMD00777107
+DRR552866	PRJDB18040	Illumina HiSeq X sequencing: Illumina HiSeq X paired end sequencing of SAMD00777108	Takanezawa_New_Sachiho_Golden_T05	NSG_T05	SAMD00777108
+DRR552867	PRJDB18040	Illumina HiSeq X sequencing: Illumina HiSeq X paired end sequencing of SAMD00777109	Takanezawa_Mokusekko3_Rep1	MK3_R01	SAMD00777109
+DRR552868	PRJDB18040	Illumina HiSeq X sequencing: Illumina HiSeq X paired end sequencing of SAMD00777110	Takanezawa_Mokusekko3_Rep2	MK3_R02	SAMD00777110
+DRR552869	PRJDB18040	Illumina HiSeq X sequencing: Illumina HiSeq X paired end sequencing of SAMD00777111	Takanezawa_Mokusekko3_Rep3	MK3_R03	SAMD00777111
+ERR1224553	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 0dpi-Rep1	LIB8324	PST infection Vuka: 0dpi-Rep1
+ERR1224554	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 0dpi-Rep2	LIB8325	PST infection Vuka: 0dpi-Rep2
+ERR1224555	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 0dpi-Rep3	LIB8326	PST infection Vuka: 0dpi-Rep3
+ERR1224556	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 1dpi-Rep1	LIB8327	PST infection Vuka: 1dpi-Rep1
+ERR1224557	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 1dpi-Rep2	LIB8328	PST infection Vuka: 1dpi-Rep2
+ERR1224558	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 1dpi-Rep3	LIB8329	PST infection Vuka: 1dpi-Rep3
+ERR1224559	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 2dpi-Rep1	LIB8369	PST infection Vuka: 2dpi-Rep1
+ERR1224560	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 2dpi-Rep2	LIB8370	PST infection Vuka: 2dpi-Rep2
+ERR1224561	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 2dpi-Rep3	LIB8371	PST infection Vuka: 2dpi-Rep3
+ERR1224562	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 3dpi-Rep1	LIB8372	PST infection Vuka: 3dpi-Rep1
+ERR1224563	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 3dpi-Rep2	LIB8373	PST infection Vuka: 3dpi-Rep2
+ERR1224564	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 3dpi-Rep3	LIB8374	PST infection Vuka: 3dpi-Rep3
+ERR1224565	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 5dpi-Rep1	LIB8375	PST infection Vuka: 5dpi-Rep1
+ERR1224566	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 5dpi-Rep2	LIB8376	PST infection Vuka: 5dpi-Rep2
+ERR1224567	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 5dpi-Rep3	LIB8377	PST infection Vuka: 5dpi-Rep3
+ERR1224568	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 7dpi-Rep1	LIB5835	PST infection Vuka: 7dpi-Rep1
+ERR1224569	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 7dpi-Rep2	LIB5836	PST infection Vuka: 7dpi-Rep2
+ERR1224570	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 7dpi-Rep3	LIB5837	PST infection Vuka: 7dpi-Rep3
+ERR1224571	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 9dpi-Rep1	LIB5838	PST infection Vuka: 9dpi-Rep1
+ERR1224572	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 9dpi-Rep2	LIB5839	PST infection Vuka: 9dpi-Rep2
+ERR1224573	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 9dpi-Rep3	LIB5840	PST infection Vuka: 9dpi-Rep3
+ERR1224574	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 11dpi-Rep1	LIB5841	PST infection Vuka: 11dpi-Rep1
+ERR1224575	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 11dpi-Rep2	LIB5842	PST infection Vuka: 11dpi-Rep2
+ERR1224576	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: 11dpi-Rep3	LIB5843	PST infection Vuka: 11dpi-Rep3
+ERR1224577	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: PST - germinating spores Rep1	LIB8330	PST infection Vuka: PST - germinating spores Rep1
+ERR1224578	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: PST - germinating spores Rep2	LIB8331	PST infection Vuka: PST - germinating spores Rep2
+ERR1224579	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Vuka: PST - germinating spores Rep3	LIB8332	PST infection Vuka: PST - germinating spores Rep3
+ERR1224580	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 0dpi-Rep1	LIB19118	PST infection Yr5 wheat: 0dpi-Rep1
+ERR1224581	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 0dpi-Rep2	LIB19119	PST infection Yr5 wheat: 0dpi-Rep2
+ERR1224582	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 0dpi-Rep3	LIB19120	PST infection Yr5 wheat: 0dpi-Rep3
+ERR1224583	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 1dpi-Rep1	LIB19121	PST infection Yr5 wheat: 1dpi-Rep1
+ERR1224584	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 1dpi-Rep2	LIB19122	PST infection Yr5 wheat: 1dpi-Rep2
+ERR1224585	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 1dpi-Rep3	LIB19123	PST infection Yr5 wheat: 1dpi-Rep3
+ERR1224586	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 2dpi-Rep1	LIB19124	PST infection Yr5 wheat: 2dpi-Rep1
+ERR1224587	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 2dpi-Rep2	LIB19125	PST infection Yr5 wheat: 2dpi-Rep2
+ERR1224588	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 2dpi-Rep3	LIB19126	PST infection Yr5 wheat: 2dpi-Rep3
+ERR1224589	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 3dpi-Rep1	LIB19127	PST infection Yr5 wheat: 3dpi-Rep1
+ERR1224590	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 3dpi-Rep2	LIB19128	PST infection Yr5 wheat: 3dpi-Rep2
+ERR1224591	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 3dpi-Rep3	LIB19129	PST infection Yr5 wheat: 3dpi-Rep3
+ERR1224592	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 5dpi-Rep1	LIB19130	PST infection Yr5 wheat: 5dpi-Rep1
+ERR1224593	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 5dpi-Rep2	LIB19131	PST infection Yr5 wheat: 5dpi-Rep2
+ERR1224594	PRJEB12497	Illumina HiSeq 2000 paired end sequencing	PST infection Yr5 wheat: 5dpi-Rep3	LIB19132	PST infection Yr5 wheat: 5dpi-Rep3
+ERR1607729	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB8758	Qld-1
+ERR1607730	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB8759	Qld-2
+ERR1607731	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB9195	Qld-3
+ERR1607732	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB8760	ATR-1
+ERR1607733	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB8761	ATR-2
+ERR1607734	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB8762	ATR-3
+ERR1607735	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14660	Chile_3
+ERR1607736	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14661	Chile_4
+ERR1607737	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14662	Chile_18
+ERR1607738	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14663	Chile_30
+ERR1607739	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14664	Chile_31
+ERR1607740	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14105	012/12
+ERR1607741	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14106	11/03
+ERR1607742	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB6684	012/08
+ERR1607743	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB6683	06/01
+ERR1607744	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB8695	14.0029
+ERR1607746	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14655	14.0236
+ERR1607747	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14656	14.0237
+ERR1607748	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14657	14.0238
+ERR1607749	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14658	14.0239
+ERR1607750	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14659	14.0240
+ERR1607751	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB21156	14/106
+ERR1607752	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10868	14.0001
+ERR1607753	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10869	14.0002
+ERR1607754	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10871	14.0004
+ERR1607755	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10872	14.0005
+ERR1607756	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10873	14.0006
+ERR1607757	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10874	14.0007
+ERR1607758	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10875	14.0008
+ERR1607759	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10876	14.0009
+ERR1607760	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10877	14.0010
+ERR1607761	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10878	14.0011
+ERR1607762	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10879	14.0014
+ERR1607763	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10880	14.0015
+ERR1607764	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10881	14.0016
+ERR1607765	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10882	14.0017
+ERR1607766	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10883	14.0018
+ERR1607767	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10884	14.0019
+ERR1607768	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10885	14.0020
+ERR1607769	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10886	14.0021
+ERR1607770	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10887	14.0023
+ERR1607771	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10888	14.0024
+ERR1607772	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10889	14.0025
+ERR1607773	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10890	14.0026
+ERR1607774	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10891	14.0027
+ERR1607775	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10892	14.0035
+ERR1607776	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10893	14.0036
+ERR1607777	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10894	14.0037
+ERR1607778	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10896	14.0039
+ERR1607779	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10897	14.0040
+ERR1607780	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10898	14.0041
+ERR1607781	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10899	14.0042
+ERR1607782	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10900	14.0043
+ERR1607783	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10901	14.0044
+ERR1607784	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10903	14.0046
+ERR1607785	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB10904	14.0047
+ERR1607786	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12419	14.0059
+ERR1607787	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12420	14.0060
+ERR1607788	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14887	14.0061
+ERR1607789	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12422	14.0062
+ERR1607790	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12424	14.0069
+ERR1607791	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12425	14.0072
+ERR1607792	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12429	14.0076
+ERR1607793	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14892	14.0077
+ERR1607794	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12431	14.0078
+ERR1607795	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12432	14.0079
+ERR1607796	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12434	14.0081
+ERR1607797	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14894	14.0084
+ERR1607798	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12438	14.0085
+ERR1607799	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12439	14.0086
+ERR1607800	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12440	14.0087
+ERR1607801	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12441	14.0088
+ERR1607802	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12442	14.0089
+ERR1607803	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12443	14.0090
+ERR1607804	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12444	14.0091
+ERR1607805	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12445	14.0092
+ERR1607806	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12446	14.0093
+ERR1607807	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12447	14.0094
+ERR1607808	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12448	14.0095
+ERR1607809	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12449	14.0096
+ERR1607810	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12450	14.0097
+ERR1607811	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12451	14.0098
+ERR1607812	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12452	14.0099
+ERR1607813	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12453	14.0101
+ERR1607814	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12454	14.0103
+ERR1607815	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12455	14.0105
+ERR1607816	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12456	14.0108
+ERR1607817	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12457	14.0115
+ERR1607818	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12458	14.0120
+ERR1607819	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12459	14.0126
+ERR1607820	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12460	14.0127
+ERR1607821	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12461	14.0128
+ERR1607822	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12462	14.0129
+ERR1607823	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12468	14.0135
+ERR1607824	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12472	14.0139
+ERR1607825	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12473	14.0140
+ERR1607826	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12474	14.0141
+ERR1607827	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12475	14.0142
+ERR1607828	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12477	14.0145
+ERR1607829	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12478	14.0146
+ERR1607830	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12480	14.0148
+ERR1607831	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14888	14.0151
+ERR1607832	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14889	14.0152
+ERR1607833	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12484	14.0153
+ERR1607834	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12486	14.0155
+ERR1607835	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12488	14.0158
+ERR1607836	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12489	14.0159
+ERR1607837	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12490	14.0160
+ERR1607838	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12493	14.0163
+ERR1607839	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12494	14.0165
+ERR1607840	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12495	14.0166
+ERR1607841	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12496	14.0167
+ERR1607842	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12497	14.0169
+ERR1607843	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12499	14.0172
+ERR1607844	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12500	14.0173
+ERR1607845	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12501	14.0174
+ERR1607846	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12502	14.0175
+ERR1607847	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12503	14.0176
+ERR1607848	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12505	14.0179
+ERR1607849	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12506	14.0180
+ERR1607850	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB12507	14.0181
+ERR1607851	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14054	14.0182
+ERR1607852	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14873	14.0183
+ERR1607853	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14875	14.0188
+ERR1607854	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14876	14.0190
+ERR1607855	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14877	14.0191
+ERR1607856	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14878	14.0193
+ERR1607857	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14061	14.0195
+ERR1607858	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14879	14.0203
+ERR1607859	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14880	14.0205
+ERR1607860	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14881	14.0210
+ERR1607861	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14895	14.0215
+ERR1607862	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14070	14.0216
+ERR1607863	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14882	14.0218
+ERR1607864	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14075	14.0225
+ERR1607865	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14883	14.0226
+ERR1607866	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	LIB14077	14.0227
+ERR4152485	PRJEB15280	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	unspecified	14.0030
+ERR2099114	PRJEB22223	Illumina HiSeq 2500 paired end sequencing	Stem rust UK study	LIB25040	DK-01
+ERR2099115	PRJEB22223	Illumina HiSeq 2500 paired end sequencing	Stem rust UK study	LIB25045	DK-02
+ERR2099116	PRJEB22223	Illumina HiSeq 2500 paired end sequencing	Stem rust UK study	LIB25056	SE-01
+ERR2099120	PRJEB22223	Illumina HiSeq 2500 paired end sequencing	Stem rust UK study	LIB8700	ET-01
+ERR2099121	PRJEB22223	Illumina HiSeq 2500 paired end sequencing	Stem rust UK study	LIB8697	ET-02
+ERR2099122	PRJEB22223	Illumina HiSeq 2500 paired end sequencing	Stem rust UK study	LIB20224	ET-03
+ERR2099123	PRJEB22223	Illumina HiSeq 2500 paired end sequencing	Stem rust UK study	LIB20225	ET-04
+ERR2099149	PRJEB22223	Illumina HiSeq 2500 paired end sequencing	Stem rust UK study	LIB23166	IT-01
+ERR2099150	PRJEB22223	Illumina HiSeq 2500 paired end sequencing	Stem rust UK study	LIB23167	IT-02
+ERR2099151	PRJEB22223	Illumina HiSeq 2500 paired end sequencing	Stem rust UK study	LIB23168	IT-03
+ERR2099152	PRJEB22223	Illumina HiSeq 2500 paired end sequencing	Stem rust UK study	LIB23169	IT-04
+ERR2099153	PRJEB22223	Illumina HiSeq 2500 paired end sequencing	Stem rust UK study	LIB26232	UK-01
+ERR3170179	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0527
+ERR3170180	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0551
+ERR3170181	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0554
+ERR3170182	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0555
+ERR3170183	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0771
+ERR3170184	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0772
+ERR3170185	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0774
+ERR3170186	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0775
+ERR3170187	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0776
+ERR3170188	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0779
+ERR3170189	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0782
+ERR3170190	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0783
+ERR3170191	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0786
+ERR3170192	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0787
+ERR3170193	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0788
+ERR3170194	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0789
+ERR3170195	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0790
+ERR3170196	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0791
+ERR3170197	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0793
+ERR3170198	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0794
+ERR3170199	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0796
+ERR3170200	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0797
+ERR3170201	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0798
+ERR3170202	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0799
+ERR3170203	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0800
+ERR3170204	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0801
+ERR3170205	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0802
+ERR3170206	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0803
+ERR3170207	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0804
+ERR3170208	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0006
+ERR3170209	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0007
+ERR3170210	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0008
+ERR3170211	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0009
+ERR3170212	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0021
+ERR3170213	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0022
+ERR3170214	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0023
+ERR3170215	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0028
+ERR3170216	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0029
+ERR3170217	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0030
+ERR3170218	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0031
+ERR3170219	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0057
+ERR3170220	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0058
+ERR3170221	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0089
+ERR3170222	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0090
+ERR3170223	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0189
+ERR3170224	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0190
+ERR3170225	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0191
+ERR3170226	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0192
+ERR3170227	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0193
+ERR3170228	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0194
+ERR3170229	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0197
+ERR3170230	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0203
+ERR3170231	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0204
+ERR3170232	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0207
+ERR3170233	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0208
+ERR3170234	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0286
+ERR3170235	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB18251	15.0078
+ERR3170236	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19036	15.0188
+ERR3170237	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19037	15.0189
+ERR3170238	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19038	15.0190
+ERR3170239	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19039	15.0191
+ERR3170240	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19337	15.0409
+ERR3170241	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19841	15.0365
+ERR3170242	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19842	15.0366
+ERR3170243	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19843	15.0367
+ERR3170244	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19854	15.0348
+ERR3170245	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19855	15.0349
+ERR3170246	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19856	15.0350
+ERR3170247	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19857	15.0351
+ERR3170248	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19858	15.0353
+ERR3170249	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19859	15.0354
+ERR3170250	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19860	15.0355
+ERR3170251	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19861	15.0356
+ERR3170252	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19862	15.0357
+ERR3170253	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19863	15.0359
+ERR3170254	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19864	15.0360
+ERR3170255	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19865	15.0361
+ERR3170256	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19866	15.0363
+ERR3170257	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB19870	15.0608
+ERR3170258	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB20005	15.0573
+ERR3170259	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB20006	15.0574
+ERR3170260	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB20007	15.0579
+ERR3170261	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB20009	15.0596
+ERR3170262	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB20010	15.0597
+ERR3170263	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB20011	15.0604
+ERR3170264	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB20012	15.0606
+ERR3170265	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB20013	15.0609
+ERR3170266	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB20214	15.0305
+ERR3170267	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB20215	15.0306
+ERR3170268	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB20216	15.0308
+ERR3170269	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB24895	16.0183
+ERR3170272	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB25044	16.0536
+ERR3170273	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB25047	16.0548
+ERR3170274	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB25054	16.0186
+ERR3170275	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB25055	16.0535
+ERR3170276	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB25538	16.0144
+ERR3170277	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB25551	16.0142
+ERR3170278	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB25602	16.0145
+ERR3170279	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB12433	14.0080
+ERR3188431	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	16.0883
+ERR3188432	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0489
+ERR3188433	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0490
+ERR3188434	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0491
+ERR3188435	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0492
+ERR3188436	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0493
+ERR3188437	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0494
+ERR3188438	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0495
+ERR3188439	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0496
+ERR3188440	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0497
+ERR3188441	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0498
+ERR3188442	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0499
+ERR3188443	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0500
+ERR3188444	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0501
+ERR3188445	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0503
+ERR3188446	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0504
+ERR3188447	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0507
+ERR3188448	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0510
+ERR3188449	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0511
+ERR3188450	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0515
+ERR3188451	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0518
+ERR3188452	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0519
+ERR3188453	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0520
+ERR3188454	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0521
+ERR3188455	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0523
+ERR3188456	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0525
+ERR3188457	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0528
+ERR3188458	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0532
+ERR3188459	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0548
+ERR3188460	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0549
+ERR3188461	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0553
+ERR3188462	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0557
+ERR3188463	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.05585
+ERR3188464	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0559
+ERR3188465	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0562
+ERR3188466	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0563
+ERR3188467	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0564
+ERR3188468	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0565
+ERR3188469	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0567
+ERR3188470	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0569
+ERR3188471	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0570
+ERR3188472	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0571
+ERR3188473	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0593
+ERR3188474	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0595
+ERR3188475	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0600
+ERR3188476	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0602
+ERR3188477	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0611
+ERR3188478	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0612
+ERR3188479	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0613
+ERR3188480	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0614
+ERR3188481	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0615
+ERR3188482	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB24887	16.0182
+ERR3188483	PRJEB31334	Illumina HiSeq 2500 paired end sequencing	Leaf sample infected with Puccinia striiformis	LIB24898	16.0529
+ERR4315679	PRJEB31334	Illumina HiSeq 2000 paired end sequencing	Leaf sample infected with Puccinia striiformis	unspecified	17.0505
+ERR3383632	PRJEB33109	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	18-0166	18-0166
+ERR3383633	PRJEB33109	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	18-0167	18-0167
+ERR3383634	PRJEB33109	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	18-0169	18-0169
+ERR3383635	PRJEB33109	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	18-0171	18-0171
+ERR3383636	PRJEB33109	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	18-0172	18-0172
+ERR3383637	PRJEB33109	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	18-0173	18-0173
+ERR3383638	PRJEB33109	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	18-0175	18-0175
+ERR3383639	PRJEB33109	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	18-0177	18-0177
+ERR3383640	PRJEB33109	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	18-0178	18-0178
+ERR3383641	PRJEB33109	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	18-0183	18-0183
+ERR3383642	PRJEB33109	Illumina HiSeq 2000 paired end sequencing	PST field pathogenomics study	18-0184	18-0184
+ERR3850338	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	14.0083	LIB12436	14.0083
+ERR3850339	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0095	LIB19021	15.0095
+ERR3850340	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0104	LIB18677	15.0104
+ERR3850341	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0123	LIB18260	15.0123
+ERR3850342	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0124	LIB19528	15.0124
+ERR3850343	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0128	LIB18569	15.0128
+ERR3850344	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0233	LIB19540	15.0233
+ERR3850345	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0383	LIB19321	15.0383
+ERR3850346	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0386	LIB19324	15.0386
+ERR3850347	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0388	LIB19326	15.0388
+ERR3850348	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0398	LIB19330	15.0398
+ERR3850349	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0404	LIB19332	15.0404
+ERR3850350	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0406	LIB19334	15.0406
+ERR3850351	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0417	LIB19340	15.0417
+ERR3850352	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0499	LIB19998	15.0499
+ERR3850353	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	16.0112	LIB24551	16.0112
+ERR3850354	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	16.0117	LIB24554	16.0117
+ERR3850355	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	16.0206	LIB25005	16.0206
+ERR3850356	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	16.0365	LIB24896	16.0365
+ERR3850357	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	16.0603	LIB25001	16.0603
+ERR3850358	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	16.0606	LIB25042	16.0606
+ERR3850359	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	16.0607	LIB25014	16.0607
+ERR3850360	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	16.0612	LIB25004	16.0612
+ERR3850361	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0040	LIB19847	15.0040
+ERR3850362	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	15.0130	LIB18571	15.0130
+ERR3850363	PRJEB36444	Illumina HiSeq 2500 paired end sequencing	16.0120	LIB24556	16.0120
+ERR3856813	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/K2	LIB14898	14/K2
+ERR3856814	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/K4	LIB14899	14/K4
+ERR3856815	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/K5	LIB14900	14/K5
+ERR3856816	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/K6	LIB14901	14/K6
+ERR3856817	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/K7	LIB14902	14/K7
+ERR3856818	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/K8	LIB14903	14/K8
+ERR3856819	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/K9	LIB14904	14/K9
+ERR3856820	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/K10	LIB14093	14/K10
+ERR3856821	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/K11	LIB14905	14/K11
+ERR3856822	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/K12	LIB14906	14/K12
+ERR3856823	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/K13	LIB14907	14/K13
+ERR3856824	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/K14	LIB14908	14/K14
+ERR3856825	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/K15	LIB14909	14/K15
+ERR3856830	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/SADL1	LIB14913	14/SADL1
+ERR3856831	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/SADL2	LIB14914	14/SADL2
+ERR3856832	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/SADL3	LIB14113	14/SADL3
+ERR3856833	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/SADL4	LIB14114	14/SADL4
+ERR3856834	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/SADL5	LIB14915	14/SADL5
+ERR3856835	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/SADL6	LIB14916	14/SADL6
+ERR3856836	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/SATT1	LIB14917	14/SATT1
+ERR3856837	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/SATT2	LIB14918	14/SATT2
+ERR3856838	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/SATT3	LIB14919	14/SATT3
+ERR3856839	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/SATT4	LIB14920	14/SATT4
+ERR3856840	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/SATT5	LIB14121	14/SATT5
+ERR3856841	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	13/SAZP1	LIB14122	13/SAZP1
+ERR3856842	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/SAZP2	LIB14921	14/SAZP2
+ERR3856843	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	14/SAZP3	LIB14124	14/SAZP3
+ERR3856844	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	15/SAZP1	LIB20643	15/SAZP1
+ERR3856845	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	15/SAZP2	LIB20644	15/SAZP2
+ERR3856846	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	15/SAZP3	LIB20645	15/SAZP3
+ERR3856847	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	15/SAZP4	LIB20646	15/SAZP4
+ERR3856848	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	15/SAZP5	LIB22050	15/SAZP5
+ERR3856849	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	15/SAZP6	LIB22051	15/SAZP6
+ERR3856850	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	15/SAZP7	LIB22052	15/SAZP7
+ERR3856851	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	15/SAZP8	LIB22053	15/SAZP8
+ERR3856852	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	15/SAZP9	LIB22054	15/SAZP9
+ERR3856853	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	15/SAZP10	LIB22055	15/SAZP10
+ERR3856854	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	15/SAZP11	LIB22056	15/SAZP11
+ERR3856855	PRJEB36485	Illumina HiSeq 2500 paired end sequencing	15/SAZP12	LIB22057	15/SAZP12
+ERR4315145	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0087	unspecified	16.0087
+ERR4315146	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0088	unspecified	16.0088
+ERR4315147	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0089	unspecified	16.0089
+ERR4315148	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0090	unspecified	16.0090
+ERR4315149	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0148	unspecified	16.0148
+ERR4315150	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0149	unspecified	16.0149
+ERR4315151	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0150	unspecified	16.0150
+ERR4315152	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0151	unspecified	16.0151
+ERR4315153	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0152	unspecified	16.0152
+ERR4315154	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0153	unspecified	16.0153
+ERR4315155	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0154	unspecified	16.0154
+ERR4315156	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0155	unspecified	16.0155
+ERR4315157	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0156	unspecified	16.0156
+ERR4315158	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0157	unspecified	16.0157
+ERR4315159	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0158	unspecified	16.0158
+ERR4315160	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0159	unspecified	16.0159
+ERR4315161	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0160	unspecified	16.0160
+ERR4315162	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0588	unspecified	16.0588
+ERR4315163	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0589	unspecified	16.0589
+ERR4315164	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0595	unspecified	16.0595
+ERR4315165	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0596	unspecified	16.0596
+ERR4315166	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0613	unspecified	16.0613
+ERR4315167	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0614	unspecified	16.0614
+ERR4315168	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0615	unspecified	16.0615
+ERR4315169	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0616	unspecified	16.0616
+ERR4315170	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0617	unspecified	16.0617
+ERR4315171	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0618	unspecified	16.0618
+ERR4315172	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0619	unspecified	16.0619
+ERR4315173	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0620	unspecified	16.0620
+ERR4315174	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0624	unspecified	16.0624
+ERR4315175	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0628	unspecified	16.0628
+ERR4315176	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0636	unspecified	16.0636
+ERR4315177	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0678	unspecified	16.0678
+ERR4315178	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0210	unspecified	17.0210
+ERR4315179	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0212	unspecified	17.0212
+ERR4315180	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0215	unspecified	17.0215
+ERR4315181	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0216	unspecified	17.0216
+ERR4315182	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0222	unspecified	17.0222
+ERR4315183	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0224	unspecified	17.0224
+ERR4315184	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0594	unspecified	16.0594
+ERR4315185	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0630	unspecified	16.0630
+ERR4315186	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0633	unspecified	16.0633
+ERR4315187	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0669	unspecified	16.0669
+ERR4315188	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0003	unspecified	14.0003
+ERR4315189	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0038	unspecified	14.0038
+ERR4315190	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0045	unspecified	14.0045
+ERR4315191	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0048	unspecified	14.0048
+ERR4315192	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0049	unspecified	14.0049
+ERR4315193	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0073	unspecified	14.0073
+ERR4315194	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0074	unspecified	14.0074
+ERR4315195	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0075	unspecified	14.0075
+ERR4315196	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0082	unspecified	14.0082
+ERR4315197	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0007	unspecified	15.0007
+ERR4315198	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0008	unspecified	15.0008
+ERR4315199	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0105	unspecified	15.0105
+ERR4315200	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0106	unspecified	15.0106
+ERR4315201	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0107	unspecified	15.0107
+ERR4315202	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0111	unspecified	15.0111
+ERR4315203	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0112	unspecified	15.0112
+ERR4315204	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0114	unspecified	15.0114
+ERR4315205	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0115	unspecified	15.0115
+ERR4315206	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0116	unspecified	15.0116
+ERR4315207	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0118	unspecified	15.0118
+ERR4315208	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0121	unspecified	15.0121
+ERR4315209	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0122	unspecified	15.0122
+ERR4315210	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0125	unspecified	15.0125
+ERR4315211	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0126	unspecified	15.0126
+ERR4315212	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0127	unspecified	15.0127
+ERR4315213	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0129	unspecified	15.0129
+ERR4315214	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0132	unspecified	15.0132
+ERR4315215	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0136	unspecified	15.0136
+ERR4315216	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0137	unspecified	15.0137
+ERR4315217	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0138	unspecified	15.0138
+ERR4315218	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0143	unspecified	15.0143
+ERR4315219	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0144	unspecified	15.0144
+ERR4315220	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0145	unspecified	15.0145
+ERR4315221	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0146	unspecified	15.0146
+ERR4315222	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0148	unspecified	15.0148
+ERR4315223	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0149	unspecified	15.0149
+ERR4315224	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0150	unspecified	15.0150
+ERR4315225	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0152	unspecified	15.0152
+ERR4315226	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0153	unspecified	15.0153
+ERR4315227	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0154	unspecified	15.0154
+ERR4315228	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0171	unspecified	15.0171
+ERR4315229	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0203	unspecified	15.0203
+ERR4315230	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0204	unspecified	15.0204
+ERR4315231	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0205	unspecified	15.0205
+ERR4315232	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0206	unspecified	15.0206
+ERR4315233	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0207	unspecified	15.0207
+ERR4315234	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0219	unspecified	15.0219
+ERR4315235	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0220	unspecified	15.0220
+ERR4315236	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0221	unspecified	15.0221
+ERR4315237	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0222	unspecified	15.0222
+ERR4315238	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0224	unspecified	15.0224
+ERR4315239	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0225	unspecified	15.0225
+ERR4315240	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0226	unspecified	15.0226
+ERR4315241	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0234	unspecified	15.0234
+ERR4315242	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0235	unspecified	15.0235
+ERR4315243	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0236	unspecified	15.0236
+ERR4315244	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0237	unspecified	15.0237
+ERR4315245	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0239	unspecified	15.0239
+ERR4315246	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0248	unspecified	15.0248
+ERR4315247	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0249	unspecified	15.0249
+ERR4315248	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0250	unspecified	15.0250
+ERR4315249	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0251	unspecified	15.0251
+ERR4315250	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0252	unspecified	15.0252
+ERR4315251	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0253	unspecified	15.0253
+ERR4315252	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0254	unspecified	15.0254
+ERR4315253	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0255	unspecified	15.0255
+ERR4315254	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0256	unspecified	15.0256
+ERR4315255	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0257	unspecified	15.0257
+ERR4315256	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0271	unspecified	15.0271
+ERR4315257	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0410	unspecified	15.0410
+ERR4315258	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0411	unspecified	15.0411
+ERR4315259	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0419	unspecified	15.0419
+ERR4315260	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0111	unspecified	16.0111
+ERR4315261	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0113	unspecified	16.0113
+ERR4315262	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0114	unspecified	16.0114
+ERR4315263	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0115	unspecified	16.0115
+ERR4315264	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0116	unspecified	16.0116
+ERR4315265	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0118	unspecified	16.0118
+ERR4315266	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0119	unspecified	16.0119
+ERR4315267	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0123	unspecified	16.0123
+ERR4315268	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0124	unspecified	16.0124
+ERR4315269	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0125	unspecified	16.0125
+ERR4315270	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0126	unspecified	16.0126
+ERR4315271	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0127	unspecified	16.0127
+ERR4315272	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0128	unspecified	16.0128
+ERR4315273	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0129	unspecified	16.0129
+ERR4315274	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0130	unspecified	16.0130
+ERR4315275	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0131	unspecified	16.0131
+ERR4315276	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0133	unspecified	16.0133
+ERR4315277	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0134	unspecified	16.0134
+ERR4315278	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0135	unspecified	16.0135
+ERR4315279	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0136	unspecified	16.0136
+ERR4315280	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0137	unspecified	16.0137
+ERR4315281	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0138	unspecified	16.0138
+ERR4315282	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0139	unspecified	16.0139
+ERR4315283	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0140	unspecified	16.0140
+ERR4315284	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0141	unspecified	16.0141
+ERR4315285	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0161	unspecified	16.0161
+ERR4315286	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0590	unspecified	16.0590
+ERR4315287	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0591	unspecified	16.0591
+ERR4315288	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0592	unspecified	16.0592
+ERR4315289	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0593	unspecified	16.0593
+ERR4315290	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0597	unspecified	16.0597
+ERR4315291	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0598	unspecified	16.0598
+ERR4315292	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0599	unspecified	16.0599
+ERR4315293	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0601	unspecified	16.0601
+ERR4315294	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0602	unspecified	16.0602
+ERR4315295	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0626	unspecified	16.0626
+ERR4315296	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0627	unspecified	16.0627
+ERR4315297	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0660	unspecified	16.0660
+ERR4315298	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0662	unspecified	16.0662
+ERR4315299	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0665	unspecified	16.0665
+ERR4315300	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0675	unspecified	16.0675
+ERR4315301	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0676	unspecified	16.0676
+ERR4315302	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0677	unspecified	16.0677
+ERR4315303	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0001	unspecified	17.0001
+ERR4315304	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0005	unspecified	17.0005
+ERR4315305	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0218	unspecified	17.0218
+ERR4315306	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0220	unspecified	17.0220
+ERR4315307	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0226	unspecified	17.0226
+ERR4315308	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0228	unspecified	17.0228
+ERR4315309	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0230	unspecified	17.0230
+ERR4315310	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0232	unspecified	17.0232
+ERR4315311	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0233	unspecified	17.0233
+ERR4315312	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0235	unspecified	17.0235
+ERR4315313	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0238	unspecified	17.0238
+ERR4315314	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0239	unspecified	17.0239
+ERR4315315	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0240	unspecified	17.0240
+ERR4315316	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0241	unspecified	17.0241
+ERR4315317	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0002	unspecified	17.0002
+ERR4315318	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0003	unspecified	17.0003
+ERR4315319	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0065	unspecified	17.0065
+ERR4315320	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0067	unspecified	17.0067
+ERR4315321	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0072	unspecified	17.0072
+ERR4315322	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0074	unspecified	17.0074
+ERR4315323	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0076	unspecified	17.0076
+ERR4315324	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0078	unspecified	17.0078
+ERR4315325	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0081	unspecified	17.0081
+ERR4315326	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0082	unspecified	17.0082
+ERR4315327	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0084	unspecified	17.0084
+ERR4315328	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0086	unspecified	17.0086
+ERR4315329	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0104	unspecified	17.0104
+ERR4315330	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0118	unspecified	17.0118
+ERR4315331	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0612	unspecified	15.0612
+ERR4315332	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0613	unspecified	15.0613
+ERR4315333	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0624	unspecified	15.0624
+ERR4315334	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0625	unspecified	15.0625
+ERR4315335	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0627	unspecified	15.0627
+ERR4315336	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0740	unspecified	16.0740
+ERR4315337	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0741	unspecified	16.0741
+ERR4315338	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0742	unspecified	16.0742
+ERR4315339	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0778	unspecified	16.0778
+ERR4315340	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0004	unspecified	18.0004
+ERR4315341	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0010	unspecified	18.0010
+ERR4315342	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0777	unspecified	16.0777
+ERR4315343	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0781	unspecified	16.0781
+ERR4315344	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0176	unspecified	15.0176
+ERR4315345	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0177	unspecified	15.0177
+ERR4315346	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0178	unspecified	15.0178
+ERR4315347	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0179	unspecified	15.0179
+ERR4315348	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0180	unspecified	15.0180
+ERR4315349	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0651	unspecified	15.0651
+ERR4315350	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0652	unspecified	15.0652
+ERR4315351	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0653	unspecified	15.0653
+ERR4315352	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0245	unspecified	16.0245
+ERR4315353	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0096	unspecified	17.0096
+ERR4315354	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0097	unspecified	17.0097
+ERR4315355	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0120	unspecified	17.0120
+ERR4315356	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0121	unspecified	17.0121
+ERR4315357	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0136	unspecified	17.0136
+ERR4315358	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0137	unspecified	17.0137
+ERR4315359	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0138	unspecified	17.0138
+ERR4315360	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0140	unspecified	17.0140
+ERR4315361	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0142	unspecified	17.0142
+ERR4315362	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0143	unspecified	17.0143
+ERR4315363	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0122	unspecified	17.0122
+ERR4315364	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0123	unspecified	17.0123
+ERR4315365	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0139	unspecified	17.0139
+ERR4315366	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0141	unspecified	17.0141
+ERR4315367	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0747	unspecified	16.0747
+ERR4315368	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0749	unspecified	16.0749
+ERR4315369	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0750	unspecified	16.0750
+ERR4315370	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0752	unspecified	16.0752
+ERR4315371	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0753	unspecified	16.0753
+ERR4315372	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0754	unspecified	16.0754
+ERR4315373	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0755	unspecified	16.0755
+ERR4315374	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0756	unspecified	16.0756
+ERR4315375	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0757	unspecified	16.0757
+ERR4315376	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0758	unspecified	16.0758
+ERR4315378	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0760	unspecified	16.0760
+ERR4315379	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0762	unspecified	16.0762
+ERR4315380	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0763	unspecified	16.0763
+ERR4315381	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0767	unspecified	16.0767
+ERR4315382	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0768	unspecified	16.0768
+ERR4315383	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0769	unspecified	16.0769
+ERR4315384	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0882	unspecified	16.0882
+ERR4315385	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0884	unspecified	16.0884
+ERR4315386	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0885	unspecified	16.0885
+ERR4315387	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0886	unspecified	16.0886
+ERR4315388	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0889	unspecified	16.0889
+ERR4315389	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0322	unspecified	16.0322
+ERR4315390	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0264	unspecified	17.0264
+ERR4315391	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0265	unspecified	17.0265
+ERR4315392	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0266	unspecified	17.0266
+ERR4315393	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0267	unspecified	17.0267
+ERR4315394	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0271	unspecified	17.0271
+ERR4315395	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0272	unspecified	17.0272
+ERR4315396	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0334	unspecified	16.0334
+ERR4315397	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0382	unspecified	16.0382
+ERR4315398	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0099	unspecified	17.0099
+ERR4315399	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0274	unspecified	17.0274
+ERR4315400	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0265	unspecified	16.0265
+ERR4315401	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0092	unspecified	17.0092
+ERR4315402	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0147	unspecified	17.0147
+ERR4315403	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0009	unspecified	15.0009
+ERR4315404	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0011	unspecified	15.0011
+ERR4315405	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0012	unspecified	15.0012
+ERR4315406	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0013	unspecified	15.0013
+ERR4315407	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0575	unspecified	17.0575
+ERR4315408	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0580	unspecified	17.0580
+ERR4315409	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0584	unspecified	17.0584
+ERR4315410	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0585	unspecified	17.0585
+ERR4315411	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0586	unspecified	17.0586
+ERR4315412	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0588	unspecified	17.0588
+ERR4315413	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0590	unspecified	17.0590
+ERR4315414	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0591	unspecified	17.0591
+ERR4315415	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0070	unspecified	15.0070
+ERR4315416	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0072	unspecified	15.0072
+ERR4315417	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0073	unspecified	15.0073
+ERR4315418	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0075	unspecified	15.0075
+ERR4315419	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0245	unspecified	17.0245
+ERR4315420	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0255	unspecified	17.0255
+ERR4315421	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0256	unspecified	17.0256
+ERR4315422	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0257	unspecified	17.0257
+ERR4315423	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0192	unspecified	15.0192
+ERR4315424	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0106	unspecified	14.0106
+ERR4315425	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0010	unspecified	17.0010
+ERR4315426	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0020	unspecified	17.0020
+ERR4315427	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	Sol 27.6.18	unspecified	Sol 27.6.18
+ERR4315428	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0272	unspecified	14.0272
+ERR4315429	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0274	unspecified	14.0274
+ERR4315430	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0275	unspecified	14.0275
+ERR4315431	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0277	unspecified	14.0277
+ERR4315432	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0456	unspecified	17.0456
+ERR4315433	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0464	unspecified	17.0464
+ERR4315434	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0469	unspecified	17.0469
+ERR4315435	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0474	unspecified	17.0474
+ERR4315436	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0477	unspecified	17.0477
+ERR4315437	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0479	unspecified	17.0479
+ERR4315438	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0480	unspecified	17.0480
+ERR4315439	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0481	unspecified	17.0481
+ERR4315440	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0482	unspecified	17.0482
+ERR4315441	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0484	unspecified	17.0484
+ERR4315442	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0022	unspecified	15.0022
+ERR4315443	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0023	unspecified	15.0023
+ERR4315444	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0108	unspecified	15.0108
+ERR4315445	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0109	unspecified	15.0109
+ERR4315446	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0110	unspecified	15.0110
+ERR4315447	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0139	unspecified	15.0139
+ERR4315448	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0140	unspecified	15.0140
+ERR4315449	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0208	unspecified	15.0208
+ERR4315450	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0209	unspecified	15.0209
+ERR4315451	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0231	unspecified	15.0231
+ERR4315452	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0242	unspecified	15.0242
+ERR4315453	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0245	unspecified	15.0245
+ERR4315454	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0405	unspecified	15.0405
+ERR4315455	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0407	unspecified	15.0407
+ERR4315456	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0408	unspecified	15.0408
+ERR4315457	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0121	unspecified	16.0121
+ERR4315458	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0122	unspecified	16.0122
+ERR4315459	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0604	unspecified	16.0604
+ERR4315460	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0605	unspecified	16.0605
+ERR4315461	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0608	unspecified	16.0608
+ERR4315462	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0647	unspecified	16.0647
+ERR4315463	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0080	unspecified	15.0080
+ERR4315464	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0082	unspecified	15.0082
+ERR4315465	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0184	unspecified	16.0184
+ERR4315466	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0191	unspecified	16.0191
+ERR4315467	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0220	unspecified	16.0220
+ERR4315468	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0526	unspecified	16.0526
+ERR4315469	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0032	unspecified	17.0032
+ERR4315470	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0055	unspecified	15.0055
+ERR4315471	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0057	unspecified	15.0057
+ERR4315472	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0058	unspecified	15.0058
+ERR4315473	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0060	unspecified	15.0060
+ERR4315474	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0061	unspecified	15.0061
+ERR4315475	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0063	unspecified	15.0063
+ERR4315476	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0085	unspecified	15.0085
+ERR4315477	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0087	unspecified	15.0087
+ERR4315478	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0341	unspecified	15.0341
+ERR4315479	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0342	unspecified	15.0342
+ERR4315480	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0343	unspecified	15.0343
+ERR4315481	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0344	unspecified	15.0344
+ERR4315482	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0424	unspecified	15.0424
+ERR4315483	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0093	unspecified	16.0093
+ERR4315484	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0094	unspecified	16.0094
+ERR4315485	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0105	unspecified	16.0105
+ERR4315486	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0106	unspecified	16.0106
+ERR4315487	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0108	unspecified	16.0108
+ERR4315488	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0110	unspecified	16.0110
+ERR4315489	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0162	unspecified	16.0162
+ERR4315490	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0215	unspecified	16.0215
+ERR4315491	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0216	unspecified	16.0216
+ERR4315492	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0217	unspecified	16.0217
+ERR4315493	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0474	unspecified	16.0474
+ERR4315494	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0475	unspecified	16.0475
+ERR4315495	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0476	unspecified	16.0476
+ERR4315496	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0485	unspecified	16.0485
+ERR4315497	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0486	unspecified	16.0486
+ERR4315498	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0488	unspecified	16.0488
+ERR4315499	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0489	unspecified	16.0489
+ERR4315500	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0494	unspecified	16.0494
+ERR4315501	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0498	unspecified	16.0498
+ERR4315502	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0500	unspecified	16.0500
+ERR4315503	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0501	unspecified	16.0501
+ERR4315504	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0503	unspecified	16.0503
+ERR4315505	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0508	unspecified	16.0508
+ERR4315506	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0559	unspecified	16.0559
+ERR4315507	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0576	unspecified	16.0576
+ERR4315508	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0577	unspecified	16.0577
+ERR4315509	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0586	unspecified	16.0586
+ERR4315510	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0587	unspecified	16.0587
+ERR4315511	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0115	unspecified	17.0115
+ERR4315512	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0116	unspecified	17.0116
+ERR4315513	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0243	unspecified	17.0243
+ERR4315514	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0244	unspecified	17.0244
+ERR4315515	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0487	unspecified	17.0487
+ERR4315516	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0491	unspecified	16.0491
+ERR4315517	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0024	unspecified	17.0024
+ERR4315518	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0025	unspecified	17.0025
+ERR4315519	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0026	unspecified	17.0026
+ERR4315520	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0027	unspecified	17.0027
+ERR4315521	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0114	unspecified	17.0114
+ERR4315522	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0131	unspecified	14.0131
+ERR4315523	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0162	unspecified	14.0162
+ERR4315524	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0171	unspecified	14.0171
+ERR4315525	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0020	unspecified	15.0020
+ERR4315526	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0034	unspecified	15.0034
+ERR4315527	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0648	unspecified	15.0648
+ERR4315528	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0649	unspecified	15.0649
+ERR4315529	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0019	unspecified	16.0019
+ERR4315530	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0302	unspecified	16.0302
+ERR4315531	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0392	unspecified	16.0392
+ERR4315532	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0397	unspecified	16.0397
+ERR4315533	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0398	unspecified	16.0398
+ERR4315534	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0401	unspecified	16.0401
+ERR4315535	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0463	unspecified	16.0463
+ERR4315536	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0093	unspecified	17.0093
+ERR4315537	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0100	unspecified	17.0100
+ERR4315538	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0133	unspecified	17.0133
+ERR4315539	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0243	unspecified	16.0243
+ERR4315540	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0301	unspecified	16.0301
+ERR4315541	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0119	unspecified	17.0119
+ERR4315542	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0166	unspecified	17.0166
+ERR4315543	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0746	unspecified	16.0746
+ERR4315544	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0748	unspecified	16.0748
+ERR4315545	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0751	unspecified	16.0751
+ERR4315546	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0761	unspecified	16.0761
+ERR4315547	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0765	unspecified	16.0765
+ERR4315548	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0766	unspecified	16.0766
+ERR4315549	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0053	unspecified	14.0053
+ERR4315550	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0054	unspecified	14.0054
+ERR4315551	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	14.0058	unspecified	14.0058
+ERR4315552	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0088	unspecified	15.0088
+ERR4315553	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0089	unspecified	15.0089
+ERR4315554	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0090	unspecified	15.0090
+ERR4315555	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0091	unspecified	15.0091
+ERR4315556	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0094	unspecified	15.0094
+ERR4315557	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0096	unspecified	15.0096
+ERR4315558	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0097	unspecified	15.0097
+ERR4315559	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0166	unspecified	15.0166
+ERR4315560	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0167	unspecified	15.0167
+ERR4315561	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0168	unspecified	15.0168
+ERR4315562	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0169	unspecified	15.0169
+ERR4315563	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0170	unspecified	15.0170
+ERR4315564	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0037	unspecified	16.0037
+ERR4315565	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0038	unspecified	16.0038
+ERR4315566	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0202	unspecified	16.0202
+ERR4315567	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0203	unspecified	16.0203
+ERR4315568	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0205	unspecified	16.0205
+ERR4315569	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0208	unspecified	16.0208
+ERR4315570	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0209	unspecified	16.0209
+ERR4315571	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0210	unspecified	16.0210
+ERR4315572	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0211	unspecified	16.0211
+ERR4315573	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0212	unspecified	16.0212
+ERR4315574	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0214	unspecified	16.0214
+ERR4315575	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0224	unspecified	16.0224
+ERR4315576	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0225	unspecified	16.0225
+ERR4315577	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0226	unspecified	16.0226
+ERR4315578	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0228	unspecified	16.0228
+ERR4315579	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0229	unspecified	16.0229
+ERR4315580	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0230	unspecified	16.0230
+ERR4315581	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0231	unspecified	16.0231
+ERR4315582	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0459	unspecified	16.0459
+ERR4315583	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0492	unspecified	16.0492
+ERR4315584	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0276	unspecified	17.0276
+ERR4315585	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0277	unspecified	17.0277
+ERR4315586	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0278	unspecified	17.0278
+ERR4315587	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0279	unspecified	17.0279
+ERR4315588	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0392	unspecified	17.0392
+ERR4315589	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0393	unspecified	17.0393
+ERR4315590	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0394	unspecified	17.0394
+ERR4315591	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0395	unspecified	17.0395
+ERR4315592	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0396	unspecified	17.0396
+ERR4315593	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0397	unspecified	17.0397
+ERR4315594	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0398	unspecified	17.0398
+ERR4315595	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0399	unspecified	17.0399
+ERR4315596	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0400	unspecified	17.0400
+ERR4315597	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0401	unspecified	17.0401
+ERR4315598	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0402	unspecified	17.0402
+ERR4315599	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0403	unspecified	17.0403
+ERR4315600	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0404	unspecified	17.0404
+ERR4315601	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0405	unspecified	17.0405
+ERR4315602	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0406	unspecified	17.0406
+ERR4315603	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0407	unspecified	17.0407
+ERR4315604	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0190	unspecified	18.0190
+ERR4315605	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0191	unspecified	18.0191
+ERR4315606	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0192	unspecified	18.0192
+ERR4315607	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0193	unspecified	18.0193
+ERR4315608	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0194	unspecified	18.0194
+ERR4315609	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0195	unspecified	18.0195
+ERR4315610	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0197	unspecified	18.0197
+ERR4315611	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0198	unspecified	18.0198
+ERR4315612	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0199	unspecified	18.0199
+ERR4315613	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0201	unspecified	18.0201
+ERR4315614	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0202	unspecified	18.0202
+ERR4315615	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0203	unspecified	18.0203
+ERR4315616	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0204	unspecified	18.0204
+ERR4315617	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	18.0205	unspecified	18.0205
+ERR4315618	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0389	unspecified	17.0389
+ERR4315619	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0147	unspecified	15.0147
+ERR4315620	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0258	unspecified	15.0258
+ERR4315621	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0259	unspecified	15.0259
+ERR4315622	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0260	unspecified	15.0260
+ERR4315623	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0261	unspecified	15.0261
+ERR4315624	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0262	unspecified	15.0262
+ERR4315625	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0263	unspecified	15.0263
+ERR4315626	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0264	unspecified	15.0264
+ERR4315627	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0265	unspecified	15.0265
+ERR4315628	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0267	unspecified	15.0267
+ERR4315629	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0268	unspecified	15.0268
+ERR4315630	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0269	unspecified	15.0269
+ERR4315631	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0270	unspecified	15.0270
+ERR4315632	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0376	unspecified	15.0376
+ERR4315633	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0377	unspecified	15.0377
+ERR4315634	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0379	unspecified	15.0379
+ERR4315635	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0380	unspecified	15.0380
+ERR4315636	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0381	unspecified	15.0381
+ERR4315637	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0382	unspecified	15.0382
+ERR4315638	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0384	unspecified	15.0384
+ERR4315639	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0385	unspecified	15.0385
+ERR4315640	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0387	unspecified	15.0387
+ERR4315641	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0389	unspecified	15.0389
+ERR4315642	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0390	unspecified	15.0390
+ERR4315643	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0395	unspecified	15.0395
+ERR4315644	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0396	unspecified	15.0396
+ERR4315645	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0397	unspecified	15.0397
+ERR4315646	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0399	unspecified	15.0399
+ERR4315647	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0023	unspecified	16.0023
+ERR4315648	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0264	unspecified	16.0264
+ERR4315649	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0274	unspecified	15.0274
+ERR4315650	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0292	unspecified	15.0292
+ERR4315651	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0432	unspecified	15.0432
+ERR4315652	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0433	unspecified	15.0433
+ERR4315653	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0455	unspecified	15.0455
+ERR4315654	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0464	unspecified	15.0464
+ERR4315655	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0493	unspecified	15.0493
+ERR4315656	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0515	unspecified	15.0515
+ERR4315657	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0517	unspecified	15.0517
+ERR4315658	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0523	unspecified	15.0523
+ERR4315659	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0527	unspecified	15.0527
+ERR4315660	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0537	unspecified	15.0537
+ERR4315661	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0546	unspecified	15.0546
+ERR4315662	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0550	unspecified	15.0550
+ERR4315663	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0553	unspecified	15.0553
+ERR4315664	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0616	unspecified	15.0616
+ERR4315665	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	17.0091	unspecified	17.0091
+ERR4315666	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0628	unspecified	15.0628
+ERR4315667	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0629	unspecified	15.0629
+ERR4315668	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0630	unspecified	15.0630
+ERR4315669	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0631	unspecified	15.0631
+ERR4315670	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0632	unspecified	15.0632
+ERR4315671	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0633	unspecified	15.0633
+ERR4315672	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0634	unspecified	15.0634
+ERR4315673	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0635	unspecified	15.0635
+ERR4315674	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0636	unspecified	15.0636
+ERR4315675	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0637	unspecified	15.0637
+ERR4315676	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0640	unspecified	15.0640
+ERR4315677	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0641	unspecified	15.0641
+ERR4315678	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	15.0347	unspecified	15.0347
+ERR4315685	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0340	unspecified	16.0340
+ERR4761815	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0266	unspecified	16.0266
+ERR4761816	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0275	unspecified	16.0275
+ERR4761817	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0293	unspecified	16.0293
+ERR4761818	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0294	unspecified	16.0294
+ERR4761819	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0307	unspecified	16.0307
+ERR4761820	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0337	unspecified	16.0337
+ERR4761821	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0338	unspecified	16.0338
+ERR4761822	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0341	unspecified	16.0341
+ERR4761823	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0343	unspecified	16.0343
+ERR4761824	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0363	unspecified	16.0363
+ERR4761825	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0364	unspecified	16.0364
+ERR4761826	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0366	unspecified	16.0366
+ERR4761827	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0372	unspecified	16.0372
+ERR4761828	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0374	unspecified	16.0374
+ERR4761829	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0375	unspecified	16.0375
+ERR4761830	PRJEB39201	Illumina HiSeq 2000 paired end sequencing	16.0377	unspecified	16.0377
+ERR4421877	PRJEB39756	Illumina HiSeq 2000 paired end sequencing	01/01	LIB14107	LIB14107
+ERR4421878	PRJEB39756	Illumina HiSeq 2000 paired end sequencing	09/01	LIB14910	LIB14910
+ERR4421879	PRJEB39756	Illumina HiSeq 2000 paired end sequencing	14/01	LIB14110	LIB14110
+ERR4421880	PRJEB39756	Illumina HiSeq 2000 paired end sequencing	11/02	LIB14108	LIB14108
+ERR4421881	PRJEB39756	Illumina HiSeq 2000 paired end sequencing	12/06	LIB14911	LIB14911
+ERR4421882	PRJEB39756	Illumina HiSeq 2000 paired end sequencing	12/07	LIB14109	LIB14109
+ERR4421883	PRJEB39756	Illumina HiSeq 2000 paired end sequencing	12/09	LIB14103	LIB14103
+ERR4421884	PRJEB39756	Illumina HiSeq 2000 paired end sequencing	12/11	LIB14912	LIB14912
+ERR5960059	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0297	20.0297	20.0297
+ERR5960060	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0302	20.0302	20.0302
+ERR5960061	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0304	20.0304	20.0304
+ERR5960062	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0307	20.0307	20.0307
+ERR5960063	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0308	20.0308	20.0308
+ERR5960064	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0309	20.0309	20.0309
+ERR5960065	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0310	20.0310	20.0310
+ERR5960066	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0311	20.0311	20.0311
+ERR5960067	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0312	20.0312	20.0312
+ERR5960068	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0313	20.0313	20.0313
+ERR5960069	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0318	20.0318	20.0318
+ERR5960070	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0321	20.0321	20.0321
+ERR5960071	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0330	20.0330	20.0330
+ERR5960072	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0331	20.0331	20.0331
+ERR5960073	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0332	20.0332	20.0332
+ERR5960074	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0333	20.0333	20.0333
+ERR5960075	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0334	20.0334	20.0334
+ERR5960076	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0335	20.0335	20.0335
+ERR5960077	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0322	20.0322	20.0322
+ERR5960078	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0323	20.0323	20.0323
+ERR5960079	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0324	20.0324	20.0324
+ERR5960080	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0326	20.0326	20.0326
+ERR5960081	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0299	20.0299	20.0299
+ERR5960082	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0315	20.0315	20.0315
+ERR5960083	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0300	20.0300	20.0300
+ERR5960084	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0316	20.0316	20.0316
+ERR5960085	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0327	20.0327	20.0327
+ERR5960086	PRJEB45236	Illumina HiSeq 2500 paired end sequencing	20.0329	20.0329	20.0329
+ERR6847871	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	UK-02	ScotSR7	UK-02
+ERR6847872	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	UK-03	ScotSR7-2	UK-03
+ERR6847873	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	UK-04	ScotSR7-3	UK-04
+ERR6847874	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	UK-05	BrandonSR	UK-05
+ERR6847875	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	IT-05	ItalySR	IT-05
+ERR6847876	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	FR-01	FranceSR	FR-01
+ERR6847877	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	FR-02	DS05_20-0079	FR-02
+ERR6847878	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	FR-03	DS05_20-0080	FR-03
+ERR6847879	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	FR-04	DS05_20-0081	FR-04
+ERR6847880	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	FR-05	DS05_20-0082	FR-05
+ERR6847881	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	FR-06	DS05_20-0083	FR-06
+ERR6847882	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	FR-07	DS05_20-0084	FR-07
+ERR6847883	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	FR-08	DS05_20-0085	FR-08
+ERR6847884	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	FR-09	DS05_20-0086	FR-09
+ERR6847885	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	FR-10	DS05_20-0087	FR-10
+ERR6847886	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	IE-01	DS05_20-0266	IE-01
+ERR6847887	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	IE-02	DS05_20-0267	IE-02
+ERR6847888	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	IE-03	DS05_20-0268	IE-03
+ERR6847889	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	IE-04	DS05_20-0269	IE-04
+ERR6847890	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	IE-05	DS05_20-0272	IE-05
+ERR6847891	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	IE-06	DS05_20-0273	IE-06
+ERR6847892	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	IE-07	DS05_20-0274	IE-07
+ERR6847893	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	IE-08	DS05_20-0275	IE-08
+ERR6847894	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	IE-09	DS05_20-0279	IE-09
+ERR6847895	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	IE-10	DS05_20-0286	IE-10
+ERR6847896	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	IE-11	DS05_20-0288	IE-11
+ERR6847897	PRJEB47693	Illumina NovaSeq 6000 paired end sequencing	IE-12	DS05_20-0292	IE-12
+ERR12013027	PRJEB65589	Illumina NovaSeq 6000 sequencing	20-0336	20-0336	20-0336
+ERR12013028	PRJEB65589	Illumina NovaSeq 6000 sequencing	20-0338	20-0338	20-0338
+ERR12013029	PRJEB65589	Illumina NovaSeq 6000 sequencing	20-0340	20-0340	20-0340
+ERR12013030	PRJEB65589	Illumina NovaSeq 6000 sequencing	20-0352	20-0352	20-0352
+ERR12013031	PRJEB65589	Illumina NovaSeq 6000 sequencing	20-0354	20-0354	20-0354
+ERR12013032	PRJEB65589	Illumina NovaSeq 6000 sequencing	20-0356	20-0356	20-0356
+ERR12013033	PRJEB65589	Illumina NovaSeq 6000 sequencing	20-0357	20-0357	20-0357
+ERR12013034	PRJEB65589	Illumina NovaSeq 6000 sequencing	20-0358	20-0358	20-0358
+ERR12013035	PRJEB65589	Illumina NovaSeq 6000 sequencing	20-0359	20-0359	20-0359
+ERR12013036	PRJEB65589	Illumina NovaSeq 6000 sequencing	20-0361	20-0361	20-0361
+ERR12013037	PRJEB65589	Illumina NovaSeq 6000 sequencing	20-0362	20-0362	20-0362
+ERR12013038	PRJEB65589	Illumina NovaSeq 6000 sequencing	20-0364	20-0364	20-0364
+ERR12013039	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0112	21-0112	21-0112
+ERR12013040	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0113	21-0113	21-0113
+ERR12013041	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0114	21-0114	21-0114
+ERR12013042	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0116	21-0116	21-0116
+ERR12013043	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0118	21-0118	21-0118
+ERR12013044	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0119	21-0119	21-0119
+ERR12013045	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0120	21-0120	21-0120
+ERR12013046	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0121	21-0121	21-0121
+ERR12013047	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0123	21-0123	21-0123
+ERR12013048	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0125	21-0125	21-0125
+ERR12013049	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0126	21-0126	21-0126
+ERR12013050	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0127	21-0127	21-0127
+ERR12013051	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0136	21-0136	21-0136
+ERR12013052	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0137	21-0137	21-0137
+ERR12013053	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0138	21-0138	21-0138
+ERR12013054	PRJEB65589	Illumina NovaSeq 6000 sequencing	21-0139	21-0139	21-0139
+ERR12013055	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0001	22-0001	22-0001
+ERR12013056	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0002	22-0002	22-0002
+ERR12013057	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0008	22-0008	22-0008
+ERR12013058	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0010	22-0010	22-0010
+ERR12013059	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-001-1	22-001-1	22-001-1
+ERR12013060	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0012	22-0012	22-0012
+ERR12013061	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0021	22-0021	22-0021
+ERR12013062	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-002-2	22-002-2	22-002-2
+ERR12013063	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0024	22-0024	22-0024
+ERR12013064	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0028	22-0028	22-0028
+ERR12013065	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0029	22-0029	22-0029
+ERR12013066	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0031	22-0031	22-0031
+ERR12013067	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0032	22-0032	22-0032
+ERR12013068	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0033	22-0033	22-0033
+ERR12013069	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0034	22-0034	22-0034
+ERR12013070	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0035-Old	22-0035-Old	22-0035-Old
+ERR12013071	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0036	22-0036	22-0036
+ERR12013072	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0038	22-0038	22-0038
+ERR12013073	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0039	22-0039	22-0039
+ERR12013074	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0040	22-0040	22-0040
+ERR12013075	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0042	22-0042	22-0042
+ERR12013076	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-005-2	22-005-2	22-005-2
+ERR12013077	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-007-3	22-007-3	22-007-3
+ERR12013078	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-007-5	22-007-5	22-007-5
+ERR12013079	PRJEB65589	Illumina NovaSeq 6000 sequencing	22-0020	22-0020	22-0020
+ERR13340220	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0001	23.0001	ena-SAMPLE-TAB-27-06-2024-11:16:49:017-11990
+ERR13340221	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0002	23.0002	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-11991
+ERR13340222	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0003	23.0003	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-11992
+ERR13340223	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0005	23.0005	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-11993
+ERR13340224	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0006	23.0006	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-11994
+ERR13340225	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0007	23.0007	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-11995
+ERR13340226	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0008	23.0008	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-11996
+ERR13340227	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0009	23.0009	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-11997
+ERR13340228	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0010	23.001	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-11998
+ERR13340229	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0011	23.0011	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-11999
+ERR13340230	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0012	23.0012	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-12000
+ERR13340231	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0013	23.0013	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-12001
+ERR13340232	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0014	23.0014	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-12002
+ERR13340233	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0015	23.0015	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-12003
+ERR13340234	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0016	23.0016	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-12004
+ERR13340235	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0017	23.0017	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-12005
+ERR13340236	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0018	23.0018	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-12006
+ERR13340237	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0019	23.0019	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-12007
+ERR13340238	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0021	23.0021	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-12008
+ERR13340239	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0022	23.0022	ena-SAMPLE-TAB-27-06-2024-11:16:49:018-12009
+ERR13340240	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0023	23.0023	ena-SAMPLE-TAB-27-06-2024-11:16:49:019-12010
+ERR13340241	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0024	23.0024	ena-SAMPLE-TAB-27-06-2024-11:16:49:019-12011
+ERR13340242	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0025	23.0025	ena-SAMPLE-TAB-27-06-2024-11:16:49:019-12012
+ERR13340243	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0026	23.0026	ena-SAMPLE-TAB-27-06-2024-11:16:49:019-12013
+ERR13340244	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0027	23.0027	ena-SAMPLE-TAB-27-06-2024-11:16:49:019-12014
+ERR13340245	PRJEB77002	Illumina NovaSeq 6000 sequencing	23.0028	23.0028	ena-SAMPLE-TAB-27-06-2024-11:16:49:019-12015
+ERR15005444	PRJEB84390	Illumina HiSeq 2500 sequencing	18-0131	18-0131	18-0131
+ERR15005445	PRJEB84390	Illumina HiSeq 2500 sequencing	18-0132	18-0132	18-0132
+ERR15005446	PRJEB84390	Illumina HiSeq 2500 sequencing	18-0133	18-0133	18-0133
+ERR15005447	PRJEB84390	Illumina HiSeq 2500 sequencing	Br-0130	Br-0130	Br-0130
+ERR15005448	PRJEB84390	Illumina HiSeq 2500 sequencing	Br-0131	Br-0131	Br-0131
+ERR15005449	PRJEB84390	Illumina HiSeq 2500 sequencing	Br-0132	Br-0132	Br-0132
+ERR15005450	PRJEB84390	Illumina HiSeq 2500 sequencing	Br-0133	Br-0133	Br-0133
+ERR15005451	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-006	BR17-006	BR17-006
+ERR15005452	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-010	BR17-010	BR17-010
+ERR15005453	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-016	BR17-016	BR17-016
+ERR15005454	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-017	BR17-017	BR17-017
+ERR15005455	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-018	BR17-018	BR17-018
+ERR15005456	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-025	BR17-025	BR17-025
+ERR15005457	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-026	BR17-026	BR17-026
+ERR15005458	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-027	BR17-027	BR17-027
+ERR15005459	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-028	BR17-028	BR17-028
+ERR15005460	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-029	BR17-029	BR17-029
+ERR15005461	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-030	BR17-030	BR17-030
+ERR15005462	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-032	BR17-032	BR17-032
+ERR15005463	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-033	BR17-033	BR17-033
+ERR15005464	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-034	BR17-034	BR17-034
+ERR15005465	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-036	BR17-036	BR17-036
+ERR15005466	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-037	BR17-037	BR17-037
+ERR15005467	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-039	BR17-039	BR17-039
+ERR15005468	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-040	BR17-040	BR17-040
+ERR15005469	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-061	BR17-061	BR17-061
+ERR15005470	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-062	BR17-062	BR17-062
+ERR15005471	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-063	BR17-063	BR17-063
+ERR15005472	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-064	BR17-064	BR17-064
+ERR15005473	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-065	BR17-065	BR17-065
+ERR15005474	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-066	BR17-066	BR17-066
+ERR15005475	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-067	BR17-067	BR17-067
+ERR15005476	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-068	BR17-068	BR17-068
+ERR15005477	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-069	BR17-069	BR17-069
+ERR15005478	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-070	BR17-070	BR17-070
+ERR15005479	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-071	BR17-071	BR17-071
+ERR15005480	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-072	BR17-072	BR17-072
+ERR15005481	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-073	BR17-073	BR17-073
+ERR15005482	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-074	BR17-074	BR17-074
+ERR15005483	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-075	BR17-075	BR17-075
+ERR15005484	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-076	BR17-076	BR17-076
+ERR15005485	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-077	BR17-077	BR17-077
+ERR15005486	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-078	BR17-078	BR17-078
+ERR15005487	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-079	BR17-079	BR17-079
+ERR15005488	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-080	BR17-080	BR17-080
+ERR15005489	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-081	BR17-081	BR17-081
+ERR15005490	PRJEB84390	Illumina HiSeq 2500 sequencing	BR17-082	BR17-082	BR17-082
+ERR15005491	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0001	BR18-0001	BR18-0001
+ERR15005492	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0002	BR18-0002	BR18-0002
+ERR15005493	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0003	BR18-0003	BR18-0003
+ERR15005494	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0004	BR18-0004	BR18-0004
+ERR15005495	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0006	BR18-0006	BR18-0006
+ERR15005496	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0008	BR18-0008	BR18-0008
+ERR15005497	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0010	BR18-0010	BR18-0010
+ERR15005498	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0013	BR18-0013	BR18-0013
+ERR15005499	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0014	BR18-0014	BR18-0014
+ERR15005500	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0015	BR18-0015	BR18-0015
+ERR15005501	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0016	BR18-0016	BR18-0016
+ERR15005502	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0019	BR18-0019	BR18-0019
+ERR15005503	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0020	BR18-0020	BR18-0020
+ERR15005504	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0021	BR18-0021	BR18-0021
+ERR15005505	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0022	BR18-0022	BR18-0022
+ERR15005506	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0023	BR18-0023	BR18-0023
+ERR15005507	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0025	BR18-0025	BR18-0025
+ERR15005508	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0027	BR18-0027	BR18-0027
+ERR15005509	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0028	BR18-0028	BR18-0028
+ERR15005510	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0029	BR18-0029	BR18-0029
+ERR15005511	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0030	BR18-0030	BR18-0030
+ERR15005512	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0031	BR18-0031	BR18-0031
+ERR15005513	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0032	BR18-0032	BR18-0032
+ERR15005514	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0034	BR18-0034	BR18-0034
+ERR15005515	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0035	BR18-0035	BR18-0035
+ERR15005516	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0036	BR18-0036	BR18-0036
+ERR15005517	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0038	BR18-0038	BR18-0038
+ERR15005518	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0039	BR18-0039	BR18-0039
+ERR15005519	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0040	BR18-0040	BR18-0040
+ERR15005520	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0043	BR18-0043	BR18-0043
+ERR15005521	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0044	BR18-0044	BR18-0044
+ERR15005522	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0045	BR18-0045	BR18-0045
+ERR15005523	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0046	BR18-0046	BR18-0046
+ERR15005524	PRJEB84390	Illumina HiSeq 2500 sequencing	BR180061	BR180061	BR180061
+ERR15005525	PRJEB84390	Illumina HiSeq 2500 sequencing	BR180064	BR180064	BR180064
+ERR15005526	PRJEB84390	Illumina HiSeq 2500 sequencing	BR180067	BR180067	BR180067
+ERR15005527	PRJEB84390	Illumina HiSeq 2500 sequencing	BR180071	BR180071	BR180071
+ERR15005528	PRJEB84390	Illumina HiSeq 2500 sequencing	BR180073	BR180073	BR180073
+ERR15005529	PRJEB84390	Illumina HiSeq 2500 sequencing	BR180074	BR180074	BR180074
+ERR15005530	PRJEB84390	Illumina HiSeq 2500 sequencing	BR180078	BR180078	BR180078
+ERR15005531	PRJEB84390	Illumina HiSeq 2500 sequencing	BR180080	BR180080	BR180080
+ERR15005532	PRJEB84390	Illumina HiSeq 2500 sequencing	BR180088	BR180088	BR180088
+ERR15005533	PRJEB84390	Illumina HiSeq 2500 sequencing	BR180093	BR180093	BR180093
+ERR15005534	PRJEB84390	Illumina HiSeq 2500 sequencing	BR180097	BR180097	BR180097
+ERR15005535	PRJEB84390	Illumina HiSeq 2500 sequencing	BR180098	BR180098	BR180098
+ERR15005536	PRJEB84390	Illumina HiSeq 2500 sequencing	BR180102	BR180102	BR180102
+ERR15005537	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0110	BR18-0110	BR18-0110
+ERR15005538	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0111	BR18-0111	BR18-0111
+ERR15005539	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0112	BR18-0112	BR18-0112
+ERR15005540	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0116	BR18-0116	BR18-0116
+ERR15005541	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0119	BR18-0119	BR18-0119
+ERR15005542	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0127	BR18-0127	BR18-0127
+ERR15005543	PRJEB84390	Illumina HiSeq 2500 sequencing	BR18-0128	BR18-0128	BR18-0128
+SRR33129854	PRJNA1250571	Illumina NovaSeq 6000 sequencing: RNA-Seq of Triticum aestivum wheat: cultivar AGS 4043		AGS 4043	T. aestivum cultivar AGS 4043
+SRR33129855	PRJNA1250571	Illumina NovaSeq 6000 sequencing: RNA-Seq of Triticum aestivum wheat: cultivar 26R33		26R33	T. aestivum cultivar 26R33
+SRR33129856	PRJNA1250571	Illumina NovaSeq 6000 sequencing: RNA-Seq of Triticum aestivum wheat: cultivar GA Gore		GA Gore	T. aestivum cultivar GA Gore
+SRR33129857	PRJNA1250571	Illumina NovaSeq 6000 sequencing: RNA-Seq of Triticum aestivum wheat: cultivar GA 161		GA161	T. aestivum cultivar GA161
+SRR579533	PRJNA176472	Illumina HiSeq 2000 sequencing: Haustoria-Percoll-1-RNA-seq	Haustoria-Percoll-1-Illumina		iH1
+SRR579534	PRJNA176472	Illumina HiSeq 2000 sequencing: Haustoria-Percoll-2-RNA-seq	Haustoria-Percoll-2-Illumina		iH2
+SRR579535	PRJNA176472	Illumina HiSeq 2000 sequencing: Haustoria-Percoll-3-RNA-seq	Haustoria-Percoll-3-Illumina		iH3
+SRR579536	PRJNA176472	Illumina HiSeq 2000 sequencing: Germinated spores RNA-seq	Spores-1-Illumina		iS1
+SRR579537	PRJNA176472	Illumina HiSeq 2000 sequencing: Germinated spores 2 RNA-seq	Spores-2-Illumina		iS2
+SRR579538	PRJNA176472	Illumina HiSeq 2000 sequencing: Germinated spores 3 RNA-seq	Spores-3-Illumina		iS3
+SRR579539	PRJNA176472	454 GS FLX Titanium sequencing: Haustoria-Column-454RNA-seq	Haustoria-454		454Haus
+SRR579540	PRJNA176472	454 GS FLX Titanium sequencing: Germinated spores 454 RNA-seq	Spores-454		454Spo
+SRR11440843	PRJNA256347	Illumina HiSeq 2000 sequencing: RNASeq of Plant sample from Puccinia striiformis f. sp. tritici (12/83)	Plant sample from Puccinia striiformis f. sp. tritici (12/83)	12/83	12/83
+SRR11440844	PRJNA256347	Illumina HiSeq 2000 sequencing: RNASeq of Plant sample from Puccinia striiformis f. sp. tritici (11/128)	Plant sample from Puccinia striiformis f. sp. tritici (11/128)	11/128	11/128
+SRR1555102	PRJNA256347	Illumina HiSeq 2000 sequencing: Puccinia striiformis 13/27	Plant sample from Puccinia striiformis f. sp. tritici (13/27)		13/27
+SRR1555123	PRJNA256347	Illumina HiSeq 2000 sequencing: Puccinia striiformis 13/21	Plant sample from Puccinia striiformis f. sp. tritici (13/21)		13/21
+SRR1555294	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/14	Plant sample from Puccinia striiformis f. sp. tritici (13/14)		13/14
+SRR1555295	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/22	Plant sample from Puccinia striiformis f. sp. tritici (13/22)		13/22
+SRR1555738	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/65	Plant sample from Puccinia striiformis f. sp. tritici (13/65)		13/65
+SRR1555739	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/12	Plant sample from Puccinia striiformis f. sp. tritici (13/12)		13/12
+SRR1555740	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/09	Plant sample from Puccinia striiformis f. sp. tritici (13/09)		13/09
+SRR1556067	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/29	Plant sample from Puccinia striiformis f. sp. tritici (13/29)		13/29
+SRR1557190	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/15	Plant sample from Puccinia striiformis f. sp. tritici (13/15)		13/15
+SRR1557191	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/25	Plant sample from Puccinia striiformis f. sp. tritici (13/25)		13/25
+SRR1557212	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/34	Plant sample from Puccinia striiformis f. sp. tritici (13/34)		13/34
+SRR1557213	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/19	Plant sample from Puccinia striiformis f. sp. tritici (13/19)		13/19
+SRR1557214	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/26	Plant sample from Puccinia striiformis f. sp. tritici (13/26)		13/26
+SRR1557259	PRJNA256347	Illumina HiSeq 2000 sequencing: Field pathogenomics of PST-infected wheat and triticale	Plant sample from Puccinia striiformis f. sp. tritici (13/23)	LIB4468	13/23
+SRR1562049	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/24	Plant sample from Puccinia striiformis f. sp. tritici (13/24)		13/24
+SRR1562050	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/32	Plant sample from Puccinia striiformis f. sp. tritici (13/32)		13/32
+SRR1562077	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/20	Plant sample from Puccinia striiformis f. sp. tritici (13/20)		13/20
+SRR1562078	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/30	Plant sample from Puccinia striiformis f. sp. tritici (13/30)		13/30
+SRR1562079	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/38	Plant sample from Puccinia striiformis f. sp. tritici (13/38)		13/38
+SRR1562080	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/28	Plant sample from Puccinia striiformis f. sp. tritici (13/28)		13/28
+SRR1562081	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/33	Plant sample from Puccinia striiformis f. sp. tritici (13/33)		13/33
+SRR1562084	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/36	Plant sample from Puccinia striiformis f. sp. tritici (13/36)		13/36
+SRR1562085	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/39	Plant sample from Puccinia striiformis f. sp. tritici (13/39)		13/39
+SRR1562182	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/71	Plant sample from Puccinia striiformis f. sp. tritici (13/71)		13/71
+SRR1562185	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/42	Plant sample from Puccinia striiformis f. sp. tritici (13/42)		13/42
+SRR1562247	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/40	Plant sample from Puccinia striiformis f. sp. tritici (13/40)		13/40
+SRR1562262	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/35	Plant sample from Puccinia striiformis f. sp. tritici (13/35)		13/35
+SRR1562263	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis CL1	Plant sample from Puccinia striiformis f. sp. tritici (CL1)		CL1
+SRR1575605	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/18	Plant sample from Puccinia striiformis f. sp. tritici (13/18)		13/18
+SRR1575607	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/37	Plant sample from Puccinia striiformis f. sp. tritici (13/37)		13/37
+SRR1575608	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/520	Plant sample from Puccinia striiformis f. sp. tritici (13/520)		13/520
+SRR1576647	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/123	Plant sample from Puccinia striiformis f. sp. tritici (13/123)		13/123
+SRR1576651	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis T13/1	Plant sample from Puccinia striiformis f. sp. tritici (T13/1)		T13/1
+SRR1576668	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis T13/2	Plant sample from Puccinia striiformis f. sp. tritici (T13/2)		T13/2
+SRR1576784	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis T13/3	Plant sample from Puccinia striiformis f. sp. tritici (T13/3)		T13/3
+SRR1576785	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/120	Plant sample from Puccinia striiformis f. sp. tritici (13/120)		13/120
+SRR1576786	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 13/182	Plant sample from Puccinia striiformis f. sp. tritici (13/182)		13/182
+SRR1576813	PRJNA256347	Illumina Genome Analyzer II sequencing: puccinia striiformis RB1	Plant sample from Puccinia striiformis f. sp. tritici (RB1)		RB1
+SRR1576814	PRJNA256347	Illumina Genome Analyzer II sequencing: puccinia striiformis RB2	Plant sample from Puccinia striiformis f. sp. tritici (RB2)		RB2
+SRR1583659	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 11/08 RNAseq	Puccinia striiformis f. sp. tritici 11/08		11/08
+SRR1583660	PRJNA256347	Illumina HiSeq 2000 sequencing: Puccinia striiformis 11/13 RNAseq	Plant sample from Puccinia striiformis f. sp. tritici (11/13)		11/13
+SRR1583666	PRJNA256347	Illumina HiSeq 2000 sequencing: Puccinia striiformis 11/75 RNAseq	Plant sample from Puccinia striiformis f. sp. tritici (11/75)		11/75
+SRR1583679	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 12/86 RNAseq	Plant sample from Puccinia striiformis f. sp. tritici (12/86)		12/86
+SRR1583680	PRJNA256347	Illumina HiSeq 2000 sequencing: puccinia striiformis 78/66 RNAseq	Plant sample from Puccinia striiformis f. sp. tritici (78/66)		78/66
+SRR6043965	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: 9 days post infection of wheat (Marroco line) replicate 2	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 14	Pst104E
+SRR6043966	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: 9 days post infection of wheat (Marroco line) replicate 1	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 13	Pst104E
+SRR6043967	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: 6 days post infection of wheat (Marroco line) replicate 3	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 12	Pst104E
+SRR6043968	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: 6 days post infection of wheat (Marroco line) replicate 2	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 11	Pst104E
+SRR6043969	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: 9 days post infection of wheat (Marroco line) replicate 3	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 15	Pst104E
+SRR6043970	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: 6 days post infection of wheat (Marroco line) replicate 1	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 10	Pst104E
+SRR6043971	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: ungerminated spores replicate 3	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 9	Pst104E
+SRR6043972	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: germinated spores replicate 2	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 2	Pst104E
+SRR6043973	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: germinated spores replicate 1	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 1	Pst104E
+SRR6043974	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: haustoria enriched replicate 1	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 4	Pst104E
+SRR6043975	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: germinated spores replicate 3	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 3	Pst104E
+SRR6043976	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: haustoria enriched replicate 3	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 6	Pst104E
+SRR6043977	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: haustoria enriched replicate 2	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 5	Pst104E
+SRR6043978	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: ungerminated spores replicate 2	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 8	Pst104E
+SRR6043979	PRJNA396589	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: ungerminated spores replicate 1	Microbe sample from Puccinia striiformis f. sp. tritici	RNAseq_Pst_104 E137 A- sample 7	Pst104E
+SRR7797534	PRJNA486288	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance	Invertebrate sample from Fusarium graminearum	Fg_I.3	Fg_I.3
+SRR7797535	PRJNA486288	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance	Invertebrate sample from Fusarium graminearum	Fg_R.3	Fg_R.3
+SRR7797536	PRJNA486288	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance	Invertebrate sample from Fusarium graminearum	Fg_S.2	Fg_S.2
+SRR7797537	PRJNA486288	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance	Invertebrate sample from Fusarium graminearum	Fg_I.2	Fg_I.2
+SRR7797538	PRJNA486288	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance	Microbe sample from Fusarium sp. Fsp_R.2	Fsp_R.2	Fsp_R.2
+SRR7797539	PRJNA486288	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance	Invertebrate sample from Fusarium graminearum	Fg_S.3	Fg_S.3
+SRR7797540	PRJNA486288	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance	Invertebrate sample from Fusarium graminearum	Fg_AX	Fg_AX
+SRR7797541	PRJNA486288	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance	Invertebrate sample from Fusarium graminearum	Fg_S.1	Fg_S.1
+SRR7797542	PRJNA486288	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance	Invertebrate sample from Fusarium graminearum	Fg_I.1	Fg_I.1
+SRR7797543	PRJNA486288	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance	Invertebrate sample from Fusarium graminearum	Fg_R.1	Fg_R.1
+SRR7797544	PRJNA486288	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance	Invertebrate sample from Fusarium graminearum	Fg_S.4	Fg_S.4
+SRR7797545	PRJNA486288	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance	Invertebrate sample from Fusarium graminearum	Fg_I.4	Fg_I.4
+SRR7797546	PRJNA486288	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance	Invertebrate sample from Fusarium graminearum	Fg_R.4	Fg_R.4
+SRR9894668	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus Virion Preparation of L24 volunteer wheat	Virion preparation of wheat from Location 24 with High plains wheat mosaic virus and Brome mosaic virus	HPV_L24	HPV_L24
+SRR9894669	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 2 pooled wheat	Pooled Wheat from Location 2 of 2016 survey of Ohio Wheat Fields	Location_2	Location_2_pools
+SRR9894670	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 3 pooled wheat	Pooled Wheat from Location 3 of 2016 survey of Ohio Wheat Fields	Location_3	Location_3_pools
+SRR9894671	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2012 Survey reads from pooled wheat	Pooled Wheat from 2012 Survey of Ohio Wheat Fields	2012_survey	2012_pools
+SRR9894672	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 1 pooled wheat	Pooled Wheat from Location 1 of 2016 survey of Ohio Wheat Fields	Location_1	Location_1_pools
+SRR9894673	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 6 pooled wheat	Pooled Wheat from Location 6 of 2016 survey of Ohio Wheat Fields	Location_6	Location_6_pools
+SRR9894674	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 7 pooled wheat	Pooled Wheat from Location 7 of 2016 survey of Ohio Wheat Fields	Location_7	Location_7_pools
+SRR9894675	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 4 pooled wheat	Pooled Wheat from Location 4 of 2016 survey of Ohio Wheat Fields	Location_4	Location_4_pools
+SRR9894676	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 5 pooled wheat	Pooled Wheat from Location 5 of 2016 survey of Ohio Wheat Fields	Location_5	Location_5_pools
+SRR9894677	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus Sample from Michigan with High plains wheat mosaic emeravirus	Wheat Sample from Michigan known to have High plains wheat mosaic emeravirus	HPV_MI	HPV_MI
+SRR9894678	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 8 pooled wheat	Pooled Wheat from Location 8 of 2016 survey of Ohio Wheat Fields	Location_8	Location_8_pools
+SRR9894679	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 9 pooled wheat	Pooled Wheat from Location 9 of 2016 survey of Ohio Wheat Fields	Location_9	Location_9_pools
+SRR9894680	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus Sample from Idaho with High plains wheat mosaic emeravirus	Wheat Sample from Idaho known to have High plains wheat mosaic emeravirus	HPV_ID	HPV_ID
+SRR9894681	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 29 pooled wheat	Pooled Wheat from Location 29 of 2016 survey of Ohio Wheat Fields	Location_29	Location_29_pools
+SRR9894682	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 28 pooled wheat	Pooled Wheat from Location 28 of 2016 survey of Ohio Wheat Fields	Location_28	Location_28_pools
+SRR9894683	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 31 pooled wheat	Pooled Wheat from Location 31 of 2016 survey of Ohio Wheat Fields	Location_31	Location_31_pools
+SRR9894684	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 23 pooled wheat	Pooled Wheat from Location 23 of 2016 survey of Ohio Wheat Fields	Location_23	Location_23_pools
+SRR9894685	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 22 pooled wheat	Pooled Wheat from Location 22 of 2016 survey of Ohio Wheat Fields	Location_22	Location_22_pools
+SRR9894686	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 21 pooled wheat	Pooled Wheat from Location 21 of 2016 survey of Ohio Wheat Fields	Location_21	Location_21_pools
+SRR9894687	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 20 pooled wheat	Pooled Wheat from Location 20 of 2016 survey of Ohio Wheat Fields	Location_20	Location_20_pools
+SRR9894688	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 27 pooled wheat	Pooled Wheat from Location 27 of 2016 survey of Ohio Wheat Fields	Location_27	Location_27_pools
+SRR9894689	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 26 pooled wheat	Pooled Wheat from Location 26 of 2016 survey of Ohio Wheat Fields	Location_26	Location_26_pools
+SRR9894690	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 25 pooled wheat	Pooled Wheat from Location 25 of 2016 survey of Ohio Wheat Fields	Location_25	Location_25_pools
+SRR9894691	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 24 pooled wheat	Pooled Wheat from Location 24 of 2016 survey of Ohio Wheat Fields	Location_24	Location_24_pools
+SRR9894692	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 34 pooled wheat	Pooled Wheat from Location 34 of 2016 survey of Ohio Wheat Fields	Location_34	Location_34_pools
+SRR9894693	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 35 pooled wheat	Pooled Wheat from Location 35 of 2016 survey of Ohio Wheat Fields	Location_35	Location_35_pools
+SRR9894694	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 36 pooled wheat	Pooled Wheat from Location 36 of 2016 survey of Ohio Wheat Fields	Location_36	Location_36_pools
+SRR9894695	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 37 pooled wheat	Pooled Wheat from Location 37 of 2016 survey of Ohio Wheat Fields	Location_37	Location_37_pools
+SRR9894696	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 30 pooled wheat	Pooled Wheat from Location 30 of 2016 survey of Ohio Wheat Fields	Location_30	Location_30_pools
+SRR9894697	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 40 pooled wheat	Pooled Wheat from Location 40 of 2016 survey of Ohio Wheat Fields	Location_40	Location_40_pools
+SRR9894698	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 12 pooled wheat	Pooled Wheat from Location 12 of 2016 survey of Ohio Wheat Fields	Location_12	Location_12_pools
+SRR9894699	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 13 pooled wheat	Pooled Wheat from Location 13 of 2016 survey of Ohio Wheat Fields	Location_13	Location_13_pools
+SRR9894700	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 10 pooled wheat	Pooled Wheat from Location 10 of 2016 survey of Ohio Wheat Fields	Location_10	Location_10_pools
+SRR9894701	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 11 pooled wheat	Pooled Wheat from Location 11 of 2016 survey of Ohio Wheat Fields	Location_11	Location_11_pools
+SRR9894702	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 16 pooled wheat	Pooled Wheat from Location 16 of 2016 survey of Ohio Wheat Fields	Location_16	Location_16_pools
+SRR9894703	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 17 pooled wheat	Pooled Wheat from Location 17 of 2016 survey of Ohio Wheat Fields	Location_17	Location_17_pools
+SRR9894704	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 14 pooled wheat	Pooled Wheat from Location 14 of 2016 survey of Ohio Wheat Fields	Location_14	Location_14_pools
+SRR9894705	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 15 pooled wheat	Pooled Wheat from Location 15 of 2016 survey of Ohio Wheat Fields	Location_15	Location_15_pools
+SRR9894706	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 32 pooled wheat	Pooled Wheat from Location 32 of 2016 survey of Ohio Wheat Fields	Location_32	Location_32_pools
+SRR9894707	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 18 pooled wheat	Pooled Wheat from Location 18 of 2016 survey of Ohio Wheat Fields	Location_18	Location_18_pools
+SRR9894708	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 19 pooled wheat	Pooled Wheat from Location 19 of 2016 survey of Ohio Wheat Fields	Location_19	Location_19_pools
+SRR9894709	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 38 pooled wheat	Pooled Wheat from Location 38 of 2016 survey of Ohio Wheat Fields	Location_38	Location_38_pools
+SRR9894710	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 39 pooled wheat	Pooled Wheat from Location 39 of 2016 survey of Ohio Wheat Fields	Location_39	Location_39_pools
+SRR9894711	PRJNA558380	Illumina HiSeq 2500 sequencing: Wheat Virus 2016 Survey reads from Location 33 pooled wheat	Pooled Wheat from Location 33 of 2016 survey of Ohio Wheat Fields	Location_33	Location_33_pools
+SRR11622360	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Berg 5.1	Berg 5.1	Berg 5.1
+SRR11622361	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Berg 4.1	Berg 4.1	Berg 4.1
+SRR11622362	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Berg 3.2	Berg 3.2	Berg 3.2
+SRR11622363	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Berg 2.1	Berg 2.1	Berg 2.1
+SRR11622364	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Berg 1.3	Berg 1.3	Berg 1.3
+SRR11622365	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Berg 1.2	Berg 1.2	Berg 1.2
+SRR11622366	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Berg 1.1	Berg 1.1	Berg 1.1
+SRR11622367	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Wint 3.3	Wint 3.3	Wint 3.3
+SRR11622368	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Wint 3.2	Wint 3.2	Wint 3.2
+SRR11622369	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Berg 418	Berg 418	Berg 418
+SRR11622370	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Wint 3.1	Wint 3.1	Wint 3.1
+SRR11622371	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Wint 2.1	Wint 2.1	Wint 2.1
+SRR11622372	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Wint 1.6	Wint 1.6	Wint 1.6
+SRR11622373	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Wint 1.5	Wint 1.5	Wint 1.5
+SRR11622374	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Wint 1.4	Wint 1.4	Wint 1.4
+SRR11622375	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Wint 1.3	Wint 1.3	Wint 1.3
+SRR11622376	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Wint 1.2	Wint 1.2	Wint 1.2
+SRR11622377	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Wint 1.1	Wint 1.1	Wint 1.1
+SRR11622378	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Wint 218	Wint 218	Wint 218
+SRR11622379	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Wint 118	Wint 118	Wint 118
+SRR11622380	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Berg 318	Berg 318	Berg 318
+SRR11622381	PRJNA628830	Illumina HiSeq 2500 sequencing: Detection and molecular characterization of Wheat stripe mosaic virus on wheat in South Africa	Berg 118	Berg 118	Berg 118
+SRR14129613	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar Thatcher, adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_Th_CT_b1_17_R1	Th_Ct_b1
+SRR14129614	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar Chinese Spring , adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_CS_CT_b3_17_R1	CS_Ct_b3
+SRR14129615	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar Chinese Spring , adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_CS_CT_b2_17_R1	CS_Ct_b2
+SRR14129616	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar Chinese Spring , adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_CS_CT_b1_17_R1	CS_Ct_b1
+SRR14129617	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar AUS 27438 , adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_C92_CT_b3_17_R1	C92_Ct_b3
+SRR14129618	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar AUS 27438 , adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_C92_CT_b2_17_R1	C92_Ct_b2
+SRR14129619	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar AUS 27438 , adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_C92_CT_b1_17_R1	C92_Ct_b1
+SRR14129620	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar Thatcher-Lr34, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_Th34_Lr_b3_17_R1	Th34_Lr_b3
+SRR14129621	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar Thatcher-Lr34, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_Th34_Lr_b2_17_R1	Th34_Lr_b2
+SRR14129622	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar Thatcher-Lr34, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_Th34_Lr_b1_17_R1	Th34_Lr_b1
+SRR14129623	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar Thatcher, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_Th_Lr_b3_17_R1	Th_Lr_b3
+SRR14129624	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar Thatcher, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_Th_Lr_b2_17_R1	Th_Lr_b2
+SRR14129625	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar Thatcher, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_Th_Lr_b1_17_R1	Th_Lr_b1
+SRR14129626	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar Chinese Spring, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_CS_Lr_b3_17_R1	CS_Lr_b3
+SRR14129627	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar Chinese Spring, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_CS_Lr_b2_17_R1	CS_Lr_b2
+SRR14129628	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar Chinese Spring, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_CS_Lr_b1_17_R1	CS_Lr_b1
+SRR14129629	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar AUS 27438, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_C92_Lr_b3_17_R1	C92_Lr_b3
+SRR14129630	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar AUS 27378, adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_C34_CT_b3_17_R1	C34_Ct_b3
+SRR14129631	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar AUS 27438, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_C92_Lr_b2_17_R1	C92_Lr_b2
+SRR14129632	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar AUS 27438, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_C92_Lr_b1_17_R1	C92_Lr_b1
+SRR14129633	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar AUS 27378, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_C34_Lr_b3_17_R1	C34_Lr_b3
+SRR14129634	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar AUS 27378, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_C34_Lr_b2_17_R1	C34_Lr_b2
+SRR14129635	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown leaf rust-infected Triticum aestivum: cultivar AUS 27378, adult plant, flag leaf	Plant sample from Triticum aestivum infected with leaf rust	Ju_C34_Lr_b1_17_R1	C34_Lr_b1
+SRR14129636	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar Thatcher-Lr34, adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_Th34_CT_b3_17_R1	Th34_Ct_b3
+SRR14129637	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar Thatcher-Lr34, adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_Th34_CT_b2_17_R1	Th34_Ct_b2
+SRR14129638	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar Thatcher-Lr34, adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_Th34_CT_b1_17_R1	Th34_Ct_b1
+SRR14129639	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar Thatcher, adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_Th_CT_b3_17_R1	Th_Ct_b3
+SRR14129640	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar Thatcher, adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_Th_CT_b2_17_R1	Th_Ct_b2
+SRR14129641	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar AUS 27378, adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_C34_CT_b2_17_R1	C34_Ct_b2
+SRR14129642	PRJNA718488	Illumina HiSeq 2500 sequencing: RNA-Seq of field-grown Triticum aestivum: cultivar AUS 27378, adult plant, flag leaf	Plant sample from Triticum aestivum	Ju_C34_CT_b1_17_R1	C34_Ct_b1
+SRR14239690	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Colorado	Plant sample from Triticum aestivum	FW40	FW40
+SRR14239691	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	FO93	FO93
+SRR14239692	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	FO19	FO19
+SRR14239693	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	EL19	EL19
+SRR14239694	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	EL17-1183	EL17-1183
+SRR14239695	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	EL06-892	EL06-892
+SRR14239696	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	ST19	ST19
+SRR14239697	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	SM19	SM19
+SRR14239698	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	SH02_19	SH02_19
+SRR14239699	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	SA19	SA19
+SRR14239700	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	RP19	RP19
+SRR14239701	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	DK03_19	DK03_19
+SRR14239702	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	RO20	RO20
+SRR14239703	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	RL71	RL71
+SRR14239704	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	RL05_19	RL05_19
+SRR14239705	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	RH20	RH20
+SRR14239706	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	RA02_19	RA02_19
+SRR14239707	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	PL95	PL95
+SRR14239708	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	OB20	OB20
+SRR14239709	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	NT19	NT19
+SRR14239710	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	NS02_19	NS02_19
+SRR14239711	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Nebraska	Plant sample from Triticum aestivum	NE01_19	NE01_19
+SRR14239712	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	DC19	DC19
+SRR14239713	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Montana	Plant sample from Triticum aestivum	MON5_20	MON5_20
+SRR14239714	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	ME19	ME19
+SRR14239715	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	LE01_19	LE01_19
+SRR14239716	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	KW19	KW19
+SRR14239717	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	KM19	KM19
+SRR14239718	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	KE20	KE20
+SRR14239719	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	KE19	KE19
+SRR14239720	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	JO19	JO19
+SRR14239721	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	GL20	GL20
+SRR14239722	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	GL01_19	GL01_19
+SRR14239723	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	CM02_19	CM02_19
+SRR14239724	PRJNA722004	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	CK19	CK19
+SRR14864063	PRJNA722004	DNBSEQ-G50 sequencing: Small RNASeq of Triticum aestivum from Kansas	Plant sample from Triticum aestivum	NS02	NS02_19_SmallRNA
+SRR14386296	PRJNA725323	Illumina NovaSeq 6000 sequencing: Puccinia triticana RNAseq from infected wheat tissue	MIGS Eukaryotic sample from Puccinia triticina	RNAseq library of Pt infected wheat leaves 9 days post infection rep3	Puccinia triticina (Pt76)
+SRR14386297	PRJNA725323	Illumina NovaSeq 6000 sequencing: Puccinia triticana RNAseq from infected wheat tissue	MIGS Eukaryotic sample from Puccinia triticina	RNAseq library of Pt infected wheat leaves 9 days post infection rep2	Puccinia triticina (Pt76)
+SRR14386300	PRJNA725323	Illumina NovaSeq 6000 sequencing: Puccinia triticana RNAseq from infected wheat tissue	MIGS Eukaryotic sample from Puccinia triticina	RNAseq library of Pt infected wheat leaves 9 days post infection rep1	Puccinia triticina (Pt76)
+SRR14386301	PRJNA725323	Illumina NovaSeq 6000 sequencing: Puccinia triticana RNAseq from infected wheat tissue	MIGS Eukaryotic sample from Puccinia triticina	RNAseq library of Pt infected wheat leaves 6 days post infection rep3	Puccinia triticina (Pt76)
+SRR14386302	PRJNA725323	Illumina NovaSeq 6000 sequencing: Puccinia triticana RNAseq from infected wheat tissue	MIGS Eukaryotic sample from Puccinia triticina	RNAseq library of Pt infected wheat leaves 6 days post infection rep2	Puccinia triticina (Pt76)
+SRR14386303	PRJNA725323	Illumina NovaSeq 6000 sequencing: Puccinia triticana RNAseq from infected wheat tissue	MIGS Eukaryotic sample from Puccinia triticina	RNAseq library of Pt infected wheat leaves 6 days post infection rep1	Puccinia triticina (Pt76)
+SRR14386308	PRJNA725323	Illumina NovaSeq 6000 sequencing: Puccinia triticana RNAseq from infected wheat tissue	MIGS Eukaryotic sample from Puccinia triticina	RNAseq library of Pt germinated spores rep3	Puccinia triticina (Pt76)
+SRR14386309	PRJNA725323	Illumina NovaSeq 6000 sequencing: Puccinia triticana RNAseq from infected wheat tissue	MIGS Eukaryotic sample from Puccinia triticina	RNAseq library of Pt germinated spores rep2	Puccinia triticina (Pt76)
+SRR14386310	PRJNA725323	Illumina NovaSeq 6000 sequencing: Puccinia triticana RNAseq from infected wheat tissue	MIGS Eukaryotic sample from Puccinia triticina	RNAseq library of Pt germinated spores rep1	Puccinia triticina (Pt76)
+SRR14386311	PRJNA725323	Illumina NovaSeq 6000 sequencing: Puccinia triticana RNAseq from infected wheat tissue	MIGS Eukaryotic sample from Puccinia triticina	RNAseq library of Pt ungerminated spores rep3	Puccinia triticina (Pt76)
+SRR14386312	PRJNA725323	Illumina NovaSeq 6000 sequencing: Puccinia triticana RNAseq from infected wheat tissue	MIGS Eukaryotic sample from Puccinia triticina	RNAseq library of Pt ungerminated spores rep2	Puccinia triticina (Pt76)
+SRR14386313	PRJNA725323	Illumina NovaSeq 6000 sequencing: Puccinia triticana RNAseq from infected wheat tissue	MIGS Eukaryotic sample from Puccinia triticina	RNAseq library of Pt ungerminated spores rep1	Puccinia triticina (Pt76)
+SRR15357733	PRJNA749614	Illumina NovaSeq 6000 sequencing: RNAseq on infected wheat leaf tissue 9dpi with 3 replicates	MIGS Eukaryotic sample from Puccinia striiformis f. sp. tritici	RNAseqInfectedWheatTissues9dpi	Pst134E16A+17+33+
+SRR15357734	PRJNA749614	Illumina NovaSeq 6000 sequencing: RNAseq on infected wheat leaf tissue 6dpi with 3 replicates	MIGS Eukaryotic sample from Puccinia striiformis f. sp. tritici	RNAseqInfectedWheatTissues6dpi	Pst134E16A+17+33+
+SRR15357735	PRJNA749614	Illumina NovaSeq 6000 sequencing: RNAseq on germinated spores 16 hours with 3 replicates	MIGS Eukaryotic sample from Puccinia striiformis f. sp. tritici	RNAseqGerminated spores	Pst134E16A+17+33+
+SRR15357736	PRJNA749614	Illumina NovaSeq 6000 sequencing: RNAseq on ungerminated spores with 3 replicates	MIGS Eukaryotic sample from Puccinia striiformis f. sp. tritici	RNAseqUngerminated spores	Pst134E16A+17+33+
+SRR16774428	PRJNA776691	Illumina HiSeq 4000 sequencing: Virome	Metagenome or environmental sample from plant metagenome	Gyeongnam	W-GN
+SRR16774429	PRJNA776691	Illumina HiSeq 4000 sequencing: Virome	Metagenome or environmental sample from plant metagenome	Jeonbuk	W-JB
+SRR16774430	PRJNA776691	Illumina HiSeq 4000 sequencing: Virome	Metagenome or environmental sample from plant metagenome	Jeonnam	W-JN
+SRR22371364	PRJNA776691	MinION sequencing: Nanopore sequencing for virome analysis of wheat samples	Metagenome or environmental sample from plant metagenome	JNW-NPS	W-JN
+SRR22371365	PRJNA776691	MinION sequencing: Nanopore sequencing for virome analysis of wheat samples	Metagenome or environmental sample from plant metagenome	JBW-NPS	W-JB
+SRR22371366	PRJNA776691	MinION sequencing: Nanopore sequencing for virome analysis of wheat samples	Metagenome or environmental sample from plant metagenome	GNW-NPS	W-GN
+SRR17609703	PRJNA796936	Illumina HiSeq 2000 sequencing: Wheat streak mosaic virus infected leaf	Viral sample from Wheat streak mosaic virus	Aus_BCWS1	BCWS1
+SRR17609704	PRJNA796936	Illumina HiSeq 2000 sequencing: Wheat streak mosaic virus infected leaf	Viral sample from Wheat streak mosaic virus	Aus_BCWS3	BCWS3
+SRR17609705	PRJNA796936	Illumina HiSeq 2000 sequencing: Wheat streak mosaic virus infected leaf	Viral sample from Wheat streak mosaic virus	Aus_BCWS2	BCWS2
+SRR17609706	PRJNA796936	Illumina HiSeq 2000 sequencing: High plains wheat mosaic virus, Wheat streak mosaic virus infected leaf	Viral sample from Riboviria	Aus_HP2W	HP2W
+SRR17609707	PRJNA796936	Illumina HiSeq 2000 sequencing: High plains wheat mosaic virus, Wheat streak mosaic virus infected leaf	Viral sample from Riboviria	Aus_HP1G	HP1G
+SRR17609708	PRJNA796936	Illumina HiSeq 2000 sequencing: High plains wheat mosaic virus, Wheat streak mosaic virus infected leaf	Viral sample from Riboviria	Aus_BCWS5	BCWS5
+SRR17609709	PRJNA796936	Illumina HiSeq 2000 sequencing: High plains wheat mosaic virus infected leaf	Viral sample from Emaravirus tritici	Aus_BCHPV2	BCHPV2
+SRR17609710	PRJNA796936	Illumina HiSeq 2000 sequencing: High plains wheat mosaic virus, Wheat streak mosaic virus infected leaf	Viral sample from Riboviria	Aus_BCHPV1	BCHPV1
+SRR18337153	PRJNA816710	Illumina HiSeq 2500 sequencing: RNAtag-seq of Triticum aestivum	Plant sample from Triticum aestivum	W30_wheat	W30
+SRR18337154	PRJNA816710	Illumina HiSeq 2500 sequencing: RNAtag-seq of Triticum aestivum	Plant sample from Triticum aestivum	W29_wheat	W29
+SRR18337155	PRJNA816710	Illumina HiSeq 2500 sequencing: RNAtag-seq of Triticum aestivum	Plant sample from Triticum aestivum	W28_wheat	W28
+SRR18337156	PRJNA816710	Illumina HiSeq 2500 sequencing: RNAtag-seq of Triticum aestivum	Plant sample from Triticum aestivum	W27_wheat	W27
+SRR18337157	PRJNA816710	Illumina HiSeq 2500 sequencing: RNAtag-seq of Triticum aestivum	Plant sample from Triticum aestivum	W26_wheat	W26
+SRR18337158	PRJNA816710	Illumina HiSeq 2500 sequencing: RNAtag-seq of Triticum aestivum	Plant sample from Triticum aestivum	W25_wheat	W25
+SRR18337159	PRJNA816710	Illumina HiSeq 2500 sequencing: RNAtag-seq of Triticum aestivum	Plant sample from Triticum aestivum	W24_wheat	W24
+SRR18337160	PRJNA816710	Illumina HiSeq 2500 sequencing: RNAtag-seq of Triticum aestivum	Plant sample from Hordeum vulgare	W23_wheat	W23
+SRR23826054	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	P3F2	P3F2
+SRR23826055	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	P3F9	P3F9
+SRR23826056	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	P4A8	P4A8
+SRR23826057	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	P1A7	P1A7
+SRR23826058	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Ki2	Ki2
+SRR23826059	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	P4E2	P4E2
+SRR23826060	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	P4D1	P4D1
+SRR23826061	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	P3E1	P3E1
+SRR23826062	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	P3H3	P3H3
+SRR23826063	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	P3G3	P3G3
+SRR23826064	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	P4B3	P4B3
+SRR23826065	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	P4B9	P4B9
+SRR23826066	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	P1H1	P1H1
+SRR23826067	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	SBKST	SBKST
+SRR23826068	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	La2a	La2a
+SRR23826069	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	C6	C6
+SRR23826070	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	RPC	RPC
+SRR23826071	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	SBKnST	SBKnST
+SRR23826072	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Ti5	Ti5
+SRR23826073	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Ti4J	Ti4J
+SRR23826074	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Ti2J	Ti2J
+SRR23826075	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	La3RD3	La3RD3
+SRR23826076	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	La11J	La11J
+SRR23826077	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Kk3RD3	Kk3RD3
+SRR23826078	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	M2	M2
+SRR23826079	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Wi2J	Wi2J
+SRR23826080	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Wi6-RD3	Wi6-RD3
+SRR23826081	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Ki9	Ki9
+SRR23826082	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Ki4	Ki4
+SRR23826083	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	C10	C10
+SRR23826084	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	C1	C1
+SRR23826085	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Wi6	Wi6
+SRR23826086	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Ti3	Ti3
+SRR23826087	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	WB20	WB20
+SRR23826088	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	SBW	SBW
+SRR23826089	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Wi1	Wi1
+SRR23826090	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	SBK	SBK
+SRR23826091	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	M5	M5
+SRR23826092	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	La3a	La3a
+SRR23826093	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	La1a1c	La1a1c
+SRR23826094	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	KK3	KK3
+SRR23826095	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Ki1	Ki1
+SRR23826096	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	C7	C7
+SRR23826097	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	C4	C4
+SRR23826098	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	Ki5	Ki5
+SRR23826099	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	FC	FC
+SRR23826100	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	SAC	SAC
+SRR23826101	PRJNA918968	Illumina NovaSeq 6000 sequencing: RNA-seq of Hordeum vulgare field samples symptomatic of viral infection	Metagenome or environmental sample from plant metagenome	M3	M3
+SRR24010213	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	Wheat_rust_19_1	Wheat_rust_19_1_2020_RNA	Pst_Wheat_rust_19_1_RNAseq
+SRR24010214	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	W034_SPI-1	W034_SPI-1_1990_RNA	Pst_W034_SPI-1_RNAseq
+SRR24010215	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	W088-1	W088_1990_RNA	Pst_W088-1_RNAseq
+SRR24010216	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	W056	W056_2010_RNA	Pst_W056_RNAseq
+SRR24010217	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	W034	W034_2011_RNA	Pst_W034_RNAseq
+SRR24010218	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	BC_SPI-4	BC_SPI-4_2021_RNA	Pst_BC_SPI-4_RNAseq
+SRR24010219	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	BC_SPI-3	BC_SPI-3_2021_RNA	Pst_BC_SPI-3_RNAseq
+SRR24010220	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	BC_SPI-1	BC_SPI-1_2021_RNA	Pst_BC_SPI-1_RNAseq
+SRR24010221	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	AR00-05	AR00-05_2000_RNA	Pst_AR00-05_RNAseq
+SRR24010222	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	13_Rust_4	13_Rust_4_2020_RNA	Pst_13_Rust_4_RNAseq
+SRR24010223	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	13_Rust_3	13_Rust_3_2020_RNA	Psph_13_Rust_3_RNAseq
+SRR24010225	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	13_Rust_1	13_Rust_1_2020_RNA	Psph_13_Rust_1_RNAseq
+SRR24010226	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	108-1_Winter_Wheat_cv_Moats	108-1_Winter_Wheat_cv_Moats_2020_RNA	Pst_108-1_Winter_Wheat_cv_Moats_RNAseq
+SRR24010228	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	SK037	SK037_2019_RNA	Psph_SK037_RNAseq
+SRR24010229	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	SK031	SK031_2019_RNA	Pst_SK031_RNAseq
+SRR24010230	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	SK030	SK030_2019_RNA	Pst_SK030_RNAseq
+SRR24010231	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	SK028	SK028_2019_RNA	Pst_SK028_RNAseq
+SRR24010232	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	BC_SPI-5-2	BC_SPI-5-2_2021_RNA	Pst_BC_SPI-5-2_RNAseq
+SRR24010233	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	SK026	SK026_2019_RNA	Pst_SK026_RNAseq
+SRR24010234	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	SK005	SK005_2019_RNA	Psph_SK005_RNAseq
+SRR24010235	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	BC_SPI-2	BC_SPI-2_2021_RNA	Pst_BC_SPI-2_RNAseq
+SRR24010236	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	BC011	BC011_2019_RNA	Pst_BC011_RNAseq
+SRR24010238	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	BC003	BC003_2019_RNA	Pst_BC003_RNAseq
+SRR24010239	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	BC001	BC001_2019_RNA	Pst_BC001_RNAseq
+SRR24010240	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	231-1_Winter_Wheat_cv_Yukon	231-1_Winter_Wheat_cv_Yukon_2020_RNA	Pst_231-1_Winter_Wheat_cv_Yukon_RNAseq
+SRR24010241	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	AB046	AB046_2019_RNA	Pst_AB046_RNAseq
+SRR24010242	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	AB043	AB043_2019_RNA	Pst_AB043_RNAseq
+SRR24010243	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: urediniospores	13_Rust_2	13_Rust_2_2020_RNA	Pst_13_Rust_2_RNAseq
+SRR24010244	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	AB037	AB037_2019_RNA	Pst_AB037_RNAseq
+SRR24010245	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	AB030	AB030_2019_RNA	Pst_AB030_RNAseq
+SRR24010246	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	BC005	BC005_2019_RNA	Pst_BC005_RNAseq
+SRR24010247	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	AB020	AB020_2019_RNA	Pst_AB020_RNAseq
+SRR24010248	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	AB019	AB019_2019_RNA	Pst_AB019_RNAseq
+SRR24010249	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	AB016	AB016_2019_RNA	Pst_AB016_RNAseq
+SRR24010250	PRJNA950118	Illumina HiSeq 4000 sequencing: RNAseq of Puccinia striiformis: infected leaf	AB006	AB006_2019_RNA	Pst_AB006_RNAseq

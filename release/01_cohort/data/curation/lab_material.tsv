@@ -1,0 +1,89 @@
+# DERIVED by scripts/classify_lab_material.py from the run titles, then
+# checked against the papers. `unresolved` is a worklist, not a category.
+run	BioProject	material	basis	run_title
+SRR7797540	PRJNA486288	axenic_culture	BioSample host = PDA, i.e. potato dextrose agar, the axenic arm of the study's design	Illumina HiSeq 4000 sequencing: RNA-seq of Fusarium head blight infected wheat spikelets of varying host resistance Invertebrate sample from Fusarium graminearum
+SRR579533	PRJNA176472	haustoria	title matches /haustor/	Illumina HiSeq 2000 sequencing: Haustoria-Percoll-1-RNA-seq Haustoria-Percoll-1-Illumina
+SRR579534	PRJNA176472	haustoria	title matches /haustor/	Illumina HiSeq 2000 sequencing: Haustoria-Percoll-2-RNA-seq Haustoria-Percoll-2-Illumina
+SRR579535	PRJNA176472	haustoria	title matches /haustor/	Illumina HiSeq 2000 sequencing: Haustoria-Percoll-3-RNA-seq Haustoria-Percoll-3-Illumina
+SRR579539	PRJNA176472	haustoria	title matches /haustor/	454 GS FLX Titanium sequencing: Haustoria-Column-454RNA-seq Haustoria-454
+SRR6043974	PRJNA396589	haustoria	title matches /haustor/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: haustoria enriched replicate 1 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR6043976	PRJNA396589	haustoria	title matches /haustor/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: haustoria enriched replicate 3 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR6043977	PRJNA396589	haustoria	title matches /haustor/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: haustoria enriched replicate 2 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR14239691	PRJNA722004	host_only	a wheat virome survey's greenhouse wheat; no fungal pathogen applied	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas Plant sample from Triticum aestivum
+SRR14239694	PRJNA722004	host_only	a wheat virome survey's greenhouse wheat; no fungal pathogen applied	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas Plant sample from Triticum aestivum
+SRR14239695	PRJNA722004	host_only	a wheat virome survey's greenhouse wheat; no fungal pathogen applied	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas Plant sample from Triticum aestivum
+SRR14239703	PRJNA722004	host_only	a wheat virome survey's greenhouse wheat; no fungal pathogen applied	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas Plant sample from Triticum aestivum
+SRR14239707	PRJNA722004	host_only	a wheat virome survey's greenhouse wheat; no fungal pathogen applied	NextSeq 500 sequencing: Total RNASeq of Triticum aestivum from Kansas Plant sample from Triticum aestivum
+ERR1224553	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 0dpi-Rep1
+ERR1224554	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 0dpi-Rep2
+ERR1224555	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 0dpi-Rep3
+ERR1224556	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 1dpi-Rep1
+ERR1224557	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 1dpi-Rep2
+ERR1224558	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 1dpi-Rep3
+ERR1224559	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 2dpi-Rep1
+ERR1224560	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 2dpi-Rep2
+ERR1224561	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 2dpi-Rep3
+ERR1224562	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 3dpi-Rep1
+ERR1224563	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 3dpi-Rep2
+ERR1224564	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 3dpi-Rep3
+ERR1224565	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 5dpi-Rep1
+ERR1224566	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 5dpi-Rep2
+ERR1224567	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 5dpi-Rep3
+ERR1224568	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 7dpi-Rep1
+ERR1224569	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 7dpi-Rep2
+ERR1224570	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 7dpi-Rep3
+ERR1224571	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 9dpi-Rep1
+ERR1224572	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 9dpi-Rep2
+ERR1224573	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 9dpi-Rep3
+ERR1224574	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 11dpi-Rep1
+ERR1224575	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 11dpi-Rep2
+ERR1224576	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: 11dpi-Rep3
+ERR1224580	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 0dpi-Rep1
+ERR1224581	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 0dpi-Rep2
+ERR1224582	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 0dpi-Rep3
+ERR1224583	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 1dpi-Rep1
+ERR1224584	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 1dpi-Rep2
+ERR1224585	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 1dpi-Rep3
+ERR1224586	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 2dpi-Rep1
+ERR1224587	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 2dpi-Rep2
+ERR1224588	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 2dpi-Rep3
+ERR1224589	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 3dpi-Rep1
+ERR1224590	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 3dpi-Rep2
+ERR1224591	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 3dpi-Rep3
+ERR1224592	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 5dpi-Rep1
+ERR1224593	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 5dpi-Rep2
+ERR1224594	PRJEB12497	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 paired end sequencing PST infection Yr5 wheat: 5dpi-Rep3
+ERR1607740	PRJEB15280	infected_tissue	"10.1093/gbe/evx241, Methods: ""Infection assays were undertaken with ten technical replicates on seedlings under controlled environmental conditions."""	Illumina HiSeq 2000 paired end sequencing PST field pathogenomics study
+ERR1607741	PRJEB15280	infected_tissue	"10.1093/gbe/evx241, Methods: ""Infection assays were undertaken with ten technical replicates on seedlings under controlled environmental conditions."""	Illumina HiSeq 2000 paired end sequencing PST field pathogenomics study
+ERR1607742	PRJEB15280	infected_tissue	"10.1093/gbe/evx241, Methods: ""Infection assays were undertaken with ten technical replicates on seedlings under controlled environmental conditions."""	Illumina HiSeq 2000 paired end sequencing PST field pathogenomics study
+ERR1607743	PRJEB15280	infected_tissue	"10.1093/gbe/evx241, Methods: ""Infection assays were undertaken with ten technical replicates on seedlings under controlled environmental conditions."""	Illumina HiSeq 2000 paired end sequencing PST field pathogenomics study
+SRR11440843	PRJNA256347	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 sequencing: RNASeq of Plant sample from Puccinia striiformis f. sp. tritici (12/83) Plant sample from Puccinia striiformis f. sp. tritici (12/83)
+SRR11440844	PRJNA256347	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 sequencing: RNASeq of Plant sample from Puccinia striiformis f. sp. tritici (11/128) Plant sample from Puccinia striiformis f. sp. tritici (11/128)
+SRR1583659	PRJNA256347	infected_tissue	"10.1186/s13059-015-0590-8, Methods: ""Tests were carried out on seedlings under controlled environment conditions""; the project's other six lab runs are titled 'Plant sample from'"	Illumina HiSeq 2000 sequencing: puccinia striiformis 11/08 RNAseq Puccinia striiformis f. sp. tritici 11/08
+SRR1583660	PRJNA256347	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 sequencing: Puccinia striiformis 11/13 RNAseq Plant sample from Puccinia striiformis f. sp. tritici (11/13)
+SRR1583666	PRJNA256347	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 sequencing: Puccinia striiformis 11/75 RNAseq Plant sample from Puccinia striiformis f. sp. tritici (11/75)
+SRR1583679	PRJNA256347	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 sequencing: puccinia striiformis 12/86 RNAseq Plant sample from Puccinia striiformis f. sp. tritici (12/86)
+SRR1583680	PRJNA256347	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 sequencing: puccinia striiformis 78/66 RNAseq Plant sample from Puccinia striiformis f. sp. tritici (78/66)
+SRR6043965	PRJNA396589	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: 9 days post infection of wheat (Marroco line) replicate 2 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR6043966	PRJNA396589	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: 9 days post infection of wheat (Marroco line) replicate 1 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR6043967	PRJNA396589	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: 6 days post infection of wheat (Marroco line) replicate 3 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR6043968	PRJNA396589	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: 6 days post infection of wheat (Marroco line) replicate 2 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR6043969	PRJNA396589	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: 9 days post infection of wheat (Marroco line) replicate 3 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR6043970	PRJNA396589	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: 6 days post infection of wheat (Marroco line) replicate 1 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR15357733	PRJNA749614	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina NovaSeq 6000 sequencing: RNAseq on infected wheat leaf tissue 9dpi with 3 replicates MIGS Eukaryotic sample from Puccinia striiformis f. sp. tritici
+SRR15357734	PRJNA749614	infected_tissue	title matches /\bdpi\b|infect|plant sample from/	Illumina NovaSeq 6000 sequencing: RNAseq on infected wheat leaf tissue 6dpi with 3 replicates MIGS Eukaryotic sample from Puccinia striiformis f. sp. tritici
+ERR1224577	PRJEB12497	spores	title matches /\bspores?\b|urediniospore/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: PST - germinating spores Rep1
+ERR1224578	PRJEB12497	spores	title matches /\bspores?\b|urediniospore/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: PST - germinating spores Rep2
+ERR1224579	PRJEB12497	spores	title matches /\bspores?\b|urediniospore/	Illumina HiSeq 2000 paired end sequencing PST infection Vuka: PST - germinating spores Rep3
+SRR579536	PRJNA176472	spores	title matches /\bspores?\b|urediniospore/	Illumina HiSeq 2000 sequencing: Germinated spores RNA-seq Spores-1-Illumina
+SRR579537	PRJNA176472	spores	title matches /\bspores?\b|urediniospore/	Illumina HiSeq 2000 sequencing: Germinated spores 2 RNA-seq Spores-2-Illumina
+SRR579538	PRJNA176472	spores	title matches /\bspores?\b|urediniospore/	Illumina HiSeq 2000 sequencing: Germinated spores 3 RNA-seq Spores-3-Illumina
+SRR579540	PRJNA176472	spores	title matches /\bspores?\b|urediniospore/	454 GS FLX Titanium sequencing: Germinated spores 454 RNA-seq Spores-454
+SRR6043971	PRJNA396589	spores	title matches /\bspores?\b|urediniospore/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: ungerminated spores replicate 3 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR6043972	PRJNA396589	spores	title matches /\bspores?\b|urediniospore/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: germinated spores replicate 2 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR6043973	PRJNA396589	spores	title matches /\bspores?\b|urediniospore/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: germinated spores replicate 1 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR6043975	PRJNA396589	spores	title matches /\bspores?\b|urediniospore/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: germinated spores replicate 3 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR6043978	PRJNA396589	spores	title matches /\bspores?\b|urediniospore/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: ungerminated spores replicate 2 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR6043979	PRJNA396589	spores	title matches /\bspores?\b|urediniospore/	Illumina HiSeq 2000 sequencing: RNAseq of Pst 104 E137 A-: ungerminated spores replicate 1 Microbe sample from Puccinia striiformis f. sp. tritici
+SRR15357735	PRJNA749614	spores	title matches /\bspores?\b|urediniospore/	Illumina NovaSeq 6000 sequencing: RNAseq on germinated spores 16 hours with 3 replicates MIGS Eukaryotic sample from Puccinia striiformis f. sp. tritici
+SRR15357736	PRJNA749614	spores	title matches /\bspores?\b|urediniospore/	Illumina NovaSeq 6000 sequencing: RNAseq on ungerminated spores with 3 replicates MIGS Eukaryotic sample from Puccinia striiformis f. sp. tritici

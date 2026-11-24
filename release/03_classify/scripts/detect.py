@@ -20,8 +20,30 @@ Four tests, all of which must hold, in this order, every one written POSITIVELY:
 
     distinct   >= distinct_floor      is there enough signal to divide at all
     coverage   >= coverage_floor      is the DNA there
-    saturation >= saturation_floor    are the reads spread or piled on a few fragments
+    saturation >= saturation_floor    is it abundant RELATIVE TO WHAT THIS DEPTH ALLOWED
     fsp_frac   <= max_fsp             is one forma specialis carrying the call
+
+## saturation is a depth-normalised ABUNDANCE floor, not a shape test
+
+It was specified as a shape test -- are the reads spread over the taxon's k-mer space or
+piled on a few fragments -- and it cannot be one, which was measured on db2's 430,820
+candidates rather than argued:
+
+  * Every row saturation alone rejects has redundancy >= 0.534. Every row the coverage
+    floor alone rejects has redundancy <= 0.480. The two partition at r = 0.51 with no
+    overlap, because that is where 0.05*(1-exp(-r)) crosses 0.02.
+  * Above r = 3 the median saturation/coverage ratio is 1.007, and above 10 it is 1.000.
+    1-exp(-r) has gone to 1 and the statistic IS coverage.
+
+So saturation only ever acts where the shape information has vanished, and in the regime
+where it would carry shape information the coverage floor has already bound. Taken
+together the two are ONE floor, coverage >= max(coverage_floor, saturation_floor*(1-e^-r)).
+
+That is still worth having, and it is not what 04_align does. Read correctly it asks for
+5% of what the depth ALLOWED: shallow libraries get a proportionally lower bar because the
+taxon could not have reached 5% whatever was there, and at full depth it becomes a flat 5%.
+04_align tests the genuine shape question -- where in a transcript the reads fell -- which
+needs positions this module does not have. The two do not overlap.
 
 A missing value must FAIL the test. `coverage` is None whenever the report has no minimizer
 columns or the taxon is absent from the inspect table, and None compares False against
@@ -30,9 +52,8 @@ species count from 32 to 44 before it was caught, on a table where 13.8% of rows
 Every test here reads `value is not None and value >= floor`.
 
 The order matters. The absolute floor is first because a relative floor alone is meaningless at
-the bottom of the ceiling distribution. The shape test is last because it only applies where
-there is depth to judge spread: below `min_redundancy` saturation is silent and the call rests
-on the two floors, which is recorded per row in `judgeable`.
+the bottom of the ceiling distribution. Below `min_redundancy` saturation is silent and the
+call rests on the absolute and coverage floors, which is recorded per row in `judgeable`.
 
 ## Three rules about labels, and all three are load-bearing
 
@@ -48,8 +69,8 @@ whatever their metrics, and their metrics are still written to the candidate tab
 they absorbed is the purpose test's measurement. Refusing to run without that list is
 deliberate: a db2 pass that cannot identify the predicted taxa would silently report them.
 
-**An uncurated declaration is UNKNOWN, never undeclared.** 18 of the 31 cohort BioProjects
-(344 runs) have no curated declaration yet, and counting those as "nobody reported it" would
+**An uncurated declaration is UNKNOWN, never undeclared.** 5 of the 31 cohort BioProjects
+(88 runs) still have no curated declaration, and counting those as "nobody reported it" would
 manufacture the chapter's headline. `declared` is one of `declared`, `undeclared` or `unknown`,
 and the unknowns are reported separately rather than folded in.
 
@@ -246,10 +267,21 @@ def fsp_fractions(path: Path) -> dict:
     return out
 
 
-def call_one(cov, dist, sat, fsp, judgeable, th) -> tuple[str, str]:
-    """The four tests, in order, each written positively. Returns (call, reason)."""
+def call_one(cov, dist, sat, fsp, judgeable, th, is_host=False) -> tuple[str, str]:
+    """The four tests, in order, each written positively. Returns (call, reason).
+
+    **THE HOST IS EXEMPT FROM BOTH ABUNDANCE FLOORS.** Every plant library has a host by
+    construction, so which plant it is, is a RANKING question and not a detection one --
+    02_classify settled that ("Host assignment ranks, it does not threshold") and this
+    function was thresholding it anyway. It cost 77 host rows, 67 Triticum aestivum and 10
+    Hordeum vulgare, and three of them were the uninoculated host-only controls, where the
+    right answer is known and is "wheat". The absolute floor still applies: a host needs
+    real signal, it just does not need to be abundant.
+    """
     if not absolute_floor_ok(dist, th["distinct_floor"]):
         return "rejected", "distinct"
+    if is_host:
+        return "detected", "host, abundance floors not applied"
     if not (cov is not None and cov >= th["coverage_floor"]):
         return "rejected", "coverage"
     if judgeable and not (sat is not None and sat >= th["saturation_floor"]):
@@ -338,7 +370,9 @@ def main() -> None:
                 sat = saturation(dist, reads, taxid, inspect, kps) if kps else None
                 judgeable = red is not None and red >= th["min_redundancy"]
                 f = fsp.get(taxid, 0.0)
-                call, reason = call_one(cov, dist, sat, f, judgeable, th)
+                klass = taxon_class(ref.get(taxid, {}), taxid in predicted)
+                call, reason = call_one(cov, dist, sat, f, judgeable, th,
+                                        is_host=klass == "host")
                 if taxid in predicted:
                     call, reason = "competitor_only", "predicted CDS, never a positive call"
                 e = inspect.get(taxid)
@@ -356,12 +390,11 @@ def main() -> None:
                     rr = ref.get(taxid, {})
                     status = crow.get("declared_status", "not_curated")
                     gen = rr.get("genus") or rec["name"].split()[0]
-                    cls = taxon_class(rr, taxid in predicted)
-                    dec, dec_rank = declaration(crow, rec["name"], gen, cls == "host")
+                    dec, dec_rank = declaration(crow, rec["name"], gen, klass == "host")
                     dets.append({**{k: v for k, v in row.items() if k in DET_COLS},
                                  "host": crow.get("host", ""), "setting": crow.get("setting", ""),
                                  "genus": gen, "kingdom": rr.get("kingdom", ""),
-                                 "taxon_class": cls,
+                                 "taxon_class": klass,
                                  "on_wheat": rr.get("on_wheat", ""),
                                  "is_plant_pathogen": rr.get("is_plant_pathogen", ""),
                                  "is_wheat_pathogen": rr.get("is_wheat_pathogen", ""),
@@ -380,7 +413,11 @@ def main() -> None:
                                  c["distinct"],
                                  float(c["saturation"]) if c["saturation"] else None,
                                  float(c["fsp_frac"]), bool(c["judgeable"]),
-                                 {**th, "coverage_floor": floor})[0] == "detected"]
+                                 {**th, "coverage_floor": floor},
+                                 # candidates_<arm>.tsv carries no taxon_class column, so
+                                 # this must be derived, not looked up
+                                 is_host=taxon_class(ref.get(int(c["taxid"]), {}),
+                                                     False) == "host")[0] == "detected"]
             und = [c for c in kept
                    if declaration(cohort[c["run"]], c["taxon"],
                                   ref.get(int(c["taxid"]), {}).get("genus")

@@ -66,8 +66,9 @@ negated form admits it.
 | test | what it asks | |
 |---|---|---|
 | `distinct >= distinct_floor` | is there enough signal to divide at all | absolute |
+| | **the host is exempt from both abundance floors below** | |
 | `coverage >= coverage_floor` | is the DNA there | relative, per arm |
-| `saturation >= saturation_floor` | are the reads spread or piled on a few fragments | shape |
+| `saturation >= saturation_floor` | is it abundant relative to what this depth allowed | depth-normalised |
 | `fsp_frac <= 0.80` | is one forma specialis carrying the call | inert, see below |
 
     redundancy = reads * kmers_per_spot / M        M = the taxon's clade minimizers in the arm
@@ -79,10 +80,21 @@ negated form admits it.
 it, and at k=35 a 51 nt mate yields 17 k-mers against 116 for a 150 nt mate. That is a factor
 of 7 on the expectation.
 
-Below `min_redundancy` the saturation statistic is silent and the call rests on the two floors.
-Saturation is not scale-free: for small x, `1 - exp(-x)` is approximately x, so coverage
-approximates redundancy mechanically and everything scores near 1. It must be read against
-redundancy, never as a scalar.
+**Saturation is a depth-normalised ABUNDANCE floor and NOT a shape test, measured 2026-11-24.**
+It was specified as a shape test and cannot be one. Over db2's 430,820 candidates, every row
+saturation alone rejects has redundancy >= 0.534 and every row the coverage floor alone
+rejects has redundancy <= 0.480: the two partition at r = 0.51, where `0.05*(1-e^-r)` crosses
+0.02, with no overlap. Above r = 3 the median `saturation / coverage` is 1.007 and above 10 it
+is 1.000, because `1-exp(-r)` has gone to 1. So it only ever acts where the shape information
+has vanished, and where it would carry shape information the coverage floor has already bound.
+
+The two are therefore ONE floor, `coverage >= max(coverage_floor, saturation_floor*(1-e^-r))`,
+and read that way it is worth having: it asks for 5% of what the depth ALLOWED, so a shallow
+library gets a proportionally lower bar and a deep one a flat 5%. **The genuine shape
+question, where in a transcript the reads fell, needs positions this module does not have and
+belongs to `04_align`.** The two do not overlap, which is why this stays here.
+
+Below `min_redundancy` saturation is silent and the call rests on the other two floors.
 
 **The absolute floor is not optional, and the arms make the case plainly.** Species ceilings
 span 2,921 to 70,294,921 clade minimizers in `db1p`, so a relative floor is 2,308 different

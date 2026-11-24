@@ -71,7 +71,7 @@ DECLARED_COLOUR = "#3d3d3d"     # the study reported it; the one state that is n
 # imported from 02_reference rather than copied so the two figures cannot drift apart.
 #
 # The matrix was drawn as inch-wide pills with dark borders; here a cell is one pixel wide,
-# and two of its colours (#f0f0f0 for a congener, #c3e8bf for a plant resident) vanish
+# and two of its colours (#f0f0f0 for a genus-only taxon, #c3e8bf for a plant resident) vanish
 # against white at that size. LUM_CEILING darkens any colour past it until it reaches the
 # ceiling, which preserves the hue and the ordering and only changes what cannot be seen.
 # The BAND SWATCH keeps the true matrix colour, so the correspondence is still legible.
@@ -87,7 +87,7 @@ SLOT_NAME = {("wheat", "wheat_path"): "wheat pathogen",
              ("wheat", "none"):       "recorded on wheat, not a pathogen of it",
              ("plant", "none"):       "recorded on another plant",
              ("plant", "vagrant"):    "pathogen of another plant",
-             ("congener", "none"):    "no USDA record under this species name"}
+             ("genus_only", "none"):  "no USDA record under this species name"}
 
 # TWO BANDING RULES, because the two halves of the panel answer to different things.
 # A WHEAT PATHOGEN is banded by the DISEASE it causes, which is the distinction a plant
@@ -101,7 +101,7 @@ SLOT_NAME = {("wheat", "wheat_path"): "wheat pathogen",
 # rather than paper over it.
 # A NON-PATHOGEN IS BANDED ON on_wheat, AND NOT ON THE USDA ROW. The USDA row looks like the
 # natural axis and is the wrong one. USDA Fungus-Host records fungi OBSERVED ON PLANTS, not
-# pathogens, and `usda_row = congener` means only that USDA holds no record under that
+# pathogens, and `usda_row = genus_only` means only that USDA holds no record under that
 # SPECIES name, the taxon having entered because its genus does. It therefore mixes two
 # different things and cannot tell them apart: a genuine plant associate USDA has not
 # recorded, and a species of a plant-associated genus that lives nowhere near a plant. No
@@ -110,8 +110,9 @@ SLOT_NAME = {("wheat", "wheat_path"): "wheat pathogen",
 # 02_reference already settled this and the figure should not relitigate it. Its scope is
 # read at GENUS precisely because species rank loses 903 of 5,973 fungal detections on field
 # wheat, "led by Dioszegia hungarica" -- the taxon an earlier version of this panel dropped
-# for carrying the congener label. Reading `congener` as weak evidence would re-impose the
-# species-rank reading the reference was built to avoid.
+# for carrying the label when it was still called `congener`, which is why it is now called
+# `genus_only`. Reading it as weak evidence would re-impose the species-rank reading the
+# reference was built to avoid.
 #
 # So: two resident bands, split on whether USDA records the SPECIES on wheat. Colour still
 # carries the full matrix slot, so the USDA-coverage distinction is visible as a shade
@@ -327,7 +328,7 @@ def load():
             collapsed_of[key].add(r["taxon"])
             hit[key].add(r["run"])
             cov[key][r["run"]] = float(r["coverage"])
-            slot_votes[key][s3.get(r["taxon"], ("congener", "none", "no"))] += 1
+            slot_votes[key][s3.get(r["taxon"], ("genus_only", "none", "no"))] += 1
             state = declaration(decl_of[r["run"]], r["taxon"], r["genus"],
                                 r["taxon_class"] == "host")[0]
             mismatched += state != r["declared"]

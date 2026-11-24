@@ -1,0 +1,12 @@
+# AUTHORED. The runs the detection-space panels draw, one per rung of the control ladder.
+# Each is a real run of the cohort, chosen to span what a column of samples.png can contain
+# rather than to flatter the method; the ladder runs from a library with one organism in it
+# to a field sample with eleven.
+#
+# `expect` is what the run SHOULD show if the floors behave, written before reading the
+# result, so the panel can be read as a test rather than as an illustration.
+run	rung	label	expect
+SRR6043971	1	pure fungal (spores)	one organism, the declared one, and no host
+ERR1607743	2	controlled infection	the inoculated pathogen, its host, and whatever settled on a glasshouse plant
+ERR15005445	3	field sample	several pathogens at once, most of them undeclared
+SRR14239691	4	host only	no fungus at all; the host called on rank, not abundance

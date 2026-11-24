@@ -80,6 +80,15 @@ DECLARED_COLOUR = "#3d3d3d"     # the study reported it; the one state that is n
 # wheat pathogen it met, which is the good failure mode for a mismatch like this.
 PHI_KEY = {"none": "none", "plant_pathogen": "vagrant", "wheat_pathogen": "wheat_path"}
 
+# What each matrix slot is called in the legend. The slot is the figure's hue, so the legend
+# has to name it in words rather than leave the reader to infer four greens apart.
+SLOT_NAME = {("wheat", "wheat_path"): "wheat pathogen",
+             ("wheat", "vagrant"):    "pathogen of another plant, recorded on wheat",
+             ("wheat", "none"):       "recorded on wheat, not a pathogen of it",
+             ("plant", "none"):       "recorded on another plant",
+             ("plant", "vagrant"):    "pathogen of another plant",
+             ("congener", "none"):    "no USDA record under this species name"}
+
 # TWO BANDING RULES, because the two halves of the panel answer to different things.
 # A WHEAT PATHOGEN is banded by the DISEASE it causes, which is the distinction a plant
 # pathologist makes and which no column of S3 carries, so it is authored in
@@ -438,6 +447,7 @@ def main():
                      "band": bands[i], "half": SUPER[supers[i]],
                      "colour": base, "colour_unknown": washed(base),
                      "band_fill": band_fill[bands[i]], "italic": 1,
+                     "category": SLOT_NAME[mrow[t]],
                      "n_runs": int((grid[i] > 0).sum())})
     with open(FIG / "samples_rows.tsv", "w", newline="") as fh:
         w = csv.DictWriter(fh, list(rows[0]), delimiter="\t", lineterminator="\n")
@@ -493,6 +503,7 @@ def main():
                            "label": f"{hname.lower()} per run (0\u2013{hi})",
                            "n_collapsed": 0, "band": " ", "half": "Total",
                            "colour": hue, "colour_unknown": washed(hue), "italic": 0,
+                           "category": f"{hname.lower()} per run, 0\u2013{hi}",
                            "band_fill": "#ffffff",
                            "n_runs": int((counts > 0).sum())})
         for j, k in enumerate(counts):
@@ -507,6 +518,14 @@ def main():
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
         w.writerows(extra_cells)
     n_cell += len(extra_cells)
+    with open(FIG / "samples_ramps.tsv", "w", newline="") as fh:
+        w = csv.writer(fh, delimiter="\t", lineterminator="\n")
+        w.writerow(["half", "k", "max", "fill"])
+        for hname, hue in halves:
+            hi = int(per_half[hname].max())
+            for k in range(hi + 1):
+                w.writerow([hname, k, hi,
+                            ramp("#f2f2f2", ramp("#ffffff", hue, 0.95), k / hi)])
     print("  per-column totals: " + ", ".join(
         f"{n} 0-{int(per_half[n].max())}" for n, _ in halves))
 

@@ -208,40 +208,64 @@ print(p)
 invisible(dev.off())
 
 # ── legend ────────────────────────────────────────────────────────────────────
-# Built as a REAL ggplot guide and extracted with cowplot, not as hand-placed text at
-# invented coordinates. The hand-placed version drifted as soon as a label changed length,
-# because nothing was measuring anything; a guide lays itself out from the strings it is
-# given.
+# THREE keys, because the panel uses colour for three different things and a legend that
+# showed only one of them was telling the reader a third of the story:
 #
-# Two keys and the split is the point: the TREATMENT of a colour says who knew, the HUE says
-# which reference-matrix category the taxon is. Both values come from the tables.
+#   hue       which category of the reference matrix the taxon is
+#   treatment whether the study that generated the run declared it
+#   ramp      the per-run totals, one scale per half, NOT comparable with each other
+#
+# Every colour and every name is read from the tables, so a category that stops occurring
+# stops appearing and none of this can drift from what was drawn.
+ramps <- rd("samples_ramps.tsv")
+ramps$k <- as.integer(ramps$k); ramps$max <- as.integer(ramps$max)
+
+cats <- unique(rows[rows$band != " ", c("category", "colour")])
+cats <- cats[order(match(cats$colour, c(unique(rows$colour)))), ]
+kd1 <- data.frame(k = factor(cats$category, levels = cats$category), x = 1, y = 1)
+g1 <- ggplot(kd1, aes(x, y, fill = k)) + geom_tile() +
+  scale_fill_manual(values = setNames(cats$colour, cats$category), name = NULL,
+                    guide = guide_legend(ncol = 1, keywidth = unit(10, "pt"),
+                                         keyheight = unit(8, "pt")))
+
 wp  <- rows[rows$half == "Pathogens", ][1, ]
-# Only the states PRESENT in the cells get a key. Once the declarations were curated the
-# "not curated" state stopped occurring, and a key for a colour the panel never shows is a
-# reader looking for something that is not there.
-key <- c("declared by the study"   = unique(cells$fill[cells$state == "declared"])[1],
+trt <- c("declared by the study"   = unique(cells$fill[cells$state == "declared"])[1],
          "not declared"            = wp$colour,
          "declaration not curated" = wp$colour_unknown)
-present <- c("declared", "undeclared", "unknown") %in% unique(cells$state)
-key <- key[present]
-kd  <- data.frame(k = factor(names(key), levels = names(key)), x = 1, y = 1)
+trt <- trt[c("declared", "undeclared", "unknown") %in% unique(cells$state)]
+kd2 <- data.frame(k = factor(names(trt), levels = names(trt)), x = 1, y = 1)
+g2 <- ggplot(kd2, aes(x, y, fill = k)) + geom_tile() +
+  scale_fill_manual(values = trt, name = NULL,
+                    guide = guide_legend(ncol = 1, keywidth = unit(10, "pt"),
+                                         keyheight = unit(8, "pt")))
 
-g <- cowplot::get_plot_component(
-  ggplot(kd, aes(x, y, fill = k)) + geom_tile() +
-    scale_fill_manual(values = key, name = NULL,
-                      guide = guide_legend(nrow = 1, byrow = TRUE,
-                                           keywidth = unit(11, "pt"),
-                                           keyheight = unit(8, "pt"))) +
-    theme_void(base_size = 11) +
-    theme(legend.position = "bottom",
-          legend.text = element_text(size = 7.5, colour = "#1a1a1a",
-                                     margin = margin(l = 3, r = 10)),
-          legend.key.spacing.x = unit(2, "pt")),
-  "guide-box-bottom", return_all = TRUE)
+# The two ramps are drawn as the discrete steps they are: the counts are small integers, so
+# a continuous bar would imply a precision the data does not have.
+# The range goes in the LABEL, not on the tiles. Drawn on the tiles, the end numbers were
+# offset vertically to clear the bar and landed in the other half's row.
+rng <- setNames(sprintf("%s per run (0\u2013%d)", tolower(unique(ramps$half)),
+                        tapply(ramps$max, ramps$half, max)[unique(ramps$half)]),
+                unique(ramps$half))
+g3 <- ggplot(ramps, aes(x = k, y = half, fill = fill)) +
+  geom_tile(colour = "#d8d8d8", linewidth = 0.2) +
+  scale_fill_manual(values = setNames(ramps$fill, ramps$fill), guide = "none") +
+  scale_y_discrete(labels = function(x) rng[x]) +
+  theme_void(base_size = 11) +
+  theme(axis.text.y = element_text(size = 7.5, colour = "#1a1a1a", hjust = 1,
+                                   margin = margin(r = 4)),
+        plot.margin = margin(4, 4, 8, 4))
 
-ragg::agg_png(file.path(HERE, "samples_legend.png"), width = 4.6, height = 0.26,
+pick <- function(p) cowplot::get_plot_component(
+  p + theme_void() + theme(legend.position = "right",
+                           legend.text = element_text(size = 7.5, colour = "#1a1a1a",
+                                                      margin = margin(l = 3)),
+                           legend.key.spacing.y = unit(1, "pt")),
+  "guide-box-right", return_all = TRUE)
+
+lg <- cowplot::plot_grid(pick(g2), pick(g1), g3, nrow = 1, rel_widths = c(1.0, 1.9, 1.45))
+ragg::agg_png(file.path(HERE, "samples_legend.png"), width = 7.4, height = 0.85,
               units = "in", res = 600, background = "white")
-grid.newpage(); grid.draw(g)
+print(lg)
 invisible(dev.off())
 
 cat(sprintf("wrote %s/samples.png\n", HERE))

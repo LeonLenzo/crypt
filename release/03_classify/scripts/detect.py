@@ -270,18 +270,25 @@ def fsp_fractions(path: Path) -> dict:
 def call_one(cov, dist, sat, fsp, judgeable, th, is_host=False) -> tuple[str, str]:
     """The four tests, in order, each written positively. Returns (call, reason).
 
-    **THE HOST IS EXEMPT FROM BOTH ABUNDANCE FLOORS.** Every plant library has a host by
-    construction, so which plant it is, is a RANKING question and not a detection one --
-    02_classify settled that ("Host assignment ranks, it does not threshold") and this
-    function was thresholding it anyway. It cost 77 host rows, 67 Triticum aestivum and 10
-    Hordeum vulgare, and three of them were the uninoculated host-only controls, where the
-    right answer is known and is "wheat". The absolute floor still applies: a host needs
-    real signal, it just does not need to be abundant.
+    **THE HOST IS RANKED, NOT THRESHOLDED**, which 02_classify settled and this function
+    was ignoring. Every plant library has a host by construction, so "is there a host" is
+    not the question; "which plant" is. The abundance floors are therefore not applied to a
+    host row -- they cost 77 of them, including the three uninoculated host-only controls
+    where the right answer is known and is wheat -- but dropping the floors ALONE is wrong
+    in the other direction: it admitted every plant clearing the absolute floor and called
+    Hordeum vulgare in 1,141 runs of a wheat cohort, at coverage down to 0.0002. That is the
+    one-directional cross-mapping between cereal genomes this project already documented.
+
+    So the floors are replaced for the host, not removed: `host_rank` keeps the single
+    highest-read plant per run. Ranking by reads agrees with the curated host 91.2% of the
+    time, which is the basis 02_classify established.
     """
     if not absolute_floor_ok(dist, th["distinct_floor"]):
         return "rejected", "distinct"
     if is_host:
-        return "detected", "host, abundance floors not applied"
+        # The host's call is decided per RUN by rank, not per row by threshold; `host_rank`
+        # below picks the winner. Returning "detected" here only means "eligible".
+        return "detected", "host, ranked per run"
     if not (cov is not None and cov >= th["coverage_floor"]):
         return "rejected", "coverage"
     if judgeable and not (sat is not None and sat >= th["saturation_floor"]):
@@ -359,6 +366,7 @@ def main() -> None:
             seen_runs += 1
             kps = crow["kmers_per_spot"]
             fsp = fsp_fractions(report)
+            host_rows = []              # (reads, row) for every plant clearing the floors
             for rec in parse_report(report):
                 if rec["rank"] != SPECIES_RANK or not rec["reads_clade"]:
                     continue
@@ -386,6 +394,9 @@ def main() -> None:
                        "fsp_frac": f"{f:.4g}", "judgeable": int(judgeable),
                        "call": call, "reason": reason}
                 cands.append(row)
+                if klass == "host":
+                    host_rows.append((reads, row))
+                    continue            # the host's verdict is settled after the run
                 if call == "detected":
                     rr = ref.get(taxid, {})
                     status = crow.get("declared_status", "not_curated")
@@ -401,6 +412,32 @@ def main() -> None:
                                  "declared": dec, "declared_rank": dec_rank,
                                  "declared_pathogens": crow.get("declared_pathogens", ""),
                                  "declared_status": status})
+
+            # ── the host, ranked, one per run ─────────────────────────────────
+            # By READS, which is what 02_classify established agrees with the curated host
+            # 91.2% of the time. Every other plant that cleared the absolute floor is
+            # written to the candidate table as rejected, with the reason, so the runner-up
+            # is visible rather than silently absent: in a wheat cohort that runner-up is
+            # Hordeum vulgare in most runs and it is cross-mapping, not barley.
+            if host_rows:
+                host_rows.sort(key=lambda hr: -hr[0])
+                for n, (_, hrow) in enumerate(host_rows):
+                    if n:
+                        hrow["call"], hrow["reason"] = "rejected", "host, outranked"
+                        continue
+                    rr = ref.get(hrow["taxid"], {})
+                    dets.append({**{k: v for k, v in hrow.items() if k in DET_COLS},
+                                 "host": crow.get("host", ""),
+                                 "setting": crow.get("setting", ""),
+                                 "genus": rr.get("genus") or hrow["taxon"].split()[0],
+                                 "kingdom": rr.get("kingdom", ""), "taxon_class": "host",
+                                 "on_wheat": rr.get("on_wheat", ""),
+                                 "is_plant_pathogen": rr.get("is_plant_pathogen", ""),
+                                 "is_wheat_pathogen": rr.get("is_wheat_pathogen", ""),
+                                 "declared": "n/a", "declared_rank": "",
+                                 "declared_pathogens": crow.get("declared_pathogens", ""),
+                                 "declared_status": crow.get("declared_status",
+                                                             "not_curated")})
 
     if args.sensitivity:
         print("\nsensitivity to the coverage floor, nothing written:")

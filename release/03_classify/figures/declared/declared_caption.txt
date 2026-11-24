@@ -22,13 +22,13 @@ project, and the same floors produced every other cell in the panel.
 
 Everything off the outlines is undeclared. 13 pathogens are called in projects
 that did not declare them, over 70 study-pathogen pairs and counting the rarer
-taxa listed below that are not given a row, and 533 runs carry at least one.
+taxa listed below that are not given a row, and 552 runs carry at least one.
 The leading undeclared organism is Z. tritici, called in 297 runs across 10
 projects and declared by none of them.
 
 The result is the SPREAD across projects, not a pooled rate: the share of a
 project's runs carrying any undeclared wheat pathogen runs from 0%
-(PRJEB22223) to 88% (PRJEB47693), and Z. tritici alone from 6% to 73% between
+(PRJEB33109) to 88% (PRJEB47693), and Z. tritici alone from 6% to 73% between
 projects that detect it. The project is the unit of analysis, because crop,
 protocol and sampling design are all nested within it, so a percentage pooled
 over runs would be a weighted average over a handful of independent units.

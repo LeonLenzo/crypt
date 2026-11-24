@@ -44,7 +44,7 @@ MODULE = HERE.parents[1]
 RELEASE = MODULE.parent
 sys.path.insert(0, str(RELEASE / "02_reference/scripts"))
 sys.path.insert(0, str(MODULE / "scripts"))
-from _palette import MATRIX, darken                      # noqa: E402
+from _palette import MATRIX, MATRIX_NAME, darken         # noqa: E402
 from detect import load_thresholds, taxon_class          # noqa: E402
 
 CAND = MODULE / "data/raw/candidates_db2.tsv"
@@ -81,13 +81,17 @@ def main():
             rr = ref.get(r["taxon"], {})
             klass = taxon_class(rr, False)
             slot = ((rr.get("usda_row"), PHI.get(rr.get("phibase_col"), "none"))
-                    if rr.get("usda_row") else ("congener", "none"))
-            fill = MATRIX.get(slot, MATRIX[("congener", "none")])
+                    if rr.get("usda_row") else ("genus_only", "none"))
+            fill = MATRIX.get(slot, MATRIX[("genus_only", "none")])
             pts.append({"run": r["run"], "rung": want[r["run"]]["rung"],
                         "taxon": r["taxon"], "taxon_class": klass,
                         "redundancy": f"{red:.6g}", "coverage": f"{cov:.6g}",
                         "distinct": r["distinct"], "call": r["call"],
                         "reason": r["reason"], "fill": fill, "edge": darken(fill),
+                        # the legend names the SLOT, not the class: `resident` spans two
+                        # slots and two hues, so keying a legend on the class duplicates it
+                        "category": MATRIX_NAME.get(slot,
+                                                    MATRIX_NAME[("genus_only", "none")]),
                         # label only what the reader needs to check the verdict: the calls,
                         # plus anything that cleared the absolute floor and still failed
                         "label": r["taxon"] if (r["call"] != "rejected"

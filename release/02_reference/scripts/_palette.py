@@ -28,7 +28,7 @@ MUTED = "#707070"
 # A 2-D ramp, because the matrix crosses two independent axes and colour has to carry both.
 # HUE is the PHI-base column (green non-pathogen -> amber plant pathogen -> orange wheat
 # pathogen); SATURATION is the USDA row (saturated = recorded on wheat, pale = recorded on
-# some other plant, grey = congener). That retires the fill-plus-outline encoding and the
+# some other plant, grey = genus only). That retires the fill-plus-outline encoding and the
 # legend with it: a cell's position already states both facts, and its colour agrees.
 MATRIX = {
     ("wheat", "none"):       "#1aa64b",
@@ -36,7 +36,22 @@ MATRIX = {
     ("wheat", "wheat_path"): "#e05a26",
     ("plant", "none"):       "#c3e8bf",
     ("plant", "vagrant"):    "#fbe49a",
-    ("congener", "none"):    "#f0f0f0",
+    ("genus_only", "none"): "#f0f0f0",
+}
+
+
+# What each cell of the matrix IS, in words. Lives here with MATRIX because a figure that
+# shows the hue has to be able to name it, and two figures naming it separately is two
+# chances to disagree. 03_classify's samples and runs panels both read this. Keys follow
+# the 2026-11-24 rename: the USDA-coverage value is `genus_only`, and `congener` is kept
+# for the different thing it means here, a relative admitted as a Kraken2 competitor.
+MATRIX_NAME = {
+    ("wheat", "wheat_path"): "wheat pathogen",
+    ("wheat", "vagrant"):    "pathogen of another plant, recorded on wheat",
+    ("wheat", "none"):       "recorded on wheat, not a pathogen of it",
+    ("plant", "vagrant"):    "pathogen of another plant",
+    ("plant", "none"):       "recorded on another plant",
+    ("genus_only", "none"):  "no USDA record under this species name",
 }
 
 

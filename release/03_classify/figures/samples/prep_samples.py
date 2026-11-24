@@ -49,7 +49,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parents[2]              # release/03_classify
 sys.path.insert(0, str(HERE.parent / "02_reference/scripts"))
-from _palette import MATRIX, INK, MUTED, darken         # noqa: E402
+from _palette import MATRIX, MATRIX_NAME, INK, MUTED, darken  # noqa: E402
 sys.path.insert(0, str(HERE / "scripts"))
 from _cohort import is_analysed, describe               # noqa: E402
 from detect import declaration                          # noqa: E402
@@ -82,12 +82,6 @@ PHI_KEY = {"none": "none", "plant_pathogen": "vagrant", "wheat_pathogen": "wheat
 
 # What each matrix slot is called in the legend. The slot is the figure's hue, so the legend
 # has to name it in words rather than leave the reader to infer four greens apart.
-SLOT_NAME = {("wheat", "wheat_path"): "wheat pathogen",
-             ("wheat", "vagrant"):    "pathogen of another plant, recorded on wheat",
-             ("wheat", "none"):       "recorded on wheat, not a pathogen of it",
-             ("plant", "none"):       "recorded on another plant",
-             ("plant", "vagrant"):    "pathogen of another plant",
-             ("genus_only", "none"):  "no USDA record under this species name"}
 
 # TWO BANDING RULES, because the two halves of the panel answer to different things.
 # A WHEAT PATHOGEN is banded by the DISEASE it causes, which is the distinction a plant
@@ -448,7 +442,7 @@ def main():
                      "band": bands[i], "half": SUPER[supers[i]],
                      "colour": base, "colour_unknown": washed(base),
                      "band_fill": band_fill[bands[i]], "italic": 1,
-                     "category": SLOT_NAME[mrow[t]],
+                     "category": MATRIX_NAME[mrow[t]],
                      "n_runs": int((grid[i] > 0).sum())})
     with open(FIG / "samples_rows.tsv", "w", newline="") as fh:
         w = csv.DictWriter(fh, list(rows[0]), delimiter="\t", lineterminator="\n")

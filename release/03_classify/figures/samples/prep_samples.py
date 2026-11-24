@@ -176,6 +176,13 @@ MIN_RUNS = 10           # a taxon needs this many calls across the cohort to get
 # the caption rather than hidden by never looking.
 DRAWN_CLASSES = {"wheat_pathogen", "plant_pathogen", "resident"}
 
+# RESIDENTS GET NO ROW OF THEIR OWN; the per-run ramp at the foot of the panel summarises
+# them. Thirteen resident rows were half the panel's height, and the four detection-space
+# panels have to share an A4 page with it. Nothing is judged false and nothing leaves the
+# data: every resident call is still in supp_data_s5, and the ramp now counts them MORE
+# completely than the rows did, because it no longer stops at the taxa clearing MIN_RUNS.
+DETAIL_CLASSES = {"wheat_pathogen", "plant_pathogen"}
+
 
 
 def groups():
@@ -303,13 +310,15 @@ def load():
     grp = groups()
     hit, declared_in, mismatched = defaultdict(set), defaultdict(set), 0
     cluster, cvs, collapsed_of = defaultdict(set), defaultdict(list), defaultdict(set)
-    klass, cov, gen_of = {}, defaultdict(dict), {}
+    klass, cov, gen_of, class_calls = {}, defaultdict(dict), {}, {}
     slot_votes = defaultdict(collections.Counter)
     with open(S5) as fh:
         for r in csv.DictReader(fh, delimiter="\t"):
             if r["run"] not in runs or r["taxon_class"] not in DRAWN_CLASSES:
                 continue
             klass[r["taxon"]] = r["taxon_class"]
+            class_calls[(r["run"], r["taxon_class"])] = \
+                class_calls.get((r["run"], r["taxon_class"]), 0) + 1
             cluster[(r["run"], r["genus"])].add(r["taxon"])
             gen_of[r["genus"] if grp.get(r["taxon"], (0, "", False))[2]
                    else r["taxon"]] = r["genus"]
@@ -322,7 +331,7 @@ def load():
             collapsed_of[key].add(r["taxon"])
             hit[key].add(r["run"])
             cov[key][r["run"]] = float(r["coverage"])
-            slot_votes[key][s3.get(r["taxon"], ("genus_only", "none", "no"))] += 1
+            slot_votes[key][s3.get(r["taxon"], ("plant_genus", "none", "no"))] += 1
             state = declaration(decl_of[r["run"]], r["taxon"], r["genus"],
                                 r["taxon_class"] == "host")[0]
             mismatched += state != r["declared"]
@@ -395,7 +404,8 @@ def load():
                              f"itself. Add one; the disease band must be chosen, not "
                              f"inherited.")
     band = lambda t: grp[t][:2] if is_wp(t) else RESIDENT_BAND[onwheat[t]]
-    taxa = sorted((t for t in hit if len(hit[t]) >= MIN_RUNS),
+    taxa = sorted((t for t in hit if len(hit[t]) >= MIN_RUNS
+                   and klass.get(t) in DETAIL_CLASSES),
                   key=lambda t: (band(t)[0], -len(hit[t]), t))
     dropped = {t: len(v) for t, v in sorted(hit.items(), key=lambda kv: (-len(kv[1]), kv[0]))
                if len(v) < MIN_RUNS}
@@ -409,7 +419,7 @@ def load():
                                  else UNDECL)
     return (order, taxa, grid, runs, ordered, bycty, dropped, sorted(unknown_name),
             excluded, [band(t)[1] for t in taxa],
-            [is_wp(t) for t in taxa], mismatched,
+            [is_wp(t) for t in taxa], mismatched, class_calls,
             {t: len(collapsed_of[t]) for t in taxa if len(collapsed_of[t]) > 1}, suspect,
             # a band's category is the modal class of the taxa in it, read off the data
             # rather than authored a second time in the grouping table
@@ -422,7 +432,8 @@ def load():
 
 def main():
     (order, taxa, grid, runs, ordered, bycty, dropped, unknown_name, excluded,
-     bands, supers, mismatched, collapsed, suspect, tclass, mrow, spill, noloc) = load()
+     bands, supers, mismatched, class_calls, collapsed, suspect, tclass, mrow, spill,
+     noloc) = load()
 
     band_mode = collections.defaultdict(collections.Counter)
     for i, t in enumerate(taxa):
@@ -479,12 +490,21 @@ def main():
     # differ several-fold in how many taxa a run carries, and one shared scale would flatten
     # the half with the smaller range into a single tone. The ramps are therefore NOT
     # comparable with each other, which the caption says.
-    halves = [("Pathogens", MATRIX[("wheat", "wheat_path")]),
-              ("Residents", MATRIX[("wheat", "none")])]
+    # EACH RAMP COUNTS EVERY CALL OF ITS CLASS IN THE RUN, drawn or not. Counting only the
+    # drawn rows would leave the resident ramp describing nothing, residents having no rows,
+    # and would under-report the pathogens by the taxa below MIN_RUNS.
+    halves = [("Pathogens", MATRIX[("wheat_species", "wheat_path")]),
+              ("Residents", MATRIX[("wheat_species", "none")])]
+    want_of = {"Pathogens": {"wheat_pathogen", "plant_pathogen"},
+               "Residents": {"resident"}}
+    idx_of = {rid: j for j, rid in enumerate(order)}
     per_half = {}
     for hname, hue in halves:
-        idx = [i for i, t in enumerate(taxa) if SUPER[supers[i]] == hname]
-        per_half[hname] = (grid[idx] > 0).sum(axis=0) if idx else np.zeros(grid.shape[1], int)
+        counts = np.zeros(grid.shape[1], dtype=int)
+        for (rid, kl), n in class_calls.items():
+            if kl in want_of[hname] and rid in idx_of:
+                counts[idx_of[rid]] += n
+        per_half[hname] = counts
 
     extra_rows, extra_cells = [], []
     for hname, hue in halves:

@@ -27,16 +27,15 @@ MUTED = "#707070"
 # ── the matrix (panel A) ──────────────────────────────────────────────────────
 # A 2-D ramp, because the matrix crosses two independent axes and colour has to carry both.
 # HUE is the PHI-base column (green non-pathogen -> amber plant pathogen -> orange wheat
-# pathogen); SATURATION is the USDA row (saturated = recorded on wheat, pale = recorded on
-# some other plant, grey = genus only). That retires the fill-plus-outline encoding and the
-# legend with it: a cell's position already states both facts, and its colour agrees.
+# pathogen); SATURATION is the USDA row, saturated where USDA names the taxon on wheat and
+# pale where it does not. That retires the fill-plus-outline encoding and the legend with
+# it: a cell's position already states both facts, and its colour agrees.
 MATRIX = {
-    ("wheat", "none"):       "#1aa64b",
-    ("wheat", "vagrant"):    "#f5a800",
-    ("wheat", "wheat_path"): "#e05a26",
-    ("plant", "none"):       "#c3e8bf",
-    ("plant", "vagrant"):    "#fbe49a",
-    ("genus_only", "none"): "#f0f0f0",
+    ("wheat_resident", "none"):       "#1aa64b",
+    ("wheat_resident", "vagrant"):    "#f5a800",
+    ("wheat_resident", "wheat_path"): "#e05a26",
+    ("plant_resident", "none"):       "#c3e8bf",
+    ("plant_resident", "vagrant"):    "#fbe49a",
 }
 
 
@@ -46,12 +45,13 @@ MATRIX = {
 # the 2026-11-24 rename: the USDA-coverage value is `genus_only`, and `congener` is kept
 # for the different thing it means here, a relative admitted as a Kraken2 competitor.
 MATRIX_NAME = {
-    ("wheat", "wheat_path"): "wheat pathogen",
-    ("wheat", "vagrant"):    "pathogen of another plant, recorded on wheat",
-    ("wheat", "none"):       "recorded on wheat, not a pathogen of it",
-    ("plant", "vagrant"):    "pathogen of another plant",
-    ("plant", "none"):       "recorded on another plant",
-    ("genus_only", "none"):  "no USDA record under this species name",
+    ("wheat_species", "wheat_path"): "wheat pathogen",
+    ("wheat_species", "vagrant"):    "pathogen of another plant, recorded on wheat",
+    ("wheat_species", "none"):       "recorded on wheat, not a pathogen of it",
+    ("wheat_genus",   "none"):       "genus recorded on wheat, species not",
+    ("plant_species", "vagrant"):    "pathogen of another plant",
+    ("plant_species", "none"):       "recorded on another plant",
+    ("plant_genus",   "none"):       "genus recorded on another plant, species not",
 }
 
 

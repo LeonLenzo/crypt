@@ -8,5 +8,4 @@ row	taxon	label	n_collapsed	band	half	colour	colour_unknown	band_fill	italic	cat
 6	Pyrenophora tritici-repentis	P. tritici-repentis	0	Blotches	Pathogens	#e05a26	#f1b59d	#fae5dc	1	wheat pathogen	38
 7	Microdochium nivale	M. nivale	0	Rots	Pathogens	#e05a26	#f1b59d	#fae5dc	1	wheat pathogen	46
 8	Fusarium graminearum	F. graminearum	0	Rots	Pathogens	#e05a26	#f1b59d	#fae5dc	1	wheat pathogen	12
-9	__total_pathogens__	pathogens per run (0–6)	0	 	Total	#e05a26	#f1b59d	#ffffff	0	pathogens per run, 0–6	1253
-10	__total_residents__	residents per run (0–23)	0	 	Total	#1aa64b	#98d7ae	#ffffff	0	residents per run, 0–23	714
+9	__total_residents__	residents per run (0–23)	0	 	Total	#1aa64b	#98d7ae	#ffffff	0	residents per run, 0–23	714

@@ -95,7 +95,7 @@ PHI_KEY = {"none": "none", "plant_pathogen": "vagrant", "wheat_pathogen": "wheat
 # rather than paper over it.
 # A NON-PATHOGEN IS BANDED ON on_wheat, AND NOT ON THE USDA ROW. The USDA row looks like the
 # natural axis and is the wrong one. USDA Fungus-Host records fungi OBSERVED ON PLANTS, not
-# pathogens, and `usda_row = genus_only` means only that USDA holds no record under that
+# pathogens, and `route = usda_genus` means only that USDA holds no record under that
 # SPECIES name, the taxon having entered because its genus does. It therefore mixes two
 # different things and cannot tell them apart: a genuine plant associate USDA has not
 # recorded, and a species of a plant-associated genus that lives nowhere near a plant. No
@@ -105,7 +105,7 @@ PHI_KEY = {"none": "none", "plant_pathogen": "vagrant", "wheat_pathogen": "wheat
 # read at GENUS precisely because species rank loses 903 of 5,973 fungal detections on field
 # wheat, "led by Dioszegia hungarica" -- the taxon an earlier version of this panel dropped
 # for carrying the label when it was still called `congener`, which is why it is now called
-# `genus_only`. Reading it as weak evidence would re-impose the species-rank reading the
+# `usda_genus`. Reading it as weak evidence would re-impose the species-rank reading the
 # reference was built to avoid.
 #
 # So: two resident bands, split on whether USDA records the SPECIES on wheat. Colour still
@@ -331,7 +331,7 @@ def load():
             collapsed_of[key].add(r["taxon"])
             hit[key].add(r["run"])
             cov[key][r["run"]] = float(r["coverage"])
-            slot_votes[key][s3.get(r["taxon"], ("plant_genus", "none", "no"))] += 1
+            slot_votes[key][s3.get(r["taxon"], ("plant_resident", "none", "no"))] += 1
             state = declaration(decl_of[r["run"]], r["taxon"], r["genus"],
                                 r["taxon_class"] == "host")[0]
             mismatched += state != r["declared"]
@@ -484,19 +484,25 @@ def main():
                 w.writerow([int(j), i, name[st], fill[st]])
                 n_cell += 1
 
-    # ── per-column totals, one summary row per half ───────────────────────────
-    # A count per RUN cannot be a number on a one-pixel column, so it is a colour. Each
-    # half gets its own ramp in its own hue and its own maximum: pathogens and residents
-    # differ several-fold in how many taxa a run carries, and one shared scale would flatten
-    # the half with the smaller range into a single tone. The ramps are therefore NOT
-    # comparable with each other, which the caption says.
-    # EACH RAMP COUNTS EVERY CALL OF ITS CLASS IN THE RUN, drawn or not. Counting only the
-    # drawn rows would leave the resident ramp describing nothing, residents having no rows,
-    # and would under-report the pathogens by the taxa below MIN_RUNS.
-    halves = [("Pathogens", MATRIX[("wheat_species", "wheat_path")]),
-              ("Residents", MATRIX[("wheat_species", "none")])]
-    want_of = {"Pathogens": {"wheat_pathogen", "plant_pathogen"},
-               "Residents": {"resident"}}
+    # ── per-column total, ONE summary row: residents ──────────────────────────
+    # A count per RUN cannot be a number on a one-pixel column, so it is a colour.
+    #
+    # ONLY RESIDENTS GET ONE, Leon's call. The residents have no rows, so without the ramp
+    # they are not in the figure at all. The pathogens have nine, so a pathogens-per-run
+    # ramp restates a column the reader can already count by eye, and restating it in a
+    # third encoding invites the reader to check it against the rows and find a discrepancy:
+    # the ramp counted all 14 detected wheat pathogens plus the 5 plant pathogens, the rows
+    # draw the 9 above MIN_RUNS, so the two disagree BY DESIGN on 5 taxa and 19 runs.
+    #
+    # THE COST IS STATED, not hidden: the five wheat pathogens below MIN_RUNS
+    # (F. avenaceum 6 runs, O. yallundae 5, F. culmorum 3, B. sorokiniana 3, A. alternata 2)
+    # and the five non-wheat plant pathogens now appear nowhere in the panel. They are in
+    # supp_data_s5 and the caption names them.
+    #
+    # THE RAMP COUNTS EVERY RESIDENT CALL IN THE RUN, drawn or not -- which is all of them,
+    # residents having no rows.
+    halves = [("Residents", MATRIX[("wheat_resident", "none")])]
+    want_of = {"Residents": {"resident"}}
     idx_of = {rid: j for j, rid in enumerate(order)}
     per_half = {}
     for hname, hue in halves:
@@ -511,9 +517,9 @@ def main():
         counts = per_half[hname]
         hi = int(counts.max())
         r = len(rows) + len(extra_rows)
-        # BOTH summary rows sit at the BOTTOM, in a half of their own, and their label box
-        # is NOT tinted: the tint on the taxon boxes says which matrix category the rows
-        # are, and a summary of several categories has none to claim.
+        # The summary row sits at the BOTTOM, in a half of its own, and its label box is NOT
+        # tinted: the tint on the taxon boxes says which matrix category the rows are, and a
+        # summary of several categories has none to claim.
         extra_rows.append({"row": r, "taxon": f"__total_{hname.lower()}__",
                            "label": f"{hname.lower()} per run (0\u2013{hi})",
                            "n_collapsed": 0, "band": " ", "half": "Total",

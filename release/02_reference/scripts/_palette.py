@@ -41,18 +41,28 @@ MATRIX = {
 
 # What each cell of the matrix IS, in words. Lives here with MATRIX because a figure that
 # shows the hue has to be able to name it, and two figures naming it separately is two
-# chances to disagree. 03_classify's samples and runs panels both read this. Keys follow
-# the 2026-11-24 rename: the USDA-coverage value is `genus_only`, and `congener` is kept
-# for the different thing it means here, a relative admitted as a Kraken2 competitor.
+# chances to disagree. 03_classify's samples and runs panels both read this.
+#
+# THE KEYS ARE MATRIX'S KEYS, asserted below. This block was briefly written against a
+# four-row scheme (wheat_species / wheat_genus / plant_species / plant_genus) that no table
+# produces: the row axis is WHERE USDA NAMES THE TAXON, and whether it was named at species
+# or genus level is the `route` column, a fact about the database build. See
+# figures/matrix/plot_matrix.py, "THE ROW AXIS IS WHERE THE TAXON IS NAMED".
+#
+# The wording says "recorded on", never "pathogen of", for the row: USDA Fungus-Host records
+# fungi OBSERVED on plants and most of them are not pathogens. Only the column may say
+# pathogen, because only PHI-base scores one.
 MATRIX_NAME = {
-    ("wheat_species", "wheat_path"): "wheat pathogen",
-    ("wheat_species", "vagrant"):    "pathogen of another plant, recorded on wheat",
-    ("wheat_species", "none"):       "recorded on wheat, not a pathogen of it",
-    ("wheat_genus",   "none"):       "genus recorded on wheat, species not",
-    ("plant_species", "vagrant"):    "pathogen of another plant",
-    ("plant_species", "none"):       "recorded on another plant",
-    ("plant_genus",   "none"):       "genus recorded on another plant, species not",
+    ("wheat_resident", "wheat_path"): "wheat pathogen",
+    ("wheat_resident", "vagrant"):    "pathogen of another plant, recorded on wheat",
+    ("wheat_resident", "none"):       "recorded on wheat, not scored a pathogen",
+    ("plant_resident", "vagrant"):    "pathogen of another plant",
+    ("plant_resident", "none"):       "recorded on another plant",
 }
+
+assert set(MATRIX_NAME) == set(MATRIX), (
+    "MATRIX_NAME and MATRIX must name the same cells; they drifted once and the figure "
+    "raised a KeyError on the first wheat pathogen")
 
 
 def darken(hex_colour, f=0.55):

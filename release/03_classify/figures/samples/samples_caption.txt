@@ -16,14 +16,22 @@ drawn, the x axis being geography, and they stay in supp_data_s5 and in every
 count the module makes.
 
 The 9 drawn rows are the wheat pathogens called in at least 10 runs, banded by
-the disease they cause. RESIDENTS HAVE NO ROW OF THEIR OWN: 66 resident taxa
-are called over 4,034 calls, and the ramp at the foot of the panel carries
-them as a count per run. That is a decision about space rather than about
-evidence — the detection-space panels share a page with this one — and the
-ramp counts every resident call, not only the taxa that would have cleared the
-row threshold. The plant host is not drawn either: every library has one, so
-it is a ranking question rather than a detection one, and supp_data_s5 carries
-the ranked host for all 1,347 runs.
+the disease they cause. They are not every wheat pathogen detected: 14 were
+called in all, and the 5 below the row threshold are F. avenaceum (6), O.
+yallundae (5), B. sorokiniana (3), F. culmorum (3), A. alternata (2), with the
+run count in brackets. Those calls are in supp_data_s5 and in every count this
+caption gives; they are simply not drawn.
+
+RESIDENTS HAVE NO ROW OF THEIR OWN: 66 resident taxa are called over 4,034
+calls, and the single ramp at the foot of the panel carries them as a count
+per run. That is a decision about space rather than about evidence — the
+detection-space panels share a page with this one — and the ramp counts every
+resident call, not only the taxa that would have cleared the row threshold.
+The pathogens have no matching ramp, deliberately: they have rows, so a ramp
+would restate a column the reader can already count, and it would disagree
+with those rows by the 5 taxa above. The plant host is not drawn either: every
+library has one, so it is a ranking question rather than a detection one, and
+supp_data_s5 carries the ranked host for all 1,347 runs.
 
 Colour carries two things and neither is abundance. The HUE is the taxon's
 category in the reference matrix, the same hue it has in 02_reference's matrix
@@ -41,10 +49,11 @@ nearly every run; the second is the stronger one, a study that reported no
 pathogen we can detect and whose reads carry one anyway.
 
 Pathogens of other plants but not of wheat are almost absent: 5 taxa and 11
-calls, the commonest in 6 runs, so none reaches a row. That is the db2 arm
-working. Under db1' these were the conspicuous artefact, reads from a
-Pleosporaceae with no close reference forced onto a tomato or soybean
-pathogen; adding the predicted competitors gave them somewhere nearer to go.
+calls, the commonest in 6 runs, so none reaches a row and, with the pathogen
+ramp gone, none is in the panel at all. That is the db2 arm working. Under
+db1' these were the conspicuous artefact, reads from a Pleosporaceae with no
+close reference forced onto a tomato or soybean pathogen; adding the predicted
+competitors gave them somewhere nearer to go.
 
 The unit is the run and not the BioProject, deliberately. Projects in this
 cohort are not geographically coherent — the largest spans twelve countries —

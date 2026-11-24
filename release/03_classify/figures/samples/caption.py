@@ -155,6 +155,13 @@ def numbers():
     for r in wp:
         per_taxon[r["taxon"]].add(r["run"])
     n["drawn_taxa"] = sum(1 for v in per_taxon.values() if len(v) >= MIN_RUNS)
+    # Every wheat pathogen BELOW the row threshold, named. The panel no longer carries a
+    # pathogens-per-run ramp, so these taxa are in no part of the figure and the caption is
+    # the only place a reader can learn they were detected at all.
+    undrawn = sorted(((t, len(v)) for t, v in per_taxon.items() if len(v) < MIN_RUNS),
+                     key=lambda kv: (-kv[1], kv[0]))
+    n["n_undrawn"] = len(undrawn)
+    n["undrawn"] = ", ".join(f"{abbrev(t)} ({c})" for t, c in undrawn)
 
     hit = defaultdict(set)
     for r in wp:
@@ -194,13 +201,21 @@ def main():
         f"every count the module makes.",
         "",
         f"The {n['drawn_rows']} drawn rows are the wheat pathogens called in at least "
-        f"{MIN_RUNS} runs, banded by the disease they cause. RESIDENTS HAVE NO ROW OF "
-        f"THEIR OWN: {n['n_resident_taxa']} resident taxa are called over "
-        f"{n['n_resident_calls']:,} calls, and the ramp at the foot of the panel carries "
-        f"them as a count per run. That is a decision about space rather than about "
-        f"evidence \u2014 the detection-space panels share a page with this one \u2014 and "
-        f"the ramp counts every resident call, not only the taxa that would have cleared "
-        f"the row threshold. The plant host is not drawn either: every library has one, so "
+        f"{MIN_RUNS} runs, banded by the disease they cause. They are not every wheat "
+        f"pathogen detected: {n['taxa']} were called in all, and the {n['n_undrawn']} "
+        f"below the row threshold are {n['undrawn']}, with the run count in brackets. "
+        f"Those calls are in supp_data_s5 and in every count this caption gives; they are "
+        f"simply not drawn.",
+        "",
+        f"RESIDENTS HAVE NO ROW OF THEIR OWN: {n['n_resident_taxa']} resident taxa are "
+        f"called over {n['n_resident_calls']:,} calls, and the single ramp at the foot of "
+        f"the panel carries them as a count per run. That is a decision about space rather "
+        f"than about evidence \u2014 the detection-space panels share a page with this one "
+        f"\u2014 and the ramp counts every resident call, not only the taxa that would "
+        f"have cleared the row threshold. The pathogens have no matching ramp, "
+        f"deliberately: they have rows, so a ramp would restate a column the reader can "
+        f"already count, and it would disagree with those rows by the {n['n_undrawn']} "
+        f"taxa above. The plant host is not drawn either: every library has one, so "
         f"it is a ranking question rather than a detection one, and supp_data_s5 carries "
         f"the ranked host for all {n['runs']:,} runs.",
         "",
@@ -221,7 +236,7 @@ def main():
         "",
         f"Pathogens of other plants but not of wheat are almost absent: {n['n_pp_taxa']} "
         f"taxa and {n['n_pp_calls']} calls, the commonest in {n['pp_max']} runs, so none "
-        f"reaches a row. That is the db2 arm working. Under db1' these were the conspicuous "
+        f"reaches a row and, with the pathogen ramp gone, none is in the panel at all. That is the db2 arm working. Under db1' these were the conspicuous "
         f"artefact, reads from a Pleosporaceae with no close reference forced onto a tomato "
         f"or soybean pathogen; adding the predicted competitors gave them somewhere nearer "
         f"to go.",

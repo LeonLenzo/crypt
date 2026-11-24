@@ -81,8 +81,8 @@ def main():
             rr = ref.get(r["taxon"], {})
             klass = taxon_class(rr, False)
             slot = ((rr.get("usda_row"), PHI.get(rr.get("phibase_col"), "none"))
-                    if rr.get("usda_row") else ("genus_only", "none"))
-            fill = MATRIX.get(slot, MATRIX[("genus_only", "none")])
+                    if rr.get("usda_row") else ("plant_resident", "none"))
+            fill = MATRIX.get(slot, MATRIX[("plant_resident", "none")])
             pts.append({"run": r["run"], "rung": want[r["run"]]["rung"],
                         "taxon": r["taxon"], "taxon_class": klass,
                         "redundancy": f"{red:.6g}", "coverage": f"{cov:.6g}",
@@ -91,7 +91,7 @@ def main():
                         # the legend names the SLOT, not the class: `resident` spans two
                         # slots and two hues, so keying a legend on the class duplicates it
                         "category": MATRIX_NAME.get(slot,
-                                                    MATRIX_NAME[("genus_only", "none")]),
+                                                    MATRIX_NAME[("plant_resident", "none")]),
                         # label only what the reader needs to check the verdict: the calls,
                         # plus anything that cleared the absolute floor and still failed
                         "label": r["taxon"] if (r["call"] != "rejected"

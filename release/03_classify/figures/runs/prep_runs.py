@@ -44,8 +44,12 @@ MODULE = HERE.parents[1]
 RELEASE = MODULE.parent
 sys.path.insert(0, str(RELEASE / "02_reference/scripts"))
 sys.path.insert(0, str(MODULE / "scripts"))
-from _palette import MATRIX, MATRIX_NAME, darken         # noqa: E402
-from detect import load_thresholds, taxon_class          # noqa: E402
+from _palette import MATRIX, darken                      # noqa: E402
+from detect import load_thresholds, taxon_class, declaration, COHORT   # noqa: E402
+
+# samples.png's two non-matrix colours, so the composite reads as one figure
+DECLARED = "#7a7a7a"          # mirrors prep_samples.DECLARED_COLOUR
+HOST_COLOUR = "#9ecae1"       # _palette.HAS_GENOME, the scope funnel's light blue
 
 CAND = MODULE / "data/raw/candidates_db2.tsv"
 PANEL = MODULE / "data/inputs/panel_runs.tsv"
@@ -61,10 +65,47 @@ def read(p, comment="#"):
                                    delimiter="\t"))
 
 
+# ── the five categories the panels distinguish ───────────────────────────────
+# Leon's scheme, 2026-11-25. The earlier version keyed on the reference MATRIX slot alone,
+# which is the right language for 02_reference's own figures but the wrong one here: on a
+# detection-space panel the question is what each point IS, and a declared pathogen and an
+# undeclared one are the same slot and the whole point of the chapter. So the pathogen slot
+# SPLITS on the declaration and the three resident slots COLLAPSE to two.
+#
+# The colours are samples.png's, so the composite reads as one figure: declared grey is
+# DECLARED_COLOUR, undeclared is the wheat-pathogen orange, the residents are the matrix
+# greens. The host is the one category samples.png never draws, and it takes the scope
+# funnel's light blue -- a hue from the release palette that no other category here uses.
+CATS = [
+    ("Wheat Resident",      MATRIX[("wheat_resident", "none")]),
+    ("Plant Resident",      MATRIX[("plant_resident", "none")]),
+    ("Declared Pathogen",   DECLARED),
+    ("Undeclared Pathogen", MATRIX[("wheat_resident", "wheat_path")]),
+    ("Host",                HOST_COLOUR),
+]
+CAT_FILL = dict(CATS)
+
+
+def category(klass, rr, crow, taxon, genus):
+    """-> (category, fill). The point's identity, which is slot AND declaration."""
+    if klass == "host":
+        return "Host", CAT_FILL["Host"]
+    if klass in ("wheat_pathogen", "plant_pathogen"):
+        state = declaration(crow, taxon, genus, False)[0] if crow else "unknown"
+        name = "Declared Pathogen" if state == "declared" else "Undeclared Pathogen"
+        return name, CAT_FILL[name]
+    # residents: the USDA row is the distinction that survives, wheat against other plants
+    name = ("Wheat Resident" if rr.get("usda_row") == "wheat_resident"
+            else "Plant Resident")
+    return name, CAT_FILL[name]
+
+
 def main():
     panel = read(PANEL)
     want = {r["run"]: r for r in panel}
     th = load_thresholds(THRESH, "db2")
+    # the cohort row is declaration()'s first argument, exactly as in prep_samples
+    crow = {r["run"]: r for r in read(COHORT)}
     ref = {r["taxon"]: r for r in read(REF)}
 
     pts = []
@@ -80,22 +121,19 @@ def main():
                 continue
             rr = ref.get(r["taxon"], {})
             klass = taxon_class(rr, False)
-            slot = ((rr.get("usda_row"), PHI.get(rr.get("phibase_col"), "none"))
-                    if rr.get("usda_row") else ("plant_resident", "none"))
-            fill = MATRIX.get(slot, MATRIX[("plant_resident", "none")])
+            cat, fill = category(klass, rr, crow.get(r["run"], {}), r["taxon"],
+                                 r.get("genus", ""))
             pts.append({"run": r["run"], "rung": want[r["run"]]["rung"],
                         "taxon": r["taxon"], "taxon_class": klass,
                         "redundancy": f"{red:.6g}", "coverage": f"{cov:.6g}",
                         "distinct": r["distinct"], "call": r["call"],
                         "reason": r["reason"], "fill": fill, "edge": darken(fill),
-                        # the legend names the SLOT, not the class: `resident` spans two
-                        # slots and two hues, so keying a legend on the class duplicates it
-                        "category": MATRIX_NAME.get(slot,
-                                                    MATRIX_NAME[("plant_resident", "none")]),
+                        "category": cat,
                         # label only what the reader needs to check the verdict: the calls,
                         # plus anything that cleared the absolute floor and still failed
                         "label": r["taxon"] if (r["call"] != "rejected"
                                                 or r["reason"] != "distinct") else ""})
+
     pts.sort(key=lambda p: (int(p["rung"]), -float(p["coverage"])))
     with open(HERE / "runs_points.tsv", "w", newline="") as fh:
         w = csv.DictWriter(fh, list(pts[0]), delimiter="\t", lineterminator="\n")

@@ -70,8 +70,12 @@ YL <- c(min(pts$coverage), 1)
 panel_plot <- function(which_rung) {
   d <- pts[pts$rung == which_rung, ]
   ggplot(d, aes(redundancy, coverage)) +
-    geom_line(data = null, aes(x, y), inherit.aes = FALSE,
-              colour = "#9a9a9a", linewidth = 0.5) +
+    # THE NULL CURVE IS NOT DRAWN, Leon's call. y = 1-exp(-x) is what sampling at that
+    # depth would give if every read landed on a new k-mer, and no point reaches it -- real
+    # transcriptomes are not uniform over a genome's k-mer space -- so as a line on this
+    # chart it marked a ceiling nothing approaches and competed with the two floors that
+    # DO decide calls. It is still the thing the abundance floor is a fraction OF, which
+    # is why that floor is a curve and not a line, and the caption says so.
     geom_line(data = null, aes(x, y * SF), inherit.aes = FALSE,
               colour = "#4a4a4a", linewidth = 0.5, linetype = "22") +
     geom_hline(yintercept = CF, colour = "#4a4a4a", linewidth = 0.4, linetype = "12") +
@@ -89,16 +93,19 @@ panel_plot <- function(which_rung) {
                   labels = seq(-6, 4, by = 2)) +
     scale_y_log10(limits = YL, breaks = 10^seq(-6, 0, by = 2),
                   labels = seq(-6, 0, by = 2)) +
-    labs(x = expression(log[10] ~ "Redundancy"),
-         y = expression(log[10] ~ "Coverage")) +
+    # NO AXIS TITLES. The four panels share one pair of axes in the composite and carry a
+    # common title there, so a title on each would be set four times.
+    labs(x = NULL, y = NULL) +
     theme_classic(base_size = 11) +
     theme(panel.background = element_rect(fill = "white", colour = NA),
           plot.background  = element_rect(fill = "white", colour = NA),
           panel.grid       = element_blank(),
           axis.line        = element_line(colour = "black", linewidth = 0.7),
           axis.ticks       = element_line(colour = "black", linewidth = 0.7),
-          axis.text        = element_text(colour = "black", size = 9),
-          axis.title       = element_text(colour = "black", size = 10),
+          # the panels are placed small in the composite; the tick labels are the only
+          # text left on them and have to survive that reduction
+          axis.text        = element_text(colour = "black", size = 12),
+          axis.title       = element_blank(),
           plot.margin      = margin(8, 10, 6, 6))
 }
 
@@ -118,34 +125,38 @@ for (i in seq_len(nrow(pan))) {
 # ── legend ────────────────────────────────────────────────────────────────────
 # Keyed on the matrix SLOT, which is what the hue encodes. Keying it on taxon_class
 # duplicated the key, because `resident` spans two slots and therefore two hues.
+# Ordered by the SCHEME, residents then pathogens then host, not by hue: the order is the
+# argument the panel makes and must not depend on which colours happened to occur.
+CAT_ORDER <- c("Wheat Resident", "Plant Resident", "Declared Pathogen",
+               "Undeclared Pathogen", "Host")
 cats <- unique(pts[pts$called, c("category", "fill")])
-cats <- cats[order(match(cats$fill, fills)), ]
+cats <- cats[order(match(cats$category, CAT_ORDER)), ]
 kd <- data.frame(k = factor(cats$category, levels = cats$category), x = 1, y = 1)
 g1 <- ggplot(kd, aes(x, y, fill = k)) + geom_point(shape = 21, size = 2.6) +
   scale_fill_manual(values = setNames(cats$fill, cats$category), name = NULL,
-                    guide = guide_legend(ncol = 1))
+                    guide = guide_legend(nrow = 1))
 
-lnames <- c("null: reads spread uniformly",
-            sprintf("abundance floor: %.2f x the null", SF),
+# The null is no longer drawn, so it is no longer a key. What remains is the two floors,
+# which are the only lines on the panel and the only ones that decide a call.
+lnames <- c(sprintf("abundance floor: %.2f x the null", SF),
             sprintf("coverage floor: %.0f%%", CF * 100))
-ln <- data.frame(k = factor(lnames, levels = lnames), x = rep(1:2, each = 3),
-                 y = rep(1:3, 2))
+ln <- data.frame(k = factor(lnames, levels = lnames), x = rep(1:2, each = 2),
+                 y = rep(1:2, 2))
 g2 <- ggplot(ln, aes(x, y, linetype = k, colour = k, group = k)) + geom_line() +
-  scale_linetype_manual(values = c("solid", "22", "12"), name = NULL) +
-  scale_colour_manual(values = c("#9a9a9a", "#4a4a4a", "#4a4a4a"), name = NULL) +
-  guides(linetype = guide_legend(ncol = 1), colour = guide_legend(ncol = 1))
+  scale_linetype_manual(values = c("22", "12"), name = NULL) +
+  scale_colour_manual(values = c("#4a4a4a", "#4a4a4a"), name = NULL) +
+  guides(linetype = guide_legend(nrow = 1), colour = guide_legend(nrow = 1))
 
+# ONE ROW, as the samples legend is, so the two sit under the composite as a single band.
 pick <- function(p) cowplot::get_plot_component(
-  p + theme_void() + theme(legend.position = "right",
-                           legend.text = element_text(size = 7.4, colour = "#1a1a1a",
-                                                      margin = margin(l = 3)),
-                           legend.key.spacing.y = unit(1, "pt")),
-  "guide-box-right", return_all = TRUE)
-lg <- cowplot::plot_grid(pick(g1), pick(g2), nrow = 1, rel_widths = c(1.5, 1))
-# Height is set from the key count, not guessed: four category keys at 0.78 in clipped the
-# first and last rows off.
-LH <- 0.26 + 0.17 * max(nrow(cats), nrow(ln) / 2)
-ragg::agg_png(file.path(HERE, "runs_legend.png"), width = 5.9, height = LH,
+  p + theme_void() + theme(legend.position = "bottom",
+                           legend.text = element_text(size = 9.5, colour = "#1a1a1a",
+                                                      margin = margin(l = 4, r = 20)),
+                           legend.key.spacing.x = unit(2, "pt"),
+                           legend.margin = margin(0, 0, 0, 6)),
+  "guide-box-bottom", return_all = TRUE)
+lg <- cowplot::plot_grid(pick(g1), pick(g2), nrow = 1, rel_widths = c(2.6, 1.3))
+ragg::agg_png(file.path(HERE, "runs_legend.png"), width = 11.4, height = 0.32,
               units = "in", res = 600, background = "white")
 print(lg)
 invisible(dev.off())

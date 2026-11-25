@@ -404,7 +404,13 @@ def main() -> None:
                        "call": call, "reason": reason}
                 cands.append(row)
                 if klass == "host":
-                    host_rows.append((reads, row))
+                    # ONLY ELIGIBLE PLANTS ENTER THE RANKING. Appending every host row
+                    # regardless of its verdict made host_coverage_floor inert: the rank
+                    # below emits its winner unconditionally, so a run whose only plants
+                    # were cross-mapping still got the best of them. A rejected row stays
+                    # in the candidate table with its reason; it just cannot win.
+                    if call == "detected":
+                        host_rows.append((reads, row))
                     continue            # the host's verdict is settled after the run
                 if call == "detected":
                     rr = ref.get(taxid, {})
@@ -428,6 +434,9 @@ def main() -> None:
             # written to the candidate table as rejected, with the reason, so the runner-up
             # is visible rather than silently absent: in a wheat cohort that runner-up is
             # Hordeum vulgare in most runs and it is cross-mapping, not barley.
+            # host_rows is EMPTY for a library with no plant in it, and that is the
+            # correct output: a pure fungal culture has no host, and saying so is the
+            # point of the floor.
             if host_rows:
                 host_rows.sort(key=lambda hr: -hr[0])
                 for n, (_, hrow) in enumerate(host_rows):

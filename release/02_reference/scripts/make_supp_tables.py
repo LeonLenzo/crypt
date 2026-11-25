@@ -8,6 +8,7 @@ Reads  data/curation/screen_assemblies.tsv   what is buildable, and by which rou
        data/curation/screen_pathogens.tsv    the PHI-base labels
        data/curation/screen_merges.tsv       provisional names folded onto their binomial
        data/curation/screen_hosts.tsv        the plant hosts, the database's sink
+       data/curation/extra_cds_db2.tsv       the gene models we predicted ourselves
        data/raw/raw_taxdmp.zip               nodes.dmp + names.dmp, for the lineage
 Writes data/outputs/supp_data_s3_reference.tsv
 
@@ -60,7 +61,8 @@ RANKS = ("kingdom", "phylum", "class", "order", "family", "genus")
 COLS = (["ncbi_taxid", "taxon"] + list(RANKS) +
         ["route", "usda_row", "on_wheat",
          "phibase_col", "is_plant_pathogen", "is_wheat_pathogen", "wheat_pathogen_source",
-         "plant_pathogen_evidence", "n_assemblies", "n_annotated", "annotation_ratio",
+         "plant_pathogen_evidence", "n_assemblies", "n_annotated", "n_predicted",
+         "annotation_ratio",
          "category", "in_tree", "merged_from"])
 csv.field_size_limit(10 ** 7)
 
@@ -133,6 +135,17 @@ def main():
                 for r in rd(CUR / "screen_species.tsv")
                 if r["on_wheat"] == "yes" and r["ncbi_taxid"]}
 
+
+    # Gene models PREDICTED here rather than downloaded (research/predict, vipsania), which
+    # enter the db2 build through --extra-cds. They are published as their own column and
+    # never folded into n_annotated: n_annotated is what NCBI carries, and a reader has to
+    # be able to see which is which. Every one of these is a taxon with NO annotated
+    # assembly, so n_predicted > 0 with n_annotated = 0 means the taxon became buildable
+    # here and was uncallable before.
+    n_pred = defaultdict(int)
+    for r in rd(CUR / "extra_cds_db2.tsv"):
+        n_pred[int(r["taxid"])] += 1
+
     pth = {int(r["ncbi_taxid"]): r for r in rd(CUR / "screen_pathogens.tsv")}
 
     merged = defaultdict(list)
@@ -148,7 +161,15 @@ def main():
         is_plant = p.get("is_plant_pathogen") == "yes"
         is_wheat = p.get("is_wheat_pathogen") == "yes"
 
-        usda_row = "wheat" if onw else ("plant" if obs else "congener")
+        # TWO VALUES, and the RANK OF THE RECORD IS NOT ONE OF THEM. Leon's call,
+        # 2026-11-24: the matrix describes taxa, and a taxon is either named on wheat or it
+        # is not. Whether it entered the reference because USDA named the species or because
+        # USDA named its genus is how it got here, not what it is, and that is already
+        # recorded in `route` for anyone who needs it. Three earlier attempts at this axis
+        # (an observed/congener split, a genus_only row, a host x rank crossing) all tried
+        # to draw the route and all made the figure assert something about the organism that
+        # the route cannot support.
+        usda_row = "wheat_resident" if onw else "plant_resident"
         phibase_col = ("wheat_pathogen" if is_wheat else
                        "plant_pathogen" if is_plant else "none")
         # The five tree categories ARE the five occupied observation cells of the matrix.
@@ -167,9 +188,17 @@ def main():
                "wheat_pathogen_source": p.get("wheat_pathogen_source", ""),
                "plant_pathogen_evidence": p.get("plant_pathogen_evidence", ""),
                "n_assemblies": n_asm[t], "n_annotated": n_ann[t],
+               "n_predicted": n_pred.get(t, 0),
                "annotation_ratio": round(n_ann[t] / n_asm[t], 4),
                "category": category,
-               "in_tree": "yes" if (obs and n_ann[t]) else "no",
+               # A PREDICTED GENE MODEL PUTS A TAXON IN THE TREE. The rule used to be
+               # "observation with an NCBI annotation", which excluded all 135 taxa
+               # research/predict was run on, every one of which had no annotation at all:
+               # the figure could not show the arm whose whole purpose is to close that
+               # gap. The tree draws what the db2 database can be built from, so a
+               # predicted model counts exactly as a downloaded one does for membership,
+               # and `n_predicted` keeps them distinguishable once drawn.
+               "in_tree": "yes" if (obs and (n_ann[t] or n_pred.get(t, 0))) else "no",
                "merged_from": ";".join(merged.get(t, ()))}
         row.update({r: lin.get(r, "") for r in RANKS})
         rows.append(row)
@@ -193,7 +222,8 @@ def main():
                 # Every host genome carries a gene model by construction: these come from
                 # Ensembl Plants, where a genome is only published with a gene build, so
                 # n_annotated == n_assemblies and the ratio is 1 for a host by definition.
-                "n_assemblies": n, "n_annotated": n, "annotation_ratio": 1.0,
+                "n_assemblies": n, "n_annotated": n, "n_predicted": 0,
+                "annotation_ratio": 1.0,
                 "category": f"host_{h['role']}", "in_tree": "no", "merged_from": "",
             })
             row.update({r: lin.get(r, "") for r in RANKS})

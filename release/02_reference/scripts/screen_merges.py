@@ -12,7 +12,7 @@ NCBI and USDA can hold the same fungus under two names, and then the reference s
 organisms. *Cercospora flagellaris* is the case that exposed it: USDA has the binomial with
 33 host records and NO genome, while every genome is filed under the provisional node
 *Cercospora* cf. *flagellaris*, which USDA never names. So the name arrives as an
-observation with nothing to build, and the genome arrives as a congener.
+observation with nothing to build, and the genome arrives in the genus-only row.
 
 The criterion is a token match on the binomial, never a substring: the NCBI name must parse
 as `<Genus> cf. <epithet>` (a trailing strain code is allowed and ignored), and
@@ -29,7 +29,7 @@ and nothing else.
 `aff.` IS DELIBERATELY NOT MERGED. `cf.` ("compare with") says the isolate is probably that
 species; `aff.` ("has affinity to") says it is probably a DIFFERENT, undescribed species
 related to it. Merging an `aff.` node would assert the identity its name denies, and an
-undescribed relative is exactly what the congener tier is for. They are written out with
+undescribed relative is exactly what the genus-only row is for. They are written out with
 action=`keep` so the decision is visible rather than silent.
 
 Everything here is reversible: the table is the whole record, and dropping a row un-merges

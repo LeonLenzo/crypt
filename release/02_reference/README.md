@@ -107,7 +107,8 @@ B's topology is rebuilt from those columns and nothing under `figures/` opens th
 Its columns are the two figure axes (`usda_row`, `phibase_col`), the five-way `category`
 that is panel B's tip colour, the counts (`n_assemblies`, `n_annotated`, `annotation_ratio`),
 the labels with their provenance (`wheat_pathogen_source`, `plant_pathogen_evidence`), the
-`route` into scope, `merged_from`, and `in_tree` marking the rows panel B draws.
+`route` into scope, `merged_from`, `n_predicted` for the gene models predicted here rather
+than downloaded, and `in_tree` marking the rows panel B draws.
 
 **The pathogen label is a SEPARATE table on purpose.** It never enters the Kraken2 database,
 which is pure taxonomy; it is an annotation joined to a detection afterwards. Keeping it out of
@@ -140,7 +141,7 @@ not merely 9,285 spellings. `authority` and `type material` are excluded as name
 carrying the author string and a strain designation respectively.
 
 **The unit is a TAXON, not a described species, and the figures say `taxa` for that reason.**
-1,373 of the 3,465 congeners are NCBI `sp.` nodes: unidentified isolates carrying a strain
+1,373 of the 3,465 genus-route taxa are NCBI `sp.` nodes: unidentified isolates with a strain
 code and no binomial (*Alternaria* sp. BMP 0032). They are legitimate reference entries,
 because an unidentified *Alternaria* gives Kraken2 as real a competitor as a named one, but
 they are not species in any taxonomic sense, and 5,843 printed as "species" invites a
@@ -153,7 +154,8 @@ USDA and NCBI can hold the same fungus under two names, and then the reference c
 twice and builds it once. *Cercospora flagellaris* is the case that exposed it: USDA has the
 binomial with 33 host records and NO genome, while every genome is filed under the
 provisional node *Cercospora* cf. *flagellaris*, which USDA never names. The name arrived as
-an observation with nothing to build and the genome as a congener, and the two never met.
+an observation with nothing to build and the genome on the genus route, and the two
+never met.
 
 `screen_merges.py` folds the provisional node onto the binomial. The criterion is a token
 match, never a substring: the NCBI name must parse as `<Genus> cf. <epithet>` with an
@@ -172,7 +174,7 @@ table is the whole record: delete a row and the next run un-merges that taxon.
 **`aff.` is deliberately not merged.** `cf.` ("compare with") says the isolate is probably
 that species; `aff.` ("has affinity to") says it is probably a DIFFERENT, undescribed species
 related to it. Merging an `aff.` node would assert the identity its own name denies, and an
-undescribed relative is exactly what the congener tier is for. The five are written out with
+undescribed relative is exactly what the genus route is for. The five are written out with
 `action = keep` so the decision is visible rather than silent.
 
 The merge also repaired a resolution fault worth recording. NCBI lists `Haematonectria sp.`
@@ -212,7 +214,7 @@ These four comparisons were made in the research tree against holobase and have 
 re-derived from the public sources. The conclusions they support are each corroborated by the
 detection evidence above, which has been.
 
-### The genus tier is not a weak tier, and `usda_row = congener` is a bad name for it
+### The genus tier is not a weak tier, and is no longer a row
 
 **Re-derived on db2 and the 1,379 field-wheat runs, 2026-11-23**, independently of the db_v4
 measurement above and agreeing with it to a tenth of a percent:
@@ -228,18 +230,31 @@ still *Malassezia* and nothing else (*restricta* 19, *globosa* 1, *arunalokei* 1
 databases and two cohorts giving the same split is the strongest evidence here that reading
 the scope at genus is doing real work rather than padding the reference.
 
-**`usda_row` collapses `route = usda_genus` to the word `congener`, and the word is wrong.**
-It is set in `make_supp_tables.py` as
+**`usda_row` used to collapse `route = usda_genus` to the word `congener`, and the word was
+wrong.** In this project's vocabulary "congener" means a relative admitted so Kraken2's LCA
+has somewhere to park a read, with no expectation that the organism is present. Applying it
+to a tier carrying 15.0% of all field-wheat detections invited the reader, and invited one
+of this repo's own figures, to treat those calls as artefacts and drop them. **One did: a
+draft of `03_classify/figures/samples` removed *Dioszegia hungarica* on the strength of the
+label, which is the single detection the genus reading exists to keep.**
 
-    usda_row = "wheat" if onw else ("plant" if obs else "congener")
+**Settled 2026-11-24, Leon's call: the ROUTE IS NOT A ROW AT ALL.** `usda_row` has two
+values, `wheat_resident` and `plant_resident`, and they say only whether USDA names that
+species on wheat. Three attempts to put the route on the axis were tried and dropped in one
+sitting, and the reason each failed is the same: how a taxon got into the reference is a
+fact about the BUILD, and drawing it as a row makes the figure assert something about the
+ORGANISM that the route cannot support.
 
-so it means exactly *USDA holds no record under this species name*. In this project's
-vocabulary "congener" means something else: a relative admitted so Kraken2's LCA has
-somewhere to park a read, with no expectation that the organism is present. Applying that
-word to a tier carrying 15.0% of all field-wheat detections invites the reader, and invited
-one of this repo's own figures, to treat those calls as artefacts and drop them. **One did:
-a draft of `03_classify/figures/samples` removed *Dioszegia hungarica* on the strength of
-the label, which is the single detection the genus reading exists to keep.**
+| attempt | why it was dropped |
+|---|---|
+| `congener` row | the word means something else here, and it read as "artefact" |
+| `genus_only` row | honest name, but still a row for a build fact |
+| `wheat_genus` + `plant_genus` rows | split the 3,465 by whether USDA records the genus on wheat (1,130 / 2,335). It put 1,130 taxa in the wheat half of the figure that are not wheat-associated organisms |
+
+The route survives where it belongs, in the `route` column of S3, which distinguishes
+`usda_species`, `usda_genus` and `exception` per taxon. Any analysis that needs the tier can
+read it there; the figure no longer draws it. `figures/matrix/caption.py` still derives and
+states the genus-route counts in words, so nothing is lost to the reader.
 
 **What the tier actually mixes, and what nothing here can separate.** USDA Fungus-Host
 records fungi OBSERVED ON PLANTS, not pathogens, so an absent species-level record is weak
@@ -250,17 +265,36 @@ distinguishes them:
   *D. hungarica* and *Sporobolomyces ruberrimus* are, both common wheat phyllosphere yeasts;
 - a species of a plant-associated genus that is not itself plant-associated.
 
+**Counted, that mix splits 2,865 / 600**, and `figures/matrix/caption.py` derives both at
+write time rather than quoting them:
+
+| | taxa |
+|---|---:|
+| genus is represented in the reference by a USDA-recorded SIBLING species | 2,865 |
+| genus qualified on USDA records that could not be built into a row | 600 |
+| genus USDA never names at any rank | 0 |
+
+Only the first group is a congener in the strict sense. The 600 are genera whose USDA-named
+species exist but have no annotated assembly, so the record that qualified the genus never
+became a row of its own; they are lichens, mushrooms and mycorrhizas (*Cladonia* with 7
+resolved USDA names, *Glomus* 34, *Agaricus* 15). The third row being zero is a property of
+the scope rule, and the caption raises rather than absorbs a non-zero count, so a future
+scope leak fails loudly.
+
+**Match USDA names through `screen_species.tsv`, never by splitting the raw string.** A raw
+token match reports *Dioszegia* as absent from USDA, which is how this was first miscounted;
+it is there as *Bullera crocea* -> *Dioszegia crocea*. Synonymy is load-bearing here exactly
+as it is for the master, and only 4 USDA names in the whole master resolve to a genus node,
+so "USDA named only the genus" is not a case that occurs at any scale.
+
 No available source resolves it: FungalTraits is genus-keyed (1,069 genera, no species) and
 so cannot speak to a species its genus already covers, and that is why it was found redundant
 above. The honest position is that **the label describes USDA's coverage of a NAME and is
 never evidence about the organism**; whether the organism is there is what the detection and
 the off-host null answer, independently.
 
-A rename of the value, `congener` -> `genus_only`, would say what the column means. It is not
-done here because `usda_row` is a published column of S3 and its values are keys in
-`scripts/_palette.py`, `figures/matrix/plot_matrix.py`, `figures/tree/tree.R` and
-`03_classify/figures/samples/plot_samples.py`; the change is cheap but it is a change to a
-deliverable and wants a deliberate pass, not a drive-by.
+Panel B is unaffected by the rename: `figures/tree/` keys on `category`, which never carried
+the word.
 
 ## The pathogen label, measured
 
@@ -309,9 +343,11 @@ joined to this table on the species taxid, which is the matching granularity.
 absent from the USDA master. So the broad scope loses nothing the narrow label cares about,
 which is the test the whole design has to pass.
 
-**No congener carries a pathogen label at all.** After the merge and the disease condition,
-the entire congener row of the figure sits in one cell: 3,465 taxa, none of them a known
-plant or wheat pathogen. That is a structural property, not a coincidence. A fungus PHI-base
+**No taxon admitted at genus rank carries a pathogen label at all.** After the merge and the
+disease condition, all 3,465 genus-route taxa sit in the non-pathogen column, none of them a
+known plant or wheat pathogen. That is a structural property, not a coincidence. Since the
+2026-11-24 row change it is no longer visible as an empty row, so the caption states it in
+words instead. A fungus PHI-base
 scores with a named disease is a studied fungus, and USDA records studied fungi, so the
 pathogen annotation can never reach a taxon admitted only because its genus qualified. No
 detection can be called a pathogen on the strength of genus membership.
@@ -546,23 +582,42 @@ wheat) needs an overlap lens with no name, and every box ends up labelled with t
 set name while holding the exclusive count. Crossed axes draw as a matrix, where that
 combination is simply a cell, and the counts are disjoint and sum to the cohort.
 
-**Three cells are empty and are not drawn.** The staircase is the result: no wheat pathogen
-in scope is off-wheat in USDA, and no congener is a pathogen of anything. The captions say
+**One cell is empty and is not drawn.** The gap is the result: no wheat pathogen in scope is
+off-wheat in USDA. The captions say
 which gap means what, because an absent box on its own reads as a layout choice.
 
-**Five colours, one per occupied observation cell, shared by both panels.** Hue is the
-PHI-base column, saturation the USDA row (`scripts/_palette.py` `MATRIX`). Panel B's five
-tip categories ARE those five cells, which is why `prep_tree.py` emits five and not four: a
-plant pathogen USDA records on wheat is a different cell from one it does not. The hexes are
-repeated in `tree.R` and `tree_legend.R` and the three must be kept in step.
+**Five colours, one per occupied cell, shared by both panels.** Hue is the PHI-base column,
+saturation the USDA row (`scripts/_palette.py` `MATRIX`). Panel B's five tip categories ARE
+those five cells, which is why `prep_tree.py` emits five and not four: a plant pathogen USDA
+records on wheat is a different cell from one it does not. The hexes are repeated in
+`tree.R` and `tree_legend.R` and the three must be kept in step.
+
+**A PREDICTED GENE MODEL PUTS A TAXON IN THE TREE, as of 2026-11-25.** `in_tree` was
+"observation with an NCBI annotation", which excluded all 135 taxa `research/predict` ran
+on: every one of them had no annotation, which is exactly what put it on the worklist, so
+the panel could not show the arm built to close that gap. The rule is now "observation with
+a gene model, downloaded OR predicted" and the tree is 1,300 tips rather than 1,172. 128 of
+the 135 are observations and became tips; the other 7 arrived on the genus route and stay
+off, on the same rule as every other genus-route taxon.
+
+Two thin rings at the tip base carry the two facts and must not be conflated. The INNER ring
+is NCBI's annotation ratio, the purple ramp, and still measures the public gap. The OUTER
+ring is a black tick where the model is ours. They cannot both be bright for one taxon: a
+predicted taxon has no NCBI annotation at all, so its inner ring is at the dark end and its
+whole bar is predicted. `caption.py` asserts that rather than trusting it. A first attempt
+put the ticks outside the bars, where most tips never reach and the marks read as dust.
 
 **Sized to be placed, not cropped.** All three files render at their final print size at
 300 dpi and tile an **A4 portrait** page (8.27 x 11.69 in): the fan on top at full width,
 the matrix as a landscape band beneath it with the key beside it.
 
     width   0.30 + tree 7.50 + 0.30                                  =  8.10
-    band    0.30 + matrix 3.81 + 0.20 + legend 3.67 + 0.30           =  8.28
-    height  0.30 + 7.50 + 0.20 + max(band 3.26, 2.57) + 0.30         = 11.56
+    band    0.30 + matrix 3.85 + 0.20 + legend 3.67 + 0.30           =  8.32
+    height  0.30 + 7.50 + 0.20 + max(matrix 2.17, legend 2.89) + 0.30 = 11.19
+
+Re-measured 2026-11-25. The matrix lost a row and gained a statistic per pill (3.80 x 3.06
+-> 3.85 x 2.17) and the key gained a row for the predicted-model ring, so the band is now
+as tall as the KEY rather than as the matrix.
 
 Stacking beats side by side here. A square fan placed next to the matrix wastes whatever
 height the matrix does not use, and the fan is then limited by the width the matrix leaves

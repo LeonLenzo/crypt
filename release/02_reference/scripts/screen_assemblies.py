@@ -27,7 +27,8 @@ absent, and an assembly without one has no CDS to extract.
 `screen_merges.tsv` is applied FIRST, before the genus walk and before `route`. NCBI files
 some genomes under a provisional node (`Cercospora cf. flagellaris`) whose binomial USDA
 names separately, which would otherwise split one fungus into an observation with no genome
-and a congener with no host record. A merged assembly carries the TARGET taxid and name, so
+and a genus-only row with no host record. A merged assembly carries the TARGET taxid and
+name, so
 every count downstream sees one taxon. Written by `screen_merges.py`; absent file = no
 merging, and the previous behaviour.
 """

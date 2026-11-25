@@ -1,12 +1,12 @@
 run	BioProject	host	setting	arm	taxid	taxon	genus	taxon_class	reads	distinct	ceiling	coverage	saturation	redundancy	judgeable	on_wheat	is_plant_pathogen	is_wheat_pathogen	declared	declared_rank	declared_status	genus_calls	genus_cov_cv	also_in_db1p
-DRR552862	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	4406749	3690000	7263577	0.508014	0.508014	141.966	1				n/a		not_curated	1		1
-DRR552863	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	5460183	3807904	7263577	0.524246	0.524246	175.903	1				n/a		not_curated	1		1
-DRR552864	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	5516564	3788189	7263577	0.521532	0.521532	177.719	1				n/a		not_curated	1		1
-DRR552865	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	3926375	3802355	7263577	0.523482	0.523482	126.49	1				n/a		not_curated	1		1
-DRR552866	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	4274341	3792296	7263577	0.522098	0.522098	137.7	1				n/a		not_curated	1		1
-DRR552867	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	2004774	3332201	7263577	0.458755	0.458755	64.5849	1				n/a		not_curated	1		1
-DRR552868	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1062087	2968197	7263577	0.408641	0.408641	34.2157	1				n/a		not_curated	1		1
-DRR552869	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	2429631	3515606	7263577	0.484005	0.484005	78.2719	1				n/a		not_curated	1		1
+DRR552862	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	4406749	3690000	7263577	0.508014	0.508014	141.966	1				n/a		none_declared	1		1
+DRR552863	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	5460183	3807904	7263577	0.524246	0.524246	175.903	1				n/a		none_declared	1		1
+DRR552864	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	5516564	3788189	7263577	0.521532	0.521532	177.719	1				n/a		none_declared	1		1
+DRR552865	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	3926375	3802355	7263577	0.523482	0.523482	126.49	1				n/a		none_declared	1		1
+DRR552866	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	4274341	3792296	7263577	0.522098	0.522098	137.7	1				n/a		none_declared	1		1
+DRR552867	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	2004774	3332201	7263577	0.458755	0.458755	64.5849	1				n/a		none_declared	1		1
+DRR552868	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1062087	2968197	7263577	0.408641	0.408641	34.2157	1				n/a		none_declared	1		1
+DRR552869	PRJDB18040	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	2429631	3515606	7263577	0.484005	0.484005	78.2719	1				n/a		none_declared	1		1
 ERR1224553	PRJEB12497	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	11189039	10906019	52096895	0.209341	0.209341	28.7797	1				n/a		curated	1		1
 ERR1224554	PRJEB12497	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	12972793	10907839	52096895	0.209376	0.209376	33.3677	1				n/a		curated	1		1
 ERR1224555	PRJEB12497	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	11407952	10800854	52096895	0.207322	0.207322	29.3427	1				n/a		curated	1		1
@@ -45,11 +45,8 @@ ERR1224575	PRJEB12497	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	
 ERR1224576	PRJEB12497	Triticum aestivum	lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	8764872	5497159	10888604	0.504854	0.504854	107.864	1	yes	yes	yes	declared	species	curated	1		1
 ERR1224576	PRJEB12497	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	5885957	10604332	52096895	0.20355	0.20355	15.1394	1				n/a		curated	1		1
 ERR1224577	PRJEB12497		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	13309384	4582561	10888604	0.420858	0.420858	163.791	1	yes	yes	yes	declared	species	curated	1		1
-ERR1224577	PRJEB12497		lab	db2	4565	Triticum aestivum	Triticum	host	38779	66183	52096895	0.00127038	0.0133821	0.0997446	1				n/a		curated	1		1
 ERR1224578	PRJEB12497		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	19351161	4726968	10888604	0.434121	0.434121	238.144	1	yes	yes	yes	declared	species	curated	1		1
-ERR1224578	PRJEB12497		lab	db2	4565	Triticum aestivum	Triticum	host	6015	56424	52096895	0.00108306	0.070547	0.0154714	1				n/a		curated	1		1
 ERR1224579	PRJEB12497		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	15368158	4654083	10888604	0.427427	0.427427	189.127	1	yes	yes	yes	declared	species	curated	1		1
-ERR1224579	PRJEB12497		lab	db2	4565	Triticum aestivum	Triticum	host	3053	52089	52096895	0.000999848	0.127826	0.00785271	1				n/a		curated	1		1
 ERR1224580	PRJEB12497	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	18630606	10887814	52096895	0.208992	0.208992	47.9203	1				n/a		curated	1		1
 ERR1224581	PRJEB12497	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	17677932	11099436	52096895	0.213054	0.213054	45.4699	1				n/a		curated	1		1
 ERR1224582	PRJEB12497	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	17431270	10974275	52096895	0.210651	0.210651	44.8355	1				n/a		curated	1		1
@@ -154,7 +151,6 @@ ERR1607750	PRJEB15280	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticu
 ERR1607751	PRJEB15280	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	6116139	7334898	10888604	0.673631	0.673631	75.2679	1	yes	yes	yes	declared	species	curated	1		1
 ERR1607751	PRJEB15280	Triticum aestivum	field	db2	60169	Penicillium polonicum	Penicillium	resident	6858	101066	817772	0.123587	0.183108	1.12375	1	no	no	no	undeclared		curated	1		1
 ERR1607751	PRJEB15280	Triticum aestivum	field	db2	887095	Cladosporium inversicolor	Cladosporium	resident	13759	204666	4975090	0.0411382	0.132845	0.370587	1	yes	no	no	undeclared		curated	1		1
-ERR1607751	PRJEB15280	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	20877	259740	52096895	0.00498571	0.0953618	0.0536984	1				n/a		curated	1		1
 ERR1607752	PRJEB15280	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	10640490	5095143	10888604	0.467934	0.467934	130.947	1	yes	yes	yes	declared	species	curated	2	0.4885	1
 ERR1607752	PRJEB15280	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	109546	1341769	8344310	0.1608	0.194247	1.75918	1	yes	yes	yes	undeclared		curated	2	0.4885	1
 ERR1607752	PRJEB15280	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	70305	549562	4237275	0.129697	0.145441	2.22333	1	yes	no	no	undeclared		curated	1		1
@@ -403,7 +399,6 @@ ERR1607786	PRJEB15280	perennial grass	field	db2	430562	Alternaria novae-zelandia
 ERR1607786	PRJEB15280	perennial grass	field	db2	297637	Alternaria triticimaculans	Alternaria	resident	2688	29727	829789	0.0358248	0.101735	0.434077	1	yes	no	no	undeclared		curated	11	0.08867	1
 ERR1607786	PRJEB15280	perennial grass	field	db2	1187925	Alternaria hordeiaustralica	Alternaria	resident	2440	28231	870170	0.0324431	0.103579	0.375743	1	no	no	no	undeclared		curated	11	0.08867	1
 ERR1607786	PRJEB15280	perennial grass	field	db2	283354	Alternaria metachromatica	Alternaria	resident	2197	25595	862279	0.029683	0.102625	0.341418	1	yes	no	no	undeclared		curated	11	0.08867	1
-ERR1607786	PRJEB15280	perennial grass	field	db2	4565	Triticum aestivum	Triticum	host	3545	52356	52096895	0.00100497	0.110719	0.0091182	1				n/a		curated	1		1
 ERR1607787	PRJEB15280	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	6752029	4494592	10888604	0.412779	0.412779	83.0935	1	yes	yes	yes	declared	species	curated	1		1
 ERR1607787	PRJEB15280	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	247686	1199717	4237275	0.283134	0.283246	7.83285	1	yes	no	no	undeclared		curated	2	0.8473	1
 ERR1607787	PRJEB15280	Triticum aestivum	field	db2	86828	Sporobolomyces ruberrimus	Sporobolomyces	resident	4555	86197	3684220	0.0233963	0.153242	0.165671	1	no	no	no	undeclared		curated	2	0.8473	1
@@ -431,7 +426,6 @@ ERR1607788	PRJEB15280	Triticum aestivum	field	db2	1187928	Alternaria incomplexa	
 ERR1607788	PRJEB15280	Triticum aestivum	field	db2	1187941	Alternaria rosae	Alternaria	resident	11637	109981	4839150	0.0227273	0.0825026	0.322238	1	no	no	no	undeclared		curated	15	0.2706	1
 ERR1607788	PRJEB15280	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	2283299	2703862	5412024	0.499603	0.499603	56.5338	1	no	no	no	undeclared		curated	1		1
 ERR1607788	PRJEB15280	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	86853	921359	6227658	0.147946	0.174941	1.86881	1	yes	yes	yes	undeclared		curated	1		1
-ERR1607788	PRJEB15280	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	58956	150938	52096895	0.00289726	0.0205911	0.151643	1				n/a		curated	1		1
 ERR1607789	PRJEB15280	Triticosecale	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	5389942	4009532	5412024	0.740856	0.740856	133.453	1	no	no	no	undeclared		curated	2	0.603	1
 ERR1607789	PRJEB15280	Triticosecale	field	db2	887095	Cladosporium inversicolor	Cladosporium	resident	121503	912944	4975090	0.183503	0.190733	3.27258	1	yes	no	no	undeclared		curated	2	0.603	1
 ERR1607789	PRJEB15280	Triticosecale	field	db2	2817042	Alternaria sp. BMP 0032	Alternaria	resident	18774	41555	823889	0.0504376	0.0529359	3.05346	1	no	no	no	undeclared		curated	11	0.05862	1
@@ -450,7 +444,6 @@ ERR1607789	PRJEB15280	Triticosecale	field	db2	38038	Rhynchosporium secalis	Rhync
 ERR1607789	PRJEB15280	Triticosecale	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	954847	3078076	10888604	0.282688	0.28269	11.7508	1	yes	yes	yes	declared	species	curated	1		1
 ERR1607789	PRJEB15280	Triticosecale	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	55976	498568	4237275	0.117662	0.141813	1.77019	1	yes	no	no	undeclared		curated	1		1
 ERR1607789	PRJEB15280	Triticosecale	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	31964	446218	3934012	0.113426	0.170985	1.08876	1	no	no	no	undeclared		curated	1		1
-ERR1607789	PRJEB15280	Triticosecale	field	db2	4565	Triticum aestivum	Triticum	host	4767	95438	52096895	0.00183193	0.150325	0.0122613	1				n/a		curated	1		1
 ERR1607790	PRJEB15280	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	10685810	4803525	10888604	0.441152	0.441152	131.504	1	yes	yes	yes	declared	species	curated	1		1
 ERR1607790	PRJEB15280	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	8608	111858	4237275	0.0263986	0.110772	0.27222	1	yes	no	no	undeclared		curated	1		1
 ERR1607790	PRJEB15280	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	2766893	6291149	52096895	0.120759	0.120857	7.11681	1				n/a		curated	1		1
@@ -479,7 +472,6 @@ ERR1607791	PRJEB15280	Triticum aestivum	field	db2	112498	Ramularia collo-cygni	R
 ERR1607791	PRJEB15280	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	1965603	3608066	10888604	0.331362	0.331362	24.1896	1	yes	yes	yes	declared	species	curated	1		1
 ERR1607791	PRJEB15280	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	18428	163846	4237275	0.0386678	0.087553	0.582769	1	yes	no	no	undeclared		curated	1		1
 ERR1607791	PRJEB15280	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	146523	1066493	3934012	0.271096	0.272952	4.99085	1	no	no	no	undeclared		curated	1		1
-ERR1607791	PRJEB15280	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	2308	37395	52096895	0.000717797	0.121272	0.00593648	1				n/a		curated	1		1
 ERR1607792	PRJEB15280	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	10925682	5080678	10888604	0.466605	0.466605	134.456	1	yes	yes	yes	declared	species	curated	2	0.7439	1
 ERR1607792	PRJEB15280	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	37595	571709	8344310	0.0685148	0.151169	0.603732	1	yes	yes	yes	undeclared		curated	2	0.7439	1
 ERR1607792	PRJEB15280	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	1307703	4392507	52096895	0.0843142	0.087337	3.36358	1				n/a		curated	1		1
@@ -795,14 +787,12 @@ ERR1607830	PRJEB15280	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticu
 ERR1607831	PRJEB15280	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	3253678	4070045	10888604	0.373789	0.373789	40.0412	1	yes	yes	yes	declared	species	curated	1		1
 ERR1607831	PRJEB15280	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	28636	281540	3934012	0.0715656	0.11488	0.975397	1	no	no	no	undeclared		curated	1		1
 ERR1607831	PRJEB15280	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	576839	2203356	6227658	0.353802	0.353803	12.4118	1	yes	yes	yes	undeclared		curated	1		1
-ERR1607831	PRJEB15280	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	213584	160344	52096895	0.0030778	0.00728157	0.549366	1				n/a		curated	1		1
 ERR1607832	PRJEB15280	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	9303547	4664814	10888604	0.428412	0.428412	114.494	1	yes	yes	yes	declared	species	curated	1		1
 ERR1607832	PRJEB15280	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	46592	385789	4237275	0.0910465	0.11811	1.47343	1	yes	no	no	undeclared		curated	1		1
 ERR1607832	PRJEB15280	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	266765	1562948	3934012	0.397291	0.397336	9.08653	1	no	no	no	undeclared		curated	1		1
 ERR1607832	PRJEB15280	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	1427012	3347145	6227658	0.537464	0.537464	30.7049	1	yes	yes	yes	undeclared		curated	2	0.9168	1
 ERR1607832	PRJEB15280	Triticum aestivum	field	db2	1047168	Zymoseptoria brevis	Zymoseptoria	resident	9554	74467	3192450	0.023326	0.070607	0.40102	1	no	no	no	undeclared		curated	2	0.9168	1
 ERR1607832	PRJEB15280	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	67696	555066	5412024	0.102562	0.126167	1.67613	1	no	no	no	undeclared		curated	1		1
-ERR1607832	PRJEB15280	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	161279	319307	52096895	0.0061291	0.0180508	0.414831	1				n/a		curated	1		1
 ERR1607833	PRJEB15280	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	6449371	5059079	10888604	0.464621	0.464621	79.3688	1	yes	yes	yes	declared	species	curated	1		1
 ERR1607833	PRJEB15280	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	71774	583798	4237275	0.137777	0.153655	2.26979	1	yes	no	no	undeclared		curated	1		1
 ERR1607833	PRJEB15280	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	30003	430945	3934012	0.109543	0.171132	1.02196	1	no	no	no	undeclared		curated	1		1
@@ -822,13 +812,11 @@ ERR1607835	PRJEB15280	Triticum aestivum	field	db2	1338630	Cladosporium allicinum
 ERR1607835	PRJEB15280	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	332603	1097145	6227658	0.176173	0.17631	7.15659	1	yes	yes	yes	undeclared		curated	1		1
 ERR1607835	PRJEB15280	Triticum aestivum	field	db2	34373	Blumeria graminis	Blumeria	wheat_pathogen	2996	53728	2632498	0.0204095	0.144294	0.152503	1	yes	yes	yes	undeclared		curated	1		1
 ERR1607835	PRJEB15280	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	365672	1466087	10888604	0.134644	0.136157	4.50012	1	yes	yes	yes	declared	species	curated	1		1
-ERR1607835	PRJEB15280	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	9697	126221	52096895	0.00242281	0.0983545	0.0249419	1				n/a		curated	1		1
 ERR1607836	PRJEB15280	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	10726724	4834302	10888604	0.443978	0.443978	132.008	1	yes	yes	yes	declared	species	curated	1		1
 ERR1607836	PRJEB15280	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	43892	482075	3934012	0.12254	0.157961	1.49505	1	no	no	no	undeclared		curated	1		1
 ERR1607836	PRJEB15280	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	1222542	3292672	6227658	0.528718	0.528718	26.3053	1	yes	yes	yes	undeclared		curated	2	0.9257	1
 ERR1607836	PRJEB15280	Triticum aestivum	field	db2	1047168	Zymoseptoria brevis	Zymoseptoria	resident	8490	65167	3192450	0.0204128	0.068093	0.35636	1	no	no	no	undeclared		curated	2	0.9257	1
 ERR1607836	PRJEB15280	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	25500	270289	5412024	0.0499423	0.106683	0.631372	1	no	no	no	undeclared		curated	1		1
-ERR1607836	PRJEB15280	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	10599	108761	52096895	0.00208767	0.0776265	0.027262	1				n/a		curated	1		1
 ERR1607837	PRJEB15280	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	12111873	4494895	10888604	0.412807	0.412807	149.054	1	yes	yes	yes	declared	species	curated	1		1
 ERR1607837	PRJEB15280	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	39052	409846	3934012	0.10418	0.141632	1.33019	1	no	no	no	undeclared		curated	1		1
 ERR1607837	PRJEB15280	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	1401019	3244913	6227658	0.521049	0.521049	30.1456	1	yes	yes	yes	undeclared		curated	2	0.9233	1
@@ -836,7 +824,6 @@ ERR1607837	PRJEB15280	Triticum aestivum	field	db2	1047168	Zymoseptoria brevis	Zy
 ERR1607837	PRJEB15280	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	52510	362789	5412024	0.0670339	0.0921423	1.30013	1	no	no	no	undeclared		curated	1		1
 ERR1607837	PRJEB15280	Triticum aestivum	field	db2	5520	Microdochium nivale	Microdochium	wheat_pathogen	10783	162060	5343633	0.0303277	0.128005	0.270401	1	yes	yes	yes	undeclared		curated	1		1
 ERR1607837	PRJEB15280	Triticum aestivum	field	db2	34373	Blumeria graminis	Blumeria	wheat_pathogen	7315	137052	2632498	0.0520616	0.167462	0.37235	1	yes	yes	yes	undeclared		curated	1		1
-ERR1607837	PRJEB15280	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	16305	208346	52096895	0.0039992	0.0973721	0.0419386	1				n/a		curated	1		1
 ERR1607838	PRJEB15280	Triticum aestivum	field	db2	2817039	Alternaria sp. Ai002NY15	Alternaria	resident	20733	128138	800727	0.160027	0.165169	3.46962	1	no	no	no	undeclared		curated	15	0.3079	1
 ERR1607838	PRJEB15280	Triticum aestivum	field	db2	2817041	Alternaria sp. BMP 2799	Alternaria	resident	18097	122403	813785	0.150412	0.158461	2.9799	1	no	no	no	undeclared		curated	15	0.3079	1
 ERR1607838	PRJEB15280	Triticum aestivum	field	db2	2817042	Alternaria sp. BMP 0032	Alternaria	resident	17448	123550	823889	0.14996	0.159286	2.8378	1	no	no	no	undeclared		curated	15	0.3079	1
@@ -1775,7 +1762,6 @@ ERR3188482	PRJEB31334	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puc
 ERR3188482	PRJEB31334	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	1740111	3329595	52096895	0.0639116	0.0646473	4.47579	1				n/a		curated	1		1
 ERR3188483	PRJEB31334	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	3570494	4434725	10888604	0.407281	0.407281	43.9401	1	yes	yes	yes	declared	species	curated	1		1
 ERR3188483	PRJEB31334	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	2955362	4911607	52096895	0.0942783	0.0943254	7.60158	1				n/a		curated	1		1
-ERR4315679	PRJEB31334	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	56929	50574	52096895	0.000970768	0.0113264	0.0896057	1				n/a		curated	1		1
 ERR3383632	PRJEB33109	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	10942839	5597759	10888604	0.514093	0.514093	233.156	1	yes	yes	yes	declared	species	curated	1		1
 ERR3383632	PRJEB33109	Triticum aestivum	field	db2	29917	Cladosporium cladosporioides	Cladosporium	resident	5766	78628	3920113	0.0200576	0.069376	0.341243	1	yes	no	no	undeclared		curated	1		1
 ERR3383632	PRJEB33109	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	5030812	9424844	52096895	0.18091	0.18091	22.4034	1				n/a		curated	1		1
@@ -1986,7 +1972,6 @@ ERR3856842	PRJEB36485	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sp
 ERR3856842	PRJEB36485	Triticum aestivum	field	db2	5210	Filobasidium floriforme	Filobasidium	resident	189325	486914	2798439	0.173995	0.174015	9.06561	1	no	no	no	undeclared		curated	1		1
 ERR3856842	PRJEB36485	Triticum aestivum	field	db2	29917	Cladosporium cladosporioides	Cladosporium	resident	18545	202723	3920113	0.0517136	0.110148	0.633918	1	yes	no	no	undeclared		curated	2	0.341	1
 ERR3856842	PRJEB36485	Triticum aestivum	field	db2	3468514	Cladosporium sp. NU13	Cladosporium	resident	6910	105833	4164426	0.0254136	0.127475	0.222345	1	no	no	no	undeclared		curated	2	0.341	1
-ERR3856842	PRJEB36485	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	8614	109634	52096895	0.00210442	0.0960368	0.0221563	1				n/a		curated	1		1
 ERR3856843	PRJEB36485	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	3992157	3208511	10888604	0.294667	0.294667	49.1293	1	yes	yes	yes	declared	species	curated	2	0.3637	1
 ERR3856843	PRJEB36485	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	146869	1147183	8344310	0.137481	0.151838	2.35855	1	yes	yes	yes	undeclared		curated	2	0.3637	1
 ERR3856843	PRJEB36485	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	1175821	4126427	52096895	0.0792068	0.0832519	3.02436	1				n/a		curated	1		1
@@ -2146,7 +2131,6 @@ ERR4315173	PRJEB39201	Triticum aestivum	field	db2	181017	Alternaria conjuncta	Al
 ERR4315173	PRJEB39201	Triticum aestivum	field	db2	297637	Alternaria triticimaculans	Alternaria	resident	1561	16633	829789	0.0200449	0.0899606	0.252081	1	yes	no	no	undeclared		curated	5	0.04828	1
 ERR4315173	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	31644	357296	10888604	0.0328138	0.101731	0.389425	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315173	PRJEB39201	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	17613	198591	4237275	0.0468676	0.109742	0.556995	1	yes	no	no	undeclared		curated	1		1
-ERR4315173	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	17413	148244	52096895	0.00284554	0.0649663	0.0447885	1				n/a		curated	1		1
 ERR4315174	PRJEB39201	Triticum aestivum	field	db2	2817041	Alternaria sp. BMP 2799	Alternaria	resident	44328	136815	813785	0.168122	0.168236	7.29917	1	no	no	no	undeclared		curated	15	0.2856	1
 ERR4315174	PRJEB39201	Triticum aestivum	field	db2	2817042	Alternaria sp. BMP 0032	Alternaria	resident	37723	140049	823889	0.169985	0.170354	6.13539	1	no	no	no	undeclared		curated	15	0.2856	1
 ERR4315174	PRJEB39201	Triticum aestivum	field	db2	2817039	Alternaria sp. Ai002NY15	Alternaria	resident	37421	141985	800727	0.17732	0.177659	6.26233	1	no	no	no	undeclared		curated	15	0.2856	1
@@ -2169,7 +2153,6 @@ ERR4315174	PRJEB39201	Triticum aestivum	field	db2	5520	Microdochium nivale	Micro
 ERR4315174	PRJEB39201	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	68084	665456	4237275	0.157048	0.177681	2.1531	1	yes	no	no	undeclared		curated	1		1
 ERR4315174	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	25417	410784	10888604	0.037726	0.140455	0.312793	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315174	PRJEB39201	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	64444	840776	3934012	0.21372	0.240499	2.19509	1	no	no	no	undeclared		curated	1		1
-ERR4315174	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	24857	209904	52096895	0.00402911	0.0650544	0.0639354	1				n/a		curated	1		1
 ERR4315175	PRJEB39201	Triticum aestivum	field	db2	2817039	Alternaria sp. Ai002NY15	Alternaria	resident	3489	24470	800727	0.0305597	0.0690977	0.583877	1	no	no	no	undeclared		curated	11	0.09151	1
 ERR4315175	PRJEB39201	Triticum aestivum	field	db2	2817042	Alternaria sp. BMP 0032	Alternaria	resident	3359	23588	823889	0.0286301	0.0680175	0.546319	1	no	no	no	undeclared		curated	11	0.09151	1
 ERR4315175	PRJEB39201	Triticum aestivum	field	db2	2817041	Alternaria sp. BMP 2799	Alternaria	resident	3163	24071	813785	0.0295791	0.07286	0.520828	1	no	no	no	undeclared		curated	11	0.09151	1
@@ -2185,15 +2168,12 @@ ERR4315175	PRJEB39201	Triticum aestivum	field	db2	1338630	Cladosporium allicinum
 ERR4315175	PRJEB39201	Triticum aestivum	field	db2	5520	Microdochium nivale	Microdochium	wheat_pathogen	192961	1081610	5343633	0.202411	0.204026	4.8388	1	yes	yes	yes	undeclared		curated	2	0.5969	1
 ERR4315175	PRJEB39201	Triticum aestivum	field	db2	647655	Microdochium majus	Microdochium	resident	17267	219121	4289057	0.0510884	0.122533	0.539461	1	yes	no	no	undeclared		curated	2	0.5969	1
 ERR4315175	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	31036	390025	10888604	0.0358196	0.11283	0.381943	1	yes	yes	yes	declared	species	curated	1		1
-ERR4315175	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	19226	169665	52096895	0.00325672	0.0674983	0.0494518	1				n/a		curated	1		1
 ERR4315176	PRJEB39201	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	97105	773691	5412024	0.142958	0.157153	2.40429	1	no	no	no	undeclared		curated	1		1
 ERR4315176	PRJEB39201	Triticum aestivum	field	db2	5520	Microdochium nivale	Microdochium	wheat_pathogen	239699	1652264	5343633	0.309202	0.309962	6.01083	1	yes	yes	yes	undeclared		curated	2	0.8009	1
 ERR4315176	PRJEB39201	Triticum aestivum	field	db2	647655	Microdochium majus	Microdochium	resident	8453	146591	4289057	0.0341779	0.147257	0.264091	1	yes	no	no	undeclared		curated	2	0.8009	1
 ERR4315176	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	22812	322679	10888604	0.0296346	0.12107	0.280735	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315176	PRJEB39201	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	5997	114361	3934012	0.0290698	0.157341	0.204269	1	no	no	no	undeclared		curated	1		1
-ERR4315176	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	81156	185346	52096895	0.00355772	0.0188842	0.208744	1				n/a		curated	1		1
 ERR4315177	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	30001	445068	10888604	0.0408747	0.132402	0.369206	1	yes	yes	yes	declared	species	curated	1		1
-ERR4315177	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	242622	271225	52096895	0.00520616	0.0112146	0.624055	1				n/a		curated	1		1
 ERR4315178	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	9141466	5379125	10888604	0.494014	0.494014	196.453	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315178	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	2708966	6406277	52096895	0.122968	0.122969	12.1677	1				n/a		curated	1		1
 ERR4315179	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	3637779	4751949	10888604	0.436415	0.436415	78.1772	1	yes	yes	yes	declared	species	curated	1		1
@@ -2298,7 +2278,6 @@ ERR4315193	PRJEB39201	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sp
 ERR4315193	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	114503	1203395	10888604	0.110519	0.146258	1.40912	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315193	PRJEB39201	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	33346	481060	3934012	0.122282	0.180133	1.13583	1	no	no	no	undeclared		curated	1		1
 ERR4315193	PRJEB39201	Triticum aestivum	field	db2	5210	Filobasidium floriforme	Filobasidium	resident	10756	78290	2798439	0.0279763	0.0695025	0.515039	1	no	no	no	undeclared		curated	1		1
-ERR4315193	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	10335	164056	52096895	0.00314906	0.120043	0.026583	1				n/a		curated	1		1
 ERR4315194	PRJEB39201	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	6403188	3581985	8344310	0.429273	0.429273	102.828	1	yes	yes	yes	undeclared		curated	2	0.8767	1
 ERR4315194	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	14549	307217	10888604	0.0282145	0.17211	0.179046	1	yes	yes	yes	declared	species	curated	2	0.8767	1
 ERR4315194	PRJEB39201	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	11941	189394	4237275	0.0446971	0.142116	0.377623	1	yes	no	no	undeclared		curated	1		1
@@ -2705,7 +2684,6 @@ ERR4315277	PRJEB39201	Triticum aestivum	field	db2	205686	Ascochyta lentis	Ascoch
 ERR4315277	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	684407	2181446	10888604	0.200342	0.200342	14.5824	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315277	PRJEB39201	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	22547	214926	4237275	0.0507227	0.0715393	1.2345	1	yes	no	no	undeclared		curated	1		1
 ERR4315277	PRJEB39201	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	3461	95203	3934012	0.0242	0.131078	0.204105	1	no	no	no	undeclared		curated	1		1
-ERR4315277	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	19038	241848	52096895	0.00464227	0.0571101	0.0847808	1				n/a		curated	1		1
 ERR4315278	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	8351469	5339213	10888604	0.490349	0.490349	102.777	1	yes	yes	yes	declared	species	curated	2	0.876	1
 ERR4315278	PRJEB39201	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	17841	270340	8344310	0.0323981	0.130052	0.286506	1	yes	yes	yes	undeclared		curated	2	0.876	1
 ERR4315278	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	2260748	5124509	52096895	0.098365	0.0986592	5.81494	1				n/a		curated	1		1
@@ -3142,12 +3120,11 @@ ERR4315349	PRJEB39201	Triticum aestivum	field	db2	208348	Puccinia triticina	Pucc
 ERR4315349	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	59126	954611	10888604	0.0876707	0.169593	0.727631	1	yes	yes	yes	declared	species	curated	2	0.4962	1
 ERR4315349	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	2515491	1587261	52096895	0.0304675	0.0305147	6.47017	1				n/a		curated	1		1
 ERR4315350	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	66650	893000	10888604	0.0820123	0.146538	0.820225	1	yes	yes	yes	declared	species	curated	1		1
-ERR4315350	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	2956690	325210	52096895	0.00624241	0.00624552	7.60499	1				n/a		curated	1		1
-ERR4315351	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	4195829	150773	52096895	0.00289409	0.00289415	10.7922	1				n/a		curated	1		1
+ERR4315350	PRJEB39201	Triticum aestivum	field	db2	4513	Hordeum vulgare	Hordeum	host	534609	1233963	7263577	0.169884	0.169893	9.86258	1				n/a		curated	1		1
+ERR4315351	PRJEB39201	Triticum aestivum	field	db2	4513	Hordeum vulgare	Hordeum	host	351890	943025	7263577	0.129829	0.130026	6.49174	1				n/a		curated	1		1
 ERR4315352	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	10695736	4550964	10888604	0.417957	0.417957	131.626	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315352	PRJEB39201	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	20365	272340	3934012	0.069227	0.138382	0.693671	1	no	no	no	undeclared		curated	1		1
 ERR4315352	PRJEB39201	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	463617	2381279	6227658	0.382372	0.382389	9.97561	1	yes	yes	yes	undeclared		curated	1		1
-ERR4315352	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	128382	87061	52096895	0.00167114	0.00594222	0.330215	1				n/a		curated	1		1
 ERR4315353	PRJEB39201	Triticum aestivum	field	db2	2817039	Alternaria sp. Ai002NY15	Alternaria	resident	50788	212227	800727	0.265043	0.265043	14.842	1	no	no	no	undeclared		curated	15	0.3048	1
 ERR4315353	PRJEB39201	Triticum aestivum	field	db2	2817041	Alternaria sp. BMP 2799	Alternaria	resident	43871	208820	813785	0.256603	0.256604	12.6149	1	no	no	no	undeclared		curated	15	0.3048	1
 ERR4315353	PRJEB39201	Triticum aestivum	field	db2	2817042	Alternaria sp. BMP 0032	Alternaria	resident	40985	206424	823889	0.250548	0.250551	11.6405	1	no	no	no	undeclared		curated	15	0.3048	1
@@ -3173,7 +3150,6 @@ ERR4315353	PRJEB39201	Triticum aestivum	field	db2	86028	Oculimacula yallundae	Oc
 ERR4315353	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	377226	2043595	10888604	0.187682	0.187739	8.10672	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315353	PRJEB39201	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	6047	120080	4237275	0.028339	0.099819	0.333941	1	yes	no	no	undeclared		curated	1		1
 ERR4315353	PRJEB39201	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	140085	1546595	3934012	0.393134	0.393229	8.33243	1	no	no	no	undeclared		curated	1		1
-ERR4315353	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	14605	260571	52096895	0.00500166	0.0787727	0.0656003	1				n/a		curated	1		1
 ERR4315354	PRJEB39201	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	8083117	4969279	6227658	0.797937	0.797937	303.718	1	yes	yes	yes	undeclared		curated	2	0.8527	1
 ERR4315354	PRJEB39201	Triticum aestivum	field	db2	1047168	Zymoseptoria brevis	Zymoseptoria	resident	40549	202579	3192450	0.0634557	0.0668794	2.97216	1	no	no	no	undeclared		curated	2	0.8527	1
 ERR4315354	PRJEB39201	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	567861	2900900	5412024	0.53601	0.53601	24.5526	1	no	no	no	undeclared		curated	2	0.5627	1
@@ -3216,7 +3192,6 @@ ERR4315355	PRJEB39201	Triticum aestivum	field	db2	1187928	Alternaria incomplexa	
 ERR4315355	PRJEB39201	Triticum aestivum	field	db2	1187941	Alternaria rosae	Alternaria	resident	25877	265645	4839150	0.054895	0.0768981	1.2513	1	no	no	no	undeclared		curated	15	0.2992	1
 ERR4315355	PRJEB39201	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	132210	932499	5412024	0.172301	0.17287	5.71637	1	no	no	no	undeclared		curated	1		1
 ERR4315355	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	2086919	3569522	10888604	0.327822	0.327822	44.8486	1	yes	yes	yes	declared	species	curated	1		1
-ERR4315355	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	20615	248261	52096895	0.00476537	0.0538841	0.092595	1				n/a		curated	1		1
 ERR4315356	PRJEB39201	Triticum aestivum	field	db2	2817039	Alternaria sp. Ai002NY15	Alternaria	resident	45340	180369	800727	0.225257	0.225257	13.2499	1	no	no	no	undeclared		curated	15	0.2979	1
 ERR4315356	PRJEB39201	Triticum aestivum	field	db2	2817041	Alternaria sp. BMP 2799	Alternaria	resident	44484	178183	813785	0.218956	0.218956	12.7912	1	no	no	no	undeclared		curated	15	0.2979	1
 ERR4315356	PRJEB39201	Triticum aestivum	field	db2	2817042	Alternaria sp. BMP 0032	Alternaria	resident	37731	179460	823889	0.217821	0.217825	10.7163	1	no	no	no	undeclared		curated	15	0.2979	1
@@ -3767,7 +3742,6 @@ ERR4315423	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticu
 ERR4315424	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	6116139	7334898	10888604	0.673631	0.673631	75.2679	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315424	PRJEB39201	Triticum aestivum	field	db2	60169	Penicillium polonicum	Penicillium	resident	6858	101066	817772	0.123587	0.183108	1.12375	1	no	no	no	undeclared		curated	1		1
 ERR4315424	PRJEB39201	Triticum aestivum	field	db2	887095	Cladosporium inversicolor	Cladosporium	resident	13759	204666	4975090	0.0411382	0.132845	0.370587	1	yes	no	no	undeclared		curated	1		1
-ERR4315424	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	20877	259740	52096895	0.00498571	0.0953618	0.0536984	1				n/a		curated	1		1
 ERR4315425	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	13351956	5768088	10888604	0.529736	0.529736	286.938	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315425	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	5627176	8733761	52096895	0.167645	0.167645	25.2752	1				n/a		curated	1		1
 ERR4315426	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	7621839	5565474	10888604	0.511128	0.511128	163.796	1	yes	yes	yes	declared	species	curated	1		1
@@ -4292,7 +4266,6 @@ ERR4315523	PRJEB39201	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Diosz
 ERR4315523	PRJEB39201	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	1920690	3993499	6227658	0.641252	0.641252	41.3273	1	yes	yes	yes	undeclared		curated	2	0.914	1
 ERR4315523	PRJEB39201	Triticum aestivum	field	db2	1047168	Zymoseptoria brevis	Zymoseptoria	resident	12640	91986	3192450	0.0288136	0.0699835	0.530552	1	no	no	no	undeclared		curated	2	0.914	1
 ERR4315523	PRJEB39201	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	783257	2107756	5412024	0.389458	0.389458	19.3932	1	no	no	no	undeclared		curated	1		1
-ERR4315523	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	7664	118031	52096895	0.00226561	0.116067	0.0197128	1				n/a		curated	1		1
 ERR4315524	PRJEB39201	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	2231444	3732915	5412024	0.689745	0.689745	55.2498	1	no	no	no	undeclared		curated	2	0.6283	1
 ERR4315524	PRJEB39201	Triticum aestivum	field	db2	887095	Cladosporium inversicolor	Cladosporium	resident	62581	783245	4975090	0.157433	0.19325	1.68557	1	yes	no	no	undeclared		curated	2	0.6283	1
 ERR4315524	PRJEB39201	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	303830	2119550	6227658	0.340345	0.340838	6.53748	1	yes	yes	yes	undeclared		curated	1		1
@@ -4707,7 +4680,6 @@ ERR4315584	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puc
 ERR4315584	PRJEB39201	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	95498	804277	8344310	0.0963863	0.103496	2.67806	1	yes	yes	yes	undeclared		curated	2	0.1117	1
 ERR4315584	PRJEB39201	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	64725	631545	4237275	0.149045	0.153344	3.57438	1	yes	no	no	undeclared		curated	1		1
 ERR4315584	PRJEB39201	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	5918	134960	3934012	0.0343059	0.115615	0.35201	1	no	no	no	undeclared		curated	1		1
-ERR4315584	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	60795	185221	52096895	0.00355532	0.0148783	0.273069	1				n/a		curated	1		1
 ERR4315585	PRJEB39201	Triticum aestivum	field	db2	2817039	Alternaria sp. Ai002NY15	Alternaria	resident	32690	144837	800727	0.180882	0.180895	9.55314	1	no	no	no	undeclared		curated	14	0.2243	1
 ERR4315585	PRJEB39201	Triticum aestivum	field	db2	2817042	Alternaria sp. BMP 0032	Alternaria	resident	31370	139515	823889	0.169337	0.16936	8.90967	1	no	no	no	undeclared		curated	14	0.2243	1
 ERR4315585	PRJEB39201	Triticum aestivum	field	db2	2817041	Alternaria sp. BMP 2799	Alternaria	resident	29169	139477	813785	0.171393	0.171432	8.38741	1	no	no	no	undeclared		curated	14	0.2243	1
@@ -4726,7 +4698,6 @@ ERR4315585	PRJEB39201	Triticum aestivum	field	db2	1338630	Cladosporium allicinum
 ERR4315585	PRJEB39201	Triticum aestivum	field	db2	887095	Cladosporium inversicolor	Cladosporium	resident	127618	1022115	4975090	0.205447	0.205956	6.00243	1	yes	no	no	undeclared		curated	2	0.5396	1
 ERR4315585	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	1993154	3653925	10888604	0.335573	0.335573	42.8336	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315585	PRJEB39201	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	112415	781312	4237275	0.18439	0.184762	6.20803	1	yes	no	no	undeclared		curated	1		1
-ERR4315585	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	233959	192874	52096895	0.00370222	0.00569255	1.05086	1				n/a		curated	1		1
 ERR4315586	PRJEB39201	Triticum aestivum	field	db2	2817039	Alternaria sp. Ai002NY15	Alternaria	resident	39929	196934	800727	0.245944	0.245946	11.6686	1	no	no	no	undeclared		curated	15	0.2996	1
 ERR4315586	PRJEB39201	Triticum aestivum	field	db2	2817041	Alternaria sp. BMP 2799	Alternaria	resident	35341	191919	813785	0.235835	0.235844	10.1621	1	no	no	no	undeclared		curated	15	0.2996	1
 ERR4315586	PRJEB39201	Triticum aestivum	field	db2	2817042	Alternaria sp. BMP 0032	Alternaria	resident	33950	194880	823889	0.236537	0.236552	9.64244	1	no	no	no	undeclared		curated	15	0.2996	1
@@ -4746,7 +4717,6 @@ ERR4315586	PRJEB39201	Triticum aestivum	field	db2	1338630	Cladosporium allicinum
 ERR4315586	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	148158	1404788	10888604	0.129015	0.134589	3.18397	1	yes	yes	yes	declared	species	curated	2	0.6677	1
 ERR4315586	PRJEB39201	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	13192	214499	8344310	0.025706	0.0831299	0.369944	1	yes	yes	yes	undeclared		curated	2	0.6677	1
 ERR4315586	PRJEB39201	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	15405	189897	4237275	0.0448158	0.0782268	0.850728	1	yes	no	no	undeclared		curated	1		1
-ERR4315586	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	37553	89360	52096895	0.00171527	0.0110508	0.168674	1				n/a		curated	1		1
 ERR4315587	PRJEB39201	Triticum aestivum	field	db2	2817039	Alternaria sp. Ai002NY15	Alternaria	resident	29117	141286	800727	0.176447	0.176483	8.50899	1	no	no	no	undeclared		curated	14	0.2235	1
 ERR4315587	PRJEB39201	Triticum aestivum	field	db2	2817042	Alternaria sp. BMP 0032	Alternaria	resident	26301	138679	823889	0.168322	0.168418	7.46998	1	no	no	no	undeclared		curated	14	0.2235	1
 ERR4315587	PRJEB39201	Triticum aestivum	field	db2	2817041	Alternaria sp. BMP 2799	Alternaria	resident	24649	137876	813785	0.169426	0.169567	7.0877	1	no	no	no	undeclared		curated	14	0.2235	1
@@ -4768,7 +4738,6 @@ ERR4315587	PRJEB39201	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Z
 ERR4315587	PRJEB39201	Triticum aestivum	field	db2	5520	Microdochium nivale	Microdochium	wheat_pathogen	21314	333413	5343633	0.0623944	0.102831	0.933349	1	yes	yes	yes	undeclared		curated	1		1
 ERR4315587	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	469822	2277751	10888604	0.209187	0.209195	10.0966	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315587	PRJEB39201	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	16169	188812	4237275	0.0445598	0.0754558	0.89292	1	yes	no	no	undeclared		curated	1		1
-ERR4315587	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	64616	191367	52096895	0.00367329	0.0145818	0.290231	1				n/a		curated	1		1
 ERR4315588	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	862286	3744742	10888604	0.343914	0.343914	18.5308	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315588	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	11076743	10953433	52096895	0.210251	0.210251	49.7526	1				n/a		curated	1		1
 ERR4315589	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	3419788	5292065	10888604	0.486019	0.486019	73.4925	1	yes	yes	yes	declared	species	curated	1		1
@@ -5034,7 +5003,6 @@ ERR4315616	PRJEB39201	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Diosz
 ERR4315616	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	187101	1457728	10888604	0.133876	0.136409	3.9865	1	yes	yes	yes	declared	species	curated	2	0.6895	1
 ERR4315616	PRJEB39201	Triticum aestivum	field	db2	5297	Puccinia graminis	Puccinia	wheat_pathogen	12412	252083	10245932	0.0246032	0.100419	0.281047	1	yes	yes	yes	undeclared		curated	2	0.6895	1
 ERR4315616	PRJEB39201	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	162252	990789	4237275	0.233827	0.233859	8.88365	1	yes	no	no	undeclared		curated	1		1
-ERR4315616	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	9242	196705	52096895	0.00377575	0.0936414	0.0411568	1				n/a		curated	1		1
 ERR4315617	PRJEB39201	Triticum aestivum	field	db2	297637	Alternaria triticimaculans	Alternaria	resident	97981	323982	829789	0.390439	0.390439	27.3944	1	yes	no	no	undeclared		curated	14	0.6199	1
 ERR4315617	PRJEB39201	Triticum aestivum	field	db2	2817041	Alternaria sp. BMP 2799	Alternaria	resident	17543	95677	813785	0.11757	0.118367	5.00129	1	no	no	no	undeclared		curated	14	0.6199	1
 ERR4315617	PRJEB39201	Triticum aestivum	field	db2	2817039	Alternaria sp. Ai002NY15	Alternaria	resident	16026	98482	800727	0.122991	0.124186	4.64332	1	no	no	no	undeclared		curated	14	0.6199	1
@@ -5055,7 +5023,6 @@ ERR4315617	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puc
 ERR4315617	PRJEB39201	Triticum aestivum	field	db2	5297	Puccinia graminis	Puccinia	wheat_pathogen	16637	287783	10245932	0.0280875	0.0894828	0.376714	1	yes	yes	yes	undeclared		curated	2	0.7444	1
 ERR4315617	PRJEB39201	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	63559	554247	4237275	0.130803	0.134961	3.47999	1	yes	no	no	undeclared		curated	1		1
 ERR4315617	PRJEB39201	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	166451	1458474	3934012	0.370735	0.370755	9.81609	1	no	no	no	undeclared		curated	1		1
-ERR4315617	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	10506	226390	52096895	0.00434556	0.0950718	0.0467857	1				n/a		curated	1		1
 ERR4315618	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	8298298	5200237	10888604	0.477585	0.477585	178.333	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315618	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	4688000	5306238	52096895	0.101853	0.101853	21.0568	1				n/a		curated	1		1
 ERR4315619	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	3219358	4000947	10888604	0.367444	0.367444	39.6189	1	yes	yes	yes	declared	species	curated	1		1
@@ -5134,7 +5101,6 @@ ERR4315647	PRJEB39201	Triticum aestivum	field	db2	5516	Fusarium culmorum	Fusariu
 ERR4315647	PRJEB39201	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	94022	437630	6227658	0.070272	0.0817575	1.96267	1	yes	yes	yes	undeclared		curated	1		1
 ERR4315647	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	76874	989068	10888604	0.0908352	0.151239	0.917805	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315647	PRJEB39201	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	15623	185916	3934012	0.0472586	0.117193	0.516264	1	no	no	no	undeclared		curated	1		1
-ERR4315647	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	59244	267581	52096895	0.00513622	0.0373744	0.147835	1				n/a		curated	1		1
 ERR4315648	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	4068872	4369598	10888604	0.4013	0.4013	48.5786	1	yes	yes	yes	declared	species	curated	1		1
 ERR4315648	PRJEB39201	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	11924	209020	3934012	0.0531315	0.163147	0.39403	1	no	no	no	undeclared		curated	1		1
 ERR4315648	PRJEB39201	Triticum aestivum	field	db2	40199	Fusarium avenaceum	Fusarium	wheat_pathogen	137795	528856	7413583	0.0713361	0.0783269	2.41629	1	yes	yes	yes	undeclared		curated	1		1
@@ -5349,7 +5315,6 @@ ERR4315685	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticu
 ERR4761815	PRJEB39201	Triticum aestivum	field	db2	40199	Fusarium avenaceum	Fusarium	wheat_pathogen	301911	1145481	7413583	0.154511	0.215485	1.26245	1	yes	yes	yes	undeclared		curated	1		1
 ERR4761815	PRJEB39201	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	29009	439748	3934012	0.111781	0.547019	0.228591	1	no	no	no	undeclared		curated	1		1
 ERR4761815	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	71710	641706	10888604	0.0589337	0.319134	0.204159	1	yes	yes	yes	declared	species	curated	1		1
-ERR4761815	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	37584	178522	52096895	0.00342673	0.154944	0.0223642	1				n/a		curated	1		1
 ERR4761816	PRJEB39201	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	12874150	5385949	10888604	0.494641	0.494641	36.6529	1	yes	yes	yes	declared	species	curated	1		1
 ERR4761816	PRJEB39201	Triticum aestivum	field	db2	34373	Blumeria graminis	Blumeria	wheat_pathogen	21706	331730	2632498	0.126013	0.558684	0.255607	1	yes	yes	yes	undeclared		curated	1		1
 ERR4761816	PRJEB39201	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	1760040	3626274	52096895	0.0696063	0.107232	1.0473	1				n/a		curated	1		1
@@ -5863,7 +5828,6 @@ ERR12013041	PRJEB65589	Triticum aestivum	field	db2	208348	Puccinia triticina	Puc
 ERR12013041	PRJEB65589	Triticum aestivum	field	db2	5297	Puccinia graminis	Puccinia	wheat_pathogen	647757	1512438	10245932	0.147614	0.148446	5.18411	1	yes	yes	yes	declared	species	curated	2	0.2948	1
 ERR12013041	PRJEB65589	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	57891	394866	4237275	0.0931887	0.138299	1.12031	1	yes	no	no	undeclared		curated	1		1
 ERR12013041	PRJEB65589	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	18211	321409	3934012	0.0817001	0.258662	0.379588	1	no	no	no	undeclared		curated	1		1
-ERR12013041	PRJEB65589	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	1765	13783	52096895	0.000264565	0.0953648	0.00277809	1				n/a		curated	1		1
 ERR12013042	PRJEB65589	Triticum aestivum	field	db2	566460	Alternaria viburni	Alternaria	resident	1289	17743	880985	0.02014	0.178136	0.119977	1	no	no	no	undeclared		curated	1		1
 ERR12013042	PRJEB65589	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	264567	1387998	5412024	0.256466	0.261209	4.00857	1	no	no	no	undeclared		curated	1		1
 ERR12013042	PRJEB65589	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	20920	310173	6227658	0.0498057	0.206857	0.275455	1	yes	yes	yes	undeclared		curated	1		1
@@ -5873,7 +5837,6 @@ ERR12013042	PRJEB65589	Triticum aestivum	field	db2	5297	Puccinia graminis	Puccin
 ERR12013042	PRJEB65589	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	141974	928942	8344310	0.111326	0.147998	1.39519	1	yes	yes	yes	undeclared		curated	2	0.3788	1
 ERR12013042	PRJEB65589	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	110214	727095	4237275	0.171595	0.194662	2.13287	1	yes	no	no	undeclared		curated	1		1
 ERR12013042	PRJEB65589	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	30562	491589	3934012	0.124959	0.265227	0.63703	1	no	no	no	undeclared		curated	1		1
-ERR12013042	PRJEB65589	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	282888	88038	52096895	0.00168989	0.0047027	0.445263	1				n/a		curated	1		1
 ERR12013043	PRJEB65589	Triticum aestivum	field	db2	2817039	Alternaria sp. Ai002NY15	Alternaria	resident	5289	58036	800727	0.0724791	0.173312	0.54163	1	no	no	no	undeclared		curated	14	0.2589	1
 ERR12013043	PRJEB65589	Triticum aestivum	field	db2	2817042	Alternaria sp. BMP 0032	Alternaria	resident	4362	54047	823889	0.0655999	0.186268	0.434141	1	no	no	no	undeclared		curated	14	0.2589	1
 ERR12013043	PRJEB65589	Triticum aestivum	field	db2	2817041	Alternaria sp. BMP 2799	Alternaria	resident	4265	52810	813785	0.0648943	0.185766	0.429757	1	no	no	no	undeclared		curated	14	0.2589	1
@@ -5897,13 +5860,11 @@ ERR12013043	PRJEB65589	Triticum aestivum	field	db2	647655	Microdochium majus	Mic
 ERR12013043	PRJEB65589	Triticum aestivum	field	db2	5297	Puccinia graminis	Puccinia	wheat_pathogen	509645	1853719	10245932	0.180922	0.184038	4.07878	1	yes	yes	yes	declared	species	curated	1		1
 ERR12013043	PRJEB65589	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	16488	170592	4237275	0.0402598	0.147375	0.319077	1	yes	no	no	undeclared		curated	1		1
 ERR12013043	PRJEB65589	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	13095	281979	3934012	0.0716772	0.300069	0.27295	1	no	no	no	undeclared		curated	1		1
-ERR12013043	PRJEB65589	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	19701	63046	52096895	0.00121017	0.0396343	0.0310092	1				n/a		curated	1		1
 ERR12013044	PRJEB65589	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	141640	664246	6227658	0.106661	0.12621	1.86498	1	yes	yes	yes	undeclared		curated	1		1
 ERR12013044	PRJEB65589	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	40925	223790	5412024	0.0413505	0.0894849	0.620073	1	no	no	no	undeclared		curated	1		1
 ERR12013044	PRJEB65589	Triticum aestivum	field	db2	647655	Microdochium majus	Microdochium	resident	288351	1088656	4289057	0.253822	0.25485	5.51282	1	yes	no	no	undeclared		curated	2	0.3658	1
 ERR12013044	PRJEB65589	Triticum aestivum	field	db2	5520	Microdochium nivale	Microdochium	wheat_pathogen	118851	629804	5343633	0.117861	0.140546	1.82381	1	yes	yes	yes	undeclared		curated	2	0.3658	1
 ERR12013044	PRJEB65589	Triticum aestivum	field	db2	5297	Puccinia graminis	Puccinia	wheat_pathogen	1168751	1742326	10245932	0.170051	0.170065	9.35372	1	yes	yes	yes	declared	species	curated	1		1
-ERR12013044	PRJEB65589	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	75866	274351	52096895	0.00526617	0.0467862	0.119412	1				n/a		curated	1		1
 ERR12013045	PRJEB65589	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	2055046	2557779	6227658	0.410713	0.410713	27.0589	1	yes	yes	yes	undeclared		curated	1		1
 ERR12013045	PRJEB65589	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	37094	148478	5412024	0.0274348	0.0638097	0.562028	1	no	no	no	undeclared		curated	1		1
 ERR12013045	PRJEB65589	Triticum aestivum	field	db2	647655	Microdochium majus	Microdochium	resident	106571	443465	4289057	0.103395	0.118893	2.03747	1	yes	no	no	undeclared		curated	2	0.5518	1
@@ -5916,7 +5877,6 @@ ERR12013046	PRJEB65589	Triticum aestivum	field	db2	647655	Microdochium majus	Mic
 ERR12013046	PRJEB65589	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	24707	164802	6227658	0.0264629	0.0952922	0.325319	1	yes	yes	yes	undeclared		curated	1		1
 ERR12013046	PRJEB65589	Triticum aestivum	field	db2	5297	Puccinia graminis	Puccinia	wheat_pathogen	702283	755608	10245932	0.0737471	0.0740153	5.62049	1	yes	yes	yes	declared	species	curated	1		1
 ERR12013046	PRJEB65589	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	22417	93822	4237275	0.0221421	0.0629093	0.433815	1	yes	no	no	undeclared		curated	1		1
-ERR12013046	PRJEB65589	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	10215	15728	52096895	0.000301899	0.0189281	0.0160783	1				n/a		curated	1		1
 ERR12013047	PRJEB65589	Triticum aestivum	field	db2	5297	Puccinia graminis	Puccinia	wheat_pathogen	891837	2405809	10245932	0.234806	0.234993	7.13753	1	yes	yes	yes	declared	species	curated	2	0.6776	1
 ERR12013047	PRJEB65589	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	33284	376470	8344310	0.045117	0.161723	0.327084	1	yes	yes	yes	undeclared		curated	2	0.6776	1
 ERR12013047	PRJEB65589	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	198759	1211400	6227658	0.194519	0.209841	2.61707	1	yes	yes	yes	undeclared		curated	1		1
@@ -6030,7 +5990,6 @@ ERR12013058	PRJEB65589	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	S
 ERR12013058	PRJEB65589	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	4937	138373	3934012	0.0351735	0.35969	0.102906	1	no	no	no	undeclared		curated	1		1
 ERR12013058	PRJEB65589	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	Zymoseptoria	wheat_pathogen	616489	2928705	6227658	0.470274	0.470414	8.11735	1	yes	yes	yes	undeclared		curated	1		1
 ERR12013058	PRJEB65589	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	11564	183505	5412024	0.0339069	0.210968	0.175211	1	no	no	no	undeclared		curated	1		1
-ERR12013058	PRJEB65589	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	123285	267568	52096895	0.00513597	0.0291183	0.194049	1				n/a		curated	1		1
 ERR12013059	PRJEB65589	Triticum aestivum	field	db2	5297	Puccinia graminis	Puccinia	wheat_pathogen	3999398	3611883	10245932	0.352519	0.352519	32.0079	1	yes	yes	yes	declared	species	curated	1		1
 ERR12013059	PRJEB65589	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	2239868	5591439	52096895	0.107328	0.110583	3.52553	1				n/a		curated	1		1
 ERR12013060	PRJEB65589	Triticum aestivum	field	db2	5297	Puccinia graminis	Puccinia	wheat_pathogen	6858055	3911380	10245932	0.38175	0.38175	49.0599	1	yes	yes	yes	declared	species	curated	1		1
@@ -6135,7 +6094,6 @@ ERR12013068	PRJEB65589	Triticum aestivum	field	db2	297637	Alternaria triticimacu
 ERR12013068	PRJEB65589	Triticum aestivum	field	db2	181014	Alternaria ethzedia	Alternaria	resident	22897	37139	845875	0.043906	0.0505646	2.02735	1	no	no	no	undeclared		curated	5	0.06029	1
 ERR12013068	PRJEB65589	Triticum aestivum	field	db2	181017	Alternaria conjuncta	Alternaria	resident	21478	37398	880152	0.0424904	0.0506315	1.82764	1	no	no	no	undeclared		curated	5	0.06029	1
 ERR12013068	PRJEB65589	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	574537	1054917	5412024	0.194921	0.19499	7.95085	1	no	no	no	undeclared		curated	1		1
-ERR12013068	PRJEB65589	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	92123	106201	52096895	0.00203853	0.0164341	0.132438	1				n/a		curated	1		1
 ERR12013069	PRJEB65589	Triticum aestivum	field	db2	5297	Puccinia graminis	Puccinia	wheat_pathogen	18438691	4648456	10245932	0.453688	0.453688	139.816	1	yes	yes	yes	declared	species	curated	1		1
 ERR12013069	PRJEB65589	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	40819	446553	4237275	0.105387	0.200015	0.748437	1	yes	no	no	undeclared		curated	1		1
 ERR12013069	PRJEB65589	Triticum aestivum	field	db2	2231603	Akanthomyces muscarius	Akanthomyces	resident	229389	573860	1525420	0.376198	0.376201	11.6832	1	no	no	no	undeclared		curated	2	0.7655	1
@@ -6187,7 +6145,6 @@ ERR12013074	PRJEB65589	Triticum aestivum	field	db2	232088	Alternaria arbusti	Alt
 ERR12013074	PRJEB65589	Triticum aestivum	field	db2	1187951	Alternaria ventricosa	Alternaria	resident	2367	26082	1132535	0.0230298	0.146222	0.17138	1	yes	no	no	undeclared		curated	14	0.2665	1
 ERR12013074	PRJEB65589	Triticum aestivum	field	db2	1187928	Alternaria incomplexa	Alternaria	resident	2344	19534	575025	0.0339707	0.119559	0.33426	1	no	no	no	undeclared		curated	14	0.2665	1
 ERR12013074	PRJEB65589	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	49605	628615	5412024	0.116152	0.219825	0.751588	1	no	no	no	undeclared		curated	1		1
-ERR12013074	PRJEB65589	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	25269	141562	52096895	0.00271728	0.0696872	0.0397732	1				n/a		curated	1		1
 ERR12013075	PRJEB65589	Triticum aestivum	field	db2	5297	Puccinia graminis	Puccinia	wheat_pathogen	1418533	2635781	10245932	0.257251	0.257254	11.3528	1	yes	yes	yes	declared	species	curated	1		1
 ERR12013075	PRJEB65589	Triticum aestivum	field	db2	76775	Malassezia restricta	Malassezia	resident	17463	299009	2267644	0.131859	0.281633	0.631477	1	no	no	no	undeclared		curated	3	0.4801	1
 ERR12013075	PRJEB65589	Triticum aestivum	field	db2	1514897	Malassezia arunalokei	Malassezia	resident	9320	142931	1268705	0.112659	0.248975	0.602378	1	no	no	no	undeclared		curated	3	0.4801	1
@@ -7030,7 +6987,6 @@ ERR15005536	PRJEB84390	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici	
 ERR15005536	PRJEB84390	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	278040	1000842	5412024	0.184929	0.187709	4.21271	1	no	no	no	undeclared		curated	1		1
 ERR15005536	PRJEB84390	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	845251	2357603	8344310	0.28254	0.28261	8.30633	1	yes	yes	yes	declared	species	curated	1		1
 ERR15005536	PRJEB84390	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	8819	116549	3934012	0.029626	0.176433	0.183822	1	no	no	no	undeclared		curated	1		1
-ERR15005536	PRJEB84390	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	16239	185700	52096895	0.00356451	0.141246	0.02556	1				n/a		curated	1		1
 ERR15005537	PRJEB84390	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	2298130	5391581	8344310	0.646139	0.646139	22.5839	1	yes	yes	yes	declared	species	curated	1		1
 ERR15005537	PRJEB84390	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	24813	319069	4237275	0.0753005	0.197468	0.480183	1	yes	no	no	undeclared		curated	1		1
 ERR15005537	PRJEB84390	Triticum aestivum	field	db2	2817039	Alternaria sp. Ai002NY15	Alternaria	resident	1477	21871	800727	0.0273139	0.194583	0.151255	1	no	no	no	undeclared		curated	11	0.0762	1
@@ -7075,12 +7031,12 @@ ERR15005542	PRJEB84390	Triticum aestivum	field	db2	208348	Puccinia triticina	Puc
 ERR15005542	PRJEB84390	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	6626800	13791467	52096895	0.264727	0.264735	10.4305	1				n/a		curated	1		1
 ERR15005543	PRJEB84390	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	4470573	6495133	8344310	0.778391	0.778391	43.9326	1	yes	yes	yes	declared	species	curated	1		1
 ERR15005543	PRJEB84390	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	5594942	12880153	52096895	0.247235	0.247272	8.80638	1				n/a		curated	1		1
-SRR33129854	PRJNA1250571	Triticum aestivum	field	db2	5003	Sporobolomyces pararoseus	Sporobolomyces	resident	8521	179491	7772823	0.0230921	0.102059	0.256524	1	yes	no	no	unknown		not_curated	1		1
-SRR33129854	PRJNA1250571	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	9969718	8922918	52096895	0.171275	0.171275	44.7803	1				n/a		not_curated	1		1
-SRR33129855	PRJNA1250571	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	12831422	1902680	52096895	0.0365219	0.0365219	57.634	1				n/a		not_curated	1		1
-SRR33129856	PRJNA1250571	Triticum aestivum	field	db2	5003	Sporobolomyces pararoseus	Sporobolomyces	resident	36290	557012	7772823	0.0716615	0.107822	1.09251	1	yes	no	no	unknown		not_curated	1		1
-SRR33129856	PRJNA1250571	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	14074956	6210085	52096895	0.119203	0.119203	63.2195	1				n/a		not_curated	1		1
-SRR33129857	PRJNA1250571	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	12316354	3171161	52096895	0.0608704	0.0608704	55.3205	1				n/a		not_curated	1		1
+SRR33129854	PRJNA1250571	Triticum aestivum	field	db2	5003	Sporobolomyces pararoseus	Sporobolomyces	resident	8521	179491	7772823	0.0230921	0.102059	0.256524	1	yes	no	no	undeclared		none_declared	1		1
+SRR33129854	PRJNA1250571	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	9969718	8922918	52096895	0.171275	0.171275	44.7803	1				n/a		none_declared	1		1
+SRR33129855	PRJNA1250571	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	12831422	1902680	52096895	0.0365219	0.0365219	57.634	1				n/a		none_declared	1		1
+SRR33129856	PRJNA1250571	Triticum aestivum	field	db2	5003	Sporobolomyces pararoseus	Sporobolomyces	resident	36290	557012	7772823	0.0716615	0.107822	1.09251	1	yes	no	no	undeclared		none_declared	1		1
+SRR33129856	PRJNA1250571	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	14074956	6210085	52096895	0.119203	0.119203	63.2195	1				n/a		none_declared	1		1
+SRR33129857	PRJNA1250571	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	12316354	3171161	52096895	0.0608704	0.0608704	55.3205	1				n/a		none_declared	1		1
 SRR579533	PRJNA176472	Triticum aestivum	lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	14484751	5078984	10888604	0.46645	0.46645	178.256	1	yes	yes	yes	declared	species	curated	1		1
 SRR579533	PRJNA176472	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	1609255	3001008	52096895	0.0576044	0.0585372	4.13921	1				n/a		curated	1		1
 SRR579534	PRJNA176472	Triticum aestivum	lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	5436340	4295066	10888604	0.394455	0.394455	66.902	1	yes	yes	yes	declared	species	curated	1		1
@@ -7088,15 +7044,11 @@ SRR579534	PRJNA176472	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	
 SRR579535	PRJNA176472	Triticum aestivum	lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	5860648	4127764	10888604	0.37909	0.37909	72.1237	1	yes	yes	yes	declared	species	curated	1		1
 SRR579535	PRJNA176472	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	2222032	3032587	52096895	0.0582105	0.0584029	5.71536	1				n/a		curated	1		1
 SRR579536	PRJNA176472		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	43409600	4817000	10888604	0.442389	0.442389	534.218	1	yes	yes	yes	declared	species	curated	1		1
-SRR579536	PRJNA176472		lab	db2	4565	Triticum aestivum	Triticum	host	955	14022	52096895	0.000269152	0.109707	0.00245638	1				n/a		curated	1		1
 SRR579537	PRJNA176472		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	43944784	4885274	10888604	0.448659	0.448659	540.804	1	yes	yes	yes	declared	species	curated	1		1
-SRR579537	PRJNA176472		lab	db2	4565	Triticum aestivum	Triticum	host	729	10861	52096895	0.000208477	0.111287	0.00187508	1				n/a		curated	1		1
 SRR579538	PRJNA176472		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	48211288	4998633	10888604	0.45907	0.45907	593.31	1	yes	yes	yes	declared	species	curated	1		1
-SRR579538	PRJNA176472		lab	db2	4565	Triticum aestivum	Triticum	host	840	11373	52096895	0.000218305	0.101149	0.00216059	1				n/a		curated	1		1
 SRR579539	PRJNA176472		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	249066	2681059	10888604	0.246226	0.246231	10.9357	1	yes	yes	yes	declared	species	curated	1		1
 SRR579539	PRJNA176472		lab	db2	4565	Triticum aestivum	Triticum	host	105927	344502	52096895	0.00661272	0.0106365	0.972073	1				n/a		curated	1		1
 SRR579540	PRJNA176472		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	192907	1907014	10888604	0.175139	0.175338	6.77803	1	yes	yes	yes	declared	species	curated	1		1
-SRR579540	PRJNA176472		lab	db2	4565	Triticum aestivum	Triticum	host	1	28	52096895	5.3746e-07	0.0731866	7.34372e-06	0				n/a		curated	1		1
 SRR11440843	PRJNA256347	Triticum aestivum	lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	8871587	4947903	10888604	0.454411	0.454411	109.178	1	yes	yes	yes	declared	species	curated	1		1
 SRR11440843	PRJNA256347	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	11953555	12672407	52096895	0.243247	0.243247	30.7461	1				n/a		curated	1		1
 SRR11440844	PRJNA256347	Triticum aestivum	lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	15057319	5869038	10888604	0.539007	0.539007	185.302	1	yes	yes	yes	declared	species	curated	1		1
@@ -7358,23 +7310,17 @@ SRR6043969	PRJNA396589	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum
 SRR6043970	PRJNA396589	Triticum aestivum	lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	2217020	4273510	10888604	0.392475	0.392475	27.2836	1	yes	yes	yes	declared	species	curated	1		1
 SRR6043970	PRJNA396589	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	12645888	11919231	52096895	0.22879	0.22879	32.5269	1				n/a		curated	1		1
 SRR6043971	PRJNA396589		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	13508026	4602587	10888604	0.422698	0.422698	166.236	1	yes	yes	yes	declared	species	curated	1		1
-SRR6043971	PRJNA396589		lab	db2	4565	Triticum aestivum	Triticum	host	4828	95512	52096895	0.00183335	0.148552	0.0124182	1				n/a		curated	1		1
 SRR6043972	PRJNA396589		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	43944784	4885274	10888604	0.448659	0.448659	540.804	1	yes	yes	yes	declared	species	curated	1		1
-SRR6043972	PRJNA396589		lab	db2	4565	Triticum aestivum	Triticum	host	729	10861	52096895	0.000208477	0.111287	0.00187508	1				n/a		curated	1		1
 SRR6043973	PRJNA396589		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	43409600	4817000	10888604	0.442389	0.442389	534.218	1	yes	yes	yes	declared	species	curated	1		1
-SRR6043973	PRJNA396589		lab	db2	4565	Triticum aestivum	Triticum	host	955	14022	52096895	0.000269152	0.109707	0.00245638	1				n/a		curated	1		1
 SRR6043974	PRJNA396589	Triticum aestivum	lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	14484751	5078984	10888604	0.46645	0.46645	178.256	1	yes	yes	yes	declared	species	curated	1		1
 SRR6043974	PRJNA396589	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	1609255	3001008	52096895	0.0576044	0.0585372	4.13921	1				n/a		curated	1		1
 SRR6043975	PRJNA396589		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	48211288	4998633	10888604	0.45907	0.45907	593.31	1	yes	yes	yes	declared	species	curated	1		1
-SRR6043975	PRJNA396589		lab	db2	4565	Triticum aestivum	Triticum	host	840	11373	52096895	0.000218305	0.101149	0.00216059	1				n/a		curated	1		1
 SRR6043976	PRJNA396589	Triticum aestivum	lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	5860648	4127764	10888604	0.37909	0.37909	72.1237	1	yes	yes	yes	declared	species	curated	1		1
 SRR6043976	PRJNA396589	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	2222032	3032587	52096895	0.0582105	0.0584029	5.71536	1				n/a		curated	1		1
 SRR6043977	PRJNA396589	Triticum aestivum	lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	5436340	4295066	10888604	0.394455	0.394455	66.902	1	yes	yes	yes	declared	species	curated	1		1
 SRR6043977	PRJNA396589	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	1317733	2699193	52096895	0.051811	0.0536196	3.38938	1				n/a		curated	1		1
 SRR6043978	PRJNA396589		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	12807610	4519571	10888604	0.415074	0.415074	157.616	1	yes	yes	yes	declared	species	curated	1		1
-SRR6043978	PRJNA396589		lab	db2	4565	Triticum aestivum	Triticum	host	3760	75646	52096895	0.00145203	0.150866	0.00967121	1				n/a		curated	1		1
 SRR6043979	PRJNA396589		lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	14208924	4602003	10888604	0.422644	0.422644	174.861	1	yes	yes	yes	declared	species	curated	1		1
-SRR6043979	PRJNA396589		lab	db2	4565	Triticum aestivum	Triticum	host	4744	91537	52096895	0.00175705	0.144875	0.0122022	1				n/a		curated	1		1
 SRR7797534	PRJNA486288	Triticum aestivum	field	db2	5518	Fusarium graminearum	Fusarium	wheat_pathogen	2940079	501667	2238100	0.224149	0.224149	171.98	1	yes	yes	yes	declared	species	curated	1		1
 SRR7797534	PRJNA486288	Triticum aestivum	field	db2	105696	Epicoccum nigrum	Epicoccum	resident	260841	803410	6266465	0.128208	0.128761	5.44944	1	yes	no	no	undeclared		curated	1		1
 SRR7797534	PRJNA486288	Triticum aestivum	field	db2	90978	Curvularia kusanoi	Curvularia	resident	6715	85577	3804515	0.0224935	0.109024	0.231071	1	no	no	no	undeclared		curated	1		1
@@ -7430,15 +7376,12 @@ SRR7797539	PRJNA486288	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dios
 SRR7797539	PRJNA486288	Triticum aestivum	field	db2	5210	Filobasidium floriforme	Filobasidium	resident	8649	65383	2798439	0.0233641	0.0701994	0.404703	1	no	no	no	undeclared		curated	1		1
 SRR7797539	PRJNA486288	Triticum aestivum	field	db2	86828	Sporobolomyces ruberrimus	Sporobolomyces	resident	96672	760976	3684220	0.20655	0.213421	3.43591	1	no	no	no	undeclared		curated	2	0.8079	1
 SRR7797539	PRJNA486288	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	10569	92984	4237275	0.0219443	0.0787558	0.326613	1	yes	no	no	undeclared		curated	2	0.8079	1
-SRR7797539	PRJNA486288	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	14254	164897	52096895	0.0031652	0.0899386	0.0358271	1				n/a		curated	1		1
 SRR7797540	PRJNA486288		lab	db2	5518	Fusarium graminearum	Fusarium	wheat_pathogen	4357118	613052	2238100	0.273916	0.273916	254.793	1	yes	yes	yes	declared	species	curated	1		1
-SRR7797540	PRJNA486288		lab	db2	4565	Triticum aestivum	Triticum	host	5247	87746	52096895	0.00168428	0.12862	0.0131815	1				n/a		curated	1		1
 SRR7797541	PRJNA486288	Triticum aestivum	field	db2	5518	Fusarium graminearum	Fusarium	wheat_pathogen	3276646	452957	2238100	0.202385	0.202385	191.804	1	yes	yes	yes	declared	species	curated	1		1
 SRR7797541	PRJNA486288	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	319917	980427	5412024	0.181157	0.181236	7.74436	1	no	no	no	undeclared		curated	1		1
 SRR7797541	PRJNA486288	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	97786	634380	3934012	0.161255	0.167716	3.25649	1	no	no	no	undeclared		curated	1		1
 SRR7797541	PRJNA486288	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	107311	526923	4237275	0.124354	0.129029	3.31792	1	yes	no	no	undeclared		curated	2	0.6454	1
 SRR7797541	PRJNA486288	Triticum aestivum	field	db2	86828	Sporobolomyces ruberrimus	Sporobolomyces	resident	8989	98733	3684220	0.0267989	0.0979505	0.319649	1	no	no	no	undeclared		curated	2	0.6454	1
-SRR7797541	PRJNA486288	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	15911	156621	52096895	0.00300634	0.0766486	0.0400123	1				n/a		curated	1		1
 SRR7797542	PRJNA486288	Triticum aestivum	field	db2	5518	Fusarium graminearum	Fusarium	wheat_pathogen	1494789	453993	2238100	0.202848	0.202848	87.4494	1	yes	yes	yes	declared	species	curated	1		1
 SRR7797542	PRJNA486288	Triticum aestivum	field	db2	105696	Epicoccum nigrum	Epicoccum	resident	1927204	1323925	6266465	0.211271	0.211271	40.2681	1	yes	no	no	undeclared		curated	1		1
 SRR7797542	PRJNA486288	Triticum aestivum	field	db2	5599	Alternaria alternata	Alternaria	wheat_pathogen	24358	122476	5158411	0.023743	0.051489	0.618275	1	yes	yes	yes	undeclared		curated	1		1
@@ -7473,7 +7416,6 @@ SRR7797545	PRJNA486288	Triticum aestivum	field	db2	1338630	Cladosporium allicinu
 SRR7797545	PRJNA486288	Triticum aestivum	field	db2	105696	Epicoccum nigrum	Epicoccum	resident	62839	277832	6266465	0.0443363	0.0606538	1.31295	1	yes	no	no	undeclared		curated	1		1
 SRR7797545	PRJNA486288	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	51021	538747	3934012	0.136946	0.167628	1.69806	1	no	no	no	undeclared		curated	1		1
 SRR7797545	PRJNA486288	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	34953	282824	4237275	0.0667467	0.101068	1.08003	1	yes	no	no	undeclared		curated	1		1
-SRR7797545	PRJNA486288	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	27717	259901	52096895	0.0049888	0.0741413	0.0696585	1				n/a		curated	1		1
 SRR7797546	PRJNA486288	Triticum aestivum	field	db2	5518	Fusarium graminearum	Fusarium	wheat_pathogen	4164493	509453	2238100	0.227627	0.227627	243.668	1	yes	yes	yes	declared	species	curated	1		1
 SRR7797546	PRJNA486288	Triticum aestivum	field	db2	34373	Blumeria graminis	Blumeria	wheat_pathogen	26104	347079	2632498	0.131844	0.181336	1.29854	1	yes	yes	yes	undeclared		curated	1		1
 SRR7797546	PRJNA486288	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	80969	496980	5412024	0.0918289	0.106899	1.95919	1	no	no	no	undeclared		curated	1		1
@@ -7484,7 +7426,6 @@ SRR7797546	PRJNA486288	Triticum aestivum	field	db2	4972	Dioszegia hungarica	Dios
 SRR7797546	PRJNA486288	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	44970	317856	4237275	0.0750142	0.0999024	1.3898	1	yes	no	no	undeclared		curated	1		1
 SRR7797546	PRJNA486288	Triticum aestivum	field	db2	58919	Tilletiopsis washingtonensis	Tilletiopsis	resident	12228	103047	3290686	0.0313147	0.0812744	0.486615	1	no	no	no	undeclared		curated	1		1
 SRR7797546	PRJNA486288	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	515284	2604970	52096895	0.0500024	0.0688578	1.29524	1				n/a		curated	1		1
-SRR9894668	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	1223917	204382	52096895	0.00392311	0.0041203	3.03952	1				n/a		none_declared	1		1
 SRR9894669	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	3607560	4134316	52096895	0.0793582	0.0793682	8.97899	1				n/a		none_declared	1		1
 SRR9894670	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	3449044	3136016	52096895	0.0601958	0.0602071	8.58515	1				n/a		none_declared	1		1
 SRR9894671	PRJNA558380	Triticum aestivum	field	db2	34373	Blumeria graminis	Blumeria	wheat_pathogen	5448	72282	2632498	0.0274576	0.215066	0.136588	1	yes	yes	yes	undeclared		none_declared	1		1
@@ -7494,10 +7435,8 @@ SRR9894673	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Tritic
 SRR9894674	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	5869421	6475822	52096895	0.124303	0.124303	14.5976	1				n/a		none_declared	1		1
 SRR9894675	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	3109024	4394790	52096895	0.084358	0.0843947	7.74084	1				n/a		none_declared	1		1
 SRR9894676	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	5226158	5901561	52096895	0.11328	0.113281	13.0371	1				n/a		none_declared	1		1
-SRR9894677	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	1719165	111843	52096895	0.00214683	0.00217627	4.30284	1				n/a		none_declared	1		1
 SRR9894678	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	4456160	6057713	52096895	0.116278	0.11628	11.0978	1				n/a		none_declared	1		1
 SRR9894679	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	6308728	3230184	52096895	0.0620034	0.0620034	15.7319	1				n/a		none_declared	1		1
-SRR9894680	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	2162860	130724	52096895	0.00250925	0.00252072	5.39221	1				n/a		none_declared	1		1
 SRR9894681	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	6891628	6180497	52096895	0.118635	0.118635	17.1707	1				n/a		none_declared	1		1
 SRR9894682	PRJNA558380	Triticum aestivum	field	db2	34373	Blumeria graminis	Blumeria	wheat_pathogen	31359	516080	2632498	0.196042	0.248674	1.55281	1	yes	yes	yes	undeclared		none_declared	1		1
 SRR9894682	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	7511170	6756619	52096895	0.129693	0.129693	18.7941	1				n/a		none_declared	1		1
@@ -7544,28 +7483,27 @@ SRR9894709	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Tritic
 SRR9894710	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	4494776	5258948	52096895	0.100946	0.100947	11.1641	1				n/a		none_declared	1		1
 SRR9894711	PRJNA558380	Triticum aestivum	field	db2	647655	Microdochium majus	Microdochium	resident	6966	127576	4289057	0.0297445	0.156627	0.210606	1	yes	no	no	undeclared		none_declared	1		1
 SRR9894711	PRJNA558380	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	7309759	6480505	52096895	0.124393	0.124393	18.1945	1				n/a		none_declared	1		1
-SRR11622360	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	281095	729209	52096895	0.0139972	0.0210688	1.0917	1				n/a		not_curated	1		1
-SRR11622361	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	676091	1559007	52096895	0.0299251	0.0322733	2.62059	1				n/a		not_curated	1		1
-SRR11622362	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	932035	3077100	52096895	0.0590649	0.0608335	3.53798	1				n/a		not_curated	1		1
-SRR11622363	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	986102	2781456	52096895	0.0533901	0.0547133	3.722	1				n/a		not_curated	1		1
-SRR11622364	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	353260	1219356	52096895	0.0234055	0.0315511	1.35414	1				n/a		not_curated	1		1
-SRR11622365	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	1279853	3267130	52096895	0.0627126	0.0631717	4.92426	1				n/a		not_curated	1		1
-SRR11622366	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	1247860	2889989	52096895	0.0554733	0.0559319	4.80375	1				n/a		not_curated	1		1
-SRR11622367	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	351807	1688152	52096895	0.0324041	0.0434931	1.36664	1				n/a		not_curated	1		1
-SRR11622368	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	91664	657035	52096895	0.0126118	0.0422942	0.354095	1				n/a		not_curated	1		1
-SRR11622369	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	369528	1287720	52096895	0.0247178	0.0327978	1.40097	1				n/a		not_curated	1		1
-SRR11622370	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	99068	718951	52096895	0.0138003	0.0432589	0.384216	1				n/a		not_curated	1		1
-SRR11622371	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	61847	405289	52096895	0.00777952	0.0370186	0.235914	1				n/a		not_curated	1		1
-SRR11622372	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	147011	849831	52096895	0.0163125	0.0376952	0.566951	1				n/a		not_curated	1		1
-SRR11622373	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	52760	318080	52096895	0.00610555	0.0329364	0.205026	1				n/a		not_curated	1		1
-SRR11622374	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	48179	434931	52096895	0.0083485	0.0492349	0.185805	1				n/a		not_curated	1		1
-SRR11622375	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	88039	694878	52096895	0.0133382	0.046082	0.341708	1				n/a		not_curated	1		1
-SRR11622376	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	37251	357852	52096895	0.00686897	0.0517701	0.14235	1				n/a		not_curated	1		1
-SRR11622377	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	86020	697810	52096895	0.0133945	0.0475138	0.331156	1				n/a		not_curated	1		1
-SRR11622378	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	105390	872071	52096895	0.0167394	0.0501634	0.406012	1				n/a		not_curated	1		1
-SRR11622379	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	54961	430275	52096895	0.00825913	0.0433416	0.211411	1				n/a		not_curated	1		1
-SRR11622380	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	570779	1573018	52096895	0.0301941	0.0341583	2.15369	1				n/a		not_curated	1		1
-SRR11622381	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	489924	1788864	52096895	0.0343372	0.0406774	1.85876	1				n/a		not_curated	1		1
+SRR11622360	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	281095	729209	52096895	0.0139972	0.0210688	1.0917	1				n/a		none_declared	1		1
+SRR11622361	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	676091	1559007	52096895	0.0299251	0.0322733	2.62059	1				n/a		none_declared	1		1
+SRR11622362	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	932035	3077100	52096895	0.0590649	0.0608335	3.53798	1				n/a		none_declared	1		1
+SRR11622363	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	986102	2781456	52096895	0.0533901	0.0547133	3.722	1				n/a		none_declared	1		1
+SRR11622364	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	353260	1219356	52096895	0.0234055	0.0315511	1.35414	1				n/a		none_declared	1		1
+SRR11622365	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	1279853	3267130	52096895	0.0627126	0.0631717	4.92426	1				n/a		none_declared	1		1
+SRR11622366	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	1247860	2889989	52096895	0.0554733	0.0559319	4.80375	1				n/a		none_declared	1		1
+SRR11622367	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	351807	1688152	52096895	0.0324041	0.0434931	1.36664	1				n/a		none_declared	1		1
+SRR11622368	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	91664	657035	52096895	0.0126118	0.0422942	0.354095	1				n/a		none_declared	1		1
+SRR11622369	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	369528	1287720	52096895	0.0247178	0.0327978	1.40097	1				n/a		none_declared	1		1
+SRR11622370	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	99068	718951	52096895	0.0138003	0.0432589	0.384216	1				n/a		none_declared	1		1
+SRR11622371	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	61847	405289	52096895	0.00777952	0.0370186	0.235914	1				n/a		none_declared	1		1
+SRR11622372	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	147011	849831	52096895	0.0163125	0.0376952	0.566951	1				n/a		none_declared	1		1
+SRR11622374	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	48179	434931	52096895	0.0083485	0.0492349	0.185805	1				n/a		none_declared	1		1
+SRR11622375	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	88039	694878	52096895	0.0133382	0.046082	0.341708	1				n/a		none_declared	1		1
+SRR11622376	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	37251	357852	52096895	0.00686897	0.0517701	0.14235	1				n/a		none_declared	1		1
+SRR11622377	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	86020	697810	52096895	0.0133945	0.0475138	0.331156	1				n/a		none_declared	1		1
+SRR11622378	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	105390	872071	52096895	0.0167394	0.0501634	0.406012	1				n/a		none_declared	1		1
+SRR11622379	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	54961	430275	52096895	0.00825913	0.0433416	0.211411	1				n/a		none_declared	1		1
+SRR11622380	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	570779	1573018	52096895	0.0301941	0.0341583	2.15369	1				n/a		none_declared	1		1
+SRR11622381	PRJNA628830	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	489924	1788864	52096895	0.0343372	0.0406774	1.85876	1				n/a		none_declared	1		1
 SRR14129613	PRJNA718488	Triticum aestivum	field	db2	34373	Blumeria graminis	Blumeria	wheat_pathogen	124849	580420	2632498	0.220483	0.223327	4.3632	1	yes	yes	yes	declared	species	curated	1		1
 SRR14129613	PRJNA718488	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	37538	207418	5412024	0.0383254	0.0812473	0.638115	1	no	no	no	undeclared		curated	1		1
 SRR14129613	PRJNA718488	Triticum aestivum	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	152574	435133	4237275	0.102692	0.106573	3.3127	1	yes	no	no	undeclared		curated	1		1
@@ -7686,7 +7624,6 @@ SRR14239709	PRJNA722004	Triticum aestivum	field	db2	1047171	Zymoseptoria tritici
 SRR14239709	PRJNA722004	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	7472564	5428732	52096895	0.104205	0.104279	7.24566	1				n/a		none_declared	1		1
 SRR14239710	PRJNA722004	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	280039	1513292	8344310	0.181356	0.223131	1.67546	1	yes	yes	yes	undeclared		none_declared	1		1
 SRR14239710	PRJNA722004	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	4038831	1829886	52096895	0.0351247	0.0358727	3.87034	1				n/a		none_declared	1		1
-SRR14239711	PRJNA722004	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	2015254	167699	52096895	0.00321898	0.00374997	1.95477	1				n/a		none_declared	1		1
 SRR14239712	PRJNA722004	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	11120791	6774734	52096895	0.130041	0.130044	10.788	1				n/a		none_declared	1		1
 SRR14239713	PRJNA722004	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	20924157	3587092	52096895	0.0688542	0.0688542	20.2353	1				n/a		none_declared	1		1
 SRR14239714	PRJNA722004	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	71195	527782	8344310	0.0632505	0.180597	0.431137	1	yes	yes	yes	undeclared		none_declared	1		1
@@ -7709,7 +7646,6 @@ SRR14239722	PRJNA722004	Triticum aestivum	field	db2	208348	Puccinia triticina	Pu
 SRR14239722	PRJNA722004	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	4986813	4277126	52096895	0.0820994	0.0827626	4.82667	1				n/a		none_declared	1		1
 SRR14239723	PRJNA722004	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	3468400	1293161	52096895	0.0248222	0.0257416	3.33221	1				n/a		none_declared	1		1
 SRR14239724	PRJNA722004	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	4131104	1245541	52096895	0.0239082	0.0244111	3.88223	1				n/a		none_declared	1		1
-SRR14864063	PRJNA722004		field	db2	4565	Triticum aestivum	Triticum	host	1	22	52096895	4.2229e-07			0				n/a		none_declared	1		1
 SRR14386296	PRJNA725323	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	7889882	4950287	8344310	0.593253	0.593253	219.365	1	yes	yes	yes	declared	species	curated	1		1
 SRR14386296	PRJNA725323	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	9650567	12138225	52096895	0.232993	0.232993	42.9763	1				n/a		curated	1		1
 SRR14386297	PRJNA725323	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	11303790	5197786	8344310	0.622914	0.622914	314.284	1	yes	yes	yes	declared	species	curated	1		1
@@ -7734,10 +7670,8 @@ SRR14386310	PRJNA725323	Triticum aestivum	field	db2	84751	Pseudozyma flocculosa	
 SRR14386310	PRJNA725323	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	32530	807491	52096895	0.0154998	0.114932	0.144864	1				n/a		curated	1		1
 SRR14386311	PRJNA725323	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	19853436	4157139	8344310	0.4982	0.4982	551.993	1	yes	yes	yes	declared	species	curated	1		1
 SRR14386311	PRJNA725323	Triticum aestivum	field	db2	84751	Pseudozyma flocculosa	Pseudozyma	resident	76939	1000134	4138412	0.241671	0.244951	4.31321	1	no	no	no	undeclared		curated	1		1
-SRR14386311	PRJNA725323	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	8982	270660	52096895	0.00519532	0.132501	0.039999	1				n/a		curated	1		1
 SRR14386312	PRJNA725323	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	21207931	4137157	8344310	0.495806	0.495806	589.652	1	yes	yes	yes	declared	species	curated	1		1
 SRR14386312	PRJNA725323	Triticum aestivum	field	db2	84751	Pseudozyma flocculosa	Pseudozyma	resident	28102	442053	4138412	0.106817	0.134687	1.5754	1	no	no	no	undeclared		curated	1		1
-SRR14386312	PRJNA725323	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	9581	290052	52096895	0.00556755	0.133294	0.0426665	1				n/a		curated	1		1
 SRR14386313	PRJNA725323	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	20779807	4202360	8344310	0.50362	0.50362	577.749	1	yes	yes	yes	declared	species	curated	1		1
 SRR14386313	PRJNA725323	Triticum aestivum	field	db2	84751	Pseudozyma flocculosa	Pseudozyma	resident	62211	822535	4138412	0.198756	0.205025	3.48756	1	no	no	no	undeclared		curated	1		1
 SRR14386313	PRJNA725323	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	15801	453883	52096895	0.00871229	0.128222	0.0703657	1				n/a		curated	1		1
@@ -7753,114 +7687,108 @@ SRR15357735	PRJNA749614	Triticum aestivum	lab	db2	208348	Puccinia triticina	Pucc
 SRR15357735	PRJNA749614	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	23758	540732	52096895	0.0103794	0.103385	0.1058	1				n/a		curated	1		1
 SRR15357736	PRJNA749614	Triticum aestivum	lab	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	74076602	5325328	10888604	0.489074	0.489074	1578.33	1	yes	yes	yes	declared	species	curated	1		1
 SRR15357736	PRJNA749614	Triticum aestivum	lab	db2	4565	Triticum aestivum	Triticum	host	72116	1313720	52096895	0.0252169	0.0918027	0.32115	1				n/a		curated	1		1
-SRR16774428	PRJNA776691	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	92769	1047774	5412024	0.193601	0.197173	4.01106	1	no	no	no	unknown		not_curated	1		1
-SRR16774428	PRJNA776691	Triticum aestivum	field	db2	105696	Epicoccum nigrum	Epicoccum	resident	13811	182998	6266465	0.0292027	0.0724755	0.515725	1	yes	no	no	unknown		not_curated	1		1
-SRR16774428	PRJNA776691	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	11236649	11145780	52096895	0.213943	0.213943	50.4709	1				n/a		not_curated	1		1
-SRR16774429	PRJNA776691	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	40045	509302	5412024	0.0941056	0.114349	1.73143	1	no	no	no	unknown		not_curated	1		1
-SRR16774429	PRJNA776691	Triticum aestivum	field	db2	86802	Ustilago nuda	Ustilago	resident	3693	56500	877235	0.0644069	0.102788	0.985097	1	yes	no	no	unknown		not_curated	1		1
-SRR16774429	PRJNA776691	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	7575469	788134	52096895	0.0151282	0.0151282	34.0262	1				n/a		not_curated	1		1
-SRR16774430	PRJNA776691	Triticum aestivum	field	db2	53485	Pyrenophora teres	Pyrenophora	plant_pathogen	6281	92477	2461591	0.037568	0.0835623	0.597075	1	yes	yes	no	unknown		not_curated	1		1
-SRR16774430	PRJNA776691	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	22467	312614	5412024	0.0577629	0.0929485	0.971407	1	no	no	no	unknown		not_curated	1		1
-SRR16774430	PRJNA776691	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	9505271	744034	52096895	0.0142817	0.0142817	42.6942	1				n/a		not_curated	1		1
-SRR22371364	PRJNA776691	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	126452	197020	52096895	0.0037818	0.00628967	0.919473	1				n/a		not_curated	1		1
-SRR22371365	PRJNA776691	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	34632	104506	52096895	0.00200599	0.0108957	0.203474	1				n/a		not_curated	1		1
-SRR22371366	PRJNA776691	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	164789	1379847	52096895	0.0264862	0.0440141	0.920715	1				n/a		not_curated	1		1
+SRR16774428	PRJNA776691	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	92769	1047774	5412024	0.193601	0.197173	4.01106	1	no	no	no	undeclared		none_declared	1		1
+SRR16774428	PRJNA776691	Triticum aestivum	field	db2	105696	Epicoccum nigrum	Epicoccum	resident	13811	182998	6266465	0.0292027	0.0724755	0.515725	1	yes	no	no	undeclared		none_declared	1		1
+SRR16774428	PRJNA776691	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	11236649	11145780	52096895	0.213943	0.213943	50.4709	1				n/a		none_declared	1		1
+SRR16774429	PRJNA776691	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	40045	509302	5412024	0.0941056	0.114349	1.73143	1	no	no	no	undeclared		none_declared	1		1
+SRR16774429	PRJNA776691	Triticum aestivum	field	db2	86802	Ustilago nuda	Ustilago	resident	3693	56500	877235	0.0644069	0.102788	0.985097	1	yes	no	no	undeclared		none_declared	1		1
+SRR16774429	PRJNA776691	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	7575469	788134	52096895	0.0151282	0.0151282	34.0262	1				n/a		none_declared	1		1
+SRR16774430	PRJNA776691	Triticum aestivum	field	db2	53485	Pyrenophora teres	Pyrenophora	plant_pathogen	6281	92477	2461591	0.037568	0.0835623	0.597075	1	yes	yes	no	undeclared		none_declared	1		1
+SRR16774430	PRJNA776691	Triticum aestivum	field	db2	1338630	Cladosporium allicinum	Cladosporium	resident	22467	312614	5412024	0.0577629	0.0929485	0.971407	1	no	no	no	undeclared		none_declared	1		1
+SRR16774430	PRJNA776691	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	9505271	744034	52096895	0.0142817	0.0142817	42.6942	1				n/a		none_declared	1		1
+SRR22371364	PRJNA776691	Triticum aestivum	field	db2	4513	Hordeum vulgare	Hordeum	host	43581	972130	7263577	0.133836	0.149207	2.27286	1				n/a		none_declared	1		1
+SRR22371365	PRJNA776691	Triticum aestivum	field	db2	4513	Hordeum vulgare	Hordeum	host	17153	485553	7263577	0.0668476	0.129897	0.722824	1				n/a		none_declared	1		1
+SRR22371366	PRJNA776691	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	164789	1379847	52096895	0.0264862	0.0440141	0.920715	1				n/a		none_declared	1		1
 SRR17609703	PRJNA796936	Triticum	field	db2	4565	Triticum aestivum	Triticum	host	3087910	1425329	52096895	0.0273592	0.0279176	3.91198	1				n/a		none_declared	1		1
 SRR17609704	PRJNA796936	Triticum	field	db2	4565	Triticum aestivum	Triticum	host	2078635	844394	52096895	0.0162081	0.0174626	2.63336	1				n/a		none_declared	1		1
 SRR17609705	PRJNA796936	Triticum	field	db2	4565	Triticum aestivum	Triticum	host	3367278	897088	52096895	0.0172196	0.0174648	4.2659	1				n/a		none_declared	1		1
 SRR17609706	PRJNA796936	Triticum	field	db2	4565	Triticum aestivum	Triticum	host	16817120	1094399	52096895	0.021007	0.021007	42.6102	1				n/a		none_declared	1		1
 SRR17609707	PRJNA796936	Triticum	field	db2	4565	Triticum aestivum	Triticum	host	16236437	2220567	52096895	0.0426238	0.0426238	41.1389	1				n/a		none_declared	1		1
 SRR17609708	PRJNA796936	Triticum	field	db2	4565	Triticum aestivum	Triticum	host	2868014	937397	52096895	0.0179933	0.0184817	3.6334	1				n/a		none_declared	1		1
-SRR17609709	PRJNA796936	Triticum	field	db2	4565	Triticum aestivum	Triticum	host	1844066	67969	52096895	0.00130467	0.00131698	4.67238	1				n/a		none_declared	1		1
 SRR17609710	PRJNA796936	Triticum	field	db2	4565	Triticum aestivum	Triticum	host	2812349	819637	52096895	0.0157329	0.0157456	7.12576	1				n/a		none_declared	1		1
 SRR18337153	PRJNA816710	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	145931	1934023	52096895	0.0371236	0.085052	0.573554	1				n/a		none_declared	1		1
 SRR18337154	PRJNA816710	Triticum aestivum	field	db2	38033	Chaetomium globosum	Chaetomium	resident	8483	160118	7133936	0.0224446	0.103491	0.244463	1	yes	no	no	undeclared		none_declared	1		1
 SRR18337154	PRJNA816710	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	54363	886811	52096895	0.0170223	0.0881629	0.214529	1				n/a		none_declared	1		1
 SRR18337155	PRJNA816710	Triticum aestivum	field	db2	38033	Chaetomium globosum	Chaetomium	resident	22505	359378	7133936	0.0503758	0.105648	0.647842	1	yes	no	no	undeclared		none_declared	1		1
-SRR18337155	PRJNA816710	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	369	8443	52096895	0.000162063	0.111498	0.00145457	1				n/a		none_declared	1		1
 SRR18337156	PRJNA816710	Triticum aestivum	field	db2	38033	Chaetomium globosum	Chaetomium	resident	18598	296805	7133936	0.0416047	0.101193	0.529569	1	yes	no	no	undeclared		none_declared	1		1
-SRR18337156	PRJNA816710	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	217	6109	52096895	0.000117262	0.138646	0.000846123	0				n/a		none_declared	1		1
 SRR18337157	PRJNA816710	Triticum aestivum	field	db2	61284	Fusarium tricinctum	Fusarium	resident	2998	39763	1382267	0.0287665	0.0802213	0.444085	1	yes	no	no	undeclared		none_declared	2	0.04222	1
 SRR18337157	PRJNA816710	Triticum aestivum	field	db2	5515	Fusarium acuminatum	Fusarium	resident	1745	19030	607939	0.0313025	0.0704374	0.587709	1	yes	no	no	undeclared		none_declared	2	0.04222	1
 SRR18337157	PRJNA816710	Triticum aestivum	field	db2	45130	Bipolaris sorokiniana	Bipolaris	wheat_pathogen	7466	99482	3182104	0.031263	0.0819556	0.480397	1	yes	yes	yes	undeclared		none_declared	1		1
-SRR18337157	PRJNA816710	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	9304	194637	52096895	0.00373606	0.104051	0.0365666	1				n/a		none_declared	1		1
 SRR18337158	PRJNA816710	Triticum aestivum	field	db2	196109	Microdochium bolleyi	Microdochium	resident	6582	127474	5025956	0.0253631	0.107334	0.269583	1	yes	no	no	undeclared		none_declared	1		1
-SRR18337158	PRJNA816710	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	4259	104964	52096895	0.00201478	0.120734	0.0168286	1				n/a		none_declared	1		1
 SRR18337159	PRJNA816710	Triticum aestivum	field	db2	38033	Chaetomium globosum	Chaetomium	resident	28902	391766	7133936	0.0549158	0.0972901	0.831156	1	yes	no	no	undeclared		none_declared	1		1
 SRR18337159	PRJNA816710	Triticum aestivum	field	db2	45130	Bipolaris sorokiniana	Bipolaris	wheat_pathogen	62127	404608	3182104	0.127151	0.12951	4.00544	1	yes	yes	yes	undeclared		none_declared	1		1
-SRR18337159	PRJNA816710	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	11389	212742	52096895	0.00408358	0.0931078	0.0448495	1				n/a		none_declared	1		1
 SRR18337160	PRJNA816710	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	496570	856395	52096895	0.0164385	0.0198599	1.75864	1				n/a		none_declared	1		1
-SRR23826054	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	4521313	319799	52096895	0.00613854	0.00613854	18.9296	1				n/a		not_curated	1		1
-SRR23826055	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	1548939	279035	52096895	0.00535608	0.00536421	6.49106	1				n/a		not_curated	1		1
-SRR23826056	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	552726	221050	52096895	0.00424306	0.00466622	2.40034	1				n/a		not_curated	1		1
-SRR23826057	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	884618	216765	52096895	0.0041608	0.00425909	3.76895	1				n/a		not_curated	1		1
-SRR23826058	PRJNA918968	Hordeum vulgare	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	34897	254401	4237275	0.0600388	0.0723363	1.77194	1	yes	no	no	unknown		not_curated	1		1
-SRR23826058	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	2838124	2421797	7263577	0.333417	0.333417	84.0673	1				n/a		not_curated	1		1
-SRR23826059	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	627949	213659	52096895	0.00410118	0.00438499	2.73764	1				n/a		not_curated	1		1
-SRR23826060	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	558443	190553	52096895	0.00365767	0.00400518	2.44453	1				n/a		not_curated	1		1
-SRR23826061	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	853899	176971	52096895	0.00339696	0.0034842	3.68735	1				n/a		not_curated	1		1
-SRR23826062	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	1949941	200055	52096895	0.00384006	0.00384096	8.35735	1				n/a		not_curated	1		1
-SRR23826063	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	147157	1268546	29599616	0.0428568	0.0653926	1.06531	1	no	no	no	unknown		not_curated	1		1
-SRR23826063	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	761121	1315918	7263577	0.181167	0.181167	22.4534	1				n/a		not_curated	1		1
-SRR23826064	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	472750	205330	52096895	0.00394131	0.00452534	2.04749	1				n/a		not_curated	1		1
-SRR23826065	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	859751	231172	52096895	0.00443735	0.00455463	3.65934	1				n/a		not_curated	1		1
-SRR23826066	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	3042618	339791	52096895	0.00652229	0.00652231	12.6084	1				n/a		not_curated	1		1
-SRR23826067	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1478195	2107115	7263577	0.290093	0.290093	42.8401	1				n/a		not_curated	1		1
-SRR23826068	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1770789	1575757	7263577	0.21694	0.21694	52.2225	1				n/a		not_curated	1		1
-SRR23826069	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1682665	2003093	7263577	0.275772	0.275772	46.4361	1				n/a		not_curated	1		1
-SRR23826070	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	11205655	459036	52096895	0.0088112	0.0088112	45.2492	1				n/a		not_curated	1		1
-SRR23826071	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	666851	1581247	7263577	0.217695	0.217695	19.8741	1				n/a		not_curated	1		1
-SRR23826072	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	3224533	2550192	7263577	0.351093	0.351093	93.606	1				n/a		not_curated	1		1
-SRR23826073	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	453723	214137	52096895	0.00411036	0.0047991	1.94132	1				n/a		not_curated	1		1
-SRR23826074	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	234230	153669	52096895	0.00294968	0.00466431	1.00074	1				n/a		not_curated	1		1
-SRR23826075	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	683437	2271265	52096895	0.0435969	0.0459824	2.95885	1				n/a		not_curated	1		1
-SRR23826076	PRJNA918968	Hordeum vulgare	field	db2	112498	Ramularia collo-cygni	Ramularia	resident	7852	147912	4854530	0.0304689	0.101008	0.359031	1	no	no	no	unknown		not_curated	1		1
-SRR23826076	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	420860	1272221	7263577	0.175151	0.175151	12.8613	1				n/a		not_curated	1		1
-SRR23826077	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	172515	244566	52096895	0.00469444	0.00895796	0.742449	1				n/a		not_curated	1		1
-SRR23826078	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	395340	1281158	7263577	0.176381	0.176382	12.03	1				n/a		not_curated	1		1
-SRR23826079	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	425908	230751	52096895	0.00442927	0.00529295	1.81292	1				n/a		not_curated	1		1
-SRR23826080	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	335169	242200	52096895	0.00464903	0.00609671	1.43779	1				n/a		not_curated	1		1
-SRR23826081	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	160127	942671	7263577	0.129781	0.13064	5.02368	1				n/a		not_curated	1		1
-SRR23826082	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	332968	185210	52096895	0.00355511	0.00465589	1.44211	1				n/a		not_curated	1		1
-SRR23826083	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	587112	1203971	7263577	0.165755	0.165755	17.931	1				n/a		not_curated	1		1
-SRR23826084	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	377201	159764	52096895	0.00306667	0.00380703	1.63747	1				n/a		not_curated	1		1
-SRR23826085	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	37924	967020	29599616	0.03267	0.145957	0.253388	1	no	no	no	unknown		not_curated	1		1
-SRR23826085	PRJNA918968	Hordeum vulgare	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	8226	84217	3934012	0.0214074	0.0632063	0.413534	1	no	no	no	unknown		not_curated	1		1
-SRR23826085	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	2652705	2381575	7263577	0.327879	0.327879	72.2265	1				n/a		not_curated	1		1
-SRR23826086	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	57083	1161328	29599616	0.0392346	0.128948	0.362788	1	no	no	no	unknown		not_curated	1		1
-SRR23826086	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1137631	1446562	7263577	0.199153	0.199153	29.4634	1				n/a		not_curated	1		1
-SRR23826087	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	94227	1420327	29599616	0.0479846	0.0971891	0.680674	1	no	no	no	unknown		not_curated	1		1
-SRR23826087	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1474191	1999051	7263577	0.275216	0.275216	43.3964	1				n/a		not_curated	1		1
-SRR23826088	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	37520	953338	29599616	0.0322078	0.139641	0.262205	1	no	no	no	unknown		not_curated	1		1
-SRR23826088	PRJNA918968	Hordeum vulgare	field	db2	86828	Sporobolomyces ruberrimus	Sporobolomyces	resident	8475	131800	3684220	0.0357742	0.0944819	0.475837	1	no	no	no	unknown		not_curated	1		1
-SRR23826088	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	995440	468222	52096895	0.00898752	0.00916353	3.95246	1				n/a		not_curated	1		1
-SRR23826089	PRJNA918968	Hordeum vulgare	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	63416	256716	3934012	0.0652555	0.0674282	3.4351	1	no	no	no	unknown		not_curated	1		1
-SRR23826089	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	269837	1110429	7263577	0.152876	0.152932	7.91639	1				n/a		not_curated	1		1
-SRR23826090	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	63537	1199187	29599616	0.0405136	0.110338	0.457565	1	no	no	no	unknown		not_curated	1		1
-SRR23826090	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1191215	2050441	7263577	0.282291	0.282291	34.9584	1				n/a		not_curated	1		1
-SRR23826091	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	78886	1348878	29599616	0.0455708	0.105288	0.567079	1	no	no	no	unknown		not_curated	1		1
-SRR23826091	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	2732652	2090354	7263577	0.287786	0.287786	80.0504	1				n/a		not_curated	1		1
-SRR23826092	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	83199	1354832	29599616	0.0457719	0.107235	0.556586	1	no	no	no	unknown		not_curated	1		1
-SRR23826092	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1443207	2131643	7263577	0.29347	0.29347	39.344	1				n/a		not_curated	1		1
-SRR23826093	PRJNA918968	Hordeum vulgare	field	db2	29917	Cladosporium cladosporioides	Cladosporium	resident	14910	229432	3920113	0.0585269	0.113813	0.722036	1	yes	no	no	unknown		not_curated	1		1
-SRR23826093	PRJNA918968	Hordeum vulgare	field	db2	2867405	Blumeria hordei	Blumeria	resident	26420	417731	2659675	0.157061	0.185151	1.88575	1	no	no	no	unknown		not_curated	1		1
-SRR23826093	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	807425	2118218	7263577	0.291622	0.291622	21.1024	1				n/a		not_curated	1		1
-SRR23826094	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	613103	129626	52096895	0.00248817	0.00278286	2.24533	1				n/a		not_curated	1		1
-SRR23826095	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	38569	968235	29599616	0.0327111	0.142419	0.260951	1	no	no	no	unknown		not_curated	1		1
-SRR23826095	PRJNA918968	Hordeum vulgare	field	db2	2867405	Blumeria hordei	Blumeria	resident	5860	121345	2659675	0.045624	0.127884	0.44124	1	no	no	no	unknown		not_curated	1		1
-SRR23826095	PRJNA918968	Hordeum vulgare	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	66353	434003	4237275	0.102425	0.107078	3.13603	1	yes	no	no	unknown		not_curated	1		1
-SRR23826095	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1621231	2035355	7263577	0.280214	0.280214	44.6993	1				n/a		not_curated	1		1
-SRR23826096	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	45577	1037764	29599616	0.03506	0.134999	0.300709	1	no	no	no	unknown		not_curated	1		1
-SRR23826096	PRJNA918968	Hordeum vulgare	field	db2	76775	Malassezia restricta	Malassezia	resident	3697	92499	2267644	0.0407908	0.149591	0.318391	1	no	no	no	unknown		not_curated	1		1
-SRR23826096	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1526005	1499888	7263577	0.206494	0.206494	41.0291	1				n/a		not_curated	1		1
-SRR23826097	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	54335	1162546	29599616	0.0392757	0.13042	0.358317	1	no	no	no	unknown		not_curated	1		1
-SRR23826097	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1452117	1657479	7263577	0.22819	0.22819	39.0234	1				n/a		not_curated	1		1
-SRR23826098	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1053878	1998486	7263577	0.275138	0.275138	31.5665	1				n/a		not_curated	1		1
-SRR23826099	PRJNA918968	Hordeum vulgare	field	db2	4929	Meyerozyma guilliermondii	Meyerozyma	resident	2679	57393	874947	0.065596	0.134402	0.669545	1	no	no	no	unknown		not_curated	1		1
-SRR23826099	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	1579321	3347746	52096895	0.06426	0.064345	6.62899	1				n/a		not_curated	1		1
-SRR23826100	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	4960412	333983	52096895	0.0064108	0.0064108	21.028	1				n/a		not_curated	1		1
-SRR23826101	PRJNA918968	Hordeum vulgare	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	41099	233734	4237275	0.0551614	0.0629072	2.09451	1	yes	no	no	unknown		not_curated	1		1
-SRR23826101	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	4744581	2419890	7263577	0.333154	0.333154	141.054	1				n/a		not_curated	1		1
+SRR23826054	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	3298762	2000353	7263577	0.275395	0.275395	99.0581	1				n/a		none_declared	1		1
+SRR23826055	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1019854	1845959	7263577	0.254139	0.254139	30.6535	1				n/a		none_declared	1		1
+SRR23826056	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	307639	1379841	7263577	0.189967	0.18998	9.58221	1				n/a		none_declared	1		1
+SRR23826057	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	796584	1365210	7263577	0.187953	0.187953	24.342	1				n/a		none_declared	1		1
+SRR23826058	PRJNA918968	Hordeum vulgare	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	34897	254401	4237275	0.0600388	0.0723363	1.77194	1	yes	no	no	undeclared		none_declared	1		1
+SRR23826058	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	2838124	2421797	7263577	0.333417	0.333417	84.0673	1				n/a		none_declared	1		1
+SRR23826059	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	337021	1440715	7263577	0.198348	0.198353	10.5383	1				n/a		none_declared	1		1
+SRR23826060	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	241104	1259402	7263577	0.173386	0.173475	7.56977	1				n/a		none_declared	1		1
+SRR23826061	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	387034	994840	7263577	0.136963	0.136964	11.9872	1				n/a		none_declared	1		1
+SRR23826062	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	512454	1145498	7263577	0.157704	0.157704	15.753	1				n/a		none_declared	1		1
+SRR23826063	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	147157	1268546	29599616	0.0428568	0.0653926	1.06531	1	no	no	no	undeclared		none_declared	1		1
+SRR23826063	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	761121	1315918	7263577	0.181167	0.181167	22.4534	1				n/a		none_declared	1		1
+SRR23826064	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	368831	1358361	7263577	0.18701	0.187012	11.4572	1				n/a		none_declared	1		1
+SRR23826065	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	566290	1559079	7263577	0.214643	0.214643	17.2874	1				n/a		none_declared	1		1
+SRR23826066	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	2578137	1919240	7263577	0.264228	0.264228	76.6263	1				n/a		none_declared	1		1
+SRR23826067	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1478195	2107115	7263577	0.290093	0.290093	42.8401	1				n/a		none_declared	1		1
+SRR23826068	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1770789	1575757	7263577	0.21694	0.21694	52.2225	1				n/a		none_declared	1		1
+SRR23826069	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1682665	2003093	7263577	0.275772	0.275772	46.4361	1				n/a		none_declared	1		1
+SRR23826070	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	11205655	459036	52096895	0.0088112	0.0088112	45.2492	1				n/a		none_declared	1		1
+SRR23826071	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	666851	1581247	7263577	0.217695	0.217695	19.8741	1				n/a		none_declared	1		1
+SRR23826072	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	3224533	2550192	7263577	0.351093	0.351093	93.606	1				n/a		none_declared	1		1
+SRR23826073	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	432723	1239329	7263577	0.170622	0.170623	13.2794	1				n/a		none_declared	1		1
+SRR23826074	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	195009	1077326	7263577	0.148319	0.148697	5.97578	1				n/a		none_declared	1		1
+SRR23826075	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	683437	2271265	52096895	0.0435969	0.0459824	2.95885	1				n/a		none_declared	1		1
+SRR23826076	PRJNA918968	Hordeum vulgare	field	db2	112498	Ramularia collo-cygni	Ramularia	resident	7852	147912	4854530	0.0304689	0.101008	0.359031	1	no	no	no	undeclared		none_declared	1		1
+SRR23826076	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	420860	1272221	7263577	0.175151	0.175151	12.8613	1				n/a		none_declared	1		1
+SRR23826077	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	171762	1187855	7263577	0.163536	0.164355	5.30186	1				n/a		none_declared	1		1
+SRR23826078	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	395340	1281158	7263577	0.176381	0.176382	12.03	1				n/a		none_declared	1		1
+SRR23826079	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	298393	1259609	7263577	0.173414	0.173434	9.1099	1				n/a		none_declared	1		1
+SRR23826080	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	278729	1313544	7263577	0.18084	0.180874	8.57579	1				n/a		none_declared	1		1
+SRR23826081	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	160127	942671	7263577	0.129781	0.13064	5.02368	1				n/a		none_declared	1		1
+SRR23826082	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	252449	1288445	7263577	0.177384	0.177454	7.84206	1				n/a		none_declared	1		1
+SRR23826083	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	587112	1203971	7263577	0.165755	0.165755	17.931	1				n/a		none_declared	1		1
+SRR23826084	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	288024	1002463	7263577	0.138012	0.13803	8.96791	1				n/a		none_declared	1		1
+SRR23826085	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	37924	967020	29599616	0.03267	0.145957	0.253388	1	no	no	no	undeclared		none_declared	1		1
+SRR23826085	PRJNA918968	Hordeum vulgare	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	8226	84217	3934012	0.0214074	0.0632063	0.413534	1	no	no	no	undeclared		none_declared	1		1
+SRR23826085	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	2652705	2381575	7263577	0.327879	0.327879	72.2265	1				n/a		none_declared	1		1
+SRR23826086	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	57083	1161328	29599616	0.0392346	0.128948	0.362788	1	no	no	no	undeclared		none_declared	1		1
+SRR23826086	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1137631	1446562	7263577	0.199153	0.199153	29.4634	1				n/a		none_declared	1		1
+SRR23826087	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	94227	1420327	29599616	0.0479846	0.0971891	0.680674	1	no	no	no	undeclared		none_declared	1		1
+SRR23826087	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1474191	1999051	7263577	0.275216	0.275216	43.3964	1				n/a		none_declared	1		1
+SRR23826088	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	37520	953338	29599616	0.0322078	0.139641	0.262205	1	no	no	no	undeclared		none_declared	1		1
+SRR23826088	PRJNA918968	Hordeum vulgare	field	db2	86828	Sporobolomyces ruberrimus	Sporobolomyces	resident	8475	131800	3684220	0.0357742	0.0944819	0.475837	1	no	no	no	undeclared		none_declared	1		1
+SRR23826088	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	995440	468222	52096895	0.00898752	0.00916353	3.95246	1				n/a		none_declared	1		1
+SRR23826089	PRJNA918968	Hordeum vulgare	field	db2	4972	Dioszegia hungarica	Dioszegia	resident	63416	256716	3934012	0.0652555	0.0674282	3.4351	1	no	no	no	undeclared		none_declared	1		1
+SRR23826089	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	269837	1110429	7263577	0.152876	0.152932	7.91639	1				n/a		none_declared	1		1
+SRR23826090	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	63537	1199187	29599616	0.0405136	0.110338	0.457565	1	no	no	no	undeclared		none_declared	1		1
+SRR23826090	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1191215	2050441	7263577	0.282291	0.282291	34.9584	1				n/a		none_declared	1		1
+SRR23826091	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	78886	1348878	29599616	0.0455708	0.105288	0.567079	1	no	no	no	undeclared		none_declared	1		1
+SRR23826091	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	2732652	2090354	7263577	0.287786	0.287786	80.0504	1				n/a		none_declared	1		1
+SRR23826092	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	83199	1354832	29599616	0.0457719	0.107235	0.556586	1	no	no	no	undeclared		none_declared	1		1
+SRR23826092	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1443207	2131643	7263577	0.29347	0.29347	39.344	1				n/a		none_declared	1		1
+SRR23826093	PRJNA918968	Hordeum vulgare	field	db2	29917	Cladosporium cladosporioides	Cladosporium	resident	14910	229432	3920113	0.0585269	0.113813	0.722036	1	yes	no	no	undeclared		none_declared	1		1
+SRR23826093	PRJNA918968	Hordeum vulgare	field	db2	2867405	Blumeria hordei	Blumeria	resident	26420	417731	2659675	0.157061	0.185151	1.88575	1	no	no	no	undeclared		none_declared	1		1
+SRR23826093	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	807425	2118218	7263577	0.291622	0.291622	21.1024	1				n/a		none_declared	1		1
+SRR23826094	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	188424	742008	7263577	0.102155	0.102884	4.9493	1				n/a		none_declared	1		1
+SRR23826095	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	38569	968235	29599616	0.0327111	0.142419	0.260951	1	no	no	no	undeclared		none_declared	1		1
+SRR23826095	PRJNA918968	Hordeum vulgare	field	db2	2867405	Blumeria hordei	Blumeria	resident	5860	121345	2659675	0.045624	0.127884	0.44124	1	no	no	no	undeclared		none_declared	1		1
+SRR23826095	PRJNA918968	Hordeum vulgare	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	66353	434003	4237275	0.102425	0.107078	3.13603	1	yes	no	no	undeclared		none_declared	1		1
+SRR23826095	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1621231	2035355	7263577	0.280214	0.280214	44.6993	1				n/a		none_declared	1		1
+SRR23826096	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	45577	1037764	29599616	0.03506	0.134999	0.300709	1	no	no	no	undeclared		none_declared	1		1
+SRR23826096	PRJNA918968	Hordeum vulgare	field	db2	76775	Malassezia restricta	Malassezia	resident	3697	92499	2267644	0.0407908	0.149591	0.318391	1	no	no	no	undeclared		none_declared	1		1
+SRR23826096	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1526005	1499888	7263577	0.206494	0.206494	41.0291	1				n/a		none_declared	1		1
+SRR23826097	PRJNA918968	Hordeum vulgare	field	db2	46634	Aureobasidium melanogenum	Aureobasidium	resident	54335	1162546	29599616	0.0392757	0.13042	0.358317	1	no	no	no	undeclared		none_declared	1		1
+SRR23826097	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1452117	1657479	7263577	0.22819	0.22819	39.0234	1				n/a		none_declared	1		1
+SRR23826098	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1053878	1998486	7263577	0.275138	0.275138	31.5665	1				n/a		none_declared	1		1
+SRR23826099	PRJNA918968	Hordeum vulgare	field	db2	4929	Meyerozyma guilliermondii	Meyerozyma	resident	2679	57393	874947	0.065596	0.134402	0.669545	1	no	no	no	undeclared		none_declared	1		1
+SRR23826099	PRJNA918968	Hordeum vulgare	field	db2	4565	Triticum aestivum	Triticum	host	1579321	3347746	52096895	0.06426	0.064345	6.62899	1				n/a		none_declared	1		1
+SRR23826100	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	1230504	2286172	7263577	0.314745	0.314745	37.4131	1				n/a		none_declared	1		1
+SRR23826101	PRJNA918968	Hordeum vulgare	field	db2	40563	Sporobolomyces roseus	Sporobolomyces	resident	41099	233734	4237275	0.0551614	0.0629072	2.09451	1	yes	no	no	undeclared		none_declared	1		1
+SRR23826101	PRJNA918968	Hordeum vulgare	field	db2	4513	Hordeum vulgare	Hordeum	host	4744581	2419890	7263577	0.333154	0.333154	141.054	1				n/a		none_declared	1		1
 SRR24010213	PRJNA950118	Triticum aestivum	field	db2	27350	Puccinia striiformis	Puccinia	wheat_pathogen	4029297	2755148	10888604	0.25303	0.25303	48.8462	1	yes	yes	yes	declared	species	curated	2	0.4484	1
 SRR24010213	PRJNA950118	Triticum aestivum	field	db2	208348	Puccinia triticina	Puccinia	wheat_pathogen	106875	804035	8344310	0.0963573	0.118142	1.69067	1	yes	yes	yes	undeclared		curated	2	0.4484	1
 SRR24010213	PRJNA950118	Triticum aestivum	field	db2	4565	Triticum aestivum	Triticum	host	10143434	5771743	52096895	0.110789	0.110789	25.7008	1				n/a		curated	1		1

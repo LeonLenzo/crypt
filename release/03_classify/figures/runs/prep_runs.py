@@ -140,6 +140,19 @@ def main():
         w.writeheader()
         w.writerows(pts)
 
+    # THE FIVE CATEGORIES, written whether or not each occurs in these four runs. The
+    # legend states the SCHEME, which is shared with samples.png, and a reader comparing
+    # the two needs to see that "Wheat Resident" exists and simply has no point here: none
+    # of the residents called in these runs is one USDA records on wheat at species rank,
+    # which is itself the 02_reference finding that the genus tier carries the residents.
+    with open(HERE / "runs_cats.tsv", "w", newline="") as fh:
+        w = csv.writer(fh, delimiter="\t", lineterminator="\n")
+        w.writerow(["category", "fill", "edge", "n_called"])
+        called = [p for p in pts if p["call"] == "detected"]
+        for name, fill in CATS:
+            w.writerow([name, fill, darken(fill),
+                        sum(1 for p in called if p["category"] == name)])
+
     with open(HERE / "runs_floors.tsv", "w", newline="") as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
         w.writerow(["item", "value"])

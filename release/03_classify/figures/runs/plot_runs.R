@@ -125,12 +125,11 @@ for (i in seq_len(nrow(pan))) {
 # ── legend ────────────────────────────────────────────────────────────────────
 # Keyed on the matrix SLOT, which is what the hue encodes. Keying it on taxon_class
 # duplicated the key, because `resident` spans two slots and therefore two hues.
-# Ordered by the SCHEME, residents then pathogens then host, not by hue: the order is the
-# argument the panel makes and must not depend on which colours happened to occur.
-CAT_ORDER <- c("Wheat Resident", "Plant Resident", "Declared Pathogen",
-               "Undeclared Pathogen", "Host")
-cats <- unique(pts[pts$called, c("category", "fill")])
-cats <- cats[order(match(cats$category, CAT_ORDER)), ]
+# The five categories come from runs_cats.tsv, which prep writes IN SCHEME ORDER and
+# writes in full: a category with no point in these four runs is still part of the scheme
+# the composite shares with samples.png, and dropping it would make the two legends differ
+# for a reason the reader cannot see.
+cats <- rd("runs_cats.tsv")
 kd <- data.frame(k = factor(cats$category, levels = cats$category), x = 1, y = 1)
 g1 <- ggplot(kd, aes(x, y, fill = k)) + geom_point(shape = 21, size = 2.6) +
   scale_fill_manual(values = setNames(cats$fill, cats$category), name = NULL,
@@ -151,11 +150,11 @@ g2 <- ggplot(ln, aes(x, y, linetype = k, colour = k, group = k)) + geom_line() +
 pick <- function(p) cowplot::get_plot_component(
   p + theme_void() + theme(legend.position = "bottom",
                            legend.text = element_text(size = 9.5, colour = "#1a1a1a",
-                                                      margin = margin(l = 4, r = 20)),
+                                                      margin = margin(l = 4, r = 14)),
                            legend.key.spacing.x = unit(2, "pt"),
                            legend.margin = margin(0, 0, 0, 6)),
   "guide-box-bottom", return_all = TRUE)
-lg <- cowplot::plot_grid(pick(g1), pick(g2), nrow = 1, rel_widths = c(2.6, 1.3))
+lg <- cowplot::plot_grid(pick(g1), pick(g2), nrow = 1, rel_widths = c(2.45, 1.55))
 ragg::agg_png(file.path(HERE, "runs_legend.png"), width = 11.4, height = 0.32,
               units = "in", res = 600, background = "white")
 print(lg)

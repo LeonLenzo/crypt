@@ -81,13 +81,16 @@ def main():
         f"are log scales labelled as the exponent. Filled points are calls, hollow points "
         f"are not; {n_called} of {n_pts:,} candidates across the four runs are called.",
         "",
-        f"Three lines, and together they are the whole decision. The solid curve is the "
-        f"null, the coverage that reads spread uniformly would give at that depth. The "
-        f"dotted line is the coverage floor at {cf:.0%}, anchored on the off-host null. The "
-        f"dashed curve is the abundance floor, {sf:.2f} of the null, which bends down at "
-        f"low depth because a shallow library could not have reached {sf:.0%} whatever was "
-        f"present. The two cross at redundancy 0.51: above it the dashed curve binds, below "
-        f"it the dotted line does, and no point is ever judged by both.",
+        f"TWO LINES, and together they are the whole decision. The dotted line is the "
+        f"coverage floor at {cf:.0%}, anchored on the off-host null. The dashed curve is "
+        f"the abundance floor, {sf:.2f} of the NULL \u2014 the coverage reads spread "
+        f"uniformly would give at that depth \u2014 which bends down at low depth because "
+        f"a shallow library could not have reached {sf:.0%} whatever was present. The two "
+        f"cross at redundancy 0.51: above it the dashed curve binds, below it the dotted "
+        f"line does, and no point is ever judged by both. The null ITSELF is not drawn: no "
+        f"point reaches it, real transcriptomes not being uniform over a genome's k-mer "
+        f"space, so as a line it marked a ceiling nothing approaches while competing with "
+        f"the two lines that decide calls.",
         "",
         f"The four runs are a ladder through the control set, and each was chosen with its "
         f"expectation written down first, in data/inputs/panel_runs.tsv, so the panels are "
@@ -101,12 +104,15 @@ def main():
         f"correctly rather than failing. A field sample carries a crowd. And an "
         f"uninoculated plant carries no fungus at all, which is the only panel where the "
         f"right answer is nothing and the floors have to decline everything above the "
-        f"rejected cloud \\u2014 the host is still called there, because the host is ranked "
-        f"and not thresholded.",
+        f"rejected cloud; its host is called, as it should be. The FIRST panel has no "
+        f"host at all, which is the other half of the same test: ranking alone had given "
+        f"the spore library Triticum aestivum at coverage 0.0018, cross-mapping only, and "
+        f"host_coverage_floor now asks whether there is a plant in the library before the "
+        f"rank asks which one.",
         "",
         f"The rejected cloud is most of each panel and is deliberately unlabelled. It has "
         f"no identity worth reading: what it shows is that the floors refuse far more than "
-        f"they admit, and that the refusals lie along the null rather than scattered, which "
+        f"they admit, and that the refusals lie along one locus rather than scattered, which "
         f"is what cross-mapping from a large reference looks like.",
     )
     write(FIG / "runs_caption.txt", text)

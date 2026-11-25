@@ -13,22 +13,25 @@ have spent on that taxon, and coverage observed on the y, the share of its
 k-mer space actually seen. Both are divided by the taxon's OWN minimizer total
 in db2, which is what makes the null one curve for every taxon rather than one
 per taxon. Axes are log scales labelled as the exponent. Filled points are
-calls, hollow points are not; 18 of 830 candidates across the four runs are
+calls, hollow points are not; 17 of 830 candidates across the four runs are
 called.
 
-Three lines, and together they are the whole decision. The solid curve is the
-null, the coverage that reads spread uniformly would give at that depth. The
-dotted line is the coverage floor at 2%, anchored on the off-host null. The
-dashed curve is the abundance floor, 0.05 of the null, which bends down at low
-depth because a shallow library could not have reached 5% whatever was
-present. The two cross at redundancy 0.51: above it the dashed curve binds,
-below it the dotted line does, and no point is ever judged by both.
+TWO LINES, and together they are the whole decision. The dotted line is the
+coverage floor at 2%, anchored on the off-host null. The dashed curve is the
+abundance floor, 0.05 of the NULL — the coverage reads spread uniformly would
+give at that depth — which bends down at low depth because a shallow library
+could not have reached 5% whatever was present. The two cross at redundancy
+0.51: above it the dashed curve binds, below it the dotted line does, and no
+point is ever judged by both. The null ITSELF is not drawn: no point reaches
+it, real transcriptomes not being uniform over a genome's k-mer space, so as a
+line it marked a ceiling nothing approaches while competing with the two lines
+that decide calls.
 
 The four runs are a ladder through the control set, and each was chosen with
 its expectation written down first, in data/inputs/panel_runs.tsv, so the
 panels are a test rather than an illustration:
 
-  1. pure fungal (spores) (SRR6043971, spores): 68 candidates, 2 called \u2014 Puccinia striiformis, Triticum aestivum
+  1. pure fungal (spores) (SRR6043971, spores): 68 candidates, 1 called \u2014 Puccinia striiformis
   2. controlled infection (ERR1607743, infected_tissue): 143 candidates, 4 called \u2014 Cladosporium cladosporioides, Cladosporium inversicolor, Puccinia striiformis, Triticum aestivum
   3. field sample (ERR15005445, field-collected): 299 candidates, 11 called \u2014 Alternaria triticimaculans, Cladosporium allicinum, Dioszegia hungarica, Parastagonospora nodorum, Puccinia graminis, Puccinia striiformis, Puccinia triticina, Pyrenophora tritici-repentis, Sporobolomyces roseus, Triticum aestivum, Zymoseptoria tritici
   4. host only (SRR14239691, host_only): 320 candidates, 1 called \u2014 Triticum aestivum
@@ -39,10 +42,13 @@ plant is not sterile, and the Cladosporium in the second panel is the method
 behaving correctly rather than failing. A field sample carries a crowd. And an
 uninoculated plant carries no fungus at all, which is the only panel where the
 right answer is nothing and the floors have to decline everything above the
-rejected cloud \u2014 the host is still called there, because the host is
-ranked and not thresholded.
+rejected cloud; its host is called, as it should be. The FIRST panel has no
+host at all, which is the other half of the same test: ranking alone had given
+the spore library Triticum aestivum at coverage 0.0018, cross-mapping only,
+and host_coverage_floor now asks whether there is a plant in the library
+before the rank asks which one.
 
 The rejected cloud is most of each panel and is deliberately unlabelled. It
 has no identity worth reading: what it shows is that the floors refuse far
-more than they admit, and that the refusals lie along the null rather than
+more than they admit, and that the refusals lie along one locus rather than
 scattered, which is what cross-mapping from a large reference looks like.

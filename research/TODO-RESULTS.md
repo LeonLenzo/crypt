@@ -217,3 +217,130 @@ comparison is the part that has to wait.
 - Split `target` into `phibase` and `funguild` route names in `routes.py`, at the next genuine
   rebuild only, since re-running `01_refs` means fresh NCBI queries and a different assembly set.
 - The gene-prediction decision.
+
+---
+
+## Added 2026-11-18 — the congener tier, measured
+
+Came out of `projects/wobbegong`, a from-scratch classifier built as a learning exercise.
+Two measurements that bear on `release/02_reference`, neither of which was run before.
+
+### 1. The stated rationale for db1 is wrong for divergent genera. FIX THE SENTENCE.
+
+`release/02_reference/README.md` currently says:
+
+> a reference absent from the database is invisible and unrecoverable because the reads go
+> silently to the nearest taxon present
+
+The second clause does not survive measurement. On full CDS sets at k=31, congeneric
+*Puccinia* share **0.10 to 0.50%** of their k-mer space (rust against Ascomycete is 87 k-mers
+in 14 million, i.e. chance). Holding one species out of an index containing only its
+congeners, and simulating 20,000 error-free 150 bp reads:
+
+| held out | >=1 k-mer matched | >=5 k-mers matched |
+|---|--:|--:|
+| *P. striiformis* | 3.28% | 1.97% |
+| *P. triticina* | 6.94% | 4.25% |
+| *P. graminis* | 5.97% | 3.69% |
+
+**About 96% of reads from an absent congener match nothing at all.** They are lost, not
+misassigned. The first clause ("invisible and unrecoverable") stands; the mechanism in the
+second does not. Error-free reads make these upper bounds.
+
+Worse, the interception that does occur is pathological: median 5 of 120 possible k-mers
+among reads that matched. A few reads on a few conserved k-mers is the *Phakopsora* signature
+(248,504 reads on 1,239 minimizers). Congeners are not rescuing absent species here, they are
+manufacturing the artefact the complexity criterion exists to reject.
+
+**Caveat, and it is the important one.** This is *Puccinia*, a divergent genus (~16 ANI points
+between species). *Alternaria* sect. Infectoriae is the counterexample already in our own
+results: 24 species sharing most of their k-mers, collapsing to the genus node, 2,985 of
+wheat's 5,506 above-criterion detections. **Generalising from rusts to all genera would repeat
+the error that produced the Alternaria denominator bias.** Do not act on this beyond fixing
+the sentence until the per-genus measurement below is run.
+
+Rerun: `projects/wobbegong/experiments/congener_holdout.py`.
+
+### 2. The per-genus blur index — cheap, not yet run
+
+`kraken2-inspect` places a minimizer at the genus node exactly when two or more species in
+that genus share it. So for every genus in db_v4:
+
+    blur = genus-node minimizers / (genus-node minimizers + sum of species-node minimizers)
+
+Near zero is *Puccinia*: congeners separate cleanly, db1 buys recall only. Near one is
+*Alternaria*: congeners blur, species calls are unreliable, db1 costs resolution. One pass
+over `outputs/db_inspect_<name>.tsv`, no new compute, and it turns "is db1 required" into a
+per-genus answer defensible in a supplementary table.
+
+### 3. What db1 is actually made of
+
+`research/db1_composition.py`. The scope rule reads USDA at genus, which lumps two different
+justifications into one tier. Of 1,744 db1 assemblies across 322 genera:
+
+| | assemblies | species | genera | share |
+|---|--:|--:|--:|--:|
+| A covers an unresolvable USDA record | 1,032 | 750 | 167 | 59.2% |
+| B speculative congener | 556 | 390 | 93 | 31.9% |
+| ? genus absent from the USDA screen | 156 | 94 | 62 | 8.9% |
+
+A means USDA named something in that genus that NCBI cannot place, so the real organism may be
+any species in it and the congeners are covering a real but unresolvable observation. B means
+every USDA record in that genus resolved cleanly and is already represented in db0, so the
+additions are congeners never observed on a plant.
+
+**The majority is defensible.** The 8.9% unattributable bucket needs explaining before review:
+those genera are not in the screen at all, so they arrived by exception or by a spelling the
+screen does not share.
+
+**Case B is dominated by sequencing effort, not biology.** *Coemansia* contributes 154
+assemblies on 3 USDA records, nearly 9% of the whole tier, for a Kickxellomycotina genus from
+dung, soil and insect guts. *Wallemia* 52 on 1 record. *Trichophyton* 37 on 1 and *Microsporum*
+7, both animal dermatophytes. *Hanseniaspora* 17 and *Clavispora* 9, yeasts. This is the same
+shape as the FUNGuild problem in `crypt-pathogen-label-not-inherited`: a genus-level rule
+inheriting whatever NCBI happens to have sequenced heavily.
+
+Decide before submission whether case B is reported as a deliberate inclusion or trimmed. It
+is already built, so this is a defensibility question, not a compute one.
+
+---
+
+## Updated 2026-11-18 (evening) — blur index on the FULL release reference
+
+The `db1p` build finished (7h21m, kraken2-inspect committed
+`release/02_reference/data/outputs/db_inspect_db1p.tsv`, 10.09B root minimizers, 99.26% Fungi).
+Reran `db1_blur.py` and `db1_blur_impact.py` on it. The silver-subset numbers held to within
+hundredths of a percent, confirming blur is a property of the taxa, not the db version:
+
+  Puccinia 0.45%, Alternaria 32.66%, Fusarium 27.70%, Aspergillus 18.27%, Rhynchosporium 62.05%.
+
+**Impact (figures/db1_blur_impact_db1p.png): Alternaria remains the SOLE genus both common on
+wheat and blurred** (2,378 calls, 32.7%). Fusarium 19 calls, Aureobasidium 1, Akanthomyces 1.
+Caveat: the call counts are still from the silver classification; re-classifying against db1p
+is a separate run. Blur values are final, call counts provisional.
+
+**New finding worth acting on: Coemansia is a double-hit.** It is the single largest SPECULATIVE
+congener block (154 assemblies on 3 USDA records, db1_composition.py) AND the most-blurred genus
+in the whole reference with real sequence (49.67%, 146 species, 137M minimizers). Weakly
+justified and resolution-costing. Strongest single case in the reference for trimming a db1
+genus. Morchella (41%), Pseudogymnoascus (36%), Claviceps (32%) are lesser versions.
+
+Next: (a) the Alternaria -> genus rollup in reporting, blur column in the supplement; (b) decide
+Coemansia/Morchella/etc trim; (c) rerun db1_blur_impact once the cohort is classified against db1p.
+
+---
+
+## Added 2026-11-19 — minimizer-crossover supplementary figure
+
+Lives in `release/02_reference/figures/crossover/` (moved out of research/, follows the
+matrix/tree figure convention: plot_crossover.py + caption.py + crossover_matrix.tsv, with
+compute_matrix.py/.slurm as the Setonix provenance). `caption.py` generates
+crossover_caption.txt from the data.
+
+Pairwise minimizer sharing among the 254 wheat-row taxa (90 genera, 1,289 assemblies),
+l=31/k=35 minimizers from db1p CDS, exact set intersection. Result: crossover is block-diagonal
+by genus (mean within-genus 0.015, cross-genus 0.0001). 12 of 25 wheat pathogens are hard to
+resolve (crossover >=20% with a congener): Tilletia bunt pair, Fusarium head-blight group,
+Alternaria/Pyricularia/Ustilago complexes. The 3 wheat rusts (Puccinia) resolve cleanly and are
+NOT flagged, the key separability result. Largest off-diagonal: Alternaria alternata x
+tenuissima, 8.83M minimizers.

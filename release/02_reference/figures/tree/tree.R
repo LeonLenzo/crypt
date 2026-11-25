@@ -44,14 +44,15 @@ S <- OUT_IN / 15
 
 BRANCH_COLOUR <- "#8a8a8a"; BRANCH_WIDTH <- 0.12 * S
 TIP_BRANCH_COLOUR <- "#8a8a8a"; TIP_BRANCH_WIDTH <- 0.06 * S
-HOLE <- 5; BAR_GAP <- 0.35; BAR_SCALE <- 2      # tree coordinates: NOT scaled by S
+HOLE <- 5; BAR_GAP <- 0.62; BAR_SCALE <- 2      # tree coordinates: NOT scaled by S
 ARC_GAP <- 0.45; ARC_WIDTH <- 1.1 * S; ARC_PAD <- 5; LABEL_MIN <- 40
+PRED_COLOUR <- "#1a1a1a"                   # the predicted-model ring, outside the band
 SYM_GAP <- 1.05            # symbol centre, outside the arc. In TREE x-units, so not * S:
                            # the fan's radius is in the same units and both scale together.
 # Filled shapes with a separate border, so they read as marks and not as data points. In
 # class-name order; tree_legend.R reads the assignment back from tree_arcs.tsv.
 SHAPES <- c(21, 22, 23, 24, 25)
-TICK_SIZE <- 4.2 * S
+TICK_SIZE <- 6.0 * S        # the bar-scale numerals; 4.2 printed at about 6 pt
 
 # ── inputs ────────────────────────────────────────────────────────────────────
 here <- dirname(sub("^--file=", "", grep("^--file=", commandArgs(FALSE), value = TRUE)[1]))
@@ -92,10 +93,29 @@ p <- p + geom_rect(data = bars,
 # dark purple = few are, i.e. genomes sitting unannotated that gene prediction would unlock.
 # Drawn with a fixed fill VECTOR (not an aes) so it needs no scale and never collides with the
 # category scale above. band_colour is precomputed in prep_tree.py.
-band_x0 <- xtip + 0.04; band_x1 <- xtip + BAR_GAP - 0.04
+band_x0 <- xtip + 0.04; band_x1 <- xtip + 0.30
 p <- p + geom_rect(data = bars, aes(ymin = y - 0.5, ymax = y + 0.5),
                    xmin = band_x0, xmax = band_x1, fill = bars$band_colour,
                    inherit.aes = FALSE)
+
+# ── predicted gene models: a second ring, just outside the annotation band ────
+# One tick per tip whose gene model was PREDICTED here rather than downloaded from NCBI.
+# Every one of those taxa had no NCBI annotation at all, so a tick means the whole bar
+# beside it is ours and the species was uncallable before db2.
+#
+# It sits at the TIP BASE beside the band and not out past the bars, where a first attempt
+# put it: beyond the longest bar is an annulus most tips never reach, so the marks floated
+# unattached to anything and read as dust. Two thin rings at the tip base read as one small
+# block per species, which is what they are: what NCBI annotated, then what we did. It is
+# also kept out of the bar itself, because the bar carries the panel-A category hue and
+# recolouring it would cost the figure its one colour vocabulary. Adjacent ticks merge into
+# a solid arc on purpose, so a systematically unannotated clade reads as one.
+pred <- bars[bars$n_predicted > 0, ]
+pred_x0 <- xtip + 0.34; pred_x1 <- xtip + BAR_GAP - 0.04
+p <- p + geom_rect(data = pred, aes(ymin = y - 0.5, ymax = y + 0.5),
+                   xmin = pred_x0, xmax = pred_x1, fill = PRED_COLOUR,
+                   inherit.aes = FALSE)
+cat(sprintf("  %d tips carry a predicted gene model\n", nrow(pred)))
 
 # ── log gridlines + numerals (kept in both modes) ─────────────────────────────
 top <- max(bars$n_genomes)

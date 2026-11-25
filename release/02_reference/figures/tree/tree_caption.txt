@@ -9,45 +9,115 @@ of it.
 
 FULL CAPTION
 
-Taxonomic distribution of the 1,172 reference taxa that have both a USDA
-record and a gene model, drawn as a circular cladogram built from the NCBI
-taxonomy. IT IS A TAXONOMY, NOT A PHYLOGENY: radius encodes rank, from kingdom
-at the centre to species at the rim, and carries no information about
-divergence. Branch lengths are not evolutionary distances and must not be read
-as any.
+Taxonomic distribution of the 1,300 reference taxa that have both a USDA
+record and a gene model, downloaded or predicted, drawn as a circular
+cladogram built from the NCBI taxonomy. IT IS A TAXONOMY, NOT A PHYLOGENY:
+radius encodes rank, from kingdom at the centre to species at the rim, and
+carries no information about divergence. Branch lengths are not evolutionary
+distances and must not be read as any.
 
-Only the observation rows of panel A appear. Congeners are excluded, because a
-taxon admitted so the classifier has a competitor is never reported as a
-detection, and taxa with no gene model are excluded because they contribute no
-CDS. These 1,172 are the taxa the database is actually built from.
+Only taxa USDA records under their own species name appear. A taxon admitted
+because its GENUS was recorded has no tip, since it is there to give the
+classifier a competitor and is never reported as a detection, and a taxon with
+no gene model has none either, since it contributes no CDS. These 1,300 are
+the taxa the database is actually built from.
 
 Bar length is the number of genome assemblies for that taxon on a log scale,
-with dotted gridlines and numerals at 1, 10 and 100. The spread is wide: 808
-of 1,172 taxa have a single assembly and the largest has 435.
+with dotted gridlines and numerals at 1, 10 and 100. The spread is wide: 936
+of 1,300 taxa have a single assembly and the largest has 435.
 
 Bar colour is the taxon's cell in panel A, using the same five colours, so a
 hue means the same thing in both panels:
 
-  wheat pathogen                                24
-  pathogen elsewhere, recorded on wheat         21
-  non-pathogen, recorded on wheat              108
-  pathogen elsewhere, not on wheat              46
-  non-pathogen, not on wheat                   973
+  wheat pathogen                                25
+  pathogen elsewhere, recorded on wheat         25
+  non-pathogen, recorded on wheat              204
+  pathogen elsewhere, not on wheat              63
+  non-pathogen, not on wheat                   983
 
 The inner ring at the base of each bar is the share of that taxon's assemblies
 carrying a gene model: pale where all of them do, dark purple where few do.
-620 of 1,172 taxa are fully annotated and 552 are not. The dark segments are
+620 of 1,300 taxa are fully annotated and 680 are not. The dark segments are
 the gene-prediction worklist, because those are genomes already deposited
 whose CDS the database cannot currently use.
 
+The outer ring marks the 128 taxa whose gene model was PREDICTED here rather
+than downloaded (research/predict, ab initio, validated against BUSCO and
+against an annotated congener's k-mer space). Every one of them had no NCBI
+annotation at all, which is both why it was on the worklist and why its inner
+ring is at the dark end: the bar beside a mark is entirely ours, and the taxon
+was absent from this panel before db2 because an unannotated genome
+contributes nothing to classify against. Where they went:
+
+  wheat pathogen                                 1
+  pathogen elsewhere, recorded on wheat          4
+  non-pathogen, recorded on wheat               96
+  pathogen elsewhere, not on wheat              17
+  non-pathogen, not on wheat                    10
+
+The marks are not scattered evenly, and that is the worklist showing: they
+concentrate where a taxon is recorded on wheat and nobody had annotated it.
+
 The 5 arcs outside the bars mark the taxonomic classes large enough to label,
-each identified by a SYMBOL rather than a name: circle Agaricomycetes (202
-taxa); square Dothideomycetes (160 taxa); diamond Eurotiomycetes (129 taxa);
-triangle Leotiomycetes (74 taxa); inverted triangle Sordariomycetes (366
+each identified by a SYMBOL rather than a name: circle Agaricomycetes (206
+taxa); square Dothideomycetes (203 taxa); diamond Eurotiomycetes (141 taxa);
+triangle Leotiomycetes (77 taxa); inverted triangle Sordariomycetes (420
 taxa). A symbol is used because a class name set radially reads at a different
 angle in every quadrant and competes with the bars it annotates. The arcs are
 reading aids for position in the tree, not a result, and the smaller classes
 are present as tips but carry no arc.
+
+
+HOW THE PREDICTED TAXA WERE CHOSEN
+
+All 135 predicted assemblies, the 128 marked here and the rest on taxa that
+have no tip, were selected by a rule applied to the reference table and never
+picked by hand. research/predict/worklist.py is a SELECTION over
+supp_data_s3_reference.tsv, and its result is published as
+data/curation/extra_cds_db2.tsv, one row per predicted assembly carrying the
+tier it qualified under and the reason. Three tiers, in priority order:
+
+  A    118  SILENT AND REPORTABLE. USDA records the species on wheat, or
+            PHI-base scores it a pathogen of something, and it has no gene
+            model at all. A detection would be reported for such a taxon and
+            the database cannot produce one. Led by Fusarium asiaticum, a
+            wheat pathogen with 259 assemblies and not one of them annotated.
+
+  B      3  DARK GENUS RECORDED ON WHEAT. One genome per genus that USDA
+            records on wheat and that carries no annotation anywhere in it,
+            for the genera tier A does not already reach. A genus with no gene
+            model gives a read from it no neighbour to land on at all.
+
+  C2    14  CONGENER COMPETITOR. A callable wheat-relevant taxon whose genus
+            holds no annotated congener gets one predicted, so that a read
+            from an absent relative has somewhere to go other than onto the
+            taxon itself.
+
+ONE ASSEMBLY PER SPECIES. A second assembly of the same species adds about a
+sixth of its k-mer space and less again thereafter, so at a fixed compute
+budget breadth beats depth and no species was predicted twice.
+
+WHICH ASSEMBLY, where a species has several: plausible genome size first (at
+least 5 Mb), then assembly level, then fewest contigs. Level cannot come first
+because assembly_level is a submitter label and nothing validates it.
+GCA_986280995.1 is 528 bp on a single contig, registered as a Complete Genome,
+and a level-first sort ranked it above a 46.7 Mb scaffold assembly for the
+same species.
+
+ONE GENE FINDER, for comparability. Every prediction is ab initio from the
+same tool, never mixed with homology projection from a related species. Two
+finders carry two bias profiles, which would make two taxa's minimizer
+denominators differ for a reason that is not biological, and nothing in the
+table would flag it.
+
+WHAT WAS DELIBERATELY NOT PREDICTED, and this is the decision that shaped the
+list. An earlier worklist took every species whose genus holds no annotation
+at all: 932 species in 437 genera as the reference then stood. Ranked by
+species count those genera are Leccinum, Inocybe, Xerocomus and Parmotrema,
+ectomycorrhizal and lichenised fungi that do not occur in a wheat leaf, and
+only 13 of the 437 contain a species USDA records on wheat. Predicting all of
+them would have spent several times the compute to annotate organisms this
+cohort cannot meet. The tiers above are what remains once that is recognised.
 
 
 HOW TO READ IT
@@ -66,19 +136,21 @@ bar means a well-sequenced organism, never an abundant or a frequently
 detected one.
 
 Taxa with no gene model are absent from this panel but remain in the database
-scope and in panel A, where the gap between the Asm. and CDS rows measures
-them.
+scope and in panel A, where the gap between its Asm. and CDS counts measures
+them, and its Pred. count is the part of that gap this arm closed.
 
 
 SHORT CAPTION
 
-Taxonomic distribution of the 1,172 reference taxa carrying both a USDA record
+Taxonomic distribution of the 1,300 reference taxa carrying both a USDA record
 and a gene model, on a circular NCBI cladogram where radius is taxonomic rank,
 not divergence. Bar length is the taxon's assembly count on a log10 scale; bar
-colour is its cell in panel A (wheat pathogen 24; pathogen elsewhere, recorded
-on wheat 21; non-pathogen, recorded on wheat 108; pathogen elsewhere, not on
-wheat 46; non-pathogen, not on wheat 973). The inner ring is the share of that
+colour is its cell in panel A (wheat pathogen 25; pathogen elsewhere, recorded
+on wheat 25; non-pathogen, recorded on wheat 204; pathogen elsewhere, not on
+wheat 63; non-pathogen, not on wheat 983). The inner ring is the share of that
 taxon's assemblies carrying a gene model, pale where all do and dark purple
-where few do (620 of 1,172 fully annotated). Symbols on the 5 outer arcs mark
-the largest taxonomic classes, keyed in tree_legend.png. Congeners are
-excluded, being classifier competitors that are never reported.
+where few do (620 of 1,300 fully annotated), and the ring outside it marks the
+128 taxa whose gene model was predicted here rather than downloaded. Symbols
+on the 5 outer arcs mark the largest taxonomic classes, keyed in
+tree_legend.png. Taxa admitted on their genus alone are excluded, being
+classifier competitors that are never reported.

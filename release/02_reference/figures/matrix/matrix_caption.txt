@@ -9,59 +9,83 @@ FULL CAPTION
 Composition of the reference database: 5,843 fungal taxa carrying 21,413
 genome assemblies, of which 5,302 have a gene model and can contribute CDS.
 Each taxon is placed by two independent facts and the matrix crosses them.
-Rows are what the USDA Plant-Fungal Database records: a host on wheat, a host
-on some other plant only, or no record of the taxon itself, in which case it
-entered because its genus qualified (Congener). Columns are what PHI-base
-scores: no pathogenicity record, a named disease on some plant, or a named
-disease on wheat. Cells are disjoint and sum to the cohort.
+Rows are whether the USDA Plant-Fungal Database names that species on wheat or
+does not. Columns are what PHI-base scores: no pathogenicity record, a named
+disease on some plant, or a named disease on wheat. Cells are disjoint and sum
+to the cohort: every taxon is in exactly one.
 
-Each cell reports three counts. Taxa is distinct NCBI taxa; Asm. is the genome
+Each cell reports four counts. Taxa is distinct NCBI taxa; Asm. is the genome
 assemblies available for them; CDS is the subset of those assemblies carrying
-a gene model, which is what the database can actually be built from. The gap
-between Asm. and CDS is the annotation bottleneck that motivates gene
-prediction.
+a gene model DOWNLOADED FROM NCBI, which is what the database could be built
+from before this work. The gap between Asm. and CDS is the annotation
+bottleneck that motivates gene prediction.
 
-  Row       Column               Taxa   Assemblies      CDS
-  Wheat     Non pathogen          204        2,251      621
-  Wheat     Plant pathogen         25          986      171
-  Wheat     Wheat pathogen         25        2,754      497
-  Plant     Non pathogen        2,061        7,865    2,124
-  Plant     Plant pathogen         63        1,027      145
-  Congener  Non pathogen        3,465        6,530    1,744
+Pred. is the fourth count and is the part of that gap this work closed: gene
+models PREDICTED here, ab initio, for taxa NCBI has never annotated
+(research/predict; validated against BUSCO and against an annotated congener's
+k-mer space). All 135 are taxa whose NCBI annotation count is zero, so Pred.
+never overlaps CDS and a predicted taxon was uncallable before db2. 101 of the
+135 are in the wheat row, which is where the worklist aimed them: a fungus
+USDA records on wheat, in the reference, with no gene model is the most
+expensive kind of silence this database can hold.
+
+  Row             Column               Taxa   Assemblies      CDS   Pred.
+  Wheat Resident  Non pathogen          204        2,251      621      96
+  Wheat Resident  Plant pathogen         25          986      171       4
+  Wheat Resident  Wheat pathogen         25        2,754      497       1
+  Plant Resident  Non pathogen        5,526       14,395    3,868      17
+  Plant Resident  Plant pathogen         63        1,027      145      17
 
 Colour carries both axes, so the panel needs no key. Hue is the column: green
 for no pathogenicity record, amber for a pathogen of other plants, orange-red
-for a wheat pathogen. Saturation is the row: full strength where USDA records
-the taxon on wheat, pale where it records it only on other plants, grey for a
-congener. Panel B uses the same five colours for the same five cells.
+for a wheat pathogen. Saturation is the row: full strength where USDA names
+the taxon on wheat, pale where it does not. Panel B uses the same five colours
+for the same five cells.
 
 
-WHAT THE EMPTY CELLS MEAN
+WHAT THE EMPTY CELL MEANS
 
-Three of the nine combinations do not occur and are NOT DRAWN. The staircase
-is a result, not a layout choice, and the two gaps say different things.
+One of the six combinations does not occur and is NOT DRAWN. No wheat pathogen
+in scope is off-wheat in USDA: all 25 sit in the top row. USDA host records
+and PHI-base pathogenicity scores are independent compilations made for
+different purposes, so their agreeing here is an empirical check on the scope
+rule rather than a definition, and it is the test the design has to pass. The
+gap is a result and not a layout choice.
 
-No wheat pathogen in scope is off-wheat in USDA: all 25 sit in the top row.
-USDA host records and PHI-base pathogenicity scores are independent
-compilations made for different purposes, so their agreeing here is an
-empirical check on the scope rule rather than a definition, and it is the test
-the design has to pass.
-
-No congener is a pathogen of anything, so the whole congener row is one cell
-of 3,465 taxa. This is structural. A fungus PHI-base scores with a named
-disease is a studied fungus, and USDA records studied fungi, so the pathogen
-annotation can never reach a taxon admitted only because its genus qualified.
-No detection can be labelled a pathogen on genus membership alone.
+A second structural absence is real but is no longer visible as a gap, because
+the rows no longer separate it. Of the 3,465 taxa that entered the reference
+on their GENUS rather than under their own name, not one carries a pathogen
+label of either kind. A fungus PHI-base scores with a named disease is a
+studied fungus and USDA records studied fungi, so the label cannot reach a
+taxon nobody has recorded. No detection can be called a pathogen on genus
+membership alone.
 
 
 HOW THE TWO AXES ARE DEFINED
 
 The unit is a TAXON, not a described species, and the panel says so. 1,373 of
-the 3,465 congeners are NCBI `sp.` nodes: unidentified isolates carrying a
-strain code and no binomial. They are legitimate reference entries, because an
-unidentified Alternaria gives the classifier as real a competitor as a named
-one, but they are not species in any taxonomic sense. The observation rows do
-not have the problem (14 of 2,378), because USDA indexes only formal names.
+the 3,465 genus-only taxa are NCBI `sp.` nodes: unidentified isolates carrying
+a strain code and no binomial. They are legitimate reference entries, because
+an unidentified Alternaria gives the classifier as real a competitor as a
+named one, but they are not species in any taxonomic sense. The observation
+rows do not have the problem (14 of 2,378), because USDA indexes only formal
+names.
+
+THE PLANT ROW POOLS TWO ROUTES INTO THE REFERENCE AND DOES NOT SEPARATE THEM,
+deliberately. 3,465 of its taxa are there because USDA recorded their GENUS
+and not the species itself. How a taxon reached the reference is a fact about
+the database build, recorded per taxon in the `route` column of
+supp_data_s3_reference.tsv, and drawing it as a row made the figure assert
+something about the ORGANISM that the route cannot support: USDA Fungus-Host
+is a herbarium records database, so an unrecorded name is as likely to be a
+gap in its coverage as a fact about the fungus. Two cases arrive by that route
+and nothing separates them: 2,865 taxa whose genus is represented here by a
+USDA-recorded sibling species, and 600 whose genus qualified on USDA records
+that could not be built into a row of their own, mostly lichens, mushrooms and
+mycorrhizas with no annotated assembly. Treating the route as weak evidence
+would discard real detections, and a draft of a downstream figure did exactly
+that: it dropped *Dioszegia hungarica*, a common wheat phyllosphere yeast USDA
+holds only under its former name *Bullera*.
 
 A PHI-base row counts only where it NAMES A DISEASE. PHI-base scores an
 interaction against whatever host the experiment used, and the plant is not
@@ -85,10 +109,10 @@ anonymous.
 Before counting, 16 provisional NCBI names were folded onto the USDA binomial
 they belong to and 1 was promoted in place, moving 63 assemblies. USDA and
 NCBI can hold one fungus under two names, which otherwise splits it into an
-observation with no genome and a congener with no host record. 5 `aff.` nodes
-were deliberately NOT merged, because `aff.` denotes a related undescribed
-species and those belong in the congener row. Every decision is a row in
-data/curation/screen_merges.tsv.
+observation with no genome and a genus-only row with no host record. 5 `aff.`
+nodes were deliberately NOT merged, because `aff.` denotes a related
+undescribed species and those belong in the genus-only row. Every decision is
+a row in data/curation/screen_merges.tsv.
 
 
 WHAT IS NOT SHOWN
@@ -105,12 +129,11 @@ is a claim about abundance, prevalence or co-infection.
 SHORT CAPTION
 
 Composition of the reference database: 5,843 fungal taxa carrying 21,413
-genome assemblies, 5,302 of them with a gene model. Each taxon is placed by
-what the USDA Plant-Fungal Database records (rows: a host on wheat, a host on
-other plants only, or no record of the taxon itself, admitted because its
-genus qualified) crossed with what PHI-base scores (columns: no pathogenicity
-record, a named disease on another plant, a named disease on wheat). Cells are
-disjoint and sum to the cohort; hue is the column and saturation the row, and
-panel B reuses the same five colours. Three combinations do not occur and are
-not drawn: no wheat pathogen in scope is off-wheat in USDA, and no congener is
-a pathogen of anything.
+genome assemblies, 5,302 of them with a gene model from NCBI and 135 with one
+predicted here. Each taxon is placed by whether the USDA Plant-Fungal Database
+names it on wheat (rows) crossed with what PHI-base scores (columns: no
+pathogenicity record, a named disease on another plant, a named disease on
+wheat). Cells are disjoint and sum to the cohort; hue is the column and
+saturation the row, and panel B reuses the same five colours. One combination
+does not occur and is not drawn: no wheat pathogen in scope is off-wheat in
+USDA.

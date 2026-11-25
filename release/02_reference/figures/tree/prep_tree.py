@@ -11,10 +11,17 @@ THE TAXDUMP IS NOT READ HERE. S3 carries the six parent ranks per taxon, so the 
 rebuilt from those columns and the figure depends only on the published deliverable. Someone
 holding the TSV can regenerate the panel.
 
-One tip per OBSERVATION species (USDA-recorded, annotated assembly = db0); congeners are
-excluded, since they are competition-only and never reported. The tree is the NCBI TAXONOMY, collapsed
-to seven rank rings (kingdom..species), so radius encodes RANK, not divergence -- a taxonomic
-cladogram, never a phylogeny.
+One tip per OBSERVATION species that the database can be built from: USDA records the
+species itself, and it has a gene model, DOWNLOADED FROM NCBI OR PREDICTED HERE. Taxa that
+entered on their genus alone have no tip, because they are competition-only and are never
+reported as a detection. The tree is the NCBI TAXONOMY, collapsed to seven rank rings
+(kingdom..species), so radius encodes RANK, not divergence -- a taxonomic cladogram, never
+a phylogeny.
+
+THE PREDICTED TAXA ARE WHY THE RULE SAYS "OR PREDICTED". All 135 of them had no NCBI
+annotation, which is what put them on the worklist, so an annotation-only rule drew a tree
+with none of them in it. 128 are observations and become tips; the other 7 entered on their
+genus and stay off, on the same rule as every other genus-route taxon.
 
 Tip colour is the taxon's CELL IN PANEL A, so the two panels share one colour vocabulary
 exactly. The five categories are the five occupied observation cells of the matrix, which is
@@ -106,14 +113,24 @@ class Tax:
 
 
 def load_species(rows):
-    """The tree's tips: the S3 rows flagged in_tree, i.e. annotated observations."""
+    """The tree's tips: the S3 rows flagged in_tree, i.e. buildable observations.
+
+    `n` is the BAR, and it counts predicted gene models alongside downloaded ones, because
+    a bar of log10(n_annotated + 1) is zero for every predicted taxon and 128 tips would
+    have drawn with no bar at all. `ratio` is the BAND and counts only NCBI's annotations,
+    so the band keeps measuring the gap in the public record while the bar measures what
+    the database actually holds. The two rings answer different questions and a predicted
+    taxon is the case where they disagree most: full bar, darkest band.
+    """
     out = []
     for r in rows:
         if r["in_tree"] != "yes":
             continue
         ratio = float(r["annotation_ratio"])
+        n_pred = int(r["n_predicted"])
         out.append({"tid": int(r["ncbi_taxid"]), "name": r["taxon"],
-                    "n": int(r["n_annotated"]), "n_total": int(r["n_assemblies"]),
+                    "n": int(r["n_annotated"]) + n_pred, "n_pred": n_pred,
+                    "n_total": int(r["n_assemblies"]),
                     "ratio": round(ratio, 4), "band": ratio_colour(ratio),
                     "cat": r["category"]})
     bad = {s["cat"] for s in out} - set(CATEGORIES)
@@ -275,13 +292,13 @@ def main():
     by = {s["tid"]: s for s in species}
     with open(f"{OUT}_tips.tsv", "w", newline="") as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
-        w.writerow(["label", "species", "n_genomes", "n_total", "annotation_ratio",
-                    "band_colour", "category", "class"])
+        w.writerow(["label", "species", "n_genomes", "n_predicted", "n_total",
+                    "annotation_ratio", "band_colour", "category", "class"])
         for tid in order:
             s = by[tid]
             cls = tax.ancestor_at(tid, "class")
-            w.writerow([f"t{tid}", s["name"], s["n"], s["n_total"], s["ratio"], s["band"],
-                        s["cat"], tax.label(cls) if cls else ""])
+            w.writerow([f"t{tid}", s["name"], s["n"], s["n_pred"], s["n_total"],
+                        s["ratio"], s["band"], s["cat"], tax.label(cls) if cls else ""])
 
     clade_table(tax, order, angle, f"{OUT}_clades.tsv")
     with open(f"{OUT}_params.tsv", "w", newline="") as fh:

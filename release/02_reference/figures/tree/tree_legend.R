@@ -29,6 +29,7 @@ CAT_LABEL <- c(wheat_pathogen   = "wheat pathogen",
                plant_pathogen   = "pathogen elsewhere,\nnot on wheat",
                plant_resident   = "non-pathogen,\nnot on wheat")
 RING_PALE <- "#f2effa"; RING_DARK <- "#54278f"   # prep_tree.py ratio_colour() endpoints
+PRED_COLOUR <- "#1a1a1a"                         # tree.R's predicted-model ring
 INK <- "#1a1a1a"; MUTED <- "#707070"
 
 OUT_IN <- 3.67                # band is 7.67 wide: 3.80 matrix + 0.20 gutter + this
@@ -51,8 +52,9 @@ col1 <- data.frame(y = seq(n, 1) * ROW, fill = unname(CAT), lab = unname(CAT_LAB
 col2 <- data.frame(y = seq(nrow(arcs), 1) * ROW, shape = arcs$shape, lab = arcs$class)
 
 ry <- -1.30                                     # the ramp row, under both columns
+py <- ry - 1.35                                 # the predicted-model row, under the ramp
 YMAX <- ytop + 1.05
-YMIN <- ry - 1.00
+YMIN <- py - 0.70
 
 ramp_edges <- seq(C1, C1 + RAMP_W, length.out = 61)
 ramp <- data.frame(xmin = ramp_edges[-61], xmax = ramp_edges[-1],
@@ -86,6 +88,12 @@ p <- ggplot() +
            colour = MUTED) +
   annotate("text", x = C1 + RAMP_W, y = ry - SW / 2 - 0.30, label = "all", hjust = 1,
            size = 2.8, colour = MUTED) +
+  # the predicted-model ring. Counted from the tips table so the key cannot claim a mark
+  # the fan does not draw.
+  annotate("rect", xmin = C1, xmax = C1 + SW, ymin = py - SW / 2, ymax = py + SW / 2,
+           fill = PRED_COLOUR, colour = "#4a4a4a", linewidth = 0.45) +
+  annotate("text", x = C1 + SW + 0.3, y = py, hjust = 0, size = 3.0, colour = INK,
+           label = "gene model predicted here (outer ring)") +
   coord_fixed(xlim = c(XMIN, XMAX), ylim = c(YMIN, YMAX), expand = FALSE) +
   theme_void() +
   theme(plot.background = element_rect(fill = "white", colour = NA),

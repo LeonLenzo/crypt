@@ -12,18 +12,34 @@ records on wheat, which PHI-base never scores on wheat) needs an overlap lens wi
 and every box ends up wearing an inclusive set name while holding an exclusive count.
 Crossed axes draw as a MATRIX, where that combination is simply a cell.
 
-    rows      USDA Plant-Fungal Database: Wheat / Plant / Congener
+    rows      USDA Plant-Fungal Database: Wheat Resident / Plant Resident
     columns   PHI-base: Non Pathogen / Plant Pathogen / Wheat Pathogen
+
+THE ROW AXIS IS WHERE THE TAXON IS NAMED, NOT HOW IT ENTERED. USDA either records this
+species on wheat or it does not. Whether it reached the reference because USDA named the
+species or because USDA named its genus is a fact about the database build, it is in the
+`route` column, and drawing it here made the figure assert something about the ORGANISM that
+the route cannot support.
 
 THE EMPTY CELLS ARE NOT DRAWN, and their absence is the result. The grid is a staircase
 because three of the nine combinations do not occur, for two different reasons that the
-caption states: no wheat pathogen in scope is off-wheat in USDA (two independent sources
-agreeing, which is the design test passing), and no congener is a pathogen of anything.
+caption states it: no wheat pathogen in scope is off-wheat in USDA, two independent sources
+agreeing, which is the design test passing.
 
 Colour carries both axes so the figure needs no legend: hue is the column, saturation is the
 row. See `_palette.MATRIX`. The unit is a TAXON, not a described species -- ~40% of the
-congener row is NCBI `sp.` nodes, unidentified isolates that are real Kraken2 competitors
+genus-only row is NCBI `sp.` nodes, unidentified isolates that are real Kraken2 competitors
 but not species in any taxonomic sense.
+
+THE PLANT ROW HOLDS THE GENUS-ROUTE TAXA and does not separate them, deliberately. USDA
+holding no record under a species name is a fact about USDA's coverage of a NAME and never
+evidence about the organism, and the 3,465 taxa in that position carry 15.0% of all
+field-wheat detections. See README, "The genus tier is not a weak tier".
+
+PRED. IS A GENE MODEL WE MADE, not one NCBI carries, and it is a separate count for that
+reason. Every predicted taxon had no annotated assembly at all, so the Pred. number is the
+taxa each cell gained that the database could not have been built from otherwise. 101 of
+the 135 are in the wheat rows, which is where the worklist aimed them.
 
 Every number is read from the curation tables at draw time; none is transcribed.
 """
@@ -46,14 +62,14 @@ S3 = HERE / "data/outputs/supp_data_s3_reference.tsv"
 FIG = Path(__file__).resolve().parent
 csv.field_size_limit(10 ** 7)
 
-ROWS = ["wheat", "plant", "congener"]
+ROWS = ["wheat_resident", "plant_resident"]
 COLS = ["none", "vagrant", "wheat_path"]
 # the column keys in S3 are the full names; the short ones above are this script's own
 S3_COL = {"none": "none", "vagrant": "plant_pathogen", "wheat_path": "wheat_pathogen"}
-ROW_LABEL = {"wheat": "Wheat", "plant": "Plant", "congener": "Congener"}
+ROW_LABEL = {"wheat_resident": "Wheat Resident", "plant_resident": "Plant Resident"}
 COL_LABEL = {"none": "Non\nPathogen", "vagrant": "Plant\nPathogen",
              "wheat_path": "Wheat\nPathogen"}
-STATS = [("Taxa", 0), ("Asm.", 1), ("CDS", 2)]
+STATS = [("Taxa", 0), ("Asm.", 1), ("CDS", 2), ("Pred.", 3)]
 
 
 def grid():
@@ -63,7 +79,7 @@ def grid():
     cells from three curation tables plus the taxdump, which meant the figure and the
     deliverable could disagree; now the deliverable IS the figure's input.
     """
-    cells = {(r, c): [0, 0, 0] for r in ROWS for c in COLS}
+    cells = {(r, c): [0, 0, 0, 0] for r in ROWS for c in COLS}
     inv = {v: k for k, v in S3_COL.items()}
     with open(S3) as fh:
         for r in csv.DictReader(fh, delimiter="\t"):
@@ -79,8 +95,9 @@ def grid():
             cell[0] += 1
             cell[1] += int(r["n_assemblies"])
             cell[2] += int(r["n_annotated"])
+            cell[3] += int(r["n_predicted"])
     cells = {k: tuple(v) for k, v in cells.items()}
-    add = lambda ks: tuple(sum(cells[k][i] for k in ks) for i in range(3))
+    add = lambda ks: tuple(sum(cells[k][i] for k in ks) for i in range(4))
     totals = {("row", r): add([(r, c) for c in COLS]) for r in ROWS}
     totals.update({("col", c): add([(r, c) for r in ROWS]) for c in COLS})
     totals[("all", "cohort")] = add(list(cells))
@@ -96,26 +113,27 @@ def main():
     # is a real measurement on the page.
     #
     # The page is A4 PORTRAIT (8.27 x 11.69 in) with the tree taking the full width on top
-    # and this panel as a landscape band beneath it, which packs better than side by side:
-    # a square fan next to a matrix wastes whatever height the matrix does not use, while
-    # stacked, the fan is limited by page WIDTH and the band fills the strip left over.
+    # and this panel beneath it, beside the legend.
     #
-    #   0.30 + tree 7.50 + 0.20 gutter + matrix 3.06 + 0.30  = 11.36 tall  (page 11.69)
-    #   0.30 + tree 7.50 + 0.30                              =  8.10 wide (page  8.27)
+    # THE AXIS TITLES ARE GONE, Leon's call: with the row and column labels naming the
+    # source in words ("Wheat species", "Wheat Pathogen"), "USDA Plant-Fungal Database" down
+    # the side and "PHI-Base" across the top were restating what the caption says anyway,
+    # and the rotated title was the only reason the left gutter had to be wide.
     #
-    # The band is 7.67 wide: 3.80 matrix + 0.20 gutter + 3.67 legend (which carries the arc
-    # symbol key, so it needs two columns and more width than it used to).
-    CW, CH, GAP = 0.87, 0.78, 0.07          # pill width, height, and the space between
-    X0, YTOP = 1.00, 2.46                   # grid origin: left edge, top edge
+    # The panel is 3.85 x 2.17: two rows of four-line pills under the column labels. It is
+    # sized to be PLACED, so it states its own size rather than assuming an older layout.
+    CW, CH, GAP = 0.87, 0.88, 0.07          # pill width, height, and the space between
+    X0, YTOP = 1.10, 1.83                   # grid origin: left edge, top edge
     PAD, ROUND = 0.085, 0.075               # inside a pill, and its corner radius
-    fig, ax = plt.subplots(figsize=(X0 + 3 * CW + 2 * GAP + 0.06, YTOP + 0.80))
+    LEFT = 0.06                             # margin left of the longest row label
+    fig, ax = plt.subplots(figsize=(X0 + 3 * CW + 2 * GAP + 0.06 - LEFT, YTOP + 0.34))
 
     for i, rn in enumerate(ROWS):
         y = YTOP - (i + 1) * CH - i * GAP
         ax.text(X0 - 0.13, y + CH / 2, ROW_LABEL[rn], ha="right", va="center",
-                fontsize=8.5, color=INK)
+                fontsize=8.5, color=INK, linespacing=1.3)
         for j, cn in enumerate(COLS):
-            s_, a_, c_ = C[(rn, cn)]
+            s_, a_, c_, p_ = C[(rn, cn)]
             if not s_:
                 continue                    # the gap IS the statement; see the caption
             x = X0 + j * (CW + GAP)
@@ -127,20 +145,17 @@ def main():
                 ty = y + CH - CH * (k + 0.5) / len(STATS)
                 ax.text(x + PAD, ty, lab, ha="left", va="center", fontsize=6.8,
                         style="italic", color=INK, zorder=3)
-                ax.text(x + CW - PAD, ty, f"{(s_, a_, c_)[idx]:,}", ha="right",
+                ax.text(x + CW - PAD, ty, f"{(s_, a_, c_, p_)[idx]:,}", ha="right",
                         va="center", fontsize=8.0, color=INK, zorder=3)
 
     for j, cn in enumerate(COLS):
         ax.text(X0 + j * (CW + GAP) + CW / 2, YTOP + 0.07, COL_LABEL[cn], ha="center",
                 va="bottom", fontsize=7.8, color=INK, linespacing=1.3)
     gw = 3 * CW + 2 * GAP
-    ax.text(X0 + gw / 2, YTOP + 0.52, "PHI-Base", ha="center", va="bottom", fontsize=8.6,
-            color="#b0b0b0")
-    ax.text(0.15, YTOP - (3 * CH + 2 * GAP) / 2, "USDA Plant-Fungal Database", ha="center",
-            va="center", fontsize=8.6, color="#b0b0b0", rotation=90)
+    nr = len(ROWS)
 
-    ax.set_xlim(0, X0 + gw + 0.06)
-    ax.set_ylim(YTOP - 3 * CH - 2 * GAP - 0.06, YTOP + 0.80)
+    ax.set_xlim(LEFT, X0 + gw + 0.06)
+    ax.set_ylim(YTOP - nr * CH - (nr - 1) * GAP - 0.06, YTOP + 0.34)
     ax.set_aspect("equal")
     ax.axis("off")
     fig.subplots_adjust(left=0, right=1, top=1, bottom=0)
@@ -149,7 +164,7 @@ def main():
 
     with open(FIG / "matrix_numbers.tsv", "w", newline="") as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
-        w.writerow(["row", "col", "taxa", "assemblies", "cds"])
+        w.writerow(["row", "col", "taxa", "assemblies", "cds", "predicted"])
         for rn in ROWS:
             for cn in COLS:
                 w.writerow([rn, cn, *C[(rn, cn)]])
@@ -158,7 +173,7 @@ def main():
     drawn = sum(1 for rn in ROWS for cn in COLS if C[(rn, cn)][0])
     tot = sum(C[(rn, cn)][0] for rn in ROWS for cn in COLS)
     print(f"wrote {FIG / 'matrix.png'}")
-    print(f"  {drawn} cells drawn, {9 - drawn} empty; {tot:,} taxa, "
+    print(f"  {drawn} cells drawn, {len(ROWS) * len(COLS) - drawn} empty; {tot:,} taxa, "
           f"cohort is {T[('all', 'cohort')][0]:,}")
 
 

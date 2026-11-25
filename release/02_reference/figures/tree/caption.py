@@ -4,6 +4,7 @@
     python release/02_reference/figures/tree/caption.py
 
 Reads  tree_tips.tsv, tree_arcs.tsv              (beside this script)
+       ../../data/curation/extra_cds_db2.tsv     the predicted set, one row per assembly
 Writes tree_caption.txt
 
 Nothing here is prose-with-numbers-typed-in: the narrative is a template and every figure in
@@ -17,7 +18,9 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parents[2]          # release/02_reference
 FIG = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE / "scripts"))
-from _caption import rd, para, write                # noqa: E402
+import textwrap
+
+from _caption import WIDTH, rd, para, write                # noqa: E402
 
 # Must match figures/tree/tree_legend.R and prep_tree.py CATEGORIES.
 LABEL = {"wheat_pathogen": "wheat pathogen",
@@ -39,6 +42,45 @@ def main():
     part = n - full
     top = max(int(t["n_genomes"]) for t in tips)
     single = sum(1 for t in tips if int(t["n_genomes"]) == 1)
+    # The predicted tips. They are exactly the taxa with no NCBI annotation at all, which
+    # is what put them on the worklist, so n_predicted > 0 and annotation_ratio > 0 cannot
+    # co-occur; assert it rather than trust it, because the caption says so in words.
+    pred = [t for t in tips if int(t["n_predicted"]) > 0]
+    assert all(float(t["annotation_ratio"]) == 0 for t in pred), \
+        "a predicted tip carries an NCBI annotation; the caption's claim is now false"
+    pred_cat = defaultdict(int)
+    for t in pred:
+        pred_cat[t["category"]] += 1
+    pred_key = "\n".join(f"  {LABEL[k]:<42}{pred_cat[k]:>6,}" for k in LABEL if pred_cat[k])
+
+    # The SELECTION, read from the curation table that drove the build rather than
+    # described from memory: one row per predicted assembly, carrying its tier and the
+    # reason it qualified. The tier counts below are therefore the ones db2 was built on.
+    sel = rd(HERE / "data/curation/extra_cds_db2.tsv")
+    tier = defaultdict(int)
+    for r in sel:
+        tier[r["tier"]] += 1
+    assert sum(tier.values()) == len(sel)
+    TIER_TEXT = {
+        "A": ("SILENT AND REPORTABLE. USDA records the species on wheat, or PHI-base "
+              "scores it a pathogen of something, and it has no gene model at all. A "
+              "detection would be reported for such a taxon and the database cannot "
+              "produce one. Led by Fusarium asiaticum, a wheat pathogen with 259 "
+              "assemblies and not one of them annotated."),
+        "B": ("DARK GENUS RECORDED ON WHEAT. One genome per genus that USDA records on "
+              "wheat and that carries no annotation anywhere in it, for the genera tier A "
+              "does not already reach. A genus with no gene model gives a read from it no "
+              "neighbour to land on at all."),
+        "C2": ("CONGENER COMPETITOR. A callable wheat-relevant taxon whose genus holds no "
+               "annotated congener gets one predicted, so that a read from an absent "
+               "relative has somewhere to go other than onto the taxon itself."),
+    }
+    # Wrapped here, not by para(): a chunk carrying a newline passes through unwrapped,
+    # and a tier is a labelled block with a hanging indent rather than a paragraph.
+    tier_key = "\n\n".join(
+        textwrap.fill(TIER_TEXT[k], WIDTH, break_on_hyphens=False,
+                      initial_indent=f"  {k:<4}{tier[k]:>4}  ", subsequent_indent=" " * 12)
+        for k in ("A", "B", "C2") if tier[k])
     # tree_arcs.tsv is written by tree.R as it draws, so this is exactly what is on the
     # panel. Reading tree_clades.tsv instead reported every class in the taxonomy (154).
     arcs = rd(FIG / "tree_arcs.tsv")
@@ -59,15 +101,17 @@ def main():
         "FULL CAPTION",
         "",
         f"Taxonomic distribution of the {n:,} reference taxa that have both a USDA record "
-        f"and a gene model, drawn as a circular cladogram built from the NCBI taxonomy. IT "
+        f"and a gene model, downloaded or predicted, drawn as a circular cladogram built "
+        f"from the NCBI taxonomy. IT "
         f"IS A TAXONOMY, NOT A PHYLOGENY: radius encodes rank, from kingdom at the centre "
         f"to species at the rim, and carries no information about divergence. Branch "
         f"lengths are not evolutionary distances and must not be read as any.",
         "",
-        f"Only the observation rows of panel A appear. Congeners are excluded, because a "
-        f"taxon admitted so the classifier has a competitor is never reported as a "
-        f"detection, and taxa with no gene model are excluded because they contribute no "
-        f"CDS. These {n:,} are the taxa the database is actually built from.",
+        f"Only taxa USDA records under their own species name appear. A taxon admitted "
+        f"because its GENUS was recorded has no tip, since it is there to give the "
+        f"classifier a competitor and is never reported as a detection, and a taxon with "
+        f"no gene model has none either, since it contributes no CDS. These {n:,} are the "
+        f"taxa the database is actually built from.",
         "",
         f"Bar length is the number of genome assemblies for that taxon on a log scale, with "
         f"dotted gridlines and numerals at 1, 10 and 100. The spread is wide: {single:,} of "
@@ -84,6 +128,19 @@ def main():
         f"segments are the gene-prediction worklist, because those are genomes already "
         f"deposited whose CDS the database cannot currently use.",
         "",
+        f"The outer ring marks the {len(pred):,} taxa whose gene model was PREDICTED here "
+        f"rather than downloaded (research/predict, ab initio, validated against BUSCO and "
+        f"against an annotated congener's k-mer space). Every one of them had no NCBI "
+        f"annotation at all, which is both why it was on the worklist and why its inner "
+        f"ring is at the dark end: the bar beside a mark is entirely ours, and the taxon "
+        f"was absent from this panel before db2 because an unannotated genome contributes "
+        f"nothing to classify against. Where they went:",
+        "",
+        pred_key,
+        "",
+        f"The marks are not scattered evenly, and that is the worklist showing: they "
+        f"concentrate where a taxon is recorded on wheat and nobody had annotated it.",
+        "",
         f"The {len(arcs)} arcs outside the bars mark the taxonomic classes large enough to "
         f"label, each identified by a SYMBOL rather than a name: "
         + "; ".join(f"{SHAPE_NAME.get(a['shape'], a['shape'])} {a['class']} "
@@ -91,6 +148,44 @@ def main():
         f"class name set radially reads at a different angle in every quadrant and competes "
         f"with the bars it annotates. The arcs are reading aids for position in the tree, "
         f"not a result, and the smaller classes are present as tips but carry no arc.",
+        "",
+        "",
+        "HOW THE PREDICTED TAXA WERE CHOSEN",
+        "",
+        f"All {len(sel)} predicted assemblies, the {len(pred)} marked here and the rest "
+        f"on taxa that have no tip, were selected by a rule applied to the reference table "
+        f"and never picked by hand. research/predict/worklist.py is a SELECTION over "
+        f"supp_data_s3_reference.tsv, and its result is published as "
+        f"data/curation/extra_cds_db2.tsv, one row per predicted assembly carrying the "
+        f"tier it qualified under and the reason. Three tiers, in priority order:",
+        "",
+        tier_key,
+        "",
+        "ONE ASSEMBLY PER SPECIES. A second assembly of the same species adds about a "
+        "sixth of its k-mer space and less again thereafter, so at a fixed compute budget "
+        "breadth beats depth and no species was predicted twice.",
+        "",
+        "WHICH ASSEMBLY, where a species has several: plausible genome size first (at "
+        "least 5 Mb), then assembly level, then fewest contigs. Level cannot come first "
+        "because assembly_level is a submitter label and nothing validates it. "
+        "GCA_986280995.1 is 528 bp on a single contig, registered as a Complete Genome, "
+        "and a level-first sort ranked it above a 46.7 Mb scaffold assembly for the same "
+        "species.",
+        "",
+        "ONE GENE FINDER, for comparability. Every prediction is ab initio from the same "
+        "tool, never mixed with homology projection from a related species. Two finders "
+        "carry two bias profiles, which would make two taxa's minimizer denominators "
+        "differ for a reason that is not biological, and nothing in the table would flag "
+        "it.",
+        "",
+        "WHAT WAS DELIBERATELY NOT PREDICTED, and this is the decision that shaped the "
+        "list. An earlier worklist took every species whose genus holds no annotation at "
+        "all: 932 species in 437 genera as the reference then stood. Ranked by species "
+        "count those genera are Leccinum, Inocybe, Xerocomus and Parmotrema, "
+        "ectomycorrhizal and lichenised fungi that do not occur in a wheat leaf, and only "
+        "13 of the 437 contain a species USDA records on wheat. Predicting all of them "
+        "would have spent several times the compute to annotate organisms this cohort "
+        "cannot meet. The tiers above are what remains once that is recognised.",
         "",
         "",
         "HOW TO READ IT",
@@ -108,7 +203,8 @@ def main():
         "means a well-sequenced organism, never an abundant or a frequently detected one.",
         "",
         "Taxa with no gene model are absent from this panel but remain in the database "
-        "scope and in panel A, where the gap between the Asm. and CDS rows measures them.",
+        "scope and in panel A, where the gap between its Asm. and CDS counts measures "
+        "them, and its Pred. count is the part of that gap this arm closed.",
         "",
         "",
         "SHORT CAPTION",
@@ -121,9 +217,11 @@ def main():
         + "; ".join(f"{LABEL[k]} {cat[k]:,}" for k in LABEL if cat[k]) +
         f"). The inner ring is the share of that taxon's assemblies carrying a gene model, "
         f"pale where all do and dark purple where few do ({full:,} of {n:,} fully "
-        f"annotated). Symbols on the {len(arcs)} outer arcs mark the largest taxonomic "
-        f"classes, keyed in tree_legend.png. Congeners are excluded, being classifier "
-        f"competitors that are never reported.",
+        f"annotated), and the ring outside it marks the {len(pred):,} taxa whose gene "
+        f"model was predicted here rather than downloaded. Symbols on the {len(arcs)} "
+        f"outer arcs mark the largest taxonomic classes, keyed in tree_legend.png. Taxa "
+        f"admitted on their genus alone are excluded, being classifier competitors that "
+        f"are never reported.",
     ))
 
 

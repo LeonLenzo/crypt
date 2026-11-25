@@ -1,1173 +1,1301 @@
-label	species	n_genomes	n_total	annotation_ratio	band_colour	category	class
-t1542792	Coniocarpon cinnabarinum	2	2	1.0	#f2effa	plant_resident	Arthoniomycetes
-t91480	Alyxoria varia	1	1	1.0	#f2effa	plant_resident	Arthoniomycetes
-t1173061	Geotrichum candidum	8	67	0.1194	#673f9c	onwheat_resident	Dipodascomycetes
-t27317	Geotrichum galactomycetum	1	2	0.5	#a38bc4	plant_resident	Dipodascomycetes
-t43985	Geotrichum reessii	1	2	0.5	#a38bc4	plant_resident	Dipodascomycetes
-t470096	Pseudovirgaria hyperparasitica	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t1176130	Aulographum hederae	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t1504668	Rhizodiscina lignyota	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t462254	Aplosporella prunicola	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t55169	Botryosphaeria dothidea	2	142	0.0141	#562a91	plant_pathogen	Dothideomycetes
-t236234	Diplodia corticola	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t856260	Diplodia intermedia	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t66738	Diplodia sapinea	2	19	0.1053	#653c9a	plant_resident	Dothideomycetes
-t420778	Diplodia seriata	4	5	0.8	#d2c7e5	plant_resident	Dothideomycetes
-t869390	Lasiodiplodia hormozganensis	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t1108764	Lasiodiplodia mahajangana	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t45133	Lasiodiplodia theobromae	3	19	0.1579	#6d47a0	onwheat_pathogen	Dothideomycetes
-t35725	Macrophomina phaseolina	2	469	0.0043	#55288f	onwheat_resident	Dothideomycetes
-t310453	Neofusicoccum parvum	4	28	0.1429	#6b449e	plant_resident	Dothideomycetes
-t45134	Neofusicoccum ribis	1	3	0.3333	#896ab3	plant_resident	Dothideomycetes
-t121624	Phyllosticta capitalensis	6	9	0.6667	#bdacd6	plant_resident	Dothideomycetes
-t595635	Phyllosticta citriasiana	2	6	0.3333	#896ab3	plant_resident	Dothideomycetes
-t989973	Phyllosticta citribraziliensis	2	2	1.0	#f2effa	plant_resident	Dothideomycetes
-t55181	Phyllosticta citricarpa	7	29	0.2414	#7a57a9	plant_resident	Dothideomycetes
-t2016321	Phyllosticta paracitricarpa	2	4	0.5	#a38bc4	plant_resident	Dothideomycetes
-t131308	Saccharata proteae	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t705562	Polychaeton citri	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t147573	Piedraia hortae	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t1338630	Cladosporium allicinum	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t29917	Cladosporium cladosporioides	1	11	0.0909	#623999	onwheat_resident	Dothideomycetes
-t1052093	Cladosporium fusiforme	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t1052096	Cladosporium halotolerans	1	3	0.3333	#896ab3	plant_resident	Dothideomycetes
-t887095	Cladosporium inversicolor	1	1	1.0	#f2effa	onwheat_resident	Dothideomycetes
-t147560	Delphinella strobiligena	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t5580	Aureobasidium pullulans	60	94	0.6383	#b9a7d3	onwheat_resident	Dothideomycetes
-t5570	Cenococcum geophilum	2	2	1.0	#f2effa	plant_resident	Dothideomycetes
-t574774	Glonium stellatum	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t578093	Lineolata rhizophorae	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t703497	Microthyrium microscopicum	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t112489	Dissoconium aciculare	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t357750	Cercospora berteroae	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t122368	Cercospora beticola	3	6	0.5	#a38bc4	plant_pathogen	Dothideomycetes
-t84275	Cercospora kikuchii	1	3	0.3333	#896ab3	plant_pathogen	Dothideomycetes
-t135779	Cercospora zeae-maydis	1	2	0.5	#a38bc4	plant_pathogen	Dothideomycetes
-t348901	Cercospora zeina	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t64363	Dothistroma septosporum	1	19	0.0526	#5c3295	plant_pathogen	Dothideomycetes
-t5499	Fulvia fulva	5	31	0.1613	#6d47a0	plant_pathogen	Dothideomycetes
-t111012	Lecanosticta acicola	1	3	0.3333	#896ab3	plant_resident	Dothideomycetes
-t321146	Pseudocercospora eumusae	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t1873960	Pseudocercospora fijiensis	1	2	0.5	#a38bc4	plant_pathogen	Dothideomycetes
-t685502	Pseudocercospora fuligena	1	1	1.0	#f2effa	plant_pathogen	Dothideomycetes
-t113226	Pseudocercospora musae	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t112498	Ramularia collo-cygni	2	2	1.0	#f2effa	plant_resident	Dothideomycetes
-t215465	Septoria linicola	2	2	1.0	#f2effa	plant_resident	Dothideomycetes
-t85929	Sphaerulina musiva	18	25	0.72	#c6b7dc	plant_resident	Dothideomycetes
-t1047168	Zymoseptoria brevis	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t1047171	Zymoseptoria tritici	6	64	0.0938	#633a99	wheat_pathogen	Dothideomycetes
-t150365	Acrodontium crateriforme	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t91943	Hortaea werneckii	71	80	0.8875	#e0d8ee	plant_resident	Dothideomycetes
-t418781	Teratosphaeria destructans	1	3	0.3333	#896ab3	plant_resident	Dothideomycetes
-t161662	Teratosphaeria nubilosa	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t302913	Elsinoe ampelina	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t40998	Elsinoe australis	2	11	0.1818	#714ba2	plant_resident	Dothideomycetes
-t2601811	Elsinoe batatas	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t40997	Elsinoe fawcettii	1	6	0.1667	#6e48a1	plant_resident	Dothideomycetes
-t2082308	Sphaceloma murrayae	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t147570	Myriangium duriaei	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t390894	Lophium mytilinum	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t703506	Patellaria atrata	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t286661	Peltaster fructicola	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t1450171	Aaosphaeria arxii	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t1589764	Acrocalymma vagum	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t455074	Amniculicola lignicola	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t1077358	Coniothyrium glycines	1	6	0.1667	#6e48a1	plant_resident	Dothideomycetes
-t59586	Corynespora cassiicola	1	58	0.0172	#572a91	plant_resident	Dothideomycetes
-t45142	Cucurbitaria berberidis	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t798079	Neocucurbitaria cava	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t706981	Clathrospora elynae	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t2249482	Ascochyta clinopodiicola	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t205686	Ascochyta lentis	3	15	0.2	#744fa4	plant_pathogen	Dothideomycetes
-t5454	Ascochyta rabiei	14	23	0.6087	#b4a1d0	plant_pathogen	Dothideomycetes
-t749465	Boeremia exigua	2	4	0.5	#a38bc4	onwheat_resident	Dothideomycetes
-t100019	Didymella exigua	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t749621	Didymella glomerata	1	3	0.3333	#896ab3	onwheat_resident	Dothideomycetes
-t1769908	Didymella heteroderae	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t749634	Didymella pomorum	2	2	1.0	#f2effa	onwheat_resident	Dothideomycetes
-t105696	Epicoccum nigrum	2	4	0.5	#a38bc4	onwheat_resident	Dothideomycetes
-t301207	Macroventuria anomochaeta	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t749835	Nothophoma quercina	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t2606854	Stagonosporopsis vannaccii	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t147497	Bimuria novae-zelandiae	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t1932322	Didymosphaeria variabile	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t301204	Karstenula rhodostoma	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t300254	Paraconiothyrium brasiliense	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t565426	Paraphaeosphaeria minitans	7	8	0.875	#ded6ed	plant_resident	Dothideomycetes
-t1460663	Paraphaeosphaeria sporulosa	3	3	1.0	#f2effa	plant_resident	Dothideomycetes
-t1892770	Pseudopithomyces chartarum	1	3	0.3333	#896ab3	onwheat_resident	Dothideomycetes
-t548649	Dothidotthia symphoricarpi	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t690899	Lentithecium fluviatile	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t220672	Plenodomus biglobosus	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t301713	Plenodomus lindquistii	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t5022	Plenodomus lingam	2	35	0.0571	#5d3295	plant_pathogen	Dothideomycetes
-t1077377	Plenodomus tracheiphilus	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t1231657	Clohesyomyces aquaticus	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t673940	Lindgomyces ingoldianus	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t147567	Lojkania enalia	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t372055	Lophiostoma macrostomum	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t690887	Lophiotrema nucula	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t147558	Byssothecium circinans	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t45293	Massarina eburnea	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t100035	Massariosphaeria phaeospora	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t100047	Melanomma pulvis-pyrius	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t1303443	Periconia digitata	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t97972	Periconia macrospinosa	1	1	1.0	#f2effa	onwheat_resident	Dothideomycetes
-t50730	Ampelomyces quisqualis	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t1469910	Ophiobolus disseminans	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t798071	Paraphoma chrysanthemicola	2	3	0.6667	#bdacd6	onwheat_resident	Dothideomycetes
-t13684	Parastagonospora nodorum	155	179	0.8659	#ddd4ec	wheat_pathogen	Dothideomycetes
-t210430	Setomelanomma holmii	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t100044	Pleomassaria siparia	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t5599	Alternaria alternata	34	171	0.1988	#734fa4	wheat_pathogen	Dothideomycetes
-t156630	Alternaria arborescens	3	23	0.1304	#69419d	onwheat_resident	Dothideomycetes
-t232088	Alternaria arbusti	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t119953	Alternaria atra	3	5	0.6	#b39fcf	onwheat_resident	Dothideomycetes
-t29001	Alternaria brassicicola	1	11	0.0909	#623999	plant_pathogen	Dothideomycetes
-t1187904	Alternaria burnsii	2	3	0.6667	#bdacd6	plant_resident	Dothideomycetes
-t181017	Alternaria conjuncta	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t48095	Alternaria dauci	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t181014	Alternaria ethzedia	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t167740	Alternaria gaisen	1	18	0.0556	#5d3295	plant_resident	Dothideomycetes
-t1187925	Alternaria hordeiaustralica	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t1187928	Alternaria incomplexa	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t45303	Alternaria infectoria	1	1	1.0	#f2effa	onwheat_resident	Dothideomycetes
-t283354	Alternaria metachromatica	1	2	0.5	#a38bc4	onwheat_resident	Dothideomycetes
-t430562	Alternaria novae-zelandiae	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t48097	Alternaria panax	1	1	1.0	#f2effa	plant_pathogen	Dothideomycetes
-t1187938	Alternaria postmessia	1	6	0.1667	#6e48a1	plant_resident	Dothideomycetes
-t1187941	Alternaria rosae	2	2	1.0	#f2effa	plant_resident	Dothideomycetes
-t119927	Alternaria tenuissima	7	9	0.7778	#cfc3e2	onwheat_resident	Dothideomycetes
-t297637	Alternaria triticimaculans	1	2	0.5	#a38bc4	onwheat_resident	Dothideomycetes
-t1187951	Alternaria ventricosa	1	1	1.0	#f2effa	onwheat_resident	Dothideomycetes
-t566460	Alternaria viburni	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t5016	Bipolaris maydis	9	11	0.8182	#d5cbe7	onwheat_pathogen	Dothideomycetes
-t101162	Bipolaris oryzae	1	10	0.1	#643b9a	onwheat_pathogen	Dothideomycetes
-t1918533	Bipolaris sivanesaniana	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t45130	Bipolaris sorokiniana	2	19	0.1053	#653c9a	wheat_pathogen	Dothideomycetes
-t5017	Bipolaris zeicola	1	4	0.25	#7c59aa	plant_pathogen	Dothideomycetes
-t2739213	Curvularia cactivora	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t95742	Curvularia clavata	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t90978	Curvularia kusanoi	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t184978	Decorospora gaudefroyi	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t93612	Exserohilum turcicum	3	5	0.6	#b39fcf	plant_pathogen	Dothideomycetes
-t91370	Pyrenophora seminiperda	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t53485	Pyrenophora teres	12	26	0.4615	#9d83c0	onwheat_pathogen	Dothideomycetes
-t45151	Pyrenophora tritici-repentis	24	65	0.3692	#8e71b7	wheat_pathogen	Dothideomycetes
-t183478	Stemphylium lycopersici	3	4	0.75	#cabddf	plant_pathogen	Dothideomycetes
-t682080	Polyplosphaeria fusca	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t256645	Dendryphion nanum	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t390896	Trematosphaeria pertusa	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t1048519	Viridothelium virens	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t1048955	Tothia fuscella	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t50376	Venturia effusa	1	2	0.5	#a38bc4	plant_resident	Dothideomycetes
-t5025	Venturia inaequalis	4	90	0.0444	#5b3094	plant_resident	Dothideomycetes
-t86259	Venturia nashicola	2	3	0.6667	#bdacd6	plant_resident	Dothideomycetes
-t160035	Zopfia rhizophila	1	1	1.0	#f2effa	plant_resident	Dothideomycetes
-t293227	Cyphellophora europaea	1	5	0.2	#744fa4	plant_resident	Eurotiomycetes
-t1206340	Epibryon interlamellare	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t408822	Epibryon minutissimum	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t1608269	Epibryon sylvestris	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t43229	Capronia coronata	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t43228	Capronia epimyces	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t89940	Cladophialophora bantiana	1	7	0.1429	#6b449e	plant_resident	Eurotiomycetes
-t86049	Cladophialophora carrionii	2	2	1.0	#f2effa	plant_resident	Eurotiomycetes
-t386627	Cladophialophora chaetospira	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t470704	Cladophialophora yegresii	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t5970	Exophiala dermatitidis	29	37	0.7838	#d0c4e3	plant_resident	Eurotiomycetes
-t91928	Exophiala spinifera	1	11	0.0909	#623999	plant_resident	Eurotiomycetes
-t191047	Knufia fluminis	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t5053	Aspergillus aculeatus	1	3	0.3333	#896ab3	plant_resident	Eurotiomycetes
-t209559	Aspergillus alliaceus	3	4	0.75	#cabddf	plant_resident	Eurotiomycetes
-t656916	Aspergillus arachidicola	2	2	1.0	#f2effa	plant_resident	Eurotiomycetes
-t36643	Aspergillus avenaceus	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t105351	Aspergillus awamori	1	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t319629	Aspergillus brasiliensis	4	5	0.8	#d2c7e5	plant_resident	Eurotiomycetes
-t61420	Aspergillus caelatus	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t41068	Aspergillus campestris	1	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t41067	Aspergillus candidus	2	2	1.0	#f2effa	onwheat_resident	Eurotiomycetes
-t40993	Aspergillus carbonarius	1	1	1.0	#f2effa	plant_pathogen	Eurotiomycetes
-t182096	Aspergillus chevalieri	1	11	0.0909	#623999	plant_resident	Eurotiomycetes
-t5057	Aspergillus clavatus	1	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t36630	Aspergillus fischeri	2	5	0.4	#9377ba	plant_resident	Eurotiomycetes
-t5059	Aspergillus flavus	12	344	0.0349	#5a2e93	onwheat_pathogen	Eurotiomycetes
-t746128	Aspergillus fumigatus	293	423	0.6927	#c1b2d9	onwheat_resident	Eurotiomycetes
-t41413	Aspergillus glaucus	1	1	1.0	#f2effa	onwheat_resident	Eurotiomycetes
-t176169	Aspergillus granulosus	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t469274	Aspergillus insuetus	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t34381	Aspergillus japonicus	1	4	0.25	#7c59aa	plant_resident	Eurotiomycetes
-t1069201	Aspergillus luchuensis	5	14	0.3571	#8c6eb5	plant_resident	Eurotiomycetes
-t176173	Aspergillus lucknowensis	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t138277	Aspergillus melleus	2	2	1.0	#f2effa	plant_resident	Eurotiomycetes
-t656917	Aspergillus minisclerotigenes	1	3	0.3333	#896ab3	plant_resident	Eurotiomycetes
-t41759	Aspergillus multicolor	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t91484	Aspergillus navahoensis	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t162425	Aspergillus nidulans	4	45	0.0889	#623999	onwheat_resident	Eurotiomycetes
-t5061	Aspergillus niger	45	128	0.3516	#8c6db5	onwheat_pathogen	Eurotiomycetes
-t41061	Aspergillus nomiae	1	3	0.3333	#896ab3	plant_resident	Eurotiomycetes
-t5062	Aspergillus oryzae	15	138	0.1087	#653d9b	plant_resident	Eurotiomycetes
-t5067	Aspergillus parasiticus	3	50	0.06	#5d3395	plant_resident	Eurotiomycetes
-t5063	Aspergillus phoenicis	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t319630	Aspergillus piperis	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t41414	Aspergillus proliferans	1	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t176178	Aspergillus pseudodeflectus	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t1220207	Aspergillus puulaauensis	2	4	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t396024	Aspergillus ruber	1	4	0.25	#7c59aa	onwheat_resident	Eurotiomycetes
-t75750	Aspergillus sydowii	1	16	0.0625	#5e3496	onwheat_resident	Eurotiomycetes
-t41984	Aspergillus tamarii	1	9	0.1111	#663d9b	onwheat_resident	Eurotiomycetes
-t33178	Aspergillus terreus	5	28	0.1786	#704ba2	plant_resident	Eurotiomycetes
-t36642	Aspergillus terricola	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t1883080	Aspergillus tetrazonus	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t5068	Aspergillus tubingensis	9	26	0.3462	#8b6cb4	plant_resident	Eurotiomycetes
-t40381	Aspergillus unguis	1	9	0.1111	#663d9b	plant_resident	Eurotiomycetes
-t40382	Aspergillus ustus	1	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t446911	Aspergillus uvarum	1	4	0.25	#7c59aa	plant_resident	Eurotiomycetes
-t46472	Aspergillus versicolor	1	6	0.1667	#6e48a1	onwheat_resident	Eurotiomycetes
-t1341132	Aspergillus welwitschiae	1	8	0.125	#68409c	plant_resident	Eurotiomycetes
-t5066	Aspergillus wentii	3	3	1.0	#f2effa	plant_resident	Eurotiomycetes
-t5098	Monascus purpureus	4	15	0.2667	#7e5cac	plant_resident	Eurotiomycetes
-t1132637	Penicillium atrosanguineum	5	5	1.0	#f2effa	onwheat_resident	Eurotiomycetes
-t5074	Penicillium brevicompactum	4	11	0.3636	#8d70b6	plant_resident	Eurotiomycetes
-t5075	Penicillium camemberti	2	15	0.1333	#69429d	plant_resident	Eurotiomycetes
-t5083	Penicillium canescens	7	7	1.0	#f2effa	onwheat_resident	Eurotiomycetes
-t69766	Penicillium capsulatum	2	4	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t63820	Penicillium chermesinum	2	2	1.0	#f2effa	plant_resident	Eurotiomycetes
-t5076	Penicillium chrysogenum	6	97	0.0619	#5e3396	onwheat_resident	Eurotiomycetes
-t5077	Penicillium citrinum	2	32	0.0625	#5e3496	plant_resident	Eurotiomycetes
-t70792	Penicillium corylophilum	1	3	0.3333	#896ab3	plant_resident	Eurotiomycetes
-t36656	Penicillium crustosum	4	7	0.5714	#ae99cc	plant_resident	Eurotiomycetes
-t63821	Penicillium daleae	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t69771	Penicillium decumbens	1	4	0.25	#7c59aa	onwheat_resident	Eurotiomycetes
-t36651	Penicillium digitatum	4	7	0.5714	#ae99cc	plant_pathogen	Eurotiomycetes
-t74830	Penicillium discolor	11	11	1.0	#f2effa	plant_resident	Eurotiomycetes
-t27334	Penicillium expansum	5	14	0.3571	#8c6eb5	onwheat_pathogen	Eurotiomycetes
-t254877	Penicillium flavigenum	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t48697	Penicillium freii	2	4	0.5	#a38bc4	onwheat_resident	Eurotiomycetes
-t3151616	Penicillium frequentans	2	2	1.0	#f2effa	plant_resident	Eurotiomycetes
-t5078	Penicillium griseofulvum	4	7	0.5714	#ae99cc	onwheat_resident	Eurotiomycetes
-t69774	Penicillium herquei	2	4	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t40994	Penicillium hordei	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t40296	Penicillium italicum	1	4	0.25	#7c59aa	onwheat_pathogen	Eurotiomycetes
-t94218	Penicillium lagena	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t70099	Penicillium lividum	1	1	1.0	#f2effa	onwheat_resident	Eurotiomycetes
-t1343394	Penicillium maclennaniae	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t60175	Penicillium nalgiovense	30	31	0.9677	#ede9f7	onwheat_resident	Eurotiomycetes
-t69780	Penicillium ochrochloron	1	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t99116	Penicillium olsonii	5	6	0.8333	#d8cee8	plant_resident	Eurotiomycetes
-t69781	Penicillium oxalicum	3	16	0.1875	#724ca3	plant_resident	Eurotiomycetes
-t293373	Penicillium palitans	1	14	0.0714	#5f3597	onwheat_resident	Eurotiomycetes
-t60169	Penicillium polonicum	1	13	0.0769	#603697	plant_resident	Eurotiomycetes
-t69785	Penicillium rolfsii	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t5082	Penicillium roqueforti	36	50	0.72	#c6b7dc	plant_resident	Eurotiomycetes
-t60172	Penicillium solitum	2	14	0.1429	#6b449e	onwheat_resident	Eurotiomycetes
-t69789	Penicillium soppii	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t303698	Penicillium steckii	1	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t168475	Penicillium taxi	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t60171	Penicillium verrucosum	1	4	0.25	#7c59aa	plant_resident	Eurotiomycetes
-t60134	Penicillium viridicatum	3	3	1.0	#f2effa	onwheat_resident	Eurotiomycetes
-t29845	Penicillium vulpinum	2	3	0.6667	#bdacd6	onwheat_resident	Eurotiomycetes
-t69791	Penicillium waksmanii	1	1	1.0	#f2effa	onwheat_resident	Eurotiomycetes
-t519963	Elaphomyces granulatus	2	2	1.0	#f2effa	plant_resident	Eurotiomycetes
-t3004212	Paecilomyces lecythidis	2	8	0.25	#7c59aa	plant_resident	Eurotiomycetes
-t264951	Paecilomyces variotii	26	34	0.7647	#cdc0e1	onwheat_resident	Eurotiomycetes
-t5087	Thermoascus aurantiacus	1	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t5088	Thermoascus crustaceus	1	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t68825	Rasamsonia emersonii	2	2	1.0	#f2effa	plant_resident	Eurotiomycetes
-t1196081	Talaromyces amestolkiae	1	5	0.2	#744fa4	plant_resident	Eurotiomycetes
-t28573	Talaromyces islandicus	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t37727	Talaromyces marneffei	4	12	0.3333	#896ab3	plant_resident	Eurotiomycetes
-t128442	Talaromyces pinophilus	3	12	0.25	#7c59aa	plant_resident	Eurotiomycetes
-t121627	Talaromyces rugulosus	1	1	1.0	#f2effa	onwheat_resident	Eurotiomycetes
-t28564	Talaromyces stipitatus	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t198730	Talaromyces verruculosus	1	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t28565	Thermomyces dupontii	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t5541	Thermomyces lanuginosus	1	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t73230	[Emmonsia] crescens	2	3	0.6667	#bdacd6	plant_resident	Eurotiomycetes
-t34391	Epidermophyton floccosum	2	4	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t63405	Microsporum canis	9	53	0.1698	#6f49a1	plant_resident	Eurotiomycetes
-t63402	Nannizzia gypsea	2	2	1.0	#f2effa	plant_resident	Eurotiomycetes
-t34388	Trichophyton violaceum	2	7	0.2857	#8160ae	plant_resident	Eurotiomycetes
-t51565	Ascosphaera acerosa	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t5105	Ascosphaera apis	1	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t51567	Ascosphaera atra	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t51576	Ascosphaera pollenicola	1	1	1.0	#f2effa	plant_resident	Eurotiomycetes
-t5041	Malbranchea cinnamomea	2	2	1.0	#f2effa	plant_resident	Eurotiomycetes
-t158046	Phaeomoniella chlamydospora	1	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
-t265104	Trichoglossum hirsutum	2	3	0.6667	#bdacd6	plant_resident	Geoglossomycetes
-t1397036	Lambiella insularis	1	1	1.0	#f2effa	plant_resident	Lecanoromycetes
-t1453798	Xylographa parallela	1	1	1.0	#f2effa	plant_resident	Lecanoromycetes
-t116794	Heterodermia speciosa	1	3	0.3333	#896ab3	plant_resident	Lecanoromycetes
-t116821	Physcia stellaris	1	2	0.5	#a38bc4	plant_resident	Lecanoromycetes
-t1217787	Lecanora helva	1	1	1.0	#f2effa	plant_resident	Lecanoromycetes
-t312200	Mycoblastus sanguinarius	1	2	0.5	#a38bc4	plant_resident	Lecanoromycetes
-t111620	Usnea florida	1	1	1.0	#f2effa	plant_resident	Lecanoromycetes
-t169141	Pseudocyphellaria aurata	1	1	1.0	#f2effa	plant_resident	Lecanoromycetes
-t443868	Agyrium rufum	1	1	1.0	#f2effa	plant_resident	Lecanoromycetes
-t1453789	Toensbergia leucococca	1	2	0.5	#a38bc4	plant_resident	Lecanoromycetes
-t671929	Seirophora villosa	2	2	1.0	#f2effa	plant_resident	Lecanoromycetes
-t1445009	Teloschistes chrysophthalmus	2	2	1.0	#f2effa	plant_resident	Lecanoromycetes
-t271840	Teloschistes exilis	3	3	1.0	#f2effa	plant_resident	Lecanoromycetes
-t442469	Teloschistes flavicans	2	2	1.0	#f2effa	plant_resident	Lecanoromycetes
-t1300024	Teloschistes hypoglaucus	1	1	1.0	#f2effa	plant_resident	Lecanoromycetes
-t107463	Xanthoria parietina	1	3	0.3333	#896ab3	plant_resident	Lecanoromycetes
-t5101	Amorphotheca resinae	1	3	0.3333	#896ab3	plant_resident	Leotiomycetes
-t45428	Amylocarpus encephaloides	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t296797	Chlorociboria aeruginascens	1	2	0.5	#a38bc4	plant_resident	Leotiomycetes
-t565419	Coleophoma crateriformis	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t1849047	Coleophoma cylindrospora	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t108571	Phlyctema vagabunda	1	2	0.5	#a38bc4	plant_resident	Leotiomycetes
-t946123	Diplocarpon mali	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t946125	Diplocarpon rosae	2	5	0.4	#9377ba	plant_resident	Leotiomycetes
-t698440	Drepanopeziza brunnea	3	5	0.6	#b39fcf	plant_resident	Leotiomycetes
-t34373	Blumeria graminis	3	9	0.3333	#896ab3	wheat_pathogen	Leotiomycetes
-t2867405	Blumeria hordei	2	7	0.2857	#8160ae	plant_resident	Leotiomycetes
-t52586	Erysiphe necator	2	7	0.2857	#8160ae	plant_resident	Leotiomycetes
-t212602	Erysiphe neolycopersici	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t225359	Erysiphe pulchra	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t62708	Golovinomyces cichoracearum	3	4	0.75	#cabddf	plant_resident	Leotiomycetes
-t62714	Golovinomyces magnicellulatus	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t79252	Podosphaera aphanis	2	3	0.6667	#bdacd6	plant_resident	Leotiomycetes
-t79249	Podosphaera leucotricha	3	4	0.75	#cabddf	plant_resident	Leotiomycetes
-t112123	Stipitochalara longipes	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t354080	Cudoniella acicularis	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t595503	Hymenoscyphus albidus	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t746836	Hymenoscyphus fraxineus	1	3	0.3333	#896ab3	plant_resident	Leotiomycetes
-t2482752	Hyaloscypha bicolor	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t2482753	Hyaloscypha finlandica	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t2082293	Hyaloscypha hepaticicola	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t2482757	Hyaloscypha variabilis	2	2	1.0	#f2effa	plant_resident	Leotiomycetes
-t353542	Hyphodiscus hymeniophilus	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t1316785	Lachnellula arida	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t1316786	Lachnellula cervina	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t215460	Lachnellula occidentalis	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t602034	Lachnellula subtilissima	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t602035	Lachnellula suecica	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t215461	Lachnellula willkommii	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t886606	Acephala macrosclerotiorum	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t149040	Mollisia scopiformis	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t576137	Phialocephala subalpina	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t51156	Cadophora gregata	2	2	1.0	#f2effa	plant_resident	Leotiomycetes
-t108018	Cadophora malorum	1	2	0.5	#a38bc4	plant_resident	Leotiomycetes
-t86028	Oculimacula yallundae	1	1	1.0	#f2effa	wheat_pathogen	Leotiomycetes
-t914238	Rhynchosporium agropyri	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t2792576	Rhynchosporium graminicola	2	2	1.0	#f2effa	plant_resident	Leotiomycetes
-t38038	Rhynchosporium secalis	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t2036908	Clarireedia jacksonii	2	9	0.2222	#7753a7	plant_resident	Leotiomycetes
-t38488	Botryotinia calthae	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t54673	Botryotinia convoluta	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t278942	Botryotinia globosa	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t278944	Botryotinia narcissicola	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t139639	Botrytis aclada	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t139641	Botrytis byssoidea	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t40559	Botrytis cinerea	14	65	0.2154	#7652a6	onwheat_pathogen	Leotiomycetes
-t2478750	Botrytis deweyae	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t278938	Botrytis elliptica	2	3	0.6667	#bdacd6	plant_pathogen	Leotiomycetes
-t1964551	Botrytis fragariae	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t278940	Botrytis galanthina	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t278943	Botrytis hyacinthi	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t278948	Botrytis paeoniae	1	2	0.5	#a38bc4	plant_resident	Leotiomycetes
-t87229	Botrytis porri	2	2	1.0	#f2effa	plant_resident	Leotiomycetes
-t1463999	Botrytis sinoallii	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t87230	Botrytis tulipae	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t647257	Ciborinia camelliae	1	2	0.5	#a38bc4	plant_resident	Leotiomycetes
-t38448	Monilinia fructicola	2	6	0.3333	#896ab3	plant_pathogen	Leotiomycetes
-t38457	Monilinia fructigena	1	5	0.2	#744fa4	plant_resident	Leotiomycetes
-t61186	Monilinia laxa	1	3	0.3333	#896ab3	plant_resident	Leotiomycetes
-t61207	Monilinia vaccinii-corymbosi	1	2	0.5	#a38bc4	plant_resident	Leotiomycetes
-t2714548	Myriosclerotinia sulcatula	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t77105	Sclerotinia borealis	1	1	1.0	#f2effa	onwheat_resident	Leotiomycetes
-t352851	Sclerotinia nivalis	1	4	0.25	#7c59aa	plant_resident	Leotiomycetes
-t5180	Sclerotinia sclerotiorum	2	37	0.0541	#5d3295	onwheat_pathogen	Leotiomycetes
-t28548	Sclerotinia trifoliorum	1	1	1.0	#f2effa	onwheat_resident	Leotiomycetes
-t38492	Stromatinia cepivora	1	2	0.5	#a38bc4	plant_resident	Leotiomycetes
-t394676	Halenospora varia	1	1	1.0	#f2effa	plant_resident	Leotiomycetes
-t78148	Oidiodendron maius	1	1	1.0	#f2effa	onwheat_resident	Leotiomycetes
-t5539	Scytalidium lignicola	1	1	1.0	#f2effa	onwheat_resident	Leotiomycetes
-t655981	Pseudogymnoascus destructans	2	6	0.3333	#896ab3	plant_resident	Leotiomycetes
-t74498	Arthrobotrys conoides	1	3	0.3333	#896ab3	plant_resident	Orbiliomycetes
-t321852	Arthrobotrys entomopaga	1	1	1.0	#f2effa	plant_resident	Orbiliomycetes
-t97331	Arthrobotrys flagrans	1	4	0.25	#7c59aa	plant_resident	Orbiliomycetes
-t47236	Arthrobotrys musiformis	1	4	0.25	#7c59aa	plant_resident	Orbiliomycetes
-t1814901	Dactylella cylindrospora	1	1	1.0	#f2effa	plant_resident	Orbiliomycetes
-t47266	Dactylellina cionopaga	1	4	0.25	#7c59aa	plant_resident	Orbiliomycetes
-t74499	Drechslerella dactyloides	1	3	0.3333	#896ab3	plant_resident	Orbiliomycetes
-t1796055	Orbilia blumenaviensis	1	2	0.5	#a38bc4	plant_resident	Orbiliomycetes
-t3140254	Orbilia brochopaga	2	3	0.6667	#bdacd6	plant_resident	Orbiliomycetes
-t2528407	Orbilia ellipsospora	1	1	1.0	#f2effa	plant_resident	Orbiliomycetes
-t61495	Peziza echinospora	2	2	1.0	#f2effa	plant_resident	Pezizomycetes
-t337075	Pyronema omphalodes	3	3	1.0	#f2effa	plant_resident	Pezizomycetes
-t43439	Wilcoxina mikolae	1	1	1.0	#f2effa	plant_resident	Pezizomycetes
-t44645	Rhizina undulata	1	1	1.0	#f2effa	plant_resident	Pezizomycetes
-t49969	Geopyxis carbonaria	2	2	1.0	#f2effa	plant_resident	Pezizomycetes
-t44640	Choiromyces venosus	1	1	1.0	#f2effa	plant_resident	Pezizomycetes
-t59557	Tuber aestivum	1	1	1.0	#f2effa	plant_resident	Pezizomycetes
-t60458	Tuber brumale	1	1	1.0	#f2effa	plant_resident	Pezizomycetes
-t39416	Tuber melanosporum	1	1	1.0	#f2effa	plant_resident	Pezizomycetes
-t43982	Ambrosiozyma monospora	2	4	0.5	#a38bc4	plant_resident	Pichiomycetes
-t317047	Kuraishia capsulata	1	2	0.5	#a38bc4	plant_resident	Pichiomycetes
-t870730	Ogataea angusta	10	11	0.9091	#e4ddf0	plant_resident	Pichiomycetes
-t52247	Pichia inconspicua	1	5	0.2	#744fa4	plant_resident	Pichiomycetes
-t4909	Pichia kudriavzevii	7	62	0.1129	#663e9b	plant_resident	Pichiomycetes
-t4926	Pichia membranifaciens	2	10	0.2	#744fa4	plant_resident	Pichiomycetes
-t5476	Candida albicans	29	148	0.1959	#734ea4	plant_resident	Pichiomycetes
-t5482	Candida tropicalis	6	118	0.0508	#5c3194	plant_resident	Pichiomycetes
-t717740	Hyphopichia burtonii	1	7	0.1429	#6b449e	onwheat_resident	Pichiomycetes
-t4920	Millerozyma farinosa	1	5	0.2	#744fa4	onwheat_resident	Pichiomycetes
-t2315449	Yamadazyma tenuis	2	3	0.6667	#bdacd6	plant_resident	Pichiomycetes
-t27326	Metschnikowia pulcherrima	7	21	0.3333	#896ab3	plant_resident	Pichiomycetes
-t45354	Sungouiella intermedia	2	5	0.4	#9377ba	plant_resident	Pichiomycetes
-t54195	Ascoidea rubescens	1	2	0.5	#a38bc4	plant_resident	Saccharomycetes
-t4927	Hansenula anomala	2	47	0.0426	#5b3094	onwheat_resident	Saccharomycetes
-t4903	Williopsis jadinii	2	12	0.1667	#6e48a1	plant_resident	Saccharomycetes
-t45285	Eremothecium cymbalariae	1	1	1.0	#f2effa	plant_resident	Saccharomycetes
-t33169	Eremothecium gossypii	2	2	1.0	#f2effa	plant_resident	Saccharomycetes
-t28985	Kluyveromyces lactis	2	24	0.0833	#613898	plant_resident	Saccharomycetes
-t4911	Kluyveromyces marxianus	8	57	0.1404	#6a439e	plant_resident	Saccharomycetes
-t4932	Saccharomyces cerevisiae	435	1771	0.2456	#7b58a9	plant_resident	Saccharomycetes
-t53685	Hanseniaspora valbyensis	2	3	0.6667	#bdacd6	plant_resident	Saccharomycetes
-t36035	Saccharomycodes ludwigii	2	6	0.3333	#896ab3	plant_resident	Saccharomycetes
-t273283	Sarea resinae	1	1	1.0	#f2effa	plant_resident	Sareomycetes
-t335852	Apiospora arundinis	5	5	1.0	#f2effa	plant_resident	Sordariomycetes
-t1337664	Apiospora hydei	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t2421359	Apiospora hysterina	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1337665	Apiospora kogelbergensis	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t335849	Apiospora marii	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t990691	Apiospora rasikravindrae	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t335842	Apiospora saccharicola	2	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
-t1141098	Pseudomassariella vexata	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t289240	Neopestalotiopsis clavispora	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t393283	Pestalotiopsis fici	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t138064	Seiridium cardinale	3	5	0.6	#b39fcf	plant_resident	Sordariomycetes
-t138065	Seiridium cupressi	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t138068	Seiridium unicorne	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t152316	Truncatella angustata	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t41990	Pleurostoma richardsiae	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1093897	Phialemonium atrogriseum	1	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
-t91930	Coniochaeta hoffmannii	2	4	0.5	#a38bc4	plant_resident	Sordariomycetes
-t177197	Coniochaeta ligniaria	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t177199	Coniochaeta pulveracea	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t5116	Cryphonectria parasitica	1	98	0.0102	#562990	plant_pathogen	Sordariomycetes
-t252740	Cytospora chrysosperma	1	2	0.5	#a38bc4	onwheat_pathogen	Sordariomycetes
-t1230097	Cytospora leucostoma	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t578113	Cytospora mali	2	4	0.5	#a38bc4	plant_resident	Sordariomycetes
-t448051	Cytospora schulzeri	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1214573	Diaporthe ampelina	1	3	0.3333	#896ab3	plant_resident	Sordariomycetes
-t1214568	Diaporthe amygdali	2	5	0.4	#9377ba	plant_resident	Sordariomycetes
-t127596	Diaporthe australafricana	1	3	0.3333	#896ab3	plant_resident	Sordariomycetes
-t748121	Diaporthe batatas	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t83186	Diaporthe citri	1	4	0.25	#7c59aa	plant_resident	Sordariomycetes
-t83184	Diaporthe eres	3	6	0.5	#a38bc4	plant_resident	Sordariomycetes
-t158607	Diaporthe helianthi	1	4	0.25	#7c59aa	plant_resident	Sordariomycetes
-t2419934	Diaporthe ilicicola	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t105482	Diaporthe vaccinii	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t529478	Anisogramma anomala	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t148313	Discula destructiva	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1191159	Gnomoniopsis smithogilvyi	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1671311	Colletotrichum abscissum	3	3	1.0	#f2effa	plant_resident	Sordariomycetes
-t27357	Colletotrichum acutatum	3	32	0.0938	#633a99	plant_pathogen	Sordariomycetes
-t1215731	Colletotrichum aenigma	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t702518	Colletotrichum asianum	2	4	0.5	#a38bc4	plant_pathogen	Sordariomycetes
-t538528	Colletotrichum camelliae	1	3	0.3333	#896ab3	plant_pathogen	Sordariomycetes
-t5460	Colletotrichum caudatum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t343994	Colletotrichum cereale	1	9	0.1111	#663d9b	onwheat_resident	Sordariomycetes
-t708187	Colletotrichum chlorophyti	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1836956	Colletotrichum chrysophilum	4	4	1.0	#f2effa	plant_resident	Sordariomycetes
-t1209916	Colletotrichum costaricense	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1209917	Colletotrichum cuscutae	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t34406	Colletotrichum destructivum	1	2	0.5	#a38bc4	onwheat_resident	Sordariomycetes
-t1173702	Colletotrichum eremochloae	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t129314	Colletotrichum falcatum	1	3	0.3333	#896ab3	onwheat_resident	Sordariomycetes
-t710243	Colletotrichum fioriniae	5	28	0.1786	#704ba2	plant_resident	Sordariomycetes
-t690256	Colletotrichum fructicola	7	26	0.2692	#7f5dac	plant_pathogen	Sordariomycetes
-t474922	Colletotrichum gloeosporioides	3	21	0.1429	#6b449e	onwheat_pathogen	Sordariomycetes
-t1209918	Colletotrichum godetiae	1	8	0.125	#68409c	plant_resident	Sordariomycetes
-t31870	Colletotrichum graminicola	2	23	0.087	#623898	onwheat_pathogen	Sordariomycetes
-t80884	Colletotrichum higginsianum	4	4	1.0	#f2effa	plant_pathogen	Sordariomycetes
-t1573173	Colletotrichum incanum	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t2283408	Colletotrichum jinshuiense	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t34407	Colletotrichum kahawae	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1095194	Colletotrichum karsti	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1209924	Colletotrichum limetticola	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t708192	Colletotrichum liriopes	1	5	0.2	#744fa4	plant_resident	Sordariomycetes
-t145971	Colletotrichum lupini	2	32	0.0625	#5e3496	plant_resident	Sordariomycetes
-t1209925	Colletotrichum melonis	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t2175873	Colletotrichum musicola	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t681940	Colletotrichum navitas	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1300063	Colletotrichum nigrum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1215361	Colletotrichum nupharicola	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t306554	Colletotrichum nymphaeae	1	31	0.0323	#592d92	plant_resident	Sordariomycetes
-t5465	Colletotrichum orbiculare	1	1	1.0	#f2effa	plant_pathogen	Sordariomycetes
-t1209926	Colletotrichum orchidophilum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1914294	Colletotrichum paranaense	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t359342	Colletotrichum phormii	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t2175906	Colletotrichum plurivorum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1209931	Colletotrichum salicis	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1209932	Colletotrichum scovillei	4	8	0.5	#a38bc4	plant_pathogen	Sordariomycetes
-t690259	Colletotrichum siamense	5	27	0.1852	#714ca3	plant_pathogen	Sordariomycetes
-t1347389	Colletotrichum sidae	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t703756	Colletotrichum simmondsii	1	4	0.25	#7c59aa	plant_resident	Sordariomycetes
-t2175907	Colletotrichum sojae	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1500509	Colletotrichum somersetense	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t700344	Colletotrichum spaethianum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1347390	Colletotrichum spinosum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1173701	Colletotrichum sublineola	2	4	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1209068	Colletotrichum tabaci	1	1	1.0	#f2effa	plant_pathogen	Sordariomycetes
-t1209934	Colletotrichum tamarilloi	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1306861	Colletotrichum tanaceti	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t708197	Colletotrichum tofieldiae	4	8	0.5	#a38bc4	plant_resident	Sordariomycetes
-t5466	Colletotrichum trifolii	1	1	1.0	#f2effa	plant_pathogen	Sordariomycetes
-t912113	Colletotrichum tropicale	2	4	0.5	#a38bc4	plant_resident	Sordariomycetes
-t5467	Colletotrichum truncatum	1	5	0.2	#744fa4	plant_resident	Sordariomycetes
-t1131913	Colletotrichum viniferum	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1216348	Colletotrichum zoysiae	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t40658	Plectosphaerella cucumerina	1	4	0.25	#7c59aa	onwheat_resident	Sordariomycetes
-t936078	Plectosphaerella plurivora	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t27335	Verticillium albo-atrum	2	6	0.3333	#896ab3	plant_resident	Sordariomycetes
-t1051613	Verticillium alfalfae	1	3	0.3333	#896ab3	plant_resident	Sordariomycetes
-t27337	Verticillium dahliae	12	62	0.1935	#734ea4	plant_pathogen	Sordariomycetes
-t100787	Verticillium longisporum	5	21	0.2381	#7a57a8	plant_pathogen	Sordariomycetes
-t1051616	Verticillium nonalfalfae	16	23	0.6957	#c2b2d9	plant_pathogen	Sordariomycetes
-t12942	Aphanocladium album	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t160290	Clonostachys byssicola	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t160324	Clonostachys rhizophaga	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t29856	Clonostachys rosea	2	78	0.0256	#582c92	onwheat_pathogen	Sordariomycetes
-t160281	Clonostachys solani	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1094350	Geosmithia morbida	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t5044	Hapsidospora chrysogena	1	4	0.25	#7c59aa	onwheat_resident	Sordariomycetes
-t83212	Claviceps africana	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1649128	Claviceps capensis	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t62069	Claviceps citrina	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t247652	Claviceps cyperi	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t254901	Claviceps digitariae	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1806559	Claviceps lovelessii	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t89174	Claviceps maximensis	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1649129	Claviceps monticola	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1649127	Claviceps pazoutovae	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t5111	Claviceps purpurea	24	58	0.4138	#957abb	wheat_pathogen	Sordariomycetes
-t123648	Claviceps pusilla	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t96774	Claviceps sorghi	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1294630	Claviceps spartinae	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1105319	Conoideocrella luteorostrata	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t79588	Epichloe bromicola	2	11	0.1818	#714ba2	plant_resident	Sordariomycetes
-t35717	Epichloe festucae	1	18	0.0556	#5d3295	plant_resident	Sordariomycetes
-t5530	Metarhizium anisopliae	5	13	0.3846	#9174b8	plant_resident	Sordariomycetes
-t500148	Metarhizium brunneum	3	5	0.6	#b39fcf	plant_resident	Sordariomycetes
-t169041	Metarhizium guizhouense	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1650735	Metarhizium majus	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1649241	Metarhizium rileyi	2	7	0.2857	#8160ae	plant_resident	Sordariomycetes
-t324773	Moelleriella libera	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t280754	Pochonia chlamydosporia	2	6	0.3333	#896ab3	plant_resident	Sordariomycetes
-t1159556	Ustilaginoidea virens	2	7	0.2857	#8160ae	plant_pathogen	Sordariomycetes
-t1531966	[Torrubiella] hemipterigena	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t2714763	Akanthomyces lecanii	2	14	0.1429	#6b449e	onwheat_resident	Sordariomycetes
-t2231603	Akanthomyces muscarius	1	4	0.25	#7c59aa	plant_resident	Sordariomycetes
-t176275	Beauveria bassiana	11	228	0.0482	#5c3194	plant_pathogen	Sordariomycetes
-t118266	Beauveria brongniartii	1	18	0.0556	#5d3295	plant_resident	Sordariomycetes
-t43265	Cordyceps javanica	3	39	0.0769	#603697	plant_resident	Sordariomycetes
-t73501	Cordyceps militaris	2	8	0.25	#7c59aa	plant_resident	Sordariomycetes
-t468837	Corniculantispora saksenae	1	3	0.3333	#896ab3	plant_resident	Sordariomycetes
-t93593	Simplicillium lamellicola	1	8	0.125	#68409c	plant_resident	Sordariomycetes
-t93591	Zarea fungicola	1	3	0.3333	#896ab3	plant_resident	Sordariomycetes
-t491253	Cladobotryum mycophilum	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t101201	Trichoderma asperellum	4	25	0.16	#6d47a0	plant_resident	Sordariomycetes
-t63577	Trichoderma atroviride	8	21	0.381	#9073b8	plant_resident	Sordariomycetes
-t58853	Trichoderma citrinoviride	1	8	0.125	#68409c	plant_resident	Sordariomycetes
-t549676	Trichoderma evansii	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t65468	Trichoderma ghanense	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1491466	Trichoderma guizhouense	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t5544	Trichoderma harzianum	6	30	0.2	#744fa4	plant_resident	Sordariomycetes
-t5548	Trichoderma longibrachiatum	2	13	0.1538	#6c469f	onwheat_resident	Sordariomycetes
-t173947	Trichoderma novae-zelandiae	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t504485	Trichoderma pleuroticola	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t51453	Trichoderma reesei	8	32	0.25	#7c59aa	plant_resident	Sordariomycetes
-t1491008	Trichoderma semiorbis	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t202918	Trichoderma velutinum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t29875	Trichoderma virens	3	11	0.2727	#7f5eac	onwheat_pathogen	Sordariomycetes
-t5547	Trichoderma viride	5	8	0.625	#b7a4d2	onwheat_resident	Sordariomycetes
-t595255	Cylindrodendrum hubeiense	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1079267	Dactylonectria estremocensis	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t307937	Dactylonectria macrodidyma	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t5515	Fusarium acuminatum	1	3	0.3333	#896ab3	onwheat_resident	Sordariomycetes
-t78861	Fusarium acutatum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1803897	Fusarium agapanthi	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t131363	Fusarium ambrosium	5	5	1.0	#f2effa	plant_resident	Sordariomycetes
-t48484	Fusarium annulatum	1	9	0.1111	#663d9b	plant_resident	Sordariomycetes
-t48485	Fusarium anthophilum	1	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
-t2364996	Fusarium austroafricanum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t282268	Fusarium austroamericanum	1	5	0.2	#744fa4	plant_resident	Sordariomycetes
-t40199	Fusarium avenaceum	4	16	0.25	#7c59aa	wheat_pathogen	Sordariomycetes
-t44412	Fusarium beomiforme	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t79018	Fusarium bulbicola	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t86545	Fusarium chlamydosporum	1	2	0.5	#a38bc4	onwheat_resident	Sordariomycetes
-t48490	Fusarium circinatum	1	19	0.0526	#5c3295	plant_pathogen	Sordariomycetes
-t231269	Fusarium coffeatum	1	3	0.3333	#896ab3	plant_resident	Sordariomycetes
-t1567539	Fusarium coicis	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t249398	Fusarium commune	1	12	0.0833	#613898	plant_resident	Sordariomycetes
-t5516	Fusarium culmorum	9	14	0.6429	#baa8d4	wheat_pathogen	Sordariomycetes
-t57161	Fusarium decemcellulare	2	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
-t48507	Fusarium denticulatum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t61235	Fusarium equiseti	2	26	0.0769	#603697	onwheat_resident	Sordariomycetes
-t1147111	Fusarium euwallaceae	5	7	0.7143	#c5b6db	plant_resident	Sordariomycetes
-t195108	Fusarium falciforme	6	21	0.2857	#8160ae	plant_resident	Sordariomycetes
-t2675880	Fusarium flagelliforme	2	3	0.6667	#bdacd6	onwheat_resident	Sordariomycetes
-t1325733	Fusarium floridanum	5	5	1.0	#f2effa	plant_resident	Sordariomycetes
-t5127	Fusarium fujikuroi	18	31	0.5806	#b09bcd	onwheat_pathogen	Sordariomycetes
-t78864	Fusarium globosum	1	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
-t5518	Fusarium graminearum	33	153	0.2157	#7652a6	wheat_pathogen	Sordariomycetes
-t86546	Fusarium graminum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t42747	Fusarium heterosporum	1	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
-t1328300	Fusarium keratoplasticum	2	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
-t2010991	Fusarium kuroshium	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t179993	Fusarium langsethiae	3	4	0.75	#cabddf	onwheat_resident	Sordariomycetes
-t5523	Fusarium lateritium	15	16	0.9375	#e8e2f3	onwheat_resident	Sordariomycetes
-t694270	Fusarium longipes	1	4	0.25	#7c59aa	plant_resident	Sordariomycetes
-t192010	Fusarium mangiferae	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t751941	Fusarium mexicanum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1042133	Fusarium musae	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t42672	Fusarium napiforme	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1053271	Fusarium nematophilum	2	4	0.5	#a38bc4	plant_resident	Sordariomycetes
-t42673	Fusarium nygamai	1	6	0.1667	#6e48a1	onwheat_resident	Sordariomycetes
-t1325738	Fusarium obliquiseptatum	2	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
-t2502994	Fusarium odoratissimum	3	8	0.375	#8f72b7	plant_pathogen	Sordariomycetes
-t2604345	Fusarium oligoseptatum	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t5507	Fusarium oxysporum	69	894	0.0772	#603697	wheat_pathogen	Sordariomycetes
-t47803	Fusarium phyllophilum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1435070	Fusarium piperis	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t36050	Fusarium poae	3	88	0.0341	#592e93	onwheat_resident	Sordariomycetes
-t948311	Fusarium proliferatum	8	45	0.1778	#704ba2	onwheat_pathogen	Sordariomycetes
-t986114	Fusarium pseudensiforme	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t48495	Fusarium pseudoanthophilum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t56676	Fusarium pseudocircinatum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t101028	Fusarium pseudograminearum	4	6	0.6667	#bdacd6	wheat_pathogen	Sordariomycetes
-t48865	Fusarium redolens	1	5	0.2	#744fa4	onwheat_resident	Sordariomycetes
-t2698985	Fusarium rekanum	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t5128	Fusarium sambucinum	2	5	0.4	#9377ba	onwheat_pathogen	Sordariomycetes
-t1208366	Fusarium sarcochroum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t169388	Fusarium solani	19	52	0.3654	#8e70b6	onwheat_pathogen	Sordariomycetes
-t2747967	Fusarium solani-melongenae	1	3	0.3333	#896ab3	onwheat_resident	Sordariomycetes
-t5514	Fusarium sporotrichioides	1	5	0.2	#744fa4	wheat_pathogen	Sordariomycetes
-t42677	Fusarium subglutinans	1	5	0.2	#744fa4	onwheat_resident	Sordariomycetes
-t1567544	Fusarium tjaetaba	1	3	0.3333	#896ab3	plant_resident	Sordariomycetes
-t1237075	Fusarium torreyae	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t33205	Fusarium torulosum	1	3	0.3333	#896ab3	onwheat_resident	Sordariomycetes
-t61284	Fusarium tricinctum	1	7	0.1429	#6b449e	onwheat_resident	Sordariomycetes
-t1325736	Fusarium tuaranense	2	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
-t2747968	Fusarium vanettenii	1	4	0.25	#7c59aa	plant_resident	Sordariomycetes
-t56646	Fusarium venenatum	3	4	0.75	#cabddf	onwheat_resident	Sordariomycetes
-t117187	Fusarium verticillioides	6	71	0.0845	#613898	wheat_pathogen	Sordariomycetes
-t221167	Fusarium xylarioides	6	9	0.6667	#bdacd6	plant_resident	Sordariomycetes
-t1053134	Fusarium zealandicum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t64609	Ilyonectria destructans	1	3	0.3333	#896ab3	onwheat_resident	Sordariomycetes
-t1079257	Ilyonectria robusta	2	6	0.3333	#896ab3	plant_resident	Sordariomycetes
-t78410	Neonectria ditissima	1	6	0.1667	#6e48a1	plant_resident	Sordariomycetes
-t2732573	Neonectria magnoliae	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t979145	Neonectria punicea	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1576542	Thelonectria olida	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t72228	Ophiocordyceps sinensis	2	6	0.3333	#896ab3	plant_resident	Sordariomycetes
-t268505	Ophiocordyceps unilateralis	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t33203	Purpureocillium lilacinum	7	16	0.4375	#997ebe	onwheat_resident	Sordariomycetes
-t45235	Tolypocladium capitatum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t71617	Tolypocladium ophioglossoides	1	3	0.3333	#896ab3	plant_resident	Sordariomycetes
-t1610689	Sarocladium implicatum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t5046	Sarocladium strictum	2	3	0.6667	#bdacd6	onwheat_resident	Sordariomycetes
-t1859967	Paramyrothecium foliicola	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t74722	Stachybotrys chartarum	3	4	0.75	#cabddf	plant_resident	Sordariomycetes
-t80388	Stachybotrys elegans	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t47278	Trichothecium roseum	1	5	0.2	#744fa4	onwheat_resident	Sordariomycetes
-t339359	Zalerion maritima	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t36778	Gaeumannomyces avenae	2	2	1.0	#f2effa	onwheat_resident	Sordariomycetes
-t1940676	Gaeumannomyces hyphopodioides	2	2	1.0	#f2effa	onwheat_resident	Sordariomycetes
-t36779	Gaeumannomyces tritici	6	7	0.8571	#dbd2eb	onwheat_resident	Sordariomycetes
-t148304	Magnaporthiopsis poae	1	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
-t148305	Pyricularia grisea	3	15	0.2	#744fa4	onwheat_resident	Sordariomycetes
-t318829	Pyricularia oryzae	62	614	0.101	#643b9a	wheat_pathogen	Sordariomycetes
-t1578925	Pyricularia pennisetigena	1	3	0.3333	#896ab3	plant_resident	Sordariomycetes
-t2035830	Berkeleyomyces rouxiae	2	5	0.4	#9377ba	plant_resident	Sordariomycetes
-t5158	Ceratocystis fimbriata	1	8	0.125	#68409c	plant_pathogen	Sordariomycetes
-t2019549	Ceratocystis huliohia	1	5	0.2	#744fa4	plant_resident	Sordariomycetes
-t2019550	Ceratocystis lukuohia	1	9	0.1111	#663d9b	plant_resident	Sordariomycetes
-t259994	Ceratocystis pirilliformis	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t88771	Ceratocystis platani	1	4	0.25	#7c59aa	plant_resident	Sordariomycetes
-t72032	Thielaviopsis punctulata	1	3	0.3333	#896ab3	plant_resident	Sordariomycetes
-t2041049	Cephalotrichum gorgonifer	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t41688	Lomentospora prolificans	4	7	0.5714	#ae99cc	plant_resident	Sordariomycetes
-t2075419	Microascus stellatus	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1442378	Parascedosporium putredinis	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t5597	Scedosporium boydii	3	4	0.75	#cabddf	plant_resident	Sordariomycetes
-t226899	Leptographium clavigerum	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t61273	Ophiostoma piceae	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1260050	Sporothrix curviconia	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1892477	Sporothrix epigloea	3	3	1.0	#f2effa	plant_resident	Sordariomycetes
-t1812306	Sporothrix eucalyptigena	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t29908	Sporothrix schenckii	2	7	0.2857	#8160ae	plant_resident	Sordariomycetes
-t5173	Sporothrix stenoceras	2	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
-t1805982	Sporothrix thermara	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1825666	Phyllachora maydis	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1276059	Polystigma amygdalinum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t669021	Chaetomidium leptoderma	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1854472	Chaetomium fimeti	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t38033	Chaetomium globosum	2	13	0.1538	#6c469f	onwheat_resident	Sordariomycetes
-t1170767	Chaetomium strumarium	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1036253	Chaetomium subaffine	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t190048	Corynascus sepedonium	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1934379	Dichotomopilus funicola	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t85995	Mycothermus thermophilus	2	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
-t2587402	Parathielavia appendiculata	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t113614	Parathielavia hyrcaniae	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t209285	Thermochaetoides thermophila	1	3	0.3333	#896ab3	plant_resident	Sordariomycetes
-t2588717	Thermothelomyces myriococcoides	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t78579	Thermothelomyces thermophilus	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t2587410	Thermothielavioides terrestris	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t252184	Bombardia bombarda	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t314043	Immersiella caudata	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t260671	Lasiosphaeria hispida	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t92902	Lasiosphaeria ovina	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t260670	Lasiosphaeris hirsuta	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t573856	Pseudorhypophila marina	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t261697	Rhypophila decipiens	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t585594	Cladorrhinum samala	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t314037	Podospora appendiculata	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t252190	Podospora fimiseda	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t2587418	Triangularia verruculosa	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t5141	Neurospora crassa	3	9	0.3333	#896ab3	plant_resident	Sordariomycetes
-t40127	Neurospora tetrasperma	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t94610	Neurospora tetraspora	1	36	0.0278	#582d92	plant_resident	Sordariomycetes
-t5147	Sordaria macrospora	3	3	1.0	#f2effa	plant_resident	Sordariomycetes
-t223192	Phaeoacremonium minimum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t117547	Diatrype stigma	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t97096	Eutypa lata	2	41	0.0488	#5c3194	plant_resident	Sordariomycetes
-t326616	Annulohypoxylon bovei	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t326622	Annulohypoxylon moriforme	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t326626	Annulohypoxylon nitens	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t326628	Annulohypoxylon stygium	1	7	0.1429	#6b449e	plant_resident	Sordariomycetes
-t327061	Annulohypoxylon truncatum	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t326643	Daldinia bambusicola	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t326644	Daldinia caldariorum	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t326645	Daldinia childiae	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t326647	Daldinia decipiens	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t292717	Daldinia eschscholtzii	2	5	0.4	#9377ba	plant_resident	Sordariomycetes
-t103428	Daldinia grandis	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t103429	Daldinia loculata	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t114800	Daldinia vernicosa	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t2487000	Hypomontagnella monticulosa	1	3	0.3333	#896ab3	plant_resident	Sordariomycetes
-t152308	Hypomontagnella submonticulosa	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t1799007	Hypoxylon argillaceum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t326656	Hypoxylon cercidicola	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t326657	Hypoxylon crocopeplum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t63214	Hypoxylon fragiforme	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t109372	Hypoxylon fuscum	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t110542	Hypoxylon rubiginosum	2	5	0.4	#9377ba	plant_resident	Sordariomycetes
-t326681	Hypoxylon trugodes	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t1955266	Jackrogersella minutella	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t196109	Microdochium bolleyi	1	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
-t647655	Microdochium majus	1	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
-t5520	Microdochium nivale	2	3	0.6667	#bdacd6	wheat_pathogen	Sordariomycetes
-t155416	Monosporascus cannonballus	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t155417	Monosporascus ibericus	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t933095	Anthostomella pinea	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t743114	Astrocystis sublimbata	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t110534	Biscogniauxia marginata	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t97377	Biscogniauxia mediterranea	2	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
-t110548	Camillea tinctor	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t419775	Durotheca rogersii	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t110536	Nemania bipapillata	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t389665	Nemania diffusa	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t109381	Nemania serpens	3	3	1.0	#f2effa	plant_resident	Sordariomycetes
-t101475	Poronia punctata	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t77044	Rosellinia necatrix	1	7	0.1429	#6b449e	plant_pathogen	Sordariomycetes
-t110526	Ustulina deusta	2	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
-t110547	Whalleya microplaca	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t114808	Xylaria acuta	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t114810	Xylaria arbuscula	3	3	1.0	#f2effa	plant_resident	Sordariomycetes
-t326684	Xylaria bambusicola	2	2	1.0	#f2effa	plant_resident	Sordariomycetes
-t114812	Xylaria castorea	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t114814	Xylaria cubensis	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t42375	Xylaria curta	2	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
-t323540	Xylaria digitata	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t363999	Xylaria grammica	2	4	0.5	#a38bc4	plant_resident	Sordariomycetes
-t37992	Xylaria hypoxylon	1	3	0.3333	#896ab3	plant_resident	Sordariomycetes
-t114818	Xylaria longipes	2	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
-t323545	Xylaria multiplex	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t490159	Xylaria nigripes	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t665665	Xylaria palmicola	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t77046	Xylaria polymorpha	1	2	0.5	#a38bc4	plant_resident	Sordariomycetes
-t743287	Xylaria scruposa	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t477509	Xylaria telfairii	1	1	1.0	#f2effa	plant_resident	Sordariomycetes
-t2754530	Protomyces lactucae-debilis	1	2	0.5	#a38bc4	plant_resident	Taphrinomycetes
-t5011	Taphrina deformans	1	4	0.25	#7c59aa	plant_resident	Taphrinomycetes
-t1130053	Cirrosporium novae-zelandiae	1	1	1.0	#f2effa	plant_resident	Xylobotryomycetes
-t56174	Leucocoprinus birnbaumii	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t79220	Leucocoprinus gongylophorus	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t41956	Amanita muscaria	2	5	0.4	#9377ba	plant_resident	Agaricomycetes
-t67723	Amanita phalloides	1	4	0.25	#7c59aa	plant_resident	Agaricomycetes
-t71933	Amanita rubescens	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t2682957	Stygiomarasmius scandens	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t182062	Tetrapyrgos nigripes	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t64659	Collybia nuda	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t179855	Crepidotus variabilis	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t40457	Fistulina hepatica	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t109633	Galerina marginata	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t109634	Gymnopilus junonius	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t1973307	Cyclocybe aegerita	2	2	1.0	#f2effa	plant_resident	Agaricomycetes
-t90686	Lycoperdon perlatum	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t39966	Hypsizygus marmoreus	1	6	0.1667	#6e48a1	plant_resident	Agaricomycetes
-t3706012	Marasmius cohortalis	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t585013	Marasmius crinis-equi	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t181124	Marasmius oreades	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t585030	Marasmius tenuissimus	3	7	0.4286	#987dbd	plant_resident	Agaricomycetes
-t153609	Moniliophthora perniciosa	1	1	1.0	#f2effa	plant_pathogen	Agaricomycetes
-t221103	Moniliophthora roreri	2	2	1.0	#f2effa	plant_resident	Agaricomycetes
-t297713	Paramarasmius palmivorus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t2862362	Favolaschia claudopus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t380012	Mycena amicta	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t658473	Mycena chlorophos	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t2018698	Mycena citricolor	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t220801	Mycena crocata	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t230806	Mycena epipterygia	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t71905	Mycena galericulata	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t41248	Mycena galopus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t230807	Mycena haematopus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t230809	Mycena maculata	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t1033252	Mycena metata	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t230801	Mycena polygramma	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t153505	Mycena pura	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t1033263	Mycena rosella	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t230812	Mycena sanguinolenta	2	2	1.0	#f2effa	plant_resident	Agaricomycetes
-t1738132	Roridomyces roridus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t68775	Crucibulum laeve	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t68777	Cyathus striatus	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t378275	Infundibulicybe gibba	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t2823264	Collybiopsis confluens	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t2773346	Collybiopsis luxurians	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t1447940	Gymnopus androsaceus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t40481	Lentinula boryana	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t5353	Lentinula edodes	8	21	0.381	#9073b8	plant_resident	Agaricomycetes
-t42442	Lentinula novae-zelandiae	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t71910	Pleurocybella porrigens	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t47425	Armillaria borealis	2	2	1.0	#f2effa	plant_resident	Agaricomycetes
-t153910	Armillaria fumosa	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t47427	Armillaria gallica	1	5	0.2	#744fa4	plant_resident	Agaricomycetes
-t153913	Armillaria luteobubalina	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t47429	Armillaria mellea	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t64368	Armillaria nabsnona	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t153914	Armillaria novae-zelandiae	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t47428	Armillaria ostoyae	1	4	0.25	#7c59aa	plant_resident	Agaricomycetes
-t1076256	Armillaria solidipes	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t394432	Cylindrobasidium torrendii	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t47430	Desarmillaria ectypa	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t1929756	Desarmillaria tabescens	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t937743	Hymenopellis radicata	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t139077	Mucidula mucida	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t104357	Hohenbuehelia grisea	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t5321	Pleurotus cornucopiae	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t34470	Pleurotus djamor	2	3	0.6667	#bdacd6	plant_resident	Agaricomycetes
-t5323	Pleurotus eryngii	1	10	0.1	#643b9a	plant_resident	Agaricomycetes
-t5322	Pleurotus ostreatus	5	11	0.4545	#9c82c0	plant_resident	Agaricomycetes
-t28995	Pleurotus pulmonarius	4	7	0.5714	#ae99cc	plant_resident	Agaricomycetes
-t181527	Pluteus cervinus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t36659	Volvariella volvacea	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t71717	Coprinellus micaceus	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t5346	Coprinopsis cinerea	2	3	0.6667	#bdacd6	plant_resident	Agaricomycetes
-t97359	Schizophyllum amplum	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t5334	Schizophyllum commune	10	53	0.1887	#724da3	plant_resident	Agaricomycetes
-t1940300	Cristinia sonorae	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t109635	Flammula alnicola	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t71945	Hypholoma sublateritium	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t40145	Tricholoma matsutake	1	6	0.1667	#6e48a1	plant_resident	Agaricomycetes
-t2831993	Plicatura crispa	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t80663	Piloderma croceum	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t5219	Exidia glandulosa	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t36056	Boletus edulis	2	7	0.2857	#8160ae	plant_resident	Agaricomycetes
-t36058	Imleria badia	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t80637	Coniophora puteana	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t85971	Gyrodon lividus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t72124	Hygrophoropsis aurantiaca	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t85980	Leucogyrophana mollusca	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t157265	Leucogyrophana pinastri	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t2655010	Melanogaster broomeanus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t71150	Paxillus involutus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t178870	Pisolithus albus	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t178871	Pisolithus marmoratus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t37468	Pisolithus tinctorius	2	2	1.0	#f2effa	plant_resident	Agaricomycetes
-t80600	Rhizopogon vinicolor	1	7	0.1429	#6b449e	plant_resident	Agaricomycetes
-t68788	Scleroderma citrinum	2	3	0.6667	#bdacd6	plant_resident	Agaricomycetes
-t85982	Serpula lacrymans	2	5	0.4	#9377ba	plant_resident	Agaricomycetes
-t48561	Suillus americanus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t48563	Suillus bovinus	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t48565	Suillus brevipes	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t48574	Suillus lakei	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t5384	Suillus luteus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t48579	Suillus placidus	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t116603	Suillus plorans	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t5383	Suillus spraguei	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t48587	Suillus subaureus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t48588	Suillus subluteus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t48589	Suillus tomentosus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t264124	Botryobasidium botryosum	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t1582974	Ceratobasidium theobromae	1	6	0.1667	#6e48a1	plant_resident	Agaricomycetes
-t456999	Rhizoctonia solani	28	51	0.549	#ab95ca	wheat_pathogen	Agaricomycetes
-t139363	Hydnum rufescens	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t156515	Tulasnella calospora	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t202698	Punctularia strigosozonata	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t68786	Sphaerobolus stellatus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t104355	Gloeophyllum trabeum	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t5364	Heliocybe sulcata	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t38799	Neolentinus lepideus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t135589	Coniferiporia weirii	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t208960	Fomitiporia mediterranea	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t167371	Phellinidium pouzarii	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t127956	Phellopilus nigrolimitatus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t2282107	Pyrrhoderma noxium	1	7	0.1429	#6b449e	plant_resident	Agaricomycetes
-t108892	Sanghuangporus baumii	2	2	1.0	#f2effa	plant_resident	Agaricomycetes
-t175686	Sanghuangporus vaninii	1	4	0.25	#7c59aa	plant_resident	Agaricomycetes
-t27342	Schizopora paradoxa	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t90312	Cerrena unicolor	1	4	0.25	#7c59aa	plant_resident	Agaricomycetes
-t2478898	Cerrena zonata	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t378194	Epithele typhae	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t599839	Fibroporia radiculosa	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t40450	Fomitopsis betulina	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t40437	Fomitopsis quercina	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t139415	Fomitopsis serialis	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t34475	Rhodofomes roseus	2	2	1.0	#f2effa	plant_resident	Agaricomycetes
-t42742	Gelatoporia subvermispora	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t1052685	Obba rivulosa	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t5627	Grifola frondosa	1	10	0.1	#643b9a	plant_resident	Agaricomycetes
-t5319	Irpex lacteus	1	5	0.2	#744fa4	plant_resident	Agaricomycetes
-t378272	Irpex rosettiformis	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t1111950	Trametopsis cervina	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t5630	Laetiporus sulphureus	1	8	0.125	#68409c	plant_resident	Agaricomycetes
-t270279	Laricifomes officinalis	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t2056292	Meripilus lineatus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t98765	Hermanssonia centrifuga	3	3	1.0	#f2effa	plant_resident	Agaricomycetes
-t194682	Phlebicolorata brevispora	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t48022	Panus rudis	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t81056	Wolfiporia cocos	1	6	0.1667	#6e48a1	plant_resident	Agaricomycetes
-t231932	Phanerochaete carnosa	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t48140	Phanerochaete sordida	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t82310	Phlebiopsis gigantea	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t137743	Abortiporus biennis	2	2	1.0	#f2effa	plant_resident	Agaricomycetes
-t2829415	Cerioporus squamosus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t1391043	Cubamyces lactineus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t2136021	Cubamyces menziesii	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t1140402	Daedaleopsis nitida	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t114155	Dichomitus squalens	4	4	1.0	#f2effa	plant_resident	Agaricomycetes
-t2478900	Earliella scabrosa	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t40442	Fomes fomentarius	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t34456	Ganoderma adspersum	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t2498619	Lentinus brumalis	1	4	0.25	#7c59aa	plant_resident	Agaricomycetes
-t5365	Lentinus tigrinus	2	2	1.0	#f2effa	plant_resident	Agaricomycetes
-t5632	Lenzites betulinus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t5639	Polyporus arcularius	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t575983	Trametes cingulata	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t5643	Trametes cinnabarina	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t158605	Trametes coccinea	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t1111947	Trametes cubensis	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t526244	Trametes elegans	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t160864	Trametes gibbosa	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t259368	Trametes maxima	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t526243	Trametes meyenii	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t239206	Trametes polyzona	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t154538	Trametes pubescens	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t158606	Trametes sanguinea	3	4	0.75	#cabddf	plant_resident	Agaricomycetes
-t5325	Trametes versicolor	2	3	0.6667	#bdacd6	plant_resident	Agaricomycetes
-t202700	Amylocystis lapponica	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t139825	Sparassis crispa	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t1202976	Sparassis latifolia	1	4	0.25	#7c59aa	plant_resident	Agaricomycetes
-t2447956	Antrodiella citrinella	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t92696	Steccherinum ochraceum	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t2696576	Taiwanofungus camphoratus	4	8	0.5	#a38bc4	plant_resident	Agaricomycetes
-t48021	Artomyces pyxidatus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t40419	Auriscalpium vulgare	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t1095465	Bondarzewia mesenterica	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t984962	Heterobasidion irregulare	1	13	0.0769	#603697	plant_resident	Agaricomycetes
-t205761	Gloeopeniophorella convolvens	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t205917	Dentipellis fragilis	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t135208	Hericium alpestre	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t91752	Hericium erinaceus	1	5	0.2	#744fa4	plant_resident	Agaricomycetes
-t416441	Lactarius akahatsu	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t55514	Lactarius deliciosus	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t416442	Lactarius hatsudake	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t222702	Lactarius indigo	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t111137	Lactarius sanguifluus	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t152947	Lactarius tabidus	1	3	0.3333	#896ab3	plant_resident	Agaricomycetes
-t98861	Russula brevipes	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t55340	Amylostereum chailletii	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t40492	Stereum hirsutum	1	2	0.5	#a38bc4	plant_resident	Agaricomycetes
-t65672	Serendipita indica	2	2	1.0	#f2effa	plant_resident	Agaricomycetes
-t109899	Serendipita vermifera	2	2	1.0	#f2effa	plant_resident	Agaricomycetes
-t2834505	Sertulicium niveocremeum	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t467971	Sistotremastrum suecicum	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t56493	Thelephora terrestris	1	1	1.0	#f2effa	plant_resident	Agaricomycetes
-t1938712	Atractiella rhizophila	1	1	1.0	#f2effa	plant_resident	Atractiellomycetes
-t203533	Classicula fluitans	1	1	1.0	#f2effa	plant_resident	Classiculomycetes
-t29899	Cystobasidium minutum	1	1	1.0	#f2effa	plant_resident	Cystobasidiomycetes
-t29889	Calocera cornea	1	1	1.0	#f2effa	plant_resident	Dacrymycetes
-t63146	Calocera viscosa	1	1	1.0	#f2effa	plant_resident	Dacrymycetes
-t58919	Tilletiopsis washingtonensis	1	1	1.0	#f2effa	plant_resident	Exobasidiomycetes
-t215250	Acaromyces ingoldii	1	1	1.0	#f2effa	plant_resident	Exobasidiomycetes
-t63378	Exobasidium rhododendri	1	1	1.0	#f2effa	plant_resident	Exobasidiomycetes
-t5281	Tilletiaria anomala	1	1	1.0	#f2effa	plant_resident	Exobasidiomycetes
-t1569628	Jaminaea rosea	1	1	1.0	#f2effa	plant_resident	Exobasidiomycetes
-t13290	Tilletia caries	5	17	0.2941	#8262ae	wheat_pathogen	Exobasidiomycetes
-t13291	Tilletia controversa	7	12	0.5833	#b09ccd	wheat_pathogen	Exobasidiomycetes
-t155126	Tilletia horrida	7	10	0.7	#c3b3da	plant_resident	Exobasidiomycetes
-t43049	Tilletia indica	3	9	0.3333	#896ab3	onwheat_resident	Exobasidiomycetes
-t157183	Tilletia laevis	4	8	0.5	#a38bc4	onwheat_resident	Exobasidiomycetes
-t1031713	Tilletia maclaganii	1	1	1.0	#f2effa	plant_resident	Exobasidiomycetes
-t117179	Tilletia walkeri	2	2	1.0	#f2effa	plant_resident	Exobasidiomycetes
-t1514897	Malassezia arunalokei	1	2	0.5	#a38bc4	plant_resident	Malasseziomycetes
-t1821822	Malassezia brasiliensis	1	1	1.0	#f2effa	plant_resident	Malasseziomycetes
-t1381934	Malassezia caprae	1	2	0.5	#a38bc4	plant_resident	Malasseziomycetes
-t948313	Malassezia cuniculi	1	2	0.5	#a38bc4	plant_resident	Malasseziomycetes
-t1381935	Malassezia equina	1	2	0.5	#a38bc4	plant_resident	Malasseziomycetes
-t55194	Malassezia furfur	6	24	0.25	#7c59aa	plant_resident	Malasseziomycetes
-t76773	Malassezia globosa	4	16	0.25	#7c59aa	plant_resident	Malasseziomycetes
-t223818	Malassezia japonica	1	3	0.3333	#896ab3	plant_resident	Malasseziomycetes
-t180528	Malassezia nana	1	3	0.3333	#896ab3	plant_resident	Malasseziomycetes
-t76774	Malassezia obtusa	1	2	0.5	#a38bc4	plant_resident	Malasseziomycetes
-t77020	Malassezia pachydermatis	2	15	0.1333	#69429d	plant_resident	Malasseziomycetes
-t1821823	Malassezia psittaci	1	1	1.0	#f2effa	plant_resident	Malasseziomycetes
-t76775	Malassezia restricta	4	11	0.3636	#8d70b6	plant_resident	Malasseziomycetes
-t3031751	Malassezia sp. CBS 17886	1	1	1.0	#f2effa	plant_resident	Malasseziomycetes
-t76777	Malassezia sympodialis	2	11	0.1818	#714ba2	plant_resident	Malasseziomycetes
-t2020962	Malassezia vespertilionis	2	2	1.0	#f2effa	plant_resident	Malasseziomycetes
-t253288	Malassezia yamatoensis	1	2	0.5	#a38bc4	plant_resident	Malasseziomycetes
-t106004	Leucosporidium creatinivorum	1	4	0.25	#7c59aa	plant_resident	Microbotryomycetes
-t269621	Microbotryum intermedium	1	2	0.5	#a38bc4	plant_resident	Microbotryomycetes
-t288795	Microbotryum lychnidis-dioicae	1	23	0.0435	#5b3094	plant_resident	Microbotryomycetes
-t289078	Microbotryum saponariae	2	4	0.5	#a38bc4	plant_resident	Microbotryomycetes
-t796604	Microbotryum silenes-dioicae	1	2	0.5	#a38bc4	plant_resident	Microbotryomycetes
-t168509	Rhodosporidiobolus odoratus	1	2	0.5	#a38bc4	plant_resident	Microbotryomycetes
-t5535	Rhodotorula glutinis	2	5	0.4	#9377ba	onwheat_resident	Microbotryomycetes
-t5537	Rhodotorula mucilaginosa	3	125	0.024	#582c92	plant_resident	Microbotryomycetes
-t100912	Sporobolomyces blumeae	1	1	1.0	#f2effa	plant_resident	Microbotryomycetes
-t5002	Sporobolomyces johnsonii	2	2	1.0	#f2effa	plant_resident	Microbotryomycetes
-t5003	Sporobolomyces pararoseus	2	6	0.3333	#896ab3	onwheat_resident	Microbotryomycetes
-t183961	Sporobolomyces phaffii	1	2	0.5	#a38bc4	plant_resident	Microbotryomycetes
-t40563	Sporobolomyces roseus	1	3	0.3333	#896ab3	onwheat_resident	Microbotryomycetes
-t5005	Sporobolomyces salmonicolor	3	3	1.0	#f2effa	plant_resident	Microbotryomycetes
-t34349	Mixia osmundae	2	3	0.6667	#bdacd6	plant_resident	Mixiomycetes
-t60197	Cronartium quercuum	2	3	0.6667	#bdacd6	plant_resident	Pucciniomycetes
-t2182807	Melampsora americana	1	1	1.0	#f2effa	plant_resident	Pucciniomycetes
-t203908	Melampsora laricis-populina	1	1	1.0	#f2effa	plant_pathogen	Pucciniomycetes
-t170000	Phakopsora pachyrhizi	3	52	0.0577	#5d3395	plant_pathogen	Pucciniomycetes
-t27344	Puccinia coronata	2	2	1.0	#f2effa	plant_resident	Pucciniomycetes
-t5297	Puccinia graminis	3	5	0.6	#b39fcf	wheat_pathogen	Pucciniomycetes
-t27349	Puccinia sorghi	1	1	1.0	#f2effa	onwheat_resident	Pucciniomycetes
-t27350	Puccinia striiformis	9	39	0.2308	#7855a8	wheat_pathogen	Pucciniomycetes
-t208348	Puccinia triticina	5	26	0.1923	#724da4	wheat_pathogen	Pucciniomycetes
-t181123	Austropuccinia psidii	1	6	0.1667	#6e48a1	plant_resident	Pucciniomycetes
-t29902	Mrakia frigida	1	3	0.3333	#896ab3	plant_resident	Tremellomycetes
-t264483	Phaffia rhodozyma	1	12	0.0833	#613898	plant_resident	Tremellomycetes
-t5210	Filobasidium floriforme	2	2	1.0	#f2effa	plant_resident	Tremellomycetes
-t92952	Naganishia adeliensis	1	2	0.5	#a38bc4	plant_resident	Tremellomycetes
-t40410	Cryptococcus deneoformans	6	9	0.6667	#bdacd6	plant_resident	Tremellomycetes
-t4999	Kockovaella imperatae	1	1	1.0	#f2effa	plant_resident	Tremellomycetes
-t71784	Naematelia encephala	1	1	1.0	#f2effa	plant_resident	Tremellomycetes
-t5418	Papiliotrema laurentii	1	4	0.25	#7c59aa	onwheat_resident	Tremellomycetes
-t5217	Tremella mesenterica	2	2	1.0	#f2effa	plant_resident	Tremellomycetes
-t143232	Vanrija pseudolonga	1	1	1.0	#f2effa	plant_resident	Tremellomycetes
-t1269715	Thecaphora frezii	1	2	0.5	#a38bc4	plant_resident	Ustilaginomycetes
-t1882483	Testicularia cyperi	1	1	1.0	#f2effa	plant_resident	Ustilaginomycetes
-t63383	Melanopsichium pennsylvanicum	1	1	1.0	#f2effa	plant_resident	Ustilaginomycetes
-t5270	Mycosarcoma maydis	1	38	0.0263	#582c92	onwheat_pathogen	Ustilaginomycetes
-t84753	Moesziomyces antarcticus	3	7	0.4286	#987dbd	plant_resident	Ustilaginomycetes
-t84754	Moesziomyces aphidis	1	2	0.5	#a38bc4	plant_resident	Ustilaginomycetes
-t84751	Pseudozyma flocculosa	2	3	0.6667	#bdacd6	plant_resident	Ustilaginomycetes
-t72558	Sporisorium reilianum	2	2	1.0	#f2effa	plant_pathogen	Ustilaginomycetes
-t49012	Sporisorium scitamineum	2	9	0.2222	#7753a7	plant_pathogen	Ustilaginomycetes
-t307758	Ustilago bromivora	2	3	0.6667	#bdacd6	plant_resident	Ustilaginomycetes
-t120017	Ustilago hordei	8	12	0.6667	#bdacd6	onwheat_pathogen	Ustilaginomycetes
-t2031085	Ustilago loliicola	1	1	1.0	#f2effa	plant_resident	Ustilaginomycetes
-t86802	Ustilago nuda	1	1	1.0	#f2effa	onwheat_resident	Ustilaginomycetes
-t86804	Ustilago trichophora	1	3	0.3333	#896ab3	plant_resident	Ustilaginomycetes
-t117174	Ustilago tritici	1	3	0.3333	#896ab3	wheat_pathogen	Ustilaginomycetes
-t1673888	Violaceomyces palustris	1	1	1.0	#f2effa	plant_resident	Ustilaginomycetes
-t64504	Allomyces arbusculus	1	1	1.0	#f2effa	plant_resident	Blastocladiomycetes
-t28583	Allomyces macrogynus	1	1	1.0	#f2effa	plant_resident	Blastocladiomycetes
-t4808	Blastocladiella emersonii	1	1	1.0	#f2effa	plant_resident	Blastocladiomycetes
-t388810	Blyttiomyces helicus	1	1	1.0	#f2effa	plant_resident	Chytridiomycetes
-t64509	Chytridium lagenaria	1	1	1.0	#f2effa	plant_resident	Chytridiomycetes
-t261098	Phlyctochytrium planicorne	1	1	1.0	#f2effa	plant_resident	Chytridiomycetes
-t2211651	Zopfochytrium polystomum	1	1	1.0	#f2effa	plant_resident	Chytridiomycetes
-t246404	Chytriomyces confervae	1	1	1.0	#f2effa	plant_resident	Chytridiomycetes
-t4814	Chytriomyces hyalinus	5	5	1.0	#f2effa	plant_resident	Chytridiomycetes
-t109936	Cladochytrium replicatum	1	1	1.0	#f2effa	plant_resident	Chytridiomycetes
-t1604274	Cladochytrium tenue	1	1	1.0	#f2effa	plant_resident	Chytridiomycetes
-t64517	Rhizophlyctis rosea	2	3	0.6667	#bdacd6	plant_resident	Chytridiomycetes
-t382532	Globomyces pollinis-pini	1	1	1.0	#f2effa	plant_resident	Chytridiomycetes
-t286115	Synchytrium endobioticum	2	3	0.6667	#bdacd6	plant_pathogen	Chytridiomycetes
-t34488	Conidiobolus coronatus	1	2	0.5	#a38bc4	plant_resident	Entomophthoromycetes
-t34485	Entomophthora muscae	1	2	0.5	#a38bc4	plant_resident	Entomophthoromycetes
-t144679	Ambispora leptoticha	1	1	1.0	#f2effa	plant_resident	Glomeromycetes
-t1433469	Cetraspora pellucida	2	2	1.0	#f2effa	onwheat_resident	Glomeromycetes
-t1316150	Dentiscutata heterogama	1	1	1.0	#f2effa	plant_resident	Glomeromycetes
-t4874	Gigaspora margarita	2	2	1.0	#f2effa	plant_resident	Glomeromycetes
-t160502	Racocetra persica	1	1	1.0	#f2effa	plant_resident	Glomeromycetes
-t85575	Scutellospora calospora	1	1	1.0	#f2effa	onwheat_resident	Glomeromycetes
-t1117310	Funneliformis caledonium	1	1	1.0	#f2effa	onwheat_resident	Glomeromycetes
-t1117311	Funneliformis geosporum	2	2	1.0	#f2effa	onwheat_resident	Glomeromycetes
-t27381	Funneliformis mosseae	1	1	1.0	#f2effa	onwheat_resident	Glomeromycetes
-t94130	Rhizophagus clarus	2	2	1.0	#f2effa	plant_resident	Glomeromycetes
-t144539	Paraglomus occultum	1	2	0.5	#a38bc4	onwheat_resident	Glomeromycetes
-t61424	Furculomyces boomerangus	1	1	1.0	#f2effa	plant_resident	Harpellomycetes
-t417176	Coemansia aciculifera	5	5	1.0	#f2effa	plant_resident	Kickxellomycetes
-t2650707	Coemansia brasiliensis	1	1	1.0	#f2effa	plant_resident	Kickxellomycetes
-t61392	Coemansia reversa	1	1	1.0	#f2effa	plant_resident	Kickxellomycetes
-t61397	Kickxella alabastrina	3	3	1.0	#f2effa	plant_resident	Kickxellomycetes
-t61395	Linderina pennispora	2	2	1.0	#f2effa	plant_resident	Kickxellomycetes
-t61414	Martensiomyces pterosporus	1	1	1.0	#f2effa	plant_resident	Kickxellomycetes
-t68401	Spiromyces aspiralis	1	1	1.0	#f2effa	plant_resident	Kickxellomycetes
-t1343610	Actinomortierella ambigua	3	3	1.0	#f2effa	plant_resident	Mortierellomycetes
-t101097	Entomortierella chlamydospora	2	2	1.0	#f2effa	plant_resident	Mortierellomycetes
-t979712	Entomortierella lignicola	1	1	1.0	#f2effa	plant_resident	Mortierellomycetes
-t205924	Entomortierella parvispora	1	2	0.5	#a38bc4	plant_resident	Mortierellomycetes
-t1897645	Haplosporangium bisporale	1	1	1.0	#f2effa	plant_resident	Mortierellomycetes
-t310910	Linnemannia elongata	9	10	0.9	#e2dbef	plant_resident	Mortierellomycetes
-t604196	Linnemannia exigua	1	1	1.0	#f2effa	onwheat_resident	Mortierellomycetes
-t64522	Linnemannia gamsii	3	3	1.0	#f2effa	plant_resident	Mortierellomycetes
-t64524	Linnemannia hyalina	1	1	1.0	#f2effa	onwheat_resident	Mortierellomycetes
-t979765	Linnemannia zychae	2	2	1.0	#f2effa	plant_resident	Mortierellomycetes
-t64518	Mortierella alpina	7	14	0.5	#a38bc4	plant_resident	Mortierellomycetes
-t41804	Mortierella polycephala	1	1	1.0	#f2effa	plant_resident	Mortierellomycetes
-t311239	Podila horticola	2	2	1.0	#f2effa	plant_resident	Mortierellomycetes
-t64523	Podila humilis	2	2	1.0	#f2effa	plant_resident	Mortierellomycetes
-t64525	Podila minutissima	2	2	1.0	#f2effa	plant_resident	Mortierellomycetes
-t78898	Podila verticillata	4	5	0.8	#d2c7e5	plant_resident	Mortierellomycetes
-t994334	Jimgerdemannia flammicorona	2	2	1.0	#f2effa	plant_resident	Endogonomycetes
-t64653	Backusella circina	1	1	1.0	#f2effa	plant_resident	Mucoromycetes
-t4850	Blakeslea trispora	1	1	1.0	#f2effa	plant_resident	Mucoromycetes
-t101091	Choanephora cucurbitarum	2	2	1.0	#f2effa	plant_resident	Mucoromycetes
-t101096	Gilbertella persicaria	1	3	0.3333	#896ab3	plant_resident	Mucoromycetes
-t213030	Absidia cylindrospora	1	1	1.0	#f2effa	plant_resident	Mucoromycetes
-t4829	Absidia glauca	1	1	1.0	#f2effa	onwheat_resident	Mucoromycetes
-t90262	Absidia repens	1	1	1.0	#f2effa	plant_resident	Mucoromycetes
-t76405	Cunninghamella echinulata	2	2	1.0	#f2effa	plant_resident	Mucoromycetes
-t101105	Gongronella butleri	1	1	1.0	#f2effa	plant_resident	Mucoromycetes
-t42458	Lichtheimia corymbifera	1	5	0.2	#744fa4	plant_resident	Mucoromycetes
-t688394	Lichtheimia ramosa	1	10	0.1	#643b9a	plant_resident	Mucoromycetes
-t4840	Rhizomucor pusillus	2	3	0.6667	#bdacd6	plant_resident	Mucoromycetes
-t91626	Mucor ambiguus	1	1	1.0	#f2effa	plant_resident	Mucoromycetes
-t36080	Mucor circinelloides	4	24	0.1667	#6e48a1	onwheat_resident	Mucoromycetes
-t439312	Mucor flavus	1	1	1.0	#f2effa	plant_resident	Mucoromycetes
-t64491	Mucor fragilis	1	1	1.0	#f2effa	plant_resident	Mucoromycetes
-t64493	Mucor hiemalis	1	1	1.0	#f2effa	onwheat_resident	Mucoromycetes
-t29924	Mucor lusitanicus	3	3	1.0	#f2effa	plant_resident	Mucoromycetes
-t29922	Mucor mucedo	1	1	1.0	#f2effa	plant_resident	Mucoromycetes
-t97098	Mucor plumbeus	1	2	0.5	#a38bc4	onwheat_resident	Mucoromycetes
-t101142	Thamnidium elegans	2	3	0.6667	#bdacd6	plant_resident	Mucoromycetes
-t4837	Phycomyces blakesleeanus	3	3	1.0	#f2effa	plant_resident	Mucoromycetes
-t269771	Phycomyces nitens	1	2	0.5	#a38bc4	plant_resident	Mucoromycetes
-t101115	Spinellus fusiger	1	1	1.0	#f2effa	plant_resident	Mucoromycetes
-t64495	Rhizopus arrhizus	39	57	0.6842	#c0b0d8	plant_resident	Mucoromycetes
-t58291	Rhizopus microsporus	12	28	0.4286	#987dbd	plant_resident	Mucoromycetes
-t4846	Rhizopus stolonifer	2	6	0.3333	#896ab3	onwheat_resident	Mucoromycetes
-t101117	Sporodiniella umbellata	1	1	1.0	#f2effa	plant_resident	Mucoromycetes
-t13706	Syncephalastrum racemosum	1	2	0.5	#a38bc4	plant_resident	Mucoromycetes
-t91625	Umbelopsis isabellina	2	4	0.5	#a38bc4	plant_resident	Umbelopsidomycetes
-t64526	Umbelopsis nana	1	1	1.0	#f2effa	plant_resident	Umbelopsidomycetes
-t41833	Umbelopsis ramanniana	2	2	1.0	#f2effa	plant_resident	Umbelopsidomycetes
-t44442	Umbelopsis vinacea	2	3	0.6667	#bdacd6	plant_resident	Umbelopsidomycetes
-t278681	Olpidium bornovanus	1	1	1.0	#f2effa	plant_resident	Olpidiomycetes
-t1907219	Piptocephalis cylindrospora	1	1	1.0	#f2effa	plant_resident	Zoopagomycetes
-t1286916	Piptocephalis tieghemiana	1	1	1.0	#f2effa	plant_resident	Zoopagomycetes
+label	species	n_genomes	n_predicted	n_total	annotation_ratio	band_colour	category	class
+t1542792	Coniocarpon cinnabarinum	2	0	2	1.0	#f2effa	plant_resident	Arthoniomycetes
+t91480	Alyxoria varia	1	0	1	1.0	#f2effa	plant_resident	Arthoniomycetes
+t1173061	Geotrichum candidum	8	0	67	0.1194	#673f9c	onwheat_resident	Dipodascomycetes
+t27317	Geotrichum galactomycetum	1	0	2	0.5	#a38bc4	plant_resident	Dipodascomycetes
+t43985	Geotrichum reessii	1	0	2	0.5	#a38bc4	plant_resident	Dipodascomycetes
+t470096	Pseudovirgaria hyperparasitica	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t1176130	Aulographum hederae	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t1504668	Rhizodiscina lignyota	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t462254	Aplosporella prunicola	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t55169	Botryosphaeria dothidea	2	0	142	0.0141	#562a91	plant_pathogen	Dothideomycetes
+t2021124	Botryosphaeria kuwatsukai	1	1	2	0.0	#54278f	plant_resident	Dothideomycetes
+t236234	Diplodia corticola	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t856260	Diplodia intermedia	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t66738	Diplodia sapinea	2	0	19	0.1053	#653c9a	plant_resident	Dothideomycetes
+t420778	Diplodia seriata	4	0	5	0.8	#d2c7e5	plant_resident	Dothideomycetes
+t869390	Lasiodiplodia hormozganensis	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t1108764	Lasiodiplodia mahajangana	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t45133	Lasiodiplodia theobromae	3	0	19	0.1579	#6d47a0	onwheat_pathogen	Dothideomycetes
+t35725	Macrophomina phaseolina	2	0	469	0.0043	#55288f	onwheat_resident	Dothideomycetes
+t1435034	Macrophomina pseudophaseolina	1	1	12	0.0	#54278f	plant_resident	Dothideomycetes
+t310453	Neofusicoccum parvum	4	0	28	0.1429	#6b449e	plant_resident	Dothideomycetes
+t45134	Neofusicoccum ribis	1	0	3	0.3333	#896ab3	plant_resident	Dothideomycetes
+t121624	Phyllosticta capitalensis	6	0	9	0.6667	#bdacd6	plant_resident	Dothideomycetes
+t595635	Phyllosticta citriasiana	2	0	6	0.3333	#896ab3	plant_resident	Dothideomycetes
+t989973	Phyllosticta citribraziliensis	2	0	2	1.0	#f2effa	plant_resident	Dothideomycetes
+t55181	Phyllosticta citricarpa	7	0	29	0.2414	#7a57a9	plant_resident	Dothideomycetes
+t2016321	Phyllosticta paracitricarpa	2	0	4	0.5	#a38bc4	plant_resident	Dothideomycetes
+t131308	Saccharata proteae	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t705562	Polychaeton citri	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t147573	Piedraia hortae	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t1338630	Cladosporium allicinum	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t29917	Cladosporium cladosporioides	1	0	11	0.0909	#623999	onwheat_resident	Dothideomycetes
+t1052093	Cladosporium fusiforme	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t1052096	Cladosporium halotolerans	1	0	3	0.3333	#896ab3	plant_resident	Dothideomycetes
+t887095	Cladosporium inversicolor	1	0	1	1.0	#f2effa	onwheat_resident	Dothideomycetes
+t29919	Cladosporium oxysporum	1	1	3	0.0	#54278f	onwheat_resident	Dothideomycetes
+t887100	Cladosporium pseudocladosporioides	1	1	3	0.0	#54278f	onwheat_resident	Dothideomycetes
+t92950	Cladosporium sphaerospermum	1	1	4	0.0	#54278f	onwheat_resident	Dothideomycetes
+t147560	Delphinella strobiligena	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t5580	Aureobasidium pullulans	60	0	94	0.6383	#b9a7d3	onwheat_resident	Dothideomycetes
+t5570	Cenococcum geophilum	2	0	2	1.0	#f2effa	plant_resident	Dothideomycetes
+t574774	Glonium stellatum	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t578093	Lineolata rhizophorae	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t703497	Microthyrium microscopicum	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t112489	Dissoconium aciculare	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t132184	Cercospora apii	1	1	2	0.0	#54278f	plant_pathogen	Dothideomycetes
+t357750	Cercospora berteroae	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t122368	Cercospora beticola	3	0	6	0.5	#a38bc4	plant_pathogen	Dothideomycetes
+t1579221	Cercospora flagellaris	1	1	2	0.0	#54278f	plant_pathogen	Dothideomycetes
+t84275	Cercospora kikuchii	1	0	3	0.3333	#896ab3	plant_pathogen	Dothideomycetes
+t29003	Cercospora nicotianae	1	1	2	0.0	#54278f	plant_pathogen	Dothideomycetes
+t135779	Cercospora zeae-maydis	1	0	2	0.5	#a38bc4	plant_pathogen	Dothideomycetes
+t348901	Cercospora zeina	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t332034	Dothistroma pini	1	1	1	0.0	#54278f	plant_resident	Dothideomycetes
+t64363	Dothistroma septosporum	1	0	19	0.0526	#5c3295	plant_pathogen	Dothideomycetes
+t5499	Fulvia fulva	5	0	31	0.1613	#6d47a0	plant_pathogen	Dothideomycetes
+t111012	Lecanosticta acicola	1	0	3	0.3333	#896ab3	plant_resident	Dothideomycetes
+t321146	Pseudocercospora eumusae	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t1873960	Pseudocercospora fijiensis	1	0	2	0.5	#a38bc4	plant_pathogen	Dothideomycetes
+t685502	Pseudocercospora fuligena	1	0	1	1.0	#f2effa	plant_pathogen	Dothideomycetes
+t113226	Pseudocercospora musae	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t112498	Ramularia collo-cygni	2	0	2	1.0	#f2effa	plant_resident	Dothideomycetes
+t215465	Septoria linicola	2	0	2	1.0	#f2effa	plant_resident	Dothideomycetes
+t39703	Septoria lycopersici	1	1	1	0.0	#54278f	plant_pathogen	Dothideomycetes
+t85929	Sphaerulina musiva	18	0	25	0.72	#c6b7dc	plant_resident	Dothideomycetes
+t1047168	Zymoseptoria brevis	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t1047171	Zymoseptoria tritici	6	0	64	0.0938	#633a99	wheat_pathogen	Dothideomycetes
+t150365	Acrodontium crateriforme	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t91943	Hortaea werneckii	71	0	80	0.8875	#e0d8ee	plant_resident	Dothideomycetes
+t418781	Teratosphaeria destructans	1	0	3	0.3333	#896ab3	plant_resident	Dothideomycetes
+t161662	Teratosphaeria nubilosa	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t302913	Elsinoe ampelina	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t40998	Elsinoe australis	2	0	11	0.1818	#714ba2	plant_resident	Dothideomycetes
+t2601811	Elsinoe batatas	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t40997	Elsinoe fawcettii	1	0	6	0.1667	#6e48a1	plant_resident	Dothideomycetes
+t2082308	Sphaceloma murrayae	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t147570	Myriangium duriaei	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t390894	Lophium mytilinum	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t703506	Patellaria atrata	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t286661	Peltaster fructicola	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t1450171	Aaosphaeria arxii	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t1589764	Acrocalymma vagum	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t455074	Amniculicola lignicola	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t1077358	Coniothyrium glycines	1	0	6	0.1667	#6e48a1	plant_resident	Dothideomycetes
+t59586	Corynespora cassiicola	1	0	58	0.0172	#572a91	plant_resident	Dothideomycetes
+t45142	Cucurbitaria berberidis	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t798079	Neocucurbitaria cava	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t706981	Clathrospora elynae	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t2249482	Ascochyta clinopodiicola	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t205686	Ascochyta lentis	3	0	15	0.2	#744fa4	plant_pathogen	Dothideomycetes
+t5454	Ascochyta rabiei	14	0	23	0.6087	#b4a1d0	plant_pathogen	Dothideomycetes
+t749465	Boeremia exigua	2	0	4	0.5	#a38bc4	onwheat_resident	Dothideomycetes
+t749552	Boeremia foveata	1	1	1	0.0	#54278f	plant_resident	Dothideomycetes
+t100019	Didymella exigua	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t749621	Didymella glomerata	1	0	3	0.3333	#896ab3	onwheat_resident	Dothideomycetes
+t1769908	Didymella heteroderae	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t749633	Didymella pinodella	1	1	8	0.0	#54278f	onwheat_resident	Dothideomycetes
+t749634	Didymella pomorum	2	0	2	1.0	#f2effa	onwheat_resident	Dothideomycetes
+t105696	Epicoccum nigrum	2	0	4	0.5	#a38bc4	onwheat_resident	Dothideomycetes
+t749593	Epicoccum sorghinum	1	1	4	0.0	#54278f	onwheat_resident	Dothideomycetes
+t301207	Macroventuria anomochaeta	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t749835	Nothophoma quercina	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t73001	Phoma herbarum	1	1	2	0.0	#54278f	onwheat_resident	Dothideomycetes
+t2698418	Sclerotiophoma versabilis	1	1	1	0.0	#54278f	plant_pathogen	Dothideomycetes
+t2606854	Stagonosporopsis vannaccii	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t147497	Bimuria novae-zelandiae	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t1932322	Didymosphaeria variabile	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t301204	Karstenula rhodostoma	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t300254	Paraconiothyrium brasiliense	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t565426	Paraphaeosphaeria minitans	7	0	8	0.875	#ded6ed	plant_resident	Dothideomycetes
+t1460663	Paraphaeosphaeria sporulosa	3	0	3	1.0	#f2effa	plant_resident	Dothideomycetes
+t1892770	Pseudopithomyces chartarum	1	0	3	0.3333	#896ab3	onwheat_resident	Dothideomycetes
+t1921599	Pseudopithomyces maydicus	1	1	1	0.0	#54278f	plant_resident	Dothideomycetes
+t548649	Dothidotthia symphoricarpi	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t690899	Lentithecium fluviatile	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t220672	Plenodomus biglobosus	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t301713	Plenodomus lindquistii	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t5022	Plenodomus lingam	2	0	35	0.0571	#5d3295	plant_pathogen	Dothideomycetes
+t1077377	Plenodomus tracheiphilus	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t278952	Sphaerellopsis filum	1	1	1	0.0	#54278f	onwheat_resident	Dothideomycetes
+t1231657	Clohesyomyces aquaticus	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t673940	Lindgomyces ingoldianus	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t147567	Lojkania enalia	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t372055	Lophiostoma macrostomum	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t690887	Lophiotrema nucula	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t147558	Byssothecium circinans	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t45293	Massarina eburnea	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t100035	Massariosphaeria phaeospora	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t100047	Melanomma pulvis-pyrius	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t1303443	Periconia digitata	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t97972	Periconia macrospinosa	1	0	1	1.0	#f2effa	onwheat_resident	Dothideomycetes
+t50730	Ampelomyces quisqualis	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t1469910	Ophiobolus disseminans	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t33175	Ophiosphaerella herpotricha	1	1	3	0.0	#54278f	onwheat_resident	Dothideomycetes
+t33176	Ophiosphaerella korrae	1	1	5	0.0	#54278f	plant_resident	Dothideomycetes
+t85572	Ophiosphaerella narmari	1	1	3	0.0	#54278f	onwheat_resident	Dothideomycetes
+t798071	Paraphoma chrysanthemicola	2	0	3	0.6667	#bdacd6	onwheat_resident	Dothideomycetes
+t1351752	Parastagonospora avenae	1	1	11	0.0	#54278f	onwheat_resident	Dothideomycetes
+t13684	Parastagonospora nodorum	155	0	179	0.8659	#ddd4ec	wheat_pathogen	Dothideomycetes
+t210430	Setomelanomma holmii	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t100044	Pleomassaria siparia	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t5599	Alternaria alternata	34	0	171	0.1988	#734fa4	wheat_pathogen	Dothideomycetes
+t156630	Alternaria arborescens	3	0	23	0.1304	#69419d	onwheat_resident	Dothideomycetes
+t232088	Alternaria arbusti	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t119953	Alternaria atra	3	0	5	0.6	#b39fcf	onwheat_resident	Dothideomycetes
+t29911	Alternaria brassicae	1	1	6	0.0	#54278f	onwheat_resident	Dothideomycetes
+t29001	Alternaria brassicicola	1	0	11	0.0909	#623999	plant_pathogen	Dothideomycetes
+t1187904	Alternaria burnsii	2	0	3	0.6667	#bdacd6	plant_resident	Dothideomycetes
+t119957	Alternaria chartarum	1	1	1	0.0	#54278f	onwheat_resident	Dothideomycetes
+t181017	Alternaria conjuncta	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t230004	Alternaria consortialis	1	1	1	0.0	#54278f	onwheat_resident	Dothideomycetes
+t48095	Alternaria dauci	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t181014	Alternaria ethzedia	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t167740	Alternaria gaisen	1	0	18	0.0556	#5d3295	plant_resident	Dothideomycetes
+t1187925	Alternaria hordeiaustralica	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t1187928	Alternaria incomplexa	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t45303	Alternaria infectoria	1	0	1	1.0	#f2effa	onwheat_resident	Dothideomycetes
+t160389	Alternaria longipes	1	1	1	0.0	#54278f	onwheat_pathogen	Dothideomycetes
+t283354	Alternaria metachromatica	1	0	2	0.5	#a38bc4	onwheat_resident	Dothideomycetes
+t430562	Alternaria novae-zelandiae	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t283353	Alternaria oregonensis	1	1	1	0.0	#54278f	onwheat_resident	Dothideomycetes
+t48097	Alternaria panax	1	0	1	1.0	#f2effa	plant_pathogen	Dothideomycetes
+t1187938	Alternaria postmessia	1	0	6	0.1667	#6e48a1	plant_resident	Dothideomycetes
+t1187941	Alternaria rosae	2	0	2	1.0	#f2effa	plant_resident	Dothideomycetes
+t48100	Alternaria solani	1	1	4	0.0	#54278f	plant_pathogen	Dothideomycetes
+t119927	Alternaria tenuissima	7	0	9	0.7778	#cfc3e2	onwheat_resident	Dothideomycetes
+t297637	Alternaria triticimaculans	1	0	2	0.5	#a38bc4	onwheat_resident	Dothideomycetes
+t216836	Alternaria triticina	1	1	2	0.0	#54278f	onwheat_resident	Dothideomycetes
+t1187951	Alternaria ventricosa	1	0	1	1.0	#f2effa	onwheat_resident	Dothideomycetes
+t566460	Alternaria viburni	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t102001	Bipolaris bicolor	1	1	1	0.0	#54278f	onwheat_resident	Dothideomycetes
+t2695822	Bipolaris gigantea	1	1	9	0.0	#54278f	onwheat_resident	Dothideomycetes
+t5016	Bipolaris maydis	9	0	11	0.8182	#d5cbe7	onwheat_pathogen	Dothideomycetes
+t101162	Bipolaris oryzae	1	0	10	0.1	#643b9a	onwheat_pathogen	Dothideomycetes
+t1918533	Bipolaris sivanesaniana	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t45130	Bipolaris sorokiniana	2	0	19	0.1053	#653c9a	wheat_pathogen	Dothideomycetes
+t40125	Bipolaris victoriae	1	1	1	0.0	#54278f	onwheat_pathogen	Dothideomycetes
+t5017	Bipolaris zeicola	1	0	4	0.25	#7c59aa	plant_pathogen	Dothideomycetes
+t2739213	Curvularia cactivora	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t95742	Curvularia clavata	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t418125	Curvularia eragrostidis	1	1	1	0.0	#54278f	onwheat_resident	Dothideomycetes
+t418126	Curvularia geniculata	1	1	2	0.0	#54278f	onwheat_resident	Dothideomycetes
+t1230527	Curvularia hawaiiensis	1	1	1	0.0	#54278f	onwheat_resident	Dothideomycetes
+t90978	Curvularia kusanoi	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t5503	Curvularia lunata	1	1	2	0.0	#54278f	onwheat_pathogen	Dothideomycetes
+t1537989	Curvularia papendorfii	1	1	1	0.0	#54278f	onwheat_resident	Dothideomycetes
+t145392	Curvularia spicifera	1	1	1	0.0	#54278f	onwheat_resident	Dothideomycetes
+t184978	Decorospora gaudefroyi	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t33199	Drechslera avenae	1	1	4	0.0	#54278f	onwheat_resident	Dothideomycetes
+t1659837	Exserohilum rostratum	1	1	6	0.0	#54278f	onwheat_resident	Dothideomycetes
+t93612	Exserohilum turcicum	3	0	5	0.6	#b39fcf	plant_pathogen	Dothideomycetes
+t5028	Pyrenophora graminea	1	1	1	0.0	#54278f	onwheat_resident	Dothideomycetes
+t91370	Pyrenophora seminiperda	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t53485	Pyrenophora teres	12	0	26	0.4615	#9d83c0	onwheat_pathogen	Dothideomycetes
+t45151	Pyrenophora tritici-repentis	24	0	65	0.3692	#8e71b7	wheat_pathogen	Dothideomycetes
+t235069	Stemphylium eturmiunum	1	1	2	0.0	#54278f	onwheat_resident	Dothideomycetes
+t183478	Stemphylium lycopersici	3	0	4	0.75	#cabddf	plant_pathogen	Dothideomycetes
+t119933	Stemphylium vesicarium	1	1	5	0.0	#54278f	onwheat_resident	Dothideomycetes
+t285811	Pseudopyrenochaeta lycopersici	1	1	2	0.0	#54278f	plant_pathogen	Dothideomycetes
+t682080	Polyplosphaeria fusca	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t256645	Dendryphion nanum	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t390896	Trematosphaeria pertusa	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t1048519	Viridothelium virens	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t1048955	Tothia fuscella	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t50376	Venturia effusa	1	0	2	0.5	#a38bc4	plant_resident	Dothideomycetes
+t5025	Venturia inaequalis	4	0	90	0.0444	#5b3094	plant_resident	Dothideomycetes
+t86259	Venturia nashicola	2	0	3	0.6667	#bdacd6	plant_resident	Dothideomycetes
+t160035	Zopfia rhizophila	1	0	1	1.0	#f2effa	plant_resident	Dothideomycetes
+t293227	Cyphellophora europaea	1	0	5	0.2	#744fa4	plant_resident	Eurotiomycetes
+t1206340	Epibryon interlamellare	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t408822	Epibryon minutissimum	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t1608269	Epibryon sylvestris	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t43229	Capronia coronata	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t43228	Capronia epimyces	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t89940	Cladophialophora bantiana	1	0	7	0.1429	#6b449e	plant_resident	Eurotiomycetes
+t86049	Cladophialophora carrionii	2	0	2	1.0	#f2effa	plant_resident	Eurotiomycetes
+t386627	Cladophialophora chaetospira	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t470704	Cladophialophora yegresii	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t5970	Exophiala dermatitidis	29	0	37	0.7838	#d0c4e3	plant_resident	Eurotiomycetes
+t91928	Exophiala spinifera	1	0	11	0.0909	#623999	plant_resident	Eurotiomycetes
+t39412	Phialophora verrucosa	1	1	6	0.0	#54278f	onwheat_resident	Eurotiomycetes
+t191047	Knufia fluminis	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t5053	Aspergillus aculeatus	1	0	3	0.3333	#896ab3	plant_resident	Eurotiomycetes
+t209559	Aspergillus alliaceus	3	0	4	0.75	#cabddf	plant_resident	Eurotiomycetes
+t5054	Aspergillus amstelodami	1	1	1	0.0	#54278f	onwheat_resident	Eurotiomycetes
+t656916	Aspergillus arachidicola	2	0	2	1.0	#f2effa	plant_resident	Eurotiomycetes
+t36643	Aspergillus avenaceus	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t105351	Aspergillus awamori	1	0	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t319629	Aspergillus brasiliensis	4	0	5	0.8	#d2c7e5	plant_resident	Eurotiomycetes
+t61420	Aspergillus caelatus	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t41068	Aspergillus campestris	1	0	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t41067	Aspergillus candidus	2	0	2	1.0	#f2effa	onwheat_resident	Eurotiomycetes
+t40993	Aspergillus carbonarius	1	0	1	1.0	#f2effa	plant_pathogen	Eurotiomycetes
+t182096	Aspergillus chevalieri	1	0	11	0.0909	#623999	plant_resident	Eurotiomycetes
+t5057	Aspergillus clavatus	1	0	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t36630	Aspergillus fischeri	2	0	5	0.4	#9377ba	plant_resident	Eurotiomycetes
+t5059	Aspergillus flavus	12	0	344	0.0349	#5a2e93	onwheat_pathogen	Eurotiomycetes
+t746128	Aspergillus fumigatus	293	0	423	0.6927	#c1b2d9	onwheat_resident	Eurotiomycetes
+t41413	Aspergillus glaucus	1	0	1	1.0	#f2effa	onwheat_resident	Eurotiomycetes
+t176169	Aspergillus granulosus	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t469274	Aspergillus insuetus	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t34381	Aspergillus japonicus	1	0	4	0.25	#7c59aa	plant_resident	Eurotiomycetes
+t1069201	Aspergillus luchuensis	5	0	14	0.3571	#8c6eb5	plant_resident	Eurotiomycetes
+t176173	Aspergillus lucknowensis	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t138277	Aspergillus melleus	2	0	2	1.0	#f2effa	plant_resident	Eurotiomycetes
+t656917	Aspergillus minisclerotigenes	1	0	3	0.3333	#896ab3	plant_resident	Eurotiomycetes
+t41759	Aspergillus multicolor	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t91484	Aspergillus navahoensis	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t162425	Aspergillus nidulans	4	0	45	0.0889	#623999	onwheat_resident	Eurotiomycetes
+t5061	Aspergillus niger	45	0	128	0.3516	#8c6db5	onwheat_pathogen	Eurotiomycetes
+t41061	Aspergillus nomiae	1	0	3	0.3333	#896ab3	plant_resident	Eurotiomycetes
+t40380	Aspergillus ochraceus	1	1	5	0.0	#54278f	onwheat_resident	Eurotiomycetes
+t5062	Aspergillus oryzae	15	0	138	0.1087	#653d9b	plant_resident	Eurotiomycetes
+t5067	Aspergillus parasiticus	3	0	50	0.06	#5d3395	plant_resident	Eurotiomycetes
+t5063	Aspergillus phoenicis	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t319630	Aspergillus piperis	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t41414	Aspergillus proliferans	1	0	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t176178	Aspergillus pseudodeflectus	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t1405805	Aspergillus pseudoglaucus	1	1	2	0.0	#54278f	onwheat_resident	Eurotiomycetes
+t1220207	Aspergillus puulaauensis	2	0	4	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t396024	Aspergillus ruber	1	0	4	0.25	#7c59aa	onwheat_resident	Eurotiomycetes
+t5065	Aspergillus sp.	1	1	1	0.0	#54278f	onwheat_resident	Eurotiomycetes
+t75750	Aspergillus sydowii	1	0	16	0.0625	#5e3496	onwheat_resident	Eurotiomycetes
+t41984	Aspergillus tamarii	1	0	9	0.1111	#663d9b	onwheat_resident	Eurotiomycetes
+t33178	Aspergillus terreus	5	0	28	0.1786	#704ba2	plant_resident	Eurotiomycetes
+t36642	Aspergillus terricola	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t1883080	Aspergillus tetrazonus	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t5068	Aspergillus tubingensis	9	0	26	0.3462	#8b6cb4	plant_resident	Eurotiomycetes
+t40381	Aspergillus unguis	1	0	9	0.1111	#663d9b	plant_resident	Eurotiomycetes
+t40382	Aspergillus ustus	1	0	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t446911	Aspergillus uvarum	1	0	4	0.25	#7c59aa	plant_resident	Eurotiomycetes
+t46472	Aspergillus versicolor	1	0	6	0.1667	#6e48a1	onwheat_resident	Eurotiomycetes
+t1341132	Aspergillus welwitschiae	1	0	8	0.125	#68409c	plant_resident	Eurotiomycetes
+t5066	Aspergillus wentii	3	0	3	1.0	#f2effa	plant_resident	Eurotiomycetes
+t5098	Monascus purpureus	4	0	15	0.2667	#7e5cac	plant_resident	Eurotiomycetes
+t1132637	Penicillium atrosanguineum	5	0	5	1.0	#f2effa	onwheat_resident	Eurotiomycetes
+t36655	Penicillium aurantiogriseum	1	1	1	0.0	#54278f	onwheat_resident	Eurotiomycetes
+t5074	Penicillium brevicompactum	4	0	11	0.3636	#8d70b6	plant_resident	Eurotiomycetes
+t5075	Penicillium camemberti	2	0	15	0.1333	#69429d	plant_resident	Eurotiomycetes
+t5083	Penicillium canescens	7	0	7	1.0	#f2effa	onwheat_resident	Eurotiomycetes
+t69766	Penicillium capsulatum	2	0	4	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t63820	Penicillium chermesinum	2	0	2	1.0	#f2effa	plant_resident	Eurotiomycetes
+t5076	Penicillium chrysogenum	6	0	97	0.0619	#5e3396	onwheat_resident	Eurotiomycetes
+t5077	Penicillium citrinum	2	0	32	0.0625	#5e3496	plant_resident	Eurotiomycetes
+t36653	Penicillium commune	1	1	65	0.0	#54278f	onwheat_resident	Eurotiomycetes
+t70792	Penicillium corylophilum	1	0	3	0.3333	#896ab3	plant_resident	Eurotiomycetes
+t36656	Penicillium crustosum	4	0	7	0.5714	#ae99cc	plant_resident	Eurotiomycetes
+t63821	Penicillium daleae	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t69771	Penicillium decumbens	1	0	4	0.25	#7c59aa	onwheat_resident	Eurotiomycetes
+t36651	Penicillium digitatum	4	0	7	0.5714	#ae99cc	plant_pathogen	Eurotiomycetes
+t254876	Penicillium dipodomyicola	1	1	3	0.0	#54278f	onwheat_resident	Eurotiomycetes
+t74830	Penicillium discolor	11	0	11	1.0	#f2effa	plant_resident	Eurotiomycetes
+t27334	Penicillium expansum	5	0	14	0.3571	#8c6eb5	onwheat_pathogen	Eurotiomycetes
+t254877	Penicillium flavigenum	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t48697	Penicillium freii	2	0	4	0.5	#a38bc4	onwheat_resident	Eurotiomycetes
+t3151616	Penicillium frequentans	2	0	2	1.0	#f2effa	plant_resident	Eurotiomycetes
+t5078	Penicillium griseofulvum	4	0	7	0.5714	#ae99cc	onwheat_resident	Eurotiomycetes
+t69774	Penicillium herquei	2	0	4	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t40994	Penicillium hordei	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t40296	Penicillium italicum	1	0	4	0.25	#7c59aa	onwheat_pathogen	Eurotiomycetes
+t94218	Penicillium lagena	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t70099	Penicillium lividum	1	0	1	1.0	#f2effa	onwheat_resident	Eurotiomycetes
+t1343394	Penicillium maclennaniae	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t60175	Penicillium nalgiovense	30	0	31	0.9677	#ede9f7	onwheat_resident	Eurotiomycetes
+t69780	Penicillium ochrochloron	1	0	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t99116	Penicillium olsonii	5	0	6	0.8333	#d8cee8	plant_resident	Eurotiomycetes
+t69781	Penicillium oxalicum	3	0	16	0.1875	#724ca3	plant_resident	Eurotiomycetes
+t293373	Penicillium palitans	1	0	14	0.0714	#5f3597	onwheat_resident	Eurotiomycetes
+t60169	Penicillium polonicum	1	0	13	0.0769	#603697	plant_resident	Eurotiomycetes
+t69785	Penicillium rolfsii	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t5082	Penicillium roqueforti	36	0	50	0.72	#c6b7dc	plant_resident	Eurotiomycetes
+t69488	Penicillium simplicissimum	1	1	3	0.0	#54278f	onwheat_resident	Eurotiomycetes
+t60172	Penicillium solitum	2	0	14	0.1429	#6b449e	onwheat_resident	Eurotiomycetes
+t69789	Penicillium soppii	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t5081	Penicillium sp.	1	1	2	0.0	#54278f	onwheat_resident	Eurotiomycetes
+t303698	Penicillium steckii	1	0	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t168475	Penicillium taxi	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t60171	Penicillium verrucosum	1	0	4	0.25	#7c59aa	plant_resident	Eurotiomycetes
+t60134	Penicillium viridicatum	3	0	3	1.0	#f2effa	onwheat_resident	Eurotiomycetes
+t29845	Penicillium vulpinum	2	0	3	0.6667	#bdacd6	onwheat_resident	Eurotiomycetes
+t69791	Penicillium waksmanii	1	0	1	1.0	#f2effa	onwheat_resident	Eurotiomycetes
+t519963	Elaphomyces granulatus	2	0	2	1.0	#f2effa	plant_resident	Eurotiomycetes
+t3004212	Paecilomyces lecythidis	2	0	8	0.25	#7c59aa	plant_resident	Eurotiomycetes
+t264951	Paecilomyces variotii	26	0	34	0.7647	#cdc0e1	onwheat_resident	Eurotiomycetes
+t5087	Thermoascus aurantiacus	1	0	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t5088	Thermoascus crustaceus	1	0	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t68825	Rasamsonia emersonii	2	0	2	1.0	#f2effa	plant_resident	Eurotiomycetes
+t1196081	Talaromyces amestolkiae	1	0	5	0.2	#744fa4	plant_resident	Eurotiomycetes
+t28572	Talaromyces funiculosus	1	1	10	0.0	#54278f	onwheat_resident	Eurotiomycetes
+t28573	Talaromyces islandicus	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t37727	Talaromyces marneffei	4	0	12	0.3333	#896ab3	plant_resident	Eurotiomycetes
+t128442	Talaromyces pinophilus	3	0	12	0.25	#7c59aa	plant_resident	Eurotiomycetes
+t121627	Talaromyces rugulosus	1	0	1	1.0	#f2effa	onwheat_resident	Eurotiomycetes
+t28564	Talaromyces stipitatus	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t28576	Talaromyces variabilis	1	1	1	0.0	#54278f	onwheat_resident	Eurotiomycetes
+t198730	Talaromyces verruculosus	1	0	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t28565	Thermomyces dupontii	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t5541	Thermomyces lanuginosus	1	0	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t73230	[Emmonsia] crescens	2	0	3	0.6667	#bdacd6	plant_resident	Eurotiomycetes
+t34391	Epidermophyton floccosum	2	0	4	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t63405	Microsporum canis	9	0	53	0.1698	#6f49a1	plant_resident	Eurotiomycetes
+t63402	Nannizzia gypsea	2	0	2	1.0	#f2effa	plant_resident	Eurotiomycetes
+t34388	Trichophyton violaceum	2	0	7	0.2857	#8160ae	plant_resident	Eurotiomycetes
+t51565	Ascosphaera acerosa	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t5105	Ascosphaera apis	1	0	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t51567	Ascosphaera atra	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t51576	Ascosphaera pollenicola	1	0	1	1.0	#f2effa	plant_resident	Eurotiomycetes
+t5041	Malbranchea cinnamomea	2	0	2	1.0	#f2effa	plant_resident	Eurotiomycetes
+t158046	Phaeomoniella chlamydospora	1	0	2	0.5	#a38bc4	plant_resident	Eurotiomycetes
+t265104	Trichoglossum hirsutum	2	0	3	0.6667	#bdacd6	plant_resident	Geoglossomycetes
+t1397036	Lambiella insularis	1	0	1	1.0	#f2effa	plant_resident	Lecanoromycetes
+t1453798	Xylographa parallela	1	0	1	1.0	#f2effa	plant_resident	Lecanoromycetes
+t116794	Heterodermia speciosa	1	0	3	0.3333	#896ab3	plant_resident	Lecanoromycetes
+t116821	Physcia stellaris	1	0	2	0.5	#a38bc4	plant_resident	Lecanoromycetes
+t1217787	Lecanora helva	1	0	1	1.0	#f2effa	plant_resident	Lecanoromycetes
+t312200	Mycoblastus sanguinarius	1	0	2	0.5	#a38bc4	plant_resident	Lecanoromycetes
+t111620	Usnea florida	1	0	1	1.0	#f2effa	plant_resident	Lecanoromycetes
+t169141	Pseudocyphellaria aurata	1	0	1	1.0	#f2effa	plant_resident	Lecanoromycetes
+t443868	Agyrium rufum	1	0	1	1.0	#f2effa	plant_resident	Lecanoromycetes
+t1453789	Toensbergia leucococca	1	0	2	0.5	#a38bc4	plant_resident	Lecanoromycetes
+t671929	Seirophora villosa	2	0	2	1.0	#f2effa	plant_resident	Lecanoromycetes
+t1445009	Teloschistes chrysophthalmus	2	0	2	1.0	#f2effa	plant_resident	Lecanoromycetes
+t271840	Teloschistes exilis	3	0	3	1.0	#f2effa	plant_resident	Lecanoromycetes
+t442469	Teloschistes flavicans	2	0	2	1.0	#f2effa	plant_resident	Lecanoromycetes
+t1300024	Teloschistes hypoglaucus	1	0	1	1.0	#f2effa	plant_resident	Lecanoromycetes
+t107463	Xanthoria parietina	1	0	3	0.3333	#896ab3	plant_resident	Lecanoromycetes
+t5101	Amorphotheca resinae	1	0	3	0.3333	#896ab3	plant_resident	Leotiomycetes
+t45428	Amylocarpus encephaloides	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t296797	Chlorociboria aeruginascens	1	0	2	0.5	#a38bc4	plant_resident	Leotiomycetes
+t565419	Coleophoma crateriformis	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t1849047	Coleophoma cylindrospora	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t108571	Phlyctema vagabunda	1	0	2	0.5	#a38bc4	plant_resident	Leotiomycetes
+t946123	Diplocarpon mali	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t946125	Diplocarpon rosae	2	0	5	0.4	#9377ba	plant_resident	Leotiomycetes
+t698440	Drepanopeziza brunnea	3	0	5	0.6	#b39fcf	plant_resident	Leotiomycetes
+t34373	Blumeria graminis	3	0	9	0.3333	#896ab3	wheat_pathogen	Leotiomycetes
+t2867405	Blumeria hordei	2	0	7	0.2857	#8160ae	plant_resident	Leotiomycetes
+t52586	Erysiphe necator	2	0	7	0.2857	#8160ae	plant_resident	Leotiomycetes
+t212602	Erysiphe neolycopersici	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t225359	Erysiphe pulchra	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t62708	Golovinomyces cichoracearum	3	0	4	0.75	#cabddf	plant_resident	Leotiomycetes
+t62714	Golovinomyces magnicellulatus	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t79252	Podosphaera aphanis	2	0	3	0.6667	#bdacd6	plant_resident	Leotiomycetes
+t79249	Podosphaera leucotricha	3	0	4	0.75	#cabddf	plant_resident	Leotiomycetes
+t112123	Stipitochalara longipes	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t354080	Cudoniella acicularis	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t595503	Hymenoscyphus albidus	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t746836	Hymenoscyphus fraxineus	1	0	3	0.3333	#896ab3	plant_resident	Leotiomycetes
+t2482752	Hyaloscypha bicolor	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t2482753	Hyaloscypha finlandica	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t2082293	Hyaloscypha hepaticicola	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t2482757	Hyaloscypha variabilis	2	0	2	1.0	#f2effa	plant_resident	Leotiomycetes
+t353542	Hyphodiscus hymeniophilus	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t1316785	Lachnellula arida	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t1316786	Lachnellula cervina	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t215460	Lachnellula occidentalis	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t602034	Lachnellula subtilissima	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t602035	Lachnellula suecica	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t215461	Lachnellula willkommii	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t886606	Acephala macrosclerotiorum	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t149040	Mollisia scopiformis	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t576137	Phialocephala subalpina	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t51156	Cadophora gregata	2	0	2	1.0	#f2effa	plant_resident	Leotiomycetes
+t108018	Cadophora malorum	1	0	2	0.5	#a38bc4	plant_resident	Leotiomycetes
+t86028	Oculimacula yallundae	1	0	1	1.0	#f2effa	wheat_pathogen	Leotiomycetes
+t76659	Pyrenopeziza brassicae	1	1	1	0.0	#54278f	plant_pathogen	Leotiomycetes
+t914238	Rhynchosporium agropyri	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t2792576	Rhynchosporium graminicola	2	0	2	1.0	#f2effa	plant_resident	Leotiomycetes
+t38038	Rhynchosporium secalis	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t2036908	Clarireedia jacksonii	2	0	9	0.2222	#7753a7	plant_resident	Leotiomycetes
+t38488	Botryotinia calthae	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t54673	Botryotinia convoluta	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t278942	Botryotinia globosa	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t278944	Botryotinia narcissicola	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t139639	Botrytis aclada	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t139641	Botrytis byssoidea	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t40559	Botrytis cinerea	14	0	65	0.2154	#7652a6	onwheat_pathogen	Leotiomycetes
+t2478750	Botrytis deweyae	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t278938	Botrytis elliptica	2	0	3	0.6667	#bdacd6	plant_pathogen	Leotiomycetes
+t1964551	Botrytis fragariae	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t278940	Botrytis galanthina	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t278943	Botrytis hyacinthi	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t278948	Botrytis paeoniae	1	0	2	0.5	#a38bc4	plant_resident	Leotiomycetes
+t87229	Botrytis porri	2	0	2	1.0	#f2effa	plant_resident	Leotiomycetes
+t1463999	Botrytis sinoallii	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t87230	Botrytis tulipae	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t984309	Ciboria shiraiana	1	1	1	0.0	#54278f	plant_pathogen	Leotiomycetes
+t647257	Ciborinia camelliae	1	0	2	0.5	#a38bc4	plant_resident	Leotiomycetes
+t38448	Monilinia fructicola	2	0	6	0.3333	#896ab3	plant_pathogen	Leotiomycetes
+t38457	Monilinia fructigena	1	0	5	0.2	#744fa4	plant_resident	Leotiomycetes
+t61186	Monilinia laxa	1	0	3	0.3333	#896ab3	plant_resident	Leotiomycetes
+t61207	Monilinia vaccinii-corymbosi	1	0	2	0.5	#a38bc4	plant_resident	Leotiomycetes
+t2714548	Myriosclerotinia sulcatula	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t77105	Sclerotinia borealis	1	0	1	1.0	#f2effa	onwheat_resident	Leotiomycetes
+t352851	Sclerotinia nivalis	1	0	4	0.25	#7c59aa	plant_resident	Leotiomycetes
+t5180	Sclerotinia sclerotiorum	2	0	37	0.0541	#5d3295	onwheat_pathogen	Leotiomycetes
+t28548	Sclerotinia trifoliorum	1	0	1	1.0	#f2effa	onwheat_resident	Leotiomycetes
+t38492	Stromatinia cepivora	1	0	2	0.5	#a38bc4	plant_resident	Leotiomycetes
+t394676	Halenospora varia	1	0	1	1.0	#f2effa	plant_resident	Leotiomycetes
+t78148	Oidiodendron maius	1	0	1	1.0	#f2effa	onwheat_resident	Leotiomycetes
+t5539	Scytalidium lignicola	1	0	1	1.0	#f2effa	onwheat_resident	Leotiomycetes
+t655981	Pseudogymnoascus destructans	2	0	6	0.3333	#896ab3	plant_resident	Leotiomycetes
+t79858	Pseudogymnoascus pannorum	1	1	2	0.0	#54278f	onwheat_resident	Leotiomycetes
+t74498	Arthrobotrys conoides	1	0	3	0.3333	#896ab3	plant_resident	Orbiliomycetes
+t321852	Arthrobotrys entomopaga	1	0	1	1.0	#f2effa	plant_resident	Orbiliomycetes
+t97331	Arthrobotrys flagrans	1	0	4	0.25	#7c59aa	plant_resident	Orbiliomycetes
+t47236	Arthrobotrys musiformis	1	0	4	0.25	#7c59aa	plant_resident	Orbiliomycetes
+t1814901	Dactylella cylindrospora	1	0	1	1.0	#f2effa	plant_resident	Orbiliomycetes
+t47266	Dactylellina cionopaga	1	0	4	0.25	#7c59aa	plant_resident	Orbiliomycetes
+t74499	Drechslerella dactyloides	1	0	3	0.3333	#896ab3	plant_resident	Orbiliomycetes
+t1796055	Orbilia blumenaviensis	1	0	2	0.5	#a38bc4	plant_resident	Orbiliomycetes
+t3140254	Orbilia brochopaga	2	0	3	0.6667	#bdacd6	plant_resident	Orbiliomycetes
+t2528407	Orbilia ellipsospora	1	0	1	1.0	#f2effa	plant_resident	Orbiliomycetes
+t61495	Peziza echinospora	2	0	2	1.0	#f2effa	plant_resident	Pezizomycetes
+t337075	Pyronema omphalodes	3	0	3	1.0	#f2effa	plant_resident	Pezizomycetes
+t43439	Wilcoxina mikolae	1	0	1	1.0	#f2effa	plant_resident	Pezizomycetes
+t44645	Rhizina undulata	1	0	1	1.0	#f2effa	plant_resident	Pezizomycetes
+t49969	Geopyxis carbonaria	2	0	2	1.0	#f2effa	plant_resident	Pezizomycetes
+t44640	Choiromyces venosus	1	0	1	1.0	#f2effa	plant_resident	Pezizomycetes
+t59557	Tuber aestivum	1	0	1	1.0	#f2effa	plant_resident	Pezizomycetes
+t60458	Tuber brumale	1	0	1	1.0	#f2effa	plant_resident	Pezizomycetes
+t39416	Tuber melanosporum	1	0	1	1.0	#f2effa	plant_resident	Pezizomycetes
+t43982	Ambrosiozyma monospora	2	0	4	0.5	#a38bc4	plant_resident	Pichiomycetes
+t317047	Kuraishia capsulata	1	0	2	0.5	#a38bc4	plant_resident	Pichiomycetes
+t870730	Ogataea angusta	10	0	11	0.9091	#e4ddf0	plant_resident	Pichiomycetes
+t53655	Pichia fermentans	1	1	9	0.0	#54278f	onwheat_resident	Pichiomycetes
+t52247	Pichia inconspicua	1	0	5	0.2	#744fa4	plant_resident	Pichiomycetes
+t4909	Pichia kudriavzevii	7	0	62	0.1129	#663e9b	plant_resident	Pichiomycetes
+t4926	Pichia membranifaciens	2	0	10	0.2	#744fa4	plant_resident	Pichiomycetes
+t5476	Candida albicans	29	0	148	0.1959	#734ea4	plant_resident	Pichiomycetes
+t5482	Candida tropicalis	6	0	118	0.0508	#5c3194	plant_resident	Pichiomycetes
+t717740	Hyphopichia burtonii	1	0	7	0.1429	#6b449e	onwheat_resident	Pichiomycetes
+t4920	Millerozyma farinosa	1	0	5	0.2	#744fa4	onwheat_resident	Pichiomycetes
+t2315449	Yamadazyma tenuis	2	0	3	0.6667	#bdacd6	plant_resident	Pichiomycetes
+t27326	Metschnikowia pulcherrima	7	0	21	0.3333	#896ab3	plant_resident	Pichiomycetes
+t45354	Sungouiella intermedia	2	0	5	0.4	#9377ba	plant_resident	Pichiomycetes
+t54195	Ascoidea rubescens	1	0	2	0.5	#a38bc4	plant_resident	Saccharomycetes
+t4927	Hansenula anomala	2	0	47	0.0426	#5b3094	onwheat_resident	Saccharomycetes
+t4903	Williopsis jadinii	2	0	12	0.1667	#6e48a1	plant_resident	Saccharomycetes
+t45285	Eremothecium cymbalariae	1	0	1	1.0	#f2effa	plant_resident	Saccharomycetes
+t33169	Eremothecium gossypii	2	0	2	1.0	#f2effa	plant_resident	Saccharomycetes
+t28985	Kluyveromyces lactis	2	0	24	0.0833	#613898	plant_resident	Saccharomycetes
+t4911	Kluyveromyces marxianus	8	0	57	0.1404	#6a439e	plant_resident	Saccharomycetes
+t4932	Saccharomyces cerevisiae	435	0	1771	0.2456	#7b58a9	plant_resident	Saccharomycetes
+t1853550	[Candida] sp.	1	1	15	0.0	#54278f	onwheat_resident	Saccharomycetes
+t53685	Hanseniaspora valbyensis	2	0	3	0.6667	#bdacd6	plant_resident	Saccharomycetes
+t36035	Saccharomycodes ludwigii	2	0	6	0.3333	#896ab3	plant_resident	Saccharomycetes
+t273283	Sarea resinae	1	0	1	1.0	#f2effa	plant_resident	Sareomycetes
+t335852	Apiospora arundinis	5	0	5	1.0	#f2effa	plant_resident	Sordariomycetes
+t1337664	Apiospora hydei	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t2421359	Apiospora hysterina	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1337665	Apiospora kogelbergensis	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t335849	Apiospora marii	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t990691	Apiospora rasikravindrae	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t335842	Apiospora saccharicola	2	0	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
+t112178	Arthrinium phaeospermum	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t335854	Nigrospora oryzae	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t114231	Nigrospora sphaerica	1	1	4	0.0	#54278f	onwheat_resident	Sordariomycetes
+t1141098	Pseudomassariella vexata	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t289240	Neopestalotiopsis clavispora	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t393283	Pestalotiopsis fici	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t138064	Seiridium cardinale	3	0	5	0.6	#b39fcf	plant_resident	Sordariomycetes
+t138065	Seiridium cupressi	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t138068	Seiridium unicorne	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t152316	Truncatella angustata	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t41990	Pleurostoma richardsiae	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1093897	Phialemonium atrogriseum	1	0	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
+t91930	Coniochaeta hoffmannii	2	0	4	0.5	#a38bc4	plant_resident	Sordariomycetes
+t177197	Coniochaeta ligniaria	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t177199	Coniochaeta pulveracea	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t5116	Cryphonectria parasitica	1	0	98	0.0102	#562990	plant_pathogen	Sordariomycetes
+t40262	Cryphonectria radicalis	1	1	7	0.0	#54278f	plant_resident	Sordariomycetes
+t252740	Cytospora chrysosperma	1	0	2	0.5	#a38bc4	onwheat_pathogen	Sordariomycetes
+t1230097	Cytospora leucostoma	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t578113	Cytospora mali	2	0	4	0.5	#a38bc4	plant_resident	Sordariomycetes
+t448051	Cytospora schulzeri	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1214573	Diaporthe ampelina	1	0	3	0.3333	#896ab3	plant_resident	Sordariomycetes
+t1214568	Diaporthe amygdali	2	0	5	0.4	#9377ba	plant_resident	Sordariomycetes
+t127596	Diaporthe australafricana	1	0	3	0.3333	#896ab3	plant_resident	Sordariomycetes
+t748121	Diaporthe batatas	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t83186	Diaporthe citri	1	0	4	0.25	#7c59aa	plant_resident	Sordariomycetes
+t83184	Diaporthe eres	3	0	6	0.5	#a38bc4	plant_resident	Sordariomycetes
+t158607	Diaporthe helianthi	1	0	4	0.25	#7c59aa	plant_resident	Sordariomycetes
+t2419934	Diaporthe ilicicola	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t105482	Diaporthe vaccinii	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t529478	Anisogramma anomala	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t148313	Discula destructiva	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1191159	Gnomoniopsis smithogilvyi	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1671311	Colletotrichum abscissum	3	0	3	1.0	#f2effa	plant_resident	Sordariomycetes
+t27357	Colletotrichum acutatum	3	0	32	0.0938	#633a99	plant_pathogen	Sordariomycetes
+t1215731	Colletotrichum aenigma	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t702518	Colletotrichum asianum	2	0	4	0.5	#a38bc4	plant_pathogen	Sordariomycetes
+t538528	Colletotrichum camelliae	1	0	3	0.3333	#896ab3	plant_pathogen	Sordariomycetes
+t5460	Colletotrichum caudatum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t343994	Colletotrichum cereale	1	0	9	0.1111	#663d9b	onwheat_resident	Sordariomycetes
+t708187	Colletotrichum chlorophyti	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1836956	Colletotrichum chrysophilum	4	0	4	1.0	#f2effa	plant_resident	Sordariomycetes
+t27358	Colletotrichum coccodes	1	1	3	0.0	#54278f	plant_pathogen	Sordariomycetes
+t1209916	Colletotrichum costaricense	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1209917	Colletotrichum cuscutae	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t34406	Colletotrichum destructivum	1	0	2	0.5	#a38bc4	onwheat_resident	Sordariomycetes
+t1173702	Colletotrichum eremochloae	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t129314	Colletotrichum falcatum	1	0	3	0.3333	#896ab3	onwheat_resident	Sordariomycetes
+t710243	Colletotrichum fioriniae	5	0	28	0.1786	#704ba2	plant_resident	Sordariomycetes
+t690256	Colletotrichum fructicola	7	0	26	0.2692	#7f5dac	plant_pathogen	Sordariomycetes
+t474922	Colletotrichum gloeosporioides	3	0	21	0.1429	#6b449e	onwheat_pathogen	Sordariomycetes
+t1209918	Colletotrichum godetiae	1	0	8	0.125	#68409c	plant_resident	Sordariomycetes
+t31870	Colletotrichum graminicola	2	0	23	0.087	#623898	onwheat_pathogen	Sordariomycetes
+t80884	Colletotrichum higginsianum	4	0	4	1.0	#f2effa	plant_pathogen	Sordariomycetes
+t1573173	Colletotrichum incanum	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t2283408	Colletotrichum jinshuiense	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t34407	Colletotrichum kahawae	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1095194	Colletotrichum karsti	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1585795	Colletotrichum lentis	1	1	1	0.0	#54278f	plant_pathogen	Sordariomycetes
+t1209924	Colletotrichum limetticola	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t290576	Colletotrichum lindemuthianum	1	1	6	0.0	#54278f	plant_pathogen	Sordariomycetes
+t708192	Colletotrichum liriopes	1	0	5	0.2	#744fa4	plant_resident	Sordariomycetes
+t145971	Colletotrichum lupini	2	0	32	0.0625	#5e3496	plant_resident	Sordariomycetes
+t1209925	Colletotrichum melonis	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t2175873	Colletotrichum musicola	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t681940	Colletotrichum navitas	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1300063	Colletotrichum nigrum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1215361	Colletotrichum nupharicola	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t306554	Colletotrichum nymphaeae	1	0	31	0.0323	#592d92	plant_resident	Sordariomycetes
+t5465	Colletotrichum orbiculare	1	0	1	1.0	#f2effa	plant_pathogen	Sordariomycetes
+t1209926	Colletotrichum orchidophilum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1914294	Colletotrichum paranaense	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t359342	Colletotrichum phormii	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t2175906	Colletotrichum plurivorum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1209931	Colletotrichum salicis	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1209932	Colletotrichum scovillei	4	0	8	0.5	#a38bc4	plant_pathogen	Sordariomycetes
+t690259	Colletotrichum siamense	5	0	27	0.1852	#714ca3	plant_pathogen	Sordariomycetes
+t1347389	Colletotrichum sidae	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t703756	Colletotrichum simmondsii	1	0	4	0.25	#7c59aa	plant_resident	Sordariomycetes
+t2175907	Colletotrichum sojae	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1500509	Colletotrichum somersetense	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t700344	Colletotrichum spaethianum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1347390	Colletotrichum spinosum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1173701	Colletotrichum sublineola	2	0	4	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1209068	Colletotrichum tabaci	1	0	1	1.0	#f2effa	plant_pathogen	Sordariomycetes
+t1209934	Colletotrichum tamarilloi	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1306861	Colletotrichum tanaceti	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t708197	Colletotrichum tofieldiae	4	0	8	0.5	#a38bc4	plant_resident	Sordariomycetes
+t5466	Colletotrichum trifolii	1	0	1	1.0	#f2effa	plant_pathogen	Sordariomycetes
+t912113	Colletotrichum tropicale	2	0	4	0.5	#a38bc4	plant_resident	Sordariomycetes
+t5467	Colletotrichum truncatum	1	0	5	0.2	#744fa4	plant_resident	Sordariomycetes
+t1131913	Colletotrichum viniferum	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1216348	Colletotrichum zoysiae	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t2710536	Furcasterigmium furcatum	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t40658	Plectosphaerella cucumerina	1	0	4	0.25	#7c59aa	onwheat_resident	Sordariomycetes
+t936078	Plectosphaerella plurivora	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t27335	Verticillium albo-atrum	2	0	6	0.3333	#896ab3	plant_resident	Sordariomycetes
+t1051613	Verticillium alfalfae	1	0	3	0.3333	#896ab3	plant_resident	Sordariomycetes
+t27337	Verticillium dahliae	12	0	62	0.1935	#734ea4	plant_pathogen	Sordariomycetes
+t100787	Verticillium longisporum	5	0	21	0.2381	#7a57a8	plant_pathogen	Sordariomycetes
+t1051616	Verticillium nonalfalfae	16	0	23	0.6957	#c2b2d9	plant_pathogen	Sordariomycetes
+t12942	Aphanocladium album	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t160290	Clonostachys byssicola	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t160324	Clonostachys rhizophaga	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t29856	Clonostachys rosea	2	0	78	0.0256	#582c92	onwheat_pathogen	Sordariomycetes
+t160281	Clonostachys solani	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1094350	Geosmithia morbida	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t5044	Hapsidospora chrysogena	1	0	4	0.25	#7c59aa	onwheat_resident	Sordariomycetes
+t83212	Claviceps africana	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1649128	Claviceps capensis	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t62069	Claviceps citrina	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t247652	Claviceps cyperi	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t254901	Claviceps digitariae	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1806559	Claviceps lovelessii	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t89174	Claviceps maximensis	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1649129	Claviceps monticola	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1649127	Claviceps pazoutovae	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t5111	Claviceps purpurea	24	0	58	0.4138	#957abb	wheat_pathogen	Sordariomycetes
+t123648	Claviceps pusilla	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t96774	Claviceps sorghi	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1294630	Claviceps spartinae	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1105319	Conoideocrella luteorostrata	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t79588	Epichloe bromicola	2	0	11	0.1818	#714ba2	plant_resident	Sordariomycetes
+t35717	Epichloe festucae	1	0	18	0.0556	#5d3295	plant_resident	Sordariomycetes
+t64636	Marquandomyces marquandii	1	1	2	0.0	#54278f	onwheat_resident	Sordariomycetes
+t5530	Metarhizium anisopliae	5	0	13	0.3846	#9174b8	plant_resident	Sordariomycetes
+t500148	Metarhizium brunneum	3	0	5	0.6	#b39fcf	plant_resident	Sordariomycetes
+t169041	Metarhizium guizhouense	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1650735	Metarhizium majus	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1649241	Metarhizium rileyi	2	0	7	0.2857	#8160ae	plant_resident	Sordariomycetes
+t324773	Moelleriella libera	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t280754	Pochonia chlamydosporia	2	0	6	0.3333	#896ab3	plant_resident	Sordariomycetes
+t906972	Ustilaginoidea albicans	1	1	1	0.0	#54278f	plant_resident	Sordariomycetes
+t1159556	Ustilaginoidea virens	2	0	7	0.2857	#8160ae	plant_pathogen	Sordariomycetes
+t1531966	[Torrubiella] hemipterigena	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t2714763	Akanthomyces lecanii	2	0	14	0.1429	#6b449e	onwheat_resident	Sordariomycetes
+t2231603	Akanthomyces muscarius	1	0	4	0.25	#7c59aa	plant_resident	Sordariomycetes
+t176275	Beauveria bassiana	11	0	228	0.0482	#5c3194	plant_pathogen	Sordariomycetes
+t118266	Beauveria brongniartii	1	0	18	0.0556	#5d3295	plant_resident	Sordariomycetes
+t89141	Cordyceps farinosa	1	1	8	0.0	#54278f	onwheat_resident	Sordariomycetes
+t43265	Cordyceps javanica	3	0	39	0.0769	#603697	plant_resident	Sordariomycetes
+t73501	Cordyceps militaris	2	0	8	0.25	#7c59aa	plant_resident	Sordariomycetes
+t468837	Corniculantispora saksenae	1	0	3	0.3333	#896ab3	plant_resident	Sordariomycetes
+t93593	Simplicillium lamellicola	1	0	8	0.125	#68409c	plant_resident	Sordariomycetes
+t93591	Zarea fungicola	1	0	3	0.3333	#896ab3	plant_resident	Sordariomycetes
+t491253	Cladobotryum mycophilum	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t101201	Trichoderma asperellum	4	0	25	0.16	#6d47a0	plant_resident	Sordariomycetes
+t63577	Trichoderma atroviride	8	0	21	0.381	#9073b8	plant_resident	Sordariomycetes
+t58853	Trichoderma citrinoviride	1	0	8	0.125	#68409c	plant_resident	Sordariomycetes
+t549676	Trichoderma evansii	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t65468	Trichoderma ghanense	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1491466	Trichoderma guizhouense	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t49224	Trichoderma hamatum	1	1	7	0.0	#54278f	onwheat_resident	Sordariomycetes
+t5544	Trichoderma harzianum	6	0	30	0.2	#744fa4	plant_resident	Sordariomycetes
+t97093	Trichoderma koningii	1	1	2	0.0	#54278f	onwheat_resident	Sordariomycetes
+t5548	Trichoderma longibrachiatum	2	0	13	0.1538	#6c469f	onwheat_resident	Sordariomycetes
+t173947	Trichoderma novae-zelandiae	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t504485	Trichoderma pleuroticola	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t40695	Trichoderma polysporum	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t51453	Trichoderma reesei	8	0	32	0.25	#7c59aa	plant_resident	Sordariomycetes
+t1491008	Trichoderma semiorbis	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t202918	Trichoderma velutinum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t29875	Trichoderma virens	3	0	11	0.2727	#7f5eac	onwheat_pathogen	Sordariomycetes
+t5547	Trichoderma viride	5	0	8	0.625	#b7a4d2	onwheat_resident	Sordariomycetes
+t595255	Cylindrodendrum hubeiense	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1079267	Dactylonectria estremocensis	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t307937	Dactylonectria macrodidyma	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t282272	Fusarium acaciae-mearnsii	1	1	4	0.0	#54278f	onwheat_resident	Sordariomycetes
+t5515	Fusarium acuminatum	1	0	3	0.3333	#896ab3	onwheat_resident	Sordariomycetes
+t78861	Fusarium acutatum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t569394	Fusarium aethiopicum	1	1	3	0.0	#54278f	onwheat_resident	Sordariomycetes
+t1803897	Fusarium agapanthi	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t2050978	Fusarium algeriense	1	1	2	0.0	#54278f	onwheat_resident	Sordariomycetes
+t131363	Fusarium ambrosium	5	0	5	1.0	#f2effa	plant_resident	Sordariomycetes
+t183586	Fusarium anguioides	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t48484	Fusarium annulatum	1	0	9	0.1111	#663d9b	plant_resident	Sordariomycetes
+t48485	Fusarium anthophilum	1	0	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
+t679435	Fusarium armeniacum	1	1	2	0.0	#54278f	onwheat_resident	Sordariomycetes
+t282267	Fusarium asiaticum	1	1	259	0.0	#54278f	wheat_pathogen	Sordariomycetes
+t2364996	Fusarium austroafricanum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t282268	Fusarium austroamericanum	1	0	5	0.2	#744fa4	plant_resident	Sordariomycetes
+t40199	Fusarium avenaceum	4	0	16	0.25	#7c59aa	wheat_pathogen	Sordariomycetes
+t44412	Fusarium beomiforme	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t282271	Fusarium boothii	1	1	8	0.0	#54278f	onwheat_resident	Sordariomycetes
+t679434	Fusarium brachygibbosum	1	1	2	0.0	#54278f	onwheat_resident	Sordariomycetes
+t79018	Fusarium bulbicola	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t57143	Fusarium camptoceras	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t56641	Fusarium cerealis	1	1	4	0.0	#54278f	onwheat_resident	Sordariomycetes
+t86545	Fusarium chlamydosporum	1	0	2	0.5	#a38bc4	onwheat_resident	Sordariomycetes
+t48490	Fusarium circinatum	1	0	19	0.0526	#5c3295	plant_pathogen	Sordariomycetes
+t2495903	Fusarium citri	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t231269	Fusarium coffeatum	1	0	3	0.3333	#896ab3	plant_resident	Sordariomycetes
+t1567539	Fusarium coicis	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t249398	Fusarium commune	1	0	12	0.0833	#613898	plant_resident	Sordariomycetes
+t867872	Fusarium compactum	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t48491	Fusarium concentricum	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t48492	Fusarium concolor	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t281068	Fusarium cortaderiae	1	1	6	0.0	#54278f	onwheat_resident	Sordariomycetes
+t5516	Fusarium culmorum	9	0	14	0.6429	#baa8d4	wheat_pathogen	Sordariomycetes
+t57161	Fusarium decemcellulare	2	0	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
+t48507	Fusarium denticulatum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t57145	Fusarium dimerum	1	1	2	0.0	#54278f	onwheat_resident	Sordariomycetes
+t61235	Fusarium equiseti	2	0	26	0.0769	#603697	onwheat_resident	Sordariomycetes
+t1147111	Fusarium euwallaceae	5	0	7	0.7143	#c5b6db	plant_resident	Sordariomycetes
+t195108	Fusarium falciforme	6	0	21	0.2857	#8160ae	plant_resident	Sordariomycetes
+t2675880	Fusarium flagelliforme	2	0	3	0.6667	#bdacd6	onwheat_resident	Sordariomycetes
+t56642	Fusarium flocciferum	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t1325733	Fusarium floridanum	5	0	5	1.0	#f2effa	plant_resident	Sordariomycetes
+t5127	Fusarium fujikuroi	18	0	31	0.5806	#b09bcd	onwheat_pathogen	Sordariomycetes
+t569362	Fusarium gerlachii	1	1	2	0.0	#54278f	onwheat_resident	Sordariomycetes
+t78864	Fusarium globosum	1	0	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
+t5518	Fusarium graminearum	33	0	153	0.2157	#7652a6	wheat_pathogen	Sordariomycetes
+t86546	Fusarium graminum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t42747	Fusarium heterosporum	1	0	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
+t152502	Fusarium hostae	1	1	6	0.0	#54278f	onwheat_resident	Sordariomycetes
+t298378	Fusarium incarnatum	1	1	3	0.0	#54278f	onwheat_resident	Sordariomycetes
+t42671	Fusarium inflexum	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t1328300	Fusarium keratoplasticum	2	0	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
+t2010991	Fusarium kuroshium	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t56665	Fusarium kyushuense	1	1	2	0.0	#54278f	onwheat_resident	Sordariomycetes
+t179993	Fusarium langsethiae	3	0	4	0.75	#cabddf	onwheat_resident	Sordariomycetes
+t5523	Fusarium lateritium	15	0	16	0.9375	#e8e2f3	onwheat_resident	Sordariomycetes
+t694270	Fusarium longipes	1	0	4	0.25	#7c59aa	plant_resident	Sordariomycetes
+t1571108	Fusarium louisianense	1	1	2	0.0	#54278f	onwheat_resident	Sordariomycetes
+t192010	Fusarium mangiferae	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t282269	Fusarium meridionale	1	1	5	0.0	#54278f	onwheat_resident	Sordariomycetes
+t751941	Fusarium mexicanum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1042133	Fusarium musae	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t2494468	Fusarium nanum	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t42672	Fusarium napiforme	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t77846	Fusarium nelsonii	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t1053271	Fusarium nematophilum	2	0	4	0.5	#a38bc4	plant_resident	Sordariomycetes
+t78863	Fusarium nisikadoi	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t2592597	Fusarium nodosum	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t42673	Fusarium nygamai	1	0	6	0.1667	#6e48a1	onwheat_resident	Sordariomycetes
+t1325738	Fusarium obliquiseptatum	2	0	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
+t2502994	Fusarium odoratissimum	3	0	8	0.375	#8f72b7	plant_pathogen	Sordariomycetes
+t2604345	Fusarium oligoseptatum	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t5507	Fusarium oxysporum	69	0	894	0.0772	#603697	wheat_pathogen	Sordariomycetes
+t47803	Fusarium phyllophilum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1435070	Fusarium piperis	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t36050	Fusarium poae	3	0	88	0.0341	#592e93	onwheat_resident	Sordariomycetes
+t948311	Fusarium proliferatum	8	0	45	0.1778	#704ba2	onwheat_pathogen	Sordariomycetes
+t986114	Fusarium pseudensiforme	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t48495	Fusarium pseudoanthophilum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t56676	Fusarium pseudocircinatum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t101028	Fusarium pseudograminearum	4	0	6	0.6667	#bdacd6	wheat_pathogen	Sordariomycetes
+t48865	Fusarium redolens	1	0	5	0.2	#744fa4	onwheat_resident	Sordariomycetes
+t2698985	Fusarium rekanum	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t42676	Fusarium sacchari	1	1	6	0.0	#54278f	onwheat_pathogen	Sordariomycetes
+t5128	Fusarium sambucinum	2	0	5	0.4	#9377ba	onwheat_pathogen	Sordariomycetes
+t1208366	Fusarium sarcochroum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t2211609	Fusarium scirpi	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t169388	Fusarium solani	19	0	52	0.3654	#8e70b6	onwheat_pathogen	Sordariomycetes
+t2747967	Fusarium solani-melongenae	1	0	3	0.3333	#896ab3	onwheat_resident	Sordariomycetes
+t5514	Fusarium sporotrichioides	1	0	5	0.2	#744fa4	wheat_pathogen	Sordariomycetes
+t42677	Fusarium subglutinans	1	0	5	0.2	#744fa4	onwheat_resident	Sordariomycetes
+t2594821	Fusarium tanahbumbuense	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t1567544	Fusarium tjaetaba	1	0	3	0.3333	#896ab3	plant_resident	Sordariomycetes
+t1237075	Fusarium torreyae	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t33205	Fusarium torulosum	1	0	3	0.3333	#896ab3	onwheat_resident	Sordariomycetes
+t61284	Fusarium tricinctum	1	0	7	0.1429	#6b449e	onwheat_resident	Sordariomycetes
+t1325736	Fusarium tuaranense	2	0	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
+t2747968	Fusarium vanettenii	1	0	4	0.25	#7c59aa	plant_resident	Sordariomycetes
+t56646	Fusarium venenatum	3	0	4	0.75	#cabddf	onwheat_resident	Sordariomycetes
+t117187	Fusarium verticillioides	6	0	71	0.0845	#613898	wheat_pathogen	Sordariomycetes
+t232082	Fusarium virguliforme	1	1	9	0.0	#54278f	plant_pathogen	Sordariomycetes
+t569361	Fusarium vorosii	1	1	4	0.0	#54278f	onwheat_resident	Sordariomycetes
+t221167	Fusarium xylarioides	6	0	9	0.6667	#bdacd6	plant_resident	Sordariomycetes
+t1053134	Fusarium zealandicum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t64609	Ilyonectria destructans	1	0	3	0.3333	#896ab3	onwheat_resident	Sordariomycetes
+t1079257	Ilyonectria robusta	2	0	6	0.3333	#896ab3	plant_resident	Sordariomycetes
+t1634535	Neonectria candida	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t78410	Neonectria ditissima	1	0	6	0.1667	#6e48a1	plant_resident	Sordariomycetes
+t2732573	Neonectria magnoliae	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t979145	Neonectria punicea	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1576542	Thelonectria olida	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t72228	Ophiocordyceps sinensis	2	0	6	0.3333	#896ab3	plant_resident	Sordariomycetes
+t268505	Ophiocordyceps unilateralis	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t33203	Purpureocillium lilacinum	7	0	16	0.4375	#997ebe	onwheat_resident	Sordariomycetes
+t45235	Tolypocladium capitatum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t71617	Tolypocladium ophioglossoides	1	0	3	0.3333	#896ab3	plant_resident	Sordariomycetes
+t1610689	Sarocladium implicatum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t5046	Sarocladium strictum	2	0	3	0.6667	#bdacd6	onwheat_resident	Sordariomycetes
+t1859967	Paramyrothecium foliicola	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1859971	Paramyrothecium roridum	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t74722	Stachybotrys chartarum	3	0	4	0.75	#cabddf	plant_resident	Sordariomycetes
+t80388	Stachybotrys elegans	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t47278	Trichothecium roseum	1	0	5	0.2	#744fa4	onwheat_resident	Sordariomycetes
+t339359	Zalerion maritima	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t36778	Gaeumannomyces avenae	2	0	2	1.0	#f2effa	onwheat_resident	Sordariomycetes
+t1940676	Gaeumannomyces hyphopodioides	2	0	2	1.0	#f2effa	onwheat_resident	Sordariomycetes
+t36779	Gaeumannomyces tritici	6	0	7	0.8571	#dbd2eb	onwheat_resident	Sordariomycetes
+t36781	Magnaporthiopsis incrustans	1	1	1	0.0	#54278f	plant_resident	Sordariomycetes
+t148304	Magnaporthiopsis poae	1	0	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
+t165777	Magnaporthiopsis rhizophila	1	1	1	0.0	#54278f	onwheat_resident	Sordariomycetes
+t148305	Pyricularia grisea	3	0	15	0.2	#744fa4	onwheat_resident	Sordariomycetes
+t318829	Pyricularia oryzae	62	0	614	0.101	#643b9a	wheat_pathogen	Sordariomycetes
+t1578925	Pyricularia pennisetigena	1	0	3	0.3333	#896ab3	plant_resident	Sordariomycetes
+t124036	Berkeleyomyces basicola	1	1	2	0.0	#54278f	onwheat_resident	Sordariomycetes
+t2035830	Berkeleyomyces rouxiae	2	0	5	0.4	#9377ba	plant_resident	Sordariomycetes
+t5158	Ceratocystis fimbriata	1	0	8	0.125	#68409c	plant_pathogen	Sordariomycetes
+t312341	Ceratocystis harringtonii	1	1	1	0.0	#54278f	plant_pathogen	Sordariomycetes
+t2019549	Ceratocystis huliohia	1	0	5	0.2	#744fa4	plant_resident	Sordariomycetes
+t2019550	Ceratocystis lukuohia	1	0	9	0.1111	#663d9b	plant_resident	Sordariomycetes
+t929235	Ceratocystis manginecans	1	1	8	0.0	#54278f	plant_pathogen	Sordariomycetes
+t259994	Ceratocystis pirilliformis	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t88771	Ceratocystis platani	1	0	4	0.25	#7c59aa	plant_resident	Sordariomycetes
+t72032	Thielaviopsis punctulata	1	0	3	0.3333	#896ab3	plant_resident	Sordariomycetes
+t2041049	Cephalotrichum gorgonifer	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t41688	Lomentospora prolificans	4	0	7	0.5714	#ae99cc	plant_resident	Sordariomycetes
+t2075419	Microascus stellatus	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1442378	Parascedosporium putredinis	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t5597	Scedosporium boydii	3	0	4	0.75	#cabddf	plant_resident	Sordariomycetes
+t226899	Leptographium clavigerum	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t61273	Ophiostoma piceae	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1260050	Sporothrix curviconia	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1892477	Sporothrix epigloea	3	0	3	1.0	#f2effa	plant_resident	Sordariomycetes
+t1812306	Sporothrix eucalyptigena	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t29908	Sporothrix schenckii	2	0	7	0.2857	#8160ae	plant_resident	Sordariomycetes
+t5173	Sporothrix stenoceras	2	0	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
+t1805982	Sporothrix thermara	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1825666	Phyllachora maydis	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1276059	Polystigma amygdalinum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t669021	Chaetomidium leptoderma	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1854472	Chaetomium fimeti	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t38033	Chaetomium globosum	2	0	13	0.1538	#6c469f	onwheat_resident	Sordariomycetes
+t1170767	Chaetomium strumarium	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1036253	Chaetomium subaffine	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t190048	Corynascus sepedonium	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1934379	Dichotomopilus funicola	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t85995	Mycothermus thermophilus	2	0	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
+t2587402	Parathielavia appendiculata	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t113614	Parathielavia hyrcaniae	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t209285	Thermochaetoides thermophila	1	0	3	0.3333	#896ab3	plant_resident	Sordariomycetes
+t2588717	Thermothelomyces myriococcoides	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t78579	Thermothelomyces thermophilus	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t2587410	Thermothielavioides terrestris	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t252184	Bombardia bombarda	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t314043	Immersiella caudata	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t260671	Lasiosphaeria hispida	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t92902	Lasiosphaeria ovina	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t260670	Lasiosphaeris hirsuta	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t573856	Pseudorhypophila marina	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t261697	Rhypophila decipiens	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t585594	Cladorrhinum samala	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t314037	Podospora appendiculata	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t252190	Podospora fimiseda	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t2587418	Triangularia verruculosa	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t5141	Neurospora crassa	3	0	9	0.3333	#896ab3	plant_resident	Sordariomycetes
+t40127	Neurospora tetrasperma	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t94610	Neurospora tetraspora	1	0	36	0.0278	#582d92	plant_resident	Sordariomycetes
+t5147	Sordaria macrospora	3	0	3	1.0	#f2effa	plant_resident	Sordariomycetes
+t223192	Phaeoacremonium minimum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t117547	Diatrype stigma	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t97096	Eutypa lata	2	0	41	0.0488	#5c3194	plant_resident	Sordariomycetes
+t326616	Annulohypoxylon bovei	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t326622	Annulohypoxylon moriforme	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t326626	Annulohypoxylon nitens	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t326628	Annulohypoxylon stygium	1	0	7	0.1429	#6b449e	plant_resident	Sordariomycetes
+t327061	Annulohypoxylon truncatum	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t326643	Daldinia bambusicola	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t326644	Daldinia caldariorum	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t326645	Daldinia childiae	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t326647	Daldinia decipiens	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t292717	Daldinia eschscholtzii	2	0	5	0.4	#9377ba	plant_resident	Sordariomycetes
+t103428	Daldinia grandis	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t103429	Daldinia loculata	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t114800	Daldinia vernicosa	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t2487000	Hypomontagnella monticulosa	1	0	3	0.3333	#896ab3	plant_resident	Sordariomycetes
+t152308	Hypomontagnella submonticulosa	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t1799007	Hypoxylon argillaceum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t326656	Hypoxylon cercidicola	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t326657	Hypoxylon crocopeplum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t63214	Hypoxylon fragiforme	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t109372	Hypoxylon fuscum	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t110542	Hypoxylon rubiginosum	2	0	5	0.4	#9377ba	plant_resident	Sordariomycetes
+t326681	Hypoxylon trugodes	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t1955266	Jackrogersella minutella	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t196109	Microdochium bolleyi	1	0	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
+t647655	Microdochium majus	1	0	1	1.0	#f2effa	onwheat_resident	Sordariomycetes
+t5520	Microdochium nivale	2	0	3	0.6667	#bdacd6	wheat_pathogen	Sordariomycetes
+t155416	Monosporascus cannonballus	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t155417	Monosporascus ibericus	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t933095	Anthostomella pinea	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t743114	Astrocystis sublimbata	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t110534	Biscogniauxia marginata	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t97377	Biscogniauxia mediterranea	2	0	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
+t110548	Camillea tinctor	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t419775	Durotheca rogersii	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t110536	Nemania bipapillata	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t389665	Nemania diffusa	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t109381	Nemania serpens	3	0	3	1.0	#f2effa	plant_resident	Sordariomycetes
+t101475	Poronia punctata	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t77044	Rosellinia necatrix	1	0	7	0.1429	#6b449e	plant_pathogen	Sordariomycetes
+t110526	Ustulina deusta	2	0	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
+t110547	Whalleya microplaca	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t114808	Xylaria acuta	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t114810	Xylaria arbuscula	3	0	3	1.0	#f2effa	plant_resident	Sordariomycetes
+t326684	Xylaria bambusicola	2	0	2	1.0	#f2effa	plant_resident	Sordariomycetes
+t114812	Xylaria castorea	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t114814	Xylaria cubensis	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t42375	Xylaria curta	2	0	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
+t323540	Xylaria digitata	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t363999	Xylaria grammica	2	0	4	0.5	#a38bc4	plant_resident	Sordariomycetes
+t37992	Xylaria hypoxylon	1	0	3	0.3333	#896ab3	plant_resident	Sordariomycetes
+t114818	Xylaria longipes	2	0	3	0.6667	#bdacd6	plant_resident	Sordariomycetes
+t323545	Xylaria multiplex	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t490159	Xylaria nigripes	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t665665	Xylaria palmicola	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t77046	Xylaria polymorpha	1	0	2	0.5	#a38bc4	plant_resident	Sordariomycetes
+t743287	Xylaria scruposa	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t477509	Xylaria telfairii	1	0	1	1.0	#f2effa	plant_resident	Sordariomycetes
+t2754530	Protomyces lactucae-debilis	1	0	2	0.5	#a38bc4	plant_resident	Taphrinomycetes
+t5011	Taphrina deformans	1	0	4	0.25	#7c59aa	plant_resident	Taphrinomycetes
+t1130053	Cirrosporium novae-zelandiae	1	0	1	1.0	#f2effa	plant_resident	Xylobotryomycetes
+t56174	Leucocoprinus birnbaumii	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t79220	Leucocoprinus gongylophorus	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t41956	Amanita muscaria	2	0	5	0.4	#9377ba	plant_resident	Agaricomycetes
+t67723	Amanita phalloides	1	0	4	0.25	#7c59aa	plant_resident	Agaricomycetes
+t71933	Amanita rubescens	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t2682957	Stygiomarasmius scandens	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t182062	Tetrapyrgos nigripes	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t64659	Collybia nuda	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t179855	Crepidotus variabilis	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t40457	Fistulina hepatica	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t109633	Galerina marginata	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t109634	Gymnopilus junonius	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t1973307	Cyclocybe aegerita	2	0	2	1.0	#f2effa	plant_resident	Agaricomycetes
+t90686	Lycoperdon perlatum	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t39966	Hypsizygus marmoreus	1	0	6	0.1667	#6e48a1	plant_resident	Agaricomycetes
+t3706012	Marasmius cohortalis	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t585013	Marasmius crinis-equi	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t181124	Marasmius oreades	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t585030	Marasmius tenuissimus	3	0	7	0.4286	#987dbd	plant_resident	Agaricomycetes
+t153609	Moniliophthora perniciosa	1	0	1	1.0	#f2effa	plant_pathogen	Agaricomycetes
+t221103	Moniliophthora roreri	2	0	2	1.0	#f2effa	plant_resident	Agaricomycetes
+t297713	Paramarasmius palmivorus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t2862362	Favolaschia claudopus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t380012	Mycena amicta	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t658473	Mycena chlorophos	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t2018698	Mycena citricolor	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t220801	Mycena crocata	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t230806	Mycena epipterygia	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t71905	Mycena galericulata	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t41248	Mycena galopus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t230807	Mycena haematopus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t230809	Mycena maculata	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t1033252	Mycena metata	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t230801	Mycena polygramma	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t153505	Mycena pura	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t1033263	Mycena rosella	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t230812	Mycena sanguinolenta	2	0	2	1.0	#f2effa	plant_resident	Agaricomycetes
+t1738132	Roridomyces roridus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t68775	Crucibulum laeve	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t68777	Cyathus striatus	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t378275	Infundibulicybe gibba	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t2823264	Collybiopsis confluens	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t2773346	Collybiopsis luxurians	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t1447940	Gymnopus androsaceus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t40481	Lentinula boryana	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t5353	Lentinula edodes	8	0	21	0.381	#9073b8	plant_resident	Agaricomycetes
+t42442	Lentinula novae-zelandiae	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t71910	Pleurocybella porrigens	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t47425	Armillaria borealis	2	0	2	1.0	#f2effa	plant_resident	Agaricomycetes
+t153910	Armillaria fumosa	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t47427	Armillaria gallica	1	0	5	0.2	#744fa4	plant_resident	Agaricomycetes
+t153913	Armillaria luteobubalina	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t47429	Armillaria mellea	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t64368	Armillaria nabsnona	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t153914	Armillaria novae-zelandiae	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t47428	Armillaria ostoyae	1	0	4	0.25	#7c59aa	plant_resident	Agaricomycetes
+t1076256	Armillaria solidipes	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t394432	Cylindrobasidium torrendii	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t47430	Desarmillaria ectypa	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t1929756	Desarmillaria tabescens	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t937743	Hymenopellis radicata	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t139077	Mucidula mucida	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t104357	Hohenbuehelia grisea	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t5321	Pleurotus cornucopiae	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t34470	Pleurotus djamor	2	0	3	0.6667	#bdacd6	plant_resident	Agaricomycetes
+t5323	Pleurotus eryngii	1	0	10	0.1	#643b9a	plant_resident	Agaricomycetes
+t5322	Pleurotus ostreatus	5	0	11	0.4545	#9c82c0	plant_resident	Agaricomycetes
+t28995	Pleurotus pulmonarius	4	0	7	0.5714	#ae99cc	plant_resident	Agaricomycetes
+t181527	Pluteus cervinus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t36659	Volvariella volvacea	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t71717	Coprinellus micaceus	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t5346	Coprinopsis cinerea	2	0	3	0.6667	#bdacd6	plant_resident	Agaricomycetes
+t97359	Schizophyllum amplum	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t5334	Schizophyllum commune	10	0	53	0.1887	#724da3	plant_resident	Agaricomycetes
+t1940300	Cristinia sonorae	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t109635	Flammula alnicola	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t71945	Hypholoma sublateritium	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t40145	Tricholoma matsutake	1	0	6	0.1667	#6e48a1	plant_resident	Agaricomycetes
+t39291	Agroathelia rolfsii	1	1	6	0.0	#54278f	onwheat_resident	Agaricomycetes
+t2831993	Plicatura crispa	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t80663	Piloderma croceum	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t5219	Exidia glandulosa	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t36056	Boletus edulis	2	0	7	0.2857	#8160ae	plant_resident	Agaricomycetes
+t36058	Imleria badia	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t80637	Coniophora puteana	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t85971	Gyrodon lividus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t72124	Hygrophoropsis aurantiaca	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t85980	Leucogyrophana mollusca	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t157265	Leucogyrophana pinastri	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t2655010	Melanogaster broomeanus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t71150	Paxillus involutus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t178870	Pisolithus albus	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t178871	Pisolithus marmoratus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t37468	Pisolithus tinctorius	2	0	2	1.0	#f2effa	plant_resident	Agaricomycetes
+t80600	Rhizopogon vinicolor	1	0	7	0.1429	#6b449e	plant_resident	Agaricomycetes
+t68788	Scleroderma citrinum	2	0	3	0.6667	#bdacd6	plant_resident	Agaricomycetes
+t85982	Serpula lacrymans	2	0	5	0.4	#9377ba	plant_resident	Agaricomycetes
+t48561	Suillus americanus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t48563	Suillus bovinus	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t48565	Suillus brevipes	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t48574	Suillus lakei	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t5384	Suillus luteus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t48579	Suillus placidus	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t116603	Suillus plorans	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t5383	Suillus spraguei	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t48587	Suillus subaureus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t48588	Suillus subluteus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t48589	Suillus tomentosus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t264124	Botryobasidium botryosum	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t76351	Ceratobasidium cereale	1	1	2	0.0	#54278f	onwheat_resident	Agaricomycetes
+t1582974	Ceratobasidium theobromae	1	0	6	0.1667	#6e48a1	plant_resident	Agaricomycetes
+t456999	Rhizoctonia solani	28	0	51	0.549	#ab95ca	wheat_pathogen	Agaricomycetes
+t139363	Hydnum rufescens	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t156515	Tulasnella calospora	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t49569	Waitea zeae	1	1	5	0.0	#54278f	onwheat_resident	Agaricomycetes
+t202698	Punctularia strigosozonata	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t68786	Sphaerobolus stellatus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t104355	Gloeophyllum trabeum	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t5364	Heliocybe sulcata	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t38799	Neolentinus lepideus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t135589	Coniferiporia weirii	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t208960	Fomitiporia mediterranea	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t167371	Phellinidium pouzarii	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t127956	Phellopilus nigrolimitatus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t2282107	Pyrrhoderma noxium	1	0	7	0.1429	#6b449e	plant_resident	Agaricomycetes
+t108892	Sanghuangporus baumii	2	0	2	1.0	#f2effa	plant_resident	Agaricomycetes
+t175686	Sanghuangporus vaninii	1	0	4	0.25	#7c59aa	plant_resident	Agaricomycetes
+t27342	Schizopora paradoxa	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t90312	Cerrena unicolor	1	0	4	0.25	#7c59aa	plant_resident	Agaricomycetes
+t2478898	Cerrena zonata	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t378194	Epithele typhae	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t599839	Fibroporia radiculosa	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t40450	Fomitopsis betulina	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t40437	Fomitopsis quercina	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t139415	Fomitopsis serialis	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t34475	Rhodofomes roseus	2	0	2	1.0	#f2effa	plant_resident	Agaricomycetes
+t42742	Gelatoporia subvermispora	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t1052685	Obba rivulosa	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t5627	Grifola frondosa	1	0	10	0.1	#643b9a	plant_resident	Agaricomycetes
+t5319	Irpex lacteus	1	0	5	0.2	#744fa4	plant_resident	Agaricomycetes
+t378272	Irpex rosettiformis	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t1111950	Trametopsis cervina	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t5630	Laetiporus sulphureus	1	0	8	0.125	#68409c	plant_resident	Agaricomycetes
+t270279	Laricifomes officinalis	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t2056292	Meripilus lineatus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t98765	Hermanssonia centrifuga	3	0	3	1.0	#f2effa	plant_resident	Agaricomycetes
+t194682	Phlebicolorata brevispora	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t48022	Panus rudis	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t81056	Wolfiporia cocos	1	0	6	0.1667	#6e48a1	plant_resident	Agaricomycetes
+t231932	Phanerochaete carnosa	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t48140	Phanerochaete sordida	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t82310	Phlebiopsis gigantea	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t137743	Abortiporus biennis	2	0	2	1.0	#f2effa	plant_resident	Agaricomycetes
+t2829415	Cerioporus squamosus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t1391043	Cubamyces lactineus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t2136021	Cubamyces menziesii	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t1140402	Daedaleopsis nitida	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t114155	Dichomitus squalens	4	0	4	1.0	#f2effa	plant_resident	Agaricomycetes
+t2478900	Earliella scabrosa	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t40442	Fomes fomentarius	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t34456	Ganoderma adspersum	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t2498619	Lentinus brumalis	1	0	4	0.25	#7c59aa	plant_resident	Agaricomycetes
+t5365	Lentinus tigrinus	2	0	2	1.0	#f2effa	plant_resident	Agaricomycetes
+t5632	Lenzites betulinus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t5639	Polyporus arcularius	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t575983	Trametes cingulata	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t5643	Trametes cinnabarina	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t158605	Trametes coccinea	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t1111947	Trametes cubensis	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t526244	Trametes elegans	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t160864	Trametes gibbosa	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t259368	Trametes maxima	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t526243	Trametes meyenii	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t239206	Trametes polyzona	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t154538	Trametes pubescens	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t158606	Trametes sanguinea	3	0	4	0.75	#cabddf	plant_resident	Agaricomycetes
+t5325	Trametes versicolor	2	0	3	0.6667	#bdacd6	plant_resident	Agaricomycetes
+t202700	Amylocystis lapponica	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t139825	Sparassis crispa	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t1202976	Sparassis latifolia	1	0	4	0.25	#7c59aa	plant_resident	Agaricomycetes
+t2447956	Antrodiella citrinella	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t92696	Steccherinum ochraceum	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t2696576	Taiwanofungus camphoratus	4	0	8	0.5	#a38bc4	plant_resident	Agaricomycetes
+t48021	Artomyces pyxidatus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t40419	Auriscalpium vulgare	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t1095465	Bondarzewia mesenterica	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t13563	Heterobasidion annosum	1	1	4	0.0	#54278f	plant_pathogen	Agaricomycetes
+t984962	Heterobasidion irregulare	1	0	13	0.0769	#603697	plant_resident	Agaricomycetes
+t205761	Gloeopeniophorella convolvens	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t205917	Dentipellis fragilis	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t135208	Hericium alpestre	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t91752	Hericium erinaceus	1	0	5	0.2	#744fa4	plant_resident	Agaricomycetes
+t416441	Lactarius akahatsu	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t55514	Lactarius deliciosus	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t416442	Lactarius hatsudake	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t222702	Lactarius indigo	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t111137	Lactarius sanguifluus	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t152947	Lactarius tabidus	1	0	3	0.3333	#896ab3	plant_resident	Agaricomycetes
+t98861	Russula brevipes	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t55340	Amylostereum chailletii	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t40492	Stereum hirsutum	1	0	2	0.5	#a38bc4	plant_resident	Agaricomycetes
+t65672	Serendipita indica	2	0	2	1.0	#f2effa	plant_resident	Agaricomycetes
+t109899	Serendipita vermifera	2	0	2	1.0	#f2effa	plant_resident	Agaricomycetes
+t2834505	Sertulicium niveocremeum	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t467971	Sistotremastrum suecicum	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t56493	Thelephora terrestris	1	0	1	1.0	#f2effa	plant_resident	Agaricomycetes
+t1938712	Atractiella rhizophila	1	0	1	1.0	#f2effa	plant_resident	Atractiellomycetes
+t203533	Classicula fluitans	1	0	1	1.0	#f2effa	plant_resident	Classiculomycetes
+t29899	Cystobasidium minutum	1	0	1	1.0	#f2effa	plant_resident	Cystobasidiomycetes
+t29889	Calocera cornea	1	0	1	1.0	#f2effa	plant_resident	Dacrymycetes
+t63146	Calocera viscosa	1	0	1	1.0	#f2effa	plant_resident	Dacrymycetes
+t58919	Tilletiopsis washingtonensis	1	0	1	1.0	#f2effa	plant_resident	Exobasidiomycetes
+t215250	Acaromyces ingoldii	1	0	1	1.0	#f2effa	plant_resident	Exobasidiomycetes
+t63378	Exobasidium rhododendri	1	0	1	1.0	#f2effa	plant_resident	Exobasidiomycetes
+t5281	Tilletiaria anomala	1	0	1	1.0	#f2effa	plant_resident	Exobasidiomycetes
+t1569628	Jaminaea rosea	1	0	1	1.0	#f2effa	plant_resident	Exobasidiomycetes
+t157179	Tilletia bromi	1	1	2	0.0	#54278f	onwheat_resident	Exobasidiomycetes
+t13290	Tilletia caries	5	0	17	0.2941	#8262ae	wheat_pathogen	Exobasidiomycetes
+t13291	Tilletia controversa	7	0	12	0.5833	#b09ccd	wheat_pathogen	Exobasidiomycetes
+t155126	Tilletia horrida	7	0	10	0.7	#c3b3da	plant_resident	Exobasidiomycetes
+t43049	Tilletia indica	3	0	9	0.3333	#896ab3	onwheat_resident	Exobasidiomycetes
+t157183	Tilletia laevis	4	0	8	0.5	#a38bc4	onwheat_resident	Exobasidiomycetes
+t1031713	Tilletia maclaganii	1	0	1	1.0	#f2effa	plant_resident	Exobasidiomycetes
+t117179	Tilletia walkeri	2	0	2	1.0	#f2effa	plant_resident	Exobasidiomycetes
+t1514897	Malassezia arunalokei	1	0	2	0.5	#a38bc4	plant_resident	Malasseziomycetes
+t1821822	Malassezia brasiliensis	1	0	1	1.0	#f2effa	plant_resident	Malasseziomycetes
+t1381934	Malassezia caprae	1	0	2	0.5	#a38bc4	plant_resident	Malasseziomycetes
+t948313	Malassezia cuniculi	1	0	2	0.5	#a38bc4	plant_resident	Malasseziomycetes
+t1381935	Malassezia equina	1	0	2	0.5	#a38bc4	plant_resident	Malasseziomycetes
+t55194	Malassezia furfur	6	0	24	0.25	#7c59aa	plant_resident	Malasseziomycetes
+t76773	Malassezia globosa	4	0	16	0.25	#7c59aa	plant_resident	Malasseziomycetes
+t223818	Malassezia japonica	1	0	3	0.3333	#896ab3	plant_resident	Malasseziomycetes
+t180528	Malassezia nana	1	0	3	0.3333	#896ab3	plant_resident	Malasseziomycetes
+t76774	Malassezia obtusa	1	0	2	0.5	#a38bc4	plant_resident	Malasseziomycetes
+t77020	Malassezia pachydermatis	2	0	15	0.1333	#69429d	plant_resident	Malasseziomycetes
+t1821823	Malassezia psittaci	1	0	1	1.0	#f2effa	plant_resident	Malasseziomycetes
+t76775	Malassezia restricta	4	0	11	0.3636	#8d70b6	plant_resident	Malasseziomycetes
+t3031751	Malassezia sp. CBS 17886	1	0	1	1.0	#f2effa	plant_resident	Malasseziomycetes
+t76777	Malassezia sympodialis	2	0	11	0.1818	#714ba2	plant_resident	Malasseziomycetes
+t2020962	Malassezia vespertilionis	2	0	2	1.0	#f2effa	plant_resident	Malasseziomycetes
+t253288	Malassezia yamatoensis	1	0	2	0.5	#a38bc4	plant_resident	Malasseziomycetes
+t106004	Leucosporidium creatinivorum	1	0	4	0.25	#7c59aa	plant_resident	Microbotryomycetes
+t269621	Microbotryum intermedium	1	0	2	0.5	#a38bc4	plant_resident	Microbotryomycetes
+t288795	Microbotryum lychnidis-dioicae	1	0	23	0.0435	#5b3094	plant_resident	Microbotryomycetes
+t289078	Microbotryum saponariae	2	0	4	0.5	#a38bc4	plant_resident	Microbotryomycetes
+t796604	Microbotryum silenes-dioicae	1	0	2	0.5	#a38bc4	plant_resident	Microbotryomycetes
+t168509	Rhodosporidiobolus odoratus	1	0	2	0.5	#a38bc4	plant_resident	Microbotryomycetes
+t5535	Rhodotorula glutinis	2	0	5	0.4	#9377ba	onwheat_resident	Microbotryomycetes
+t5537	Rhodotorula mucilaginosa	3	0	125	0.024	#582c92	plant_resident	Microbotryomycetes
+t100912	Sporobolomyces blumeae	1	0	1	1.0	#f2effa	plant_resident	Microbotryomycetes
+t5002	Sporobolomyces johnsonii	2	0	2	1.0	#f2effa	plant_resident	Microbotryomycetes
+t5003	Sporobolomyces pararoseus	2	0	6	0.3333	#896ab3	onwheat_resident	Microbotryomycetes
+t183961	Sporobolomyces phaffii	1	0	2	0.5	#a38bc4	plant_resident	Microbotryomycetes
+t40563	Sporobolomyces roseus	1	0	3	0.3333	#896ab3	onwheat_resident	Microbotryomycetes
+t5005	Sporobolomyces salmonicolor	3	0	3	1.0	#f2effa	plant_resident	Microbotryomycetes
+t34349	Mixia osmundae	2	0	3	0.6667	#bdacd6	plant_resident	Mixiomycetes
+t60197	Cronartium quercuum	2	0	3	0.6667	#bdacd6	plant_resident	Pucciniomycetes
+t2182807	Melampsora americana	1	0	1	1.0	#f2effa	plant_resident	Pucciniomycetes
+t203908	Melampsora laricis-populina	1	0	1	1.0	#f2effa	plant_pathogen	Pucciniomycetes
+t170000	Phakopsora pachyrhizi	3	0	52	0.0577	#5d3395	plant_pathogen	Pucciniomycetes
+t27343	Puccinia brachypodii	1	1	1	0.0	#54278f	onwheat_resident	Pucciniomycetes
+t27344	Puccinia coronata	2	0	2	1.0	#f2effa	plant_resident	Pucciniomycetes
+t5297	Puccinia graminis	3	0	5	0.6	#b39fcf	wheat_pathogen	Pucciniomycetes
+t27345	Puccinia hordei	1	1	21	0.0	#54278f	onwheat_resident	Pucciniomycetes
+t27349	Puccinia sorghi	1	0	1	1.0	#f2effa	onwheat_resident	Pucciniomycetes
+t27350	Puccinia striiformis	9	0	39	0.2308	#7855a8	wheat_pathogen	Pucciniomycetes
+t208348	Puccinia triticina	5	0	26	0.1923	#724da4	wheat_pathogen	Pucciniomycetes
+t181123	Austropuccinia psidii	1	0	6	0.1667	#6e48a1	plant_resident	Pucciniomycetes
+t89926	Cystofilobasidium macerans	1	1	2	0.0	#54278f	onwheat_resident	Tremellomycetes
+t29902	Mrakia frigida	1	0	3	0.3333	#896ab3	plant_resident	Tremellomycetes
+t264483	Phaffia rhodozyma	1	0	12	0.0833	#613898	plant_resident	Tremellomycetes
+t5210	Filobasidium floriforme	2	0	2	1.0	#f2effa	plant_resident	Tremellomycetes
+t104409	Filobasidium magnum	1	1	2	0.0	#54278f	onwheat_resident	Tremellomycetes
+t92952	Naganishia adeliensis	1	0	2	0.5	#a38bc4	plant_resident	Tremellomycetes
+t157611	Bullera alba	1	1	2	0.0	#54278f	onwheat_resident	Tremellomycetes
+t1895944	Vishniacozyma victoriae	1	1	1	0.0	#54278f	onwheat_resident	Tremellomycetes
+t40410	Cryptococcus deneoformans	6	0	9	0.6667	#bdacd6	plant_resident	Tremellomycetes
+t4999	Kockovaella imperatae	1	0	1	1.0	#f2effa	plant_resident	Tremellomycetes
+t71784	Naematelia encephala	1	0	1	1.0	#f2effa	plant_resident	Tremellomycetes
+t5418	Papiliotrema laurentii	1	0	4	0.25	#7c59aa	onwheat_resident	Tremellomycetes
+t5217	Tremella mesenterica	2	0	2	1.0	#f2effa	plant_resident	Tremellomycetes
+t143232	Vanrija pseudolonga	1	0	1	1.0	#f2effa	plant_resident	Tremellomycetes
+t1269715	Thecaphora frezii	1	0	2	0.5	#a38bc4	plant_resident	Ustilaginomycetes
+t1882483	Testicularia cyperi	1	0	1	1.0	#f2effa	plant_resident	Ustilaginomycetes
+t63383	Melanopsichium pennsylvanicum	1	0	1	1.0	#f2effa	plant_resident	Ustilaginomycetes
+t684617	Mycosarcoma mackinlayi	1	1	1	0.0	#54278f	plant_resident	Ustilaginomycetes
+t5270	Mycosarcoma maydis	1	0	38	0.0263	#582c92	onwheat_pathogen	Ustilaginomycetes
+t84753	Moesziomyces antarcticus	3	0	7	0.4286	#987dbd	plant_resident	Ustilaginomycetes
+t84754	Moesziomyces aphidis	1	0	2	0.5	#a38bc4	plant_resident	Ustilaginomycetes
+t84751	Pseudozyma flocculosa	2	0	3	0.6667	#bdacd6	plant_resident	Ustilaginomycetes
+t72558	Sporisorium reilianum	2	0	2	1.0	#f2effa	plant_pathogen	Ustilaginomycetes
+t49012	Sporisorium scitamineum	2	0	9	0.2222	#7753a7	plant_pathogen	Ustilaginomycetes
+t307758	Ustilago bromivora	2	0	3	0.6667	#bdacd6	plant_resident	Ustilaginomycetes
+t185366	Ustilago esculenta	1	1	2	0.0	#54278f	plant_pathogen	Ustilaginomycetes
+t120017	Ustilago hordei	8	0	12	0.6667	#bdacd6	onwheat_pathogen	Ustilaginomycetes
+t2031085	Ustilago loliicola	1	0	1	1.0	#f2effa	plant_resident	Ustilaginomycetes
+t86802	Ustilago nuda	1	0	1	1.0	#f2effa	onwheat_resident	Ustilaginomycetes
+t86804	Ustilago trichophora	1	0	3	0.3333	#896ab3	plant_resident	Ustilaginomycetes
+t117174	Ustilago tritici	1	0	3	0.3333	#896ab3	wheat_pathogen	Ustilaginomycetes
+t1673888	Violaceomyces palustris	1	0	1	1.0	#f2effa	plant_resident	Ustilaginomycetes
+t64504	Allomyces arbusculus	1	0	1	1.0	#f2effa	plant_resident	Blastocladiomycetes
+t28583	Allomyces macrogynus	1	0	1	1.0	#f2effa	plant_resident	Blastocladiomycetes
+t4808	Blastocladiella emersonii	1	0	1	1.0	#f2effa	plant_resident	Blastocladiomycetes
+t388810	Blyttiomyces helicus	1	0	1	1.0	#f2effa	plant_resident	Chytridiomycetes
+t64509	Chytridium lagenaria	1	0	1	1.0	#f2effa	plant_resident	Chytridiomycetes
+t261098	Phlyctochytrium planicorne	1	0	1	1.0	#f2effa	plant_resident	Chytridiomycetes
+t2211651	Zopfochytrium polystomum	1	0	1	1.0	#f2effa	plant_resident	Chytridiomycetes
+t246404	Chytriomyces confervae	1	0	1	1.0	#f2effa	plant_resident	Chytridiomycetes
+t4814	Chytriomyces hyalinus	5	0	5	1.0	#f2effa	plant_resident	Chytridiomycetes
+t109936	Cladochytrium replicatum	1	0	1	1.0	#f2effa	plant_resident	Chytridiomycetes
+t1604274	Cladochytrium tenue	1	0	1	1.0	#f2effa	plant_resident	Chytridiomycetes
+t64517	Rhizophlyctis rosea	2	0	3	0.6667	#bdacd6	plant_resident	Chytridiomycetes
+t382532	Globomyces pollinis-pini	1	0	1	1.0	#f2effa	plant_resident	Chytridiomycetes
+t286115	Synchytrium endobioticum	2	0	3	0.6667	#bdacd6	plant_pathogen	Chytridiomycetes
+t34488	Conidiobolus coronatus	1	0	2	0.5	#a38bc4	plant_resident	Entomophthoromycetes
+t34485	Entomophthora muscae	1	0	2	0.5	#a38bc4	plant_resident	Entomophthoromycetes
+t144679	Ambispora leptoticha	1	0	1	1.0	#f2effa	plant_resident	Glomeromycetes
+t1433469	Cetraspora pellucida	2	0	2	1.0	#f2effa	onwheat_resident	Glomeromycetes
+t1316150	Dentiscutata heterogama	1	0	1	1.0	#f2effa	plant_resident	Glomeromycetes
+t4874	Gigaspora margarita	2	0	2	1.0	#f2effa	plant_resident	Glomeromycetes
+t160502	Racocetra persica	1	0	1	1.0	#f2effa	plant_resident	Glomeromycetes
+t85575	Scutellospora calospora	1	0	1	1.0	#f2effa	onwheat_resident	Glomeromycetes
+t1117310	Funneliformis caledonium	1	0	1	1.0	#f2effa	onwheat_resident	Glomeromycetes
+t1117311	Funneliformis geosporum	2	0	2	1.0	#f2effa	onwheat_resident	Glomeromycetes
+t27381	Funneliformis mosseae	1	0	1	1.0	#f2effa	onwheat_resident	Glomeromycetes
+t94130	Rhizophagus clarus	2	0	2	1.0	#f2effa	plant_resident	Glomeromycetes
+t144539	Paraglomus occultum	1	0	2	0.5	#a38bc4	onwheat_resident	Glomeromycetes
+t61424	Furculomyces boomerangus	1	0	1	1.0	#f2effa	plant_resident	Harpellomycetes
+t417176	Coemansia aciculifera	5	0	5	1.0	#f2effa	plant_resident	Kickxellomycetes
+t2650707	Coemansia brasiliensis	1	0	1	1.0	#f2effa	plant_resident	Kickxellomycetes
+t61392	Coemansia reversa	1	0	1	1.0	#f2effa	plant_resident	Kickxellomycetes
+t61397	Kickxella alabastrina	3	0	3	1.0	#f2effa	plant_resident	Kickxellomycetes
+t61395	Linderina pennispora	2	0	2	1.0	#f2effa	plant_resident	Kickxellomycetes
+t61414	Martensiomyces pterosporus	1	0	1	1.0	#f2effa	plant_resident	Kickxellomycetes
+t68401	Spiromyces aspiralis	1	0	1	1.0	#f2effa	plant_resident	Kickxellomycetes
+t1343610	Actinomortierella ambigua	3	0	3	1.0	#f2effa	plant_resident	Mortierellomycetes
+t101097	Entomortierella chlamydospora	2	0	2	1.0	#f2effa	plant_resident	Mortierellomycetes
+t979712	Entomortierella lignicola	1	0	1	1.0	#f2effa	plant_resident	Mortierellomycetes
+t205924	Entomortierella parvispora	1	0	2	0.5	#a38bc4	plant_resident	Mortierellomycetes
+t1897645	Haplosporangium bisporale	1	0	1	1.0	#f2effa	plant_resident	Mortierellomycetes
+t310910	Linnemannia elongata	9	0	10	0.9	#e2dbef	plant_resident	Mortierellomycetes
+t604196	Linnemannia exigua	1	0	1	1.0	#f2effa	onwheat_resident	Mortierellomycetes
+t64522	Linnemannia gamsii	3	0	3	1.0	#f2effa	plant_resident	Mortierellomycetes
+t64524	Linnemannia hyalina	1	0	1	1.0	#f2effa	onwheat_resident	Mortierellomycetes
+t979765	Linnemannia zychae	2	0	2	1.0	#f2effa	plant_resident	Mortierellomycetes
+t64518	Mortierella alpina	7	0	14	0.5	#a38bc4	plant_resident	Mortierellomycetes
+t41804	Mortierella polycephala	1	0	1	1.0	#f2effa	plant_resident	Mortierellomycetes
+t311239	Podila horticola	2	0	2	1.0	#f2effa	plant_resident	Mortierellomycetes
+t64523	Podila humilis	2	0	2	1.0	#f2effa	plant_resident	Mortierellomycetes
+t64525	Podila minutissima	2	0	2	1.0	#f2effa	plant_resident	Mortierellomycetes
+t78898	Podila verticillata	4	0	5	0.8	#d2c7e5	plant_resident	Mortierellomycetes
+t994334	Jimgerdemannia flammicorona	2	0	2	1.0	#f2effa	plant_resident	Endogonomycetes
+t64653	Backusella circina	1	0	1	1.0	#f2effa	plant_resident	Mucoromycetes
+t4850	Blakeslea trispora	1	0	1	1.0	#f2effa	plant_resident	Mucoromycetes
+t101091	Choanephora cucurbitarum	2	0	2	1.0	#f2effa	plant_resident	Mucoromycetes
+t101096	Gilbertella persicaria	1	0	3	0.3333	#896ab3	plant_resident	Mucoromycetes
+t213030	Absidia cylindrospora	1	0	1	1.0	#f2effa	plant_resident	Mucoromycetes
+t4829	Absidia glauca	1	0	1	1.0	#f2effa	onwheat_resident	Mucoromycetes
+t90262	Absidia repens	1	0	1	1.0	#f2effa	plant_resident	Mucoromycetes
+t76405	Cunninghamella echinulata	2	0	2	1.0	#f2effa	plant_resident	Mucoromycetes
+t101105	Gongronella butleri	1	0	1	1.0	#f2effa	plant_resident	Mucoromycetes
+t42458	Lichtheimia corymbifera	1	0	5	0.2	#744fa4	plant_resident	Mucoromycetes
+t688394	Lichtheimia ramosa	1	0	10	0.1	#643b9a	plant_resident	Mucoromycetes
+t4840	Rhizomucor pusillus	2	0	3	0.6667	#bdacd6	plant_resident	Mucoromycetes
+t91626	Mucor ambiguus	1	0	1	1.0	#f2effa	plant_resident	Mucoromycetes
+t36080	Mucor circinelloides	4	0	24	0.1667	#6e48a1	onwheat_resident	Mucoromycetes
+t439312	Mucor flavus	1	0	1	1.0	#f2effa	plant_resident	Mucoromycetes
+t64491	Mucor fragilis	1	0	1	1.0	#f2effa	plant_resident	Mucoromycetes
+t64493	Mucor hiemalis	1	0	1	1.0	#f2effa	onwheat_resident	Mucoromycetes
+t29924	Mucor lusitanicus	3	0	3	1.0	#f2effa	plant_resident	Mucoromycetes
+t29922	Mucor mucedo	1	0	1	1.0	#f2effa	plant_resident	Mucoromycetes
+t97098	Mucor plumbeus	1	0	2	0.5	#a38bc4	onwheat_resident	Mucoromycetes
+t4841	Mucor racemosus	1	1	4	0.0	#54278f	onwheat_resident	Mucoromycetes
+t101142	Thamnidium elegans	2	0	3	0.6667	#bdacd6	plant_resident	Mucoromycetes
+t4837	Phycomyces blakesleeanus	3	0	3	1.0	#f2effa	plant_resident	Mucoromycetes
+t269771	Phycomyces nitens	1	0	2	0.5	#a38bc4	plant_resident	Mucoromycetes
+t101115	Spinellus fusiger	1	0	1	1.0	#f2effa	plant_resident	Mucoromycetes
+t64495	Rhizopus arrhizus	39	0	57	0.6842	#c0b0d8	plant_resident	Mucoromycetes
+t58291	Rhizopus microsporus	12	0	28	0.4286	#987dbd	plant_resident	Mucoromycetes
+t4846	Rhizopus stolonifer	2	0	6	0.3333	#896ab3	onwheat_resident	Mucoromycetes
+t101117	Sporodiniella umbellata	1	0	1	1.0	#f2effa	plant_resident	Mucoromycetes
+t13706	Syncephalastrum racemosum	1	0	2	0.5	#a38bc4	plant_resident	Mucoromycetes
+t91625	Umbelopsis isabellina	2	0	4	0.5	#a38bc4	plant_resident	Umbelopsidomycetes
+t64526	Umbelopsis nana	1	0	1	1.0	#f2effa	plant_resident	Umbelopsidomycetes
+t41833	Umbelopsis ramanniana	2	0	2	1.0	#f2effa	plant_resident	Umbelopsidomycetes
+t44442	Umbelopsis vinacea	2	0	3	0.6667	#bdacd6	plant_resident	Umbelopsidomycetes
+t278681	Olpidium bornovanus	1	0	1	1.0	#f2effa	plant_resident	Olpidiomycetes
+t1907219	Piptocephalis cylindrospora	1	0	1	1.0	#f2effa	plant_resident	Zoopagomycetes
+t1286916	Piptocephalis tieghemiana	1	0	1	1.0	#f2effa	plant_resident	Zoopagomycetes

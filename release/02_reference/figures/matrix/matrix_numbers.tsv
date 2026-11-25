@@ -1,17 +1,13 @@
-row	col	taxa	assemblies	cds
-wheat	none	204	2251	621
-wheat	vagrant	25	986	171
-wheat	wheat_path	25	2754	497
-plant	none	2061	7865	2124
-plant	vagrant	63	1027	145
-plant	wheat_path	0	0	0
-congener	none	3465	6530	1744
-congener	vagrant	0	0	0
-congener	wheat_path	0	0	0
-row	wheat	254	5991	1289
-row	plant	2124	8892	2269
-row	congener	3465	6530	1744
-col	none	5730	16646	4489
-col	vagrant	88	2013	316
-col	wheat_path	25	2754	497
-all	cohort	5843	21413	5302
+row	col	taxa	assemblies	cds	predicted
+wheat_resident	none	204	2251	621	96
+wheat_resident	vagrant	25	986	171	4
+wheat_resident	wheat_path	25	2754	497	1
+plant_resident	none	5526	14395	3868	17
+plant_resident	vagrant	63	1027	145	17
+plant_resident	wheat_path	0	0	0	0
+row	wheat_resident	254	5991	1289	101
+row	plant_resident	5589	15422	4013	34
+col	none	5730	16646	4489	113
+col	vagrant	88	2013	316	21
+col	wheat_path	25	2754	497	1
+all	cohort	5843	21413	5302	135

@@ -35,7 +35,7 @@ S2_COLS = ["run", "BioProject", "sample", "own_deposit", "library_strategy",
            "model", "read_count", "base_count", "library_layout", "host", "host_src", "tissue", "tissue_src",
            "setting", "setting_src", "location", "location_src",
            "collection_date", "collection_date_src", "lat", "lon",
-           "declared_pathogens", "declared_status"]
+           "declared_pathogens", "study_target", "declared_status"]
 
 
 def read(path):

@@ -142,6 +142,12 @@ def main():
                "own_deposit": r["named_in_deposit_section"],
                "declared_pathogens": declared.get(r["BioProject"], {}).get(
                    "declared_pathogens", ""),
+               # WHAT THE STUDY WAS LOOKING FOR, curated, not inferred from the absence of
+               # a declaration. Every none_declared project in this cohort is a virus
+               # survey, which is why they declare no fungus, and that is worth stating on
+               # the figure rather than leaving as a blank the reader must explain.
+               "study_target": declared.get(r["BioProject"], {}).get(
+                   "study_target", ""),
                "declared_status": declared.get(r["BioProject"], {}).get(
                    "status", "not_curated")}
         for f in FIELDS:
@@ -166,7 +172,7 @@ def main():
     cols = (["run", "BioProject", "sample", "library_strategy", "assay_in_scope",
              "platform", "model",
              "read_count", "base_count", "library_layout", "named_by", "own_deposit",
-             "declared_pathogens", "declared_status"]
+             "declared_pathogens", "study_target", "declared_status"]
             + [c for f in FIELDS for c in (f, f"{f}_src")])
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with open(OUT, "w", newline="", encoding="utf-8") as fh:

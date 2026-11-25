@@ -52,7 +52,7 @@ sys.path.insert(0, str(HERE.parent / "02_reference/scripts"))
 from _palette import MATRIX, MATRIX_NAME, INK, MUTED, darken  # noqa: E402
 sys.path.insert(0, str(HERE / "scripts"))
 from _cohort import is_analysed, describe               # noqa: E402
-from detect import declaration                          # noqa: E402
+from detect import declaration, declared_sets, normalise                          # noqa: E402
 
 S5 = HERE / "data/outputs/supp_data_s5_detections.tsv"
 S2 = HERE.parent / "01_cohort/data/outputs/supp_data_s2_cohort.tsv"
@@ -64,7 +64,11 @@ FIG = Path(__file__).resolve().parent
 csv.field_size_limit(10 ** 7)
 
 NONE, DECL, UNDECL, UNKNOWN = 0, 1, 2, 3
-DECLARED_COLOUR = "#3d3d3d"     # the study reported it; the one state that is not a category
+# Lightened from #3d3d3d, Leon's call: against a white grid a near-black bar read as the
+# heaviest thing on the page, so the declared blocks dominated the figure and the orange
+# undeclared calls, which are the result, read as incidental marks on top of them. A mid
+# grey still separates unambiguously from every matrix hue without taking the eye first.
+DECLARED_COLOUR = "#7a7a7a"     # the study reported it; the one state that is not a category
 
 # A CELL TAKES THE COLOUR THE REFERENCE MATRIX GAVE THAT TAXON. `MATRIX` is keyed on the two
 # facts S3 records, where USDA recorded the taxon and what PHI-base scores it as, and is
@@ -111,10 +115,22 @@ PHI_KEY = {"none": "none", "plant_pathogen": "vagrant", "wheat_pathogen": "wheat
 # So: two resident bands, split on whether USDA records the SPECIES on wheat. Colour still
 # carries the full matrix slot, so the USDA-coverage distinction is visible as a shade
 # without being promoted to a claim about the organism.
-RESIDENT_BAND = {"yes": (5, "Wheat"), "no": (7, "Plant")}
+# Pathogens of other plants are not drawn (see DETAIL_CLASSES), so nothing reaches this
+# band now. It is kept rather than deleted because `band` is total over the drawn classes
+# and a KeyError is the right failure if that ever changes without this being reconsidered.
+OTHER_HOST_BAND = (90, "Other hosts")
 
-# The two halves of the panel, bracketed on the far left.
-SUPER = {True: "Pathogens", False: "Residents"}
+# The two halves of the panel, bracketed on the far left. Every drawn taxon row is now a
+# pathogen -- residents have no rows -- so the second half holds only the summary ramp.
+SUPER = {True: "Pathogens", False: "Pathogens"}
+# The resident ramp, pale -> the matrix green -> dark. See ramp3 for why three.
+RAMP_STOPS = ("#f4f9f3", "#2e9e52", "#00441b")
+RAMP_STOPS_T = lambda t: ramp3(RAMP_STOPS, t)
+# The study-target marker takes the DECLARED colour, Leon's call, because it is the same
+# kind of fact: both rows say what the study reported. Grey already means "the study knew",
+# and a none_declared virus survey is the limiting case of that -- it reported no fungus at
+# all -- so giving it a hue of its own would have implied a third category of evidence.
+VIRUS_COLOUR = DECLARED_COLOUR
 LUM_CEILING = 0.70
 SPILL_RATIO = 0.25      # never-alone AND below this share of the congener's coverage
 SPILL = "Zymoseptoria brevis"   # what the rule catches here; the caption reads it from this
@@ -131,6 +147,25 @@ def legible(hexc):
     while _lum(out) > LUM_CEILING:
         out = darken(out, 0.94)
     return out
+
+
+def ramp3(stops, t):
+    """Interpolate a LIST of hex stops at t in [0,1]. Piecewise-linear, evenly spaced.
+
+    The resident ramp needs three stops, not two. Its counts are strongly bimodal -- 47% of
+    runs call no resident at all and 60% call at most one, then a second cluster sits at 13
+    to 20 -- and a two-stop pale-to-green ramp ran from near-white to a MID green, so the
+    whole scale lived in the top half of the lightness range and neither mode was legible
+    against the other. Three stops let the ramp finish genuinely dark while keeping the
+    palette's own green as the midpoint, so the hue is still the matrix hue.
+    """
+    if t <= 0:
+        return stops[0]
+    if t >= 1:
+        return stops[-1]
+    n = len(stops) - 1
+    i = min(int(t * n), n - 1)
+    return ramp(stops[i], stops[i + 1], t * n - i)
 
 
 def ramp(pale, dark, t):
@@ -155,7 +190,14 @@ def washed(hexc, f=0.55):
 ALIAS = {"United Kingdom": "UK", "United States": "USA", "The Netherlands": "Netherlands",
          "Czechia": "Czech Republic", "Russian Federation": "Russia", "Zimbabwae": "Zimbabwe"}
 NULL_LOC = {"", "missing", "unknown", "not applicable", "not collected", "na", "n/a"}
-MIN_RUNS = 10           # a taxon needs this many calls across the cohort to get a row
+# EVERY DETECTED PATHOGEN GETS A ROW. Leon's call: the rare ones are the interesting ones,
+# and a panel that draws nine of fourteen invites "nine were detected". The threshold was
+# never evidential, it was a height budget, and the residents paid that budget instead.
+MIN_RUNS = 1            # a taxon needs this many calls across the cohort to get a row
+# The two DIAGNOSTICS below keep a real threshold, for a different reason: both are medians
+# over the runs a taxon shares with a congener, and a median over two runs is not a measure.
+# They decide what the script WARNS about, never what it draws.
+MIN_FLAG_RUNS = 10      # below this a congener-spill ratio or a collapse CV is not a number
 # COLUMNS GROUP BY REGION, NOT BY COUNTRY. 41 countries across a 7-inch grid left most
 # blocks too narrow to name -- 18 of them, including Ireland and the Netherlands, which the
 # caption names -- and the signal is not national anyway: Septoria tritici blotch is a
@@ -181,7 +223,14 @@ DRAWN_CLASSES = {"wheat_pathogen", "plant_pathogen", "resident"}
 # panels have to share an A4 page with it. Nothing is judged false and nothing leaves the
 # data: every resident call is still in supp_data_s5, and the ramp now counts them MORE
 # completely than the rows did, because it no longer stops at the taxa clearing MIN_RUNS.
-DETAIL_CLASSES = {"wheat_pathogen", "plant_pathogen"}
+# WHEAT PATHOGENS ONLY. The five pathogens of other plants that MIN_RUNS = 1 brought into
+# the panel are out again, Leon's call: each is one to six calls sitting at coverage 0.023
+# to 0.045, which is the band the pure-fungal control showed its own artefact reaching
+# (<= 0.0336), and four of the five are congeners or close relatives of a wheat pathogen
+# that IS present. They are too tenuous to draw as presence and release/04_align is what
+# resolves them, from species-unique reads. They stay in supp_data_s5 and the caption names
+# them with their coverages.
+DETAIL_CLASSES = {"wheat_pathogen"}
 
 
 
@@ -254,7 +303,8 @@ def load():
                 lat = lon = None
             runs[r["run"]] = {
                 "project": r["BioProject"], "country": country(r["location"]),
-                "lat": lat, "lon": lon, "status": r["declared_status"]}
+                "lat": lat, "lon": lon, "status": r["declared_status"],
+                "target": r.get("study_target", "")}
             decl_of[r["run"]] = r          # the cohort row IS declaration()'s first argument
 
     cen = {r["country"]: float(r["lon"]) for r in
@@ -296,9 +346,31 @@ def load():
             unplaced.append(c)
     ordered = sorted(pos, key=lambda c: pos[c]) + sorted(unplaced)
 
-    # Within a country: by longitude, then latitude, then accession. The accession is the
-    # tie-break and is what makes the column order reproducible for runs sharing a site.
-    key = lambda i: (runs[i]["lon"] is None, runs[i]["lon"] or 0.0,
+    # ── within a region: BLOCK BY WHAT THE STUDY DECLARED ─────────────────────
+    # Leon's call. Geography alone scattered each survey's runs through its region, so the
+    # one comparison the panel exists to support -- what a study looked for against what its
+    # reads carry -- had to be made across non-adjacent columns. Blocking by declaration puts
+    # every run that was looking for the same organism side by side, and the declared row
+    # becomes a solid charcoal bar with the undeclared calls legible against it.
+    #
+    # THE BLOCKS ARE ORDERED BY THE DISEASE BANDS, not by size, so the blocks run down the
+    # rows in the same order the rows run down the panel and the diagonal reads. A
+    # declaration naming several organisms takes the band of its FIRST, and the undeclared
+    # block sorts last wherever it occurs.
+    #
+    # Longitude still orders runs INSIDE a block, so the geography is not lost, it is nested
+    # one level down. The accession is the final tie-break and is what makes the column order
+    # reproducible for runs sharing a site.
+    grp = groups()
+    band_of = {}
+    for rid, m in runs.items():
+        spp, gen = declared_sets(decl_of[rid].get("declared_pathogens", ""))
+        hits = [grp[t][0] for t in grp
+                if normalise(t) in spp or t.split()[0].lower() in gen]
+        # no declaration, or one naming nothing we band: last, but kept as its own block
+        band_of[rid] = (min(hits) if hits else 10 ** 6,
+                        decl_of[rid].get("declared_pathogens", "") or "\uffff")
+    key = lambda i: (band_of[i], runs[i]["lon"] is None, runs[i]["lon"] or 0.0,
                      runs[i]["lat"] or 0.0, i)
     order = [i for c in ordered for i in sorted(bycty[c], key=key)]
 
@@ -307,7 +379,6 @@ def load():
     # It is checked against the stored column and any disagreement is reported loudly: a
     # difference means S5 was written before detect.py's congener fix (2026-11-23) and the
     # published supplementary table is stale until detect.py is re-run on Setonix.
-    grp = groups()
     hit, declared_in, mismatched = defaultdict(set), defaultdict(set), 0
     cluster, cvs, collapsed_of = defaultdict(set), defaultdict(list), defaultdict(set)
     klass, cov, gen_of, class_calls = {}, defaultdict(dict), {}, {}
@@ -346,7 +417,7 @@ def load():
         sizes = [len(v) for (run, gg), v in cluster.items() if gg == g]
         med_cv, med_n = statistics.median(cv), statistics.median(sizes)
         collapsed = any(grp.get(t, (0, "", False))[2] for t in collapsed_of.get(g, ()))
-        if med_n >= 3 and med_cv < 0.35 and not collapsed and len(hit.get(g, ())) >= MIN_RUNS:
+        if med_n >= 3 and med_cv < 0.35 and not collapsed and len(hit.get(g, ())) >= MIN_FLAG_RUNS:
             suspect.append((g, med_n, med_cv))
 
     # A collapsed genus has no row in S3, and taking the slot of whichever member happened to
@@ -377,7 +448,7 @@ def load():
     # species-unique reads and positional evenness.
     spill = {}
     for t, rr in hit.items():
-        if len(rr) < MIN_RUNS:
+        if len(rr) < MIN_FLAG_RUNS:
             continue
         sibs = [x for x in hit if x != t and gen_of.get(x) == gen_of.get(t)]
         if not sibs or (rr - set().union(*(hit[x] for x in sibs))):
@@ -403,10 +474,21 @@ def load():
             raise SystemExit(f"{GRP} collapses {t} to a genus but has no row for the genus "
                              f"itself. Add one; the disease band must be chosen, not "
                              f"inherited.")
-    band = lambda t: grp[t][:2] if is_wp(t) else RESIDENT_BAND[onwheat[t]]
+    band = lambda t: grp[t][:2] if is_wp(t) else OTHER_HOST_BAND
     taxa = sorted((t for t in hit if len(hit[t]) >= MIN_RUNS
                    and klass.get(t) in DETAIL_CLASSES),
                   key=lambda t: (band(t)[0], -len(hit[t]), t))
+    # WHAT IS STILL NOT DRAWN, and it is no longer the run count. With MIN_RUNS at 1 the
+    # only pathogen that can miss a row is one COLLAPSED INTO A GENUS whose other members
+    # are residents: Alternaria alternata is a wheat pathogen, the other nineteen Alternaria
+    # called here are not, and the genus is drawn as one resident row because the species
+    # calls inside it are one unresolved organism. Reporting "0 taxa not drawn" while that
+    # happens is the silent kind of wrong, so it is counted and named.
+    # `gen_of` is keyed by the COLLAPSED key, so a collapsed species is not in it at all;
+    # the collapse flag in pathogen_groups is what says where the species went.
+    absorbed = {t: (t.split()[0], len(hit[t.split()[0]])) for t in klass
+                if klass[t] in DETAIL_CLASSES and grp.get(t, (0, "", False))[2]
+                and t.split()[0] in hit and t.split()[0] not in taxa}
     dropped = {t: len(v) for t, v in sorted(hit.items(), key=lambda kv: (-len(kv[1]), kv[0]))
                if len(v) < MIN_RUNS}
 
@@ -417,7 +499,8 @@ def load():
             grid[i, idx[rid]] = (DECL if rid in declared_in[t]
                                  else UNKNOWN if runs[rid]["status"] == "not_curated"
                                  else UNDECL)
-    return (order, taxa, grid, runs, ordered, bycty, dropped, sorted(unknown_name),
+    return (order, taxa, grid, runs, ordered, bycty, (dropped, absorbed),
+            sorted(unknown_name),
             excluded, [band(t)[1] for t in taxa],
             [is_wp(t) for t in taxa], mismatched, class_calls,
             {t: len(collapsed_of[t]) for t in taxa if len(collapsed_of[t]) > 1}, suspect,
@@ -431,18 +514,9 @@ def load():
 
 
 def main():
-    (order, taxa, grid, runs, ordered, bycty, dropped, unknown_name, excluded,
+    (order, taxa, grid, runs, ordered, bycty, (dropped, absorbed), unknown_name, excluded,
      bands, supers, mismatched, class_calls, collapsed, suspect, tclass, mrow, spill,
      noloc) = load()
-
-    band_mode = collections.defaultdict(collections.Counter)
-    for i, t in enumerate(taxa):
-        band_mode[bands[i]][legible(MATRIX[mrow[t]])] += 1
-    # The label box takes the band's MODAL row colour, washed hard so the species names read
-    # on it. A band can hold more than one matrix slot -- Plant holds both the plant row and
-    # the no-species-record row -- so the box is the band's prevailing category, and the
-    # cells still carry each taxon's own.
-    band_fill = {b: washed(c.most_common(1)[0][0], 0.84) for b, c in band_mode.items()}
 
     rows = []
     for i, t in enumerate(taxa):
@@ -452,7 +526,7 @@ def main():
                      "n_collapsed": collapsed.get(t, 0),
                      "band": bands[i], "half": SUPER[supers[i]],
                      "colour": base, "colour_unknown": washed(base),
-                     "band_fill": band_fill[bands[i]], "italic": 1,
+                     "italic": 1,
                      "category": MATRIX_NAME[mrow[t]],
                      "n_runs": int((grid[i] > 0).sum())})
     with open(FIG / "samples_rows.tsv", "w", newline="") as fh:
@@ -521,17 +595,49 @@ def main():
         # tinted: the tint on the taxon boxes says which matrix category the rows are, and a
         # summary of several categories has none to claim.
         extra_rows.append({"row": r, "taxon": f"__total_{hname.lower()}__",
-                           "label": f"{hname.lower()} per run (0\u2013{hi})",
-                           "n_collapsed": 0, "band": " ", "half": "Total",
+                           # The name goes in the BAND column, not the taxon column, so it
+                           # lines up with Rusts / Mildews / Rots rather than with the
+                           # binomials. The row itself is unnamed: it is one row, and the
+                           # band name beside it already says what it is.
+                           #
+                           # THE BLANK MUST STILL BE UNIQUE. `label` is the discrete y
+                           # scale, so two rows both labelled " " are one factor level and
+                           # ggplot stops with "factor level is duplicated". Each unnamed
+                           # row gets its own width of blank.
+                           "label": " " * (len(extra_rows) + 1),
+                           "n_collapsed": 0, "band": hname, "half": "Total",
                            "colour": hue, "colour_unknown": washed(hue), "italic": 0,
                            "category": f"{hname.lower()} per run, 0\u2013{hi}",
-                           "band_fill": "#ffffff",
                            "n_runs": int((counts > 0).sum())})
         for j, k in enumerate(counts):
             if k:
-                extra_cells.append((j, r, "total",
-                                    ramp("#f2f2f2", ramp("#ffffff", hue, 0.95),
-                                         int(k) / hi)))
+                extra_cells.append((j, r, "total", RAMP_STOPS_T(int(k) / hi)))
+    # ── the study-target marker ───────────────────────────────────────────────
+    # Nine of the thirty-one cohort projects are VIRUS SURVEYS, and they are the whole
+    # explanation of the panel's largest unexplained feature: a block of columns, mostly in
+    # the Americas, with no declared pathogen and often no pathogen call either. Those
+    # studies declare no fungus because they were not looking for one, and their libraries
+    # are shallower for the same reason. Without the marker a reader sees an absence and
+    # has to guess whether it is missing curation, and 'uncurated' is exactly the reading
+    # the chapter must not invite.
+    #
+    # IT IS A CURATED FACT, read from study_target in supp_data_s2 and ultimately from each
+    # paper's own statement of aim, NOT inferred from declared_status being none_declared.
+    # The two coincide in this cohort and that coincidence is a finding, not a definition.
+    # ROW -1, so it sorts ABOVE the pathogens: every ordering in plot_samples.R is taken
+    # from this column, so a negative index is all that placing it first requires.
+    vrow = -1
+    vcols = [j for j, rid in enumerate(order)
+             if runs[rid].get("target") == "virus"]
+    if vcols:
+        extra_rows.append({"row": vrow, "taxon": "__study_target__",
+                           "label": " " * (len(extra_rows) + 1),
+                           "n_collapsed": 0, "band": "Virus survey", "half": "Study",
+                           "colour": VIRUS_COLOUR, "colour_unknown": washed(VIRUS_COLOUR),
+                           "italic": 0, "category": "virus survey, no fungus declared",
+                           "n_runs": len(vcols)})
+        extra_cells.extend((j, vrow, "virus", VIRUS_COLOUR) for j in vcols)
+
     with open(FIG / "samples_rows.tsv", "a", newline="") as fh:
         w = csv.DictWriter(fh, list(rows[0]), delimiter="\t", lineterminator="\n")
         w.writerows(extra_rows)
@@ -546,7 +652,7 @@ def main():
             hi = int(per_half[hname].max())
             for k in range(hi + 1):
                 w.writerow([hname, k, hi,
-                            ramp("#f2f2f2", ramp("#ffffff", hue, 0.95), k / hi)])
+                            RAMP_STOPS_T(k / hi)])
     print("  per-column totals: " + ", ".join(
         f"{n} 0-{int(per_half[n].max())}" for n, _ in halves))
 
@@ -571,9 +677,14 @@ def main():
     if unknown_name:
         print("  COUNTRY NAMES THE GAZETTEER CANNOT RESOLVE: " +
               ", ".join(f"{c!r} ({n})" for c, n in unknown_name))
-    top = list(dropped.items())[:8]
-    print(f"  below MIN_RUNS={MIN_RUNS}: {len(dropped)} taxa not drawn, largest " +
-          ", ".join(f"{abbrev(t)} ({n})" for t, n in top))
+    if dropped:
+        top = list(dropped.items())[:8]
+        print(f"  below MIN_RUNS={MIN_RUNS}: {len(dropped)} taxa not drawn, largest " +
+              ", ".join(f"{abbrev(t)} ({n})" for t, n in top))
+    if absorbed:
+        print(f"  NOT DRAWN, absorbed into a collapsed genus that is not a pathogen row: "
+              + ", ".join(f"{abbrev(t)} -> {g} ({n} runs)"
+                          for t, (g, n) in sorted(absorbed.items())))
 
 
 if __name__ == "__main__":

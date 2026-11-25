@@ -79,6 +79,15 @@ def numbers():
     n["n_pp_taxa"] = len(cls["plant_pathogen"])
     n["n_pp_calls"] = sum(len(v) for v in cls["plant_pathogen"].values())
     n["pp_max"] = max((len(v) for v in cls["plant_pathogen"].values()), default=0)
+    ppc = sorted(float(r["coverage"]) for r in calls if r["taxon_class"] == "plant_pathogen")
+    n["pp_cov"] = f"{ppc[0]:.3f} to {ppc[-1]:.3f}" if ppc else "n/a"
+    # How many are inside the band the pure-fungal control's own artefact reached. Stated
+    # as a COUNT, never as "every one": the top call is 0.117, well clear of 0.0336, and
+    # the earlier wording claimed the whole set sat under a bound two of them exceed.
+    n["pp_lo"] = sum(1 for c in ppc if c <= 0.0336)
+    n["pp_hi"] = f"{ppc[-1]:.3f}" if ppc else "n/a"
+    n["pp_names"] = ", ".join(f"{abbrev(t)} ({len(v)})" for t, v in
+                              sorted(cls["plant_pathogen"].items(), key=lambda kv: -len(kv[1])))
     top = sorted(cls["resident"].items(), key=lambda kv: -len(kv[1]))[:3]
     n["top_residents"] = ", ".join(f"{abbrev(t)} {len(v)}" for t, v in top)
 
@@ -154,11 +163,32 @@ def numbers():
     per_taxon = defaultdict(set)
     for r in wp:
         per_taxon[r["taxon"]].add(r["run"])
-    n["drawn_taxa"] = sum(1 for v in per_taxon.values() if len(v) >= MIN_RUNS)
-    # Every wheat pathogen BELOW the row threshold, named. The panel no longer carries a
-    # pathogens-per-run ramp, so these taxa are in no part of the figure and the caption is
-    # the only place a reader can learn they were detected at all.
-    undrawn = sorted(((t, len(v)) for t, v in per_taxon.items() if len(v) < MIN_RUNS),
+    # WHAT IS NOT DRAWN, derived from the rows the figure actually wrote rather than from
+    # a threshold this script re-applies. MIN_RUNS is 1 now, so the only way a detected
+    # wheat pathogen misses a row is being collapsed into a genus that is not a pathogen.
+    # the three groups of column, so the caption can say the panel keeps all of them
+    percall = defaultdict(list)
+    for r in wp:
+        percall[r["run"]].append(r["declared"])
+    n["only_declared"] = sum(1 for v in percall.values()
+                             if len(v) == 1 and v[0] == "declared")
+    n["no_call"] = n["runs"] - len(percall)
+    n["und_pct"] = 100.0 * n["runs_undeclared"] / n["runs"]
+    nres = defaultdict(int)
+    for r in calls:
+        if r["taxon_class"] == "resident":
+            nres[r["run"]] += 1
+    n["res_zero_pct"] = 100.0 * (n["runs"] - len(nres)) / n["runs"]
+
+    # the study-target marker, counted over the DRAWN columns and over the whole cohort
+    n["virus_runs"] = sum(1 for c in cols
+                          if crow[c["run"]].get("study_target") == "virus")
+    n["n_virus"] = len({r["BioProject"] for r in crow.values()
+                        if r.get("study_target") == "virus"})
+    n["n_proj"] = len({r["BioProject"] for r in crow.values()})
+
+    drawn = {r["taxon"] for r in rows_drawn if not r["taxon"].startswith("__total")}
+    undrawn = sorted(((t, len(v)) for t, v in per_taxon.items() if t not in drawn),
                      key=lambda kv: (-kv[1], kv[0]))
     n["n_undrawn"] = len(undrawn)
     n["undrawn"] = ", ".join(f"{abbrev(t)} ({c})" for t, c in undrawn)
@@ -200,24 +230,47 @@ def main():
         f"are not drawn, the x axis being geography, and they stay in supp_data_s5 and in "
         f"every count the module makes.",
         "",
-        f"The {n['drawn_rows']} drawn rows are the wheat pathogens called in at least "
-        f"{MIN_RUNS} runs, banded by the disease they cause. They are not every wheat "
-        f"pathogen detected: {n['taxa']} were called in all, and the {n['n_undrawn']} "
-        f"below the row threshold are {n['undrawn']}, with the run count in brackets. "
-        f"Those calls are in supp_data_s5 and in every count this caption gives; they are "
-        f"simply not drawn.",
+        f"EVERY WHEAT PATHOGEN DETECTED GETS A ROW, however rare: {n['taxa']} were called "
+        f"and {n['drawn_rows']} are drawn, banded by the disease they cause. There is no "
+        f"prevalence threshold on the rows, so a single call is as visible as a thousand "
+        f"and the reader can see which organisms are at the thin end. The {n['n_undrawn']} "
+        f"not drawn is {n['undrawn']}: it is collapsed into the Alternaria genus row, that "
+        f"genus being drawn as one unresolved organism rather than as twenty congeners, "
+        f"and the genus is a resident. Its calls are in supp_data_s5.",
+        "",
+        f"RUNS CARRYING ONLY THEIR DECLARED PATHOGEN ARE DRAWN, and so are runs carrying "
+        f"no wheat pathogen at all. Of {n['runs']:,} columns, {n['only_declared']:,} hold "
+        f"one call and it is the declared one, {n['no_call']} hold none, and "
+        f"{n['runs_undeclared']} hold at least one undeclared pathogen. Dropping the first "
+        f"two groups would raise the undeclared share from {n['und_pct']:.0f}% to almost "
+        f"all of it, which is the arithmetic of conditioning a denominator on its own "
+        f"outcome. A run with no call is not an empty run: it carries a resident community "
+        f"with no single species concentrated enough to clear the floors.",
         "",
         f"RESIDENTS HAVE NO ROW OF THEIR OWN: {n['n_resident_taxa']} resident taxa are "
         f"called over {n['n_resident_calls']:,} calls, and the single ramp at the foot of "
         f"the panel carries them as a count per run. That is a decision about space rather "
         f"than about evidence \u2014 the detection-space panels share a page with this one "
-        f"\u2014 and the ramp counts every resident call, not only the taxa that would "
-        f"have cleared the row threshold. The pathogens have no matching ramp, "
+        f"\u2014 and the ramp counts every resident call. Its scale is three-stop rather "
+        f"than two because the counts are bimodal: {n['res_zero_pct']:.0f}% of runs call no "
+        f"resident and a second cluster sits in the teens, and a pale-to-mid-green ramp put "
+        f"both in the top half of the lightness range. The pathogens have no matching ramp, "
         f"deliberately: they have rows, so a ramp would restate a column the reader can "
-        f"already count, and it would disagree with those rows by the {n['n_undrawn']} "
-        f"taxa above. The plant host is not drawn either: every library has one, so "
+        f"already count. The plant host is not drawn either: every library has one, so "
         f"it is a ranking question rather than a detection one, and supp_data_s5 carries "
         f"the ranked host for all {n['runs']:,} runs.",
+        "",
+        f"THE TOP ROW IS THE STUDY, NOT AN ORGANISM. {n['n_virus']} of the "
+        f"{n['n_proj']} cohort projects are virus surveys, and the {n['virus_runs']} runs "
+        f"they contributed are marked there in the same grey the declared calls use, "
+        f"because it is the same kind of fact: what the study reported. They declare no "
+        f"fungus because they were not looking for one, which is why the panel's largest "
+        f"block of columns with no declared pathogen is theirs, and why those columns also "
+        f"carry the fewest calls \u2014 their libraries are about half the depth of the "
+        f"rest. Without the marker that block reads as missing curation, which it is not: "
+        f"every project in the cohort now has a curated declaration. `study_target` is "
+        f"curated from each paper's own statement of aim and is published in "
+        f"supp_data_s2; it is not inferred from the declaration being empty.",
         "",
         f"Colour carries two things and neither is abundance. The HUE is the taxon's "
         f"category in the reference matrix, the same hue it has in 02_reference's matrix "
@@ -234,12 +287,20 @@ def main():
         f"nearly every run; the second is the stronger one, a study that reported no "
         f"pathogen we can detect and whose reads carry one anyway.",
         "",
-        f"Pathogens of other plants but not of wheat are almost absent: {n['n_pp_taxa']} "
-        f"taxa and {n['n_pp_calls']} calls, the commonest in {n['pp_max']} runs, so none "
-        f"reaches a row and, with the pathogen ramp gone, none is in the panel at all. That is the db2 arm working. Under db1' these were the conspicuous "
-        f"artefact, reads from a Pleosporaceae with no close reference forced onto a tomato "
-        f"or soybean pathogen; adding the predicted competitors gave them somewhere nearer "
-        f"to go.",
+        f"PATHOGENS OF OTHER PLANTS ARE NOT DRAWN. {n['n_pp_taxa']} were called over "
+        f"{n['n_pp_calls']} calls \u2014 {n['pp_names']}, runs in brackets. They span "
+        f"coverage {n['pp_cov']}, and {n['pp_lo']} of the {n['n_pp_calls']} sit at or below "
+        f"0.034, the highest the pure-fungal control's own artefact reached; the largest, "
+        f"at {n['pp_hi']}, does not, so this is a weak set rather than a demonstrably "
+        f"spurious one. Four of the five are Pleosporales, the order holding the wheat spot "
+        f"and blotch pathogens, and each was called in a run where one of those was "
+        f"present. That is too tenuous to "
+        f"draw as presence on a panel whose other rows are not, and it is the question "
+        f"release/04_align answers from species-unique reads rather than the question this "
+        f"screen can. They are in supp_data_s5. Their scarcity is still the db2 arm "
+        f"working: under db1' these were the conspicuous artefact, reads from a "
+        f"Pleosporaceae with no close reference forced onto a tomato or soybean pathogen, "
+        f"and adding the predicted competitors gave them somewhere nearer to go.",
         "",
         f"The unit is the run and not the BioProject, deliberately. Projects in this cohort "
         f"are not geographically coherent \u2014 the largest spans twelve countries \u2014 "

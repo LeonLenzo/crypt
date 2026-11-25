@@ -25,17 +25,17 @@ Puccinia striiformis	Rusts	1	stripe rust	Pucciniomycetes	obligate biotroph	no
 Puccinia triticina	Rusts	1	leaf rust	Pucciniomycetes	obligate biotroph	no
 Puccinia graminis	Rusts	1	stem rust	Pucciniomycetes	obligate biotroph	no
 Blumeria graminis	Mildews	2	powdery mildew	Leotiomycetes	obligate biotroph	no
-Zymoseptoria tritici	Blotches	3	Septoria tritici blotch	Dothideomycetes	hemibiotroph	no
-Parastagonospora nodorum	Blotches	3	Septoria nodorum blotch	Dothideomycetes	necrotroph	no
-Pyrenophora tritici-repentis	Blotches	3	tan spot	Dothideomycetes	necrotroph	no
-Bipolaris sorokiniana	Blotches	3	spot blotch	Dothideomycetes	necrotroph	no
-Alternaria alternata	Blotches	3	Alternaria leaf blight	Dothideomycetes	necrotroph	yes
-Oculimacula yallundae	Rots	4	eyespot	Leotiomycetes	necrotroph	no
+Zymoseptoria tritici	Spots and Blotches	3	Septoria tritici blotch	Dothideomycetes	hemibiotroph	no
+Parastagonospora nodorum	Spots and Blotches	3	Septoria nodorum blotch	Dothideomycetes	necrotroph	no
+Pyrenophora tritici-repentis	Spots and Blotches	3	tan spot	Dothideomycetes	necrotroph	no
+Bipolaris sorokiniana	Spots and Blotches	3	spot blotch	Dothideomycetes	necrotroph	no
+Alternaria alternata	Spots and Blotches	3	Alternaria leaf blight	Dothideomycetes	necrotroph	yes
+Oculimacula yallundae	Spots and Blotches	3	eyespot	Leotiomycetes	necrotroph	no
 Microdochium nivale	Rots	4	Microdochium patch	Sordariomycetes	necrotroph	no
 Fusarium graminearum	Rots	4	Fusarium head blight	Sordariomycetes	necrotroph	no
 Fusarium culmorum	Rots	4	Fusarium head blight	Sordariomycetes	necrotroph	no
 Fusarium avenaceum	Rots	4	Fusarium head blight	Sordariomycetes	necrotroph	no
-Alternaria triticina	Blotches	3	Alternaria leaf blight	Dothideomycetes	necrotroph	yes
+Alternaria triticina	Spots and Blotches	3	Alternaria leaf blight	Dothideomycetes	necrotroph	yes
 Cladosporium allicinum	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	no
 Cladosporium inversicolor	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	no
 Cladosporium cladosporioides	Moulds and saprotrophs	6	none	Dothideomycetes	saprotroph	no

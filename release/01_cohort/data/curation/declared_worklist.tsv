@@ -1,6 +1,1 @@
 BioProject	status	n_runs	n_analysed_runs	n_runs_with_wp_call	n_wp_taxa	generating_doi	resolved_by	other_dois	has_text	text_source	screen_target_pathogens	screen_mentioned_pathogens	n_curated_runs	affects_figures	wp_taxa_at_stake
-PRJNA918968	not_curated	48	0	0	0	10.15212/ijafr-2023-0110	explicit		yes	pmc			0	no	
-PRJNA628830	not_curated	22	22	0	0	10.1016/j.cropro.2020.105464	explicit		yes	manual		Puccinia spp	0	no	
-PRJDB18040	not_curated	8	0	0	0	10.3390/genes15060697	explicit		yes	pmc			0	no	
-PRJNA776691	not_curated	6	6	0	0	10.3390/plants12122374	sole candidate		yes	pmc			0	no	
-PRJNA1250571	not_curated	4	4	0	0	10.3389/fagro.2025.1721047	explicit		yes	manual			0	no	

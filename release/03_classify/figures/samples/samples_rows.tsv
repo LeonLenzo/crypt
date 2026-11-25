@@ -1,11 +1,16 @@
-row	taxon	label	n_collapsed	band	half	colour	colour_unknown	band_fill	italic	category	n_runs
-0	Puccinia striiformis	P. striiformis	0	Rusts	Pathogens	#e05a26	#f1b59d	#fae5dc	1	wheat pathogen	1029
-1	Puccinia triticina	P. triticina	0	Rusts	Pathogens	#e05a26	#f1b59d	#fae5dc	1	wheat pathogen	282
-2	Puccinia graminis	P. graminis	0	Rusts	Pathogens	#e05a26	#f1b59d	#fae5dc	1	wheat pathogen	96
-3	Blumeria graminis	B. graminis	0	Mildews	Pathogens	#e05a26	#f1b59d	#fae5dc	1	wheat pathogen	141
-4	Zymoseptoria tritici	Z. tritici	0	Blotches	Pathogens	#e05a26	#f1b59d	#fae5dc	1	wheat pathogen	299
-5	Parastagonospora nodorum	P. nodorum	0	Blotches	Pathogens	#e05a26	#f1b59d	#fae5dc	1	wheat pathogen	44
-6	Pyrenophora tritici-repentis	P. tritici-repentis	0	Blotches	Pathogens	#e05a26	#f1b59d	#fae5dc	1	wheat pathogen	38
-7	Microdochium nivale	M. nivale	0	Rots	Pathogens	#e05a26	#f1b59d	#fae5dc	1	wheat pathogen	46
-8	Fusarium graminearum	F. graminearum	0	Rots	Pathogens	#e05a26	#f1b59d	#fae5dc	1	wheat pathogen	12
-9	__total_residents__	residents per run (0–23)	0	 	Total	#1aa64b	#98d7ae	#ffffff	0	residents per run, 0–23	714
+row	taxon	label	n_collapsed	band	half	colour	colour_unknown	italic	category	n_runs
+0	Puccinia striiformis	P. striiformis	0	Rusts	Pathogens	#e05a26	#f1b59d	1	wheat pathogen	1029
+1	Puccinia triticina	P. triticina	0	Rusts	Pathogens	#e05a26	#f1b59d	1	wheat pathogen	282
+2	Puccinia graminis	P. graminis	0	Rusts	Pathogens	#e05a26	#f1b59d	1	wheat pathogen	96
+3	Blumeria graminis	B. graminis	0	Mildews	Pathogens	#e05a26	#f1b59d	1	wheat pathogen	141
+4	Zymoseptoria tritici	Z. tritici	0	Spots and Blotches	Pathogens	#e05a26	#f1b59d	1	wheat pathogen	299
+5	Parastagonospora nodorum	P. nodorum	0	Spots and Blotches	Pathogens	#e05a26	#f1b59d	1	wheat pathogen	44
+6	Pyrenophora tritici-repentis	P. tritici-repentis	0	Spots and Blotches	Pathogens	#e05a26	#f1b59d	1	wheat pathogen	38
+7	Oculimacula yallundae	O. yallundae	0	Spots and Blotches	Pathogens	#e05a26	#f1b59d	1	wheat pathogen	5
+8	Bipolaris sorokiniana	B. sorokiniana	0	Spots and Blotches	Pathogens	#e05a26	#f1b59d	1	wheat pathogen	3
+9	Microdochium nivale	M. nivale	0	Rots	Pathogens	#e05a26	#f1b59d	1	wheat pathogen	46
+10	Fusarium graminearum	F. graminearum	0	Rots	Pathogens	#e05a26	#f1b59d	1	wheat pathogen	12
+11	Fusarium avenaceum	F. avenaceum	0	Rots	Pathogens	#e05a26	#f1b59d	1	wheat pathogen	6
+12	Fusarium culmorum	F. culmorum	0	Rots	Pathogens	#e05a26	#f1b59d	1	wheat pathogen	3
+13	__total_residents__	 	0	Residents	Total	#1aa64b	#98d7ae	0	residents per run, 0–23	714
+-1	__study_target__	  	0	Virus survey	Study	#7a7a7a	#c3c3c3	0	virus survey, no fungus declared	108

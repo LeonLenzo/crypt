@@ -135,7 +135,7 @@ def load_thresholds(path: Path, arm: str) -> dict:
             if r["arm"] == arm:
                 out[f"{r['parameter']}__status"] = r["status"]
     missing = {"distinct_floor", "coverage_floor", "saturation_floor", "min_redundancy",
-               "max_fsp"} - set(out)
+               "max_fsp", "host_coverage_floor"} - set(out)
     if missing:
         sys.exit(f"{path.name} is missing {', '.join(sorted(missing))} for arm {arm}")
     return out
@@ -272,8 +272,9 @@ def call_one(cov, dist, sat, fsp, judgeable, th, is_host=False) -> tuple[str, st
 
     **THE HOST IS RANKED, NOT THRESHOLDED**, which 02_classify settled and this function
     was ignoring. Every plant library has a host by construction, so "is there a host" is
-    not the question; "which plant" is. The abundance floors are therefore not applied to a
-    host row -- they cost 77 of them, including the three uninoculated host-only controls
+    not the question; "which plant" is -- EXCEPT in a pure fungal library, where there is
+    no plant and the rank names one anyway; `host_coverage_floor` is the one floor kept
+    for that case. The fungal abundance floors are not applied to a host row -- they cost 77 of them, including the three uninoculated host-only controls
     where the right answer is known and is wheat -- but dropping the floors ALONE is wrong
     in the other direction: it admitted every plant clearing the absolute floor and called
     Hordeum vulgare in 1,141 runs of a wheat cohort, at coverage down to 0.0002. That is the
@@ -286,8 +287,16 @@ def call_one(cov, dist, sat, fsp, judgeable, th, is_host=False) -> tuple[str, st
     if not absolute_floor_ok(dist, th["distinct_floor"]):
         return "rejected", "distinct"
     if is_host:
-        # The host's call is decided per RUN by rank, not per row by threshold; `host_rank`
-        # below picks the winner. Returning "detected" here only means "eligible".
+        # ONE FLOOR SURVIVES FOR THE HOST, and it answers a different question from the
+        # ranking. Rank asks WHICH plant, and presupposes there is one. A pure fungal
+        # library has none, and rank alone still named the top cross-mapping hit: the
+        # spore control SRR6043971 was given Triticum aestivum at coverage 0.0018, where
+        # the three control libraries that really do contain host tissue sit at 0.049 to
+        # 0.208. So the floor asks IS THERE A PLANT AT ALL, and the rank then picks the
+        # winner among those that pass. Anchored on the 86 curated lab runs; see
+        # thresholds.tsv, host_coverage_floor.
+        if not (cov is not None and cov >= th["host_coverage_floor"]):
+            return "rejected", "host below floor"
         return "detected", "host, ranked per run"
     if not (cov is not None and cov >= th["coverage_floor"]):
         return "rejected", "coverage"

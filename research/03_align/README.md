@@ -1,6 +1,6 @@
 # 03_align: which genes the reads come from, and whether they are pathogenicity genes
 
-Sketched 2026-11-02, revised 2026-11-17. Nothing here is built. This file is the design and
+Sketched 2026-11-02, revised 2026-11-17 and 2026-11-25. Nothing here is built. This file is the design and
 its reasoning; **the deliverable is `release/04_align`**, which does not exist yet. It
 supersedes the `02_classify/04_align` named in older documents, which could never have had that
 path because `02_classify/04_` is `04_classify`. Align is its own module for the reason
@@ -12,6 +12,24 @@ reference set moves from db_v4 to the db0/db1/db2 ladder, and the host-response 
 into this module as a third job rather than sitting unowned in `TODO-RESULTS.md`. Everything
 about the quantifier and the statistic is unchanged. The measured-scope table near the end is
 flagged as stale and says why.
+
+**FOUR DECISIONS TAKEN 2026-11-25**, each recorded in full in the section it belongs to and
+summarised here because they were what blocked a build. Nothing is built yet.
+
+1. **The host reference is Chinese Spring and nothing else**, Ensembl Plants
+   `triticum_aestivum_refseqv2` (GCA_018294505.1, IWGSC RefSeq v2.1), already on disk from
+   `02_reference`. The align index must NOT inherit db2's host sink, which is 19 wheat
+   cultivars. See "The host reference".
+2. **Question 3 survives as a within-site blocked contrast, and it is the question the chapter
+   wants.** Site becomes the blocking factor rather than a result and geography is a nuisance
+   variable rather than an axis. 29 informative blocks, 260 runs, median 8 runs per block,
+   measured rather than assumed by `blocks.py` in this directory. See "The design, and the
+   constraint that drives it". Closes open question 0.
+3. **The host is quantified at gene level with homoeologues collapsed, and the collapse is
+   derived from our own alignments**, not from a published triad table. See "What the index
+   already gives it". Closes open question 6.
+4. **Gene set annotation lives in this module.** holobase is not part of this chapter, Leon's
+   call. See "Gene sets". Closes open question 2.
 
 ## Why this module is now the spine, not an appendix
 
@@ -150,6 +168,16 @@ and nothing is comparable. Pin the tier in the module's own output and state it 
 number. The 398-pair `neighbours.tsv` above was computed on db_v4's species set and is a
 MEASUREMENT CARRIED ACROSS, not a denominator; it needs recomputation on the shipped tier
 before it is used as one.
+
+**The recomputation already has a tool, 2026-11-25, and it is not a sketch pipeline.**
+`release/02_reference/figures/crossover/compute_matrix.py` computes exact pairwise minimizer
+sharing from the shipped CDS at the build's own `l=31 / k=35`, runs on Setonix, and has run:
+254 wheat-row taxa, block-diagonal by genus at mean 0.015 within a genus against 0.0001
+across. That is what `neighbours.tsv` measures, on the current build and at the right k, so
+the route is to re-run that script over the taxa this module needs rather than to rebuild
+FracMinHash sketching. **Its present scope is not enough.** Of the 90 non-host taxa `db2`
+calls, 39 are in the matrix and 51 are not, and the 51 are the *Alternaria* congeners and the
+resident core, which is exactly where the presence question bites.
 
 ## The quantifier is an ALIGNER, and there is no EM
 
@@ -304,13 +332,14 @@ and 2 measure the same thing on real libraries.
 All computable from the CDS already on disk, and annotation is a one-off per reference reused
 across every run: secreted CAZymes and the plant cell wall degrading subset (dbCAN3), candidate
 effectors (SignalP then EffectorP, with ApoplastP for localisation), secondary metabolite
-clusters (antiSMASH, fungal mode), peptidases (MEROPS), and PHI-base homologs, which holobase
-already holds.
+clusters (antiSMASH, fungal mode), peptidases (MEROPS), and PHI-base homologs, against the
+PHI-base release `02_reference` already pins.
 
-**Open: where annotation belongs.** It is a property of the reference set, not of a run, and
-`_refdata`/holobase is the single source of reference truth. But its only consumer today is this
-module, and the repo's convention is that a thing lives with its consumer. Leon's call. Putting
-it in holobase is the better long-run answer and the more expensive one now.
+**DECIDED 2026-11-25: annotation lives in THIS module**, under `seeds/`, with the version and
+licence recorded per source the way `02_reference` records its own pins. holobase is not part
+of this chapter, Leon's call. The cost is accepted and stated: a second consumer would have to
+import from here or repeat the work, and moving a finished annotation set into `_refdata`
+later is a copy, while waiting on holobase now blocks the module.
 
 ### The prediction is made in advance, and it can fail
 
@@ -341,9 +370,45 @@ reads align equally well to two or three homoeologues of their own gene. Discard
 of those does not remove a bias, it removes the conserved core of the transcriptome, and it
 removes more of it from exactly the gene families that retain all three copies. The Kraken2
 version of this is already a recorded trap in CLAUDE.md, where 27.7% of the *Triticum* clade's
-minimizers sat at the genus node. The likely answer is to quantify the host at the GENE level
-with homoeologues collapsed, and to state that choice rather than inherit a rule designed for a
-different problem. Decide it before building, not after.
+minimizers sat at the genus node.
+
+**DECIDED 2026-11-25: gene level, homoeologues collapsed, and the collapse comes from our own
+alignments.** Gene level is free, because the Ensembl CDS headers carry `gene:` and transcripts
+aggregate to a locus with no extra table. The collapse is the part that has to be built, and
+there were two routes. The published 1:1:1 triads (Ramirez-Gonzalez et al. 2018) are defined on
+v1.1 gene IDs, cover only the 1:1:1 subset so roughly half the gene set is left unassigned, and
+need a v2.1-to-v1.1 ID map before they can be used at all. **The route taken is to derive the
+groups from the BAM:** put an edge between two host genes whenever a read aligns equally well
+to both, and take connected components as the quantification units. That is defined by our own
+read length rather than by somebody else's ortholog call, it covers every gene including the
+dyads and the tandem duplicates, and it needs no external table.
+
+**Its failure mode is transitive merging through large gene families**, where one promiscuous
+read chains two unrelated loci into one component. So the edge carries a minimum weight, the
+share of a gene's reads it accounts for, and the component size distribution is reported rather
+than assumed. Check the components against the published triads afterwards, as a validation and
+never as an input.
+
+### The host reference
+
+**DECIDED 2026-11-25: Chinese Spring, one cultivar**, Ensembl Plants
+`triticum_aestivum_refseqv2`, GCA_018294505.1, IWGSC RefSeq v2.1. It is already on disk and
+recorded in `02_reference/data/raw/host_cds_manifest.tsv` as
+`Triticum_aestivum_refseqv2.IWGSC_RefSeq_v2.1.cds.all.fa.gz`, fetched with its md5, alongside
+the v1.0 annotation of the same cultivar.
+
+**The align index must not inherit db2's host sink, and this is the one place the two modules
+deliberately disagree.** `db2` holds 19 wheat cultivars because a classifier wants every host
+read absorbed and does not care which cultivar absorbed it. Quantification cares: 19
+near-identical gene sets make nearly every host read ambiguous between cultivars before
+homoeology is even considered, and that is a decision the uniqueness rule should never have to
+make. One coherent gene model per locus is what a count table needs.
+
+The cost is that the cohort is global cultivars and Chinese Spring is not any of them, so genes
+absent from Chinese Spring are invisible and divergent alleles align with mismatches. bowtie2
+tolerates the second. The first costs coverage of the dispensable genome, and **it does not bias
+the contrast**, because it is the same reference on both sides of single versus multi. State it
+as a limitation on which genes can be seen, not on which samples can be compared.
 
 ### The design, and the constraint that drives it
 
@@ -360,23 +425,44 @@ The wheat cohort's structure, from `release/01_cohort`:
 | PRJEB84390 | 100 | multi-site survey |
 | PRJNA718488 | 30 | INOCULATED, Zurich, one site. The manipulated contrast |
 
-**The wheat decision cost this question its primary design, and that is an open decision, not a
-detail.** The design recorded on 2026-10-23 made **PRJNA746402** primary: maize, one site in
-Pontevedra, one design, 59 informative runs split 14 single against 45 multi. It was the only
-project in the whole cohort offering a clean single-versus-multi contrast at one site with
-usable n. It is maize, so it is out, and nothing in the wheat cohort replaces it. What remains:
+**The wheat decision cost this question its primary design, and a measurement has now replaced
+the argument about it.** The design recorded on 2026-10-23 made **PRJNA746402** primary: maize,
+one site in Pontevedra, one design, 59 informative runs split 14 single against 45 multi. It is
+maize, so it is out, and no single wheat project replaces it. **29 blocks do**, measured on the
+`db2` calls on 2026-11-25:
 
-- **Site-blocked analysis of the surveys.** PRJEB39201 previously gave 55 sites holding both
-  classes over 274 runs, at a median of four runs per site. Per-site power is negligible, so
-  the strength is entirely in the number of blocks: a stratified or mixed model reporting
-  within-site effects only, never a pooled contrast. Those site counts are four-cereal-era and
-  need recomputing on the wheat cohort and the shipped tier.
-- **PRJNA718488 as the manipulated contrast**, not as part of the estimate. It is inoculated,
-  so it answers a different question, and it is 30 runs.
+| | |
+|---|---:|
+| field *T. aestivum* runs | 1,379 |
+| exactly one wheat pathogen called | 732 |
+| two or more | 547 |
+| none | 100 |
+| runs carrying real coordinates | 1,062 |
+| project x site blocks | 506 |
+| blocks holding >= 2 single AND >= 2 multi | **29** |
+| runs inside those blocks | **260** |
+| median runs per informative block | **8** |
 
-So the honest statement of where question 3 stands is that it has a secondary design and no
-primary, and the secondary rests on many weak blocks. Either accept it as a blocked analysis
-with that limitation stated, or let the question go. See the open questions below.
+Computed by `research/03_align/blocks.py`, which prints this table and the grid sweep below it.
+
+`single` is exactly one call with `is_wheat_pathogen = yes`, `multi` is two or more, and the 100
+runs with none are reported but are not in the contrast: a run with no call carries a resident
+community rather than nothing, which is a third state and not a zero. The resident taxa are
+deliberately not in the definition.
+
+PRJEB39201 carries 17 of the 29 blocks (149 runs), then PRJEB31334 6 (45), PRJEB36485 2 (17),
+PRJEB15280 2 (12) and PRJEB84390 1 (11). **PRJNA718488 is the 29th and stays OUT of the
+estimate**: it is inoculated at one site, so it is the manipulated check and answers a different
+question. The block key is BioProject plus coordinate, and it is stable across grid precision:
+rounding to 100 m, 1 km and 10 km gives 29, 29 and 28 informative blocks, so the inventory is
+not an artefact of where the rounding falls.
+
+**A median of 8 runs per block, rather than the 4 the four-cereal note assumed, is what makes
+this a design rather than a consolation.** The analysis is a within-block contrast over 29
+blocks, reporting within-block effects only and never a pooled one, which is also what makes
+geography a nuisance variable here rather than a result. Only 1,062 of the 1,379 runs carry
+real coordinates, so a third of the cohort cannot enter a blocked analysis at all; that is a
+limitation to state, not a gap to fill with country centroids, which would invent blocks.
 
 **Condition on severity, designed in rather than checked after.** A run carrying two pathogens
 probably carries more disease, so match or covary on the dominant pathogen's coverage.
@@ -434,10 +520,70 @@ The 20,000 figure is a provisional cut, not a derived floor. It should be set th
 floor was set: by rarefaction against the control arm, where the answer is known. Do not carry
 it into a manuscript as if it were measured.
 
+## The first build: job 1 only
+
+**Build presence confirmation and stop there.** The three jobs are ordered for a reason and the
+first one is also the only one that waits on nothing: it needs no gene set annotation, no
+enrichment statistic and none of the host decisions above, and it is one small index rather than
+one per host. It is also what the shipped module already defers to: `03_classify`'s README
+names two things no threshold will settle and both are this job, and the `samples` and
+`multiplicity` captions each end by handing the question here.
+
+### Target 1: the *Alternaria* clusters
+
+186 runs carry a flagged congener cluster and *Alternaria* is the genus in 176 of them. Across
+the cohort it is 2,316 calls over 240 runs and 20 species, at a median within-run coverage CV of
+0.245 against *Puccinia*'s 0.678. One run calls fourteen of them within a few percent of each
+other, which is not what fourteen co-infecting organisms look like, so the uniformity is the
+diagnostic and the question is whether the genus is one organism here or twenty. Nothing at the classifier's disposal can answer it, because the
+genus' k-mer space is shared by construction.
+
+The answer is the three presence facts, per species: species-unique reads, gene breadth, and
+positional spread within a transcript. Plus competitive survival, the same reads quantified with
+and without the congeners in the index, which is control 2 and is cheap here because the index is
+small.
+
+### Target 2: the tier-A cases, where `db2` can remove a false call but cannot make the true one
+
+*Alternaria triticina* has **0** `db2` calls: it is a wheat pathogen that was in the reference
+scope, had no gene model, and the model we predicted makes it a competitor only. *Stemphylium
+lycopersici* fell from 22 `db1p` calls to 1 in the same move. So the database is now right about
+the organism that is not there and still silent about the one that is.
+
+**Alignment is where a predicted-CDS taxon can be confirmed, because the evidence is different
+in kind.** Species-unique reads spread over many genes and spread evenly within them is not what
+cross-mapping onto a predicted gene model produces. That is a presence claim the classifier
+could not make rather than a floor being lowered. **It must be labelled wherever it is quoted:**
+a positive resting on CDS we predicted ourselves is a different provenance from a positive
+resting on an NCBI annotation, and the output carries the distinction as a column, not as a
+sentence in a caption.
+
+### The index, and the reads
+
+One index, not one per host: 114 Pleosporaceae taxa are in the reference, 41 of them
+NCBI-annotated and 21 with CDS predicted here, of which 71 are *Alternaria* (27 annotated, 7
+predicted), plus Chinese Spring CDS as the sink. Tagged headers as above. The rest of the
+family is in scope and unbuildable, which is itself part of the adjudication: a cluster that
+collapses onto the one congener with a gene model is a different finding from one that spreads.
+
+The reads are 176 runs and **917 Gbases**, mean 5.2 Gbases per run, concentrated in PRJEB39201
+(96 runs), PRJEB15280 (27), PRJEB84390 (18) and PRJEB65589 (12). Every number in this section
+is printed by `research/03_align/scope.py`, against the shipped tables rather than from a note.
+
+**Throughput comes from a timed dry run on three runs of different depth, never from a guess.**
+bowtie2 `-k` over 917 Gbases is this module's first real cost and nothing in the project has
+measured it. Size the SLURM request from that dry run, and remember the memory request is the
+CPU bill.
+
+Order inside job 1: build the index, then the dry run and the sizing, then the 176 runs, then
+the off-host null on the same index (control 1) **before** any adjudication is read. A
+cross-mapping floor measured after the result is a floor fitted to the result.
+
 ## Layout, proposed
 
     03_align/
-      01_index/     bowtie2 index per host over db_v4 CDS, tagged headers, host CDS as sink
+      01_index/     bowtie2 index over the SHIPPED tier's CDS (db2), tagged headers, Chinese
+                    Spring CDS as the sink. One index per question's taxon set, not per host
       02_align/     bowtie2 -k + samtools per run; BAM is the product, not a count table
       03_assign/    read -> species-unique or ambiguous; per-gene unique counts; positional
                     spread; the three presence facts. ALSO emits the host gene-level count
@@ -451,25 +597,24 @@ it into a manuscript as if it were measured.
       report/       figures and tables
       _common.py
 
+**Job 1 is `01_index`, `02_align`, `03_assign` and `controls/` only.** `04_function`,
+`05_host` and `seeds/` are the second build and are specified above but not scoped.
+
 ## Open questions before anything is built
 
-0. **Does question 3 survive losing PRJNA746402?** Added 2026-11-17. The wheat decision removed
-   the only one-site, one-design, adequately powered single-versus-multi contrast in the
-   cohort, leaving a site-blocked analysis over many four-run blocks plus a 30-run inoculated
-   project. Three options, and this is Leon's call: run it blocked and state the limitation;
-   drop the question from this chapter; or keep it as a descriptive companion to the pathogen
-   result rather than a test of its own. Nothing else in the module depends on the answer,
-   because `03_assign` emits the host table either way.
+0. **CLOSED 2026-11-25. Question 3 survives, run blocked.** 29 blocks hold both classes at a
+   median of 8 runs each, which is twice what the four-cereal note assumed, so the blocked
+   design is the design rather than a fallback. Within-block effects only, severity covaried,
+   PRJNA718488 kept out as the manipulated check. See "The design, and the constraint that
+   drives it".
 1. **Which subset.** The obligate-biotroph events are where the claim is strongest and where
    alignment cost is affordable; the full secondary-detection set is the ambitious version.
    Scoping is no longer a concession now that prevalence is not the claim. **Recount on the
    wheat cohort and the shipped db tier first**: the counts in the measured-scope section above
    are four-cereal db_v4 and the biotroph set in particular was carried by rust surveys that
    are mostly wheat, so it may shrink less than the total does.
-2. **Where annotation lives.** It is a property of the reference set and `_refdata`/holobase is
-   the single source of reference truth, but its only consumer today is this module and the
-   repo's convention is that a thing lives with its consumer. Holobase is the better long-run
-   answer and the more expensive one now. Leon's call.
+2. **CLOSED 2026-11-25. Annotation lives in this module**, under `seeds/`, with a pin and a
+   licence per source. holobase is not part of this chapter.
 3. **Cost, unsized.** Two separate one-offs: annotating db_v4's reference set, and aligning. The
    second is the new one, because alignment is materially slower than pseudoalignment and
    `02_classify` has no measurement for it. Size both from a dry run, never from holobase
@@ -479,7 +624,6 @@ it into a manuscript as if it were measured.
 5. **bowtie2 end-to-end or local.** Local soft-clips, which helps against divergent references
    but can let a conserved domain carry a read that end-to-end would reject. Test on the
    controls rather than choosing on principle.
-6. **How the host is quantified.** Added 2026-11-17. Hexaploid wheat makes the species-unique
-   rule the wrong instrument within the host, for the reason in "The host-response design"
-   above. Gene-level with homoeologues collapsed is the likely answer. Decide and state it;
-   do not let question 3 inherit question 2's rule by default.
+6. **CLOSED 2026-11-25. Gene level, homoeologues collapsed, collapse derived from the BAM**
+   rather than from the published triads, with a minimum edge weight and the component size
+   distribution reported. See "What the index already gives it, and the one thing it does not".

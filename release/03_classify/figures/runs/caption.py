@@ -56,8 +56,12 @@ def main():
         p, rows, called, names = line(k)
         bits.append(f"  {k}. {p['label']} ({p['run']}, "
                     f"{mat.get(p['run'], 'field-collected')}): {len(rows):,} candidates, "
-                    f"{len(called)} called \\u2014 {names}")
+                    f"{len(called)} called \u2014 {names}")
     ladder = "\n".join(bits)
+
+    short = "; ".join(
+        f"{rung[k]['label']} ({len(line(k)[2])} of {len(line(k)[1]):,} called)"
+        for k in sorted(rung))
 
     cf, sf = float(fl["coverage_floor"]), float(fl["saturation_floor"])
     n_pts = len(pts)
@@ -114,6 +118,24 @@ def main():
         f"no identity worth reading: what it shows is that the floors refuse far more than "
         f"they admit, and that the refusals lie along one locus rather than scattered, which "
         f"is what cross-mapping from a large reference looks like.",
+        "",
+        "",
+        "SHORT CAPTION",
+        "",
+        f"Detection space for four runs of the control ladder, drawn from the two "
+        f"quantities a call is made on: redundancy available on the x axis, the reads the "
+        f"library could have spent on a taxon, against coverage observed on the y, the "
+        f"share of its k-mer space seen, both divided by that taxon's own minimizer total "
+        f"in db2 and drawn on log scales labelled as the exponent. Each point is one taxon "
+        f"Kraken2 assigned reads to; filled points are calls and hollow points are not, "
+        f"{n_called} of {n_pts:,} candidates across the four runs being called. The dotted "
+        f"line is the coverage floor at {cf:.0%}, anchored on the off-host null, and the "
+        f"dashed curve the abundance floor, {sf:.2f} of the coverage reads spread uniformly "
+        f"would give at that depth; they cross at redundancy 0.51, above which the curve "
+        f"binds and below which the line does, and no point is judged by both. The rungs "
+        f"run {short}, each chosen with its expectation recorded in "
+        f"data/inputs/panel_runs.tsv before the panels were drawn. The unlabelled cloud "
+        f"below the floors is cross-mapping from a large reference, not a set of calls.",
     )
     write(FIG / "runs_caption.txt", text)
 

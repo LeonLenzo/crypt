@@ -31,10 +31,10 @@ The four runs are a ladder through the control set, and each was chosen with
 its expectation written down first, in data/inputs/panel_runs.tsv, so the
 panels are a test rather than an illustration:
 
-  1. pure fungal (spores) (SRR6043971, spores): 68 candidates, 1 called \u2014 Puccinia striiformis
-  2. controlled infection (ERR1607743, infected_tissue): 143 candidates, 4 called \u2014 Cladosporium cladosporioides, Cladosporium inversicolor, Puccinia striiformis, Triticum aestivum
-  3. field sample (ERR15005445, field-collected): 299 candidates, 11 called \u2014 Alternaria triticimaculans, Cladosporium allicinum, Dioszegia hungarica, Parastagonospora nodorum, Puccinia graminis, Puccinia striiformis, Puccinia triticina, Pyrenophora tritici-repentis, Sporobolomyces roseus, Triticum aestivum, Zymoseptoria tritici
-  4. host only (SRR14239691, host_only): 320 candidates, 1 called \u2014 Triticum aestivum
+  1. pure fungal (spores) (SRR6043971, spores): 68 candidates, 1 called — Puccinia striiformis
+  2. controlled infection (ERR1607743, infected_tissue): 143 candidates, 4 called — Cladosporium cladosporioides, Cladosporium inversicolor, Puccinia striiformis, Triticum aestivum
+  3. field sample (ERR15005445, field-collected): 299 candidates, 11 called — Alternaria triticimaculans, Cladosporium allicinum, Dioszegia hungarica, Parastagonospora nodorum, Puccinia graminis, Puccinia striiformis, Puccinia triticina, Pyrenophora tritici-repentis, Sporobolomyces roseus, Triticum aestivum, Zymoseptoria tritici
+  4. host only (SRR14239691, host_only): 320 candidates, 1 called — Triticum aestivum
 
 Read left to right they say what a column of the panel above can contain. A
 spore library has one organism in it and the method finds one. A glasshouse
@@ -52,3 +52,23 @@ The rejected cloud is most of each panel and is deliberately unlabelled. It
 has no identity worth reading: what it shows is that the floors refuse far
 more than they admit, and that the refusals lie along one locus rather than
 scattered, which is what cross-mapping from a large reference looks like.
+
+
+SHORT CAPTION
+
+Detection space for four runs of the control ladder, drawn from the two
+quantities a call is made on: redundancy available on the x axis, the reads
+the library could have spent on a taxon, against coverage observed on the y,
+the share of its k-mer space seen, both divided by that taxon's own minimizer
+total in db2 and drawn on log scales labelled as the exponent. Each point is
+one taxon Kraken2 assigned reads to; filled points are calls and hollow points
+are not, 17 of 830 candidates across the four runs being called. The dotted
+line is the coverage floor at 2%, anchored on the off-host null, and the
+dashed curve the abundance floor, 0.05 of the coverage reads spread uniformly
+would give at that depth; they cross at redundancy 0.51, above which the curve
+binds and below which the line does, and no point is judged by both. The rungs
+run pure fungal (spores) (1 of 68 called); controlled infection (4 of 143
+called); field sample (11 of 299 called); host only (1 of 320 called), each
+chosen with its expectation recorded in data/inputs/panel_runs.tsv before the
+panels were drawn. The unlabelled cloud below the floors is cross-mapping from
+a large reference, not a set of calls.

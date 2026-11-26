@@ -145,6 +145,28 @@ def main():
         "",
         f"The largest single off-diagonal count is {big_v:,} minimizers, between {big_a} and "
         f"{big_b}.",
+        "",
+        "",
+        "SHORT CAPTION",
+        "",
+        f"Pairwise minimizer sharing among the {n:,} fungal taxa the USDA Plant-Fungal "
+        f"Database records on wheat, spanning {n_genera} genera and built from "
+        f"{n_asm:,} genome assemblies. Each taxon's canonical coding-sequence minimizers "
+        f"(length {L} over {K}-base windows, the db1p scheme) were unioned across its "
+        f"assemblies; a cell is the exact intersection of two such sets, coloured as "
+        f"crossover, the shared count over the smaller taxon's total, so 0 (white) means "
+        f"the classifier can separate them and 1 that it cannot. The diagonal is masked. "
+        f"Rows and columns are ordered by the NCBI taxonomy drawn as a cladogram on the "
+        f"top and left, where radius is rank and not divergence, and the axis strips "
+        f"colour each taxon by its panel-A type ({n_res} recorded on wheat with no "
+        f"pathogenicity record, {n_plant} pathogens of other plants, {n_wp} wheat "
+        f"pathogens). Crossover is confined to the diagonal blocks: mean crossover between "
+        f"congeners is {same_mean:.3f} against {cross_mean:.4f} across genera, so an "
+        f"unresolvable read is still resolved to genus. The {len(prob)} of the {n_wp} "
+        f"wheat pathogens whose minimizers overlap another taxon's by at least "
+        f"{PROBLEM_THRESH:.0%} are highlighted and named in the full caption; they are "
+        f"species complexes rather than database errors, and the three wheat rusts "
+        f"({', '.join(rusts)}) resolve cleanly. Keyed by crossover_legend.png.",
     ))
 
 

@@ -103,3 +103,26 @@ represented genus is a call on that genus' k-mer space; both are taken up in
 04_align, and the congener case is shown in the detection-space panels beside
 this one. Column order, project, country, region, coordinates and call count
 per run are in samples_cols.tsv.
+
+
+SHORT CAPTION
+
+What is in every run of the cohort, and who reported it. Each of the 1,347
+field-collected Triticum aestivum RNA-seq runs is one column, grouped into 4
+regions and ordered west to east, by longitude within a region (40 countries,
+22 BioProjects, 1,062 runs with coordinates). Every wheat pathogen called gets
+a row however rare: 14 were called and 14 rows are drawn, banded by the
+disease they cause, with A. alternata (2) shown inside the Alternaria genus
+row rather than on a row of its own. Hue is the taxon's category in the
+reference matrix, the same hue it carries in 02_reference; the treatment is
+who knew, full colour where the study that generated the run did not declare
+that organism and charcoal where it did. The top row is the study rather than
+an organism, marking the 108 runs from the 9 virus surveys, which declared no
+fungus because they were not looking for one. The ramp at the foot counts
+resident calls per run (66 taxa over 4,034 calls); residents, the plant host
+and 5 pathogens of other plants have no rows of their own and are in
+supp_data_s5. Of the 1,347 columns 696 hold one call and it is the declared
+one, 94 hold none, and 549 carry at least one undeclared wheat pathogen, 527
+of them beside the pathogen the study was about and 22 with no declared
+pathogen at all. Detection is presence, not activity; column order and per-run
+geography are in samples_cols.tsv.

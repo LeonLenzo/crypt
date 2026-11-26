@@ -320,6 +320,33 @@ def main():
         f"04_align, and the congener case is shown in the detection-space panels beside "
         f"this one. Column order, project, country, region, coordinates and call count per "
         f"run are in samples_cols.tsv.",
+        "",
+        "",
+        "SHORT CAPTION",
+        "",
+        f"What is in every run of the cohort, and who reported it. Each of the "
+        f"{n['runs']:,} field-collected {describe().split()[-2]} "
+        f"{describe().split()[-1]} RNA-seq runs is one column, grouped into "
+        f"{n['regions']} regions and ordered west to east, by longitude within a region "
+        f"({n['countries']} countries, {n['projects']} BioProjects, {n['geo']:,} runs with "
+        f"coordinates). Every wheat pathogen called gets a row however rare: {n['taxa']} "
+        f"were called and {n['drawn_rows']} rows are drawn, banded by the disease they "
+        f"cause, with {n['undrawn']} shown inside the {n['collapsed']} genus row rather "
+        f"than on a row of its own. Hue is the "
+        f"taxon's category in the reference matrix, the same hue it carries in "
+        f"02_reference; the treatment is who knew, full colour where the study that "
+        f"generated the run did not declare that organism and charcoal where it did. The "
+        f"top row is the study rather than an organism, marking the {n['virus_runs']} runs "
+        f"from the {n['n_virus']} virus surveys, which declared no fungus because they "
+        f"were not looking for one. The ramp at the foot counts resident calls per run "
+        f"({n['n_resident_taxa']} taxa over {n['n_resident_calls']:,} calls); residents, "
+        f"the plant host and {n['n_pp_taxa']} pathogens of other plants have no rows of "
+        f"their own and are in supp_data_s5. Of the {n['runs']:,} columns "
+        f"{n['only_declared']:,} hold one call and it is the declared one, {n['no_call']} "
+        f"hold none, and {n['runs_undeclared']} carry at least one undeclared wheat "
+        f"pathogen, {n['runs_both']} of them beside the pathogen the study was about and "
+        f"{n['runs_only']} with no declared pathogen at all. Detection is presence, not "
+        f"activity; column order and per-run geography are in samples_cols.tsv.",
     )
     write(FIG / "samples_caption.txt", text)
 

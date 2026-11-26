@@ -60,3 +60,25 @@ despite their shared genus.
 
 The largest single off-diagonal count is 8,825,770 minimizers, between
 Alternaria alternata and Alternaria tenuissima.
+
+
+SHORT CAPTION
+
+Pairwise minimizer sharing among the 254 fungal taxa the USDA Plant-Fungal
+Database records on wheat, spanning 90 genera and built from 1,289 genome
+assemblies. Each taxon's canonical coding-sequence minimizers (length 31 over
+35-base windows, the db1p scheme) were unioned across its assemblies; a cell
+is the exact intersection of two such sets, coloured as crossover, the shared
+count over the smaller taxon's total, so 0 (white) means the classifier can
+separate them and 1 that it cannot. The diagonal is masked. Rows and columns
+are ordered by the NCBI taxonomy drawn as a cladogram on the top and left,
+where radius is rank and not divergence, and the axis strips colour each taxon
+by its panel-A type (204 recorded on wheat with no pathogenicity record, 25
+pathogens of other plants, 25 wheat pathogens). Crossover is confined to the
+diagonal blocks: mean crossover between congeners is 0.015 against 0.0001
+across genera, so an unresolvable read is still resolved to genus. The 12 of
+the 25 wheat pathogens whose minimizers overlap another taxon's by at least
+20% are highlighted and named in the full caption; they are species complexes
+rather than database errors, and the three wheat rusts (Puccinia graminis,
+Puccinia striiformis, Puccinia triticina) resolve cleanly. Keyed by
+crossover_legend.png.

@@ -9,6 +9,7 @@ file rather than to an intermediate that may have moved.
 Paths that cross module boundaries in the research tree live in `research/_paths.py`; these do
 not cross anything, they are this module's own inputs.
 """
+import os
 from pathlib import Path
 
 _MARKERS = ("CLAUDE.md", ".gitignore")
@@ -50,3 +51,9 @@ HOST_ACCESSION = "GCA_018294505.1"
 HOST_TAXID = "4565"
 
 ARM = "db2"
+
+# Where the big artefacts go: the reference FASTA, the transcript table, the index, the BAMs.
+# OUTSIDE the repo, deliberately. The repo holds code and small tables; a 1.2 GB FASTA and a
+# 60 MB transcript table are neither. ALIGN_WORK overrides it, which is how a SLURM job points
+# at its own scratch directory.
+ALIGN_WORK = Path(os.environ.get("ALIGN_WORK", ROOT.parent / "_align"))

@@ -7,7 +7,7 @@ Reads  data/outputs/supp_data_s2_cohort.tsv   the cohort and its curated setting
        data/outputs/supp_data_s1_studies.tsv  which paper generated each deposit
        data/raw/fulltext.tsv + data/raw/fulltext/*   the papers themselves
        data/raw/sample_attrs.jsonl            what the submitter recorded per sample
-Writes figures/setting_audit.tsv              one row per BioProject, evidence per column
+Writes data/curation/setting_audit.tsv              one row per BioProject, evidence per column
 
 WHY THIS EXISTS. A rust paper collects a pustule from a field, then multiplies it through
 rounds of inoculation on a susceptible variety in a glasshouse and sequences THAT. The
@@ -35,7 +35,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 MODULE = HERE.parent
 DATA = MODULE / "data"
-OUT = MODULE / "figures" / "setting_audit.tsv"
+OUT = MODULE / "data" / "curation" / "setting_audit.tsv"
 
 # Phrases that describe growing the thing that was sequenced. "Multiplied" and
 # "successive rounds" are the strongest: nothing in a field survey needs them.

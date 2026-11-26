@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""prep_cohort_map.py — one row per collection locality, for the cohort map.
+"""prep_map.py — one row per collection locality, for the cohort map.
 
-    python release/01_cohort/scripts/prep_cohort_map.py
+    python release/01_cohort/figures/map/prep_map.py
 
 Reads  data/outputs/supp_data_s2_cohort.tsv    the run-level cohort, with coordinates
        data/curation/curated_attributes.tsv    how each coordinate was arrived at
-Writes figures/cohort_map_points.tsv           one row per distinct point
-       figures/cohort_map_summary.tsv          what is on the map and what is missing
+Writes map_points.tsv           one row per distinct point
+       map_summary.tsv          what is on the map and what is missing
 
 BUILT FROM THE SUPPLEMENTARY TABLE, not from any working file, so the figure and the
 supplement describe the same cohort. That rule is inherited from the crop map this
@@ -22,7 +22,7 @@ off-host runs have no place on it even when they carry coordinates: an isolate d
 records where its pustule came from, not where anything was sampled. 28 runs were being
 drawn on that basis before this filter existed.
 
-COUNTRY-ONLY RUNS ARE DRAWN, AS DIAMONDS. 321 field-wheat runs name a country and
+COUNTRY-ONLY RUNS ARE DRAWN, AT THE COUNTRY CENTROID. 321 field-wheat runs name a country and
 nothing finer, and leaving them off a map that otherwise looks complete overstates its
 coverage by a fifth. Every one was chased: three papers' supplements were read in full
 and they record country for exactly these samples, so the resolution is the literature's,
@@ -44,14 +44,13 @@ import csv
 import math
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent
-MODULE = HERE.parent
+MODULE = Path(__file__).resolve().parents[2]    # release/01_cohort
+FIG = Path(__file__).resolve().parent           # this figure's own directory
 COHORT = MODULE / "data" / "outputs" / "supp_data_s2_cohort.tsv"
 CURATED = MODULE / "data" / "curation" / "curated_attributes.tsv"
-FIGDIR = MODULE / "figures"
-POINTS = FIGDIR / "cohort_map_points.tsv"
-SUMMARY = FIGDIR / "cohort_map_summary.tsv"
-CENTROIDS = FIGDIR / "country_centroids.tsv"
+POINTS = FIG / "map_points.tsv"
+SUMMARY = FIG / "map_summary.tsv"
+CENTROIDS = FIG / "country_centroids.tsv"
 
 # Coordinates are rounded before grouping. Two runs from one field can differ in the
 # sixth decimal, which is under a metre and would otherwise split one locality into two
@@ -114,7 +113,7 @@ def main():
                                          if r["location"]})[0]
                      if any(r["location"] for r in runs) else ""})
 
-    # One diamond per country, carrying every run from it that has no finer place.
+    # One point per country, carrying every run from it that has no finer place.
     by_country = collections.defaultdict(list)
     homeless = []
     for run in rest:
@@ -127,7 +126,7 @@ def main():
                      "bioprojects": len({r["BioProject"] for r in runs}),
                      "precision": "country", "location": name})
 
-    FIGDIR.mkdir(exist_ok=True)
+    FIG.mkdir(exist_ok=True)
     with open(POINTS, "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=list(rows[0]), delimiter="\t",
                            lineterminator="\n")

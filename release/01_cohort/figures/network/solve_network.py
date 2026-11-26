@@ -1,21 +1,24 @@
 #!/usr/bin/env python3
 """Draw the cohort as a network of papers, BioProjects and runs.
 
-    python release/01_cohort/scripts/plot_cohort_network.py            # layout if stale, draw
-    python release/01_cohort/scripts/plot_cohort_network.py --render   # draw from the cache
-    python release/01_cohort/scripts/plot_cohort_network.py --layout   # recompute and cache
-    python release/01_cohort/scripts/plot_cohort_network.py --report   # measure, draw nothing
+    python release/01_cohort/figures/network/solve_network.py          # layout if stale, draw
+    python release/01_cohort/figures/network/solve_network.py --render # draw from the cache
+    python release/01_cohort/figures/network/solve_network.py --layout # recompute and cache
+    python release/01_cohort/figures/network/solve_network.py --report # measure, draw nothing
 
 Reads  data/outputs/supp_data_s1_studies.tsv   studies, their verdict and BioProjects
        data/outputs/supp_data_s2_cohort.tsv     the run-level cohort
        data/curation/screen_fulltext.tsv        what the full text said each study did
        data/curation/relations.tsv                authored: who generated or reanalysed
        data/curation/pinned_nodes.tsv             authored: nodes placed by hand
-Writes figures/cohort_network.png         the figure, no legend
-       figures/cohort_network_legend.png  the legend on its own, to place in assembly
-       figures/cohort_network_layout.json the computed positions, so drawing is cheap
-       figures/cohort_network_nodes.tsv   --map: every placeable node and where it sits
-       figures/cohort_network_map.png     --map: the same figure with those nodes named
+Writes network_solved.png        the figure, no legend
+       network_solved_legend.png the legend on its own, to place in assembly
+       network_layout.json       the computed positions, so drawing is cheap
+       network_nodes.tsv         --map: every placeable node and where it sits
+       network_solved_map.png    --map: the same figure with those nodes named
+
+This is the SOLVER, and its output is a check on the layout rather than the page figure.
+The page figure is plot_network.py, which draws from network_nodes.tsv and no solver.
 
 WHY THIS IS SPLIT. Solving the layout takes minutes, because every candidate position for
 a BioProject is tested against the other clouds AND against every edge already drawn.
@@ -76,18 +79,17 @@ import numpy as np
 from matplotlib.lines import Line2D
 from scipy.spatial import cKDTree
 
-HERE = Path(__file__).resolve().parent
-MODULE = HERE.parent
+MODULE = Path(__file__).resolve().parents[2]    # release/01_cohort
+FIG = Path(__file__).resolve().parent           # this figure's own directory
 OUTPUTS = MODULE / "data" / "outputs"
 CURATION = MODULE / "data" / "curation"
-FIGDIR = MODULE / "figures"
 STUDIES = OUTPUTS / "supp_data_s1_studies.tsv"
 COHORT = OUTPUTS / "supp_data_s2_cohort.tsv"
 SCREEN = CURATION / "screen_fulltext.tsv"
-RELATIONS = MODULE / "data" / "curation" / "relations.tsv"
-PINNED = MODULE / "data" / "curation" / "pinned_nodes.tsv"
-NODE_TABLE = FIGDIR / "cohort_network_nodes.tsv"
-CACHE = FIGDIR / "cohort_network_layout.json"
+RELATIONS = CURATION / "relations.tsv"
+PINNED = CURATION / "pinned_nodes.tsv"
+NODE_TABLE = FIG / "network_nodes.tsv"
+CACHE = FIG / "network_layout.json"
 
 # -------------------------------------------------------------- GEOMETRY ----
 # Everything here changes where things sit, so everything here is in the cache key.
@@ -1029,12 +1031,12 @@ def render(data, pos, window, reanalysis=False, labels=False):
     fig.tight_layout()
     # The two variants are separate files. The reanalysis one is an alternative read of
     # the same layout, not a replacement, so drawing it must not cost the default.
-    stem = ("cohort_network_map" if labels
-            else "cohort_network_reanalysis" if reanalysis else "cohort_network")
-    out = FIGDIR / f"{stem}.png"
+    stem = ("network_solved_map" if labels
+            else "network_solved_reanalysis" if reanalysis else "network_solved")
+    out = FIG / f"{stem}.png"
     fig.savefig(out, dpi=DPI, facecolor=BACKGROUND)
     plt.close(fig)
-    legend_out = FIGDIR / f"{stem}_legend.png"
+    legend_out = FIG / f"{stem}_legend.png"
     write_legend(legend_out, reanalysis)
     print(f"wrote {out}\nwrote {legend_out}")
 
@@ -1048,16 +1050,16 @@ def main():
     ap.add_argument("--report", action="store_true",
                     help="measure the cached layout, draw nothing")
     ap.add_argument("--map", action="store_true", dest="node_map",
-                    help="write figures/cohort_network_nodes.tsv and a copy of the "
+                    help="write network_nodes.tsv and a copy of the "
                          "figure with every placeable node named, to work out what to "
                          "put in curation/pinned_nodes.tsv")
     ap.add_argument("--reanalysis", action="store_true",
                     help="also draw, dashed, the edge to data a paper only reanalysed. "
-                         "Writes cohort_network_reanalysis.png and reuses the same "
+                         "Writes network_solved_reanalysis.png and reuses the same "
                          "layout, since these edges do not steer it")
     args = ap.parse_args()
 
-    FIGDIR.mkdir(exist_ok=True)
+    FIG.mkdir(exist_ok=True)
     data = Cohort()
     cached = None if args.layout else load_layout()
 

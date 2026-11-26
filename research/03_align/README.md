@@ -566,6 +566,18 @@ predicted), plus Chinese Spring CDS as the sink. Tagged headers as above. The re
 family is in scope and unbuildable, which is itself part of the adjudication: a cluster that
 collapses onto the one congener with a gene model is a different finding from one that spreads.
 
+**One assembly per species, chosen by `01_index/plan_index.py` and not inherited.**
+`build_plan.tsv` turned out not to be a per-species pick at all: it carries all 5,302 annotated
+assemblies, 34 of them for *A. alternata*, because the classifier wanted every isolate's k-mer
+space. So it is a membership filter (an assembly must be one the cohort was classified against)
+and the choice is this module's. Level first, then **nearest the species median gene count**,
+because level-then-fewest-contigs picks a 24,347-gene *A. alternata* annotation over a
+13,466-gene one on a one-contig difference, against a species median of 11,928, which would put
+two copies of most loci in the index in the one genus the adjudication is about. An assembly
+with no gene model is rejected outright (*A. clavatophorus*' only annotation declares five
+genes); one that merely disagrees with its relatives is flagged for a sequence-level redundancy
+check, because metadata cannot separate a hybrid from a duplicated annotation.
+
 The reads are 176 runs and **917 Gbases**, mean 5.2 Gbases per run, concentrated in PRJEB39201
 (96 runs), PRJEB15280 (27), PRJEB84390 (18) and PRJEB65589 (12). Every number in this section
 is printed by `research/03_align/scope.py`, against the shipped tables rather than from a note.

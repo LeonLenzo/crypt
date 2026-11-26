@@ -28,8 +28,14 @@ WORK="${ALIGN_WORK:-/scratch/pawsey1168/llenzo/_align}/${LABEL}"
 
 module load bowtie2/2.5.4--he96a11b_7
 
+# The reference is rebuilt in the job rather than on the login node: it reads 1.2 GB of CDS
+# and writes as much, which is compute (setonix-never-compute-on-login). It is idempotent, so
+# a resubmission regenerates it rather than trusting what is there.
+mkdir -p "$WORK"
+python3 "${REPO}/research/03_align/01_index/build_reference.py" --label "${LABEL}"
+
 cd "$WORK"
-test -s reference.fa || { echo "no reference.fa in $WORK; run build_reference.py first" >&2; exit 1; }
+test -s reference.fa || { echo "build_reference.py wrote no reference.fa in $WORK" >&2; exit 1; }
 
 echo "host $(hostname), ${SLURM_CPUS_PER_TASK} threads, label ${LABEL}"
 echo "reference: $(grep -c '^>' reference.fa) records, $(du -h reference.fa | cut -f1)"

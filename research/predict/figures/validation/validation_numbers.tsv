@@ -1,0 +1,36 @@
+key	value	note
+a_n	60	
+a_recall_median	0.962	
+a_precision_median	0.944	
+a_complete_n	18	
+a_complete_recall	0.976	
+a_chromosome_n	17	
+a_chromosome_recall	0.965	
+a_scaffold_n	13	
+a_scaffold_recall	0.959	
+a_contig_n	12	
+a_contig_recall	0.958	
+b_n	135	
+b_median	99.5	
+b_q1	98.5	
+b_below90	4	
+b_ref_n	1989	
+b_ref_median	98.4	
+b_ref_below90_pct	6	
+b_no_expectation	8	whose genus holds fewer than 3 assemblies
+b_outliers	Aspergillus sp. 22%; Vishniacozyma victoriae 59%; Pichia fermentans 76%; Puccinia brachypodii 88%	
+c_genus_yes_n	22	
+c_genus_yes_median	0.644	
+c_genus_no_n	37	
+c_genus_no_median	0.972	
+c_n	59	
+d_n	53	
+d_dropped	7	Neurospora crassa; Saccharomycodes ludwigii; Zygosaccharomyces parabailii; Cryptococcus bacillisporus; Aspergillus bombycis; Fomitiporia mediterranea; Coniosporium apollinis
+d_median_ratio	1.03	
+d_r_size_overprediction	+0.76	
+d_r_size_precision	-0.72	
+d_r_size_recall	-0.50	
+d_gram_ratio	3.91	
+d_gram_precision	0.51	
+d_trit_ratio	2.19	
+d_trit_precision	0.49	

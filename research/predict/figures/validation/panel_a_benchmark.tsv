@@ -1,0 +1,121 @@
+accession	taxon	assembly_level	metric	value
+GCA_016801405.1	Parastagonospora nodorum	Chromosome	recall	0.9361
+GCA_016801405.1	Parastagonospora nodorum	Chromosome	precision	0.9734
+GCA_900091695.1	Zymoseptoria tritici	Chromosome	recall	0.9734
+GCA_900091695.1	Zymoseptoria tritici	Chromosome	precision	0.9290
+GCF_003171515.1	Pyrenophora tritici-repentis	Chromosome	recall	0.9614
+GCF_003171515.1	Pyrenophora tritici-repentis	Chromosome	precision	0.8948
+GCA_900232045.3	Pyrenophora teres	Chromosome	recall	0.9734
+GCA_900232045.3	Pyrenophora teres	Chromosome	precision	0.9529
+GCA_025169535.1	Puccinia striiformis	Chromosome	recall	0.8710
+GCA_025169535.1	Puccinia striiformis	Chromosome	precision	0.8090
+GCA_026914245.1	Puccinia triticina	Complete Genome	recall	0.8806
+GCA_026914245.1	Puccinia triticina	Complete Genome	precision	0.4872
+GCA_061311145.1	Fusarium graminearum	Complete Genome	recall	0.9590
+GCA_061311145.1	Fusarium graminearum	Complete Genome	precision	0.9633
+GCA_030719095.1	Fusarium oxysporum	Complete Genome	recall	0.9686
+GCA_030719095.1	Fusarium oxysporum	Complete Genome	precision	0.9322
+GCA_049245135.1	Rhizoctonia solani	Complete Genome	recall	0.9767
+GCA_049245135.1	Rhizoctonia solani	Complete Genome	precision	0.5929
+GCA_004346965.1	Pyricularia oryzae	Complete Genome	recall	0.9321
+GCA_004346965.1	Pyricularia oryzae	Complete Genome	precision	0.9532
+GCA_028858655.1	Bipolaris maydis	Scaffold	recall	0.9611
+GCA_028858655.1	Bipolaris maydis	Scaffold	precision	0.9539
+GCF_033473495.1	Cercospora beticola	Complete Genome	recall	0.9837
+GCF_033473495.1	Cercospora beticola	Complete Genome	precision	0.9594
+GCF_019915245.1	Fusarium musae	Chromosome	recall	0.9793
+GCF_019915245.1	Fusarium musae	Chromosome	precision	0.8738
+GCA_003316995.2	Fusarium verticillioides	Chromosome	recall	0.9823
+GCA_003316995.2	Fusarium verticillioides	Chromosome	precision	0.9133
+GCF_001672515.1	Colletotrichum higginsianum	Chromosome	recall	0.9498
+GCF_001672515.1	Colletotrichum higginsianum	Chromosome	precision	0.9533
+GCA_009663115.1	Fusarium fujikuroi	Chromosome	recall	0.9617
+GCA_009663115.1	Fusarium fujikuroi	Chromosome	precision	0.9208
+GCA_900519115.1	Blumeria graminis	Chromosome	recall	0.9478
+GCA_900519115.1	Blumeria graminis	Chromosome	precision	0.5126
+GCA_045999785.1	Phlyctema vagabunda	Chromosome	recall	0.9836
+GCA_045999785.1	Phlyctema vagabunda	Chromosome	precision	0.9284
+GCF_000182925.2	Neurospora crassa	Chromosome	recall	0.9645
+GCF_000182925.2	Neurospora crassa	Chromosome	precision	0.9781
+GCF_004355905.1	Pyricularia grisea	Chromosome	recall	0.9558
+GCF_004355905.1	Pyricularia grisea	Chromosome	precision	0.9528
+GCF_020623625.1	Saccharomycodes ludwigii	Chromosome	recall	0.9978
+GCF_020623625.1	Saccharomycodes ludwigii	Chromosome	precision	0.9872
+GCF_018924745.1	Marasmius oreades	Chromosome	recall	0.9528
+GCF_018924745.1	Marasmius oreades	Chromosome	precision	0.8817
+GCA_051938815.1	Gaeumannomyces hyphopodioides	Chromosome	recall	0.9790
+GCA_051938815.1	Gaeumannomyces hyphopodioides	Chromosome	precision	0.9099
+GCF_964197705.1	Penicillium psychrofluorescens	Chromosome	recall	0.9916
+GCF_964197705.1	Penicillium psychrofluorescens	Chromosome	precision	0.8694
+GCA_056632935.1	Cryptococcus deuterogattii	Complete Genome	recall	0.9865
+GCA_056632935.1	Cryptococcus deuterogattii	Complete Genome	precision	0.9639
+GCA_029542965.1	Malassezia yamatoensis	Complete Genome	recall	0.9675
+GCA_029542965.1	Malassezia yamatoensis	Complete Genome	precision	0.9456
+GCF_020647795.1	Trichoderma atroviride	Complete Genome	recall	0.9582
+GCF_020647795.1	Trichoderma atroviride	Complete Genome	precision	0.9316
+GCF_023278565.1	Colletotrichum lupini	Complete Genome	recall	0.7766
+GCF_023278565.1	Colletotrichum lupini	Complete Genome	precision	0.9677
+GCA_007735645.1	Venturia effusa	Complete Genome	recall	0.9748
+GCA_007735645.1	Venturia effusa	Complete Genome	precision	0.9421
+GCA_001984395.2	Zygosaccharomyces parabailii	Complete Genome	recall	0.9917
+GCA_001984395.2	Zygosaccharomyces parabailii	Complete Genome	precision	0.9937
+GCA_014784225.2	Aspergillus flavus	Complete Genome	recall	0.9774
+GCA_014784225.2	Aspergillus flavus	Complete Genome	precision	0.9490
+GCA_046000195.1	Aspergillus wentii	Complete Genome	recall	0.9759
+GCA_046000195.1	Aspergillus wentii	Complete Genome	precision	0.9566
+GCA_047368035.1	Malassezia pachydermatis	Complete Genome	recall	0.9868
+GCA_047368035.1	Malassezia pachydermatis	Complete Genome	precision	0.9083
+GCA_056582465.1	Diplodia sapinea	Complete Genome	recall	0.9765
+GCA_056582465.1	Diplodia sapinea	Complete Genome	precision	0.9087
+GCF_000836335.1	Cryptococcus bacillisporus	Complete Genome	recall	0.9759
+GCF_000836335.1	Cryptococcus bacillisporus	Complete Genome	precision	0.9709
+GCA_976943335.1	Parajaminaea phylloscopi	Complete Genome	recall	0.9818
+GCA_976943335.1	Parajaminaea phylloscopi	Complete Genome	precision	0.9748
+GCA_977970205.2	Microdochium nivale	Contig	recall	0.9570
+GCA_977970205.2	Microdochium nivale	Contig	precision	0.9525
+GCA_027946375.1	Neodidymelliopsis sp. IMI 364377	Contig	recall	0.9578
+GCA_027946375.1	Neodidymelliopsis sp. IMI 364377	Contig	precision	0.8375
+GCA_040367835.1	Mucor flavus	Contig	recall	0.9612
+GCA_040367835.1	Mucor flavus	Contig	precision	0.9268
+GCA_014898425.1	Botryotinia globosa	Contig	recall	0.9620
+GCA_014898425.1	Botryotinia globosa	Contig	precision	0.9819
+GCF_001792695.1	Aspergillus bombycis	Contig	recall	0.9726
+GCF_001792695.1	Aspergillus bombycis	Contig	precision	0.9445
+GCA_900157425.1	Armillaria ostoyae	Contig	recall	0.8626
+GCA_900157425.1	Armillaria ostoyae	Contig	precision	0.9421
+GCA_018360355.1	Claviceps sp. Clav32 group G5	Contig	recall	0.9627
+GCA_018360355.1	Claviceps sp. Clav32 group G5	Contig	precision	0.9493
+GCA_004369175.1	Coprinellus micaceus	Contig	recall	0.8443
+GCA_004369175.1	Coprinellus micaceus	Contig	precision	0.8107
+GCA_022432375.1	Nemania sp. FL0031	Contig	recall	0.9747
+GCA_022432375.1	Nemania sp. FL0031	Contig	precision	0.9558
+GCA_000986645.1	Aspergillus rambellii	Contig	recall	0.9578
+GCA_000986645.1	Aspergillus rambellii	Contig	precision	0.9471
+GCA_029282135.1	Mycena belliarum	Contig	recall	0.8801
+GCA_029282135.1	Mycena belliarum	Contig	precision	0.8551
+GCA_052576325.1	Cladosporium allicinum	Contig	recall	0.9417
+GCA_052576325.1	Cladosporium allicinum	Contig	precision	0.9810
+GCA_021432655.1	Atractiella rhizophila	Scaffold	recall	0.8770
+GCA_021432655.1	Atractiella rhizophila	Scaffold	precision	0.7817
+GCF_001500285.1	Mollisia scopiformis	Scaffold	recall	0.9557
+GCF_001500285.1	Mollisia scopiformis	Scaffold	precision	0.9143
+GCA_053539345.1	Beauveria neobassiana	Scaffold	recall	0.9733
+GCA_053539345.1	Beauveria neobassiana	Scaffold	precision	0.9496
+GCA_013266165.1	Fusarium graminum	Scaffold	recall	0.9693
+GCA_013266165.1	Fusarium graminum	Scaffold	precision	0.9535
+GCA_013266185.1	Fusarium sarcochroum	Scaffold	recall	0.9557
+GCA_013266185.1	Fusarium sarcochroum	Scaffold	precision	0.9428
+GCA_011392495.1	Talaromyces pinophilus	Scaffold	recall	0.9557
+GCA_011392495.1	Talaromyces pinophilus	Scaffold	precision	0.9457
+GCA_025327135.1	Colletotrichum sp. SAR 10_71	Scaffold	recall	0.9776
+GCA_025327135.1	Colletotrichum sp. SAR 10_71	Scaffold	precision	0.7299
+GCA_964263705.1	Xanthoria parietina	Scaffold	recall	0.9586
+GCA_964263705.1	Xanthoria parietina	Scaffold	precision	0.9446
+GCA_001908125.1	Penicillium subrubescens	Scaffold	recall	0.9482
+GCA_001908125.1	Penicillium subrubescens	Scaffold	precision	0.9049
+GCF_000271605.1	Fomitiporia mediterranea	Scaffold	recall	0.9272
+GCF_000271605.1	Fomitiporia mediterranea	Scaffold	precision	0.8596
+GCA_013396295.1	Fusarium heterosporum	Scaffold	recall	0.9681
+GCA_013396295.1	Fusarium heterosporum	Scaffold	precision	0.9502
+GCF_000281105.1	Coniosporium apollinis	Scaffold	recall	0.9796
+GCF_000281105.1	Coniosporium apollinis	Scaffold	precision	0.9246

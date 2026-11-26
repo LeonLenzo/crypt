@@ -1,0 +1,60 @@
+accession	taxon	genus	focal	genus_in_dbv4	novelty
+GCA_025258505.1	Fusarium asiaticum	Fusarium	absent_target	yes	0.1997
+GCA_022559985.1	Parastagonospora avenae	Parastagonospora	absent_target	yes	0.8864
+GCA_062009444.1	Puccinia hordei	Puccinia	absent_target	yes	0.9846
+GCA_026119265.1	Didymella pinodes	Didymella	absent_target	yes	0.8930
+GCA_030558545.1	Bipolaris gigantea	Bipolaris	absent_target	yes	0.7568
+GCA_053572805.1	Penicillium commune	Penicillium	absent_target	yes	0.0771
+GCA_030389615.1	Epichloe typhina	Epichloe	absent_target	yes	0.5310
+GCA_022506055.1	Microbotryum violaceum	Microbotryum	absent_target	no	0.7439
+GCA_048934005.1	Dioszegia catarinoi	Dioszegia	resident	no	0.9972
+GCA_059628725.1	Cladosporium sp. MA8_LABAP	Cladosporium	resident	no	0.8286
+GCA_052324205.1	Cladosporium cf. tenuissimum	Cladosporium	resident	no	0.8508
+GCA_026538325.1	Cryptococcus sp. GC_Crypt_8	Cryptococcus	resident	no	0.9962
+GCA_000442785.1	Papiliotrema flavescens	Papiliotrema	resident	no	0.9938
+GCA_060229725.1	Bullera sp. CLIB4446	Bullera	resident	no	0.9942
+GCA_054490815.1	Acremonium polychromum	Acremonium	resident	no	0.9720
+GCA_030463185.1	Cladosporium sp. BF-F	Cladosporium	resident	no	0.9715
+GCA_018703675.1	Cladosporium sp. SW67	Cladosporium	resident	no	0.4824
+GCA_026538705.1	Aureobasidium sp. GC_Fusr_1	Aureobasidium	resident	no	0.6511
+GCA_001600655.1	Dioszegia aurantiaca	Dioszegia	resident	no	0.9956
+GCA_019775635.1	Cladosporium sp. VS III D KN 1	Cladosporium	resident	no	0.9701
+GCA_004335185.1	Phoma sp. RAV-16-625	Phoma	resident	no	0.3899
+GCA_062004744.1	Cladosporium sp. 121G	Cladosporium	resident	no	0.9530
+GCA_021014315.1	Aureobasidium mangrovei	Aureobasidium	resident	no	0.9629
+GCA_060229605.1	Vishniacozyma sp. CLIB4441	Vishniacozyma	resident	no	0.9956
+GCA_061604035.1	Aureobasidium sp. LC112	Aureobasidium	resident	no	0.5609
+GCA_048773585.1	Nigrospora camelliae-sinensis	Nigrospora	resident	no	0.9682
+GCA_024271845.1	Cryptococcus sp. VH57_BW	Cryptococcus	resident	no	0.9741
+GCA_023621355.1	Cladosporium sphaerospermum	Cladosporium	resident	no	0.5042
+GCA_986694515.1	Marasmius cohaerens	Marasmius	no	yes	0.9839
+GCA_978897505.1	Tricholoma terreum	Tricholoma	no	yes	0.9924
+GCA_000633125.1	Flammulina velutipes	Flammulina	no	no	0.9956
+GCA_009192285.1	Morchella semilibera	Morchella	no	no	0.9947
+GCA_054553065.1	Fusarium cerealis	Fusarium	no	yes	0.2415
+GCA_054134705.1	Peroneutypa diatrypoides	Peroneutypa	no	no	0.9775
+GCA_040893085.1	Epicoccum sorghinum	Epicoccum	no	yes	0.8003
+GCA_036768465.1	Alternaria brassicae	Alternaria	no	yes	0.0468
+GCA_040250155.1	Penicillium fuscoglaucum	Penicillium	no	yes	0.0749
+GCA_051247085.1	Arachnopeziza aurata	Arachnopeziza	no	no	0.9937
+GCA_055944425.1	Diaporthe caulivora	Diaporthe	no	yes	0.9257
+GCA_041412015.1	Pestalotiopsis microspora	Pestalotiopsis	no	no	0.3786
+GCA_023658475.1	Epichloe elymi	Epichloe	no	yes	0.3754
+GCA_046630685.1	Calonectria ilicicola	Calonectria	no	no	0.9818
+GCA_060595785.1	Pseudozyma tsukubaensis	Pseudozyma	no	yes	0.9802
+GCA_037356495.1	Penicillium sp. F51	Penicillium	no	yes	0.2323
+GCA_008122225.1	Ciboria shiraiana	Ciboria	no	yes	0.0559
+GCA_019059545.1	Rhodotorula sp. VS67	Rhodotorula	no	no	0.5538
+GCA_059475355.1	Elsinoe perseae	Elsinoe	no	no	0.9804
+GCA_027569235.1	Aspergillus sparsus	Aspergillus	no	yes	0.9840
+GCA_055797535.1	Trichoderma sp. 5c.a.2	Trichoderma	no	yes	0.5014
+GCA_003717165.1	Protomyces inundatus	Protomyces	no	no	0.9960
+GCA_030779245.1	Fusarium sp. MBC 438	Fusarium	no	yes	0.4610
+GCA_023625975.1	Talaromyces sp. PYS2103	Talaromyces	no	yes	0.9448
+GCA_038503075.1	Gyromitra esculenta	Gyromitra	no	no	0.9965
+GCA_022560085.1	Helminthosporium solani	Helminthosporium	no	no	0.9783
+GCA_054123095.1	Scopulariopsis sp.	Scopulariopsis	no	no	0.9701
+GCA_009804945.1	Neurospora sp. FGSC 26633	Neurospora	no	no	0.3313
+GCA_051820765.1	Phaeoisaria parallela	Phaeoisaria	no	no	0.9643
+GCA_002368545.1	Ramichloridium luteum	Ramichloridium	no	no	0.9866
+GCA_001640655.1	Endoconidiophora laricicola	Endoconidiophora	no	no	0.9885

@@ -1,0 +1,4 @@
+bucket	key	colour	n	median_db1p	median_db2	median_delta_pp	n_up	n_down	n_same	n_up_reads	n_down_reads	min_pp	max_pp	total_delta_reads
+species	f_species	#6baed6	1560	0.710549	0.708497	-0.1883	173	1387	0	263	1297	-29.3719	23.0778	-43734229
+genus	f_genus	#2171b5	1560	0.014355	0.016773	0.1859	1490	69	1	1531	21	-20.0168	13.3681	68592385
+above genus	f_above_genus	#08306b	1560	0.239584	0.239454	0.0009	881	679	0	1339	220	-10.4675	29.3719	2275034

@@ -147,7 +147,18 @@ What the floor does and does not exclude, carried over because it is knowledge a
     make_supp_tables.py  -> outputs/supp_data_s5_detections.tsv  one row per call, labelled
                             outputs/supp_data_s6_runs.tsv        one row per run
     compare_arms.py      -> outputs/arm_resolution.tsv       db2 - db1p, by assigned rank
-    figures/resolution/                                      the purpose test
+
+    figures/samples/      samples.png        the per-run raster, one column per run
+    figures/runs/         runs_1..4.png      four of those columns opened up
+    figures/multiplicity/ multiplicity.png   co-infection multiplicity, per BioProject
+    figures/declared/     declared.png       what each study declared
+    figures/resolution/   resolution_reads.png  where the reads went, in reads
+                          resolution.png        the same, run by run, SUPPLEMENTARY
+
+Each figure directory is a `prep_*.py` that DECIDES, a plotting script that DRAWS, and a
+`caption.py` that writes the caption from the tables between them. `figures/multiplicity/`
+and `figures/resolution/` run locally off `outputs/`; `figures/runs/` runs on Setonix,
+because it reads the candidate table.
 
 Labels are joined after detection, never applied before it: `on_wheat`, `is_plant_pathogen` and
 `is_wheat_pathogen` are columns on `supp_data_s3_reference.tsv` and are read off a call. The
@@ -212,14 +223,53 @@ database's congener density, which is deliberate, and `04_align` is what resolve
 organism DNA, and coverage cannot separate that from infection. `04_align` confirms presence
 read by read before anything is characterised.
 
+## A co-occurrence network is REJECTED, and the measurement is why
+
+It was proposed as the module's second figure on 2026-11-25, measured before being drawn,
+and it is not being built. Over the 1,347 drawn field-wheat runs, the marginal odds ratio
+for the commonest wheat-pathogen pairs against the Mantel-Haenszel odds ratio stratified by
+BioProject, where `k` is the number of projects contributing an informative stratum:
+
+    pair                                  marginal OR   within-project OR    k
+    P. striiformis + P. triticina                0.28                4.43    4
+    P. graminis    + Z. tritici                  2.61                0.26    2
+    M. nivale      + P. striiformis              1.08                0.15    4
+    P. triticina   + Z. tritici                  1.80                1.10    8
+    B. graminis    + P. triticina                2.23                1.46    7
+    P. striiformis + Z. tritici                  0.84                1.68    7
+    B. graminis    + P. striiformis              0.41                0.53    6
+    B. graminis    + Z. tritici                  1.24                1.27    9
+
+**Three of the eight reverse direction outright** and the two that keep their sign sit near
+1. Every top pair is about half concentrated in a single BioProject and spread over 2 to 10
+projects, so a test over runs reports a p-value for a handful of independent units.
+
+This is worse in kind than the prevalence error the module already refuses, not just worse
+in degree: a network LOOKS like a claim that two organisms associate, when what it draws is
+where the surveys sampled, and a reviewer who conditions on project gets the opposite
+answer from the figure. If a pairwise view is ever wanted it has to be within-project or
+stratified, and 13 nodes is too few for a network to say anything a matrix would not say
+more honestly.
+
+**`figures/multiplicity/` is what replaced it.** Co-infection multiplicity per project
+carries the same subject with no Simpson exposure, because each project is one observation
+of its own rate: 537 of the 1,347 runs (39.9%) carry two or more wheat pathogens, and across
+the 19 projects with at least 10 runs the rate runs from 0.0% to 84.6%. The spread between
+studies is the finding, and it is not a depth artefact; the panel's second column shows the
+projects with no co-infection sitting among the deepest in the cohort.
+
+The old co-occurrence design is still on disk in the research tree and reads as live work.
+It is not.
+
 ## State
 
 **Both arms are classified, 1,560 / 1,560, and the module has run end to end** (2026-11-20).
 
 | | db1p | db2 |
 |---|---|---|
-| candidates | 409,459 | 430,830 |
-| calls | 8,012 | 7,763 |
+| candidates † | 409,459 | 430,830 |
+| calls, the host aside | 6,629 | 6,380 |
+| host calls | 1,488 | 1,488 |
 | rejected on the absolute floor | 392,538 | 378,982 |
 | rejected on coverage | 8,648 | 7,545 |
 | rejected on saturation | 261 | 245 |
@@ -227,13 +277,20 @@ read by read before anything is characterised.
 | runs with a fungal call | 1,406 | 1,403 |
 | off-host null | 8,234 rows, max 1.964% | 8,233 rows, max 1.956% |
 
+Call counts are read from the current `outputs/detections_<arm>.tsv`, which `detect.py`
+rewrote on 2026-11-25 when `host_coverage_floor` went live (host calls 1,560 -> 1,488).
+**† The candidate and rejection rows predate that re-run**: they come from `detect.py`'s own
+log on Setonix and the candidate table never leaves scratch, so they cannot be refreshed from
+the repo. Re-read them from the next run's log rather than trusting them to the digit.
+
 The coverage floor is **anchored on each arm's own null** and both land on 2%, independently
 and on different denominators, which is where db_v4's null also sat (max 1.970%). No null row
 clearing the distinct floor reaches 2% in either arm.
 
-**db2 removes 256 calls and adds 7.** The removals are 200 residents, 26 wheat pathogens and
-30 of the 42 calls labelled a pathogen not recorded on wheat. The clearest case is
-*Stemphylium lycopersici*, a tomato pathogen called in 22 runs under `db1p` and in 1 under
+**db2 removes 249 calls net.** Residents go 4,402 -> 4,209, wheat pathogens 2,185 -> 2,159
+and calls labelled a pathogen not recorded on wheat 42 -> 12; the host is 1,488 in both arms.
+The clearest case is
+*Stemphylium lycopersici*, a tomato pathogen called in 21 runs under `db1p` and in 1 under
 `db2`: its reads were Pleosporaceae reads with nowhere better to go, and with *Alternaria
 triticina* in the database they go there instead, taking it from about 0.07 coverage to 0.013.
 
@@ -245,5 +302,8 @@ rule is right for a novelty claim resting on our own gene prediction; whether it
 for a tier-A taxon whose assembly is public and whose prediction passed BUSCO is a decision
 nobody has taken yet. `04_align` is where such a call would be confirmed from reads.
 
-**Carried forward:** 18 of 31 BioProjects have no curated declaration (344 runs, 202 of them
-with a call), so those detections read `unknown` and the undeclared count rests on the rest.
+**Declarations are complete, 31 of 31 BioProjects** (2026-11-25), so no detection reads
+`unknown` any more. The nine projects that declare no pathogen are all virus surveys, 114
+field-wheat runs, and `study_target` is a curated column on `supp_data_s2_cohort.tsv`: a study
+that declared nothing because it was looking for a virus is not a study whose curation is
+missing.

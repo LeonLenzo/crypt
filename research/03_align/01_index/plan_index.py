@@ -79,6 +79,24 @@ A called taxon is never dropped. If its only annotation is below the floor it go
 `no_usable_annotation` set, because testing it is the job and a silent omission would read as
 an absence.
 
+## METADATA PROPOSES, SEQUENCE DISPOSES, AND IT IS A LOOP
+
+`--sequence-check` reads `redundancy.py`'s verdicts and rejects a pick the SEQUENCE fails,
+taking the next by the same ranking rule. Two stages rather than one because this script is
+metadata-only on purpose: it reads four small tables, runs in a second, and is safe on a login
+node, while measuring 1.2 Gbp of CDS is a job.
+
+So the order is: plan, measure, re-plan with `--sequence-check`, measure the new picks, and
+stop when no pick moves. A substituted pick has never been measured, which is why the run
+prints how many picks are still unmeasured instead of implying the gate has seen everything.
+Measured 2026-11-26, the first pass moved nothing in the Pleosporaceae plan, because proximity
+to the species median had already declined the one over-annotated assembly for its own reasons.
+
+**What the sequence gate catches that the metadata cannot** is in `redundancy.py`'s docstring,
+and it is not what this script originally guessed: *A. alternata*'s 24,347-gene annotation
+holds no duplicated loci at all (0.002), it holds 24,347 SHORT ones, median 576 bp against
+1,149. The flag was right and the stated reason was wrong.
+
 Predicted CDS keeps its provenance in `cds_source`. For a taxon with no NCBI annotation it is
 the only CDS there is, and it enters as a competitor; a POSITIVE resting on it is a presence
 claim about our own gene prediction and has to be labelled that way wherever it is quoted.
@@ -146,7 +164,25 @@ def main():
                     help="restrict to one family, e.g. Pleosporaceae for the first index")
     ap.add_argument("--check-local", action="store_true",
                     help="report how many CDS files are present on this machine")
+    ap.add_argument("--sequence-check", metavar="TSV", nargs="?", const="auto",
+                    help="apply redundancy.py's verdicts: reject a pick the SEQUENCE fails "
+                         "and take the next by the same rule (default file: "
+                         "data/redundancy_<label>.tsv)")
     args = ap.parse_args()
+
+    # The sequence verdicts, when there are any. METADATA PROPOSES, SEQUENCE DISPOSES: this
+    # file is written by redundancy.py against the CDS itself, and it is the only thing here
+    # that can tell an over-annotation from a larger genome. It is optional because the first
+    # pass has nothing to read: plan, measure, re-plan, measure again until no pick moves.
+    verdicts = {}
+    if args.sequence_check:
+        label = (args.limit_family or args.scope).lower()
+        path = (PLANS / f"redundancy_{label}.tsv" if args.sequence_check == "auto"
+                else Path(args.sequence_check))
+        if not path.exists():
+            sys.exit(f"no sequence measurements at {path}; run redundancy.py --label {label} "
+                     f"first, or drop --sequence-check for the metadata-only pass")
+        verdicts = {r["accession"]: r for r in rd(path)}
 
     calls = defaultdict(int)
     wheat_pathogen = {}
@@ -236,16 +272,30 @@ def main():
         in_this_build = [a for a in candidates if a["accession"] in in_build.get(taxid, ())]
         candidates = in_this_build or candidates
 
+        def sequence_ok(a):
+            row = verdicts.get(a["accession"])
+            return row is None or row["verdict"] == "ok"
+
         pick, reason = None, ""
         if not candidates and role == "confirm" and unusable:
             # A called taxon is what the job tests, so it never silently vanishes; it goes in
             # with the problem named instead.
             candidates = unusable
+        rejected_by_sequence = []
         if candidates:
-            pick = sorted(candidates, key=lambda a: rank(a, median))[0]
+            ordered = sorted(candidates, key=lambda a: rank(a, median))
+            passing = [a for a in ordered if sequence_ok(a)]
+            rejected_by_sequence = [a for a in ordered[:ordered.index(passing[0])]
+                                    if not sequence_ok(a)] if passing else []
+            pick = (passing or ordered)[0]
             reason = (f"best of {len(candidates)} by level, then nearest the {band_from} "
                       f"median of {median:.0f} genes" if median and len(candidates) > 1
                       else "the only annotated assembly with a gene model")
+            for a in rejected_by_sequence:
+                reason += (f"; the sequence gate rejected {a['accession']} "
+                           f"({verdicts[a['accession']]['verdict']})")
+            if not passing and any(a["accession"] in verdicts for a in ordered):
+                reason += "; EVERY measured candidate fails the sequence gate"
             if not in_this_build:
                 reason += "; NOT in the build the cohort was classified against"
             if (genes(pick) or 0) < hard_floor:
@@ -253,8 +303,11 @@ def main():
                            f"below the floor of {hard_floor:.0f}")
 
         off = (median and pick and abs(genes(pick) - median) / median > OUTLIER_FRACTION)
+        unmeasured = bool(pick and verdicts and pick["accession"] not in verdicts)
         flags = ";".join(f for f, on in (
             ("no_usable_annotation", bool(pick and (genes(pick) or 0) < hard_floor)),
+            ("sequence_substituted", bool(rejected_by_sequence)),
+            ("sequence_unmeasured", unmeasured),
             ("gene_count_outlier", bool(off)),
             ("species_bimodal", bimodal),
             ("not_in_build", bool(candidates and not in_this_build))) if on)
@@ -333,6 +386,16 @@ def main():
             print(f"      ... {len(flagged) - 8} more, all in the plan's flags column")
     else:
         print("  no pick flagged: measured on this scope, not assumed")
+    if verdicts:
+        moved = [r for r in rows if "sequence_substituted" in r["flags"]]
+        unknown = [r for r in rows if "sequence_unmeasured" in r["flags"]]
+        print(f"  sequence gate: {len(verdicts)} assemblies measured, "
+              f"{len(moved)} picks moved, {len(unknown)} picks not yet measured")
+        for r in moved:
+            print(f"      {r['taxon']}: now {r['accession']} -- {r['pick_reason']}")
+        if unknown:
+            print("      re-run redundancy.py to measure the new picks, then this again; "
+                  "the loop ends when no pick moves")
     if args.check_local:
         present = sum(1 for r in rows if (C.ROOT / r["cds_path"]).exists())
         print(f"  CDS present on this machine: {present}/{len(rows)}")

@@ -14,11 +14,31 @@ a genuinely larger genome, and NCBI's table says the same thing in all three cas
 the measurement that separates them.** A duplicated annotation carries a near-identical twin
 for most of its loci; a larger genome carries more DISTINCT genes.
 
-## THE STATISTIC
+## TWO STATISTICS, BECAUSE THE FIRST ONE ANSWERED NO AND THE QUESTION WAS STILL OPEN
 
-For each transcript, sample every 16th 31-mer, then ask whether another transcript of the same
-assembly shares at least 90% of that sample. `duplicated` is the share of transcripts for which
-one does.
+**`duplicated`**: for each transcript, sample every 16th 31-mer, then ask whether another
+transcript of the same assembly shares at least 90% of that sample. The share of transcripts
+for which one does.
+
+**`median_length` and `short_share`**: the median CDS length, and the share of CDS under 300 bp.
+
+The second pair exists because the first answered the *A. alternata* question with a flat no and
+the assembly was still wrong, measured 2026-11-26. `GCA_016097525.1` declares 24,347 genes
+against the species median of 11,928, and `duplicated` is **0.002**: it carries no duplicated
+loci at all. What it carries is an OVER-ANNOTATION. Its median CDS is 576 bp with 21.2% under
+300 bp, against 1,149 bp and 3.9% for `GCA_001642055.1`, and the two hold 21.1 and 18.5 Mbp of
+coding sequence. Same genome, same coding content, nearly twice as many records, each about
+half as long. Every other pick in the Pleosporaceae plan sits between 1,059 and 1,347 bp.
+
+**That distinction decides a presence fact.** Gene breadth, the count of distinct genes carrying
+species-unique reads, is one of the three things job 1 reads, and 5,153 sub-300 bp ORFs inflate
+it while adding exactly the short targets cross-mapping concentrates on. So the length
+distribution is not a tidiness check; it is the statistic that protects the measurement.
+
+`duplicated` stays, as a null result worth having: over the 62 Pleosporaceae picks its median is
+0.000 and its maximum 0.104 (*Stemphylium vesicarium*), which is gene families rather than
+duplication. Locus duplication is not a problem in this index, and now that is known rather
+than assumed.
 
 Sampling rather than every k-mer because the answer does not need the precision and the cost is
 16x: a 13,000-transcript assembly reduces to about a million hashes. **It is a redundancy
@@ -46,8 +66,14 @@ import _common as C  # noqa: E402
 HERE = Path(__file__).resolve().parent
 PLANS = HERE / "data"
 K = 31
+MIN_MEDIAN_CDS = 800             # bp; the Pleosporaceae picks run 1,059-1,347 and the one
+                                 # rejected annotation sits at 576
+MAX_SHORT_SHARE = 0.15           # of CDS under SHORT_CDS; normal is ~0.04, the bad one 0.21
+MAX_DUPLICATED = 0.30            # the observed maximum from real gene families is 0.104
 STRIDE = 16
 SHARE = 0.90
+SHORT_CDS = 300                  # bp; below this a CDS is a short ORF, and an over-annotation
+                                 # is mostly these. Not a quality judgement on one gene.
 KRAKEN_PREFIX = re.compile(r"^kraken:taxid\|\d+\|")
 
 
@@ -73,7 +99,7 @@ def sampled_kmers(sequence):
 
 
 def measure(path):
-    """(n_transcripts, median length, duplicated fraction, worst partner count)."""
+    """(n, median length, duplicated fraction, worst partner count, short share, coding bp)."""
     kmers, lengths = {}, []
     for name, sequence in records(path):
         if len(sequence) < K:
@@ -99,8 +125,10 @@ def measure(path):
             duplicated += 1
         partners.append(len(hits))
     n = len(kmers)
+    short = sum(1 for length in lengths if length < SHORT_CDS) / len(lengths) if lengths else 0.0
     return (n, int(statistics.median(lengths)) if lengths else 0,
-            duplicated / n if n else 0.0, max(partners) if partners else 0)
+            duplicated / n if n else 0.0, max(partners) if partners else 0,
+            short, sum(lengths))
 
 
 def cds_path(accession):
@@ -139,12 +167,18 @@ def main():
 
     rows = []
     for accession, taxon, flags, _ in targets:
-        n, median_len, duplicated, worst = measure(cds_path(accession))
+        n, median_len, duplicated, worst, short, coding = measure(cds_path(accession))
+        verdict = ";".join(v for v, on in (
+            ("over_annotated", median_len and median_len < MIN_MEDIAN_CDS),
+            ("short_orf_heavy", short > MAX_SHORT_SHARE),
+            ("duplicated_loci", duplicated > MAX_DUPLICATED)) if on) or "ok"
         rows.append({"accession": accession, "taxon": taxon, "flags": flags,
                      "transcripts": n, "median_length": median_len,
-                     "duplicated": f"{duplicated:.3f}", "max_partners": worst})
-        print(f"  {taxon:<34} {accession:<18} {n:>7,} transcripts  "
-              f"duplicated {duplicated:.3f}  max partners {worst}"
+                     "short_share": f"{short:.3f}", "coding_mbp": f"{coding / 1e6:.1f}",
+                     "duplicated": f"{duplicated:.3f}", "max_partners": worst,
+                     "verdict": verdict})
+        print(f"  {taxon:<34} {accession:<18} {n:>7,} tx  median {median_len:>5} bp  "
+              f"short {short:>5.1%}  dup {duplicated:.3f}  {verdict}"
               + (f"  [{flags}]" if flags else ""))
 
     if not args.cds:
@@ -155,9 +189,21 @@ def main():
             w.writeheader()
             w.writerows(rows)
         values = sorted(float(r["duplicated"]) for r in rows)
-        print(f"\n{len(rows)} assemblies measured, duplicated fraction "
-              f"median {statistics.median(values):.3f}, "
+        lengths = sorted(r["median_length"] for r in rows)
+        failing = [r for r in rows if r["verdict"] != "ok"]
+        print(f"\n{len(rows)} assemblies measured")
+        print(f"  duplicated fraction: median {statistics.median(values):.3f}, "
               f"range {values[0]:.3f} to {values[-1]:.3f}")
+        print(f"  median CDS length:   median {statistics.median(lengths):.0f} bp, "
+              f"range {lengths[0]} to {lengths[-1]}")
+        if failing:
+            print(f"  {len(failing)} picks FAIL the sequence gate and should be substituted:")
+            for r in failing:
+                print(f"      {r['taxon']} {r['accession']}: {r['verdict']} "
+                      f"({r['median_length']} bp, {r['short_share']} short, "
+                      f"{r['duplicated']} duplicated)")
+        else:
+            print("  every pick passes the sequence gate")
         print(f"wrote {out.relative_to(C.ROOT)}")
     return 0
 
